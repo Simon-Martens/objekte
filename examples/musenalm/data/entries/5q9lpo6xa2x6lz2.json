@@ -48,12 +48,127 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "2kfcsh5mv5il8v4"
+    {
+      "annotation": "varianter Umschlag",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.778Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409661",
+      "location": "105D01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.778Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2kfcsh5mv5il8v4"
+    }
   ],
   "contents": [
-    "zy78h3kbuw5n8qk",
-    "d04mv5qq4dttvba",
-    "v9ohyzxq47e08hz"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120780,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4595_120780_xdufafjcvx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "zy78h3kbuw5n8qk"
+    },
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120781,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1799. / Leipzig / bey A. F. Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4595_120781_9x2qz7vbt5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1799. / Leipzig / bey A. F. Böhme",
+      "updated": "2018-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "d04mv5qq4dttvba"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120782,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4595_120782_m92vh5a6ve.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "v9ohyzxq47e08hz"
+    }
   ],
   "agents": [
     {

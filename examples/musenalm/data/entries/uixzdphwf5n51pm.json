@@ -48,25 +48,692 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "vi9hn15k33x6jbq"
+    {
+      "annotation": "# Pseud. <br> § Blatt mit SS XI/XII fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.619Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106036",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.619Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vi9hn15k33x6jbq"
+    }
   ],
   "contents": [
-    "tbf1qvzwv7b15sb",
-    "scdv11gfkp6p50x",
-    "g5w3uleqhym77n0",
-    "umfmx0gwcq7gdmf",
-    "cdqpdkpfew4oao6",
-    "eyloegtr4ja92h4",
-    "s2sjssshgowamxh",
-    "z23nqrn9fnujtdb",
-    "usu7oe9td2qs981",
-    "5mmtf7idoc2ziov",
-    "3dl8i12sxgiael2",
-    "66dn2num9gg92q5",
-    "ypk1y10qqez4yah",
-    "3vda1ah5ktn3dtr",
-    "ktdwca8d9fy1llp",
-    "9c4ksksupq95g4a"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88196,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2417_88196_hgk76vqihr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "tbf1qvzwv7b15sb"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 88200, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88197,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORDELIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Boxall del. W. C. Wrankmore sc",
+      "scans": [
+        "alm_2417_88197_4e5u07408g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORDELIA",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "5zue3c6yyyrfjr9",
+          "source_id": "6wlls36ycp46fv2"
+        }
+      ],
+      "source_id": "scdv11gfkp6p50x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88198,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1846. / Herausgegeben / von / Theodor Hell. / Neue Folge / Sechster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichssche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2417_88198_bhrqt6w98w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1846. / Herausgegeben / von / Theodor Hell. / Neue Folge / Sechster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichssche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "g5w3uleqhym77n0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88199,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "umfmx0gwcq7gdmf"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 88197, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "O lacht nicht über mich, / Aber so war als ich ein Mann bin, mich dünkt / Die Dame hier sei mein Kind Cordelia.",
+      "language": [],
+      "musenalm_id": 88200,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cordelia. / König Lear. Akt IV. Scene 7",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cordelia. / König Lear. Akt IV. Scene 7",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "confomdodiakpla",
+          "source_id": "jo6bfpfcjo0y5jt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "xbxowle0vqb0e5z"
+        }
+      ],
+      "source_id": "cdqpdkpfew4oao6"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 88203, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88201,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clara Schumann / geb. Wiek / Pianistin sr. Majestät des / Kaisers von Oesterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Naumann del. W. C. Wrankmore sculps.",
+      "scans": [
+        "alm_2417_88201_xrmzhhxuxb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Clara Schumann / geb. Wiek / Pianistin sr. Majestät des / Kaisers von Oesterreich",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "iam037a1btv8lcd",
+          "source_id": "88gisvfefniasej"
+        }
+      ],
+      "source_id": "eyloegtr4ja92h4"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 88201, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Da steht's vor euch das kalte Instrument / Ein stummer Schatz, nutzlos gemeinem Finder",
+      "language": [],
+      "musenalm_id": 88202,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clara Schumann, geb. Wieck",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Clara Schumann, geb. Wieck",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "kluur38uxktgghk"
+        }
+      ],
+      "source_id": "s2sjssshgowamxh"
+    },
+    {
+      "annotation": "s. Textbezug INr 88204, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88203,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Baron v. Ungern-Sternberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Remde del. W. C. Wrankmore sc.",
+      "scans": [
+        "alm_2417_88203_p5yjzo8l2m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Baron v. Ungern-Sternberg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "z23nqrn9fnujtdb"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 88203, Obj 8 /) Beitrag unvollständig; § Blatt mit SS XI/XII fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ueber ihn enthält das Brockhaussche Conversations-Lexicon der Gegenwart eine ausführlichen Artikel",
+      "language": [],
+      "musenalm_id": 88204,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexander Freiherr von Ungern- / Sternberg. / geboren am 22. April 1806 zu Noislfer bei Reval in Esthland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alexander Freiherr von Ungern- / Sternberg. / geboren am 22. April 1806 zu Noislfer bei Reval in Esthland",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "usu7oe9td2qs981"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Sinnliche Eindrücke, in der frühesten Jugend empfangen, leben bekanntlich bis ins Alter in wunderbarer Frische und Deutlichkeit fort,",
+      "language": [],
+      "musenalm_id": 88205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blätter aus meinen Erinnerungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blätter aus meinen Erinnerungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "k3azhbq04ubex89"
+        }
+      ],
+      "source_id": "5mmtf7idoc2ziov"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Die Welt der Kunst und Wissenschaft, welche in Paris den Fremden umfängt, ist von untadelichem Reiz. In dieser Beziehnung glänzt Paris noch immer als die Kapitale der Welt.",
+      "language": [],
+      "musenalm_id": 88206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Wanderung an der Loire. / Aus meinen Erlebnissen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. v. Lüdemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Wanderung an der Loire. / Aus meinen Erlebnissen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.158Z",
+          "agent": "jqanokpcqaenxu5",
+          "source_id": "1kcaa4p0tawxs9w"
+        }
+      ],
+      "source_id": "3dl8i12sxgiael2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Ist es denn wahr, fragte der junge Marsan seinen Gefährten, mit dem er die schattigen Alleen in der Nähe von Baden-Baden durchritt, daß Deine Schwester damit umgeht, einen neuen Orden zu gründen?",
+      "language": [],
+      "musenalm_id": 88207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freimaurerinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freimaurerinnen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.159Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "zncbwrq4nz2efoe"
+        }
+      ],
+      "source_id": "66dn2num9gg92q5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "In dem Sädtchen Ohlau hatte sich an einem Frühlingsabend des Jahres 1719 ein Theil der Bürgerschaft um das mit Blumen und Laubwerk decorirte Portal des fürstlichen Schlosses geschaart,",
+      "language": [],
+      "musenalm_id": 88208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clementine Sobieski. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie von Großmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Clementine Sobieski. / Historische Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.159Z",
+          "agent": "pg4xeyhd29oq3nl",
+          "source_id": "gzqkp9x216xz7j6"
+        }
+      ],
+      "source_id": "ypk1y10qqez4yah"
+    },
+    {
+      "annotation": "Anm. am Objekt: Nach Homer, Herodot, besonders nach Kointos Kalbros, Dictys Kretensis, Dares Phrygius u. a. /) mit biograph. Anmerkungen des Hersaugebers s. INr 88210, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "Versammelt waren in Kreta alle Könige, die, des Zeusgebornen Minos Urenkel, in Griechenland herrschten.",
+      "language": [],
+      "musenalm_id": 88209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helena",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Anton von Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helena",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.159Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "5xbqq41xdbu89n0"
+        }
+      ],
+      "source_id": "3vda1ah5ktn3dtr"
+    },
+    {
+      "annotation": "biograph. Anmerkungen zum Autor des vorstehenden Beitrags INr 88209, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "430",
+      "incipit_statement": "Zu der Mannigfaltigkeit der Darstellungen, welche sich mit vollem Rechte Taschenbücher zur Pflicht machen, die nicht ihrer Bestimmung nach lediglich Arbeiten eines einzigen Schriftstellers dem Publicum darbringen,",
+      "language": [],
+      "musenalm_id": 88210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige biographische Notizen über den Verfasser",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige biographische Notizen über den Verfasser",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.159Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "yzczg9vmwbe2v9v"
+        }
+      ],
+      "source_id": "ktdwca8d9fy1llp"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88211,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2417_88211_sgdb5dsvta.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "9c4ksksupq95g4a"
+    }
   ],
   "agents": [
     {

@@ -49,7 +49,27 @@
   "year": 1790,
   "editor": "",
   "items": [
-    "zl0y8tmou815toh"
+    {
+      "annotation": "Heidi: https://doi.org/10.11588/diglit.24133#0007",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.779Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "412462",
+      "location": "107G06",
+      "media": [
+        "Original",
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.779Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zl0y8tmou815toh"
+    }
   ],
   "contents": [],
   "agents": [

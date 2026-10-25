@@ -49,7 +49,26 @@
   "year": 1785,
   "editor": "",
   "items": [
-    "9un6sqjkukdarft"
+    {
+      "annotation": "KVK; NEBIS gibt als 2. Titel an: Vortreffliches Belehrungsbuch allerhand Intriguen verschiedener Stände, meistens aber der Künstler, Handwerker, Professionisten etc. auszuweichen  [Frankfurt 1785] Wohl neue Auflage von:  Betrugs-Lexicon, worinnen die meisten Betrügereyen in allen Ständen nebst denen darwider guten Theils dienenden Mitteln entdecket von Georg Paul Hönn 3. Ed. Coburg : Pfotenhauer, 1724: KVK-RERO",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.633Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406288",
+      "location": "105D10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.633Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9un6sqjkukdarft"
+    }
   ],
   "contents": [],
   "agents": []

@@ -48,24 +48,728 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "g539s749b8xct5t"
+    {
+      "annotation": "1828-1849.\nKartonierter Einband mit Prägung und Goldschnitt. \n1837: (K: M. Stahlst 8.) Mit Tku 1, Bl 3, Ku 6 und 454 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.700Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100751",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.700Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "g539s749b8xct5t"
+    }
   ],
   "contents": [
-    "ru0k49sculqrccj",
-    "66jps4vgfcswufa",
-    "0guklhhjl3zztid",
-    "oxz9nhkrehit2sc",
-    "cow67oxwm7nr0qb",
-    "bdbab4p6i0z98vm",
-    "763ts69pbwzvggz",
-    "yo4o7nqdb908nkr",
-    "4cruhnbxsftyz54",
-    "13305tnnfeqpkf9",
-    "fobmbwt9321220l",
-    "iwpyq3a9anz4oi2",
-    "pn2zt73dovba0zz",
-    "jn8cqmnornuk8gs",
-    "ovkah2uqrdj1750"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3473_110935_6mqtijlxjz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ru0k49sculqrccj"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Scenen aus dem Leben König Christians II. von Dänemark« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110944, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Joh. Ender. Stahlstich v. Dav. Weiss i. Wien",
+      "scans": [
+        "alm_3473_110936_x212a4j0j0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anna",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.274Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.274Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "ggf4pxks9pywpl7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.274Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.274Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "hvpdjqpmkryawh3"
+        }
+      ],
+      "source_id": "66jps4vgfcswufa"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110937,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN / FÜR / 1837 / von / A. v. Tromlitz. / LEIPZIG, INDUSTRIE-COMPTOIR",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Meyer sc.",
+      "scans": [
+        "alm_3473_110937_szzh3d8qfn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN / FÜR / 1837 / von / A. v. Tromlitz. / LEIPZIG, INDUSTRIE-COMPTOIR",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.439Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.439Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "cny2zjys7krth2x"
+        }
+      ],
+      "source_id": "0guklhhjl3zztid"
+    },
+    {
+      "annotation": "Unter dem Titel: I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110938,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1837. / Von / A. von Tromlitz. / Zehnter Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3473_110938_zjpciblya0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1837. / Von / A. von Tromlitz. / Zehnter Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "oxz9nhkrehit2sc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110939,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "cow67oxwm7nr0qb"
+    },
+    {
+      "annotation": "Anm. hierzu im G-Verz: artistische Zugabe der Verlagshandlung /) s. Gedicht INr 110948, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110940,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Salzburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich von Jos. Kovatsch in Wien",
+      "scans": [
+        "alm_3473_110940_wt0v8dpw39.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Salzburg",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.439Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.439Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "bysvfd3mzrm6j9g"
+        }
+      ],
+      "source_id": "bdbab4p6i0z98vm"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 110942, 110943; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In der Sierra Morena, ohnfern des alten Schlosses Montiel, schleicht die Quadermena geräuschlos durch ein ödes Thal, welches auf der westlichen Seite hohe Felsen begrenzen.",
+      "language": [],
+      "musenalm_id": 110941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / alte Guerillo von Granada",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / alte Guerillo von Granada",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "lzcoxncnkc67str"
+        }
+      ],
+      "source_id": "763ts69pbwzvggz"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der alte Guerillo von Granada« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110941, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retzsch del. J. Axmann sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. J. Axmann sculp.",
+      "scans": [
+        "alm_3473_110942_lsfh6dkph6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.305Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "r87bktcyh6zp005"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.305Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "wwqhrjzpn6ms7ai"
+        }
+      ],
+      "source_id": "yo4o7nqdb908nkr"
+    },
+    {
+      "annotation": "Illustration zu »Der alte Guerillo von Granada« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110941, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fernanda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. M. Hofmann & Fr. Stöber direx. sculps.",
+      "scans": [
+        "alm_3473_110943_sn3pl7qqtl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fernanda",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.319Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "1fhz21le4a6ny2w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.319Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "7mwg0xmz57hx36o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.319Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "8nk0pldfllocn8t"
+        }
+      ],
+      "source_id": "4cruhnbxsftyz54"
+    },
+    {
+      "annotation": "mit 4 Illustrationen s. Titelgraphik INr 110936, Obj 2; s. Graphiken INr 110945-110947, Obj 11-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Die Niederlage in Ditmarschen, welche König Jehann, Herr der drei skandinavischen Reiche, erlitt, gab den kaum besiegten Schweden den Muth, das dänische Joch abzuschütteln.",
+      "language": [],
+      "musenalm_id": 110944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen aus dem Leben König Chri- / stians II. von Dänemark",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenen aus dem Leben König Chri- / stians II. von Dänemark",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.319Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "8zfu9miaz90pq7o"
+        }
+      ],
+      "source_id": "13305tnnfeqpkf9"
+    },
+    {
+      "annotation": "Illustration zu »Scenen aus dem Leben König Christians II. von Dänemark« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110944, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Joh. Ender. Stahlstich v. Dav. Weiss in Wien",
+      "scans": [
+        "alm_3473_110945_pulw0o0ncf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.319Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "dtgbe5rxqdtuunv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.320Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "ox1jvbza9usy4tr"
+        }
+      ],
+      "source_id": "fobmbwt9321220l"
+    },
+    {
+      "annotation": "Illustration zu »Scenen aus dem Leben König Christians II. von Dänemark« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110944, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retzsch del. J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. J. Axmann sc.",
+      "scans": [
+        "alm_3473_110946_uihwokidln.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.320Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "bwgehq2vbnkh08u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.320Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "gqk7auknk0luis2"
+        }
+      ],
+      "source_id": "iwpyq3a9anz4oi2"
+    },
+    {
+      "annotation": "kol. Illustration zu »Scenen aus dem Leben König Christians II. von Dänemark« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110944, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Christian II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. C. Kotterba sc.",
+      "scans": [
+        "alm_3473_110947_mxjsq2gbcc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Christian II.",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.320Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "pfcea954cpy0uoi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.320Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "t16ryl03c6webn4"
+        }
+      ],
+      "source_id": "pn2zt73dovba0zz"
+    },
+    {
+      "annotation": "s. Graphik INr 110940, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "452",
+      "incipit_statement": "Vergänglichkeit ist unser irdisch Loos! / Was für Jahrtausende der Mensch gebaut, / Zerstört die Zeit, die Alles Tödtende;",
+      "language": [],
+      "musenalm_id": 110948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des Stahlstichs Salzburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des Stahlstichs Salzburg",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "jn8cqmnornuk8gs"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3473_110949_x7r795tmb2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ovkah2uqrdj1750"
+    }
   ],
   "agents": [
     {

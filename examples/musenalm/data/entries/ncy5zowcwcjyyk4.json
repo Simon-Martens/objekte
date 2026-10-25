@@ -48,13 +48,184 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "nvefdhmhv6mbblp"
+    {
+      "annotation": "1835-1837.\nKartonierter Einband.\n1835: Mit 191 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.535Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100427",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.535Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nvefdhmhv6mbblp"
+    }
   ],
   "contents": [
-    "4re0gdahz63ppw4",
-    "4vao7okew449pzz",
-    "ce40x7mxvms4asy",
-    "zh8w8vj9tlh954f"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Novellen - Almanach. / 1835. / Herausgegeben / von / Adolph Glaßbrenner. / Leben und Liebe. / Der Auszug der Israeliten. / Trau nicht dem Schein. / Leipzig, / Georg Wigand's Verlag.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Novellen - Almanach. / 1835. / Herausgegeben / von / Adolph Glaßbrenner. / Leben und Liebe. / Der Auszug der Israeliten. / Trau nicht dem Schein. / Leipzig, / Georg Wigand's Verlag.",
+      "updated": "2009-07-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "4re0gdahz63ppw4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Aus meiner frühen Kindheit erinnere ich mich weniger Begebenheiten klar und bestimmt, die Prügel ausgenommen, welche mir wöchentlich mehrere Male zu Theil wurden.",
+      "language": [],
+      "musenalm_id": 65350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leben und Liebe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Glaßbrenner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leben und Liebe. / Novelle",
+      "updated": "2009-07-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.197Z",
+          "agent": "zyl5m77hvrod1w7",
+          "source_id": "7xrjlvtag1cknui"
+        }
+      ],
+      "source_id": "4vao7okew449pzz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Die glückliche, lebensvolle Regierung der jungfräulichen Königin von England, jene an gewaltigen, glänzenden, romanhaften Thaten so reiche Zeit, daß sie der Nachwelt in ungewöhnlichem Glanze erscheint, war dennoch eine Zeit der Aufregung und Unruhen.",
+      "language": [],
+      "musenalm_id": 65352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trau nicht dem Schein. / Novelle. / Nach dem Englischen der Miß Lawrance",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. v. Alvensleben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trau nicht dem Schein. / Novelle. / Nach dem Englischen der Miß Lawrance",
+      "updated": "2009-07-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.008Z",
+          "agent": "chd0njp3ogros7m",
+          "source_id": "93f7pd8x3wyend6"
+        }
+      ],
+      "source_id": "ce40x7mxvms4asy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Gesegnet sei das Andenken meines Vaters Amru und seines Vaters Pithom, und seines Vaters Zalapheel. Ich habe ihr Grab erbaut. Ich habe es geschmückt, durchgeräuchert und versiegelt mit dem Siegel Osarphis.",
+      "language": [],
+      "musenalm_id": 65351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Auszug der Israeliten. / Eine Sage, / nach dem Koptischen erzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Auszug der Israeliten. / Eine Sage, / nach dem Koptischen erzählt",
+      "updated": "2009-07-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "zh8w8vj9tlh954f"
+    }
   ],
   "agents": [
     {

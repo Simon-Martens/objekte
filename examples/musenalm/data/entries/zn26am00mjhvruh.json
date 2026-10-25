@@ -48,51 +48,1697 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "fv0t522sjynnaub"
+    {
+      "annotation": "1811-1848.\n1835: ( K: XV, 408 SS und Ku 8 ) Mit Tku 1, XV, 408 SS und Ku 7.\nKartonierter Einband mit eingeprägten Muster und Goldschnitt.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.615Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100442",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.615Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fv0t522sjynnaub"
+    }
   ],
   "contents": [
-    "9ypnqbzf2mxyryn",
-    "7bwq0vvg6vswxj8",
-    "6kbzoz09mko7fhq",
-    "nwljk6kwa264q8m",
-    "wopjnk8sl7foves",
-    "p0htz49dp6e6w1v",
-    "684z2qkks1i6lqf",
-    "39bhnx5brv9834d",
-    "ryuse82fnimmaxn",
-    "x50vecej3crm00r",
-    "38xspdrcumn3vfb",
-    "g3wb59wp0u63yzu",
-    "ncs5987k3d5msq0",
-    "eu2pxbs40gtw46x",
-    "0wzh8njcbhm0kkg",
-    "1q8xolqzf8x54eo",
-    "z52barr43tj6jd4",
-    "cb7tez5x277rfim",
-    "vzxom5ydyytn48s",
-    "8fv0w3592pocpl1",
-    "ioumujusoayifjw",
-    "wt78f05djesugr9",
-    "9fbl2pd2kto7ref",
-    "ipup5zuc1u34i5k",
-    "6huh1t7o1ol70wy",
-    "k5raqqyoypz369t",
-    "dk5w7gg2xt768mz",
-    "c4ll173vaqn76ap",
-    "yxa0wxfwsqhzv27",
-    "vzgw2hxsdeb6a6f",
-    "jbsefs9d30psoxk",
-    "vl5qanqpwqngime",
-    "6catb4bhypo3s01",
-    "bm2vezpoc8lhxoz",
-    "hc49a9lx54gtpz4",
-    "fcxaalaznhe5vm0",
-    "of9sqsxcmgcerhc",
-    "btsmi5txaxj6cds",
-    "50agttsl7pbksu9",
-    "2rbugtngxk9cmcz",
-    "5logfvmxk9f2p82",
-    "ix6tlgcunjc81d8"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77486,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2406_77486_zdisctf5y5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ypnqbzf2mxyryn"
+    },
+    {
+      "annotation": "Titelportrait /) Illustration zu »Aureliens Held« von W. v. Lüdemann INr 77503, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurelie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_2406_77487_eqldgv21f1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aurelie",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.679Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "9sh601pxa3kdljq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.679Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "m3gacia0oarkx7o"
+        }
+      ],
+      "source_id": "7bwq0vvg6vswxj8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.545Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77488,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE. / Taschenbuch / für das Jahr 1835. / Herausgegeben / von / Theodor Hell. / 24r Jahrgang. / Mit 8 Stahl- und Kupferstichen. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2406_77488_soancgkwnp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE. / Taschenbuch / für das Jahr 1835. / Herausgegeben / von / Theodor Hell. / 24r Jahrgang. / Mit 8 Stahl- und Kupferstichen. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "6kbzoz09mko7fhq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77489,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "nwljk6kwa264q8m"
+    },
+    {
+      "annotation": "über der Graphik: Zu Penelope 1835 /) Illustration zu »Der Virtuose aus Genua« von F. W. Arnold INr 77505, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77490,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Fleischmann del. & sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fleischmann del. & sculp.",
+      "scans": [
+        "alm_2406_77490_3ft25ea0qd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.679Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "1h084n5e3ys3vi6"
+        }
+      ],
+      "source_id": "wopjnk8sl7foves"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 5 Graphiken mit 5 Gedichten INr 77492-77501, Obj 7-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.549Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Unter dieser Ueberschrift eröffnen wir in dem gegenwärtigen Jahrgange dieses Taschenbuches ein kleine Sammlung bildlicher Darstellungen",
+      "language": [],
+      "musenalm_id": 77491,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine Gallerie von Scenen aus / dem italienischen Volksleben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine Gallerie von Scenen aus / dem italienischen Volksleben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.679Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "kztzv0t84dmm528"
+        }
+      ],
+      "source_id": "p0htz49dp6e6w1v"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Textbezug (Gedicht) INr 77493, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.549Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77492,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RÜCKKEHR VOM MADONNENFESTE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lindau del. Romae Fr. Wagner sc.",
+      "scans": [
+        "alm_2406_77492_114b59c28g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RÜCKKEHR VOM MADONNENFESTE",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.679Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "bbyb0vp99dnjfg6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.679Z",
+          "agent": "lbjc9wym039t07j",
+          "source_id": "yqdmlunt8oy9w1k"
+        }
+      ],
+      "source_id": "684z2qkks1i6lqf"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Graphik INr 77492, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Flüchtig eilt der leichte Karren / wieder vom Madonnenfeste",
+      "language": [],
+      "musenalm_id": 77493,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Rückkehr vom Madonnenfeste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Rückkehr vom Madonnenfeste",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "39bhnx5brv9834d"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Textbezug (Gedicht) INr 77495, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77494,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LIEBE UND EIFERSUCHT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lindau del. Romae Bl. Höfel sc.",
+      "scans": [
+        "alm_2406_77494_a3aehqv894.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LIEBE UND EIFERSUCHT",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "7qg5vco08ma4hah"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "lbjc9wym039t07j",
+          "source_id": "u7l4dk9zhsxjmmh"
+        }
+      ],
+      "source_id": "ryuse82fnimmaxn"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Graphik INr 77494, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wenn ich wieder sie erblicke / Mit Lorenzo Hand in Hand,",
+      "language": [],
+      "musenalm_id": 77495,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Liebe und Eifersucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Liebe und Eifersucht",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "x50vecej3crm00r"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Textbezug (Gedicht) INr 77497, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77496,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LANDLEUTE AUS DEM VOLSKER GEBIRGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lindau del. Romae Fr. Wagner sc. Nbg.",
+      "scans": [
+        "alm_2406_77496_wqrstd93s4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LANDLEUTE AUS DEM VOLSKER GEBIRGE",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "lbjc9wym039t07j",
+          "source_id": "fetvks2t2ttvrke"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "j2h0pajpbrsj8io"
+        }
+      ],
+      "source_id": "38xspdrcumn3vfb"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Graphik INr 77496, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.368Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Die Sonne kommt! Zur Arbeit fort! / In's Feld, auf Wies' und Flur!",
+      "language": [],
+      "musenalm_id": 77497,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Landleute aus dem Volsker- / Gebirge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Landleute aus dem Volsker- / Gebirge",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "g3wb59wp0u63yzu"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Textbezug (Gedicht) INr 77499, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.369Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77498,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Toermer del. Romae Fr. Wagner sc. Nbg)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Toermer del. Romae Fr. Wagner sc. Nbg",
+      "scans": [
+        "alm_2406_77498_uf9jvxnh1f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "igccbk7vgb1rzns"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "j8muurnc8i80bf2",
+          "source_id": "j0ea9a7dfagypi9"
+        }
+      ],
+      "source_id": "ncs5987k3d5msq0"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Graphik INr 77498, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Stecke mir geschwind die Schleife / In das Haar noch, liebe Rosa,",
+      "language": [],
+      "musenalm_id": 77499,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Toilette zum Carvenal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Toilette zum Carvenal",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "eu2pxbs40gtw46x"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Textbezug (Gedicht) INr 77501, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77500,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FROMME PILGER AUF DEN NEAPOLITANISCHEN APENNINEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lindau del. Romae Bl. Höfel sc.",
+      "scans": [
+        "alm_2406_77500_o5xonc5kyy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FROMME PILGER AUF DEN NEAPOLITANISCHEN APENNINEN",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "9poketh1vbix4rj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "lbjc9wym039t07j",
+          "source_id": "p7utf5zao249xzv"
+        }
+      ],
+      "source_id": "0wzh8njcbhm0kkg"
+    },
+    {
+      "annotation": "Kleine Gallerie von Scenen aus dem italienischen Volksleben (Sammlung INr 77491, Obj 6) s. Graphik INr 77499, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Wir wollen in die Stadt der Städte / Zum Osterfest in Petri Dom.",
+      "language": [],
+      "musenalm_id": 77501,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Fromme Pilger aus den neapoli- / tanischen Apenninen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Fromme Pilger aus den neapoli- / tanischen Apenninen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "1q8xolqzf8x54eo"
+    },
+    {
+      "annotation": "Beigabe zum Nachruf »Elisa von der Recke. geb. am 20. Mai 1754; gest. am 13. April 1833« von H. Hase INr 77508, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77502,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ELISA VON DER RECKE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Naumann del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_2406_77502_chhcsjv8xs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ELISA VON DER RECKE",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "bgue19tgu7qy11t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.861Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.861Z",
+          "agent": "iam037a1btv8lcd",
+          "source_id": "qa4u7phrjru5280"
+        }
+      ],
+      "source_id": "z52barr43tj6jd4"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelportrait INr 77487, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Für Deutschland war der Tag der Ehre, wieder angebrochen. Besiegt in der Völkerschlacht, die das Geschick Europa's entschied, wälzten sich die französischen Heermassen rückwärts dem Rheine zu,",
+      "language": [],
+      "musenalm_id": 77503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aureliens Held. / Erzählung aus dem Kriegsleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm von Lüdemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aureliens Held. / Erzählung aus dem Kriegsleben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.862Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.862Z",
+          "agent": "jqanokpcqaenxu5",
+          "source_id": "xr20bhd1cu5k1ol"
+        }
+      ],
+      "source_id": "cb7tez5x277rfim"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Im Abendschein trat Gräfin Ordalie aus dem Portal des Schlosses. Sie war heut dreiundzwanzig Jahr und ihr Sohn, der kleine Graf Herrmann, den sie an ihre rechte Hand nahm,",
+      "language": [],
+      "musenalm_id": 77504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschiedene. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschiedene. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.862Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.862Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "u3njfgtr4757z6e"
+        }
+      ],
+      "source_id": "vzxom5ydyytn48s"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik (Doppelportrait) INr 77490, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Am westlichen Ende Neapels, getrennt durch das Fort St. Elmo, erheben sich die sanften Hügel des Posilipp.",
+      "language": [],
+      "musenalm_id": 77505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Virtuose aus Genua. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Virtuose aus Genua. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.862Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.862Z",
+          "agent": "ywf9jr8cwlo32f3",
+          "source_id": "hejk7sccn120urg"
+        }
+      ],
+      "source_id": "8fv0w3592pocpl1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "An einem brennenden Sommerabend des Jahres 1815 kam der alte Pfarrer von San Pietro, einem kleinen Dörfchen, einige Meilen von Sevilla,",
+      "language": [],
+      "musenalm_id": 77506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kirche zum Glas Wasser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kirche zum Glas Wasser",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.862Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.862Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "vx1l8ty3fbw3j0z"
+        }
+      ],
+      "source_id": "ioumujusoayifjw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Die Sonne war eben im Sinken, tausendfarbig brach sich ihr Strahl in den Tropfen, welche zitternd an den Blättern und Blüthen hingen, die ein vorüberziehnder Regen sanft erquickt hatte.",
+      "language": [],
+      "musenalm_id": 77507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommernachts-Phantasie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie Krafft",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sommernachts-Phantasie",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "wt78f05djesugr9"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77502, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Das Leben der edlen Frau, deren Andenken diese Blätter geweiht sind, ist nach seinen äußern Hergängen und seiner literarischen Wirksamkeit so vielfach beschrieben,",
+      "language": [],
+      "musenalm_id": 77508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisa von der Recke. / geb. am 20. Mai 1754; gest. am 13. April 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Hase",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elisa von der Recke. / geb. am 20. Mai 1754; gest. am 13. April 1833",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.862Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.862Z",
+          "agent": "lov7zjtttdvp66e",
+          "source_id": "rrgg79j6nodqblx"
+        }
+      ],
+      "source_id": "9fbl2pd2kto7ref"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "394",
+      "incipit_statement": "Unter seines Himmels lichtem Bogen, / Von der Freude buntem Schmelz umzogen / Ruht des Lebens ungemess'ner Plan;",
+      "language": [],
+      "musenalm_id": 77509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Leben in Liebe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Treumund",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Leben in Liebe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.862Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.862Z",
+          "agent": "ykspfd0cjafw5jg",
+          "source_id": "fm0hpmm7t10cel7"
+        }
+      ],
+      "source_id": "ipup5zuc1u34i5k"
+    },
+    {
+      "annotation": "Sammlung von 14 Gedichten INr 77511-75224, Obj 26-39 /) Der Sammlung vorangestellt: Seinem Freunde August Nodnagel gewidmet",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "397",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wandern und Rasten / in 13 Nachklängen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wandern und Rasten / in 13 Nachklängen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "6huh1t7o1ol70wy"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "397",
+      "incipit_statement": "Ich bin gezogen kreuz und quer, / Und habe Vieles drum erfahren,",
+      "language": [],
+      "musenalm_id": 77511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Hause",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Hause",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "k5raqqyoypz369t"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Dort über die blauen Höhen, / Sieh, über den schwanken Steg,",
+      "language": [],
+      "musenalm_id": 77512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Der Wegweiser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Der Wegweiser",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "dk5w7gg2xt768mz"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "O Mann, der mit geschloßnen Augen / Am Kreuzweg sitzt im stillen Schmerz,",
+      "language": [],
+      "musenalm_id": 77513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Der Blinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Der Blinde",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "c4ll173vaqn76ap"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "398",
+      "incipit_statement": "Tiefer Ernst auf Bergwalds Höhe / Zog den ernsten Pilgersmann",
+      "language": [],
+      "musenalm_id": 77514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die Hünengräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die Hünengräber",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "yxa0wxfwsqhzv27"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "399",
+      "incipit_statement": "Am Hause drei Schilder blinken / Im goldnen Sonnenschein,",
+      "language": [],
+      "musenalm_id": 77515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die Herberge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die Herberge",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "vzgw2hxsdeb6a6f"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "Wie das Ewige in mir / Unvergänglich aufwärts strebet,",
+      "language": [],
+      "musenalm_id": 77516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Andenken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Andenken",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "jbsefs9d30psoxk"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "O, du holder Frühlingsmorgen, / Glüh'st empor in lichten Farben;",
+      "language": [],
+      "musenalm_id": 77517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Der Frühlingsmorgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Der Frühlingsmorgen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "vl5qanqpwqngime"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "Das einsame Schloß auf der Höhe / Wie ausgestorben steht,",
+      "language": [],
+      "musenalm_id": 77518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Das alte Schloß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Das alte Schloß",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "6catb4bhypo3s01"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "401",
+      "incipit_statement": "Auf deiner Woge - Morgenluft, / Gewebt aus Licht und Blumenduft, / Fort trage mich in's Reich der Blüthen,",
+      "language": [],
+      "musenalm_id": 77519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Der Gefangene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Der Gefangene",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "bm2vezpoc8lhxoz"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "402",
+      "incipit_statement": "Der König jagt über die Haide, / Geschwungen auf's muthige Roß;",
+      "language": [],
+      "musenalm_id": 77520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. Romanze",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "hc49a9lx54gtpz4"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "402",
+      "incipit_statement": "Zwei sind zu lang geblieben / Auf einer Frühlingsflur",
+      "language": [],
+      "musenalm_id": 77521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. Versöhnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. Versöhnung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "fcxaalaznhe5vm0"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "403",
+      "incipit_statement": "Solches kann ich nicht erdenken, / Wie man mög' des Herzens Weh / Mit dem letzten Glück versenken",
+      "language": [],
+      "musenalm_id": 77522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. Trauer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. Trauer",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "of9sqsxcmgcerhc"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "403",
+      "incipit_statement": "Ihr armen Vöglein draußen, / Mit eurer Lust, - o weh!",
+      "language": [],
+      "musenalm_id": 77523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. Vöglein im Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. Vöglein im Winter",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "btsmi5txaxj6cds"
+    },
+    {
+      "annotation": "Wandern und Rasten in 13 Nachklängen (Sammlung INr 77510, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "404",
+      "incipit_statement": "Es glänzte mir so heller Schein / Auf's lose Saitenspiel hernieder,",
+      "language": [],
+      "musenalm_id": 77524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. Die Erscheinung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hayn Justus Schlingloff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. Die Erscheinung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "50agttsl7pbksu9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "404",
+      "incipit_statement": "Die Sonne sinkt! mit ihren letzten Strahlen, / Vergoldet sie den Berg, den Hain, das Thal;",
+      "language": [],
+      "musenalm_id": 77525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abenphantasie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodora von Wellnau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abenphantasie",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "2rbugtngxk9cmcz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "407",
+      "incipit_statement": "Weichbus'ge Rosen küßt der Wind, / Die Erde grünt, die Quellen schäumen,",
+      "language": [],
+      "musenalm_id": 77526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verstoßene. / (1834.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Rogge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verstoßene. / (1834.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "qg9jxudttjp2daq",
+          "source_id": "xyen8edk852r0o9"
+        }
+      ],
+      "source_id": "5logfvmxk9f2p82"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77527,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2406_77527_he9nj3ceo7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "ix6tlgcunjc81d8"
+    }
   ],
   "agents": [
     {

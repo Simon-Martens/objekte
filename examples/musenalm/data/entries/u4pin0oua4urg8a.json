@@ -48,16 +48,259 @@
   "year": 1774,
   "editor": "",
   "items": [
-    "r4j6phxcm4xrxmp"
+    {
+      "annotation": "KVK, DVB mit Standorten für 1768",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.762Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409272",
+      "location": "105E09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.762Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "r4j6phxcm4xrxmp"
+    }
   ],
   "contents": [
-    "sh12xa9x2fkr7su",
-    "ffz3a6hlms0gwtv",
-    "q30v19crwf2yhau",
-    "buqwn25swcocsxr",
-    "5rhc6k3u63afd0c",
-    "8kfjy18tu5dz1dv",
-    "gswcawjn4d3e9p3"
+    {
+      "annotation": "Verlagsbroschur r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110647,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "sh12xa9x2fkr7su"
+    },
+    {
+      "annotation": "Titel mit kol. Vignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.727Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ETRENNES / POUR / LES DAMES. / POUR L'ANNÉE / 1773 & 1774. / A BRESLAU, / CHEZ GUILLAUME THÉOPHYLE KORN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4309_110648_02gausv1gu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ETRENNES / POUR / LES DAMES. / POUR L'ANNÉE / 1773 & 1774. / A BRESLAU, / CHEZ GUILLAUME THÉOPHYLE KORN",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "ffz3a6hlms0gwtv"
+    },
+    {
+      "annotation": "mit Kopfvignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "L'homme & la femme sont faits l'un pour l'autre. Ils doivent se plaire l'un à l'autre: c'est l'intention de la nature & et le but de la société;",
+      "language": [],
+      "musenalm_id": 110649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Le désir de plaire",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4309_110649_aoubgs4gmd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Le désir de plaire",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "q30v19crwf2yhau"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "J'ai l'honneur de vous envoyer la Copie que Vouz souhaitez du Traité de l'Amitié.",
+      "language": [],
+      "musenalm_id": 110650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / De l'Amitié",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / De l'Amitié",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "buqwn25swcocsxr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Le Philosophie est-il en droit d'être amoureux? La question est plus interéssante pour le Beau-Sexe, qu'il ne le croit.",
+      "language": [],
+      "musenalm_id": 110651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / De l'Amour",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / De l'Amour",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "5rhc6k3u63afd0c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Si l'on fait attention aux motifs qui déterminent au mariage, on sera surpris en voyant par combien de différentes routes la nature ingénieuse a su conduire les hommes au même but.",
+      "language": [],
+      "musenalm_id": 110652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Sur le Mariage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Sur le Mariage",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "8kfjy18tu5dz1dv"
+    },
+    {
+      "annotation": "Verlagsbroschur v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110653,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-04-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1774,
+      "editor": "",
+      "agents": [],
+      "source_id": "gswcawjn4d3e9p3"
+    }
   ],
   "agents": [
     {

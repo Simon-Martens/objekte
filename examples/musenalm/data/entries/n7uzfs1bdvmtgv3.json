@@ -48,46 +48,1288 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "bvyiixqrt7ck105"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.527Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100349",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.527Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bvyiixqrt7ck105"
+    }
   ],
   "contents": [
-    "b5x4yroackp76s7",
-    "cjtyon5tdw4uzyb",
-    "08b2lg6fh8yub3s",
-    "8y8vnnjb8kfjd2o",
-    "ayfzjx4hjp6vpru",
-    "cljsqenfyrgjvm2",
-    "frpvcnlw5z6l1dz",
-    "znzxbk9z86sd1n8",
-    "c3a1s78r0laydyv",
-    "6v3a8onwfndjm8g",
-    "3ht2wp8zu9ni7wn",
-    "6iq1cv4zly30hz7",
-    "3xz8qvoac82lw6r",
-    "00p77scrru88tg8",
-    "1nr618uooi31wed",
-    "lxmw8xnuvuy427r",
-    "ihzk8subzb9h5sb",
-    "f842e819qaa024q",
-    "q4n8qbltbhdh0mh",
-    "njval659qg4ukm5",
-    "n4w5w47prls3orb",
-    "zkn24vhqjec5bqd",
-    "e3c2rjalbb9kkmt",
-    "9moaoqktefv1kwz",
-    "pqy98lomr8zccpb",
-    "bb91zjcsys1eg8f",
-    "m1r5gusgrzb1l40",
-    "5lfg1mjxhjzl3en",
-    "rhegpxo8sm8hexp",
-    "b1exo11gduvy09i",
-    "rayjj7g26ropsnk",
-    "7l1iancugy3yhs8",
-    "dcxmaqwxmbgreow",
-    "29dcpcntl2uv7wd",
-    "0yjma22zm25bxlp",
-    "o39wuhq29aklh33",
-    "sxvur3v1hp3dptr"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz. Kanonen Boot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60487_2p1dccupae.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Franz. Kanonen Boot",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "b5x4yroackp76s7"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.508Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60488,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von Boulogne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60488_822w1q339i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von Boulogne",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "cjtyon5tdw4uzyb"
+    },
+    {
+      "annotation": "graph.-typograph. Titel mit Portrait: Wilhelm der Eroberer gelandet in England 1066",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.510Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60489,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kriegs- / und / Friedens-Almanach / von 1804. / Göttingen. / Bey Heinrich Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60489_uv5id18lx7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kriegs- / und / Friedens-Almanach / von 1804. / Göttingen. / Bey Heinrich Dieterich",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "08b2lg6fh8yub3s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60490,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "8y8vnnjb8kfjd2o"
+    },
+    {
+      "annotation": "Vorwort d. Verlegers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Zeitereignisse haben dem Titel des Friedens-Almanachs, in dem Worte Krieg, leider! einen Zusatz gegeben:",
+      "language": [],
+      "musenalm_id": 60491,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verlagshandlung / an das Publikum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Verlagshandlung",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verlagshandlung / an das Publikum",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ayfzjx4hjp6vpru"
+    },
+    {
+      "annotation": "paginiert 1. 4 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60492,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Linguet, guill. 1794. Cécilie Renaud, guill. unter Robespierre 1794. / Gen Houchard, guill. 1794. Gen. Marceau. † 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60492_576ngivagx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Linguet, guill. 1794. Cécilie Renaud, guill. unter Robespierre 1794. / Gen Houchard, guill. 1794. Gen. Marceau. † 1796",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "cljsqenfyrgjvm2"
+    },
+    {
+      "annotation": "vorangestellt: Laßt uns gerecht seyn, ehe die Nachwelt es ist. Wer gewährte der menschlichen Natur eine Zuflucht, als sie überall verkannt, und mit Füßen getreten war? [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich Immanuel, Erste Glocke der Hauptstadt, an die Pariser meine Gruß! Zehn Jahre lang hatte ich die Stimme verloren; jetzt habe ich sie wieder erhalten,",
+      "language": [],
+      "musenalm_id": 60493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Schreiben eines der erhabensten und / gravitätischesten Geschöpfe Europens, / an die Pariser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Schreiben eines der erhabensten und / gravitätischesten Geschöpfe Europens, / an die Pariser",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "frpvcnlw5z6l1dz"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Laßt uns gerecht seyn, ehe die Nachwelt es ist. Wer gewährte der menschlichen Natur eine Zuflucht, als sie überall verkannt, und mit Füßen getreten war? [...] /) Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Am 7ten Messidor des 2ten Jahrs, wurde bey einem der Guillotin-Amalgama's, die damahls an der Tagesordnung waren, und welches dieß Mahl aus zwey und zwanzig Frauenzimmern bestand, auch eine junge Gattin hingerichtet, die ein stillendes Kind hatte.",
+      "language": [],
+      "musenalm_id": 60497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Züge von weiblichem Heldenmuth, / weiblicher Seelengröße und Edelsinn, als / Mütter, Gattinnen, Geliebte, Geschwi- / ster, Freundinnen in den Stürmen / der Revolution",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Züge von weiblichem Heldenmuth, / weiblicher Seelengröße und Edelsinn, als / Mütter, Gattinnen, Geliebte, Geschwi- / ster, Freundinnen in den Stürmen / der Revolution",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "znzxbk9z86sd1n8"
+    },
+    {
+      "annotation": "paginiert 2. /) 4 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bischof Gregoire, Mitglied d. franz. Acad. Capitain Baudin, Weltumsegler seit 1800. / Lalande, Doyend. Astronimen. Fourcroy, Srtaatsrath, Prof d. Chemie.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60498_ssd63my1uh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bischof Gregoire, Mitglied d. franz. Acad. Capitain Baudin, Weltumsegler seit 1800. / Lalande, Doyend. Astronimen. Fourcroy, Srtaatsrath, Prof d. Chemie.",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "c3a1s78r0laydyv"
+    },
+    {
+      "annotation": "pginiert 3. 4 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dubois Crancé, Ex. Deputirter u. Ministr. privatisirt. Willot, Ex-General, emigrirt. / Tallien, Stürzer d. Robespierre. Freron unvergesslich zu Toulon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60499_8uybpftaap.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dubois Crancé, Ex. Deputirter u. Ministr. privatisirt. Willot, Ex-General, emigrirt. / Tallien, Stürzer d. Robespierre. Freron unvergesslich zu Toulon",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "6v3a8onwfndjm8g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Wir zeichnen erst diese wichtigste Begebenheit des verflossenen Jahres aus und stellen sie in das Licht, und dann fügen wir über jenen Gedanken und Vorsatz das Nöthigste hinzu.",
+      "language": [],
+      "musenalm_id": 60500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Politisch-moralische Rede, gehalten / am ersten Tage des zweyten Jahres / des neuen Jahrhunderts. / Zu welchem Gedanken und Vorsatze sollten / die Völker Europens bey dem Andenken / an die wichtigste Begebenheit des verwiche- / nen Jahres am ersten Tage des angehen- / den ihren Geist sammeln?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Politisch-moralische Rede, gehalten / am ersten Tage des zweyten Jahres / des neuen Jahrhunderts. / Zu welchem Gedanken und Vorsatze sollten / die Völker Europens bey dem Andenken / an die wichtigste Begebenheit des verwiche- / nen Jahres am ersten Tage des angehen- / den ihren Geist sammeln?",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ht2wp8zu9ni7wn"
+    },
+    {
+      "annotation": "paginiert 4. /) 4 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Championet, Gen. d. ital. Armee † 1798. Joubert, General d. ital. Armee † 1799. / General Kellermann, Staatsrath. Monnier Divisions-General",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60501_0hedv463th.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Championet, Gen. d. ital. Armee † 1798. Joubert, General d. ital. Armee † 1799. / General Kellermann, Staatsrath. Monnier Divisions-General",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "6iq1cv4zly30hz7"
+    },
+    {
+      "annotation": "Einleitung zu folgenden 2 Gedichten INr 60503, 60504; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Es wird nicht schwer zu begreifen seyn, warum diese Gedichte so spät heraus kommen. Die unverzügliche Erscheinung nach den darin enthaltenen Ereignissen hätte ihnen viel Interesse gegeben,",
+      "language": [],
+      "musenalm_id": 60502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Nachhall / an die / Bernerschen Kämpfer / für / Freyheit und Vaterland, / im unglücklichen Reviolutionskriege von 1798, / von einem Schweizer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Von einem Schweizer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Nachhall / an die / Bernerschen Kämpfer / für / Freyheit und Vaterland, / im unglücklichen Reviolutionskriege von 1798, / von einem Schweizer",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "3xz8qvoac82lw6r"
+    },
+    {
+      "annotation": "IV. Nachhall an die Bernerschen Kämpfer für Freyheit und Vaterland, im unglücklichen Reviolutionskriege von 1798 (Sammlung INr 60502, Obj 13) mit Erläuterungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Darf ich euch ein Lied des Herzens singen? / Und, wenn keine edlern Saiten klingen, / Euerm Nahmen doch die meinen weih'n?",
+      "language": [],
+      "musenalm_id": 60503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / An die / Braven, / die Freyheit und Vaterland überlebten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / An die / Braven, / die Freyheit und Vaterland überlebten",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "00p77scrru88tg8"
+    },
+    {
+      "annotation": "IV. Nachhall an die Bernerschen Kämpfer für Freyheit und Vaterland, im unglücklichen Reviolutionskriege von 1798 (Sammlung INr 60502, Obj 13) mit Erläuterungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Hallet leiser, meine Laute Töne, / Fließet sanfter von den Saiten ab. / Meines Vaterlandes treue Söhne / Schlummern hier im friedenvollen Grab.",
+      "language": [],
+      "musenalm_id": 60504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Auf den / Gräbern der Gefallenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Auf den / Gräbern der Gefallenen",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "1nr618uooi31wed"
+    },
+    {
+      "annotation": "paginiert 5.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.481Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Augerau auf der Brücke zu Arcola",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60505_c08sg0cwgr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Augerau auf der Brücke zu Arcola",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxmw8xnuvuy427r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Liebe und Freundschaft berechtigten meine Erfahrungen, Ihnen über das Betragen, das Sie in dem Wirbel der Welt, worin Sie jetzt geworfen worden, zu halten haben, einige Räthe mitzutheilen.",
+      "language": [],
+      "musenalm_id": 60506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Räthe eins Weltmanns an einen / Prinzen, der im Revolutions- Kriege / als Soldat in die Welt ging",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Räthe eins Weltmanns an einen / Prinzen, der im Revolutions- Kriege / als Soldat in die Welt ging",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ihzk8subzb9h5sb"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Der Herzog von Orleans bewies in seinen letzten Augenblicken eine bewundernswürdige Standhaftigkeit. Den Tag vor der Hinrichtung hatte er alle seine Gläubiger in seinem Gefängnisse bey sich, und gab ihnen Rathschläge,",
+      "language": [],
+      "musenalm_id": 60507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Lese aus ausländischen Schriften, von / merkwürdigen, wenig bekannten Zügen / der Revolution",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Lese aus ausländischen Schriften, von / merkwürdigen, wenig bekannten Zügen / der Revolution",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "f842e819qaa024q"
+    },
+    {
+      "annotation": "paginiert 6.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.586Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoche dictirt die cisalpinische Republick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60508_6m5qxkf7hl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hoche dictirt die cisalpinische Republick",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "q4n8qbltbhdh0mh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Mir ist in diesen Tagen ein neues prächtiges Werk, Silkerton Medallic History, d.i. Münzgeschichte von England, London, 1790. Fol., zur Hand gekommen. Die nachfolgenden Münzen haben mich interessirt. Planche XVII. No. II.",
+      "language": [],
+      "musenalm_id": 60509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber einige merkwürdige Münzen / von Carl I. von England. / (Vom verstorbenen Lavater.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lavater",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber einige merkwürdige Münzen / von Carl I. von England. / (Vom verstorbenen Lavater.)",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.817Z",
+          "agent": "adxjhf2nm1jjsuh",
+          "source_id": "alm70t010qfark8"
+        }
+      ],
+      "source_id": "njval659qg4ukm5"
+    },
+    {
+      "annotation": "paginiert 7.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht des Pharus bey Alexandria in Ägypten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60510_x6lll769jb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht des Pharus bey Alexandria in Ägypten",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4w5w47prls3orb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Das Liviner-Thal hat ungefähr zehn Stunden in der Länge; die Breite ist nicht sehr beträchtlich,",
+      "language": [],
+      "musenalm_id": 60511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Drangsale des Liviner-Thals",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Pozzi, Pfarrer zu Airolo",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Drangsale des Liviner-Thals",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "zkn24vhqjec5bqd"
+    },
+    {
+      "annotation": "paginiert 8.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abgesandte Murats-Bey an Nelson",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60512_1duled6a7h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abgesandte Murats-Bey an Nelson",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "e3c2rjalbb9kkmt"
+    },
+    {
+      "annotation": "Anm. am Objekt: Heiberg, ein Däne, mußte als Verfasser mehrerer satyrischen und revolutionären Schriften, sein Vaterland meiden.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Bruchstücke aus Heiberg's Sprach- / Versuch 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heiberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Bruchstücke aus Heiberg's Sprach- / Versuch 1799",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "9moaoqktefv1kwz"
+    },
+    {
+      "annotation": "Portrait paginiert 9.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GEN. JOURDAN, STAATSRATH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60514_4ia9583gum.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GEN. JOURDAN, STAATSRATH",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "pqy98lomr8zccpb"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Man weiß, wie oft in den letzten Jahren die Encyclopädisten und ihr Werk beschuldigt worden sind, zur Herbeyführung der französischen Staatsumwälzung mitgewirkt zu haben.",
+      "language": [],
+      "musenalm_id": 60515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Drey merkwürdige Bruchstücke aus / den Briefen eines jungen Gelehrten an / seinen Freund. / (In den Jahren 1773-1780 von Johannes / Müller an von Bonsteten geschrieben.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Drey merkwürdige Bruchstücke aus / den Briefen eines jungen Gelehrten an / seinen Freund. / (In den Jahren 1773-1780 von Johannes / Müller an von Bonsteten geschrieben.)",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "bb91zjcsys1eg8f"
+    },
+    {
+      "annotation": "Portrait paginiert 10.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GEN. BERNADOTTE, STAATSRATH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60516_59vruyncjy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GEN. BERNADOTTE, STAATSRATH",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "m1r5gusgrzb1l40"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Der französische General Marceau, der sich bekanntlich in der Folge zu Jourdan's Armee begab, in dem Treffen von Altenkirchen einen Arm verlor,",
+      "language": [],
+      "musenalm_id": 60517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Züge von neufränkischen Edelsinn und / Großmuth, aus dem, Revolutionskrieg, / in den Gegenden des Ober- und / Unterrheins",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Züge von neufränkischen Edelsinn und / Großmuth, aus dem, Revolutionskrieg, / in den Gegenden des Ober- und / Unterrheins",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "5lfg1mjxhjzl3en"
+    },
+    {
+      "annotation": "Portrait paginiert 11.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GENERAL BERTHIER. KRIEGS-MIMNISTER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60518_dv8j6akpw8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GENERAL BERTHIER. KRIEGS-MIMNISTER",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "rhegpxo8sm8hexp"
+    },
+    {
+      "annotation": "paginiert 12.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tod des Generals Marceau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60519_yogiyc5cvv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tod des Generals Marceau",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "b1exo11gduvy09i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Welch ein beruhgender, töstlicher Gedanke stellt sich mir jetzt in dem Augenblick dar, wo ich zum ersten Mahl wieder vor Ihnen auftrete!",
+      "language": [],
+      "musenalm_id": 60520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Rede / des nun verstorbenen La Harpe. / Bey Eröffnung des republikanischen Lyceums / zu Paris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Harpe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Rede / des nun verstorbenen La Harpe. / Bey Eröffnung des republikanischen Lyceums / zu Paris",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "rayjj7g26ropsnk"
+    },
+    {
+      "annotation": "mit Hinweisen auf die Portraits des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Joubert. Er war im Departement de L'Ain geboren und starb als Ober-General der italienischen Armee,",
+      "language": [],
+      "musenalm_id": 60521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Zu einer kurzen Erläuterung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Zu einer kurzen Erläuterung der Kupfer",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "7l1iancugy3yhs8"
+    },
+    {
+      "annotation": "2 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GENERAL DUPHOT, † zu Rom, 1798. / GENERAL LEFEVRE, Mitglied des Senats",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60522_01ikr4w61d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GENERAL DUPHOT, † zu Rom, 1798. / GENERAL LEFEVRE, Mitglied des Senats",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "dcxmaqwxmbgreow"
+    },
+    {
+      "annotation": "2 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BISCHOF LAMOURETTE. guill. 1794. / FLORIAN, Ex-Ritter und Dichter † 1794",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60523_ejrsdbwrbh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BISCHOF LAMOURETTE. guill. 1794. / FLORIAN, Ex-Ritter und Dichter † 1794",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "29dcpcntl2uv7wd"
+    },
+    {
+      "annotation": "2 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BARON TRENCK, Gull. 1794. / RICHARD PARKER, Präsident der aufrührerischen Matrosen, gehangen 1797",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60524_fxogcd3ez2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BARON TRENCK, Gull. 1794. / RICHARD PARKER, Präsident der aufrührerischen Matrosen, gehangen 1797",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "0yjma22zm25bxlp"
+    },
+    {
+      "annotation": "2 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ABBE L'EPÉE, † 1790. / ABBE SICARD, Taubstummen Lehrer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60525_kbeddn6gwe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ABBE L'EPÉE, † 1790. / ABBE SICARD, Taubstummen Lehrer",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "o39wuhq29aklh33"
+    },
+    {
+      "annotation": "Umschlaggraphik v. (Karte)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60526,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER CANAL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_945_60526_bu8nq3bo1y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER CANAL",
+      "updated": "2008-10-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "sxvur3v1hp3dptr"
+    }
   ],
   "agents": [
     {

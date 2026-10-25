@@ -48,48 +48,1566 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "pmkb0wphlmwhxwh"
+    {
+      "annotation": "1792-1795.\nKartonierter Einband leicht beschädigt, lose Seiten. 2 VBB, verso G, T, 4 BB W, ar: SS 1-17 darin G, 13 BB Kal darin 12 GG, ar1: SS 1-167",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.479Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100035",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.479Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pmkb0wphlmwhxwh"
+    }
   ],
   "contents": [
-    "o5t04s1rbjan843",
-    "k26f7fvi7bppcta",
-    "n5j6jzsse3q9cyh",
-    "qs0sm4p9cfw4clo",
-    "geupi2mk2zg34ua",
-    "vqy2dht0vu5yjar",
-    "y71mc6bwmhav091",
-    "qkzj7hygr6yphsl",
-    "9zbaae9w3okpjaw",
-    "cz7prs3ef56s3n5",
-    "6rtpyrind9mzynk",
-    "2nsr94gxxgccwj2",
-    "xoc1fxekg0hhuy4",
-    "azxx2bpw51hdrwg",
-    "dh4vdhziks7yewa",
-    "l22eoe07nn4g1xx",
-    "js7wp7o4r0etgmu",
-    "v398s2je8pjk53t",
-    "o5i6u8m6cmrv7q4",
-    "t4oxu0ouzgbvow4",
-    "dj13ho8q09lm3z8",
-    "ssjxl285i3131x1",
-    "tq7lkxddmi2h1f6",
-    "xhn5qsvdn9014wq",
-    "2pclpn8fd3edp0v",
-    "29o8x3ekw6lc8u3",
-    "knss5kxww6toy80",
-    "v8cbr2955vm4v87",
-    "261udgz456tyc3m",
-    "fno2oojedlthkyw",
-    "7oxd07z1mvrwwi0",
-    "knzmfknphtyxm3h",
-    "7qfnjl0wve1pz4u",
-    "ng03vl5dusg673t",
-    "6imp4kzjxpe1tvs",
-    "z1wyqfpgrfpyrq1",
-    "hllymdrjbhqwq00",
-    "05a0afwrgzi09v0",
-    "fxjnqcmuyuh9hkt"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21680,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz von Berlich- / ingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_292_21680_bxwztl28l0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz von Berlich- / ingen",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "o5t04s1rbjan843"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21681,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1793. / Ritter / Göz von Berlichingen, / mit der eisernen Hand. / von / Carl Lang. / mit Kupfern von Küffner, d'Argens, u. a. / Frankfurt am Main, / in Commißion der Fleischerischen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_292_21681_x6evpu5gnl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1793. / Ritter / Göz von Berlichingen, / mit der eisernen Hand. / von / Carl Lang. / mit Kupfern von Küffner, d'Argens, u. a. / Frankfurt am Main, / in Commißion der Fleischerischen Buchhandlung",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "k26f7fvi7bppcta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der gesammte freye Reichs-Adel verehrt Euer Hochfreyherrlichen Excellenzien und Gnaden Gnaden / als Stüzen seiner Verfassung,",
+      "language": [],
+      "musenalm_id": 21682,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den / Reichsfrey / Hochwohlgebohrnen / Freyherrn und Herrn / Ihro / Römisch Kaiserlichen Majestät / Wirklichen Räthen / und / des heiligen römischen Reichs unmittelbarer / freyen Ritterschaft / in / Schwaben, Franken und am / Rheinstrom [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den / Reichsfrey / Hochwohlgebohrnen / Freyherrn und Herrn / Ihro / Römisch Kaiserlichen Majestät / Wirklichen Räthen / und / des heiligen römischen Reichs unmittelbarer / freyen Ritterschaft / in / Schwaben, Franken und am / Rheinstrom [...]",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.094Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "tuuclx8pvx6bnfb"
+        }
+      ],
+      "source_id": "n5j6jzsse3q9cyh"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit Erläuterungen zu den Graphiken s. Graphiken INr 21680, 21686-21697; Obj 1, 7-18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn ich dieser ersten Abtheilung meines Göz von Berlichingen eine eben so nachsichtsvolle Aufnahme verspreche,",
+      "language": [],
+      "musenalm_id": 21683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meinen gütigen Lesern, / recht viel Gutes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meinen gütigen Lesern, / recht viel Gutes",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.094Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "npdb8bvxg8pmhoi"
+        }
+      ],
+      "source_id": "qs0sm4p9cfw4clo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Goezens eiserne Hand.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lang del. B. sc.",
+      "scans": [
+        "alm_292_21684_a4rb9op7ut.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Goezens eiserne Hand.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.094Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "g3bl29q90ctq2ba"
+        }
+      ],
+      "source_id": "geupi2mk2zg34ua"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21685,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "vqy2dht0vu5yjar"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel der Sammlung von 12 Graphiken im Kalendarium an der ersten Graphik (Sammlung von 12 Graphiken INr 21686-21697, Obj 7-18) /) Leben Götzens von Berlichingen paginiert 1.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21686,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leben Götzens von Berlichingen # / Göz von Berlichingen wagt, auf eignes / öfter wiederholtes Verlangen seinen / ersten Ausflug aus dem väterlichen / Hause",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner del. et sc.",
+      "scans": [
+        "alm_292_21686_ow819aqnqd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leben Götzens von Berlichingen # / Göz von Berlichingen wagt, auf eignes / öfter wiederholtes Verlangen seinen / ersten Ausflug aus dem väterlichen / Hause",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.025Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.025Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "fm44gtqgtkifeqo"
+        }
+      ],
+      "source_id": "y71mc6bwmhav091"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 2.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21687,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz bringt in einem Alter von 15 / Jahren die Leiche seines in Lin- / dau verstorbenen Vetters sicher / nach Schönthal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21687_6pvvi5pwyd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz bringt in einem Alter von 15 / Jahren die Leiche seines in Lin- / dau verstorbenen Vetters sicher / nach Schönthal",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.025Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.025Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "gyf670su1z8gh2m"
+        }
+      ],
+      "source_id": "qkzj7hygr6yphsl"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 3.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21688,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz im ersten Handgemenge / als Knabe am Hof Marggraf / Friedrichs VI. zu Anspach",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21688_haogrpeah2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz im ersten Handgemenge / als Knabe am Hof Marggraf / Friedrichs VI. zu Anspach",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.910Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.910Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "cn7oh4yjnvxsctw"
+        }
+      ],
+      "source_id": "9zbaae9w3okpjaw"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 4.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.761Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz rächt sich an dem polnischen Junker / auf dem Markt zu Anspach",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21689_1vh2wzurkk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz rächt sich an dem polnischen Junker / auf dem Markt zu Anspach",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.910Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.910Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "0e4ix4z6enlhxqs"
+        }
+      ],
+      "source_id": "cz7prs3ef56s3n5"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 5.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21690,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz wagt sein Leben für einen Freund / und wird am Kopf hart verwundet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21690_tr1chpl5ow.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz wagt sein Leben für einen Freund / und wird am Kopf hart verwundet",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.910Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.910Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "fcvpozv2gpj8l05"
+        }
+      ],
+      "source_id": "6rtpyrind9mzynk"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 6.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21691,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz rettet bei seinem ersten Feldzug / in Burgund sein Leben kaum aus einem / brennenden Hause",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21691_2dgrudaayx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz rettet bei seinem ersten Feldzug / in Burgund sein Leben kaum aus einem / brennenden Hause",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.772Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.772Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "k5890ymope7ygvu"
+        }
+      ],
+      "source_id": "2nsr94gxxgccwj2"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 7.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21692,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz bei Stürmung einer Warte mit unter / den ersten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21692_qa3lkq5iy4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz bei Stürmung einer Warte mit unter / den ersten",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.772Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.772Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "54y3jqebbyh3j97"
+        }
+      ],
+      "source_id": "xoc1fxekg0hhuy4"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 8.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21693,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Max :/ Göz, du hast einen langen / Spies, und ein großen Fahnen dran; reit / mit dorthin zu jenen Hauffen, bis der / Reichsadler von Costanz herauskömmt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21693_9b4qayc4hi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Max :/ Göz, du hast einen langen / Spies, und ein großen Fahnen dran; reit / mit dorthin zu jenen Hauffen, bis der / Reichsadler von Costanz herauskömmt",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.853Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "swim2twlf17ys0v"
+        }
+      ],
+      "source_id": "azxx2bpw51hdrwg"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 9.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21694,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ist er ein gut Gesell, für den du Werbung / thust so mag er zu uns kommen, und uns / selbst ansprechen, wollen ihm gute Antwort / geben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21694_32yu2z33mg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ist er ein gut Gesell, für den du Werbung / thust so mag er zu uns kommen, und uns / selbst ansprechen, wollen ihm gute Antwort / geben",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.853Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "qar78lthis3r8z0"
+        }
+      ],
+      "source_id": "dh4vdhziks7yewa"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 10.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21695,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helden Ehre",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21695_3mwksxxvuy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helden Ehre",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.853Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "e6my21jwf4azbfz"
+        }
+      ],
+      "source_id": "l22eoe07nn4g1xx"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 11.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21696,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göz verliert vor Landshut die / rechte Hand",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21696_t0sj6tge3v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göz verliert vor Landshut die / rechte Hand",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.853Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "jddkg47m466xltq"
+        }
+      ],
+      "source_id": "js7wp7o4r0etgmu"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 12.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21697,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helden Trost",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner",
+      "scans": [
+        "alm_292_21697_oyx4uv3tv7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helden Trost",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.853Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "yaszmtvdgdninnp"
+        }
+      ],
+      "source_id": "v398s2je8pjk53t"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Fortsetzung in: Almanach, Historischer für den deutschen Adel 1794 INr 21741",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn ein Mann, dessen frühe Jugend sich durch Reihen drohender, aber muthig bestandener Gefahren auszeichnet;",
+      "language": [],
+      "musenalm_id": 21698,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Göz von Berlichingen / mit der eisernen Hand. / Erste Abtheilung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Göz von Berlichingen / mit der eisernen Hand. / Erste Abtheilung",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.961Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.961Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "ujtyzw147tg2qrw"
+        }
+      ],
+      "source_id": "o5i6u8m6cmrv7q4"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 8 Beiträgen INr 21700-21707, Obj 21-28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21699,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Auszüge / aus dem Erinnerungs-Buche / welches / die Freyfrau Antoinette Therese von / Berlichingen, gebohrne Gräfin von / Haddik, zu Neuenstätten, / für diejenigen eröffnet hat, denen Sie selbst Gözens / eiserne Hand zeigt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige Auszüge / aus dem Erinnerungs-Buche / welches / die Freyfrau Antoinette Therese von / Berlichingen, gebohrne Gräfin von / Haddik, zu Neuenstätten, / für diejenigen eröffnet hat, denen Sie selbst Gözens / eiserne Hand zeigt",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "t4oxu0ouzgbvow4"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Carnea tangenti quæ gaudia Dextra dedisset, / Ferrea cum nunc det gaudia tanta mihi!",
+      "language": [],
+      "musenalm_id": 21700,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michael Denis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.961Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.961Z",
+          "agent": "fon9iiilzs9ke5a",
+          "source_id": "bd6jx983wpdi0me"
+        }
+      ],
+      "source_id": "dj13ho8q09lm3z8"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Gözens eiserne Hand! gefühlloses Rüstzeug aus jener biederen Zeit des Faustrechts!",
+      "language": [],
+      "musenalm_id": 21701,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lorenz Leopold Haschka",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.961Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.961Z",
+          "agent": "j63e4oki0d4f74a",
+          "source_id": "oubueo58ieh1xpb"
+        }
+      ],
+      "source_id": "ssjxl285i3131x1"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Pilger! Thor! was wallest du, jene Wunder- / hand zu küssen, / Die ein falscher Mönch dir reicht,",
+      "language": [],
+      "musenalm_id": 21702,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ch... / katholischer Pfarrer zu ...",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "tq7lkxddmi2h1f6"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Pro patria toto versabat pectore pugnam / Gœzius, abscissamque manum reparaverat arte,",
+      "language": [],
+      "musenalm_id": 21703,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. v. Birkenstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhn5qsvdn9014wq"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten,  für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.298Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Ruhe, eiserne Hand! Es ruh', / Jede eiserne Hand, wie du!",
+      "language": [],
+      "musenalm_id": 21704,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. J. v. Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.968Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "6amtenyf4lk0kfp"
+        }
+      ],
+      "source_id": "2pclpn8fd3edp0v"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.298Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Bewundernd sah ich sie, die Hand von Eisen, / Ein Denkmal wahrer Tapferkeit,",
+      "language": [],
+      "musenalm_id": 21705,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie Kristiane Luise, Prinzessin von Hohenlohe-Ingelfingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "29o8x3ekw6lc8u3"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.298Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Aus eben dem Metall, woraus in roher Zeit / Man Hände schuf, für Freyheits-Sinn zu / kämpfen",
+      "language": [],
+      "musenalm_id": 21706,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Brockmann, / Director des K. K. Hof-Theaters",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "knss5kxww6toy80"
+    },
+    {
+      "annotation": "Einige Auszüge aus dem Erinnerungs-Buche welches die Freyfrau Antoinette Therese von Berlichingen, gebohrne Gräfin von Haddik, zu Neuenstätten, für diejenigen eröffnet hat, denen Sie selbst Gözens eiserne Hand zeigt (Sammlung INr 21699, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Wie hier die Herrn der Mannheit unsrer Alten / Die Parentation auf jedem Blatt gehalten,",
+      "language": [],
+      "musenalm_id": 21707,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Jünger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII.",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.968Z",
+          "agent": "wbllku5shw1eqif",
+          "source_id": "fdaqa91n17ygk21"
+        }
+      ],
+      "source_id": "v8cbr2955vm4v87"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Fliehe, Schattenbild! Ich bebe; / Kalt umweht mich Gräberduft!",
+      "language": [],
+      "musenalm_id": 21708,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Kreuzgang / des Closters Schönthal, / am Grabe / des edlen Ritters Göz von Berlichingen. / 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Kreuzgang / des Closters Schönthal, / am Grabe / des edlen Ritters Göz von Berlichingen. / 1792",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.968Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "b5l7rv55v6dcwkr"
+        }
+      ],
+      "source_id": "261udgz456tyc3m"
+    },
+    {
+      "annotation": "Stammtafel SS 82-92 recto bedruckt mit Anmerkungen INr 21710, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21709,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stammtafeln / der / Freyherrn von Helmstatt / aus / Archival-Urkunden gezogen / 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stammtafeln / der / Freyherrn von Helmstatt / aus / Archival-Urkunden gezogen / 1792",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "fno2oojedlthkyw"
+    },
+    {
+      "annotation": "s. Stammtafel INr 21709, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Die Familie des Freyherrn von Helmstatt ist eine der ältesten im Canton Craichgau",
+      "language": [],
+      "musenalm_id": 21710,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bemerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bemerkungen",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "7oxd07z1mvrwwi0"
+    },
+    {
+      "annotation": "Stammtafel SS 99-109 recto bedruckt mit Anmerkungen INr 21712, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21711,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stammtafeln / der Freyherrn / Göler von Ravenspurg / aus / Archival-Urkunden gezogen / 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stammtafeln / der Freyherrn / Göler von Ravenspurg / aus / Archival-Urkunden gezogen / 1792",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "knzmfknphtyxm3h"
+    },
+    {
+      "annotation": "s. Stammtafel INr 21711, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Die Familie des Freyherrn Göler von Ravensspurg ist gewis eine der ältesten im Canton Craichgau;",
+      "language": [],
+      "musenalm_id": 21712,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bemerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bemerkungen",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "7qfnjl0wve1pz4u"
+    },
+    {
+      "annotation": "Sammlung von 3 Tabellen INr 21714-21716, Obj 35-37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21713,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der in den Hochlöbl. Ritter-Cantonen / der drey Kreise, Schwaben, Fran- / ken und am Rheinstrom erbetenen / Direktoren, Ritter-Räthen, und / Ausschüssen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der in den Hochlöbl. Ritter-Cantonen / der drey Kreise, Schwaben, Fran- / ken und am Rheinstrom erbetenen / Direktoren, Ritter-Räthen, und / Ausschüssen",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ng03vl5dusg673t"
+    },
+    {
+      "annotation": "Verzeichniß der in den Hochlöbl. Ritter-Cantonen der drey Kreise, Schwaben, Franken, und am Rheinstrom erbetenen Direktoren, Ritter-Räthen, und Ausschüssen (Sammlung INr 21713, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21714,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Schwaben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Schwaben",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "6imp4kzjxpe1tvs"
+    },
+    {
+      "annotation": "Verzeichniß der in den Hochlöbl. Ritter-Cantonen der drey Kreise, Schwaben, Franken, und am Rheinstrom erbetenen Direktoren, Ritter-Räthen, und Ausschüssen (Sammlung INr 21713, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21715,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Franken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Franken",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "z1wyqfpgrfpyrq1"
+    },
+    {
+      "annotation": "Verzeichniß der in den Hochlöbl. Ritter-Cantonen der drey Kreise, Schwaben, Franken, und am Rheinstrom erbetenen Direktoren, Ritter-Räthen, und Ausschüssen (Sammlung INr 21713, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21716,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Rheinstrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Rheinstrom",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "hllymdrjbhqwq00"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21717,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der Kanzley-Officianten bey den löbl. / Ritter-Cantonen der drey Kreise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der Kanzley-Officianten bey den löbl. / Ritter-Cantonen der drey Kreise",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "05a0afwrgzi09v0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21718,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alphabetisches Verzeichniß / aller / Hochansehnlichen Herren Mitglieder / des / löbl. Schwäbischen Ritter-Cantons / im Creichgau, / aufgesezt / im Monat August 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alphabetisches Verzeichniß / aller / Hochansehnlichen Herren Mitglieder / des / löbl. Schwäbischen Ritter-Cantons / im Creichgau, / aufgesezt / im Monat August 1792",
+      "updated": "2002-02-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "fxjnqcmuyuh9hkt"
+    }
   ],
   "agents": [
     {

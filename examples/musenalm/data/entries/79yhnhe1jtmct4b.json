@@ -48,113 +48,4583 @@
   "year": 1802,
   "editor": "",
   "items": [
-    "hxbfftwp63g0yfs"
+    {
+      "annotation": "Ausleihe Gleim-Haus\nUmschlaggraphik",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.457Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "105897",
+      "location": "105E01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.457Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hxbfftwp63g0yfs"
+    }
   ],
   "contents": [
-    "yyext5gr8o4rjxs",
-    "5ennddmumwu179i",
-    "otahz19jr2xgbmb",
-    "7k7ne48iiws1bbv",
-    "chieuqt8s7w9x38",
-    "ic7f5vic4irpsmk",
-    "wxojtfzuky6pa7o",
-    "pgjhwitbfjp8fab",
-    "xd4ufd9jo1h4b0a",
-    "higfghitzaar6vy",
-    "mdl2f351smdmk04",
-    "twii8pdz0tu94xl",
-    "urgku3pon2fjjx7",
-    "4atk23eoe6anggr",
-    "l5gmhfrzlvltnxo",
-    "zxmmf39ln6ezzkq",
-    "sn0gntny2e57mh5",
-    "m10t03rgei77hkp",
-    "ipzojccdo7n65lj",
-    "jki5wuqbbdn4cle",
-    "gqrgo9nemiy2hjj",
-    "dzsw2z4ku2wybui",
-    "wi751qtrpy50whf",
-    "1q63wd35hva0mc7",
-    "7vstrz4ibl7j6gd",
-    "gp6b52sda5wzhl2",
-    "ypz52ub38256lxb",
-    "rt4wjrtsnb52wu6",
-    "37es24jav8niqim",
-    "wy2jclp0yy65ctp",
-    "i6a1xd37h9t7xlp",
-    "sl19eomc9m19wgu",
-    "q0kwaqhy28i20xf",
-    "uiwqbbxgfnty230",
-    "h0qbm6ka29eh951",
-    "uojoj5z84ihvw1u",
-    "nuuj726sj7jre00",
-    "zobn0anzholo76a",
-    "0ourfg926l8he5p",
-    "51unryiyd2ztl1g",
-    "qsfghzci6lxfmhf",
-    "885i36hv3j1e6bc",
-    "s2k34448qp8aolw",
-    "3ln1hrx7sz9mb32",
-    "a55php515ry24m4",
-    "khtwmxzukjdiohm",
-    "klovldx94xqnya0",
-    "bcqwxqwimdb65w5",
-    "jmti0tej4g2qwjs",
-    "5lb5f8sqa76gi14",
-    "6vr41mvf9aw0o7b",
-    "kd446gw2xwj4l6q",
-    "kh91d54qgaffp5m",
-    "fdnz332ffngx5dp",
-    "deu6l8ax0357cbb",
-    "t3yyb4khjr094r5",
-    "svv6zpd9byc2ggz",
-    "nl15xqrhsr9tqxo",
-    "46mm7mkeldj48uz",
-    "0uzntz1kzijpzkw",
-    "x6sd4mqids5okqw",
-    "xpxhljireoda04f",
-    "2yix2g54tg5isie",
-    "c46a27xmj36qkpj",
-    "c1cdgsgjx9hqy92",
-    "23nd1uyrk6ejvgi",
-    "2dxwod035wakrhq",
-    "lllom2r2a1y4j5i",
-    "udbuyabqva03bnm",
-    "94uu8lrzorf971n",
-    "jgrt1f2dir6z86j",
-    "lvzyct8rduqsw7y",
-    "iwp08xzs32yz64s",
-    "248cwtyh4l9puf5",
-    "ytdf2fr7gm5s50i",
-    "0g8ix0345m6oebx",
-    "d3t2y6qg8i8ewvu",
-    "lx7q5il7aakd9ik",
-    "06o1oc1yvfslzzi",
-    "vy2yjc1mnof7l2q",
-    "57vljm7a6ukx4rb",
-    "yjb6ohwblaknz9v",
-    "2uc0u1f49wxqm5t",
-    "8wwooqwygbyquer",
-    "vnuizjn0fcdmgpb",
-    "1ztz3yrltik1jgh",
-    "9zfz1q6ri6fkyu0",
-    "6sog6o6i1o96hv7",
-    "hk2p9lvilv2gt1o",
-    "5ebxqaj5dlrsxuv",
-    "eijs7e97itygb78",
-    "da4k55cp5s3z474",
-    "hvruixqpb60z521",
-    "ijatjneyo9pzpvr",
-    "cue9zd675te6e4t",
-    "nw6bztoql7qjzvi",
-    "zde5x759p4yvvu5",
-    "t6vepd4o25v7ug6",
-    "ci1mut85o1uk8cb",
-    "6rv5za5v7m2kimz",
-    "s4lvipqkf4kmwqw",
-    "s0o8pl8vn4m3d1c",
-    "gcsv4p4zaxkkesl",
-    "tnb1mir07omswvv"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18202,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_99_18202_ozztgvts70.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "yyext5gr8o4rjxs"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7732,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johann Heinrich Voß / Geboren am 20. Febr, 1751",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gröger del. 1801",
+      "scans": [
+        "alm_99_7732_6p6ut4if28.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johann Heinrich Voß / Geboren am 20. Febr, 1751",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.278Z",
+          "agent": "sqosy7xlx2dl57w",
+          "source_id": "aqxwvl10il3msm6"
+        }
+      ],
+      "source_id": "5ennddmumwu179i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18103,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musen-Almanach / für das Jahr 1802 / Göttingen. / Bei Heinrich Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_99_18103_qprz3c1sk8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Musen-Almanach / für das Jahr 1802 / Göttingen. / Bei Heinrich Dieterich",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "otahz19jr2xgbmb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18104,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "7k7ne48iiws1bbv"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische / Blumenlese / für das Jahr 1802. / Göttingen. / Bei Heinrich Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poetische / Blumenlese / für das Jahr 1802. / Göttingen. / Bei Heinrich Dieterich",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "chieuqt8s7w9x38"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Wenn zum menschlichen Haupte den Hals / des Rosses ein Mahler / Fügen wollt',",
+      "language": [],
+      "musenalm_id": 18106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Quintus Horatius Flaccus / Epistel an die Pisonen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Quintus Horatius Flaccus / Epistel an die Pisonen",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.965Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.965Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "g084f13lhgsnbjo"
+        }
+      ],
+      "source_id": "ic7f5vic4irpsmk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Aglaja liebte mich. Ach, wie war mir / so wohl! / Was der Mensch seyn soll, / War ich damahls!",
+      "language": [],
+      "musenalm_id": 18107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rechtfertigung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rechtfertigung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.887Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "gktgok00iprgey4"
+        }
+      ],
+      "source_id": "wxojtfzuky6pa7o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Es ritt ein Ritter mit seinem Knappen / Früh Morgens im blinkenden Thaue.",
+      "language": [],
+      "musenalm_id": 18108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Markgrafens Töchterlein. / Ein altes Volkslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Markgrafens Töchterlein. / Ein altes Volkslied",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.887Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "25miwbtczr66fpg"
+        }
+      ],
+      "source_id": "pgjhwitbfjp8fab"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "O der guten alten Zeit! / Liebe war Beständigkeit.",
+      "language": [],
+      "musenalm_id": 18109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klage",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.887Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "v8440c7lc2jvdk9"
+        }
+      ],
+      "source_id": "xd4ufd9jo1h4b0a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Der Leib will alle Tage / gepfleget seyn.",
+      "language": [],
+      "musenalm_id": 18110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die große Kunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Overbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die große Kunst",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "qh3g3sytdf754hd",
+          "source_id": "ys574ay6yfns9ob"
+        }
+      ],
+      "source_id": "higfghitzaar6vy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Entsagen muß ich, Adonide, / Dem nah' geträumten schönsten Glück!",
+      "language": [],
+      "musenalm_id": 18111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Täuschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Täuschung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "rv58f2tauazwvw2"
+        }
+      ],
+      "source_id": "mdl2f351smdmk04"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Da kommt ja der liebliche Mai / Auf Blüthen und Blumen herbei!",
+      "language": [],
+      "musenalm_id": 18112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mailied. / Melodie: Uns winket Vergnügen / und Wein, u. w.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim, der jüngere",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mailied. / Melodie: Uns winket Vergnügen / und Wein, u. w.",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "4n16g9uzg4js9fs"
+        }
+      ],
+      "source_id": "twii8pdz0tu94xl"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Lebensfreude« von Voß INr 18114, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.569Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebensfreude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. P. Schulz",
+      "scans": [
+        "alm_99_18113_p3oqytqwf9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lebensfreude",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "oqecb466dne8cni",
+          "source_id": "ugss5xms86ip839"
+        }
+      ],
+      "source_id": "urgku3pon2fjjx7"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 18113, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Das Leben schalt ein blöder Mann / Als Schaum im Bach, als Wasserblase.",
+      "language": [],
+      "musenalm_id": 18114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebensfreude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebensfreude",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "ahlmcqkvt74b4zb"
+        }
+      ],
+      "source_id": "4atk23eoe6anggr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Zeitiglich blühet im Lenze der goldene Krokus, / es blühen / Andere Blümchen hervor,",
+      "language": [],
+      "musenalm_id": 18115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freundlicher Anfang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Starke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freundlicher Anfang",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "lw3uqo50dp1mpif",
+          "source_id": "g09cr5xveedjdf6"
+        }
+      ],
+      "source_id": "l5gmhfrzlvltnxo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Der Junker Hort von Tiefenteich / War aller Junker Perle,",
+      "language": [],
+      "musenalm_id": 18116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hort und Rika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Nicolay",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hort und Rika",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.888Z",
+          "agent": "km5yxdev9efbrvi",
+          "source_id": "x6k2l25k4h4alwv"
+        }
+      ],
+      "source_id": "zxmmf39ln6ezzkq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Die du am blumigen Helikon singst, o Kal- / liope, höre!",
+      "language": [],
+      "musenalm_id": 18117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Kalliope. / Nach Dionysos",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Kalliope. / Nach Dionysos",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.904Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "4xm0jqynnkeael0"
+        }
+      ],
+      "source_id": "sn0gntny2e57mh5"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 18119, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Im Vaterhaus ist froh mein Sinn, / Und mein Gesang nicht stumm;",
+      "language": [],
+      "musenalm_id": 18118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vierzehnjährige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vierzehnjährige",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.904Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "qt1rvyppjbriusw"
+        }
+      ],
+      "source_id": "m10t03rgei77hkp"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die Vierzehnjährige« von Voß INr 18118, Obj 17; nach dem Reprint Hildesheim, New York (Olms) 1979 autopsiert",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vierzehnjährige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. P. Schulz",
+      "scans": [
+        "alm_99_18119_m24u9b0ukt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Vierzehnjährige",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.904Z",
+          "agent": "oqecb466dne8cni",
+          "source_id": "a477u8ffith2gcb"
+        }
+      ],
+      "source_id": "ipzojccdo7n65lj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Was ist der Geist der Zeit. / Den großen / Geist der Alten / Für einen kleinen nur, und keinen schönen / halten",
+      "language": [],
+      "musenalm_id": 18120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geist der Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Geist der Zeit",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.904Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "lellfdimukv8qmy"
+        }
+      ],
+      "source_id": "jki5wuqbbdn4cle"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Nicht werth ist, zu athmen, wem Mißmuth / und Klage / Vergällen die Freuden der irdischen Zeit.",
+      "language": [],
+      "musenalm_id": 18121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stärkodder's Sterbelied. / Nach Pram",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Lappe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stärkodder's Sterbelied. / Nach Pram",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.904Z",
+          "agent": "h8h7559ermyma3h",
+          "source_id": "v9eocliixej621x"
+        }
+      ],
+      "source_id": "gqrgo9nemiy2hjj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.863Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Verdammtes Schicksal! rief in der Ver- / zweiflung Wuth / Ein Armer. Nicht einmahl beschuht!",
+      "language": [],
+      "musenalm_id": 18122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.667Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.667Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "o9bguio18fpqzt0"
+        }
+      ],
+      "source_id": "dzsw2z4ku2wybui"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.863Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Fortuna, deines Antium's Königinn! / Allmächtig, arme Sterbliche tief aus Staub / Empor zu heben,",
+      "language": [],
+      "musenalm_id": 18123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Antische Fortuna. / Nach Horaz'ens 35. Ode des I. Buchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Antische Fortuna. / Nach Horaz'ens 35. Ode des I. Buchs",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.668Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.668Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "k6wzz9kdjbmhvsl"
+        }
+      ],
+      "source_id": "wi751qtrpy50whf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Lutz ist ein junger Mensch, und dünkt sich / alt!",
+      "language": [],
+      "musenalm_id": 18124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der junge Weise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der junge Weise",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.548Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "0ekvz6xwhllbi4o"
+        }
+      ],
+      "source_id": "1q63wd35hva0mc7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Agathon stand an seinem verhagelten einzigen / Morgen, / Thränen entsanken ihm viel,",
+      "language": [],
+      "musenalm_id": 18125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mitfreude und Mitleiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Starke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mitfreude und Mitleiden",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.854Z",
+          "agent": "lw3uqo50dp1mpif",
+          "source_id": "4809aawkbfyhh6s"
+        }
+      ],
+      "source_id": "7vstrz4ibl7j6gd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Sahst du, G..., den Blick, der mir unwillig / vom Auge / Flammt', und in öde Nacht warf den ver- / stummenden Geist?",
+      "language": [],
+      "musenalm_id": 18126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erscheinung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Overbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erscheinung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.854Z",
+          "agent": "qh3g3sytdf754hd",
+          "source_id": "u3clftpd760i145"
+        }
+      ],
+      "source_id": "gp6b52sda5wzhl2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Zeige mir festen Punct, und, traun! ich / bewege die Erde!",
+      "language": [],
+      "musenalm_id": 18127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Archimedes und Kant",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Archimedes und Kant",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.854Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "g6i5ziv3cgwqmyy"
+        }
+      ],
+      "source_id": "ypz52ub38256lxb"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Diese Ballade ist, mit mehreren, auf ähnliche Art hergestellten Arbeiten meines Freundes Hölty, für die neue rechtmäßige Ausgabe seiner Gedichte bestimmt.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Zween fromme Wunderthäter, / Von Ost bis West bekannt, / Durchwanderten, mit Ablaß / Bepackt, das Schwabenland;",
+      "language": [],
+      "musenalm_id": 18128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Töffel und Käthe. / Ballade #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hölty und Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Töffel und Käthe. / Ballade #",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "lbewttrla1u9vyn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "zddol7mg2ooigi9",
+          "source_id": "xdgimodp8zkfshe"
+        }
+      ],
+      "source_id": "rt4wjrtsnb52wu6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Gedankenvoll, wie unter Colisäen / der Forscher weilt im trümmerreichen Rom,",
+      "language": [],
+      "musenalm_id": 18129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stanzen. / Gelesen bei der jährlichen Ver- / sammlung der vereinten Olden- / burgischen und Bremischen Lite- / ratur-Gesellschaften zu Falken- / burg, den 17. Junius, 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stanzen. / Gelesen bei der jährlichen Ver- / sammlung der vereinten Olden- / burgischen und Bremischen Lite- / ratur-Gesellschaften zu Falken- / burg, den 17. Junius, 1799",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "tge5y0ngt6x0k0x"
+        }
+      ],
+      "source_id": "37es24jav8niqim"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Hast du ein Haus von Glas, dann, lieber / Vetter Klaus,",
+      "language": [],
+      "musenalm_id": 18130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Vetter Klaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Vetter Klaus",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "yt8jzjg12xgm6se"
+        }
+      ],
+      "source_id": "wy2jclp0yy65ctp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Jetzt blühen deine Wangen? / Bei Trennung und Verlangen?",
+      "language": [],
+      "musenalm_id": 18131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Adelheim. / Aus einem ungedruckten Romane",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philippine Engelhard, geb. Gatterer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Adelheim. / Aus einem ungedruckten Romane",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "e50fn3dat2tsaev",
+          "source_id": "yvyhkt5b1w9t0b9"
+        }
+      ],
+      "source_id": "i6a1xd37h9t7xlp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Ich bin erschöpft; ich kann nicht widerstehen. / Ist es vergebens, daß ich männlich rang?",
+      "language": [],
+      "musenalm_id": 18132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Diotima",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rühs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Diotima",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "yqyt0clgunr5jfi"
+        }
+      ],
+      "source_id": "sl19eomc9m19wgu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Auf dem Parnasse sind Faunen, / Blumen zu pflücken auf ihm, / Ist zu gefahrvoll;",
+      "language": [],
+      "musenalm_id": 18133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Voß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Voß",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "f3aerzdo28ltmc2"
+        }
+      ],
+      "source_id": "q0kwaqhy28i20xf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Fest auf Tugend vertraun, gibt Heiterkeit. / Auf! wie der Herbsttag / Klar aus Nebelgedüft sich hervor ringt,",
+      "language": [],
+      "musenalm_id": 18134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Friedrich Heinrich Jacobi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Friedrich Heinrich Jacobi",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "8rig5d8osoznmwu"
+        }
+      ],
+      "source_id": "uiwqbbxgfnty230"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "O, wie soll ich Kunde zu ihr bringen, / Kunde dieser ruhelosen Pein,",
+      "language": [],
+      "musenalm_id": 18135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Entfernten. / 1. Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Entfernten. / 1. Sonett",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "d6w8g5ubtkbj5tp"
+        }
+      ],
+      "source_id": "h0qbm6ka29eh951"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Du, mein Heil, mein Leben, meine Seele! / Süßes Wesen, von des Himmels Macht",
+      "language": [],
+      "musenalm_id": 18136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Entfernten. / 2. Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Entfernten. / 2. Sonett",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "pym7mrovgj70cdl"
+        }
+      ],
+      "source_id": "uojoj5z84ihvw1u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Schlaflose Nächte sind Erzeuger der Ge- / danken, / Die sich mit Gott und Göttern zanken.",
+      "language": [],
+      "musenalm_id": 18137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Menschenschlacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Menschenschlacht",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "gl9aykbsl6k8nig"
+        }
+      ],
+      "source_id": "nuuj726sj7jre00"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Vor Zeugen sicher, sündigt sie; / Und sündigt ohne Zeugen nie.",
+      "language": [],
+      "musenalm_id": 18138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lais. / Nach Owen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Curtius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lais. / Nach Owen",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "zobn0anzholo76a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Wiss', o Albion's süß saures Gemisch, verhaßt / Bist du mir, und verhaßt bleibest du ewig mir,",
+      "language": [],
+      "musenalm_id": 18139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Punsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Punsch",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "xj3ftabkb4s9g3c"
+        }
+      ],
+      "source_id": "0ourfg926l8he5p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Fort mit eurem kalten Wein! / Warmer Punsch ist zehn Mahl besser.",
+      "language": [],
+      "musenalm_id": 18203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob des Punsches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim der Jüngere",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob des Punsches",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "rjygtjsk2ofn313"
+        }
+      ],
+      "source_id": "51unryiyd2ztl1g"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Brunk. Anthol. II. p. 428. Jacobs II. p. 135",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.579Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Trieglicher Schifffahrt gleicht das Leben. Von / Stürmen geschlagen, / Dulden wir Scheiternden oft kläglichen / Jammer und Noth.",
+      "language": [],
+      "musenalm_id": 18140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Leben. / Nach Pallas #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Leben. / Nach Pallas #",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.889Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "1nka94dopynzt9b"
+        }
+      ],
+      "source_id": "qsfghzci6lxfmhf"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die Versuchung« von Voß INr 18142, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.579Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Versuchung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. P. Schulz",
+      "scans": [
+        "alm_99_18141_twccjve6sm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Versuchung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "oqecb466dne8cni",
+          "source_id": "xpkscjbrgbbw4vh"
+        }
+      ],
+      "source_id": "885i36hv3j1e6bc"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 18141, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Ihr schwärmt zum Lichte, wie toll, hinaus! / Dort schnappt euch der leidige Satan!",
+      "language": [],
+      "musenalm_id": 18142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Versuchung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Versuchung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "55oexg1cpyvkoc9"
+        }
+      ],
+      "source_id": "s2k34448qp8aolw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Wär' ich der Künstler von Athen, / Und wüßte sinnreich zu erfinden,",
+      "language": [],
+      "musenalm_id": 18143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lina, mein Alles",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Münchhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lina, mein Alles",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "wfk4mi4tbts3zzx",
+          "source_id": "8bnveds9a4h3ia6"
+        }
+      ],
+      "source_id": "3ln1hrx7sz9mb32"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "So lohnt die Welt! Im ersten Blüthen- / kranze, / Den Frühlings-Sonnenschein um unsre / Schläfe webt,",
+      "language": [],
+      "musenalm_id": 18144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So lohnt die Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "So lohnt die Welt",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "klyat1tnjd3spcv"
+        }
+      ],
+      "source_id": "a55php515ry24m4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "In Zweifel, ob ein Mädchen, ob ein Knabe / Zu machen sey? stand die Natur",
+      "language": [],
+      "musenalm_id": 18145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Adramant. / Nach dem Ausonius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Adramant. / Nach dem Ausonius",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "j51jzhzorrogjs3"
+        }
+      ],
+      "source_id": "khtwmxzukjdiohm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Das Mondlicht schläft am Hügel; / Glatt steht des Baches Spiegel;",
+      "language": [],
+      "musenalm_id": 18146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbstabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rechlin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbstabend",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "klovldx94xqnya0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Menschlicher war kein Sohn des Mars, als / Hotze der Feldherr.",
+      "language": [],
+      "musenalm_id": 18147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift auf Hotze, den Arzt. / Gestorben zu Frankfurt am / Main den 4. Julius, 1801",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift auf Hotze, den Arzt. / Gestorben zu Frankfurt am / Main den 4. Julius, 1801",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "4yw8czqd8oyjb2b"
+        }
+      ],
+      "source_id": "bcqwxqwimdb65w5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Bald ist dein Glas verlaufen, / Unstätes Säculum!",
+      "language": [],
+      "musenalm_id": 18148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied vom achtzehnten Jahr- / hundert. / Den 31. December, 1800, kurz / vor Mitternacht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Maßlieben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied vom achtzehnten Jahr- / hundert. / Den 31. December, 1800, kurz / vor Mitternacht",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "gr8r0rzwmx4buv2"
+        }
+      ],
+      "source_id": "jmti0tej4g2qwjs"
+    },
+    {
+      "annotation": "# s. Re 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Wohl, Dichter, klingt es wunderbar, Daß Argus hundertäugig war",
+      "language": [],
+      "musenalm_id": 18149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Argus und Suschen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hg.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Argus und Suschen",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "pu6mh3fn7ea3smb"
+        }
+      ],
+      "source_id": "5lb5f8sqa76gi14"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "O Wunderbotschaft! Hast du je, Altvater / Gleim, / Ähnliche Wunder erlebt?",
+      "language": [],
+      "musenalm_id": 18150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Gleim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Gleim",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "5ezs0fcmndq4z35"
+        }
+      ],
+      "source_id": "6vr41mvf9aw0o7b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Halt! Um des Mißbrauchs willen verwirf / nicht das Wahre, das Gute:",
+      "language": [],
+      "musenalm_id": 18151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mißbrauch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Starke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mißbrauch",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "lw3uqo50dp1mpif",
+          "source_id": "gmitfyocxw4bxwb"
+        }
+      ],
+      "source_id": "kd446gw2xwj4l6q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Von der Phantasie empor getragen, / Sieht der Jüngling in den Frühlingstagen",
+      "language": [],
+      "musenalm_id": 18152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bund der Freundschaft. / Eine Jugend-Reliquie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rühs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bund der Freundschaft. / Eine Jugend-Reliquie",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "vj7d8d768y8tfwr"
+        }
+      ],
+      "source_id": "kh91d54qgaffp5m"
+    },
+    {
+      "annotation": "# s. Re 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Wenn Kakus Lob verdient und Lohn, / Verdient Ischariot Canonisation.",
+      "language": [],
+      "musenalm_id": 18153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Über Kakus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hg.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Über Kakus",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "7mqu4fhhd6l0mix"
+        }
+      ],
+      "source_id": "fdnz332ffngx5dp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Lächelnd schwebt' aus Edens Gefilden ein / Engel hernieder;",
+      "language": [],
+      "musenalm_id": 18154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Blume auf meines Ertsge- / borenen Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Blume auf meines Ertsge- / borenen Grab",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "s4sfnqux2dg78i2"
+        }
+      ],
+      "source_id": "deu6l8ax0357cbb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Erschalle, heiliger Gesang! / Erschall', o Bundeslied!",
+      "language": [],
+      "musenalm_id": 18155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bundeslied für Bürger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Overbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bundeslied für Bürger",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "qh3g3sytdf754hd",
+          "source_id": "4g5v114qp8wzj2n"
+        }
+      ],
+      "source_id": "t3yyb4khjr094r5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Spinn', o graue Kassandra, o, spinne mir / heitere Tage",
+      "language": [],
+      "musenalm_id": 18156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine Spinne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine Spinne",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.890Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "v8fcnaar2ak1zwa"
+        }
+      ],
+      "source_id": "svv6zpd9byc2ggz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Wie erhebt in Glanz die Weinlaub'! O / Beseitiger, du erscheinst!",
+      "language": [],
+      "musenalm_id": 18157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dityrambus. / An Friederich August Wolf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dityrambus. / An Friederich August Wolf",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.891Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "so1x2mujpn4rj1u"
+        }
+      ],
+      "source_id": "nl15xqrhsr9tqxo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Was frommt dein später Kaltsinn dir, / Du schöne Feindinn? Sprich!",
+      "language": [],
+      "musenalm_id": 18158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Er und Sie. / Nach Berthaud",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Er und Sie. / Nach Berthaud",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.891Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "nok2gfq0rmblxbb"
+        }
+      ],
+      "source_id": "46mm7mkeldj48uz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Innres Glück nur, äußeres nicht, mein Kaso, / Macht uns reich! Was kalt du verschmähst,",
+      "language": [],
+      "musenalm_id": 18159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Mathias Kaso / Nach Balde. Lyr. I. 6",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Mathias Kaso / Nach Balde. Lyr. I. 6",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "3o7wgj17ub5088x"
+        }
+      ],
+      "source_id": "0uzntz1kzijpzkw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Wenn dich die bösen Buben locken, Folg' ihnen nicht, mein Kind!",
+      "language": [],
+      "musenalm_id": 18160,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vater und Tochter. / Nach Lichtenberg's vermischten / Schriften. 2. B. S. 366",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Y.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vater und Tochter. / Nach Lichtenberg's vermischten / Schriften. 2. B. S. 366",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "x6sd4mqids5okqw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Auf! sey nicht schläfrig, und nicht blind! / Auf! Zähle, Kaufmannsgeist, wie viele der / Gewinne,",
+      "language": [],
+      "musenalm_id": 18161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Kaufmanngeist. / Als Büsch zu Hamburg am 5. Au- / gust 1800 gestorben war",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Kaufmanngeist. / Als Büsch zu Hamburg am 5. Au- / gust 1800 gestorben war",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "ymhni9ctl4nb93b"
+        }
+      ],
+      "source_id": "xpxhljireoda04f"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 18163,Obj 62",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Frische Flur, du reiner Himmel, / Frischer athm' ich hier und reiner,",
+      "language": [],
+      "musenalm_id": 18162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ländliche Stille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ländliche Stille",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "ongkb7h1vwaz0tl"
+        }
+      ],
+      "source_id": "2yix2g54tg5isie"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Ländliche Stille« von Voß INr 18162, Obj 61",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ländliche Stille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. P. Schulz",
+      "scans": [
+        "alm_99_18163_uibvcud22i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ländliche Stille",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "oqecb466dne8cni",
+          "source_id": "uxoifs107vm3541"
+        }
+      ],
+      "source_id": "c46a27xmj36qkpj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Wer sind Jene, dort im kleinen Kahne, / Auf dem ungeheuren Oceane,",
+      "language": [],
+      "musenalm_id": 18164,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Forster und Wales auf der / Südsee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Lappe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Forster und Wales auf der / Südsee",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "h8h7559ermyma3h",
+          "source_id": "5zx8odstjh0aitl"
+        }
+      ],
+      "source_id": "c1cdgsgjx9hqy92"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Du fremder Mann! Seitdem ich deinen Kummer / Von deinem Freunde hörte, floh mein / Schlummer;",
+      "language": [],
+      "musenalm_id": 18165,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Seume. / Cassel, am 8. Junius, 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philippine Engelhard, geb. Gatterer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Seume. / Cassel, am 8. Junius, 1799",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "e50fn3dat2tsaev",
+          "source_id": "7nqd23050agwok7"
+        }
+      ],
+      "source_id": "23nd1uyrk6ejvgi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Zwar mag ich Diamant und Onyx wohl / nicht seyn; / Wär' aber ich ein schlechter Stein,",
+      "language": [],
+      "musenalm_id": 18166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Grabschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Grabschrift",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "k9v1jueqpbd4u6e"
+        }
+      ],
+      "source_id": "2dxwod035wakrhq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Süß ist, Anderer Kampf mit der wogenum- / stürmeten Meerfluth / Sicher vom Strand aus zu schaun,",
+      "language": [],
+      "musenalm_id": 18167,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob der Weisheit. / Nach Lucretius",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Maßlieben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob der Weisheit. / Nach Lucretius",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "u1kc99eit4fesqw"
+        }
+      ],
+      "source_id": "lllom2r2a1y4j5i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Den armen Liebenden verließ Helene / Ihr Gatte ward ein reicher alter Thor",
+      "language": [],
+      "musenalm_id": 18168,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helene",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "n48ad8uaw1npgz6"
+        }
+      ],
+      "source_id": "udbuyabqva03bnm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Du, der mir zwei Mahl Leben aus Tod erschuf / Durch Heilungsbalsam, einst der bethränten / Braut,",
+      "language": [],
+      "musenalm_id": 18169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Hensler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Hensler",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "us0fpk9izwwd9v0"
+        }
+      ],
+      "source_id": "94uu8lrzorf971n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Jenseits der Urne, wie wird es uns seyn? / So quälst du dich immer.",
+      "language": [],
+      "musenalm_id": 18170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufklärung einer wichtigen / Frage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rechlin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufklärung einer wichtigen / Frage",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "jgrt1f2dir6z86j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Es ist Gott in uns! sprach Freund / Virgil, und fühlte / Den Gott in sich,",
+      "language": [],
+      "musenalm_id": 18171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Est Deus in nobis. / Vergil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Est Deus in nobis. / Vergil",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "krliwvdsh1xacex"
+        }
+      ],
+      "source_id": "lvzyct8rduqsw7y"
+    },
+    {
+      "annotation": "# s. Re 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Ihr Vagabund! Dem Raspeln auszu- / weichen, / Räumt in zwei Tagen unser Land",
+      "language": [],
+      "musenalm_id": 18204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Harter Spruch",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hg.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Harter Spruch",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "mna38j6yt8nwxt8"
+        }
+      ],
+      "source_id": "iwp08xzs32yz64s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Zur Liebe ward der bessre Mensch geboren. / Ihr habt der Liebe Schwur der Himmlischen / geschworen,",
+      "language": [],
+      "musenalm_id": 18172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe und Häuslichkeit. / An ein junges Ehepaar, im Aprill, / 1801",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. F. Pockels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe und Häuslichkeit. / An ein junges Ehepaar, im Aprill, / 1801",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "byawwvreucy8ohr",
+          "source_id": "cdwj03iezcps2hs"
+        }
+      ],
+      "source_id": "248cwtyh4l9puf5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Hier schläft seinen heiligen Schlaf der / Akanthier Saon,",
+      "language": [],
+      "musenalm_id": 18173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Saon. / Nach Kallimachus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Saon. / Nach Kallimachus",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "ogtr9y3d0u66qvi"
+        }
+      ],
+      "source_id": "ytdf2fr7gm5s50i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Einsam weil' ich in den Abendstunden, / Von der Schwermuth Trauerflor umwunden,",
+      "language": [],
+      "musenalm_id": 18174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ahndung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christiane Reinhold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ahndung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "0g8ix0345m6oebx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Chodowiecki war! / War! Wär' er nicht gewesen, / So blieb wohl eine Schar / Von unsern Büchern ungelesen.",
+      "language": [],
+      "musenalm_id": 18175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Chodowiecki gestorben war",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als Chodowiecki gestorben war",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "4g7430v85232ch5"
+        }
+      ],
+      "source_id": "d3t2y6qg8i8ewvu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Geist Gottes, der hochherrlicher Engel Chor / Aufstürmt am Weltthron,",
+      "language": [],
+      "musenalm_id": 18176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Für Hölty. / 1773",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Für Hölty. / 1773",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "h9g2c44pznf9dq4"
+        }
+      ],
+      "source_id": "lx7q5il7aakd9ik"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Wir treiben auf dem Strom des Lebens, / Mein theurer Graf, gar wunderbar herum.",
+      "language": [],
+      "musenalm_id": 18177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Grafen Ranzau. / Nach dem Tode seines einzigen / Sohnes. 1797",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schink",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Grafen Ranzau. / Nach dem Tode seines einzigen / Sohnes. 1797",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "iz65w7tuq8y6p1g"
+        }
+      ],
+      "source_id": "06o1oc1yvfslzzi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Triff doch kluge Wahl! / Niemand, Kurial,",
+      "language": [],
+      "musenalm_id": 18178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Kurial",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Kurial",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.554Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "a9h53cc0aqp2nee"
+        }
+      ],
+      "source_id": "vy2yjc1mnof7l2q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Bestimmt bist du, mein Sohn, dem Wesen / aller Wesen, / In deiner schönen Kunst, zu schreiben und / zu lesen,",
+      "language": [],
+      "musenalm_id": 18179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Väterlicher Rath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Väterlicher Rath",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.833Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.833Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "rh56rryn16g6e10"
+        }
+      ],
+      "source_id": "57vljm7a6ukx4rb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Freund, wem gleichst du den Mond? Ich / gleich' ihn den Heuchler,",
+      "language": [],
+      "musenalm_id": 18180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mond",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rechlin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mond",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "yjb6ohwblaknz9v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Wohin, ihr kleinen Freudengötter, / Wo floht ihr zürnend hin?",
+      "language": [],
+      "musenalm_id": 18181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freuden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Overbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Freuden",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.682Z",
+          "agent": "qh3g3sytdf754hd",
+          "source_id": "5d80teypeoobcza"
+        }
+      ],
+      "source_id": "2uc0u1f49wxqm5t"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 18183, Obj 82",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.965Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Lieb Töchterlein, was lachst du doch? /Saug' immer fort; wir haben noch.",
+      "language": [],
+      "musenalm_id": 18182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die säugende Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die säugende Mutter",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.682Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "1jfmv24rkrajy0d"
+        }
+      ],
+      "source_id": "8wwooqwygbyquer"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die säugende Mutter« von Voß INr 18182, Obj 81",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die säugende Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. P. Schulz",
+      "scans": [
+        "alm_99_18183_xk1pe6y5r6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die säugende Mutter",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.682Z",
+          "agent": "oqecb466dne8cni",
+          "source_id": "4j4ohi4iv3dqj1c"
+        }
+      ],
+      "source_id": "vnuizjn0fcdmgpb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Nein! Ich fühle keine Reue. / Klage nur! Ich brach die Treue.",
+      "language": [],
+      "musenalm_id": 18184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie an Ihn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sie an Ihn",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "mbkbdkm7ab0uik8"
+        }
+      ],
+      "source_id": "1ztz3yrltik1jgh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Sagt man nicht, daß Alle die, die euch Ge- / danken rauben, / Die ihr für eure Küche denkt,",
+      "language": [],
+      "musenalm_id": 18185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als man von Erzdieben sprach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als man von Erzdieben sprach",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "72hzqpur8t0dmvk"
+        }
+      ],
+      "source_id": "9zfz1q6ri6fkyu0"
+    },
+    {
+      "annotation": "# s. Re 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Du nanntest uns ja nur im Rausche / dumm? / Die Ausflucht lassen wir nicht gelten;",
+      "language": [],
+      "musenalm_id": 18186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Über Bibus Entschuldigung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hg.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Über Bibus Entschuldigung",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "t91kmlw81vdyjwi"
+        }
+      ],
+      "source_id": "6sog6o6i1o96hv7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Als aus der Liebe heiligem Blut / Die duftenden Rosen erblühten ,",
+      "language": [],
+      "musenalm_id": 18187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine Freundinn. / Bei Übersendung eines Topfes / Geranium rosatum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim, der jüngere",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine Freundinn. / Bei Übersendung eines Topfes / Geranium rosatum",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "cunry72jjt5tr6n"
+        }
+      ],
+      "source_id": "hk2p9lvilv2gt1o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Sappho heiß' ich. Wie einst der Mäonide die Männer",
+      "language": [],
+      "musenalm_id": 18188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sappho. / Nach Antipater Sidonius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sappho. / Nach Antipater Sidonius",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "0kg46bs32v52q7p"
+        }
+      ],
+      "source_id": "5ebxqaj5dlrsxuv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Auf, und traget Holz zusammen, / Schichtet es empor,",
+      "language": [],
+      "musenalm_id": 18189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scandinavisches Todtenlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rühs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scandinavisches Todtenlied",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "f61twfk9zl4dk0m"
+        }
+      ],
+      "source_id": "eijs7e97itygb78"
+    },
+    {
+      "annotation": "# s. Re 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Daß unsre Seele die Oberhand / Doch über das Fleisch gewänne!",
+      "language": [],
+      "musenalm_id": 18190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pium Desiderium",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hg.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pium Desiderium",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.837Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "y76c160rlyskvkl"
+        }
+      ],
+      "source_id": "da4k55cp5s3z474"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Es sang so süß. Ich schlief, da träumte / mir! / Das traute Vöglein, das ich hier",
+      "language": [],
+      "musenalm_id": 18191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift auf einen Dompfaffen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift auf einen Dompfaffen",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "bney5295zxhceu0"
+        }
+      ],
+      "source_id": "hvruixqpb60z521"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Wohlgemuth vollende dein Werk im Weinberg, / Den dir Gott anwies; das Gewölk verdonnert",
+      "language": [],
+      "musenalm_id": 18192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Pfarrer von Grünau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Pfarrer von Grünau",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "orprt2rvi5vobpn"
+        }
+      ],
+      "source_id": "ijatjneyo9pzpvr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Die Kunst, die stolze Göttinn, führte / Die gute stille, die Natur",
+      "language": [],
+      "musenalm_id": 18193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weitsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weitsch",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.553Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.553Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "0866n6o9b4f39mb"
+        }
+      ],
+      "source_id": "cue9zd675te6e4t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Unselger Streit der Sinnlichkeit und Gnade! / Hier winkt die Liebe; dort des Himmels Huld.",
+      "language": [],
+      "musenalm_id": 18194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abelard im Kloster zu Sanct / Guildas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abelard im Kloster zu Sanct / Guildas",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.819Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "pa5ik4yez979ocu"
+        }
+      ],
+      "source_id": "nw6bztoql7qjzvi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Sie wollen alles wissen, und wissen nichts. / Sie wissen, was Einer denkt, und denken wird.",
+      "language": [],
+      "musenalm_id": 18195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Alleswissenwoller. / Nach Plautus Trinummus. I. 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Alleswissenwoller. / Nach Plautus Trinummus. I. 2.",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.897Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "wyluy0ztzawtrj5"
+        }
+      ],
+      "source_id": "zde5x759p4yvvu5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "O, Ludewig, der Sohn, / Den Gott dir heute gab,",
+      "language": [],
+      "musenalm_id": 18196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Ludwig XIV. / nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Ludwig XIV. / nach dem Französischen",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "bfhvefugf844t9s"
+        }
+      ],
+      "source_id": "t6vepd4o25v7ug6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Froh von Wonne des Mais und Brautem- / pfindung, / Singt der Nachtigallknab' im jungen Ahorn",
+      "language": [],
+      "musenalm_id": 18197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Heinrich Christian Boie. / 1772",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Heinrich Christian Boie. / 1772",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "d32f5j5tec2bkii"
+        }
+      ],
+      "source_id": "ci1mut85o1uk8cb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Woher dieß neue Leben, / Dieß Ahnden neuer Lust,",
+      "language": [],
+      "musenalm_id": 18198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Reinhard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neues Leben",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "11ylx5z0u965md8",
+          "source_id": "kvwngo4ff9rdhry"
+        }
+      ],
+      "source_id": "6rv5za5v7m2kimz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Gleich wie heitre Vernunft und Aristoteles / Eines / Waren im Leben: so sind Eines im Bilde / sie noch.",
+      "language": [],
+      "musenalm_id": 18199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aistoteles. / Nach der griechischen Anthologie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klamer Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aistoteles. / Nach der griechischen Anthologie",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "sb9nj6iyuwz4ari",
+          "source_id": "da0kjxxn7ppmf7o"
+        }
+      ],
+      "source_id": "s4lvipqkf4kmwqw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Erstrebtest du dir edles Lob, / Von edlem Geist durchdrungen:",
+      "language": [],
+      "musenalm_id": 18200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob und Tadel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob und Tadel",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.710Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.710Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "vi5cpwvrmnvartl"
+        }
+      ],
+      "source_id": "s0o8pl8vn4m3d1c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "gcsv4p4zaxkkesl"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36129,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_99_36129_vk321do4c3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "tnb1mir07omswvv"
+    }
   ],
   "agents": [
     {

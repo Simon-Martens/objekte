@@ -48,23 +48,584 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "egkac6vwj0g9ngk"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1811: Mit Ku 6(coloriert) und 391 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100102",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "egkac6vwj0g9ngk"
+    }
   ],
   "contents": [
-    "5bquu6lz63dqjwu",
-    "9qqwxbdptigqll7",
-    "p8m3qznsgzqdsid",
-    "glgzncl3lsn4krr",
-    "fso0yqb4getyrl7",
-    "u2nz8e4b7fxzuj0",
-    "d3h6qrpui7d46ip",
-    "obpoqo1k55fcpuo",
-    "n54ansfvaxhipqh",
-    "4i44yeygl7w48fo",
-    "4t0nc14f3xvsjnh",
-    "qn5zafnm2tjd2ae",
-    "orcyvaz8urbjew9",
-    "sgsgp9unlfi3omc"
+    {
+      "annotation": "kol. Illustration zu »Die Feuerprobe« von Kotzebue (INr 123635, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123633,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie ist gefällig? / Die Feuer Probe. / lezte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123633_rrf4u4yqvz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wie ist gefällig? / Die Feuer Probe. / lezte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "5bquu6lz63dqjwu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123634,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Neunter Jahrgang / Leipzig / bei C. J. G. Hartmann, / 1811",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123634_7b9e44pc8z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Neunter Jahrgang / Leipzig / bei C. J. G. Hartmann, / 1811",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "9qqwxbdptigqll7"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123633, Obj 1; # Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.627Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Fremde Rosse vor meiner Schmiede? was be- / deutet das? / Vermuthlich Reisende. / Die Heerstraße liegt abwärts. Geh, Cordula, / er-kundige Dich.",
+      "language": [],
+      "musenalm_id": 123635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Feuerprobe. / Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Feuerprobe. / Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "6by4fhqb2ct1h2z"
+        }
+      ],
+      "source_id": "p8m3qznsgzqdsid"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123636, Obj 6; # Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Nun, Minchen, entschließe Dich kurz und gut, denn / ich habe Deinen Freiern kund gethan, daß du heute / zwischen ihnen wählen würdest.",
+      "language": [],
+      "musenalm_id": 123637,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blind geladen. / Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blind geladen. / Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "uv1sbjrgdmg5if8"
+        }
+      ],
+      "source_id": "glgzncl3lsn4krr"
+    },
+    {
+      "annotation": "# Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Die Hauptidee zu diesem Scherz ist mir in einem Briefe von demselben Freunde mitgetheilt worden, dem ich vor mehreren Jahren den Plan zu der Oper: Der Spiegelritter, verdankte.",
+      "language": [],
+      "musenalm_id": 123638,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "oxqjw5e7k89adkf"
+        }
+      ],
+      "source_id": "fso0yqb4getyrl7"
+    },
+    {
+      "annotation": "kol. Illustration zu »Blind geladen« von Kotzebue (INr 123637, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das ganze Menschengeschlecht besteht doch nur aus / zwei Classen von Spitzbuben, nehmlich aus solchen, die / gehangen werden, und aus solchen, die nicht gehan- / gen werden. / Blind geladen. Scene 5",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123636_iqdxr8go0z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das ganze Menschengeschlecht besteht doch nur aus / zwei Classen von Spitzbuben, nehmlich aus solchen, die / gehangen werden, und aus solchen, die nicht gehan- / gen werden. / Blind geladen. Scene 5",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "u2nz8e4b7fxzuj0"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123640, Obj 8; # Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Da bin ich wieder auf meinem Lieblingsplätzchen. Wie ein heimkehrender Hausvater werd’ ich empfangen von allen meinen Kindern, von Träumen. Wünschen und Hoffnungen, die ich hier im Grase spielend zurück gelassen.",
+      "language": [],
+      "musenalm_id": 123639,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Minnesinger. / Schauspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Minnesinger. / Schauspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "hrtllwiztbwgepr"
+        }
+      ],
+      "source_id": "d3h6qrpui7d46ip"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der arme Minnesinger« von Kotzebue (INr 123639, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Uiber die Berge mit Ungestüm / Ein Jüngling vor der Liebe lief. / Der arme Minnesinger. Scene I #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123640_17wdjtf8gp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Uiber die Berge mit Ungestüm / Ein Jüngling vor der Liebe lief. / Der arme Minnesinger. Scene I #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "obpoqo1k55fcpuo"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123642, Obj 10; # Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Lege mir alles zurecht, Lisette. / Da liegt schon Alles. / Warum so verdrießlich? / Ei soll man nicht verdrießlich werden?",
+      "language": [],
+      "musenalm_id": 123641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Komödiantin aus Liebe. / Lustspiel in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Komödiantin aus Liebe. / Lustspiel in Einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "q5l3nzuwpf35510"
+        }
+      ],
+      "source_id": "n54ansfvaxhipqh"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Comödiantin aus Liebe« von Kotzebue (INr 123641, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Haben sie 100000 Mann zu commandiren? / Die Comödiantin aus Liebe. Scene 10 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123642_3pvfkx0dn0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Haben sie 100000 Mann zu commandiren? / Die Comödiantin aus Liebe. Scene 10 #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "4i44yeygl7w48fo"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123644, Obj 12; # Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Schlechter Schwamm – fängt kein Feuer – als wär’ er aus einer Sklavenseele zubereitet.",
+      "language": [],
+      "musenalm_id": 123643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das zugemauerte Fenster. / Lustspiel in einem Akt.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das zugemauerte Fenster. / Lustspiel in einem Akt.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "7twe3zprnfhd5f7"
+        }
+      ],
+      "source_id": "4t0nc14f3xvsjnh"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das zugemauerte Fenster« von Kotzebue (INr 123643, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Es ist ja keine grössere Freude auf der Welt, als Andern Freude zu machen. / Das zugemauerte Fenster. / lezte Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123644_lzoihxhujf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Es ist ja keine grössere Freude auf der Welt, als Andern Freude zu machen. / Das zugemauerte Fenster. / lezte Scene #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "qn5zafnm2tjd2ae"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123646, Obj 14; # Bezeichnung aus den Jg. bis 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Ein freundlicher Ort. Hier wohnt also der Mann, den / Sie als den Glücklichsten preisen?",
+      "language": [],
+      "musenalm_id": 123645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Glücklichen. / Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Glücklichen. / Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "pu3dsawsoxgfagd"
+        }
+      ],
+      "source_id": "orcyvaz8urbjew9"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Glücklichen« von Kotzebue (INr 123643, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Luftschlösser sind Lustschlösser! / Die Glücklichen. Scene 3 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1279_123646_qme8ypasla.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Luftschlösser sind Lustschlösser! / Die Glücklichen. Scene 3 #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "sgsgp9unlfi3omc"
+    }
   ],
   "agents": [
     {

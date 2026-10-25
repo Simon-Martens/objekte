@@ -48,24 +48,561 @@
   "year": 1851,
   "editor": "",
   "items": [
-    "4q6noow2ld47hv6"
+    {
+      "annotation": "1847-1853.\nLeineneinband mit Goldschnitt.\n1851: (K: M. LVI, 347 SS und Stahlst 4.) Mit Port 4, LVI, 347 SS und Bl 2.  ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100776",
+      "location": "105R06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4q6noow2ld47hv6"
+    }
   ],
   "contents": [
-    "4aoqseqddc39l6y",
-    "k8il24juq5m2u4l",
-    "2n44qg2fts3nkbl",
-    "vhvm0edyp7h1unm",
-    "xlrko4w2quo53hm",
-    "cx8tsj9xgxtr4t6",
-    "odyc5u9t8vhmqml",
-    "89ube34wkke5j06",
-    "5fvjd5vzzc90gyk",
-    "txll4r9yg1lwfg0",
-    "x6dxeka3mebpem8",
-    "hggjqw785i7g0bq",
-    "wkrn6je2qas1l4x",
-    "8oy7dkcf0vw8to2",
-    "3kk4ia3bd83960y"
+    {
+      "annotation": "Titelportrait /) s. Textbezug INr 103672, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103667,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Betty Gundy, Grossherzogl. Baden'sche Hof-Opernsängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Richter del. M. Lämmel sc.",
+      "scans": [
+        "alm_3386_103667_whwrufy2l5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Betty Gundy, Grossherzogl. Baden'sche Hof-Opernsängerin",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "4aoqseqddc39l6y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.293Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103668,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht. / Taschenbuch für 1851. / Fünfter Jahrgang. / Mit Beiträgen von Jeanne Marie, Bernd v. Guseck, / Adolph Görling und C. Herloßsohn. / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3386_103668_zoscxdtk8o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht. / Taschenbuch für 1851. / Fünfter Jahrgang. / Mit Beiträgen von Jeanne Marie, Bernd v. Guseck, / Adolph Görling und C. Herloßsohn. / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "k8il24juq5m2u4l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103669,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "2n44qg2fts3nkbl"
+    },
+    {
+      "annotation": "s. Textbezug INr 103671, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103670,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Henriette Nissen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Richter del. M. Lämmel sc.",
+      "scans": [
+        "alm_3386_103670_7jyl8vqw4z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Henriette Nissen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "vhvm0edyp7h1unm"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 103670, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "In Paris, wo so manches bedeutende Talent aufgetaucht und oft spurlos wieder untergegangen, sprach man vor zehn Jahren in allen musikalischen Kreisen von zwei jungen Schwedinnen,",
+      "language": [],
+      "musenalm_id": 103671,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Henriette Nissen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Henriette Nissen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "xlrko4w2quo53hm"
+    },
+    {
+      "annotation": "s. Titelportrait INr 103667, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Unter den jetzt lebenden dramatischen Sängerinnen Deutschlands nimmt Frau Betty Gundy unstreitig einen sehr ehrenvollen Platz ein.",
+      "language": [],
+      "musenalm_id": 103672,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Betty Gundy, / Großherzogl. Baden'sche Hof-Opernsängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Betty Gundy, / Großherzogl. Baden'sche Hof-Opernsängerin",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "cx8tsj9xgxtr4t6"
+    },
+    {
+      "annotation": "s. Textbezug INr 103674, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.298Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103673,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dr. C. Herloßsohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Lämmel del. u. sc.",
+      "scans": [
+        "alm_3386_103673_zxrn3162wq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dr. C. Herloßsohn",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "odyc5u9t8vhmqml"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 103673, Obj 7 /) Dem Text vorangestellt: Er hat gelebt und geliebet, / Und heiß geliebt ward auch er! [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Mit vorstehnden Worten des mehrjährigen Herausgebers dieses Taschenbuchs eröffnen wir diese biographische Skizze und wenn wir uns die Aufgabe gestellt haben, den Heimgegangenen als Mensch und in seinen Erzeugnissen als Dichter zu schildern,",
+      "language": [],
+      "musenalm_id": 103674,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dr. Carl Herloßsohn. / Biographische Skizze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dr. Carl Herloßsohn. / Biographische Skizze",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "89ube34wkke5j06"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103675,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lina Schäfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Richter del. M. Lämmel sc.",
+      "scans": [
+        "alm_3386_103675_etsv45hezv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lina Schäfer",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "5fvjd5vzzc90gyk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Am D.'schen Hoftheater bemerkte man seit längerer Zeit ein junges Paar, das allabendlich an demselben Platze, in der zweiten Reihe des Amphitheaters, mit gespannter Aufmerksamkeit den Vorstellungen der Schauspieler beiwohnte.",
+      "language": [],
+      "musenalm_id": 103676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abhängig und Frei. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Jeanne Marie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abhängig und Frei. / Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.219Z",
+          "agent": "3wuzr6tb9xdgoey",
+          "source_id": "ulac84f714n3hxn"
+        }
+      ],
+      "source_id": "txll4r9yg1lwfg0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Es gab einst eine Nacht, in welcher wir auf dem Connecticut oder Quonnecticut, wie die Kinder des roten Mannes sagen, rauschenden Fluges von dem Pier an Weststreet in New-York abfuhren,",
+      "language": [],
+      "musenalm_id": 103677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schiffsgespenst. / See-Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Görling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schiffsgespenst. / See-Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "x6dxeka3mebpem8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Der November ist ein verrufener Monat, die Tradition hat ihn geächtet. Alles Uebel, welches der traurige Uebergang vom Herbste zum Winter mit sich bringt, die tiefen Nebel, die düstern grauen Wolken,",
+      "language": [],
+      "musenalm_id": 103678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klippenfahrt. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klippenfahrt. / Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.219Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "7owdxvbsqrjgrw9"
+        }
+      ],
+      "source_id": "hggjqw785i7g0bq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Ein milder blauer Himmel wölbte sich an einem Sonntage über dem gesegneten Pusterthale in Tyrol. Im Dorfe St. Marien standen die Burschen auf einem kleinen Hügel nicht weit vom Wirtshaus und lachten und schwatzten,",
+      "language": [],
+      "musenalm_id": 103679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine einfache Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Herloßsohn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine einfache Geschichte",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.219Z",
+          "agent": "16uxlf73ehnhqr1",
+          "source_id": "hrdw04exue5fxet"
+        }
+      ],
+      "source_id": "wkrn6je2qas1l4x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck von C. P. Melzer in Leipzig",
+      "language": [],
+      "musenalm_id": 103680,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von C. P. Melzer in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "8oy7dkcf0vw8to2"
+    },
+    {
+      "annotation": "2 BB Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103681,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "3kk4ia3bd83960y"
+    }
   ],
   "agents": [
     {

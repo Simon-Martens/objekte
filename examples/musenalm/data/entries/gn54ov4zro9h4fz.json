@@ -52,10 +52,61 @@
   "year": 1781,
   "editor": "",
   "items": [
-    "8o6ky7nrkyjoszt"
+    {
+      "annotation": "1781 und 1787.\nKartonierter Einband(Buchrücken leicht beschädigt).\n1781: (K: Tku 1 und 247 SS) Mit Tku 1, Bl 16 und 247 SS. \nSiehe LR (Bahrdts und Jena) da Angaben bei K falsch (K:Barth und Züllichau). ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.593Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100315",
+      "location": "105E08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.593Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8o6ky7nrkyjoszt"
+    }
   ],
   "contents": [
-    "7osrm7sg64stv8x"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Willst du der heiligen Mess oedentloich und andächtig beiwohnen; so ist es nicht grnung, daß du gegenwärtig seyest, niederkniest und nach Belieben dieses oder jenes Gebeth sprechest",
+      "language": [],
+      "musenalm_id": 133930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Erklärung des heiligen Meßopfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Erklärung des heiligen Meßopfers",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "7osrm7sg64stv8x"
+    }
   ],
   "agents": [
     {

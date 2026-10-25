@@ -48,7 +48,26 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "m4liazc7xu841u2"
+    {
+      "annotation": "Hrsg vielleicht: Smok, Henry Konrad (e1822) DBI 1926",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.554Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200260",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.554Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "m4liazc7xu841u2"
+    }
   ],
   "contents": [],
   "agents": []

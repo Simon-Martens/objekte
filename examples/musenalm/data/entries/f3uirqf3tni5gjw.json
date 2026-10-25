@@ -48,69 +48,2665 @@
   "year": 1868,
   "editor": "",
   "items": [
-    "avkxfx30t325r0s",
-    "fxzzcrk92ktrehd"
+    {
+      "annotation": "UG fehlt",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.534Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106457",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.534Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "avkxfx30t325r0s"
+    },
+    {
+      "annotation": "Umschlag",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.534Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "408526",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.534Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fxzzcrk92ktrehd"
+    }
   ],
   "contents": [
-    "bias35hnjo7vqc5",
-    "92bfyk950z9mdmw",
-    "pjzq0rorp53twot",
-    "imeiwfx3jz97c09",
-    "24ov8tzabddl6rf",
-    "zz6vujuw7quhq11",
-    "2otdtw97hwfcjit",
-    "jv3fiv1w4zr8yt8",
-    "knovddwdcym4z3x",
-    "zsg75yh9yajt4nf",
-    "if72rw6idq7yvyj",
-    "bspctq1jiwbbsi2",
-    "di9rw1y8gv028tc",
-    "00trfqabqio4g1i",
-    "fbvtgbvbnkki6ik",
-    "f0h7zk5frlg57po",
-    "7l7m2gs32ql4713",
-    "mkiecvzxm336esz",
-    "sfo6u63ty5lu6ip",
-    "01603yjzrvzhzzx",
-    "gakwuo52z38mvow",
-    "w65mayn4hj6syxr",
-    "p1lg1vtn34e8auq",
-    "55vuiut1neqya6r",
-    "g3opdi7yp8ejv47",
-    "cz92648gf101yzv",
-    "c18aq7xinu1vzwf",
-    "ds82kwcolawmns2",
-    "c09sevq5pwe5a5o",
-    "l08egzpugabo78t",
-    "3wwo36ri7fta1va",
-    "2vpdpohqozrt92c",
-    "xocqs3q2elo6fet",
-    "ifcz45zhtzich1b",
-    "wnb2o33kb5rc7s1",
-    "o7ltckyquqp4hqw",
-    "8mn4xshd0rg7wxo",
-    "fzodpc5r3r8dl1v",
-    "spkgo1jexbuiqfk",
-    "a3g7tywgkvx7bd5",
-    "7z6io8wbq31dqgw",
-    "ett36pij1myr61g",
-    "mvppi7sl2jzecw4",
-    "zryucakol47efhz",
-    "0g3vmzowldgbuss",
-    "4ixug90x8yrq12d",
-    "zpfnh5a1ade4ngq",
-    "o3a3kk5b7ijy54g",
-    "qfkrtd63g4942y1",
-    "ob1p0sevyu1b7ds",
-    "omgb52uk9kkb769",
-    "7c1sgow0kelzq3x",
-    "5vmzklljn906h2f",
-    "0f26rn9tg9zv595",
-    "l0blfmwc16i8aq5",
-    "gizzzvky10xfyjo",
-    "xg6b6r65qyvkcx8",
-    "p5kwy2e93it5edr",
-    "oas951u9zuqk7k4"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96963,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1868 / DARMSTADT / im Verlag / VON G. G. LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1076_96963_gc8dwc32mj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1868 / DARMSTADT / im Verlag / VON G. G. LANGE",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "bias35hnjo7vqc5"
+    },
+    {
+      "annotation": "Titelgraphik # Titel s. Textbezug (Gedicht) INr 64562, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64556,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebesbote #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Compte Calix pinxt. Tob. Bauer sculp.",
+      "scans": [
+        "alm_1076_64556_whtd8v8sp2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Liebesbote #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "92bfyk950z9mdmw"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.119Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64557,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1868 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 53r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Schad sc.",
+      "scans": [
+        "alm_1076_64557_aobe5ftg8f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1868 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 53r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "ezetw6hvxz2c2ix"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "3gnzs7actzcxdwq",
+          "source_id": "g86m1a7tjq7wrw2"
+        }
+      ],
+      "source_id": "pjzq0rorp53twot"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64558,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1868. / Herausgegeben von / Frater Hilarius / 53r. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1076_64558_uyxskuf338.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1868. / Herausgegeben von / Frater Hilarius / 53r. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "imeiwfx3jz97c09"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64559,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "24ov8tzabddl6rf"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 64561-64568, Obj 6-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64560,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Stahlstiche in sieben Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Stahlstiche in sieben Gedichten",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "zz6vujuw7quhq11"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Euch lieblichen Frauen und netten Mädchen - / In Dörfern, Städten und Städtchen,",
+      "language": [],
+      "musenalm_id": 64561,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Makame",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Frater Hilarius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Makame",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "y0htqbkzto70d5i"
+        }
+      ],
+      "source_id": "2otdtw97hwfcjit"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Titelgraphik INr 64556, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Du kleiner Schelm, so komm' heraus! / Ich öffne dir dein Gitterhaus, / Ich spreng' dir Schloß und Riegel",
+      "language": [],
+      "musenalm_id": 64562,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Der Liebesbote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Der Liebesbote",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "segj7tumywri7vm"
+        }
+      ],
+      "source_id": "jv3fiv1w4zr8yt8"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64569, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Sie wandelt hin in stillem Sinnen, / Das Aug' umflort von Elend, Schmerz und Harm.",
+      "language": [],
+      "musenalm_id": 64563,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Das Hänflingsnest",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Das Hänflingsnest",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "5x0p8ygc4vue4kf"
+        }
+      ],
+      "source_id": "knovddwdcym4z3x"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64570, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ach Du mein Gott! Laß die Zeiten / Vorwärts gehen, rückwärts schreiten,",
+      "language": [],
+      "musenalm_id": 64564,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Der Philister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Der Philister",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "wxd0biyzyyqolgh"
+        }
+      ],
+      "source_id": "zsg75yh9yajt4nf"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64571, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "O seht mir doch den kleinen Jungen, / Wie macht man ihm das Leben leicht!",
+      "language": [],
+      "musenalm_id": 64565,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. An der Wiege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. An der Wiege",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "vs4iynnemddfib6"
+        }
+      ],
+      "source_id": "if72rw6idq7yvyj"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64572, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "So oft des Weg's ich wandle am Gestade, / Gedenk ich dein, du froher Kindertag,",
+      "language": [],
+      "musenalm_id": 64566,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Am Bach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Am Bach",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.276Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "uwn6j6k62glpa89"
+        }
+      ],
+      "source_id": "bspctq1jiwbbsi2"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64573, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Das Meer brandet! An's Ufer / Schlagen die wilden Wogen!",
+      "language": [],
+      "musenalm_id": 64567,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Brandung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Brandung",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "khl75dopfunkikc"
+        }
+      ],
+      "source_id": "di9rw1y8gv028tc"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64574, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Langsam windet sich das Bächlein / Zwischen Haselstrauch und Weide / Durch die sonnverbrannte Wiese,",
+      "language": [],
+      "musenalm_id": 64568,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Zur Mühle hin!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Zur Mühle hin!",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "gjlgdm1yx067wwr"
+        }
+      ],
+      "source_id": "00trfqabqio4g1i"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64563, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64569,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Hänflingsnest #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Gallait pinx. D. J. Sluyter sculps.",
+      "scans": [
+        "alm_1076_64569_knzibz22a0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Hänflingsnest #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "7i40oq58akchw0p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "wyz3rmzt782t9ft",
+          "source_id": "pjej4ozw0jfbxue"
+        }
+      ],
+      "source_id": "fbvtgbvbnkki6ik"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64564, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64570,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Philister #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Bles pinx. J. W. Kaiser sculps.",
+      "scans": [
+        "alm_1076_64570_if4vx6k3vu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Philister #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "p3hijooo9pslzw2",
+          "source_id": "8c6cvhiruko799q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "r03ginlx54pqp8z",
+          "source_id": "k5fmw2ruemk5k8d"
+        }
+      ],
+      "source_id": "f0h7zk5frlg57po"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64565, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64571,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An der Wiege #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Bles pinx. W. F. Wehmeyer sculps.",
+      "scans": [
+        "alm_1076_64571_ria1pg2azu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An der Wiege #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "r03ginlx54pqp8z",
+          "source_id": "bottol00bjrsn3r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "cnu5a9dtvs1e0n7",
+          "source_id": "zikzab0jofi0l10"
+        }
+      ],
+      "source_id": "7l7m2gs32ql4713"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64566, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64572,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Bach #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. de Canta pinx. D. J. Sluyter sculps.",
+      "scans": [
+        "alm_1076_64572_x55j51nnhu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Am Bach #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "15c7gcorgudda64"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "6anbo1cee7cx6lu",
+          "source_id": "4j18b3mhdyizmyf"
+        }
+      ],
+      "source_id": "mkiecvzxm336esz"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64567, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64573,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brandung #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Shelfout del. J. B. Tètar van Elven sculps.",
+      "scans": [
+        "alm_1076_64573_wf1scs2il2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Brandung #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "7l66ckmup6wdhiw",
+          "source_id": "ass5nk83vmmhgnx"
+        }
+      ],
+      "source_id": "sfo6u63ty5lu6ip"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64568, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64574,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Mühle hin! #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. d. Waeijen Pieterszen pinx. W. Steelink sculps.",
+      "scans": [
+        "alm_1076_64574_ozr8tn09gj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Mühle hin! #",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "lwzw1g7isc1pjy6",
+          "source_id": "k9zmnksl7k2165y"
+        }
+      ],
+      "source_id": "01603yjzrvzhzzx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Dr. Weiler war gerade beschäftigt seinen Kaffee zu kochen und schaute gedankenvoll in die blaue Spiritusflamme, wartend auf den allen Junggesellen wohlbekannten Moment, wo die Flamme auf einmal hoch über der Maschine zusammenschlägt",
+      "language": [],
+      "musenalm_id": 64575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte von Hjorleif, / dem Islandfahrer. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Dempwolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte von Hjorleif, / dem Islandfahrer. / Novelle",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "gakwuo52z38mvow"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Ich hatte mein Bureau recht lieb gewonnen. Zwei Zimmer auf einen schönen Garten hinausgehend, in dessen Bäumen eine lustige Welt von Vögeln zu früher Stunde schon jubilierte",
+      "language": [],
+      "musenalm_id": 64576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine alte Sängerin / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Henri Darcour",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine alte Sängerin / Novelle",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "w65mayn4hj6syxr"
+    },
+    {
+      "annotation": "mit 10 Gedichten INr 64603-64612, Obj 23-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Aehnlich, wie man erwa bei'm Besteigen eines hohen Berges zuweilen auf einzelnen besonders dazu geeigneten Punkten Rast macht und den zurückgelegten Weg mit einem gewissen prüfenden Wohlbehagen übersieht,",
+      "language": [],
+      "musenalm_id": 64577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein bretonischer Dichter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein bretonischer Dichter",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "u0v9o8ums76gf54"
+        }
+      ],
+      "source_id": "p1lg1vtn34e8auq"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Du trauter Bauernhof, wie oft erschau' ich dich, / Wie oft, wenn Nachts am Strand das Leben tos't um mich,",
+      "language": [],
+      "musenalm_id": 64603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bauernhof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bauernhof",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.057Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "ekbguv3esjvrypk"
+        }
+      ],
+      "source_id": "55vuiut1neqya6r"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Wir saßen eines Tages am Brückenbau Kerlo's; / Die Füße hingen wir der Flut in ihren Schoos",
+      "language": [],
+      "musenalm_id": 64604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Marie",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "dc6t2uif1tqi14z"
+        }
+      ],
+      "source_id": "g3opdi7yp8ejv47"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Jetzt naht, indeß im Meer die Sonne will verschwinden, / Die Zeit für Liebende; allmälig schon verbinden",
+      "language": [],
+      "musenalm_id": 64605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Najade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Najade",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "gu066thr0kn6h3o"
+        }
+      ],
+      "source_id": "cz92648gf101yzv"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Dem Glauben die Ehr; / Er adelt mehr / Als Kronen von Golde schwer!",
+      "language": [],
+      "musenalm_id": 64606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dreitheilige[r] Gesang / (an den Marquis von Belloy)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dreitheilige[r] Gesang / (an den Marquis von Belloy)",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "wyrfvyegpu8zc4a"
+        }
+      ],
+      "source_id": "c18aq7xinu1vzwf"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Schließe die Augen zu / Voll Himmelsruh, / Schließe die Augen zu!",
+      "language": [],
+      "musenalm_id": 64607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Diana",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Diana",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "8dckqdd6dbx97px"
+        }
+      ],
+      "source_id": "ds82kwcolawmns2"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "O, wünscht euch nimmermehr ein allzulanges Leben, / Wenn euch die Bilder stets des Jugendglücks umschweben,",
+      "language": [],
+      "musenalm_id": 64608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elegie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elegie",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "ddsx9x3gbivov02"
+        }
+      ],
+      "source_id": "c09sevq5pwe5a5o"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Ein Marmorbild, aus Maß und Anmuth ganz gebaut, / Weckt so den Schönheitssinn des jugendlichen Weibes,",
+      "language": [],
+      "musenalm_id": 64609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunstgelübde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunstgelübde",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.028Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "5iqredvjglchlae"
+        }
+      ],
+      "source_id": "l08egzpugabo78t"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Einst liebt' ich blos an ihr den Liebreiz der Gestalt, / Des morgenfrischen Munds bezaubernde Gewalt,",
+      "language": [],
+      "musenalm_id": 64610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frauen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Frauen",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.028Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "r8q37o78yks59jd"
+        }
+      ],
+      "source_id": "3wwo36ri7fta1va"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Schon will's im Osten grau'n; auf, laßt an Waldeshöh'n, / In Wiesen und Gehäg mich Blumen suchen gehn,",
+      "language": [],
+      "musenalm_id": 64611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blumen und Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blumen und Lieder",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.987Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "aax5odfiqwaw7gj"
+        }
+      ],
+      "source_id": "2vpdpohqozrt92c"
+    },
+    {
+      "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "O möchtest künftig du, wenn wir unstreffen, nicht / So schamroth und verwirrt auf Stirn und Angesicht / Den weißen Schleier niedersenken",
+      "language": [],
+      "musenalm_id": 64612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Befiehl nur und ich will gehorchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Befiehl nur und ich will gehorchen",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.987Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "j5duwogebf5wr9k"
+        }
+      ],
+      "source_id": "xocqs3q2elo6fet"
+    },
+    {
+      "annotation": "Sammlung von 19 Gedichten in versch. Sammlungen INr 64579-645601, Obj 34-56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "1xhruy4bde9au3p"
+        }
+      ],
+      "source_id": "ifcz45zhtzich1b"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Wie der Sturmwind, der über die Haide pfeift, / Ohne Rast, ohne Ruh, ohne sichere Statt,",
+      "language": [],
+      "musenalm_id": 64579,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eglantine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eglantine",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "675wa0yktzszhk8"
+        }
+      ],
+      "source_id": "wnb2o33kb5rc7s1"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "An einem hellen Frühlingstag, / In einer stillen Morgenstunde / Tönt mir der Lerche froher Schlag",
+      "language": [],
+      "musenalm_id": 64580,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldfrieden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldfrieden",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.132Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "csmv1dn15twm1i9"
+        }
+      ],
+      "source_id": "o7ltckyquqp4hqw"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Ob dieses Waldbach's lautem Tosen / Weit überhängend ragt ein Ast,",
+      "language": [],
+      "musenalm_id": 64581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilde Rosen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wilde Rosen",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "8w240kzuofdshfb"
+        }
+      ],
+      "source_id": "8mn4xshd0rg7wxo"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Und wieder jagt mich der Reisetrieb, / Und wandern möcht ich von Pol zu Pol;",
+      "language": [],
+      "musenalm_id": 64582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderlied",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "sr8jdbelrgu781j"
+        }
+      ],
+      "source_id": "fzodpc5r3r8dl1v"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Hier ruht sich's gut, hier halt ich Rast, / Der Wind spielt in den Bäumen;",
+      "language": [],
+      "musenalm_id": 64583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderrast",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderrast",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "d6akxvbhpvupjk8"
+        }
+      ],
+      "source_id": "spkgo1jexbuiqfk"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 64585-64590, Obj 40-45 /) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ghaselen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ghaselen",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "t9jjdm1fdvqsi1v"
+        }
+      ],
+      "source_id": "a3g7tywgkvx7bd5"
+    },
+    {
+      "annotation": "Ghaselen (Sammlung INr 64584, Obj 39) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Blickt Mönche! nicht mehr so scheel; / Ich weiß, ich habe manchen Fehl!",
+      "language": [],
+      "musenalm_id": 64585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Nach Hafis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Nach Hafis",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "ut4lm3j41q22dwt"
+        }
+      ],
+      "source_id": "7z6io8wbq31dqgw"
+    },
+    {
+      "annotation": "Ghaselen (Sammlung INr 64584, Obj 39) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Kaum hat den Liedersegen mir / Des Frühlingshimmels Blau gebracht,",
+      "language": [],
+      "musenalm_id": 64586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "r2rbohro8te5n4m"
+        }
+      ],
+      "source_id": "ett36pij1myr61g"
+    },
+    {
+      "annotation": "Ghaselen (Sammlung INr 64584, Obj 39) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Im sichern Hafen land' ich nie; / Mich selber überwand ich nie;",
+      "language": [],
+      "musenalm_id": 64587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.133Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "oamsnc3ofzgtea7"
+        }
+      ],
+      "source_id": "mvppi7sl2jzecw4"
+    },
+    {
+      "annotation": "Ghaselen (Sammlung INr 64584, Obj 39) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Einst hielt ich für ein blühendes, / Ein gottbeseelt' Gedicht das Leben;",
+      "language": [],
+      "musenalm_id": 64588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Das Menschenleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Das Menschenleben",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.189Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "4aterbzwcp505ak"
+        }
+      ],
+      "source_id": "zryucakol47efhz"
+    },
+    {
+      "annotation": "Ghaselen (Sammlung INr 64584, Obj 39) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Der Garten schlägt, ein stolzer Pfau, / Sein farbiges Gefieder auf,",
+      "language": [],
+      "musenalm_id": 64589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Neue Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Neue Liebe",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.189Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "mwq2q3svlyfwp59"
+        }
+      ],
+      "source_id": "0g3vmzowldgbuss"
+    },
+    {
+      "annotation": "Ghaselen (Sammlung INr 64584, Obj 39) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Deine steilen Pfade gingst Du, / Andre ging ich unterdessen;",
+      "language": [],
+      "musenalm_id": 64590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / An einen Freund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / An einen Freund",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "a4o0u31nt849u88"
+        }
+      ],
+      "source_id": "4ixug90x8yrq12d"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten in 3 Sammlungen INr 64592-64602, Obj 47-57 /) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachbildungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachbildungen",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "kthqsjda880j8y5"
+        }
+      ],
+      "source_id": "zpfnh5a1ade4ngq"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 64593-64595, Obj 48-50 /) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Robert Burns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Robert Burns",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "j01vxtpvym5o0w8"
+        }
+      ],
+      "source_id": "o3a3kk5b7ijy54g"
+    },
+    {
+      "annotation": "Robert Burns (Sammlung INr 64592, Obj 47) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Mariechen süß, Mariechen klein, / Marie ist klug und bescheiden;",
+      "language": [],
+      "musenalm_id": 64593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Mariechen süß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Mariechen süß",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "rgqbio22by7ns07"
+        }
+      ],
+      "source_id": "qfkrtd63g4942y1"
+    },
+    {
+      "annotation": "Robert Burns (Sammlung INr 64592, Obj 47) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "John Anderson, mein Lieb, John, / Als wir ein junges Paar, / War Deine Brau so buschig,",
+      "language": [],
+      "musenalm_id": 64594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / John Anderson",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / John Anderson",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "lgvi7c14gf62hzk"
+        }
+      ],
+      "source_id": "ob1p0sevyu1b7ds"
+    },
+    {
+      "annotation": "Robert Burns (Sammlung INr 64592, Obj 47) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "O wenn um Dich auf kahler Haid / Der Sturmwind strich, der Sturmwind strich,",
+      "language": [],
+      "musenalm_id": 64595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / O wenn um Dich auf kahler Haid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / O wenn um Dich auf kahler Haid",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "ye9spk6zczvooas"
+        }
+      ],
+      "source_id": "omgb52uk9kkb769"
+    },
+    {
+      "annotation": "Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "O Mädchen, dessen anmuthreich / Mildleuchtend' Aug' ein Schatten weich",
+      "language": [],
+      "musenalm_id": 64596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "H. W. Longfellow. / Mädchenthum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "H. W. Longfellow. / Mädchenthum",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "melu3h25n2i0pli"
+        }
+      ],
+      "source_id": "7c1sgow0kelzq3x"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 64598-64600, Obj 53-55 /) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thomas Moore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thomas Moore",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "cvcgmqa4moi2ozm"
+        }
+      ],
+      "source_id": "5vmzklljn906h2f"
+    },
+    {
+      "annotation": "Thomas Moore (Sammlung INr 64597, Obj 52) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Strahlt unter Scherz und Luft / Mir Deines Lächelns Licht,",
+      "language": [],
+      "musenalm_id": 64598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. When midst the gay",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. When midst the gay",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "besiyn73309s1tk"
+        }
+      ],
+      "source_id": "0f26rn9tg9zv595"
+    },
+    {
+      "annotation": "Thomas Moore (Sammlung INr 64597, Obj 52) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Lebewohl! auf Erden hoffnungslos / Muß uns're Liebe sein ...",
+      "language": [],
+      "musenalm_id": 64599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lebewohl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lebewohl",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "k4hpux7rdifrd1s"
+        }
+      ],
+      "source_id": "l0blfmwc16i8aq5"
+    },
+    {
+      "annotation": "Thomas Moore (Sammlung INr 64597, Obj 52) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Letzte Rose des Sommers, / Was willst du verzieh'n?",
+      "language": [],
+      "musenalm_id": 64600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die letzte Rose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die letzte Rose",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "04bpgcdwr6wgae4"
+        }
+      ],
+      "source_id": "gizzzvky10xfyjo"
+    },
+    {
+      "annotation": "Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Füllt wieder die Becher! noch nie hat wie heut' / Dies flüssige Feuer das Herz mir erfreut",
+      "language": [],
+      "musenalm_id": 64601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lord Byron. / Trinklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Leuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lord Byron. / Trinklied",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.190Z",
+          "agent": "87b0ropx1b7ybuw",
+          "source_id": "2y66ivehw3k8w15"
+        }
+      ],
+      "source_id": "xg6b6r65qyvkcx8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Am Hofe des Fürsten von ... überragte zur Zeit des Karlsbader Congresses der Kammerjunker Egbert Freiherr von Wimborn Alles, was von älterem oder jüngerem Adel Zutritt hatte in die Gemächer der Durchlaucht.",
+      "language": [],
+      "musenalm_id": 64602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Minister",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Frater Hilarius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Minister",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.057Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "f0jqdufys96ms74"
+        }
+      ],
+      "source_id": "p5kwy2e93it5edr"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96964,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1076_96964_1w3s19pzlw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "oas951u9zuqk7k4"
+    }
   ],
   "agents": [
     {

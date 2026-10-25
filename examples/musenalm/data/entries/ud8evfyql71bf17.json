@@ -48,99 +48,4017 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "9v23p54wlp3ps8r"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.708Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406191",
+      "location": "105M01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.708Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9v23p54wlp3ps8r"
+    }
   ],
   "contents": [
-    "7y5tqxsgupxytnh",
-    "rscloool85g4tj8",
-    "nzul3uylw07rswy",
-    "w8msodj5hw6qrfh",
-    "ur8akqc9d86v4f8",
-    "7uozln3ubud51bf",
-    "jsjqlin1p3bpvwc",
-    "k0ubk1hau64an4q",
-    "7dfgirldnuf6ycu",
-    "13w8gpv64tgap8z",
-    "a573tzh9p22ki4c",
-    "mzdwgdgnhctmces",
-    "v8bamki3olwa62n",
-    "desxpaw3tgvxf9q",
-    "ik0ll17b73kvppk",
-    "47ff3r1dys8ixf5",
-    "2qvb6e5kx26ylq7",
-    "hnbhrpdf3lm5540",
-    "txj1osnq0mejzaf",
-    "npc7phtfkq9o8i5",
-    "iz661m8613fq1ns",
-    "9p56q4ml272atkf",
-    "ve05znolyyj6cd4",
-    "intmu5saqjg467a",
-    "23i3vl5bisnmzm6",
-    "uyjempkv53452mf",
-    "5ptsfwfit069iqd",
-    "bu0450x79xwobu8",
-    "zjh7zkkknwwxfb2",
-    "k768d596pdwemvw",
-    "j9vpp1qlvy9mk3g",
-    "e38zqqftwfgroqp",
-    "i0wv48a4tkcsffw",
-    "ve15lwdw875mrjm",
-    "kj57kiwi1msb87x",
-    "blzz2rehp92hypw",
-    "ybuynn01fw0q5e8",
-    "oxh4d4cq8y1o92d",
-    "sizkti9sgkk2wsx",
-    "xow2to0iyx022mj",
-    "8ey4rs4cf77j6sx",
-    "aak2lssyjzmd753",
-    "p71hgdiu5kbhh9u",
-    "sxs6fj7foepzum1",
-    "bf16ktf0mifcqz4",
-    "a7hwduke8naek0f",
-    "wpjb8u7wokmmpd2",
-    "0qdqzr6cdbhv82c",
-    "fzujcqjzr7wnmkk",
-    "pn37vs8cit05h3t",
-    "6j5gdxi4hh2889r",
-    "td8m8u3c6bjjc5r",
-    "pkpquux4ktavd72",
-    "z3k3zi9i1dk73yj",
-    "rforcsuyux6w4vo",
-    "nqlijcl7gs3dqsu",
-    "mzx617crn5l71ho",
-    "hdmdei4webxxo4m",
-    "vqy5wi1ppwcyw3s",
-    "dydq41g1o98shwi",
-    "xwwhrpzkqpljiwi",
-    "z1yovzdufj4356f",
-    "jpretkpkh3drnl0",
-    "hn12sxkaoklw23g",
-    "3cvy0zkouxisccf",
-    "0ay5cc6erscmkjm",
-    "ulvt6gn1h8205w5",
-    "2i4h12zwv5di6pk",
-    "i2ci0m3m5hy8ge0",
-    "f4h9ongpv4eezfh",
-    "9231kewaxg4vhuk",
-    "u5koe708jb98a4s",
-    "0v7295sg99qx9x0",
-    "k7uuf61lxssbn9j",
-    "36osikhfct3q1tu",
-    "yosxs497l60hwrl",
-    "ch9ntugfqxlwidf",
-    "z8c4i5l0xtk9z9a",
-    "t4l5qx4p3plj52o",
-    "i14fks1v984ct7x",
-    "y5izsddmwjhb9sl",
-    "qt2l9l76qdm8n9e",
-    "bhw0crcuimtptu7",
-    "txjtw6c1yh3d1yk",
-    "6tphbeq2xjqiiiw",
-    "jhg51g589uqzpib",
-    "8kq6s8jbhxopjtn",
-    "zqco3zutbv2ofkn",
-    "tti1w99tyf5gdzj",
-    "zm9jf1new27ktzd"
+    {
+      "annotation": "Umschlaggraphik r. Verlagsbroschur",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71383,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Politisches / Taschenbuch / für / das deutsche Volk / von / Gustav v. Struve. / Erster Jahrgang. / Frankfurt am Main / Literarische Anstalt. / (J. Rütten.) / 1846. / Aufgeschnittene oder beschmutzte Exemplare werden in keinem Fall zurückgenommen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3611_71383_1nk2nt2hjj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Politisches / Taschenbuch / für / das deutsche Volk / von / Gustav v. Struve. / Erster Jahrgang. / Frankfurt am Main / Literarische Anstalt. / (J. Rütten.) / 1846. / Aufgeschnittene oder beschmutzte Exemplare werden in keinem Fall zurückgenommen",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "7y5tqxsgupxytnh"
+    },
+    {
+      "annotation": "Angabe auf dem Titelblatt verso: Gedruckt bei Streng u. Schneider in Frankfurt a. M.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71384,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Politisches / Taschenbuch / für / das deutsche Volk / von / Gustav v. Struve. / Erster Jahrgang. / Frankfurt a/M. / Literarische Anstalt. / (J. Rütten.) / 1846. /",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3611_71384_1kkbhmaeit.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Politisches / Taschenbuch / für / das deutsche Volk / von / Gustav v. Struve. / Erster Jahrgang. / Frankfurt a/M. / Literarische Anstalt. / (J. Rütten.) / 1846. /",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "rscloool85g4tj8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71385,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzul3uylw07rswy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71386,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung. / Dem Gefangenen ist es nicht vergönnt, zu / seinen Mitbürgern zu sprechen; allein er / kann ihnen Boten senden. So nehmet denn, / deutsche Mitbürger, diese Blätter als Boten / eines Gefangenen freundlich von mir auf. / Mannheim den 1ten October 1846. / Am 80.Tage meiner zweiten Gefangenschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung. / Dem Gefangenen ist es nicht vergönnt, zu / seinen Mitbürgern zu sprechen; allein er / kann ihnen Boten senden. So nehmet denn, / deutsche Mitbürger, diese Blätter als Boten / eines Gefangenen freundlich von mir auf. / Mannheim den 1ten October 1846. / Am 80.Tage meiner zweiten Gefangenschaft",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ym7gpqgl5f3pjlj"
+        }
+      ],
+      "source_id": "w8msodj5hw6qrfh"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 36 Beiträge INr 71388-71423, Obj 6-41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Leitende Artikel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Leitende Artikel",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "sa58xg431m1nimq"
+        }
+      ],
+      "source_id": "ur8akqc9d86v4f8"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Bestrebungen und die Haltung der Parteien eines Landes bieten einen sichern Maaßstab ihrer Befähigung. Nur diejenige Partei wird auf Anerkennung als eine tüchtige rechnen können, welche einen ihren Tendenzen günstigen Boden zu wählen",
+      "language": [],
+      "musenalm_id": 71388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Stellung der Parteien im deutschen / Vaterlande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Stellung der Parteien im deutschen / Vaterlande",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "bm7ibmdz9pbgny7"
+        }
+      ],
+      "source_id": "7uozln3ubud51bf"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Es gab eine Zeit, da der Liberalismus in Deutschland in Verruf gekommen; dieses war die unglückliche Zeit, welche zwischen den Karlsbader Conferenzen und der Juli-Revolution in der Mitte liegt.",
+      "language": [],
+      "musenalm_id": 71389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der falsche Liberalismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der falsche Liberalismus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "97dn4esyjb83cdo"
+        }
+      ],
+      "source_id": "jsjqlin1p3bpvwc"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Wie das Lebensprincip des falschen Liberalismus im Haschen nach Volksgunst und daher im Haß wider jedes ihm entgegenstehende Hemniß,",
+      "language": [],
+      "musenalm_id": 71390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der falsche Royalismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der falsche Royalismus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "dl76mkp43xvd12h"
+        }
+      ],
+      "source_id": "k0ubk1hau64an4q"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Die Grundlage dieser beiden politischen Richtungen ist wesentlich derselbe: Menschlichkeit, Vaterlandsliebe und Gerechtigkeit.",
+      "language": [],
+      "musenalm_id": 71391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der wahre Liberalismus und der wahre / Royalismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der wahre Liberalismus und der wahre / Royalismus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "mcfv0fqqzsbqoif"
+        }
+      ],
+      "source_id": "7dfgirldnuf6ycu"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Der falsche Liberalismus verhält sich zum wahren, wie die Comödie zum wirklichen Leben.",
+      "language": [],
+      "musenalm_id": 71392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verirrungen des falschen Liberalismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verirrungen des falschen Liberalismus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.504Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "2voyha0ftfmkxj4"
+        }
+      ],
+      "source_id": "13w8gpv64tgap8z"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Es ist in neuerer Zeit von deutscher Nationalität so viel gesprochen worden und geschrieben worden, daß es sich wohl der Mühe lohnt, zu untersuchen, worauf denn dieselbe beruhe,",
+      "language": [],
+      "musenalm_id": 71393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutsche Nationalität, deutsches Spießbürger- / thum und deutscher Zunftgeist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutsche Nationalität, deutsches Spießbürger- / thum und deutscher Zunftgeist",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.395Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ucydd845t9usz9e"
+        }
+      ],
+      "source_id": "a573tzh9p22ki4c"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Man kann die Menschen eintheilen in solche, welche Schamgefühl besitzen, und solche welche es abgestreift haben.",
+      "language": [],
+      "musenalm_id": 71394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fortschritt, gemäßigter Fortschritt und / Rückschritt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fortschritt, gemäßigter Fortschritt und / Rückschritt",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.395Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "0nuz3q625b5xemi"
+        }
+      ],
+      "source_id": "mzdwgdgnhctmces"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Es gibt etwas Schlimmeres als die Willkür der weltlichen Behörden, das ist die Willkür der geistlichen Behörden;",
+      "language": [],
+      "musenalm_id": 71395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Polizeistaat, Priesterstaat und Rechtsstaat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Polizeistaat, Priesterstaat und Rechtsstaat",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.395Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ls8onxrvcrd34t1"
+        }
+      ],
+      "source_id": "v8bamki3olwa62n"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "In allen Verhältnissen des Lebens und namentlich in denjenigen, welche große Massen verschiedenartig gesinnter Menschen berühren, ist es durchaus nothwenig, gewisse Grundsätze festzuhalten,",
+      "language": [],
+      "musenalm_id": 71396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die deutsche Bundesacte und ihr Verhält- / niß zu den deutschen Staatsverfassungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die deutsche Bundesacte und ihr Verhält- / niß zu den deutschen Staatsverfassungen",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.407Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "7ozx1ny2q8cck81"
+        }
+      ],
+      "source_id": "desxpaw3tgvxf9q"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Ueber so manche Einrichtung, welche bei uns in Deutschland bestehen, haben alle denkenden und nicht vom Eigennutz beherrschten Männer einstimmig den Stab gebrochen,",
+      "language": [],
+      "musenalm_id": 71397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Concordia res crecunt, discordia / dilabuntur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Concordia res crecunt, discordia / dilabuntur",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.407Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "qf1m5tp37ynof7m"
+        }
+      ],
+      "source_id": "ik0ll17b73kvppk"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Inhaltsschwer und bedeutungsvoll war die Zeit, in welcher die deutsche Bundesacte zu Stande kam.",
+      "language": [],
+      "musenalm_id": 71398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die bundesrechtlichen Zustände, von der / Gründung des deutschen Bundes bis auf / den heutigen Tag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die bundesrechtlichen Zustände, von der / Gründung des deutschen Bundes bis auf / den heutigen Tag",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.427Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.427Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "pdgjd0tdkfb0bbd"
+        }
+      ],
+      "source_id": "47ff3r1dys8ixf5"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Die lebhafte Bewegung, die sich jetzt im Schooße des Judenthums kund gibt, so wie die zur Tagesfrage gewordene und auf allen deutschen Landtagen als so wichtig erkannte Sache der Juden-Emanzipation",
+      "language": [],
+      "musenalm_id": 71399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rechtsverhältnisse der Bekenner des / mosaischen Glaubens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rechtsverhältnisse der Bekenner des / mosaischen Glaubens",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "1ru32fg9ayo4cnd"
+        }
+      ],
+      "source_id": "2qvb6e5kx26ylq7"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Wie Schleswig und Holöstein auf immer untrennbar miteinander vereinigt sind, so sind sie es auch mit Deutschland.",
+      "language": [],
+      "musenalm_id": 71400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schleswig-Holstein und Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schleswig-Holstein und Deutschland",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "gafxayr1af86b7u"
+        }
+      ],
+      "source_id": "hnbhrpdf3lm5540"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Die Klage über die Zunahme der Verbrechen, der Genußsucht und aller ihrer traurigen Folgen werden immer lauter, immer bedenklicher.",
+      "language": [],
+      "musenalm_id": 71401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die mehr und mehr überhand neh- / mende Demoralsiation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die mehr und mehr überhand neh- / mende Demoralsiation",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "kztnh9bkz0el8ld"
+        }
+      ],
+      "source_id": "txj1osnq0mejzaf"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Die Deutsch-Katholiken sagen sich von einer Reihe von Glaubenssätzen los, welche in gegenwärtigem Augenblicke von der katholischen Kirche angenommen werden,",
+      "language": [],
+      "musenalm_id": 71402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rechtsverhältnisse der Deutsch-Katholiken, / ihre Verhältnisse zu den Katholischen Ge- / meinden und zur katholischen Kirche überhaupt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rechtsverhältnisse der Deutsch-Katholiken, / ihre Verhältnisse zu den Katholischen Ge- / meinden und zur katholischen Kirche überhaupt",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "tlmu4uxjr4o0ac9"
+        }
+      ],
+      "source_id": "npc7phtfkq9o8i5"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Alle tiefeingreifenden Epochen der Geschichte werden bezeichnet durch das Zusammentreffen zweier Elemente: durch das kräftige Auftreten ewiger Wahrheiten und durch die Verjüngung der alten civilisirten Völker vermittelst neuer frischer Lebenssäfte.",
+      "language": [],
+      "musenalm_id": 71403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regeneration des Menschengeschlechts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regeneration des Menschengeschlechts",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ummg0sk1itrqvyh"
+        }
+      ],
+      "source_id": "iz661m8613fq1ns"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Der Widerspruch zwischen der Souverainität der einzelnen Bundesglieder und des Bundes, welcher sich durch das ganze Gebiet des deutschen Bundesrechts hindurchzieht,",
+      "language": [],
+      "musenalm_id": 71404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der deutsche Bund und das Ausland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der deutsche Bund und das Ausland",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "degir1rdgeagp4j"
+        }
+      ],
+      "source_id": "9p56q4ml272atkf"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Versöhnung, Wort des Friedens und der Beseligung! Wer möchte nicht, daß aller Krieg und alle Zwietracht der Parteien sich auflöste in Versöhnung?",
+      "language": [],
+      "musenalm_id": 71405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Versöhnung der Parteien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Versöhnung der Parteien",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "fmjwppbqj6pr0jm"
+        }
+      ],
+      "source_id": "ve05znolyyj6cd4"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Mitten im lebhaften, feurigen Kampfe für Recht, Wahrheit und Freiheit haben wir es freilich zunächst nur mit der Gegenwart, mit den Tropfen aus dem Meere der Undenklichkeit zu thun, welche gerade uns bespülen.",
+      "language": [],
+      "musenalm_id": 71406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ernst des Lebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ernst des Lebens",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "mwkbnodejadcasv"
+        }
+      ],
+      "source_id": "intmu5saqjg467a"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Wie die Sterne des Himmels nach ewigen Gesetzen sich bewegen, wie die Pflanzen der Erde nach solchen keimen und wachsen, so ist auch der Entwickelungsgang, welchen der Mensch durch das Leben geht, durch die weisesten Gesetze geordnet.",
+      "language": [],
+      "musenalm_id": 71407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rückkehr zur Natur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rückkehr zur Natur",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.468Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "asl2pqc9djw8557"
+        }
+      ],
+      "source_id": "23i3vl5bisnmzm6"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Mit mannigfaltigen Kräften versehen tritt der Mensch in dieses Leben, welche alle nur im Kampfe sich zu entwickeln vermögen.",
+      "language": [],
+      "musenalm_id": 71408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kampf und seine Siegespalme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kampf und seine Siegespalme",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.469Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.469Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "44coo4y8b6e3cnh"
+        }
+      ],
+      "source_id": "uyjempkv53452mf"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Die freie Meinungsäußerung ist es, welche vor Allem erstrebt werden muß.",
+      "language": [],
+      "musenalm_id": 71409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geist der Bewegung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Geist der Bewegung",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.469Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.469Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "t42g0159yiszhvc"
+        }
+      ],
+      "source_id": "5ptsfwfit069iqd"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Es ist über die Frage, inwiefern der Staatsbürger berechtigt sei, sich einer Verfügung der Staatsgewalt zu widersetzen, seit Jahrhunderten viel geschrieben und gesprochen worden.",
+      "language": [],
+      "musenalm_id": 71410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Recht des Widerstandes gegen Ver- / fügungen der Staatsgewalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Recht des Widerstandes gegen Ver- / fügungen der Staatsgewalt",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.326Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.326Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "hzb54khwi97g0a8"
+        }
+      ],
+      "source_id": "bu0450x79xwobu8"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.708Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Man kann die Kämpfe, welche in unsern Tagen gekämpft werden, unter verschiedenen Gesichtspunkten betrachten.",
+      "language": [],
+      "musenalm_id": 71411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oeffentlichkeit und Heimlichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Oeffentlichkeit und Heimlichkeit",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.326Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.326Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "mpylvmjkwyk0amg"
+        }
+      ],
+      "source_id": "zjh7zkkknwwxfb2"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Wenn wir die vielen freisinnigen Petitionen, Versprechungen und Motionen und Festtoaste erwägen, welche in den verschiedenen Theilen unseres lieben Vaterlandes seit vielen Jahren auftauchten,",
+      "language": [],
+      "musenalm_id": 71412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Worthelden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Worthelden",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.299Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "1sbkvnngzq3udji"
+        }
+      ],
+      "source_id": "k768d596pdwemvw"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Dem aufmerksamen Beobachter des politischen Horizontes in Deutschland kann es nicht entgangen sein, daß wir am Vorabende großer und bedeutungsvoller Zeiten uns befinden.",
+      "language": [],
+      "musenalm_id": 71413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freiheit des Wortes und des Geistes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freiheit des Wortes und des Geistes",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "hggs9hp3p0w9pja"
+        }
+      ],
+      "source_id": "j9vpp1qlvy9mk3g"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "In unserm lieben deutschen Vaterlande sind die Stände noch immer viel zu sehr getrennt,",
+      "language": [],
+      "musenalm_id": 71414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gelehrte und Bürger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gelehrte und Bürger",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.353Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.353Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "mwfqxf8sub7u335"
+        }
+      ],
+      "source_id": "e38zqqftwfgroqp"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Wenn wir die Ordensregeln der Jesuiten, die Schriften ihrer gepriesensten Autoren forschend durchgehen, so wird es uns klar, daß die Absicht dieses Ordens keine andere ist, als unter dem Deckmantel der Religion irdische Herrschaft, irdische Ehren",
+      "language": [],
+      "musenalm_id": 71415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jesuitismus, Radicalismus, gesetzlicher / Fortschritt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jesuitismus, Radicalismus, gesetzlicher / Fortschritt",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.205Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "bhtxn5px11s2fgr"
+        }
+      ],
+      "source_id": "i0wv48a4tkcsffw"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Wie die Fürsten, so hat auch das Volk seine Freunde und seine Feinde, und dieselben Merkmale, welche auf die einen, passen auch auf die andern",
+      "language": [],
+      "musenalm_id": 71416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde und die Feinde des Volkes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde und die Feinde des Volkes",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.206Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "mg2wm4eholo8p79"
+        }
+      ],
+      "source_id": "ve15lwdw875mrjm"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "haben beide ihre unfelhlbaren Kennzeichen. Die gute Sache tritt offen einher, sie scheut nicht das Licht und braucht es nicht zu scheuen.",
+      "language": [],
+      "musenalm_id": 71417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gute und die schlechte Sache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die gute und die schlechte Sache",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.206Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "7h3hubgegc3e054"
+        }
+      ],
+      "source_id": "kj57kiwi1msb87x"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Wir vernehmen von gewisser Seite her häufig Mahnungen, welche von Vermittelung und Ausgleichung übersprudeln.",
+      "language": [],
+      "musenalm_id": 71418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vermittlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vermittlung",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.359Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "hq2evrst1zqu0yk"
+        }
+      ],
+      "source_id": "blzz2rehp92hypw"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Der § 7 der badischen Verfassungsurkunde bestimmt, übereinstimmend mit den meisten übrigen deutschen Verfassungsurkunden: die staatsbürgerlichen Rechte der Badener sind gleich in jeder Hinsicht, wo die Verfassung nicht namentlich und ausdrücklich",
+      "language": [],
+      "musenalm_id": 71419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unabhängigkeit der Gerichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unabhängigkeit der Gerichte",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "pp5mxtjc20sjeun"
+        }
+      ],
+      "source_id": "ybuynn01fw0q5e8"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Zu den vielen trefflichen §§, welche viele deutsche Verfassungen enthalten, jedoch nicht zur Wahrheit geworden sind,",
+      "language": [],
+      "musenalm_id": 71420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Staatsdiener und ihre Stellung zur / Verfassung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Staatsdiener und ihre Stellung zur / Verfassung",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.415Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.415Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "b8mv6bfz2g89ggi"
+        }
+      ],
+      "source_id": "oxh4d4cq8y1o92d"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Wir haben im vorigen Aufsatze von den zwei Fiktionen gesprochen, mit deren Hülfe unsere Gerichte aus einem patriotischen Staatsbürger, der es wagt, pflichtvergessene Staatsdiener der Verfassungsverletzung offen und mannhaft anzuklagen,",
+      "language": [],
+      "musenalm_id": 71421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unverantwortlchkeit der Staatsdiener und deren Unfehlbarkeit gegenüber dem Staats- / bürger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unverantwortlchkeit der Staatsdiener und deren Unfehlbarkeit gegenüber dem Staats- / bürger",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.581Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.581Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "uruejlwsuu6by6z"
+        }
+      ],
+      "source_id": "sizkti9sgkk2wsx"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Es gibt eine Klasse von Menschen, welche es gerne Allen recht machen möchte,",
+      "language": [],
+      "musenalm_id": 71422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Halben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Halben",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.581Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.581Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "v3r0bqwjkxzbc2l"
+        }
+      ],
+      "source_id": "xow2to0iyx022mj"
+    },
+    {
+      "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Es ist wiederholt die Frage aufgeworfen worden, ob Deutschland nach den Zeiten des 30jährigen Krieges noch Staatsmänner im eigentlichen Sinn des Wortes gehabt habe?",
+      "language": [],
+      "musenalm_id": 71423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutsche Staatsmänner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutsche Staatsmänner",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.581Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.581Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "8o6hj4ww8h82cq9"
+        }
+      ],
+      "source_id": "8ey4rs4cf77j6sx"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen: Einleitung INr 71425, Obj 43, 5 Sammlungen mit 26 Beiträgen, INr 71426-71456, Obj 44-74, abschließender Beitrag INr 71457, Obj 75",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lebensbilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lebensbilder",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.477Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "xs27a11aiv1efyh"
+        }
+      ],
+      "source_id": "aak2lssyjzmd753"
+    },
+    {
+      "annotation": "einleitender Beitrag /) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Es gibt Menschen, welche keinen Namen haben, und welche doch Jedermann erkennt. Der eine sagt, es ist der Polizeirath Merxi zu Berlin, der andere, ein Münchner, es ist der leibhaftige Hofrath Spitz,",
+      "language": [],
+      "musenalm_id": 71425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verwahrung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verwahrung",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "jouzue69pyhudfu"
+        }
+      ],
+      "source_id": "p71hgdiu5kbhh9u"
+    },
+    {
+      "annotation": "Es folgen: 2 Kapitel INr 71427, 71428; Obj 45, 46 und 4 Sammlungen mit 24 Beiträgen INr 71425-71456, Obj 47-74 /) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Unter die vier Facultäten läßt sich in unserm lieben Vaterlande alles einreihen, was irgend Anspruch auf Erwähnung machen kann.",
+      "language": [],
+      "musenalm_id": 71426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier Facultäten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die vier Facultäten",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ln048sihd5ma9ay"
+        }
+      ],
+      "source_id": "sxs6fj7foepzum1"
+    },
+    {
+      "annotation": "Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "ist sehr unzufrieden mit dem deutschen Universitätswesen. Allein er spricht sich darüber nur seinen Freunden gegenüber aus.",
+      "language": [],
+      "musenalm_id": 71427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Privatdozent",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Privatdozent",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "p14nmkefuvzo5ie"
+        }
+      ],
+      "source_id": "bf16ktf0mifcqz4"
+    },
+    {
+      "annotation": "Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "gebracht, so beginnt er sich wohl zu fühlen. Es ist ihm klar geworden, daß gewisse Abstufungen im gelehrten Leben für die Wissenschaft, wie für den Staat unentbehrlich sind.",
+      "language": [],
+      "musenalm_id": 71428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Hat er es zum] Professor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Hat er es zum] Professor",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "hfgofnhvlk7dya7"
+        }
+      ],
+      "source_id": "a7hwduke8naek0f"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen INr 71430-671436, Obj 48-54 /) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Theologische Facultät römisch-katholischer / Confession",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Theologische Facultät römisch-katholischer / Confession",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "hq126yx32dybzcg"
+        }
+      ],
+      "source_id": "wpjb8u7wokmmpd2"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Der deutsche Studiosus römisch-katholischer Theologie ist ein unglücklicher junger Mann. Er íst ein Deutscher und soll zum Römer erzogen werden.",
+      "language": [],
+      "musenalm_id": 71430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Studiosus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Studiosus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "3kvw8r78k2lm0k1"
+        }
+      ],
+      "source_id": "0qdqzr6cdbhv82c"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "in die bewegten Kreise des Lebens ein. Bis dahin hatten die Anstalten, in deren Schooße er zum Priester gebildet werden sollte, für seinen Unterhalt gesorgt;",
+      "language": [],
+      "musenalm_id": 71431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[…und tritt der junge Mann als] Kaplan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[…und tritt der junge Mann als] Kaplan",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "a7d5e5ihj1rk3bs"
+        }
+      ],
+      "source_id": "fzujcqjzr7wnmkk"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Schon lange sehnte er sich aus der untergeordneten Stellung eines Kaplans nach der selbstständigeren des geistlichen Herrn,",
+      "language": [],
+      "musenalm_id": 71432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pfarrer(s)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pfarrer(s)",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.511Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "w8vyoi1v6o5q6n2"
+        }
+      ],
+      "source_id": "pn37vs8cit05h3t"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Die gütige Vorsehung hat es verstanden die Triebe, Regungen und Anlagen aller Geschöpfe in Verhältniß zu setzen zu den äußern Verhältnissen, in welchen sie sich befinden.",
+      "language": [],
+      "musenalm_id": 71433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mönch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mönch",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.516Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.516Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "f76cy4mvsaj1wkr"
+        }
+      ],
+      "source_id": "6j5gdxi4hh2889r"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Während der Mann sich theilt zwischen dem Berufe, welcher ihn außerhalb des Hauses beschäftigt und den Freuden, welche ihm die Familie bereitet,",
+      "language": [],
+      "musenalm_id": 71434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nonne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nonne",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.516Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.516Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "5y607j5nulc89gk"
+        }
+      ],
+      "source_id": "td8m8u3c6bjjc5r"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "ist ein Mönch welcher außer den drei Gelübden, noch das vierte des besondern Gehorsams für den Pabst ablegt.",
+      "language": [],
+      "musenalm_id": 71435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jesuit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Jesuit",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.516Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.516Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "kb0eexn63taur9e"
+        }
+      ],
+      "source_id": "pkpquux4ktavd72"
+    },
+    {
+      "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Von den ersten Augenblicken an, da die Geschichte uns Kunde von deutschen Völkerschaften gibt, sehen wir diese im Kampfe mit Rom.",
+      "language": [],
+      "musenalm_id": 71436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der hohe Würdenträger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der hohe Würdenträger",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.516Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.516Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "tph48tf6ukapc5c"
+        }
+      ],
+      "source_id": "z3k3zi9i1dk73yj"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 71438-71442, Obj 56-60 /) Die vier Facultäten (Sammlung INr 71426, Obj 44) Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Theologische Facultät protestantischer / Confession",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Theologische Facultät protestantischer / Confession",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.516Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.516Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "rw6edu5s2brfkgn"
+        }
+      ],
+      "source_id": "rforcsuyux6w4vo"
+    },
+    {
+      "annotation": "2. Theologische Facultät protestantischer Confession (Sammlung INr 71437, Obj 55) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Der Studiosus der protestantischen Theologie ist in der Regel Pfarrerssohn, während der Studiosus der römisch-katholischen gewöhnlich Bauerssohn ist.",
+      "language": [],
+      "musenalm_id": 71438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Studiosus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Studiosus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.517Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "2ko081x3apwrfyo"
+        }
+      ],
+      "source_id": "nqlijcl7gs3dqsu"
+    },
+    {
+      "annotation": "2. Theologische Facultät protestantischer Confession (Sammlung INr 71437, Obj 55) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "ist in der Regel auch Bräutigam. Die Pfarre soll ihm daher nicht blos einen besseren Gehalt, nicht blos seine eigene Wohnung, sondern viel mehr als alles dieses - eine geliebte Gattin verleihen.",
+      "language": [],
+      "musenalm_id": 71439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der protestantische Pfarramts-Candidat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der protestantische Pfarramts-Candidat",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.517Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "odehr1l6em258fx"
+        }
+      ],
+      "source_id": "mzx617crn5l71ho"
+    },
+    {
+      "annotation": "2. Theologische Facultät protestantischer Confession (Sammlung INr 71437, Obj 55) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "ist wesentlich Gatte und Familienvater. Sein Familienleben bildet den schöneren Theil seines Daseins und Wirkens.",
+      "language": [],
+      "musenalm_id": 71440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der protestantische Pfarrer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der protestantische Pfarrer",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.517Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ara7i6cu9i8mu1y"
+        }
+      ],
+      "source_id": "hdmdei4webxxo4m"
+    },
+    {
+      "annotation": "2. Theologische Facultät protestantischer Confession (Sammlung INr 71437, Obj 55) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "ist kein Diener Gottes, kein Diener der Religion, kein Diener der Kirche, sondern ein Fürstendiener.",
+      "language": [],
+      "musenalm_id": 71441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der evangelische Consistorialrath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der evangelische Consistorialrath",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "wm6j3k18two398i"
+        }
+      ],
+      "source_id": "vqy5wi1ppwcyw3s"
+    },
+    {
+      "annotation": "2. Theologische Facultät protestantischer Confession (Sammlung INr 71437, Obj 55) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "verhält sich zum frommen Mann, wie die Frömmelei zur Frömmigkeit, wie der Schein zur Wahrheit.",
+      "language": [],
+      "musenalm_id": 71442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pietist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pietist",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "m1xwghfvsu1pob1"
+        }
+      ],
+      "source_id": "dydq41g1o98shwi"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 71444-71448, Obj 62-66 /) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Juristische Facultät",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Juristische Facultät",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "793ow5eb1v74z71"
+        }
+      ],
+      "source_id": "xwwhrpzkqpljiwi"
+    },
+    {
+      "annotation": "3. Juristische Facultät (Sammlung INr 71443, Obj 61) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "der Rechtsgelehrsamkeit ist ein flotter Bursche. Er trinkt viel, schlägt sich oft und arbeitet die drei ersten Semester seiner Studierzeit wenig oder gar nichts.",
+      "language": [],
+      "musenalm_id": 71444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Studiosus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Studiosus",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "odq5cc6qvp00c8r"
+        }
+      ],
+      "source_id": "z1yovzdufj4356f"
+    },
+    {
+      "annotation": "3. Juristische Facultät (Sammlung INr 71443, Obj 61) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "hat auch einmal, gleich anderen Sterblichen, Menschenverstand und Rechtsgefühl gehabt,",
+      "language": [],
+      "musenalm_id": 71445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Amts-Assessor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Amts-Assessor",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "jutu47z0ezw2l82"
+        }
+      ],
+      "source_id": "jpretkpkh3drnl0"
+    },
+    {
+      "annotation": "3. Juristische Facultät (Sammlung INr 71443, Obj 61) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "war schon fleißig, bevor er die Universität bezog, er trug schon eine Brille mit sechzehn Jahren.",
+      "language": [],
+      "musenalm_id": 71446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Appellationsgerichtsrath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Appellationsgerichtsrath",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.421Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "lziouicn0yhlj04"
+        }
+      ],
+      "source_id": "hn12sxkaoklw23g"
+    },
+    {
+      "annotation": "3. Juristische Facultät (Sammlung INr 71443, Obj 61) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "unterscheidet sich vom Appellationsgerichtsrath wesentlich dadurch, daß er weniger pedantisch, aber ehrgeiziger ist.",
+      "language": [],
+      "musenalm_id": 71447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Oberappellationsgerichtsrath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Oberappellationsgerichtsrath",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.422Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "oqvubkf8nwadwd6"
+        }
+      ],
+      "source_id": "3cvy0zkouxisccf"
+    },
+    {
+      "annotation": "3. Juristische Facultät (Sammlung INr 71443, Obj 61) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "zu deutsch, Diener der Gerechtigkeit, sollte seinen Titel ablegen. Denn er erhält ihn nur und behauptet ihn blos, weil er sich zum Diener der Ungerechtigkeit herabwürdigen ließ.",
+      "language": [],
+      "musenalm_id": 71448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Justizminister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Justizminister",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.422Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ua4rvpl5zpubt8y"
+        }
+      ],
+      "source_id": "0ay5cc6erscmkjm"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen mit einem beigegebenen Gedicht INr 71450-71456, Obj 68-74 /) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philosophische Facultät",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Philosophische Facultät",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.422Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "7r6v4hog0zf69tq"
+        }
+      ],
+      "source_id": "ulvt6gn1h8205w5"
+    },
+    {
+      "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "ist eigentlich gar kein Studiosus, denn er studirt nicht. Er fürchtet sich nicht vor dem Examen, denn er macht keins, oder ist des hohen Schutzes seiner Gönner so gewiß, daß er sich deshalb keine Sorgen macht.",
+      "language": [],
+      "musenalm_id": 71450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Studiosus der Philosophie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Studiosus der Philosophie",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.422Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "kn9cdwxjwp3ls1f"
+        }
+      ],
+      "source_id": "2i4h12zwv5di6pk"
+    },
+    {
+      "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "hat auf seinem Nacken einen Januskopf sitzen, dessen den hohen Herrschaften zugewandtes Gesicht immer heiter, immer lächelnd, immer bewundernd und immer bejahend, dessen der übrigen Welt zugekehrtes Antlitz aber immer mürrisch,",
+      "language": [],
+      "musenalm_id": 71451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hofmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hofmann",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.415Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.415Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "3rjp24zthhaeipr"
+        }
+      ],
+      "source_id": "i2ci0m3m5hy8ge0"
+    },
+    {
+      "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "stammt aus einer adligen Familie. Er hat zwar sein Staatsexamen schlecht bestanden, allein er spricht geläufig französisch und er versteht den Damen den Hof zu machen.",
+      "language": [],
+      "musenalm_id": 71452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Diplomat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Diplomat",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.415Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.415Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "yz6rrprk850adlu"
+        }
+      ],
+      "source_id": "f4h9ongpv4eezfh"
+    },
+    {
+      "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "ist ein unglücklicher, von der Natur stiefmütterlich ausgestatteter Einviertel-Mensch, der von Jugend auf stets an sich im stillen die Frage richtete: warum bist du unter solchen Umständen geboren und erzogen worden?",
+      "language": [],
+      "musenalm_id": 71453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Censor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Censor",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.415Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.415Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "g5uvg1lt1vf2vae"
+        }
+      ],
+      "source_id": "9231kewaxg4vhuk"
+    },
+    {
+      "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "ist die rechte Hand des Censors, ohne jenen vermöchte dieser nur wenig zu leisten.",
+      "language": [],
+      "musenalm_id": 71454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Polizeimann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Polizeimann",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.407Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "827nb8uvcg90dnl"
+        }
+      ],
+      "source_id": "u5koe708jb98a4s"
+    },
+    {
+      "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "besteht aus einem Adjutanten, einem Kammerherrn, einem Cabinets-Secretär, einem Kammerdiener und einer Maitresse.",
+      "language": [],
+      "musenalm_id": 71455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Camariilla",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Camariilla",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.407Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "klczq77uhv7rw6x"
+        }
+      ],
+      "source_id": "0v7295sg99qx9x0"
+    },
+    {
+      "annotation": "Beigabe zu »Camarilla« von G. v. Struve INr 71455, Obj 73 /) Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "Das Land hat einen gesunden Magen, / Es kann gar vieles vertragen,",
+      "language": [],
+      "musenalm_id": 71456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Land hat einen gesunden Magen, / Es kann gar vieles vertragen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.415Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.415Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "d6ulc7tfqyf7g2n"
+        }
+      ],
+      "source_id": "k7uuf61lxssbn9j"
+    },
+    {
+      "annotation": "II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "gibt dem Kaiser, was des Kaisers und Gott was Gottes ist. Er liebt die Wahrheit und sagt sie offen gegen Freund und Feind,",
+      "language": [],
+      "musenalm_id": 71457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der deutsche Mann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der deutsche Mann",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.407Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ys217wmn3wyvv23"
+        }
+      ],
+      "source_id": "36osikhfct3q1tu"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 12 Gedichten INr 71459-71470, Obj 77-88",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Lieder eines Gefangenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Lieder eines Gefangenen",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.408Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "mmymdmccmfbarc3"
+        }
+      ],
+      "source_id": "yosxs497l60hwrl"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Gut heil, ihr Brüder im Freien! / Heut drück' ich euch nicht die Hand,",
+      "language": [],
+      "musenalm_id": 71459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gefangene an seine Brüder im Freien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gefangene an seine Brüder im Freien",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.427Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.427Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "csp8kz4wveqb2ww"
+        }
+      ],
+      "source_id": "ch9ntugfqxlwidf"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "350",
+      "incipit_statement": "Wenn sich der Geist so fangen ließe, / Wie wir den Leib gefangen seh'n,",
+      "language": [],
+      "musenalm_id": 71460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leib und Seele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leib und Seele",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.315Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "0htpb5on7ttk4iu"
+        }
+      ],
+      "source_id": "z8c4i5l0xtk9z9a"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "Sie haben mich gefangen, / Doch meine Seele nicht.",
+      "language": [],
+      "musenalm_id": 71461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der freie Gefangene und der Gefangene / im Freien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der freie Gefangene und der Gefangene / im Freien",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.315Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "zjzrp3qss0s2206"
+        }
+      ],
+      "source_id": "t4l5qx4p3plj52o"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Es giebt ein Schwert von scharfem Erz, / Weh' dem, den es verwundet!",
+      "language": [],
+      "musenalm_id": 71462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wahrheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wahrheit",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.645Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "h2uiy6v1wk8hx8i"
+        }
+      ],
+      "source_id": "i14fks1v984ct7x"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Süß ist der Tod für's Vaterland! / Beneidenswürdig, wer / Sich um das Haupt den Lorbeer wand,",
+      "language": [],
+      "musenalm_id": 71463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Vaterland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Vaterland",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.645Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "jfqpi6ctlcgx171"
+        }
+      ],
+      "source_id": "y5izsddmwjhb9sl"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Wer eine trübe Schmerzens-Nacht / Verlassen, ohne Freud durchwacht, / Der blickt wohl oft nach Osten hin,",
+      "language": [],
+      "musenalm_id": 71464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nacht",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.645Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "b0r66m3w7ncgtmt"
+        }
+      ],
+      "source_id": "qt2l9l76qdm8n9e"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Ich wollte gern gefangen sein, / Wär' Deutschland groß und frei!",
+      "language": [],
+      "musenalm_id": 71465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frommer Wunsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frommer Wunsch",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.645Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "qazkrn6geb73h06"
+        }
+      ],
+      "source_id": "bhw0crcuimtptu7"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Es ziehen allmählig die Stunden / Zum Meer der Vergangenheit hin.",
+      "language": [],
+      "musenalm_id": 71466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Freundinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Freundinnen",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.646Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "71r1a026lg0i55o"
+        }
+      ],
+      "source_id": "txjtw6c1yh3d1yk"
+    },
+    {
+      "annotation": "Anm. am Objekt: Während ich im Gefängnisse war, leitete man eine polizeiliche Untersuchung wider mich ein, […] /) III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Es mögen die Feinde mir rauben / Die Freiheit, das tägliche Brod,",
+      "language": [],
+      "musenalm_id": 71467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Feinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Feinde",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.646Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "z9ps2ugvtweepl4"
+        }
+      ],
+      "source_id": "6tphbeq2xjqiiiw"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Das Leben ist ein ew'ger Krieg / Des Bösen mit dem Guten;",
+      "language": [],
+      "musenalm_id": 71468,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glaube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glaube",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.646Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "2la2apz1ai6rj3p"
+        }
+      ],
+      "source_id": "jhg51g589uqzpib"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Hinweg mit euren Schätzen, / Hinweg mit Ruhm und Glanz,",
+      "language": [],
+      "musenalm_id": 71469,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entsagung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entsagung",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.646Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "ux04ji5hr58xau5"
+        }
+      ],
+      "source_id": "8kq6s8jbhxopjtn"
+    },
+    {
+      "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Ihr mögt mich prozessiren, / So lang es euch beliebt!",
+      "language": [],
+      "musenalm_id": 71470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Feinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav v. Struve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Feinde",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.647Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.647Z",
+          "agent": "qwibej56fq45fjs",
+          "source_id": "d9d3w9keux1ezwb"
+        }
+      ],
+      "source_id": "zqco3zutbv2ofkn"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "tti1w99tyf5gdzj"
+    },
+    {
+      "annotation": "Umschlaggraphik v. Verlagsbroschur",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 71472,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3611_71472_gu2ny4yghk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-09-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "zm9jf1new27ktzd"
+    }
   ],
   "agents": [
     {

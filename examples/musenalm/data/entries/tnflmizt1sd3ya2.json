@@ -48,7 +48,26 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "wy88lthtidivm3d"
+    {
+      "annotation": "Der Verlag dieses Almanaches ist in der Militärischen Buchhandlung - dermahlen auf der Freyung, in dem Hause: Bey dem Römischen Kaiser genannt, Nro 145. / Wien, den 10. Juny 1803. / August Gräffer\n§ Titel fehlt",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.597Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200099",
+      "location": "105B05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.597Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wy88lthtidivm3d"
+    }
   ],
   "contents": [],
   "agents": [

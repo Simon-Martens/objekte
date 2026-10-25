@@ -48,49 +48,1587 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "c14qpxfb22oakih"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200414",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "c14qpxfb22oakih"
+    }
   ],
   "contents": [
-    "ae28jd0t4x8aobx",
-    "up4knk3cl5figmg",
-    "7gwjih9q7nglft7",
-    "1mzhy9m9pwsnfz0",
-    "kd70hk87sv68guf",
-    "ge70xvmpm9mb6zc",
-    "ve8v2pkv23qwkfc",
-    "1tw193s2kkv3it1",
-    "maxep95nfr8q7y8",
-    "b961ivn0uh4fs8z",
-    "jnl0lxd713cb3vw",
-    "vaem2zhyy2u6vxr",
-    "o1rnxhomtkurf0x",
-    "julp5cd2stc7kyl",
-    "jfyqhbpe1j5295s",
-    "dmjdfyavph3eei3",
-    "sob5hgr7f3asz4u",
-    "byaensdamil4rpe",
-    "o07cbs42c8prmo2",
-    "7aijcqqv3o8fpwg",
-    "orz4rpj6ekjqs06",
-    "u7ft8van3jcjzn5",
-    "rybnu7539sp25c2",
-    "tehnuj5r0c1qq84",
-    "conbs48w8s58ra5",
-    "14fpruj15ydiki8",
-    "cyq3y49plrlf7of",
-    "e7v3bctlm48dxdw",
-    "erexz5vi90qzxva",
-    "lqnslka4kyr9ifu",
-    "0dv8ad7li2xisbf",
-    "1v21h63lri65crb",
-    "338q5wimiui3ute",
-    "o7efq642uex52xr",
-    "4itd73pn9tlgmzv",
-    "22cvse6vg7lxkz0",
-    "84aq1ng4jgbngyr",
-    "vm3t3h5y9i30ytw",
-    "7m2yimdzkysak0f",
-    "ko41382glonzczq"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51672,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_704_51672_1quht9g3ag.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ae28jd0t4x8aobx"
+    },
+    {
+      "annotation": "Titelgraphik /) # Bez. aus dem G-Verz /)  Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 s.a. Textbezug INr 51700, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51673,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schwingfest im Entlibuch",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_704_51673_m39xwrlmzs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Schwingfest im Entlibuch",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.648Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "zah4qj9s6o7c2f5"
+        }
+      ],
+      "source_id": "up4knk3cl5figmg"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51674,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / für das Jahr / 1804 / Zürich / bey Orell, Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_704_51674_vexk02bl24.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / für das Jahr / 1804 / Zürich / bey Orell, Füssli & Comp.",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "7gwjih9q7nglft7"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51675,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / für / das Jahr 1804. / Zürich, / bey Orell, Füßli und Compagnie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_704_51675_bynl4a7kcn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / für / das Jahr 1804. / Zürich, / bey Orell, Füßli und Compagnie",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "1mzhy9m9pwsnfz0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51676,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "kd70hk87sv68guf"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [Februar] Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 /) s.a. Textbezug INr 51701, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51677,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Luzern / Bauer v. Merischwand",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_704_51677_pyvtp5fwu4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Luzern / Bauer v. Merischwand",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.648Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "6wqqb4oyxzyvxwy"
+        }
+      ],
+      "source_id": "ge70xvmpm9mb6zc"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [Juni] Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 /) s.a. Textbezug INr 51701, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51678,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Luzern / Bauernmädchen von Merischwand",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_704_51678_5c3xa86lde.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Luzern / Bauernmädchen von Merischwand",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.648Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "ilb739ncjjnogfd"
+        }
+      ],
+      "source_id": "ve8v2pkv23qwkfc"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [Oktober] Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 /) s.a. Textbezug INr 51703, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51679,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Luzern / Ein Entlibucher",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_704_51679_nhtzi1ge95.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Luzern / Ein Entlibucher",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.648Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "s9g19bkceh5uatw"
+        }
+      ],
+      "source_id": "1tw193s2kkv3it1"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer  im Kalendarium [Dezember] Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 /) s.a. Textbezug INr 51703, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51680,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Luzern / Ein Entlibuchermädchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_704_51680_qtmup2lev8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Luzern / Ein Entlibuchermädchen",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.648Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "mth9up06jamme3u"
+        }
+      ],
+      "source_id": "maxep95nfr8q7y8"
+    },
+    {
+      "annotation": "September 1802 - Dezember 1802",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetische Chronik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helvetische Chronik",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "b961ivn0uh4fs8z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Kurze / geographische Darstellung / des Cantons Luzern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Kurze / geographische Darstellung / des Cantons Luzern",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "jnl0lxd713cb3vw"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11, s.a. Textbezug 51704, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Stadt Luzern / von der Morgenseite gezeichnet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_704_51683_vg1zu3adk0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Stadt Luzern / von der Morgenseite gezeichnet",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.523Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "fwge7zt6kzmj3xa"
+        }
+      ],
+      "source_id": "vaem2zhyy2u6vxr"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruinen v. Habsburg im Canton Luzern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_704_51684_ydqo65pt8d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ruinen v. Habsburg im Canton Luzern",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.643Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "fqg15awu45guiss"
+        }
+      ],
+      "source_id": "o1rnxhomtkurf0x"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11s.a. Textbezug INr 51708, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus im Canton Luzern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_704_51685_ibsi2vkyla.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus im Canton Luzern",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.559Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.559Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "lc6p9954z8frufu"
+        }
+      ],
+      "source_id": "julp5cd2stc7kyl"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 s.a. Textbezug INr 51708, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Scheune im Canton Luzern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_704_51686_kwx9obzdsq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Scheune im Canton Luzern",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.560Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "y5hlm64af1q1fx4"
+        }
+      ],
+      "source_id": "jfyqhbpe1j5295s"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11, s. a. Textbezug INr 51705, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Stadt Luzern / von der Abendseite gezeichnet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_704_51687_toebotz4dp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Stadt Luzern / von der Abendseite gezeichnet",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.560Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "53jdkbu3905ovo8"
+        }
+      ],
+      "source_id": "dmjdfyavph3eei3"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz. /) Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11; s.a. Textbezug INr 51707, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Capelle auf dem Schlachtfeld zu Sempach Cant. Luzern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_704_51688_wo1lwtbfnm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Capelle auf dem Schlachtfeld zu Sempach Cant. Luzern",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.560Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "vurq3sqzdie7cpi"
+        }
+      ],
+      "source_id": "sob5hgr7f3asz4u"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Gedichte",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "byaensdamil4rpe"
+    },
+    {
+      "annotation": "mit Anmerkungen INr 51694, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Es steht im tiefen Alpengrund / Ein Berg aus Schutt erbaut, / Von dessen sanftgewölbtem Rund / Man Fels und Strom umschaut.",
+      "language": [],
+      "musenalm_id": 51690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Berg Montet, im Thale von Bex. 1802",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Brun, geb. Münter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Berg Montet, im Thale von Bex. 1802",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.560Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "d1l281zdh8dm9y3"
+        }
+      ],
+      "source_id": "o07cbs42c8prmo2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Haller wandelte hier. O trete still' auf den Rasen; / Rede leiser, es tönt noch in den Wipfeln sein Lied.",
+      "language": [],
+      "musenalm_id": 51691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Schloßgarten von Roche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ebendieselbe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Schloßgarten von Roche",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.608Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "gspup9whu1o7c1v"
+        }
+      ],
+      "source_id": "7aijcqqv3o8fpwg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Nur das Klima umfaßt der nahe Blick des Be- / schauers: / Nur der kleinliche Geist hascht nach zu schnellem / Begriff.",
+      "language": [],
+      "musenalm_id": 51692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Urgebirg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ebendieselbe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Urgebirg",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.608Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "05eelz5r4ed7djm"
+        }
+      ],
+      "source_id": "orz4rpj6ekjqs06"
+    },
+    {
+      "annotation": "mit Anmerkungen INr 51694, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Dumpf rollt der See in hohlen Murmelwellen, / Das Hochgebirg steht Räthseln gleich verhüllt;",
+      "language": [],
+      "musenalm_id": 51693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das Alpengewitter am Genfersee / 1802",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ebendieselbe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das Alpengewitter am Genfersee / 1802",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.608Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "4gdzf19xo5gti70"
+        }
+      ],
+      "source_id": "u7ft8van3jcjzn5"
+    },
+    {
+      "annotation": "Anmerkungen zu 2 vorstehenden Gedichten INr 51690, 51693; Obj 19, 222",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkungen",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "rybnu7539sp25c2"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Gedicht INr 51696, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Auf dem Napf, einem Gipfel des Enzi im Entlebuch, traf der Verfasser im abgewichenen Sommer mehrere Freunde aus verschiedenen Cantonen an,",
+      "language": [],
+      "musenalm_id": 51695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Napflied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Napflied",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.608Z",
+          "agent": "7xo2ew2y9bv15pw",
+          "source_id": "27xwvbg6aurxejd"
+        }
+      ],
+      "source_id": "tehnuj5r0c1qq84"
+    },
+    {
+      "annotation": "mit einer Einleitung INr 51695, Obj 24 und Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Me gsehd höch über d'Wält ewägg, / s'ist eim um's Härz se wohl.",
+      "language": [],
+      "musenalm_id": 51696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[5. Napflied] / (Du d'Wys: Die liebe Feyerstunde / schlägt, u.s.f.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Häffliger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[5. Napflied] / (Du d'Wys: Die liebe Feyerstunde / schlägt, u.s.f.)",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.608Z",
+          "agent": "7xo2ew2y9bv15pw",
+          "source_id": "rkom7xzvezoqa5n"
+        }
+      ],
+      "source_id": "conbs48w8s58ra5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Was gohd jez i der Schwytz? / Was gohd jez wohl im Schwytzerland? / Ha, heissa, o Vaterland?",
+      "language": [],
+      "musenalm_id": 51697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Oeppis vo der Schwytz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ebenderselbe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Oeppis vo der Schwytz",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.608Z",
+          "agent": "7xo2ew2y9bv15pw",
+          "source_id": "12cv9lyo3y1pfv8"
+        }
+      ],
+      "source_id": "14fpruj15ydiki8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Das Vater unser eines Unterwaldners, von Herrn Usteri in Zürich gezeichnet, und von Herrn Wocher in Basel in Aquatinta Manier ausgeführt,",
+      "language": [],
+      "musenalm_id": 51698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Fragment / eines Schreibens an einen Freund in Berlin / über einige der neuesten schweitzerschen / Kunst- und Litteratur-Produkte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Fragment / eines Schreibens an einen Freund in Berlin / über einige der neuesten schweitzerschen / Kunst- und Litteratur-Produkte",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "cyq3y49plrlf7of"
+    },
+    {
+      "annotation": "Sammlung von 9 Textbezügen INr 51700, 51701, 51703-51709, Obj 29-37 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Erklärung der Kupfer. / Nach Zeichnungen und geäzt von F. N. König.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Erklärung der Kupfer. / Nach Zeichnungen und geäzt von F. N. König.",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "e7v3bctlm48dxdw"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Titelgraphik INr 51673, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Die Auslegung dieses Blättchens findet sich S. 154 und 155 des gegenwärtigen Almanachs",
+      "language": [],
+      "musenalm_id": 51700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Dem Titelblatt gegenüber.) / 1. Das Schwingfest im Entlebuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Dem Titelblatt gegenüber.) / 1. Das Schwingfest im Entlebuch",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "erexz5vi90qzxva"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphiken im Kalendarium INr 51677, 51678; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Das Dorf Merischwanden gehört zwar nach der neuesten Eintheilung nicht mehr zum Canton Luzern,",
+      "language": [],
+      "musenalm_id": 51701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Luzerner Cantonstracht. / a. Ein Bauer von Merischwanden. / b. Ein Bauernmädchen von da.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Luzerner Cantonstracht. / a. Ein Bauer von Merischwanden. / b. Ein Bauernmädchen von da.",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqnslka4kyr9ifu"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphiken im KalendariumINr 51679, 51680; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Ueber den Charakter dieses Volkes findet mandas nähere S. 184. und 185 dieses Almanachs",
+      "language": [],
+      "musenalm_id": 51703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[2. Luzerner Cantonstracht] c. Ein Entlebucher. / d. Ein Entlebuchermädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[2. Luzerner Cantonstracht] c. Ein Entlebucher. / d. Ein Entlebuchermädchen",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dv8ad7li2xisbf"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphik INr 51683, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.114Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Im Vordergrunde zur Rechten liegt die Haupt- und sogenannte Stifts-Kirche des HH. Leodegar und Moritz am östlichen Ende der größern Stadt auf einer kleinen Anhöhe am See,",
+      "language": [],
+      "musenalm_id": 51704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die Stadt Luzern von der Morgenseite / gezeichnet (S. 82.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die Stadt Luzern von der Morgenseite / gezeichnet (S. 82.)",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "1v21h63lri65crb"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphik INr 51687, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.115Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Hier erblickt man im Vordergrunde zu Rechten die Hauptstraße nach Sempach, und über derselben auf einer starken Anhöhe,",
+      "language": [],
+      "musenalm_id": 51705,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die Stadt Luzern von der Abendseite / gezeichnet. / (S. 172.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die Stadt Luzern von der Abendseite / gezeichnet. / (S. 172.)",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "338q5wimiui3ute"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphik INr 51683, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Die Beschreibung davon findet sich S. 116 d. A.",
+      "language": [],
+      "musenalm_id": 51706,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Ruinen von Habspurg. / (S.116.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Ruinen von Habspurg. / (S.116.)",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "o7efq642uex52xr"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphik INr 51688, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Nähere Notitzen darüber befinden sich S. 173 und 174 d. A.",
+      "language": [],
+      "musenalm_id": 51707,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Capelle auf dem Schlachtfeld zu Sempach. / (S. 174.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Capelle auf dem Schlachtfeld zu Sempach. / (S. 174.)",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "4itd73pn9tlgmzv"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51699, Obj 28) s. Graphiken INr 51685, 51686; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Die Bauart der Häuser und Scheunen in diesem Canton stimmt mit der bernerschen sehr überein.",
+      "language": [],
+      "musenalm_id": 51708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Luzernische Bauarten. / (S. 151.) / a. Ein Bauernhaus / b. Eine Scheune",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Luzernische Bauarten. / (S. 151.) / a. Ein Bauernhaus / b. Eine Scheune",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "22cvse6vg7lxkz0"
+    },
+    {
+      "annotation": "s. Karte INr 51711, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Nach dem Meyerisch-Weissischen Atlas in's Kleine gezeichnet",
+      "language": [],
+      "musenalm_id": 51709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Carte des Cantons Luzern. / (S. 216.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Carte des Cantons Luzern. / (S. 216.)",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "84aq1ng4jgbngyr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "vm3t3h5y9i30ytw"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz. s. Textbezug INr 51709, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51711,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Canton Luzern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Keller; Senn",
+      "scans": [
+        "alm_704_51711_pfg22bpghv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Canton Luzern",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.625Z",
+          "agent": "hp3ztaqa2ipzjih",
+          "source_id": "04qlm33ppmntpxm"
+        }
+      ],
+      "source_id": "7m2yimdzkysak0f"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51712,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_704_51712_dk8jgdcpzz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ko41382glonzczq"
+    }
   ],
   "agents": [
     {

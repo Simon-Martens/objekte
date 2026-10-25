@@ -49,29 +49,758 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "9lqdq40xc8tjtdr"
+    {
+      "annotation": "1820 - 1828 u. 1838.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.701Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108676",
+      "location": "105L07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.701Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9lqdq40xc8tjtdr"
+    }
   ],
   "contents": [
-    "uhscqcwsnllru1q",
-    "vz5icrcoly18vfq",
-    "y8asevj5p3c58kj",
-    "09gptkxte6tw62f",
-    "wmv09mox21rq3v6",
-    "c0d83axkstbrnh0",
-    "ojby3oeb3xgtg69",
-    "oglv3xjgaf1vx3g",
-    "hwcg04wbeeg1m2l",
-    "w415px5cep8ynq6",
-    "744szsbj5o77oe8",
-    "x9ra6noubprgk3l",
-    "xegbpv54sww7gtf",
-    "spc93zdrf6rmhj1",
-    "ggufi3ncyvha6vy",
-    "49758a0sods7ymi",
-    "c190tbah11sbdzx",
-    "j2d2znynxv0thum",
-    "c8ypki879288v4g",
-    "6v1wr217aoqe1v3"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lithographie von C. F. Müller in Carlsruhe)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithographie von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3494_97445_ja54ql7s4p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "uhscqcwsnllru1q"
+    },
+    {
+      "annotation": "Titelportrait /) s. Textbezug 97458, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97446,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philipp der Grosmüthige / nach einerm Original-Gemälde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3494_97446_l2o6bxanz7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Philipp der Grosmüthige / nach einerm Original-Gemälde",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "vz5icrcoly18vfq"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.831Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97447,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / VORZEIT. / Ein Taschenbuch / für das / Jahr 1820. / Marburg und Cassel / bei Krieger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. B. Kessler del. Lithographie von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3494_97447_0kcox4u6p9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die / VORZEIT. / Ein Taschenbuch / für das / Jahr 1820. / Marburg und Cassel / bei Krieger",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "2e0zj08qq2qshay",
+          "source_id": "skialc5av1gczhu"
+        }
+      ],
+      "source_id": "y8asevj5p3c58kj"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Einige Freunde der Vorzeit haben sich vereinigt, die Resultate ihrer geschichtlichen und alterthümlichen Bemühungen, ohne gelehrten Prunk und unnöthigen Flitterstaat, von Zeit zu Zeit unbefangenen Lesern zur Prüfung vorzulegen,",
+      "language": [],
+      "musenalm_id": 97448,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.818Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "ys6btmwl4i39kgx"
+        }
+      ],
+      "source_id": "09gptkxte6tw62f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "wmv09mox21rq3v6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97450,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "c0d83axkstbrnh0"
+    },
+    {
+      "annotation": "Vorwort zum folgenden Beitrag INr 97452, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das deutsche Mittelalter, herrlich durch den kühnen schaffenden und wirkenden Geist, der die darin lebenden Geschlechter beseelte, ruhmvoll durch die großen Thaten, welch darin vollbracht wurden",
+      "language": [],
+      "musenalm_id": 97451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der deutsche Ordensstaat in Preußen. / Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der deutsche Ordensstaat in Preußen. / Vorwort",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ojby3oeb3xgtg69"
+    },
+    {
+      "annotation": "mit einem Vorwort s. INr 97451, Obj 7 /) 2 Illustrationen s. Graphiken INr 97453, 97454; Obj 9, 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Zu der Zeit, als von den frommen christlichen Helden Jerusalem erobert und der frömmste und tapferste von ihnen, Gottfried von Bouillon, zum Könige des heiligen Landes gewählt worden war,",
+      "language": [],
+      "musenalm_id": 97452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der deutsche Ordensstaat in Preußen]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der deutsche Ordensstaat in Preußen]",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "oglv3xjgaf1vx3g"
+    },
+    {
+      "annotation": "Illustration zu »Der deutsche Ordensstaat in Preußen« INr 97451, 97452; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kirche des Schlosse zu Marienburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3494_97453_g6x0nw3dwa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kirche des Schlosse zu Marienburg",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "hwcg04wbeeg1m2l"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »Der deutsche Ordensstaat in Preußen« INr 97451, 97452; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Große Capitel Saal im Schlosse zu Marienburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3494_97454_cziakma895.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Große Capitel Saal im Schlosse zu Marienburg",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "w415px5cep8ynq6"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "So wünschenswerth dem Menschenbeobachter auch die Kenntniß der Erziehung und des frühern Lebens merkwürdiger Menschen aus der Vorzeit sein muß, so selten findet er diesen Wunsch befriedigt.",
+      "language": [],
+      "musenalm_id": 97455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Züge / aus dem / Leben Konrad's, / Landgrafen zu Thüringen und Hochmeisters des / deutschen Orden's",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usener",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Züge / aus dem / Leben Konrad's, / Landgrafen zu Thüringen und Hochmeisters des / deutschen Orden's",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "744szsbj5o77oe8"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 97457, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "In dem dritten oder mittäglichen Chore der St. Elisabeth-Kirche zu Marburg, zur linken Seite des Hochaltars, befinden sich die Begräbnisse und Begräbniß-Monumente vieler Hessischer Landgrafen und Landgräfinnen;",
+      "language": [],
+      "musenalm_id": 97456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Begräbniß-Denkmal / des / Landgrafen Konrad's von Thüringen, / Hochmeisters des deutschen Ordens. / Nachtrag zu vorstehendem Aufsatze. / Mit einer Abbildung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Begräbniß-Denkmal / des / Landgrafen Konrad's von Thüringen, / Hochmeisters des deutschen Ordens. / Nachtrag zu vorstehendem Aufsatze. / Mit einer Abbildung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.579Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "nxogcwowvs3fgxq"
+        }
+      ],
+      "source_id": "x9ra6noubprgk3l"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 97456, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Begräbniß-Denkmal des Landgrafen Konrad's von Thüringen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithograph. von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3494_97457_ku51ao9vl5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Begräbniß-Denkmal des Landgrafen Konrad's von Thüringen #",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "xegbpv54sww7gtf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelüortrait INr 97446, Ob 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Vor allen Fürsten Hessenlandes, welche sich durch einer ruhmvolle Regierung ausgezeichnet haben, glänzt Philipp der Großmüthige durch Tugenden und Thaten,",
+      "language": [],
+      "musenalm_id": 97458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philipp der Großmüthige, / Landgraf zu Hessen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Philipp der Großmüthige, / Landgraf zu Hessen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "spc93zdrf6rmhj1"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 97460, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Christenberg #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. B. Kessler del. Lithographie von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3494_97459_oujdaa6j8b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Christenberg #",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.445Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.445Z",
+          "agent": "2e0zj08qq2qshay",
+          "source_id": "4dc6ddx9zg08yuv"
+        }
+      ],
+      "source_id": "ggufi3ncyvha6vy"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 97459, Obj 15 /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Auf einem waldumkränzten Berggipfel des sogenannten Burgwaldes, - zwischen den oberhessischen Dörfern Entenhausen und Mellnau, im Amte Wetter, dem etwa vier Stunden von Marburg entlegenen Dorfe Münchhausen gegenüber, - wird der Wanderer",
+      "language": [],
+      "musenalm_id": 97460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Christenberg, / in Oberhessen. / Mit einer Abbildung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. K. W. Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Christenberg, / in Oberhessen. / Mit einer Abbildung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.445Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.445Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "ujwqiw69cnior92"
+        }
+      ],
+      "source_id": "49758a0sods7ymi"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 9742, 97463; Obj 18, 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Legenden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Legenden",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "c190tbah11sbdzx"
+    },
+    {
+      "annotation": "Legenden (Sammlung INr 97461, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Als der heilige Bernhard, Abt von Clairvaux, / sich einst in Speier befand, ging er in den Dom, um daselbst einem Marienbilde seine Verehrung zu bezeugen.",
+      "language": [],
+      "musenalm_id": 97462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der heilige Bernhard verweiset der heiligen / Jungfrau das Reden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der heilige Bernhard verweiset der heiligen / Jungfrau das Reden",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "j2d2znynxv0thum"
+    },
+    {
+      "annotation": "Legenden (Sammlung INr 97461, Obj 17) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Der H. Wenceslaus ist in Böhmen von Herzoglichem Stamm gebohren, und des damahligen ganzen Herzogsthums Erb-Herr gewesen.",
+      "language": [],
+      "musenalm_id": 97463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Leben und Leiden des heiligen Märtyrers / Wenceslaus, erzählt von Pater Cochem.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pater Cochem.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Leben und Leiden des heiligen Märtyrers / Wenceslaus, erzählt von Pater Cochem.",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "c8ypki879288v4g"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97464,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lithographie von C. F. Müller in Carlsruhe)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithographie von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3494_97464_s310x9978c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "6v1wr217aoqe1v3"
+    }
   ],
   "agents": [
     {

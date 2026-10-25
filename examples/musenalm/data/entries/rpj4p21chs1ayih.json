@@ -48,7 +48,26 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "o35gkzzpyx8fg8r"
+    {
+      "annotation": "einziger Jahrgang\n§ Karte fehlt <br> Titelgraphik lt. K 166: L. Richter (Holzschnitt); 30 weitere Graphiken L. Richters hierzu als Separatdruck (nicht vorhanden)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.752Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408600",
+      "location": "105P08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.752Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "o35gkzzpyx8fg8r"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,12 +48,140 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "gx07fa3g1t0mewh"
+    {
+      "annotation": "KVK: 1831-1851",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.797Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "410707",
+      "location": "105T10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.797Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gx07fa3g1t0mewh"
+    }
   ],
   "contents": [
-    "f7bjwieevwza4me",
-    "xyt9xsg9iv719ay",
-    "nok5vy0muhv4pmg"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125874,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carlsbad, vu du haut de la Chaussée",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Döbler sc.",
+      "scans": [
+        "alm_4707_125874_veksyh1082.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Carlsbad, vu du haut de la Chaussée",
+      "updated": "2020-04-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.784Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.784Z",
+          "agent": "774ug9zf5qb4ald",
+          "source_id": "jp1osnr1rlqr26x"
+        }
+      ],
+      "source_id": "f7bjwieevwza4me"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125875,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / DE CARLSBAD, / OU MÉLANGES MÉDICAUX, SCIENTIFIQUES ET LITÉRAIRES, / RELATIFS A CES THERMES ET AU PAYS. / PAR / LE CHEVALIER JEAN DE CARRO, / docteur en médecine de facoultés d'Edinbourg, de Vienne et de / Prague, et praticien à Carlsbad pendant la saison / des eaux. / Singula quaeque locum teneant sortita decenter. / Hor. Ars. poët. v. 92 / 1. Année. / PRAGUE, 1831",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4707_125875_ir49mc5ewk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / DE CARLSBAD, / OU MÉLANGES MÉDICAUX, SCIENTIFIQUES ET LITÉRAIRES, / RELATIFS A CES THERMES ET AU PAYS. / PAR / LE CHEVALIER JEAN DE CARRO, / docteur en médecine de facoultés d'Edinbourg, de Vienne et de / Prague, et praticien à Carlsbad pendant la saison / des eaux. / Singula quaeque locum teneant sortita decenter. / Hor. Ars. poët. v. 92 / 1. Année. / PRAGUE, 1831",
+      "updated": "2020-04-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "xyt9xsg9iv719ay"
+    },
+    {
+      "annotation": "Photos 125876,01; 125876,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125876,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4707_125876_01_1bv2p9aeet.jpg",
+        "alm_4707_125876_02_xfg23sk618.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-04-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "nok5vy0muhv4pmg"
+    }
   ],
   "agents": [
     {

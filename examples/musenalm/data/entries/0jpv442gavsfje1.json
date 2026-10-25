@@ -48,26 +48,784 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "i7dfsjns41av98e"
+    {
+      "annotation": "1818-1837.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108636",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "i7dfsjns41av98e"
+    }
   ],
   "contents": [
-    "vahf58yxq4e8sua",
-    "yzldfhnh1rc6eqf",
-    "vkyhljduecbg6h8",
-    "mjbxcbi4nz7f1n1",
-    "8utwpx0r0f6slz9",
-    "aflszrsntcadwwx",
-    "leb79t3jf69ogv8",
-    "iojz1fc5ri7myhq",
-    "xqa3t5k383xx4ak",
-    "m0wmo59xn5hip57",
-    "5lwckwy7k5b9r2m",
-    "7wdlv4jnjkvl9h8",
-    "wwgsdvvfr0i9d94",
-    "xior8oyvxdae4mq",
-    "t12tgxpbw43mnoq",
-    "u6v4ks5d9hau4qe",
-    "3ovtnucfoj5emi3"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ed. Schuler jun. sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler jun. sculp.",
+      "scans": [
+        "alm_3379_102924_5u6yz92ukz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "j6w54bqtaruikmx"
+        }
+      ],
+      "source_id": "vahf58yxq4e8sua"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR 1835. / Leipzig, bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3379_102925_9os61clsh9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR 1835. / Leipzig, bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "yzldfhnh1rc6eqf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wer sich von Lieben scheiden muß, / Der läßt zurück den Abschiedsgruß",
+      "language": [],
+      "musenalm_id": 102926,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergiss mein nicht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Felizia",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergiss mein nicht",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "vkyhljduecbg6h8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102927,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "mjbxcbi4nz7f1n1"
+    },
+    {
+      "annotation": "Illustration zu »Die Amulette« von A. von Suhr INr 102936, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LASST ES GUT SEIN BITIAKI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc.",
+      "scans": [
+        "alm_3379_102928_bxzh5ym6qf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LASST ES GUT SEIN BITIAKI",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "8u17gvyxzllas5h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "fw68q2gayye7n3h"
+        }
+      ],
+      "source_id": "8utwpx0r0f6slz9"
+    },
+    {
+      "annotation": "Illustration zu »Die Amulette« von A. von Suhr INr 102936, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102929,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JOHANNA VON NEAPEL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3379_102929_za4h4uzqy3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JOHANNA VON NEAPEL",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.082Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.082Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "5oxk2dw1zhlgtxc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "g5751g9fpbsaaja"
+        }
+      ],
+      "source_id": "aflszrsntcadwwx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.103Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102930,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was wollt Ihr Uns?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc.",
+      "scans": [
+        "alm_3379_102930_ftp7knr2iy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Was wollt Ihr Uns?",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.082Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.082Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "hyqcwmulyzciloo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.082Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.082Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "vm1l35ilgabamzr"
+        }
+      ],
+      "source_id": "leb79t3jf69ogv8"
+    },
+    {
+      "annotation": "unter der Graphik: Dr. b. Susemihl",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102931,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GARF ROCCAMARINO",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. J. Serz sc.",
+      "scans": [
+        "alm_3379_102931_giuhi2egp5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GARF ROCCAMARINO",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.082Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.082Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "8vci1p2z34klfvq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.082Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.082Z",
+          "agent": "fmgi30c4k9z8twt",
+          "source_id": "preyqwavgrrsyrb"
+        }
+      ],
+      "source_id": "iojz1fc5ri7myhq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102932,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS BILD",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Passini sc. Viennae",
+      "scans": [
+        "alm_3379_102932_xowo1aqamm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS BILD",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.083Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.083Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "88yliryhx29056c"
+        }
+      ],
+      "source_id": "xqa3t5k383xx4ak"
+    },
+    {
+      "annotation": "unter der Graphik: Gedr. bei Susemihl in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.452Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102933,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ueberraschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. J. Passini Viennae",
+      "scans": [
+        "alm_3379_102933_3p4r7dv11f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ueberraschung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "42ewidnp6dwas81"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "vvwhua0aabz6l8o"
+        }
+      ],
+      "source_id": "m0wmo59xn5hip57"
+    },
+    {
+      "annotation": "unter der Graphik: Carlsruhe durch Kunst Verlag W. Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102934,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER VERLOBUNGSMORGEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler jun. sculp.",
+      "scans": [
+        "alm_3379_102934_z3y2zfjd2b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER VERLOBUNGSMORGEN",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "v1kx13vacpnotpy"
+        }
+      ],
+      "source_id": "5lwckwy7k5b9r2m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Dort wo die himmelhohen Palmen stehn, / In Samarkanda's Zauberland, / Lebt' einst ein König angesehn, / Doch uns durch dunkle Sagen nur bekannt.",
+      "language": [],
+      "musenalm_id": 102935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entstehung / des / weißen Vergißmeinnicht. / Poetische Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Thekla",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entstehung / des / weißen Vergißmeinnicht. / Poetische Erzählung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "aynjnikxgmzv0y5",
+          "source_id": "idn3dyu6u4dom30"
+        }
+      ],
+      "source_id": "7wdlv4jnjkvl9h8"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit 2 Illustrationen s. Graphiken INr 102928, 102929; Obj 5, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "In der Nacht des 18. Septembers 1345 klopfte es laut und wiederholt an die Hauspforte des Oberaufsehers der königlichen Gärten zu Aversa ohnweit Neapel.",
+      "language": [],
+      "musenalm_id": 102936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Amulette. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agathe von Suhr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Amulette. / Historische Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "wwgsdvvfr0i9d94"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Des Herrn P-, Maler in Mailand, werde ich mich stets mit Vergnügen erinnern. Seine Kunstleistungen verdienten alles Lob, sein Gespräch aber war es, welches vorzüglich für ihn einnahm.",
+      "language": [],
+      "musenalm_id": 102937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Cesarone. / Novelle. / (Aus dem Tagebuche eines Reisenden)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Heyden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Cesarone. / Novelle. / (Aus dem Tagebuche eines Reisenden)",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "y4sojkg698u6ihg",
+          "source_id": "pi512jyuxsphhid"
+        }
+      ],
+      "source_id": "xior8oyvxdae4mq"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Ihr, die ihr eintretet, lasset / die Hoffnung draußen! / Dante",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "In Mitten einer sandigen, doch nicht ganz unfruchtbaren Ebene, sich von weitem schon durch viele hoch emporragende Thürme stattlich ankündigend, liegt Valladolid, das Pincium der Alten.",
+      "language": [],
+      "musenalm_id": 102938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Inquisitionspallast zu Valladolid. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Inquisitionspallast zu Valladolid. / Eine Erzählung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "p0ut5bdzngycb0z"
+        }
+      ],
+      "source_id": "t12tgxpbw43mnoq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Ein betäubender Paukenwirbel von schmetternder Fanfare der Hörner und Trompeten begleitet, schloß den stundenlangen Cotillon,",
+      "language": [],
+      "musenalm_id": 102939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unerwartete Wahlverwandschaft. / Novelle / nach Szenen aus der großen Welt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Isidor",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unerwartete Wahlverwandschaft. / Novelle / nach Szenen aus der großen Welt",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "jbbfx5lvloouivi",
+          "source_id": "qkq4mmudc7isnr3"
+        }
+      ],
+      "source_id": "u6v4ks5d9hau4qe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "427",
+      "incipit_statement": "Platz da! Platz! der Herzog kommt! so brüllten übermüthig mehrere Vorreiter, welche durch das ehemalige Pfarrgassenthor zu Oppeln, an einem Juniustage des Jahres 1497 hereinsprengten,",
+      "language": [],
+      "musenalm_id": 102940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fürstentag. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Krebs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fürstentag. / Historische Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ovtnucfoj5emi3"
+    }
   ],
   "agents": [
     {

@@ -5,8 +5,6 @@
   "collections": {
     "series": ".editor/collections/series/settings.json",
     "entries": ".editor/collections/entries/settings.json",
-    "items": ".editor/collections/items/settings.json",
-    "contents": ".editor/collections/contents/settings.json",
     "agents": ".editor/collections/agents/settings.json",
     "places": ".editor/collections/places/settings.json"
   },

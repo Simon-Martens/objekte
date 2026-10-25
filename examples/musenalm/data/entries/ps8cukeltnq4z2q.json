@@ -48,34 +48,1049 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "hxxop2p73hckenh",
-    "lnj6lzoh1egf7zm"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit Goldschnitt.\n1837: (K: M.8 Stahlst.) Mit Port 1, Ku 4, XIV, 372 SS und Bl 6.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. \n§1§ G fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100582",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hxxop2p73hckenh"
+    },
+    {
+      "annotation": "Graphik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "408368",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lnj6lzoh1egf7zm"
+    }
   ],
   "contents": [
-    "mb5ciqx8w9z82ea",
-    "0jnll6woc4vyjot",
-    "n2rxf76t99ozi48",
-    "m231uv88mkhkoqq",
-    "4myom1fuyknub65",
-    "n1rdfwxmnno7bvu",
-    "38fdmxvwy89v8ib",
-    "gy2j0rofda32jm5",
-    "gyq5wem006qimew",
-    "5z5qfojzk84vrfe",
-    "k775skg3ntvdv3g",
-    "u2b7tr9sos2yllg",
-    "96lwwohwrf65q40",
-    "udcj80lv8h989d0",
-    "liexwe9bn422ba3",
-    "uaujidazsowx0e7",
-    "f29tgq1ps0lc1nd",
-    "6pavrhrc0g4bwnx",
-    "y59za1dg4q5v793",
-    "p8u5ac8ce573o4v",
-    "f5wpef7jrkvukta",
-    "3uhlvk8fmb14ccx",
-    "rokz1id4bt53ch3",
-    "y5p3k0uv16j07cj"
+    {
+      "annotation": "Titelgraphik Illustration zu »Die Braut von Abydos« von George Gordon Byron s. Textbezug INr 43954, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43950,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Abydos. - Zuleika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by E. T. Parris Engraved by H. Cook",
+      "scans": [
+        "alm_592_43950_xugzfs8tiv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Abydos. - Zuleika",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "li9bs4mqvtf7drh",
+          "source_id": "ak7igk4snm4lh4c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "9gep2y6vxxwiktu",
+          "source_id": "g1dz55ts10f61bg"
+        }
+      ],
+      "source_id": "mb5ciqx8w9z82ea"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.050Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1837. / Herausgegeben / von / Dr. Adrian. / Mit 6 Stahlstichen. / Frankfurt am Main. / Druck Verlag von Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_592_43951_4qeqj869q5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1837. / Herausgegeben / von / Dr. Adrian. / Mit 6 Stahlstichen. / Frankfurt am Main. / Druck Verlag von Johann David Sauerländer",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "0jnll6woc4vyjot"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.050Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43952,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "n2rxf76t99ozi48"
+    },
+    {
+      "annotation": "Sammlung von 3 Textbezügen zu 3 Graphiken INr 43950, 43954-43958; Obj 1, 5-9 §1§ G fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43953,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Gallerie aus Byron's Werken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Gallerie aus Byron's Werken",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "q98k2oit0neuv4t"
+        }
+      ],
+      "source_id": "m231uv88mkhkoqq"
+    },
+    {
+      "annotation": "I. Gallerie aus Byron's Werken (Sammlung INr 43953, Obj 4) s. Titelgraphik INr 43950, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie Homer, Dante und Shakspeare den Künstlern fortwährend die edelsten Vorwürfe bieten,",
+      "language": [],
+      "musenalm_id": 43954,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zuleika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zuleika",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "5trol8fqnvcmrrq"
+        }
+      ],
+      "source_id": "4myom1fuyknub65"
+    },
+    {
+      "annotation": "Illustration zu »Don Juan« von George Gordon Byron s. Textbezug INr 43956, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43955,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gulleyaz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by R. Hill Engraved by Charles Rolls",
+      "scans": [
+        "alm_592_43955_6gy57hd1wv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gulleyaz",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "c24qye1br7zzvh1"
+        }
+      ],
+      "source_id": "n1rdfwxmnno7bvu"
+    },
+    {
+      "annotation": "I. Gallerie aus Byron's Werken (Sammlung INr 43953, Obj 4) s. Graphik INr 43955, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Des Geschickes Wahl hatte den leichtfertigen, liebenswürdigen, launenhaften, gedankentiefen, wortreichen, sinnlichen, ebbe- und fluthartigen und unartigen Helden",
+      "language": [],
+      "musenalm_id": 43956,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gulleyaz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gulleyaz",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "lkyn6y6gz0xwdkq"
+        }
+      ],
+      "source_id": "38fdmxvwy89v8ib"
+    },
+    {
+      "annotation": "I. Gallerie aus Byron's Werken (Sammlung INr 43953, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Fort und siege! hatte die hochherzige Myrrha zu Sardanapal gesagt und war allein mit ihren Sorgen geblieben,",
+      "language": [],
+      "musenalm_id": 43957,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Myrrha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Myrrha",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "sapglmjclrybz4i"
+        }
+      ],
+      "source_id": "gy2j0rofda32jm5"
+    },
+    {
+      "annotation": "Illustration zu",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43958,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Myrrha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_592_43958_7hu7yzsyzs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Myrrha",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "gyq5wem006qimew"
+    },
+    {
+      "annotation": "s. Textbezug INr 43961, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43959,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Morgenlection",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by H. Richter Engraved by R. Easton",
+      "scans": [
+        "alm_592_43959_tw177ze97x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Morgenlection",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "2p87lmr62wiucvw",
+          "source_id": "tn7qhxt4rw2lzn4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "c4h487lb6h8jnap",
+          "source_id": "yx75vtcs4vxixd9"
+        }
+      ],
+      "source_id": "5z5qfojzk84vrfe"
+    },
+    {
+      "annotation": "Sammlung von 3 Textbezügen zu 3 Graphiken INr 43959, 43961-43965; Obj 10, 12-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43960,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Der Störenfried",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Der Störenfried",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "88o34dwqfdj7n2t"
+        }
+      ],
+      "source_id": "k775skg3ntvdv3g"
+    },
+    {
+      "annotation": "II. Der Störenfried (Sammlung INr 43960, Obj 11) s. Graphik INr 43959, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Selten erfreuen sich die Kinder vornehmer Engländer des Glückes, in ihrer Familie erzogen zu werden.",
+      "language": [],
+      "musenalm_id": 43961,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Morgenlection",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Morgenlection",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "bx7jl7osuomgwif"
+        }
+      ],
+      "source_id": "u2b7tr9sos2yllg"
+    },
+    {
+      "annotation": "s. Textbezug INr 43963, Obj 14 /) Die Graphik findet sich unter dem Titel »Der Genius des Friedens« ebenfalls in: Iris (Mailath, Saphir) 1846; INr 58061",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43962,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neugierde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by F. Corbaux Engraved by C. A. Periam",
+      "scans": [
+        "alm_592_43962_rdmke994vc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neugierde",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "15sj9wyb4mmwl4m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "2b6gl8vhp91d2bf",
+          "source_id": "ngkurijab9gnf80"
+        }
+      ],
+      "source_id": "96lwwohwrf65q40"
+    },
+    {
+      "annotation": "II. Der Störenfried (Sammlung INr 43960, Obj 11) s. Graphik INr 43962, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Die kleine Gesellschaft, mit welcher ich die schönen Leserinnen eben bekannt gemacht, ist indessen an Jahren, Tugenden und Gebrechen- wie es in der Welt zu gehen pflegt - gewachsen",
+      "language": [],
+      "musenalm_id": 43963,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Neugierde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Neugierde",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "udcj80lv8h989d0"
+    },
+    {
+      "annotation": "II. Der Störenfried (Sammlung INr 43960, Obj 11) s. Graphik INr 43965, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Herr Blomfield kam sehr heiter von einem Besuch im Dorfe zurück.",
+      "language": [],
+      "musenalm_id": 43964,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Brief",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "liexwe9bn422ba3"
+    },
+    {
+      "annotation": "s. Textbezug INr 43964, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43965,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by J. Webster Engraved by W. H. Simmons",
+      "scans": [
+        "alm_592_43965_54a2r5av9j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Brief",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "5wlmh2lsqqbn9op",
+          "source_id": "dco2a0hkz7ehbbd"
+        }
+      ],
+      "source_id": "uaujidazsowx0e7"
+    },
+    {
+      "annotation": "dem Text vorangestellt: Furcht soll das Haupt des Glücklichen umschwebebn, / Denn ewig wanket des Geschickes Wage. / Schiller.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In der Königin-Grafschaft, ungefähr sechzig ireländische Meilen südwestlich von Dublin, sieht der Wanderer auf einem kleinen Hügel die Trümmer einer Burg,",
+      "language": [],
+      "musenalm_id": 43966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der seidene Thomas. / Nach ireländischen Chroniken erzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der seidene Thomas. / Nach ireländischen Chroniken erzählt",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "l5sffy95x5mp1hj"
+        }
+      ],
+      "source_id": "f29tgq1ps0lc1nd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Aurora zeiht die Schleier der Nacht von ihrem Heimathlande; das tyrrhenische Meer erglüht von ihren jungen Küssen.",
+      "language": [],
+      "musenalm_id": 43967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Dämonen der Vesper. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Dämonen der Vesper. / Novelle",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.260Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.260Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "brgqhcq1g1d4y5b"
+        }
+      ],
+      "source_id": "6pavrhrc0g4bwnx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Ja, ja! so ist es mit dem menschlichen Leben! Der Herr lehre uns das Ende bedenken! Heute roth, morgen todt! Der Herr erbarme sich über uns elende Sünder!",
+      "language": [],
+      "musenalm_id": 43968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine englische Kriminalgeschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine englische Kriminalgeschichte",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.260Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.260Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "v9nxw7el0a6y2ko"
+        }
+      ],
+      "source_id": "y59za1dg4q5v793"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Die Ungnade eines europäischen Regenten ist eine Malavia, unter deren Einfluß der in Ungnade gefallene Sterbliche geraume Zeit leben,",
+      "language": [],
+      "musenalm_id": 43969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hal Mehi Cantimire",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hal Mehi Cantimire",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "p8u5ac8ce573o4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Auf der einzigen Bank des alten Zolls, bei Bonn, saßen drei junge Männer, unter den schattenden Linden,",
+      "language": [],
+      "musenalm_id": 43970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Nachtfalter und das / Sonntagskind. / Ein Mährchen neuerer Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Nachtfalter und das / Sonntagskind. / Ein Mährchen neuerer Zeit",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5wpef7jrkvukta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Zwei Tage vor der goldnen Hochzeit des würdigen Ehepaars von Steinfeld, am 26. September 1835 hatten sich die nächsten Verwandten, bestehend aus Kindern, Enkeln und Urenkeln",
+      "language": [],
+      "musenalm_id": 43971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die goldene Hochzeit. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mara L....",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die goldene Hochzeit. / Erzählung",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "3uhlvk8fmb14ccx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Die Domuhr schlug eben neun. Tiefe Stille, als wäre die Mitternachtsstunde schon genaht, auf den Plätzen, Gassen und Rheinquai's.",
+      "language": [],
+      "musenalm_id": 43972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kartenschlägerin. / Ein Genrebild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Künzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kartenschlägerin. / Ein Genrebild",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "rokz1id4bt53ch3"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43973,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In demselbe Verlage sind folgende / empfehlensswerte Schriften / erschienen / und um beigesetzte Preise durch alle Buch- / handlungen zu beziehen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In demselbe Verlage sind folgende / empfehlensswerte Schriften / erschienen / und um beigesetzte Preise durch alle Buch- / handlungen zu beziehen.",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "y5p3k0uv16j07cj"
+    }
   ],
   "agents": [
     {

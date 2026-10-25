@@ -48,37 +48,1254 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "t8c16xr3zpzdjl8"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200622",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "t8c16xr3zpzdjl8"
+    }
   ],
   "contents": [
-    "i6104qb6hbqziqe",
-    "0jy0l9635motrzr",
-    "6oe7zp1ma66cw0a",
-    "v2srph8mlhcivp6",
-    "tc9mdt77a44hwje",
-    "ke05x8rau0hk1f2",
-    "vvh9on5t6awxqjy",
-    "7vqumist4a4od07",
-    "5rmwhjwjomsefk1",
-    "tith6lvwerm0htb",
-    "9bw2veyx0jbsdgo",
-    "9vc4a7o3knn9jjl",
-    "avecotip6s1sjqs",
-    "rwi68iu4diht89z",
-    "ni2xuaqsvgkwpe6",
-    "o0inalgik4b8cm5",
-    "dbebtfpm2sil683",
-    "i0v31109nrs3qkh",
-    "q4i01ds3wmcs2pj",
-    "6iv923xw71nfiol",
-    "yb1o7x6dsm57lp2",
-    "38xe02xw2xa9np1",
-    "hwvtw034qzg0zzi",
-    "qlik6r3xfx10c7r",
-    "cla453yn2ymokbs",
-    "a04a6ja5aynp3xf",
-    "l9o0xe9o8470lpv",
-    "yh8dvvil2g1qbk3"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41772,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Cassaischer Reuter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch fec.",
+      "scans": [
+        "alm_553_41772_lg92f2elad.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Cassaischer Reuter",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.736Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "w9jo4a3ltd266qh"
+        }
+      ],
+      "source_id": "i6104qb6hbqziqe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41773,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Zehnter Jahrgang / für das Jahr / 1811. / Mit 12 Kupfern / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_553_41773_o6kulksada.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Zehnter Jahrgang / für das Jahr / 1811. / Mit 12 Kupfern / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "0jy0l9635motrzr"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die in diesem Bande des Taschenbuchs der Reisen duchgegangenen Reiche haben die Besonderheit, daß ihre Bewohner auf der einen Seite gleichsam die Mittelglieder zwischen den bisher aufgeführten Mongolen und den eigentlichen Hindostanern,",
+      "language": [],
+      "musenalm_id": 41774,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. A. W. v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.326Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.326Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "z8rfljgx6kt2a8i"
+        }
+      ],
+      "source_id": "6oe7zp1ma66cw0a"
+    },
+    {
+      "annotation": "Photos 41775,01-41775,05",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41775,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_553_41775_01_a7n0a1e7nb.jpg",
+        "alm_553_41775_02_llhvdula5v.jpg",
+        "alm_553_41775_03_8u9yjau62p.jpg",
+        "alm_553_41775_04_3g7bfn0p4p.jpg",
+        "alm_553_41775_05_k0gcb9cw2u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "v2srph8mlhcivp6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41776,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "tc9mdt77a44hwje"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Von dem Eismeere bis zu dem Wendekreise ging nun eine Legion Völkerschaften Asiens vor uns vorüber.",
+      "language": [],
+      "musenalm_id": 41777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.326Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.326Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "h8xq7xi1vupt83r"
+        }
+      ],
+      "source_id": "ke05x8rau0hk1f2"
+    },
+    {
+      "annotation": "mit Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die gesamte Ländermasse des Reichs Tibet der Orientaler, von den Chinesen mit Recht das westliche Land (Dschan), von seinen Bewohnern aber das Puekeachim, oder das nördliche Schneeland genannt,",
+      "language": [],
+      "musenalm_id": 41778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tibet, und der seines südlichen Vor- / hofs Boutan. / a) Das Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tibet, und der seines südlichen Vor- / hofs Boutan. / a) Das Land",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.326Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.326Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "zuy8yjlf01pqrki"
+        }
+      ],
+      "source_id": "vvh9on5t6awxqjy"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Buxadewar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_553_41779_dnpvguxjto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Buxadewar",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "7vqumist4a4od07"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kettenbrücke unweit Chouka ( Tschuka)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frenzel sculps. Dresdae",
+      "scans": [
+        "alm_553_41780_j61i2azclf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Kettenbrücke unweit Chouka ( Tschuka)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.222Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.222Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "uotn6wk7cs3fzjx"
+        }
+      ],
+      "source_id": "5rmwhjwjomsefk1"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pallast von Tassiudon in Bootan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_553_41781_4h3p43oty5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Pallast von Tassiudon in Bootan",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.938Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "yjioxgse22dxvmm"
+        }
+      ],
+      "source_id": "tith6lvwerm0htb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Wenn wir mit den unorganischen Körpern anfangen, so zeigt sich hiert zuerst das Produkt von einigen jener berührten kleinen Seen, der Borax (Borate de Soude) oder Tinkal.",
+      "language": [],
+      "musenalm_id": 41782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tibet, und sein südlicher Vorhofs Boutan] b) Naturprodukte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Tibet, und sein südlicher Vorhofs Boutan] b) Naturprodukte",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.938Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "n7may0xzmtni1mo"
+        }
+      ],
+      "source_id": "9bw2veyx0jbsdgo"
+    },
+    {
+      "annotation": "lt. G-Verz: nach [P. S.] Pallas",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41783,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Moschusthier der Tartarei. (Moschus moschiferus L.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_553_41783_yakugl3ljm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Moschusthier der Tartarei. (Moschus moschiferus L.)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.938Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "pa7y8mhok836js5"
+        }
+      ],
+      "source_id": "9vc4a7o3knn9jjl"
+    },
+    {
+      "annotation": "lt. G-Verz: Asiat. Res.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41784,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Büffel mit dem Pferdeschweif. (Bos grunniens)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_553_41784_fcxulvz1a8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Büffel mit dem Pferdeschweif. (Bos grunniens)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.938Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "zqnppief37znir5"
+        }
+      ],
+      "source_id": "avecotip6s1sjqs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Auffallend sahen wir den Einfluß des Klimas bei den Pflanzen und den Thieren beim Uebergange vom heißen Bengalen zu den Gebirgsländern Butan und Tibet.",
+      "language": [],
+      "musenalm_id": 41785,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tibet, und sein südlicher Vorhofs Boutan] c) Der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Tibet, und sein südlicher Vorhofs Boutan] c) Der Mensch",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "z1vi3v147il7nmt"
+        }
+      ],
+      "source_id": "rwi68iu4diht89z"
+    },
+    {
+      "annotation": "lt. G-Verz: nach [P. S.] Pallas",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41786,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbrennen der Leiche eines Ober Lama",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schule sculps 1811",
+      "scans": [
+        "alm_553_41786_6q28bsh328.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verbrennen der Leiche eines Ober Lama",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "c0fepqesuedn747",
+          "source_id": "6iw902tuz15cfuy"
+        }
+      ],
+      "source_id": "ni2xuaqsvgkwpe6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Kaum steigen wir einige Schritte von unserm dürftigen Lande und von seinen friedlichen Bergbewohnern in Süden und Südwesten herab,",
+      "language": [],
+      "musenalm_id": 41787,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Reich der Birmanen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Reich der Birmanen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "i0juwjlspuajh9y"
+        }
+      ],
+      "source_id": "o0inalgik4b8cm5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Nicht vor dem Ende des verflossenen Jahrhunderts gehört das Reich der Birmanen unter die bedeutendsten Mächte von Asien.",
+      "language": [],
+      "musenalm_id": 41788,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Reich der Birmanen] / Das Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Reich der Birmanen] / Das Land",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "u8p2h1uzcnu6fsm"
+        }
+      ],
+      "source_id": "dbebtfpm2sil683"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Ein so großes Reich, als das heutige der Birmanen durch Vereinigung der Ava, Pegu und Cassay und Arrakan geworden ist,",
+      "language": [],
+      "musenalm_id": 41789,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Reich der Birmanen] / Der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Reich der Birmanen] / Der Mensch",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "cgebghd0evwagzd"
+        }
+      ],
+      "source_id": "i0v31109nrs3qkh"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41790,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Bergbewohner ( ein Kain) nebst seiner Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_553_41790_fq428kjvbt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Bergbewohner ( ein Kain) nebst seiner Frau",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "o6hvk7hejgpc2jc"
+        }
+      ],
+      "source_id": "q4i01ds3wmcs2pj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41791,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Wungi, / (Staatsminister) und seine Gemahlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_553_41791_lzk0um5ujx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Wungi, / (Staatsminister) und seine Gemahlin",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "00lzbl76i8yfdpe"
+        }
+      ],
+      "source_id": "6iv923xw71nfiol"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41792,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ceremonien Jagd des Birmanischen Kaisers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_553_41792_iub2ypoa1b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ceremonien Jagd des Birmanischen Kaisers",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.291Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "6lady51znk1apex"
+        }
+      ],
+      "source_id": "yb1o7x6dsm57lp2"
+    },
+    {
+      "annotation": "# lt. G-Verz. nach Symes [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tempel Scho-madu #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_553_41793_4arn3b6972.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Tempel Scho-madu #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.291Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "et7tabyv428u0cz"
+        }
+      ],
+      "source_id": "38xe02xw2xa9np1"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kioum, oder das Kloster der Geistlichen (Rhanen)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_553_41794_xfa878326w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kioum, oder das Kloster der Geistlichen (Rhanen)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.291Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "ag4cjuew077flob"
+        }
+      ],
+      "source_id": "hwvtw034qzg0zzi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Selbst in dem heißen Asien hat sich also ein Staat gebildet, der, wenn er gleich nicht mit unserm bisherigen Europa weder in Rücksicht der Sicherheit des Eigenthums, noch weniger aber in Ansehung der Kultur zu vergleichen steht,",
+      "language": [],
+      "musenalm_id": 41795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeine Bemerkungen über das Reich der Birmanen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeine Bemerkungen über das Reich der Birmanen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.291Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "iopvqbl1pbhnquk"
+        }
+      ],
+      "source_id": "qlik6r3xfx10c7r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Drei kleine Staaten im Norden vom Reiche der Birmanen führen von Hinter- oder dem östlichen Indien [...] Sie heißen: 1) Cassay, 2) die Garrow-Gebirge und 3) Assam",
+      "language": [],
+      "musenalm_id": 41796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige kleine Länder in der Nachbar- / schaft von Ava",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige kleine Länder in der Nachbar- / schaft von Ava",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.327Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "jmwnz9h1fem4dah"
+        }
+      ],
+      "source_id": "cla453yn2ymokbs"
+    },
+    {
+      "annotation": "Einige kleine Länder in der Nachbarschaft von Ava (INr 41796, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Der zweite sich in diesen Gegenden auszeichnende Landesstrich sind die Garrowgeborge",
+      "language": [],
+      "musenalm_id": 41797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der zweite sich in diesen Gegenden auszeichnende Landesstrich sind die Garrowgeborge…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.327Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "622m6rb8theoovu"
+        }
+      ],
+      "source_id": "a04a6ja5aynp3xf"
+    },
+    {
+      "annotation": "Einige kleine Länder in der Nachbarschaft von Ava (INr 41796, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Endlich bleibt uns noch ein drittes merkwürdiges, aber zu wenig bekanntes Land dieser Gegend übrig; das Reich Assam oder Azem",
+      "language": [],
+      "musenalm_id": 41798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Endlich bleibt uns noch ein drittes merkwürdiges, aber zu wenig bekanntes Land dieser Gegend übrig; das Reich Assam oder Azem…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.327Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ntv3wkvv6yf64pd"
+        }
+      ],
+      "source_id": "l9o0xe9o8470lpv"
+    },
+    {
+      "annotation": "Verlagsmitteilung # mit Kritik von L. E. Gr. v. L. und weiteren Anzeigen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41799,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige eines vorzüglichen und sehr zu empfeh- / lenden Werkes: / Elpizon oder über meine Fortdauer im / Tode. 3 Theile und 2 Anhänge. 8. / Danzig und Leipzig, 1803-1810 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige eines vorzüglichen und sehr zu empfeh- / lenden Werkes: / Elpizon oder über meine Fortdauer im / Tode. 3 Theile und 2 Anhänge. 8. / Danzig und Leipzig, 1803-1810 #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "yh8dvvil2g1qbk3"
+    }
   ],
   "agents": [
     {

@@ -44,14 +44,190 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "gvwzyrs8d2p6eui",
-    "v45e6l16mzbpi2n"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.827Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411482",
+      "location": "107J04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.827Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gvwzyrs8d2p6eui"
+    },
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.831Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411584",
+      "location": "107AlmDB",
+      "media": [],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.831Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "v45e6l16mzbpi2n"
+    }
   ],
   "contents": [
-    "8232hj6ac1b1gy1",
-    "81lcnqo5a6yvwrf",
-    "aab9vorxqnbs1mc",
-    "na8620a8yttd4s9"
+    {
+      "annotation": "Verlagsbroschur",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 135440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2025-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "8232hj6ac1b1gy1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 135441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatische / Neujahrsgabe / für / 1827. / Von / Lembert. / Enthält: / Maria Stuart's erste Gefangenschaft. Drama in vier / Aufzügen, nach Walter Scott. / Ehrgeiz in der Küche. Posse in einem Aufzuge. / Wien, 1827. / Bei Tendler und von Manstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dramatische / Neujahrsgabe / für / 1827. / Von / Lembert. / Enthält: / Maria Stuart's erste Gefangenschaft. Drama in vier / Aufzügen, nach Walter Scott. / Ehrgeiz in der Küche. Posse in einem Aufzuge. / Wien, 1827. / Bei Tendler und von Manstein",
+      "updated": "2025-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "81lcnqo5a6yvwrf"
+    },
+    {
+      "annotation": "# Psezd.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Erblickt Ihr noch nichts? / Noch immer nichts! - Beim Himmel! ich wollte unsern Feinden lieber Aug' in Auge, das Schwert in der Hand, gegenüber stehen,",
+      "language": [],
+      "musenalm_id": 135442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Stuart's erste Gefangenschaft. / Drama in vier Aufzügen, / nach Walter Scott",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lembert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria Stuart's erste Gefangenschaft. / Drama in vier Aufzügen, / nach Walter Scott",
+      "updated": "2025-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.148Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.148Z",
+          "agent": "uylk38bu9ebsams",
+          "source_id": "nwftpf3rbdabtur"
+        }
+      ],
+      "source_id": "aab9vorxqnbs1mc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.231Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Komm nur hier herein, liebes Reginchen, habe keine Furcht. Mein Vater ist nicht zugegen.",
+      "language": [],
+      "musenalm_id": 135443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ehrgeiz in der Küche. / Posse in einem Aufzuge, / nach Scribe und Mazeres",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lembert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ehrgeiz in der Küche. / Posse in einem Aufzuge, / nach Scribe und Mazeres",
+      "updated": "2025-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "na8620a8yttd4s9"
+    }
   ],
   "agents": []
 }

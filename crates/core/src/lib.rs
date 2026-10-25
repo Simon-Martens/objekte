@@ -16,7 +16,7 @@ pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy, M
 pub use documents::{
     CategoryNode, ChildCollection, Document, Editor, HierarchyNode, ListFacet, ListMatch, ListPage,
     ListRequest, ListRow, ParentLink, RecordSummary, Reference, RenameResult, ValidationIssue,
-    display_text,
+    display_text, plain_markdown,
 };
 pub use media::{MediaEntry, MediaKind};
 

@@ -13,6 +13,9 @@ enum Templates {
 
 fn environment() -> Environment<'static> {
     let mut env = Environment::new();
+    env.add_filter("t", |value: String| crate::i18n::t(&value));
+    env.add_function("ui_language", crate::i18n::language);
+    env.add_filter("message", |key: String, name: minijinja::Value| crate::i18n::message(&key, &[("name", &name.to_string())]));
     env.set_auto_escape_callback(|_| AutoEscape::Html);
     // Match the escaping used by hand-built fragments. In particular, keep URL
     // slashes literal: navigation derives the active section from fragment URLs.

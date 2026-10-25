@@ -48,27 +48,694 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "bg8woo9ubracmi5"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.780Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405204",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.780Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bg8woo9ubracmi5"
+    }
   ],
   "contents": [
-    "8uoctanlih8pbq4",
-    "7i4m2jjjgo0qutw",
-    "ine342k6jsgq91o",
-    "f7zvk0np6wf9jmz",
-    "wfpk0qgdgzrmgpw",
-    "w50fn3gqvmp6im1",
-    "dm34t3i46ubvw5k",
-    "hipx1iyf7l51ok6",
-    "vu9jocab2lbs6ag",
-    "4aweu9ey8xov7dc",
-    "3nfbded5epfis8n",
-    "55r7918atsvm5zk",
-    "rrsb8ngwiimw21x",
-    "vmd1hygk2vx1g6d",
-    "yy503g0jt44auzu",
-    "9ylr9b8scnshtk1",
-    "rrpnhvlz362gnak",
-    "m9bckuuudhlw7e1"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124857,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "8uoctanlih8pbq4"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Taubenpastete« von Kurländer (INr 124866, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124858,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Taubenpastete",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_124858_ltvhsaol7l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Taubenpastete",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "7i4m2jjjgo0qutw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124859,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1825 / von / F. A. von Kurländer. / fünfzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1825 / von / F. A. von Kurländer. / fünfzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "ine342k6jsgq91o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124860,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "f7zvk0np6wf9jmz"
+    },
+    {
+      "annotation": "C",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es ist unbegreiflich, wie früh die Menschen auf dem Lande aufzustehen vermögen. Halb zehn Uhr, und kein sterbliches Wesen liegt mehr im Bette!",
+      "language": [],
+      "musenalm_id": 124861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der großmüthige Onkel / Lustspiel in einem Akt. / Nach Scribe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der großmüthige Onkel / Lustspiel in einem Akt. / Nach Scribe",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.810Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "p6cbkd7b9k3hqyj"
+        }
+      ],
+      "source_id": "wfpk0qgdgzrmgpw"
+    },
+    {
+      "annotation": "koll. Illustration zu »Der großmütige Onkel« von Kurländer (INr 124681, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der großmüthige Onkel. Letzte Scene. / Agathe. / Nur einen Augenblick wollte er mich täuschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_124862_l7qy7kec0l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der großmüthige Onkel. Letzte Scene. / Agathe. / Nur einen Augenblick wollte er mich täuschen",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "w50fn3gqvmp6im1"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (INr 124864, Obj 8); # Bezeichnung aus dem Titel (INr 124859, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Welch seltsames Ereigniß führt Sie nach so langer Abwesenheit in unsere Stadt? was in unsern Gasthof?",
+      "language": [],
+      "musenalm_id": 124863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / philosophische Bediente. / Lustspiel in einem Akt. / Nach einer Anekdote aus dem Französischen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / philosophische Bediente. / Lustspiel in einem Akt. / Nach einer Anekdote aus dem Französischen",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.810Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "io0zesn4qh8uiz5"
+        }
+      ],
+      "source_id": "dm34t3i46ubvw5k"
+    },
+    {
+      "annotation": "koll. Illustration zu »Der philosophische Bediente« von Kurländer (INr 124683, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.149Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der philosophische Bediente. Scene II / Paul. / Ich gebe mir täglich viele Mühe, das große Ca- / pital klein zu machen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_124864_6s4gyplraw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der philosophische Bediente. Scene II / Paul. / Ich gebe mir täglich viele Mühe, das große Ca- / pital klein zu machen.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "hipx1iyf7l51ok6"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (INr 124858, Obj 2); # Bezeichnung aus dem Titel (INr 124859, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Hier ist er auch nicht! Niemand sah mich aus dem Schlosse schleichen, Niemand bemerkte den reichlich gefüllten Korb, den ich wieder mit so viel Schlauheit hieher brachte, und – Herr Peter ist nicht da, mir [...] Dank abzustatten.",
+      "language": [],
+      "musenalm_id": 124866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Taubenpastete. / Lustspiel in Einem Akt.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Taubenpastete. / Lustspiel in Einem Akt.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.865Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "l26ph6xq12wtmex"
+        }
+      ],
+      "source_id": "vu9jocab2lbs6ag"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (INr 124868, Obj 11); # Bezeichnung aus dem Titel (INr 124859, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Es will der Freund im Kampf mich unterstützen; ha, die Gefahr hat keine Schrecken mehr! / Das klingt weit schöner in einem Singspiel als auf dem freien Platz unsers guten Orts Plunderhausen",
+      "language": [],
+      "musenalm_id": 124867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Mechanikus zu Plundershausen. / Schwank in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Mechanikus zu Plundershausen. / Schwank in Einem Akt",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.865Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "q39chtgt5o849fm"
+        }
+      ],
+      "source_id": "4aweu9ey8xov7dc"
+    },
+    {
+      "annotation": "koll. Illustration zu »Der Mechanikus zu Plundershausen« von Kurländer (INr 124867, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mechanikus zu Plundershausen. Letzte Scene. / Felix. Ihr habt mich in den Brunnen geworfen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_124868_k1egba4z3j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Mechanikus zu Plundershausen. Letzte Scene. / Felix. Ihr habt mich in den Brunnen geworfen",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "3nfbded5epfis8n"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (INr 124870, Obj 13); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 124859, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Aber, lieber Bruder, Du verstehst mich wieder nicht. / Aber, liebe Schwester, da geht es mir wie allen Leuten, die Deine Gedichte lesen.",
+      "language": [],
+      "musenalm_id": 124869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Perrückenmacher. / Posse in Einem Akt. / Nach Scribe.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Perrückenmacher. / Posse in Einem Akt. / Nach Scribe.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.865Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "6o8l20bjkbzys9q"
+        }
+      ],
+      "source_id": "55r7918atsvm5zk"
+    },
+    {
+      "annotation": "koll. Illustration zu »Der Perrückenmacher« von Kurländer (INr 124869, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Perückenmacher. Sc. V. / Gustchen. / » ich fühle mich ganz begeistert.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_124870_4jwj0qearb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Perückenmacher. Sc. V. / Gustchen. / » ich fühle mich ganz begeistert.«",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "rrsb8ngwiimw21x"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (INr 124872, Obj 15); # Bezeichnung aus dem Titel (INr 124859, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Ich kann kaum fassen und weiß Dir, Lieber Hans, nicht zu sagen, ob meine Freude oder mein Staunen größer ist, daß Du noch lebst.",
+      "language": [],
+      "musenalm_id": 124871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Wiedersehen. / Ländliche Scene, als Fortsetzung / von / Hans am Scheidewege",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Wiedersehen. / Ländliche Scene, als Fortsetzung / von / Hans am Scheidewege",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.865Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "rq9lx801bheauxf"
+        }
+      ],
+      "source_id": "vmd1hygk2vx1g6d"
+    },
+    {
+      "annotation": "koll. Illustration zu »Das Wiedersehen von Kurländer (INr 124871, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiedersehen. SC. VI. / Franz. / »Seltsam mit trockenen Augen nahm ich / Abschied, und bei dem Wiedersehen – ich will / nicht weinen.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_124872_zkp5ykddxd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wiedersehen. SC. VI. / Franz. / »Seltsam mit trockenen Augen nahm ich / Abschied, und bei dem Wiedersehen – ich will / nicht weinen.«",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "yy503g0jt44auzu"
+    },
+    {
+      "annotation": "I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124873,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt der frühern Jahrgänge des Kur- / länder’schen Almanachs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt der frühern Jahrgänge des Kur- / länder’schen Almanachs",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ylr9b8scnshtk1"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124874,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Empfehlungswerte Bücher der Baum- / gärtnerschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Empfehlungswerte Bücher der Baum- / gärtnerschen Buchhandlung",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "rrpnhvlz362gnak"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125162,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4626_125162_2dent1tj1i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "m9bckuuudhlw7e1"
+    }
   ],
   "agents": [
     {

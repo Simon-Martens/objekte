@@ -48,7 +48,26 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "mve36zx3pcgxcs8"
+    {
+      "annotation": "1794-1825",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.687Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200333",
+      "location": "003Tresor1",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.687Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mve36zx3pcgxcs8"
+    }
   ],
   "contents": [],
   "agents": [

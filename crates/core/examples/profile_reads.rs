@@ -14,9 +14,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = std::env::args().collect();
     let root = args
         .get(1)
-        .expect("usage: profile_reads PROJECT COLLECTION [ID]");
+        .expect("usage: profile_reads PROJECT COLLECTION [ID [CACHE_DIRECTORY]]");
     let name = args.get(2).expect("collection");
     let editor = timed("open", || Editor::open(std::path::Path::new(root)))?;
+    if let Some(cache) = args.get(4) {
+        timed("restore reference snapshot", || {
+            editor.enable_reference_snapshot(std::path::Path::new(cache))
+        })?;
+    }
     if let Some(id) = args.get(3) {
         let doc = timed("get", || editor.get(name, id))?;
         timed("projection", || editor.view_value(name, &doc.value))?;

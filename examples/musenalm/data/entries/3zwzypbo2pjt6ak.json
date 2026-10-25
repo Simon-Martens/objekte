@@ -48,39 +48,1115 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "pjwyewo2hi1vdnd"
+    {
+      "annotation": "$§ wahrscheinlich fehlt Titelgraphik; Hinweis auf den Jg 1803 in der Verlagsmitteilung: Mit Kupfern von Jury u. a. Künstlern für das Jahr 1803. broschirt 1thlr. 8 gr.\n$§ wahrscheinlich fehlt Titelgraphik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.741Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408279",
+      "location": "105G04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.741Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pjwyewo2hi1vdnd"
+    }
   ],
   "contents": [
-    "l3g0st1xvcitp40",
-    "ir4tiunebwszsb3",
-    "las5b41mube9ogm",
-    "v2ph8e3j6n6r985",
-    "qdcy5h0v2cy65mh",
-    "zscyn48h2knsdwb",
-    "cnxjzncbmd40of5",
-    "g54f771gb17zcuf",
-    "wqjsjnky0d0xesd",
-    "5f6k1nyftu1ytid",
-    "y9a2cdqh7nh0vzb",
-    "ogsds7ngqvzaqtj",
-    "2ozwt5z1128rcfp",
-    "msluvuxvv8ux0jc",
-    "itniqgyvhut9y22",
-    "ntxsd2gibpzr3ib",
-    "i3cz9xgu9pi3tmj",
-    "ltfu31e2qlioqid",
-    "jx3064meo3sduvx",
-    "mx0vrslpkpeverc",
-    "x1yu2wrlbt6keto",
-    "mujjdee0bkxvwpr",
-    "yuc4xzy8ryr52hu",
-    "g81r325golmnnoy",
-    "xhiwpopeephfnpi",
-    "s5t5dz14j1q2be2",
-    "f8sagwd5bxbfha2",
-    "z4naag66czt1re8",
-    "gwxbc59qkfxacq0",
-    "negudsngsfm11aj"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132187,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4079_132187_75jf7q5s31.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "l3g0st1xvcitp40"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132188,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jahrbuch / zur / belehrenden Unterhaltung / für / DAMEN /  Für das Jahr / 1804. / Mit Kupfern / Leipzig / bei Theodor Seeger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4079_132188_ptjmnmv1ys.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jahrbuch / zur / belehrenden Unterhaltung / für / DAMEN /  Für das Jahr / 1804. / Mit Kupfern / Leipzig / bei Theodor Seeger",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ir4tiunebwszsb3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132189,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "las5b41mube9ogm"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 4 Beiträgen als Textbezüge zu 4 Graphiken INr 132191-13298, Obj 5-12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Mein Freund, der rühmlichst bekannte Herr Wilhelm Jury, hat auch für dieses Jahr mein Gesuch erfüllt, und durch seine Künstler Talente diesem Taschenbuch neuen Werth ertheilt.",
+      "language": [],
+      "musenalm_id": 132190,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "v2ph8e3j6n6r985"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 132190, Obj 4) s. Graphik INr 132192, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Emiliens Eltern sind auf einem Spaziergange, und Emilie, die mit ihren Brüdern allein zu Hause geblieben ist, springt munter in dem Garten ihres Vaters umher.",
+      "language": [],
+      "musenalm_id": 132191,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. I. / Emilie als Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. I. / Emilie als Kind",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "qdcy5h0v2cy65mh"
+    },
+    {
+      "annotation": "s. Textbezug INr 132191, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132192,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Emilie als Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec.",
+      "scans": [
+        "alm_4079_132192_sl4r1g11wy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Emilie als Kind",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "vl3w8z0un5kckds"
+        }
+      ],
+      "source_id": "zscyn48h2knsdwb"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 132190, Obj 4) s. Graphik INr 132194, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Emilie hat bei ihrer Geburt von ihrem Vater auch den Namen Huberta zum Andenken des wichtigen Tages ihrer Geburt erhalten,",
+      "language": [],
+      "musenalm_id": 132193,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. II. / Emilie als Jungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. II. / Emilie als Jungfrau",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "cnxjzncbmd40of5"
+    },
+    {
+      "annotation": "s. Textbezug INr 132193, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132194,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Emilie als Jungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec.",
+      "scans": [
+        "alm_4079_132194_4bvh6l90zx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Emilie als Jungfrau",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "qb5i3sg9flp83q5"
+        }
+      ],
+      "source_id": "g54f771gb17zcuf"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 132190, Obj 4) s. Graphik INr 132196, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Emiliens Gemahl ist in Angelegenheiten des Hofes, während der französischen Revolution nach Frankreich gereiset, und das Gerücht sagt, daß er unter der Guilllotine gestorben sei.",
+      "language": [],
+      "musenalm_id": 132195,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. III. / Emilie als Gattin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. III. / Emilie als Gattin",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "wqjsjnky0d0xesd"
+    },
+    {
+      "annotation": "s. Textbezug INr 132195, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132196,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Emilie als Gattin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec.",
+      "scans": [
+        "alm_4079_132196_9s65elwlbs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Emilie als Gattin",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "pn99vs29mbhgukd"
+        }
+      ],
+      "source_id": "5f6k1nyftu1ytid"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 132190, Obj 4) s. Graphik INr 132198, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Emilie sitzt auf ihrem Zimmer, ganz in das schöne Gefühl der glücklichen Mutter verloren.",
+      "language": [],
+      "musenalm_id": 132197,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. IV. / Emilie als Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. IV. / Emilie als Mutter",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "y9a2cdqh7nh0vzb"
+    },
+    {
+      "annotation": "s. Textbezug INr 132197, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132198,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Emilie als Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec.",
+      "scans": [
+        "alm_4079_132198_awcwep8xb5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Emilie als Mutter",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "yakslk21ekxsthq"
+        }
+      ],
+      "source_id": "ogsds7ngqvzaqtj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132199,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. V. VI. VII. VIII / (Sind Seite 188 erklärt.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. V. VI. VII. VIII / (Sind Seite 188 erklärt.)",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ozwt5z1128rcfp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Julie war die Tochter des Kommerzienraths Grunnert, und vereinigte schon als Mädchen von zwölf Jahren, die weiblichen Reize und geistigen Vorzüge in sich,",
+      "language": [],
+      "musenalm_id": 132200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiedersehn im Tode. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kerndörffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiedersehn im Tode. / Eine Erzählung",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "jbbfx5lvloouivi",
+          "source_id": "75u62xqbfnuk6pt"
+        }
+      ],
+      "source_id": "msluvuxvv8ux0jc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Fliehe du banger Gedanke voll Schrecken, fliehe! / Was packst du, / Wie das geängstigte Wild gierige Hunde, / mich an!",
+      "language": [],
+      "musenalm_id": 132201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Trennungen / Elegie.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Gruber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Trennungen / Elegie.",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "fkp6eousr91x3by",
+          "source_id": "w1xtxfcz7sqoqtv"
+        }
+      ],
+      "source_id": "itniqgyvhut9y22"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrags; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Die Einsamkeit ist die süßeste Vertraute der Seele, freier huldigt sie dort in dem hehren Heiligthume der Natur ihrem allgütigen Freudengeber",
+      "language": [],
+      "musenalm_id": 132202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zerstreute Gedanken / und / kleine moralische Aufsätze in Stammbücher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zerstreute Gedanken / und / kleine moralische Aufsätze in Stammbücher",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ntxsd2gibpzr3ib"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Sie wundern sich, liebe Elisa, über das Schicksal so mancher Ihrer Gesellschafterinnen, die bei allem äußern Liebreize dennoch auf die schönen beglückenden Freuden einer wahren Liebe Verzicht leisten müssen,",
+      "language": [],
+      "musenalm_id": 132203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was fesselt die Männer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. A. Kerndörffer, Doktor d. Philos.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was fesselt die Männer",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "jbbfx5lvloouivi",
+          "source_id": "7ia4on6tx3arld3"
+        }
+      ],
+      "source_id": "i3cz9xgu9pi3tmj"
+    },
+    {
+      "annotation": "Anm. am Objekt: Nach dem Holländischen frei bearbeitet",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Liebe Amme! Ich denke noch oft mit Vergnügen an die langen Abende, da ich als kleiner Knabe auf deinem Schooße saß, und zitternd meine jungen Arme um deinen Hals wand,",
+      "language": [],
+      "musenalm_id": 132204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Märchen vom ersten April",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Märchen vom ersten April",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ltfu31e2qlioqid"
+    },
+    {
+      "annotation": "Es folgen 4 Beiträge als Textbezüge zu 2 graph. Stickanleitungen und 2 Graphiken INr 132206-132213, Obj 20-27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Die Kunst zu sticken und Wäsche, feine Leinewand, Musselin, Battist. u. d. gl. weiß zu nähen, ist seit einiger Zeit wieder eine sehr angenehme Lieblingsbeschäftigung der Damen geworden,",
+      "language": [],
+      "musenalm_id": 132205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfertafeln / Tab. V. VI. VII. VIII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfertafeln / Tab. V. VI. VII. VIII.",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "jx3064meo3sduvx"
+    },
+    {
+      "annotation": "auszufaltende graph. Stickanleitung, nummeriert Pl. V.; s. Textbezug INr 132207, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Olezner sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Olezner sc.",
+      "scans": [
+        "alm_4079_132206_u3aag7ovee.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "mx0vrslpkpeverc"
+    },
+    {
+      "annotation": "Erklärung der Kupfertafeln Tab. V. VI. VII. VIII. (Sammlung IN 132205, Obj 18) s. graph. Stickanleitung INr 132206, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "zwei stehende Hetrurische Desseins, Das Dreiblatt. Die Kette. Ferner zwei fortlaufende moderne Desseins. Oben: die einfache Ranke. Unten: die Epheuranke",
+      "language": [],
+      "musenalm_id": 132207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tab. V.",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1yu2wrlbt6keto"
+    },
+    {
+      "annotation": "Erklärung der Kupfertafeln Tab. V. VI. VII. VIII. (Sammlung IN 132205, Obj 18) s. graph. Stickanleitung INr 132208, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Die doppelte Myrthe. Ferner: verschiedene Medaillons, für Buchstaben oder Nummern, um Tisch- und Bettzeug und andere große Wäsche auf geschmackvolle Art zu bezeichnen.",
+      "language": [],
+      "musenalm_id": 132208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tab. VI.",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "mujjdee0bkxvwpr"
+    },
+    {
+      "annotation": "auszufaltende graph. Stickanleitung, nummeriert Pl. VI.; s. Textbezug INr 132208, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Olezner sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Olezner sc.",
+      "scans": [
+        "alm_4079_132209_cso5c9tr1l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "yuc4xzy8ryr52hu"
+    },
+    {
+      "annotation": "Erklärung der Kupfertafeln Tab. V. VI. VII. VIII. (Sammlung IN 132205, Obj 18) s. Graphik INr 132211, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Ein elegantes und äußerst bequemes Bett-Sopha.",
+      "language": [],
+      "musenalm_id": 132210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. VII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tab. VII.",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "g81r325golmnnoy"
+    },
+    {
+      "annotation": "auszufaltende kol. Graphik, nummeriert Pl. VII.; s. Textbezug INr 132210, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4079_132211_izxjpmy547.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhiwpopeephfnpi"
+    },
+    {
+      "annotation": "Erklärung der Kupfertafeln Tab. V. VI. VII. VIII. (Sammlung IN 132205, Obj 18) s. Graphik INr 132213, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Dieses Blatt liefert zwei hohe Tafelleuchter, und einen gewöhnlichen kurzen Tischleuchter.",
+      "language": [],
+      "musenalm_id": 132212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. VIII",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tab. VIII",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5t5dz14j1q2be2"
+    },
+    {
+      "annotation": "auszufaltende kol. Graphik, nummeriert Pl. VII.; s. Textbezug INr 132212, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Oelzner fec)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oelzner fec",
+      "scans": [
+        "alm_4079_132213_jq2kspwsvz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "f8sagwd5bxbfha2"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132214,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verlags-Artikel / von / Theodor Seeger / in Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verlags-Artikel / von / Theodor Seeger / in Leipzig",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4naag66czt1re8"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Um die Wünsche der Liebhaber zu erfüllen, welche sich die ganze Folge des Jahrbuchs zur belehrenden Unterhaltung für Damen, Taschenbuch für die Jahre 1795-bis 1802, 8 Jahrgänge mit Kupfern von Jury, Penzel, Kracher , Rosmaesler etc",
+      "language": [],
+      "musenalm_id": 132215,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohlfeiler Preis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Seeger, Buchhändler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wohlfeiler Preis",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "gwxbc59qkfxacq0"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132216,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4079_132216_t2rf9hr07x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "negudsngsfm11aj"
+    }
   ],
   "agents": [
     {

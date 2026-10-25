@@ -48,7 +48,26 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "quwvirxw7t2ggvy"
+    {
+      "annotation": "einziger Jg. <br> mit späten Nachdrucken",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.740Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408248",
+      "location": "105O01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.740Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "quwvirxw7t2ggvy"
+    }
   ],
   "contents": [],
   "agents": [

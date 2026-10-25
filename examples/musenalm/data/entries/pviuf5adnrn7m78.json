@@ -48,26 +48,727 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "zalcxurcm8pg5ig"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405199",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zalcxurcm8pg5ig"
+    }
   ],
   "contents": [
-    "1rddriafs9no7yc",
-    "9beg71u25k68vf0",
-    "ejbno1cthe9c74d",
-    "3flsgckj7m4angl",
-    "jj3xfd7m7kbahkd",
-    "a9moi2b523nw8mq",
-    "198d3oqkrh89tni",
-    "2qaqeuul8a06t5w",
-    "05b04m6otouhkqk",
-    "6hrnvtxu1wwb3fx",
-    "aresy3x4jrsz8pv",
-    "sk76pkigjsp6py2",
-    "iea8gx5r9qem17k",
-    "3alqetw9iuhmqzh",
-    "br9zy49ipgwni27",
-    "ruqt8xy7twdjbix",
-    "0zauazwc418ps6m"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1248_124619_d5tei3ipbe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "1rddriafs9no7yc"
+    },
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Die seltsame Entführung« von Kurländer (INr 124617, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seltsame Entführung 8te Scene. / Eine Thräne welche dankbare Erinnerung an unsere / Wohlthäter dem Auge entlockt, ehrt auch den tapfersten Krieger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Bruckner sc.",
+      "scans": [
+        "alm_1248_124605_9smmofw0tc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seltsame Entführung 8te Scene. / Eine Thräne welche dankbare Erinnerung an unsere / Wohlthäter dem Auge entlockt, ehrt auch den tapfersten Krieger",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "4eduat6qpzyt0uc"
+        }
+      ],
+      "source_id": "9beg71u25k68vf0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1820 / von / F. A. von Kurländer. / Zehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1820 / von / F. A. von Kurländer. / Zehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ejbno1cthe9c74d"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124606, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mehrere sehr geachtete Zeitschriften kamen [...] darin überein, daß sie ihnen Eigenthümlichkeit der Bearbeitung zugestanden, wenn gleich der Stoff zum Theil aus fremden Sprachen entlehnt ist.",
+      "language": [],
+      "musenalm_id": 124607,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "9zkoc7rdlor19od"
+        }
+      ],
+      "source_id": "3flsgckj7m4angl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124608,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt / der in diesen zehn Bänden enthaltenen dramatischen Spiele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt / der in diesen zehn Bänden enthaltenen dramatischen Spiele",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "jj3xfd7m7kbahkd"
+    },
+    {
+      "annotation": "mit drei kol. Illustrationen (INr 124610–12, Obj 7–9); # Bezeichnung aus dem Titel (INr 124606, Obj 3); $ vermutlich George Louis Jacques Duval (vgl Nouvelle biographie générale XV, Sp. 524);",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Endlich wieder in Ihren Armen, mein theurer Vater, mein einziger Freund! / Nach Jahren der Trennung sehe ich Dich wieder, doch wie? Als Secretär Deines Oheims! Du dienen!",
+      "language": [],
+      "musenalm_id": 124609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Familie Rosenstein. / Ein Schauspiel in drei Aufzügen / Nach Duvals Fille d’honneur für die deutsche / Bühne frei bearbeitet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Duval $ [bearb.] Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Familie Rosenstein. / Ein Schauspiel in drei Aufzügen / Nach Duvals Fille d’honneur für die deutsche / Bühne frei bearbeitet",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "u6ve7egppygflgj"
+        }
+      ],
+      "source_id": "a9moi2b523nw8mq"
+    },
+    {
+      "annotation": "kol. Illustration zu »Familie Rosenstein« von Kurländer (INr 124609, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Familie Rosenstein. 1r Act. 4te Scene. / Wer wird denn das fürstliche Handbillet und den / Schmuck in einer Hand halten? Seht so.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Brückner sc.",
+      "scans": [
+        "alm_1248_124610_l0k8wb1yhm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Familie Rosenstein. 1r Act. 4te Scene. / Wer wird denn das fürstliche Handbillet und den / Schmuck in einer Hand halten? Seht so.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "ixtz6h1hw3ht2lz"
+        }
+      ],
+      "source_id": "198d3oqkrh89tni"
+    },
+    {
+      "annotation": "kol. Illustration zu »Familie Rosenstein« von Kurländer (INr 124609, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Familie Rosenstein. Schlussscene des 2n Actes. / Meine Ehre retten, doch sie nicht unglücklich / machen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Brückner",
+      "scans": [
+        "alm_1248_124611_782v0iwhh0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Familie Rosenstein. Schlussscene des 2n Actes. / Meine Ehre retten, doch sie nicht unglücklich / machen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "p4pfqqp7pd7487l"
+        }
+      ],
+      "source_id": "2qaqeuul8a06t5w"
+    },
+    {
+      "annotation": "kol. Illustration zu »Familie Rosenstein« von Kurländer (INr 124609, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Familie Rosenstein. Schlussworte des Stückes. / Fehlen ist menschlich, doch verzeihen ist göttlich.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Brückner sc.",
+      "scans": [
+        "alm_1246_124612_n2lnneysld.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Familie Rosenstein. Schlussworte des Stückes. / Fehlen ist menschlich, doch verzeihen ist göttlich.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "ytalrufam9n6kqy"
+        }
+      ],
+      "source_id": "05b04m6otouhkqk"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124614, Obj 11); # Bezeichnung aus dem Titel (INr 124606, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "O vergönne, was ich ahne / Sage weder ja noch nein / Laß mich in dem sel’gen Wahne, / still von dir geliebt zu seyn.",
+      "language": [],
+      "musenalm_id": 124613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das funfzigjährige Fräulein. / Ein Lustspiel in einem Act",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das funfzigjährige Fräulein. / Ein Lustspiel in einem Act",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "9xvef4vb4n8i8u2"
+        }
+      ],
+      "source_id": "6hrnvtxu1wwb3fx"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das funfzigjährige Fräulein« von Kurländer (INr 124613, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Funfzigjähriges Fräulein 10te Scene. / Eveline an der Glasthüre. / Nicht lieben nur auch nennen darfst du sie, / Stirbt das Geheimnis auch, die Liebe nie.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Brückner sc.",
+      "scans": [
+        "alm_1248_124614_ifoswo1ftc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Funfzigjähriges Fräulein 10te Scene. / Eveline an der Glasthüre. / Nicht lieben nur auch nennen darfst du sie, / Stirbt das Geheimnis auch, die Liebe nie.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.838Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "8npzzm9jmws5ku3"
+        }
+      ],
+      "source_id": "aresy3x4jrsz8pv"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124616, Obj 13); # Bezeichnung aus dem Titel (INr 124606, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Schon eilf Uhr, und wir schlafen noch. Freilich gingen wir wie gewöhnlich erst um drei Uhr zu Bette. Wo soll das hinaus?",
+      "language": [],
+      "musenalm_id": 124615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / sechzigjährige Jüngling. / Ein Lustspiel in zwei Aufzügen. / Als Seitenstück zu dem funfzigjährigen / Fräulein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / sechzigjährige Jüngling. / Ein Lustspiel in zwei Aufzügen. / Als Seitenstück zu dem funfzigjährigen / Fräulein",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.733Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "z7f1675bauoyeaa"
+        }
+      ],
+      "source_id": "sk76pkigjsp6py2"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der sechzigjährige Jüngling« von Kurländer (INr 124615, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124616,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechzigjährige Jüngling 2r Act. 9te Scene. / I merk’s drum luegt er so freundli in mi G’sichtli.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Brückner sc.",
+      "scans": [
+        "alm_1248_124616_zk1bdfts6b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sechzigjährige Jüngling 2r Act. 9te Scene. / I merk’s drum luegt er so freundli in mi G’sichtli.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.733Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "zpaepktdfn1uswo"
+        }
+      ],
+      "source_id": "iea8gx5r9qem17k"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (Titelgraphik INr 124605, Obj 2); # Bezeichnung aus dem Titel (INr 124606, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "Haben Euer Gnaden denn gar kein Gefühl für das schrecklichste aller weiblichen Leiden, die Neugierde",
+      "language": [],
+      "musenalm_id": 124617,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / seltsame Entführung. / Ein Lustspiel in einem Aufzug",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / seltsame Entführung. / Ein Lustspiel in einem Aufzug",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.733Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "yuztcb0kw9o8xkd"
+        }
+      ],
+      "source_id": "3alqetw9iuhmqzh"
+    },
+    {
+      "annotation": "Corrigenda",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124640,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserungen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "br9zy49ipgwni27"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124641,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachstehende Bücher sind bei uns erschienen und um beigesetzte Preise in allen Buchhandlungen zu erhalten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachstehende Bücher sind bei uns erschienen und um beigesetzte Preise in allen Buchhandlungen zu erhalten",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ruqt8xy7twdjbix"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124642,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1248_124642_who35noyxa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "0zauazwc418ps6m"
+    }
   ],
   "agents": [
     {

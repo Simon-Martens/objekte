@@ -48,7 +48,26 @@
   "year": 1744,
   "editor": "",
   "items": [
-    "t25k3uiupa4wpef"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.543Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "111892",
+      "location": "107L01",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.543Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "t25k3uiupa4wpef"
+    }
   ],
   "contents": [],
   "agents": []

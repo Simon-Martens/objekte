@@ -48,7 +48,26 @@
   "year": 1829,
   "editor": "",
   "items": [
-    "xs5960x34fz4s0x"
+    {
+      "annotation": "Standort: Bad. Landesbibliothek Karlsruhe\n§ Standort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.677Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404394",
+      "location": "WE 3/9",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.677Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xs5960x34fz4s0x"
+    }
   ],
   "contents": [],
   "agents": [

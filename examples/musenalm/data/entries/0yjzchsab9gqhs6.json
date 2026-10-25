@@ -48,29 +48,780 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "n58v6lhontaeuj8"
+    {
+      "annotation": "Format 7,5x9",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.812Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411061",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.811Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "n58v6lhontaeuj8"
+    }
   ],
   "contents": [
-    "x2yo7vbchk4rmld",
-    "y4msjpjlcfe9zus",
-    "pjd0gv9mkwdj5yj",
-    "izxi4hv7l8cd0pj",
-    "kwcz6ck0icvudnu",
-    "h4mz5vsgvcep75j",
-    "ucouzbvb8zrduuj",
-    "jrvftxp69vb2okl",
-    "sghwoy2833f9mne",
-    "u5c2p0z7me8fl3f",
-    "1f0pih82s0tbt92",
-    "vsx9gw8y25bs4qj",
-    "czydtwwkn9u8sxx",
-    "7kwmtvpjynf9n3h",
-    "hulgwsxqbr0r7hw",
-    "mn23hmucu5q4cxz",
-    "3gy5re9gx9dzhad",
-    "qdwmh995b8uxf5t",
-    "lbnlrhmidu5003l",
-    "nz77sjyp3lw6ym4"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127786,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschen-Kalender / auf das Jahr 1838, / mit / Gedichten und 8 dazu gehörigen Kupfern. / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4788_127786_5x2g5ysffb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschen-Kalender / auf das Jahr 1838, / mit / Gedichten und 8 dazu gehörigen Kupfern. / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "x2yo7vbchk4rmld"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik vor dem Kalendarium nummeriert 1. /) # Illustration zu »Die Söhne Eduards« von E. Ferrand d.i. Ed. Schulz  INr 127798, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127787,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Söhne Eduards #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127787_zg134ypvom.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Söhne Eduards #",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "y4msjpjlcfe9zus"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127788,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "pjd0gv9mkwdj5yj"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik vor dem Kalendarium, nummeriert 2. /) # Illustration zu »Die Mädchen auf dem Berge« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127799, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127789,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mädchen auf dem Berge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127789_0yuk6q5dri.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Mädchen auf dem Berge",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "izxi4hv7l8cd0pj"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik im Kalendarium Februar, nummeriert 3. /) # Illustration zu »Der Pilger« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127800, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127790,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pilger #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127790_b7b1h6ki44.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Pilger #",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "kwcz6ck0icvudnu"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik im Kalendarium April; nummeriert 4. /) # Illustration zu »Aschenbrödel« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127801, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127791,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aschenbrödel #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127791_lhdvrc1qn0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aschenbrödel #",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "h4mz5vsgvcep75j"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik im Kalendarium Juni; nummeriert 5. /) # Illustration zu »Der kranke Rathsherr« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127802, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127792,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der kranke Rathsherr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127792_2j95cz2p0t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der kranke Rathsherr",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "ucouzbvb8zrduuj"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik im Kalendarium August; nummeriert 6. /) # Illustration zu »Die kleine Näscherin« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127803, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127793,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kleine Näscherin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127793_5tp92r97dt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die kleine Näscherin",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "jrvftxp69vb2okl"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik im Kalendarium Oktober; nummeriert 7. /) # Illustration zu »Das trauernde Milchmädchen« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127804, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127794,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das trauernde Milchmädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127794_guqjllkusz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das trauernde Milchmädchen",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "sghwoy2833f9mne"
+    },
+    {
+      "annotation": "$ vermutl. Auguste Hüssener sc. /) Graphik im Kalendarium Dezember; nummeriert 8. /) # Illustration zu »Der Abend auf Helgoland« von E. Ferrand d.i. Ed. Schulz; s. Textbezug INr 127805, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.708Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127795,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abend auf Helgoland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_4788_127795_cmbyn3i7y7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Abend auf Helgoland",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "u5c2p0z7me8fl3f"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.710Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "1f0pih82s0tbt92"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik vor dem Kalendarium INr 127787, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.710Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Auf den schwellend weichen Kissen ruhen sie in tiefem Schlaf, / Die verstörend kaum die Ahnung drohend dunkler Zukunft / traf.",
+      "language": [],
+      "musenalm_id": 127798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Söhne Eduards",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Söhne Eduards",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "cff95n3tf7xoxon"
+        }
+      ],
+      "source_id": "vsx9gw8y25bs4qj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127789, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Siehst Du drüben in der Ferne, an des blauen / Flusses Strand, / Jene grauen Zinnen ragen auf der steilen Felsenwand?",
+      "language": [],
+      "musenalm_id": 127799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Mädchen auf dem Berge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Mädchen auf dem Berge",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "n0tvfabf737c9mf"
+        }
+      ],
+      "source_id": "czydtwwkn9u8sxx"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127790, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Auf dem Berge steht ein Jüngling, blühend ros'gen / Angesicht's,",
+      "language": [],
+      "musenalm_id": 127800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Pilger",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Pilger",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "usvnxbfuvrgpreb"
+        }
+      ],
+      "source_id": "7kwmtvpjynf9n3h"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127791, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Auf die Matte hingekauert, sitzt die liebliche Gestalt, / Von dem reichen Haar das zarte, blühende Gesicht um- / wallt.",
+      "language": [],
+      "musenalm_id": 127801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Aschenbrödel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Aschenbrödel",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "ilavscrmjtjyg1h"
+        }
+      ],
+      "source_id": "hulgwsxqbr0r7hw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127792, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Wenn die Sonne ihre Bahn durchzogen, / Neigt sie sich in gluthenvoller Pracht,",
+      "language": [],
+      "musenalm_id": 127802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der kranke Rathsherr",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der kranke Rathsherr",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "tbp9lxpwiz8p9j2"
+        }
+      ],
+      "source_id": "mn23hmucu5q4cxz"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127793, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Trinkend saßen sie zusammen in dem traulichen Ge- / mach; / In dem muntern Kreise wurde Freude, Scherz und La- / chen wach.",
+      "language": [],
+      "musenalm_id": 127803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die kleine Näherin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die kleine Näherin",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "e4w1jnn5m6fqumh"
+        }
+      ],
+      "source_id": "3gy5re9gx9dzhad"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127794, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Durch die winterliche Gegend zieht ein kleiner Schlit- / ten hin, / Und ein Mädchen läuft daneben rüstig fort mit munterm / Sinn.",
+      "language": [],
+      "musenalm_id": 127804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Das trauernde Milchmädchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Das trauernde Milchmädchen",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.959Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.959Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "sjy8b4xnqrdfeau"
+        }
+      ],
+      "source_id": "qdwmh995b8uxf5t"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127795, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Der Tag ist aus, des Tages Werk geendet, / Bereitet wird der Nacht die Ruhestatt.",
+      "language": [],
+      "musenalm_id": 127805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Der Abend auf Helgoland",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Der Abend auf Helgoland",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.959Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.959Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "6b7pnyb7wdh89xa"
+        }
+      ],
+      "source_id": "lbnlrhmidu5003l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei Trowitzsch und Sohn in Berlin",
+      "language": [],
+      "musenalm_id": 127806,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei Trowitzsch und Sohn in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2021-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "nz77sjyp3lw6ym4"
+    }
   ],
   "agents": [
     {

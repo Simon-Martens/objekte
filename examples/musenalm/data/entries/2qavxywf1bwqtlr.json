@@ -48,24 +48,669 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "cpsmnye4lpg3dxq"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.594Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405449",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.594Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cpsmnye4lpg3dxq"
+    }
   ],
   "contents": [
-    "y4ed8foxrknyf8v",
-    "3cn82h947yfquch",
-    "9o5bw3zkpafc892",
-    "of4oe3a7ijuo6eb",
-    "sewwme954tvrkyx",
-    "5uldkegg5cxjtkm",
-    "l3oxofnit8qeftk",
-    "4kanohebbhyxj95",
-    "dgxnzgx7hbbdl5e",
-    "gvl9x99orbu7jcr",
-    "vxjrg150ltcd0dn",
-    "ve3bi2cnlln0u3e",
-    "rugx6yjdomqviou",
-    "gyqzihivvj5ivht",
-    "0njgdmn41erf357"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79078,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2199_79078_vnylmqra3t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "y4ed8foxrknyf8v"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Ludwig der Baier« INr 79089, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79079,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludwig der Baier und Seyfried / Schweppermann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+      "scans": [
+        "alm_2199_79079_jefawolmey.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ludwig der Baier und Seyfried / Schweppermann",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.797Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "23uuulpfo1spl9e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.797Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "dvf2qy4s2smjx74"
+        }
+      ],
+      "source_id": "3cn82h947yfquch"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79080,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1808 u. 1809 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2199_79080_5a34h85cnt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1808 u. 1809 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "9o5bw3zkpafc892"
+    },
+    {
+      "annotation": "Vorowort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Mit einem Vertrauen auf die Güte meiner Leser, das seit eilf Jahren nicht getäuscht wurde, übergebe ich auch diesen Jahrgang meines Taschenbuchs der Buchdruckerpresse. Mancherley Hindernisse, theils durch neue Amtsgeschäfte des Herausgebers,",
+      "language": [],
+      "musenalm_id": 79081,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.798Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "b4cbg087mjdmaml"
+        }
+      ],
+      "source_id": "of4oe3a7ijuo6eb"
+    },
+    {
+      "annotation": "Es folgen: 12 Seiten Monatskonten und eine Seite Jahreskonto darin 6 Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79082,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / vom ganzen Jahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / vom ganzen Jahre",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "sewwme954tvrkyx"
+    },
+    {
+      "annotation": "paginert II. /) Illustration zu »Die Mordnacht von Zürich« INr 79090, Obj 13 /) # Bez. aus der Vorrede des Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79083,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mordnacht zu Zürich. / Seite 88",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri; P. J. Laminit",
+      "scans": [
+        "alm_2199_79083_aoou4iif74.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Mordnacht zu Zürich. / Seite 88",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.798Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "1woep9oyjqwoqxw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.798Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "pyeozzkx512raag"
+        }
+      ],
+      "source_id": "5uldkegg5cxjtkm"
+    },
+    {
+      "annotation": "paginert III. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79084,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohlthun trägt Zinsen. / Seite 103",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri; P. J. Laminit",
+      "scans": [
+        "alm_2199_79084_c0lom784k8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wohlthun trägt Zinsen. / Seite 103",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "l3oxofnit8qeftk"
+    },
+    {
+      "annotation": "paginert IV. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79085,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Martin lehrte den Kleinen sein / Gewerbe. / S. 110",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri; P. J. Laminit",
+      "scans": [
+        "alm_2199_79085_q61vxrcqpx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Martin lehrte den Kleinen sein / Gewerbe. / S. 110",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "bb2tjh8qunq3l9d"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "da06sf0uknugr7x"
+        }
+      ],
+      "source_id": "4kanohebbhyxj95"
+    },
+    {
+      "annotation": "paginert V. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79086,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hier in dieser Hütte wohnt mein / zweiter Vater. / S. 122",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri; P. J. Laminit",
+      "scans": [
+        "alm_2199_79086_u49uh693ld.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hier in dieser Hütte wohnt mein / zweiter Vater. / S. 122",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "284g1ehgd6fs090"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "yycki33th5uq9sf"
+        }
+      ],
+      "source_id": "dgxnzgx7hbbdl5e"
+    },
+    {
+      "annotation": "paginert VI. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79087,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich bitte, nehmen Sie, hier ist / Uhr Geld und alles. / S. 131",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri; P. J. Laminit",
+      "scans": [
+        "alm_2199_79087_e3xm7g0kax.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich bitte, nehmen Sie, hier ist / Uhr Geld und alles. / S. 131",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "b7egfm84c7cf9ty"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "x73ymfi0zg62jr4"
+        }
+      ],
+      "source_id": "gvl9x99orbu7jcr"
+    },
+    {
+      "annotation": "paginert VII. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr habt einem Edelmuth bewiesen den / ich nicht unbelohnt lassen darf.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri; P. J. Laminit",
+      "scans": [
+        "alm_2199_79088_lj8keebsjn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ihr habt einem Edelmuth bewiesen den / ich nicht unbelohnt lassen darf.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "4m474ubgn203ki2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.814Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "ixvveaaks714hw3"
+        }
+      ],
+      "source_id": "vxjrg150ltcd0dn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 79079, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unter den Beherrschern Baierns, welche ihr Land auf eine sehr hohe Stufe von Macht und Größe emporgehoben, und sowohl durch ihre eigenen Schicksale als durch ihren Einfluß auf andere Völker sich auszeichneten,",
+      "language": [],
+      "musenalm_id": 79089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludwig / der / Baier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ludwig / der / Baier",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "ve3bi2cnlln0u3e"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 79083, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Die Schlacht bei Mogarten hatte die Freiheit der vier Waldstädte, Lucern, Uri, Schwyz und Unterwalden befestigt, und ihrem Bunde Kraft und Dauer gegeben.",
+      "language": [],
+      "musenalm_id": 79090,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mordnacht / zu / Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mordnacht / zu / Zürich",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "rugx6yjdomqviou"
+    },
+    {
+      "annotation": "mit 5 Illustrationen s. Graphiken INr 79084-79088, Obj 7-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Seyd nicht ungehalten, lieber Leser, liebe Leserin, daß ich in die niedrigen Hütten der Armuth euch einführe, um die alte Wahrheit: Wohlthun trägt Zinsen euch durch ein neues Beipiel zu beurkunden.",
+      "language": [],
+      "musenalm_id": 79091,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohlthun trägt Zinsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wohlthun trägt Zinsen",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "gyqzihivvj5ivht"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79092,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2199_79092_zha23xzjqk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "0njgdmn41erf357"
+    }
   ],
   "agents": [
     {

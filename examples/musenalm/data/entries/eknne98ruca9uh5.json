@@ -48,23 +48,553 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "xxv95hmh7pksng2"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405206",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xxv95hmh7pksng2"
+    }
   ],
   "contents": [
-    "if0pz5lnyxlc8p4",
-    "365v9dcctzdrdji",
-    "nuugnscfkiee5c7",
-    "0dzuj0kyhvkgobz",
-    "sbr0ff7ean6jw2e",
-    "akqw42p8zznmpjp",
-    "1j251e177jvzplk",
-    "r8hw3c13780re6a",
-    "6d3g6o865glbrdv",
-    "zni2x6z9nd94cq9",
-    "h3vyo361m75x4hp",
-    "kucakaf3lkz95i8",
-    "4o57lt577jzxjbv",
-    "03m6se00494gd9q"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124891,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124891_e19oj8mdcm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "if0pz5lnyxlc8p4"
+    },
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Schüchtern und Dreist« von Kurländer (INr 124903, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124892,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schüchtern und Dreist. Sc. 7. / Major. / »Der Engelskopf hatte eine Engelsstimme etc.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124892_qjpc0qxb6y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schüchtern und Dreist. Sc. 7. / Major. / »Der Engelskopf hatte eine Engelsstimme etc.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "365v9dcctzdrdji"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124893,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1827 / von / F. A. von Kurländer. / Siebzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1827 / von / F. A. von Kurländer. / Siebzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "nuugnscfkiee5c7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124894,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dzuj0kyhvkgobz"
+    },
+    {
+      "annotation": "mit drei kol. Illustrationen (INr 124896–124898, Obj 6–8); # Autorbezeichnung aus dem französischen Original. ## Bezeichnung aus dem Titel (INr 124893, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Sie sind es; Sie leben – wurden nicht erschossen? / Was nicht ist, kann werden. / Er lebt? Es ist unmöglich.",
+      "language": [],
+      "musenalm_id": 124895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tote in Verlegenheit. / Lustspiel in drei Aufzügen. / Freie Uebertragung des mort dans / l’embarras ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet # [übers.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tote in Verlegenheit. / Lustspiel in drei Aufzügen. / Freie Uebertragung des mort dans / l’embarras ##",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "knq1mugpcwb91f6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "ov10cdlndkr9wi7",
+          "source_id": "lulve5vlwoskidt"
+        }
+      ],
+      "source_id": "sbr0ff7ean6jw2e"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Todte in Verlegenheit« von Wailly [übers.] Kurländer (INr 124895, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Todte in Verlegenheit. Act I. Sc. 7. / Ernst / »Herrlicher Champagner«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124896_wrbh686knl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Todte in Verlegenheit. Act I. Sc. 7. / Ernst / »Herrlicher Champagner«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "akqw42p8zznmpjp"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Todte in Verlegenheit« von Wailly [übers.] Kurländer (INr 124895, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Todte in Verlegenheit. Act II. Sc. 3. / Emmy / »An eine Heirath zwischen uns ist gar nicht / zu gedenken.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124897_w2bm67yd4b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Todte in Verlegenheit. Act II. Sc. 3. / Emmy / »An eine Heirath zwischen uns ist gar nicht / zu gedenken.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "1j251e177jvzplk"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Todte in Verlegenheit« von Wailly [übers.] Kurländer (INr 124895, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Todte in Verlegenheit. Act 3. Sc. 5. / Notar / Da sind meine Acten, Verträge, Urkunden / Formularien und Kapularien.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124898_c7w2gw9bki.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Todte in Verlegenheit. Act 3. Sc. 5. / Notar / Da sind meine Acten, Verträge, Urkunden / Formularien und Kapularien.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "r8hw3c13780re6a"
+    },
+    {
+      "annotation": "mit einer  kol. Illustrationen (INr 124900, Obj 10); # Bezeichnung aus dem Titel (INr 124893, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Aber, gnädige Frau, Sie selbst sagten mir ja, daß ein junger Mensch hier angekommen ist. / Allerdings.",
+      "language": [],
+      "musenalm_id": 124899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Narciß der Zweite / Posse in einem Aufzug.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Narciß der Zweite / Posse in einem Aufzug.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "4l5d3sk2rm8m4vd"
+        }
+      ],
+      "source_id": "6d3g6o865glbrdv"
+    },
+    {
+      "annotation": "kol. Illustration zu »Narciß der Zweite« von Kurländer (INr 124899, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Narciss der Zweyte. Letzte Scene. / Egid. / Wie soll man mit einem solchen Gesicht her- / um spatzieren?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Narciss der Zweyte. Letzte Scene. / Egid. / Wie soll man mit einem solchen Gesicht her- / um spatzieren?",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "zni2x6z9nd94cq9"
+    },
+    {
+      "annotation": "mit einer  kol. Illustrationen (INr 124902, Obj 12); # Bezeichnung aus dem Titel (INr 124893, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Zwölftes Kapitel, hundert und dritter Brief, Ernestine an Karl. Ich weiß wahrhaftig nicht mehr, was ich die arme Caroline reden lasse!",
+      "language": [],
+      "musenalm_id": 124901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Roman in Briefen. / Lustspiel in einem Aufzug. / Nach Courcy frei bearbeitet.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Courcy [bearb.] F.A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Roman in Briefen. / Lustspiel in einem Aufzug. / Nach Courcy frei bearbeitet.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "0xupssihz4mg2yf"
+        }
+      ],
+      "source_id": "h3vyo361m75x4hp"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Roman in Briefen« von Kurländer (INr 124899, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Roman in Briefen. Sc. 17. / Julie / »Schluß der ganzen Geschichte eine Heirath«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124902_bsynjxobmm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Roman in Briefen. Sc. 17. / Julie / »Schluß der ganzen Geschichte eine Heirath«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "kucakaf3lkz95i8"
+    },
+    {
+      "annotation": "mit einer  kol. Illustrationen (INr 124892, Obj 2); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 124893, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Was wäre das Landleben ohne Stickerei? Im Winter gibt es Bälle, tanzen kann man bei Schnee und Regen; aber im Sommer, bei schlechter Witterung, was entschädigt uns da? Die Stickerei.",
+      "language": [],
+      "musenalm_id": 124903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schüchtern und Dreist. / Lustspiel in einem Aufzug. / Nach Scribe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schüchtern und Dreist. / Lustspiel in einem Aufzug. / Nach Scribe",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "52gbyeelfberbsf"
+        }
+      ],
+      "source_id": "4o57lt577jzxjbv"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124904,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1255_124904_st4kleesch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "03m6se00494gd9q"
+    }
   ],
   "agents": [
     {

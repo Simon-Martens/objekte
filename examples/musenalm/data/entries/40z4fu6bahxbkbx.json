@@ -48,41 +48,1430 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "su41jwvvtwu8woj"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit schönen Muster, Grafik und Goldschnitt.\n1826: (K: Ku 10 ) Mit Ku 1, Port 1, Ku 8,  XXIV und 358 SS.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.501Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100584",
+      "location": "105J08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.501Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "su41jwvvtwu8woj"
+    }
   ],
   "contents": [
-    "3iz992gc2jsgvan",
-    "f4c13bpu2fi7yw3",
-    "b4pbbjjotlemd84",
-    "na2r2lqbzw4i3he",
-    "kn2af03f0gi9i6l",
-    "5mozvbydsuwvjgv",
-    "p53wv1s452cuac2",
-    "i89ss8gb4wid79h",
-    "celgw78ep0gfvs7",
-    "n0ph312mvp8i5js",
-    "iamcpwrllebpahs",
-    "i5v6h08jl58noia",
-    "e7m4olb80dxuy5h",
-    "dx0jeemyh9pvjln",
-    "jjggo88rzgrz94f",
-    "ixm0ytxukyfjumv",
-    "48ip43cple9zd57",
-    "ykjayi7jogyhio5",
-    "tm1pjv92379gf2z",
-    "pkw54qewsb2kyoc",
-    "t2q3avnr42rifv7",
-    "n6zt4f9cdkbmucy",
-    "vqxam6dufzmidno",
-    "8fl8docdissys8g",
-    "3i3v7c35g5ypstv",
-    "orrdz4ts8e557pa",
-    "05nrq09tsxmxgpi",
-    "fdlxym2rpvxznqb",
-    "sgvqra3xumh7pm3",
-    "neqyxlsoywe4dff",
-    "ttwpc7mo8ecg6io",
-    "nqub2eoftq5oejb"
+    {
+      "annotation": "Umschlaggraphik r. # Bezeichnung aus: Taschenbuch, Rheinisches 1823 G-Verz INr 43580",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43656,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff gez. Bock u. Vogel gest.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff gez. Bock u. Vogel gest.",
+      "scans": [
+        "alm_581_43656_txf7wd3ip3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.960Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "g8y8zw2y6cymdb3"
+        }
+      ],
+      "source_id": "3iz992gc2jsgvan"
+    },
+    {
+      "annotation": "Widmungsblatt mit handschriftlichem Eintrag",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43657,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "kleine Erinnerung an die Familie des Verlegers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Susemihl sc.",
+      "scans": [
+        "alm_581_43657_bexuciisiw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "kleine Erinnerung an die Familie des Verlegers",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.960Z",
+          "agent": "kno3jlnpudqvc0i",
+          "source_id": "1zk0l49n0rtm69m"
+        }
+      ],
+      "source_id": "f4c13bpu2fi7yw3"
+    },
+    {
+      "annotation": "Titelgraphik; über der Graphik: S. 100. /) Illustration zu » Erinnerungen aus England 8. Der St. Valentins Tag « von Adrian INr 43684, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43658,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Rauch inv. et sc.",
+      "scans": [
+        "alm_581_43658_9o1ne7ip9f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Elisa",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.136Z",
+          "agent": "k7ib4tmw0w1jiao",
+          "source_id": "1qudy42vs7pnc3f"
+        }
+      ],
+      "source_id": "b4pbbjjotlemd84"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43659,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / TASCHENBUCH auf das Jahr 1826. / Herausgegeben / von / Dr. ADRIAN. / FRANKFURT a/M. / bei Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Igler sc.",
+      "scans": [
+        "alm_581_43659_hukzteu9k3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / TASCHENBUCH auf das Jahr 1826. / Herausgegeben / von / Dr. ADRIAN. / FRANKFURT a/M. / bei Johann David Sauerländer",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.136Z",
+          "agent": "wklj72l91t2u9fj",
+          "source_id": "cupn82jlkss1wtv"
+        }
+      ],
+      "source_id": "na2r2lqbzw4i3he"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43660,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "kn2af03f0gi9i6l"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Sammlung von 6 Textbezügen zu 6 Graphiken INr 43662-43673, Obj 7-18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43661,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Walter Scott's Werken. / Dritte Lieferung. / Peveril vom Gipfel / und Ivanhoe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Walter Scott's Werken. / Dritte Lieferung. / Peveril vom Gipfel / und Ivanhoe",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ij5a2per9ool849"
+        }
+      ],
+      "source_id": "5mozvbydsuwvjgv"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 4366",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Julian, der Sohn Sir Gottfired Peveril's, eines Landedelmanns in der Grafschaft Derby, der ein eben so eifriger Anhänger des Königs (Carl II.) war,",
+      "language": [],
+      "musenalm_id": 43662,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Peveril vom Gipfel / 1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Peveril vom Gipfel / 1.",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "n13qsvozhrhrlcg"
+        }
+      ],
+      "source_id": "p53wv1s452cuac2"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 43666, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Julian hatte eben durch den Grafen Derby von dem Aufruhr gehört, welchen die Puritaner auf der Insel vorbereiteten;",
+      "language": [],
+      "musenalm_id": 43663,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Peveril vom Gipfel] 2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Peveril vom Gipfel] 2.",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "1iuovstjac92gja"
+        }
+      ],
+      "source_id": "i89ss8gb4wid79h"
+    },
+    {
+      "annotation": "Illustration zu »Peveril vom Gipfel« von Walter Scott s. Textbezug INr 43662, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43664,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Peveril",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_581_43664_9ep9tx1kw6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Peveril",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "celgw78ep0gfvs7"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 43668, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Die Darstellung, welche wir vor uns sehen, ist zum Theil wenigstens, episodisch zu nennen.",
+      "language": [],
+      "musenalm_id": 43665,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Peveril vom Gipfel] 3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Peveril vom Gipfel] 3.",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "9yjwmyl3zajr06r"
+        }
+      ],
+      "source_id": "n0ph312mvp8i5js"
+    },
+    {
+      "annotation": "Illustration zu »Peveril vom Gipfel« von Walter Scott s. Textbezug INr 43663, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43666,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Peveril",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmäsler Dresd. 1823",
+      "scans": [
+        "alm_581_43666_uuucumamd3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Peveril",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "zuidtyn78npjbjq"
+        }
+      ],
+      "source_id": "iamcpwrllebpahs"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 43670, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Zu Rotherwood, in Cedric des Sachsen Wohnung, war mit dem Templer, Brian de Bois Guilbert, und andern Gästen ein Pilger eingekehrt,",
+      "language": [],
+      "musenalm_id": 43667,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ivanhoe / 1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ivanhoe / 1.",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "wtqcf0xisq11fra"
+        }
+      ],
+      "source_id": "i5v6h08jl58noia"
+    },
+    {
+      "annotation": "Illustration zu »Peveril vom Gipfel« von Walter Scott s. Textbezug INr 43665, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.893Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43668,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Peveril",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmäsler Dresd. 1823",
+      "scans": [
+        "alm_581_43668_qf7ekv45wl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Peveril",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "7t1xjhmm9mjb9n3"
+        }
+      ],
+      "source_id": "e7m4olb80dxuy5h"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 43671, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Der Templer Brian de Bois Guilbert hatte mit einigen ihm ähnlichen Gefährten, den verwundeten Ivanhoe, Cedric, Rowena, Isaac den Juden und seine schöne Tochter Rebecca,",
+      "language": [],
+      "musenalm_id": 43669,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Ivanhoe] 2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Ivanhoe] 2.",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "geczk7f79q6tr93"
+        }
+      ],
+      "source_id": "dx0jeemyh9pvjln"
+    },
+    {
+      "annotation": "Illustration zu »Ivanhoe« von Walter Scott s. Textbezug INr 43667, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43670,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ivanhoe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_581_43670_v9wjgyqat0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ivanhoe",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "jjggo88rzgrz94f"
+    },
+    {
+      "annotation": "Illustration zu »Ivanhoe« von Walter Scott s. Textbezug INr 43669, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.936Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43671,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ivanhoe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Westall del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_581_43671_xycxxxy72r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ivanhoe",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "uq6rhrihzl9bx5q",
+          "source_id": "jx7qexmjvw4a3fz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "rze9gmia3obpspa"
+        }
+      ],
+      "source_id": "ixm0ytxukyfjumv"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 43673, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Richard Löwenherz, bis jetzt unter dem Namen des schwarzen Ritters in England umherirrend, um sich Freunde gegen die Anmaßungen seines Bruders zu gewinnen,",
+      "language": [],
+      "musenalm_id": 43672,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Ivanhoe] 3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Ivanhoe] 3.",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "gwzqbv1i0rjxg59"
+        }
+      ],
+      "source_id": "48ip43cple9zd57"
+    },
+    {
+      "annotation": "Illustration zu »Ivanhoe« von Walter Scott s. Textbezug INr 43672, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43673,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ivanhoe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Westall del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_581_43673_r5dg92w1vw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ivanhoe",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "0i5uqaa327hc77x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "uq6rhrihzl9bx5q",
+          "source_id": "qxiguypk5kh8dq7"
+        }
+      ],
+      "source_id": "ykjayi7jogyhio5"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches Taschenbuch. / Siebenzehnter Jahrgang. / Neue Folge. / Fünfter Jahrgang. 1826",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches Taschenbuch. / Siebenzehnter Jahrgang. / Neue Folge. / Fünfter Jahrgang. 1826",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "tm1pjv92379gf2z"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen mit einer Graphik INr 43676-43684, Obj 21-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerungen aus England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerungen aus England",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "uvh6q3fgarzur9l"
+        }
+      ],
+      "source_id": "pkw54qewsb2kyoc"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Der junge Tag erhob sich mit Entzücken, / Und alles war erquickt, mich  zu erquicken. / Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Gar oft habe ich von sonst billig denkenden Deutschen, die in London lebten, die Aeußerung gehört, ein Sonntag in England sey der langweiligste Tag von der Welt,",
+      "language": [],
+      "musenalm_id": 43676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Sonntag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Sonntag",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "94lvd3k8fybjyr6"
+        }
+      ],
+      "source_id": "t2q3avnr42rifv7"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Ein frohes Stündchen, / Ist's nicht ein Fündchen? / Jetzt haben wir's, drum sind wir froh, / Zu bald vielleicht ist's nicht mehr so. / Hebel /) mit einer Graphik s. INr 43678, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Ich hatte einen Bekannten in London, der dem Meister Hans Lafontaine wenigstens darin glich,",
+      "language": [],
+      "musenalm_id": 43677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Ein Nachmittag zu Hampton Court",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Ein Nachmittag zu Hampton Court",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.142Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.142Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "10n9i4aodov4vek"
+        }
+      ],
+      "source_id": "n6zt4f9cdkbmucy"
+    },
+    {
+      "annotation": "Beigabe zum Beitrag »Erinnerungen aus England: 2. Ein Nachmittag zu Hampton Court« von Adrian INr 43677, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Irrgarten in Hampton Court",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_581_43678_4wtv4b7al9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Irrgarten in Hampton Court",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "vqxam6dufzmidno"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Ach, an der Erde Brust, / Sind wir zum Leide da. / Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Ich hatte, während eines kurzen Aufenthaltes zu Dulwich, einen Freund zu Clapham besucht und trat, nach einem einfachen Mittagsmahl,",
+      "language": [],
+      "musenalm_id": 43679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Greis in Dulwich College",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Greis in Dulwich College",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.378Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "tux0vbpivxpyyrw"
+        }
+      ],
+      "source_id": "8fl8docdissys8g"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Alles wünscht' ich zu sehn, zu kennen / In diesem fremden, seltsamen Land. / Fuimus Troes, Altes Schausp.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Jedes Haus in London hat einen Stock, häufig auch zwei, unter der Erde, welche duch die Höfe ihr Licht erhalten.",
+      "language": [],
+      "musenalm_id": 43680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das Gesinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das Gesinde",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.378Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "yr5ls37wmkr3wvf"
+        }
+      ],
+      "source_id": "3i3v7c35g5ypstv"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Trüb und heiter / Fliegt die Welt vor uns vorbei, / Wir wandeln weiter / Bald trüb bald heiter. / L. Tiek",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Ich traute meinen Augen kaum, als ich in Dover den ersten Englischen Postwagen sah.",
+      "language": [],
+      "musenalm_id": 43681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die öffentlichen Wagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die öffentlichen Wagen",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "orrdz4ts8e557pa"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Dogberry: Ihr müßt alle Nachtschwärmer aufgreifen / und könnt jeden stehen heißen, in des /  Prinzen Namen. [...] Shakspeare",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Die Nachtwächter in London würden sehr wohl thun, wenn sie zuweilen der Ansicht des gutmüthigen, tiefgelahrten Dogberry folgen wollten;",
+      "language": [],
+      "musenalm_id": 43682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Viel Lärm unm Nichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Viel Lärm unm Nichts",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.266Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.266Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "0zd58w8i4wfi0k8"
+        }
+      ],
+      "source_id": "05nrq09tsxmxgpi"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Fast scheint es mir, hier wird' es nimmer Nacht, / Auch fehlt's dann nicht an Welten von Gesellschaft. / Shakspeare",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "In nicht sehr heiterer Laune verließ ich gegen Mitternacht Taylor's glänzenden Saal auf Pall-Mall, wo rouge et noir gespielt wurde:",
+      "language": [],
+      "musenalm_id": 43683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Eine Nacht in den Straßen von London",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Eine Nacht in den Straßen von London",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "8rbtevouza3yh7k"
+        }
+      ],
+      "source_id": "fdlxym2rpvxznqb"
+    },
+    {
+      "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Heil dir heute, guter Bischof Valentin! / Deine Diocese sind die Lüfte blau, / Und die Fluren grün; [...] Donne. Mit einer Illustration s. Titelgraphik INr 436",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Obige, dem warmfühlenden und witzigen Donne nachgebildeten Verse finden sich in einem Gedicht auf die Heirath eines fürstlichen Paares,",
+      "language": [],
+      "musenalm_id": 43684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Der St. Valentins Tag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Der St. Valentins Tag",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ahstwy16kcg5gpk"
+        }
+      ],
+      "source_id": "sgvqra3xumh7pm3"
+    },
+    {
+      "annotation": "Hinweis am Objekt auf Starklofs Beitrag »Der Gemsenjäger im Chamouny-Thal.« in: Taschenbuch, Rheinisches 1824 INr 43612",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Unruhig wandelte in dem weiten Saal des alten, verödeten Pallastes Don Esplandianor auf und nieder.",
+      "language": [],
+      "musenalm_id": 43685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Victor's Heimkehr. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Starklof",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Victor's Heimkehr. / Eine Erzählung",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "tux46t2b96six6d",
+          "source_id": "h7adrrzm43lzz06"
+        }
+      ],
+      "source_id": "neqyxlsoywe4dff"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Leise gewiegt, in schwankender Barke, saßen Orlando und Leonhard Arm in Arm dicht nebeneinander,",
+      "language": [],
+      "musenalm_id": 43686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde. / Eine Erzählung",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "pc5yd4594pun80b"
+        }
+      ],
+      "source_id": "ttwpc7mo8ecg6io"
+    },
+    {
+      "annotation": "Umschlaggraphik v. # Bezeichnung aus: Taschenbuch, Rheinisches 1823 G-Verz INr 43580",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43687,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff gez. Bock u. Vogel gest.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff gez. Bock u. Vogel gest.",
+      "scans": [
+        "alm_581_43687_an1m6aciw3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "7temf8c8mhrpl5h"
+        }
+      ],
+      "source_id": "nqub2eoftq5oejb"
+    }
   ],
   "agents": [
     {

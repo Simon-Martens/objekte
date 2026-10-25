@@ -49,7 +49,26 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "17966iwivk9pikj"
+    {
+      "annotation": "Halbledereinband, VB verso G, S I T, S III W, SS v-VI, S I-Verz, ar: SS 1-280 darin 8 GG, ar1: zT, SS 3-96",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.624Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200005",
+      "location": "105O02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.624Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "17966iwivk9pikj"
+    }
   ],
   "contents": [],
   "agents": [

@@ -49,19 +49,444 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "omeh1ckr6k8e4x7"
+    {
+      "annotation": "Umschlagtitel: Erheiterungs-Bíbliothek für alle Stände\nUG, S 1 T, SS 3-64, 4 GG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.725Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407576",
+      "location": "003Tresor1",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.725Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "omeh1ckr6k8e4x7"
+    }
   ],
   "contents": [
-    "3vh8k5kzy4y52lu",
-    "z3bxpsgi2qpmnzr",
-    "wv1o9sek55qab8l",
-    "cgidypi5zfgxnuq",
-    "hsns42a6a587q8q",
-    "a5eswi7hc6q4xqr",
-    "dv38098b50f3vph",
-    "13dw9zldzs5kbhh",
-    "as33936dpo2oxjx",
-    "a4emo8eibi1wa2u"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85406,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erheiterungs- / Bíbliothek / für alle Stände",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3906_85406_hgzv1gnz3m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erheiterungs- / Bíbliothek / für alle Stände",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "3vh8k5kzy4y52lu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pandora / von / Goethe. / Ein Taschenbuch / für das Jahr / 1810. / Wien und Triest, / in der Geistingerischen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3906_85407_8mwt7q6kqu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pandora / von / Goethe. / Ein Taschenbuch / für das Jahr / 1810. / Wien und Triest, / in der Geistingerischen Buchhandlung",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "z3bxpsgi2qpmnzr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personen",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.184Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.184Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "s66i5r2f8ol7546"
+        }
+      ],
+      "source_id": "wv1o9sek55qab8l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.342Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Zu der Linken des Zuschauers Fels und Gebirg, aus dessen mächtigen Bänken und Massen natürliche und künstliche Höhlen neben und über einander gebildet sind.",
+      "language": [],
+      "musenalm_id": 85409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schauplatz / wird im großen Styl nach Poussinischer Weise gedacht. / Seite des Prometheus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schauplatz / wird im großen Styl nach Poussinischer Weise gedacht. / Seite des Prometheus",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "ajkkyy4og1gxw1b"
+        }
+      ],
+      "source_id": "cgidypi5zfgxnuq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.342Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Kindheit und Jugend, allzuglücklich preis' ich sie! / Daß nach durchstürmter durchgenoss'ner Tageslust, / Behender Schlummer allgewaltig sie ergreift,",
+      "language": [],
+      "musenalm_id": 85410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kindheit und Jugend, allzuglücklich preis' ich sie! / Daß nach durchstürmter durchgenoss'ner Tageslust, / Behender Schlummer allgewaltig sie ergreift,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "ntgg8u9law5wj2u"
+        }
+      ],
+      "source_id": "hsns42a6a587q8q"
+    },
+    {
+      "annotation": "Illustration zu »Pandora« von Goethe INr 85407 ff, Obj 1 ff",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85411,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv. et sc.",
+      "scans": [
+        "alm_3906_85411_2lraduafj6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.102Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.102Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "84hxye13jly6cgf"
+        }
+      ],
+      "source_id": "a5eswi7hc6q4xqr"
+    },
+    {
+      "annotation": "# Bez. an der 1. Graphik der Suite /) Illustration zu »Pandora« von Goethe INr 85407 ff, Obj 1 ff",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.512Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85412,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv. et sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv. et sc.",
+      "scans": [
+        "alm_3906_85412_j2y7aw7hpv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.133Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "k62ujpdrbsxfs0t"
+        }
+      ],
+      "source_id": "dv38098b50f3vph"
+    },
+    {
+      "annotation": "# Bez. an der 1. Graphik der Suite /) Illustration zu »Pandora« von Goethe INr 85407 ff, Obj 1 ff",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85413,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv. et sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv. et sc.",
+      "scans": [
+        "alm_3906_85413_kl5hpfhwfr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.133Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "oempn7dfzh5rttn"
+        }
+      ],
+      "source_id": "13dw9zldzs5kbhh"
+    },
+    {
+      "annotation": "# Bez. an der 1. Graphik der Suite /) Illustration zu »Pandora« von Goethe INr 85407 ff, Obj 1 ff",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85414,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv. et sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv. et sc.",
+      "scans": [
+        "alm_3906_85414_tr6jouqe03.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.133Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "ueyny26dxla8pdo"
+        }
+      ],
+      "source_id": "as33936dpo2oxjx"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85415,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WIEN, / bei Rudolph Sammer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3906_85415_vznh7lg921.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WIEN, / bei Rudolph Sammer",
+      "updated": "2012-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "a4emo8eibi1wa2u"
+    }
   ],
   "agents": [
     {

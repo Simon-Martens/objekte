@@ -48,86 +48,3043 @@
   "year": 1784,
   "editor": "",
   "items": [
-    "2zafxg3pvfjd4oc"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.488Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200184",
+      "location": "105B02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.488Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2zafxg3pvfjd4oc"
+    }
   ],
   "contents": [
-    "ut86tl2lmx8iva3",
-    "c9yioiniwg2iqlx",
-    "1r2i6ipuwbjppz0",
-    "7lyx8vbprommc9f",
-    "d9wylnwj343pm76",
-    "mm4vga9s05tvfrn",
-    "6v9dxdlx15wb85z",
-    "omryonm73crwzo5",
-    "5t2kgtj1p4z9f8c",
-    "h8pz27ew9kypgod",
-    "kd41wenxkat124a",
-    "qcgc15wvwskwm5k",
-    "dh3bkzpsyed8dsp",
-    "3bh6go09wcffrdf",
-    "xbvzfj7eqila02b",
-    "c1md9gfap4mf8q8",
-    "ekrqvh5fu50rqpu",
-    "j3npuc6x5us598r",
-    "hctsnqlihm59h31",
-    "inbm4552our3i6e",
-    "bf8amxr4dcioj6k",
-    "pwhgs9ffpduyzax",
-    "o7iv411x0bxn00u",
-    "jdie8rs1owftixy",
-    "3bz5smtqw5t9mvv",
-    "2xry1xn7bqpw105",
-    "a051vkt4vqhq68c",
-    "rbzwd2q97wyujag",
-    "ubbqwhiwh7ahqrp",
-    "t287l7fnfu5sg7b",
-    "06432x5zzj2362r",
-    "nynlw7qugnw98fv",
-    "0pofd02qtch4c2p",
-    "nv0gvqj4cbrpmqr",
-    "6a99xtegivmgt7n",
-    "p8h0nc0zxkkfbri",
-    "q7wbzpijmwfz66b",
-    "k9ny8o8awb149ul",
-    "rcjywfijewmhzy0",
-    "q0c271ojq064j8n",
-    "ubcgkae2o9zv4za",
-    "jij5r1phq2mtv2r",
-    "6qgtt90z56ikloc",
-    "f4vsol3cu1v09ht",
-    "ksbk951v4t4q3sg",
-    "bvzusfiwrjcqh9d",
-    "e76m2wozmuragu6",
-    "x6f20nmxtu2s684",
-    "nbgu65kgr5dutb1",
-    "hfn8sxeolhhv0en",
-    "vveyrxx2g6bp6eq",
-    "qkd1ohfyw30zb3m",
-    "5pm9kosizcctohh",
-    "lshz1j12lr6m0yh",
-    "52fwp3bhp6jy8r5",
-    "1p48ccd6bp8j8gw",
-    "ubpo8jox9u3rtdx",
-    "kaffjm8tplxaugo",
-    "3jp1zdh2ov7qhlj",
-    "2ykyqx04nz19x4v",
-    "kxui703s7i9grnn",
-    "cvf8k1m9jfq0jou",
-    "hshwl5vi6zwkqxh",
-    "abep865t5hjm7kx",
-    "qjzxliehj2r042c",
-    "ph3x81rgzbfkvq8",
-    "s50jafn4oc22ye5",
-    "fhsnzc5nats3wfc",
-    "27co3biv9o0tcqm",
-    "q24qeuxjezw72xg",
-    "cnf81hzjl7y387b",
-    "wmc1jr55p7hdhes",
-    "l5sxd0l0eswugxk",
-    "9gbyzpl3pj1d856",
-    "edlp8pmpcr5fvkj",
-    "zke29yukf6nnhz8",
-    "kya7kasbahzedi5"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wienerischer / Musenalmanach, / auf / das Jahr / 1784. / Herausgegeben / von / J. F. Ratschky, / und / A. Blumauer. / Wien, / bey Rudolph Gräffer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_414_120544_yefydpsocy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wienerischer / Musenalmanach, / auf / das Jahr / 1784. / Herausgegeben / von / J. F. Ratschky, / und / A. Blumauer. / Wien, / bey Rudolph Gräffer",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "ut86tl2lmx8iva3"
+    },
+    {
+      "annotation": "Verlagmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Beyträge für künftiges Jahr ersucht man unter der Anschrift:",
+      "language": [],
+      "musenalm_id": 120545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NB.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "NB.",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "c9yioiniwg2iqlx"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "1r2i6ipuwbjppz0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Mutter! Wen suchet dein Aug in Norden, / wenn Tag / Itzo die Fernen erhellt?",
+      "language": [],
+      "musenalm_id": 120547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Josephs Reise nach Rußland. / Gesungen im Sommer 1780",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Denis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Josephs Reise nach Rußland. / Gesungen im Sommer 1780",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.684Z",
+          "agent": "fon9iiilzs9ke5a",
+          "source_id": "tyugb7ad22wurb9"
+        }
+      ],
+      "source_id": "7lyx8vbprommc9f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "A. Ey, warum weinet denn dieß junge / Frauenzimmer, / So oft man ihm den todten Gatten / nennt?",
+      "language": [],
+      "musenalm_id": 120548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frage und Antwort. / Nach dem Französischen des Piron",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bur.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frage und Antwort. / Nach dem Französischen des Piron",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "d9wylnwj343pm76"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Wohlthätigster der Götter, / O weiser Unbestand! / Verliebten zum Erretter / Von Amor selbst gesandt;",
+      "language": [],
+      "musenalm_id": 120549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Unbestand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alxinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Unbestand",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.684Z",
+          "agent": "3v0kb6a8a8y5rhb",
+          "source_id": "thkuqe8r9mis00c"
+        }
+      ],
+      "source_id": "mm4vga9s05tvfrn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Der Welt zur Warnung und zur Scheu, / Zur Lehre jedem Bösewichte, / Thu kund, mein Lied, und singe frey / Des Junkers gräßliche Geschichte,",
+      "language": [],
+      "musenalm_id": 120550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ballade",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.684Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "2q3mhmhpwput9k9"
+        }
+      ],
+      "source_id": "6v9dxdlx15wb85z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Herrn Kleon muß es sehr an Ehre fehlen, / Sonst würd' er andern sie nicht stehlen.",
+      "language": [],
+      "musenalm_id": 120551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf einen Verläumder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eee.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf einen Verläumder",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "omryonm73crwzo5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Du edles Thier, von dessen Fleisch wir essen, / Auf dessen Haut wir gehen,",
+      "language": [],
+      "musenalm_id": 120552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob des Ochsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob des Ochsen",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.684Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "3i1tagbk0fy5vsv"
+        }
+      ],
+      "source_id": "5t2kgtj1p4z9f8c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Du, deren Bild mit stets vor Augen / schwebet, / Nach der mein Thun, und all mein Denken strebet,",
+      "language": [],
+      "musenalm_id": 120553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Josepha H.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Werner von Gruber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Josepha H.",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "h8pz27ew9kypgod"
+    },
+    {
+      "annotation": "# -ndst-: vermutl. Prandstetter",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Dem Mädchen gleicht der Wiz, so kann / ich billig schliessen;",
+      "language": [],
+      "musenalm_id": 120554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von dem Wiz. / Nachdem Oven",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "-ndst-",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von dem Wiz. / Nachdem Oven",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "kd41wenxkat124a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Was will der Wassertrinker da / Mit seinem Nasenrümpfen?",
+      "language": [],
+      "musenalm_id": 120555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Trinker und seine Gönner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gassler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Trinker und seine Gönner",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "qcgc15wvwskwm5k"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 120557, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Lieblichste von allen Blumenstätten, / Thron der Lust, erbaut von Amoretten, / Opferheerd der Liebesköniginn!",
+      "language": [],
+      "musenalm_id": 120556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf eine Rasenbank. / Nach dem Französischen des Chevalier Parny",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Ratschky",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf eine Rasenbank. / Nach dem Französischen des Chevalier Parny",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.573Z",
+          "agent": "y0pp926xdweonfb",
+          "source_id": "8bw4wy5dwo45wbo"
+        }
+      ],
+      "source_id": "dh3bkzpsyed8dsp"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Auf eine Rasenbank« von J. F. Ratschky INr 120556, Obj 13 /) Photos 120557,01; 120557,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine Rasenbank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. v. B-i.",
+      "scans": [
+        "alm_414_120557_01_ggwk6qh3yu.jpg",
+        "alm_414_120557_02_rdsrofanq6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An eine Rasenbank",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "3bh6go09wcffrdf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Hinweg von mir, ihr Furien, / Ihr sieben Katechismus-Sünden!",
+      "language": [],
+      "musenalm_id": 120558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Freyer aus Religionsgründen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Freyer aus Religionsgründen",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.573Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "ughoe9680bzlcvu"
+        }
+      ],
+      "source_id": "xbvzfj7eqila02b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Ich blühte, da kam immerhin / EinMädchen hergeschlichen;",
+      "language": [],
+      "musenalm_id": 120564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Apfelbaumes  Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hegrad",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Apfelbaumes  Erzählung",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.718Z",
+          "agent": "74pcpa7ejqsofji",
+          "source_id": "5wa596rjzz00t0o"
+        }
+      ],
+      "source_id": "c1md9gfap4mf8q8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Ich blühte, da kam immerhin / Ein Mädchen hergeschlichen;",
+      "language": [],
+      "musenalm_id": 120685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Apfelbaums Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hegrad",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Apfelbaums Erzählung",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.750Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.750Z",
+          "agent": "74pcpa7ejqsofji",
+          "source_id": "9pm8xmbx8qrxb3w"
+        }
+      ],
+      "source_id": "ekrqvh5fu50rqpu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Du, gehüllet in des Todes Schatten, / Eh der Baum des Lebens dir gegrünt,",
+      "language": [],
+      "musenalm_id": 120559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mutter an ihr Kind, / das sie noch ungebohren tödtete. / Nach Henault",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mutter an ihr Kind, / das sie noch ungebohren tödtete. / Nach Henault",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.573Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "rwehz3mkcty9vr8"
+        }
+      ],
+      "source_id": "j3npuc6x5us598r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Du Zauberinn im Rosenkleide, / So freundlich, wenn du gegenwärtig bist,",
+      "language": [],
+      "musenalm_id": 120560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freude / Nach dem Französischen desr Mad. Maintenon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bur.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Freude / Nach dem Französischen desr Mad. Maintenon",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "hctsnqlihm59h31"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Ich kann nicht in Tiraden flehn, / Nicht schminken mich, und lächeln,",
+      "language": [],
+      "musenalm_id": 120561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine Deutsche",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. A. Nomis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine Deutsche",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.573Z",
+          "agent": "bqsgwi9w7kt5uq1",
+          "source_id": "2b4en06d8eeh3pv"
+        }
+      ],
+      "source_id": "inbm4552our3i6e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Wer dir, mein lieber Hanns Kotill, / Die Hälfte lieber schenken will, / Als dir den ganzen Sommer borgen,",
+      "language": [],
+      "musenalm_id": 120562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kotill. / Nach dem Martial",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von einem Soldaten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kotill. / Nach dem Martial",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "bf8amxr4dcioj6k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Wer sich den Himmel wünscht auf Erden, / Der muß ein Kapuziner werden, / Nur der lebt glücklich, und genießt.",
+      "language": [],
+      "musenalm_id": 120563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob des Kapuzinerlebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob des Kapuzinerlebens",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "pwhgs9ffpduyzax"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Menschengrössen giebt es zwey hienieden, / Eine jede kleidet ihren Mann.",
+      "language": [],
+      "musenalm_id": 120565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beyden Menschengrössen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beyden Menschengrössen",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.718Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "igrufp0zrkbac38"
+        }
+      ],
+      "source_id": "o7iv411x0bxn00u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Sey's! ich handle wider meine Pflicht, / Meiden kann ich doch dieß Mädchen nicht.",
+      "language": [],
+      "musenalm_id": 120566,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen Mönch. / Nach dem Arabischen des Abi'l-äla",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. v. B-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen Mönch. / Nach dem Arabischen des Abi'l-äla",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "jdie8rs1owftixy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Dein gestriges Kollegium, / Mein Freund, zwar wohl zu deinem Ruhm, / Doch nicht zu unserm Trost gelesen,",
+      "language": [],
+      "musenalm_id": 120567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Blumauer. / Im Namen aller Ehmänner, die er / in einem ungedrukten Gedichte zur Ge- / duld verwies",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alxinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Blumauer. / Im Namen aller Ehmänner, die er / in einem ungedrukten Gedichte zur Ge- / duld verwies",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.718Z",
+          "agent": "3v0kb6a8a8y5rhb",
+          "source_id": "jinbjzvxuqa1jf6"
+        }
+      ],
+      "source_id": "3bz5smtqw5t9mvv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Gott Amor, der du unverhoft / Den Schwärmer Treue lehrest, / Und einen weisen Graubart oft / In einen Faun verkehrest!",
+      "language": [],
+      "musenalm_id": 120568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der feste Vorsatz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Ratschky",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der feste Vorsatz",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.632Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.632Z",
+          "agent": "y0pp926xdweonfb",
+          "source_id": "alyq88ceef8qnj0"
+        }
+      ],
+      "source_id": "2xry1xn7bqpw105"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Sey mir heilig, stiller Todeshügel, / Wo die Nacht, an Leichen hingelehnt / Ihren schwarzen grauenvollen Flügel / Ueber modernde Gebeine dehnt.",
+      "language": [],
+      "musenalm_id": 120569,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An mein Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N--",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An mein Grab",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "a051vkt4vqhq68c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Lasset nicht fruchtlos die Fässer euch winken, / Seht doch, die weise Natur / Ladet euch selber zum ewigen Trinken,",
+      "language": [],
+      "musenalm_id": 120570,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dithyrambe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dithyrambe",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.632Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.632Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "et39essqc0dih7p"
+        }
+      ],
+      "source_id": "rbzwd2q97wyujag"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "In meines Lebens Flitterjahren / Bestürmt' ich Paphos Heiligthum,",
+      "language": [],
+      "musenalm_id": 120571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein System. / Nach dem Französischen des Verfassers der / Rhapsodien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein System. / Nach dem Französischen des Verfassers der / Rhapsodien",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.632Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.632Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "hz25lewp0tgngke"
+        }
+      ],
+      "source_id": "ubbqwhiwh7ahqrp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Das Volk sah Mosen bergab gehen, / Gehörnet stralte sein Gesicht; / Er selber sah die Hörner nicht.",
+      "language": [],
+      "musenalm_id": 120572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glossa. / Ueber Exod. 34. v. 29-30",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "U. P.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glossa. / Ueber Exod. 34. v. 29-30",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "t287l7fnfu5sg7b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Als Stax noch ein gemeiner Bürger war, Da hiessen Magistrat und Schultheiß seine / Feinde,",
+      "language": [],
+      "musenalm_id": 120573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Honores mutant mores",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Holzmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Honores mutant mores",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.632Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.632Z",
+          "agent": "5dlgex4wmvni1qx",
+          "source_id": "cd6lqvhqak8j7oj"
+        }
+      ],
+      "source_id": "06432x5zzj2362r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Frau Juno war ein schönes Weib, / Von wunderseltnen Gaben;",
+      "language": [],
+      "musenalm_id": 120574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ixion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Winkler von Mohrenfels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ixion",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "nynlw7qugnw98fv"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Trinklied« von Blumauer INr 120576, Obj 34 /) Photos 120575,01; 120575,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. v. B.-j.",
+      "scans": [
+        "alm_414_120575_01_1hrnyu02kx.jpg",
+        "alm_414_120575_02_ydq2pgord1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "0pofd02qtch4c2p"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 120575, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Hört Brüder, die Zeit ist ein Becher, / Drein giesset das Schiksal dem Zecher / Bald Galle, bald Wasser, bald Wein:",
+      "language": [],
+      "musenalm_id": 120576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied. / Gesungen im Brühl den 18. May 1783",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied. / Gesungen im Brühl den 18. May 1783",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "nkt2si8aqf7cdbx"
+        }
+      ],
+      "source_id": "nv0gvqj4cbrpmqr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Leis, wie der jungen Nachtigall / Furchtsames Lied zur Mitternacht, / Schwingt sich mein Lied, des Jünglings / Lied, / Zu dir, o Sined, auf.",
+      "language": [],
+      "musenalm_id": 120577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Sined",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Gr. v. Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Sined",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "435dkza7dxdp5zz"
+        }
+      ],
+      "source_id": "6a99xtegivmgt7n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Ich wüßte nichts, das mehr sich ähneln / könnte, / Als dieses Mannes diker Kopf,",
+      "language": [],
+      "musenalm_id": 120578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf einen einfältogen Archivar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goekingk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf einen einfältogen Archivar",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "1miqgfh3e5edmw6",
+          "source_id": "ba7j2i1nesayw5r"
+        }
+      ],
+      "source_id": "p8h0nc0zxkkfbri"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Als Adam hakt' und Eva spann, / Da gab es bey den Leuten, / Wie man in Büchern lesen kann, / Absonderliche Zeiten;",
+      "language": [],
+      "musenalm_id": 120579,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fasching",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fasching",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "w6b5ggyzfmobw7j"
+        }
+      ],
+      "source_id": "q7wbzpijmwfz66b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Kein Garten hat mich so vergnügt, / Wo jedes Sprößchen, das kaum aufgeschos- /sen, / Auch schon in festen Windeln liegt,",
+      "language": [],
+      "musenalm_id": 120580,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Empfindungen / in dem neu angelegten Lustgarten Sr. / Exzellenz des Grafen von Kobenzl.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Empfindungen / in dem neu angelegten Lustgarten Sr. / Exzellenz des Grafen von Kobenzl.",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "1kaozqqsv88i7nh"
+        }
+      ],
+      "source_id": "k9ny8o8awb149ul"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Werden 's vergessen nimmermehr, / Was höchliches Glük, und besondre Ehr / Den Bürgern der hiesigen Stadt geschehn,",
+      "language": [],
+      "musenalm_id": 120581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Magistratshöflichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grolzhamer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Magistratshöflichkeit",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "rcjywfijewmhzy0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Seyd mir gegrüßt! Wie lebt ihr, meine / Freunde, / Seit ich im Land der wilden Lechen bin?",
+      "language": [],
+      "musenalm_id": 120582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine lieben Freunde / Blumauer und Prandstetter. / Przemisl, im Heumond 1783",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Ratschky",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine lieben Freunde / Blumauer und Prandstetter. / Przemisl, im Heumond 1783",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "y0pp926xdweonfb",
+          "source_id": "k6jc2pijfomqnxw"
+        }
+      ],
+      "source_id": "q0c271ojq064j8n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Hier liegt ein großer Herr, was er gethan / Ist hier mit wenigem zu lesen:",
+      "language": [],
+      "musenalm_id": 120583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bur.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "ubcgkae2o9zv4za"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Ullin! Dir am Busen hingesunken, / Sprich, was war's, das Aug' an Au- / ge riß?",
+      "language": [],
+      "musenalm_id": 120584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Leben. / An Ullin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Winkler von Mohrenfels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Leben. / An Ullin",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "jij5r1phq2mtv2r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Geknikert hat zwar Adrian sonst arg; / Nun aber wimmelt's um ihn her von Gästen,",
+      "language": [],
+      "musenalm_id": 120585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf den Kniker Adrian",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goekingk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf den Kniker Adrian",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "1miqgfh3e5edmw6",
+          "source_id": "27kz5vdmzlje82h"
+        }
+      ],
+      "source_id": "6qgtt90z56ikloc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Liebe! als auf göldnen Flügeln / Du zu uns von deinen Hügeln / Flattertest",
+      "language": [],
+      "musenalm_id": 120586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied eines Mädchens an die Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "U. P.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied eines Mädchens an die Liebe",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4vsol3cu1v09ht"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Ein Mann, der während seinem Leben / Viel ausgeborgt und nichts zurückgegeben, / Liegt hier;",
+      "language": [],
+      "musenalm_id": 120587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift auf einen Verschwender",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Holzmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift auf einen Verschwender",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.719Z",
+          "agent": "5dlgex4wmvni1qx",
+          "source_id": "y94cbj0agkncjx9"
+        }
+      ],
+      "source_id": "ksbk951v4t4q3sg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Herr Pater Aloysius / Wohl zubenamset Merz, / Der Katholiken Goezius, / Verstand sehr wenig Scherz,",
+      "language": [],
+      "musenalm_id": 120588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pater Merz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Winkler von Mohrenfels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pater Merz",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "bvzusfiwrjcqh9d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Die Schwermuth senkt mit bräunlichem Ge- / fieder / Gift träufelnd sich auf mich Bedrängten nie- / der,",
+      "language": [],
+      "musenalm_id": 120589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trennungslied. / Im Weinmond 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trennungslied. / Im Weinmond 1782",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "e76m2wozmuragu6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "O wie wird heute nicht gegekt, / Gebechert und geschmauset!",
+      "language": [],
+      "musenalm_id": 120590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andächtige Betrachtung / am lezten Fastnachtstage 1780",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. A. Nomis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andächtige Betrachtung / am lezten Fastnachtstage 1780",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.719Z",
+          "agent": "bqsgwi9w7kt5uq1",
+          "source_id": "7zhif0a9jxduys1"
+        }
+      ],
+      "source_id": "x6f20nmxtu2s684"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Ha! Wie rudert meine ganze Seele / Nun in der Empfindung! Ozean!",
+      "language": [],
+      "musenalm_id": 120591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebeserklärung eines Kraftgenie's",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebeserklärung eines Kraftgenie's",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.719Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "zj5e85sndarkw7k"
+        }
+      ],
+      "source_id": "nbgu65kgr5dutb1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Den alten Grison freyte Dindonette, / Da ward ihr Bett zum Ruhebette.",
+      "language": [],
+      "musenalm_id": 120592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eee.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach dem Französischen",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfn8sxeolhhv0en"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Nimm, Doris, diesen Apfel / So voll, so glatt, so rund;",
+      "language": [],
+      "musenalm_id": 120593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Doris. / Bey Uebersendung eines Apfels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alxinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Doris. / Bey Uebersendung eines Apfels",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.719Z",
+          "agent": "3v0kb6a8a8y5rhb",
+          "source_id": "xcx12bgwwbqhew7"
+        }
+      ],
+      "source_id": "vveyrxx2g6bp6eq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Mit meinen Pferden hab' ich es gewöhn- / lich so: Am Werktag führen sie bald Heu bald / Stroh;",
+      "language": [],
+      "musenalm_id": 120659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Landedelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hegrad",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Landedelmann",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "74pcpa7ejqsofji",
+          "source_id": "zv9vtqcx1ruvagc"
+        }
+      ],
+      "source_id": "qkd1ohfyw30zb3m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Dich, o Geliebte, drängt aus meinem / Arme / Kein Weib auf Erden, du allein,",
+      "language": [],
+      "musenalm_id": 120660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied der Treue. / Nach dem Tibull",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied der Treue. / Nach dem Tibull",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "b0om0wo9v0qk6wb"
+        }
+      ],
+      "source_id": "5pm9kosizcctohh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Freund, halte das Geboth, und übersez' / nicht mehr;",
+      "language": [],
+      "musenalm_id": 120661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen schlechten Uebersezer. / Nach dem Englischen des Dr. Evans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bur.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen schlechten Uebersezer. / Nach dem Englischen des Dr. Evans",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "lshz1j12lr6m0yh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Mag doch ein Schwarm von Modedichter- / lingen / Den lieben Mond, die Mädchen und / den Wein / Und hundert süsse Sächelchen besingen,",
+      "language": [],
+      "musenalm_id": 120662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob des Rauchtabaks",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grolzhamer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob des Rauchtabaks",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "52fwp3bhp6jy8r5"
+    },
+    {
+      "annotation": "# -ndst-: vermutl. Prandstetter",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Wen du zu heilen kommst, der muß viel / Dank dir wissen,",
+      "language": [],
+      "musenalm_id": 120663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf einen Arzt. / Nach dem Oven",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "-ndst-",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf einen Arzt. / Nach dem Oven",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "1p48ccd6bp8j8gw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "I! Mann, so laß es gut doch seyn, / Und rauche keine mehr,",
+      "language": [],
+      "musenalm_id": 120664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendgespräch / Auf einer Reise mit angehört",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goekingk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendgespräch / Auf einer Reise mit angehört",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "1miqgfh3e5edmw6",
+          "source_id": "bqtdk6hxms3e7dr"
+        }
+      ],
+      "source_id": "ubpo8jox9u3rtdx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Hans, der sich dik und fett an Austern, / Aalpastete, / und dito Lekerbissen fraß,",
+      "language": [],
+      "musenalm_id": 120665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift / auf den Prasser Hans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fridrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift / auf den Prasser Hans",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.633Z",
+          "agent": "t3zz4r3fvdi80ts",
+          "source_id": "g37swmhbooq9bx9"
+        }
+      ],
+      "source_id": "kaffjm8tplxaugo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Ein reicher Küster hatt' einmal / Nebst vielen Ochsen, Schafen, Schweinen / Auch einen Esel in dem Stall,",
+      "language": [],
+      "musenalm_id": 120666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Küster und sein Esel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Küster und sein Esel",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "3jp1zdh2ov7qhlj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Herr Fips ist wahrscheinlich ein Genie, /",
+      "language": [],
+      "musenalm_id": 120667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Genie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Dopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Genie",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ykyqx04nz19x4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Sklavin eines Gatten! dessen / Herz sich deinem Reiz verschloß;",
+      "language": [],
+      "musenalm_id": 120668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine junge nicht geliebte Gattin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph von Retzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine junge nicht geliebte Gattin",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.634Z",
+          "agent": "rszt46vfvzbfush",
+          "source_id": "zmzlgdj2hmnll48"
+        }
+      ],
+      "source_id": "kxui703s7i9grnn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Ey sagt mir doch in aller Welt, / Was euch am Leben wohlgefällt?",
+      "language": [],
+      "musenalm_id": 120669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Unzufriedene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Perler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Unzufriedene",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "cvf8k1m9jfq0jou"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Es gleicht dem Ozean dein episches Gedicht, / Groß ists, und wäßrig,",
+      "language": [],
+      "musenalm_id": 120670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An *",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alxinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An *",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.634Z",
+          "agent": "3v0kb6a8a8y5rhb",
+          "source_id": "0yrxp01luz8mp0a"
+        }
+      ],
+      "source_id": "hshwl5vi6zwkqxh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Rings alles Schläft! - Der Hahn nur kräht / Dicht an des Todtengräbers Mauer:",
+      "language": [],
+      "musenalm_id": 120671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erscheinung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fridrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erscheinung",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.634Z",
+          "agent": "t3zz4r3fvdi80ts",
+          "source_id": "k6d3o72r0dsagnm"
+        }
+      ],
+      "source_id": "abep865t5hjm7kx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Hier liegt ein Sinngedicht, / O Wanderer,",
+      "language": [],
+      "musenalm_id": 120672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift auf ein schlechtes Sinn- / gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eee.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift auf ein schlechtes Sinn- / gedicht",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "qjzxliehj2r042c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Ja, bey diesem vollen Becher, / Brüder, schwör' ich euch, / Bacchus, schwör' ich froher Zecher,",
+      "language": [],
+      "musenalm_id": 120673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Winkler von Mohrenfels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "ph3x81rgzbfkvq8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Zauberinn voll Liebreiz! ach vergebens / Fesselst du meinen Sohn und mich;",
+      "language": [],
+      "musenalm_id": 120674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vater als Nebenbuhler seines / Sohns. / Nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vater als Nebenbuhler seines / Sohns. / Nach dem Französischen",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.634Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "feup208h3cyicny"
+        }
+      ],
+      "source_id": "s50jafn4oc22ye5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Der Fürst / Ist er Herr Goekingk? / Ich. / Ihro Durchlaucht, wer? / Was mich betrift, so bin ich Niemands Er.",
+      "language": [],
+      "musenalm_id": 120675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Audienz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goekingk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Audienz",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.634Z",
+          "agent": "1miqgfh3e5edmw6",
+          "source_id": "ofj3073mbmztwsx"
+        }
+      ],
+      "source_id": "fhsnzc5nats3wfc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Hört Christenleut', ihr sollt nicht ehebrechen,",
+      "language": [],
+      "musenalm_id": 120676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ehebruchssünde. / Aus dem Französischen des J. B. Rousseau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grolzhamer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ehebruchssünde. / Aus dem Französischen des J. B. Rousseau",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "27co3biv9o0tcqm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Indeß, o Freundin, dir an deines Trauten  / Seite / Der Abend froh vorüberfliegt,",
+      "language": [],
+      "musenalm_id": 120677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An K. St.  Dornbach den 3. August 1783",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prandstetter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An K. St.  Dornbach den 3. August 1783",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.634Z",
+          "agent": "v5wbuj6yomki99q",
+          "source_id": "1ixb9esahpz68k0"
+        }
+      ],
+      "source_id": "q24qeuxjezw72xg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Warum Hans Filz zur Frau ein Wonne- / dirnchen wählt?",
+      "language": [],
+      "musenalm_id": 120678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf die Heurath eines Geizigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-im-",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf die Heurath eines Geizigen",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "cnf81hzjl7y387b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Wer bauet sich ein Gärtchen, blß allein / Den Augen zu behagen,",
+      "language": [],
+      "musenalm_id": 120679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sprichwort eines Antiplatonisten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Dopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sprichwort eines Antiplatonisten",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "wmc1jr55p7hdhes"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Bey unserm Herrn Pastor erschien / Ein Kapuziner zum Termin,",
+      "language": [],
+      "musenalm_id": 120680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pastor und der Kapuziner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von einem Soldaten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pastor und der Kapuziner",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "l5sxd0l0eswugxk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "So lang der Mann bey uns das Ruder / Führt, / Reich' ich ihm gern den Kammertopf,",
+      "language": [],
+      "musenalm_id": 120681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der wahre Hofmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goekingk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der wahre Hofmann",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.750Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.750Z",
+          "agent": "1miqgfh3e5edmw6",
+          "source_id": "bbbgo9njp174xuu"
+        }
+      ],
+      "source_id": "9gbyzpl3pj1d856"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Steh still, o Wanderer! ein troziger Bojar, / Der femde Güter gern  zu seinen eignen / machte, / Ruht hier bey seiner Frau,",
+      "language": [],
+      "musenalm_id": 120682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift eines Bojaren. / Czernowicz in der Bukowina, im Sommer- / mond 1783",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Ratschky",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift eines Bojaren. / Czernowicz in der Bukowina, im Sommer- / mond 1783",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.750Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.750Z",
+          "agent": "y0pp926xdweonfb",
+          "source_id": "5rr6ah25o9d44w4"
+        }
+      ],
+      "source_id": "edlp8pmpcr5fvkj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "War doch, so lang ich denken kann, / Ein munter, frischer Knab, / Und freute mich mit Jedermann,",
+      "language": [],
+      "musenalm_id": 120683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied eines alten Leyermanns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grolzhamer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied eines alten Leyermanns",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "zke29yukf6nnhz8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120684,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "kya7kasbahzedi5"
+    }
   ],
   "agents": [
     {

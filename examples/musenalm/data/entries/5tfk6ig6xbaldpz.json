@@ -48,19 +48,405 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "yzki98wvo9lvtbk"
+    {
+      "annotation": "Auswahl Fr. Kaminski 12.2023; 01.2024 zurück",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.763Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409303",
+      "location": "105E05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.763Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yzki98wvo9lvtbk"
+    }
   ],
   "contents": [
-    "l1t8823ymu8mlwm",
-    "bra6pp39rsrm3wl",
-    "kmcmbkq6aqqvbwr",
-    "w5m74gu3y7ti53x",
-    "kkzqwem1yq05gie",
-    "ymuftgdgaz6e1yx",
-    "ex37u3elhj11a0t",
-    "98agiyhoj65puse",
-    "tyln9m550roycic",
-    "astkws7epq8mzo9"
+    {
+      "annotation": "Schuber r. mit Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gregorianischer und französischer Calender / für 1805",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4322_111605_0zuhx15exd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gregorianischer und französischer Calender / für 1805",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "l1t8823ymu8mlwm"
+    },
+    {
+      "annotation": "Schuber v. mit Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4322_111606_vurnzz876b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "bra6pp39rsrm3wl"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111608,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Arndt fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Arndt fec.",
+      "scans": [
+        "alm_4322_111608_bhg6zxmhz4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.426Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "ficp2kzegtkp9n3"
+        }
+      ],
+      "source_id": "kmcmbkq6aqqvbwr"
+    },
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.078Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111607,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4322_111607_p8yheqpi6j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "w5m74gu3y7ti53x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111609,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Krates und Hipparchia / ein Seitenstück / zu / Menander und Glycerion / von / C. M. Wieland. / Zum Neujahrs- Geschenk / auf / 1805. / Tübingen, / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4322_111609_bb8tw5mps2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Krates und Hipparchia / ein Seitenstück / zu / Menander und Glycerion / von / C. M. Wieland. / Zum Neujahrs- Geschenk / auf / 1805. / Tübingen, / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "kkzqwem1yq05gie"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111610,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Fr. Kaiser fec. Weimar)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Kaiser fec. Weimar",
+      "scans": [
+        "alm_4322_111610_hzbdnpoz56.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.426Z",
+          "agent": "temkw600l59vchm",
+          "source_id": "tlckyy7vqqikzle"
+        }
+      ],
+      "source_id": "ymuftgdgaz6e1yx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn ich je um dich verdient habe, als deine zweyte Mutter von dir betrachtet zu werden, liebe Hipparchia; wenn es wahr ist, was du mir so oft in der unzweydeutigsten Sprache des Gefühls versichert hast, daß du mich als solche liebest -",
+      "language": [],
+      "musenalm_id": 111611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Krates und Hipparchia ein Seitenstück zu Menander und Glycerion]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Krates und Hipparchia ein Seitenstück zu Menander und Glycerion]",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.426Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "dujs90g0bvbyhvo"
+        }
+      ],
+      "source_id": "ex37u3elhj11a0t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111612,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Fr. Kaiser fec. 1804)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Kaiser fec. 1804",
+      "scans": [
+        "alm_4322_111612_8qb0gsy8nq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.426Z",
+          "agent": "temkw600l59vchm",
+          "source_id": "sgxk6bp27q5u4t7"
+        }
+      ],
+      "source_id": "98agiyhoj65puse"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111613,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Verlage der J. G. Cotta'schen Buchhandlung in Tübingen sind von Ostern 1803 bis 1804 erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Verlage der J. G. Cotta'schen Buchhandlung in Tübingen sind von Ostern 1803 bis 1804 erschienen:",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "tyln9m550roycic"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111614,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4322_111614_zufr3pzvvl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-07-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "astkws7epq8mzo9"
+    }
   ],
   "agents": [
     {

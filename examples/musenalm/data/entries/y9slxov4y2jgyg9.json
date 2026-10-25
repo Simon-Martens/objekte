@@ -48,7 +48,26 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "nmcbalcmwnd3174"
+    {
+      "annotation": "Sammelband\nTku 1+SS 13+SS 11+SS 70+SS 96+Bl 2+SS 46 und SS 23.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.638Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "109856",
+      "location": "105F05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.638Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nmcbalcmwnd3174"
+    }
   ],
   "contents": [],
   "agents": [

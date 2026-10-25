@@ -48,48 +48,1689 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "9tn0o2up7wq9bji"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.489Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409160",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.489Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9tn0o2up7wq9bji"
+    }
   ],
   "contents": [
-    "5wkt76hvaoq2hq3",
-    "wsmeb3lq2cdna0c",
-    "iuw5hawzcum3mr1",
-    "shotfwwzuh05v8e",
-    "cxdoswbr6i2hss8",
-    "ie9em0wxq2k3gkg",
-    "62z5i8htu9dybi3",
-    "akwow3tzir88cgj",
-    "mlrh0pmmru41k1z",
-    "ryzf2eg36k7dxcs",
-    "bckrrjqnr2hpy7b",
-    "ivgqkdrqrzpdtsg",
-    "9o8i0vvoh1jc8re",
-    "nen5naxcrusgnb1",
-    "byjynul4fehfp16",
-    "jymjtlpfud2abpa",
-    "aqxvxr5fp3qf6kq",
-    "eak4awsrzet0u64",
-    "f3lg3a107nobb7c",
-    "gfduuhj4fkrfuyq",
-    "sawu8ao1nxm6ynk",
-    "jk1p5960hqih4cm",
-    "sqpzxqaoem6f9nd",
-    "uwcfjb52wgaet4e",
-    "v17kufclt1uqmsw",
-    "a7l5sm8zqhypzq8",
-    "oo9ujg5ax9w6ksp",
-    "8awmv3r26wmzhxt",
-    "0rwsphbcimvs1o2",
-    "94a9m4ezfubaloh",
-    "l2i2fqyvxdvsf87",
-    "8gmy18285zxvlt1",
-    "yh8z2fmqgikfqzi",
-    "4ti16k1yumkfvuv",
-    "svrei9yhocw4cf2",
-    "0dlztwtvz8iygj7",
-    "h12mhyb1vmse44w",
-    "xq8xag9mdi521oy",
-    "n9snvkw47egoxom"
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 32143, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32141,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clelia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolf del. Meyer f.",
+      "scans": [
+        "alm_434_32141_fizszy6xe8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Clelia",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.365Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.365Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "9jx9ddbi8si030i"
+        }
+      ],
+      "source_id": "5wkt76hvaoq2hq3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32142,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hortensia / ein / Taschenbuch für Damen / auf das Jahr 1812. / Herausgegeben von / August Kuhn. / Mit 6 Kupfern. / Berlin, / im Kunst- und Industrie-Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_434_32142_g45ws1ijea.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hortensia / ein / Taschenbuch für Damen / auf das Jahr 1812. / Herausgegeben von / August Kuhn. / Mit 6 Kupfern. / Berlin, / im Kunst- und Industrie-Comptoir",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "wsmeb3lq2cdna0c"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 32141, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Tarquin, der Übermüthige, der letzte der sieben Könige Roms, war mit seiner ganzen Familie von den Quiriten verjagt worden,",
+      "language": [],
+      "musenalm_id": 32143,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clelia (Zum Titelkupfer)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Clelia (Zum Titelkupfer)",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "iuw5hawzcum3mr1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32144,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "shotfwwzuh05v8e"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 32146, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ja, ich will Deinen Ferdinand begleiten, meine gute Schwester; ich will einmal wieder am Busen der Erinnerung schwelgen,",
+      "language": [],
+      "musenalm_id": 32145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Oheim. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verfasserin der Klara von Walburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Oheim. / Erzählung",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "cxdoswbr6i2hss8"
+    },
+    {
+      "annotation": "Illustration zu »Der Oheim« von der Verfasserin der Klara von Walburg INr 32145, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich wußte nicht, wie ich dem Engel danken sollte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. et sculp",
+      "scans": [
+        "alm_434_32146_0z1gefb90b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich wußte nicht, wie ich dem Engel danken sollte",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.425Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.425Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "1j5ido9lczv1b5y"
+        }
+      ],
+      "source_id": "ie9em0wxq2k3gkg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Waffen glänzen im Kriegergedränge, / Jubel umstürmet Lager und Wall;",
+      "language": [],
+      "musenalm_id": 32147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Darius Siegesmahl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Apel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Darius Siegesmahl",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.425Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.425Z",
+          "agent": "mv54y583pvqjcic",
+          "source_id": "6f2ki7p3ebpud1u"
+        }
+      ],
+      "source_id": "62z5i8htu9dybi3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Stille Jungfrau mit den blaßen Wangen, / Mit dem Auge, das die Wehmuth näßt,",
+      "language": [],
+      "musenalm_id": 36518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Duldung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Duldung",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "akwow3tzir88cgj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 32149, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "In jener halbverfallenen Burg, begann der Voigt, der sich dort auf dem Waldrücken hebt,",
+      "language": [],
+      "musenalm_id": 32148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der Raubgraf. / Legende. / Nach / der Löwensteiner Chronik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Schubart",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der Raubgraf. / Legende. / Nach / der Löwensteiner Chronik",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "mlrh0pmmru41k1z"
+    },
+    {
+      "annotation": "Illustration zu »Der Raubgraf« von Ludwig Schubart INr 32148, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria sagte nicht nein, und wies ihn an ihre Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolf del. Meno Haas sc. Berlin 1811",
+      "scans": [
+        "alm_434_32149_m4v9q13kmg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria sagte nicht nein, und wies ihn an ihre Mutter",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.425Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.425Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "2ec0xm1pq4fw98m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.425Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.425Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "or8cj6xfyngzya0"
+        }
+      ],
+      "source_id": "ryzf2eg36k7dxcs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Abendroth schwimmt auf den Fluthen, / Und die Tageskönigin / Zieht mit ihren Flammengluten",
+      "language": [],
+      "musenalm_id": 32150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer am Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer am Abend",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "bckrrjqnr2hpy7b"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten mit einer Illustration INr 32152-32158, Obj 12-18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Gedichte",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "3myaxyapv5xr8ly"
+        }
+      ],
+      "source_id": "ivgqkdrqrzpdtsg"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11) mit einer Illustration s. Graphik INr 32154, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Heh! guten Abend, liebes Weibchen! / Bist noch gesund? / Und hielt'st du, wie ein treues Täubchen, / Den Ehebund?",
+      "language": [],
+      "musenalm_id": 32152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kater",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kater",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "g0e4adilveakuiy"
+        }
+      ],
+      "source_id": "9o8i0vvoh1jc8re"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Es wollt' ein finstrer Büchwerwurm / Ein heitres Werkchen schreiben,",
+      "language": [],
+      "musenalm_id": 32153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tintenteufel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tintenteufel",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "2279ece45aqkz4g"
+        }
+      ],
+      "source_id": "nen5naxcrusgnb1"
+    },
+    {
+      "annotation": "Illustration zu »Der Kater« von A. F. E. Langbein INr 32152, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nichts schlimm'res hab' ich zu bekennen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolf del. Meno Haas sculp.",
+      "scans": [
+        "alm_434_32154_h4ifturl1z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nichts schlimm'res hab' ich zu bekennen",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.593Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "2siar8896ivu7xq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.593Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "zx9mndlbasrpk4c"
+        }
+      ],
+      "source_id": "byjynul4fehfp16"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Mit einem Zackenbart von Eis / Kam vom Gebirg herab ein Greis,",
+      "language": [],
+      "musenalm_id": 32155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Winter",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.551Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.551Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "kx0yo95dm8s46w0"
+        }
+      ],
+      "source_id": "jymjtlpfud2abpa"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Das Thor, durch welches Töne wallen, / Schloß die Natur bei uns nicht auf:",
+      "language": [],
+      "musenalm_id": 32156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / E. A. Eschke, / Oberschulrath und Director des Taubstummen- / instituts zu Berlin. / (Im Namen seiner Zöglinge.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / E. A. Eschke, / Oberschulrath und Director des Taubstummen- / instituts zu Berlin. / (Im Namen seiner Zöglinge.)",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.630Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "osy8nsq6pauu9gf"
+        }
+      ],
+      "source_id": "aqxvxr5fp3qf6kq"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Ach! da kommt der Arzt gefahren / Und mir graut vor seinen Waaren.",
+      "language": [],
+      "musenalm_id": 32157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kranke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kranke",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.630Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "0l50mmdz80a7dnn"
+        }
+      ],
+      "source_id": "eak4awsrzet0u64"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Schreib er nieder, Herr Notar: / Meiner Tochter Margarethen, / Die sich Hans zum Weib erbeten, / Geb' ich fünfzig Gulden baar,",
+      "language": [],
+      "musenalm_id": 32158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ehevertrag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ehevertrag",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.630Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "4wxtknkgewj715o"
+        }
+      ],
+      "source_id": "f3lg3a107nobb7c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 36121, Obj 19,01",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Rasch hüpfte Georgette, das Hirtenmädchen, den Steg hinab, der von der Sennhütte durch krauses Gebüsch zur einsamen Hütte im Thale führte.",
+      "language": [],
+      "musenalm_id": 32159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Das Schweizermädchen / in Paris. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Stein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Das Schweizermädchen / in Paris. / Erzählung",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "gfduuhj4fkrfuyq"
+    },
+    {
+      "annotation": "Illustration zu »Das Schweizermädchen in Paris« von K. Stein INr 32159, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.120Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie gelobten sich der Liebe und der Tugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolf del. Meno Haas sc. Berlin 1811",
+      "scans": [
+        "alm_434_36121_uxcu08n0ou.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sie gelobten sich der Liebe und der Tugend",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.859Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "2gvykzrebweztg0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.859Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "d6uas4pxg5ibwu5"
+        }
+      ],
+      "source_id": "sawu8ao1nxm6ynk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Auf einer Gondelwiege fährt in's Leben - / Ein wildes Meer - der kleine Schiffer aus,",
+      "language": [],
+      "musenalm_id": 32160,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schiffahrt des Lebens, aus einer Epistel / an Hrn. v. K.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "U. Freih. v. Schlippenbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schiffahrt des Lebens, aus einer Epistel / an Hrn. v. K.",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.630Z",
+          "agent": "e47w01a11l8gujn",
+          "source_id": "rkv0mc4k3okbklv"
+        }
+      ],
+      "source_id": "jk1p5960hqih4cm"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 32162-32169, Obj 22-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Gedichte",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "jx22ou0baa4qe6e"
+        }
+      ],
+      "source_id": "sqpzxqaoem6f9nd"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Ein Jüngling wallt auf nächt'gem Pfad, / Er hat für's Leben keinen Rath,",
+      "language": [],
+      "musenalm_id": 32162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Weg zum Glück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Weg zum Glück",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "bprskvzbgqf1rf8"
+        }
+      ],
+      "source_id": "uwcfjb52wgaet4e"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Noch entzückt vom letzten Kuße, / Den ich Försters Tinchen stahl,",
+      "language": [],
+      "musenalm_id": 32163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Abentheuer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Abentheuer",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "0ut0hyrv62ky86e"
+        }
+      ],
+      "source_id": "v17kufclt1uqmsw"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Was säuselt traurig / Aus grausem Schlund? / Was schwanket schaurig / Im Nebelgrund?",
+      "language": [],
+      "musenalm_id": 32164,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geisternähe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geisternähe",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "0ks7fvgw2pm8va4"
+        }
+      ],
+      "source_id": "a7l5sm8zqhypzq8"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Wohin, mein Kind, / Im Abendthau, / Es weht der Wind, / Der Weg wird rauh,",
+      "language": [],
+      "musenalm_id": 32165,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen und der Unrechte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen und der Unrechte",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.674Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "h2gqhgbi21cidl1"
+        }
+      ],
+      "source_id": "oo9ujg5ax9w6ksp"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Leb wohl! Von meinen Lieben, / Von Flur und Feld, / Hast Du mich fortgetrieben / In weite Welt!",
+      "language": [],
+      "musenalm_id": 32166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen und der Rechte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen und der Rechte",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.674Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "safwrrh5o5sidv2"
+        }
+      ],
+      "source_id": "8awmv3r26wmzhxt"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "In der Berge Riesenschatten, / Rasch enteilt dem Mondeslicht,",
+      "language": [],
+      "musenalm_id": 32167,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesglühen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesglühen",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.674Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "jy47hbrn77w2edg"
+        }
+      ],
+      "source_id": "0rwsphbcimvs1o2"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Blicke zum Himmel! Wenn Träume verblühen, / Winde vom frevelnden Grame dich los,",
+      "language": [],
+      "musenalm_id": 32168,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.674Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "9mujyrm1ucc3vjw"
+        }
+      ],
+      "source_id": "94a9m4ezfubaloh"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Ihn zieht von düstern Räumen / Der Geist zum Lichtgebiet,",
+      "language": [],
+      "musenalm_id": 32169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der wahre Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der wahre Sänger",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.674Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "di8ex6ue9kgpupl"
+        }
+      ],
+      "source_id": "l2i2fqyvxdvsf87"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Wir verließen Amiens, als der heitere Herbstmorgen nur erst dämmerte. Mein neuer Reisegefährte gab mir einen Beleg zu meiner alten Bemerkung:",
+      "language": [],
+      "musenalm_id": 32170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Eine Erinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rochlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Eine Erinnerung",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.437Z",
+          "agent": "2wsoz27ytrsps8l",
+          "source_id": "nzrplx7eo7xqldu"
+        }
+      ],
+      "source_id": "8gmy18285zxvlt1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Es ward stiller im Städtchen. Die Laden und Thüren schlossen sich und ein Licht nach dem andern verlosch.",
+      "language": [],
+      "musenalm_id": 32171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Der Schatzgräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Apel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Der Schatzgräber",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.437Z",
+          "agent": "mv54y583pvqjcic",
+          "source_id": "j0txscdaglxil67"
+        }
+      ],
+      "source_id": "yh8z2fmqgikfqzi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Still und ruhig meine Bahn zu wandeln, / Mich mit Brüdern brüderlich zu freun,",
+      "language": [],
+      "musenalm_id": 32172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Entschluß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Heyne",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Entschluß",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ti16k1yumkfvuv"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 32174, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Eduard, ein junger Mann in Berlin, betrachtete die Fluth der Unfälle, die sich im Herbst des Jahres 1806 über Stadt und Land ergoß,",
+      "language": [],
+      "musenalm_id": 32173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Liebe und Frauenhaß. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Liebe und Frauenhaß. / Erzählung",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.686Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "zqtjmrjpfwhjrqo"
+        }
+      ],
+      "source_id": "svrei9yhocw4cf2"
+    },
+    {
+      "annotation": "Illustration zu »Liebe und Frauenhaß« von A. F. E. Langbein INr 32173, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Er griff mit unhöflicher Hastigkeit nach dem / Quartierbillet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Meno Haas sc. Berlin",
+      "scans": [
+        "alm_434_32174_10uu1ooe8v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Er griff mit unhöflicher Hastigkeit nach dem / Quartierbillet",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.686Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "br0pgnwvs477gh8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.686Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "qo76x4fxrc4qyki"
+        }
+      ],
+      "source_id": "0dlztwtvz8iygj7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Da den Achillischen Schild, der, triefend vom Blute / des Hektor, / Ungerecht dem Ulyß ward von den Griechen / ertheilt,",
+      "language": [],
+      "musenalm_id": 32175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schild des Achilles",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schild des Achilles",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "h12mhyb1vmse44w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Fort! ihr üppigen Zweige! Von mir, dem Baume / Minervens,",
+      "language": [],
+      "musenalm_id": 32176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Oelbaum und die Weinrebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Oelbaum und die Weinrebe",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "xq8xag9mdi521oy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Wie oft trug ich den Wunsch, von Stan- / de doch zu seyn. / Nun aber schönen Dank! Dies Wünschen / stell' ich ein.",
+      "language": [],
+      "musenalm_id": 32177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Bote. / Lustspiel in einem Akt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Stein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Bote. / Lustspiel in einem Akt",
+      "updated": "2003-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9snvkw47egoxom"
+    }
   ],
   "agents": [
     {

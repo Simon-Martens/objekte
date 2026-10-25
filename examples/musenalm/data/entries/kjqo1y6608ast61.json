@@ -48,20 +48,446 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "a5rbuccs348jgl0"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.455Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "405552",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.455Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "a5rbuccs348jgl0"
+    }
   ],
   "contents": [
-    "0w9z1iiik8jmmbz",
-    "jyenexmc1rt181k",
-    "wgmo66sxx0dpvqi",
-    "x6z7cvst6crcy5q",
-    "ozj4ah4wcu2g8s6",
-    "g26bibw1chrmx23",
-    "2vnwunfiy237tst",
-    "zus3w9ef80ib7mg",
-    "pz889ysuwar7jpi",
-    "cw7iuzxcr4xqumr",
-    "9zo7iionnmm4lw6"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62260,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_71_62260_mnrzau4ulx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1845",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "0w9z1iiik8jmmbz"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62274,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1845",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "jyenexmc1rt181k"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62275,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "wgmo66sxx0dpvqi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2066,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwanthaler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian Schlich sc. München",
+      "scans": [
+        "alm_71_2066_0tu2ievr85.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schwanthaler",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "x494ejn8uabo7dp",
+          "source_id": "86r1kd5hos91or1"
+        }
+      ],
+      "source_id": "x6z7cvst6crcy5q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18776,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1845. / Neue Folge. / Siebenter Jahrgang. / Mit dem Bildnisse Schwanthaler's. / Leipzig: / F. A. Brockhaus. / 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_71_18776_kwfl0fnjqf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1845. / Neue Folge. / Siebenter Jahrgang. / Mit dem Bildnisse Schwanthaler's. / Leipzig: / F. A. Brockhaus. / 1845",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ozj4ah4wcu2g8s6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18777,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "g26bibw1chrmx23"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "An einem schönen Sommermorgen des Jahres 1795 ritten zwei Männer auf dem Wege, der von St. James auf der Insel Jamaica an der Küste entlang nach den Roundhill-Bluffs führt.",
+      "language": [],
+      "musenalm_id": 2067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eduard Montague. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eduard Montague. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "6wsaclrt2a4altl"
+        }
+      ],
+      "source_id": "2vnwunfiy237tst"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Seine Hochwohlgeboren, der Commerzienrath und Ritter mehrer Orden, Herr Wallmuth schienen nicht angenehm geruht zu haben.",
+      "language": [],
+      "musenalm_id": 2068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Selbsttaufe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Gutzkow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Selbsttaufe",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "gppll7dy0seh698",
+          "source_id": "jk203lyd6a21qrt"
+        }
+      ],
+      "source_id": "zus3w9ef80ib7mg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Zwei Reisende, welche in dem Wirtshause eines westfälischen Landstädchens zusammengetroffen waren, hatten schweigend das gemeinsame Mahl eingenommen.",
+      "language": [],
+      "musenalm_id": 2069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Luisenhütte. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Martell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Luisenhütte. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "zrsi43h33yxojuh",
+          "source_id": "zc71hlwemys9r9s"
+        }
+      ],
+      "source_id": "pz889ysuwar7jpi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "In der Nähe von Kiew befindet sich ein Nonnenkloster , dessen Bewohnerinnen sämmtlich Malerinnen sind;",
+      "language": [],
+      "musenalm_id": 2070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scholastika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scholastika",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "zx18uztyy34f365"
+        }
+      ],
+      "source_id": "cw7iuzxcr4xqumr"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62261,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig. / F. A. Brockhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_71_62261_oei0o2dgf9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig. / F. A. Brockhaus",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "9zo7iionnmm4lw6"
+    }
   ],
   "agents": [
     {

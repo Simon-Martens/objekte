@@ -1,10 +1,12 @@
 import importlib.util
 import json
 import pathlib
+import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
 spec = importlib.util.spec_from_file_location('migration', pathlib.Path(__file__).with_name('import-musenalm.py'))
 migration = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(migration)
@@ -45,24 +47,34 @@ class ImportTests(unittest.TestCase):
     def read(self, name):
         return json.loads((self.target/'data'/name/(self.ids[name]+'.json')).read_text())
     def test_typed_fields_and_distinct_relationship_semantics_survive(self):
+        earlier = dict(self.records['contents'], id='000000000000099',
+                       preferred_title='Earlier content', numbering='0.5')
+        self.write('contents', [self.records['contents'], earlier])
         report = migration.import_project(self.source, self.target)
-        series, entry, content = [self.read(n) for n in ('series','entries','contents')]
+        series, entry = [self.read(n) for n in ('series','entries')]
+        content = entry['contents'][1]
         self.assertEqual(series['entries'], [self.ids['entries']])
         self.assertEqual(series['related_entries'][0]['entry'], self.ids['entries'])
         self.assertEqual(series['related_entries'][0]['annotation'], '<p>Relationship note</p>')
         self.assertNotIn('series',entry)
         self.assertNotIn('entries',content)
-        self.assertEqual(entry['contents'], [self.ids['contents']])
-        self.assertEqual(entry['items'], [self.ids['items']])
+        self.assertEqual([c['source_id'] for c in entry['contents']],
+                         [earlier['id'], self.ids['contents']])
+        self.assertEqual(entry['items'][0]['source_id'], self.ids['items'])
+        self.assertEqual(entry['items'][0]['identifier'], self.records['items']['identifier'])
         self.assertEqual(entry['language'], ['ger'])
         self.assertIs(entry['pseudonym'],False)
         self.assertIsNone(entry['edit_fielddata'])
-        self.assertEqual(content['numbering'],1.5)
+        self.assertNotIn('numbering', content)
         self.assertEqual(content['annotation'],'First<br>second\n**third**')
         self.assertEqual(content['agents'][0]['agent'],self.ids['agents'])
         self.assertIs(content['agents'][0]['uncertain'],True)
-        self.assertEqual(set(p.name for p in (self.target/'data').iterdir()),set(migration.NAMES))
-        self.assertEqual(sum(report['records'].values()),6)
+        self.assertEqual(set(p.name for p in (self.target/'data').iterdir()),set(migration.PROJECT_NAMES))
+        self.assertEqual(sum(report['records'].values()),4)
+        self.assertEqual(report['embedded_records'], {'items': 1, 'contents': 2})
+        schema = json.loads((self.target/'.editor/collections/entries/schema.json').read_text())
+        self.assertEqual(schema['properties']['contents']['items']['properties']['agents']['items']['properties']['agent']['x-relation']['collection'], 'agents')
+        self.assertNotIn('numbering', schema['properties']['contents']['items']['properties'])
         with self.assertRaisesRegex(ValueError,'already exists'): migration.import_project(self.source,self.target)
     def test_missing_reference_fails_before_writing(self):
         self.records['items']['entries']='missing00000000'

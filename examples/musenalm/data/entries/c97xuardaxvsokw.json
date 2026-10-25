@@ -48,29 +48,790 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "fyap5jmyht0ttv9"
+    {
+      "annotation": "1811-1848.\n1847:",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.619Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106037",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.619Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fyap5jmyht0ttv9"
+    }
   ],
   "contents": [
-    "03gj4277737skn2",
-    "sw9vfasfnld3wmi",
-    "z7tsulzxc1fnlxa",
-    "nzkolfwzr6pqygj",
-    "ic98lu6n8eb02wy",
-    "hhmz80009jqrv3r",
-    "5hexud4dtd0goxf",
-    "x22w54eozgl77bd",
-    "l6dwgjjf5zolrvy",
-    "yumrfr0jo0lxpge",
-    "4rvx9y38p0zfsz6",
-    "v7dku5ueyablg9f",
-    "tnrd4tgxp69cas5",
-    "nqcdg20nnv079l7",
-    "g0m7uskwxigh4pp",
-    "bbqhqdmxu4ul80j",
-    "7qgfzlk5in2ooi8",
-    "cja76r2e4p1zea9",
-    "me8w1jwtt78hmoe",
-    "za3g2ofvpv5q35w"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77840,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2418_77840_m5voi7j9x0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "03gj4277737skn2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77841,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope / für / das Jahr 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Penelope / für / das Jahr 1847",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "sw9vfasfnld3wmi"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 77855, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77842,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nenella",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Perger fec. J. Axmann sc. Viennae",
+      "scans": [
+        "alm_2418_77842_c5ujzoxzdz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nenella",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.764Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "3mkey0ap0nagxsk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.764Z",
+          "agent": "k1vb2ltzit1pkxn",
+          "source_id": "pf6qdvlndyed72f"
+        }
+      ],
+      "source_id": "z7tsulzxc1fnlxa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77843,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1847. / Herausgegeben / von / Theodor Hell. /  Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2418_77843_ixjt34p1ia.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1847. / Herausgegeben / von / Theodor Hell. /  Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzkolfwzr6pqygj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77844,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "ic98lu6n8eb02wy"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77846, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77845,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Olga Nicolajewna, / Großfürstin von Rußland, vermählte Kronprinzessin von / Würtemberg. / Geb. am 11. September 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Olga Nicolajewna, / Großfürstin von Rußland, vermählte Kronprinzessin von / Würtemberg. / Geb. am 11. September 1822",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "hhmz80009jqrv3r"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77847, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77846,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Olga, / Grossfürstin von Russland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2418_77846_lo688z7dxi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Olga, / Grossfürstin von Russland",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "5hexud4dtd0goxf"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77846, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Sie kommt! - Vom Throne wandelt sie zum Throne, / Von Liebe scheidend in der Liebe Mitte,",
+      "language": [],
+      "musenalm_id": 77847,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Olga",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Olga",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "x22w54eozgl77bd"
+    },
+    {
+      "annotation": "s. Textbezug INr 77849, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77848,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Therese von Bacheracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. C. Wrankmore sc.",
+      "scans": [
+        "alm_2418_77848_mynvrblc3g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Therese von Bacheracht",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "l6dwgjjf5zolrvy"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77848, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ueber die Lebensverhältnisse der gefeierten Schriftstellerin, deren wohlgetroffenes Brustbild unsre diesjährige Penelope schmückt, können wir blos ganz kurz bemerken, daß die Dichterin die Tochter des Kaiserl. Russischen außerordentlichen Gesandten",
+      "language": [],
+      "musenalm_id": 77849,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Therese von Bacheracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Therese von Bacheracht",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "yumrfr0jo0lxpge"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Beiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77850,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Novellen / und / Historische Aufsätze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Novellen / und / Historische Aufsätze",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "4rvx9y38p0zfsz6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Man hat wohl in Vorschlag gebracht, ein Journal zu begründen, welches nicht vorwärts, sondern rückwärts ginge.",
+      "language": [],
+      "musenalm_id": 77851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brandes' Jugendgeschichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Brandes' Jugendgeschichte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.764Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "8c39pdtvvcy8mty"
+        }
+      ],
+      "source_id": "v7dku5ueyablg9f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Eine Gesellschaft, die sich in der benachbarten Residenz eine Gemäldeausstellung angesehen hatte, kehrte nach einem mehrstündigen Aufenthalte wieder auf das Landhaus zurück.",
+      "language": [],
+      "musenalm_id": 77852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Juden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Juden",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.764Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "c689c4yryecernr"
+        }
+      ],
+      "source_id": "tnrd4tgxp69cas5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Es war im schönen Mai, eines ernstheitern Sonntagmorgens; der Gottesdienst hatte begonnen. Feierliche Stimmung schien die ganze Natur zu athmen,",
+      "language": [],
+      "musenalm_id": 77853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Flüchtling. / Eine Schilderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Josef Rank",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Flüchtling. / Eine Schilderung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.764Z",
+          "agent": "h1rm6ctjxvxk0m6",
+          "source_id": "pwb0tkvh1cl51ow"
+        }
+      ],
+      "source_id": "nqcdg20nnv079l7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Vom Elbufer nicht weit entfernt, im Gebiete Hamburgs, stand vereinzelt ein altes hölzernes Haus, dessen Bewohner der Gegenstand der Neugierde und abergläubischen Furcht für das Volk der Umgebung waren.",
+      "language": [],
+      "musenalm_id": 77854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lucie Warren. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Gwinner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lucie Warren. / Eine Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "g0m7uskwxigh4pp"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 77842, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Ich zeichnete zu Rom im Garten von San Giovanni und Paolo, da wo die bekannte hohe Palme (Phönix dactylifera) mit ihrem im Sturme so eigen rauschenden Blättern bis zu den Giebeln des genannten Klosters aufsteigt.",
+      "language": [],
+      "musenalm_id": 77855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nenella",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton, Ritter von Perger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nenella",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.771Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.771Z",
+          "agent": "k1vb2ltzit1pkxn",
+          "source_id": "s299uekyg889364"
+        }
+      ],
+      "source_id": "bbqhqdmxu4ul80j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Die Eintheilung der Reisenden in einsame, gesellige und patriarchalische scheint mir praktischer als jene bekannte in York's sentimental journey.",
+      "language": [],
+      "musenalm_id": 77856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dissolving views / oder / Lichtbilder einer Sommerreise. / Aus Reiseberichten von E. Silesius, / an / Th. Hell",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dissolving views / oder / Lichtbilder einer Sommerreise. / Aus Reiseberichten von E. Silesius, / an / Th. Hell",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.772Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.772Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "05nu5vqf910mc0o"
+        }
+      ],
+      "source_id": "7qgfzlk5in2ooi8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "411",
+      "incipit_statement": "Es war! es war! ich hab es nur verloren, / Verloren in des Lebens wildem Drang!",
+      "language": [],
+      "musenalm_id": 77857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das verlorne Paradies",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das verlorne Paradies",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.772Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.772Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "61mb5dzsvet2b1l"
+        }
+      ],
+      "source_id": "cja76r2e4p1zea9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "416",
+      "incipit_statement": "Unter dunklen Myrtenbäumen, / Zwischen jungen Blüthensprossen, / Angehaucht vom Abendgold,",
+      "language": [],
+      "musenalm_id": 77858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das weiße Veilchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ida von Düringsfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das weiße Veilchen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "me8w1jwtt78hmoe"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77859,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2418_77859_6ryc97queg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "za3g2ofvpv5q35w"
+    }
   ],
   "agents": [
     {

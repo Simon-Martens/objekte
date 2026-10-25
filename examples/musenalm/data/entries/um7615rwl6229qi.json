@@ -49,15 +49,232 @@
   "year": 1797,
   "editor": "",
   "items": [
-    "tnrgsl98yjoptni"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.757Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405524",
+      "location": "105E08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.757Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tnrgsl98yjoptni"
+    }
   ],
   "contents": [
-    "5rv8shly64h746e",
-    "3itoa2pmrje6u6m",
-    "ce8nt0ek1tap65r",
-    "27g6q1ifhs6cl14",
-    "8sorzorjczi08oe",
-    "i4odsmqn1o8b5sx"
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106108,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / und / Taschenbuch / für / HAEUSLICHE / u. GESELLSCHAFTL. / FREUDEN. / 1797. / von / Carl Lang. / mit Kupfern / von D. Chodowiecki, H. Guttenberg & / FRANKFURT am MAYN bei GUILHAUMANN / HEILBRONN am NEKAR bei dem HERAUSGEBER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4206_106108_hn57osv0he.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / und / Taschenbuch / für / HAEUSLICHE / u. GESELLSCHAFTL. / FREUDEN. / 1797. / von / Carl Lang. / mit Kupfern / von D. Chodowiecki, H. Guttenberg & / FRANKFURT am MAYN bei GUILHAUMANN / HEILBRONN am NEKAR bei dem HERAUSGEBER",
+      "updated": "2015-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "5rv8shly64h746e"
+    },
+    {
+      "annotation": "Die Musikbeigabe vermutl. im Flachdruck /) Vertonung des Gedichts »An die Freiheit« von E. F. Hübner (s. autopsiertes Exemplar des TB: Alm-486, INr 35311)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freiheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zaininger",
+      "scans": [
+        "alm_4206_106109_twlglg4l3z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An die Freiheit",
+      "updated": "2015-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "3itoa2pmrje6u6m"
+    },
+    {
+      "annotation": "Die Musikbeigabe vermutl. im Flachdruck /) Vertonung des Gedichts »Trinklied im Herbst« von F. Schütt (s. autopsiertes Exemplar des TB: Alm-486, INr 35321)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4206_106110_l1s00km7t4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied",
+      "updated": "2015-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "ce8nt0ek1tap65r"
+    },
+    {
+      "annotation": "Die Musikbeigabe vermutl. im Flachdruck /) Vertonung des Gedichts »Verlegenheit« von E. F. Hübner (s. autopsiertes Exemplar des TB: Alm-486, INr 35338)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verlegenheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4206_106111_ny61smbrsm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Verlegenheit",
+      "updated": "2015-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "27g6q1ifhs6cl14"
+    },
+    {
+      "annotation": "Die Musikbeigabe vermutl. im Flachdruck /) Vertonung des Gedichts »An mein Roß« (s. autopsiertes Exemplar des TB: Alm-486, INr 35357)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An mein Roß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An mein Roß",
+      "updated": "2015-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "8sorzorjczi08oe"
+    },
+    {
+      "annotation": "auszufaltende Vertonung des Gedichts »Lied, im Kreise der Freundschaft zu singen« von Fr. Schäffer (s. autopsiertes Exemplar des TB: Alm-486, INr 35367) /) unter der Musikbeigabe: Statt der Karte",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.065Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Freunde sammlet euch im Kreise",
+      "language": [],
+      "musenalm_id": 106113,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freunde sammlet euch im Kreise…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rau",
+      "scans": [
+        "alm_4206_106113_zvnox0jwmo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "i4odsmqn1o8b5sx"
+    }
   ],
   "agents": [
     {

@@ -4,10 +4,10 @@ import { JSDOM } from 'jsdom';
 import { installSearchControls } from '../src/controls/regex-search.ts';
 
 const flush = () => new Promise(resolve => setTimeout(resolve, 10));
-function fixture(t, validate = async () => '') {
+function fixture(t, validate = async () => '', prefix = '') {
   const dom = new JSDOM(`<section class="table-panel"><form data-regex-search>
-    <input type="search" name="q" aria-invalid="false">
-    <input type="hidden" name="regex" value="0"><input type="hidden" name="case_sensitive" value="0">
+    <input type="search" data-search-query name="${prefix}q" aria-invalid="false" aria-describedby="search-pattern-error">
+    <input type="hidden" data-search-regex name="${prefix}regex" value="0"><input type="hidden" data-search-case name="${prefix}case_sensitive" value="0">
     <button type="button" data-case-toggle aria-pressed="false"><span>Aa</span></button>
     <button type="button" data-regex-toggle aria-pressed="false"><span>.*</span></button>
     <button>Search</button></form><span id="search-pattern-error" role="status"></span></section>`);
@@ -15,7 +15,7 @@ function fixture(t, validate = async () => '') {
   const { document } = dom.window;
   installSearchControls(document, validate);
   const form = document.querySelector('form');
-  const input = form.elements.q;
+  const input = form.elements[`${prefix}q`];
   const submissions = [];
   // Same event phase as Datastar's form handler. Invalid/pending patterns must
   // never reach it, and validated submissions must reach it exactly once.
@@ -177,4 +177,36 @@ test('WASM load failure permits server validation without looping or blocking th
   assert.equal(ui.submissions.length, 1);
   assert.equal(ui.input.validity.valid, true);
   assert.match(ui.error.textContent, /validate it on the server/);
+});
+
+test('embedded search validates namespaced fields and isolates feedback from other tables', async t => {
+  const calls = [];
+  const prefix = 'array./contents.';
+  const ui = fixture(t, async (...args) => {
+    calls.push(args);
+    return args[0] === '[' ? 'Unclosed character class' : '';
+  }, prefix);
+  const panel = ui.form.parentElement;
+  panel.className = 'embedded-panel';
+  const other = panel.cloneNode(true);
+  other.querySelector('[role=status]').id = 'items-error';
+  other.querySelector('[data-search-query]').setAttribute('aria-describedby', 'items-error');
+  for (const input of other.querySelectorAll('input')) input.name = input.name.replace('/contents.', '/items.');
+  panel.before(other);
+  ui.regex.click();
+  ui.type('[');
+  await new Promise(resolve => setTimeout(resolve, 160));
+  assert.equal(ui.error.textContent, 'Unclosed character class');
+  assert.equal(other.querySelector('[role=status]').textContent, '');
+  assert.equal(other.querySelector('[data-search-query]').getAttribute('aria-invalid'), 'false');
+  ui.type('^Über$');
+  ui.matchCase.click();
+  ui.form.requestSubmit();
+  await flush();
+  assert.deepEqual(calls.at(-1), ['^Über$', true]);
+  assert.deepEqual(ui.submissions, [{
+    [`${prefix}q`]: '^Über$', [`${prefix}regex`]: '1', [`${prefix}case_sensitive`]: '1',
+  }]);
+  assert.equal(other.querySelector('[data-search-regex]').value, '0');
+  assert.equal(other.querySelector('[data-search-case]').value, '0');
 });

@@ -48,32 +48,934 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "kfcpprscg6kjyg2"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.520Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404130",
+      "location": "105H04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.520Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kfcpprscg6kjyg2"
+    }
   ],
   "contents": [
-    "ufzb16m3lki9scm",
-    "x6sidtgeu0vfxdd",
-    "9afzc2rlnlj4awg",
-    "czorzn1sri139oj",
-    "x1l85c331aqmgtj",
-    "qyn1dv3r54d4le1",
-    "ydgq2ta312q6gv0",
-    "eq7zemq6dwp8d2f",
-    "wzju0lcleldmdv9",
-    "dy43tvp71koa2z7",
-    "nkor46jf6g9dds2",
-    "dlih69ah23rhzjt",
-    "ct7obzljnjdbpod",
-    "ctbjxb9ow1rx24y",
-    "75obc7hxumymu65",
-    "zzufr0aehs7p8ov",
-    "n5oaiguxban5wuz",
-    "60i6mp8t9jg650f",
-    "2d8phwl2f2lg9fb",
-    "qjzgnhe3r5bu81j",
-    "g5a8sbfn5gt25d6",
-    "urzf9cogv82cf6d",
-    "bpjpdimm981lrzb"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75857,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_835_75857_vyd8fj28dh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ufzb16m3lki9scm"
+    },
+    {
+      "annotation": "Titelportrait /) Illustration zu » Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75858,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Katharina von Medici, / Königinn von Frankreich / Wittwe des K. Heinrich II. / Catherine de Medicis, / Reine de France. / Veuve du Roi Henry II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bollinger sc. Berlin 1799",
+      "scans": [
+        "alm_835_75858_ej2leth37e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Katharina von Medici, / Königinn von Frankreich / Wittwe des K. Heinrich II. / Catherine de Medicis, / Reine de France. / Veuve du Roi Henry II.",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "xudps8vzrobe0d5",
+          "source_id": "50bvly32vg2ngmz"
+        }
+      ],
+      "source_id": "x6sidtgeu0vfxdd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75859,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / HISTORIQUE ET GÉNÉALOGIQUE / POUR / L'ANNÉE COMMUNE / 1800. / Histoire / du massacre de la St. Barthélemi. / Seconde Partie. / Avec / 5 portraits et 8 estampes historiques / de D. CHODOWIECKI / BERLIN / CHEZ JEAN FRÉDERIC UNGER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_835_75859_dh75a8qpgu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / HISTORIQUE ET GÉNÉALOGIQUE / POUR / L'ANNÉE COMMUNE / 1800. / Histoire / du massacre de la St. Barthélemi. / Seconde Partie. / Avec / 5 portraits et 8 estampes historiques / de D. CHODOWIECKI / BERLIN / CHEZ JEAN FRÉDERIC UNGER",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "9afzc2rlnlj4awg"
+    },
+    {
+      "annotation": "paginiert 1. /) Graphik vor dem Kalendarium /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75860,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coligni's Abschied von seiner Frau. / Adieux de Coligni",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75860_358o8oi1bs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coligni's Abschied von seiner Frau. / Adieux de Coligni",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "gsqt4f4nsmgnqy6"
+        }
+      ],
+      "source_id": "czorzn1sri139oj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75861,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1l85c331aqmgtj"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 2. /) Graphik im Kalendarium Januar /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75862,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sterbebette der Koenigin Johanna. / Jeanne d'Albret sur son lit de mort",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75862_ogpiyhgfry.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sterbebette der Koenigin Johanna. / Jeanne d'Albret sur son lit de mort",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "h0p3v0hxd705mqn"
+        }
+      ],
+      "source_id": "qyn1dv3r54d4le1"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 3. /) Graphik im Kalendarium Februar /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75863,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coligni von einer Bäuerin gewarnet. / Coligni est averti par une paysanne",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75863_kefw48crxq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coligni von einer Bäuerin gewarnet. / Coligni est averti par une paysanne",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "xpxcagcyzilhd7u"
+        }
+      ],
+      "source_id": "ydgq2ta312q6gv0"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 4. /) Graphik im Kalendarium April /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75864,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Admiral blessirt / Un assassin blesse l'amiral",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75864_el5ej2505c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Admiral blessirt / Un assassin blesse l'amiral",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "zpmvt2cxbbvn6y3"
+        }
+      ],
+      "source_id": "eq7zemq6dwp8d2f"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 5. /) Graphik im Kalendarium Juni /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75865,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Todt des Admiral. / Mort de l'amiral",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75865_d5rusmrxvb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Todt des Admiral. / Mort de l'amiral",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "sku31k4135hoq2d"
+        }
+      ],
+      "source_id": "wzju0lcleldmdv9"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 6. /) Graphik im Kalendarium August /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75866,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Blessirter wirft sich in das Bette / der Königin. / Un blessé se jette dans la ruelle de la reine",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75866_68wg5svacd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Blessirter wirft sich in das Bette / der Königin. / Un blessé se jette dans la ruelle de la reine",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "boe248w1x0v012p"
+        }
+      ],
+      "source_id": "dy43tvp71koa2z7"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Oktober /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75867,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coligni's Kopf wird der Koenigin / Catherine gebracht. / Catherine réçoit la tète de Coligni",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75867_pd3h4cae1h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coligni's Kopf wird der Koenigin / Catherine gebracht. / Catherine réçoit la tète de Coligni",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "d5pjd41mycp9263"
+        }
+      ],
+      "source_id": "nkor46jf6g9dds2"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Dezember /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75868,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Kindern des Admirals wird / sein Leichnam gezeigt. / Le cadavre de Coligni, montré à ses enfants",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del & sc.",
+      "scans": [
+        "alm_835_75868_cp9qmj3kti.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Den Kindern des Admirals wird / sein Leichnam gezeigt. / Le cadavre de Coligni, montré à ses enfants",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "2u5bllyrprtfnez"
+        }
+      ],
+      "source_id": "dlih69ah23rhzjt"
+    },
+    {
+      "annotation": "# Bezeichnung am vierten Blatt der Suite /) Graphik (Portrait)  im Kalendarium /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75869,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prinz Ludewig von Conde / Louis de Bourbon Prince de Conde I.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Haas",
+      "scans": [
+        "alm_835_75869_zmgxvtu7ou.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Prinz Ludewig von Conde / Louis de Bourbon Prince de Conde I.",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "n9ytnurwjy8xqsu"
+        }
+      ],
+      "source_id": "ct7obzljnjdbpod"
+    },
+    {
+      "annotation": "# Bezeichnung am vierten Blatt der Suite /) Graphik (Portrait)  im Kalendarium /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75870,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzog Franz von Guise. / François de Lorraine Duc de Guise",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Haas",
+      "scans": [
+        "alm_835_75870_8gkskmtvyl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herzog Franz von Guise. / François de Lorraine Duc de Guise",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "4ni0o0sg65hrh40"
+        }
+      ],
+      "source_id": "ctbjxb9ow1rx24y"
+    },
+    {
+      "annotation": "# Bezeichnung am vierten Blatt der Suite /) Graphik (Portrait)  im Kalendarium /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75871,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Admiral Kaspar v. Koligny. / Gaspard de Coligny, Admiral de France",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Haas",
+      "scans": [
+        "alm_835_75871_bhjbgju8d1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Admiral Kaspar v. Koligny. / Gaspard de Coligny, Admiral de France",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.664Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "k4hmx1vb10mjvy0"
+        }
+      ],
+      "source_id": "75obc7hxumymu65"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75872,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kardinal Karl v. Lothringen. / Charles Cardinal de Lorraine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Haas",
+      "scans": [
+        "alm_835_75872_5yxgj0w72a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kardinal Karl v. Lothringen. / Charles Cardinal de Lorraine",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.665Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.665Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "51astu78z8fqjzi"
+        }
+      ],
+      "source_id": "zzufr0aehs7p8ov"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Kalender, Historisch-Genealogischer (Berlin) 1799; INr 68912 /) mit 13 Illustrationen s. Titelportrait INr 75858, Obj 2, Graphiken vor und im Kalendarium INr 75860, Obj 4; INr 75862-75872, Obj 6-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "La mort de la reine Jeanne d'Albret avoit paru si peu suspecte à l'amiral Coligni, qu'il ne s'en montra que plus empressé à se rendre aux désirs du roi, qui l'envitoit à Paris.",
+      "language": [],
+      "musenalm_id": 75873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HISTOIRE DU MASSACRE / DE LA / SAINT BARTHÉLEMI. / SECONDE PARTIE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "HISTOIRE DU MASSACRE / DE LA / SAINT BARTHÉLEMI. / SECONDE PARTIE",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "n5oaiguxban5wuz"
+    },
+    {
+      "annotation": "S Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75874,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniss neuer Bücher, welche / zur Leipziger Michaelismesse 1799 / bei J. Fr. Unger in Berlin zu ha- / ben sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniss neuer Bücher, welche / zur Leipziger Michaelismesse 1799 / bei J. Fr. Unger in Berlin zu ha- / ben sind",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "60i6mp8t9jg650f"
+    },
+    {
+      "annotation": "48 BB",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75875,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NAISSANCES ET ALLIANCES / DES ROIS; REINES; PRINCES / ET PRINCESSES / DEL'EUROPE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "NAISSANCES ET ALLIANCES / DES ROIS; REINES; PRINCES / ET PRINCESSES / DEL'EUROPE",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "2d8phwl2f2lg9fb"
+    },
+    {
+      "annotation": "61 SS",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75876,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tableau / du départ et de l'arrivée des postes / dans les principales villes des / états prussiens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tableau / du départ et de l'arrivée des postes / dans les principales villes des / états prussiens",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "qjzgnhe3r5bu81j"
+    },
+    {
+      "annotation": "3 SS",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75877,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liste des plus célèbres foires avec / l'indication des jours qu'elles se / tiendrons dans l'année 1800",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liste des plus célèbres foires avec / l'indication des jours qu'elles se / tiendrons dans l'année 1800",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "g5a8sbfn5gt25d6"
+    },
+    {
+      "annotation": "$ vermutl. fehlt Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75878,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "urzf9cogv82cf6d"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75879,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_835_75879_ne15j0omaz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "bpjpdimm981lrzb"
+    }
   ],
   "agents": [
     {

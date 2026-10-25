@@ -48,58 +48,1916 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "1kesoos6ybz73lz",
-    "nb4lecq84fq2wi0"
+    {
+      "annotation": "Titel",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.549Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "100837",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.549Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1kesoos6ybz73lz"
+    },
+    {
+      "annotation": "1807-1812, Jg 1810 nicht erschienen.\nKartonierter Einband. \n1807: (K: Ku 12 und Mu 2) Mit Bl 1, Tku 1, Ku 10, XXIV, 467 SS und Mu 2.\n§ Standort",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.549Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100837",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.549Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nb4lecq84fq2wi0"
+    }
   ],
   "contents": [
-    "ctrtag0lrd9vweh",
-    "kow20xnulgebwer",
-    "5rfhx4f79mzi87k",
-    "nwosbpllfnzjujq",
-    "zqf2758xeecrbhw",
-    "8d4gtyso7eotmhp",
-    "myc132a2slbllql",
-    "zdv90ydnj0clee2",
-    "q4g6int9271vh6z",
-    "qrr946ve23vai98",
-    "p0sjfozn5lx3k4q",
-    "ag8sd9j65qvgqgu",
-    "zkmkc4htt7p8lo6",
-    "0yr4dg0zfd3130m",
-    "nm84b0wuuqj6m6w",
-    "ad6opb6r8qsmbun",
-    "e99v5zbedeh7qo8",
-    "dqwv08h6uw73wf5",
-    "epb5ff3e503p6so",
-    "1u916pkmguca4xy",
-    "70vzg877dq57gmj",
-    "ofqss155inyxv0e",
-    "8jlbu09405stfac",
-    "u1qjtxdqbns38ba",
-    "26py10267upqmcs",
-    "l5tsxipvg5vq7vg",
-    "3ecs9ee58zd1wda",
-    "0e4uffqa6adei4s",
-    "9nqq4e2slqmq37f",
-    "oagi0pah13cvzne",
-    "4z2htrzwp2fbn52",
-    "r2pehccthru3ndt",
-    "5jo0peqphqg674c",
-    "11vzau2i0asjjim",
-    "5r0wpigvm1f3qdx",
-    "vyqlf3f3gg2lmtj",
-    "u15ykw0c3nrs7kf",
-    "7b8iq59m194nx61",
-    "hx75gyvo2d5e80g",
-    "7z7rs2zxhahn7km",
-    "2xcx4229mmaj597",
-    "ani8mhhlytsaivy",
-    "s97huru7i9438hy",
-    "hko8wh57xef4x6r",
-    "olaut7izaglo0bh",
-    "zd6bxh4vqkd9b69",
-    "z42n3e34um4mthe",
-    "it5zpkqub3z2399"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1340_115514_t56bxlcyx2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "ctrtag0lrd9vweh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115515,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / für / Theater und Theaterfreunde / auf das Jahr 1807 / von / August Wilhelm Iffland. / Mit 12 Kupfern / von / Bolt, Bollinger, Catel, Meno Haas, Henne und / Meier; und mit Musik vom Herrn Kapell- / meister Weber und Posch. / Berlin, 1807. / Bei Wilhelm Oehmigke dem Jüngern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1340_115515_8rwcmfwok1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / für / Theater und Theaterfreunde / auf das Jahr 1807 / von / August Wilhelm Iffland. / Mit 12 Kupfern / von / Bolt, Bollinger, Catel, Meno Haas, Henne und / Meier; und mit Musik vom Herrn Kapell- / meister Weber und Posch. / Berlin, 1807. / Bei Wilhelm Oehmigke dem Jüngern",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "kow20xnulgebwer"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115516,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH fürs THEATER. / 1807. / FRIEDERIKE BETHMANN / Erster Jahrgang / von / August Wilhelm Iffland. / Berlin 1807. / bey Oehmigke jun. / rthl. 1, 16 gG.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Bolt sc. 1806",
+      "scans": [
+        "alm_1340_115516_7ckqbel2tn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH fürs THEATER. / 1807. / FRIEDERIKE BETHMANN / Erster Jahrgang / von / August Wilhelm Iffland. / Berlin 1807. / bey Oehmigke jun. / rthl. 1, 16 gG.",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.586Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "decdy8wrberxuxl"
+        }
+      ],
+      "source_id": "5rfhx4f79mzi87k"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Unterzeichnete übergiebt den Freunden der Schauspielkunst den ersten Jahrgang eines Theater-Allmanachs.",
+      "language": [],
+      "musenalm_id": 115517,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Iffland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "ygkra5epb9ywce3",
+          "source_id": "1edv29eba9hctp4"
+        }
+      ],
+      "source_id": "nwosbpllfnzjujq"
+    },
+    {
+      "annotation": "über der Graphik: T. I. /) Illustration zu »Die Räuber« von F. Schiller /) s. Textbezug INr 115520, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115518,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iffland als Franz Moor in den Räubern. Act.1. Sc. 1. / Warum mußte sie mir diese Bürde von Häßlichkeit auf- / legen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. E. Henne sc.",
+      "scans": [
+        "alm_1340_115518_4g5oq7zorl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iffland als Franz Moor in den Räubern. Act.1. Sc. 1. / Warum mußte sie mir diese Bürde von Häßlichkeit auf- / legen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "qfct3egzc8n07nt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "x1nlsxqwkjn1lhr"
+        }
+      ],
+      "source_id": "zqf2758xeecrbhw"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 2 Beiträgen als Textbezüge zu 6 Graphiken INr 115520-115526, Obj 7-13; INr 115518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115519,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der drei Kupfer aus den Räu- / bern und drei aus den Hausfreunden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der drei Kupfer aus den Räu- / bern und drei aus den Hausfreunden",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "8d4gtyso7eotmhp"
+    },
+    {
+      "annotation": "Erklärung der drei Kupfer aus den Räubern und drei aus den Hausfreunden (Sammlung INr 115519, Obj 6) s. Graphiken INr 115518, Obj 5; INr 115521, 115522; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Es ist im Franz von Moor von Anbeginn bis zur Mitte der Handlung hin, ein tiefes Sinnen und Brüten über sich - seine Lage, sein Ziel - über die gewaltigen Hindernisse, welche sich ihm in den Weg werfen,",
+      "language": [],
+      "musenalm_id": 115520,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es ist im Franz von Moor von Anbeginn bis zur Mitte der Handlung hin, ein tiefes Sinnen und Brüten über sich - seine Lage, sein Ziel - über die gewaltigen Hindernisse, welche sich ihm in den Weg werfen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "myc132a2slbllql"
+    },
+    {
+      "annotation": "über der Graphik: T. II. /) Illustration zu »Die Räuber« von F. Schiller /) s. Textbezug INr 115520, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115521,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Act. IV. Sc. 9. / Wer schleicht hinter mir?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Meno Haas sc. Berlin 1806",
+      "scans": [
+        "alm_1340_115521_ysouwkycre.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Act. IV. Sc. 9. / Wer schleicht hinter mir?",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "66imqzhgk67nm9x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "o6e9zvfomfftxgo"
+        }
+      ],
+      "source_id": "zdv90ydnj0clee2"
+    },
+    {
+      "annotation": "über der Graphik: T. III. /) Illustration zu »Die Räuber« von F. Schiller /) s. Textbezug INr 115520, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115522,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Act. V. S. 1. / Rächet denn Jemand droben über den Sternen? / Nein!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Meno Haas sc. Berlin 1806",
+      "scans": [
+        "alm_1340_115522_bf8u9i7dp0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Act. V. S. 1. / Rächet denn Jemand droben über den Sternen? / Nein!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "mbtlk3o1ji1m9ow"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "sizlmdauzhp5f2k"
+        }
+      ],
+      "source_id": "q4g6int9271vh6z"
+    },
+    {
+      "annotation": "Erklärung der drei Kupfer aus den Räubern und drei aus den Hausfreunden (Sammlung INr 115519, Obj 6) s. Graphiken INr 115524-115526, Obj 24-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Der Geheimerath Mantel, in dem Schauspiele: die Hausfreunde, bricht über die Herrlichkeit, welche er seinem Schwiegersohne wünscht in die Worte aus - In seinem Hause sollten die Menschen in Masse aufwarten, angenommen, weggewiesen werden.",
+      "language": [],
+      "musenalm_id": 115523,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geheimerath Mantel, in dem Schauspiele: die Hausfreunde, bricht über die Herrlichkeit, welche er seinem Schwiegersohne wünscht in die Worte aus - In seinem Hause sollten die Menschen in Masse aufwarten, angenommen, weggewiesen werden.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "qrr946ve23vai98"
+    },
+    {
+      "annotation": "Illustration zu »Die Hausfreunde« /) s.Textbezug INr 115523, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115524,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iffland als Geheimerath in dem Schauspiele die Hausfreunde / Act II. Sc. 3. / So gelangt man zu einem Nahmen, zu der Gewalt, der Kraft!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "nach F. Catel gestochen von Bollinger",
+      "scans": [
+        "alm_1340_115524_2k5us8nvk0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iffland als Geheimerath in dem Schauspiele die Hausfreunde / Act II. Sc. 3. / So gelangt man zu einem Nahmen, zu der Gewalt, der Kraft!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.485Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "o6wlgvwqz3ns8fu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "xudps8vzrobe0d5",
+          "source_id": "zt8ww206mczx9fu"
+        }
+      ],
+      "source_id": "p0sjfozn5lx3k4q"
+    },
+    {
+      "annotation": "über der Graphik: T. V. /) Illustration zu »Die Hausfreunde« /) s. Textbezug INr 115523, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.038Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115525,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iffland und Mad. Bethmann in demselben Schauspiele. / Act IV. Sc. 2. / Gehrth: Laß dich scheiden!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. E. Henne sc.",
+      "scans": [
+        "alm_1340_115525_s168ccdug3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iffland und Mad. Bethmann in demselben Schauspiele. / Act IV. Sc. 2. / Gehrth: Laß dich scheiden!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "hen19dyhc4ei3nl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "mfamj4y1wddimf3"
+        }
+      ],
+      "source_id": "ag8sd9j65qvgqgu"
+    },
+    {
+      "annotation": "Illustration zu »Die Hausfreunde« /) s.Textbezug INr 115523, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115526,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iffland in demselben Schauspiele. Act. V. S. 20. / Und wollen sie mich nichts werden laßen, so müssen sie mich / was heißen lassen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "nach F. Catel gestochen von Bollinger",
+      "scans": [
+        "alm_1340_115526_6yo0q82uia.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iffland in demselben Schauspiele. Act. V. S. 20. / Und wollen sie mich nichts werden laßen, so müssen sie mich / was heißen lassen!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "gm0mkkko781twek"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "xudps8vzrobe0d5",
+          "source_id": "ie4cnssmgp1832i"
+        }
+      ],
+      "source_id": "zkmkc4htt7p8lo6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.043Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115527,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LOUISE FLEK",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unleserlich",
+      "scans": [
+        "alm_1340_115527_kebnvrihnc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LOUISE FLEK",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "0yr4dg0zfd3130m"
+    },
+    {
+      "annotation": "Illustration »Phädra«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115528,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mad. Bethmann als Phädra in dem Trauerspiele / gleiches Nahmens. Act. III. Sc. 2. / Räche dich, Göttin! Räche mich! Er liebe!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. E. Henne sc.",
+      "scans": [
+        "alm_1340_115528_7hgl8wp2f6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mad. Bethmann als Phädra in dem Trauerspiele / gleiches Nahmens. Act. III. Sc. 2. / Räche dich, Göttin! Räche mich! Er liebe!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "n1mvzuv9qlrwler"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "zbcsswm10xpinnt"
+        }
+      ],
+      "source_id": "nm84b0wuuqj6m6w"
+    },
+    {
+      "annotation": "Illustration zu »Wallenstein« von. F. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115529,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mad. Fleck als Thekla in dem Trauersp. Wallensteins Tod / Act. IV. Sc. 6. / Mein erst Empfinden war des Himmels Glück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. C. Frosch sc.",
+      "scans": [
+        "alm_1340_115529_qt4pdad8ft.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mad. Fleck als Thekla in dem Trauersp. Wallensteins Tod / Act. IV. Sc. 6. / Mein erst Empfinden war des Himmels Glück",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "iyyl75kkd1o72f9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "tsce45iv42fbilz"
+        }
+      ],
+      "source_id": "ad6opb6r8qsmbun"
+    },
+    {
+      "annotation": "Illustration zu »Die Weihe der Kraft« von Z. Werner",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.050Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115530,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iffland als Martin Luther in dem Ritter schau- / spiele: Die Weihe der Kraft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Meyer sc.",
+      "scans": [
+        "alm_1340_115530_l5wgqjmxnr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iffland als Martin Luther in dem Ritter schau- / spiele: Die Weihe der Kraft",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "qc823ihqukpyhwf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "vu8lekaf1i3o5dx"
+        }
+      ],
+      "source_id": "e99v5zbedeh7qo8"
+    },
+    {
+      "annotation": "s. Textbezüge INr 115532, 115533; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115531,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CONRAD ECKHOF",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_1340_115531_c43oi7ek0g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CONRAD ECKHOF",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.486Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "ke6tl5uw83iwwtz"
+        }
+      ],
+      "source_id": "dqwv08h6uw73wf5"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 115531, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Conrad Eckhof ward den 12. August 1720 zu Hamburg gebohren. Dieser große Künstler ist nun schon Acht und Zwanzig Jahre  todt,",
+      "language": [],
+      "musenalm_id": 115532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Ueber Eckhof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Ueber Eckhof",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "epb5ff3e503p6so"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 115531, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Ich hielt mich im May 1773 einige Tage in Weimar auf. Die Absicht dieser Reise war, Wieland und Musäus persönlich kennen zu lernen,",
+      "language": [],
+      "musenalm_id": 115533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Ueber Eckhof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Nicolai",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Ueber Eckhof",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.536Z",
+          "agent": "4ovfylfp8ee72sd",
+          "source_id": "o69fl6tkxxe4604"
+        }
+      ],
+      "source_id": "1u916pkmguca4xy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Die Rollen, welche besonders von den Schauspielern gemeinhin Bösewichter genannt werden, sind mehr als andere ausgesetzt, daß sie vergriffen oder verkehrt dargestellt werden.",
+      "language": [],
+      "musenalm_id": 115534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber Darstellung boshafter und / intriganter Charaktere auf der / Bühne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber Darstellung boshafter und / intriganter Charaktere auf der / Bühne",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "70vzg877dq57gmj"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 115536, 115537; Obj 23, 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Fragmente über einige wesentliche / Erfordernisse für den darstellenden / Künstler auf der Bühne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Fragmente über einige wesentliche / Erfordernisse für den darstellenden / Künstler auf der Bühne",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "ofqss155inyxv0e"
+    },
+    {
+      "annotation": "IV. Fragmente über einige wesentliche Erfordernisse für den darstellenden Künstler auf der Bühne (Sammlung INr 115535, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Als vor einigen Jahren in dem Damenkalender ein Aufsatz über den Hoftanzmeister Mereau in Gotha erschien, war es dem Verfasser durchaus unbekannt, daß dieser selbst über die Gegenstände, worüber er ihm Anweisung gegeben",
+      "language": [],
+      "musenalm_id": 115536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber den Anstand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber den Anstand",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "8jlbu09405stfac"
+    },
+    {
+      "annotation": "IV. Fragmente über einige wesentliche Erfordernisse für den darstellenden Künstler auf der Bühne (Sammlung INr 115535, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Das Kostume ist ein Theil des Anstandes. Mehrentheils giebt der Stad es an und das Kostume fordert die besondere Haltung, welche seine Deutung oder die Zeit, wo es als geltend angenommen ward, bestimmt.",
+      "language": [],
+      "musenalm_id": 115537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber das Kostume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber das Kostume",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "u1qjtxdqbns38ba"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Vor funfzig Jahren gab es auf den deutschen Schaubühnen eine Gattung Helden-Trauerspiele, in kalten, steifen, gereimten Versen geschrieben,",
+      "language": [],
+      "musenalm_id": 115538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Ueber den Vortrag in der höhern / Tragödie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Ueber den Vortrag in der höhern / Tragödie",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "26py10267upqmcs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Kunstantheil, Vergnügungen am geselligen Leben, / Zeitvertreib - was es seyn mag, das eine Gesellschaft vereinigt, ein Liebhabertheater zu errichten,",
+      "language": [],
+      "musenalm_id": 115539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Bemerkungen über Liebhabertheater / im Allgemeinen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Bemerkungen über Liebhabertheater / im Allgemeinen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "l5tsxipvg5vq7vg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Einige große deutsche Bühnen haben Vorstellungen zu Schillers Gedächtniß gegeben, und der Ertrag für die Erben ist einzeln namenswerth.",
+      "language": [],
+      "musenalm_id": 115540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Vorschlag an die Liebhabertheater / in Deutschland, zu Schillers / Gedächtniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Vorschlag an die Liebhabertheater / in Deutschland, zu Schillers / Gedächtniß",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ecs9ee58zd1wda"
+    },
+    {
+      "annotation": "Sammlung von 15 Beiträgen INr 115542-115556, Obj 29-43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Anecdoten und Charakterzüge aus / der Theaterwelt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Anecdoten und Charakterzüge aus / der Theaterwelt",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "0e4uffqa6adei4s"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Ein Schauspieler, welcher die Rollen der Könige, der Tyrannen und außerdem überhaupt die Rollen der Standespersonen spielte, trieb es so weit,",
+      "language": [],
+      "musenalm_id": 115542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Schauspieler, welcher die Rollen der Könige, der Tyrannen und außerdem überhaupt die Rollen der Standespersonen spielte, trieb es so weit,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "9nqq4e2slqmq37f"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Ein Schauspieler, den ein deutscher Fürst jährlich etlichemal einzuladen pflegte, um über die Verfassung seines Gesellschaftstheaters mit ihm Rücksprache zu nehmen,",
+      "language": [],
+      "musenalm_id": 115543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Schauspieler, den ein deutscher Fürst jährlich etlichemal einzuladen pflegte, um über die Verfassung seines Gesellschaftstheaters mit ihm Rücksprache zu nehmen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "oagi0pah13cvzne"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Ein Franzose, der mehrere Jahre in deutschen Hofdiensten zugebracht, hatte einen Sohn,",
+      "language": [],
+      "musenalm_id": 115544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Franzose, der mehrere Jahre in deutschen Hofdiensten zugebracht, hatte einen Sohn,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "4z2htrzwp2fbn52"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Ein Beispiel, wie sehr man sich vor Gewohnheitsgesten und Pantomimen, wobei man gar nichts denkt, in Acht nehmen soll, ist folgendes:",
+      "language": [],
+      "musenalm_id": 115545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Beispiel, wie sehr man sich vor Gewohnheitsgesten und Pantomimen, wobei man gar nichts denkt, in Acht nehmen soll, ist folgendes:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "r2pehccthru3ndt"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Eine jüdische Dame von Jahren, welche manche Treulosigkeit von ihren Liebhabern erfahren und großmüthig verziehen hatte,",
+      "language": [],
+      "musenalm_id": 115546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine jüdische Dame von Jahren, welche manche Treulosigkeit von ihren Liebhabern erfahren und großmüthig verziehen hatte,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "5jo0peqphqg674c"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "In ältern Zeiten hielt man die Theaterproben mit großer Genauigkeit, ja mit solcher Pünktlichkeit, welche an Pedanterie gränzte.",
+      "language": [],
+      "musenalm_id": 115547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In ältern Zeiten hielt man die Theaterproben mit großer Genauigkeit, ja mit solcher Pünktlichkeit, welche an Pedanterie gränzte.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "11vzau2i0asjjim"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Einem Juden, welcher die Monatsgeschäfte der Schauspieler besorgte, der in der dramatischen Literatur nicht fremd war, sagte einst ein Schauspieler,",
+      "language": [],
+      "musenalm_id": 115548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einem Juden, welcher die Monatsgeschäfte der Schauspieler besorgte, der in der dramatischen Literatur nicht fremd war, sagte einst ein Schauspieler,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "5r0wpigvm1f3qdx"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Derselbe sagte einem großen dramatischen Dichter, als dieser seine Laufbahn eben begann: Ihr Stück ist gewaltig!",
+      "language": [],
+      "musenalm_id": 115549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Derselbe sagte einem großen dramatischen Dichter, als dieser seine Laufbahn eben begann: Ihr Stück ist gewaltig!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "vyqlf3f3gg2lmtj"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Von einer Aktrize, die sehr viel auf Ausmalung durch das Spiel der Arme, durch Attitüden und dergleichen, hielt, sagte er:",
+      "language": [],
+      "musenalm_id": 115550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von einer Aktrize, die sehr viel auf Ausmalung durch das Spiel der Arme, durch Attitüden und dergleichen, hielt, sagte er:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "u15ykw0c3nrs7kf"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "In dem kleinen Lustspiele: Wer wird sie kriegen soll der Unterofficir sagen:",
+      "language": [],
+      "musenalm_id": 115551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In dem kleinen Lustspiele: Wer wird sie kriegen soll der Unterofficir sagen:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "7b8iq59m194nx61"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Ein verlebter Kammerjunker, der von keinen Dingen mit Egard sprach, wenn sie nicht den Hof betrafen,",
+      "language": [],
+      "musenalm_id": 115552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein verlebter Kammerjunker, der von keinen Dingen mit Egard sprach, wenn sie nicht den Hof betrafen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "hx75gyvo2d5e80g"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Auf einem Liebhabertheater spielte Jemand die Rolle des Ritters Luzius in dem Lustspiel: die Nebenbuhler.",
+      "language": [],
+      "musenalm_id": 115553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf einem Liebhabertheater spielte Jemand die Rolle des Ritters Luzius in dem Lustspiel: die Nebenbuhler.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "7z7rs2zxhahn7km"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Auf einem Gesellschaftstheater ward das Trauerspiel Tankred gegeben, und die Fürstein hatte die Rolle der Amenaide.",
+      "language": [],
+      "musenalm_id": 115554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf einem Gesellschaftstheater ward das Trauerspiel Tankred gegeben, und die Fürstein hatte die Rolle der Amenaide.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "2xcx4229mmaj597"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Ein Schauspieler, welcher in der Oper Romeo und Julie den Kapellan spielte, sagte,",
+      "language": [],
+      "musenalm_id": 115555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Schauspieler, welcher in der Oper Romeo und Julie den Kapellan spielte, sagte,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "ani8mhhlytsaivy"
+    },
+    {
+      "annotation": "VIII. Anecdoten und Charakterzüge aus der Theaterwelt (Sammlung INr 115541, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Ein Frauenzimmer, welches keine Kenntniß der französischen Sprache besaß, spielte mit einem Herrn,",
+      "language": [],
+      "musenalm_id": 115556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Frauenzimmer, welches keine Kenntniß der französischen Sprache besaß, spielte mit einem Herrn,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "s97huru7i9438hy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Verzeichniß sämmtlicher deutscher / Theater und ihrer Mitglieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Verzeichniß sämmtlicher deutscher / Theater und ihrer Mitglieder",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "hko8wh57xef4x6r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "In Acht genommen. Nur hier niedergesetzt! So, hier an die Seite - daher.",
+      "language": [],
+      "musenalm_id": 115558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Marionetten. Lustspiel in einem Aufzuge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Marionetten. Lustspiel in einem Aufzuge",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "olaut7izaglo0bh"
+    },
+    {
+      "annotation": "Photos 115559,01; 115559,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115559,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adagio per il Forte-Piano et Xaenophica",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Posch",
+      "scans": [
+        "alm_1340_115559_01_4bhnwj0mwt.jpg",
+        "alm_1340_115559_02_f23mkq9ark.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Adagio per il Forte-Piano et Xaenophica",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "zd6bxh4vqkd9b69"
+    },
+    {
+      "annotation": "Vertonung des Gedichts»Abendlied zweier Freundinnen« von J. H. Voss /) Photos 115560,01; 115560,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der schöne Tag, o Freundin sinkt, ihm folgt ein schöner Abend,",
+      "language": [],
+      "musenalm_id": 115560,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendlied zweier Freudinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. A. Weber",
+      "scans": [
+        "alm_1340_115560_01_yf0vg12na7.jpg",
+        "alm_1340_115560_02_7hwi5imraq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abendlied zweier Freudinnen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.487Z",
+          "agent": "u71n4xfm3r4625l",
+          "source_id": "x2rwf4r2bnhujlt"
+        }
+      ],
+      "source_id": "z42n3e34um4mthe"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115561,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1340_115561_w4eahr2obm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "it5zpkqub3z2399"
+    }
   ],
   "agents": [
     {

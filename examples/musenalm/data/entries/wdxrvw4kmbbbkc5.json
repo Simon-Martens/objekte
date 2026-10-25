@@ -48,41 +48,1654 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "vz8iw79jcim1ppr"
+    {
+      "annotation": "1801-1841. Kartonierter Einband mit Goldschnitt und Schuber. 1828: (K: Bl 2, 16 SS, 325 SS und Ku 14.) Mit Tku 1, Bl 2, 16 SS, Ku 13 und 325 SS. Auch unter Titel: TB a. d. J Der Liebe und Freundschaft gewidmet. Hg: 1811-1839 St. Schütz\n 1840-1841 L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.486Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101110",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.486Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vz8iw79jcim1ppr"
+    }
   ],
   "contents": [
-    "ibk3vxekajp13l1",
-    "lbl2byuqp9wy4i3",
-    "8qr3p7qk0as3pty",
-    "dnhtejbrlxvfi64",
-    "dsjorne2xejqdht",
-    "31ye94t2jifappi",
-    "qx0z13u6kbrcl1z",
-    "2qezmaoqbnkdv1z",
-    "p449fnz49aknjn9",
-    "j2ec3mg8jvqyap6",
-    "afb6mggcwj8tvta",
-    "zcvrymp0ug0c5y7",
-    "0qk7ta39etwt7oo",
-    "iwbvhkgstxe2wyc",
-    "kss8xnbvmll1r08",
-    "cgaqo0nbyzmndb1",
-    "79mq7qdvknuyga8",
-    "vivt75yofo56uje",
-    "gcst9ukqibqi9ga",
-    "q83tf1vsaga376w",
-    "395c1iucnu6a6t6",
-    "olduslcur2g5ilf",
-    "v38e67pg6xehuxw",
-    "gsak7e8z1b0q0xf",
-    "a001q2cjgv5v6qv",
-    "ouama17djpd1mdo",
-    "s47q01inzksvh0k",
-    "wu8vp1m4qf23x4c",
-    "mha960xvrkakpmo",
-    "vj48vduo3wdmruf",
-    "lvuj17hnr2k6ds4",
-    "rknel4qfnh0rmdm"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30120,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für das Jahr 1828. / der Liebe und Freundschaft gewidmet.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Walther sc. Nbg 1826",
+      "scans": [
+        "alm_391_30120_x51e6dhp66.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für das Jahr 1828. / der Liebe und Freundschaft gewidmet.",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.628Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "0nybrprisvisi44"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.628Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "63ygs418dlgxnzn"
+        }
+      ],
+      "source_id": "ibk3vxekajp13l1"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30121,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg inv. del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_391_30121_f38qegx4qk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.628Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "2iwf5ttjmghryer"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.628Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "mfcwaymvevc54f5"
+        }
+      ],
+      "source_id": "lbl2byuqp9wy4i3"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30122,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für das Jahr 1828 / der / Liebe und Freundschaft gewidmet / Herausgegeben / von / Dr. ST. SCHÜTZE / FRANKFURT a/M / bei Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Igler sc.",
+      "scans": [
+        "alm_391_30122_49wfa0vbg8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für das Jahr 1828 / der / Liebe und Freundschaft gewidmet / Herausgegeben / von / Dr. ST. SCHÜTZE / FRANKFURT a/M / bei Friedrich Wilmans",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "wklj72l91t2u9fj",
+          "source_id": "nes2tw9ovuqgcrx"
+        }
+      ],
+      "source_id": "8qr3p7qk0as3pty"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30123,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "dnhtejbrlxvfi64"
+    },
+    {
+      "annotation": "s. Textbezug INr 30125, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ad. van der Velde pinx. F. Geissler sculp. 1825)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ad. van der Velde pinx. F. Geissler sculp. 1825",
+      "scans": [
+        "alm_391_30124_aw9epkbdm1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "farrkp9golb219l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "vlum8p11xuadcno",
+          "source_id": "re8xhjxp0jhtquo"
+        }
+      ],
+      "source_id": "dsjorne2xejqdht"
+    },
+    {
+      "annotation": "s. Graphik INr 30124, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Landschaften machen in der Regel einen lyrischen Eindruck und treffen in dieser Hinsicht mit der Musik zusammen.",
+      "language": [],
+      "musenalm_id": 30125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Landschaft / von Adrian van de Velde. / Höhe 17¾, Breite 20½ Zoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Landschaft / von Adrian van de Velde. / Höhe 17¾, Breite 20½ Zoll",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "uql8srtyyasexyb"
+        }
+      ],
+      "source_id": "31ye94t2jifappi"
+    },
+    {
+      "annotation": "s. Textbezug INr 30127, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lingelbach pinx. Fried. Geissler sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lingelbach pinx. Fried. Geissler sculp.",
+      "scans": [
+        "alm_391_30126_mw1f15uw51.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "hf7wkgx38s7mdsp",
+          "source_id": "hgvnf74ywqu5q7x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "yvc4stigag8viy7"
+        }
+      ],
+      "source_id": "qx0z13u6kbrcl1z"
+    },
+    {
+      "annotation": "s. Graphik INr 30126, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es ist nicht hinreichend, daß die schöne Kunst uns Theilnahme einflößt, indem sie einen Gegenstand unsern Neigungen nahe rückt,",
+      "language": [],
+      "musenalm_id": 30127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reisescene / von Johann Lingelbach. / 21½ Zoll hoch, 25½ Zoll breit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reisescene / von Johann Lingelbach. / 21½ Zoll hoch, 25½ Zoll breit",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "q3u2c3diyzz8qy6"
+        }
+      ],
+      "source_id": "2qezmaoqbnkdv1z"
+    },
+    {
+      "annotation": "s. Textbezug INr 30129, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Van der Poel pinx. F. Geissler sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Van der Poel pinx. F. Geissler sculps.",
+      "scans": [
+        "alm_391_30128_w53empv79d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "gc1l1q1z8nsgqh4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "cw5ot9u3dqyyq7s",
+          "source_id": "n0ir25emdkuosgv"
+        }
+      ],
+      "source_id": "p449fnz49aknjn9"
+    },
+    {
+      "annotation": "s. Graphik INr 30128, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "So wie die Gewalt der Elemente überhaupt, so gewährt besonders das Feuer in seiner zerstörenden Macht",
+      "language": [],
+      "musenalm_id": 30129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Feuersbrunst / von Albert Poel. / Höhe 12 Zoll, Breite 15½ Zoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Feuersbrunst / von Albert Poel. / Höhe 12 Zoll, Breite 15½ Zoll",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "8lnat801y2jwmno"
+        }
+      ],
+      "source_id": "j2ec3mg8jvqyap6"
+    },
+    {
+      "annotation": "s. Textbezug INr 30131, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Van der Neer pinx. F. Geissler sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Van der Neer pinx. F. Geissler sculp.",
+      "scans": [
+        "alm_391_30130_qtn4cjlcb4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "1ts6wsz1djfwvnk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.629Z",
+          "agent": "gbrvv86uf21m6le",
+          "source_id": "hn8fae6vwtxfr3b"
+        }
+      ],
+      "source_id": "afb6mggcwj8tvta"
+    },
+    {
+      "annotation": "s. Graphik INr 30130, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Für die Malerei, die ihre Gebilde aus Farbe, Licht und Schatten webt, scheint es mit zu den Wagnissen zu gehören,",
+      "language": [],
+      "musenalm_id": 30131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mondscheinlandschaft / von Arthus van der Neer. / 9 Zoll hoch, 11¾ Zoll breit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mondscheinlandschaft / von Arthus van der Neer. / 9 Zoll hoch, 11¾ Zoll breit",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.361Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "u63xbds05eehi7r"
+        }
+      ],
+      "source_id": "zcvrymp0ug0c5y7"
+    },
+    {
+      "annotation": "s. Textbezug INr 30133, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Breughel pinx. Leopold Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Breughel pinx. Leopold Beyer sc.",
+      "scans": [
+        "alm_391_30132_owuz42qesa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.346Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "c6pci33kt8a29uy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.346Z",
+          "agent": "o3imsf4piuknw5h",
+          "source_id": "fiwvkozf7doe9xx"
+        }
+      ],
+      "source_id": "0qk7ta39etwt7oo"
+    },
+    {
+      "annotation": "s. Graphik INr 30132, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wohl belebt sich von selbst eine schöne Gegend nach ihrer Beschaffenheit für den Beschauer mit Gedanken und Empfindungen,",
+      "language": [],
+      "musenalm_id": 30133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruhe der heiligen Familie in Aegypten / von Johann Breughel. / Hoch 10½ franz. Zoll, breit 14¾ Zoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ruhe der heiligen Familie in Aegypten / von Johann Breughel. / Hoch 10½ franz. Zoll, breit 14¾ Zoll",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.346Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "r5wm9peyaf1s0a2"
+        }
+      ],
+      "source_id": "iwbvhkgstxe2wyc"
+    },
+    {
+      "annotation": "s. Textbezug INr 30135, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (O. Elliger pinx. Leop. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Elliger pinx. Leop. Beyer sc.",
+      "scans": [
+        "alm_391_30134_n6p599kyfs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.346Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "1jy2u808sui1um1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.346Z",
+          "agent": "6ikxu9agt75h5t0",
+          "source_id": "wcybnyowfttde39"
+        }
+      ],
+      "source_id": "kss8xnbvmll1r08"
+    },
+    {
+      "annotation": "s. Graphik INr 30134, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Der Gegenstand ist zu schmerzlich heilig, als daß die Prosa noch erklärende Worte darüber auszusprechen wagen dürfte.",
+      "language": [],
+      "musenalm_id": 30135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Christus am Kreuz / von O. Elliger. / Hoch 26 franz. Zoll, breit 20½ Zoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Christus am Kreuz / von O. Elliger. / Hoch 26 franz. Zoll, breit 20½ Zoll",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.347Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "qllsp1phb6tl5g2"
+        }
+      ],
+      "source_id": "cgaqo0nbyzmndb1"
+    },
+    {
+      "annotation": "s. Textbezug INr 30137, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (D. van Deelen pinx. Leop. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. van Deelen pinx. Leop. Beyer sc.",
+      "scans": [
+        "alm_391_30136_946oayylmb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.347Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "dlfjosh8xs474rv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.347Z",
+          "agent": "hds2rgliejv50u4",
+          "source_id": "xbds7nx3ccpsxvr"
+        }
+      ],
+      "source_id": "79mq7qdvknuyga8"
+    },
+    {
+      "annotation": "s. Graphik INr 30136, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Da die schöne Kunst in ihrer Gesamtheit dahin strebt, die ganze Schöpfung in einem herrlichen, uns deutlichern Lichte darzustellen",
+      "language": [],
+      "musenalm_id": 30137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Säulenhalle eines Palastes. / von D. van Deelen. / Hoch 25¾ Zoll, breit 20 Zoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Säulenhalle eines Palastes. / von D. van Deelen. / Hoch 25¾ Zoll, breit 20 Zoll",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.347Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "77rndejxjnw55b5"
+        }
+      ],
+      "source_id": "vivt75yofo56uje"
+    },
+    {
+      "annotation": "s. Textbezug INr 30139, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Palamedes pinx. Leop. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Palamedes pinx. Leop. Beyer sc.",
+      "scans": [
+        "alm_391_30138_apt3yqj0iv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.347Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "8p8rs6vqlyzg71v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.347Z",
+          "agent": "03714usknc9kzxi",
+          "source_id": "lhciwxgmoeg4z1q"
+        }
+      ],
+      "source_id": "gcst9ukqibqi9ga"
+    },
+    {
+      "annotation": "s. Graphik INr 39138, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.050Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Wenn schon das Volksleben überhaupt von den nach verschiedenen Neigungen in einander wirkenden Kräften",
+      "language": [],
+      "musenalm_id": 30139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Feldlager / von Palamedes. / Hoch 8¼ franz. Zoll, breit 13 Zoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Feldlager / von Palamedes. / Hoch 8¼ franz. Zoll, breit 13 Zoll",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.452Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "x4fiie0jkz3q7w2"
+        }
+      ],
+      "source_id": "q83tf1vsaga376w"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30141, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In der alten und berühmten Stadt Braunschweig fiel im Anfang des sechszehnten Jahrhunderts jedem Reisenden",
+      "language": [],
+      "musenalm_id": 30140,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eva von Troth. / Eine / historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eva von Troth. / Eine / historische Erzählung",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.452Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "d1w9st0hbfk76ti"
+        }
+      ],
+      "source_id": "395c1iucnu6a6t6"
+    },
+    {
+      "annotation": "Illustration zu »Eva von Troth« von W. Blumenhagen INr 30140, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30141,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Eva von Troth Eine historische / Erzählung von W. Blumenhagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_391_30141_evhawm84c6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Eva von Troth Eine historische / Erzählung von W. Blumenhagen",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.452Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "jk58s4xf6rh40dz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.452Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ys69p247xdmkmu6"
+        }
+      ],
+      "source_id": "olduslcur2g5ilf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Wo bist du hin du süßer Maientraum, / Du Unschuldwelt voll Anmuth, Licht und Freude?",
+      "language": [],
+      "musenalm_id": 30142,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonst und jetzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonst und jetzt",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.452Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "z3i4ocsrokynpp4"
+        }
+      ],
+      "source_id": "v38e67pg6xehuxw"
+    },
+    {
+      "annotation": "mit zwei Illustrationen s. Graphiken INr 30144, 30150; Obj 25, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Die Reihe des freundlichen Mittwochabendkränzchens traf nun Kommerzienraths und das Erzählen einer Begebenheit aus dem eigenen Leben gerade auch ihn, den Wirth.",
+      "language": [],
+      "musenalm_id": 30143,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das stille Wasser. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Weisflog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das stille Wasser. / Erzählung",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.452Z",
+          "agent": "iv41ps6uccpba1n",
+          "source_id": "hip283sjtl4w9b1"
+        }
+      ],
+      "source_id": "gsak7e8z1b0q0xf"
+    },
+    {
+      "annotation": "Illustration zu »Das stille Wasser« von C. Weisflog INr 30143, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30144,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Das stille Wasser. Erzählung von / C. Weisflog",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_391_30144_5blkybbc26.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Das stille Wasser. Erzählung von / C. Weisflog",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.453Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "02qix2o2kk5bauz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.453Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "d5pzuq8vetd8sgd"
+        }
+      ],
+      "source_id": "a001q2cjgv5v6qv"
+    },
+    {
+      "annotation": "Illustration zu »Das stille Wasser« von C. Weisflog INr 30143, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30150,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Das stille Wasser. Erzählung von / C. Weisflog",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_391_30150_h68elhhq2z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Das stille Wasser. Erzählung von / C. Weisflog",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "4ci1zsusvagu0fx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "wdiliisroy9ad21"
+        }
+      ],
+      "source_id": "ouama17djpd1mdo"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30146, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Anmuthig liegt ein Dorf an eines Baches Rand, / Umschattet von Gebüsch, umtönt von Nachtigallen.",
+      "language": [],
+      "musenalm_id": 30145,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die alte Schlange. / Ein Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die alte Schlange. / Ein Schwank",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.453Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "qa7bmruu2157thp"
+        }
+      ],
+      "source_id": "s47q01inzksvh0k"
+    },
+    {
+      "annotation": "Illustration zu »Die alte Schlange« von F. A. E. Langbein INr 30145, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30146,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Die alte Schlange. Ein Schwanck / von A. F. E. Langbein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec",
+      "scans": [
+        "alm_391_30146_9qjoj2ue3e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Die alte Schlange. Ein Schwanck / von A. F. E. Langbein",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "4g78l15t45hfndf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "u2wz8bxt41srpet"
+        }
+      ],
+      "source_id": "wu8vp1m4qf23x4c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30148, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Eine schöne Morgenröthe, der die blendensten Strahlen der Sonne belebend folgten, ging einst über Portugall auf.",
+      "language": [],
+      "musenalm_id": 30147,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Durch den / Nebel dringt ein Stern. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Durch den / Nebel dringt ein Stern. / Erzählung",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "voqvv32lifqd442"
+        }
+      ],
+      "source_id": "mha960xvrkakpmo"
+    },
+    {
+      "annotation": "Illustration zu »Durch den Nebel dringt ein Stern« von Fr. Lohmann INr 30147, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.689Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30148,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Durch den Nebel dringt ein Stern. / Erzählung von Friederike Lohmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_391_30148_plh1avf8zt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Durch den Nebel dringt ein Stern. / Erzählung von Friederike Lohmann",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "0arttxjdsrsb7v2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "avt08yv3lhk636e"
+        }
+      ],
+      "source_id": "vj48vduo3wdmruf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Der Baron von Thurnau hatte endlich den zärtlichen Bitten seiner Schwester, der verwittweten Frau von Waltersdorf, und den dringendsten Vorstellungen seines Arztes nachgegeben.",
+      "language": [],
+      "musenalm_id": 30149,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Amulett, / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Borromäus von Miltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Amulett, / Erzählung",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.410Z",
+          "agent": "e36ydmk4x9m4umt",
+          "source_id": "e7v4rm43sw2yxh4"
+        }
+      ],
+      "source_id": "lvuj17hnr2k6ds4"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32497,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRANKFURT a/M. / bei Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Walther sc. Nbg 1826",
+      "scans": [
+        "alm_391_32497_skewscez0w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRANKFURT a/M. / bei Friedrich Wilmans",
+      "updated": "2002-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.673Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "518z83m3fs2ys64"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.673Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "b6eddw2f2ezod3i"
+        }
+      ],
+      "source_id": "rknel4qfnh0rmdm"
+    }
   ],
   "agents": [
     {

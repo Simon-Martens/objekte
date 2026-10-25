@@ -48,7 +48,26 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "3weitaysly3x9ig"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.692Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200394",
+      "location": "105R03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.692Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3weitaysly3x9ig"
+    }
   ],
   "contents": [],
   "agents": [

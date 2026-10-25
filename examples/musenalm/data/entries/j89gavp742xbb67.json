@@ -48,18 +48,377 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "fcryjq9ybwhxw0a"
+    {
+      "annotation": "§ Standort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.650Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404897",
+      "location": "105C07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.650Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fcryjq9ybwhxw0a"
+    }
   ],
   "contents": [
-    "7syevcofjlksz1e",
-    "wj6ux6o839dqy7n",
-    "rvwtb59m257wl0a",
-    "0v7iot9wwuwzzjb",
-    "e4drrapnynlofdd",
-    "1qo7l1et0owfb9k",
-    "dvrw616w5un10ws",
-    "wyc5h65z70aakhc",
-    "s9h38cjev6aghhg"
+    {
+      "annotation": "UG r",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2727_130822_l2986kghc0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "7syevcofjlksz1e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / dramatischer Blüthen / für / das Jahr 1825 / von / GEORG HARRYS. / Erster Jahrgang. / Hannover / in der Hahn’schen Hofbuchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2727_130823_lev0p3x72s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / dramatischer Blüthen / für / das Jahr 1825 / von / GEORG HARRYS. / Erster Jahrgang. / Hannover / in der Hahn’schen Hofbuchhandlung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "wj6ux6o839dqy7n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Teutschlands genialem, unerschöpflichen Moliere, dem zu früh vollendeten Kotzebue, verdanken wir die Entstehung dramatischer Taschenbücher.",
+      "language": [],
+      "musenalm_id": 130824,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Harrys",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.053Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.053Z",
+          "agent": "qca9htaeoraxkt9",
+          "source_id": "wlugd173mco3jqi"
+        }
+      ],
+      "source_id": "rvwtb59m257wl0a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130825,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "0v7iot9wwuwzzjb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Was seh’ ich! Sie, Herr Güldner? So früh Morgens – / Guten Morgen, Mademoiselle Caroline!",
+      "language": [],
+      "musenalm_id": 130826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der reiche Künstler / und / der arme Millionair. / Lustspiel in einem Act, / von / Georg Harrys",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Harrys",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der reiche Künstler / und / der arme Millionair. / Lustspiel in einem Act, / von / Georg Harrys",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.053Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.053Z",
+          "agent": "qca9htaeoraxkt9",
+          "source_id": "ek1xeldawyruhn1"
+        }
+      ],
+      "source_id": "e4drrapnynlofdd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Heda! Eisenhart! Eisenhart! Nun! wo steckst du mein Haushofmeister? / Hier! Herr Rittmeister.",
+      "language": [],
+      "musenalm_id": 130827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Pulvertonne / Lustspiel mit Gesang / in einem Act, / von / Georg Harrys / Zum ersten Male aufgeführt auf dem Königlichen / Hoftheater zu Hannover am 25sten Januar 1824",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Harrys",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Pulvertonne / Lustspiel mit Gesang / in einem Act, / von / Georg Harrys / Zum ersten Male aufgeführt auf dem Königlichen / Hoftheater zu Hannover am 25sten Januar 1824",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.053Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.053Z",
+          "agent": "qca9htaeoraxkt9",
+          "source_id": "ty90c4u0bo43ha9"
+        }
+      ],
+      "source_id": "1qo7l1et0owfb9k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Wer da? / Gut Freund! / Parole? / Ferdinand!",
+      "language": [],
+      "musenalm_id": 130828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schildwache. / Schauspiel in zwey Acten / von / Carl Ludwig Kaibel, / Königlichem Hannoverschen Hofschauspieler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Ludwig Kaibel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schildwache. / Schauspiel in zwey Acten / von / Carl Ludwig Kaibel, / Königlichem Hannoverschen Hofschauspieler",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "dvrw616w5un10ws"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Compagnie! vor Euch! / Vor Euch! / Kolberg! / Hier! / Strohbein / Hier!",
+      "language": [],
+      "musenalm_id": 130829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tanz- und Reitstunde. / Posse in einem Act, / von / Georg Harrys",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Harrys",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tanz- und Reitstunde. / Posse in einem Act, / von / Georg Harrys",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.053Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.053Z",
+          "agent": "qca9htaeoraxkt9",
+          "source_id": "u2q7q3pyh1xcyd6"
+        }
+      ],
+      "source_id": "wyc5h65z70aakhc"
+    },
+    {
+      "annotation": "UG v",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130831,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2727_130831_34iz1i3ndp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "s9h38cjev6aghhg"
+    }
   ],
   "agents": [
     {

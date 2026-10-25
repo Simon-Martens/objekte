@@ -1,7 +1,11 @@
+pub(crate) mod embedded;
 pub mod list;
 pub(crate) mod markdown_source;
 pub(crate) mod metadata;
 pub(crate) mod preview;
+pub(crate) mod record_table;
+pub(crate) mod references;
+pub(crate) mod search;
 pub(crate) mod table;
 pub mod validation;
 use crate::templates::Template;
@@ -36,11 +40,16 @@ struct Shell<'a> {
     content: &'a str,
     assets: &'a str,
     preferences: String,
+    language_picker: String,
 }
 pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
     navigation_with_heading(editor, workspace, None)
 }
-fn navigation_with_heading(editor: &Editor, workspace: &str, heading: Option<&str>) -> Result<String> {
+fn navigation_with_heading(
+    editor: &Editor,
+    workspace: &str,
+    heading: Option<&str>,
+) -> Result<String> {
     // The section key is emitted by our workspace templates, never inferred by browser code.
     let section = workspace
         .split_once("data-section=\"")
@@ -103,7 +112,7 @@ fn navigation_with_heading(editor: &Editor, workspace: &str, heading: Option<&st
             group_order,
             ui["position"].as_i64().unwrap_or(0),
             group.into(),
-            ui["sidebarLabel"].as_str().unwrap_or(&c.label).into(),
+            crate::i18n::text(ui, "sidebarLabel", crate::i18n::text(ui, "label", &c.label)).into(),
             format!("/collections/{}", encode(name)),
             tree,
             ui["allCollection"]
@@ -157,7 +166,9 @@ fn navigation_with_heading(editor: &Editor, workspace: &str, heading: Option<&st
         "<a href=\"/\" data-nav class=\"repository-heading\" aria-label=\"Repository root\"><i class=\"ri-git-repository-line\" aria-hidden=\"true\"></i><div><span class=\"eyebrow\">Repository</span><strong>{}</strong></div></a>",
         escape(&repository)
     );
-    let mut html = format!("<aside id=\"project-navigation\">{}<nav aria-label=\"Repository navigation\">", heading.unwrap_or(&default_heading));
+    let mut html = format!(
+        "<aside id=\"project-navigation\">{}<nav aria-label=\"{ui_text_0}\">",
+        heading.unwrap_or(&default_heading), ui_text_0 = crate::views::escape(&crate::i18n::t("Repository navigation")));
     let mut last = String::new();
     for (_, _, group, label, url, tree, all_url, icon, show_root_all) in items {
         if group != last {
@@ -167,7 +178,7 @@ fn navigation_with_heading(editor: &Editor, workspace: &str, heading: Option<&st
                     editor.config().ui["groups"]
                         .as_array()
                         .and_then(|v| v.iter().find(|g| g["name"] == group))
-                        .and_then(|g| g["label"].as_str())
+                        .map(|g| crate::i18n::text(g, "label", &group))
                         .unwrap_or(&group)
                 )
             );
@@ -212,10 +223,9 @@ fn navigation_with_heading(editor: &Editor, workspace: &str, heading: Option<&st
         html += tree;
     }
     html += &format!(
-        "<p class=\"eyebrow\">Workspace</p><a data-nav href=\"/documents\"{}><i class=\"ri-braces-line\" aria-hidden=\"true\"></i><span>JSON documents</span></a><a data-nav href=\"/settings\"{}><i class=\"ri-settings-3-line\" aria-hidden=\"true\"></i><span>Editor settings</span></a></nav><div class=\"sidebar-footer mono\"><span class=\"status-dot\"></span>Repository workspace</div></aside>",
+        "<p class=\"eyebrow\">{ui_text_0}</p><a data-nav href=\"/documents\"{}><i class=\"ri-braces-line\" aria-hidden=\"true\"></i><span>{ui_text_1}</span></a><a data-nav href=\"/settings\"{}><i class=\"ri-settings-3-line\" aria-hidden=\"true\"></i><span>{ui_text_2}</span></a></nav><div class=\"sidebar-footer mono\"><span class=\"status-dot\"></span>{ui_text_3}</div></aside>",
         current("/documents"),
-        current("/settings")
-    );
+        current("/settings"), ui_text_0 = crate::views::escape(&crate::i18n::t("Workspace")), ui_text_1 = crate::views::escape(&crate::i18n::t("JSON documents")), ui_text_2 = crate::views::escape(&crate::i18n::t("Editor settings")), ui_text_3 = crate::views::escape(&crate::i18n::t("Repository workspace")));
     Ok(html)
 }
 fn tree_navigation(editor: &Editor, name: &str, show_all_links: bool) -> Result<String> {
@@ -267,8 +277,16 @@ fn tree_navigation(editor: &Editor, name: &str, show_all_links: bool) -> Result<
     );
     Ok(html)
 }
-pub(crate) fn project_navigation(state: &crate::AppState, actor: &Actor, content: &str) -> Result<String> {
-    navigation_with_heading(&state.editor, content, Some(&crate::projects::chooser(state, actor)))
+pub(crate) fn project_navigation(
+    state: &crate::AppState,
+    actor: &Actor,
+    content: &str,
+) -> Result<String> {
+    navigation_with_heading(
+        &state.editor,
+        content,
+        Some(&crate::projects::chooser(state, actor)),
+    )
 }
 pub fn shell(state: &crate::AppState, actor: &Actor, content: &str) -> Result<String> {
     let editor = &state.editor;
@@ -279,6 +297,7 @@ pub fn shell(state: &crate::AppState, actor: &Actor, content: &str) -> Result<St
         content,
         assets: &assets.tags,
         preferences: crate::preferences::fragment(editor),
+        language_picker: crate::i18n::chooser(state, actor),
     }
     .render()?)
 }
@@ -343,11 +362,7 @@ struct RecordView<'a> {
     can_update: bool,
 }
 pub(crate) fn record_kind(editor: &Editor, name: &str) -> Result<String> {
-    Ok(editor.config().collection(name)?.ui["singularLabel"]
-        .as_str()
-        .filter(|s| !s.trim().is_empty())
-        .unwrap_or("record")
-        .to_owned())
+    Ok(crate::i18n::text(&editor.config().collection(name)?.ui, "singularLabel", "record").to_owned())
 }
 pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<String> {
     record_at(editor, name, id, actor, &std::collections::HashMap::new())
@@ -365,7 +380,15 @@ pub fn record_at(
     let projected = editor.view_value(name, &doc.value)?;
     let draft = editor.draft(name, &doc.value)?;
     let url = record_url(name, id);
-    let content = crate::tree::preview(editor, &draft, &projected, &url, path);
+    let content = crate::tree::preview_with_options(
+        editor,
+        &draft,
+        &projected,
+        &url,
+        path,
+        params,
+        actor.editable() && editor.allows(name, "update"),
+    );
     Ok(RecordView {
         record_kind: record_kind(editor, name)?,
         view_url: table::query_url(&url, params),
@@ -375,100 +398,20 @@ pub fn record_at(
         can_update: actor.editable() && editor.allows(name, "update"),
         url: url.clone(),
         back: format!("/collections/{}", encode(name)),
-        back_label: editor.config().collection(name)?.label.clone(),
+        back_label: crate::i18n::collection(editor, name),
         content,
         children: crate::hierarchy::sections(editor, name, id, actor, params)?,
         parents: crate::hierarchy::parents(editor, name, id)?,
         delete: format!("{url}/delete"),
         actor: actor.into(),
-        // A fresh element on every workspace patch restarts the panel after
-        // membership edits and prevents a previous record's response being reused.
-        references: format!("<record-references id=\"references-{}\" data-url=\"{url}/references\"><p class=\"muted\" role=\"status\">Loading incoming references…</p></record-references>", uuid::Uuid::new_v4().simple()),
+        // This is a record-level tool; table/row navigation should not scan the
+        // catalogue or display links to the parent record below a nested item.
+        references: if path.is_empty() {
+            format!("<record-references hidden id=\"references-{}-{}-{}\" data-ignore-morph data-url=\"{url}/references\"></record-references>", encode(name), encode(id), doc.revision)
+        } else { String::new() },
     }
     .render()?)
 }
-/// A separate fragment keeps cold backlink indexing off the record's critical path.
-pub fn record_references(editor: &Editor, name: &str, id: &str, offset: usize) -> Result<String> {
-    editor.require_operation(name, "read")?;
-    editor.get(name, id)?;
-    let parents = editor.parent_links(name, id)?;
-    let references: Vec<_> = editor
-        .cached_references_to(name, id)?
-        .into_iter()
-        .filter(|reference| {
-            reference.document.is_some()
-                || !parents.iter().any(|parent| {
-                    parent.collection == reference.collection
-                        && parent.id == reference.record_id
-                        && reference.path.starts_with(&format!(
-                            "/{}/",
-                            parent.field.replace('~', "~0").replace('/', "~1")
-                        ))
-                })
-        })
-        .collect();
-    if references.is_empty() {
-        return Ok("<p class=\"muted\">No incoming references.</p>".into());
-    }
-    let limit = 100;
-    let offset = offset.min((references.len() - 1) / limit * limit);
-    let mut html = format!(
-        "<section class=\"surface references-panel\"><div class=\"section-heading\"><h2><i class=\"ri-links-line\" aria-hidden=\"true\"></i>Incoming references</h2><span class=\"badge\">{}</span></div><ul>",
-        references.len()
-    );
-    for reference in references.iter().skip(offset).take(limit) {
-        let url = reference
-            .document
-            .as_ref()
-            .map(|name| {
-                if name.is_empty() {
-                    "/settings".into()
-                } else {
-                    format!(
-                        "/documents/{}?file={}",
-                        encode(name),
-                        encode(&reference.record_id)
-                    )
-                }
-            })
-            .unwrap_or_else(|| record_url(&reference.collection, &reference.record_id));
-        html += &format!(
-            "<li><a data-nav href=\"{}\">{}/{}</a> at {}</li>",
-            escape(&url),
-            escape(&reference.collection),
-            escape(&reference.record_id),
-            escape(&reference.path)
-        );
-    }
-    html += "</ul>";
-    if references.len() > limit {
-        html += &format!(
-            "<nav class=\"actions\" aria-label=\"Incoming references pages\"><span>{}–{} of {}</span>",
-            offset + 1,
-            (offset + limit).min(references.len()),
-            references.len()
-        );
-        for (label, next) in [
-            ("Previous", offset.checked_sub(limit)),
-            (
-                "Next",
-                (offset + limit < references.len()).then_some(offset + limit),
-            ),
-        ] {
-            if let Some(next) = next {
-                html += &format!(
-                    "<a class=\"button quiet small\" data-reference-page href=\"{}/references?offset={}\">{}</a>",
-                    record_url(name, id),
-                    next,
-                    label
-                );
-            }
-        }
-        html += "</nav>";
-    }
-    Ok(html + "</section>")
-}
-
 crate::templates::template!(Edit<'_>, "edit.html");
 #[derive(serde::Serialize)]
 struct Edit<'a> {
@@ -481,6 +424,8 @@ struct Edit<'a> {
     can_redo: bool,
     actor: crate::templates::ActorContext<'a>,
     fields: String,
+    tables: String,
+    table_page: usize,
     metadata: String,
     schema_revision: Option<String>,
     sidebar_fields: String,
@@ -503,6 +448,8 @@ struct SessionContext<'a> {
     raw: &'a Option<String>,
     schema_warning: bool,
     document: bool,
+    nested: bool,
+    creating: bool,
 }
 pub fn edit(
     editor: &Editor,
@@ -523,7 +470,26 @@ pub fn edit_with_kind(
     message: &str,
     message_kind: &str,
 ) -> Result<String> {
-    let value = session.value().unwrap_or(serde_json::json!({}));
+    let value = session.value().unwrap_or_else(|_| {
+        if session.draft.root_value {
+            session
+                .draft
+                .fields
+                .first()
+                .map(crate::tree::snapshot)
+                .unwrap_or(serde_json::Value::Null)
+        } else {
+            serde_json::Value::Object(
+                session
+                    .draft
+                    .fields
+                    .iter()
+                    .filter(|f| f.present)
+                    .map(|f| (f.key.clone(), crate::tree::snapshot(f)))
+                    .collect(),
+            )
+        }
+    });
     let selected = session
         .draft
         .at_path(&session.view_path)
@@ -536,10 +502,16 @@ pub fn edit_with_kind(
         preview: &session.preview,
         session: &session.id,
         version: session.version,
+        table_offsets: &session.table_offsets,
+        table_search: &session.table_search,
+        revealed_fields: &session.revealed_fields,
         issues,
     };
     let mut fields = String::new();
     let mut metadata = String::new();
+    let mut secondary = String::new();
+    let mut optional = String::new();
+    let mut tables = String::new();
     let schema_revision = session
         .draft
         .fields
@@ -564,22 +536,34 @@ pub fn edit_with_kind(
         .map(|f| vec![f])
         .unwrap_or_else(|| session.draft.fields.iter().collect());
     for field in shown {
-        if !field.present && !field.hidden && !field.read_only && field.key != "_editor" {
+        if !field.present
+            && !field.hidden
+            && !field.read_only
+            && !crate::fields::required_control(field)
+            && field.key != "_editor"
+        {
             available_fields += &format!(
-                "<button class=\"menu-action add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><span>{}</span><small>{}</small></button>",
+                "<button class=\"menu-action add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><span>{}</span></button>",
                 session.id,
                 field.id,
-                escape(field.schema["title"].as_str().unwrap_or(&field.key)),
-                escape(
-                    field.schema["x-editor"]
-                        .as_str()
-                        .or_else(|| field.schema["type"].as_str())
-                        .unwrap_or("value")
-                )
+                escape(crate::i18n::field(&field.schema, &field.key))
             );
         }
+        let path = if selected.is_some() {
+            session.view_path.clone()
+        } else if session.draft.root_value {
+            String::new()
+        } else {
+            structured_editor_core::draft::child_path("", &field.key)
+        };
         let destination = if field.key == "_editor" {
             &mut metadata
+        } else if embedded::is_table(field) {
+            &mut tables
+        } else if !field.required && !session.revealed_fields.contains(&field.id) && field.schema["x-presentation"]["secondary"] == true {
+            &mut secondary
+        } else if selected.is_none() && crate::fields::empty_optional(field, &path, &context) {
+            &mut optional
         } else if ui
             .pointer("/edit/sidebarFields")
             .and_then(|v| v.as_array())
@@ -589,19 +573,10 @@ pub fn edit_with_kind(
         } else {
             &mut fields
         };
-        destination.push_str(&registry.render(
-            field,
-            &if selected.is_some() {
-                session.view_path.clone()
-            } else if session.draft.root_value {
-                String::new()
-            } else {
-                format!("/{}", field.key.replace('~', "~0").replace('/', "~1"))
-            },
-            &context,
-            false,
-        )?);
+        destination.push_str(&registry.render(field, &path, &context, false)?);
     }
+    fields += &crate::fields::details(&crate::i18n::t("More fields"), &optional);
+    fields += &crate::fields::details(&crate::i18n::t("Additional details"), &secondary);
     // Root system controls remain available while editing another subtree.
     if selected.is_some() && metadata.is_empty() {
         if let Some(field) = session.draft.fields.iter().find(|f| f.key == "_editor") {
@@ -611,15 +586,7 @@ pub fn edit_with_kind(
     fields = format!(
         "{}{}{}",
         crate::tree::edit_navigation(session),
-        if selected.is_some() {
-            format!(
-                "<button class=\"small\" formaction=\"/edit-sessions/{}/browse-root\">Back to document root</button><p class=\"mono\">{}</p>",
-                session.id,
-                escape(&session.view_path)
-            )
-        } else {
-            String::new()
-        },
+        crate::tree::edit_breadcrumbs(editor, session),
         fields
     );
     Ok(Edit {
@@ -630,6 +597,8 @@ pub fn edit_with_kind(
             raw: &session.raw,
             schema_warning: session.schema_warning,
             document: session.document.is_some(),
+            nested: selected.is_some(),
+            creating: session.record_id.is_empty(),
         },
         edit_url: session.edit_url(),
         draft_key: session.edit_key(),
@@ -639,6 +608,12 @@ pub fn edit_with_kind(
         can_redo: session.history.can_redo(),
         actor: actor.into(),
         fields,
+        tables,
+        table_page: selected
+            .filter(|f| embedded::is_table(f))
+            .and_then(|f| session.table_offsets.get(&f.id))
+            .copied()
+            .unwrap_or(0),
         metadata,
         schema_revision,
         sidebar_fields,
@@ -667,16 +642,12 @@ pub fn edit_with_kind(
                 "record",
             )?
         } else {
-            editor
-                .config()
-                .collection(&session.collection)?
-                .label
-                .clone()
+            crate::i18n::collection(editor, &session.collection)
         },
         title: if let Some((_, file)) = &session.document {
             file.clone()
         } else if session.record_id.is_empty() {
-            format!("New {}", ui["singularLabel"].as_str().unwrap_or("record"))
+            crate::i18n::message("New {type}", &[("type", crate::i18n::text(ui,"singularLabel","record"))])
         } else {
             editor.label(&session.collection, &value, &session.record_id, "record")?
         },
@@ -788,5 +759,16 @@ struct DraftExit<'a> {
 }
 crate::templates::template!(DraftExit<'_>, "draft-exit.html");
 pub fn draft_exit(session: &EditSession) -> Result<String> {
-    DraftExit { session: std::collections::HashMap::from([("id", session.id.as_str())]), dirty: session.dirty() }.render()
+    DraftExit {
+        session: std::collections::HashMap::from([("id", session.id.as_str())]),
+        dirty: session.dirty(),
+    }
+    .render()
+}
+
+crate::templates::template!(Header<'_>, "header.html");
+#[derive(serde::Serialize)]
+struct Header<'a> { actor: crate::templates::ActorContext<'a>, language_picker: String }
+pub fn header(state: &crate::AppState, actor: &Actor) -> Result<String> {
+    Header { actor: actor.into(), language_picker: crate::i18n::chooser(state, actor) }.render()
 }

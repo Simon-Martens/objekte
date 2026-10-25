@@ -48,69 +48,2631 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "axlhan02hen8ocv"
+    {
+      "annotation": "1824-1827, Hg Fr. Gräffer und 1828-1858, Hg J.G.Seidel (1832 nicht ersch.).",
+      "condition": "1b",
+      "created": "2026-06-11 10:17:37.562Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106421",
+      "location": "105B10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.562Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "axlhan02hen8ocv"
+    }
   ],
   "contents": [
-    "ongwkcmbs3io31i",
-    "sefxvm8jmhukarz",
-    "593lxbxv6ihsdkg",
-    "j1dzcngga268kg3",
-    "f8lydju0a50zsnt",
-    "lhe9n6i5eofd4qy",
-    "hzkeixrm3jtujy3",
-    "0339lt7hxu9nghc",
-    "1mqnf9lqn6wmxh7",
-    "p1qays553vedyxc",
-    "rhil9bxehdiyyzn",
-    "98bmc7iu0lwrckd",
-    "sf5j56lfa4xwls8",
-    "3bi773iqz6kvqbi",
-    "pvh08870l93kv8x",
-    "eknd5ltt1il3y3d",
-    "zx6tq9dvz7fyzzy",
-    "cb3sy9x9bu1azzh",
-    "xvauxe8e1t10tzm",
-    "xuqwqu39gbij1mn",
-    "p5awz4abtaobfle",
-    "kzix8vntji1tb5l",
-    "4rdqz2s4094x65r",
-    "v6bro0je9ymc4ki",
-    "svnr3emrw0c1wyb",
-    "9tkv5q8dgmvmjaq",
-    "gr46w2az2jw1xkf",
-    "qs5nrg598ooyoqw",
-    "jl2vepr5d197upe",
-    "f4hgrzecx9v14ju",
-    "s5ehvp6waegpzns",
-    "1y3xwqb1dgslmkn",
-    "re1rxjyej99v3zz",
-    "11saoyez13c8mah",
-    "8zf0vi8ta5w54xw",
-    "vnuti832xl0cwdz",
-    "9xlsi7rjdh481cz",
-    "bq0hp76r2yj9yeg",
-    "idhp9jt8mkph36i",
-    "auvkigpreez2am6",
-    "yzms8rf291hp4re",
-    "5ucbe9mgz9cxpdn",
-    "c7bxtk60iiju30i",
-    "9y4muqjdgiam1sy",
-    "gqsycbsjx9og70i",
-    "mqdsxnsqmb6kfss",
-    "9nbt3hece85g1yu",
-    "pe7ixu6ggp2q8sj",
-    "b4jxyvvagta3v4s",
-    "u5bv8t80kwd75o8",
-    "uontc2qx06hnf27",
-    "h6qdom0cc11mzcw",
-    "ahip7piehn28osh",
-    "4ir6dvxkc3tch2x",
-    "kq4xstttgwjmwxp",
-    "bv3oop7yqkhhva8",
-    "3esavfux627zh3a",
-    "kd4svybjdicc49r",
-    "hlvi27r6ta5ares",
-    "jh7nbwwj8brepcs"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93005,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1588_93005_syhz5gkiyo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "ongwkcmbs3io31i"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Rosalia von Domaso« von Schmid von Pihl INr 93036, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93006,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSALIA VON DOMASO",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1588_93006_8fk5l8e2qo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSALIA VON DOMASO",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.481Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "70gpmtltptiy01o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.482Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "ndkyfs79ayvs7tm"
+        }
+      ],
+      "source_id": "sefxvm8jmhukarz"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.293Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93007,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA / Taschenbuch / für / das Jahr / 1834. / Herausgegeben / von / JOHANN GABRIEL SEIDL. / Zehnter Jahrgang. / WIEN / bei Heinrich Buchholz, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl sc.",
+      "scans": [
+        "alm_1588_93007_9alffbu0uo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA / Taschenbuch / für / das Jahr / 1834. / Herausgegeben / von / JOHANN GABRIEL SEIDL. / Zehnter Jahrgang. / WIEN / bei Heinrich Buchholz, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "593lxbxv6ihsdkg"
+    },
+    {
+      "annotation": "paginiert S. 34 /) Illustration zu »Standesverhältnisse« von H. W. Adelmi INr 93017, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93008,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Standesverhältnisse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. M. Hofmann sc. Viennae",
+      "scans": [
+        "alm_1588_93008_2z320j2f5u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Standesverhältnisse",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "764m84nqt65ib67"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "xgrhmnh56a0akgv"
+        }
+      ],
+      "source_id": "j1dzcngga268kg3"
+    },
+    {
+      "annotation": "paginiert S. 120 /) Illustration zu »Tod für Tod« von Hugo vom Schwarthale INr 93033, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93009,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tod für Tod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. M. Hofmann sc. Viennae",
+      "scans": [
+        "alm_1588_93009_7ung4w41jw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tod für Tod",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "10ivxndgmnjwnic"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.488Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "73klext87kazvak"
+        }
+      ],
+      "source_id": "f8lydju0a50zsnt"
+    },
+    {
+      "annotation": "paginiert S. 126 /) Illustration zu »Der Ritter und die Dryas« von Emmy *** INr 93034, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93010,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ritter und die Dryas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. M. Hofmann sc.",
+      "scans": [
+        "alm_1588_93010_9jcgy1we1e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Ritter und die Dryas",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.488Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "93dtbxvzl9c0b5h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.488Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "lnvuuvxydd3p5x5"
+        }
+      ],
+      "source_id": "lhe9n6i5eofd4qy"
+    },
+    {
+      "annotation": "paginiert S. 175 /) Illustration zu »Der Kampf um die Braut « von J. G. Seidl INr 93042, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93011,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kampf um die Braut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. M. Hofmann sc.",
+      "scans": [
+        "alm_1588_93011_kkkdqaer6g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Kampf um die Braut",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.641Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "inb97v946txe64u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.641Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "ucbcrc76q0k9l27"
+        }
+      ],
+      "source_id": "hzkeixrm3jtujy3"
+    },
+    {
+      "annotation": "paginiert S. 185 /) Illustration zu »Dö B'stellung« von J. G. Seidl INr 93044, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93012,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwoa Bild'ln von der Alm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rieder del. G. Leybold sc.",
+      "scans": [
+        "alm_1588_93012_015yy803ah.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwoa Bild'ln von der Alm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "cfs233tpmjhdla0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "mya1rsg8bhkinc3"
+        }
+      ],
+      "source_id": "0339lt7hxu9nghc"
+    },
+    {
+      "annotation": "paginiert S. 189 /) Illustration zu » 'S End vom Liad« von J. G. Seidl INr 93045, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93013,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwoa Bild'ln von der Alm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rieder del. G. Leybold sc.",
+      "scans": [
+        "alm_1588_93013_zf4sb0trry.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwoa Bild'ln von der Alm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "c8us7kivw7ghgh1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "wswlfwd3xh9bulh"
+        }
+      ],
+      "source_id": "1mqnf9lqn6wmxh7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93014,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer Excellenz / der / Hochwohlgeborenen Frau Frau / Magdalena / Freiin von Schmidburg, / gebornen Freiin von Born, / geheimen Rathsfrau und Gouverneurs-Gattin / etc / ehrfurchtsvoll gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "vom Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer Excellenz / der / Hochwohlgeborenen Frau Frau / Magdalena / Freiin von Schmidburg, / gebornen Freiin von Born, / geheimen Rathsfrau und Gouverneurs-Gattin / etc / ehrfurchtsvoll gewidmet",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9paktp6r9ltkepw"
+        }
+      ],
+      "source_id": "p1qays553vedyxc"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nicht für sein eig'nes Haus allein erzieht / Der Blumenfreund die lieben Blumenspenden:",
+      "language": [],
+      "musenalm_id": 93015,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nicht für sein eig'nes Haus allein erzieht / Der Blumenfreund die lieben Blumenspenden:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "s93adpgrx9shmnq"
+        }
+      ],
+      "source_id": "rhil9bxehdiyyzn"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aurora",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "98bmc7iu0lwrckd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 93008, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Auf dem glänzende Balle, mit dem der Banquier Freiher von Wiesenborn die Reihe seiner Faschingssoireen schloß, waren schon lange die letzten Töne der Musik verklungen;",
+      "language": [],
+      "musenalm_id": 93017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Standesverhältnisse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Adelmi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Standesverhältnisse",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "sf5j56lfa4xwls8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Ei seht mir doch das liebe Mädchen dort, / Wie sanft es schlummert unterm Haselbusch!",
+      "language": [],
+      "musenalm_id": 93018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schlummernde. / Dramatisches Bild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aus Professor Eugen Wessely's Nachlasse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schlummernde. / Dramatisches Bild",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "3bi773iqz6kvqbi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Was lauscht doch wol der Knabe / Herab in's stille Thal?",
+      "language": [],
+      "musenalm_id": 93019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Hirtenknabe. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Hirtenknabe. / Romanze",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "tilqoap0i4dsr1x"
+        }
+      ],
+      "source_id": "pvh08870l93kv8x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Was bist du denn heute so ruhig, / Du alte stürmische Flut;",
+      "language": [],
+      "musenalm_id": 93020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Seeräuber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ad. Ritter v. Tschabuschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Seeräuber",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "snndqassjoh7vf0",
+          "source_id": "ghjvctsixbyhspk"
+        }
+      ],
+      "source_id": "eknd5ltt1il3y3d"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Was uns auch nehmen mag der Neid, / Den ernsten Sinn in heit'rer Zeit; [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Es ist doch etwas ganz Eigenes um einen Ausflug in das Freie, zu welchem sich eine Trias, oder eine Mehrzahl von Schriftstellern verbindet.",
+      "language": [],
+      "musenalm_id": 93021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Testament. / Bild aus dem Dichterleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Testament. / Bild aus dem Dichterleben",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.642Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "fzjowns7z85mc2k"
+        }
+      ],
+      "source_id": "zx6tq9dvz7fyzzy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Durch der Wolken Kerkergitter / Strahlt des Mondes Ampelschein,",
+      "language": [],
+      "musenalm_id": 93022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einem heiteren Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Braun von Braunthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einem heiteren Freunde",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.643Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "wl9u6eww7gpb774"
+        }
+      ],
+      "source_id": "cb3sy9x9bu1azzh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Wenn du zu meiner Liebsten kommst, / So bring ihr Kuß und Gruß;",
+      "language": [],
+      "musenalm_id": 93023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auftrag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auftrag",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.643Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "coou4te7bzkzl1p"
+        }
+      ],
+      "source_id": "xvauxe8e1t10tzm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Wer mag das zarte Räthsel / Der holden Liebe lösen,",
+      "language": [],
+      "musenalm_id": 93024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebe Geheimnisse",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Liebe Geheimnisse",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.619Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.619Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "fjsv4bgpg887ofo"
+        }
+      ],
+      "source_id": "xuqwqu39gbij1mn"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 93026-93030, Obj 22-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonette",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "mg86x4611e3n68u"
+        }
+      ],
+      "source_id": "p5awz4abtaobfle"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 93025, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Wird nie der Leib gesunden seiner Schwächen, / Dies kranke Aug' nie vollen Glanz gewinnen?",
+      "language": [],
+      "musenalm_id": 93026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verwandlungen. / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verwandlungen. / 1.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "joeprt36i07e87b"
+        }
+      ],
+      "source_id": "kzix8vntji1tb5l"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 93025, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Entzündet sich kein reiner Strahl von oben, / Und facht das Leben an zu hellern Gluten?",
+      "language": [],
+      "musenalm_id": 93027,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Verwandlungen] 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Verwandlungen] 2.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "bsiol0wyycqnkbu"
+        }
+      ],
+      "source_id": "4rdqz2s4094x65r"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 93025, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Hoch auf den Bergesgipfeln will ich wohnen / Des Kaukasus mit seinen alten Palmen,",
+      "language": [],
+      "musenalm_id": 93028,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fönix. / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fönix. / 1.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "wvpxr184o5gvxtw"
+        }
+      ],
+      "source_id": "v6bro0je9ymc4ki"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 93025, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "'S ist an der Zeit - ich fühl's an meinen Schwin- / gen, / Die matt erlahmen und nur halb sich regen;",
+      "language": [],
+      "musenalm_id": 93029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Fönix] 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Fönix] 2.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "ygv6btm4nowkfol"
+        }
+      ],
+      "source_id": "svnr3emrw0c1wyb"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 93025, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Könnt' ich, was den aufgeregten Sinnen / Sich als zarte Blüte will gestalten, / Auch lebendig, klar vor euch entfalten,",
+      "language": [],
+      "musenalm_id": 93030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alle Bewegung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alle Bewegung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "q8om6uf46qg2akn"
+        }
+      ],
+      "source_id": "9tkv5q8dgmvmjaq"
+    },
+    {
+      "annotation": "Dem Gedicht vorangestellt: Non aurum neque ebur / Mea renitet in domo lacunar. / Horat",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Nicht hohe Flügelthüren / Von Mahagoni führen / In Sängers Stübchen ein;",
+      "language": [],
+      "musenalm_id": 93031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Sängers Stübchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Ad. Kaltenbrunner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Sängers Stübchen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "roqd4m2swedwv3j",
+          "source_id": "wr2pra8nlnju2bh"
+        }
+      ],
+      "source_id": "gr46w2az2jw1xkf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Gestern fragd mi a guada Freind, a Handschuahmacher aus da Banlstiergaßn: Apropo, 'in Mussi Bamma kennen's ja,",
+      "language": [],
+      "musenalm_id": 93032,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Da Bawladschenhear. / A graussami Gschicht aus Wearn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Da Bawladschenhear. / A graussami Gschicht aus Wearn",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "j5lvvht88c8ulaa"
+        }
+      ],
+      "source_id": "qs5nrg598ooyoqw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 93009, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Was?! Bin ich selbst nicht Mann genug, / So ich bis jetzt geführt, / Zu schützen vor Gewalt und Trug, / Ein Volk, wie sich's gebührt?",
+      "language": [],
+      "musenalm_id": 93033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tod für Tod. / 880. / Ballade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hugo vom Schwarzthale",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tod für Tod. / 880. / Ballade",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "wgv00y69o1rn8le",
+          "source_id": "vag8pn591hvov75"
+        }
+      ],
+      "source_id": "jl2vepr5d197upe"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 93010, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Als ich aus heißen, blut'gen Kampfeswogen, / Wo siegend sich des Muthes Kraft bewährt, / Zum trauten Vaterherde heimgezogen,",
+      "language": [],
+      "musenalm_id": 93034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ritter und die Dryas. / Aus dem Nachlasse der zu früh dahingeschiedenen / Dichterinn Emmy ***",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dichterin Emmy***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ritter und die Dryas. / Aus dem Nachlasse der zu früh dahingeschiedenen / Dichterinn Emmy ***",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4hgrzecx9v14ju"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Der Abend kam, die Schlacht war aus, / Da lagen drei auf dem Schlachtfeld drauß';",
+      "language": [],
+      "musenalm_id": 93035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reitertod. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reitertod. / Ballade",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "jqtugxj21dqrdqp"
+        }
+      ],
+      "source_id": "s5ehvp6waegpzns"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Das Herz sich brechen läßt die Liebe, / Sich trennen läßt die Liebe nicht. / J. Gr. Seidl /) mit einer Illustration s. Titelgraphik INr 93006, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Mit röthlichgelben, kahlen Felswänden starrt, über die gekräuselten Fluten des Lario, der verrufene Sasso-Rancio empor.",
+      "language": [],
+      "musenalm_id": 93036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosalia von Domaso. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schmid von Pihl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosalia von Domaso. / Novelle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "1y3xwqb1dgslmkn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Nimm mich auf, du Friedensstätte, / Kühles Bette, / Aus dem Gewühl', aus dem Getos' / Flücht' ich in deinen Schooß.",
+      "language": [],
+      "musenalm_id": 93037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach einem Balle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Johann Schön",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach einem Balle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "re1rxjyej99v3zz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Ein Maler ist der Dichter, / Ein Bild ist jedes Lied,",
+      "language": [],
+      "musenalm_id": 93038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Malerzeichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Braun von Braunthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Malerzeichen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.620Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.620Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "jwfhiy3akairvvc"
+        }
+      ],
+      "source_id": "11saoyez13c8mah"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Ich pflanzte mir mit Müh' und Fleiß / Ein niedliches Zypressenreis,",
+      "language": [],
+      "musenalm_id": 93039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zypresse",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zypresse",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.621Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.621Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "84rk3fiv2b5mqdl"
+        }
+      ],
+      "source_id": "8zf0vi8ta5w54xw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "O Sonnenleben! heiter und still gelebt, / Als ich bei ihr war! - freudiger tönte nie / Die Harf' in meiner Brust!",
+      "language": [],
+      "musenalm_id": 93040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei ihr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeno Schuber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei ihr",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "vnuti832xl0cwdz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Hab' eine Freundin mir errungen, / Die manches Stündchen bei mir weilt;",
+      "language": [],
+      "musenalm_id": 93041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Freundin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gabriel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Freundin",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "9xlsi7rjdh481cz"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Bei Allem frägt sich's, wer es thut; / Den Ernsten ziert das Spassen, /) mit einer Illustration s. Graphik INr 93011, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "In der Pfarrkirche zu Petronell, einem in Niederösterreich, unfern dem Eintritt der Donau nach Ungarn, gelegenen Dorfe, befindet sich ein marmorner Grabstein,",
+      "language": [],
+      "musenalm_id": 93042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Kampf um die Braut. / Historischer Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Kampf um die Braut. / Historischer Schwank",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "bxllk3r45bi2w71"
+        }
+      ],
+      "source_id": "bq0hp76r2yj9yeg"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 93044, 93045; Obj 40, 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwoa Bild'ln von der Alm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwoa Bild'ln von der Alm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9aicg9n1l9ycj0e"
+        }
+      ],
+      "source_id": "idhp9jt8mkph36i"
+    },
+    {
+      "annotation": "Zwoa Bild'ln von der Alm (Sammlung INr 93043, Obj 39) mit Anm. /) mit einer Illustration s. Graphik INr 93012, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Was loahnst denn aum Kubel? / Was schaust vor di hin?",
+      "language": [],
+      "musenalm_id": 93044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Dö B'stellung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Dö B'stellung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "90984kd39f0dhra"
+        }
+      ],
+      "source_id": "auvkigpreez2am6"
+    },
+    {
+      "annotation": "Zwoa Bild'ln von der Alm (Sammlung INr 93043, Obj 39) mit Anm. /) mit einer Illustration s. Graphik INr 93013, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Drei Wocha san kema, / Da dullazt's: Juchhe!",
+      "language": [],
+      "musenalm_id": 93045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / 'S End vom Liad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / 'S End vom Liad",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "n6h0hqg5hnh2kiu"
+        }
+      ],
+      "source_id": "yzms8rf291hp4re"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "So ist es gut! fürwahr, ich nenn' es selbst gelungen, / Des Dichters Feuer hat die Dichtung auch durchdrungen,",
+      "language": [],
+      "musenalm_id": 93046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichterleiden. / Lustspiel in einem Aufzuge und Alexandrinern / (Aufgeführt auf der ständischen Bühne zu Gratz.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Adelmi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichterleiden. / Lustspiel in einem Aufzuge und Alexandrinern / (Aufgeführt auf der ständischen Bühne zu Gratz.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ucbe9mgz9cxpdn"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Es ist nicht gut, die Fantasie / Zu würgen mit Ketten und Banden: [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Ein Engländer, welcher einen großen Theil von Nordamerika durchreist hatte, gab mir, unter anderen interessanten Erfahrungen, auch folgende Geschichte zum besten,",
+      "language": [],
+      "musenalm_id": 93047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Theaterfeind. / Aus dem Leben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meta Communis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Theaterfeind. / Aus dem Leben",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "zceqxpww98h0vte"
+        }
+      ],
+      "source_id": "c7bxtk60iiju30i"
+    },
+    {
+      "annotation": "Sammlung von 13 Rätseln INr 93049-93061, Obj 45-57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Räthselkranz. / Gewunden / von / Joh. Gabriel Seidl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Räthselkranz. / Gewunden / von / Joh. Gabriel Seidl",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "hnt49aml2nwutjl"
+        }
+      ],
+      "source_id": "9y4muqjdgiam1sy"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Soll ich die hehre Dichterin Euch nennen, / Die ihr Gedicht auf Gold mit Purpur schreibt?",
+      "language": [],
+      "musenalm_id": 93049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.418Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "3t56pzh6ln3rvui"
+        }
+      ],
+      "source_id": "gqsycbsjx9og70i"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Wenn du mein Feuer dämpfst mit mild'ren Stoffen, / So ström' ich sanfte Wärme dir in's Herz;",
+      "language": [],
+      "musenalm_id": 93050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Anagramm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Anagramm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "5dlg3l33qn8a9gs"
+        }
+      ],
+      "source_id": "mqdsxnsqmb6kfss"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Hing ein Selbstlaut noch mir am End', ich wäre der / Götter / Liebling sodann,",
+      "language": [],
+      "musenalm_id": 93051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Logogryph (dreisylbig)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Logogryph (dreisylbig)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9x9tp47zhw73d3r"
+        }
+      ],
+      "source_id": "9nbt3hece85g1yu"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Das erste Paar begrüßt dein erster Blick, / Sobald dein kindlich Auge Licht bekommen,",
+      "language": [],
+      "musenalm_id": 93052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Charade",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "q5q3m9qdc1lunz4"
+        }
+      ],
+      "source_id": "pe7ixu6ggp2q8sj"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Wir sind die Fenster eines Hauses, / In dem ein großer König wohnt;",
+      "language": [],
+      "musenalm_id": 93053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Homonyme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Homonyme",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "bgojrmwqx0am6m4"
+        }
+      ],
+      "source_id": "b4jxyvvagta3v4s"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Laß ab! das duld' ich nicht! Soll ich um Hilfe schreien? / Sieh nur, was du gethan!",
+      "language": [],
+      "musenalm_id": 93054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Lokalcharade. / Zweisylbig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Lokalcharade. / Zweisylbig",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "3156v823qdfac75"
+        }
+      ],
+      "source_id": "u5bv8t80kwd75o8"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Einen Mann, der Vieles weiß, / Der des Wissens weiten Kreis / Klaren Blickes überschaut,",
+      "language": [],
+      "musenalm_id": 93055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Homonyme und Anagramm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Homonyme und Anagramm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9or0ae00aowjmti"
+        }
+      ],
+      "source_id": "uontc2qx06hnf27"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Der Sturm ist los, die Woge brüllt, / Kein freundlich Sternchen lacht,",
+      "language": [],
+      "musenalm_id": 93056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Charade. / Dreisylbig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Charade. / Dreisylbig",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "4c55cek5x2jx57f"
+        }
+      ],
+      "source_id": "h6qdom0cc11mzcw"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Es ist ein Name / (Ihr müßt ihn kennen) / Vom Österreicher / Verkürzt geschreiben,",
+      "language": [],
+      "musenalm_id": 93057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Anagramm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Anagramm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.468Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "4m67vlqisqurkwv"
+        }
+      ],
+      "source_id": "ahip7piehn28osh"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Zwei Lettern sind es nur, und doch ein Sylbenpaar, / Sie stellen einen Strom Germaniens euch dar.",
+      "language": [],
+      "musenalm_id": 93058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. Sylbenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. Sylbenräthsel",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "idmd1hf778axm45"
+        }
+      ],
+      "source_id": "4ir6dvxkc3tch2x"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Deutsch nicht klinget das Wort, doch mag wol jeder / es kennen,",
+      "language": [],
+      "musenalm_id": 93059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Anagramm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Anagramm",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.289Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.289Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "20lnkx1l2tds4ir"
+        }
+      ],
+      "source_id": "kq4xstttgwjmwxp"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Es ist (sogar nach Adelung) / Ein Körpertheil bei Alt und Jung,",
+      "language": [],
+      "musenalm_id": 93060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Homonyme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Homonyme",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.289Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.289Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "r4t1k35elfbahla"
+        }
+      ],
+      "source_id": "bv3oop7yqkhhva8"
+    },
+    {
+      "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Mit A zuletzt (man liest es so / In Hübner's Zeitungslexiko) / Ist's eine Stadt in Asia",
+      "language": [],
+      "musenalm_id": 93061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Schlußlogogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Schlußlogogryph",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.289Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.289Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "stnpya26ke87sbt"
+        }
+      ],
+      "source_id": "3esavfux627zh3a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "kd4svybjdicc49r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93063,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "hlvi27r6ta5ares"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93064,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1588_93064_ue1pnjkbku.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "jh7nbwwj8brepcs"
+    }
   ],
   "agents": [
     {

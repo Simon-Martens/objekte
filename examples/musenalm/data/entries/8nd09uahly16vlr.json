@@ -48,37 +48,1170 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "gpicofet8qrwq9e"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200623",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gpicofet8qrwq9e"
+    }
   ],
   "contents": [
-    "q5i312xx7mqsq41",
-    "9ceknsaiptne0uq",
-    "iwqhbzzsj0g7zk9",
-    "jd67o2mf3fnf876",
-    "d1vy1fguya2nrzs",
-    "25k618dwjy2xvcj",
-    "5071p2b13qfniq0",
-    "toiww08wqq07lwn",
-    "hlnw2g9b8342viu",
-    "11r81euu6mqdir9",
-    "u5wx5kryp97yldn",
-    "68psmm2733nz525",
-    "yozprphe2zt4rmo",
-    "uwkfuqwto65qv4i",
-    "mtry49osayrcnxg",
-    "mag06p1ick5rmys",
-    "sif7seadykjdbe4",
-    "lw0p2ve04yq9o6l",
-    "bglh6flrom9ntx7",
-    "89x2zqe26xonk2b",
-    "69u3h0qoibvhb3x",
-    "40p762dvpxh7sjr",
-    "tt6eshyp81peb7x",
-    "zb7xf4e4ivfuepq",
-    "8p8b9au8fuxkt9v",
-    "v9ftcv33hm2cbg6",
-    "2pncvtzv6pdoxjs",
-    "173auhr6i07r0x5"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42194,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siamesischer Mandarin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42194_pzmd7vt2hh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Siamesischer Mandarin",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "q5i312xx7mqsq41"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42195,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN / Eilfter Jahrgang / Erste Abtheilung / für das Jahr / 1812. / Mit 10 Kupfern und 1 Karte / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42195_54ngmyx29b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN / Eilfter Jahrgang / Erste Abtheilung / für das Jahr / 1812. / Mit 10 Kupfern und 1 Karte / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ceknsaiptne0uq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Nicht ohne gegründete Furcht übergebe ich dem Leser diesen Theil des Taschenbuchs der Reisen. Die darin durchgegangenen Länder sind größtentheils nur wenig bekannt,",
+      "language": [],
+      "musenalm_id": 42196,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. A. W. v. Zimmermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.051Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.051Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "slvl8nbwdtv8qn4"
+        }
+      ],
+      "source_id": "iwqhbzzsj0g7zk9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42197,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "jd67o2mf3fnf876"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42198,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.051Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.051Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "hhgwqc9tlkl2dcf"
+        }
+      ],
+      "source_id": "d1vy1fguya2nrzs"
+    },
+    {
+      "annotation": "Photos 42199,01-42199,04",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42199,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42199_01_xdcdx2gfa1.jpg",
+        "alm_555_42199_02_4j0v75usu3.jpg",
+        "alm_555_42199_03_yi43fdwbyn.jpg",
+        "alm_555_42199_04_l31fqvh0rz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "25k618dwjy2xvcj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Jetzt waren wir eingeführt in die heißesten und fruchtbarsten Regionen Asiens, bekannt unter dem Namen von Hinter-Indien,",
+      "language": [],
+      "musenalm_id": 42200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung. / Uebersicht von Hinter-Indien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung. / Uebersicht von Hinter-Indien",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "a8puvaau878dn0u"
+        }
+      ],
+      "source_id": "5071p2b13qfniq0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Wenn anders die letztern Jahre dieses bedeutende Reich Hinter-Indiens nicht durch neue Zerrüttungen vergrößert oder noch verkleinert haben,",
+      "language": [],
+      "musenalm_id": 42201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siam",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.050Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "7i6o5uuuqj5tro2"
+        }
+      ],
+      "source_id": "toiww08wqq07lwn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Um von der todten zur organisirten Natur uns zu erheben, so ist, wie überall, auch diesen Ländern das wichtigste Metall nicht entzogen. Eisen findet sich in Siam an mehreren Orten,",
+      "language": [],
+      "musenalm_id": 42202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Siam] Natur-Produkte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Siam] Natur-Produkte",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.051Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.051Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "mjwu69p19avizg2"
+        }
+      ],
+      "source_id": "hlnw2g9b8342viu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das langschwänzige Schuppenthier (Manis macroura.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42203_pq0fqa9c96.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das langschwänzige Schuppenthier (Manis macroura.)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "11r81euu6mqdir9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Calao (Hydrocorax Indicus.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42204_h20v93m2kw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Calao (Hydrocorax Indicus.)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "u5wx5kryp97yldn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Das wichtigste Erzeugniß der Natur, der Mensch, sollte zufolge der rein geographischen Lage des Landes, in Siam, den Burmahnen, mit welchen wir kurz zuvor bekannt wurden, ähnlich seyn.",
+      "language": [],
+      "musenalm_id": 42205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mensch",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.388Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "qkr7mvov60tpk6s"
+        }
+      ],
+      "source_id": "68psmm2733nz525"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siamesische Frau nebst ihrem Kinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42206_y2f4vog3ns.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Siamesische Frau nebst ihrem Kinde",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "yozprphe2zt4rmo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von Siam und verschiedener Balonen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42207_3l9hw94qce.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von Siam und verschiedener Balonen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "uwkfuqwto65qv4i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siamesische Pagode. / 1 Talapoin mit seinem Talapa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42208_gz8k1asfpp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Siamesische Pagode. / 1 Talapoin mit seinem Talapa",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "mtry49osayrcnxg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kloster der Talapoinen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42209_yutpikfweg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kloster der Talapoinen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "mag06p1ick5rmys"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Durch Gebirgsketten, zwischen welchen sich die großen Ströme des südlichsten Asiens ihre Bahnen geschnitten hatten, theilte die Natur Hinter-Indien in fünf große breit Thäler.",
+      "language": [],
+      "musenalm_id": 42210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laos und Cambodia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Laos und Cambodia",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.298Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ijlgj5eqbojrawu"
+        }
+      ],
+      "source_id": "sif7seadykjdbe4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "[... ] Schon oben sahen wir zwar, daß es keine natürliche Grenze zwischen beiden Reichen zu geben schien,",
+      "language": [],
+      "musenalm_id": 42211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cambodia oder Camboya",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cambodia oder Camboya",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.298Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "k15oqlds9qk7f8a"
+        }
+      ],
+      "source_id": "lw0p2ve04yq9o6l"
+    },
+    {
+      "annotation": "Kapitel behandelt das Königreich Ponthiamas",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Bevor wir zu der großen Erdzunge von Asien kommen, dürfen wir ein kleines Ländchen nicht unerwähnt lassen, das mitten unter diesen, die Menschheit schändenden Regierungen fast aller bisher genannten großen Reiche,",
+      "language": [],
+      "musenalm_id": 42212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bevor wir zu der großen Erdzunge von Asien kommen, dürfen wir ein kleines Ländchen nicht unerwähnt lassen, das mitten unter diesen, die Menschheit schändenden Regierungen fast aller bisher genannten großen Reiche,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.298Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "wyc2e5q519c8fgr"
+        }
+      ],
+      "source_id": "bglh6flrom9ntx7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Wie verbittert uns aber diese wohlthätige Aussicht ein Land, das von ganz Hinter-Indien am reichsten ausgesteuert, nur durch einen Arm des Meers von unserm glücklichen Ponthiamas getrennt liegt!",
+      "language": [],
+      "musenalm_id": 42213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie verbittert uns aber diese wohlthätige Aussicht ein Land, das von ganz Hinter-Indien am reichsten ausgesteuert, nur durch einen Arm des Meers von unserm glücklichen Ponthiamas getrennt liegt!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.298Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "drm913fol5krhvj"
+        }
+      ],
+      "source_id": "89x2zqe26xonk2b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42214,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mongoustan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42214_gjq68imxgj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Mongoustan",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "69u3h0qoibvhb3x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.345Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Schlaff, ausgedürrt von dem brennenden Stral, unthätig, faul und feige, höchstens pausenweise bis zur thierischen Wildheit aufgereizt, so gingen fast alle Völker von Hinter-Indien vor uns vorüber.",
+      "language": [],
+      "musenalm_id": 42215,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mensch",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.298Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "eyy62e0dlb2nejm"
+        }
+      ],
+      "source_id": "40p762dvpxh7sjr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.346Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42216,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stadt und Rhede von Malaka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frenzel in Dresden",
+      "scans": [
+        "alm_555_42216_kp7b28j8wn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Stadt und Rhede von Malaka",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.298Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "bqfzipcy8zwc9p0"
+        }
+      ],
+      "source_id": "tt6eshyp81peb7x"
+    },
+    {
+      "annotation": "Illustration zum Beitrag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42217,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Besitznehmung der Britten von der Insel Pulo Pinang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. Hammer sculp. Dresde",
+      "scans": [
+        "alm_555_42217_5pn5s1fwdw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Besitznehmung der Britten von der Insel Pulo Pinang",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.299Z",
+          "agent": "6oi6sms2fozu3mk",
+          "source_id": "pofbq5se5nt84r8"
+        }
+      ],
+      "source_id": "zb7xf4e4ivfuepq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Rückt man gegen 4 Längen-Grade in den großen Meerbusen von Bengalen weiter nach Westen hin, so zeigen sich zwei Inselgruppen von größerer Bedeutung.",
+      "language": [],
+      "musenalm_id": 42218,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Andaman- und Nicobar-Inseln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Andaman- und Nicobar-Inseln",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.299Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "eeb22fijkmmqt3t"
+        }
+      ],
+      "source_id": "8p8b9au8fuxkt9v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Schwerlich findet sich ein Theil der Erde, welcher so viele und so sonderbare Menschenvarietäten aufzuweisen hätte,",
+      "language": [],
+      "musenalm_id": 42219,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ethnographischer Rückblick auf / Hinter-Indien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ethnographischer Rückblick auf / Hinter-Indien",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.299Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "65lswvgx900thnk"
+        }
+      ],
+      "source_id": "v9ftcv33hm2cbg6"
+    },
+    {
+      "annotation": "Verlagsmitteilungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42220,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeigen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "2pncvtzv6pdoxjs"
+    },
+    {
+      "annotation": "lt. G-Verz nach Reichard: CHARTE VON ASIEN. Verlag des Geograph. Instituts Weimar 1805",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42221,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VORDER und HINTER / INDIEN / nach Reichards / Asien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_555_42221_5wu75q8a69.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VORDER und HINTER / INDIEN / nach Reichards / Asien",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.940Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "4ztm9s3smlvsi28",
+          "source_id": "z23ptz77bdu1lqw"
+        }
+      ],
+      "source_id": "173auhr6i07r0x5"
+    }
   ],
   "agents": [
     {

@@ -49,7 +49,26 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "hdv6j9xe4y9d43m"
+    {
+      "annotation": "einziger Jahrgang",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.774Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409514",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.774Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hdv6j9xe4y9d43m"
+    }
   ],
   "contents": [],
   "agents": [

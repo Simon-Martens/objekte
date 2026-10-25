@@ -48,7 +48,26 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "vl4z2t8wcgl95nd"
+    {
+      "annotation": "Vorläufer der im folgenden Jahr beginnenden Reihe 1822-1847, 1849",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.776Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409595",
+      "location": "105R03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.776Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vl4z2t8wcgl95nd"
+    }
   ],
   "contents": [],
   "agents": [

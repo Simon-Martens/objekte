@@ -48,23 +48,534 @@
   "year": 1829,
   "editor": "",
   "items": [
-    "zrea8uxv6jcfu60"
+    {
+      "annotation": "Almanach dramatischer Spiele für Gesellschaftstheater Jgg 1811-1837, Hrsg: F. A. v. Kurländer; ab 1819: Lustspiele oder dramatischer Alamanach für das Jahr; fortgesetzt als: F. A. von Kurländers dramatischer Alamanach für das Jahr Leipzig 1838-1841. Hrsg: C. W. Koch",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200558",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zrea8uxv6jcfu60"
+    }
   ],
   "contents": [
-    "kfgewacruzquo2o",
-    "pp4glm2a9w5cus9",
-    "znn1fp3e4p57efi",
-    "rks99vlg1pd5w8s",
-    "xsgtl1s0d141o72",
-    "r3h9czm9mbzp7x0",
-    "xllxbpzj52zxr0g",
-    "u2paes9laof6tft",
-    "og9a9jt6ld4kgmo",
-    "a1ogqkxsl09t7bp",
-    "8mes1hajls13ojm",
-    "tqerkc4481adili",
-    "iqefg7d7bqaclee",
-    "26vc8yzbyy3cxqu"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124980,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124980_vsu07iqxt6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "kfgewacruzquo2o"
+    },
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Die Geld-Heirath« von Kurländer (INr 124897, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124981,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geld-Heirath. Act III. Scene 1. / Olivier. / »Nur wenn Sie Kummer hätten oder irgend ein / Unglück Ihnen begegnen könnte – dann, ja dann / sehen Sie mich wieder.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124981_j27s59iu3w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Geld-Heirath. Act III. Scene 1. / Olivier. / »Nur wenn Sie Kummer hätten oder irgend ein / Unglück Ihnen begegnen könnte – dann, ja dann / sehen Sie mich wieder.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "pp4glm2a9w5cus9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124982,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1829 / von / F. A. von Kurländer. / Sechzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1829 / von / F. A. von Kurländer. / Sechzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "znn1fp3e4p57efi"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124982, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Seit einigen Jahren habe ich mit Vergnügen bemerkt, daß meine dramatischen Versuche [...] von dem großen Publikum, o wie von kunstsinnigen Kritikern, freundlich aufgenommen wurden.",
+      "language": [],
+      "musenalm_id": 124983,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "msyco5g7c9retem"
+        }
+      ],
+      "source_id": "rks99vlg1pd5w8s"
+    },
+    {
+      "annotation": "Inhaltsverzeichnis",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124986,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "xsgtl1s0d141o72"
+    },
+    {
+      "annotation": "mit drei kol. Illustrationen (INr 124981, Obj 2; 124988,124989, Obj 7, 8); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 124982, Obj 3); ### Original: Le mariage à l’argent (vgl Vrwrt, INr 124983, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unbegreiflich! Kein Portier am Tor, kein Bedienter am Eingang, kein Kammerdiener hier im Saal. Die Treppe faßte sonst kaum die Zahl aller derer, die zurückgewiesen wurden.",
+      "language": [],
+      "musenalm_id": 124987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geld-Heirath. ### / Charaktergemälde in vier Aufzügen. / Als Gegenstück zur Heirath aus Vernunft. / Nach Scribe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geld-Heirath. ### / Charaktergemälde in vier Aufzügen. / Als Gegenstück zur Heirath aus Vernunft. / Nach Scribe",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "pibhqtermoqazvv"
+        }
+      ],
+      "source_id": "r3h9czm9mbzp7x0"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Geld-Heirath« von Kurländer (INr 124897, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geld-Heirath. Act II. Scene 2. / Ladorbe. / »Du heirathest! Mit dem Vermögen der Braut / bezahlt man die Stelle.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124989_2vbbbtwbzl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Geld-Heirath. Act II. Scene 2. / Ladorbe. / »Du heirathest! Mit dem Vermögen der Braut / bezahlt man die Stelle.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "xllxbpzj52zxr0g"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Geld-Heirath« von Kurländer (INr 124897, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geld-Heirath. Act II. Scene 2. / Claudine. / »Den Namen weiß ich nicht, aber er ist Wechsel- / Agent! Ich werde sehr glücklich seyn.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124988_w887eouetb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Geld-Heirath. Act II. Scene 2. / Claudine. / »Den Namen weiß ich nicht, aber er ist Wechsel- / Agent! Ich werde sehr glücklich seyn.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "u2paes9laof6tft"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124982, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Beschwerlichkeit! Reise! Ungelegenheit! Das achtet die Baroninn Linsberg nicht, wenn es sich um das Wohl ihrer Verwandten handelt.",
+      "language": [],
+      "musenalm_id": 124990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hochzeitstag. / Lustspiel in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hochzeitstag. / Lustspiel in zwei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.866Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "zp2kb86bmi6aomp"
+        }
+      ],
+      "source_id": "og9a9jt6ld4kgmo"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Hochzeittag« von Kurländer (INr 124990, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hochzeittag. Act I. Scene 2. / Emma. / »Wenn ich die Augen schliesse glaube ich / mich einem Jüngling gegenüber.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124991_kz410i5q3r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hochzeittag. Act I. Scene 2. / Emma. / »Wenn ich die Augen schliesse glaube ich / mich einem Jüngling gegenüber.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "a1ogqkxsl09t7bp"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Hochzeittag« von Kurländer (INr 124990, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hochzeittag. Act I. Scene 13. / Stephan. / »Verzeihung! Der Scherz ist stärker als der / gebührende Respect; ich bin so frei Ihnen / diese Blumen zu praesentieren.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124992_vjmzqqc8cj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hochzeittag. Act I. Scene 13. / Stephan. / »Verzeihung! Der Scherz ist stärker als der / gebührende Respect; ich bin so frei Ihnen / diese Blumen zu praesentieren.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "8mes1hajls13ojm"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Hochzeittag« von Kurländer (INr 124990, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hochzeittag. Act II. Scene 8. / Baronin Linsberg. / »Wissen Sie wohl, mein lieber Neffe! dass ich / einige Ähnlichkeit zwischen Ihnen und meinem verstorbenen Kreishauptmann bemerke?«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_124993_1ha8pclzyl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hochzeittag. Act II. Scene 8. / Baronin Linsberg. / »Wissen Sie wohl, mein lieber Neffe! dass ich / einige Ähnlichkeit zwischen Ihnen und meinem verstorbenen Kreishauptmann bemerke?«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "tqerkc4481adili"
+    },
+    {
+      "annotation": "I-Verz der vorhergehenden Jahrgänge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124994,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir empfehlen zur Lectüre und um Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: Die / vorhergehenden Jahrgänge / dieses Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir empfehlen zur Lectüre und um Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: Die / vorhergehenden Jahrgänge / dieses Taschenbuchs",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "iqefg7d7bqaclee"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125163,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1257_125163_zotgakbqba.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "26vc8yzbyy3cxqu"
+    }
   ],
   "agents": [
     {

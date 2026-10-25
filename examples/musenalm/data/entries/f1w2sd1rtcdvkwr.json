@@ -48,21 +48,489 @@
   "year": 1841,
   "editor": "",
   "items": [
-    "88u7m02a4k4zdgy",
-    "e7pbw7ytn57uv46"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\n§$§ vermutl. fehlt B: recto vT, verso VrlgM  <br> Kartonierter Umschlag; VB, verso G, T, S I-Verz, SS 1-390",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101013",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "88u7m02a4k4zdgy"
+    },
+    {
+      "annotation": "UG, B: recto vT, verso VrlgM",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "406823",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "e7pbw7ytn57uv46"
+    }
   ],
   "contents": [
-    "8d1yg7rph6kwygr",
-    "5mbxm70zwsvapef",
-    "lj9nilsgxye2q9j",
-    "yo530tzhplyuq8a",
-    "eb5mh1n9kf27kzj",
-    "vhmaib8cgub0uz0",
-    "erqd0gzq71pouvx",
-    "orw40w7qmmzlsdh",
-    "y17rpx4l4epwoee",
-    "0tudon0vzr9250r",
-    "i5qmsqagewmvz02"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77253,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1841",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_67_77253_gpm6t0rhb3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1841",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "8d1yg7rph6kwygr"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77255,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1841",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1841",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "5mbxm70zwsvapef"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77256,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Brockhaus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "manlqagw1uz9rp2",
+          "source_id": "n38ew6agb5j9tqe"
+        }
+      ],
+      "source_id": "lj9nilsgxye2q9j"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2045,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Karl Friedrich Lessing",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. J. Hübner Gest. v. Th. Langer",
+      "scans": [
+        "alm_67_2045_v5l98of58g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Karl Friedrich Lessing",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "t6lc63s8wzkilt0",
+          "source_id": "2lvahazkudmjnxt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "b4t3w3z6pvp3b6q",
+          "source_id": "r8zu3ckif93bode"
+        }
+      ],
+      "source_id": "yo530tzhplyuq8a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18797,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1841. / Neue Folge. / Dritter Jahrgang. / Mit dem Bildnisse Karl Friedrich Lessing's. / Leipzig: / F. A. Brockhaus. / 1841",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_67_18797_x0o050mpgi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1841. / Neue Folge. / Dritter Jahrgang. / Mit dem Bildnisse Karl Friedrich Lessing's. / Leipzig: / F. A. Brockhaus. / 1841",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "eb5mh1n9kf27kzj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18798,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "vhmaib8cgub0uz0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ihren keuschesten Kuß drückte Luna auf die Silberwogen des Meeres.",
+      "language": [],
+      "musenalm_id": 2046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Prätendent. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Prätendent. / Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "eeifdytk97gtsv7"
+        }
+      ],
+      "source_id": "erqd0gzq71pouvx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Wohin so flüchtig, Gevatter Anlauf, brennt's im Walde? so rief eine Bäurin einem Manne zu,",
+      "language": [],
+      "musenalm_id": 2047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cursorius isabellinus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Martell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cursorius isabellinus",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "zrsi43h33yxojuh",
+          "source_id": "fsxlv9zxj6ntpyj"
+        }
+      ],
+      "source_id": "orw40w7qmmzlsdh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Lieb und vertraulich blickten das Kloster Banz und die Burg Schottenau sich einander an.",
+      "language": [],
+      "musenalm_id": 2049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von den drei Schwestern. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Hagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von den drei Schwestern. / Eine Erzählung",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "1js33mmqeo20b02",
+          "source_id": "ig4mgy7095f5pge"
+        }
+      ],
+      "source_id": "y17rpx4l4epwoee"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Es war der Geburtstag des schon ältlichen Barons von Wangen. Einge seiner Freunde hatten ihm Glück gewünscht",
+      "language": [],
+      "musenalm_id": 2050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldeinsamkeit. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldeinsamkeit. / Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "4l2xnanay2tyrhv"
+        }
+      ],
+      "source_id": "0tudon0vzr9250r"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77254,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_67_77254_3z91kylumy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "i5qmsqagewmvz02"
+    }
   ],
   "agents": [
     {

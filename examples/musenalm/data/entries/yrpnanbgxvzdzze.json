@@ -48,30 +48,963 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "reuktrtndk9k5sh"
+    {
+      "annotation": "1795, 1796, 1798.\nKartonierter Einband mit Muster.( Buchrücken beschädigt.)\n1798: Mit Tku 1, Ku 5, Bl 12 und 199 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.527Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100875",
+      "location": "105K04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.527Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "reuktrtndk9k5sh"
+    }
   ],
   "contents": [
-    "lq3b2gk319zvtsn",
-    "6f1co7w30yq8lxd",
-    "h0cjfda2itk67zh",
-    "z35czygr6l5yad7",
-    "03568wkz7kjb9gp",
-    "ldokbbs40e7wvhe",
-    "hmzmnkafzxawf2h",
-    "vlfrvdgpylt5k6v",
-    "h3pv6fz4hi88g03",
-    "7dn31hh5u2hm5or",
-    "2cvm648db6lac98",
-    "wrh5gwpxwpemfn7",
-    "16jobt33jy8msob",
-    "7s885c56kj4xz6v",
-    "diz1ml7f8ijoyqt",
-    "sghesfj79635rko",
-    "jd4pghwvfx3i2oe",
-    "cc1s6hyt0m82edd",
-    "1in8wp6q0h2gzar",
-    "tmudxula2t4rjfn",
-    "46y0gbohih8p4jv"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61030,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / der / Welt. / Von / F. C. Schlenkert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_952_61030_figtbeav0g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / der / Welt. / Von / F. C. Schlenkert",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "lq3b2gk319zvtsn"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 61040, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61031,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Kininger del 1797. Meno Haas sc. Berlin)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kininger del 1797. Meno Haas sc. Berlin",
+      "scans": [
+        "alm_952_61031_l6ylgtsjyw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.806Z",
+          "agent": "60p50kezhrh7h42",
+          "source_id": "k819rdyxqobn3l6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.806Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "kfhgvsmyyvuyx1a"
+        }
+      ],
+      "source_id": "6f1co7w30yq8lxd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.761Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / für die / GESCHICHTE der MENSCHHEIT / auf das Jahr / 1798. / von / F. C. Schlenkert / mit Kupfern / Leipzig / bey Fried. August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_952_61032_8ydkmd13qw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / für die / GESCHICHTE der MENSCHHEIT / auf das Jahr / 1798. / von / F. C. Schlenkert / mit Kupfern / Leipzig / bey Fried. August Leo",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "h0cjfda2itk67zh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61033,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kalender / für / das Jahr / 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kalender / für / das Jahr / 1798",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "z35czygr6l5yad7"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 61041, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.917Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61034,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Themistokles #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kininger del. Meno Haas sc. Berlin 1797",
+      "scans": [
+        "alm_952_61034_vwgfi5mpqh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Themistokles #",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "mw5wnvf2c57gmwn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "60p50kezhrh7h42",
+          "source_id": "yuq7tia7gcbb0qy"
+        }
+      ],
+      "source_id": "03568wkz7kjb9gp"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 61042, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61035,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philipp #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kininger del. Meno Haas sc. Berlin 1797",
+      "scans": [
+        "alm_952_61035_d3ds9tcr3r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Philipp #",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "1kfc1s3gky0m3u9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "60p50kezhrh7h42",
+          "source_id": "aipxlf048fza204"
+        }
+      ],
+      "source_id": "ldokbbs40e7wvhe"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 61043, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61036,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kambises #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae 1796",
+      "scans": [
+        "alm_952_61036_n80xx5uea5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kambises #",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "c4pg2bjnz6n5s9n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "60p50kezhrh7h42",
+          "source_id": "vltght4jb4p4ft9"
+        }
+      ],
+      "source_id": "hmzmnkafzxawf2h"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 61044, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61037,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sphendadates #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae 1796",
+      "scans": [
+        "alm_952_61037_iwclz7vvl6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sphendadates #",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "7pyqcbzb7y41nvo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "60p50kezhrh7h42",
+          "source_id": "eqfn8kvwf0ta5a7"
+        }
+      ],
+      "source_id": "vlfrvdgpylt5k6v"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 61045, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61038,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cirus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae 1796",
+      "scans": [
+        "alm_952_61038_buuelue3aw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cirus #",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "1ndmokawqqs5byj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "60p50kezhrh7h42",
+          "source_id": "m54lc6fj9ghefhf"
+        }
+      ],
+      "source_id": "h3pv6fz4hi88g03"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Sammlung von 6 Textbezügen INr 61040-61045, Obj 11-16 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61039,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "brheuy2ebw7u1r5"
+        }
+      ],
+      "source_id": "7dn31hh5u2hm5or"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Titelgraphik INr 61031, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Allegorie. Denkmal der griechischen Freiheit in Beziehnung auf die von ihr zertrümmerte persische Uibermacht, oder auch Despotism.",
+      "language": [],
+      "musenalm_id": 61040,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Titelkupfer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Titelkupfer",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "5jh5txiaroba8gt"
+        }
+      ],
+      "source_id": "2cvm648db6lac98"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61034, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "von den Atheniensern zum Tode verurtheilt, flüchtet in seiner Verzweiflung zu seinem Todfeind Admet, König der Molosser",
+      "language": [],
+      "musenalm_id": 61041,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Themistokles,",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Themistokles,",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "wyo63oeoon9iise"
+        }
+      ],
+      "source_id": "wrh5gwpxwpemfn7"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61035, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "König von Mazedonien, übergiebt dem ehrwürdigen Aristoteles seinen Sohn Alexander zur Erziehung,",
+      "language": [],
+      "musenalm_id": 61042,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Philipp,",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Philipp,",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "oaiqoii93jcnpc5"
+        }
+      ],
+      "source_id": "16jobt33jy8msob"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61036, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Persiens abscheulicher Despot, hatte von Psammenitus, König von Aegipten, seine Tochter zur Ehe gefordert.",
+      "language": [],
+      "musenalm_id": 61043,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Kambises,",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Kambises,",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "82ol9sarqersyg0"
+        }
+      ],
+      "source_id": "7s885c56kj4xz6v"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61037, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "ein Magier, ist von seinen Ordensbrüdern auf den persischen Thron erhoben worden, und regiert grausam.",
+      "language": [],
+      "musenalm_id": 61044,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Sphendadates,",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Sphendadates,",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "snassd8b2mzivrn"
+        }
+      ],
+      "source_id": "diz1ml7f8ijoyqt"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61038, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dieser grausame Eroberer und Stifter der zweiten persischen Monarchie, hatte den Beherrscher des medischen Reichs, Ostiages, gefangen genommen,",
+      "language": [],
+      "musenalm_id": 61045,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Cirus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Cirus",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "snjclyq4usw04fp"
+        }
+      ],
+      "source_id": "sghesfj79635rko"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Darstellungen / aus der Geschichte der Menschheit",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Darstellungen / aus der Geschichte der Menschheit",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.032Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "j523cgz2jst7nlc"
+        }
+      ],
+      "source_id": "jd4pghwvfx3i2oe"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wir beginnen diese an großen Ereignissen, Begebenheiten und Thaten überaus reiche Periode, der Zeitfolge gemäs, mit der Geschichte von Persien.",
+      "language": [],
+      "musenalm_id": 61047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierte Periode der Menschengeschichte. / Jahre der Welt 3640 bis 3865 oder bis 336 / vor Christus Geburt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierte Periode der Menschengeschichte. / Jahre der Welt 3640 bis 3865 oder bis 336 / vor Christus Geburt",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.033Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.033Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "hx1692x9vczny6p"
+        }
+      ],
+      "source_id": "cc1s6hyt0m82edd"
+    },
+    {
+      "annotation": "Einziges Kapitel von »Vierte Periode der Menschengeschichte. Jahre der Welt 3640 bis 3865 oder bis 336 vor Christus Geburt« INr 60147, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Die Geschichte der alten Perser (Parser, Kephener, und in der mosaischen Urkunde Elamiter genannt) reichet bis in das graue Zeitalter der ersten Erdbevölkerung hinauf, und übersteigt noch das Alter der Aegypter,",
+      "language": [],
+      "musenalm_id": 61050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Abschnitt / Geschichte der Perser",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Abschnitt / Geschichte der Perser",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.913Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "2yz2hmn4xk5lxct"
+        }
+      ],
+      "source_id": "1in8wp6q0h2gzar"
+    },
+    {
+      "annotation": "Beigabe zu »Vierte Periode der Menschengeschichte. Jahre der Welt 3640 bis 3865 oder bis 336 vor Christus Geburt /) Geschichte der Perser« INr 60150, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uibersicht von Persien nach seiner Größe / Und seinen Einkünften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uibersicht von Persien nach seiner Größe / Und seinen Einkünften",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "tmudxula2t4rjfn"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61048,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_952_61048_9lmbxu5ehc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "46y0gbohih8p4jv"
+    }
   ],
   "agents": [
     {

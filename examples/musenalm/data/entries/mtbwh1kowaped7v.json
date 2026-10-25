@@ -48,40 +48,1271 @@
   "year": 1868,
   "editor": "",
   "items": [
-    "q69gsgfnpg9g2wy"
+    {
+      "annotation": "KVK, OBV: Standorte für Thalia Jgg 1858-1867. Thalia Neue Folge: weitere Jgg nicht ermittelt",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.689Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409098",
+      "location": "105A05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.689Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "q69gsgfnpg9g2wy"
+    }
   ],
   "contents": [
-    "3e2eajjznnl4li3",
-    "jk2pgqwv60lyo5n",
-    "9gtsen5vho0rr2c",
-    "7pfr0eww9yco5ax",
-    "n3h8wdq29yo1wd1",
-    "ymawk7vm9hlwdzr",
-    "x58rmc4chka3sxc",
-    "w052xdxtfu6903s",
-    "55fql3on0nlsdpf",
-    "dyispzwfpjozn8n",
-    "ntt21ncf4litgw4",
-    "d7mwqnhey1bukrm",
-    "3f7hnimljboatbe",
-    "24caa9j42n0tmz7",
-    "1qy4rb9qtoxqayf",
-    "r6bn3msv60d4a5a",
-    "kpkn71braq71kdd",
-    "hxfmgstme6x5oe8",
-    "ssyzsct6n347qo2",
-    "tli6yneg7ztcxg3",
-    "tuqw1i4fn6alr00",
-    "xt3b65ff7ztkhs2",
-    "wh3zxt1yw14fofd",
-    "ulgei0jpq3ynmtp",
-    "2841le558lgybaj",
-    "jpupk7wu7ktju8f",
-    "hnpcfgau5s4vl5c",
-    "jsrhke3ugzd4wc2",
-    "o5i18r2yxfhqlro",
-    "reqfwlki5svj3v0",
-    "ak23nmrlbm54hkr"
+    {
+      "annotation": "Titelportrait /) s. Textbezug INr 118090, Ob 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118084,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MATHILDE / Erzherzogin v. Oesterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "lith. v. V. Katzler",
+      "scans": [
+        "alm_3235_118084_mz0yfji313.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MATHILDE / Erzherzogin v. Oesterreich",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.683Z",
+          "agent": "he3qh02om9n8rxy",
+          "source_id": "9op4ixlc2kvhvrt"
+        }
+      ],
+      "source_id": "3e2eajjznnl4li3"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118085,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THALIA / 1868",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Druck von Reiffenstein & [unleserlich] in Wien",
+      "scans": [
+        "alm_3235_118085_4ist0iabsp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THALIA / 1868",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "jk2pgqwv60lyo5n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118086,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thalia. / Taschenbuch / für 1868. / Von / Friedrich Steinebach. / Mit 4 Kupfern. / Neue Folge. Erster Jahrgang. / Wien. / Verlag von Jacob Dirnböck's Buchhandlung (Georg Draudt.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3235_118086_hhh6svr86x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Thalia. / Taschenbuch / für 1868. / Von / Friedrich Steinebach. / Mit 4 Kupfern. / Neue Folge. Erster Jahrgang. / Wien. / Verlag von Jacob Dirnböck's Buchhandlung (Georg Draudt.)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "9gtsen5vho0rr2c"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "In den Jahren 1839 bis 1841 ist auf Veranstaltung des Schriftstellers Dr. August Schmidt, dann von dem Jahre 1842 bis zum Jahr 1857, herausgegeben von Dr. J. N. Vogl, und von 1858-1867 unter der Leitung des Gefertigten ein Taschenbuch mit dem Namen Thalia",
+      "language": [],
+      "musenalm_id": 118087,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die neue Folge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Steinebach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die neue Folge",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.683Z",
+          "agent": "lzi1zyn6aqla0ny",
+          "source_id": "jepei8z688m0qgq"
+        }
+      ],
+      "source_id": "7pfr0eww9yco5ax"
+    },
+    {
+      "annotation": "s. Textbezug INr 118089, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dieses Haus steht in Gottes Hand. / Maxing wird es genannt.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Katzler",
+      "scans": [
+        "alm_3235_118088_lm5sw55zvb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dieses Haus steht in Gottes Hand. / Maxing wird es genannt.",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.683Z",
+          "agent": "he3qh02om9n8rxy",
+          "source_id": "9y6pjw01h1l2909"
+        }
+      ],
+      "source_id": "n3h8wdq29yo1wd1"
+    },
+    {
+      "annotation": "s. Graphik INr 118088, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ferdinand Max, Erzherzog von Oesterreich, verlebte zu Schönbrunn die schönsten, glücklichsten Jugendjahre, nicht ahnend noch den kurzen Kaisertraum, welchen er mit seinem Blut bezahlte,",
+      "language": [],
+      "musenalm_id": 118089,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maxing",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maxing",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "ymawk7vm9hlwdzr"
+    },
+    {
+      "annotation": "s. Titelportrait INr 118084, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein dichtbelaubter Baum, welchen der Blitz zersplittert, ein Saatfeld, das der Hagel vernichtend niederwarf, eine Blume, mit  Eins vom Wüthen des Sturmes geknickt, erregen ein unnennbar wehmüthiges Gefühl;",
+      "language": [],
+      "musenalm_id": 118090,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzherzogin Mathilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzherzogin Mathilde",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "x58rmc4chka3sxc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nicht weil Du Kronen trugst in gold'nen Haaren, / Weil sie in Spezerei'n und Balsam tunken, / Dein todtes Herz, um noch damit zu prunken,",
+      "language": [],
+      "musenalm_id": 118091,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf Mathildens Tod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lud. Aug. Frankl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf Mathildens Tod",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.683Z",
+          "agent": "fjw259e60ifm3ie",
+          "source_id": "qv7mfmvqnikfhth"
+        }
+      ],
+      "source_id": "w052xdxtfu6903s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wein, Weiber und Gesang - ja, es sind artige Sorgenbrecher des Lebens; doch muß man den Wein vertragen, mit den Weibchen umzugehen wissen und das Singen gelernt haben.",
+      "language": [],
+      "musenalm_id": 118092,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hilarius. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Josef Rank",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hilarius. / Erzählung",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.683Z",
+          "agent": "h1rm6ctjxvxk0m6",
+          "source_id": "hjkqhei8v49q4a0"
+        }
+      ],
+      "source_id": "55fql3on0nlsdpf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Der Abendstrahl gießt sein zauberhaftes Licht über die entlaubten Bäume auf dem Glacis zu Wien aus.",
+      "language": [],
+      "musenalm_id": 118093,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine historische Entführung. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Steinebach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine historische Entführung. / Novelle",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.683Z",
+          "agent": "lzi1zyn6aqla0ny",
+          "source_id": "8aas59su3r6exuw"
+        }
+      ],
+      "source_id": "dyispzwfpjozn8n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Jene mächtigen, im Innern unseres Erdkörpers thätigen Naturkräfte, welche zu verschiedenen Epochen und in verschiedenen Richtungen die erkaltete Rinde unseres Planeten zersprengt,",
+      "language": [],
+      "musenalm_id": 118094,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Feuerberge Centralamerika's",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Karl von Scherzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Feuerberge Centralamerika's",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "ntt21ncf4litgw4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Naturhistorische Skizze werden wohl Schwestern genannt und doch stehen sich ihr Jünger nicht immer freundlich gegenüber.",
+      "language": [],
+      "musenalm_id": 118095,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichter-Lieblinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alois Steindl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichter-Lieblinge",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7mwqnhey1bukrm"
+    },
+    {
+      "annotation": "s. Textbezug INr 118097, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JULIE RETTICH / k.k. Hofschauspielerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "lith. v. V. Katzler",
+      "scans": [
+        "alm_3235_118096_bznrr7c0pd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JULIE RETTICH / k.k. Hofschauspielerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.611Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.611Z",
+          "agent": "he3qh02om9n8rxy",
+          "source_id": "y238f4666olfkq4"
+        }
+      ],
+      "source_id": "3f7hnimljboatbe"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 118096, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Ernst ist das Leben, heiter die Kunst! ist ein schöner, tiefgedachter Ausspruch einer großen Dichterseele.",
+      "language": [],
+      "musenalm_id": 118097,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julie Rettich. / Ein Künstlerleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fried. Steinebach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Julie Rettich. / Ein Künstlerleben",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.611Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.611Z",
+          "agent": "lzi1zyn6aqla0ny",
+          "source_id": "wpnp39wbqm08988"
+        }
+      ],
+      "source_id": "24caa9j42n0tmz7"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118098,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "1qy4rb9qtoxqayf"
+    },
+    {
+      "annotation": "Anm. am Objekt: Dieses kleine Lied dürfte den Verehrern des so plötzlich am 16. November gestorbenen Dichters deshalb werth sein, weil es die letzten Verse sind, welche Vogl wenige Tage vor seinem Ende schrieb,",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "And're haben Rang und Würde, / Haben Macht und klingend Erz, / Leicht ist meine Lebensbürde, / Denn sie ist - ein fröhlich' Herz.",
+      "language": [],
+      "musenalm_id": 118099,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein fröhliches Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein fröhliches Herz",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.611Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.611Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "sxmclxcasqoeexz"
+        }
+      ],
+      "source_id": "r6bn3msv60d4a5a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Noch im Schlummer ruht die Welt, / Kaum erst graut der Morgen, / Schon entschwingt sich die Lerche dem Feld,",
+      "language": [],
+      "musenalm_id": 118100,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lerche und Seele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lerche und Seele",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.611Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.611Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "gl6lsis7wi5x2m4"
+        }
+      ],
+      "source_id": "kpkn71braq71kdd"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 118102, 118103; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderlieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Patuzzi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderlieder",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.611Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.611Z",
+          "agent": "onb8bft2jljf6eb",
+          "source_id": "8w9ntqdnizgrf5z"
+        }
+      ],
+      "source_id": "hxfmgstme6x5oe8"
+    },
+    {
+      "annotation": "Wanderlieder (Sammlung INr 118101, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Ich spähte in die Meeresferne, / Wo niedersinkt der Horizont,",
+      "language": [],
+      "musenalm_id": 118102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Abendfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Patuzzi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Abendfahrt",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.611Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.611Z",
+          "agent": "onb8bft2jljf6eb",
+          "source_id": "hanbljg8kmzdeej"
+        }
+      ],
+      "source_id": "ssyzsct6n347qo2"
+    },
+    {
+      "annotation": "Wanderlieder (Sammlung INr 118101, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Wie rieselt lau der Regen nieder / Erquickend auf die trock'ne Flur;",
+      "language": [],
+      "musenalm_id": 118103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Im lauen Regen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Patuzzi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Im lauen Regen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.517Z",
+          "agent": "onb8bft2jljf6eb",
+          "source_id": "mn922r61gdgjo9s"
+        }
+      ],
+      "source_id": "tli6yneg7ztcxg3"
+    },
+    {
+      "annotation": "Anm. am Objekt: Auf dem Schlachtfelde von Solferino im Juli 1859 geschrieben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Um ein Stück Land befehden sich die Großen! / Verblutend still aus tausend Todeswunden / Vergeht das Volk und tiefster Höll' entsprossen / Sind die Dämonen,",
+      "language": [],
+      "musenalm_id": 118104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Eroberer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Patuzzi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Eroberer",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.517Z",
+          "agent": "onb8bft2jljf6eb",
+          "source_id": "rifszw2zy8vthe4"
+        }
+      ],
+      "source_id": "tuqw1i4fn6alr00"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Wohl lieb' ich es, manch' träumerische Stunde/ In abendlicher schatt'ger Dämmerhelle / Zu lauschen auf den süßen Klang der Quelle,",
+      "language": [],
+      "musenalm_id": 118105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Georgine Schubert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Albert Traeger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Georgine Schubert",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "xt3b65ff7ztkhs2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Deutsche Minne, die ich meine, / Ist so wahr, so klar so rein / Wie das Naß vom deutschen Weine,",
+      "language": [],
+      "musenalm_id": 118106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutsche Minne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hoyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutsche Minne",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "wh3zxt1yw14fofd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Ich trug eine Liebe, wie's keine gab, / So selig, so heilig im Herzen;",
+      "language": [],
+      "musenalm_id": 118107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Begrabene Fische",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Begrabene Fische",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.517Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "19hurkvtitkf0x7"
+        }
+      ],
+      "source_id": "ulgei0jpq3ynmtp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Es zitterte über die Haide / Ein goldener Sommertag / Im funklenden Lenzgeschmeide / Standen zwei Rosen im Hag.",
+      "language": [],
+      "musenalm_id": 118108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosentod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosentod",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.517Z",
+          "agent": "snndqassjoh7vf0",
+          "source_id": "a6wenflnuz7ptz6"
+        }
+      ],
+      "source_id": "2841le558lgybaj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Der Falke stößt den Reiher / Hochoben in blauer Luft, / Das Fräulein hält am Weiher / Im harzigen Tannenduft.",
+      "language": [],
+      "musenalm_id": 118109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Federspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Federspiel",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.517Z",
+          "agent": "snndqassjoh7vf0",
+          "source_id": "ua8alir1a6l819i"
+        }
+      ],
+      "source_id": "jpupk7wu7ktju8f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "O wer's vermöcht'! Erinnrung abzuthun, / Und fort zu geh'n mit trock'nem Augensterne,",
+      "language": [],
+      "musenalm_id": 118110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O wer's vermöcht'!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Robert Hamerling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "O wer's vermöcht'!",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "hnpcfgau5s4vl5c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Du stolze Stadt der Czechen, du königliches Prag! / Sahst manchen wackern Streiter, sahst manchen heißenTag,",
+      "language": [],
+      "musenalm_id": 118111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei Salven",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Proschko",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei Salven",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.517Z",
+          "agent": "agwsn5i724aiq5h",
+          "source_id": "ivbhvn3egzw1r6u"
+        }
+      ],
+      "source_id": "jsrhke3ugzd4wc2"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Im Schlosse klang die Harfe, im Lande klang der Schrei, / Im Schlosse saß die Freude, im Land' war sie vorbei-",
+      "language": [],
+      "musenalm_id": 118112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Todtenglocken. / (Sage aus der Zeit Herzogs Wilhelm IV. von Berg, Cleve und Jülich.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Proschko",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Todtenglocken. / (Sage aus der Zeit Herzogs Wilhelm IV. von Berg, Cleve und Jülich.)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.706Z",
+          "agent": "agwsn5i724aiq5h",
+          "source_id": "bpqbh5zh33ry2my"
+        }
+      ],
+      "source_id": "o5i18r2yxfhqlro"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Die zahllosen Wunder der Natur, die stets offen vor unsreren Augen liegen und die wir so zu sagen fortwährend sehen Gelegenheit haben, werden nur von Wenigen beobachtet und gewürdigt,",
+      "language": [],
+      "musenalm_id": 118113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bühnen- und Bienenwelt. / Eine Reflexion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Otto Czech",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bühnen- und Bienenwelt. / Eine Reflexion",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "reqfwlki5svj3v0"
+    },
+    {
+      "annotation": "unter dem I-Verz: Druck von W. Jakobi",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118114,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1868,
+      "editor": "",
+      "agents": [],
+      "source_id": "ak23nmrlbm54hkr"
+    }
   ],
   "agents": [
     {

@@ -48,34 +48,1032 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "8vv75sim9ji2qye"
+    {
+      "annotation": "1815-1832.\nKartonierter Einband mit Goldschnitt und Schuber.\n1832: (K: Bl 1, XI, 372 SS und Ku 6.)Mit  Bl 1, XI, 372 SS und Ku 6.\n\\par Forts.s.u.:  Taschenbuch zum. Almanach z. gesell. Vergnügen a.d.J.  1794-1814.  Gleditsch\n\\par                      W.G. Beckers Taschenbuch zum geselligen Vergnügen. 1815-1832.  1815-1818 Verl.Gleditsch,\n\\par                                                                                                                                                             1819-1832 Verl.Göschen\n\\par 1819: erfolgt Teilung in W.G. BeckersTaschenbuch zum geselligen Vergnügen: Verl. Göschen.   1815-1832.    \n\\par                                             Taschenbuch zum geselligen Vergnügen: Verl. Gleditsch. 1819-1829.\n\\par \n\\par\nKartonierter Einband mit Goldscnitt und Schuber; VB, verso G, T, S I I-Verz, S II VrlgM, SS III-XI darin 5 GG, SS 1-372",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.478Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101179",
+      "location": "105J06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.478Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8vv75sim9ji2qye"
+    }
   ],
   "contents": [
-    "5tod0v0veybfkib",
-    "7hych040ack936m",
-    "b8fzrtukzklxfd8",
-    "4unlfsnnhhylq8h",
-    "h06joq7tyfxa27m",
-    "346pzbnj2rwtpjd",
-    "k0fkq3tvxz5lvgt",
-    "t4bji7enq21x563",
-    "xbqifjm4segdk83",
-    "1fmkisc94mxgvpn",
-    "gnymu5ukdm0rrtn",
-    "o9pehud23y2bdlv",
-    "6d68xlgcncaz2vx",
-    "vm8gxvd5trikva2",
-    "l7lymbpfhsrs6ss",
-    "ksu511pznvro9nn",
-    "d1yilltxrrzvkxx",
-    "sak86x1erar9i7t",
-    "hm90d6bmvzo3w1d",
-    "cnz9ncvu6rc2rzi",
-    "j68ydcelycojkab",
-    "hezknj04vr8vpsa",
-    "3sijvgwme2zsmvb",
-    "c5y7344xg69ahzh",
-    "unh8beldwqkcn2q"
+    {
+      "annotation": "Titelgraphik. # am Objekt: Druck von Creuzbauer in Carlsruhe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21078,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MUTTERLIEBE #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thomas Lawrence pinx. E. D. Schuler sc.",
+      "scans": [
+        "alm_279_21078_byu991u155.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MUTTERLIEBE #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.976Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.976Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "x2w85ngrz824r8i"
+        }
+      ],
+      "source_id": "5tod0v0veybfkib"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21079,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1832. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig / bei Chr. Heinrich Ferdinand Hartmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_279_21079_vnhyu8luo9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1832. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig / bei Chr. Heinrich Ferdinand Hartmann",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "7hych040ack936m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21080,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "b8fzrtukzklxfd8"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vortheilhaftes Anerbieten / für Liebhaber und Sammler von Almanachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. H. F. Hartmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vortheilhaftes Anerbieten / für Liebhaber und Sammler von Almanachen",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "4unlfsnnhhylq8h"
+    },
+    {
+      "annotation": "s. Textbezug INr 21083, Obj 6 # am Objekt: Carlsruhe im Kunst-Verlag von W. Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21082,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE UNGLÜCKLICHE FAMILIE #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich] C. Frommel direxit",
+      "scans": [
+        "alm_279_21082_qi0svrp486.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE UNGLÜCKLICHE FAMILIE #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "yxu70p4laeh97im",
+          "source_id": "gdu7j9ey18hu9ua"
+        }
+      ],
+      "source_id": "h06joq7tyfxa27m"
+    },
+    {
+      "annotation": "s. Graphik INr 21082, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Was fehlet Dir? Komm an mein Herz! / Ich theile gern mit Dir den Schmerz;",
+      "language": [],
+      "musenalm_id": 21083,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die unglückliche Familie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die unglückliche Familie",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "xiz39qu3kbr6g31"
+        }
+      ],
+      "source_id": "346pzbnj2rwtpjd"
+    },
+    {
+      "annotation": "s. Textbezug INr 21085, Obj 8 # am Objekt: Carlsruhe im Kunst-Verlag von Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21084,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BEICHTVATER #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drolling pinxit. C. Frommel direxit",
+      "scans": [
+        "alm_279_21084_lfx3brra0o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BEICHTVATER #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "yxu70p4laeh97im",
+          "source_id": "t214mmrqz73yfo6"
+        }
+      ],
+      "source_id": "k0fkq3tvxz5lvgt"
+    },
+    {
+      "annotation": "s. Graphik INr 21084, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Ach, heil'ger Vater, hört mich an, / Ob mir der Himmel vergeben kann!",
+      "language": [],
+      "musenalm_id": 21085,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Beichtvater",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Beichtvater",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "af82qvgzzgqu3r9"
+        }
+      ],
+      "source_id": "t4bji7enq21x563"
+    },
+    {
+      "annotation": "s. Textbezug INr 21087, Obj 10 # am Objekt: Carlsruhe im Verlag von Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21086,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE WAISENKINDER #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pingret pinxit C. Frommel direxit",
+      "scans": [
+        "alm_279_21086_n44c5zgqgq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE WAISENKINDER #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "yxu70p4laeh97im",
+          "source_id": "ap2cwerelh874yw"
+        }
+      ],
+      "source_id": "xbqifjm4segdk83"
+    },
+    {
+      "annotation": "s. Graphik INr 21086, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Des Gotteskindes Mutter Du, / Neig' Dich den Waisenkindern zu!",
+      "language": [],
+      "musenalm_id": 21087,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Waisenkinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Waisenkinder",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "xdr4rm9gtfvvoeb"
+        }
+      ],
+      "source_id": "1fmkisc94mxgvpn"
+    },
+    {
+      "annotation": "s. Textbezug INr 21089, Obj 12 # am Objekt: Carlsruhe im Kunst-Verlag von Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER UNGLÜCKLICHE MATROSE #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grenier pinxit C. Frommel direxit",
+      "scans": [
+        "alm_279_21088_tp4hs6fvyw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER UNGLÜCKLICHE MATROSE #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "yxu70p4laeh97im",
+          "source_id": "3vm7qq17splnjc9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "m04d7309ko8gubo",
+          "source_id": "7r7vc4hk79grpms"
+        }
+      ],
+      "source_id": "gnymu5ukdm0rrtn"
+    },
+    {
+      "annotation": "s. Graphik INr 21088, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "O das verdammte Felsenriff! / Ich sagt' es doch; ging es nach mir,",
+      "language": [],
+      "musenalm_id": 21089,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der unglückliche Matrose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der unglückliche Matrose",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "g6uejoe3b9ejedl"
+        }
+      ],
+      "source_id": "o9pehud23y2bdlv"
+    },
+    {
+      "annotation": "s. Textbezug INr 21091, Obj 14 # am Objekt Carlruhe im Kunst-Verlag von Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21090,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ERNDTESCENE #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leprince pinxit C. Frommel direxit",
+      "scans": [
+        "alm_279_21090_oqka5ius3n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ERNDTESCENE #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.829Z",
+          "agent": "yxu70p4laeh97im",
+          "source_id": "qubrres25zeza5k"
+        }
+      ],
+      "source_id": "6d68xlgcncaz2vx"
+    },
+    {
+      "annotation": "s. Graphik INr 21090, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Hör', fall' mir nicht von der Leiter, Du! / Und, Röschen, lang mir die Garbe zu!",
+      "language": [],
+      "musenalm_id": 21091,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erntescene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erntescene",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.961Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.961Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "b363378jvi9aakn"
+        }
+      ],
+      "source_id": "vm8gxvd5trikva2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einer reizenden Gegend Italiens, nahe dem kleinen Städtchen Avellino, lag einst in Bergen und Kastanienwäldern versteckt,",
+      "language": [],
+      "musenalm_id": 21093,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Braut. / Letzte Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Braut. / Letzte Erzählung",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.127Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.127Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "fqrodhc25z8twn0"
+        }
+      ],
+      "source_id": "l7lymbpfhsrs6ss"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Vor dem Burghof, auf dem Stumpfe / Einer hundertjähr'gen Eiche, / Eingerammt den Speer im Boden,",
+      "language": [],
+      "musenalm_id": 21094,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mila. / Ein Gedicht in 8 Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gottfried Schmelkes",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mila. / Ein Gedicht in 8 Romanzen",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ksu511pznvro9nn"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Nur thran'ge Fische, die am schroffen Strande / Der Hamen täuscht, die Auster, mit Gefahr [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Es war ein grauenvoll düsterer Herbstmorgen, eher die Fortsetzung der vorhergegangenen finstern Nacht zu nennen;",
+      "language": [],
+      "musenalm_id": 21095,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schottlands weiße Lilie. / Historisch-romantische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schottlands weiße Lilie. / Historisch-romantische Novelle",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.933Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "chhs79e039sgz3m"
+        }
+      ],
+      "source_id": "d1yilltxrrzvkxx"
+    },
+    {
+      "annotation": "# mit einem Vorwort SS 287-292: Dieses Mährchen ist (wie mehrere andere, welche in einiger Zeit durch Vermittlung des um deutsche Sprache und Kunst hochverdienten Professors und Bibliothekars Jacob Grimm in Göttingen ans Licht treten werden) treu aus der Urschrift übersetzt, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "In einem Königreiche lebte ein Zar, Namens Wuislaf Andronowitsch, der drei Zarewitsche zu Söhnen hatte.",
+      "language": [],
+      "musenalm_id": 21096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Feuervogel und der / graue Wolf. / Russisches Volksmärchen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Anton Dietrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Feuervogel und der / graue Wolf. / Russisches Volksmärchen #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "sak86x1erar9i7t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Beranger! ich beschwöre Dich, was hältst Du von jenen grellen, entsetzlichen Bildern, die sich in uns bilden",
+      "language": [],
+      "musenalm_id": 21097,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloß L***. / erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Baron von Ungern-Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloß L***. / erzählung",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.933Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "eb991qg33lj1ofa"
+        }
+      ],
+      "source_id": "hm90d6bmvzo3w1d"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 21099-21103, Obj 21-25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21098,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermischte Gedichte",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "cnz9ncvu6rc2rzi"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21098, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Mich plagte nimmer Neid und Haß, / Nicht Trieb nach Gold und Ehre,",
+      "language": [],
+      "musenalm_id": 21099,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Undenkbares",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Dietrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Undenkbares",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "j68ydcelycojkab"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21098, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Was sitzen die Aeltern so traurig allein? / Weil sie heute begraben das Töchterlein,",
+      "language": [],
+      "musenalm_id": 21100,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Todtengräber und seine Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Baron von Schweizer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Todtengräber und seine Frau",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "hezknj04vr8vpsa"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21098, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Ich trat in einen Saal, von tausend Kerzen / Erleuchtet, wo die holdesten der Frauen,",
+      "language": [],
+      "musenalm_id": 21101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach einer Soirée",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Baron von Schweizer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach einer Soirée",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "3sijvgwme2zsmvb"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21098, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Die Prosa ist ein' alte Frau / Mit abgezehrten Wangen.",
+      "language": [],
+      "musenalm_id": 21102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poesie und Prosa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poesie und Prosa",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "c5y7344xg69ahzh"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21098, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Rauschet, Töne, sanft hernieder, / Leis' erzitternd durch die Luft,",
+      "language": [],
+      "musenalm_id": 21103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ständchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ständchen",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "unh8beldwqkcn2q"
+    }
   ],
   "agents": [
     {

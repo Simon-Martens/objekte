@@ -48,23 +48,638 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "b0xc2a2s9c5p38z"
+    {
+      "annotation": "1828-1849",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.699Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108663",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.699Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "b0xc2a2s9c5p38z"
+    }
   ],
   "contents": [
-    "z1oq3awbdcea8vk",
-    "twl28w0lqs97iyd",
-    "wg448dqanix6p8h",
-    "yx8cf14e2b97zf6",
-    "nxt65ce3cmg861j",
-    "3mpmq4i5khmwyva",
-    "m2500u173x8ndaq",
-    "jxguthy33fq78ye",
-    "e0iodw303fybb9m",
-    "vezl1fq4q9ridip",
-    "iyzr80rgzy9lbge",
-    "jcksyyex8euc31z",
-    "jbrf4rpfg0t1too",
-    "9qc0ejcefh28etw"
+    {
+      "annotation": "Verlagsbroschur r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110785,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3464_110785_mdjwhr3xiy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "z1oq3awbdcea8vk"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Johanna Lavil« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110789, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110786,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johann Lavil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leop. Beyer sc.",
+      "scans": [
+        "alm_3464_110786_jro1xxjos4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johann Lavil",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.050Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "v6pol8pyuqifz7i"
+        }
+      ],
+      "source_id": "twl28w0lqs97iyd"
+    },
+    {
+      "annotation": "mit gest. Vignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110787,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen / historisch romantisches Taschenbuch / FÜR / 1828. / VON / A. von TROMLITZ. / Mit Kupfern. / Industrie-Comptoir in Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. H. Meyer sc.",
+      "scans": [
+        "alm_3464_110787_y4pr0c1vkf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen / historisch romantisches Taschenbuch / FÜR / 1828. / VON / A. von TROMLITZ. / Mit Kupfern. / Industrie-Comptoir in Leipzig",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.050Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "7uhgq7fktusp065"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.050Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "j9g0e4auf3flkcq"
+        }
+      ],
+      "source_id": "wg448dqanix6p8h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110788,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "yx8cf14e2b97zf6"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 110786, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vor der freundlichen Herberge, zum Elephanten, die auf der großen Wiese vor Binche im Hennegau liegt, war ein buntes Gemisch von Reutern.",
+      "language": [],
+      "musenalm_id": 110789,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna Lavil",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Johanna Lavil",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.050Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "nlnrnrtgl9f8i00"
+        }
+      ],
+      "source_id": "nxt65ce3cmg861j"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 110791-110793, Obj 7-9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Es war am 19ten des April-Monats, in dem so thatenreichen Kriegsjahre 1632, als Robert Imhof, ein junger Patrizier von Augsburg, mit verschränkten Armen in dem hohen Saale seines Hauses auf und abging.",
+      "language": [],
+      "musenalm_id": 110790,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die drei Wünsche. / Eine schwäbische Sage aus den Zeiten des dreißig- / jährigen Krieges",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die drei Wünsche. / Eine schwäbische Sage aus den Zeiten des dreißig- / jährigen Krieges",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "ymz07bhg5vuqj6t"
+        }
+      ],
+      "source_id": "3mpmq4i5khmwyva"
+    },
+    {
+      "annotation": "Illustration zu »Die drei Wünsche« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110790, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110791,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROBERT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_3464_110791_w3r9t25a99.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROBERT",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "evbsgajliryhjp5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "x9012ydsf1lgxc9"
+        }
+      ],
+      "source_id": "m2500u173x8ndaq"
+    },
+    {
+      "annotation": "Illustration zu »Die drei Wünsche« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110790, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110792,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CLARA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3464_110792_mirio8a4pf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CLARA",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "lz7iurut2uzuv3s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "zevvis508mi0hym"
+        }
+      ],
+      "source_id": "jxguthy33fq78ye"
+    },
+    {
+      "annotation": "Illustration zu »Die drei Wünsche« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110790, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die drey Wünsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Walther sc. Nbg. 1827",
+      "scans": [
+        "alm_3464_110793_w9x72sdrv2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die drey Wünsche",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "5np55q5vsyccbsj"
+        }
+      ],
+      "source_id": "e0iodw303fybb9m"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 110795, 110796; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "In den Zimmer der Mutter des Königs in dem Schlosse der Tournelles zu Paris, war alles still, wie ausgestorben.",
+      "language": [],
+      "musenalm_id": 110794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schlacht von Marignano",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schlacht von Marignano",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.144Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "zt62hpw690enezu"
+        }
+      ],
+      "source_id": "vezl1fq4q9ridip"
+    },
+    {
+      "annotation": "Illustration zu »Die Schlacht von Marignano« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110794, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ADELAIDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_3464_110795_z8panxge1r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ADELAIDE",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.179Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.179Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "zb0bsdhmqb3vra7"
+        }
+      ],
+      "source_id": "iyzr80rgzy9lbge"
+    },
+    {
+      "annotation": "Illustration zu »Die Schlacht von Marignano« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110794, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Königin der Blumen gebührt dem Könige / Die Schlacht von Marignano",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3464_110796_4v1k4jtoob.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Königin der Blumen gebührt dem Könige / Die Schlacht von Marignano",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "jcksyyex8euc31z"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110797,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipziger Allgemein Modezeitung. / Eine Zeitschrift für die gebildete Welt, herausge- / geben von Dr. J. A. Bergk. / 29r. Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Industrie -Comptoir zu Leipzig, Peterstraße No. 112",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leipziger Allgemein Modezeitung. / Eine Zeitschrift für die gebildete Welt, herausge- / geben von Dr. J. A. Bergk. / 29r. Jahrgang",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "jbrf4rpfg0t1too"
+    },
+    {
+      "annotation": "Verlagsbroschur",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110798,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3464_110798_z1rd33a60a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "9qc0ejcefh28etw"
+    }
   ],
   "agents": [
     {

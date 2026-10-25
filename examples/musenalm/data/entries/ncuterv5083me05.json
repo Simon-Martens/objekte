@@ -48,91 +48,3701 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "na9up6ixjn7dm2d"
+    {
+      "annotation": "1811-1848.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.612Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106031",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.612Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "na9up6ixjn7dm2d"
+    }
   ],
   "contents": [
-    "584r1husx5fv2rr",
-    "i37vfj0ginf3i91",
-    "t5rd38xza9gzw7c",
-    "rif094qb9mkx16b",
-    "lis326vo7icwc3g",
-    "4pnbwfmsy4d7zg7",
-    "aoammapvq2dmeb1",
-    "kyajfyosfux9nwm",
-    "czg80dwvja928uo",
-    "1u3om6jqvumpf58",
-    "ph1e84la4nyvc4u",
-    "zpp6f05zsrlm4cd",
-    "55cz59d7k50cgg1",
-    "jjjkftm6pojgkun",
-    "y1rehtreqdeydo3",
-    "qijuldzgkkqpsfd",
-    "42nmsspxhwe2l5x",
-    "wd3274rbw4wis8f",
-    "e1l5fy2bqzs0897",
-    "jab0bze6sfrkv0h",
-    "wivv6sptqmhjgbu",
-    "i47iwaxdu7z53h6",
-    "xw9i39k43wiel5c",
-    "2gvyw6id6dxgkuc",
-    "vs7shsc83hqo4z3",
-    "6k0bg6bbxkm7940",
-    "05zjecrdh80oa35",
-    "guvff4tbetqm64t",
-    "aoum6jnz2cj8fg8",
-    "l3bo9q62vflkz1m",
-    "j6a1hdaneuv6alh",
-    "q68ryf0q6d8c3o2",
-    "0p6fmm42rrb8e2l",
-    "o1zhfll7q39uc94",
-    "msj8k2qw9wp66c0",
-    "phv37octgtd2v7d",
-    "d30vvyvfb7rvuwu",
-    "ithnmt5nn94k5dq",
-    "iq7o0xyxyfyq28u",
-    "ey0kb0zqbim6elu",
-    "c3mf9d8tarpb0a4",
-    "dx483pk9wju673s",
-    "nrmw14361xrougn",
-    "rmcitbwhhy5k90c",
-    "rebarceoqw68zfz",
-    "h7hvp70p4jfcano",
-    "varn5p427rovn94",
-    "ygycw4lpgkw9fbp",
-    "ts1mjub6d5gfg47",
-    "88lid61pg8azb2c",
-    "5g73c2lc1ksaka1",
-    "9ubxl5zko6bnkym",
-    "r8sjd4mkkzsifjn",
-    "topnv4uhim1sf1c",
-    "vpdrlq49xnduvke",
-    "ht1ne517dnxz3im",
-    "ld8v8j0tx0tkpk2",
-    "o00oisufmfhdd2l",
-    "1vx7natjvoidksm",
-    "iimroqf0py8ubx3",
-    "1druqb7her6gc9i",
-    "7x78nwnkdk0qzc8",
-    "shuaekn9n1c8jhg",
-    "kqf9iv07d7qxzsp",
-    "0fijhw7uck48clt",
-    "ynpbp70ntebnklw",
-    "z4pdij5hxjue4ec",
-    "9k8dkr1dnvc28py",
-    "my4enm5p7bxqng6",
-    "9l9s2kvmh1cpvlx",
-    "uvco7wc6c2qjk6f",
-    "739nrzmzs7hho41",
-    "jged3evjfeu2yqk",
-    "p6zhf0mmqde4oji",
-    "ftfn1ckd0n7oy93",
-    "7jv5hhz1qllp7w3",
-    "5fc8qxw6ku74hc4",
-    "1zqtrsc28ghz601",
-    "9ilul2i9t8lwqhm",
-    "aiz5kfz96fe03o6",
-    "01bg00n480tq3t9",
-    "plo5q32faxewvem"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2394_76947_7go3kn8v4v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "584r1husx5fv2rr"
+    },
+    {
+      "annotation": "Zueignungsblatt mit koloriertem Vergißmeinnicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / von",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2394_76948_gr2k5rj70o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An / von",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "i37vfj0ginf3i91"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug (Gedicht) INr 76965, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.452Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LAURA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. S. v. C del. F. in N. sc.",
+      "scans": [
+        "alm_2394_76949_47w3bn878t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LAURA",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.523Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "rf709d29tly5ngr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.523Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "xrzi047urak6bi2"
+        }
+      ],
+      "source_id": "t5rd38xza9gzw7c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76950,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1823. / Herausgegeben / von / Theodor Hell. / 12r. Jahrgang. / Mit 9 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2394_76950_dip1f75p7l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1823. / Herausgegeben / von / Theodor Hell. / 12r. Jahrgang. / Mit 9 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "rif094qb9mkx16b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "lis326vo7icwc3g"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 6 Auszügen aus 5 Gedichten von Fr. Schiller und 6 Illustrationen INr 76953-76964, Obj 7-18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76952,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Fr. Schiller's Gedichten. / III. / Der Taucher. / Ritter Toggenburg. / Die Erwartung. / Der Kaufmann. / Die Schlacht. / In 6 Darstellungen nach Ramberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Fr. Schiller's Gedichten. / III. / Der Taucher. / Ritter Toggenburg. / Die Erwartung. / Der Kaufmann. / Die Schlacht. / In 6 Darstellungen nach Ramberg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "4pnbwfmsy4d7zg7"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) 1. Illustration zu »Der Taucher« INr 76954, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76953,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Taucher 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_2394_76953_e5nigcaiou.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Taucher 1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ok5d00hcq654d7x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "s91jyj4l8yhi0zf"
+        }
+      ],
+      "source_id": "aoammapvq2dmeb1"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76953, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Doch endlich, da legt sich die wilde Gewalt, / Und schwarz aus dem weißen Schaum / Klafft hinunter ein gähnender Spalt",
+      "language": [],
+      "musenalm_id": 76954,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Taucher. / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Taucher. / 1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "d6zmqii2s3s0z2z"
+        }
+      ],
+      "source_id": "kyajfyosfux9nwm"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) 2. Illustration zu »Der Taucher« INr 76956, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76955,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Taucher 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_2394_76955_8at73i1rck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Taucher 2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "10cw6t74qpatgdu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "uczsptlm1h2mdpd"
+        }
+      ],
+      "source_id": "czg80dwvja928uo"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76955, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Und er kommt, es umringt ihn die jubelnde Schaar; / Zu des Königs Füßen er sinkt,",
+      "language": [],
+      "musenalm_id": 76956,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Taucher] 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Taucher] 2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "88dq92ooxlqivvs"
+        }
+      ],
+      "source_id": "1u3om6jqvumpf58"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) Illustration zu »Ritter Toggenburg« INr 76958, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76957,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Toggenburg von Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg Rosmäsler in Dresden 1821",
+      "scans": [
+        "alm_2394_76957_dt8hkrkuwm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Toggenburg von Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "fay4vmd2l68avl2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.827Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "n0cp685pspgebmc"
+        }
+      ],
+      "source_id": "ph1e84la4nyvc4u"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76957, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Und er baut sich eine Hütte / Jener Gegend nah, / Wo das Kloster aus der Mitte / Düstrer Linden sah;",
+      "language": [],
+      "musenalm_id": 76958,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Toggenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Toggenburg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "dbzo28yi0jfgznj"
+        }
+      ],
+      "source_id": "zpp6f05zsrlm4cd"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) Illustration zu »Die Erwartung« INr 76960, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76959,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Erwartung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg inv. et fec. Hannov. A. Brückner sc. Leipzig",
+      "scans": [
+        "alm_2394_76959_q3lxwxyhle.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Erwartung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "j011c2at3m1ko4k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zwckl2zuebj8i2x"
+        }
+      ],
+      "source_id": "55cz59d7k50cgg1"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76959, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Seh' ich nicht Weißes dort schimmern? / Glänzt's nicht wie seidnes Gewand?",
+      "language": [],
+      "musenalm_id": 76960,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erwartung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erwartung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "5kyhwxnq8zd6rbg"
+        }
+      ],
+      "source_id": "jjjkftm6pojgkun"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) Illustration zu »Der Kaufmann« INr 76962, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76961,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kaufmann von Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_2394_76961_umcab5pcl4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Kaufmann von Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "hqojli8xkx147k8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "l1pv4wn75vakama"
+        }
+      ],
+      "source_id": "y1rehtreqdeydo3"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76961, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.856Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Euch, ihr Götter, gehört der Kaufmann. Güter zu / suchen / Geht er; doch an sein Schiff knüpfet das Gute sich an.",
+      "language": [],
+      "musenalm_id": 76962,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kaufmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kaufmann",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.828Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "5iqveu5eety029b"
+        }
+      ],
+      "source_id": "qijuldzgkkqpsfd"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76964, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Schwer und dumpfig, / Eine Wetterwolke, / Durch die grüne Eb'ne schwankt der Marsch.",
+      "language": [],
+      "musenalm_id": 76963,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schlacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schlacht",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.796Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.796Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "vcrmxljb6xwi0k9"
+        }
+      ],
+      "source_id": "42nmsspxhwe2l5x"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) Illustration zu »Die Schlacht« INr 76963, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76964,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schlacht von Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. Frosch scul.",
+      "scans": [
+        "alm_2394_76964_pcosht0ria.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schlacht von Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.728Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.728Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "jboeeb3qdzjz1rg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.728Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.728Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "rh3j4etmb9a6lz1"
+        }
+      ],
+      "source_id": "wd3274rbw4wis8f"
+    },
+    {
+      "annotation": "s. Titelportrait INr 76949, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Andächtig hingeneigt am Hochaltare, / Das Aug' gesenkt in brünstigem Gebet,",
+      "language": [],
+      "musenalm_id": 76965,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laura",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Laura",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.835Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "7w0uy6bs2jswd89"
+        }
+      ],
+      "source_id": "e1l5fy2bqzs0897"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen mit einem beigegebenen Gedicht als Textbezüge zu 2 Graphiken INr 76967-76971, Obj 21-25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76966,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der landschaftlichen Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der landschaftlichen Kupfer",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "jab0bze6sfrkv0h"
+    },
+    {
+      "annotation": "Erklärung der landschaftlichen Kupfer (Sammlung INr 76966, Obj 20) s. Graphik INr 76968, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Im vorigen Jahrgange dieses Taschenbuchs gaben wir die innere Ansicht des in Pompeji ausgegrabenen Theaters,",
+      "language": [],
+      "musenalm_id": 76967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Säulengang im sogenannten Soldaten- / quartier zu Pompeji",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Säulengang im sogenannten Soldaten- / quartier zu Pompeji",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "wivv6sptqmhjgbu"
+    },
+    {
+      "annotation": "s. Textbezug INr 76967, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76968,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Säulengang im sogenannten Soldatenquartier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Veith fec.",
+      "scans": [
+        "alm_2394_76968_s7m0mhqxsx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Säulengang im sogenannten Soldatenquartier",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.859Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "pz89813jhycldd1"
+        }
+      ],
+      "source_id": "i47iwaxdu7z53h6"
+    },
+    {
+      "annotation": "mit beigegebenem Gedicht Houwalds INr 76970, Obj 24 /) s. Graphik INr 76971, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Hier lebte und dichtete der allen Freunden des Schönen und Guten theure und liebe Ernst von Houwald",
+      "language": [],
+      "musenalm_id": 76969,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Ansicht von Sellendorf, bei Golfen in der / Niederlausitz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Ansicht von Sellendorf, bei Golfen in der / Niederlausitz",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.859Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "wqd9nx4g0xw1vef"
+        }
+      ],
+      "source_id": "xw9i39k43wiel5c"
+    },
+    {
+      "annotation": "Der Friedrichsberg bei Sellendorf aus: Aglaja 1822, S. 129; INr 14687 /) Beigabe zu »Ansicht von Sellendorf, bei Golfen in der Niederlausitz« von Th. Hell d.i. K.G. T. Winkler INr 76969, Obj 23 /) s. Graphik INr 76971, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Nah' an dem lieben trauten Orte, / Ihm, meine Heimat, meine Welt / Hat, wie der Wächter an der Pforte, / Ein alter Berg sich hingestellt.",
+      "language": [],
+      "musenalm_id": 76970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nah' an dem lieben trauten Orte, / Ihm, meine Heimat, meine Welt / Hat, wie der Wächter an der Pforte, / Ein alter Berg sich hingestellt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.859Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "l7nkgtrehzr81jv"
+        }
+      ],
+      "source_id": "2gvyw6id6dxgkuc"
+    },
+    {
+      "annotation": "s. Textbezüge INr 76969, 76070; Obj 23, 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76971,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sellendorf in der Niederlausitz / Landsitz des Freiherrn Ernst von Houwald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rossmäsler Dresd. 1822",
+      "scans": [
+        "alm_2394_76971_em4j5pgs6s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sellendorf in der Niederlausitz / Landsitz des Freiherrn Ernst von Houwald",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.859Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "k4rqbf3yo9fx7yw"
+        }
+      ],
+      "source_id": "vs7shsc83hqo4z3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war bei Wintersanbeginn 1675, als der tapfre Obristlieutenant von Haugwitz mit siebenhundert Schlesiern in die Citadelle zu Dachstein in Elsaß einrückte, die durch den Anmarsch der Franzosen bedroht war.",
+      "language": [],
+      "musenalm_id": 76972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haugwitz und Contarini. / Erzählung / (Aus historischen Quellen entnommen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina von Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Haugwitz und Contarini. / Erzählung / (Aus historischen Quellen entnommen.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.524Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.524Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "aqovb7qxxwkbya8"
+        }
+      ],
+      "source_id": "6k0bg6bbxkm7940"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Die Morgenröthe brannte hinter den Zedern herauf, welche die dürftige Hütte des Ziegenhirten Canfu beschatteten, und die höchsten Wipfel begannen sich schon zu vergolden.",
+      "language": [],
+      "musenalm_id": 76973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wunsch des Canfu. / (Einem persischen Mährchen nacherzählt)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "van der Velde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wunsch des Canfu. / (Einem persischen Mährchen nacherzählt)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "yqgg57lsj4x0lyv",
+          "source_id": "vyj8afjigfq3gcl"
+        }
+      ],
+      "source_id": "05zjecrdh80oa35"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Thut euch auf, ihr geheimnißvollen Pforten der Vergangenheit! Schauervolles Thor von schwarzem Ebenholze, Eingang in die traurigen Thäler des Todes und der Schatten, öffne dich.",
+      "language": [],
+      "musenalm_id": 76974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sebatsian König von Portugal. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Weisflog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sebatsian König von Portugal. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "iv41ps6uccpba1n",
+          "source_id": "sp21gao1bha7xhv"
+        }
+      ],
+      "source_id": "guvff4tbetqm64t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Der Juwelier Telau sah, mit Sehnsucht nach einem ähnlichen Heimgange, dem Trauerzuge nach, welcher eben die Hülle der lieblichsten Jungfrau, der einzigen Tochter des Feldmarschall, zur Ruhstatt geleitete.",
+      "language": [],
+      "musenalm_id": 76975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Thräne. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Thräne. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "3418pczflrqzrfe"
+        }
+      ],
+      "source_id": "aoum6jnz2cj8fg8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Ein schweres Wetter zog über den Höhen von Kynau empor. Furchtbar wühlte der Sturm in den Häupten der Tannen, und jagte Staub und Kiesel in wilden Wirbeln den Bergpfad hinab,",
+      "language": [],
+      "musenalm_id": 76976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen aus dem Schlesier-Thal. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen aus dem Schlesier-Thal. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "glo1z4adhhfrcfp"
+        }
+      ],
+      "source_id": "l3bo9q62vflkz1m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Der schöne Zuckerbäckerladen des Gregor Hiberly aus Zante, welcher eine der besten Straßen der Vorstadt Pera schmückt, und in ganz Constantinopel nicht seines Gleichen hat, war eines Tages voller als gewöhnlich.",
+      "language": [],
+      "musenalm_id": 76977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Retter. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Heyden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Retter. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "y4sojkg698u6ihg",
+          "source_id": "iw3z9lduphfmm30"
+        }
+      ],
+      "source_id": "j6a1hdaneuv6alh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Wir saßen um den runden Tisch in recht traulicher Herzensergießung bei einander. Der edle Rheinwein hatte sein Feuer durch uns ergossen, und eben sollte in dem Nachbarlande der schäumende Flüchtling in den hochgestielten Gläsern perlen,",
+      "language": [],
+      "musenalm_id": 76978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schuß vom Balcon. / Mittheilung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schuß vom Balcon. / Mittheilung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.673Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "on7pu6fxd0lmcue"
+        }
+      ],
+      "source_id": "q68ryf0q6d8c3o2"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 76980-76983, Obj 34-37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vier Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vier Lieder",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.674Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "c57fc9mpl5bahop"
+        }
+      ],
+      "source_id": "0p6fmm42rrb8e2l"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 76979, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Leichte Lüfte, linde, süße, / Wehend sanft im Haine, / Bringt ihr von der Liebsten Grüße, / Oder holt ihr meine?",
+      "language": [],
+      "musenalm_id": 76980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.674Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "p7qp37jrz9qqwfj"
+        }
+      ],
+      "source_id": "o1zhfll7q39uc94"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 76979, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "An dem Ufer sitz' ich da, / Wellen! wie ihr eilet,",
+      "language": [],
+      "musenalm_id": 76981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.376Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "mj50a2v104cd98o"
+        }
+      ],
+      "source_id": "msj8k2qw9wp66c0"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 76979, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "Blühe, liebes Veilchen, / Mir zu Liebe doch,",
+      "language": [],
+      "musenalm_id": 76982,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.377Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "gjw4q62xvod3bkt"
+        }
+      ],
+      "source_id": "phv37octgtd2v7d"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 76979, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Ihr Flammen in dem Luftgefild, / Ihr Stern' im Himmelsmeer, / Was blickt ihr doch so licht, so mild, / So lieblich um mich her?",
+      "language": [],
+      "musenalm_id": 76983,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.377Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "d3eypzo57q7uvoz"
+        }
+      ],
+      "source_id": "d30vvyvfb7rvuwu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Zwei Engel leiten uns durchs Leben, / Ein wunderholdes Schwesterpaar / Die leicht, wie Amorinen schweben,",
+      "language": [],
+      "musenalm_id": 76984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schwestern. / (In das Stammbuch des Frl. Cl. v. N. u. J.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schwestern. / (In das Stammbuch des Frl. Cl. v. N. u. J.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.377Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "vhfks5qvacdz3gw"
+        }
+      ],
+      "source_id": "ithnmt5nn94k5dq"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 32 Distichen INr 76986-77018, Obj 40-72",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Stille wirthliche Frau, du waltest so sittig und emsig, / Rein sind das Haus und der Hof, zierlich Gemächer / und Saal.",
+      "language": [],
+      "musenalm_id": 76985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Penelope bei Uebersendung einiger / Reisedistichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Penelope bei Uebersendung einiger / Reisedistichen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.377Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "c8q8plqufd3lw0d"
+        }
+      ],
+      "source_id": "iq7o0xyxyfyq28u"
+    },
+    {
+      "annotation": "Sammlung von 32 Distichen INr 76986-77018, Obj 41-72 mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reisedistichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reisedistichen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.377Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "mxndhairv1pj1q4"
+        }
+      ],
+      "source_id": "ey0kb0zqbim6elu"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Sorgsam mäst' ich die Gans, mäonischer Schwäne Ge- / nossin,",
+      "language": [],
+      "musenalm_id": 76987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pommern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pommern",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.667Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.667Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "q1z4ryk6rlykfew"
+        }
+      ],
+      "source_id": "c3mf9d8tarpb0a4"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Raritäten giebts hier zu schaun, kauft Sprott doch und / Muscheln, / Wasser reichet euch Harms auf die gesalzene Kost.",
+      "language": [],
+      "musenalm_id": 76988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kiel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.667Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.667Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "kwg8fpddpmty8mt"
+        }
+      ],
+      "source_id": "dx483pk9wju673s"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Auch die Hansa entschlief, der Todtentanz, mahnet ans / Sterben,",
+      "language": [],
+      "musenalm_id": 76989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lübeck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lübeck",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.668Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.668Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "agc82lc8wonuflh"
+        }
+      ],
+      "source_id": "nrmw14361xrougn"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Ist unehrlich der Scherz? So scheint's, ich ruh' vor / der Kirche, / Ehrliche Schelme, euch faßt Momus der Tadeler doch.",
+      "language": [],
+      "musenalm_id": 76990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mölln und Till Eulenspiegel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mölln und Till Eulenspiegel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.598Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "cp2bh4qhj63sjx7"
+        }
+      ],
+      "source_id": "rmcitbwhhy5k90c"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Bieder bin ich, dabei auch gelehrt und deutschen Ge- / müthes,",
+      "language": [],
+      "musenalm_id": 76991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rostock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rostock",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.598Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "nn5h5l9rb4d9jef"
+        }
+      ],
+      "source_id": "rebarceoqw68zfz"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Noch im Tode zürnet der Leu, giebt Preis mich dem / Spotte; / Den unziemenden Scherz büß ich ja lang und tief.",
+      "language": [],
+      "musenalm_id": 76992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bardowick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bardowick",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.724Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "627f9i6ng12ybcj"
+        }
+      ],
+      "source_id": "h7hvp70p4jfcano"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Form und Gehalt sind massiv an meinen begiebelten / Häusern, / Und die Sitte zugleich bürgerlich stemmig und feist.",
+      "language": [],
+      "musenalm_id": 76993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lüneburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lüneburg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.724Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "3jktrve8oodv858"
+        }
+      ],
+      "source_id": "varn5p427rovn94"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Mit dem Liede wills hier nicht fort, das gönn' ich der / Elbe,",
+      "language": [],
+      "musenalm_id": 76994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Aller bei Celle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Aller bei Celle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.724Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "omoecqt1b1okuxq"
+        }
+      ],
+      "source_id": "ygycw4lpgkw9fbp"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Macht auch Meißen sich btreit mit seiner geschniegelten / Sprache, / Weiß sich auf Luther so viel, der ihm die Zunge / gelöst.",
+      "language": [],
+      "musenalm_id": 77000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Celle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Celle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "5kshg3cex7jdo3p"
+        }
+      ],
+      "source_id": "ts1mjub6d5gfg47"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Luther lobte mein Bier, ihm sandt' es ja Erich zum / Troste,",
+      "language": [],
+      "musenalm_id": 76995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eimbeck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eimbeck",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.640Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "4eggbfyt3cwevob"
+        }
+      ],
+      "source_id": "88lid61pg8azb2c"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Lieder bot ich euch sonst, verpacket von Bürger und Hölty / Kästners schelmische Hand schrieb die Addressen dar- / auf.",
+      "language": [],
+      "musenalm_id": 76996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göttingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Göttingen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.640Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "xy9je4a02lirfrj"
+        }
+      ],
+      "source_id": "5g73c2lc1ksaka1"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Wo im Tempel des Ruhms unsterbliche Namen erglänzen / Strahlet auch Braunschweig hell!",
+      "language": [],
+      "musenalm_id": 76997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braunschweig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Braunschweig",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.640Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "jlvbbu12qjs6h8m"
+        }
+      ],
+      "source_id": "9ubxl5zko6bnkym"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Alles ist ruhig und fromm, verrauchet der Sturm der / Fragmente, / Lessings, des Mächtigen, Geist wacht hier als dreuen- / der Sphinx.",
+      "language": [],
+      "musenalm_id": 76998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wolfenbüttel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wolfenbüttel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.640Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "5ws2fju5rz44jqf"
+        }
+      ],
+      "source_id": "r8sjd4mkkzsifjn"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Besser war vordem mein Tisch, behaglicher glänzten / die Domherrn, / Malchus, der jüdische Knecht, hat mir die Köche verjagt.",
+      "language": [],
+      "musenalm_id": 76999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hildesheim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hildesheim",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "j7h2xr790g8xxyb"
+        }
+      ],
+      "source_id": "topnv4uhim1sf1c"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Reich ist das Land an Luft, an Bergen und heiterer / Frische, / Und der Erze Gestein lacht aus den Gruben herauf.",
+      "language": [],
+      "musenalm_id": 77001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Harz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Harz",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "g8rxk2nxgbixby0"
+        }
+      ],
+      "source_id": "vpdrlq49xnduvke"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Was dem Römer Sicilien war, das bin ich den Deutschen, / Aber zur Vesper ist doch wahrlich zu offen mein / Sinn.",
+      "language": [],
+      "musenalm_id": 77002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thüringen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thüringen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "jv8j3ru78bdrdh8"
+        }
+      ],
+      "source_id": "ht1ne517dnxz3im"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Sprechet leise, Reformer, ihr störet den Kaiser im Schlum- / mer, / Seht ihr den greisigen Bart, Turner auch faßte der / Schreck",
+      "language": [],
+      "musenalm_id": 77003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kiffhäuser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kiffhäuser",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "vyfhlq7vjh06i8d"
+        }
+      ],
+      "source_id": "ld8v8j0tx0tkpk2"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Gebet des Kaisers getrocknete Faust den Domherrn / im Kuße, / Mir dem Waller doch reicht, freundliche Mädchen, die / Hand.",
+      "language": [],
+      "musenalm_id": 77004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Merseburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Merseburg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.454Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.454Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "9xdetr1xi1ew6cq"
+        }
+      ],
+      "source_id": "o00oisufmfhdd2l"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Kühner rauschet die Saale wohl hier im kritischen Wir- / bel;",
+      "language": [],
+      "musenalm_id": 77005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weißenfels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weißenfels",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.454Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.454Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "eze6skixpl0180t"
+        }
+      ],
+      "source_id": "1vx7natjvoidksm"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Offen stehet das Thor, drinn hausen noch Griechen und / Römer. / Trotz des leichtern Weins trank sich hier Klopstock / den Rausch,",
+      "language": [],
+      "musenalm_id": 77006,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schulpforte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schulpforte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.454Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.454Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "eo9hahnhkih10h9"
+        }
+      ],
+      "source_id": "iimroqf0py8ubx3"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Auf der Karte bin ich nicht groß nach Meilen und / Fläche; / Meiner Geister Gewalt hat sich den Himmel er- / stürmt.",
+      "language": [],
+      "musenalm_id": 77007,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weimar",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.454Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.454Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "mwanwupgqss2ido"
+        }
+      ],
+      "source_id": "1druqb7her6gc9i"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Ist auch klein mein Bereich, die diplomatische Scheere / Schnitt mir zu tief in das Fleisch, bluten die Wun- / den auch noch.",
+      "language": [],
+      "musenalm_id": 77008,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Königreich Sachsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Königreich Sachsen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "2drordcc7imwhq8"
+        }
+      ],
+      "source_id": "7x78nwnkdk0qzc8"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Hört man doch selber sich kaum, hier schreiet der Christ / und der Jude",
+      "language": [],
+      "musenalm_id": 77009,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "cny3r3vcncognwj"
+        }
+      ],
+      "source_id": "shuaekn9n1c8jhg"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Schweiget der Arno auch still, so redet doch lauter die / Elbe. / Lieder blühen am Strand hier in dem deutschen / Florenz.",
+      "language": [],
+      "musenalm_id": 77010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dresden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dresden",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "pcw9858jqw86cf5"
+        }
+      ],
+      "source_id": "kqf9iv07d7qxzsp"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Wunder schaffen sich hier, es gehen die Krüppel und / Lahmen.",
+      "language": [],
+      "musenalm_id": 77011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Karlsbad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Karlsbad",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "kwm3d97jkitszr3"
+        }
+      ],
+      "source_id": "0fijhw7uck48clt"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Nach den Sternen geschaut, regieret doch Mavors noch / immer.",
+      "language": [],
+      "musenalm_id": 77012,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eger",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "d81j7dbyvsxbhtm"
+        }
+      ],
+      "source_id": "ynpbp70ntebnklw"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Rationale, hier kommt ihr nicht durch, St. Nepomuck / merkt es, / Schlau ist der Heilige sehr,",
+      "language": [],
+      "musenalm_id": 77013,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prag",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "awmmf3372iymrov"
+        }
+      ],
+      "source_id": "z4pdij5hxjue4ec"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Lustig bin ich und fromm, ich schmause behaglich im / Frieden,",
+      "language": [],
+      "musenalm_id": 77014,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wien",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "6lebbay0qn9149c"
+        }
+      ],
+      "source_id": "9k8dkr1dnvc28py"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Kaiser hab ich gekrönt, die Dalbergs schlug ich zu Rit- / tern, / Für die entschwundene Lust tröstet der Dichterfürst / mich.",
+      "language": [],
+      "musenalm_id": 77015,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frankfurt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frankfurt",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "jn067u8b6x97ubw"
+        }
+      ],
+      "source_id": "my4enm5p7bxqng6"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Karl, du ruhst hier in Gott, zum Todtenamt wallen / die Fürsten.",
+      "language": [],
+      "musenalm_id": 77016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aachen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "qe3mfk7q8f35yww"
+        }
+      ],
+      "source_id": "9l9s2kvmh1cpvlx"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Ja, im Herzen bin ich noch deutsch, gern wär ich's im / Kleid auch,",
+      "language": [],
+      "musenalm_id": 77017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elsas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elsas",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.505Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "yrq5eueukbq6dud"
+        }
+      ],
+      "source_id": "uvco7wc6c2qjk6f"
+    },
+    {
+      "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Bald ist das Deutsche verwischt, denn Sprach und Gang sind französisch, / Nur der Münster allein hält auf germanisches Schrot.",
+      "language": [],
+      "musenalm_id": 77018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Straßburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Baldamus D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Straßburg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "xy0xu7ua0fdsmn6"
+        }
+      ],
+      "source_id": "739nrzmzs7hho41"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "O Noah, der den ersten Wein / Aus goldbethau'ter Traube preßte,",
+      "language": [],
+      "musenalm_id": 77019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob des Weines",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilh. Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob des Weines",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "jy6ch1al98su1yw"
+        }
+      ],
+      "source_id": "jged3evjfeu2yqk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Tönet lauter meine Saiten, / Ströme froher mein Gesang, / Denn ihr sollt das Fest begleiten,",
+      "language": [],
+      "musenalm_id": 77020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hymenäen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hymenäen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "5x2apty0wp1ot0h"
+        }
+      ],
+      "source_id": "p6zhf0mmqde4oji"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Es weben und spinnen / Geheimnißvoll sinnend / Die ewigen Schwestern / Den Faden des Lebens;",
+      "language": [],
+      "musenalm_id": 77021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Polterabends-Scenen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Polterabends-Scenen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "800ytv2sc0ahjft"
+        }
+      ],
+      "source_id": "ftfn1ckd0n7oy93"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Weil ich nicht in den Ehstand sprang, / Wie es so viele Andere thaten,",
+      "language": [],
+      "musenalm_id": 77022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warum ich ein Junggeselle bin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. H. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warum ich ein Junggeselle bin",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "f9orlfvd5abgpny"
+        }
+      ],
+      "source_id": "7jv5hhz1qllp7w3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Ein strahlend Zeichen steht am Himmel, / Ein Lichtgedank' Urania's;",
+      "language": [],
+      "musenalm_id": 77023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Jungfrau",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "09972yem63rs0ft"
+        }
+      ],
+      "source_id": "5fc8qxw6ku74hc4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "Hast du den jungen Tag gesehn, / Wenn er im Osaten stand",
+      "language": [],
+      "musenalm_id": 77024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kalra",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kalra",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "heoe6ghnoe0y65w"
+        }
+      ],
+      "source_id": "1zqtrsc28ghz601"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Der Bruder schlägt auf den König, / Und raubt die stille Braut, / Und achtet alles wenig,",
+      "language": [],
+      "musenalm_id": 77025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Königsschein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmine v. Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Königsschein",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.641Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "u7qc7mleecnpey3"
+        }
+      ],
+      "source_id": "9ilul2i9t8lwqhm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "Ein armes Nixchen taucht' empor, / Ihr war das Herz so wund,",
+      "language": [],
+      "musenalm_id": 77026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Nixchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmine v. Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Nixchen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.598Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "lq9txbmqr5tc91d"
+        }
+      ],
+      "source_id": "aiz5kfz96fe03o6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77027,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "01bg00n480tq3t9"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77028,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2394_77028_3e951i1l7w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "plo5q32faxewvem"
+    }
   ],
   "agents": [
     {

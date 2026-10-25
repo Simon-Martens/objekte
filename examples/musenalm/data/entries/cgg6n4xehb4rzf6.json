@@ -48,7 +48,26 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "6vb394moe8uks3g"
+    {
+      "annotation": "1830-1839 1.-10. Jg, 1840-1849 N. F., 1850-1859 III. F. 1.-10. Jg, 1860-1869 IV. F. 1.-10. Jg, 1870-1879 V. F. 1.-10.Jg, 1880-1891(W. Maurenbrecher) VI F. 1.-10. Jg",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.680Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200507",
+      "location": "105L04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.680Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6vb394moe8uks3g"
+    }
   ],
   "contents": [],
   "agents": [

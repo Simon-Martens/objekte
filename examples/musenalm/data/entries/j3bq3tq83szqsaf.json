@@ -48,15 +48,236 @@
   "year": 1801,
   "editor": "",
   "items": [
-    "y28kudbf0d292gd"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.672Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411148",
+      "location": "105F05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.672Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "y28kudbf0d292gd"
+    }
   ],
   "contents": [
-    "mr8i0b4pgevk2c3",
-    "3mpxjzig67x99h0",
-    "n6x9v5kenn1agbu",
-    "vzrzm7uz3i8pk1m",
-    "kc39vdxclsq26tm",
-    "3jwwn7iey1pfnlv"
+    {
+      "annotation": "Umschlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131048,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2878_131048_ifjkhzl0ic.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "mr8i0b4pgevk2c3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131052,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / witziger und belehrender / Anekdoten / zur Unterhaltung / für / Lacher und Denker. / In 2 Bänden. / Is Bändchen. / Leipzig, 1801. / bey J. B. Schiegg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2878_131052_0fth7fgau4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / witziger und belehrender / Anekdoten / zur Unterhaltung / für / Lacher und Denker. / In 2 Bänden. / Is Bändchen. / Leipzig, 1801. / bey J. B. Schiegg",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "3mpxjzig67x99h0"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131053,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theologische Anekdoten. / Erstes Heft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2878_131053_mo462emaq8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Theologische Anekdoten. / Erstes Heft",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "n6x9v5kenn1agbu"
+    },
+    {
+      "annotation": "Inhaltsverzeichniß des ersten Teils s. Photos 131054,001-131054,004",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131054,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2878_131054_01_7cvhzcisvj.jpg",
+        "alm_2878_131054_02_ra9rlfezx2.jpg",
+        "alm_2878_131054_03_vtm9dtof0r.jpg",
+        "alm_2878_131054_04_6w121ajmet.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "vzrzm7uz3i8pk1m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131055,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Militärische Anekdoten. / Zweytes Heft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2878_131055_f8v00kkhcv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Militärische Anekdoten. / Zweytes Heft",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "kc39vdxclsq26tm"
+    },
+    {
+      "annotation": "Inhaltsverzeichniß des zweiten Teils s. Photos 131056,001-131056,004",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131056,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2878_131056_01_2u2cloe32b.jpg",
+        "alm_2878_131056_02_pvs5daz805.jpg",
+        "alm_2878_131056_03_xttj9rnu4i.jpg",
+        "alm_2878_131056_04_me6mzogh4r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "3jwwn7iey1pfnlv"
+    }
   ],
   "agents": [
     {

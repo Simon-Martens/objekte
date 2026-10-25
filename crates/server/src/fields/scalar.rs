@@ -7,6 +7,7 @@ struct Input<'a> {
     id: &'a str,
     raw: &'a str,
     kind: &'a str,
+    required: bool,
     options: Vec<(String, String, bool)>,
     suggestions: Vec<String>,
     suggestions_url: String,
@@ -39,8 +40,10 @@ impl Control for Scalar {
                             .iter()
                             .map(|v| {
                                 let raw = v.to_string();
-                                let label =
-                                    v.as_str().map(str::to_owned).unwrap_or_else(|| raw.clone());
+                                let label = crate::views::preview::option_label(&field.schema, v)
+                                    .or_else(|| v.as_str())
+                                    .map(str::to_owned)
+                                    .unwrap_or_else(|| raw.clone());
                                 let selected =
                                     serde_json::from_str::<serde_json::Value>(&field.raw)
                                         .ok()
@@ -109,6 +112,7 @@ impl Control for Scalar {
             id: &field.id,
             raw: &field.raw,
             kind,
+            required: field.required,
             options,
             suggestions_url: if field.schema.get("x-options").is_some()
                 || matches!(

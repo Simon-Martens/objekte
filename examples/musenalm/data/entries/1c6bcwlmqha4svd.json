@@ -48,22 +48,570 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "77f1p43dd3em97y"
+    {
+      "annotation": "1811-1848.\n1842: ( K: XI, 410 SS und Ku 3 ) Mit Tku 1, Ku 2, X, 410 SS.\nKartonierter Einband mit Goldschnitt..",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.618Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100447",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.618Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "77f1p43dd3em97y"
+    }
   ],
   "contents": [
-    "hqxw3ouhcbcg0xz",
-    "32s5z0nvvaa60hz",
-    "ra2m86f27tvkpx7",
-    "ngw3pxeitr943y3",
-    "jadx7r89n7xmku3",
-    "h5o416dtx2jsrhm",
-    "rsehblpreatufxw",
-    "yiehjxrglds1mqf",
-    "ucjpx92oiuzkhnw",
-    "uu5zx4qvc2hyn72",
-    "xvhb8g72ycxr1bh",
-    "fqkgnj6ovdqyul4",
-    "syrmml4pzrpd2zq"
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 77776, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77773,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwesterliebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H. Payne sc. engl. Kunstanstalt Leipzig",
+      "scans": [
+        "alm_2413_77773_82yu606fo3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schwesterliebe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.881Z",
+          "agent": "vns4sg0j1neru7c",
+          "source_id": "hbx0wjnkxeo2i9c"
+        }
+      ],
+      "source_id": "hqxw3ouhcbcg0xz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77774,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1842. / Herausgegeben / von / Theodor Hell. / Ein und dreißigster Jahrgang, / oder / Neue Folge, / Zweiter Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2413_77774_tdza5rtn0v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1842. / Herausgegeben / von / Theodor Hell. / Ein und dreißigster Jahrgang, / oder / Neue Folge, / Zweiter Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "32s5z0nvvaa60hz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77775,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "ra2m86f27tvkpx7"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 77773, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wie zwei Blüthen Eines Zweiges / Dichtgedrängt einander kosen,",
+      "language": [],
+      "musenalm_id": 77776,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwesterliebe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwesterliebe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.881Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "aygp5ca837obp7s"
+        }
+      ],
+      "source_id": "ngw3pxeitr943y3"
+    },
+    {
+      "annotation": "s. Textbezug INr 77778, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77777,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verfasserin von / Godwie Castle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leipzig bei engl. Kunstanstalt. A. H. Payne sc.",
+      "scans": [
+        "alm_2413_77777_p4275bvncj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Verfasserin von / Godwie Castle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.881Z",
+          "agent": "vns4sg0j1neru7c",
+          "source_id": "chzybuc9jac31ld"
+        }
+      ],
+      "source_id": "jadx7r89n7xmku3"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77777, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Seit das Icignito des großen Schotten aufgehellt und die Maske gelüftet ward, unter welcher er sich verborgen hatte, will kein andres mehr recht halten,",
+      "language": [],
+      "musenalm_id": 77778,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verfasserin von Godwie-Castle etc",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verfasserin von Godwie-Castle etc",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "zz6l756bozmeurj"
+        }
+      ],
+      "source_id": "h5o416dtx2jsrhm"
+    },
+    {
+      "annotation": "s. Textbezug INr 77780, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77779,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "W. Haering",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Korneck fec. G. Alboth sc.",
+      "scans": [
+        "alm_2413_77779_eo5e2484f8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "W. Haering",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "e06f0hbf7l2b6rs",
+          "source_id": "rq34ctxrilo8wa1"
+        }
+      ],
+      "source_id": "rsehblpreatufxw"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77779, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Der Roman Walladmor war diejenige Production durch welche W. Häring zuerst die allgemeinste Aufmerksamkeit auf sich zog.",
+      "language": [],
+      "musenalm_id": 77780,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm Häring. (Willibald Alexis)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm Häring. (Willibald Alexis)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "c3le2jn8smrawec"
+        }
+      ],
+      "source_id": "yiehjxrglds1mqf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wir sind keine theatralische Nation, aber durch ein halbes Jahrhundert war das Theater unsere Bildungsschule.",
+      "language": [],
+      "musenalm_id": 77781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blätter aus meinen Erinnerungen. / Einige Theatererinnerungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. W. Häring (W. Alexis.)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blätter aus meinen Erinnerungen. / Einige Theatererinnerungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "p1rai0sovhg4im2"
+        }
+      ],
+      "source_id": "ucjpx92oiuzkhnw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Um die achte Abendstunde machte Frau Margarethe die Thür der kleinen Stube auf, in welche ihr Mann arbeitete, und erstaunt blieb sie an der Schwelle stehen,",
+      "language": [],
+      "musenalm_id": 77782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe in alter Zeit. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe in alter Zeit. / Eine Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "0v7jvpk1hl29ede"
+        }
+      ],
+      "source_id": "uu5zx4qvc2hyn72"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Das Lever war abgesagt - König Joseph sei unwohl, meldete der Hofmarschall, und eine Grabesstille, nur unterbrochen von den eintönigen Schritten der Wachen, herrschte in der Gegend des königlichen Palastes zu Madrid, wo die Zimmer des Monarchen lagen.",
+      "language": [],
+      "musenalm_id": 77783,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoffnungen und Täuschungen. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Isidor (v. M.)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hoffnungen und Täuschungen. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "qidvw5dd47o2pia",
+          "source_id": "6wpv67kfnzkm69t"
+        }
+      ],
+      "source_id": "xvhb8g72ycxr1bh"
+    },
+    {
+      "annotation": "Demm Text vorangestellt: As thy cause is right, / So be the fortune. / König Richard II. act I. scnen 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "In der Tiefe eines grasreichen, vom Flusse Itchin bewässerten Thales liegt die alte Stadt Winchester.",
+      "language": [],
+      "musenalm_id": 77784,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aylwin. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Woldemar Seyffarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aylwin. / Historische Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "fqkgnj6ovdqyul4"
+    },
+    {
+      "annotation": "unter der Bezeichnung: Revidirt und aus den nachgelassenen Papieren der Verfasserin herausgegeben von Dr. F. Volger",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "Der letzte Tag des Carnevals im Jahr 18... wurde in dem Palaste des Marches Francesco die Capello zu Florenz auf das Glänzendste gefeiert.",
+      "language": [],
+      "musenalm_id": 77785,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das getheilte Herz. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise Ehrhardt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das getheilte Herz. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "syrmml4pzrpd2zq"
+    }
   ],
   "agents": [
     {

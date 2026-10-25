@@ -48,12 +48,127 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "3axouubpejavivf"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.732Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200762",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.732Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3axouubpejavivf"
+    }
   ],
   "contents": [
-    "tfk92xwbhs3dfwk",
-    "pixeuvne7riwfgr",
-    "f4fvolicq8zzwbg"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.565Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88941,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3978_88941_isg2ewcug3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-05-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "tfk92xwbhs3dfwk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANAC / de Goettingue / pour l'année / 1800. / chez J. C. Dietrich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3978_88942_g6xpnxsc3t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANAC / de Goettingue / pour l'année / 1800. / chez J. C. Dietrich",
+      "updated": "2013-05-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "pixeuvne7riwfgr"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.569Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88943,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3978_88943_bgtm7z4iu2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-05-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4fvolicq8zzwbg"
+    }
   ],
   "agents": [
     {

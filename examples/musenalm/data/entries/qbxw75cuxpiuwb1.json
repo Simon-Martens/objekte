@@ -48,19 +48,403 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "tlitjyrtv9c9vj1"
+    {
+      "annotation": "§§ 6 Stahlstiche fehlen",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.596Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405463",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.596Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tlitjyrtv9c9vj1"
+    }
   ],
   "contents": [
-    "j9kseis8utfktkq",
-    "mi4jcymy2m0lgxb",
-    "ez4jqh473eusvz3",
-    "jnwhde9kt1maxon",
-    "070ae2h9p0s049v",
-    "kteio1i0p9jroqv",
-    "cg1r03wll9133zw",
-    "8hxe4vrmgt52co2",
-    "p14mp8dtzxqqt8r",
-    "w7yp20lrsgu2br9"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2235_109946_xt6lkfwz3s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "j9kseis8utfktkq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1840, / von / C. von Wachsmann. / Dritter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2235_109947_jo4cv6oyo0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1840, / von / C. von Wachsmann. / Dritter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "mi4jcymy2m0lgxb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "ez4jqh473eusvz3"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Es nützte diese Zurüstung nichts, / Und wär' kein Mark in dieser hohlen Kunst? Schiller /) mit 2 Illustrationen § bez. Graphiken fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Korsika, das Vaterland des größten Feldherrn der neuern Zeit, war schon bei den Römern wegen der Steilheit seiner Gebirge und der Wildheit seiner Einwohner berüchtigt.",
+      "language": [],
+      "musenalm_id": 109949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sampiero de Ornano. / Erzählung in zwei Abtheilungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sampiero de Ornano. / Erzählung in zwei Abtheilungen",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.105Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.105Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "937az86u6zeh1v1"
+        }
+      ],
+      "source_id": "jnwhde9kt1maxon"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: / Hier geboren, dort erzogen, / Bin ich hier und dort nicht heim. / Müllner /) mit einer Illustration § bez. Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Die ganze weite Landstrecke, welche sich vom linken Ufer des Amazonenstromes bis zum rechten des Oronoco ausdehnt, wird mit dem Namen Guyana bezeichnet.",
+      "language": [],
+      "musenalm_id": 109950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mulatte. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mulatte. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.434Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "d4668x8952szbfg"
+        }
+      ],
+      "source_id": "070ae2h9p0s049v"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: / -- Was bedeutet's, / Daß Du noch einmal, todter Leichnam, ganz / In Stahl, des Mondes Dämmerlicht besuchst? / Shekespeare /) mit 2 Illustrationen; § bez. Graphiken fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Wenn man von Paris die freundlichen, lachenden Ufer der Seine abwärts schifft, so erblickt man unweit des alten Rouen auf einem mächtigen, an einer Seite steil abfallenden Felsen, den stattlichen Bau einer mächtigen Ritterburg.",
+      "language": [],
+      "musenalm_id": 109951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der todte Kämpfer. / Französische Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der todte Kämpfer. / Französische Sage",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.435Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "15z2a5glpfdyvvq"
+        }
+      ],
+      "source_id": "kteio1i0p9jroqv"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: / Der Tod starrt' aus dem Auge ohne Gluth, / Die Haut war welk, die Adern ohne Blut. / Byron /) mit einer Illustration § bez. Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "413",
+      "incipit_statement": "Selten lastete wohl die Königskrone so schwer als auf den Häuptern der vier letzten Regenten Schottlands ehe dieses Reich mit England vereinigt wurde.",
+      "language": [],
+      "musenalm_id": 109952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schatz. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schatz. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.435Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "jyabhfrzhozct6o"
+        }
+      ],
+      "source_id": "cg1r03wll9133zw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "520",
+      "incipit_statement": "Druck von Philpp Reclam jun. in Leipzig",
+      "language": [],
+      "musenalm_id": 109953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von Philpp Reclam jun. in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "8hxe4vrmgt52co2"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109954,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "p14mp8dtzxqqt8r"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109955,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2235_109955_33sb03rusp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "w7yp20lrsgu2br9"
+    }
   ],
   "agents": [
     {

@@ -49,77 +49,2473 @@
   "year": 1777,
   "editor": "",
   "items": [
-    "a0bz8u0sp0dkpah"
+    {
+      "annotation": "1777-1778.\nKartonierter Einband.\n1777: (K: Mit Tku 1u. Mu.) Mit Tku 1, Mu 30 und 176 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.510Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101288",
+      "location": "003Tresor1",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.510Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "a0bz8u0sp0dkpah"
+    }
   ],
   "contents": [
-    "onnnbt8fje8xlr1",
-    "7h9wfuq0r9cwx4l",
-    "lz7yln4u27bh4vq",
-    "06tfxcmh0vh8zw4",
-    "osf8tmnh7hx0zig",
-    "0vtcshiswpoebzw",
-    "p49ezfgh5h2528x",
-    "q9p1h304etglyxl",
-    "w755lgd5kcidi5j",
-    "mnez785shr3uh20",
-    "3jn865ag89dys2h",
-    "3lt5d3xx7uothqy",
-    "8y7zp0vqo3mq4p9",
-    "i13cm3ydtbjhjim",
-    "5trzp8vufn22im3",
-    "5fkfdcn962xx09b",
-    "xxp20taas993ro7",
-    "rz94efopfls35l1",
-    "1p8nd98jaz0i4i3",
-    "st4nl859wkbtwoi",
-    "mpanxly25khtccy",
-    "1xljkih8qbjtbgh",
-    "9budjqryz6ad5im",
-    "f77v0d9m8k00qb9",
-    "13f2w73ixcnjzcn",
-    "l4wan4k7518vfpa",
-    "3qncyw8mbkwlldb",
-    "xisjtd23tykjzbk",
-    "72n99cnr4yhl3r0",
-    "g26y55sz4wwb2l1",
-    "267v75pb90ij12e",
-    "o43ob9tvrtrast0",
-    "wq4saiaic730pqh",
-    "d8cu0wx96j4bvkw",
-    "i2nhelaebj9izw1",
-    "j5c6hddbidr0s1h",
-    "fhoayn5zdwubw6s",
-    "7rno18s1w6n25yy",
-    "h23t1i8eszgsusv",
-    "q68j3ia8gxoecea",
-    "0296obfifl5wk65",
-    "p0k6vtartjrkehw",
-    "s9jct5lx8cmt8w8",
-    "nem1xcpikrn93h9",
-    "e9wl1kgrgfnw1yp",
-    "srj9tm0i7rpuajg",
-    "sep1rzmbqenscng",
-    "2blnpqg7jwxvqeq",
-    "7aawf26eapfjxy4",
-    "epdxbyyiazz45d8",
-    "kxz4w0gw2sw4zip",
-    "83jf3wd2u4c6qvr",
-    "0yvw3qftw6ih66k",
-    "4nq81t8xth5x1z1",
-    "xji3n49u2z54y8u",
-    "7jbohs52ym9wquj",
-    "vt49x9eublrsjy5",
-    "4pppfhdhr8du18n",
-    "v0om7kw96d0gjog",
-    "gr4cnrlzc5ogcdp",
-    "6qmhwhousp5zs9y",
-    "w0zoofnt1mfsdje",
-    "5w525i1ckgz1yu2",
-    "8pwln7h3f6hulf3",
-    "8rf9e1zla08lgvg",
-    "flr7bm5tpy77apd",
-    "ss41jm97tlgelwu",
-    "ru4nfxgepf1fwiw"
+    {
+      "annotation": "Titelgraphik zeigt lt. L/R 203: »den als Schuster und Meistersinger an seinen Volksliedern erstickten und nunmehr als Geist nachtwandelnden Meister Gabriel«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49944,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (D. Chodowiecki inv. & sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv. & sc.",
+      "scans": [
+        "alm_677_49944_ju7m04gw8e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.559Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.559Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "hc3cllbzbt6xv1e"
+        }
+      ],
+      "source_id": "onnnbt8fje8xlr1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eyn / feyner kleyner / ALMANACH / Vol schönerr echterr / liblicherr Volckslieder, lustigerr / Reyen unndt kleglicherr Mordgeschich- / ten, gesungen von Gabriel Wunderlich weyl. / Benkelsengernn zu Dessaw, herausgegeben / von Daniel Seuberlich, Schusternn / tzu Ritzmück ann der Elbe. / Erster Jahrgang. / Mit Königl. Preuß. und Churf. Brandenb. allergn. Freyheiten. / Berlynn unndt Stettynn, / verlegts Friedrich Nicolai 1777",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49945_urxydm3hu7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eyn / feyner kleyner / ALMANACH / Vol schönerr echterr / liblicherr Volckslieder, lustigerr / Reyen unndt kleglicherr Mordgeschich- / ten, gesungen von Gabriel Wunderlich weyl. / Benkelsengernn zu Dessaw, herausgegeben / von Daniel Seuberlich, Schusternn / tzu Ritzmück ann der Elbe. / Erster Jahrgang. / Mit Königl. Preuß. und Churf. Brandenb. allergn. Freyheiten. / Berlynn unndt Stettynn, / verlegts Friedrich Nicolai 1777",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "7h9wfuq0r9cwx4l"
+    },
+    {
+      "annotation": "Vorwort lt. L/R 203: »Eine geistreiche Antwort auf Bürgers in seinem Aufsatz »Aus Daniel Wunderlichs Buch« enthaltene, überschwengliche Anpreisung der Volkspoesie. Die Vorreden beider Bändchen greifen Bürgers Argumente auf  und treiben damit ihren Scherz. Einige der Poesien sind vortreffliche Parodien echter Volkslieder, zum Teil ist ihnen dichterischer Wert nicht abzusprechen.« s. hierzu: G. A. Bürger »Aus Daniel Wunderlichs Buch« in: Deutsches Museum 1776 1. Bd. S. 440; sowie Bürgers Reaktion auf Nicolais Almanach erstmals gedruckt in: »Aus Daniel Wunderlich's Buche. III. Zur Beherzigung an die Philosophunculos« in: G. A. Bürger's sämmtliche Werke. Herausgegeben von Karl v. Reinhard. Sechster Band. Vollendete, rechtmäßige Ausgabe. Berlin. Bei E. H. G. Christiani. 1824 S. 194-199 /) Das Vorwort (Photos 49946,01-49946,15) ebenso wie sämtliche Beiträge sind photographisch dargestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Gunstiger liber Leser. Es ist traun dz edle Handwerck der Poeterey, mit dem edlen Handwerck der Schusterey, so demselbigen gleichbürtig, nicht unbilllichenen tzu vergleichen.",
+      "language": [],
+      "musenalm_id": 49946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gunstiger liber Leser. Es ist traun dz edle Handwerck der Poeterey, mit dem edlen Handwerck der Schusterey, so demselbigen gleichbürtig, nicht unbilllichenen tzu vergleichen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mstr. Daniel Seuberlich Schuster zu Ritzmück ann der Elbe",
+      "scans": [
+        "alm_677_49946_01_pzi3vhis6f.jpg",
+        "alm_677_49946_02_pyammbg0pq.jpg",
+        "alm_677_49946_03_irjvhcg10c.jpg",
+        "alm_677_49946_04_0hj1xegz9j.jpg",
+        "alm_677_49946_05_muxaqtlgzv.jpg",
+        "alm_677_49946_06_mhuakxmbnb.jpg",
+        "alm_677_49946_07_md7wg1retl.jpg",
+        "alm_677_49946_08_s9ekhg8hgm.jpg",
+        "alm_677_49946_09_x33dd9a9nh.jpg",
+        "alm_677_49946_10_c1c8h21pmg.jpg",
+        "alm_677_49946_11_jpgsj3fq58.jpg",
+        "alm_677_49946_12_xg6oghxtvz.jpg",
+        "alm_677_49946_13_32votrucum.jpg",
+        "alm_677_49946_14_kye999dngi.jpg",
+        "alm_677_49946_15_b53tv7eugu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.653Z",
+          "agent": "4ovfylfp8ee72sd",
+          "source_id": "6ynptrqmqrysfpu"
+        }
+      ],
+      "source_id": "lz7yln4u27bh4vq"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn feyn Lied von ey'm Schumacher-Gesellen« INr 49948, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49947_zhooi4ctul.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "06tfxcmh0vh8zw4"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49947, Obj 4 mit Vortragsanweisung: Dz Kammermensch soll man feyn, mit der Fystel, eyn Octaven höer, unndt den Wildgraven eyn Octaven tifer singen (Photos 49948,01 u. 49948,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Eß war eynmal eyn Schumacher-Gesel, / Dz war eyn yunges Blut. / Der machtt des yungen Wildgraven seyn Weyb, / Ein paar schneweiße Schu.",
+      "language": [],
+      "musenalm_id": 49948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Eyn feyn Lied von ey'm Schu- / macher-Gesellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49948_01_mbovviex1t.jpg",
+        "alm_677_49948_02_bqtx7kijj3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Eyn feyn Lied von ey'm Schu- / macher-Gesellen",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "osf8tmnh7hx0zig"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn klegliche Mordgeschicht, von ey'm Graven unndt eyner Meyd« INr 49950, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49949_ezaddsw7k5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "0vtcshiswpoebzw"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49949, Obj 6 (Photos 49950,01-49950,03)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Eß spylt eyn Grav mit eyner Meyd, / Sie spylten alle beyde,",
+      "language": [],
+      "musenalm_id": 49950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Eyn klegliche Mordgeschicht, / von ey'm Graven unndt eyner Meyd. / Ym Ton: Eß lag ein Schloßel in Oesterreich etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49950_01_46harsxf3c.jpg",
+        "alm_677_49950_02_srlg4j621m.jpg",
+        "alm_677_49950_03_ddhiyrcpui.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Eyn klegliche Mordgeschicht, / von ey'm Graven unndt eyner Meyd. / Ym Ton: Eß lag ein Schloßel in Oesterreich etc",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "p49ezfgh5h2528x"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Hyrten-Lyd« INr 49952, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49951_j3faqp7p85.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "q9p1h304etglyxl"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49951,Obj 8 (Photos 49952,01; 49952,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Sagt mir o schonste Schefrynn meyn, / Der Augen edle Zyr!",
+      "language": [],
+      "musenalm_id": 49952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Eyn Hyrten-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49952_01_knl92p434u.jpg",
+        "alm_677_49952_02_loclk1kvzb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Eyn Hyrten-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "w755lgd5kcidi5j"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Jeger-Lied« INr 49954, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49953_iq0ryww5gd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "mnez785shr3uh20"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49953 (Photos 49954,01; 49954,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Es rytt eyn Jeger wolgemut / Wol ynn der Morgenstunde,",
+      "language": [],
+      "musenalm_id": 49954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Eyn Jeger-Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49954_01_vw6btrl4nt.jpg",
+        "alm_677_49954_02_z36jbs1z0m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Eyn Jeger-Lied",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "3jn865ag89dys2h"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Sächsisch Pawren-Lied« INr 49956, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49955_9afu4xq3gd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "3lt5d3xx7uothqy"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49955, Obj 12 (Photos 49956,01; 49956,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Gott gruß'ch wol ynn der Stube! / Was gylts, ich gih grad tzu.",
+      "language": [],
+      "musenalm_id": 49956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Eyn Sächsisch Pawren-Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49956_01_dl5z5um2o4.jpg",
+        "alm_677_49956_02_llg7otme0z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Eyn Sächsisch Pawren-Lied",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "8y7zp0vqo3mq4p9"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Lied vom Huten« INr 49958, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49957_0v0o7l1si0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "i13cm3ydtbjhjim"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49957, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Eyn Sew-Hirt der hut bey dem Korn, / Der darf wol Hutens bynden vorn.",
+      "language": [],
+      "musenalm_id": 49958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Eyn Lied vom Huten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49958_t8c9kkvt9h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Eyn Lied vom Huten",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "5trzp8vufn22im3"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn new Lyd, von eym Pawren« INr 49960, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49959_9sii6lldf9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "5fkfdcn962xx09b"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49959, Obj 16 (Photos 49960,01-49960,03)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "'S hett eyn Pawr eyn schones Weyb, / Hett ir alles anvertrawt,",
+      "language": [],
+      "musenalm_id": 49960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Eyn new Lyd, von eym Pawren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49960_01_7n7ks1ovk5.jpg",
+        "alm_677_49960_02_mi72mgvwbd.jpg",
+        "alm_677_49960_03_z1uao4sfyr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Eyn new Lyd, von eym Pawren",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "xxp20taas993ro7"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Jeger-Lyd« INr 49962, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.443Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49961_drc8k0ruiz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "rz94efopfls35l1"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49961, Obj 18 (Photos 49962,01; 49962,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Eß bliß eyn Jeger wol ynn seyn Horn, / Unndt alles was er bliß, dz war verlornn,",
+      "language": [],
+      "musenalm_id": 49962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Eyn Jeger-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49962_01_zm3hmluld1.jpg",
+        "alm_677_49962_02_ozzzre0w1c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Eyn Jeger-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "1p8nd98jaz0i4i3"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Lyd vom Rosengarten« INr 49964, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49963_0qgoc02lu8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "st4nl859wkbtwoi"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49963, Obj 20 (Photos 49964,01; 49964,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.452Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Jungkfrewleyn sol ich myt euch geen, / Ynn ewren Rosengarten,",
+      "language": [],
+      "musenalm_id": 49964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Eyn Lyd vom Rosengarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49964_01_v71k3dtel0.jpg",
+        "alm_677_49964_02_0963lf8g28.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Eyn Lyd vom Rosengarten",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "mpanxly25khtccy"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Abschyds-Lyd« INr 49966, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49965_uuudnr3k42.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "1xljkih8qbjtbgh"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49965, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.893Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Es rytten drey Rewter zum Thore hinauß / Ade! / Feyns Lybchen guckte zum Fenster herauß / Ade!",
+      "language": [],
+      "musenalm_id": 49966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Abschyds-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49966_mjwojjqa76.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "X. / Abschyds-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "9budjqryz6ad5im"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn hipsch Jeger-Lyd« INr 49968, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49967_9sf5a14axy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "f77v0d9m8k00qb9"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49967, Obj 24 (Photos 49968,01; 49968,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Eß wollt' eyn Jeger jagen, / Eyn Hirschleyn oder eyn Ree.",
+      "language": [],
+      "musenalm_id": 49968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Eyn hipsch Jeger-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49968_01_d5n5fys10z.jpg",
+        "alm_677_49968_02_mo35812ncd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Eyn hipsch Jeger-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "13f2w73ixcnjzcn"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Schwebisch Volks-Lyd« INr 49970, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49969_3mapzhnnlc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "l4wan4k7518vfpa"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49969, Obj 26 (Photos 49970,01; 49970,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Guten Morgen libes Lyserl, ach layh mir dayn' / Latern, / Esch ischt ya so finschter unndt scheynt nit ai Stern,",
+      "language": [],
+      "musenalm_id": 49970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Eyn Schwebisch Volcks-Lyd«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49970_01_rncfiu8q0a.jpg",
+        "alm_677_49970_02_qaq6hjx7kz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Eyn Schwebisch Volcks-Lyd«",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "3qncyw8mbkwlldb"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Schwebisch Lyebes-Lyd« INr 50011, Obj 28,01",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49971_rgs3t7dnts.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "xisjtd23tykjzbk"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49971, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Unndt alß ij 'nmal war gekomma / Mit may'm klayn'n Buberl' z'schertz",
+      "language": [],
+      "musenalm_id": 50011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Eyn Schwebisch Lyebes-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50011_5tpc33pjpj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Eyn Schwebisch Lyebes-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "72n99cnr4yhl3r0"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Noch eyn Schwebisch Lyebes-Lyd« INr 4972, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49972_tmp30qggto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "g26y55sz4wwb2l1"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49972, Obj 29 (Photos 49973,01; 49973,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Tzum Sterben bin ij / Verlybet in dich, / Dayne schwarz-brawne Eugeleyn / Verfuren ya mich.",
+      "language": [],
+      "musenalm_id": 49973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Noch eyn / Schwebisch Lyebes Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49973_01_zt2brd0mja.jpg",
+        "alm_677_49973_02_yzd5f2msev.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Noch eyn / Schwebisch Lyebes Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "267v75pb90ij12e"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Faßnacht-Reyen« INr 49975, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49974_2yubh58hpt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "o43ob9tvrtrast0"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49974, Obj 31 (Photos 49975,01-49975,03)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.627Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Furwitz der Cramer, hat vil Waar' / Gebracht aus fernen Landen,",
+      "language": [],
+      "musenalm_id": 49975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Eyn Faßnacht -Reyen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49975_01_ewdool5qtw.jpg",
+        "alm_677_49975_02_qse43fwks0.jpg",
+        "alm_677_49975_03_u9w6zr0rsz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Eyn Faßnacht -Reyen",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "wq4saiaic730pqh"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn hipsch Lyd tzum Abschid« INr 49977, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49976_g90wz7vl6d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "d8cu0wx96j4bvkw"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49976, Obj 33 (Photos 49977,01; 49977,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Wollust in dem Meyen, / Die zeyt hat Frewden bracht, / Die Blümleyn mancherleye, / Eyn jeglichs nach seyn'r G'stalt,",
+      "language": [],
+      "musenalm_id": 49977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Eyn hipsch Lyd tzum Abschid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49977_01_ho2ky0gyrb.jpg",
+        "alm_677_49977_02_upg7zihzsu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Eyn hipsch Lyd tzum Abschid",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "i2nhelaebj9izw1"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn hipsch Lyd, vom Freyen« INr 49979, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49978_jzw4ne03pd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "j5c6hddbidr0s1h"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49978, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Dz Meydleyn will eyn'n Freyer han, / Unndt soll sie auß der Erde grab'n.",
+      "language": [],
+      "musenalm_id": 49979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / Eyn hipsch Lyd, vom Freyen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "mit einer Musikbeigabe s. INr 49978, Obj 35",
+      "scans": [
+        "alm_677_49979_01_gbecmr447o.jpg",
+        "alm_677_49979_02_ft07hqzqk3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / Eyn hipsch Lyd, vom Freyen",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "fhoayn5zdwubw6s"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn lustig Lied. von ey'm Pawern unndt seyn'm Weybe« INr 49981, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49980_nang46hmoq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "7rno18s1w6n25yy"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49980, Obj 37 (Photos 49981,01; 49981,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Es hett eyn Pawr ryn junges Weyb, / Sie blib so gern tzu Hawß;",
+      "language": [],
+      "musenalm_id": 49981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / Eyn lustig Lied. / von / ey'm Pawern unndt seyn'm Weybe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49981_01_zixpw0yedo.jpg",
+        "alm_677_49981_02_lsk5ypr03w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / Eyn lustig Lied. / von / ey'm Pawern unndt seyn'm Weybe",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "h23t1i8eszgsusv"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn new Lyd. von ey'm Meydleyn« INr 49983, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49982,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49982_04rwt10y0z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "q68j3ia8gxoecea"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49982, Obj 39 (Photos 49983,01; 49983,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Ich weyß mir'n Meydleyn hipsch unndt feyn. / Hut du dich!",
+      "language": [],
+      "musenalm_id": 49983,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIX. / Eyn new Lyd. / von ey'm Meydleyn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49983_01_hh90bmeups.jpg",
+        "alm_677_49983_02_yi8lgywr22.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XIX. / Eyn new Lyd. / von ey'm Meydleyn",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "0296obfifl5wk65"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn lustiges Lydleyn« INr 49985, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.714Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49984_ydbzt1la9u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "p0k6vtartjrkehw"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s.INr 49984, Obj 41 (Photos 49985,01; 49985,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Wol uff jr Narr'n zye't all' mit mir, / Zyet all' mit mir,",
+      "language": [],
+      "musenalm_id": 49985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XX. / Eyn lustiges Lydleyn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49985_01_xua69mwk6q.jpg",
+        "alm_677_49985_02_2xt8f6g01f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XX. / Eyn lustiges Lydleyn",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "s9jct5lx8cmt8w8"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn klegliche Mordgeschichte, von ey'm Herrn, der wz tot« INr 49987, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49986_86qguzkdg3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "nem1xcpikrn93h9"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49986, Obj 43 (Photos 49987,01; 49987,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Eß reyt eyn Herr unndt auch seyn Knecht, / Wol ub'r eyn Heyde die wz schlecht,",
+      "language": [],
+      "musenalm_id": 49987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXI. / Eyn klegliche / Mordgeschichte, / von ey'm Herrn, der wz tot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49987_01_1ftf7rzfkn.jpg",
+        "alm_677_49987_02_wrbt133myp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXI. / Eyn klegliche / Mordgeschichte, / von ey'm Herrn, der wz tot",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "e9wl1kgrgfnw1yp"
+    },
+    {
+      "annotation": "(Photos 49988,01; 49988,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Eß reyt eyn Herr, mit seym Knecht, an / Dem Morgen in dem Taw', Ade, / Ade!",
+      "language": [],
+      "musenalm_id": 49988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXII. / Eyn lustiges Liedleyn. / von / ey'm Meydleyn unndt drey Rösleyn. / Ymm Ton: Eß reyt eyn Herr unndt auch seyn Knecht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49988_01_3y5h1ajb4x.jpg",
+        "alm_677_49988_02_t108l2auvw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXII. / Eyn lustiges Liedleyn. / von / ey'm Meydleyn unndt drey Rösleyn. / Ymm Ton: Eß reyt eyn Herr unndt auch seyn Knecht",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "srj9tm0i7rpuajg"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn klegliches Lyd. von ey'm Frewleyn unndt seym Bulen« INr 49990, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49989_zku7jiabyu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "sep1rzmbqenscng"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49989, Obj 46 (Photos 49990,01; 49990,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Ich stund an eynem Morgen, / Heymlich an eynem ort, / Da hett ich mich verporgen,",
+      "language": [],
+      "musenalm_id": 49990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIII. / Eyn klegliches Lyd. / von / ey'm Frewleyn unndt seym Bulen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49990_01_mcdx8dbbaw.jpg",
+        "alm_677_49990_02_2a1hgue6yc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXIII. / Eyn klegliches Lyd. / von / ey'm Frewleyn unndt seym Bulen",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "2blnpqg7jwxvqeq"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn kleglicher Reyen, von Susel unndt Hansel« INr 49992, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49991_6yefe4feo2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "7aawf26eapfjxy4"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49991, Obj 48 (Photos 49992,01; 4992,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Ach Susel, merck uff meyn Gehewl, / Unndt uff meyn Zeeneklappen,",
+      "language": [],
+      "musenalm_id": 49992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X[X]IV. / Eyn kleglicher Reyen, / von / Susel unndt Hansel / Ymm kalten Winter tzu singen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49992_01_buwaj52zyb.jpg",
+        "alm_677_49992_02_qckxwchan5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "X[X]IV. / Eyn kleglicher Reyen, / von / Susel unndt Hansel / Ymm kalten Winter tzu singen",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "epdxbyyiazz45d8"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn steyrisch Lyd, von alten Weybern« INr 49994, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.102Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49993_6pmkfhymdu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "kxz4w0gw2sw4zip"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49993, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "'S is nichts mit den alten Weybern, / Bin fro dz ich keyne hab,",
+      "language": [],
+      "musenalm_id": 49994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXV. / Eyn steyrisch Lyd, / von alten Weybern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49994_b63dh24afn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXV. / Eyn steyrisch Lyd, / von alten Weybern",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "83jf3wd2u4c6qvr"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn schweyzerisch Wyegen-Lyd« INr 49996, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49995_iymsxr9mqe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "0yvw3qftw6ih66k"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49995, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Eß kam eyn Herr zum Schlößli, / Auf einem schönen Rößli,",
+      "language": [],
+      "musenalm_id": 49996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXVI. / Eyn schweyzerisch Wyegen-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49996_h1xwf5dlmv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXVI. / Eyn schweyzerisch Wyegen-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "4nq81t8xth5x1z1"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Schweyzerisch Lyd, von jungen Weybern« INr 49998, Obj 55",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49997_cdznci9gnd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "xji3n49u2z54y8u"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49997, Obj 54 (Photos 49998,01; 49998,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Als ich ein junger G'selle war / Nam ich eyn steynaltes Weyb",
+      "language": [],
+      "musenalm_id": 49998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXVII. / Eyn Schwyzerisch Lyd, / von jungen Weybern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49998_01_2tr1dfiw9h.jpg",
+        "alm_677_49998_02_pzb5e5v5sn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXVII. / Eyn Schwyzerisch Lyd, / von jungen Weybern",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "7jbohs52ym9wquj"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Reyen, von eyner Jungkfraw« INr 50000, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_49999_dvz0uniahy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "vt49x9eublrsjy5"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 49999, Obj 56 (Photos 50000,01; 50000,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Di Faßnacht bryngt unns Frewden zwar / Vilmer, denn sonst eyn ganztzes halbes Jar,",
+      "language": [],
+      "musenalm_id": 50000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXVIII. / Eyn Reyen, / von / eyner Jungkfraw",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50000_01_la8zxuzeiv.jpg",
+        "alm_677_50000_02_n14p8wstsn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXVIII. / Eyn Reyen, / von / eyner Jungkfraw",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "4pppfhdhr8du18n"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Schlottfeger Lyd« INr 50002, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50001_uzsz254165.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "v0om7kw96d0gjog"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 50001, Obj 58 (Photos 50002,01; 50002,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "'S Morgens wenn ich fru uffstee. / Undt den Schornsteyn fegenn gee,",
+      "language": [],
+      "musenalm_id": 50002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIX. / Eyn Schlottfeger Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50002_01_6hh28hoe97.jpg",
+        "alm_677_50002_02_xi8ctbpeiq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXIX. / Eyn Schlottfeger Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "gr4cnrlzc5ogcdp"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn new Lyd von Magdalena« INr 50004, Obj 61",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50003_dl2gzytghh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "6qmhwhousp5zs9y"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 50003, Obj 60 (Photos 50004,01; 50004,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Wer ich eyn wilder Falke, / Ich wolt' mich schwingen auß,",
+      "language": [],
+      "musenalm_id": 50004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXX. / Eyn new Lyd von Magdalena",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50004_01_aj0997ao6d.jpg",
+        "alm_677_50004_02_nd38t34qc9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXX. / Eyn new Lyd von Magdalena",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "w0zoofnt1mfsdje"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn hipsch Muller-Lyd« INr 50006, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50005_yovxghzh8z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "5w525i1ckgz1yu2"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 50005, Obj 62 (Photos 50006,01; 50006,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Gut'n Ab'nd! gut'n Abn'd! Fraw Mullerinn, / Huhu! / Wo setz ich meynen Hab'rsack hynn?",
+      "language": [],
+      "musenalm_id": 50006,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXXI. / Eyn hipsch Muller-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50006_01_gb694gmbtm.jpg",
+        "alm_677_50006_02_adh89s19cz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXXI. / Eyn hipsch Muller-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "8pwln7h3f6hulf3"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn hipsch Scherenschleyfer-Lyd« INr 50008, Obj 65",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50007,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50007_iadd1q6o31.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "8rf9e1zla08lgvg"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 50007, Obj 64 (Photos 50008,01; 50008,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "'S kam eyn junger Schleyfer her, / Schliff di Meßer undt di Scheer,",
+      "language": [],
+      "musenalm_id": 50008,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXXII. / Eyn hipsch Scheerenschleyfer-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50008_01_vrk4tbcvpp.jpg",
+        "alm_677_50008_02_j7ykbga88t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXXII. / Eyn hipsch Scheerenschleyfer-Lyd",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "flr7bm5tpy77apd"
+    },
+    {
+      "annotation": "Verzeichnis der Anfangszeilen der 32 Gedichte (Photos 50009,01; 50009,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50009,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eyn / alphabetisch Tefleyn, / der Volcks-Lyder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_677_50009_01_9wmt5o1xzm.jpg",
+        "alm_677_50009_02_w357myrmj7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eyn / alphabetisch Tefleyn, / der Volcks-Lyder",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "ss41jm97tlgelwu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.882Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-05-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1777,
+      "editor": "",
+      "agents": [],
+      "source_id": "ru4nfxgepf1fwiw"
+    }
   ],
   "agents": [
     {

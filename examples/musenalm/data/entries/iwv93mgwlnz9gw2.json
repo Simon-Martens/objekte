@@ -48,27 +48,853 @@
   "year": 1848,
   "editor": "",
   "items": [
-    "mnpj1h8his5ob0d"
+    {
+      "annotation": "1828-1849.\nHalbledereinband.\n1848: (K: M. Stahlst 8.) Mit Port 1, Tku 1, Bl 5, Ku 6 und 401SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.701Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100790",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.701Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mnpj1h8his5ob0d"
+    }
   ],
   "contents": [
-    "6ho9sk98mqacppx",
-    "fcxg86ybooegi0s",
-    "rm45mkrjdd8ffzm",
-    "ke2tpmsdqbw1kyl",
-    "juq4sw56ttj6lxo",
-    "07cq6yko4k3scdb",
-    "jxgx1ril2m3n9mc",
-    "b61pm0rsy9mg2v7",
-    "ahkab5fk8az5wh3",
-    "al3lyrngdaf63vy",
-    "u8t0j53nsdvimze",
-    "w01xfx2nqa4ncl4",
-    "4ao9i16eft8b4cp",
-    "eu4oqkzjjdd7vv5",
-    "0rabm5pswnyvgri",
-    "35ze3cebh9vvoam",
-    "qm2h24a24xr08i9",
-    "v6koz68s2m91kwh"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111136,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anna Beaufort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. von Barabás del. C. Preisel sc.",
+      "scans": [
+        "alm_3484_111136_u77nlfixen.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anna Beaufort",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.455Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "6olyuqrde99obcs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.455Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "znqz07nfbcf6xr0"
+        }
+      ],
+      "source_id": "6ho9sk98mqacppx"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111137,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN. 1848 / LEIPZIG, / Baumgaertners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Meyer sc. Zürich",
+      "scans": [
+        "alm_3484_111137_s8838oglea.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN. 1848 / LEIPZIG, / Baumgaertners Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.455Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "ydu2thwdqhrpzyd"
+        }
+      ],
+      "source_id": "fcxg86ybooegi0s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111138,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1848. / Von / Bernd von Guseck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3484_111138_8ytbypvxmw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1848. / Von / Bernd von Guseck",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "rm45mkrjdd8ffzm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.569Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111139,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3484_111139_ypuq5guyqu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "ke2tpmsdqbw1kyl"
+    },
+    {
+      "annotation": "s. Graphiken (Illustrationen zu »Andere Zeiten« von Bernd v. Guseck d.i. C. G. v. Berneck) INr 1111551, 111152; Obj 16, 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die auf der vohergehenden Seite aufgeführten zwei Werke des C. W. E. Dietrich dürften zu den schönsten und bedeutendsten Familiengemälden gehören, welch dieser geniale Künstler jemals aufgeführt hat.",
+      "language": [],
+      "musenalm_id": 111140,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunst-Notiz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunst-Notiz",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "juq4sw56ttj6lxo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111141,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3484_111141_6gs1j3jvvc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "07cq6yko4k3scdb"
+    },
+    {
+      "annotation": "s. Gedicht INr 111143, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111142,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mutter Mosis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Krusemann pinx. V. Bing del. J.P. Lange sculp.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mutter Mosis",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.455Z",
+          "agent": "ducaeq2rch9xu7z",
+          "source_id": "5n4uww3b82m939d"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.455Z",
+          "agent": "41jzrafysah3hkf",
+          "source_id": "j5cl1tcx4jb574n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.455Z",
+          "agent": "ueyslu5v7u98n57",
+          "source_id": "ym8rskwzk6ss7yu"
+        }
+      ],
+      "source_id": "jxgx1ril2m3n9mc"
+    },
+    {
+      "annotation": "s. Graphik INr 111142, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Vater, nimm das Kind der Schmerzen gnädig auf in Deine Hut, / Allerbarmer, Dir vertrauet eine Mutter all' ihr Gut!",
+      "language": [],
+      "musenalm_id": 111143,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mutter Mosis",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mutter Mosis",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "6hs62l6fcks47sb"
+        }
+      ],
+      "source_id": "b61pm0rsy9mg2v7"
+    },
+    {
+      "annotation": "s. Gedicht INr 111145, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111144,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. v. d. Sande Bakhuijzen del. D. J. Sluijter sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. v. d. Sande Bakhuijzen del. D. J. Sluijter sculps.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "oryjxunkvap8sb0",
+          "source_id": "tjnrb9g3mjwtgyy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "uexqzkyplc8u9g5"
+        }
+      ],
+      "source_id": "ahkab5fk8az5wh3"
+    },
+    {
+      "annotation": "s. Graphik INr 111144, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Was sie mag schauen im Busch? / Sie starrt mit bedächtigen / Blicken / Tief in das Dunkel hinein, wo dichte Zweige sich / drängen -",
+      "language": [],
+      "musenalm_id": 111145,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thierstudien",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thierstudien",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "93mon12cu8i3e0s"
+        }
+      ],
+      "source_id": "al3lyrngdaf63vy"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Mein Haar ist ergrauet, mein Auge getrübt, / Die Siegeswaffen hängen im Saal, [...] Uhland /) mit einer Illustration s. Graphik INr 111147, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Im Golde liegt Macht, darum kann es auch für hochsinnige Geister, denen Habsucht fremd ist, einen gewissen Reiz haben.",
+      "language": [],
+      "musenalm_id": 111146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kreuz von Junismore. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Kreuz von Junismore. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "8yckf9060l234sp"
+        }
+      ],
+      "source_id": "u8t0j53nsdvimze"
+    },
+    {
+      "annotation": "Illustration zu »Das Kreuz von Junismore« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111146, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Archibald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Brabás del. C. Preisel sc.",
+      "scans": [
+        "alm_3484_111147_dg7wmpsna1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Archibald",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "9wr2jmj47lr6vbk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "pusw120onhdl6k1"
+        }
+      ],
+      "source_id": "w01xfx2nqa4ncl4"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Nicht einzeln eine Regung, wo dabei / Die andern dunkel bleiben, unbelauscht; [...] Lord Byron /) mit einer Illustration s. Graphiken INr 111149, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.867Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Die Sonne, für den Norden eine Segenspenderin, deren Strahl wir freudig begrüßen, und nur in einer kurzen Spanne Sommers zuweilen vermeiden, herrscht über die tropischen Gegenden, wie ein Sultan über Sclaven,",
+      "language": [],
+      "musenalm_id": 111148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Creolin. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Creolin. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.474Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "s9kwrvo4q52velr"
+        }
+      ],
+      "source_id": "4ao9i16eft8b4cp"
+    },
+    {
+      "annotation": "Illustration zu »Die Creolin« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111148, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Middleton pinxt. Henry Brett sculpt.",
+      "scans": [
+        "alm_3484_111149_dlkqdfw1pc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aline",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.465Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.465Z",
+          "agent": "9p4nm0g3mymhf5v",
+          "source_id": "usd19rfzldsqz9d"
+        }
+      ],
+      "source_id": "eu4oqkzjjdd7vv5"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt:Hier, wo vor allten Tagen / Ein reicher Fürst gewohnt, [Reinhold's von der Freienthal poetisches Spazierwäldlein. 1700 /) mit 2 Illustrationen s. Graphiken INr 111151, 111152; Obj 16, 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Lebensfrische bis in das höchste Alter - wie glücklich, wer sie zu bewahren weiß! Noch im siebenzigsten Jahre bei einem Nachtritt von sieben Meilen nicht einen Augenblick aus der kerzengeraden Haltung zusammenfallen,",
+      "language": [],
+      "musenalm_id": 111150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andere Zeiten. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andere Zeiten. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.466Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "hfv8bhjgk65f37j"
+        }
+      ],
+      "source_id": "0rabm5pswnyvgri"
+    },
+    {
+      "annotation": "Illustration zu »Andere Zeiten« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111150, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. W. F. Dietrich pinx. L. Sichling sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. F. Dietrich pinx. L. Sichling sc.",
+      "scans": [
+        "alm_3484_111151_o4bqhwe9mn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.466Z",
+          "agent": "mu8fa4uo4sdq6g5",
+          "source_id": "14v3cc2hmartddv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.466Z",
+          "agent": "4h5l66xotmujbik",
+          "source_id": "ruecoju12o3mgdo"
+        }
+      ],
+      "source_id": "35ze3cebh9vvoam"
+    },
+    {
+      "annotation": "Illustration zu »Andere Zeiten« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111150, Obj 15 /) s. Kunstnotiz INr 111140, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. W. F. Dietrich pinx. L. Sichling sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. F. Dietrich pinx. L. Sichling sc.",
+      "scans": [
+        "alm_3484_111152_gnu2cxbrwh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.466Z",
+          "agent": "mu8fa4uo4sdq6g5",
+          "source_id": "at44eotnigsnkxw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.466Z",
+          "agent": "4h5l66xotmujbik",
+          "source_id": "tdgla6qoiz86eyb"
+        }
+      ],
+      "source_id": "qm2h24a24xr08i9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.727Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck von J. B. Hirschfeld",
+      "language": [],
+      "musenalm_id": 111153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von J. B. Hirschfeld…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "v6koz68s2m91kwh"
+    }
   ],
   "agents": [
     {

@@ -48,11 +48,107 @@
   "year": 1778,
   "editor": "",
   "items": [
-    "pelm3xkg10xlb8b"
+    {
+      "annotation": "Ausleihe Gleim-Haus (zusätzlich)\nmit Graphiken",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.757Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408522",
+      "location": "105D02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.757Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pelm3xkg10xlb8b"
+    }
   ],
   "contents": [
-    "na9ycicsb7xwgrl",
-    "fi4m90cnjkin8a6"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107068,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANAC / Généalogique / des Sa Maj. de la Gr. Bret. / et Elect. de Brunsw. / et de Luneb. / pour l'an Commun / 1778. / à Lauenburg / chez / Jean George Berenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4218_107068_bdl5z1envz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANAC / Généalogique / des Sa Maj. de la Gr. Bret. / et Elect. de Brunsw. / et de Luneb. / pour l'an Commun / 1778. / à Lauenburg / chez / Jean George Berenberg",
+      "updated": "2015-09-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1778,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.213Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "voa2ysbkly1r07d"
+        }
+      ],
+      "source_id": "na9ycicsb7xwgrl"
+    },
+    {
+      "annotation": "Photos 19769,01; 107069,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107069,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4218_107069_01_ryh0uu1vuy.jpg",
+        "alm_4218_107069_02_13p1v0ikp9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-09-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1778,
+      "editor": "",
+      "agents": [],
+      "source_id": "fi4m90cnjkin8a6"
+    }
   ],
   "agents": [
     {

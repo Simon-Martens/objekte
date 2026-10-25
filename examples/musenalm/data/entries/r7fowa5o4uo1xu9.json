@@ -48,7 +48,26 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "bqncm4l4tbt3bsi"
+    {
+      "annotation": "?-1806-?.\nKartonierter Einband mit Goldschnitt.(Buchrücken leicht beschädigt.)\n1806: MIt Tku 1, Bl 2, Ku 7, 284 SS , col Tab. Strick. 1 und Tab. Strick 1.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.580Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101188",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.580Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bqncm4l4tbt3bsi"
+    }
   ],
   "contents": [],
   "agents": [

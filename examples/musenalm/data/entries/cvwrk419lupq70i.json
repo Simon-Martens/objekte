@@ -48,14 +48,193 @@
   "year": 1849,
   "editor": "",
   "items": [
-    "qxjx3ull4fmkmol"
+    {
+      "annotation": "Inhalt- und seitenídentisch mit dem Jg 1848 Beigefügt sind allerdings ar1: SS 3-40: Charakterbilder der französischen Revolution",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.709Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406431",
+      "location": "105M01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.709Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qxjx3ull4fmkmol"
+    }
   ],
   "contents": [
-    "oc0y0khmaor4uhi",
-    "snt13acswj7f93o",
-    "tkgjlv9aal5tamd",
-    "zm9s3zwxcain0ez",
-    "4akfkcyvpgny5c1"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72760,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Demokratisches / Taschenbuch / für / das deutsche Volk / Anhang: / Charakterbilder der französischen / Revolution. / Leipzig, / Verlag von E. O. Weller. / 1849",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Demokratisches / Taschenbuch / für / das deutsche Volk / Anhang: / Charakterbilder der französischen / Revolution. / Leipzig, / Verlag von E. O. Weller. / 1849",
+      "updated": "2010-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "oc0y0khmaor4uhi"
+    },
+    {
+      "annotation": "Charakterbilder der französischen Revolution (Sammlung s. Titelblatt INr 7260, Obj 1) Vorwort des Herausgebers: Es folgen 3 Beiträge INr 72762-72764, Obj 3-5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "In dieser Darstellung soll keine geschichtliche Lebendskizze, sondern ein kurzer Abriß der entschieden revolutionären Gesinnungen dreier noch wenig erforschten Männer: Cloots, Heberts, Babeuf, gegeben werden;",
+      "language": [],
+      "musenalm_id": 72761,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In dieser Darstellung soll keine geschichtliche Lebendskizze, sondern ein kurzer Abriß der entschieden revolutionären Gesinnungen dreier noch wenig erforschten Männer: Cloots, Heberts, Babeuf, gegeben werden;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "snt13acswj7f93o"
+    },
+    {
+      "annotation": "Charakterbilder der französischen Revolution (Sammlung s. Titelblatt INr 7260, Obj 1) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wie abgeschmackt und verworren lauten die Urtheile über diesen preußischen Baron! Darum, wie zur Zeit der französischen Revolution die elendesten feilsten Seelen das Buch der Geschichte schrieben;",
+      "language": [],
+      "musenalm_id": 72762,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anarchis Cloots, / oder / die Weltpolitik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anarchis Cloots, / oder / die Weltpolitik",
+      "updated": "2010-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "tkgjlv9aal5tamd"
+    },
+    {
+      "annotation": "Charakterbilder der französischen Revolution (Sammlung s. Titelblatt INr 7260, Obj 1) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Der Vater der Duchesne wurde ursprünglich für die von den Aristokraten bearbeiteten Truppen geschrieben; daher sein roher, fast gesuchter Stil.",
+      "language": [],
+      "musenalm_id": 72763,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hebert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hebert",
+      "updated": "2010-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "zm9s3zwxcain0ez"
+    },
+    {
+      "annotation": "Charakterbilder der französischen Revolution (Sammlung s. Titelblatt INr 7260, Obj 1) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Die Wogen der Revolution waren schon in ihr Bett zurückgesunken; der dritte Stand hatte sein Recht gefordert und erobert,",
+      "language": [],
+      "musenalm_id": 72764,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Babeuf, / der Volkstribun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Babeuf, / der Volkstribun",
+      "updated": "2010-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "4akfkcyvpgny5c1"
+    }
   ],
   "agents": [
     {

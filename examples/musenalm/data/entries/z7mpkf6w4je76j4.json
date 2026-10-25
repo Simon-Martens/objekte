@@ -48,7 +48,26 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "quenluwvsuubiop"
+    {
+      "annotation": "KVK, BSZ: 1827",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.727Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407706",
+      "location": "105A02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.727Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "quenluwvsuubiop"
+    }
   ],
   "contents": [],
   "agents": [

@@ -49,7 +49,26 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "ztfx7aue0tuia1f"
+    {
+      "annotation": "? 1840-?.\nKartonierter Einband mit Goldschnitt, Buchrücken beschädigt.\n1840 : Mit Port 6, Tku 1, Ku 1, Bl 3, 391 SS und Bl 1.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.564Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101300",
+      "location": "105R06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.564Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ztfx7aue0tuia1f"
+    }
   ],
   "contents": [],
   "agents": [

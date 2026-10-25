@@ -48,39 +48,1303 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "6arp7eb5h0qy61y"
+    {
+      "annotation": "Fortsetzung von: Wintergarten, Der 1816, 1818-1822",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.716Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407011",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.716Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6arp7eb5h0qy61y"
+    }
   ],
   "contents": [
-    "klvm1rgr2e4i9q3",
-    "ybho9jcmcv580sz",
-    "w8vnuuus72qwlj0",
-    "z41ntfqzkw8og4c",
-    "iszhxa8i7rukpb0",
-    "cl37tul07n0km4b",
-    "ll8mgppvp8cjhih",
-    "9qgngi50viubcro",
-    "n58aqqh8fl2d5fw",
-    "k0wuxzd54ifxjau",
-    "ye8lygvauahejfr",
-    "bek20ws5dosd0r4",
-    "l1vi7s961eoah66",
-    "glvaqopy9i4dgi2",
-    "kbpxn65gvv9o84s",
-    "yvj2znn38wfzq9d",
-    "2faxoo1wju0mlp3",
-    "hv9ah2nm8lqht7r",
-    "auomxjxnisa2c3e",
-    "5fiab2no21l1nxm",
-    "lqwalhsieqwnntr",
-    "ssjcrthe2lfxsdn",
-    "ukpc6s257zulrt4",
-    "5bb80x39gykl16v",
-    "va0396id9ynn3fv",
-    "qupb41ltlc4x08v",
-    "by9yec2jdp0s36r",
-    "63hb9iwycxqfy91",
-    "im7n8zzwdrqk1us",
-    "5uae8g5vy1rhpwd"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121678,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Frühlingsbote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3748_121678_4fmgrvfft6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Frühlingsbote",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "klvm1rgr2e4i9q3"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu » Rose und  Lilie« von Fr. Lohmann INr 122235, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122232,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rose und Lilie, von Fr. Lohmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3748_122232_xibyi4nide.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rose und Lilie, von Fr. Lohmann",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.673Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "baw526y31rlwuxf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.673Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zsfda9fuz95192l"
+        }
+      ],
+      "source_id": "ybho9jcmcv580sz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122233,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Frühlingsbote. / Herausgegeben von St. Schütze. / Dritter Band. / Frankfurt am Main / bei Friedrich Wilmans. / 1825",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3748_122233_qtva7lelk3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Frühlingsbote. / Herausgegeben von St. Schütze. / Dritter Band. / Frankfurt am Main / bei Friedrich Wilmans. / 1825",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8vnuuus72qwlj0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122234,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "z41ntfqzkw8og4c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 122232, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es ist fast Nacht, sagte Claras alte Baase, und der Vater kömmt noch nicht heim. Ich sorge um seine wankende Gesundheit, um sein Leben.",
+      "language": [],
+      "musenalm_id": 122235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rose und Lilie. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rose und Lilie. / Erzählung",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "iszhxa8i7rukpb0"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 122237-122240, Obj 7-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Festgedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Festgedichte",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.673Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "2pdjn82dba0ew1v"
+        }
+      ],
+      "source_id": "cl37tul07n0km4b"
+    },
+    {
+      "annotation": "Festgedichte (Sammlung INr 122236, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Komm, Lenzestag in grauen Wintertagen, Bleib, kalter Nord, am Pol gefesselt stehn;",
+      "language": [],
+      "musenalm_id": 122237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sr. Königl. Hoheit, / dem Erbgroßherzoge von Sachsen-Weimar / zum zweiten Februar 1824. / Maskengruß der Prinzessin Phönix aus dem / standhaften Prinzen / (mit einem Zephyrfächel in der Hand.) / sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sr. Königl. Hoheit, / dem Erbgroßherzoge von Sachsen-Weimar / zum zweiten Februar 1824. / Maskengruß der Prinzessin Phönix aus dem / standhaften Prinzen / (mit einem Zephyrfächel in der Hand.) / sonett",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.673Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "9wnk2e9334k8gr1"
+        }
+      ],
+      "source_id": "ll8mgppvp8cjhih"
+    },
+    {
+      "annotation": "Festgedichte (Sammlung INr 122236, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Thönt, Lieder, rauscht ihr Stunden, / Wo vom Kranz des Glücks umwunden, / Segnend Ihn der Kreis umfängt,",
+      "language": [],
+      "musenalm_id": 122238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied zu Thaer's Jubelfeier, den 16. Mai 1824, / von seinen Schülern. / (Componirt von Herrn Chordirector Häser.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied zu Thaer's Jubelfeier, den 16. Mai 1824, / von seinen Schülern. / (Componirt von Herrn Chordirector Häser.)",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.673Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "legae6r1izgylay"
+        }
+      ],
+      "source_id": "9qgngi50viubcro"
+    },
+    {
+      "annotation": "Festgedichte (Sammlung INr 122236, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Die Quelle rauscht, die Götterstunde / Tritt freundlich her im Jahreslauf, / Und küßt uns mit dem Purpurmunde / Des Himmels Wonne wieder auf.",
+      "language": [],
+      "musenalm_id": 122239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Göthens 76stem Geburtstage / den 28. August 1824. / (Componirt von Herrn Chordirector Häser.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Göthens 76stem Geburtstage / den 28. August 1824. / (Componirt von Herrn Chordirector Häser.)",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.673Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.673Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ivxghqeeckrwqzj"
+        }
+      ],
+      "source_id": "n58aqqh8fl2d5fw"
+    },
+    {
+      "annotation": "Festgedichte (Sammlung INr 122236, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Was, Brüder, hälf' uns Geld und Gut, / Die Welt mit allen Schätzen, / Könnt' uns kein heit'rer, froher Muth, / Kein traulich Mahl ergötzen.",
+      "language": [],
+      "musenalm_id": 122240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied / zur silbernen Stiftungsfeier der Erholung zu Weimar, / den 16. December 1824. / (Componirt von Herrn Musicdirector Carl Eberwein)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied / zur silbernen Stiftungsfeier der Erholung zu Weimar, / den 16. December 1824. / (Componirt von Herrn Musicdirector Carl Eberwein)",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.702Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "6lifk46pt4wmftf"
+        }
+      ],
+      "source_id": "k0wuxzd54ifxjau"
+    },
+    {
+      "annotation": "# sic; Pseud",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Vor Alters kam, wie die Chronik von Pisa meldet, Guglielmo Grimaldi, als ein Vertriebener aus dem genuesischen Gebiete, nach dieser Stadt,",
+      "language": [],
+      "musenalm_id": 122241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unrecht Gut gedeihet nicht. / Novelle nach dem Italienischen des Anton Francesco / Grazzini, genannt il Lasco,",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Brauregard Pandin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unrecht Gut gedeihet nicht. / Novelle nach dem Italienischen des Anton Francesco / Grazzini, genannt il Lasco,",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "9mav4omm7dqt3ib",
+          "source_id": "bk5game34cfafsg"
+        }
+      ],
+      "source_id": "ye8lygvauahejfr"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 122243-122245, Obj 13-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "g3126libdoz2diy"
+        }
+      ],
+      "source_id": "bek20ws5dosd0r4"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 122242, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Süße Ferne! / Immer lenket lhre Schritte / Zu der güldnen Berge Mitte / Stolz die Himmelskönigin;",
+      "language": [],
+      "musenalm_id": 122243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pilger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pilger",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "o3dc1rxeio10eyk"
+        }
+      ],
+      "source_id": "l1vi7s961eoah66"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 122242, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Hab' das Leben oft besungen / Kunstgeübt in mancher Weise, / Täglich der Natur zum Preise / Ist Gesang und Spiel erklungen.",
+      "language": [],
+      "musenalm_id": 122244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sänger",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "r7yhp90h87x2wee"
+        }
+      ],
+      "source_id": "glvaqopy9i4dgi2"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 122242, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Ich sitze am Bache, und schaue hinab; / Die Angel liegt ruhig zur Seite.",
+      "language": [],
+      "musenalm_id": 122245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "jcd6nah3zyxh3fg"
+        }
+      ],
+      "source_id": "kbpxn65gvv9o84s"
+    },
+    {
+      "annotation": "# sic; Pseud",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Friedrich August der Erste, Kurfürst von Sachsen und König von Polen, von seiner Geliebten, der Fürstin von Teschen begleitet, traf in Leipzig, zur Zeit der Messe, mit der Gemahlin  des Königs Friedrich I. von Preußen zusammen.",
+      "language": [],
+      "musenalm_id": 122246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die seltsame Abendgesellschaft",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Brauregard Pandin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die seltsame Abendgesellschaft",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "9mav4omm7dqt3ib",
+          "source_id": "717hoypuhqhm9l0"
+        }
+      ],
+      "source_id": "yvj2znn38wfzq9d"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 122248-122250, Obj 18-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mancherlei / zur Betrachtung und zum Nachdenken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mancherlei / zur Betrachtung und zum Nachdenken",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.703Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "9md32ukaqqqj9cr"
+        }
+      ],
+      "source_id": "2faxoo1wju0mlp3"
+    },
+    {
+      "annotation": "Mancherlei zur Betrachtung und zum Nachdenken (Sammlung INr 122247, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Die größte Kühnheit begeht die Seele in der Sprache. Auch Dinge, die sie nicht zu denken, nicht zu fassen vermag, bezeichnet sie mit Namen,",
+      "language": [],
+      "musenalm_id": 122248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leben und Tod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leben und Tod",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "6q9o63ni8lvbxu5"
+        }
+      ],
+      "source_id": "hv9ah2nm8lqht7r"
+    },
+    {
+      "annotation": "Mancherlei zur Betrachtung und zum Nachdenken (Sammlung INr 122247, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Keine Gesellschaft kann ohne Gesetze bestehen. Diese dienen nicht allein dazu, die natürlichen Rechte und Pflichten der Einzelnen gegen einander abzuwägen,",
+      "language": [],
+      "musenalm_id": 122249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sitte und Gesetz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sitte und Gesetz",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "w16dl0866tjcgts"
+        }
+      ],
+      "source_id": "auomxjxnisa2c3e"
+    },
+    {
+      "annotation": "Mancherlei zur Betrachtung und zum Nachdenken (Sammlung INr 122247, Obj 19) mit einigen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Man hält die Jugend gewöhnlich für weit glücklicher, als sie es wirklich ist, oder als sie sich fühlt.",
+      "language": [],
+      "musenalm_id": 122250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einzelne Bemerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einzelne Bemerkungen",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "9z4yqo9hkoplrjh"
+        }
+      ],
+      "source_id": "5fiab2no21l1nxm"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermischte Gedichte",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqwalhsieqwnntr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "In einer Stadt an der Saale war / Ein Bader vor alter Zeit, / Der schwatzte den ganzen Tag, wie ein Staar, / Und immer gewaltig breit.",
+      "language": [],
+      "musenalm_id": 122252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bader an der Saale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bader an der Saale",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "gb5zyp2j0rhsgun"
+        }
+      ],
+      "source_id": "ssjcrthe2lfxsdn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Der kunstbeflissnen Spinnerin / Zu ihrer Wiegenfete / Weiht ihrer Freunde treuer Sinn / Das nöthige Geräthe.",
+      "language": [],
+      "musenalm_id": 122253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Spinnerin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Silvio Romano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Spinnerin",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "rw4d1lc8bcz0sk7",
+          "source_id": "uczht0m054sqfag"
+        }
+      ],
+      "source_id": "ukpc6s257zulrt4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "O, Zauberin! mit Deinen Veilchendüften / Bereitest Du mir süßes Himmelsglück,",
+      "language": [],
+      "musenalm_id": 122254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine Nachbarin im Theater, / für einen Veilchenstrauß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eckermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine Nachbarin im Theater, / für einen Veilchenstrauß",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "kzwzs9hnc6kboxh",
+          "source_id": "a6kh3n1i8yqh7h0"
+        }
+      ],
+      "source_id": "5bb80x39gykl16v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Wenn Winters man in grünen Tannen gehet, / Beschienen  von des Mittags linder Sonne,",
+      "language": [],
+      "musenalm_id": 122255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Entfernte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eckermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Entfernte",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.818Z",
+          "agent": "kzwzs9hnc6kboxh",
+          "source_id": "x5v0tqyrj7cf4sk"
+        }
+      ],
+      "source_id": "va0396id9ynn3fv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Ein Anderer zu seyn, was könnt' es frommen? / Da sind wir längst, eh' wir uns nur besonnen;",
+      "language": [],
+      "musenalm_id": 122256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonett",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Silvio Romano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonett",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.819Z",
+          "agent": "rw4d1lc8bcz0sk7",
+          "source_id": "u93i7jvf3tu28cf"
+        }
+      ],
+      "source_id": "qupb41ltlc4x08v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "321",
+      "incipit_statement": "Euch verdrießt sein ernstes Wesen, / Daß er tadelt, schmerzt euch oft;",
+      "language": [],
+      "musenalm_id": 122257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufgabe der Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufgabe der Freundschaft",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.819Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "vhpsv6zey1z5b49"
+        }
+      ],
+      "source_id": "by9yec2jdp0s36r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Ein kleines Lied von wenig Zeilen / Hat hundert Thaler mir, zugleich ein Amt gebracht,",
+      "language": [],
+      "musenalm_id": 122258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Falsche Rechnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Falsche Rechnung",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.819Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "avbxn039bxdx4fr"
+        }
+      ],
+      "source_id": "63hb9iwycxqfy91"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck und Papier von C. L. Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 122259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von C. L. Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "im7n8zzwdrqk1us"
+    },
+    {
+      "annotation": "Umschlaggraphik v. /) unter der Graphik: Aus der Schriftgießerei von C. L. Brede in Offenbach",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122260,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3748_122260_aiejte6in4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "5uae8g5vy1rhpwd"
+    }
   ],
   "agents": [
     {

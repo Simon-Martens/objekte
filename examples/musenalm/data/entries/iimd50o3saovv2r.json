@@ -48,37 +48,1094 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "y0qjm6wmu4nem2n"
+    {
+      "annotation": "Titel verso: Petit ALMANAC pour l'an 1803, avec six fables de Mr. Lafontaine, françoises et allemandes, et 12 estampes qui s'y rapportent. Avec l'approbation de l' Académie royale des sciences. Berlin, chez J. F. Unger\nFormat 4,2x7: Verlagsbroschur",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.745Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407960",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.745Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "y0qjm6wmu4nem2n"
+    }
   ],
   "contents": [
-    "1wfuiexpdaus0jy",
-    "hgt110cmr9g54td",
-    "hai8e9urdka46vf",
-    "5twkisag8gidvve",
-    "2nx7d74k9c4dfai",
-    "vcr0t0ag2w9pm3m",
-    "iwuqi6tt8j3pqtq",
-    "bbkj8nk4mnjm0yw",
-    "6q1pngo3ipixzdh",
-    "vkjyfc50640ynv7",
-    "z3027wx4seqtb2c",
-    "zgfe957hxhtii4o",
-    "2tiufcjv64sn3lj",
-    "vxmikdr2zmgcpsf",
-    "bjzmhhyqgow1xuj",
-    "dg4is4i05xko1v5",
-    "e3cy80fibu3n1uc",
-    "zs3gre59928xk4g",
-    "e49f904ehl3l8oz",
-    "o4lgc5acl9dgmjo",
-    "wy9btgn4wk9i1hl",
-    "d2tssjua5yihga8",
-    "oeuquh86kuwgmi7",
-    "5ghapfk563ekxbv",
-    "agru3ffi81pht13",
-    "7gjl2b8m4r66zcm",
-    "twv8ymtvclreu7q",
-    "qsxol0s2py2gupq"
+    {
+      "annotation": "Titel verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96702,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschen-Kalender / auf das Jahr 1811, / mit / sechs Fabeln von Lafontaine, / deutsch und französisch, / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der königl. / Akademie der Wissenschaft.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96702_s4pqi3fnw6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschen-Kalender / auf das Jahr 1811, / mit / sechs Fabeln von Lafontaine, / deutsch und französisch, / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der königl. / Akademie der Wissenschaft.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "1wfuiexpdaus0jy"
+    },
+    {
+      "annotation": "Titel recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.863Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96703,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Petit / ALMANAC / pour l'an 1811, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec approbation de l' Académie / royale des sciences",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96703_3tfywbwhmc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Petit / ALMANAC / pour l'an 1811, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec approbation de l' Académie / royale des sciences",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "hgt110cmr9g54td"
+    },
+    {
+      "annotation": "Kalendarium deutsch u. französisch",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96704,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "hai8e9urdka46vf"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar; nummeriert 1 /) Illustration zu »Die Maus als Einsiedler« von J. La Fontaine INr 96718, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96705,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96705_bsxrdsbkq7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 1.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "5twkisag8gidvve"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar; nummeriert 2 /) Illustration zu »Die Maus als Einsiedler« von J. La Fontaine INr 96718, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96706,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96706_bvd42j5cwv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 4.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "2nx7d74k9c4dfai"
+    },
+    {
+      "annotation": "Graphik im Kalendarium März; nummeriert 3 /) Illustration zu »Der Fischreiger« von J. La Fontaine INr 96720, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96707,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96707_iocybj67c0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 8.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "vcr0t0ag2w9pm3m"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April; nummeriert 4 /) Illustration zu »Der Fischreiger« von J. La Fontaine INr 96720, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96708,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 12",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96708_j53d2l33v1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 12",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "iwuqi6tt8j3pqtq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai; nummeriert 5 /) Illustration zu »Die Spröde« von J. La Fontaine INr 96722, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.229Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96709,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 16",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96709_s4of4v1lrq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 16",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "bbkj8nk4mnjm0yw"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni; nummeriert 6 /)  Illustration zu »Die Spröde« von J. La Fontaine INr 96722, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96710,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 22",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96710_fs6ym74q0a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 22",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "6q1pngo3ipixzdh"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli; nummeriert 7 /) Illustration zu »Die Fliege und der Reisewagen« von J. La Fontaine INr 96724, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96711,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 24",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96711_yn45ld7g5t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 24",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "vkjyfc50640ynv7"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August; nummeriert 8 /) Illustration zu »Die Fliege und der Reisewagen« von J. La Fontaine INr 96724, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96712,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 28",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96712_bllru830si.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 28",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "z3027wx4seqtb2c"
+    },
+    {
+      "annotation": "Graphik im Kalendarium September; nummeriert 9 /) Illustration zu »Die beiden Hähne« von J. La Fontaine INr 96726, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96713,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 32",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96713_qxpyjhzzba.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 32",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "zgfe957hxhtii4o"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober; nummeriert 10 /) Illustration zu »Die beiden Hähne« von J. La Fontaine INr 96726, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96714,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 34",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96714_0r6dwo8xn1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 34",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "2tiufcjv64sn3lj"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November; nummeriert 11 /) Illustration zu »Die Maus und die Auster« von J. La Fontaine INr 96728, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96715,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 38",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96715_zzjyi27mw7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 38",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "vxmikdr2zmgcpsf"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember; nummeriert 12 /) Illustration zu »Die Maus und die Auster« von J. La Fontaine INr 96728, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96716,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 40",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4102_96716_fxvr2ollmr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. 40",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "bjzmhhyqgow1xuj"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fabeln / von / Lafontaine. / FABLES / DE / LAFONTAINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fabeln / von / Lafontaine. / FABLES / DE / LAFONTAINE",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "dg4is4i05xko1v5"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96719, Obj 18 /) mit 2  Illustrationen s. Graphiken im Kalendarium INr 96705, 96706; Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Was? Erdensorgen sollten / noch / Mich quälen? Nein, Ade du / böse / Verruchte Welt!",
+      "language": [],
+      "musenalm_id": 96718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Maus als Einsiedler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Maus als Einsiedler",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.690Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "5z0bkewj9qgmxtu"
+        }
+      ],
+      "source_id": "e3cy80fibu3n1uc"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96718, Obj 17 /) mit 2  Illustrationen s. Graphiken im Kalendarium INr 96705, 96706; Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Les Levantins en leur Légende / Disent qu'un certain Rat, las des / soins d'ici-bas, / Dans un fromage de Hollande / Se retira loin du tracas.",
+      "language": [],
+      "musenalm_id": 96719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Le Rat qui s'est retiré / du Monde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Le Rat qui s'est retiré / du Monde",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.690Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "d3woh1hbas48yiw"
+        }
+      ],
+      "source_id": "zs3gre59928xk4g"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96721, Obj 20 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96707, 96708; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Am Ufer eines Bachs, auf ei- / ner Wiese ging / Ein Reiger ernsthaft hin, auf / langen dürren Beinen,",
+      "language": [],
+      "musenalm_id": 96720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Fischreiger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Fischreiger",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.704Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "gi40zx696tgqwkw"
+        }
+      ],
+      "source_id": "e49f904ehl3l8oz"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96720, Obj 19 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96707, 96708; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Un jour sur ses long pieds alloit, / je ne sais òu, / Le Héron au long bec emmanché / d'un long cou.",
+      "language": [],
+      "musenalm_id": 96721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Le Héron",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Le Héron",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.704Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "dylt40t4osm7cah"
+        }
+      ],
+      "source_id": "o4lgc5acl9dgmjo"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96723, Obj 22 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96709, 96710; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Es war ein Mädchen, stolz und / eitel, / Die sucht' in ihrem künft'gen / Mann / Witz, Schönheit, Kraft, Geburt / und einen vollen Beutel;",
+      "language": [],
+      "musenalm_id": 96722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Spröde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Spröde",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.645Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "vrw4zjftir97g73"
+        }
+      ],
+      "source_id": "wy9btgn4wk9i1hl"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96722, Obj 21 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96709, 96710; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Certaine Fille un peu trop fière, / Prétendont trouver un mari / Jeune, bien-fait, et beau, d'agréable / manière,",
+      "language": [],
+      "musenalm_id": 96723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / La Fille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / La Fille",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.645Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "yn1p5zwa36fm9y8"
+        }
+      ],
+      "source_id": "d2tssjua5yihga8"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96725, Obj 24 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96711, 96712; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Auf einem steilen Weg, an hei- / ßen Sommertagen, / Quält sich im tiefen Sand' ein / keuchendes Gespann / Vor einem schweren Reisewa- / gen.",
+      "language": [],
+      "musenalm_id": 96724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Fliege und der / Reisewagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Fliege und der / Reisewagen",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.645Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "7bl4sc9tlx2hkbp"
+        }
+      ],
+      "source_id": "oeuquh86kuwgmi7"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96724, Obj 23 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96711, 96712; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Dans un chemin montant, sablon- / neux, mal-aisé, / Et de tous les cotés au soleil ex- / posé,",
+      "language": [],
+      "musenalm_id": 96725,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Le Coche et la Mouche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Le Coche et la Mouche",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.645Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "57pjs196t3hapld"
+        }
+      ],
+      "source_id": "5ghapfk563ekxbv"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96727, Obj 26 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96713, 96714; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Es lebten in der schönsten Ruh / Zwei Hähne. / Eine Henne kam dazu: / Gleich gab es Krieg.",
+      "language": [],
+      "musenalm_id": 96726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die beiden Hähne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die beiden Hähne",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.645Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "u2u5gergdc4se9b"
+        }
+      ],
+      "source_id": "agru3ffi81pht13"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96726, Obj 25 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96713, 96714; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Deux Coqs vivoient en paix; une / Poule survint, / Et voilà la guerre allumée,",
+      "language": [],
+      "musenalm_id": 96727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Les deux Coqs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Les deux Coqs",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.646Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "fycuwbw9e9n02vs"
+        }
+      ],
+      "source_id": "7gjl2b8m4r66zcm"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96729, Obj 28 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96715, 96716; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Der väterlichen Laren satt, / Verläßt, mit einem Kopf der / kein Gehirne hat; / Einst eine Feldmaus ihre Hütte",
+      "language": [],
+      "musenalm_id": 96728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Maus und die / Auster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Maus und die / Auster",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.646Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "f4wt3qio67e6ils"
+        }
+      ],
+      "source_id": "twv8ymtvclreu7q"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96728, Obj 27 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96715, 96716; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Un Rat, hôte d'un champ, Rat de / peu de cervelle, / Des Lares paternels un jour se / trouva sou.",
+      "language": [],
+      "musenalm_id": 96729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Le Rat et l'Huître",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Le Rat et l'Huître",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.646Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "c8720n5821ctnar"
+        }
+      ],
+      "source_id": "qsxol0s2py2gupq"
+    }
   ],
   "agents": [
     {

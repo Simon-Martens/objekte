@@ -1,0 +1,13 @@
+  <header id="admin-header">
+    <div class="header-brand">
+      <a href="/" data-nav class="brand"><span class="brand-mark"><i class="ri-stack-line" aria-hidden="true"></i></span>objekte</a>
+      <button type="button" class="icon-button" aria-label="{{ "Hide sidebar"|t }}" aria-controls="project-navigation" aria-expanded="true" data-sidebar-toggle><i class="ri-side-bar-line" aria-hidden="true"></i></button>
+    </div>
+    <div class="header-tools">
+      {{ language_picker|safe }}
+      {% include "theme-switch.html" %}
+      {% if actor.role == "administrator" %}<a data-nav href="/admin" class="icon-button" data-tooltip="{{ "Administration"|t }}" aria-label="{{ "Administration"|t }}"><i class="ri-shield-user-line" aria-hidden="true"></i></a>{% endif %}
+      <a data-nav href="/account" class="account-link" aria-label="Your account: {{ actor.name }}"><i class="ri-user-3-line" aria-hidden="true"></i><span>{{ actor.name }}</span></a>
+      <form method="post" action="/auth/logout"><input type="hidden" name="csrf" value="{{ actor.csrf }}"><button class="icon-button" data-tooltip="{{ "Sign out"|t }}" aria-label="{{ "Sign out"|t }}"><i class="ri-logout-box-r-line" aria-hidden="true"></i></button></form>
+    </div>
+  </header>

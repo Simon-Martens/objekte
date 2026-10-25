@@ -48,7 +48,26 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "jx2nkm0j948wp4x"
+    {
+      "annotation": "am Standort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.707Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406155",
+      "location": "105M01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.707Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "jx2nkm0j948wp4x"
+    }
   ],
   "contents": [],
   "agents": [

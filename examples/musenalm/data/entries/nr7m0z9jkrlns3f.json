@@ -48,65 +48,2156 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "1oediqwicdynqud"
+    {
+      "annotation": "1784-1820.\nLedereinband mit Goldschnitt.\n1803: (K:Ku 7, Strickm 4 und  Mu 1 ) Mit Tku 1, Bl 11, Ku 6, Mu 1, Strickm 4 und 316 SS.\nFrauenzimmer Allmanach Zum Nutzen und Vergnügen, auch unter Titel Leipziger Taschenbuch für Frauenzimmer Zum Nutzen und Vergnügen. \nSiehe auch Leipziger Taschenbuch für Frauenzimmer..... .",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.507Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100727",
+      "location": "105D01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.507Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1oediqwicdynqud"
+    }
   ],
   "contents": [
-    "yhydli859crox1x",
-    "9ytr1efo8xr2tj6",
-    "mm4jhtm75b065n6",
-    "pz8mw07b1kpykor",
-    "3wcexe6yaw1aoow",
-    "tmo6pbe5zvdq4kp",
-    "mua2s1fqdc19frb",
-    "lngf1dqft8a7okk",
-    "og1oumuhntq7f8d",
-    "iyc18rsviaoy2bp",
-    "uxni5mrj2e3rghn",
-    "xgj4l1gccqp0jxl",
-    "q8mup5e3qsltz0e",
-    "ptp8ksa01qyhqdi",
-    "d7ysdwwxwcv27t0",
-    "cq4b75x1aw9tgmg",
-    "8qo0it4m164a1dz",
-    "zdt6rlmmpaps3q8",
-    "pa0xouzxbk9wi4z",
-    "rqcc17h757gmpwj",
-    "ea5hmlqc5igr13a",
-    "if6xpgoduzzb41k",
-    "2w0e8ofb0jdwfvd",
-    "op8sol5t0giiv8e",
-    "3acfvg76h81uus5",
-    "gi5yla0x38ighes",
-    "rfubp8d5fzuqm8s",
-    "x1rzm5iqnftiihb",
-    "vlc88wieg78rdlv",
-    "7bw0putws658drt",
-    "i7nu7grhpyhha7o",
-    "edpctv0xiof6zio",
-    "c1s443jw25a4ex8",
-    "0ew7nq4othpe4bs",
-    "bins4i8e1ks2kpo",
-    "yipg8jlcz76orzh",
-    "pph962qq6djzmth",
-    "if477sbgban412x",
-    "uan2dpo0hw6royc",
-    "13gimnmp7hi28s1",
-    "aaewgqvz4ep9blu",
-    "biz4czz0h11rive",
-    "1v9c4na98rhv5jp",
-    "l312kfwwfcmfjz7",
-    "ph5ywggn1ayw170",
-    "02hv2bz386bg6vn",
-    "zka5a55rjojxpa2",
-    "wdlzavhujh05w0e",
-    "2mggqa0h3r62wsz",
-    "q22xsjm60vcr6s8",
-    "9eel6c2bachg3tp",
-    "zk791gr3cunvhsl",
-    "lgf816glnq03tw4",
-    "x3wle2sz6hld5nx",
-    "dbhkwvojmvgd32m",
-    "49naw2uotrbvfrk"
+    {
+      "annotation": "Titelgraphik paginiert S. 137. Illustration »Franziska Hochberg, oder: der ungegründete Verdacht« INr 47582, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47569,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So sinkt denn mit ihr das Glück meines Lebens / auf ewig hinab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_648_47569_ub4bapav4z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "So sinkt denn mit ihr das Glück meines Lebens / auf ewig hinab",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.525Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.525Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "qb7f94podbagfe9"
+        }
+      ],
+      "source_id": "yhydli859crox1x"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47568,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1803. / Leipzig / bey A. F. Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_648_47568_n4ersftqpk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1803. / Leipzig / bey A. F. Böhme",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ytr1efo8xr2tj6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47570,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "mm4jhtm75b065n6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47623,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1803. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_648_47623_tb9u7sivrz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1803. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "pz8mw07b1kpykor"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47571,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "3wcexe6yaw1aoow"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auswahl von Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auswahl von Gedichten",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "tmo6pbe5zvdq4kp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Glückselig, wem, entfernt vom Wahn, / der immer trüget, / Ein treues Weib, ein Buch, ein wahrer / Freund vergnüget,",
+      "language": [],
+      "musenalm_id": 47573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das wahre Glück. / Aus dem franz. Nach Leonhard. / An Charlotten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Eck in Leipzig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das wahre Glück. / Aus dem franz. Nach Leonhard. / An Charlotten",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.525Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.525Z",
+          "agent": "t4962qj1xtqcfm9",
+          "source_id": "mttqphnog2258wt"
+        }
+      ],
+      "source_id": "mua2s1fqdc19frb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wer hat den Stolz des Geistes Denken / Mit seinem Eigensinn zu lenken?",
+      "language": [],
+      "musenalm_id": 47574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geistes-Kraft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aug. Hennings",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geistes-Kraft",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lngf1dqft8a7okk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Kehret ihr wieder, ihr lichten Gestalten? / Horen des Frühlings! Die mächtige Zeit / Hat aus den Gräbern von grauen Basalten / Rosige Mädchen! euch wieder befreit;",
+      "language": [],
+      "musenalm_id": 47575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frühlingsweihe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Hirsch in Anspach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Frühlingsweihe",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "og1oumuhntq7f8d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Der Zeiger weist des Mittags heiße / Stunde; / Die Winde ruhn, und mehr und mehr / erhitzt / Entglüht die Luft,",
+      "language": [],
+      "musenalm_id": 47576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elegie. / Aus dem Englischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Theob. Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elegie. / Aus dem Englischen",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.525Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.525Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "7mczcqgirbtsnwz"
+        }
+      ],
+      "source_id": "iyc18rsviaoy2bp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Mädchen, die ihr nach Bewundrung / trachtet, / Die ihr rastlos nach Erobrung schmachtet, / Nach dem Thron der Liebe lüstern strebt,",
+      "language": [],
+      "musenalm_id": 47577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Mädchen. / Nach John Logau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludw. Theob. Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Mädchen. / Nach John Logau",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.672Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "vd9nuk3w7lv5nba"
+        }
+      ],
+      "source_id": "uxni5mrj2e3rghn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Zur Freude hat lieblich der Tanz sich / gesellt. / Ja, tanze nur Mädchen! Ein Tanz ist sie die / Welt.",
+      "language": [],
+      "musenalm_id": 47578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tanz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tanz",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.672Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "gon4a3e9zkdau5m"
+        }
+      ],
+      "source_id": "xgj4l1gccqp0jxl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Vergiß mein nicht, wann unter fremden / Lüsten, / Im Strom der Welt, wie Laub,",
+      "language": [],
+      "musenalm_id": 47579,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergiß mein nicht. / An Arminia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergiß mein nicht. / An Arminia",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.672Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "p4o8fuv3jwxmkdn"
+        }
+      ],
+      "source_id": "q8mup5e3qsltz0e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Wenn du mein Herz, geliebtes Mäd- / chen, kenntest, / Wie würde mich das freun!",
+      "language": [],
+      "musenalm_id": 47580,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Sie. / Den 24. Junius 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Eck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Sie. / Den 24. Junius 1799",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.409Z",
+          "agent": "t4962qj1xtqcfm9",
+          "source_id": "swvnic9orlb4z05"
+        }
+      ],
+      "source_id": "ptp8ksa01qyhqdi"
+    },
+    {
+      "annotation": "Es folgen die Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine / moralische Erzählungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine / moralische Erzählungen",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7ysdwwxwcv27t0"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 47569, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Kommt an mein Herz, liebes Weib! Für diesen herrlichen Brief unsrer Franziska gebührt dir mein feurigster Kuß!",
+      "language": [],
+      "musenalm_id": 47582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Franziska Hochberg, / oder: / der ungegründete Verdacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Franziska Hochberg, / oder: / der ungegründete Verdacht",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "cq4b75x1aw9tgmg"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 47584, 47585; Obj 17, 18. lt. Nachwort des Herausgebers bearbeitet nach Roper, Hoddesdon, Spaleton und Hume",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Thomas More war unter Heinrichs VIII. Regierung von den niedrigsten Ehrenstellen empor zu der ersten Staatswürde eines Großkanzlers von England gestiegen;",
+      "language": [],
+      "musenalm_id": 47583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lady Rooper. / Oder: / Die Macht der kindlichen Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lady Rooper. / Oder: / Die Macht der kindlichen Liebe",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "8qo0it4m164a1dz"
+    },
+    {
+      "annotation": "Illustration zu » Lady Rooper. Oder: Die Macht der kindlichen Liebe« INr 47583, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Großvater, wird dir diese Kette nun leichter?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. 1802 Meno Haas sc. Berlin",
+      "scans": [
+        "alm_648_47584_xieh8mkutf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Großvater, wird dir diese Kette nun leichter?",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "1jduinmxrm7msak"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "uvar6ajqa650inr"
+        }
+      ],
+      "source_id": "zdt6rlmmpaps3q8"
+    },
+    {
+      "annotation": "Illustration zu » Lady Rooper. Oder: Die Macht der kindlichen Liebe« INr 47583, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das heiligste Gesetz der Natur rechtfertiget / mich, Richter, könnt ihr mich verdammen?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1802",
+      "scans": [
+        "alm_648_47585_l4vryxd8za.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das heiligste Gesetz der Natur rechtfertiget / mich, Richter, könnt ihr mich verdammen?",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "8hxandbfifmp337"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "za0l81f5yacz3zr"
+        }
+      ],
+      "source_id": "pa0xouzxbk9wi4z"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 47587, 47588; Obj 20, 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Unter den Tausenden der Unglücklichen, die beym ersten Ausbruche der französischen Revolution aus ihrem Vaterlande flüchteten, befand sich ebenfalls der Marquis Ettonville mit seiner Familie.",
+      "language": [],
+      "musenalm_id": 47586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Röschen und Alexis, / oder / Liebe um Liebe. / Nach einer neueren wahren Begebenheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Röschen und Alexis, / oder / Liebe um Liebe. / Nach einer neueren wahren Begebenheit",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "rqcc17h757gmpwj"
+    },
+    {
+      "annotation": "Illustration zu »Röschen und Alexis, oder Liebe um Liebe. Nach einer neueren wahren Begebenheit« INr 47586, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.102Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ach, kann ein Mutterherz mehr leiden, als das / meinige?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weinrauch del. et sc. Wien 1802",
+      "scans": [
+        "alm_648_47587_yh7pne96us.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ach, kann ein Mutterherz mehr leiden, als das / meinige?",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "nhcnwrqiq042uja",
+          "source_id": "ud6z5bpqdqrv5o9"
+        }
+      ],
+      "source_id": "ea5hmlqc5igr13a"
+    },
+    {
+      "annotation": "Illustration zu »Röschen und Alexis, oder Liebe um Liebe. Nach einer neueren wahren Begebenheit« INr 47586, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.103Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie also will mir meinen Sohn vorenthalten?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weinrauch del. et sc. Wien",
+      "scans": [
+        "alm_648_47588_ipq1bcaz3a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sie also will mir meinen Sohn vorenthalten?",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "nhcnwrqiq042uja",
+          "source_id": "gcikpwk2gyzyfss"
+        }
+      ],
+      "source_id": "if6xpgoduzzb41k"
+    },
+    {
+      "annotation": "mit einem beigegebenen Gedicht und Vertonung INr 47590, 47591; / Obj 23, 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Wünscht Jemand über das Schwedische Reich ausführlich unterrichtet zu seyn, / so wird er in Lagerbring's, Tuneld's und Botin's gründlichen Werken hinlängliche Befriedigung finden.",
+      "language": [],
+      "musenalm_id": 47589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Länderkunde. / Schweden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Georg Eck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Länderkunde. / Schweden",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "t4962qj1xtqcfm9",
+          "source_id": "ige6vdllgsoy10a"
+        }
+      ],
+      "source_id": "2w0e8ofb0jdwfvd"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die arme Mutter« übersetzt von J. G. Eck INr 4791, Obj 24; Beigabe zum Beitrag »Länderkunde. Schweden« von J. G. Eck INr 47589, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ahlström",
+      "scans": [
+        "alm_648_47590_tym9osmx4z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "op8sol5t0giiv8e"
+    },
+    {
+      "annotation": "Beigabe zum Beitrag »Länderkunde. Schweden« von J. G. Eck INr 47589, Obj 22; mit einer Vertonung s. Musikbeigabe INr 47590, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Schlafe süßes Knäbchen aus, / Keine Fliege soll dich stören;",
+      "language": [],
+      "musenalm_id": 47591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die arme Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Georg Eck [aus dem Schwedischen übers.]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die arme Mutter",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.373Z",
+          "agent": "t4962qj1xtqcfm9",
+          "source_id": "4iwmag35pjqqa3u"
+        }
+      ],
+      "source_id": "3acfvg76h81uus5"
+    },
+    {
+      "annotation": "Sammlung von 13 Beiträgen INr 47593-47605, Obj 26-38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wirtschaftliches Vademecum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wirtschaftliches Vademecum",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "gi5yla0x38ighes"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1) Einen Riß an einem eisernen Ofen vermacht man geschwind und gut,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1) Einen Riß an einem eisernen Ofen vermacht man geschwind und gut,",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "rfubp8d5fzuqm8s"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2) Die Güte der Caffeebohnen untersucht man,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2) Die Güte der Caffeebohnen untersucht man,",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1rzm5iqnftiihb"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3) Ein erprobtes Mittel, den / Milchrahm lange aufzubewahren.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3) Ein erprobtes Mittel, den / Milchrahm lange aufzubewahren.",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "vlc88wieg78rdlv"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4) Man erhält die Eyer eine / lange Zeit frisch,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4) Man erhält die Eyer eine / lange Zeit frisch,",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "7bw0putws658drt"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5) Alle Obstarten ein und mehr Jahre frisch zu erhalten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5) Alle Obstarten ein und mehr Jahre frisch zu erhalten",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "i7nu7grhpyhha7o"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6) Das beste Putzpulver für Silbergeschirr fertigt man aus Fraueneis,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6) Das beste Putzpulver für Silbergeschirr fertigt man aus Fraueneis,",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "edpctv0xiof6zio"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7) Die vergoldeten Rahmen an Spiegeln oder Gemälden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7) Die vergoldeten Rahmen an Spiegeln oder Gemälden",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "c1s443jw25a4ex8"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8) Gefäße reinigt man von Oel und andern Fettigkeiten sehr gut und schnell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8) Gefäße reinigt man von Oel und andern Fettigkeiten sehr gut und schnell",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ew7nq4othpe4bs"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9) Flachs zu veredeln.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9) Flachs zu veredeln.",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "bins4i8e1ks2kpo"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10) Will man sich überzeugen, ob die Leinwand mit Kalk gebleicht worden sey,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10) Will man sich überzeugen, ob die Leinwand mit Kalk gebleicht worden sey,",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "yipg8jlcz76orzh"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11) Zu einer vortrefflichen Seife für Seidenwäsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11) Zu einer vortrefflichen Seife für Seidenwäsche",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "pph962qq6djzmth"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12) Mittel, das gelbe Fayence oder Steingut zu prüfen,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12) Mittel, das gelbe Fayence oder Steingut zu prüfen,",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "if477sbgban412x"
+    },
+    {
+      "annotation": "Wirtschaftliches Vademecum (Sammlung INr 47592, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13) Ein gutes Mittel wider die Fliegen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13) Ein gutes Mittel wider die Fliegen",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "uan2dpo0hw6royc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Schon die römischen Damen bedienten sich des Bernsteins zu ihrem Schmuck, und zogen ihn aus Preußen mit großen Kosten.",
+      "language": [],
+      "musenalm_id": 47606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naturgeschichte. / Der Bernstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Naturgeschichte. / Der Bernstein",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "13gimnmp7hi28s1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "So überflüssig jedes Wort seyn würde, um zu erweisen, welch eine Wohlthat helle, gesunde Augen sind,",
+      "language": [],
+      "musenalm_id": 47607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diätetik. / Von der Pflege der Augen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Diätetik. / Von der Pflege der Augen",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "aaewgqvz4ep9blu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Daß ein scharfes, gesundes Auge den höhern Genuß des menschlichen Lebens befördere, und sogar auf unsere Geistesbildung einen mächtigen Einfluß habe, das ist eine unläugbare Wahrheit.",
+      "language": [],
+      "musenalm_id": 47608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz Ehrenbergs / Reden / über die körperliche Erziehung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Franz Ehrenbergs / Reden / über die körperliche Erziehung",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.551Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.551Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "glceyw7gu8c5dvf"
+        }
+      ],
+      "source_id": "biz4czz0h11rive"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1802, INr 47561; mit einer Illustration s. Graphik INr 47610, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Waller entdeckte endlich nicht ohne Rührung Charlottens Kampf zwischen jener eingebildeten Pflicht, die sie den Manen ihres Mannes noch schuldig zu seyn glaubte,",
+      "language": [],
+      "musenalm_id": 47609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scene / aus / der Familie Ehrenberg. / Charlotte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scene / aus / der Familie Ehrenberg. / Charlotte",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "1v9c4na98rhv5jp"
+    },
+    {
+      "annotation": "Illustration zu »Scene aus der Familie Ehrenberg. Charlotte« INr 47609, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.229Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gustav kommt, und will Dir danken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_648_47610_720gu6emky.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gustav kommt, und will Dir danken",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.552Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "vcdi8ig4iu70xoy"
+        }
+      ],
+      "source_id": "l312kfwwfcmfjz7"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 47612, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.231Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "Zu den wichtigsten Erscheinungen am Ende des verfloßnen Jahrhunderts gehöret unstreitig die Entdeckung der Metallelectricität.",
+      "language": [],
+      "musenalm_id": 47611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vom Galvanismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vom Galvanismus",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ph5ywggn1ayw170"
+    },
+    {
+      "annotation": "paginiert S. 303. /) Illustration zu »Der Galvanismus« INr 47611, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. S. Schröter del. et sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. S. Schröter del. et sculps.",
+      "scans": [
+        "alm_648_47612_wfvs2g06lm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.599Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "0c5htq84myzjobs"
+        }
+      ],
+      "source_id": "02hv2bz386bg6vn"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 4 Textbezügen zu 4 graph. Anleitungen INr 47614-47621, Obj 47-54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Der Wetteifer unserer gebildeten Frauenzimmer bey ihren weiblichen Beschäftigungen, Eleganz mit Nützlichkeit zu verbinden, ist unläugbar ein sehr reizendes Schauspiel.",
+      "language": [],
+      "musenalm_id": 47613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Beyträge, / für die Liebhaberinnen der eleganteren / Stick-, Näh- und Strickarbeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige Beyträge, / für die Liebhaberinnen der eleganteren / Stick-, Näh- und Strickarbeiten",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "zka5a55rjojxpa2"
+    },
+    {
+      "annotation": "graphische Stickanleitung paginiert I. s. Textbezug INr 47615, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Netto)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto",
+      "scans": [
+        "alm_648_47614_nabhwqh1uh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.599Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "l3m611vw9wj5rp6"
+        }
+      ],
+      "source_id": "wdlzavhujh05w0e"
+    },
+    {
+      "annotation": "Einige Beyträge, für die Liebhaberinnen der eleganteren Stick-, Näh- und Strickarbeiten (Sammlung INr 47613, Obj 46) s. graph. Anleitung INr 47614, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Auf dem ersten dieser Blätter befinden sich fünf Original-Vorbilder zu den jetzt so sehr in Tambourin gestickten Halbhemden oder Köllerchen",
+      "language": [],
+      "musenalm_id": 47615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem ersten dieser Blätter befinden sich fünf Original-Vorbilder zu den jetzt so sehr in Tambourin gestickten Halbhemden oder Köllerchen…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "2mggqa0h3r62wsz"
+    },
+    {
+      "annotation": "Einige Beyträge, für die Liebhaberinnen der eleganteren Stick-, Näh- und Strickarbeiten (Sammlung INr 47613, Obj 46) s. graph. Anleitung INr 47617, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Bey den Wäschzeichen, die das zweyte Blatt liefert, verfährt man mit der Vorzeichnung eben so und aus gleichen Gründen,",
+      "language": [],
+      "musenalm_id": 47616,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey den Wäschzeichen, die das zweyte Blatt liefert, verfährt man mit der Vorzeichnung eben so und aus gleichen Gründen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "q22xsjm60vcr6s8"
+    },
+    {
+      "annotation": "graph. Stickanleitung paginiert II. s. Textbezug INr 47616, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47617,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Netto)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto",
+      "scans": [
+        "alm_648_47617_71u6adq73d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.599Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "o2v6i1vufxo4lal"
+        }
+      ],
+      "source_id": "9eel6c2bachg3tp"
+    },
+    {
+      "annotation": "Einige Beyträge, für die Liebhaberinnen der eleganteren Stick-, Näh- und Strickarbeiten (Sammlung INr 47613, Obj 46) s. graph. Anleitung INr 47619, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Das dritte Blatt liefert für unsere eleganten Strickerinnen unter den Nummern 1, 2, 3, 4, 5 und 6 einige artige Muster für Strumpfzwickel",
+      "language": [],
+      "musenalm_id": 47618,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das dritte Blatt liefert für unsere eleganten Strickerinnen unter den Nummern 1, 2, 3, 4, 5 und 6 einige artige Muster für Strumpfzwickel…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "zk791gr3cunvhsl"
+    },
+    {
+      "annotation": "graph. Strickanleitung paginiert III. s. Textbezug INr 47618, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Netto)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto",
+      "scans": [
+        "alm_648_47619_33dtrzkt9y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.500Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "hiqpxx4865nc657"
+        }
+      ],
+      "source_id": "lgf816glnq03tw4"
+    },
+    {
+      "annotation": "graph. Strickanleitung paginiert IIII. s. Textbezug INr 47621, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Netto)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto",
+      "scans": [
+        "alm_648_47620_t5y11umzrt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.500Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "pr4zkas6i04ezo2"
+        }
+      ],
+      "source_id": "x3wle2sz6hld5nx"
+    },
+    {
+      "annotation": "Einige Beyträge, für die Liebhaberinnen der eleganteren Stick-, Näh- und Strickarbeiten (Sammlung INr 47613, Obj 46) s. graph. Anleitung INr 47620, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Das vierte Blatt giebt arabeskenartige Vorbilder für Bordüren zu Unterröcken und Kinderkappen.",
+      "language": [],
+      "musenalm_id": 47621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das vierte Blatt giebt arabeskenartige Vorbilder für Bordüren zu Unterröcken und Kinderkappen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "dbhkwvojmvgd32m"
+    },
+    {
+      "annotation": "Nachwort des Herausgebers und Corrigenda",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Und nun noch einige Worte beym Schluß dieser Aufsätze",
+      "language": [],
+      "musenalm_id": 47622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Und nun noch einige Worte beym Schluß dieser Aufsätze…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "49naw2uotrbvfrk"
+    }
   ],
   "agents": [
     {

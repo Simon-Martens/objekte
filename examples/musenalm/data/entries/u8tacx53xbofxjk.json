@@ -48,71 +48,2624 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "upkwabyep2lgkwy",
-    "zfyymgdp5c6b4v1"
+    {
+      "annotation": "\n\n 1798-1831.(1823-1827 nicht erschienen.)\n\\par Kartonierter Einband mit eingeprägten Muster. \n\\par 1811: (K: Bl 2, XIV, Bl 1, 298 SS und Ku 9.) Mit Tku 1, Bl 2, XIV, Bl 1, Ku 8 und 298 SS.\n\\par Jg 1798-1799 a.u.d. Tit.: Taschenkalender f. Damen.\n\\par\n§1§ UG fehlt §2§ Graphik fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.492Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100845",
+      "location": "105F01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.492Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "upkwabyep2lgkwy"
+    },
+    {
+      "annotation": "UG, G",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.492Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "406513",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.492Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zfyymgdp5c6b4v1"
+    }
   ],
   "contents": [
-    "pn70qgoths2sigd",
-    "2q2q5n3p6heh7xl",
-    "ekjjdq4f9i76il5",
-    "9062ary1jv59tu6",
-    "04j8fgdqlnv0zv0",
-    "7l0v82vutlka6w1",
-    "i8uoqa8av8uaqfg",
-    "257mdmoiu4vx1b7",
-    "j3j1vhbszo428gx",
-    "f0gcqg852twd1cm",
-    "tszr5nhmz0b2t9v",
-    "ufztj1ayfb0ueo1",
-    "s7dkut8yv74zs3a",
-    "lpf9mb53vggpeu5",
-    "hd5zahskhi94elq",
-    "6z67kbvklon9f7e",
-    "fdm5qdx2197oop4",
-    "12700ha89aio2j3",
-    "c33gwjkvz7arl7i",
-    "7udnmdxdqjmbepl",
-    "n55k0vmms1b300x",
-    "grjp4www6ov3eak",
-    "ka9i6xdn5cyutak",
-    "mn6s8rzulankknm",
-    "3ox6kxv5d1cwp6o",
-    "8hydtd929fmmj1i",
-    "5qcd667cgr4dhuu",
-    "tu38fi1p065dwml",
-    "bk6dkearfgx8dfk",
-    "l7sw6hdnujsvad2",
-    "wlfk4h6fgh0zdiu",
-    "3enpqk93fut6bl6",
-    "bwpr6m55qnk42o7",
-    "fi1vtxicb1gi02w",
-    "xlaq0ngg00kisnd",
-    "i9n01ciojb3oi0b",
-    "hzvn1gifbgjdlnq",
-    "0fkfycpgftjq93q",
-    "9g5a9uj0ajanqd7",
-    "0yhjb7q5hx5zt0g",
-    "u1xawibheq31y2n",
-    "wh9898w12slfdhl",
-    "f3vrqcggdal2b89",
-    "m190kgc7czrz7zf",
-    "84bwzadoq88yh0n",
-    "y2kex6ixuazzcoe",
-    "ct3fj09t7roo0su",
-    "f2irfsg5fkljp5y",
-    "bi69yrbdoqhdx74",
-    "0tdibc1xr2xpi0b",
-    "rj7z5b5bojxoqcc",
-    "hyz7puf4srz6n4f",
-    "6emr6065qpremmt",
-    "ba968f9anvmgdqo",
-    "7j5yarbecyancdu",
-    "3p7wevnw706az52",
-    "i3xxm3b24o9m0co",
-    "eocvfm34uay3bx6",
-    "8wv0zmx7suj7z8c",
-    "8jprq5cy5kb5d9c",
-    "l7hi6n8rtopcx02"
+    {
+      "annotation": "Umschlaggraphik s. Textbezug INr 33593, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33586,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_466_33586_bcrnwusmnq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "pn70qgoths2sigd"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz Titelgraphik s. Textbezug INr 33591, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33587,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Thronräuber Amor #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_466_33587_qgpbqo39em.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Thronräuber Amor #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.715Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "mt5qsy27hwblakk"
+        }
+      ],
+      "source_id": "2q2q5n3p6heh7xl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33588,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Damen / auf das Jahr 1811. / Mit Beiträgen / von / Huber, Lafontaine, Pfeffel, / Jean Paul Richter / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_466_33588_sbsqhsp65q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Damen / auf das Jahr 1811. / Mit Beiträgen / von / Huber, Lafontaine, Pfeffel, / Jean Paul Richter / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "ekjjdq4f9i76il5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33589,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer / Königlichen Hoheit / Catharine Charlotte / Königl. Prinzessin von Württemberg, / geb. Herzogin von Sachsen-Hildburghausen, / in tieffster Ehrfurcht geweihet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "vom Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer / Königlichen Hoheit / Catharine Charlotte / Königl. Prinzessin von Württemberg, / geb. Herzogin von Sachsen-Hildburghausen, / in tieffster Ehrfurcht geweihet",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.715Z",
+          "agent": "0rnyqiybfu5n3e2",
+          "source_id": "67cvxmunzktnk18"
+        }
+      ],
+      "source_id": "9062ary1jv59tu6"
+    },
+    {
+      "annotation": "Sammlung von 11 Beiträgen INr 33591-33601, Obj 6-16 als Textbezüge zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33590,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andeutungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andeutungen",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "04j8fgdqlnv0zv0"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33590, Obj 5) s. Titelgraphik 33587, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Hier thront der glücklichste und harmloseste aller Usurpatoren.",
+      "language": [],
+      "musenalm_id": 33591,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Titelkupfer. / Der Thronräuber Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Titelkupfer. / Der Thronräuber Amor",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "7l0v82vutlka6w1"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33590, Obj 5) s. Graphiken INr 33603, 33611 ; Obj 18, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wer hat nicht in seiner Jugend einmal das wunderbare Ammenmährchen von der schönen tessalischen Prinzessin Helle gehört, wie diese nebst ihrem Bruder Phrixus den Göttern als Sühneopfer geschlachtet werden sollte,",
+      "language": [],
+      "musenalm_id": 33592,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allegorische Vorstellung aus der Fabel. / I. und II. S. 1. u. 17. / Phrixus und Helle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allegorische Vorstellung aus der Fabel. / I. und II. S. 1. u. 17. / Phrixus und Helle",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "i8uoqa8av8uaqfg"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33590, Obj 5) s. Umschlaggraphiken INr 33586, 33645 ; Obj 1, 60; §1§ bez. Umschlaggraphiken fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Drei Göttinnen gab das bildende Alterthum eine Blume in die Hand und diese drei sind eins.",
+      "language": [],
+      "musenalm_id": 33593,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. und IV. / (Auf dem Umschlag.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. und IV. / (Auf dem Umschlag.)",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "257mdmoiu4vx1b7"
+    },
+    {
+      "annotation": "es folgt: Sammlung von 6 Textbezügen zu den Graphiken INr 33955-33600, Obj 10-15 /) Andeutungen (Sammlung INr 33590, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Alle unsere irdische Poesie für bildende und sprechende Kunst - die himmlische oder geistliche mag indessen in den Pilgerliedern unserer neuesten Mystiker zwischen Mohnköpfen schlummern,",
+      "language": [],
+      "musenalm_id": 33594,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.-X. / Die sechs Stationen des Lebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.-X. / Die sechs Stationen des Lebens",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "j3j1vhbszo428gx"
+    },
+    {
+      "annotation": "V.-X. Die sechs Stationen des Lebens (Sammlung INr 33594, Obj 9) Andeutungen (Sammlung INr 33590, Obj 5) s.. Graphik INr 73678, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Immer bleibt ein Blick auf die Unschuldsblüthe und Spiele der Kindheit",
+      "language": [],
+      "musenalm_id": 33595,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. S. 33. / Die Kinderwelt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. S. 33. / Die Kinderwelt",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "f0gcqg852twd1cm"
+    },
+    {
+      "annotation": "V.-X. Die sechs Stationen des Lebens (Sammlung INr 33594, Obj 9) Andeutungen (Sammlung INr 33590, Obj 5) s. Graphik INr 33624, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Dort tanzen zur Doppelflöte die drei Grazien den alten ländlichen Ringeltanz!",
+      "language": [],
+      "musenalm_id": 33596,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. S. 49. / Das Jünglingsalter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. S. 49. / Das Jünglingsalter",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "tszr5nhmz0b2t9v"
+    },
+    {
+      "annotation": "V.-X. Die sechs Stationen des Lebens (Sammlung INr 33594, Obj 9) Andeutungen (Sammlung INr 33590, Obj 5)s. Graphik INr 33625, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Lange schon harrte befrachtet das Schiff auf / günstigen Winde / Endlich strebte der Wind, glücklich vom Ufer / ins Meer! / Wer kennt nicht Goethe's süße Heroide Alexis an Dora",
+      "language": [],
+      "musenalm_id": 33597,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. S. 65. / Die Wanderschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. S. 65. / Die Wanderschaft",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "ufztj1ayfb0ueo1"
+    },
+    {
+      "annotation": "V.-X. Die sechs Stationen des Lebens (Sammlung INr 33594, Obj 9) Andeutungen (Sammlung INr 33590, Obj 5) s. Graphik INr 33626, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Die Reise ist glücklich vollendet. Die süsseste Wonne soll durch den keuschesten Ehebund versiegelt werden.",
+      "language": [],
+      "musenalm_id": 33598,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. S. 81. / Der Bund am Altar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. S. 81. / Der Bund am Altar",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "s7dkut8yv74zs3a"
+    },
+    {
+      "annotation": "V.-X. Die sechs Stationen des Lebens (Sammlung INr 33594, Obj 9) Andeutungen (Sammlung INr 33590, Obj 5) s. Graphik INr 33627, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Erwerben muß der Mann, ackern, säen. Daher ist das Fest zu Eleusis zugleich Acker- und Ehefest.",
+      "language": [],
+      "musenalm_id": 33599,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. S. 97. / Die Haus- und Sittentafel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. S. 97. / Die Haus- und Sittentafel",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "lpf9mb53vggpeu5"
+    },
+    {
+      "annotation": "V.-X. Die sechs Stationen des Lebens (Sammlung INr 33594, Obj 9) Andeutungen (Sammlung INr 33590, Obj 5) s. Graphik INr 33628, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Es freut sich das Alter der kindlichen Unschuld. Der Greis hat dem Sohn das Geschäft hinterlassen,",
+      "language": [],
+      "musenalm_id": 33600,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. S. 113. / Wiedergeburt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. S. 113. / Wiedergeburt",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "hd5zahskhi94elq"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33590, Obj 5) s. Graphik INr 33629, Obj 44 und Anm. dort",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Gubitz gab diesem zierlichen Holzschnitt einen neuen Beweiß, was seiner Kunst möglich sei.",
+      "language": [],
+      "musenalm_id": 33601,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. S. 129. / Zugabe. S. Joseph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. S. 129. / Zugabe. S. Joseph",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "6z67kbvklon9f7e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "fdm5qdx2197oop4"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33592, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33603,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Phrixus und Helle #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_466_33603_nmxwiz59vi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Phrixus und Helle #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.621Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.621Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "7cyzjnieeoxyq9y"
+        }
+      ],
+      "source_id": "12700ha89aio2j3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "O fomme Einfalt! sagte Huß / Zum Weiblein, das zu seinem Marterthrone / Ein Bündel Reisig trug.",
+      "language": [],
+      "musenalm_id": 33604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die fromme Einfalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die fromme Einfalt",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.621Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.621Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "tqj8dsfnvcqi1d5"
+        }
+      ],
+      "source_id": "c33gwjkvz7arl7i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Kommen und Scheiden, / Suchen und Meiden, / Fürchten und Sehnen, / Zweifeln und Wähnen,",
+      "language": [],
+      "musenalm_id": 33605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebenslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Matthisson",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebenslied",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "45rio9rbrevmd1v"
+        }
+      ],
+      "source_id": "7udnmdxdqjmbepl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ich gieng ein Weilchen, / Schön war der Tag - / Und suchte Veilchen / Am grünen Hag.",
+      "language": [],
+      "musenalm_id": 33606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Veilchenleserinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weisser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Veilchenleserinn",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "teyd4hg5cxxyi5t",
+          "source_id": "03iz4wl9ue2pqo9"
+        }
+      ],
+      "source_id": "n55k0vmms1b300x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Was dich ergreift, wenn betend zu den Sternen / Dein Herz die unbekannte Sehnsucht trägt;",
+      "language": [],
+      "musenalm_id": 33607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Religion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Religion",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "grjp4www6ov3eak"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Mit grausen Getümmel / Verschwunden vom Himmel / Sind Wolken voll Nacht;",
+      "language": [],
+      "musenalm_id": 33608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsbilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Matthisson",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsbilder",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "10at9bvngjk7i44"
+        }
+      ],
+      "source_id": "ka9i6xdn5cyutak"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Beglückter Zug! Ich fand den Frieden / In meinem ländlichen Asil!",
+      "language": [],
+      "musenalm_id": 33609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stadt und Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stadt und Land",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "wwahxaz9pw8dvly"
+        }
+      ],
+      "source_id": "mn6s8rzulankknm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Auch das Herz ist ein Buch. Was plagen wir / uns mit papierner / Weisheit?",
+      "language": [],
+      "musenalm_id": 33610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Herz",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "tq55tmjazvvkg6j"
+        }
+      ],
+      "source_id": "3ox6kxv5d1cwp6o"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33592, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Phrixus und Helle #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_466_33611_mpjq1fm7su.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Phrixus und Helle #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "nz56ctjpkgd3d6t"
+        }
+      ],
+      "source_id": "8hydtd929fmmj1i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Von allen Königen am langen Indusstrome / War Mir der mächtigste, der weiseste Regent;",
+      "language": [],
+      "musenalm_id": 33612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Hemd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nicolai",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Hemd",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "5qcd667cgr4dhuu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Ich sah sie wohl / Sich freundlich neigen, / Ich wußt' es wohl, / doch mußt ich schweigen:",
+      "language": [],
+      "musenalm_id": 33613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebes-Sprache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebes-Sprache",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "tu38fi1p065dwml"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Wer das Gute in der menschlichen Natur am liebsten und meisten aufsucht - was wenigstens der Gute thut,",
+      "language": [],
+      "musenalm_id": 33614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Eltern-Liebe gegen Kinder. / Eine einfache Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Eltern-Liebe gegen Kinder. / Eine einfache Erzählung",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.622Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "i12j7tfqserlw96"
+        }
+      ],
+      "source_id": "bk6dkearfgx8dfk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Du träumtest von Unsterblichkeit? / Leichtgläubiger! Umsonst! Du mußt vergehen!",
+      "language": [],
+      "musenalm_id": 33615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unsterblichkeit. / Nach dem Talmud",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unsterblichkeit. / Nach dem Talmud",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.664Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "dvc3v8lguhae0xb"
+        }
+      ],
+      "source_id": "l7sw6hdnujsvad2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Ein Phönix flog umher. In Wald und Hain / Bewunderten die Vögel, groß und klein,",
+      "language": [],
+      "musenalm_id": 33616,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Phönix",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Phönix",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.664Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "ozjdmw8vu84n2ox"
+        }
+      ],
+      "source_id": "wlfk4h6fgh0zdiu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Wiegend gleitet der Kahn über der leisen Fluth / Sanft erröthendes Blau, schwebt im Najadentanz / Winzerhütten vorüber,",
+      "language": [],
+      "musenalm_id": 33617,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wasserfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Matthisson",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wasserfahrt",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.664Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "p29yf9ybkoajciv"
+        }
+      ],
+      "source_id": "3enpqk93fut6bl6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Wem im gemeßnen Streben / Im Großen selbst begränzt,",
+      "language": [],
+      "musenalm_id": 33618,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maas",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.407Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "8q700uukpegd6ro"
+        }
+      ],
+      "source_id": "bwpr6m55qnk42o7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Schläft Liebchen ein, / So hab' ich Nacht,",
+      "language": [],
+      "musenalm_id": 33619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Tag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Tag",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.407Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "djflcsyh4e9pa7b"
+        }
+      ],
+      "source_id": "fi1vtxicb1gi02w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Was mich noch mit der Welt, trotz ihrem Flit- / terscheine, / Was mich mit ihr, die frech das Gute höhnt,",
+      "language": [],
+      "musenalm_id": 33620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Freundinn zum neuen Jahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weisser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Freundinn zum neuen Jahre",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.407Z",
+          "agent": "teyd4hg5cxxyi5t",
+          "source_id": "nqhczb10twdshrz"
+        }
+      ],
+      "source_id": "xlaq0ngg00kisnd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Ihr trauert, daß die Frühlingsjahre floh'n, / und schauert ob der Winterstürme Drohn?",
+      "language": [],
+      "musenalm_id": 33621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost des Alters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost des Alters",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.407Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "a4nuqjpfuit735u"
+        }
+      ],
+      "source_id": "i9n01ciojb3oi0b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Fremder, was suchst du im Garten hier? / Kind, deine Blumen gefallen mir!",
+      "language": [],
+      "musenalm_id": 33622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fremde und das Mädchen. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fremde und das Mädchen. / Ballade",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "hzvn1gifbgjdlnq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Die große Catastrophe nähert sich, der Bräutigam vom Lande wird erwartet, und in unserm Hause trifft man schon allerley Vorbereitungen zu seinem Empfang.",
+      "language": [],
+      "musenalm_id": 33623,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alt und neuer Sinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carlone Pichler, geb. v. Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alt und neuer Sinn",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.812Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "l5il8ej2nuprbw5"
+        }
+      ],
+      "source_id": "0fkfycpgftjq93q"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33596, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33624,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Stationen des Lebens. Das Jünglingsalter #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. H. Lips sculp.",
+      "scans": [
+        "alm_466_33624_nem3ztimji.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Stationen des Lebens. Das Jünglingsalter #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "gyly74fwzbqo2na"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "owcbjzs1hmuqb30"
+        }
+      ],
+      "source_id": "9g5a9uj0ajanqd7"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33597, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33625,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Stationen des Lebens. Die Wanderschaft #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Lips sculp.",
+      "scans": [
+        "alm_466_33625_wj0nqbh7qt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Stationen des Lebens. Die Wanderschaft #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "47rdw9cxy3ov2wp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "o3srje0sqvug1ub"
+        }
+      ],
+      "source_id": "0yhjb7q5hx5zt0g"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33595, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Stationen des Lebens. Die Kinderwelt #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Lips sculp.",
+      "scans": [
+        "alm_466_73678_ya6zq8lr9x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Stationen des Lebens. Die Kinderwelt #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.734Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "aorjfsi0j6qqg5i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.734Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "e53eh50qu32xqzz"
+        }
+      ],
+      "source_id": "u1xawibheq31y2n"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33598, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.050Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Stationen des Lebens. Der Bund am Altar #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Lips sculp.",
+      "scans": [
+        "alm_466_33626_nkd1ba3dau.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Stationen des Lebens. Der Bund am Altar #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "51g6jmzc0xdlhaa"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "ezzmj9fh3exi7bv"
+        }
+      ],
+      "source_id": "wh9898w12slfdhl"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz s. Textbezug INr 33599, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33627,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Stationen des Lebens. Die Haus- und Sittentafel #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Lips sculp.",
+      "scans": [
+        "alm_466_33627_dhfw2syakq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Stationen des Lebens. Die Haus- und Sittentafel #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "6i58www1kiepvk8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "zewjt7g22p1e5f9"
+        }
+      ],
+      "source_id": "f3vrqcggdal2b89"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz s. Textbezug INr 33600, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Stationen des Lebens. Wiedergeburt #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel del. Lips sculp",
+      "scans": [
+        "alm_466_33628_vcmno9qv40.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Stationen des Lebens. Wiedergeburt #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "8ip4gskizgth9tt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "u81kokosvmp9981"
+        }
+      ],
+      "source_id": "m190kgc7czrz7zf"
+    },
+    {
+      "annotation": "# Bez. u. Titel aus dem G-Verz s. Textbezug 33601, Obj 16; /) Illustration zu »Wilhelm Meisters Wanderjahre. Erstes Buch« von Goethe. Taschenbuch für Damen 1810 INr 33527",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sanct Joseph #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gubitz",
+      "scans": [
+        "alm_466_33629_99h2ekuhp7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sanct Joseph #",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "tgpc6q55vv3ahqx"
+        }
+      ],
+      "source_id": "84bwzadoq88yh0n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Noch tosen die Fluthen, Noch brausen die Stürme, / Noch walten Dämonen im Wolkengezelt!",
+      "language": [],
+      "musenalm_id": 33630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Südliche Fahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Matthisson",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Südliche Fahrt",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "hz7b8jnvmmh3dnd"
+        }
+      ],
+      "source_id": "y2kex6ixuazzcoe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Wie in des Marmorbeckens engen Raum / In dessen Flut sich jetzt der Himmel spiegelt",
+      "language": [],
+      "musenalm_id": 33631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unendliche Tiefe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unendliche Tiefe",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "virdj4ncfkla83l"
+        }
+      ],
+      "source_id": "ct3fj09t7roo0su"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Mannstreu nennt man ein Distelgewächs, von / der zarten der Frauen / Schweigt man.",
+      "language": [],
+      "musenalm_id": 33632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mannstreu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mannstreu",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "qc3ntbcmcnjov0k"
+        }
+      ],
+      "source_id": "f2irfsg5fkljp5y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Innig mit Blumen vertraut, genieß' und samml' / ich mir Schätze, / Selbst in dem bittersten Kelch find' ich ambrosi- / schen Tau.",
+      "language": [],
+      "musenalm_id": 33633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beyden Bienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie, Baronin v. Bechtolsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beyden Bienen",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "sd8abfifkiqyh6l"
+        }
+      ],
+      "source_id": "bi69yrbdoqhdx74"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Zartes Herz, / Tiefer Schmerz! / Was die Menge leicht empfindet, / Was dem Leben leicht entschwindet,",
+      "language": [],
+      "musenalm_id": 33634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zartes Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zartes Herz",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "0tdibc1xr2xpi0b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Tamajandri! / O wer kann mein Ueberglück, / Wer die Fülle deiner Reize mahlen?",
+      "language": [],
+      "musenalm_id": 33635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebeslied. / Nach dem Indischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebeslied. / Nach dem Indischen",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "on4769lgt2qzqub"
+        }
+      ],
+      "source_id": "rj7z5b5bojxoqcc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Reich nur nenn ich den Mann, der froh bey je- / dem Genusse / Güter sich nie erträumt, die ihm das Schicksal versagt;",
+      "language": [],
+      "musenalm_id": 33636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Reiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie v. B.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Reiche",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "v6hn1ywpvkz6f1i"
+        }
+      ],
+      "source_id": "hyz7puf4srz6n4f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Nicht nur in Hütten des Elends verschmachtet so / dürftig der Arme. / Auch in Palästen verweilt finster die Trauer- / gestalt.",
+      "language": [],
+      "musenalm_id": 33637,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Arme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie v. B.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Arme",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "qx20162p10zc7e0"
+        }
+      ],
+      "source_id": "6emr6065qpremmt"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz. mit einer Fortsetzung in: Taschenbuch für Damen 1814, INr 43057, 43058",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Ein bayerscher Offizier, der in Petersburg die Erbschaft eines Verwandten eingeholt hatte,",
+      "language": [],
+      "musenalm_id": 33638,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klosterberuf",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. F. Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klosterberuf",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "j6zj4e02mmgth5i",
+          "source_id": "lpdige14ug93k8t"
+        }
+      ],
+      "source_id": "ba968f9anvmgdqo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Für mich trägt Amor keine Flügel, / Nur Einer schlägt und flammt mein Herz.",
+      "language": [],
+      "musenalm_id": 33639,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Verbot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Verbot",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "18jspez8uyn49yr"
+        }
+      ],
+      "source_id": "7j5yarbecyancdu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Der König mit der Tochter stand / Vor seines Schlosses Thor;",
+      "language": [],
+      "musenalm_id": 33640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kranke Königstochter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die kranke Königstochter",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "z2j576qv87gv7xu"
+        }
+      ],
+      "source_id": "3p7wevnw706az52"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Gott Amor, der berühmte Gott, / Sprach trunken von den Göttern allen",
+      "language": [],
+      "musenalm_id": 33641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amors Wohnung. / Nach Georg Rudolph Weckherlin, 1618",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amors Wohnung. / Nach Georg Rudolph Weckherlin, 1618",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "3xf447t2hysv5gv"
+        }
+      ],
+      "source_id": "i3xxm3b24o9m0co"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Am Schönbach, der im nördlichen Gebürge, oben aus einem Amphitheater vom Felsen hervorbricht,",
+      "language": [],
+      "musenalm_id": 33642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe um Liebe.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe um Liebe.",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "bbg8i5jy7736mje"
+        }
+      ],
+      "source_id": "eocvfm34uay3bx6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Der Gott der Zeit ward grau und alt / und ihm das Reisen schwer,",
+      "language": [],
+      "musenalm_id": 33643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor und Saturn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor und Saturn",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.724Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.724Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "e80jt5jgzd59cmg"
+        }
+      ],
+      "source_id": "8wv0zmx7suj7z8c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Vom allertreusten Helden, / Der je die Welt verließ, / Muß ich zuerst euch melden,",
+      "language": [],
+      "musenalm_id": 33644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leander und Hero. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weisser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leander und Hero. / Romanze",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "teyd4hg5cxxyi5t",
+          "source_id": "35ym6knt865a6oq"
+        }
+      ],
+      "source_id": "8jprq5cy5kb5d9c"
+    },
+    {
+      "annotation": "Umschlaggraphik v. s. Textbezug INr 33593, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33645,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_466_33645_89kr7r20nb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "l7hi6n8rtopcx02"
+    }
   ],
   "agents": [
     {

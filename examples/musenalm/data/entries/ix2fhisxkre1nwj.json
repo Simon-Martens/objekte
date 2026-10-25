@@ -48,38 +48,1283 @@
   "year": 1802,
   "editor": "",
   "items": [
-    "7xn1bq6d3chf80b"
+    {
+      "annotation": "1801-1803.\nKartonierter Einband mit Goldschnitt.\n1802: (K:Bl 9,  XLII,  Ku 7, 391 SS) Mit Ku 7, Bl 9, XLII und 391 SS. ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.494Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100544",
+      "location": "105D07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.494Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7xn1bq6d3chf80b"
+    }
   ],
   "contents": [
-    "5y6awsewul5riey",
-    "nhfhx17f9lacnw6",
-    "l80gt8xoputqisg",
-    "bz441amo3k5nr57",
-    "20jaxjjddkayijk",
-    "ns28egrwv236mgu",
-    "doq50tf7nkm48em",
-    "8688wv1ko7ybryg",
-    "3htcpgg2e1e72li",
-    "k94zcfr3jpf7xid",
-    "2di4b8j6kq2mk2i",
-    "ocegfztuphoftk4",
-    "2cie64zwrm08mb6",
-    "2hmgm8ot0xx5s41",
-    "j4csufohpv6r62n",
-    "fl2pxmcw69hs53o",
-    "v7i7ivi4xgtjm3u",
-    "gz10tdjkh4xu983",
-    "sdxfroovu5k4awi",
-    "lr146ydhak8obcs",
-    "3e5kr5xxv5749kc",
-    "ihid2zdpd9a3bjp",
-    "f98c4rqsbkfdzzb",
-    "68tclijuoh5e6mn",
-    "wm48d5zmfxaz40j",
-    "rbez3khvvfy9rst",
-    "u6628akkl3z89uw",
-    "08i9ad1mz9lz0m4",
-    "grsk2auajr4128h"
+    {
+      "annotation": "Titelgraphik. lt. G-Verz: Illustration zu »Der Herbstabend, eine Idylle« von August Apel INr 37501, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37479,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37479_tqnonlkxx8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.944Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "uqtogizchuvumrs"
+        }
+      ],
+      "source_id": "5y6awsewul5riey"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37480,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGLAIA. / Jahrbuch / für / Frauenzimmer / auf / 1802. / Herausgegeben / von / N. P. Stampeel. / Mit 7 Kupfern von W. Jury. / Frankfurt a. M. / bei August Hermann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_504_37480_fpi6tfdwyq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGLAIA. / Jahrbuch / für / Frauenzimmer / auf / 1802. / Herausgegeben / von / N. P. Stampeel. / Mit 7 Kupfern von W. Jury. / Frankfurt a. M. / bei August Hermann",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "nhfhx17f9lacnw6"
+    },
+    {
+      "annotation": "im Kalendarium 6 Graphiken INr 37482-37487; Obj 4-9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37481,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "l80gt8xoputqisg"
+    },
+    {
+      "annotation": "Graphik im Kalendarium. Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37490,Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37482,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37482_c7g4t9jorh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ytnifiijwlovnit"
+        }
+      ],
+      "source_id": "bz441amo3k5nr57"
+    },
+    {
+      "annotation": "Graphik im Kalendarium. Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37491, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37483,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37483_ef898p67vj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "kwi109h8pxetndw"
+        }
+      ],
+      "source_id": "20jaxjjddkayijk"
+    },
+    {
+      "annotation": "Graphik im Kalendarium. Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37492, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37484,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37484_pu5anyai8o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "1cxqc781czr661y"
+        }
+      ],
+      "source_id": "ns28egrwv236mgu"
+    },
+    {
+      "annotation": "Graphik im Kalendarium. Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37493, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37485,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37485_ucd3r5t7dg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ouz4tq029qmnuc4"
+        }
+      ],
+      "source_id": "doq50tf7nkm48em"
+    },
+    {
+      "annotation": "Graphik im Kalendarium. Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37494, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37486,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37486_3r9pfh8u7d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "481h8qe33eqo13p"
+        }
+      ],
+      "source_id": "8688wv1ko7ybryg"
+    },
+    {
+      "annotation": "Graphik im Kalendarium. Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37495, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_504_37487_g0que57juv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.873Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "oa6yyrvpnz6cgcf"
+        }
+      ],
+      "source_id": "3htcpgg2e1e72li"
+    },
+    {
+      "annotation": "Einleitender Beitrag zu »Erklärung der Kupfer« INr 37489-37495, Obj 11-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Keiner hat gewiß das dunkle, romantische Labyrinth der Rousseau'schen Confessionen durchwandert, ohne von erhebenden Ansichten zu niederschlagenden,",
+      "language": [],
+      "musenalm_id": 37488,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Entstehung / der / Neuen Heloise / von Rousseau. / Eine / einleitende Skizze / zu den Kupfern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. P. Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Entstehung / der / Neuen Heloise / von Rousseau. / Eine / einleitende Skizze / zu den Kupfern",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.873Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "3ue4gia6i14c4jv"
+        }
+      ],
+      "source_id": "k94zcfr3jpf7xid"
+    },
+    {
+      "annotation": "G-Verz. Sammlung von 6 Textbezügen nach Motiven aus »Die Neue Heloise« von J. J. Rousseau zu den Graphiken INr 37490-37495, Obj 12-17. s. auch einleitenden Beitrag: »Die Entstehung der Neuen Heloise von Rousseau Eine einleitende Skizze zu den Kupfern« von N. P. Stampeel INr 37488, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37489,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.873Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "4t3sx07nmy7zimv"
+        }
+      ],
+      "source_id": "2di4b8j6kq2mk2i"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37482, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Nein, nichts was einer historischen Deutung ähnlich sähe, bei diesem Moment der höchsten Seligkeit,",
+      "language": [],
+      "musenalm_id": 37490,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / (Neue Heloise. 1. Th. 14. Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / (Neue Heloise. 1. Th. 14. Brief.)",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.873Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "9loncfjn1am1vee"
+        }
+      ],
+      "source_id": "ocegfztuphoftk4"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37483, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Wir wandten das Auge von dem düstern Hintergrunde ihres Schicksals; wider unsern Willen zieht es der Künstler auf ihn zurück.",
+      "language": [],
+      "musenalm_id": 37491,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / (1 Th. 63 Br.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / (1 Th. 63 Br.)",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.873Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "pacfpnshx1oszx9"
+        }
+      ],
+      "source_id": "2cie64zwrm08mb6"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37484, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "St. Preux, oder vielmehr Rousseau im St. Preux, mit seiner ganzen kränklich reizbaren, Argwohn fangenden Empfindlichkeit;",
+      "language": [],
+      "musenalm_id": 37492,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / (2 Th. 10 Br.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / (2 Th. 10 Br.)",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.911Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "cchdjgg1ddutovj"
+        }
+      ],
+      "source_id": "2hmgm8ot0xx5s41"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37485, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Auch hier diese rege und geschäftige Phantasie, die über Alles jetzt die finstersten Schlagschatten, jetzt die verklärendsten Strahlen wirft.",
+      "language": [],
+      "musenalm_id": 37493,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / (2 Th. 22 Br.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / (2 Th. 22 Br.)",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.917Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "cksx4f4twal3a67"
+        }
+      ],
+      "source_id": "j4csufohpv6r62n"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37486, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Sinken konnte eine Julie, aber nur, um sich in einer lichtern Glorie zu erheben;",
+      "language": [],
+      "musenalm_id": 37494,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / (3 Th. 18 Br.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / (3 Th. 18 Br.)",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.917Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "wkor7awvc6phqfq"
+        }
+      ],
+      "source_id": "fl2pxmcw69hs53o"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37487, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Von der Spitze des Felsens von Meillerie spähte der Verbannte über die brandenden Wogen hinaus nach der Heimath seines Herzens,",
+      "language": [],
+      "musenalm_id": 37495,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / (3 Th. 14 Brief)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / (3 Th. 14 Brief)",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.917Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "lc2cngcbzcn7cnf"
+        }
+      ],
+      "source_id": "v7i7ivi4xgtjm3u"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37496,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aglaja",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aglaja",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "gz10tdjkh4xu983"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Der Herausgeber erkennt in der freundlichen Aufnahme, welche die Aglaja gefunden hat, eine befeuernde Aufmunterung, ihr einen immer mehr geläuterten Werth zu geben.",
+      "language": [],
+      "musenalm_id": 37497,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.774Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "554e9svf8embw3z"
+        }
+      ],
+      "source_id": "sdxfroovu5k4awi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37498,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "lr146ydhak8obcs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Erwachen des Kunstsinnes fällt mit dem Erwachen der Liebe in die schöne Periode des Lebens,",
+      "language": [],
+      "musenalm_id": 37499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Liebe und Kunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Aug. Apel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Liebe und Kunst",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.774Z",
+          "agent": "mv54y583pvqjcic",
+          "source_id": "sovd48y20emitdt"
+        }
+      ],
+      "source_id": "3e5kr5xxv5749kc"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Search for the ruling passion: there alone / The wild are constant and the cunning / known.[...] Pope. Der Beitrag wird fortgesetzt in: Aglaia (Frankfurt) 1803 INr 37526",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Sollte der Geschichtsschreiber sich nicht mit edelm Stolze ein höheres Ziel aufstecken dürfen,",
+      "language": [],
+      "musenalm_id": 37500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Christina Alexandra, / Königin der Schweden, / ein / psycholgisches Gemälde. / Gegenstück / zur / Johanna von Neapel.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Merkel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Christina Alexandra, / Königin der Schweden, / ein / psycholgisches Gemälde. / Gegenstück / zur / Johanna von Neapel.",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.775Z",
+          "agent": "a462y7qroof9yxu",
+          "source_id": "q9jmn7ogbejyzxa"
+        }
+      ],
+      "source_id": "ihid2zdpd9a3bjp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 37479, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Bei ländlich frohem Mahle saß Erwin, / Der heitre Greis, in seiner Laube.",
+      "language": [],
+      "musenalm_id": 37501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der Herbstabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Aug. Apel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der Herbstabend",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.775Z",
+          "agent": "mv54y583pvqjcic",
+          "source_id": "az5hesbgnu5v64f"
+        }
+      ],
+      "source_id": "f98c4rqsbkfdzzb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Dem engen Ausschusse Jener, denen im Sommer 1781 Hyginia im Karlsbade den Eintritt in das neunzehnte Jahrhundert garantirte,",
+      "language": [],
+      "musenalm_id": 37502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Badereise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Oertel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Badereise",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.775Z",
+          "agent": "u657j3m1foor2a9",
+          "source_id": "9og019g1kt8izm3"
+        }
+      ],
+      "source_id": "68tclijuoh5e6mn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.500Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "In Kaschemire herrschte einmal ein Sultan, der bei seinen Unterthanen und bei allen benachbarten Nationen für das Wunder seiner Zeit galt.",
+      "language": [],
+      "musenalm_id": 37503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Gulhindy. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Merkel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Gulhindy. / Ein Mährchen",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.775Z",
+          "agent": "a462y7qroof9yxu",
+          "source_id": "57avujmz6o3bdhb"
+        }
+      ],
+      "source_id": "wm48d5zmfxaz40j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Karoline, Gräfin von Mallzahn, stand jetzt an einem Zeitpunkt, der Wenigen gefällt, am Schluß ihres mittlern Alters.",
+      "language": [],
+      "musenalm_id": 37504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / War dieser Betrug verzeihlich?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Meißner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / War dieser Betrug verzeihlich?",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "pbt3h5zr358vg6h",
+          "source_id": "nilcdon4u44wubl"
+        }
+      ],
+      "source_id": "rbez3khvvfy9rst"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Wirbelnde Rauchwolken schlugen aus einem Schutthaufen empor, der einst Iliums Mauern, Tempel und Palläste hieß,",
+      "language": [],
+      "musenalm_id": 37505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Wer war der Weiseste? / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. P. Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Wer war der Weiseste? / Eine Erzählung",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.751Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "ex0d529j4n4absl"
+        }
+      ],
+      "source_id": "u6628akkl3z89uw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Lolli stand hinter den Pfirsichbäumen, und sah unverwandt nach der Thür des Pallastes.",
+      "language": [],
+      "musenalm_id": 37506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Lolli und Rosa. / Ein Mährchen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Mahlmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Lolli und Rosa. / Ein Mährchen.",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.751Z",
+          "agent": "5uss88okhpw2gvm",
+          "source_id": "sr3407ntdu14ewa"
+        }
+      ],
+      "source_id": "08i9ad1mz9lz0m4"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik in: Aglaia (Frankfurt) 1802 INr 37508",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Die heiterste Sommernacht ruhte über den Ufern des Manzanares; eine jener lauen Nächte, wie sie unter Spaniens Himmelsstrich dem brennenden Tage folgen.",
+      "language": [],
+      "musenalm_id": 37507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Die Nacht im Prado",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie v. Imhof",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Die Nacht im Prado",
+      "updated": "2005-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "rpntlv4nq0s7z27"
+        }
+      ],
+      "source_id": "grsk2auajr4128h"
+    }
   ],
   "agents": [
     {

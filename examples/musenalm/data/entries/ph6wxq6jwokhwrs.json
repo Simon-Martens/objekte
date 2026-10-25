@@ -49,46 +49,1477 @@
   "year": 1791,
   "editor": "",
   "items": [
-    "rv6zni7b4l9sydi"
+    {
+      "annotation": "1770-1799",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.592Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106618",
+      "location": "105D02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.592Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rv6zni7b4l9sydi"
+    }
   ],
   "contents": [
-    "i0q52frlqyptnz1",
-    "a5nlorlt9xp0a73",
-    "bdg106leuhns3z2",
-    "44n4pz5hx5e7raj",
-    "tu6xio8ud0rpnui",
-    "dygsph7plxbsjst",
-    "w4rozvu4pi874mf",
-    "fe7wdrlf2x4qu8r",
-    "5lvsdmopdoc3308",
-    "1krl5euaieq61h4",
-    "115tou4ok5ymv5p",
-    "na8jfco94odlsl9",
-    "cp8jzctgeyxzw7r",
-    "v6dmijnbgx20d0m",
-    "2qytdu2iolz97df",
-    "m5e0tnb16yzd5dm",
-    "5ak16pz5p0egya3",
-    "q0zvbe7ppr86glm",
-    "ziscpa7zqm7g0k6",
-    "rtu4nnwblbc8os4",
-    "l0pjtz6vfjxwmv0",
-    "vecoevme16vo2b5",
-    "kzohmydyll5llq6",
-    "rgj783tb67al8p9",
-    "lxs7tm4lny07x7m",
-    "rqzlnh8hiixqhgk",
-    "de1is7qcpyei5wo",
-    "v6wpgmhwgem0flv",
-    "qhoy9t6y1s6bijj",
-    "s2ohbgy86l2d3e4",
-    "7es7fsoqfav2v1r",
-    "le31a0qhdbj9aie",
-    "jhw11hqwmrnbw2c",
-    "sopuivg61yfwcrz",
-    "yuyzqiebsx52ppq",
-    "5tziazqsbpelu61",
-    "b1cs5q30jbosszy"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110654,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2169_110654_wv7mabbtxt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "i0q52frlqyptnz1"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.733Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110655,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1791. / mit Kupfern von Chodowiecki / in gemeinschaftlichem Verlag / von Berenberg im Lauenburg / und / der Jägerische Buchhandlung / in Frankfurt a/m",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Neubauer inv. et sculp. in Francfurt a/m",
+      "scans": [
+        "alm_2169_110655_kh7bs2zps5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1791. / mit Kupfern von Chodowiecki / in gemeinschaftlichem Verlag / von Berenberg im Lauenburg / und / der Jägerische Buchhandlung / in Frankfurt a/m",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "aekvn1843e90a3t"
+        }
+      ],
+      "source_id": "a5nlorlt9xp0a73"
+    },
+    {
+      "annotation": "# Bez. an Blatt 3-6 der Suite /) Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110670,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Neubauer sculp.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neubauer sculp.",
+      "scans": [
+        "alm_2169_110670_d6vni4939y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.060Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "b5k9gwjwyh5h9rr"
+        }
+      ],
+      "source_id": "bdg106leuhns3z2"
+    },
+    {
+      "annotation": "# Bez. an Blatt 3-6 der Suite /) Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110671,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Neubauer sculp.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neubauer sculp.",
+      "scans": [
+        "alm_2169_110671_r98xwb84o5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.060Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "cnw9m8j308mojlp"
+        }
+      ],
+      "source_id": "44n4pz5hx5e7raj"
+    },
+    {
+      "annotation": "Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110672,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. L. Neubauer sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Neubauer sculp.",
+      "scans": [
+        "alm_2169_110672_84xxc1lsjs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.179Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.179Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "rieuxeg2gt8kfn4"
+        }
+      ],
+      "source_id": "tu6xio8ud0rpnui"
+    },
+    {
+      "annotation": "Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110673,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. L. Neubauer sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Neubauer sculp.",
+      "scans": [
+        "alm_2169_110673_352i351mdc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.179Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.179Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "51lvt9ev1qv6eaj"
+        }
+      ],
+      "source_id": "dygsph7plxbsjst"
+    },
+    {
+      "annotation": "Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110674,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Neubauer sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neubauer sculp.",
+      "scans": [
+        "alm_2169_110674_6r17fdoepc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.262Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "9fucv4kx0zjlo4u"
+        }
+      ],
+      "source_id": "w4rozvu4pi874mf"
+    },
+    {
+      "annotation": "Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110675,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Neubauer sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neubauer sculp.",
+      "scans": [
+        "alm_2169_110675_3bsy93qh8p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.262Z",
+          "agent": "rznkc2ozl1kw6jh",
+          "source_id": "6fyitdw18070cw2"
+        }
+      ],
+      "source_id": "fe7wdrlf2x4qu8r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110656,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "5lvsdmopdoc3308"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar /) nummeriert 1. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110657,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Indianer in England / Es ist so süß für einen Vater zu / arbeiten. / I. Aufz. 2. Auftr.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110657_jtb41f5d0z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Indianer in England / Es ist so süß für einen Vater zu / arbeiten. / I. Aufz. 2. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "d7slj8uk51urtcj"
+        }
+      ],
+      "source_id": "1krl5euaieq61h4"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Februar /) nummeriert 2. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110658,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "- es fehlt Gurli doch noch etwas. / I. Aufz. 12. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110658_bgbu0css17.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "- es fehlt Gurli doch noch etwas. / I. Aufz. 12. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "avru2v00jjajhdf"
+        }
+      ],
+      "source_id": "115tou4ok5ymv5p"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium März /) nummeriert 3. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110659,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "- die kindliche Liebe leiht ihr / himmlische Reize! / II. Aufz.. 2. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110659_a5e9vol8uu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "- die kindliche Liebe leiht ihr / himmlische Reize! / II. Aufz.. 2. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "1f3h3te4oekgwdz"
+        }
+      ],
+      "source_id": "na8jfco94odlsl9"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium April /) nummeriert 4. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110660,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "- ich bin ein ehrlicher Mann / - wollen Sie mich heurathen? / II. Aufz. 3. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110660_o8g5fwbyei.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "- ich bin ein ehrlicher Mann / - wollen Sie mich heurathen? / II. Aufz. 3. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "yzwrcyq84yv8o7w"
+        }
+      ],
+      "source_id": "cp8jzctgeyxzw7r"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Mai /) nummeriert 5. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110661,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muss man denn lieben, um zu / heurathen? / II. Aufz. 6. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110661_63my7mlf8y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Muss man denn lieben, um zu / heurathen? / II. Aufz. 6. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "yur58nja62brsyq"
+        }
+      ],
+      "source_id": "v6dmijnbgx20d0m"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juni /) nummeriert 6. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110662,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jack hilf mir! Heda Bursche. / II. Aufz. 10. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110662_emghqyfgof.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jack hilf mir! Heda Bursche. / II. Aufz. 10. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "j5d2y9x3cgtqavs"
+        }
+      ],
+      "source_id": "2qytdu2iolz97df"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juli /) nummeriert 7. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110663,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wissen Sie auch schon Fasir - / dass ich Braut bin? II. Aufz. 12. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110663_iacdxqgh4x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wissen Sie auch schon Fasir - / dass ich Braut bin? II. Aufz. 12. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.177Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "rn3hi2qzy3g7rgc"
+        }
+      ],
+      "source_id": "m5e0tnb16yzd5dm"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August /) nummeriert 8. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110664,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieber Bruder Robert, willst du / wohl so gut sein Gurli zu heurathen? / III. Aufz. 7. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110664_piw1p2aqwi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lieber Bruder Robert, willst du / wohl so gut sein Gurli zu heurathen? / III. Aufz. 7. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.232Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "dfwbty5sbnsgd3h"
+        }
+      ],
+      "source_id": "5ak16pz5p0egya3"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium September /) nummeriert 9. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110665,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "- nun wird Gurli wieder / lachen! III. Aufz. 9. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110665_3x1iruo2jl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "- nun wird Gurli wieder / lachen! III. Aufz. 9. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.232Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "g4o8dgplh7v4b5h"
+        }
+      ],
+      "source_id": "q0zvbe7ppr86glm"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Oktober /) nummeriert 10. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110666,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nicht Geister? / III. Aufz. 12. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110666_ykl8vjgdq9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nicht Geister? / III. Aufz. 12. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.232Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "kr9wx898xmt43bs"
+        }
+      ],
+      "source_id": "ziscpa7zqm7g0k6"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium November /) nummeriert 11. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110667,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Vater! / III. Aufz. 14. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110667_729q8kpsug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mein Vater! / III. Aufz. 14. Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.232Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "sdush4rdfravvw2"
+        }
+      ],
+      "source_id": "rtu4nnwblbc8os4"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Dezember /) nummeriert 12. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110668,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott segne euch Kinder! / III. Aufz. letzter Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_2169_110668_v7o7mqs28h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott segne euch Kinder! / III. Aufz. letzter Auftr.",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.060Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ms3a40w1mlx6lcu"
+        }
+      ],
+      "source_id": "l0pjtz6vfjxwmv0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1791. / Mit / Kupfern von Codowiecky, / nebst einigen / der / neuesten Moden./ Lauenburg, bey Joh. Georg Berenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1791. / Mit / Kupfern von Codowiecky, / nebst einigen / der / neuesten Moden./ Lauenburg, bey Joh. Georg Berenberg",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "vecoevme16vo2b5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geburtstage des hohen Königl. und / Churfürstl. Hauses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geburtstage des hohen Königl. und / Churfürstl. Hauses",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "kzohmydyll5llq6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches / Verzeichniß / der / vornehmsten jetztlebenden Fürstlich. / Personen in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches / Verzeichniß / der / vornehmsten jetztlebenden Fürstlich. / Personen in Europa",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "rgj783tb67al8p9"
+    },
+    {
+      "annotation": "mit Erläuterungen zu den 12 Graphiken im Kalendarium INr 110657-110668, Obj 10-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Kabardar, ehmals Nabob von Mysore, war von seinen Brüdern vertrieben worden, und hatte sich mit einer seiner Töchter, Gurli genannt, und einem alten Bedienten Musaffery, nebst allen seinen Diamanten auf seinem Schiffe nach England geflüchtet,",
+      "language": [],
+      "musenalm_id": 110678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupferstiche, aus dem / Lustspiel des Präsidenten von Kotzebue / Die Indianer in England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupferstiche, aus dem / Lustspiel des Präsidenten von Kotzebue / Die Indianer in England",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxs7tm4lny07x7m"
+    },
+    {
+      "annotation": "mit einer Illustration s.Graphik INr 110680, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der größte und erhabenste Gegenstand der allgemeinen Freude in ganz Deutschland, und das - nicht nur für die Statistiker und Historiker, sondern auch für das gesamte deutsche Publikum wichtigste Ereigniß - ist gewiß vorzüglich in unserm Welttheil die Wahl",
+      "language": [],
+      "musenalm_id": 110679,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der Wahl und Krönung eines / Römischen Kaysers oder Königs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der Wahl und Krönung eines / Römischen Kaysers oder Königs",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "rqzlnh8hiixqhgk"
+    },
+    {
+      "annotation": "Illustration zu »Von der Wahl und Krönung eines Römischen Kaysers oder Königs« INr 110679, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110680,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Beer del. 1796 v. Mechel sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Beer del. 1796 v. Mechel sc.",
+      "scans": [
+        "alm_2169_110680_ca38at3oiu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "de1is7qcpyei5wo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Die Fidäer, eine Nation an Afrikas westlichen Küsten, feiern unter andern Festen auch eins, welches recht eigentlich und besonders dazu dienen soll, den Regenten nach seinen vielen lästigen Regierungssorgen wieder aufzuheitern,",
+      "language": [],
+      "musenalm_id": 110681,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fest der Fidäer, / ein Beitrag zu den Belustigungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fest der Fidäer, / ein Beitrag zu den Belustigungen",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "v6wpgmhwgem0flv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Als die Spanier zuerst nach Mexico kamen, schlugen sie die dortigen Einwohner entweder zum bloßen Spaß so todt, wie man die Fliegen todt schlägt, oder sie hezten sie mit eigentlich dazu abgerichteten Hunden auf einer Parforce Jagd beym Frühstück,",
+      "language": [],
+      "musenalm_id": 110682,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ermahnungs-Rede eines alten Mexi- / caners an seinen Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ermahnungs-Rede eines alten Mexi- / caners an seinen Sohn",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "qhoy9t6y1s6bijj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Der Marschall von Boucicout, der größte unter allen Rittern des Mittelalters, zog schon im zwölften Jahre mit in den Krieg,",
+      "language": [],
+      "musenalm_id": 110683,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Große Leibesstärke durch Uebung er- / langt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Große Leibesstärke durch Uebung er- / langt",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "s2ohbgy86l2d3e4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Als nach dem Tode Carls des Großen, seine Enkel sich in die geerbeten Länder theilten, da ward dem einen derselben Lothar nebst andern Provinzen auch dasjenige von den Niederlanden zutheil, was die Maaß und Schelde davon einschließt.",
+      "language": [],
+      "musenalm_id": 110684,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurzer Abriß der Brabantischen Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurzer Abriß der Brabantischen Geschichte",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "7es7fsoqfav2v1r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110685,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergleichung der Meilen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergleichung der Meilen",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "le31a0qhdbj9aie"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110686,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meilenzeiger / für die Königl. deutschen Lande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meilenzeiger / für die Königl. deutschen Lande",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "jhw11hqwmrnbw2c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeiner Meilenzeiger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeiner Meilenzeiger",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "sopuivg61yfwcrz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lauf der Posten / von der Königl. und Churfürstl. Haupt- und Resi- / denzstadt Hannover, und mehrern andern Städ- / ten, nach den vornehmsten Orten. In / alphabetischer Ordnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lauf der Posten / von der Königl. und Churfürstl. Haupt- und Resi- / denzstadt Hannover, und mehrern andern Städ- / ten, nach den vornehmsten Orten. In / alphabetischer Ordnung",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "yuyzqiebsx52ppq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "5tziazqsbpelu61"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110690,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2169_110690_e495c5hyto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "b1cs5q30jbosszy"
+    }
   ],
   "agents": [
     {

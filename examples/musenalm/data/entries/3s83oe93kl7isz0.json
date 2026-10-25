@@ -49,7 +49,26 @@
   "year": 1797,
   "editor": "",
   "items": [
-    "r0p9z35zblbiwb4"
+    {
+      "annotation": "1797.\nKartonierter Einband mit beschädigten Buchrücken.\n1797: Mit 217 SS.",
+      "condition": "5b",
+      "created": "2026-06-11 10:17:37.559Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101304",
+      "location": "105E05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.559Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "r0p9z35zblbiwb4"
+    }
   ],
   "contents": [],
   "agents": [

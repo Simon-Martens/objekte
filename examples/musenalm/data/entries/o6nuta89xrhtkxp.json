@@ -48,7 +48,26 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "0q4sx6n8dvxei8l"
+    {
+      "annotation": "1809: Mit Bl 1, 96 SS und 114 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.662Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100864",
+      "location": "105F05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.662Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0q4sx6n8dvxei8l"
+    }
   ],
   "contents": [],
   "agents": [

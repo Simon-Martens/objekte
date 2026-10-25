@@ -49,20 +49,493 @@
   "editor": "",
   "items": [],
   "contents": [
-    "afw855q9u9s81bu",
-    "u7ipd6hai8xpaev",
-    "8e4i7wio22o4i87",
-    "bxh4l4t467nngqw",
-    "zi8fxlr08fi9wbn",
-    "noan6px7afoej5p",
-    "5yn2lkkht49kst1",
-    "y45ebtebfdg3yyv",
-    "xlikqsl3i2yommh",
-    "m1holaj7nsjs7v7",
-    "t7f57hei79gc9gs",
-    "tac7oiwpw1cly4p",
-    "2yronj4tiqi9995",
-    "283m1w484w0ktx6"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66109,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66109_l5u5to4oas.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "afw855q9u9s81bu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66110,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Sammlung / pfälzischer Dichtungen aus neuerer Zeit / für das Jahr 1887. / Poetische Blumenlese / aus der Pfalz. / Herausgegeben / von / J. Schreyer. / Zweiter Jahrgang. / Kaiserslautern. / Aug. Gotthold's Verlags-Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66110_ar90nb4oj8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Sammlung / pfälzischer Dichtungen aus neuerer Zeit / für das Jahr 1887. / Poetische Blumenlese / aus der Pfalz. / Herausgegeben / von / J. Schreyer. / Zweiter Jahrgang. / Kaiserslautern. / Aug. Gotthold's Verlags-Buchhandlung",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "u7ipd6hai8xpaev"
+    },
+    {
+      "annotation": "Portrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66111,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Luitpold, Prinz-Regent von Bayern, / geb. den 12. März 1821",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66111_oilyw7s26c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Luitpold, Prinz-Regent von Bayern, / geb. den 12. März 1821",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "8e4i7wio22o4i87"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66112,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fröhlich Pfalz! / Für die »Blumenlese 1887« comp. von G. Vierling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Vierling",
+      "scans": [
+        "alm_1119_66112_d7twwhm84j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fröhlich Pfalz! / Für die »Blumenlese 1887« comp. von G. Vierling",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "bxh4l4t467nngqw"
+    },
+    {
+      "annotation": "mit handschriftlicher Widmung J. Schreyers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.979Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66113,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66113_kuga3jfseq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "zi8fxlr08fi9wbn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66114,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische Blumenlese aus der Pfalz; / Zweiter Jahrgang. / Inhalts-Uebersicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66114_npnr037y39.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Poetische Blumenlese aus der Pfalz; / Zweiter Jahrgang. / Inhalts-Uebersicht",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "noan6px7afoej5p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Abteilung. / In der Pfalz lebende Autoren mit Angabe / ihrer Werke. / A. Verfasser und Herausgeber poetischer / Sammlungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66115_aocb0u6eci.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. Abteilung. / In der Pfalz lebende Autoren mit Angabe / ihrer Werke. / A. Verfasser und Herausgeber poetischer / Sammlungen",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "5yn2lkkht49kst1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. / Verfasser geschichtlicher, schönwissenschaftlicher / und anderer Werke und Abhandlungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66116_fecfxe48ae.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "B. / Verfasser geschichtlicher, schönwissenschaftlicher / und anderer Werke und Abhandlungen",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "y45ebtebfdg3yyv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Abteilung. / Sonstige Beiträge. / A. Aus der Pfalz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66117_d7d5e9vdha.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Abteilung. / Sonstige Beiträge. / A. Aus der Pfalz",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "xlikqsl3i2yommh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. / Beiträge / von Pfälzern im Auslande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66118_dt0rrbf47c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "B. / Beiträge / von Pfälzern im Auslande",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "m1holaj7nsjs7v7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Abteilung. / Humoristischer Teil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66119_eacsjxnaco.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Abteilung. / Humoristischer Teil",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "t7f57hei79gc9gs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Autoren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66120_gyxusx9ecf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Autoren",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "tac7oiwpw1cly4p"
+    },
+    {
+      "annotation": "Photos 66121,01; 66121,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anhang. / Beiträge in Prosa. Autoren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66121_01_6s38anyoj7.jpg",
+        "alm_1119_66121_02_vdivy7spi4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anhang. / Beiträge in Prosa. Autoren",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "2yronj4tiqi9995"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66122,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1119_66122_sju80gjt41.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1887,
+      "editor": "",
+      "agents": [],
+      "source_id": "283m1w484w0ktx6"
+    }
   ],
   "agents": [
     {

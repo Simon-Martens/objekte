@@ -48,35 +48,1106 @@
   "year": 1836,
   "editor": "",
   "items": [
-    "m5k7qiot9yk7rwu",
-    "w58n8j7duy8ho5q"
+    {
+      "annotation": "Graphik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.502Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "408369",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.502Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "m5k7qiot9yk7rwu"
+    },
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit Goldschnitt und Schuber(Buchrücken  beschädigt.)\n1836: (K: Stahlst. 8.) Mit  Ku 6, XVI, 298 SS und Bl 10.\n\\par Rheinisches TB Hg .:1824/44 = Dr. Adrian.\n\\par Rheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\n\\par Auch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt.\n§1§ G fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.502Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101312",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.502Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "w58n8j7duy8ho5q"
+    }
   ],
   "contents": [
-    "p3iuztlsyfp8bda",
-    "elotp0zx0s5zwom",
-    "1kgxswxzyfasyna",
-    "g7mdqsf68m250r6",
-    "zyhvnedlz601yuw",
-    "s3j7d1vhf5mgq71",
-    "7o25i6ur13x4wnn",
-    "ehwlg87av6aq1cj",
-    "dcafgkws76xxuy2",
-    "vxva6z7z1zp5j5y",
-    "gy2sc98y8ztn5gt",
-    "g4j1ubgc0br2pl7",
-    "amhxh2qmsyduv5i",
-    "ixer2xbzo0xb52t",
-    "i755o9rhwgp4rvw",
-    "ipcqif1ez9lc7jb",
-    "iyvthdwazuuet6r",
-    "835zbanptzrmufu",
-    "ig8v9oqzic8k0mz",
-    "6cncl4adtzis0mz",
-    "sq3bl2j8e413rxc",
-    "p62sw3kowiswn4y",
-    "j4hhvg9bx3nm5c8",
-    "fz1uyyal3jc5vrc",
-    "7evi6mbvzfy0i3k"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 43928, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fenimore Cooper",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_591_43925_pz3lqr4efp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fenimore Cooper",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.310Z",
+          "agent": "0tfckyxltbezg39",
+          "source_id": "l7t81p7xvvilcky"
+        }
+      ],
+      "source_id": "p3iuztlsyfp8bda"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.525Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43926,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1836. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen. / Frankfurt am Main. / Verlag von Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_591_43926_xyp0gpv24p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1836. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen. / Frankfurt am Main. / Verlag von Johann David Sauerländer",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "elotp0zx0s5zwom"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43927,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "1kgxswxzyfasyna"
+    },
+    {
+      "annotation": "s. Titelportrait INr 43925, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Amerikaner Cooper ist in der deutschen Lesewelt, welche seinen Spion, seinen Bravo, seinen letzten Mohikan, seinen Scharfrichter von Bern mit der lebhaftesten Theilnahme aufnahm",
+      "language": [],
+      "musenalm_id": 43928,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "James Fenimore Cooper",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "James Fenimore Cooper",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.310Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ipqnqo5tltcj1kd"
+        }
+      ],
+      "source_id": "g7mdqsf68m250r6"
+    },
+    {
+      "annotation": "s. Textbezug INr 43930, Obj 6. Illustration zu »Das Soldatenkind« von J. V. Adrian INr 43944, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43929,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miss Mc. Alpine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Panted by E. Stone Engraved by C. Rolls",
+      "scans": [
+        "alm_591_43929_dw50ahqo4x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Miss Mc. Alpine",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.310Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "yg6dsmhxbq8bj20"
+        }
+      ],
+      "source_id": "zyhvnedlz601yuw"
+    },
+    {
+      "annotation": "s. Graphik INr 43929, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Siehe Seite 130 des Taschenbuchs, in Adrians Erzählung: Das Soldatenkind, aus dessen Sagen aus Irland.",
+      "language": [],
+      "musenalm_id": 43930,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miß Mac Alpin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miß Mac Alpin",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "s3j7d1vhf5mgq71"
+    },
+    {
+      "annotation": "§1§ bez. Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Siehe Adrians Erzählung: Des jungen Sams Abentheuer, Seite 187 des Taschenbuchs aus dessen: Sagen aus Irland",
+      "language": [],
+      "musenalm_id": 43931,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miß Anna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miß Anna",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "7o25i6ur13x4wnn"
+    },
+    {
+      "annotation": "Illustration zu  »Des jungen Sam's Abenteuer« von J. V. Adrian INr 43946, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43932,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miß Anna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_591_43932_pwm0xp1wdu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Miß Anna",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "ehwlg87av6aq1cj"
+    },
+    {
+      "annotation": "Illustration zu »Der Corsar« von George Gordon Byron s. Textbezug INr 43935, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43933,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Corsar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by H. Richter Engraved by R. Baker",
+      "scans": [
+        "alm_591_43933_9rbbdz7rim.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Corsar",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.189Z",
+          "agent": "2p87lmr62wiucvw",
+          "source_id": "wvlsdkk8jyj04vi"
+        }
+      ],
+      "source_id": "dcafgkws76xxuy2"
+    },
+    {
+      "annotation": "Sammlung von 4 Textbezügen zu 4 Graphiken INr 43933, 43935-43941; Obj 9, 11-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43934,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie zu Byron's Werken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie zu Byron's Werken",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.189Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "n0b4fohqtwy4chg"
+        }
+      ],
+      "source_id": "vxva6z7z1zp5j5y"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43934, Obj 10) s. Graphik INr 43933, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Der wilde Korsar, der Seyd's, des Paschas, Schloß in Brand gesteckt, aber die königliche Rose des Harems, die reizende Gulnare, aus den Flammen gerettet,",
+      "language": [],
+      "musenalm_id": 43935,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Korsar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Korsar",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "9l54ahjc5g2ui59"
+        }
+      ],
+      "source_id": "gy2sc98y8ztn5gt"
+    },
+    {
+      "annotation": "Illustration zu »Junker Harold« von George Gordon Byron s. Textbezug INr 43937, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43936,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Junker Harold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by W. Purser Engraved by E. Finden",
+      "scans": [
+        "alm_591_43936_7am8czyetl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Junker Harold",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "n6a5xd0oqtupi8s",
+          "source_id": "voelzsh7uvmiw1o"
+        }
+      ],
+      "source_id": "g4j1ubgc0br2pl7"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43934, Obj 10) s. Graphik INr 43936, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Der Dichter führt seinen Helden in die still-ruhige, heimliche Abgeschlossenheit Albaniens.",
+      "language": [],
+      "musenalm_id": 43937,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Junker Harold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Junker Harold",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "sterqrg15f49u8q"
+        }
+      ],
+      "source_id": "amhxh2qmsyduv5i"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43934, Obj 10) s. Graphik INr 43939, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Den Freunden der Muse Lord Byron's ist der Name Janthe ein befreundeter Name.",
+      "language": [],
+      "musenalm_id": 43938,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Janthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Janthe",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "fskx1bcmybbp97s"
+        }
+      ],
+      "source_id": "ixer2xbzo0xb52t"
+    },
+    {
+      "annotation": "Illustration zu »Junker Harold« von George Gordon Byron INr 43938, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43939,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IANTHE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_591_43939_mq1nq0cknz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IANTHE",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "0tfckyxltbezg39",
+          "source_id": "cci19pd18v2chg1"
+        }
+      ],
+      "source_id": "i755o9rhwgp4rvw"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43934, Obj 10) s. Graphik INr 43941, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Lord Byron verließ im Frühling des Jahres 1816 sein Vaterland zum zweiten Mal und für immer.",
+      "language": [],
+      "musenalm_id": 43940,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Venedig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Venedig",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "fuh32v39oypdec3"
+        }
+      ],
+      "source_id": "ipcqif1ez9lc7jb"
+    },
+    {
+      "annotation": "s. Textbezug INr 43940, Obj 16. Unter der Graphik: Carlsruhe im Cunstverlag von Creuzbauer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43941,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VENEDIG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_591_43941_dbn3zojtlo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VENEDIG",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "iyvthdwazuuet6r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Zwei Männer stiegen von der Wasserstadt langsam und sichtlich ermüdet durch den heißen Augustmorgen den Berg hinauf,",
+      "language": [],
+      "musenalm_id": 43942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Siegsmunds Hof. / Historisches Gemälde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Siegsmunds Hof. / Historisches Gemälde",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "zwvt2zipufwiggy"
+        }
+      ],
+      "source_id": "835zbanptzrmufu"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 43944-43946, Obj 20-22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sagen aus Ireland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sagen aus Ireland",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "l4vmfpf38uwodbw"
+        }
+      ],
+      "source_id": "ig8v9oqzic8k0mz"
+    },
+    {
+      "annotation": "Sagen aus Ireland (Sammlung INr 43943, Obj 19) Dem Text vorangestellt: Marketenderin. / Heute da, Herr Vetter, und morgen dort / Wie Einen der rauhe Kriegsbesen / Fegt und schüttelt von Ort zu Ort. / Wallenstein's Lager . Mit einer Illustration s. Graphik INr 43929, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Darh an afrin, sagte Grety Crosbic: kein Zweifel mehr, William Dhuv, in einigen Tagen segeln wir nach Boston, jagen die Yankees in die fernen Wälder zurück,",
+      "language": [],
+      "musenalm_id": 43944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Soldatenkind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Soldatenkind",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "35grsdxhzsyqa8e"
+        }
+      ],
+      "source_id": "6cncl4adtzis0mz"
+    },
+    {
+      "annotation": "Sagen aus Ireland (Sammlung INr 43943, Obj 19) Dem Text vorangestellt: Berufe nicht die wohlbekannte Schaar, / Die strömend sich im Dunstkreis überbreitet, [...] Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Noch mehr Whiskey, eine ganze Flasche, alte Hexe! rief Mihil Sullivan und warf die zwei Gläser, aus denen sein Freund Cologhan und er getrunken hatten, an die Wand.",
+      "language": [],
+      "musenalm_id": 43945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fluch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fluch",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.190Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "f70rnddax3ulono"
+        }
+      ],
+      "source_id": "sq3bl2j8e413rxc"
+    },
+    {
+      "annotation": "Sagen aus Ireland (Sammlung INr 43943, Obj 19) Dem Text vorangestellt: Quickly: / Ihrschwarzen, grauen, grünen, weißen Feiern, / Ihr Mondscheinschwärmer! Nächt'ge Phantaseien! [...] Shakespeare. §1§ die Illustration INr 43932, Obj 8 fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.120Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Mick Mac Gregor war der hübscheste, aber auch der wildeste Bursche von Laghan gewesen.",
+      "language": [],
+      "musenalm_id": 43946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des jungen Sam's Abenteuer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des jungen Sam's Abenteuer",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.284Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "f6vk6k2sqf7u5l0"
+        }
+      ],
+      "source_id": "p62sw3kowiswn4y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Ich bin froh, sprach Marcello zu seinem Freunde Sylver, daß wir endlich einmal flügge werden;",
+      "language": [],
+      "musenalm_id": 43947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sarastro. / (Aus meinem Skizzenbuche.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Duller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sarastro. / (Aus meinem Skizzenbuche.)",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.284Z",
+          "agent": "7bekt7k216mxue5",
+          "source_id": "8vnkthv3b84kqq8"
+        }
+      ],
+      "source_id": "j4hhvg9bx3nm5c8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Dumpfer Schrecken lag über allen Hunderttausenden von Konstantinopel. In den Quartieren der fränkischen Botschafter war es um so lebhafter, aber aus verschiedenen Gründen.",
+      "language": [],
+      "musenalm_id": 43948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Türkisches Glück. / (Genrebild.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von Biedenfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Türkisches Glück. / (Genrebild.)",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.284Z",
+          "agent": "pfo0elfwwaodex8",
+          "source_id": "zbxmi3ctrhufnc9"
+        }
+      ],
+      "source_id": "fz1uyyal3jc5vrc"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In demselben Verlage sind erschienen und durch alle / Buchhandlungen zu haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In demselben Verlage sind erschienen und durch alle / Buchhandlungen zu haben",
+      "updated": "2006-06-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "7evi6mbvzfy0i3k"
+    }
   ],
   "agents": [
     {

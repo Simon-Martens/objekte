@@ -48,37 +48,1147 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "e0bmso024qjv2b7"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.609Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106021",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.609Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "e0bmso024qjv2b7"
+    }
   ],
   "contents": [
-    "xokijyq9wm2i94q",
-    "bbq7f9rerwfvno7",
-    "5551puqg9oqbqyx",
-    "0ohcax82cvdtt48",
-    "jtpoxjtjoo4foci",
-    "pmeodlq0nv4xqdv",
-    "01miko7242x6flp",
-    "jwmm3lfb4vowyjt",
-    "eaplgefs9x3idxg",
-    "tuht3ctd1kdmcy5",
-    "ison0d15ltcldyh",
-    "69tmf9f4z509311",
-    "kbbkcsaeq4quaim",
-    "9cmb7zbbdh996eo",
-    "9d38v1jjj5w0v5d",
-    "zreyzyhqaonhbva",
-    "p9gaecfx5vy3un5",
-    "6jywbiprp8imipu",
-    "fvc2r5c1yunjkox",
-    "g2u0eaxzh2qw91z",
-    "rcxwk44s6hsr57u",
-    "h42gfykvcliw9ja",
-    "72118prnt3qkcoj",
-    "v9751911y1xh8g7",
-    "z9576nsr5pgjlzf",
-    "6sw54qo7ptylkoo",
-    "hz47056v39uxgut",
-    "mev6u53zgeitz5q"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109492,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109492_gx4ialexe2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "xokijyq9wm2i94q"
+    },
+    {
+      "annotation": "Titelgraphik; über der Graphik Pag. 39 /) Illustration zu »Die Eroberung von Jericho« von Madame Cottin übers. von W. Brögelmann INr 109509, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109493,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Eroberung von Jericho",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Lehmann del. G. Boettger senior sc. 1811",
+      "scans": [
+        "alm_2383_109493_sm5lev1ruy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Eroberung von Jericho",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.310Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "44qzjnha5vyozwt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.310Z",
+          "agent": "dsxgxd2rsqe5f4z",
+          "source_id": "apeetwwloyrl89g"
+        }
+      ],
+      "source_id": "bbq7f9rerwfvno7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109494,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1812 / der /  Häuslichkeit und Eintracht / gewidmet / von / Fr. Kind, Fr. Laun, E. Meyer etc / Herausgegeben / von / Theodor Hell. / Mit zehn Kupfern und Landschaften, und zwei Tafeln mit / den neuesten Desseins zur Modestickerei. / Leipzig, / bei J. C. Hinrichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109494_mm0rz522l2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1812 / der /  Häuslichkeit und Eintracht / gewidmet / von / Fr. Kind, Fr. Laun, E. Meyer etc / Herausgegeben / von / Theodor Hell. / Mit zehn Kupfern und Landschaften, und zwei Tafeln mit / den neuesten Desseins zur Modestickerei. / Leipzig, / bei J. C. Hinrichs",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "5551puqg9oqbqyx"
+    },
+    {
+      "annotation": "Es folgen: 12 Seiten Monatskonten und eine Seite Jahreskonto /) # Jahreszahl unvollständig",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109495,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / im Jahre 181 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / im Jahre 181 #",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ohcax82cvdtt48"
+    },
+    {
+      "annotation": "Graphik nach dem Monatskonto Januar /) über der Graphik: Pag. 8. /) Illustration zu »Der seltene Wahlspruch« von Fr. Laun d.i.  Fr. A. Schulze INr 109507, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109496,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der seltene Wahlspruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior sc. 1811",
+      "scans": [
+        "alm_2383_109496_cngt4lvyll.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der seltene Wahlspruch",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.310Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "3cburq3x2b9abym"
+        }
+      ],
+      "source_id": "jtpoxjtjoo4foci"
+    },
+    {
+      "annotation": "Graphik nach dem Monatskonto März /) über der Graphik: a.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109497,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehmann del. G. Boettger senior sc. 1811",
+      "scans": [
+        "alm_2383_109497_be996n6g9y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.310Z",
+          "agent": "dsxgxd2rsqe5f4z",
+          "source_id": "0sk261btwx0dmkv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.310Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "0wg61kqdzpg79tc"
+        }
+      ],
+      "source_id": "pmeodlq0nv4xqdv"
+    },
+    {
+      "annotation": "Graphik nach dem Monatskonto Mai /) über der Graphik: Pag. 121. /) Illustration zu »Der Herr Nachtigall-Inspektor Zeising, oder Bajazzo, ein glücklicher Freiweber« von Aloysius Waldgesang (Pseud.) INr 109510, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109498,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tief verneigten sich die beiden Matronen, als der Erhabene / eintrat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior 1811",
+      "scans": [
+        "alm_2383_109498_n3kn4ppsbw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tief verneigten sich die beiden Matronen, als der Erhabene / eintrat",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.310Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "dxjy39rg0h0aocw"
+        }
+      ],
+      "source_id": "01miko7242x6flp"
+    },
+    {
+      "annotation": "Graphik nach dem Monatskonto Juli /) über der Graphik: b.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109499,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brücke von Connewitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Lehmann del. G. Boettger senior sc. 1811",
+      "scans": [
+        "alm_2383_109499_rmk81j8vcu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Brücke von Connewitz",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.311Z",
+          "agent": "dsxgxd2rsqe5f4z",
+          "source_id": "dn9o256ttjvj5wc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.311Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "lvlhgdedo7pat88"
+        }
+      ],
+      "source_id": "jwmm3lfb4vowyjt"
+    },
+    {
+      "annotation": "Graphik nach dem Monatskonto September /) über der Graphik: Pag. 133. /) Illustration zu »Der Herr Nachtigall-Inspektor Zeising, oder Bajazzo, ein glücklicher Freiweber« von Aloysius Waldgesang (Pseud.) INr 109510, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109500,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott: Bruder Anton",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Lehmann del. Lips.",
+      "scans": [
+        "alm_2383_109500_8pwqyv7eai.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott: Bruder Anton",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.311Z",
+          "agent": "dsxgxd2rsqe5f4z",
+          "source_id": "llo4st2tyd6y30b"
+        }
+      ],
+      "source_id": "eaplgefs9x3idxg"
+    },
+    {
+      "annotation": "Graphik nach dem Monatskonto November /) über der Graphik: c.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109501,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pirna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109501_nr4hfd3git.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pirna",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "tuht3ctd1kdmcy5"
+    },
+    {
+      "annotation": "Graphik nach den Monatskonten /) über der Graphik: d.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109502,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Königs-Nase",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günter del.",
+      "scans": [
+        "alm_2383_109502_mtokduu5ox.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Königs-Nase",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.436Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "i8ytjdnu4bzvkas"
+        }
+      ],
+      "source_id": "ison0d15ltcldyh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109503,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "69tmf9f4z509311"
+    },
+    {
+      "annotation": "über der Graphik: e.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109504,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wehlstädgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109504_6r03chigsf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wehlstädgen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "kbbkcsaeq4quaim"
+    },
+    {
+      "annotation": "mit einigen weiteren Erläuterungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die vier Kupfer, welche Scenen aus vier verschiedenen Erzählungen darstellen, bedürfen keiner weiteren Erklärung,",
+      "language": [],
+      "musenalm_id": 109505,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kupfererklärungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kupfererklärungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "9cmb7zbbdh996eo"
+    },
+    {
+      "annotation": "über der Graphik: f.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Radner Steinbrücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günter del.",
+      "scans": [
+        "alm_2383_109506_q1y1ulqv8e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Radner Steinbrücke",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.232Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "v6g4mdpeppyudio"
+        }
+      ],
+      "source_id": "9d38v1jjj5w0v5d"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 109496, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.507Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Justizrath von Rothenheim hatte in einem halben Jahre zwei Todesfälle erlebt, die ihn äußerst niederdrückten.",
+      "language": [],
+      "musenalm_id": 109507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der seltene Wahlspruch",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Lauhn [sic]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der seltene Wahlspruch",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "f30kooup1srdkk6"
+        }
+      ],
+      "source_id": "zreyzyhqaonhbva"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Der Sekretair lebte mit seinem jungen Weibchen noch in den Frühlingstagen der Flitterzeit.",
+      "language": [],
+      "musenalm_id": 109508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Harfe. / Ein Beitrag zum Geisterglauben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Harfe. / Ein Beitrag zum Geisterglauben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.190Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "4blvv0s3cxvoblg"
+        }
+      ],
+      "source_id": "p9gaecfx5vy3un5"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 109493, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Gelobt sey Jehova, der Gott Israels! Sein Zürnen ist dem verstockten Sünder furchtbar, aber seine Barmherzigkeit ist groß für den Reuigen.",
+      "language": [],
+      "musenalm_id": 109509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Eroberung von Jericho",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Madame Cottin, verdeutscht von W. Brögelmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Eroberung von Jericho",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "6jywbiprp8imipu"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 109498,109500; Obj 7, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Mir gerade gegen über, also auch in der Hauptstraße, wohnt der Herr Nachtigall-Inspektor Zeising, ein Mann in seinen besten Jahren,",
+      "language": [],
+      "musenalm_id": 109510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Herr Nachtigall-Inspektor Zeising, / oder Bajazzo, ein glücklicher / Freiweber",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Aloysius Waldgesang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Herr Nachtigall-Inspektor Zeising, / oder Bajazzo, ein glücklicher / Freiweber",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "fvc2r5c1yunjkox"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "In der Zeit, wo der tapfre Don Pedro Giron, Herzog von Osuna, als Vizekönig in Neapel gebot, starb einer seiner Freunde, der Hauptmann Mucio Brancacho,",
+      "language": [],
+      "musenalm_id": 109511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Prüfung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Nach dem Spanischen vom Verfasser des Romans Heliodora",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Prüfung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.190Z",
+          "agent": "082sspsj3rz0i1b",
+          "source_id": "v33pzj7ws8jnkfn"
+        }
+      ],
+      "source_id": "g2u0eaxzh2qw91z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Und wer von uns ge- / trennt noch weilt, / Dem leite sanft die Schritte, / Daß er bald wiederum erscheint / In seiner Treuen Mitte.",
+      "language": [],
+      "musenalm_id": 109512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rückkehr des Vaters. / Ein Familiengemälde in einem Akte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rückkehr des Vaters. / Ein Familiengemälde in einem Akte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.190Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "ccavebfhpokzvd4"
+        }
+      ],
+      "source_id": "rcxwk44s6hsr57u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Sie gingen hin, den Vater zu empfangen, / Zurückgekehrt ins heimische Gefild, / Den edelsten, an dem sie liebend hangen,",
+      "language": [],
+      "musenalm_id": 109513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Genius der frommen Liebe. / (Pietas.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Genius der frommen Liebe. / (Pietas.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "h42gfykvcliw9ja"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Der braune Franz verließ am Morgen / Mit leichtem Reff die üpp'ge Stadt,",
+      "language": [],
+      "musenalm_id": 109514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bandhändler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bandhändler",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.190Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "kguk908zzaue79i"
+        }
+      ],
+      "source_id": "72118prnt3qkcoj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Unaufhaltsam fließt der Strom der Zeit, / Seine Wogen nennen Menschen - Jahre.",
+      "language": [],
+      "musenalm_id": 109515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Strom der Zeit",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Strom der Zeit",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.190Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "4l23bzragxsls79"
+        }
+      ],
+      "source_id": "v9751911y1xh8g7"
+    },
+    {
+      "annotation": "mit 2 graph. Stickanleitungen INr 109517, 109518; Obj 26, 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Da jedes Jahr in diesem Taschenbuch etwas von Stick- und Strickerei mit angeschlossen war, und beifällig aufgenommen wurde, so suchte ich auch für das gegenwärtige Jahr einige der neuesten Desseins aufzustellen,",
+      "language": [],
+      "musenalm_id": 109516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muster der neuesten Modestickerei und zur Verschönerung der Wäsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Muster der neuesten Modestickerei und zur Verschönerung der Wäsche",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "z9576nsr5pgjlzf"
+    },
+    {
+      "annotation": "auszufaltende kol. graph. Stickanleitung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109517,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109517_opgvnewu9s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tab. I.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "6sw54qo7ptylkoo"
+    },
+    {
+      "annotation": "auszufaltende kol. graph. Stickanleitung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109518,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109518_45yea36ms0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tab. II.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "hz47056v39uxgut"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109519,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2383_109519_ui4gwq8dnt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "mev6u53zgeitz5q"
+    }
   ],
   "agents": [
     {

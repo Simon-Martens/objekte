@@ -48,23 +48,658 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "7566j3z4crlrca1"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1804: Mit Ku 6 und 262 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100095",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7566j3z4crlrca1"
+    }
   ],
   "contents": [
-    "9r0bwpps4ocsbw6",
-    "v3lh51pdqtllfnl",
-    "6fker0qnuhqklld",
-    "t5kcp10g9l3tbgd",
-    "arss4h2u3gsknu9",
-    "vxk14p1utg1tumn",
-    "8qak6pat6ye8b4h",
-    "khs4bmxd6p3qzk6",
-    "pye6tyu47l28go9",
-    "p5w7a11x8mqfgss",
-    "zai6nebgm72hidm",
-    "1lp2fdyzaocv8m4",
-    "dj29l8oxwkmxapq",
-    "jhl35fv4ng56g2c"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123053,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Zweiter Jahrgang / Berlin / bei F. J. de La Garde / 1804",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1272_123053_nri83stqac.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Zweiter Jahrgang / Berlin / bei F. J. de La Garde / 1804",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "9r0bwpps4ocsbw6"
+    },
+    {
+      "annotation": "enthält Aufführungsanweisungen zu den Stücken im Almanach",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der erste Jahrgang dieses Almanachs hat Beifall gefunden; der Verfasser liefert daher, seinem Versprechen gemäß, den zweiten.",
+      "language": [],
+      "musenalm_id": 123066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.788Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.788Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "rgt3xzwsghdxgug"
+        }
+      ],
+      "source_id": "v3lh51pdqtllfnl"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123068, Obj 4; # Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Die fetten Hunde sind nicht die blöden, / So spricht der Weisen Mund; / Drum bittet um Erlaubniß, zu reden, / Ein armer Hund.",
+      "language": [],
+      "musenalm_id": 123067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Urtheil des Paris / Eine heroische Komödia",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Urtheil des Paris / Eine heroische Komödia",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "4h3xn5l0obsp6zx"
+        }
+      ],
+      "source_id": "6fker0qnuhqklld"
+    },
+    {
+      "annotation": "Illustration zu »Das Urtheil des Paris« von Kotzebue (INr 123085, Obj 3)  /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Urtheil des Paris / Ich bin der Jupiter und rauch holländ’schen Knaster / erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1272_123068_r8aq6ggitv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Urtheil des Paris / Ich bin der Jupiter und rauch holländ’schen Knaster / erste Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "meip3m2sbaezt6w"
+        }
+      ],
+      "source_id": "t5kcp10g9l3tbgd"
+    },
+    {
+      "annotation": "Illustration zu »Die Tochter Pharaonis« von Kotzebue (INr 123070, Obj 6); # Bezeichnung am ersten Blatt der Suite (INr 123069, Obj 4)  /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Runx / Die Tochter Pharaonis nähm’ ich nicht zu meiner Köchin. / Die Tochter Pharaonis, achte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1272_123069_bmjzwxux52.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "2. / Runx / Die Tochter Pharaonis nähm’ ich nicht zu meiner Köchin. / Die Tochter Pharaonis, achte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "jwncx7dz9i5x260"
+        }
+      ],
+      "source_id": "arss4h2u3gsknu9"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123069, Obj 5; # Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Brüderchen, Dein Kaffee schmeckt vortrefflich.",
+      "language": [],
+      "musenalm_id": 123070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tochter Pharaonis. / Ein Lustspiel in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tochter Pharaonis. / Ein Lustspiel in Einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "uv1ajvhlmi5vi3k"
+        }
+      ],
+      "source_id": "vxk14p1utg1tumn"
+    },
+    {
+      "annotation": "Illustration zu »Rübezahl« von Kotzebue (INr 123072, Obj 8); # Bezeichnung am ersten Blatt der Suite (INr 123069, Obj 4)  /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.207Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Rübezahl / Ich zeige nach ein paar hundert Jahren / mich wieder einmal auf dem Berge hier. / Rübezahl, erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1272_123071_0p4doo6r0i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "3. / Rübezahl / Ich zeige nach ein paar hundert Jahren / mich wieder einmal auf dem Berge hier. / Rübezahl, erste Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "tclwt46pe2ejid4"
+        }
+      ],
+      "source_id": "8qak6pat6ye8b4h"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123071, Obj 7; # Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Ich, Rübezahl, im Riesengebürge, / Mit dem die Amme den Säugling schreckt; / Der ich die Bösen strafen würge, / Die Guten Belohne – nicht ungeneckt",
+      "language": [],
+      "musenalm_id": 123072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rübezahl. / Ein Schauspiel in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rübezahl. / Ein Schauspiel in Einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "u36mopvujmknkqw"
+        }
+      ],
+      "source_id": "khs4bmxd6p3qzk6"
+    },
+    {
+      "annotation": "Illustration zu »Incognito« von Kotzebue (INr 123074, Obj 10); # Bezeichnung am ersten Blatt der Suite (INr 123069, Obj 4)  /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Süsssauer / Bring mir eine gute Portion Opium / Das Incognito, Erster Act, zweite Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1272_123073_osysx9k7on.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "4. / Süsssauer / Bring mir eine gute Portion Opium / Das Incognito, Erster Act, zweite Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "neieru5999pruz0"
+        }
+      ],
+      "source_id": "pye6tyu47l28go9"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123073, Obj 9; # Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "O ja, es ist eine schöne Sache um die Fußreisen – besonders für den, der in einem englischen Wagen sizt und so einen Patron neben sich herlaufen sieht.",
+      "language": [],
+      "musenalm_id": 123074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Incognito. / Eine Posse in zwei Akten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Incognito. / Eine Posse in zwei Akten",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "2jzlafcnpf8az6k"
+        }
+      ],
+      "source_id": "p5w7a11x8mqfgss"
+    },
+    {
+      "annotation": "Illustration zu »Incognito« von Kotzebue (INr 123074, Obj 10); # Bezeichnung am ersten Blatt der Suite (INr 123069, Obj 4)  /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Baron Plutzig / Ach du lieber Gott! Ich ein Buch / schreiben! / Incognito / erster Act, achte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1272_123132_rkuiqboeis.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "5. / Baron Plutzig / Ach du lieber Gott! Ich ein Buch / schreiben! / Incognito / erster Act, achte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.827Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "pin018dms7lih11"
+        }
+      ],
+      "source_id": "zai6nebgm72hidm"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123052, Obj 5; # Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Liebe Mutter, es wird schon finster. Soll ich das Licht noch nicht anbrennen?",
+      "language": [],
+      "musenalm_id": 123134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Uhr und die Mandeltorte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Uhr und die Mandeltorte",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "3rdunrwt4zpp6pb"
+        }
+      ],
+      "source_id": "1lp2fdyzaocv8m4"
+    },
+    {
+      "annotation": "Illustration zu »Sultan Bimbambum« von Kotzebue (INr 123137, Obj 14); # Bezeichnung am ersten Blatt der Suite (INr 123069, Obj 4)  /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Sultan Bimbambum / Wir sind wohl recht geplagt mit Essen, Trincken, Schlafen. / erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1272_123135_xi4kf7oaaj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "6. / Sultan Bimbambum / Wir sind wohl recht geplagt mit Essen, Trincken, Schlafen. / erste Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "hjl9gwq1ldwha45"
+        }
+      ],
+      "source_id": "dj29l8oxwkmxapq"
+    },
+    {
+      "annotation": "# Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Wir königlicher Hirt von den geschornen Schafen, / Wir sind wohl recht geplagt mit Essen, Trincken, / Schlafen;",
+      "language": [],
+      "musenalm_id": 123137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sultan Bimbambum / oder / der Triumph der Wahrheit. / Eine moralische Heroi-Tragi-Comödia",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sultan Bimbambum / oder / der Triumph der Wahrheit. / Eine moralische Heroi-Tragi-Comödia",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "48kzs55cmx8gwr7"
+        }
+      ],
+      "source_id": "jhl35fv4ng56g2c"
+    }
   ],
   "agents": [
     {

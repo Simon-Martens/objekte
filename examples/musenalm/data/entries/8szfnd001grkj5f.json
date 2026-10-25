@@ -48,72 +48,2589 @@
   "year": 1791,
   "editor": "",
   "items": [
-    "vm3pdm0crxtbdm8",
-    "woh5hufkx06muh2"
+    {
+      "annotation": "UG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.465Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "200571",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.465Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vm3pdm0crxtbdm8"
+    },
+    {
+      "annotation": "### nicht am Standort: zusamengebunden mit: Musenalmanach (Göttinger) 1791; INr 409368 : 1-5 E-1\n###",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.465Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100576",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.465Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "woh5hufkx06muh2"
+    }
   ],
   "contents": [
-    "ixhv75t7ufxiviq",
-    "1aswwruvgkqtgqb",
-    "nsy8j32s6718k91",
-    "rq7xnmyj17r0k71",
-    "tyjfvmuc8gfsk42",
-    "may3bg3kw9kvawv",
-    "ulrkvvz3wi7z69s",
-    "d5z5gljszuw12mn",
-    "0jowvkqy0kg9zg3",
-    "699exewbk4xt1na",
-    "9ta0qgf9svyuq4d",
-    "tdnbjmw8rdzeal6",
-    "34w1wmvejdrwsi3",
-    "g4vkvvwdtgeifmy",
-    "qru4hj9jwx3llwt",
-    "qfpz0wqidr80fzj",
-    "hu6h52q33s2uhyg",
-    "l1l9jlbco0mqhf0",
-    "80zbcrmy3hw9stj",
-    "iwj82v57v34ivfn",
-    "ncu627uwggo6dta",
-    "x3ljw73p53mm32v",
-    "5nmbxxhci7xdjks",
-    "v9n2zb5q8u20hce",
-    "mpwctbst6cbevh3",
-    "uspyrwwzgtr8x9d",
-    "z9afg0a0ue2b82i",
-    "nr38l304ucl4r7a",
-    "8ui8ho1stxkcraa",
-    "c8h05bk6u6j2i9e",
-    "sdn4t6qbxge6129",
-    "0cthyhvpw2vtf7i",
-    "67etafoj5hmbmxd",
-    "10ksc048rbkp6yw",
-    "w8penm2gy42gpln",
-    "y6cmsf3zixnw5jt",
-    "ogl38asdq8j1apv",
-    "blbdh1l0vy3p0wa",
-    "9crow9petljte5v",
-    "ty1k9dml5bfaf77",
-    "xwifvehsczd4u3q",
-    "txk13sypf5tdkit",
-    "8gzch7zkai5iqwy",
-    "mdzfemsvxs58j14",
-    "siyguv9927qxuaj",
-    "j18dbmb7sn6ouw5",
-    "lp26rjbidcy6rgj",
-    "n0dzd1qthsb8l8f",
-    "mqh8vl6w7u4cegn",
-    "0rkyh72g67z67x8",
-    "xhhsk3x7avii02q",
-    "tgvpyon78o7871g",
-    "dsuvglwehuy0hee",
-    "fju5f9b8ksd4cz6",
-    "eol53rbp3nowwht",
-    "9s2e0ok77mq7xbs",
-    "65vnu04f32ige9s",
-    "b0u4u3z28xq5wmy",
-    "g54xommmegj1jrp",
-    "yraf04msr18yqmn",
-    "u27fg3d5w4kphjc",
-    "jrzj3slsqk1trul"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.392Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39051,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_143_39051_y44blhaprq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "ixhv75t7ufxiviq"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7083,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1791 / bey Joh. Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chod. del. Dornheim sc.",
+      "scans": [
+        "alm_143_7083_enlj65ig67.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1791 / bey Joh. Christian Dieterich",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.398Z",
+          "agent": "praird5i9f22ccy",
+          "source_id": "8ycx0r4zpfy8haj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.398Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ohljmyh8k5jwzql"
+        }
+      ],
+      "source_id": "1aswwruvgkqtgqb"
+    },
+    {
+      "annotation": "Modekupfer paginiert 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Riep f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Riep f.",
+      "scans": [
+        "alm_143_7925_ix4r9h9xzl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.303Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.303Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "wmm8v2zwq79u0jd"
+        }
+      ],
+      "source_id": "nsy8j32s6718k91"
+    },
+    {
+      "annotation": "Modekupfer paginiert 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28099,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ri)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ri",
+      "scans": [
+        "alm_143_28099_6zb3h8l0dy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.299Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "hl3v8gmtm96derw"
+        }
+      ],
+      "source_id": "rq7xnmyj17r0k71"
+    },
+    {
+      "annotation": "Modekupfer paginiert 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.307Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28100,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep. f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep. f.",
+      "scans": [
+        "alm_143_28100_s20azuvpuh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.369Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.369Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "p1m4e47n99lggur"
+        }
+      ],
+      "source_id": "tyjfvmuc8gfsk42"
+    },
+    {
+      "annotation": "Modekupfer paginiert 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28101,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (R.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [
+        "alm_143_28101_n0m0psjqvh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.369Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.369Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "qpzvv319sc4pirz"
+        }
+      ],
+      "source_id": "may3bg3kw9kvawv"
+    },
+    {
+      "annotation": "Modekupfer paginiert 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.313Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28102,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (R.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [
+        "alm_143_28102_0vnfthrn05.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.369Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.369Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "v70op113rcuq6hd"
+        }
+      ],
+      "source_id": "ulrkvvz3wi7z69s"
+    },
+    {
+      "annotation": "Modekupfer paginiert 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28103,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep. f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep. f.",
+      "scans": [
+        "alm_143_28103_hig2h1k9ps.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "8nhcnuzv3wdkfgu"
+        }
+      ],
+      "source_id": "d5z5gljszuw12mn"
+    },
+    {
+      "annotation": "Modekupfer paginiert 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28104,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep. f)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep. f",
+      "scans": [
+        "alm_143_28104_vcvc0tjkov.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "k7r2jgwdf8s557m"
+        }
+      ],
+      "source_id": "0jowvkqy0kg9zg3"
+    },
+    {
+      "annotation": "Modekupfer paginiert 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28105,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (R)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R",
+      "scans": [
+        "alm_143_28105_67b5wxkihg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "dhhf4m0gs2oup8h"
+        }
+      ],
+      "source_id": "699exewbk4xt1na"
+    },
+    {
+      "annotation": "Modekupfer paginiert 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28106,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep",
+      "scans": [
+        "alm_143_28106_atxd08quwj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "o70yofb2i5pp98l"
+        }
+      ],
+      "source_id": "9ta0qgf9svyuq4d"
+    },
+    {
+      "annotation": "Modekupfer paginiert 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28107,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep f.",
+      "scans": [
+        "alm_143_28107_p04o346zlz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "1wqp0j62pjoodpx"
+        }
+      ],
+      "source_id": "tdnbjmw8rdzeal6"
+    },
+    {
+      "annotation": "Modekupfer paginiert 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28108,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep f.",
+      "scans": [
+        "alm_143_28108_q26pck4fv2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "wllbs7a03zoddvx"
+        }
+      ],
+      "source_id": "34w1wmvejdrwsi3"
+    },
+    {
+      "annotation": "Modekupfer paginiert 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28109,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepns)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepns",
+      "scans": [
+        "alm_143_28109_1atml5jfh3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.214Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "zr4ppzbe7541oh9"
+        }
+      ],
+      "source_id": "g4vkvvwdtgeifmy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28110,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "qru4hj9jwx3llwt"
+    },
+    {
+      "annotation": "Im Kalendarium paginiert 1. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7084,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr kennt mein Herz, ihr wißt, daß / es ohne Mißtrauen ist. / Carl IX. oder die Bartholomaeus Nacht. / I. Aufz. 2 Auftr.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7084_36pdosnvk3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ihr kennt mein Herz, ihr wißt, daß / es ohne Mißtrauen ist. / Carl IX. oder die Bartholomaeus Nacht. / I. Aufz. 2 Auftr.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.398Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "957stu1c1r8p5a1"
+        }
+      ],
+      "source_id": "qfpz0wqidr80fzj"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 2. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7085,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie kann ein Kezzer über / Frankreich herrschen? / I Aufz. 4. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7085_qc64xzmb0z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wie kann ein Kezzer über / Frankreich herrschen? / I Aufz. 4. Auftr.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.398Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "87fkg5vki5uuyn1"
+        }
+      ],
+      "source_id": "hu6h52q33s2uhyg"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 3. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7086,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was? euer schwankendes Herz wagt / sich des Ewigen Willen zu wiedersetzen? / II. Aufz. 2 Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7086_bluuq55n9b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Was? euer schwankendes Herz wagt / sich des Ewigen Willen zu wiedersetzen? / II. Aufz. 2 Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.398Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "i6ru372zdlbv7i4"
+        }
+      ],
+      "source_id": "l1l9jlbco0mqhf0"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 4. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.207Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7087,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laßt nicht beständig die Höflinge / mit eurem Scepter spielen / herrscht mit eigener Hand. / II. Aufz. 3. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7087_swaosjbo2y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Laßt nicht beständig die Höflinge / mit eurem Scepter spielen / herrscht mit eigener Hand. / II. Aufz. 3. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.398Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ifpfmad3rdgocr5"
+        }
+      ],
+      "source_id": "80zbcrmy3hw9stj"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 5. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Menschen Tugend ist nicht glau- / ben, sondern thun. / III. Aufz. 1. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7088_1v6ma4pvxn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Menschen Tugend ist nicht glau- / ben, sondern thun. / III. Aufz. 1. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.434Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "wlf85vs8fwoqu0a"
+        }
+      ],
+      "source_id": "iwj82v57v34ivfn"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 6. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7089,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich euch strafen! nein Kanzler, / ich glaub euch, und ich weine mit euch. / III. Aufz. 2. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7089_n55fc2z85g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich euch strafen! nein Kanzler, / ich glaub euch, und ich weine mit euch. / III. Aufz. 2. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.434Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "t9zld6c5cv47w63"
+        }
+      ],
+      "source_id": "ncu627uwggo6dta"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 7. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7090,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König, schützt einen / mächtigen, / und euch getreuen Krieger. / IV. Aufz. 5. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7090_5cu3mshite.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "König, schützt einen / mächtigen, / und euch getreuen Krieger. / IV. Aufz. 5. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.434Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "v7alsvxqx5l2hd7"
+        }
+      ],
+      "source_id": "x3ljw73p53mm32v"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 8. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7091,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Himmel, was hör ich, ach Mutter! / IV. Aufz. 6. Auftr.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7091_ef0oomit1x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Himmel, was hör ich, ach Mutter! / IV. Aufz. 6. Auftr.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.434Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ascfk47t2666x9w"
+        }
+      ],
+      "source_id": "5nmbxxhci7xdjks"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 9. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7092,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer in dieser heiligen Handlung von / euch stirbt, der hat im Paradiese die / Märtyrerkrone. / IV. Aufz. 6. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7092_5xatdj08c4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wer in dieser heiligen Handlung von / euch stirbt, der hat im Paradiese die / Märtyrerkrone. / IV. Aufz. 6. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.434Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "5cusfr1xjo6ixlv"
+        }
+      ],
+      "source_id": "v9n2zb5q8u20hce"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 10. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7093,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich habe hundert Schwerdter den / ehrwürdigen Krieger niederbohren / sehen. / V. Autz. 2. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7093_fc8jiwdxpd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich habe hundert Schwerdter den / ehrwürdigen Krieger niederbohren / sehen. / V. Autz. 2. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.434Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "piuc7i3rn5yb7e0"
+        }
+      ],
+      "source_id": "mpwctbst6cbevh3"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 11. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7094,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr schändet den Namen Medicis! / V. Aufz. 3. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7094_75n05ng2w7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ihr schändet den Namen Medicis! / V. Aufz. 3. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.435Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "48d7d68j3rxxnf5"
+        }
+      ],
+      "source_id": "uspyrwwzgtr8x9d"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 12. s. Textbezug INr 7122, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7095,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ach, was hab' ich gemacht? undankbar / meineidig, grausam, bundbrüchig, Gottes / lästerer, Mörder bin ich. / V. Aufz. 4. Auft.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_143_7095_crp6q026ug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ach, was hab' ich gemacht? undankbar / meineidig, grausam, bundbrüchig, Gottes / lästerer, Mörder bin ich. / V. Aufz. 4. Auft.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.435Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "8ez6s6g58ugdfg3"
+        }
+      ],
+      "source_id": "z9afg0a0ue2b82i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1791. / Mit / Kupfern von Chodowiecky, / nebst den / neuesten Frauenzimmer- und / Manns- Kleidungen, in Kupfer. / Göttingen, / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1791. / Mit / Kupfern von Chodowiecky, / nebst den / neuesten Frauenzimmer- und / Manns- Kleidungen, in Kupfer. / Göttingen, / bey Johann Christian Dieterich",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "nr38l304ucl4r7a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7097,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geburtstage / des Kön. Großbritannisch. Chur-Braun- / schweig- Lüneburgischen Hauses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geburtstage / des Kön. Großbritannisch. Chur-Braun- / schweig- Lüneburgischen Hauses",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "8ui8ho1stxkcraa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7098,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches / Verzeichniß / der / vornehmsten jetztlebenden hohen / Personen in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches / Verzeichniß / der / vornehmsten jetztlebenden hohen / Personen in Europa",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "c8h05bk6u6j2i9e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Wie wenn einmahl die Sonne nicht wieder käme, dachte Amintor oft, wenn er in einer dunkeln Nacht erwachte",
+      "language": [],
+      "musenalm_id": 7099,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amintors / Morgen-Andacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amintors / Morgen-Andacht",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "sdn4t6qbxge6129"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Wie wenn einmal die Sonne nicht wiederkäme, fragte Amintor. Und wie wenn sie wiederkäme und ich sähe sie nicht mehr;",
+      "language": [],
+      "musenalm_id": 7100,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / einige wichtige Pflichten gegen / die Augen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / einige wichtige Pflichten gegen / die Augen",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "0cthyhvpw2vtf7i"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 7102, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Que des Hottentots parmi nous! rief ehemals Helvetius mitten in Paris aus",
+      "language": [],
+      "musenalm_id": 7101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auch unter Hottentotten / gibts ganze Leute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auch unter Hottentotten / gibts ganze Leute",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "67etafoj5hmbmxd"
+    },
+    {
+      "annotation": "Illustration zu »Auch unter den Hottentotten gibts ganze Leute« INr 7101, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Narina eine junge Gonaqua Hottentottin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep.",
+      "scans": [
+        "alm_143_7102_q4kn2mbafh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Narina eine junge Gonaqua Hottentottin",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.160Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "dy1qxlrlcalasj1"
+        }
+      ],
+      "source_id": "10ksc048rbkp6yw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Eine adeliche Dame von neun und dreißig Jahren, sanguinisch-cholerischen Temperaments,",
+      "language": [],
+      "musenalm_id": 7103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warnungs-Geschichte / für / Magnetisirer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warnungs-Geschichte / für / Magnetisirer",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8penm2gy42gpln"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Der königliche Hof-Astronom Hr. Abbt Hell zu Wien hat Sr. Majestät unserm Allergnädigsten König Georg II.",
+      "language": [],
+      "musenalm_id": 7104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Entdeckungen, physikalische / und andere Merkwürdigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Entdeckungen, physikalische / und andere Merkwürdigkeiten",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "y6cmsf3zixnw5jt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Der sehr gelinde Winter 1789/1790, da die Eiskeller leer stehen blieben,",
+      "language": [],
+      "musenalm_id": 7105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohlfeiles Mittel, sich in Som- / mern, da, wie im vergangenen, das, / Eis rar ist, kühles Getränke und / Gefrorenes zu verschaffen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wohlfeiles Mittel, sich in Som- / mern, da, wie im vergangenen, das, / Eis rar ist, kühles Getränke und / Gefrorenes zu verschaffen",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "ogl38asdq8j1apv"
+    },
+    {
+      "annotation": "Es folgen: Textbezüge und Graphiken INr 7110-7117121, Obj 39-52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / Hogarthischer Kupferstiche.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / Hogarthischer Kupferstiche.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "blbdh1l0vy3p0wa"
+    },
+    {
+      "annotation": "s. Textbezüge und Graphiken INr 7110-7118, Obj 39-50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Unter Hogarth's Werken wird dieses gemeiniglich unter dem Titul: The cock pit angeführt.",
+      "language": [],
+      "musenalm_id": 7107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.) Das Hahnen- Gefecht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.) Das Hahnen- Gefecht",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "9crow9petljte5v"
+    },
+    {
+      "annotation": "Détail aus »Das Hahnen-Gefecht« paginiert A. s. Textbezug INr 7108, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhaus. fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7110_76mc6f098v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.160Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "4dnoze1gx945zw0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.160Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "tpi0ip9ooupwnyq"
+        }
+      ],
+      "source_id": "ty1k9dml5bfaf77"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Das Hahnen-Gefecht« paginiert B. s. Textbezug INr 7109, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhaus. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7111_4yoevq7m87.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.161Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "stmdg7ek2fin8by"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.161Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "vi1gn68p2onz7a9"
+        }
+      ],
+      "source_id": "xwifvehsczd4u3q"
+    },
+    {
+      "annotation": "Erläuterungen zu »Das Hahnen-Gefecht.« von W. Hogarth s. Graphik INr 7110, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Die langseitige Figur 1 ist das Portrait von Lord Albemarle Bertie gemeiniglich der blinde Lord Bertie genannt",
+      "language": [],
+      "musenalm_id": 7108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "A.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "txk13sypf5tdkit"
+    },
+    {
+      "annotation": "Erläuterungen zu »Das Hahnen-Gefecht.« von W. Hogarth s. Graphik INr 7111, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "1 Ein ausdrucksvoller, vortrefflicher Kopf, und unstreitig einer der besten in Hogarths Werken",
+      "language": [],
+      "musenalm_id": 7109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "B.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "8gzch7zkai5iqwy"
+    },
+    {
+      "annotation": "Erläuterungen zu »Das Hahnen-Gefecht.« von W. Hogarth s. Graphik INr 7113, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Nro 1 ist in einem fürchterlichen Nießen begriffen, das ihm der Schnupftaback",
+      "language": [],
+      "musenalm_id": 7112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "mdzfemsvxs58j14"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Das Hahnen-Gefecht« paginiert C. s. Textbezug INr 7112, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhaus. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7113_tzxkdirz60.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.381Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "0b1uwk3w931vzgt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.381Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "9i3li2k38zcqel8"
+        }
+      ],
+      "source_id": "siyguv9927qxuaj"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Das Hahnen-Gefecht« paginiert D. s. Textbezug INr 7114, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhaus. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7115_pifqjscbl6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.381Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "8sbr77sgcordaqz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.381Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "t5kn1wj09hjzatx"
+        }
+      ],
+      "source_id": "j18dbmb7sn6ouw5"
+    },
+    {
+      "annotation": "Erläuterungen zu »Das Hahnen-Gefecht.« von W. Hogarth s. Graphik INr 7115, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "1, 2 und 5, wovon letztere eine kleine Trompete an der Seite im Gürtel stecken hat,",
+      "language": [],
+      "musenalm_id": 7114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "D.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "lp26rjbidcy6rgj"
+    },
+    {
+      "annotation": "Erläuterungen zu »Das Hahnen-Gefecht.« von W. Hogarth s. Graphik INr 7117, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "1 Ist einer von denen, deren Prügel nicht zur Sprache kommen können.",
+      "language": [],
+      "musenalm_id": 7116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "E.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "E.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "n0dzd1qthsb8l8f"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Das Hahnen-Gefecht« paginiert E. s. Textbezug INr 7116, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhaus. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7117_rasn9pwe6n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.382Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "jsyqjju81nw07g8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.382Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "sleuihjq41alq5v"
+        }
+      ],
+      "source_id": "mqh8vl6w7u4cegn"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Das Hahnen-Gefecht« paginiert F. s. Textbezug INr 7118, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhaus. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7119_tq48dub1xu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.382Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "f659vqc2uh7nlas"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.382Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "ndbo3mot7ln0atp"
+        }
+      ],
+      "source_id": "0rkyh72g67z67x8"
+    },
+    {
+      "annotation": "Erläuterungen zu »Das Hahnen-Gefecht.« von W. Hogarth s. Graphik INr 7119, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "1 Ist wieder ein kleiner Caminteufel, der damals allgemein bekannt war.",
+      "language": [],
+      "musenalm_id": 7118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "F.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "F.",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhhsk3x7avii02q"
+    },
+    {
+      "annotation": "s. Graphik INr 7121, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Unter dieser lateinischen Aufschrift wird nachstehendes Blatt von Hogarth, das wir hier verleinert ganz liefern,",
+      "language": [],
+      "musenalm_id": 7120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Erklärung Hogartischer Kupferstiche] II) Finis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Erklärung Hogartischer Kupferstiche] II) Finis",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "tgvpyon78o7871g"
+    },
+    {
+      "annotation": "s. Textbezug INr 7120, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Finis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhaus. fec.",
+      "scans": [
+        "alm_143_7121_g3b4lt5spj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Finis",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.382Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "az8eyt37q92ybsj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.382Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "o871ic8zds05msn"
+        }
+      ],
+      "source_id": "dsuvglwehuy0hee"
+    },
+    {
+      "annotation": "G-Verz s. Graphiken im Kalendarium INr 7084-7095, Obj 15-26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Die Monats-Kupfer stellen zwölf Scenen aus Chenier's bekannter Bartholomäus-Nacht von Herrn Chodowieckis Meisterhand vor.",
+      "language": [],
+      "musenalm_id": 7122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der Monats-Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der Monats-Kupfer",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "fju5f9b8ksd4cz6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vegleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländischen / Troygewichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vegleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländischen / Troygewichts",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "eol53rbp3nowwht"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meilenmaaß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meilenmaaß",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "9s2e0ok77mq7xbs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Getraidemaaß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Getraidemaaß",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "65vnu04f32ige9s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Münzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Münzen",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "b0u4u3z28xq5wmy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geographische Länge und Breite / einiger Oerter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geographische Länge und Breite / einiger Oerter",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "g54xommmegj1jrp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28111,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "yraf04msr18yqmn"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28112,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "u27fg3d5w4kphjc"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39052,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_143_39052_kf6xdg38ze.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1791,
+      "editor": "",
+      "agents": [],
+      "source_id": "jrzj3slsqk1trul"
+    }
   ],
   "agents": [
     {

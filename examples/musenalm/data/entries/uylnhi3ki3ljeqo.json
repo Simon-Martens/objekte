@@ -48,63 +48,2069 @@
   "year": 1783,
   "editor": "",
   "items": [
-    "xsgy165usegh2og"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.593Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404250",
+      "location": "105D05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.593Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xsgy165usegh2og"
+    }
   ],
   "contents": [
-    "zza35568ptw0945",
-    "kktoqeexx7p6z1t",
-    "u3553e98sdfal71",
-    "zk8il0ltfosliw8",
-    "9rltx8r3s8v32ki",
-    "oo8u05e8c7lw9wi",
-    "amav0g6q7lf78na",
-    "mkqjiwb4l4n6vnc",
-    "xjzor05m5awo00k",
-    "htcrw46dxam6ht8",
-    "as6z06rwvm9qly1",
-    "fygwjkge3dphygz",
-    "5fraz1tuxck4975",
-    "n8n2qwtvsw8vcfa",
-    "2vln1pyza6odb57",
-    "dezl1rogw1x0fwy",
-    "vu6zypd181m1497",
-    "m28xn7abbjo113g",
-    "k5eqg4ub29hkebq",
-    "4o9dgzzv1i23pjy",
-    "usahmeqkfpetrua",
-    "yxzcfaq66rd0db3",
-    "cutw37vj23ygjcj",
-    "ogpapt8iy627yzj",
-    "yrkhk17954mqwxp",
-    "3h2qxwfe1pjn8jg",
-    "tz9xztqbg18wy8b",
-    "cesg3cizvqxcqvy",
-    "gvhm84ig1oq7hfv",
-    "06j141jrp7c3nex",
-    "61brvoih04k6zp3",
-    "hta3jrq1zdasmtw",
-    "uwxe8d61glnal1f",
-    "c2ll27hhyhq9k64",
-    "dsm2qh4205ti55u",
-    "fyufig8rz9pnfyz",
-    "n3k4srbaf22ftq3",
-    "95jl1m4abk9x7jh",
-    "jt2gtglzryucrng",
-    "bo3hngjdunytxll",
-    "ypal1o0nylxkthe",
-    "ivwarajlxczyalv",
-    "dgpkhge848bt31p",
-    "pfqov4haad41hum",
-    "78zlpg9yrxv2kwq",
-    "0ejl9z02u6xlbad",
-    "k489ygbk7sgbplo",
-    "sb916rr24ixsz7s",
-    "e0jc5dp90weyrw0",
-    "5emphtypn3ujxzn",
-    "ta1z5oqmy3d9457",
-    "960zk4o2ctiqi2u",
-    "7iunnx07rwv8wcz",
-    "e7rdghqsiu6zlti"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hamburgscher / Kinderalmanach / auf das Jahr / 1783, / oder / Weihnachtsgeschenk / für Kinder, / in angenehmen und lehrreichen / Unterhaltungen, / Die ihrer Fähigkeit angemessen sind, / von / J. H. Campe. / Hamburg, / in der Heroldschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2190_96828_genuzbjwr8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hamburgscher / Kinderalmanach / auf das Jahr / 1783, / oder / Weihnachtsgeschenk / für Kinder, / in angenehmen und lehrreichen / Unterhaltungen, / Die ihrer Fähigkeit angemessen sind, / von / J. H. Campe. / Hamburg, / in der Heroldschen Buchhandlung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "zza35568ptw0945"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Die Nachsicht, welche das Publikum mir durch die fortdauernde gute Aufnahme dieser Kinderbibliothek bewiesen hat, legt mir die Verbindlichkleit auf, bei der Auswahl der jedesmaligen Aufsäzze eine immer grössere Strenge und Sorgfalt zu beweisen.",
+      "language": [],
+      "musenalm_id": 96829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Campe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.645Z",
+          "agent": "nuls4hlyk7nfgd0",
+          "source_id": "p0lihmkqxkqqoge"
+        }
+      ],
+      "source_id": "kktoqeexx7p6z1t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Ach, geschwinde, liebste Mutter, / Gib mir für die Hüner Futter!",
+      "language": [],
+      "musenalm_id": 96830,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das kleine Hanchen, / da sie eine Henne mit ihren Jungen erblikte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das kleine Hanchen, / da sie eine Henne mit ihren Jungen erblikte",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "u3553e98sdfal71"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Konrad sahe eine Reihe wilder Gänse hoch durch die Luft fliegen, und bewunderte den regelmäßigen und feierlichen Flug derselben.",
+      "language": [],
+      "musenalm_id": 96831,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Man muß sich so wenig, als möglich, / von andern bedienen lassen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Man muß sich so wenig, als möglich, / von andern bedienen lassen",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "zk8il0ltfosliw8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Dem kleinen lieben Niklas ward / Sein Morgenbrodt geraubt von einem Knaben, / Der bei ihm in der Schule saß.",
+      "language": [],
+      "musenalm_id": 96832,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der gute Niklas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der gute Niklas",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "9rltx8r3s8v32ki"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Mögt ich doch einst so göttlich sein, / Wie Joseph ist gewesen!",
+      "language": [],
+      "musenalm_id": 96833,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der fromme Wunsch eines Kindes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der fromme Wunsch eines Kindes",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "oo8u05e8c7lw9wi"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Der Vater und Fritz waren bei einem Buchbinder gewesen, und hatten ihn arbeiten gesehen.",
+      "language": [],
+      "musenalm_id": 96834,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sei nicht zu voreilig mit deinem Tadel!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sei nicht zu voreilig mit deinem Tadel!",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "amav0g6q7lf78na"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Als jüngst Frizchens kleine Hand / Kleine Blumensträußchen band, / Stach ein Bienchen sie.",
+      "language": [],
+      "musenalm_id": 96835,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Biene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Biene",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "mkqjiwb4l4n6vnc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Eduard, Gustchen, Ferdinand, Friz und einige andere junge Menschen, genossen, nach geendigten kalten Maitagen, im Junius 1782 einen sehr angenehmen heitern Frühlingsabend",
+      "language": [],
+      "musenalm_id": 96836,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Abendlustbarkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Abendlustbarkeit",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "xjzor05m5awo00k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Da liegt mein Vogel! todt ist er. / Ach Karl! und ich bin krank / Vor Gram.",
+      "language": [],
+      "musenalm_id": 96837,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hanchen an ihren Bruder Karl, als ihr Vogel starb",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hanchen an ihren Bruder Karl, als ihr Vogel starb",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "htcrw46dxam6ht8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Kanarienvögel! Wer kauft schon Kanarienvögel! schöne / Kanarienvögel. So schrie ein Mann, der eben vor Fiekchens Hause vorbei ging.",
+      "language": [],
+      "musenalm_id": 96838,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kanarienvogel. / Eine Erzählung.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. und A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kanarienvogel. / Eine Erzählung.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "as6z06rwvm9qly1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Wenn ich durch die Straßen gehe, / Und den Armen weinen sehe, / Dan denk ich an mich zurük, / und erkenne, Gott! mein Glük.",
+      "language": [],
+      "musenalm_id": 96839,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Loblied eines Kindes / für den Lebensunterhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Loblied eines Kindes / für den Lebensunterhalt",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "fygwjkge3dphygz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Guten Morgen, liebes Mütterchen! Sehen sie, da sind wir schon fix und fertig.",
+      "language": [],
+      "musenalm_id": 96840,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Gespräche. / Erstes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. und A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwei Gespräche. / Erstes",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "5fraz1tuxck4975"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Ach, liebe Mutter, sie hätten nur sehen sollen, was die Kinder für Augen machten, wie ich die Schüssel mit Milch, und Louischen das Brod herein brachten.",
+      "language": [],
+      "musenalm_id": 96841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Zwei Gespräche] Zweites Gespräch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. und A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Zwei Gespräche] Zweites Gespräch",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "n8n2qwtvsw8vcfa"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Nettchen, als sie ein junges Bäumchen pflanzte« INr 96843, Obj 16 /) Photos 96842,01; 96942,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96842,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nettchen, als sie ein junges Bäumchen pflanzte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_2190_96842_01_ce5ynrfuqh.jpg",
+        "alm_2190_96842_02_f4co68hwkt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nettchen, als sie ein junges Bäumchen pflanzte",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "2vln1pyza6odb57"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 96842, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Hier, wo dis grüne Pläzchen ist. / Will ich dich Bäumchen pflanzen,",
+      "language": [],
+      "musenalm_id": 96843,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nettchen, / als sie ein junges Bäumchen pflanzte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nettchen, / als sie ein junges Bäumchen pflanzte",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "dezl1rogw1x0fwy"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Es ist in den meisten Fällen ungerecht, die Gespräche anderer zu belauschen, wenn diese Ursache zu haben glauben, daß sie ohne Zeugen zu einander reden.",
+      "language": [],
+      "musenalm_id": 96844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Warnung für die Horcher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Warnung für die Horcher",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "vu6zypd181m1497"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Was schenk ich Dir zum heilgen Krist, / Herr Onkel, Dir zu Ehren?",
+      "language": [],
+      "musenalm_id": 96845,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gottliebs Reime / auf Herrn C. R. Walchs Geburtstag / den 25 December 1781",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gottliebs Reime / auf Herrn C. R. Walchs Geburtstag / den 25 December 1781",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "m28xn7abbjo113g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Ein liebenswürdiger Knabe beweinte mit aufrichtiger Betrübnis den Tod seines zärtlichen Vaters.",
+      "language": [],
+      "musenalm_id": 96846,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe für Eltern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe für Eltern",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "k5eqg4ub29hkebq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Ein Knabe besuchte lange Zeit die Schule mit vielem Eifer.",
+      "language": [],
+      "musenalm_id": 96847,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geduld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geduld",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "4o9dgzzv1i23pjy"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Ihr alle, meine lieben kleine Leser, wünscht vermuthlich lange, recht lange zu leben;",
+      "language": [],
+      "musenalm_id": 96848,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein ganz untriegliches Mittel, / sein Leben zu verlängern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein ganz untriegliches Mittel, / sein Leben zu verlängern",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "usahmeqkfpetrua"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Nur der Unschuld sanfte Freuden müssen / Sich in deine junge Seel' ergießen,",
+      "language": [],
+      "musenalm_id": 96849,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die kleine Sophie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die kleine Sophie",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.653Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "svjfpsaz22w7nl0"
+        }
+      ],
+      "source_id": "yxzcfaq66rd0db3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Dionisius speisete einst in Lacedämon, wo man ihm eine schwarze Brühe vorsetzte,",
+      "language": [],
+      "musenalm_id": 96881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arbeitsamkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Arbeitsamkeit",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "cutw37vj23ygjcj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Vergebens ruft zur Freude / Mich izt der junge Hain!",
+      "language": [],
+      "musenalm_id": 96850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrichs Andenken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedrichs Andenken",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "ogpapt8iy627yzj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "O seht mir meinen schönen Baum' / Im Schmuck der jungen Blätter!",
+      "language": [],
+      "musenalm_id": 96851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Kastanienbaum, / im Mai 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Kastanienbaum, / im Mai 1782",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.653Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "j2pn37vgrogpxaz"
+        }
+      ],
+      "source_id": "yrkhk17954mqwxp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Ich will euch einen löblichen Gebrauch von einem alten Volk erzählen, liebe Kinder; aber den Namen des Volks habe ich vergessen.",
+      "language": [],
+      "musenalm_id": 96852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gericht über Kinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kühl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gericht über Kinder",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.653Z",
+          "agent": "l2nboc9vrlriyid",
+          "source_id": "z8772grak8ndxjv"
+        }
+      ],
+      "source_id": "3h2qxwfe1pjn8jg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Im stillen heitern Glanze / Trit er so mild einher; / Wer ist im Sternenkranze / So schön geschmükt, als er?",
+      "language": [],
+      "musenalm_id": 96853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mond",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mond",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.653Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "k3rfyf2efdvmhyf"
+        }
+      ],
+      "source_id": "tz9xztqbg18wy8b"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Aber, Vater, warum mag der liebe Gott doch wohl gewolt haben, daß einige Leute arm wären?",
+      "language": [],
+      "musenalm_id": 96854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wozu sind Arme und Reiche / auf der Welt?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wozu sind Arme und Reiche / auf der Welt?",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "cesg3cizvqxcqvy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Hör an, o Freund, hör an, ich sage nach, / Was jüngst dein Hengst, der Engelländer, sprach, / Der schöne Hengst, der dir zur Lust / Gebohren ward.",
+      "language": [],
+      "musenalm_id": 96855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Pferd und der Hund. / Eine Fabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Pferd und der Hund. / Eine Fabel",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.436Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "5slsha63r8f9ghd"
+        }
+      ],
+      "source_id": "gvhm84ig1oq7hfv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Ich würde selbst glauben, daß es mir geträumt hätte - sagte der Wandrer, welcher über das Meer her von Englands grünen Hügeln wieder zurückgekehrt war.",
+      "language": [],
+      "musenalm_id": 96856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die große Höhle bei Castleton in dem / hohen Peak von Derbishire",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Moritz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die große Höhle bei Castleton in dem / hohen Peak von Derbishire",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.430Z",
+          "agent": "qapn0q7880prdww",
+          "source_id": "qrvqowdk8rt2jxs"
+        }
+      ],
+      "source_id": "06j141jrp7c3nex"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Mit diesem Blumenkranz umwindet / Dich treue Kindeszärtlichkeit;",
+      "language": [],
+      "musenalm_id": 96857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / unsre theure Mutter, / den 31sten Juli 1782. / C. J. W. J.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / unsre theure Mutter, / den 31sten Juli 1782. / C. J. W. J.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.430Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "zd5rk1uz6jjki4c"
+        }
+      ],
+      "source_id": "61brvoih04k6zp3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.758Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Sei der Frühlingsblüte, / Mit den süßen Düften gleich; / Werd an jeder Anmuth reich;",
+      "language": [],
+      "musenalm_id": 96858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die kleine Lotte, / zum Geburtstag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die kleine Lotte, / zum Geburtstag",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.430Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "82qhxbu52ciq3bt"
+        }
+      ],
+      "source_id": "hta3jrq1zdasmtw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.758Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Sieh da Leonore! Komm ein wenig mit mir. Ach, ich kan nicht!",
+      "language": [],
+      "musenalm_id": 96859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leonore und Charlotte [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leonore und Charlotte [...]",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "uwxe8d61glnal1f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Nacht wars, und schwere Wolken hingen / Am grauen Horizont herab,",
+      "language": [],
+      "musenalm_id": 96860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fragment; / nach einem nächtlichen Gewitter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fragment; / nach einem nächtlichen Gewitter",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.287Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "ha9nzou8muxvo4h"
+        }
+      ],
+      "source_id": "c2ll27hhyhq9k64"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Er ist gekommen, mit den Nachtigallen, / Mit seinem mildiglichen West.",
+      "language": [],
+      "musenalm_id": 96861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühling. / Den May 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühling. / Den May 1782",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.355Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "8q7jijmjssjuv7d"
+        }
+      ],
+      "source_id": "dsm2qh4205ti55u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Du hoher, dunkler Tannenhain! ihr schattichten Eichen! und du Fluß, der du hellglänzend hinter jenen grauen Bergen hervorrauschest!",
+      "language": [],
+      "musenalm_id": 96862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gegend im Grase",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geßner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gegend im Grase",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "fyufig8rz9pnfyz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Du, die mit stillem Engelblik / Auch bei dem widrigsten Geschik,/ Wo manche Träne die Wange bethaut, / Hinauf zum Sitz der Gotheit schaut;",
+      "language": [],
+      "musenalm_id": 96863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geduld. / Im May 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geduld. / Im May 1782",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.355Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "ecspfki7q8oe605"
+        }
+      ],
+      "source_id": "n3k4srbaf22ftq3"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Ich vermuthe, daß unter meinen jungen Lesern wohl keiner sein wird, der von dem erfahrensten Seemann und Länderentdecker unserer Zeit, Cook, nicht schon etwas sollte gehört haben.",
+      "language": [],
+      "musenalm_id": 96864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / einer merkwürdigen Begebenheit, welche sich auf / Cooks letzter Reise um die Welt ereignete",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / einer merkwürdigen Begebenheit, welche sich auf / Cooks letzter Reise um die Welt ereignete",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "95jl1m4abk9x7jh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Wie unsre Fluren glänzen! / Wir freuen uns des Lenzen, / Der milden Tage Dämmerung",
+      "language": [],
+      "musenalm_id": 96865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsgedanken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Overbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsgedanken",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.355Z",
+          "agent": "qh3g3sytdf754hd",
+          "source_id": "2ipiorj7ywkz0qs"
+        }
+      ],
+      "source_id": "jt2gtglzryucrng"
+    },
+    {
+      "annotation": "$: wohl  J. H. Campe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Indem ich euch, meine jungen Leser, die vorsthehende merkwürdige Begebenheit aus der letzten Cookschen Entdeckungsreise erzählte, fiel mir ein, daß eine Nachricht von dem traurigen Ende dieses großen Seefahres",
+      "language": [],
+      "musenalm_id": 96866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachrichten / von dem unglücklichen Ende des berühmten / Länderentdeckers Cook",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. $ /) Aus dem von Forstern übersezten Tagebuche der letzten Cookschen Entdekkungsreise",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachrichten / von dem unglücklichen Ende des berühmten / Länderentdeckers Cook",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "bo3hngjdunytxll"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "In jenen glücklichen Gefilden, wo Jünglinge und Mädchen, geleitet von der sanften Hand der Unschuld und der Zufriedenheit, Tage des Entzükkens dahin lebte,",
+      "language": [],
+      "musenalm_id": 96867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Irin und Amint",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kurze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Irin und Amint",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "ypal1o0nylxkthe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Schon wieder ist sie offen, / Des großen Vaters Segenshand;",
+      "language": [],
+      "musenalm_id": 96868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erntelied / den 2ten August 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erntelied / den 2ten August 1782",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.355Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "7sijnj2va289wvc"
+        }
+      ],
+      "source_id": "ivwarajlxczyalv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Sieh, wie die Saaten wallen! / Sie taumeln in des Schnitters Arm!",
+      "language": [],
+      "musenalm_id": 96869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erntelied / den 3ten August 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erntelied / den 3ten August 1782",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.355Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "kwn6mzv9on4wlt1"
+        }
+      ],
+      "source_id": "dgpkhge848bt31p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Da ich neulich auf einer meiner irrenden Spaziergänge in das Gehölz gerieth, welches sich nicht weit von Neptuns Tempel längst dem Ufer hinzieht,",
+      "language": [],
+      "musenalm_id": 96870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diogenes Bachides. / (Ersterer erzählt.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Diogenes Bachides. / (Ersterer erzählt.)",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.355Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "hrnn9drhmowc637"
+        }
+      ],
+      "source_id": "pfqov4haad41hum"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Sie flieht, Elise! ach! nicht unser Sehnen / Nicht unser Flehn hält sie zurük;",
+      "language": [],
+      "musenalm_id": 96871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die untergehende Sonne, / an Elisen. / Den 12ten Junii 1782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die untergehende Sonne, / an Elisen. / Den 12ten Junii 1782",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.570Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.570Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "h5rxw1yxv50mknl"
+        }
+      ],
+      "source_id": "78zlpg9yrxv2kwq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Ein Aff und Bär, zween nahe Vettern / Gleich groß, gleich näschig und gleich alt,",
+      "language": [],
+      "musenalm_id": 96872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Affe und Bär",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lichtwer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Affe und Bär",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.361Z",
+          "agent": "nn1x55o0j1701k4",
+          "source_id": "kbzn7ouotygcge6"
+        }
+      ],
+      "source_id": "0ejl9z02u6xlbad"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Die Kinder des verworfnen Drachen, / Die Laster, reisten über Land,",
+      "language": [],
+      "musenalm_id": 96873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Laster und die Strafe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lichtwer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Laster und die Strafe",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.361Z",
+          "agent": "nn1x55o0j1701k4",
+          "source_id": "ymykzeg72kwwed0"
+        }
+      ],
+      "source_id": "k489ygbk7sgbplo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Bei einer Sonnenuhr blieb einst ein Wandrer stehen, / Die Morgensonne schien; / die Uhr wies auf halb achte.",
+      "language": [],
+      "musenalm_id": 96874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wandersmann und die Sonnenuhr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lichtwer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wandersmann und die Sonnenuhr",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.361Z",
+          "agent": "nn1x55o0j1701k4",
+          "source_id": "6vmjmcq4l93mwed"
+        }
+      ],
+      "source_id": "sb916rr24ixsz7s"
+    },
+    {
+      "annotation": "mit 2 Musikbeigaben auf einem Blatt s. INr 96876, 96877; Obj 50, 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Singt, Brüder, singt den Festgesang! / Jauchzt lauter, denn der Tag ist da, / Wo ihn zuerst die Erde sah,",
+      "language": [],
+      "musenalm_id": 96875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ausdruck kindlicher Freude / am Tage der Geburt des Vaters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ausdruck kindlicher Freude / am Tage der Geburt des Vaters",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "e0jc5dp90weyrw0"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Ausdruck kindlicher Freude am Tage der Geburt des Vaters« INr 96875, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodien zum 9ten Bändchen der Kinderbibliothek. / S. 170",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Witthauer",
+      "scans": [
+        "alm_2190_96876_x5p2qg9mhn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodien zum 9ten Bändchen der Kinderbibliothek. / S. 170",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "5emphtypn3ujxzn"
+    },
+    {
+      "annotation": "Klavierauszug der Vetonung des Gedichts »Ausdruck kindlicher Freude am Tage der Geburt des Vaters« INr 96875, Obj 48 /) s. INr 96876, Obj 50 INr 96876, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clavierauszug des Vorigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Witthauer",
+      "scans": [
+        "alm_2190_96877_ym0sn24164.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Clavierauszug des Vorigen",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "ta1z5oqmy3d9457"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Mögen doch am Himmel hangen / Trübe Wolken ohne Zahl;",
+      "language": [],
+      "musenalm_id": 96878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gelassenheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gelassenheit",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "960zk4o2ctiqi2u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Sei mir gegrüßt im frühen Morgenstrahle, / Du, die uns neues Leben bringt;",
+      "language": [],
+      "musenalm_id": 96879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Thätigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Moritz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Thätigkeit",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.361Z",
+          "agent": "qapn0q7880prdww",
+          "source_id": "634vvn6s83tmkxw"
+        }
+      ],
+      "source_id": "7iunnx07rwv8wcz"
+    },
+    {
+      "annotation": "Unter dem I-Verz: Gedruckt bei David Christoph Eckermann",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96880,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1783,
+      "editor": "",
+      "agents": [],
+      "source_id": "e7rdghqsiu6zlti"
+    }
   ],
   "agents": [
     {

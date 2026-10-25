@@ -48,37 +48,1106 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "4tjfkpbjvdellja"
+    {
+      "annotation": "1833.\nKartonierter Einband mit Goldschnitt.\n1833: (K: M. Fronttisp, 5 litth Tfln ) Mit Ku 6 und XIV+379SS. ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.564Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100177",
+      "location": "105G02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.564Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4tjfkpbjvdellja"
+    }
   ],
   "contents": [
-    "3duovzxu2w266d8",
-    "nduct6dpq1tn2id",
-    "bnslo01ktpfx9ju",
-    "6dnn3v9o1jimjpm",
-    "88iika928q6hk1z",
-    "jwhm9dd42vbguis",
-    "5i896zjn224n7aq",
-    "odm19nurxc21ama",
-    "buq4lytuqjkepkd",
-    "7wqywuifzzu0pm1",
-    "rwqzodzqmqjoyja",
-    "exv6qjvqs9892wd",
-    "a6psodoaj4gok24",
-    "r6b3ht93pfeuqry",
-    "bl0oqp4ltupg2mr",
-    "wmroml84l6nt3y5",
-    "tqbw6lsdw6jstxu",
-    "matyrb80s13yq83",
-    "jvy4bebi9mztke6",
-    "u5gipft3qpof4h2",
-    "efsupe95m1dodd1",
-    "kbnffdjiu1bax5a",
-    "2z26pyqwgyv9v0i",
-    "2l24yuysixelj9u",
-    "o8359ev2sydqppg",
-    "es8gzflvn4cmc6b",
-    "bl38m9czlfag0wc",
-    "314ki0ya9ych3kx"
+    {
+      "annotation": "Graphik mit Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.714Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92977,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon",
+      "scans": [
+        "alm_1633_92977_hodupom8k1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "ri9esj8u5z0036e",
+          "source_id": "zdk1661lc1qbw0c"
+        }
+      ],
+      "source_id": "3duovzxu2w266d8"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 92986, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92978,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALEXANDERS-SÄULE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon",
+      "scans": [
+        "alm_1633_92978_c1y42corhc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALEXANDERS-SÄULE",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "ri9esj8u5z0036e",
+          "source_id": "9bipicspj3wrboq"
+        }
+      ],
+      "source_id": "nduct6dpq1tn2id"
+    },
+    {
+      "annotation": "lithogr. Titel /) s. Textbezug INr 92985, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92979,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BIARMIA / Taschenbuch / auf das Jahr / 1833 / Erster Jahrgang / St. Petersburg / Bey J. Brieff",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par F. Davignon",
+      "scans": [
+        "alm_1633_92979_w3c349ywla.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BIARMIA / Taschenbuch / auf das Jahr / 1833 / Erster Jahrgang / St. Petersburg / Bey J. Brieff",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "bnslo01ktpfx9ju"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92980,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Biarmia. / Taschenbuch / auf das Jahr / 1833 / Erster Jahrgang / St. Petersburg / Aus der Druckerei der IIIten Abtheilung der Höchsteigenen / Kanzellei Seiner Majestät des Kaisers. / 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Biarmia. / Taschenbuch / auf das Jahr / 1833 / Erster Jahrgang / St. Petersburg / Aus der Druckerei der IIIten Abtheilung der Höchsteigenen / Kanzellei Seiner Majestät des Kaisers. / 1832",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "6dnn3v9o1jimjpm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92981,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Widmung]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "88iika928q6hk1z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92982,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "jwhm9dd42vbguis"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Ich übergebe hiermit dem Publikum den ersten Jahrgang des ersten deutschen Almanachs in Rußland. Das Unternehmen ist neu, also mit ungewöhnlichen Schwierigkeiten verknüpft.",
+      "language": [],
+      "musenalm_id": 92983,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "5i896zjn224n7aq"
+    },
+    {
+      "annotation": "Es folgen 2 Beiträge INr 92985, 92986; Obj 9, 10 als Textbezüge zur Titelgraphik und zum graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erläuterung des Titels und des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August v. Oldekop",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erläuterung des Titels und des Titelkupfers",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.256Z",
+          "agent": "x9ubx1six2kn8gq",
+          "source_id": "idhint8kmhlwnf0"
+        }
+      ],
+      "source_id": "odm19nurxc21ama"
+    },
+    {
+      "annotation": "Erläuterung des Titels und des Titelkupfers (Sammlung INr 92984, Obj 8) s. lithogr. Titel INr 92979, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Vom östlichen Ufer der Dwina und den Küsten des Weißen Meeres, in alten Annalen mit dem Namen des stummen Meeres bezeichnet, begann in grauer Vorzeit ein mächtiges, blühendes Reich",
+      "language": [],
+      "musenalm_id": 92985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Biarmia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August v. Oldekop",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Biarmia",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.256Z",
+          "agent": "x9ubx1six2kn8gq",
+          "source_id": "acmhhzaw9x9py06"
+        }
+      ],
+      "source_id": "buq4lytuqjkepkd"
+    },
+    {
+      "annotation": "Erläuterung des Titels und des Titelkupfers (Sammlung INr 92984, Obj 8) s. Titelgraphik INr 92978, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Nachwelt wird zu schätzen wissen, was ich that, wenn auch die Mitwelt nicht nach Würden zu achten weiß, was ich hieneiden mit göttlicher Hilfe vollbracht",
+      "language": [],
+      "musenalm_id": 92986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Die Alexander-Säule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August v. Oldekop",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Die Alexander-Säule",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.256Z",
+          "agent": "x9ubx1six2kn8gq",
+          "source_id": "g2421r7cst7mm9z"
+        }
+      ],
+      "source_id": "7wqywuifzzu0pm1"
+    },
+    {
+      "annotation": "Vorwort zum Beitrag INr 92988, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Theodor Körnern gleich, fiel im Jahre 1808 in Finnland ein tapferer Russe mit der edelsten Selbstaufopferung.",
+      "language": [],
+      "musenalm_id": 92987,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Soldaten-Tod. / Gemälde aus dem Anfange unseres / Jahrhunderts / Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max Langenschwarz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Soldaten-Tod. / Gemälde aus dem Anfange unseres / Jahrhunderts / Vorwort",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.256Z",
+          "agent": "1n4odlbwwwehc6e",
+          "source_id": "v9mk9yn7kkbe6wd"
+        }
+      ],
+      "source_id": "rwqzodzqmqjoyja"
+    },
+    {
+      "annotation": "mit einem Vorwort INr 92987, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wer von unsern Lesern noch nichts von Peter Käcki gehört hat, der gehe nach Oesterbottn in Finnland, klopfe und frage, und man wird in jeder Pörtte ehrerbietig die schwarze Pitnilka vom Kopfe ziehen, und sagen: Das war ein ganzer Lappe!",
+      "language": [],
+      "musenalm_id": 92988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Soldaten-Tod. Gemälde aus dem Anfange unseres Jahrhunderts]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max Langenschwarz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Soldaten-Tod. Gemälde aus dem Anfange unseres Jahrhunderts]",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.150Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.150Z",
+          "agent": "1n4odlbwwwehc6e",
+          "source_id": "702hohgmei1klz4"
+        }
+      ],
+      "source_id": "exv6qjvqs9892wd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ANSICHT VON KYROW IN FINNLAND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon 1832",
+      "scans": [
+        "alm_1633_92989_61avrr5za1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ANSICHT VON KYROW IN FINNLAND",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.211Z",
+          "agent": "ri9esj8u5z0036e",
+          "source_id": "sc9u2c2fcg97hhc"
+        }
+      ],
+      "source_id": "a6psodoaj4gok24"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA MÄLANWAARA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon 1832",
+      "scans": [
+        "alm_1633_92990_xd1lkyb2a8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA MÄLANWAARA",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.211Z",
+          "agent": "ri9esj8u5z0036e",
+          "source_id": "objxtd0bq9suxuq"
+        }
+      ],
+      "source_id": "r6b3ht93pfeuqry"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen mit einem beigegebenen Gedicht und 2 Illustrationen INr 92992-92997, Obj 16-21 /) Anm. am Objekt: Fragmente aus meinem nächstens erscheinenden Werke: Charakteristik der heutigen Türkei und ihrer Bewohner.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilder / aus der Türkei / nach eigener Anschauung skizzirt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Doctor Maximilian Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilder / aus der Türkei / nach eigener Anschauung skizzirt",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "bl0oqp4ltupg2mr"
+    },
+    {
+      "annotation": "Bilder aus der Türkei nach eigener Anschauung skizzirt (Sammlung INr 92991, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Das schöne wilde Land, das wunderbar die Natur nördlich durch die reizenden Ufer der Donau, östlich durch den dunklen Grund des Schwarzen Meeres,",
+      "language": [],
+      "musenalm_id": 92992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Bulgarien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Doctor Maximilian Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Bulgarien",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "wmroml84l6nt3y5"
+    },
+    {
+      "annotation": "Bilder aus der Türkei nach eigener Anschauung skizzirt (Sammlung INr 92991, Obj 15) Dem Text vorangestellt: les Turcs se croyaient ivnicibles dans les défilés du mont Hémus, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "So drückt dich noch einer der letzten Schriftsteller über Rußland, in seiner Lebensgeschichte des Kaisers Alexander aus.",
+      "language": [],
+      "musenalm_id": 92993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Balkan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Doctor Maximilian Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Balkan",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "tqbw6lsdw6jstxu"
+    },
+    {
+      "annotation": "Bilder aus der Türkei nach eigener Anschauung skizzirt (Sammlung INr 92991, Obj 15) Beigabe zum vorstehenden Beitrag: Der Balkan /) Mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Seyd gegrüßt, Ihr Felsenmassen, / Nehmt den Gruß aus vollster Brust,",
+      "language": [],
+      "musenalm_id": 92994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seyd gegrüßt, Ihr Felsenmassen, / Nehmt den Gruß aus vollster Brust,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Doctor Maximilian Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "matyrb80s13yq83"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »Rumelien« von Doctor Maximilian Heine INr 92996, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ANSICHT VON ADRIANOPEL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon",
+      "scans": [
+        "alm_1633_92995_ifjuldfkdl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ANSICHT VON ADRIANOPEL",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.211Z",
+          "agent": "ri9esj8u5z0036e",
+          "source_id": "1wva4dgq4lk5aio"
+        }
+      ],
+      "source_id": "jvy4bebi9mztke6"
+    },
+    {
+      "annotation": "Bilder aus der Türkei nach eigener Anschauung skizzirt (Sammlung INr 92991, Obj 15) mit 2 Illustrationen s. Graphiken INr 929895, Obj 19 und INr 92997, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "Oestlich und südlich von Meeren umgeben, durch Balkanische und Rhodopische Gebirgsketten von Bulgarin, Servien und Albanien getrennt, liegt die große und schöne osmanische Provinz Rumelien.",
+      "language": [],
+      "musenalm_id": 92996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Rumelien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Doctor Maximilian Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Rumelien",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "u5gipft3qpof4h2"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »Rumelien« von Doctor Maximilian Heine INr 92996, Obj 20 /) $ Graphik knapp beschnitten, Bezeichnung unvollständig",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "342",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht der Selims Moschee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon $",
+      "scans": [
+        "alm_1633_92997_5l5vamh6kv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht der Selims Moschee",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.211Z",
+          "agent": "ri9esj8u5z0036e",
+          "source_id": "qdiac24falq9sp8"
+        }
+      ],
+      "source_id": "efsupe95m1dodd1"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.569Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "kbnffdjiu1bax5a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.569Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Kennt Leser ihr! das Bildniß reizumflossen, / Ein Feenbild aus höhern, schönen Spären,",
+      "language": [],
+      "musenalm_id": 92999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bild. / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Edler von Rettich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bild. / Sonett",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "2z26pyqwgyv9v0i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Am Meeresgebraus steht ein Hüttchen, / Auf felsiger Klippe erbaut,",
+      "language": [],
+      "musenalm_id": 93000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer. / Griechisches Volkslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Maximilian Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer. / Griechisches Volkslied",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "2l24yuysixelj9u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Groß und gewaltig / Schwellt an's Ufer, / Die fernher schäumende Welle;",
+      "language": [],
+      "musenalm_id": 93001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seesturm am Strande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Frhr. von Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seesturm am Strande",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "o8359ev2sydqppg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "Ueber das Sehen mittelst Lorgnetten nach reizenden / Damen / Stritt sich heftig ein Herr, der es für unartig / hielt.",
+      "language": [],
+      "musenalm_id": 93002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entscheidender Urtheisspruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Edler von Rettig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entscheidender Urtheisspruch",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "es8gzflvn4cmc6b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Es geht ein Alter im schlichten Gewand / Zu Wien im Freien einher,",
+      "language": [],
+      "musenalm_id": 93003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Leichenbegleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Langenschwarz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Leichenbegleitung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.481Z",
+          "agent": "1n4odlbwwwehc6e",
+          "source_id": "syegs0qhblr0o57"
+        }
+      ],
+      "source_id": "bl38m9czlfag0wc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Hat sich das Schicksal gegen mich verschworen? / Bin ich's allein, dem in der weiten Welt / Nicht ein Herz sich, für mich geboren,",
+      "language": [],
+      "musenalm_id": 93004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muth und Unmuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "**y.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Muth und Unmuth",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "314ki0ya9ych3kx"
+    }
   ],
   "agents": [
     {

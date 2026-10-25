@@ -49,7 +49,26 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "d6u77q8o1j836gb"
+    {
+      "annotation": "1836–1884;",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.462Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404050",
+      "location": "105N09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.462Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "d6u77q8o1j836gb"
+    }
   ],
   "contents": [],
   "agents": [

@@ -3,9 +3,21 @@
     {
       "name": "Catalogue",
       "label": "Catalogue",
-      "position": 0
+      "position": 0,
+      "translations": {
+        "de": {
+          "label": "Katalog"
+        }
+      }
     }
   ],
   "defaults": {},
-  "collections": {}
+  "collections": {},
+  "i18n": {
+    "defaultLanguage": "en",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch"
+    }
+  }
 }

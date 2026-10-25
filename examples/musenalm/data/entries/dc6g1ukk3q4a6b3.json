@@ -48,65 +48,2197 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "l3ulj0xonov0jjc"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.692Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405814",
+      "location": "105G08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.692Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "l3ulj0xonov0jjc"
+    }
   ],
   "contents": [
-    "rf4f0zpavt2bidl",
-    "dlbyam3v7av9r8f",
-    "xbp7i8ia7luk4qd",
-    "lfc0ms92mgfiszp",
-    "pmjqblp4u7esovf",
-    "nrz3j9g1za763ai",
-    "ng659d9gw9rxn2v",
-    "4wwu10j0rmgm4dz",
-    "2lz8j3q68mwuho3",
-    "sqy5eaoexbswuma",
-    "gu6hgkd5062ipek",
-    "l9ak9trstw5l3hw",
-    "mrk3p1vqg68jh5r",
-    "7cmn28w1vwachs2",
-    "0calbbna2c7mjk2",
-    "azopegnns2jl2gj",
-    "du1gcy0vtnro7gq",
-    "3cyd1k78g55suxf",
-    "983t71a1mlic5oq",
-    "tkskolgj32iaap1",
-    "70ixlbxqx9saveg",
-    "92uh64j2g8i3zyc",
-    "ivdczgt1x449j67",
-    "d8hey9obngl0q9l",
-    "sjc9wb9mjtars6i",
-    "7h4roj33wconvi2",
-    "cx95se8pbx6h2jg",
-    "p3atsu63w7jc8wn",
-    "hobk8vr8s3uueha",
-    "kcx45y9j6qbd1g6",
-    "ge7sn6ebgi13vns",
-    "z9s4c38lu97fucm",
-    "34i77wv7sfk8x7l",
-    "nuqh0qrctqqdggw",
-    "oxoth7a4g23td3s",
-    "0mhof7tvn6otqbi",
-    "q0z7hjuia01n0vx",
-    "1l6siim03ud6m6r",
-    "f8djr6afyzvvi3r",
-    "em5k83lee0ijacd",
-    "aw1mi3mijkanxhm",
-    "5aa350y3x2pz1me",
-    "q6gx4nv7fi9bm71",
-    "esit02sm29kuce8",
-    "jws3q0bh4s59ge8",
-    "p0r4d52ozh058k1",
-    "hvwrck1pts4j5yu",
-    "i7u15fldsmieybm",
-    "bif28xlwfrlhfof",
-    "3orya901d2eanzy",
-    "73avh8b0g2g4e2f",
-    "m3pkd1ll19ggzp8",
-    "w08scrxs1k7n5rx",
-    "67jrwu0ql0iot9i",
-    "8pjnvu73ycuzzks",
-    "ympb06hw1ihd1t1"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76191,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Viertes / Toiletten-Geschenk / für / Damen. / 1808",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76191_z258ox5b09.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Viertes / Toiletten-Geschenk / für / Damen. / 1808",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "rf4f0zpavt2bidl"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76192,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige / für die Käufer und Empfängerinnen des gegenwärtigen Vierten Toiletten-Geschenks",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige / für die Käufer und Empfängerinnen des gegenwärtigen Vierten Toiletten-Geschenks",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "dlbyam3v7av9r8f"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76193,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Barthel inv. et pinx. C. Schule sc. 1807)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Barthel inv. et pinx. C. Schule sc. 1807",
+      "scans": [
+        "alm_3283_76193_ml3sf1tn2d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "c0fepqesuedn747",
+          "source_id": "gwp6vhm286sm13q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "qfeh99dap41ww11",
+          "source_id": "tc8m6p3u40630wz"
+        }
+      ],
+      "source_id": "xbp7i8ia7luk4qd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.917Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76194,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIERTES / Toiletten-Geschenk / Ein Jahrbuch / für / DAMEN. / 1808. / Leipzig, bei Georg Voss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76194_s62umoof3j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIERTES / Toiletten-Geschenk / Ein Jahrbuch / für / DAMEN. / 1808. / Leipzig, bei Georg Voss",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "lfc0ms92mgfiszp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76195,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer Königlichen Hoheit / der / Durchlauchtigsten Herzogin und Frau / Frau / Luisen Henrietten Wilhelminen / regierenden Herzogin und Fürstin zu Anhalt-Dessau / zum / Zeichen seiner Verehrung / in / tiefster Verehrung / gewidmet / vom Verleger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer Königlichen Hoheit / der / Durchlauchtigsten Herzogin und Frau / Frau / Luisen Henrietten Wilhelminen / regierenden Herzogin und Fürstin zu Anhalt-Dessau / zum / Zeichen seiner Verehrung / in / tiefster Verehrung / gewidmet / vom Verleger",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "pmjqblp4u7esovf"
+    },
+    {
+      "annotation": "Photos 76196,01; 76196,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76196,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76196_01_g4ye0m0ldb.jpg",
+        "alm_3283_76196_02_4uqkct4lij.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "nrz3j9g1za763ai"
+    },
+    {
+      "annotation": "Zwischentitel mit Angabe der folgenden Beiträge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76197,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Bildung zum schönern weiblichen Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Bildung zum schönern weiblichen Leben",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "ng659d9gw9rxn2v"
+    },
+    {
+      "annotation": "I. Bildung zum schönern weiblichen Leben (Sammlung INr 76197, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Europa, sagt man, ist das Paradies der Damen, aber mancher Engel in diesem Paradiese scheint doch mit seiner Lage nicht recht zufrieden zu seyn.",
+      "language": [],
+      "musenalm_id": 76198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fragmente aus der Lebensgeschichte der Damen im Morgenlande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fragmente aus der Lebensgeschichte der Damen im Morgenlande",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "4wwu10j0rmgm4dz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Sollte es denn keinen anziehendern Stoff für ein Toilettengeschenk geben, als diesen alten aufgewärmten Gemeinplatz?",
+      "language": [],
+      "musenalm_id": 76199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Weibes schönste Stelle ist der Herd. / Ein Toilettensermon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D**",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Weibes schönste Stelle ist der Herd. / Ein Toilettensermon",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "2lz8j3q68mwuho3"
+    },
+    {
+      "annotation": "Es folgen: Graphik und Beitrag INr 76201, 76202; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Zeichenkunst. / Amors Triumph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Zeichenkunst. / Amors Triumph",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "sqy5eaoexbswuma"
+    },
+    {
+      "annotation": "Illustration zu »Amors Triumph«  von H-n. INr 76202, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Schule fec. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Schule fec. et sc.",
+      "scans": [
+        "alm_3283_76201_wps46t3gl7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "c0fepqesuedn747",
+          "source_id": "jcqeenqwot1ula3"
+        }
+      ],
+      "source_id": "gu6hgkd5062ipek"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 76201, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Deine Aufgaben, Lilla, sind schwerer zu lösen, als die Räthsel, womit Bürgers Kaiser seinem verzeifelten Abte die Verzehrung zuzog und Turandot ihre Freier zwiefach um ihre Köpfe brachte.",
+      "language": [],
+      "musenalm_id": 76202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amors Triumph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H-n.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amors Triumph",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "l9ak9trstw5l3hw"
+    },
+    {
+      "annotation": "Zwischentitel mit Angabe der folgenden Beiträge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Tanzkunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Tanzkunst",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "mrk3p1vqg68jh5r"
+    },
+    {
+      "annotation": "III. Tanzkunst (Sammlung INr 76203, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Im vorigen Toiletten-Geschenk habe ich mit dem Eintritt-Kompliment geschlossen, indem nur von einer Person die Rede war.",
+      "language": [],
+      "musenalm_id": 76204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Damen-Komplimente. / Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Damen-Komplimente. / Fortsetzung",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "spv7h2ilo0l6t3s"
+        }
+      ],
+      "source_id": "7cmn28w1vwachs2"
+    },
+    {
+      "annotation": "mit einigen Einträgen /) mit einer graph. Tanzanleitung s. INr 76206, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Tab. 2. Fog. I. Pas plié glissé rond ouvert. a. Mit dem rechten Fuß vorwärts. Es ist die Stellung des pas tendu,",
+      "language": [],
+      "musenalm_id": 76205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theorie der Tanzkunst. / (Fortsetzung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theorie der Tanzkunst. / (Fortsetzung.)",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "iiiy8eezezf1ywa"
+        }
+      ],
+      "source_id": "0calbbna2c7mjk2"
+    },
+    {
+      "annotation": "paginiert 2. /) Beigabe zu »Theorie der Tanzkunst« von Roller INr 76205, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Tanzanleitung (Roller)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roller",
+      "scans": [
+        "alm_3283_76206_yd31lxkucp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "wv4maavdp7kp62z"
+        }
+      ],
+      "source_id": "azopegnns2jl2gj"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 76208-76210, Obj 18-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.936Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Die Allemende wurde ehedem allgemein getanzt, und ist nur erst seit ungefähr 20 Jahren nach und nach aus der Mode gekommen,",
+      "language": [],
+      "musenalm_id": 76207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Allemande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Allemande",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "qpm8tb0ynvdh385"
+        }
+      ],
+      "source_id": "du1gcy0vtnro7gq"
+    },
+    {
+      "annotation": "paginiert 3 /) Illustration zu »Die Allemande« von Roller INr 76207, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.936Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. W. Schenck sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. Schenck sc.",
+      "scans": [
+        "alm_3283_76208_lcjzlaa766.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "voq5dlml9870uhq",
+          "source_id": "800qkyc31skja0e"
+        }
+      ],
+      "source_id": "3cyd1k78g55suxf"
+    },
+    {
+      "annotation": "# Bez. am folgenden Blatt /) Illustration zu »Die Allemande« von Roller INr 76207, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. W. Schenck sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. Schenck sc.",
+      "scans": [
+        "alm_3283_76209_dusljdlca6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "voq5dlml9870uhq",
+          "source_id": "cg6s0xp9wr64632"
+        }
+      ],
+      "source_id": "983t71a1mlic5oq"
+    },
+    {
+      "annotation": "paginiert 4 /) Illustration zu »Die Allemande« von Roller INr 76207, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. W. Schenck sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. Schenck sc.",
+      "scans": [
+        "alm_3283_76210_sayhql2u1b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "voq5dlml9870uhq",
+          "source_id": "7dnj9q30thx80pv"
+        }
+      ],
+      "source_id": "tkskolgj32iaap1"
+    },
+    {
+      "annotation": "Zwischentitel mit Angabe der folgenden Beiträge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Musik",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "70ixlbxqx9saveg"
+    },
+    {
+      "annotation": "Sammlung von Beiträgen INr 76213, 76222-76224, Obj 23, 32-34 /) IV. Musik (Sammlung INr 76211, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Uebersicht / von / neuen und interessanten Kompositionen / für / die musikalischen Leserinnen dieses Toilettengeschenks",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-r.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Uebersicht / von / neuen und interessanten Kompositionen / für / die musikalischen Leserinnen dieses Toilettengeschenks",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "20khg2pw0r0a4a9"
+        }
+      ],
+      "source_id": "92uh64j2g8i3zyc"
+    },
+    {
+      "annotation": "Kurze Uebersicht von neuen und interessanten Kompositionen für die musikalischen Leserinnen dieses Toilettengeschenks /) IV. Musik (Sammlung INr 76211, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Warum ich mit dieser Gattung von Musik den Anfang mache? Einzig und allein Ihnen zu gefallen, schöne lebhafte Schwestern der schönen flüchtigen Julie",
+      "language": [],
+      "musenalm_id": 76213,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Tanzmusik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-r.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Tanzmusik",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "x284ezfeis3qyqn"
+        }
+      ],
+      "source_id": "ivdczgt1x449j67"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76214,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Hofmann",
+      "scans": [
+        "alm_3283_76214_dg4bmfzaoo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 1.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "d8hey9obngl0q9l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76215,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Hofmann",
+      "scans": [
+        "alm_3283_76215_d39kal11ra.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 2.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "sjc9wb9mjtars6i"
+    },
+    {
+      "annotation": "Photos 76216,01; 76216,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76216,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Hofmann",
+      "scans": [
+        "alm_3283_76216_01_zoq81q94jp.jpg",
+        "alm_3283_76216_02_i6u08vfzfu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 3.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "7h4roj33wconvi2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76217,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Hofmann",
+      "scans": [
+        "alm_3283_76217_1sj15g7z7w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 4.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "cx95se8pbx6h2jg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76218,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76218_awy6x0ngz7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 1.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "9dnazhwedy5awek"
+        }
+      ],
+      "source_id": "p3atsu63w7jc8wn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76219,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76219_xp9sczjc56.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 2.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "kea7uq6uyt5i50n"
+        }
+      ],
+      "source_id": "hobk8vr8s3uueha"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76220,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76220_ddheegpq91.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 3.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.681Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "rv9hlwsjarr5fhh"
+        }
+      ],
+      "source_id": "kcx45y9j6qbd1g6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76221,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76221_71mep76ofs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 4.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "f9pgzz1atn4htfe"
+        }
+      ],
+      "source_id": "ge7sn6ebgi13vns"
+    },
+    {
+      "annotation": "Kurze Uebersicht von neuen und interessanten Kompositionen für die musikalischen Leserinnen dieses Toilettengeschenks /) IV. Musik (Sammlung INr 76211, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Ich gehe jetzt zu leichten Musikstücken anderer Art über, und werde Ihnen stufenweise das interessanteste nennen,",
+      "language": [],
+      "musenalm_id": 76222,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Leichte Sonaten und einzelne Musikstücke am / Pianoforte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-r.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Leichte Sonaten und einzelne Musikstücke am / Pianoforte",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "mdk8e8udwbe26kv"
+        }
+      ],
+      "source_id": "z9s4c38lu97fucm"
+    },
+    {
+      "annotation": "Kurze Uebersicht von neuen und interessanten Kompositionen für die musikalischen Leserinnen dieses Toilettengeschenks /) IV. Musik (Sammlung INr 76211, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Für diejenigen unter Ihnen, die es zu einem höhern Grade von Kunstfertigkeit gebracht haben, wohin ich nicht nur fertiges Spiel, sondern auch feinen und ausdrucksvollen Vortrag rechne,",
+      "language": [],
+      "musenalm_id": 76223,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Größere Sonaten und Musikstücke für das / Pianoforte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-r.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Größere Sonaten und Musikstücke für das / Pianoforte",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "r2sh3u2s28jqcry"
+        }
+      ],
+      "source_id": "34i77wv7sfk8x7l"
+    },
+    {
+      "annotation": "Kurze Uebersicht von neuen und interessanten Kompositionen für die musikalischen Leserinnen dieses Toilettengeschenks /) IV. Musik (Sammlung INr 76211, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Auch hier will ich Ihnen zuerst kleinere Gesänge und Lieder nennen, die vorzüglich für den Genuß der Einsamkeit sind,",
+      "language": [],
+      "musenalm_id": 76224,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Gesangmusik mit Pianoforte- und Guitarre- / begleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-r.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Gesangmusik mit Pianoforte- und Guitarre- / begleitung",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.770Z",
+          "agent": "5e64t7ca8x2wyim",
+          "source_id": "y0j398hsvzks1j8"
+        }
+      ],
+      "source_id": "nuqh0qrctqqdggw"
+    },
+    {
+      "annotation": "IV. Musik (Sammlung INr 76211, Obj 20) Dem Text vorangestellt: Leben athme die bildende Kunst, Geist fordr' ich / vom / Dichter, / Aber die Seele spricht nur Poyhymnia / aus. / Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Wenn man die verschiedenen Künste, vorzüglich in Ansehung der ihnen zur Darstellung ihrer Bildungen zu Gebote stehenden Mittel vergleicht, so sollte man glauben, daß unter allen die Musik oder Tonkunst die unbedeutendsten Wirkungen erzeugen müsse.",
+      "language": [],
+      "musenalm_id": 76225,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber den Geist der Tonkunst.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber den Geist der Tonkunst.",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "oxoth7a4g23td3s"
+    },
+    {
+      "annotation": "Zwischentitel mit Angabe der folgenden Musikbeigaben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76226,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gesang-Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gesang-Musik",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "0mhof7tvn6otqbi"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die kleine Näherin« von J. H. Voß /) Gesang-Musik (Sammlung INr 76226, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Schwesterchen, mein Finger thut mir so wehe, leih' mir deinen Fingerhut,",
+      "language": [],
+      "musenalm_id": 76227,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kleine Näherin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76227_r9ajg95npl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die kleine Näherin",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.771Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.771Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "c7ujaswqavt4mtz"
+        }
+      ],
+      "source_id": "q0z7hjuia01n0vx"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Elisa's Abschied an Heinrich« von Voigt /) Gesang-Musik (Sammlung INr 76226, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.979Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Noch einmal Heinrich, eh' wir scheiden, komm an Elisens klopfende Herz; ach! nicht mehr von der Liebe Freuden, es klopft nur von der Liebe Schmerz.",
+      "language": [],
+      "musenalm_id": 76229,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisa's Abschied an Heinrich. / Für Guitarre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76229_koukoni0nh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Elisa's Abschied an Heinrich. / Für Guitarre",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.771Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.771Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "hsb6uqj91f4tfzl"
+        }
+      ],
+      "source_id": "1l6siim03ud6m6r"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Der Jüngling am Bache« von Fr. Schiller /) Gesang-Musik (Sammlung INr 76226, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "An der Quelle saß ein Knabe, Blumen wand er sich zum Kranz und er sah sie fortgerissen, treiben in der Wellen Tanz;",
+      "language": [],
+      "musenalm_id": 76230,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jüngling am Bache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Wendt",
+      "scans": [
+        "alm_3283_76230_m73vgdufii.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Jüngling am Bache",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.771Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.771Z",
+          "agent": "67zaqw1ahn1z54k",
+          "source_id": "304i064gny2mw6n"
+        }
+      ],
+      "source_id": "f8djr6afyzvvi3r"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die Blumen« von A. Kuhn /) Gesang-Musik (Sammlung INr 76226, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.986Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Sie gab mir helle Frühlingsblumen, am Stock noch duftend, frisch und jung,",
+      "language": [],
+      "musenalm_id": 76231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blumen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3283_76231_4fk9g0rw2j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Blumen",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.771Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.771Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "ww85q9dlea9t71w"
+        }
+      ],
+      "source_id": "em5k83lee0ijacd"
+    },
+    {
+      "annotation": "Zwischentitel mit Angabe der folgenden Beiträge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Weibliche Kunstbeschäftigungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Weibliche Kunstbeschäftigungen",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "aw1mi3mijkanxhm"
+    },
+    {
+      "annotation": "V. Weibliche Kunstbeschäftigungen (Sammlung INr 76232, Obj 41) mit mehreren Einträgen mit einer Illustration s. Graphik INr 76234, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Unsere Leserinnen haben in dem vorjährigen Taschenbuche gefunden, daß ein Sachverständiger Ihnen eine gründliche Anweisung ertheilte, wie Sie im Stande sind, Blumen fremder Himmelsgegenden vor Ihren Fenstern zu ziehen,",
+      "language": [],
+      "musenalm_id": 76233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blumen, welche sich vor den Fenstern ziehen lassen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blumen, welche sich vor den Fenstern ziehen lassen",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "5aa350y3x2pz1me"
+    },
+    {
+      "annotation": "kol. Illustration zu »Blumen, welche sich vor den Fenstern ziehen lassen« INr 76233, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76234_8deq3wzriq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "q6gx4nv7fi9bm71"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen mit vier graph. Anleitungen INr 76236-76243, Obj 45-52 /) V. Weibliche Kunstbeschäftigungen (Sammlung INr 76232, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weibliche Arbeiten verschiedener Art",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weibliche Arbeiten verschiedener Art",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "esit02sm29kuce8"
+    },
+    {
+      "annotation": "Weibliche Arbeiten verschiedener Art (Sammlung INr 76235, Obj 44) V. Weibliche Kunstbeschäftigungen (Sammlung INr 76232, Obj 41) mit einer graph. Strickanleitung s. INr 76238, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Auf der 6ten Kupfertafel finden die Leserinnen Desseins dargestellt, womit sich eine Menge Sachen verschönern lassen,",
+      "language": [],
+      "musenalm_id": 76236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Strickerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Strickerei",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "jws3q0bh4s59ge8"
+    },
+    {
+      "annotation": "Weibliche Arbeiten verschiedener Art (Sammlung INr 76235, Obj 44) V. Weibliche Kunstbeschäftigungen (Sammlung INr 76232, Obj 41) mit einer graph. Strickanleitung s. INr 76239, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Zu dieser finden sich auf der 7. Kupfertafel neue, mannigfaltig entworfene, und äußerst geschmackvoll ausgeführte Muster verschiedenenr Art",
+      "language": [],
+      "musenalm_id": 76237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stickerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stickerei",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "p0r4d52ozh058k1"
+    },
+    {
+      "annotation": "paginiert 6. /) kol. graph. Strickanleitung  zu »Strickerei« INr 76236, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76238_y897162ojz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "hvwrck1pts4j5yu"
+    },
+    {
+      "annotation": "paginiert 7. /) graph. Stickanleitung  zu »Stickerei« INr 76237, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung (Sophie Klockenbring geb. Alemann Hannover)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie Klockenbring geb. Alemann Hannover",
+      "scans": [
+        "alm_3283_76239_weqccy1z8u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "i7u15fldsmieybm"
+    },
+    {
+      "annotation": "Weibliche Arbeiten verschiedener Art (Sammlung INr 76235, Obj 44) V. Weibliche Kunstbeschäftigungen (Sammlung INr 76232, Obj 41) mit einer graph. Anleitung s. INr 76242, Obj  51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Die Nätherei wetteifert heut zu Tage an Künstlichkeit und Geschmack mit der Stickerei, ja man weiß nicht selten durch die Verbindung von beiden wahre kleine Wunderdinge zu vollbringen.",
+      "language": [],
+      "musenalm_id": 76240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nätherei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nätherei",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "bif28xlwfrlhfof"
+    },
+    {
+      "annotation": "Weibliche Arbeiten verschiedener Art (Sammlung INr 76235, Obj 44) V. Weibliche Kunstbeschäftigungen (Sammlung INr 76232, Obj 41) mit einer graph. Anleitung s. INr 76243, Obj  52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Zürne mir nicht mehr, geliebtes Mädchen! Jetzt habe ich endlich nach langer - langer Zeit eine kurzen Augenblick Ruhe und säume nicht, Dir alle die Künste mitzutheilen, die mich meine ernste, wortkarge, holländische Lehrerin gelehrt hat.",
+      "language": [],
+      "musenalm_id": 76241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kunst, gemustertes Tischzeug etc und anderes von leinenem oder baumwollenem Gewebe auszubessern. / Brief an Amalie. / (Als Erklärung der 9. Kupfertafel.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kunst, gemustertes Tischzeug etc und anderes von leinenem oder baumwollenem Gewebe auszubessern. / Brief an Amalie. / (Als Erklärung der 9. Kupfertafel.)",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "3orya901d2eanzy"
+    },
+    {
+      "annotation": "paginiert 8. /) graph. Stickanleitung  zu »Nähterei« INr 76240, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76242_lnva780pqz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "73avh8b0g2g4e2f"
+    },
+    {
+      "annotation": "paginiert 9. /) graph. Anleitung  zu »Die Kunst, gemustertes Tischzeug etc und anderes von leinenem oder baumwollenem Gewebe auszubessern. Brief an Amalie. (Zur Erklärung der 9. Kupfertafel.)« INr 76241, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.233Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[graph. Anleitung]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76243_nj0c14q8mf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "m3pkd1ll19ggzp8"
+    },
+    {
+      "annotation": "Zwischentitel mit Angabe der folgenden Beiträge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Häusliche Oekonomie. / Kochkunst. / VII. / Regeln zur Erhaltung und Vervollkommnung der weiblichen Schönheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Häusliche Oekonomie. / Kochkunst. / VII. / Regeln zur Erhaltung und Vervollkommnung der weiblichen Schönheit",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "w08scrxs1k7n5rx"
+    },
+    {
+      "annotation": "VI. / Häusliche Oekonom (Sammlung INr 76244, Obj 53) mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Wir zweifeln nicht, daß die schönen Leserinnen und Besitzerinnen dieses Toilettengeschenks durch geschickte Anwendung der im vorigen Jahrgange ebnthaltenen Küchenrecepte sich mehr Dank verdient haben,",
+      "language": [],
+      "musenalm_id": 76245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kochkunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kochkunst",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "67jrwu0ql0iot9i"
+    },
+    {
+      "annotation": "VII. / Regeln zur Erhaltung und Vervollkommnung der weiblichen Schönheit",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Ich kann die Beschreibung der Haut nicht endigen, ohen der Haare zu gedenken, die an manchen Stellen die Haut bekleiden und deren Schönheit die allgemeine Schönheit um vieles erhöht.",
+      "language": [],
+      "musenalm_id": 76246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Regeln zur Erhaltung und Vervollkommnung der weiblichen Schönheit. / Belehrung über die Haut. / (Beschluß)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Regeln zur Erhaltung und Vervollkommnung der weiblichen Schönheit. / Belehrung über die Haut. / (Beschluß)",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "8pjnvu73ycuzzks"
+    },
+    {
+      "annotation": "Umschlaggraphik v. mit Preistabelle",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76247,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Preisse / des / Toiletten-Geschenks / für Damen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3283_76247_dvttzh0kz6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Preisse / des / Toiletten-Geschenks / für Damen",
+      "updated": "2010-03-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "ympb06hw1ihd1t1"
+    }
   ],
   "agents": [
     {

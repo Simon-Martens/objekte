@@ -48,48 +48,1786 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "kgeobst0dm6oqb6",
-    "vzh2tzzkek3h1hp"
+    {
+      "annotation": "1798-1803 (1800 nicht erschienen.)\nLedereinband mit Umschlag und Goldschnitt.\n1799:(K:M. Tku 2, Port 1, Ku 8 und Bl 8 Tab.) Mit Tku 2, Ku 9, Port 1, Bl 8, 156 SS, Bl 2 und Bl 8 Tab.\nAuswahl Fr. Kaminski 10.2023",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.450Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100640",
+      "location": "105D04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.450Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kgeobst0dm6oqb6"
+    },
+    {
+      "annotation": "Var. Umschlaggraphik / Das autopsierte Exemplar in roter Maroquin-Brieftasche; lt. Preisliste für die fünf verschiedenen Ausgaben des Jg, wie sie dem Jg 1802 beigefügt ist, handelt es sich um die vierte Ausgabe; s. Photo alm-9, INr 50407/ Photos der varianten Unschlaggraphiken eines 2. Exemplars  beigegeben",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.450Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409161",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.450Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vzh2tzzkek3h1hp"
+    }
   ],
   "contents": [
-    "eeiizd0z4t6gtf2",
-    "kaqxui3s2ecolp5",
-    "wg9zuudce1o9n5c",
-    "haszk95kit86qpg",
-    "0uyvu79z96sou35",
-    "3yatjii0y4an3i2",
-    "ym3oxy1ltp7w14x",
-    "ce20i1lm1gl47k0",
-    "2h15p31k1od05o6",
-    "92ins3yyyps9grk",
-    "ygnwztqj3jxh0k7",
-    "mw5ysatyo4pk84g",
-    "8kfavexgw8gcroc",
-    "4t7r0bllofyjikb",
-    "evhwgn9eg44l95g",
-    "rd4kmkhpx43dqy5",
-    "3o2gbvj4yzhr3dw",
-    "khl7jyfbf4p1f7r",
-    "djqixluheenjd93",
-    "mgnpsl18isi3tbh",
-    "xvcbyoz5oj0mlgo",
-    "at2ra4fgm9o9izz",
-    "tvpf75mu9698jcs",
-    "jyndedmg5gew2zv",
-    "myhk9ajho92b00k",
-    "cfya5rn43k3qbjt",
-    "hx86xdenjqnzdl2",
-    "yq10rl3cmyuhgkd",
-    "htnjhn2i8j2zc2t",
-    "1p2b92o3sa7oa1z",
-    "wzbf9pb9u8u3vvy",
-    "mf6cpjk1knzxaiv",
-    "2bvqvhdw2c4yorl",
-    "5syi2gg5yvp3lfb",
-    "wej1cvsv7o62zo4",
-    "o006lgppkp874db",
-    "uhm3r897noj0bii",
-    "1fsomxyzgpskvja"
+    {
+      "annotation": "Maroquinbrieftasche r",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109393,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_109393_ulvmsd4v8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "eeiizd0z4t6gtf2"
+    },
+    {
+      "annotation": "Maroquinbrieftasche v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.318Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109394,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_109394_7zod0h4zy3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "kaqxui3s2ecolp5"
+    },
+    {
+      "annotation": "var. kol. Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109395,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_109395_nbwcsv0h5b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "wg9zuudce1o9n5c"
+    },
+    {
+      "annotation": "kol. Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109396,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_109396_sq0ccps44h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "haszk95kit86qpg"
+    },
+    {
+      "annotation": "Schmuckrahmen mit Kopfvignette",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50269,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Catel del. Cl. Kohl sc. V.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. Cl. Kohl sc. V.",
+      "scans": [
+        "alm_7_50269_52nobmijtk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "lgkmpliymbqwh0p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "op6ssw7ul1r5dz8"
+        }
+      ],
+      "source_id": "0uyvu79z96sou35"
+    },
+    {
+      "annotation": "Titelgraphik # Titel aus dem G- Verz INr 50287, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50270,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fortuna mit Schmetterlingsflügeln im Kreise des neuen Jahres #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. Cl. Kohl sc. Viennae",
+      "scans": [
+        "alm_7_50270_qnytboupxj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fortuna mit Schmetterlingsflügeln im Kreise des neuen Jahres #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "c7ov0u3k98nr58r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "zvzx8d73nftweod"
+        }
+      ],
+      "source_id": "3yatjii0y4an3i2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50271,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / 1799. / Maria Stuart / von / Friedrich Gentz. / Die Rache / von / August Lafontaine. / Berlin / bey Friedrich Vieweg dem älteren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_50271_vqpspmgewf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / 1799. / Maria Stuart / von / Friedrich Gentz. / Die Rache / von / August Lafontaine. / Berlin / bey Friedrich Vieweg dem älteren",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ym3oxy1ltp7w14x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50272,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kalender",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kalender",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ce20i1lm1gl47k0"
+    },
+    {
+      "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50273,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philine #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. W. Jury fec.",
+      "scans": [
+        "alm_7_50273_9jevj04g1k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Philine #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ksbvdh3vk25qq7x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "kss69x1zjsmdt8u"
+        }
+      ],
+      "source_id": "2h15p31k1od05o6"
+    },
+    {
+      "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50274,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mignon und Felix #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. W. Jury fec.",
+      "scans": [
+        "alm_7_50274_30a2lmh0vn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mignon und Felix #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "bv2c935ae5hs2nw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "wq5ftzb4wvs7orm"
+        }
+      ],
+      "source_id": "92ins3yyyps9grk"
+    },
+    {
+      "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50275,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Harfner #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. W. Jury fec.",
+      "scans": [
+        "alm_7_50275_0tp4hajzpj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Harfner #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "q1xd8p8qimj6gri"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "y2ph59p3lc522tm"
+        }
+      ],
+      "source_id": "ygnwztqj3jxh0k7"
+    },
+    {
+      "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50276,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwey Personen, die vor einander erschrecken: der Hereintretende, weil er sich irrt; der Sitzende, in den Spíegel Blickende, weil er recht sieht. (Bd II. S. 128.) #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel del. W. Jury fec.",
+      "scans": [
+        "alm_7_50276_mrf606vp2j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwey Personen, die vor einander erschrecken: der Hereintretende, weil er sich irrt; der Sitzende, in den Spíegel Blickende, weil er recht sieht. (Bd II. S. 128.) #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "k88b6wntq7vxqfm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "rmzkdazwz2wplu1"
+        }
+      ],
+      "source_id": "mw5ysatyo4pk84g"
+    },
+    {
+      "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50277,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Auftritt im Walde, nachdem Wilhelm Meister und seine Gesellschaft von Räubern angefallen waren #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel inv. et del. 1797 Meno Haas sc. Berlin",
+      "scans": [
+        "alm_7_50277_o832kxykep.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Auftritt im Walde, nachdem Wilhelm Meister und seine Gesellschaft von Räubern angefallen waren #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "7atqofwi0sb44bb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "vpvo8b7kbt7fl6i"
+        }
+      ],
+      "source_id": "8kfavexgw8gcroc"
+    },
+    {
+      "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19 /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.207Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50278,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mignon als Engel gekleidet, wie sie auf einem Tische in Nataliens Zimmer sitzt #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Catel inv. et del. 1797 Meno Haas sc. Berlin",
+      "scans": [
+        "alm_7_50278_82vp94dfct.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mignon als Engel gekleidet, wie sie auf einem Tische in Nataliens Zimmer sitzt #",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.714Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "lmjgme0na21j1yv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.715Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "tit22ln5f2hauxn"
+        }
+      ],
+      "source_id": "4t7r0bllofyjikb"
+    },
+    {
+      "annotation": "Illustration zu »Maria, Königinn von Schottland« von Fr. Gentz INr 50281, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50279,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA / Königin von Schottland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Meyer sc.",
+      "scans": [
+        "alm_7_50279_grx7dmedkg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA / Königin von Schottland",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.715Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "oldff5r154v6c49"
+        }
+      ],
+      "source_id": "evhwgn9eg44l95g"
+    },
+    {
+      "annotation": "Dem Text INr 50281, Obj 13 vorangestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Bei der Ausarbeitung der folgenden Geschichte, sind von ältern, und größtentheils gleichzeitigen Schriftstellern, Buchanan, Lesley, der Verfasser der Crawfurdschen Memoiren, Melvil, Brantome, Camden und Thuan, von neuern vorzüglich Rapin,",
+      "language": [],
+      "musenalm_id": 50280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria / Königinn von Schottland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Gentz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria / Königinn von Schottland",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.715Z",
+          "agent": "2jbww1jkrhcnbfa",
+          "source_id": "3grd1yznx2w6rpy"
+        }
+      ],
+      "source_id": "rd4kmkhpx43dqy5"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 50280, Obj 12 und 4 Illustrationen s. Graphiken INr 50282-50285, Obj 14-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Staatsverfassung von Schottland war, von den ältesten Zeiten bis zum Anfange des sechszehnten Jahrhunderts, eine durch die Gewalt der Großen und durch eine geringe Anzahl constitutioneller Vorschriften eingeschränkte moralische Verfassung.",
+      "language": [],
+      "musenalm_id": 50281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Maria Königinn von Schottland ]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Gentz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Maria Königinn von Schottland ]",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.715Z",
+          "agent": "2jbww1jkrhcnbfa",
+          "source_id": "uoe8p5dksz92wtk"
+        }
+      ],
+      "source_id": "3o2gbvj4yzhr3dw"
+    },
+    {
+      "annotation": "Illustration zu »Maria. Königinn von Schottland« von Fr. von Gentz INr 50281, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Opie. p. Cl. Kohl sc. Viennae 1796)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Opie. p. Cl. Kohl sc. Viennae 1796",
+      "scans": [
+        "alm_7_50282_j4x0so2ov4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.887Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "qjv3he5lchjmh9m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.887Z",
+          "agent": "0ygwh1vfs5laa9w",
+          "source_id": "snd4gosfxtrs894"
+        }
+      ],
+      "source_id": "khl7jyfbf4p1f7r"
+    },
+    {
+      "annotation": "Illustration zu »Maria. Königinn von Schottland« von Fr. von Gentz INr 50281, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Smirke p. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Smirke p. W. Jury fec.",
+      "scans": [
+        "alm_7_50283_9iiik5t3kn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.887Z",
+          "agent": "4b9le30k3iqc8fh",
+          "source_id": "69qa1gsq8rskx3o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.887Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "vryplj6uobaksv2"
+        }
+      ],
+      "source_id": "djqixluheenjd93"
+    },
+    {
+      "annotation": "Illustration zu »Maria. Königinn von Schottland« von Fr. von Gentz INr 50281, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Fr. Catel del. Fr. Bolt sc. 98)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel del. Fr. Bolt sc. 98",
+      "scans": [
+        "alm_7_50284_p52z4fqt2i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.725Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "4hmvt30c0c4dw6o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.725Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "h61uariv4vtc5w1"
+        }
+      ],
+      "source_id": "mgnpsl18isi3tbh"
+    },
+    {
+      "annotation": "Illustration zu »Maria. Königinn von Schottland« von Fr. von Gentz INr 50281, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Smirke del. Cl. Kohl sc. Viennae 1798",
+      "scans": [
+        "alm_7_50285_wz1yb9ofao.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.725Z",
+          "agent": "4b9le30k3iqc8fh",
+          "source_id": "h1pj9fmks04gkao"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.725Z",
+          "agent": "bteik61qqrceqcm",
+          "source_id": "ukpw2ok4dytrd05"
+        }
+      ],
+      "source_id": "xvcbyoz5oj0mlgo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Und ich bin nicht glücklich? fragte der stolze Periander den weisen Medon; ich bin nicht glücklich ohne deine strenge Tugend? Medon sah ihn mitleidig an und schüttelte schweigend den grauen Kopf.",
+      "language": [],
+      "musenalm_id": 50286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rache. / Herodot III, 48-52",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rache. / Herodot III, 48-52",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.725Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "qgjlxgaghy1qp6t"
+        }
+      ],
+      "source_id": "at2ra4fgm9o9izz"
+    },
+    {
+      "annotation": "G- Verz mit Kurzkommentaren insbesondere zu den 6 Illustrationen zu »Wilhelm Meisters Lehrjahre« von J. W. von Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Verleger dieses Taschenbuches ist so glücklich gewesen, für die Kupfer dieses Jahres einen Zeichner zu gewinnen, der die Einbildungskraft eines Dichters innerhalb der Gränzen seiner Kunst anzuwenden, und durch die Augen zu dem Herzen zu sprechen weiß.",
+      "language": [],
+      "musenalm_id": 50287,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur / Erklärung der Kupferstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur / Erklärung der Kupferstiche",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "tvpf75mu9698jcs"
+    },
+    {
+      "annotation": "Es folgen 14 Tabellen, davon 12 Monatstabellen mit Kopfvignetten INr 50289-50302, Obj 21-34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50288,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tabellen / für die / Einnahme und Ausgabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_50288_9puaxh6icw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tabellen / für die / Einnahme und Ausgabe",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "jyndedmg5gew2zv"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50289,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Interessen Rechnung / von einem Monat von einem Jahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_7_50289_hgg51genza.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Interessen Rechnung / von einem Monat von einem Jahre",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "myhk9ajho92b00k"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50290,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Januar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50290_s768o74rsm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Januar",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.725Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "tg2cthvetjubgd0"
+        }
+      ],
+      "source_id": "cfya5rn43k3qbjt"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50291,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Februar",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50291_9nbvjr9f5e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Februar",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "preu8dxd9qpjbiz"
+        }
+      ],
+      "source_id": "hx86xdenjqnzdl2"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50292,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Merz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50292_1ofks0k002.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Merz",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "8226cssha9qrks9"
+        }
+      ],
+      "source_id": "yq10rl3cmyuhgkd"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50293,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "April",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50293_c3tfb0tcj3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "April",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "d17suyiocas94rq"
+        }
+      ],
+      "source_id": "htnjhn2i8j2zc2t"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50294,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "May",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50294_zrckhgvewt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "May",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "q2z037oyojs8kek"
+        }
+      ],
+      "source_id": "1p2b92o3sa7oa1z"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50295,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Juny",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50295_nr6x979afv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Juny",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "equagzunrfah0rn"
+        }
+      ],
+      "source_id": "wzbf9pb9u8u3vvy"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.345Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50296,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julius",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50296_677jwp3l36.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Julius",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "vs7wj4d82h01lxq"
+        }
+      ],
+      "source_id": "mf6cpjk1knzxaiv"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.346Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50297,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "August",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50297_lm2thb9dwz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "August",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "i0z5wnmgjftvwge"
+        }
+      ],
+      "source_id": "2bvqvhdw2c4yorl"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50298,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "September",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50298_5mhyp38zl7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "September",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.985Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.985Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "gegwxmzs6aoymgt"
+        }
+      ],
+      "source_id": "5syi2gg5yvp3lfb"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50299,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "October",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50299_1dlx9xgk23.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "October",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.985Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.985Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "q1yikjffwxwdh59"
+        }
+      ],
+      "source_id": "wej1cvsv7o62zo4"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50300,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "November",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50300_2ytejp81y2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "November",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.986Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "z0x40vol1vo8yaa"
+        }
+      ],
+      "source_id": "o006lgppkp874db"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50301,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "December",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50301_y22091mhx8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "December",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.986Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "xdrox8ghtuayb7s"
+        }
+      ],
+      "source_id": "uhm3r897noj0bii"
+    },
+    {
+      "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50302,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jahres-Abschluß",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc.",
+      "scans": [
+        "alm_7_50302_5cb3gzakfi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jahres-Abschluß",
+      "updated": "2007-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.986Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "ko5pq5j3kz70ok7"
+        }
+      ],
+      "source_id": "1fsomxyzgpskvja"
+    }
   ],
   "agents": [
     {

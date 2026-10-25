@@ -48,44 +48,1395 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "kcuf9v14dlwqrdw"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200422",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kcuf9v14dlwqrdw"
+    }
   ],
   "contents": [
-    "kvf4svmndqvelhk",
-    "zyls15ffk056quz",
-    "yxg4vjy6bn2s5o8",
-    "gk1ocnxc3eknbiy",
-    "3vtnfw28kpttu44",
-    "hyy8hoe2e97gyy6",
-    "linqiyshqtcv0s4",
-    "1t9gfmpctg018ou",
-    "8xq2rhqwkf60txo",
-    "sv673zn656bkem0",
-    "59qtdkmeq96a0lz",
-    "ewfdt0lfqblenlp",
-    "sbqt4z6rfhe6jj3",
-    "co3cgjyj5u9tboc",
-    "wk2o6nrq4eeqksa",
-    "v7iqr2swamosnca",
-    "w55me19m0ghsvhs",
-    "gi1mz380u3qkhju",
-    "5bnvg4culcfid30",
-    "it53397qt7eqhul",
-    "7wefv3svmthfmjk",
-    "luyb8k2xzqj82rn",
-    "ggxaxv486ndpqk6",
-    "zspl83p3ftmkdmf",
-    "y41q21kfz91hu09",
-    "rhpjgz6gq1pqh7j",
-    "c89uhur63v66bu3",
-    "0uawr9fw83tqipr",
-    "1hewmez8iwk84jv",
-    "ba847w7yw2bc9d1",
-    "69xjx7kqrhp4gnj",
-    "pdfedl4ekb1eoco",
-    "5s732buttkz3y34",
-    "yyegmao18jqmeh5",
-    "zpsje29jct4f2oj"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52272,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_712_52272_j2y8yzkogl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "kvf4svmndqvelhk"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 s.a. Textbezug INr 52290, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52273,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Felsenkeller bey Lugano",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer del. et sc.",
+      "scans": [
+        "alm_712_52273_9lsx09t2kx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Felsenkeller bey Lugano",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.876Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "u2ywksi40z4252n"
+        }
+      ],
+      "source_id": "zyls15ffk056quz"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52274,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1812. / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_712_52274_3h0fahysvy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1812. / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "yxg4vjy6bn2s5o8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52275,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "gk1ocnxc3eknbiy"
+    },
+    {
+      "annotation": "mit 11 Illustrationen INr 52273, 52277-52276; Obj 2, 6-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Italienischen Vogteyen, aus welchen durch die Mediations-Acte der Canton Tessin gebildet wurde, waren für die Schweiz, aus den Mailändischen Feldzügen, die einzigen und dabey ungleich vertheilten Vortheile vergossener Ströme Blutes,",
+      "language": [],
+      "musenalm_id": 52276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Topographisch-statistische Darstellung / des Cantons / Tessin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Topographisch-statistische Darstellung / des Cantons / Tessin",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "3vtnfw28kpttu44"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) koloriertes Trachtenkupfer. Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52291, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Tessin / Säumers-Tracht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_712_52277_dkaiqr1osd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Tessin / Säumers-Tracht",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.605Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.605Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "mi1oai938z8m2dh"
+        }
+      ],
+      "source_id": "hyy8hoe2e97gyy6"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) koloriertes Trachtenkupfer. Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52291, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Tessin / Bäuerinnen Tracht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_712_52278_bx7vvgx0gj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Tessin / Bäuerinnen Tracht",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.605Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.605Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "rs8v37v40vhr7yo"
+        }
+      ],
+      "source_id": "linqiyshqtcv0s4"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) koloriertes Trachtenkupfer. Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52291, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Tessin / Müllerin von Arbedo",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_712_52279_z09loatlap.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Tessin / Müllerin von Arbedo",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.605Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.605Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "aubb35blkgc0uj5"
+        }
+      ],
+      "source_id": "1t9gfmpctg018ou"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) koloriertes Trachtenkupfer. Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52291, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Tessin / Bauernmädchen aus Centovalli",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_712_52280_dvacs32xkx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Tessin / Bauernmädchen aus Centovalli",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.605Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.605Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "e9o965xu1laxh8v"
+        }
+      ],
+      "source_id": "8xq2rhqwkf60txo"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52293, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Capelle St. Paul bey Bellenz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Dossenbach del. J. H. Meyer sc.",
+      "scans": [
+        "alm_712_52281_6enacvsj5h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Capelle St. Paul bey Bellenz",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "u9j1ebrxwfxbz8y"
+        }
+      ],
+      "source_id": "sv673zn656bkem0"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52294, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus im Canton Tessin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Dossenbach del. J. H. Meyer sc.",
+      "scans": [
+        "alm_712_52282_4fcd54ydht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus im Canton Tessin",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "hoo8aaojuwboe6w"
+        }
+      ],
+      "source_id": "59qtdkmeq96a0lz"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52296, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beym großen Zoll, im Livinerthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Achilles Benz del. J. H. Meyersc.",
+      "scans": [
+        "alm_712_52283_lve7by2ter.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Beym großen Zoll, im Livinerthal",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "dgwuhw60w67cwwa"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "ldosmz32ve7ibjb",
+          "source_id": "ni75ccb5fcdc3qo"
+        }
+      ],
+      "source_id": "ewfdt0lfqblenlp"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52297, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von Bellinzona",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Achilles Benz del. J. H. Meyer sc.",
+      "scans": [
+        "alm_712_52284_9sw3o88x5m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von Bellinzona",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "fyzjyubqtvcu4tw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "ldosmz32ve7ibjb",
+          "source_id": "t1x29gvw2389cpc"
+        }
+      ],
+      "source_id": "sbqt4z6rfhe6jj3"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52298, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Locarno am Lago Maggiore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Achilles Benz del. J. H. Meyersc.",
+      "scans": [
+        "alm_712_52285_it4gzxuxkv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Locarno am Lago Maggiore",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "ldosmz32ve7ibjb",
+          "source_id": "bjq1oo8zvab9w0e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "iqhw1uizyjgwur9"
+        }
+      ],
+      "source_id": "co3cgjyj5u9tboc"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52299, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lugano",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Achilles Benz del. J. H. Meyersc.",
+      "scans": [
+        "alm_712_52286_t03rynuh9n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lugano",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "6heji6en0clbxe0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "ldosmz32ve7ibjb",
+          "source_id": "dumgo825x6pdfgu"
+        }
+      ],
+      "source_id": "wk2o6nrq4eeqksa"
+    },
+    {
+      "annotation": "Es folgt: Tabelle »Einfuhr« INr 52288, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Die folgenden Tabellen der Ein- und Ausfuhr gegen Italien werden, deutlicher als jede weitschichtige Abhandlung, das Produkten- und Industrie-Verhältniß des Cantons und, zum Theile, auch der Schweiz gegen besagtes Land darstellen.",
+      "language": [],
+      "musenalm_id": 52287,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die folgenden Tabellen der Ein- und Ausfuhr gegen Italien werden, deutlicher als jede weitschichtige Abhandlung, das Produkten- und Industrie-Verhältniß des Cantons und, zum Theile, auch der Schweiz gegen besagtes Land darstellen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "v7iqr2swamosnca"
+    },
+    {
+      "annotation": "mit einer Einleitung INr 52287, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52288,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfuhr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einfuhr",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "w55me19m0ghsvhs"
+    },
+    {
+      "annotation": "Sammlung von Textbezügen INr 52290-52300, Obj 19-29  zu den Graphiken und der Karte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52289,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "gi1mz380u3qkhju"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Titelgraphik INr 52273, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Die Felsenkeller, in welchen die Lauiser ihre Weine aufbewahren, liegen Lugano vorüber, am Fuße des rauen von Gebüsche bekleideten Berges all Caprino.",
+      "language": [],
+      "musenalm_id": 52290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Titulkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Titulkupfer",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "5bnvg4culcfid30"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphiken INr 52277-52280, Obj 6-9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52291,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Trachten / A. Säumers Tracht. / B. Bäuerinnen Tracht. / C. Müllerin von Arbedo. / D. Bauernmädchen aus Centovalli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Trachten / A. Säumers Tracht. / B. Bäuerinnen Tracht. / C. Müllerin von Arbedo. / D. Bauernmädchen aus Centovalli",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "it53397qt7eqhul"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 52293, 52294; Obj 22, 23 /) Erklärung der Kupfer (Sammlung INr 52289, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52292,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Bauarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Bauarten",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "7wefv3svmthfmjk"
+    },
+    {
+      "annotation": "Bauarten (Sammlung INr 52292, Obj 21) Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphik INr 52281, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Die Bauart der Kirchen und Kapellen im Kanton Tessin nähert sich schon derjenigen des benachbarten Italiens.",
+      "language": [],
+      "musenalm_id": 52293,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. Kapelle St. Paul bey Bellenz. / (S. 72.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "A. Kapelle St. Paul bey Bellenz. / (S. 72.)",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "luyb8k2xzqj82rn"
+    },
+    {
+      "annotation": "Bauarten (Sammlung INr 52292, Obj 21) Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphik INr 52282, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Die gemeinen Bauernhäuser in dem Italienischen Theile der Schweiz mangeln meistens jene bequeme innere Einrichtung derjenigen auf deutscher Seite.",
+      "language": [],
+      "musenalm_id": 52294,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. Bauernhaus im Canton Tessin. / (S.80)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "B. Bauernhaus im Canton Tessin. / (S.80)",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ggxaxv486ndpqk6"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 52296-52299, Obj 25-28 /) Erklärung der Kupfer (Sammlung INr 52289, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52295,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Prospekte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Prospekte",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "zspl83p3ftmkdmf"
+    },
+    {
+      "annotation": "IV. Prospecte (Sammlung INr 52295, 24) Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphik INr 52283, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Mehrere Felsenpässe, die der Reisende an der südlichen Bergneige des Gotthards antrift, versetzen sein Gemüth bald in Schauer, bald in Bewunderung.",
+      "language": [],
+      "musenalm_id": 52296,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. All' Dazio Grande / oder / beym Großen Zolle. / (S. 96.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "A. All' Dazio Grande / oder / beym Großen Zolle. / (S. 96.)",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "y41q21kfz91hu09"
+    },
+    {
+      "annotation": "IV. Prospecte (Sammlung INr 52295, 24) Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphik INr 52284, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Dieser Hauptort des Cantons Tessin liegt an einem der wichtigsten Pässe gegen Italien.",
+      "language": [],
+      "musenalm_id": 52297,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. Bellinzona. / (S. 130.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "B. Bellinzona. / (S. 130.)",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "rhpjgz6gq1pqh7j"
+    },
+    {
+      "annotation": "IV. Prospecte (Sammlung INr 52295, 24) Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphik INr 52285, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Nicht unmittelbar am Lago Maggiore liegt Locarno, weil der Maggia-Strom hier den See eine beträchtliche Strecke weit mit Schutt angefüllt hat.",
+      "language": [],
+      "musenalm_id": 52298,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C. Locarno. / (S. 150.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C. Locarno. / (S. 150.)",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "c89uhur63v66bu3"
+    },
+    {
+      "annotation": "IV. Prospecte (Sammlung INr 52295, 24) Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Graphik INr 52284, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Dieser Ort liegt sehr angenehm an dem See seines Namens.",
+      "language": [],
+      "musenalm_id": 52299,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D. Lugano. / (S. 176.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "D. Lugano. / (S. 176.)",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "0uawr9fw83tqipr"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 52289, Obj 18) s. Karte INr 52304, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Wird hinten angehängt",
+      "language": [],
+      "musenalm_id": 52300,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Karte des Cantons",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Karte des Cantons",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "1hewmez8iwk84jv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52301,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ba847w7yw2bc9d1"
+    },
+    {
+      "annotation": "ausfaltbare Tabelle",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52302,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spezifizirte Bevölkerungs-Tabelle des Cantons Ticino im Frühlinge des Jahres 1808",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_712_52302_i7l2s698is.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spezifizirte Bevölkerungs-Tabelle des Cantons Ticino im Frühlinge des Jahres 1808",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "69xjx7kqrhp4gnj"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52303,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey den Verlegern diese Almanachs / sind von Schriften, welche die Schweiz / angehen, nebenandern, gedruckt, und / zu haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bey den Verlegern diese Almanachs / sind von Schriften, welche die Schweiz / angehen, nebenandern, gedruckt, und / zu haben",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "pdfedl4ekb1eoco"
+    },
+    {
+      "annotation": "s. Textbezug INr 52300, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52304,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Canton-Ticino",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet v. H. Keller, nach Pater Paolo Ghiringelli Gest. von J. J. Scheurmann",
+      "scans": [
+        "alm_712_52304_c6tacfujt5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Canton-Ticino",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.801Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.801Z",
+          "agent": "hp3ztaqa2ipzjih",
+          "source_id": "f549shm72dqaydb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.801Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.801Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "glk4okwhrra1fw2"
+        }
+      ],
+      "source_id": "5s732buttkz3y34"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52305,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "yyegmao18jqmeh5"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52306,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_712_52306_pjmbp0598d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "zpsje29jct4f2oj"
+    }
   ],
   "agents": [
     {

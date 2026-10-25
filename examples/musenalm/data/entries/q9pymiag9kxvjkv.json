@@ -48,17 +48,336 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "1mq3cdx2cs99hj1"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.464Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404875",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.464Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1mq3cdx2cs99hj1"
+    }
   ],
   "contents": [
-    "fqs5df3je89xhbd",
-    "076qnjvft96lh5d",
-    "whdbv9etd9mvv1q",
-    "lz3yltr83a32gvi",
-    "joo56bnpiqcei4f",
-    "0lzugum823ijh5i",
-    "yksemxhfeh2qjf0",
-    "3uo8fvjdz5v8rrv"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 126692,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / Theater-Almanach / auf / das Jahr 1842. / Herausgegeben von / Alexander Cosmar. / Siebenter Jahrgang. / Berlin. / Verlag von Th. Bade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / Theater-Almanach / auf / das Jahr 1842. / Herausgegeben von / Alexander Cosmar. / Siebenter Jahrgang. / Berlin. / Verlag von Th. Bade",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "fqs5df3je89xhbd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127557,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "076qnjvft96lh5d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Sehen Sie selbst, Mamsellchen- Schon ein Viertel auf eins. / Ihre Uhr geht regelmäßig vor.",
+      "language": [],
+      "musenalm_id": 127558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carouche. / Dramatisirte anekdote in einem Akt, / frei nach Théaulon, / von I. Dorich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Théaulon [bearb.] J. Dorich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Carouche. / Dramatisirte anekdote in einem Akt, / frei nach Théaulon, / von I. Dorich",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "whdbv9etd9mvv1q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Beinahe Mittag, und noch Niemand hier. Lauenfeld ist vermuthlich noch in seinem Comtoir beschäftigt, hat noch vollauf mit Börsen-Spekulationen, Coupons und Discontos zu thun.",
+      "language": [],
+      "musenalm_id": 127559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Geheimniß. / Schauspiel in drei Abtheilungen / frei nach Arnould und Fournier, / von Alex. Cosmar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arnould und Fournier [bearb.] Alex. Cosmar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Geheimniß. / Schauspiel in drei Abtheilungen / frei nach Arnould und Fournier, / von Alex. Cosmar",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.944Z",
+          "agent": "2s3vhf9nlntlu1k",
+          "source_id": "q6nnh13537qwwxi"
+        }
+      ],
+      "source_id": "lz3yltr83a32gvi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Habt Ihr mich denn nun auch Alle wohl verstanden? / Ja, ganz gewiß.",
+      "language": [],
+      "musenalm_id": 127560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dissonanzen, / oder: / Heut vor fünfunfzwanzig Jahren. / Lustspiel in drei Akten, / von / Heinrich Smidt.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dissonanzen, / oder: / Heut vor fünfunfzwanzig Jahren. / Lustspiel in drei Akten, / von / Heinrich Smidt.",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.945Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "hh5s8m0tdi0euq6"
+        }
+      ],
+      "source_id": "joo56bnpiqcei4f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Es ist ein harter Dag, so ein Wihnachts heil’ger Abend!",
+      "language": [],
+      "musenalm_id": 127561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Weihnachts-Präsente / Lokaler Gelegenheits-Scherz in 1 Akt, / von / Louis Angely",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louis Angely",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Weihnachts-Präsente / Lokaler Gelegenheits-Scherz in 1 Akt, / von / Louis Angely",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.945Z",
+          "agent": "uu6xiaa96mzeg53",
+          "source_id": "adnhpc4250igaf3"
+        }
+      ],
+      "source_id": "0lzugum823ijh5i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Jean! – Schade, daß er nicht hier ist. Da bin ich doch wirklich begierig, wie das sich eigentlich zusammenreimen läßt.",
+      "language": [],
+      "musenalm_id": 127562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Bräutigamsschau. / Dramatischer Scherz in einem Akt, / von / I. Findeisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Findeisen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Bräutigamsschau. / Dramatischer Scherz in einem Akt, / von / I. Findeisen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.945Z",
+          "agent": "8eiokqgnxsfld6w",
+          "source_id": "7ybcbxvlc259h6q"
+        }
+      ],
+      "source_id": "yksemxhfeh2qjf0"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herabgesetzter Preis!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herabgesetzter Preis!",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "3uo8fvjdz5v8rrv"
+    }
   ],
   "agents": [
     {

@@ -48,25 +48,646 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "n5c2dcqjqnoi8qz"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405210",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "n5c2dcqjqnoi8qz"
+    }
   ],
   "contents": [
-    "2mefzb1mpgho2ul",
-    "kjujzxgtqeqb060",
-    "knivow8lu4d0nlo",
-    "x6c55f38w18u7h2",
-    "0ygu9i84wo4l3ld",
-    "4fgd0d00gkces7k",
-    "1a19hfi1clu9uzx",
-    "en8wyea8guc6ps1",
-    "w8lidaujiy0rmnc",
-    "mk2hyqxuf1q5na1",
-    "07pt90q84jytema",
-    "bgnkjp4ulvbnskl",
-    "jbfamvh9rlnquid",
-    "yydjocn2yhxvbn2",
-    "qxwc39ef9mby5wi",
-    "57y2cndyqna4tp9"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125433,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125433_wdc0orbt6x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "2mefzb1mpgho2ul"
+    },
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Das Gelübde« von Kurländer (INr ...)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125434,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gelübde. Scene 2. / Gustav. / Grausame, Unempfindliche, – zaertlich – / liebes – schönes Wesen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125434_47t09x00a5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Gelübde. Scene 2. / Gustav. / Grausame, Unempfindliche, – zaertlich – / liebes – schönes Wesen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "kjujzxgtqeqb060"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125435,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1833 / von / F. A. von Kurländer. / Drei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1833 / von / F. A. von Kurländer. / Drei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "knivow8lu4d0nlo"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 125435, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Für dich, freundlicher Leser der vier in diesem Taschenbuche enthaltenen Lustspiele, wurde dieses Vorwort nicht geschrieben.",
+      "language": [],
+      "musenalm_id": 125436,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "98sjb3vsglozpkm"
+        }
+      ],
+      "source_id": "x6c55f38w18u7h2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125437,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ygu9i84wo4l3ld"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 125439, Obj 7); # Bezeichnung aus dem Titel (INr 125435, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es ist beschlossen, der Brief soll noch heute abgesendet werden.",
+      "language": [],
+      "musenalm_id": 125438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schutzfrau / Lustspiel in einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schutzfrau / Lustspiel in einem Aufzuge",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "u1e8ekoumhjrav9"
+        }
+      ],
+      "source_id": "4fgd0d00gkces7k"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Schutzfrau« von Kurländer (INr 125438, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schutzfrau. Letzte Scene. / Leontine / »Das hat sich seltsam gefügt. Ich suchte / einen Mann für dich, und du hast einen für / mich gefunden.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125439_um27zhy7j6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schutzfrau. Letzte Scene. / Leontine / »Das hat sich seltsam gefügt. Ich suchte / einen Mann für dich, und du hast einen für / mich gefunden.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "1a19hfi1clu9uzx"
+    },
+    {
+      "annotation": "mit zwei kol. Illustration (INr 125441, 125442 Obj 8, 9); # Bezeichnung aus dem Titel (INr 125435, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Schon wieder in die tiefsten Betrachtungen versunken! / ich habe gelesen!",
+      "language": [],
+      "musenalm_id": 125440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eigensinn aus Liebe. / Lustspiel in drei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eigensinn aus Liebe. / Lustspiel in drei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "t7vw75rsc1uz3ub"
+        }
+      ],
+      "source_id": "en8wyea8guc6ps1"
+    },
+    {
+      "annotation": "kol. Illustration zu »Eigensinn aus Liebe« von Kurländer (INr 125440, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.532Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eigensinn aus Liebe. 2 Act, 5 Scene. / General von Krauß / »Ihr Herz schlägt zwar, aber nicht für / mich, sondern für einen anderen.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125441_auge2b9ngf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eigensinn aus Liebe. 2 Act, 5 Scene. / General von Krauß / »Ihr Herz schlägt zwar, aber nicht für / mich, sondern für einen anderen.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8lidaujiy0rmnc"
+    },
+    {
+      "annotation": "kol. Illustration zu »Eigensinn aus Liebe« von Kurländer (INr 125440, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eigensinn aus Liebe. 3 Act, 9 Scene. / Emilie / Die Damen zieren nicht immer den / Triumphwagen des Siegers.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125442_8a02i5sa7d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eigensinn aus Liebe. 3 Act, 9 Scene. / Emilie / Die Damen zieren nicht immer den / Triumphwagen des Siegers.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "k8bjm0vx0m6q334",
+          "source_id": "syxhw84h5mnw1jg"
+        }
+      ],
+      "source_id": "mk2hyqxuf1q5na1"
+    },
+    {
+      "annotation": "mit zwei kol. Illustration (INr 125444, 125445 Obj 12, 13); # Bezeichnung aus dem Titel (INr 125435, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Mir das, mein schönes Kind? / Wem denn sonst? Der Herr Marquis werden es mir doch nicht zutrauen?",
+      "language": [],
+      "musenalm_id": 125443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Damen-Launen / oder / Gerade wie ehemahls. / Lustspiel in drey Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Damen-Launen / oder / Gerade wie ehemahls. / Lustspiel in drey Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "70voknnjsbjcam8"
+        }
+      ],
+      "source_id": "07pt90q84jytema"
+    },
+    {
+      "annotation": "kol. Illustration zu »Damen-Launen« von Kurländer (INr 125443, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Damen-Launen. 1 Act, 10 Scene. / Moritz (Gaertner) / »Hier auf dem Lande glauben es Alle.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125444_4sp6vutbev.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Damen-Launen. 1 Act, 10 Scene. / Moritz (Gaertner) / »Hier auf dem Lande glauben es Alle.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "bgnkjp4ulvbnskl"
+    },
+    {
+      "annotation": "kol. Illustration zu »Damen-Launen« von Kurländer (INr 125443, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Damen-Launen. 3 Act, 15 Scene. / Klaudine. / »Ohne Aelternsegen kein Glück auf Erden.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Schröter jun sc.",
+      "scans": [
+        "alm_1261_125445_dgge0vpd83.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Damen-Launen. 3 Act, 15 Scene. / Klaudine. / »Ohne Aelternsegen kein Glück auf Erden.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "pde9d1cwbkmmhfb"
+        }
+      ],
+      "source_id": "jbfamvh9rlnquid"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (Titelgraphik, INr 125434, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Ja, das ist sie! Ihr freundlich schelmischer Blick; ihr Mund – kurz, meine Ida, Zug für Zug!",
+      "language": [],
+      "musenalm_id": 125446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gelübde. / Lustspiel in einem Aufzuge.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gelübde. / Lustspiel in einem Aufzuge.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.890Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "34829gx8ujpz4va"
+        }
+      ],
+      "source_id": "yydjocn2yhxvbn2"
+    },
+    {
+      "annotation": "VrlgM",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125447,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "qxwc39ef9mby5wi"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125448,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1261_125448_ij7g05fa2s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "57y2cndyqna4tp9"
+    }
   ],
   "agents": [
     {

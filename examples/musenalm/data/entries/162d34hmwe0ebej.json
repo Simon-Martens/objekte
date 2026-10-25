@@ -48,34 +48,910 @@
   "year": 1802,
   "editor": "",
   "items": [
-    "8u4ib78naa79j0z"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.536Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404852",
+      "location": "105P04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.536Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8u4ib78naa79j0z"
+    }
   ],
   "contents": [
-    "ugg25h2zvw82tlf",
-    "li8c1lngs70ysw9",
-    "dnwd2uccthh14vu",
-    "jo4s4jsn6cngqx5",
-    "j4tll6zrgb75vi7",
-    "becuf4anzxttnex",
-    "v72m8ho9utyeu8k",
-    "68hnervqj8xvw6s",
-    "pbisl7vntqu82wd",
-    "jjex9tscfvy1er6",
-    "fd4ibehansl9pe8",
-    "l1lhqhveds35mkn",
-    "psijpjha4gm0v1i",
-    "3vuatymwhmoi80e",
-    "7c9kvrx9lhg1qhk",
-    "b56qqyiq3tmd854",
-    "eavujzorbnefmbz",
-    "7pjizp5k0jv2lt5",
-    "gb81ztq2e9mokr6",
-    "4pmhk1z9ecjywiw",
-    "jmvfhzk1nojjtg0",
-    "1wr70kllzuif1kr",
-    "q6zyxo8vbohgdh8",
-    "5mc3v2j9mzz0suq",
-    "sdt0lfxdfu0wzlw"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66154,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1116_66154_gl2bte0g8s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "ugg25h2zvw82tlf"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66155,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. G. Endner del. et sculp. 1801)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Endner del. et sculp. 1801",
+      "scans": [
+        "alm_1116_66155_xjtp0u6e1o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.346Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "6oprnmue3u3orn9"
+        }
+      ],
+      "source_id": "li8c1lngs70ysw9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66156,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Forst- und Jagd- / TASCHENBUCH / für das Jahr / 1802. / Neunter Jahrgang. / Mit Kupfern. / LEIPZIG, / bey Carl Wilhelm Küchler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1116_66156_4rdbs8j4hz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Forst- und Jagd- / TASCHENBUCH / für das Jahr / 1802. / Neunter Jahrgang. / Mit Kupfern. / LEIPZIG, / bey Carl Wilhelm Küchler",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "dnwd2uccthh14vu"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit Reaktion auf das in der Erlanger Literaturzeitung besprochene von L. C. E. H. F. von Wildungen herausgegebene »Taschenbuch für Forst und Jagdfreunde« /) s. hierzu wiederum Wildungens Gedicht »Epilog. Mein Glaubensbekenntnis« INr 66624; in: Taschenbuch für Forst- und Jagdfreunde 1803 und 1804",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es ist zwar nicht meine Sache mit den Beurtheilern meiner Schriften zu rechten, am allerwenigsten gegen Pasquille - denn nichts anders ist die in der damals unter des Hrn. Hofraths Meusel's Redacktion herausgekommenden Erlanger Litteratur-Zeitung Nr. 280",
+      "language": [],
+      "musenalm_id": 66157,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / den Recensenten / in der / Erlanger Litteratur-Zeitung Nr. 208. / im Jahre 1800 / anstatt der / Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. G. Leonhardi, Prof. der Oekonomie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / den Recensenten / in der / Erlanger Litteratur-Zeitung Nr. 208. / im Jahre 1800 / anstatt der / Vorrede",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.347Z",
+          "agent": "u39rqutfrws01lt",
+          "source_id": "l60hcmt4lzngs62"
+        }
+      ],
+      "source_id": "jo4s4jsn6cngqx5"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Forst- / und / Jagdkalender",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Forst- / und / Jagdkalender",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "j4tll6zrgb75vi7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Linné behauptet, es sey zu Hervorbringung eines neuen Gewächses nothwendig, daß der innere oder markigte Theil der älteren Pflanze mit dem äußern Theile oder der Rinde derselben gemeinschaftlich wirke.",
+      "language": [],
+      "musenalm_id": 66159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Von den / Organen der Gewächse, / welche der / Fortpflanzung und Reproduction gewidmet sind, / aus dem Englischen / von D. Darwin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Darwin; [übers.] Leonhardi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Von den / Organen der Gewächse, / welche der / Fortpflanzung und Reproduction gewidmet sind, / aus dem Englischen / von D. Darwin",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.347Z",
+          "agent": "u39rqutfrws01lt",
+          "source_id": "2ybmjsclcwi8h37"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.347Z",
+          "agent": "1cy5k4ini9poxen",
+          "source_id": "7db29ma7t2m48ol"
+        }
+      ],
+      "source_id": "becuf4anzxttnex"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66161, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Das wilde Caninchen - Lepus Caniculus - le Lapin sauvage; Buff, - the Rabbet Penn. - gehört mit dem Haasen s. Forstkalender von 1799 in eine Ordnung und Gattung unter den nagenden Thieren,",
+      "language": [],
+      "musenalm_id": 66160,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Naturgeschichte / des / wilden Caninchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Naturgeschichte / des / wilden Caninchen",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "v72m8ho9utyeu8k"
+    },
+    {
+      "annotation": "paginiert 1. /) kol. Illustration zu »Naturgeschichte des wilden Caninchen« INr 66160, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gapieux del.& sc. 1801)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux del.& sc. 1801",
+      "scans": [
+        "alm_1116_66161_q4umhw9uvm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "68hnervqj8xvw6s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "In unserm gegenwärtigen Zeitalter, wo es immer mehr an tüchtigen Bau- und Nutzhölzern zu fehlen anfängt und den nachfolgenden Generationen gewiß ganz mangeln wird,",
+      "language": [],
+      "musenalm_id": 66162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Vom Einsammeln und Aufbewahren der / Holzsaamen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Vom Einsammeln und Aufbewahren der / Holzsaamen",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "pbisl7vntqu82wd"
+    },
+    {
+      "annotation": "# Bez. an Blatt 1. der Suite /) paginiert 3 /) kol. Illustration zu »Naturgeschichte des Frettchen« INr 66164, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gapieux del. & sc. 1801)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux del. & sc. 1801",
+      "scans": [
+        "alm_1116_66163_9spue1e4l2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "jjex9tscfvy1er6"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66163, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Das Frettchen - Mustela Furo; Le Furet Putois; und The Ferret - welches auch die Namen Frett, Frettmarder, Frettle, Furet, Caninchenwiesel, wilde Wiesel, weiße Wiesel und Caninchenjäger führt - gehört mit dem Marder und Iltis in eine Ordnung und Gattung",
+      "language": [],
+      "musenalm_id": 66164,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Naturgeschichte / des Frettchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Naturgeschichte / des Frettchen",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "fd4ibehansl9pe8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66165,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Tabellarische Uebersicht / der / Waldverheerungs-Geschichte / von 1449-1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Tabellarische Uebersicht / der / Waldverheerungs-Geschichte / von 1449-1799",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "l1lhqhveds35mkn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66167, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Zu den zahlreichsten Gattungen im Vogelreiche gehöret die Entengattung und liefert zugleich unter allen Vögelgattungen das meiste eßbare Wildpret.",
+      "language": [],
+      "musenalm_id": 66166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Naturgeschichte / der Kriekente",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Naturgeschichte / der Kriekente",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "psijpjha4gm0v1i"
+    },
+    {
+      "annotation": "# Bez. an Blatt 1. der Suite /) paginiert 2 /) kol. Illustration zu »Naturgeschichte der Kriekente« INr 66166, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66167,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gapieux del. & sc. 1801)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux del. & sc. 1801",
+      "scans": [
+        "alm_1116_66167_xhvyzwrhe4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "3vuatymwhmoi80e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Wenn man in Deutschland die meisten Waldungen betrachtet, so findet man darunter nur einige gut bestandene, mehrere mittelmäßig bestandene und die meisten schlecht bestandenen oder wohl gar aus Blößen bestehende darunter.",
+      "language": [],
+      "musenalm_id": 66168,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Birkensaat, / als / das sicherste Mittel unsere zerstöhrten / Waldungen wiederum herzustellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Birkensaat, / als / das sicherste Mittel unsere zerstöhrten / Waldungen wiederum herzustellen",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "7c9kvrx9lhg1qhk"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66170, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Unter dmemzur niedern Jagd gehörenden Feder-Wildpret ist das Fleisch des Haselhuhns - Tetrao Bonasia; La Gelinote; The Hasel-Hen - ohnstreitig das gesundeste, zarteste und schmackhafteste,",
+      "language": [],
+      "musenalm_id": 66169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Naturgeschichte / des Haselhuhns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Naturgeschichte / des Haselhuhns",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "b56qqyiq3tmd854"
+    },
+    {
+      "annotation": "# Bez. an Blatt 1. der Suite /) paginiert 4 /) kol. Illustration zu »Naturgeschichte des Haselhuhns« INr 66169, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gapieux del. & sc. 1801)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux del. & sc. 1801",
+      "scans": [
+        "alm_1116_66170_o8z9oicfek.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "eavujzorbnefmbz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Zu den ungemein schnell wachsenden und viele Wurzelbrut treibenden Holzarten gehört die von vielen Forstwirthen verachtete und doch außerordentlich nutzbare Zitterpappel oder Aspe - Populus tremula -",
+      "language": [],
+      "musenalm_id": 66171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Von der Nutzbarkeit / der / Zitterpappel oder Aspe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Von der Nutzbarkeit / der / Zitterpappel oder Aspe",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "7pjizp5k0jv2lt5"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66173, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.979Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Mit dem Uhu s. Forstkalender von 1797 unter eine Ordnung und unter die Eulenfamilie ohne Federbüsche gehört der große Kautz oder die Steineule, s. T. 5. - Strix Ulula; La Couette ou grande Chevêche; The brown Owl",
+      "language": [],
+      "musenalm_id": 66172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Naturgeschichte / des Kautz oder die Steineule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Naturgeschichte / des Kautz oder die Steineule",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "gb81ztq2e9mokr6"
+    },
+    {
+      "annotation": "# Bez. an Blatt 1. der Suite /) paginiert 5 /) kol. Illustration zu »Naturgeschichte des großen Kautz oder der Steineule« INr 66172, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.980Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gapieux del. & sc. 1801)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux del. & sc. 1801",
+      "scans": [
+        "alm_1116_66173_l1l7r3f29o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "4pmhk1z9ecjywiw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Das in der Levante einheimische Windspiel oder der Windhund - Canis grajus; le Levrièr; the Common Greyhound - ist eine der schönsten Hundearten, und unter allen die flüchtigste,",
+      "language": [],
+      "musenalm_id": 66174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Vom Windhunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Vom Windhunde",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "jmvfhzk1nojjtg0"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66176, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "Zu den sehr schädlichen Feinden der Eichen, gehört ohnstreitig die auf Taf. 6 von Herrn Capieux nach der Natur in ihrer ganzen Haushaltung abgebildete Katzeneule Phalaena Bombyx Processionea",
+      "language": [],
+      "musenalm_id": 66175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Naturgeschichte / der / Katzeneule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Naturgeschichte / der / Katzeneule",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "1wr70kllzuif1kr"
+    },
+    {
+      "annotation": "# Bez. an Blatt 1. der Suite /) paginiert 6 /) kol. Illustration zu »Naturgeschichte der Katzeneule« INr 66175, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gapieux del. & sc. 1801)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux del. & sc. 1801",
+      "scans": [
+        "alm_1116_66176_bkgy738pfa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "q6zyxo8vbohgdh8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "Die Hand eines Fürsten, den Deutschland verehrt, dessen selbstsehendes Auge und eigene unermüdete Thätigkeit, Wohlstand und Glück über seine große Familie - denn das ist ihm sein Land",
+      "language": [],
+      "musenalm_id": 66177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Plan und Ankündigung / einer / öffentlichen Lehranstalt / der / Forst- und Jagdkunde / auf dem / Schlosse zu Dreyßigacker bey Meiningen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Plan und Ankündigung / einer / öffentlichen Lehranstalt / der / Forst- und Jagdkunde / auf dem / Schlosse zu Dreyßigacker bey Meiningen",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "5mc3v2j9mzz0suq"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66178,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1116_66178_qvak2iw58x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "sdt0lfxdfu0wzlw"
+    }
   ],
   "agents": [
     {

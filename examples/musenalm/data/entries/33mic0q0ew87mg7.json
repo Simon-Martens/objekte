@@ -48,16 +48,349 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "ejkkitqrm9cltk9"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.708Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406322",
+      "location": "105F02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.708Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ejkkitqrm9cltk9"
+    }
   ],
   "contents": [
-    "yrmkjet136dlz9e",
-    "ylzopzt6mmyevgf",
-    "9p0eg8eyl9saig2",
-    "f4fsemca2db69bm",
-    "ni27fedn9arlrq1",
-    "oz32tzo5rmvm8da",
-    "mmvjx9ydfnph3um"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72119,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendstunden. / Zweite Sammlung. / Inhalt: […] / Mit drei Kupfern nach Zeichnungen von / J. H. Ramberg. / Leipzig, / bei Joh. Fr. Gleditsch, 1820",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3621_72119_ajiqbpbx7u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abendstunden. / Zweite Sammlung. / Inhalt: […] / Mit drei Kupfern nach Zeichnungen von / J. H. Ramberg. / Leipzig, / bei Joh. Fr. Gleditsch, 1820",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "yrmkjet136dlz9e"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz im Titelblatt /) mit einer Illustration s. Graphik INr 72121, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Wintermond hatte seinen weißen Flockenmantel über Bäume und Pfade des fürstlichen Schloßgartens geworfen und droben funkelten die Sterne des Himmels in wundervoller Pracht.",
+      "language": [],
+      "musenalm_id": 72120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Büßenden #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Büßenden #",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "tsqfi3fxnouj2ti"
+        }
+      ],
+      "source_id": "ylzopzt6mmyevgf"
+    },
+    {
+      "annotation": "paginiert S. 82 /) Illustration zu »Die Büßenden« von Fr. Laun d.i. F. A. Schulze INr 72120, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg F. Rosmäsler der Jüngere 1820)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg F. Rosmäsler der Jüngere 1820",
+      "scans": [
+        "alm_3621_72121_l9kwpfx0zh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "cpc4lu33h5yizsp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "pkr28x9l3k06jyb"
+        }
+      ],
+      "source_id": "9p0eg8eyl9saig2"
+    },
+    {
+      "annotation": "Illustration zu »Das Haupt des Holofernes« von Fr. Laun d.i. F. A. Schulze INr 71223, Obj 5 /) # Bezeichnung S sc. = liegendes S mit Schwert",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Haupt des Holofernes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. S. sclp.",
+      "scans": [
+        "alm_3621_72122_57hpyz2krb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Haupt des Holofernes",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zu9qv98u31deoxx"
+        }
+      ],
+      "source_id": "f4fsemca2db69bm"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik IN 72122, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Finstern Gesichts, doch mit gewohnter Sorgfalt, hatte der Maler Cristoforo Allori so eben die Farben auf seine Palette gesetzt.",
+      "language": [],
+      "musenalm_id": 72123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Haupt des Holofernes",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Haupt des Holofernes",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "l31wb13esa576oy"
+        }
+      ],
+      "source_id": "ni27fedn9arlrq1"
+    },
+    {
+      "annotation": "# Bez. vom Titelblatt /) Illustration zu »Die unsichtbare Prinzessin« von Fr. Laun d.i. G. A. Schulze INr 72126, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die unsichtbare Prinzessin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg",
+      "scans": [
+        "alm_3621_72124_3khyuivazu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die unsichtbare Prinzessin",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "w2bex7cxv6wzsvg"
+        }
+      ],
+      "source_id": "oz32tzo5rmvm8da"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 7214, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Kein Mensch in der ganzen Residenz wußte, was er aus Herrn Massenberg machen sollte.",
+      "language": [],
+      "musenalm_id": 72125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die unsichtbare Prinzessin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die unsichtbare Prinzessin",
+      "updated": "2010-10-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "zzerfcs4lgkdxhb"
+        }
+      ],
+      "source_id": "mmvjx9ydfnph3um"
+    }
   ],
   "agents": [
     {

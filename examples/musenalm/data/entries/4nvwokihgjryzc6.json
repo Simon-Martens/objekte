@@ -48,59 +48,2211 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "dj917x0nyeg7dtq",
-    "e6qityhpaleqfan"
+    {
+      "annotation": "kol. Umschlaggraphiken",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.486Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "405517",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.486Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "dj917x0nyeg7dtq"
+    },
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt und Schuber.\n1824:(K:Bl 1, 20,  314 SS und Ku 14.) Mit Tku 1, Bl 1, 20 SS,  Ku 14, und 314 SS.  \n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.486Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101104",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.486Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "e6qityhpaleqfan"
+    }
   ],
   "contents": [
-    "d2w6ipgqztffwu8",
-    "tm6fe6xfhugg101",
-    "o5ku2jd22edacgj",
-    "zmw4c5gag0q01av",
-    "tn41nm6hrt3l70y",
-    "51mx3wsie5z4dpr",
-    "k4zc1bpldgpyj3o",
-    "vno6zv1dcwbvvbv",
-    "esp2skazmdoubbl",
-    "v8fm4pyyk2gjlwq",
-    "q40aeho8u5m7hbh",
-    "m5nqj6b14mfcs3r",
-    "v0q18dxgpgal6r4",
-    "sfxo4pnkrm8zs45",
-    "9a3qe8ydy8251ej",
-    "ly958e01ht0r8hl",
-    "34g607jqb5p29ad",
-    "ql6x0p3tb4dgw7h",
-    "80n9kehdljl0u89",
-    "4iwp22yqjp3pv20",
-    "r2qucmml19o34cm",
-    "chu4tiwsbiuma51",
-    "dscqyk3kkxmku2i",
-    "l5qtevosw35bv9o",
-    "hke1aqiylqgarqc",
-    "3s7gm0pxchqt9w5",
-    "b9jic5r45yuetie",
-    "pmnloo7d18mlsi4",
-    "rfguqb5dpwokg4a",
-    "vkc2rz01vmqhqpm",
-    "w2knwmimlsr8qpu",
-    "kvx640ral2ni2lf",
-    "6a08sfqa0y6ae8x",
-    "tcgxqt6y188twzp",
-    "g24qmtbc824caxt",
-    "cqem4ix6bvuwhx6",
-    "cutwq9n7vdexaop",
-    "otboystyqmvdvaw",
-    "9beqskt694v2dno",
-    "ly55y4rel2q78vq",
-    "boxoj84wixr40a1",
-    "dbqykrd1lxjxwjq",
-    "3fboheuxjdhpm1j",
-    "4xzdofblu1bbdai",
-    "4zqiy9fk1oey7xk",
-    "jl6kg4quo2xjwm0",
-    "ugar9pyy2cs5z2n",
-    "3ahogsp2mdymw44",
-    "p6vrdkcb1y7c53y"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für das Jahr 1824",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_387_29924_ndynrkprq4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für das Jahr 1824",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "d2w6ipgqztffwu8"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg inv. del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_387_29925_kmador2bz0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.614Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "j2bu52ara3u0765"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.614Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "r9hsdnlo82l0ehi"
+        }
+      ],
+      "source_id": "tm6fe6xfhugg101"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29926,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für das Jahr 1824. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. ST. SCHÜTZE. / Frankfurt am Main, / bei Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Geiler sc.",
+      "scans": [
+        "alm_387_29926_nl3vlemt3n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für das Jahr 1824. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. ST. SCHÜTZE. / Frankfurt am Main, / bei Friedrich Wilmans",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "o5ku2jd22edacgj"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit einer Auflistung der Themen der je 12 Graphiken aus den 13 Jgg 1811-1823 (Photos 29927,01-29927,03)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie sehr man bei den kleinen Kupfern, die den Eingang dieses Taschenbuchs ausmachen, immer auf Abwechslung bedacht gewesen, lehrt schon ein Überblick von 1811 an.",
+      "language": [],
+      "musenalm_id": 29927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [
+        "alm_387_29927_01_ib8g3f8iuu.jpg",
+        "alm_387_29927_02_gh768w09v7.jpg",
+        "alm_387_29927_03_gvw9dqj52z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.615Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "isodrika0eqpvy1"
+        }
+      ],
+      "source_id": "zmw4c5gag0q01av"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "tn41nm6hrt3l70y"
+    },
+    {
+      "annotation": "s. Graphik INr 29930, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Gegenstand spricht für sich. Man weiß schon wie sehr die Katzen, auch ohne abgerichtet zu seyn,",
+      "language": [],
+      "musenalm_id": 29929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Katzenconcert / von / David Tenniers dem Jüngern. / 9¾ Zoll Höhe, 13 Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Katzenconcert / von / David Tenniers dem Jüngern. / 9¾ Zoll Höhe, 13 Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "51mx3wsie5z4dpr"
+    },
+    {
+      "annotation": "s. Textbezug INr 29929, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (D. Tennier pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Tennier pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29930_7m5mbmm79g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.316Z",
+          "agent": "cbhn52mhk8pern1",
+          "source_id": "bl0c6wtrwuvi0pl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.316Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "l4182yxvz02m34x"
+        }
+      ],
+      "source_id": "k4zc1bpldgpyj3o"
+    },
+    {
+      "annotation": "s. Graphik INr 29932, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Der falsche Spieler übt, wie man sieht, seinen Betrug dadurch aus, daß ihm ein Mitverbündeter",
+      "language": [],
+      "musenalm_id": 29931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der falsche Spieler / von Jacob Callot. / 8¼ Zoll Höhe, 12 Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der falsche Spieler / von Jacob Callot. / 8¼ Zoll Höhe, 12 Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "vno6zv1dcwbvvbv"
+    },
+    {
+      "annotation": "s. Textbezug INr 29931, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Callot pinx W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Callot pinx W. Jury fec.",
+      "scans": [
+        "alm_387_29932_1ea39xj3xc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.529Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.529Z",
+          "agent": "v00ysyxqfcpw7nk",
+          "source_id": "4y8e2qje3tld920"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.529Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.529Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "clm28fkj7g3ham9"
+        }
+      ],
+      "source_id": "esp2skazmdoubbl"
+    },
+    {
+      "annotation": "s. Graphik INr 29934, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Dieß Bild gewährt das Vergnügen des Idyllischen, es zeigt in einer auffallenden Gegend das Leben ländlicher Betriebsamkeit",
+      "language": [],
+      "musenalm_id": 29933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hirtenscene / von Solimaker. / 23¼ Zoll Höhe, 32 Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hirtenscene / von Solimaker. / 23¼ Zoll Höhe, 32 Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "v8fm4pyyk2gjlwq"
+    },
+    {
+      "annotation": "s. Textbezug INr 29933, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Solimacker pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Solimacker pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29934_6p5n8p05gb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.439Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.439Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "17cwxb7g70d8nau"
+        }
+      ],
+      "source_id": "q40aeho8u5m7hbh"
+    },
+    {
+      "annotation": "s. Graphik INr 29936, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Anmuthig und einladend, so saß man, durch den Anblick gereizt und durch den Zauber der Kunst",
+      "language": [],
+      "musenalm_id": 29935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldbrücke / von / Jacob Ruysdael / 19¾ Zoll Höhe, 22¼ Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldbrücke / von / Jacob Ruysdael / 19¾ Zoll Höhe, 22¼ Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "m5nqj6b14mfcs3r"
+    },
+    {
+      "annotation": "s. Textbezug INr 29935, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.986Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Ruÿsdael pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ruÿsdael pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29936_25sqd1jba0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "czugdtg9a4zyb1a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "rt3x5pdcguwshd1",
+          "source_id": "ew4631nfwyocmaw"
+        }
+      ],
+      "source_id": "v0q18dxgpgal6r4"
+    },
+    {
+      "annotation": "s. Graphik INr 29938, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Dieses Bild athmet ganz und gar Ruhe und Erholung. Bauersleute haben sich zum Trinken und Spielen niedergelassen;",
+      "language": [],
+      "musenalm_id": 29937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ländliche Trinkscene / von / Adrian von Ostade. / 12½ Zoll Höhe, 11 Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ländliche Trinkscene / von / Adrian von Ostade. / 12½ Zoll Höhe, 11 Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "sfxo4pnkrm8zs45"
+    },
+    {
+      "annotation": "s. Textbezug INr 29337, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. v. Ostade pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Ostade pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29938_vi5ntv3vui.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "jc38k4lunh79qyy",
+          "source_id": "32exa1vhwdrqlyy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "dra052ursm4vg2b"
+        }
+      ],
+      "source_id": "9a3qe8ydy8251ej"
+    },
+    {
+      "annotation": "s. Graphik INr 29940, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Wir sehen hier den jungen Tobias mit seiner jungen Frau Sara nebst der reichen Mitgift ihres Vaters,",
+      "language": [],
+      "musenalm_id": 29939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Heimkehr des jungen Tobias / von Nicol. Berghem. / 21½ Zoll Höhe, 25½ Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Heimkehr des jungen Tobias / von Nicol. Berghem. / 21½ Zoll Höhe, 25½ Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "ly958e01ht0r8hl"
+    },
+    {
+      "annotation": "s. Textbezug INr 29339, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (N. Berghem pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Berghem pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29940_6hqlbr82ub.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "9a313ypmn6fzfj6",
+          "source_id": "2qa0b4cexfmffc8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "h76b9xlfp1nxu0c"
+        }
+      ],
+      "source_id": "34g607jqb5p29ad"
+    },
+    {
+      "annotation": "s. Graphik INr 29942, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Kaufmännische Regsamkeit in einem Hafen, Anhäufung von Gütern und Empfang neuer Waaren",
+      "language": [],
+      "musenalm_id": 29941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Italienischer Meerhafen mit Waaren / von Thomas Wyck. / 21¾ Zoll Höhe, 24¾ Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Italienischer Meerhafen mit Waaren / von Thomas Wyck. / 21¾ Zoll Höhe, 24¾ Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "ql6x0p3tb4dgw7h"
+    },
+    {
+      "annotation": "s. Textbezug INr 29941, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (T. Wÿck pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Wÿck pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29942_p474o50m9r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "daimpa2xayio9lb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "cdortibbf2f29bc",
+          "source_id": "ptdarwe5ok0gx35"
+        }
+      ],
+      "source_id": "80n9kehdljl0u89"
+    },
+    {
+      "annotation": "s. Graphik INr 29944, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Der Gegenstand ist aus der Apostelgeschichte entlehnt, aus dem 14. Capitel,",
+      "language": [],
+      "musenalm_id": 29943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Paulus und Barnabas eifern wider Götzenopfer / von Adam Elzheimer. / 12 Zoll Höhe, 13¾ Zoll Länge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Paulus und Barnabas eifern wider Götzenopfer / von Adam Elzheimer. / 12 Zoll Höhe, 13¾ Zoll Länge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "4iwp22yqjp3pv20"
+    },
+    {
+      "annotation": "s. Textbezug INr 29943, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. Elzheimer pinx. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Elzheimer pinx. W. Jury fec.",
+      "scans": [
+        "alm_387_29944_sb9ssx4cdn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "mozmrzb06oqaln6",
+          "source_id": "bksvc2qnyrotbdy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "q7x2shxiinzdwqf"
+        }
+      ],
+      "source_id": "r2qucmml19o34cm"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29946, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vor geraumer Zeit, es läßt sich nicht genau angeben, wann?",
+      "language": [],
+      "musenalm_id": 29945,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Wünsche und Erfüllungen. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Bührlen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Wünsche und Erfüllungen. / Eine Erzählung",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "mkvi75e7anbiiw5",
+          "source_id": "cay5emjsf6o0pyj"
+        }
+      ],
+      "source_id": "chu4tiwsbiuma51"
+    },
+    {
+      "annotation": "Illustration zu »Wünsche und Erfüllungen« von F. L. Bührlen INr 29945, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29946,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Wünsche und Erfüllungen. / Eine Erzäh- / lung von Fr. L. Bührlen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_387_29946_sdsgtxl00x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Wünsche und Erfüllungen. / Eine Erzäh- / lung von Fr. L. Bührlen",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "bsuf6rhoipr9uf1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "u5ld8npdcqxxtxz"
+        }
+      ],
+      "source_id": "dscqyk3kkxmku2i"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29948, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Mein trauter Freund, vermelden soll ich dir, / Was mir begegnet, seit wir uns verlassen,",
+      "language": [],
+      "musenalm_id": 29947,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Frohntag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. G. Prätzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Frohntag",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "ufh0csiazwb0bf6",
+          "source_id": "dhdv0kpmpqafq0f"
+        }
+      ],
+      "source_id": "l5qtevosw35bv9o"
+    },
+    {
+      "annotation": "Illustration Zu »Der Frohntag« von K. G. Prätzel INr 29947, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29948,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus dem Frohntag, Erzählung von K. G. Prätzel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_387_29948_m3pqnsgufj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus dem Frohntag, Erzählung von K. G. Prätzel",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.441Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.441Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "0hi3wz1qtbi9yfx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.440Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ij4rzd8sx3mt3fr"
+        }
+      ],
+      "source_id": "hke1aqiylqgarqc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Drei Junggesellen miteinander / Die zogen hin auf langen Wander,",
+      "language": [],
+      "musenalm_id": 29949,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das letzte Brod. / Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das letzte Brod. / Schwank",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.441Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.441Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "xbt0tkwrdz7dp1d"
+        }
+      ],
+      "source_id": "3s7gm0pxchqt9w5"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29951, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "In ihrem Zimmer saß Ignez Runez, einsam, den Kopf auf ihren Arm gestützt,",
+      "language": [],
+      "musenalm_id": 29950,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Belagerung von Antwerpen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Belagerung von Antwerpen",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.441Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.441Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "ab7gxxvpvdm1z11"
+        }
+      ],
+      "source_id": "b9jic5r45yuetie"
+    },
+    {
+      "annotation": "Illustration zu »Die Belagerung von Antwerpen« von A. von Tromlitz d. i. K. A. F. v. Witzleben INr 29950, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29951,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Belagerung von Antwerpen, Erzählung / von A. von Tromlitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_387_29951_2pv23dtyk1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Belagerung von Antwerpen, Erzählung / von A. von Tromlitz",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.441Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.441Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "7mba9fd5v8erad4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.441Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.441Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "plfg5ani2f02gi8"
+        }
+      ],
+      "source_id": "pmnloo7d18mlsi4"
+    },
+    {
+      "annotation": "s. INr 29953, Obj 30; mit einer Illustration s.Graphik INr 29954, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Spiegelnd ergießt sich der herrliche See, der thaten-/ berühmte / Vierwaldstädter, und licht funkelt die Sonne darauf;",
+      "language": [],
+      "musenalm_id": 29952,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Abend am Vierwaldstädter See. / In zwei Idyllen / I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Abend am Vierwaldstädter See. / In zwei Idyllen / I.",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.441Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.441Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "yiodaxtrzvpxyw6"
+        }
+      ],
+      "source_id": "rfguqb5dpwokg4a"
+    },
+    {
+      "annotation": "5. Der Abend am Vierwaldstädter See. In zwei Idyllen s. INr 29952, Obj 29; mit einer Illustration s. Graphik INr 29954, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Völlig gesunken ist nun die Sonne; der heilige Mond / steigt / Zwischen den Felsen herauf, strahlend, ein freudiger / Held.",
+      "language": [],
+      "musenalm_id": 29953,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.318Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "vkmrmg1j025d73v"
+        }
+      ],
+      "source_id": "vkc2rz01vmqhqpm"
+    },
+    {
+      "annotation": "Illustration zu »Der Abend am Vierwaldstädter See« von L. Brachmann INr 29952, 29953; Obj 29, 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29954,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Der Abend am Vierwaldstädter See, / von L. Brachmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_387_29954_8hfrg0rbii.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Der Abend am Vierwaldstädter See, / von L. Brachmann",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.318Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "oqnnthqhmqwntdz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.318Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "quecn03o7s21p8a"
+        }
+      ],
+      "source_id": "w2knwmimlsr8qpu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Die Garden waren unter den Fenstern des Fürsten vorüberdefilirt und der Paradeplatz fing an leer zu werden.",
+      "language": [],
+      "musenalm_id": 29955,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Ferse des Achilles. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Borromäus von Miltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Ferse des Achilles. / Erzählung",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.318Z",
+          "agent": "e36ydmk4x9m4umt",
+          "source_id": "igwfi2u5jbe6k1k"
+        }
+      ],
+      "source_id": "kvx640ral2ni2lf"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 29957-29959, Obj 34-36",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29956,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Gedichte / von / Langbein, Schütze und Tiedge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Gedichte / von / Langbein, Schütze und Tiedge",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "6a08sfqa0y6ae8x"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Unter dieser Bennenung ist eine Bildsäule im Dome zu Naumburg an der Saale bekannt. /) 7. Gedichte von Langbein, Schütze und Tiedge (Sammlung INr 29956, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Herr Ritter, sagte der alte Graf, / Traut meinem Gelöbniß im Stillen!",
+      "language": [],
+      "musenalm_id": 29957,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die lachende Braut #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die lachende Braut #",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.318Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "9pnegoj3uklwq6b"
+        }
+      ],
+      "source_id": "tcgxqt6y188twzp"
+    },
+    {
+      "annotation": "7. Gedichte von Langbein, Schütze und Tiedge (Sammlung INr 29956, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Hoch rauscht der Wald; mich dünket klagt die Eiche / Daß mich mein Volk verläßt;",
+      "language": [],
+      "musenalm_id": 29958,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Allerdeutschenfest. / (Mel. Bekränzt mit Laub etc)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Allerdeutschenfest. / (Mel. Bekränzt mit Laub etc)",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "zz0yir0pwvo93ee"
+        }
+      ],
+      "source_id": "g24qmtbc824caxt"
+    },
+    {
+      "annotation": "7. Gedichte von Langbein, Schütze und Tiedge (Sammlung INr 29956, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Heim ist schon der Mond gegangen, / Aber hell ist noch mein Sinn,",
+      "language": [],
+      "musenalm_id": 29959,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Lindenstelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Lindenstelle",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "5komt8a204jx9ho"
+        }
+      ],
+      "source_id": "cqem4ix6bvuwhx6"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29961, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Ein Zeitungsblatt in der Linken, stand der General Wartenholm vor der großen Landcharte an der Wand seines Wohnzimers.",
+      "language": [],
+      "musenalm_id": 29960,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die Verdächtigen. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die Verdächtigen. / Erzählung",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "d4xv2g8q50qvc0y"
+        }
+      ],
+      "source_id": "cutwq9n7vdexaop"
+    },
+    {
+      "annotation": "Illustration zu »Die Verdächtigen« von Fr. Laun d. i. F. A. Schulze INr 29960, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29961,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Die Verdächtige, Erzählung von / Fr. Laun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_387_29961_psrflwphb6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Die Verdächtige, Erzählung von / Fr. Laun",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "rwvfpx1nn85sqs8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "z98s6nsyglxki31"
+        }
+      ],
+      "source_id": "otboystyqmvdvaw"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 29963-29969, Obj 40-46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29962,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Vermischte Gedichte",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "9beqskt694v2dno"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Mit der Lerche möcht' ich schweben, / Nach des Himmels stillem Blau;",
+      "language": [],
+      "musenalm_id": 29963,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Herbst 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lina Reinhardt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Herbst 1822",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "mkz3b0l4gdht2nh",
+          "source_id": "3inmwv0rksq1rf2"
+        }
+      ],
+      "source_id": "ly55y4rel2q78vq"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Was suchst Du in den ernsten Hallen / Mein frei unschuldig Vögelein?",
+      "language": [],
+      "musenalm_id": 29964,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vogel in der Kirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise von Hohenhausen geb. v. Ochs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vogel in der Kirche",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "l4nakuz602475ls"
+        }
+      ],
+      "source_id": "boxoj84wixr40a1"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Ich weiß nun ein Plätzchen,so heimlich und kühl! / Das lockt mich mit Freundlichkeit an,",
+      "language": [],
+      "musenalm_id": 29965,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Plätzchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. J. Widmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Plätzchen",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "dbqykrd1lxjxwjq"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Die Kugel, Freund, sey dir gegeben / Als sinnig Bild vom geist'gen Leben:",
+      "language": [],
+      "musenalm_id": 29966,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mit einer Kugel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mit einer Kugel",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "3fboheuxjdhpm1j"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "So ist mir doch, du Wald und Flur, / Und du, allwaltende Natur,",
+      "language": [],
+      "musenalm_id": 29967,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Natur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. Kannegießer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Natur",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "vmqur31l5jqxgmx",
+          "source_id": "e3qjuzf8zg8mvud"
+        }
+      ],
+      "source_id": "4xzdofblu1bbdai"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Ich nehme, Kästchen, dich in meine Hände / Du aber, klein Nadel, strebst sofort",
+      "language": [],
+      "musenalm_id": 29968,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Magnetnadel. / Unterwegs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. Kannegießer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Magnetnadel. / Unterwegs",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "vmqur31l5jqxgmx",
+          "source_id": "2zf4kvr6fgt5uzn"
+        }
+      ],
+      "source_id": "4zqiy9fk1oey7xk"
+    },
+    {
+      "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "Endlich feiern wir einmal / Frohe Zeit und Jubelfeste,",
+      "language": [],
+      "musenalm_id": 29969,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jubelpokal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Jubelpokal",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.319Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ieckio2mju6a5z1"
+        }
+      ],
+      "source_id": "jl6kg4quo2xjwm0"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32493,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frankfurt a/M / bei / Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_387_32493_nhvd0r5le0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frankfurt a/M / bei / Friedrich Wilmans",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "ugar9pyy2cs5z2n"
+    },
+    {
+      "annotation": "kol. Umschlaggraphik r. /) Umschlag eines 2. Exemplars",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 105965,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_387_105965_fkea9qythq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ahogsp2mdymw44"
+    },
+    {
+      "annotation": "kol. Umschlaggraphik v. /) Umschlag eines 2. Exemplars",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 105966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_387_105966_93tftdt369.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "p6vrdkcb1y7c53y"
+    }
   ],
   "agents": [
     {

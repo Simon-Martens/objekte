@@ -48,27 +48,821 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "qzd25yi480cs61n"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit Goldschnitt.\n1837: (K: M. Ku 8.) Mit Port 1, Ku 6, Bl 7 und 414 SS.\n",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100774",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qzd25yi480cs61n"
+    }
   ],
   "contents": [
-    "d679g4huusqn20l",
-    "4rzhua6r6n1s15m",
-    "xq7108qkf954mta",
-    "u71o1h10gxqk6p9",
-    "q6t0grpt26yxkwr",
-    "7wxslf72gw4tjkt",
-    "sdf187oh7k60krs",
-    "bu50p1819vbzvea",
-    "inf965s7syjcaf4",
-    "0l3ylcsnjqzr5ug",
-    "90fkzgzxrnzo8pe",
-    "k7csebfpf66d6ua",
-    "82icak5tnwfehgw",
-    "izq7noy2re0xn9q",
-    "cfixmu4920hatxr",
-    "xustb63b3fr6wqq",
-    "09705g07wrdtcy6",
-    "2jt9g70j1r7vrrs"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102941,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3381_102941_kjv3phrx06.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "d679g4huusqn20l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR 1837. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3381_102942_pp4weaq8g3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR 1837. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "4rzhua6r6n1s15m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ich lebe in Erinnerungen, / Mein Name ist daraus entsprungen, / Mein Seyn ist ihnen ganz geweiht,",
+      "language": [],
+      "musenalm_id": 102943,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht / an die Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht / an die Leser",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "xq7108qkf954mta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102944,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "u71o1h10gxqk6p9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102945,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott! - sende Rettung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Foerster del. J. Serz sculp.",
+      "scans": [
+        "alm_3381_102945_2bn8mnvn0i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott! - sende Rettung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "fmgi30c4k9z8twt",
+          "source_id": "1gx92twrnx5rgh6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "u6usmv9ity89zes",
+          "source_id": "3q6b4hpyf5yoatl"
+        }
+      ],
+      "source_id": "q6t0grpt26yxkwr"
+    },
+    {
+      "annotation": "s. folgende Graphik INr 102947, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Rosen hab' ich ihm gewunden / In des Lorbeers dunkles Grün, / Einen Kranz, wo Liebesflammen / Bei der Dichterweihe glühn,",
+      "language": [],
+      "musenalm_id": 102946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fiametta",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fiametta",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.160Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "p50t3d2qmn47drb"
+        }
+      ],
+      "source_id": "7wxslf72gw4tjkt"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 102946, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIAMETTA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Foerster del. J. Axmann sculp.",
+      "scans": [
+        "alm_3381_102947_s3r2sr366b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIAMETTA",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "u6usmv9ity89zes",
+          "source_id": "gbhvoe5j120c5gv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "p1b1nzils4ex591"
+        }
+      ],
+      "source_id": "sdf187oh7k60krs"
+    },
+    {
+      "annotation": "s. folgende Graphik INr 102949, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.467Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zu gesteh'n nicht wagte Dante / Seine Liebe Beatricen,",
+      "language": [],
+      "musenalm_id": 102948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beatrice",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beatrice",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "d0f29tgrswvc92t"
+        }
+      ],
+      "source_id": "bu50p1819vbzvea"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 102948, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Foerster del. J. Serz sc. Nbg.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Foerster del. J. Serz sc. Nbg.",
+      "scans": [
+        "alm_3381_102949_kmq9akw7p2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "u6usmv9ity89zes",
+          "source_id": "bwjlx6993swat0i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "fmgi30c4k9z8twt",
+          "source_id": "susyhxf1jbuwng4"
+        }
+      ],
+      "source_id": "inf965s7syjcaf4"
+    },
+    {
+      "annotation": "s. folgende Graphik INr 102951, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Kaum der letzte Ton verklungen / Und die Laute rückgelehnt, / Ist schon Blondchen langersehnt, / Mutter an den Hals gesprungen,",
+      "language": [],
+      "musenalm_id": 102950,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mutter und ihr Kind",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mutter und ihr Kind",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "pxrovg8x2xwl496"
+        }
+      ],
+      "source_id": "0l3ylcsnjqzr5ug"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 102950, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. E. del. J. A. sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. E. del. J. A. sc.",
+      "scans": [
+        "alm_3381_102951_c1m66l1ibt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "8qd4je3g3id7568"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "ifxukrmyx1vxl3y"
+        }
+      ],
+      "source_id": "90fkzgzxrnzo8pe"
+    },
+    {
+      "annotation": "s. folgende Graphik INr 102953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wo kommst Du, schöne Ritta, her, / Mit Deinem schweren Korb belastet?",
+      "language": [],
+      "musenalm_id": 102952,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritta",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritta",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "g9d4pmjs37l4jbv"
+        }
+      ],
+      "source_id": "k7csebfpf66d6ua"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 102952, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102953,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Ender del. Leop. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3381_102953_aeynxf4olk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "iesgy86xac8i221"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "xqyvmk0cu8tzkhw"
+        }
+      ],
+      "source_id": "82icak5tnwfehgw"
+    },
+    {
+      "annotation": "unter der Graphik: Carlsruhe durch Kunst Verlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102954,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ADELAIDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Schuler fils. sculpsit",
+      "scans": [
+        "alm_3381_102954_dlx6pf465p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ADELAIDE",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.804Z",
+          "agent": "v51vo0pn5wj1lc4",
+          "source_id": "b125pzdf75lh6mj"
+        }
+      ],
+      "source_id": "izq7noy2re0xn9q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war ein schöner Morgen im Spätsommer. Die Luft wehte frisch und rein, und die majestätischen Wellen der Nordsee wogten gleichmäßig und mit ihrem gewohnten Rauschen,",
+      "language": [],
+      "musenalm_id": 102955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Warnungen. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Warnungen. / Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.804Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "lyiy5714kz74mpz"
+        }
+      ],
+      "source_id": "cfixmu4920hatxr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Auf einer öden Berghaide, rings umkränzt von finstern Tannen, über deren spitze Häupter die höher gethürmten Massen des Gebirgs hernieder sahen,",
+      "language": [],
+      "musenalm_id": 102956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leon. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leon. / Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.804Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "o8tn9w2yntzp3gn"
+        }
+      ],
+      "source_id": "xustb63b3fr6wqq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Mit leichtem Schnee bedeckt lagen die Straßen und die Dächer der Stadt London. Ein trüber Himmel hatte seine Schattenvorhänge ringsum ausgebreitet,",
+      "language": [],
+      "musenalm_id": 102957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Königsarg. / Geschichtliche Novelle aus der Mitte des sieb- / zehnten Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Rein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Königsarg. / Geschichtliche Novelle aus der Mitte des sieb- / zehnten Jahrhunderts",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "09705g07wrdtcy6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Zur Zeit des zweiten Balduins herrschte in Tripolis ein mächtiger Graf, aus einem edlen Provencalischen Geschlechte entsprossen und hochgerühmt in den Kämpfen des heiligen Landes.",
+      "language": [],
+      "musenalm_id": 102958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mährchen von / der Rubinrose",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Thekla",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mährchen von / der Rubinrose",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.786Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.786Z",
+          "agent": "aynjnikxgmzv0y5",
+          "source_id": "zdfqv4emdq3ekiw"
+        }
+      ],
+      "source_id": "2jt9g70j1r7vrrs"
+    }
   ],
   "agents": [
     {

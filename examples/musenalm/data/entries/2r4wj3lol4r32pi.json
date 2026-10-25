@@ -48,49 +48,1778 @@
   "year": 1796,
   "editor": "",
   "items": [
-    "kagfgis7nw6uwsb"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.537Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404909",
+      "location": "105P04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.537Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kagfgis7nw6uwsb"
+    }
   ],
   "contents": [
-    "nyrl7tcfav0rorw",
-    "51h55takugufvo0",
-    "lj3vf2dia0my3it",
-    "dr4m4g2e3o314ed",
-    "f6x7308zk32n11h",
-    "76jcwut2d30lf15",
-    "987b8kxw5bkorlf",
-    "889b1ljfn9ctxhz",
-    "8xlhabutr67jtyc",
-    "2gahbwp7n7syh97",
-    "7gf0l4kp7munmfp",
-    "9subv4xti6ososd",
-    "dfgncw4fskg8a7r",
-    "in0f8xg1er9hwxg",
-    "0btlzuvgg4n4rei",
-    "vkvqvhaol5r5wkp",
-    "9jyczhyeu27ok5q",
-    "5vptbavgfd5b6ea",
-    "0ryzygrakzdrqbt",
-    "t3cm6e36hea01aj",
-    "4w7ql3p8tuhpldb",
-    "zv9yakocpzdlpg9",
-    "5j8zw97ln31c1k5",
-    "omsxs2ykp70327c",
-    "krkjfq0w21qjw69",
-    "sd4lijnpp3xwezg",
-    "ilyi1at4xio0fj8",
-    "jlib0rsugxkigwm",
-    "nycjja5wyftszsh",
-    "awps1xuydwla99w",
-    "n6kpo42etq7teh9",
-    "lfq0piawit60i78",
-    "dqz2fp8qe08abhn",
-    "jsp1h5jgs4mz8dr",
-    "r5xht695h4dlyj8",
-    "053bgtvmuy45978",
-    "n4ww0law87berfi",
-    "uio22v30ljg6ce5",
-    "z5cn6mndagarz1u",
-    "4aoxhu934j5ytcf"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.118Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120226,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1130_120226_23ygtcev4h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "nyrl7tcfav0rorw"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120227,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoch Feldmann!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. G. Boettger sc. Lips.",
+      "scans": [
+        "alm_1130_120227_v5rgde6rr9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hoch Feldmann!",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.629Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "kej4k1w2rjaaq82"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.629Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "zkuhukq1siub3cd"
+        }
+      ],
+      "source_id": "51h55takugufvo0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120228,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neujahrs- / GESCHENCK / für / Forst- und Jagdliebhaber. / auf das Jahr / 1796 / herausgegeben / von /  L. C. E. H. F. von Wildungen / Fürstl. Hess. Regierungsrath. / Zweite Auflage / Marburg / in der neuen academischen / Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1130_120228_z3682evb72.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neujahrs- / GESCHENCK / für / Forst- und Jagdliebhaber. / auf das Jahr / 1796 / herausgegeben / von /  L. C. E. H. F. von Wildungen / Fürstl. Hess. Regierungsrath. / Zweite Auflage / Marburg / in der neuen academischen / Buchhandlung",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "lj3vf2dia0my3it"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120229,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "dr4m4g2e3o314ed"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Stolz, als hätt' ich ohne Fehlen / Sechszehn-Ender nicht zu zählen / In der Feistzeit hingestreckt, / Hör' ich Euern Ruf ertönen,",
+      "language": [],
+      "musenalm_id": 120230,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An alle brave Forst- und Jagdfreunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An alle brave Forst- und Jagdfreunde",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "f6x7308zk32n11h"
+    },
+    {
+      "annotation": "nummeriert I /) kol. Illustration zu »Das Damwild« von Hr. Reichs-Graf von Mellin zu Damizor in Vorpommern INr 120233, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120231,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Damhirsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. GB. f.",
+      "scans": [
+        "alm_1130_120231_j742ib1vv9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Damhirsch",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "8eizwuyh8axsa79"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "s77te9t19apy2zm"
+        }
+      ],
+      "source_id": "76jcwut2d30lf15"
+    },
+    {
+      "annotation": "Einleitendes Gedicht zu folgendem Beitrag INr 120233, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Du mit dem breiten Gehörne von nicht zu zählenden / Enden, / Stolz und Zierde des traulichen Hains, / ehrwürdiger Schaufler,",
+      "language": [],
+      "musenalm_id": 120232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Damwild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Damwild",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "1m41fovqabevojd"
+        }
+      ],
+      "source_id": "987b8kxw5bkorlf"
+    },
+    {
+      "annotation": "mit einem einleitenden Gedicht s. INr 120232, Obj 7 /) mit 2 Illustrationen s. Graphiken INr 120231, 120234; Obj 6, 9 /) mit einigen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wenn dem Edelhirsch, wie seine so ausgezeichnete Benennung ankündiget, einstimmig und mit Recht die erste Stelle unter den übrigen Waldbewohnern zuerkannt worden ist:",
+      "language": [],
+      "musenalm_id": 120233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Damwild]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Reichs-Graf von Mellin zu Damizor in Vorpommern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Damwild]",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "aauh6wvabz0cll5",
+          "source_id": "6947vokkssgjume"
+        }
+      ],
+      "source_id": "889b1ljfn9ctxhz"
+    },
+    {
+      "annotation": "nummeriert II /) kol. Illustration zu »Das Damwild« von Hr. Reichs-Graf von Mellin zu Damizor in Vorpommern INr 120233, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Damthier und Kalb",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. GB. f.",
+      "scans": [
+        "alm_1130_120234_p7zwx72p4l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Damthier und Kalb",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "3fqdhd6xi43qyht"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "u63ezju2kphyiqs"
+        }
+      ],
+      "source_id": "8xlhabutr67jtyc"
+    },
+    {
+      "annotation": "nummeriert III /) kol. Illustration zu »Der Fuchs« von v. Wildungen INr 120236, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.670Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seltne Füchse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. GB. f.",
+      "scans": [
+        "alm_1130_120235_z1m61pecfi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seltne Füchse",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "sb6bngmnqmebjtg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.721Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "y25r8hy5ikl4kla"
+        }
+      ],
+      "source_id": "2gahbwp7n7syh97"
+    },
+    {
+      "annotation": "Einleitendes Gedicht zu folgendem Beitrag INr 120237, Obj 12 /) mit einer Illustration s. Graphik INr 120235, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Nun ein Wörtlein von dir, du weitberüchtigter / Schlaukopf, / Meister Reinike Voß, du Sinnbild schlei- / chender Arglist,",
+      "language": [],
+      "musenalm_id": 120236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Der Fuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Der Fuchs",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "sr0uh5qjzxibwiz"
+        }
+      ],
+      "source_id": "7gf0l4kp7munmfp"
+    },
+    {
+      "annotation": "mit einem einleitenden Gedicht s. INr 120236, Obj 11 /) mit einer Illustration s. Graphik INr 120235, Obj 10 /) mit einigen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Die Naturgeschichte des Fuchses, der durch seine Klugheit und List vor allen übrigen Waldbewohnern allbekanntlich sich auszeichnet",
+      "language": [],
+      "musenalm_id": 120237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[II. Der Fuchs]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[II. Der Fuchs]",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "511yn8n6a2gzdg0"
+        }
+      ],
+      "source_id": "9subv4xti6ososd"
+    },
+    {
+      "annotation": "nummeriert V /) kol. Illustration zu »Der Trappe« von v. Wildungen INr 120239, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Trappe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. de. Wildungen ad viv. pinx. GB. sc.",
+      "scans": [
+        "alm_1130_120238_tbsktcm4wa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Trappe",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "tup6j89su4i3nwr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "xn7hrt2pjxlz912"
+        }
+      ],
+      "source_id": "dfgncw4fskg8a7r"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120238, Obj 13 /) mit einigen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Dieser in so vielen Gegenden seltene und in mehr als einer Rücksicht ausgezeichnete Vogel gehört zu einem ganz eigenen Geschlechte,",
+      "language": [],
+      "musenalm_id": 120239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.  Der Trappe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.  Der Trappe",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "s35revy9i5rq4je"
+        }
+      ],
+      "source_id": "in0f8xg1er9hwxg"
+    },
+    {
+      "annotation": "nummeriert IV /) kol. Illustration zu »Der Haselhahn« von v. Wildungen INr 120241, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haselhahn u. Huhn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. de. Wildungen ad viv. pinx. GB. sc.",
+      "scans": [
+        "alm_1130_120240_ybfeo6pzm4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Haselhahn u. Huhn",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "mnj45sexph45ywh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "vssap7z2jainplu"
+        }
+      ],
+      "source_id": "0btlzuvgg4n4rei"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120240, Obj 15 /) mit einigen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Von unsern Waldhühnern ist jezt nur die dritte, lezte und kleinste Gattung zu beschreiben noch übrig.",
+      "language": [],
+      "musenalm_id": 120241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der Haselhahn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der Haselhahn",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "3padwaibr0zco6e"
+        }
+      ],
+      "source_id": "vkvqvhaol5r5wkp"
+    },
+    {
+      "annotation": "nummeriert VI /) kol. Illustration zu »Der schwarze Storch« von v. Wildungen INr 120243, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schwarze Storch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. de. Wildungen ad viv. pinx. GB. sc.",
+      "scans": [
+        "alm_1130_120242_bj7pc2oobt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der schwarze Storch",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "qqjnvxj6ieoi9c0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "rzkmi3tp3ymwttn"
+        }
+      ],
+      "source_id": "9jyczhyeu27ok5q"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 12024285, Obj 17 /) mit einigen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Diesen seltenen, prächtigen und vielen meiner Leser gewiß noch unbekannten Vogel verdankt meine Sammlung, nebst mehreren höchst willkommenen Beiträgen, der unermüdetetn Fürsorge des verehrungswürdigsten Herrn Fürsten von Witgenstein-Berleburg.",
+      "language": [],
+      "musenalm_id": 120243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.  Der schwarze Storch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.  Der schwarze Storch",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "11ai8ug3r9pelwk"
+        }
+      ],
+      "source_id": "5vptbavgfd5b6ea"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Wenn ein so allgemein unentbehrliches Product als das Holz ist - nicht mehr in solcher Quantität erzogen wird, daß Jeder so viel davon erhalten kann, als er zu seinem Gebrauch zu bedürfen glaubt,",
+      "language": [],
+      "musenalm_id": 120244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Sichere Mittel, / den Holzpreis fallen zu machen, ohne die / luxuriöse Lebensart der Menschen ein- / zuschränken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Forstmeister Hartig zu Hungen im Fürstl. Braunschweigischen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Sichere Mittel, / den Holzpreis fallen zu machen, ohne die / luxuriöse Lebensart der Menschen ein- / zuschränken",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.722Z",
+          "agent": "hgrjbmc4usfwpzd",
+          "source_id": "av3qa4q3uq8ruxy"
+        }
+      ],
+      "source_id": "0ryzygrakzdrqbt"
+    },
+    {
+      "annotation": "mit einigen Einträgen /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Das Jahr 1795 ist bekanntlich nicht nur an politischen Phänomenen, deren Uebersicht man hoffentlich nicht suchen wird, sondern auch an physischen Anomalien von der seltensten Art so reichhaltig gewesen,",
+      "language": [],
+      "musenalm_id": 120245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Einige Forst- und Jagd-Merkwürdigkeiten / des lezten Jahrs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Einige Forst- und Jagd-Merkwürdigkeiten / des lezten Jahrs",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.671Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.671Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "zuw5xqloxulavys"
+        }
+      ],
+      "source_id": "t3cm6e36hea01aj"
+    },
+    {
+      "annotation": "mit einer Tabelle s. INr 120247, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Ein neues Buch und eine neue Flinte, so wenig sie einander ähnlich sind, haben doch nicht selten einerlei Schicksal.",
+      "language": [],
+      "musenalm_id": 120246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Vom Einschießen oder Probiren der Jagd- / Flinten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Vom Einschießen oder Probiren der Jagd- / Flinten",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "4w7ql3p8tuhpldb"
+    },
+    {
+      "annotation": "Beigabe zu »VIII. Vom Einschießen oder Probiren der Jagd-Flinten« von J. H. S. INr 120246, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tabelle zur Abhandlung No. VIII",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tabelle zur Abhandlung No. VIII",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "zv9yakocpzdlpg9"
+    },
+    {
+      "annotation": "s. »Vom Einschießen oder Probiren der Jagd-Flinten« INr 120247, Obj 22 /) mit einigen Einträgen /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Das angegebene Verhältniß des Schrots zum Pulver, nemlich wie 8 zu 1, möchte wohl zu ungleich seyn.",
+      "language": [],
+      "musenalm_id": 120248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Einige Bemerkungen zu vorstehendem Auf- / satz von einem sehr bewährten Practicus, / dem Herrn Oberforstmeister von Lehenner / zu Marburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oberfortsmeister Lehenner zu Marburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Einige Bemerkungen zu vorstehendem Auf- / satz von einem sehr bewährten Practicus, / dem Herrn Oberforstmeister von Lehenner / zu Marburg",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "5j8zw97ln31c1k5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Daß eine abgeworfen gefundene, folglich nach der Regel ganz vertrocknete Hirschstange fast einer Spange hoch über der Rose noch heftig schweiße,",
+      "language": [],
+      "musenalm_id": 120249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Höchstmerkwürdiges Phänomen an einer ab- / geworfenen Hirschstange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Höchstmerkwürdiges Phänomen an einer ab- / geworfenen Hirschstange",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.671Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.671Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "kf6kn7lhkht7afx"
+        }
+      ],
+      "source_id": "omsxs2ykp70327c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Le Vaillant erzählt uns in seiner bekannten Reise ins Innere von Afrika, daß er, um der kleinen Vögel, ohne sie zu beschädigen, habhaft zu werden, seine Flinte nach Erfordern der Umstände bald stärker, bald schwächer mit Pulver geladen,",
+      "language": [],
+      "musenalm_id": 120250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Berichtigung eines in manchen Schriften / bemerkten Irrthums",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Bürgermeister Winkler zu Osterburg in der Altmark",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Berichtigung eines in manchen Schriften / bemerkten Irrthums",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "krkjfq0w21qjw69"
+    },
+    {
+      "annotation": "mit 13 Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Diesmal blos die Anzeige, nicht Recension, weil es an Raum fehlt.",
+      "language": [],
+      "musenalm_id": 120251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Anzeige einiger der neusten Schriften aus / unsern Lieblingsfächern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Anzeige einiger der neusten Schriften aus / unsern Lieblingsfächern",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "sd4lijnpp3xwezg"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen INr 120253-120259, Obj 28-34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Forst- und Jagd-Anekdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Forst- und Jagd-Anekdoten",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.671Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.671Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "k76u5ldetd1n8qb"
+        }
+      ],
+      "source_id": "ilyi1at4xio0fj8"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Ein gewisser Oberforstmeister verschrieb aus Frankfurt 50 Pfund Forlensaamen.",
+      "language": [],
+      "musenalm_id": 120253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.584Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "lxmyc5ttt0ysppg"
+        }
+      ],
+      "source_id": "jlib0rsugxkigwm"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27) Anm. am Objekt: Siehe Schloß Wartburg. Ein Beitrag zur Kunde der Vorzeit. Gotha 1792. S. 137, 138",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Doctor Luther schreib einst aus seiner Gefangenschaft auf dem Schloß Wartburg, das er sein Luftrevier und Vögelherberg zu nennen pflegte, an seinen Freund Spalatin: Ich bin zwei Tage auf Jagd gewesen",
+      "language": [],
+      "musenalm_id": 120254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.584Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "3txgj0i4yxytq9i"
+        }
+      ],
+      "source_id": "nycjja5wyftszsh"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Der Commendant einer gewissen Vestung berief sich auf eine uralte Obeservanz,",
+      "language": [],
+      "musenalm_id": 120255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.584Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "zkowwoapa7krdk0"
+        }
+      ],
+      "source_id": "awps1xuydwla99w"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Ein Jagdliebhaber mit der Doppelflinte sucht ein Hirtenstück ab. Eine Wachtel flog auf - er schoß -",
+      "language": [],
+      "musenalm_id": 120256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.584Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "st8tu2levnd8t8k"
+        }
+      ],
+      "source_id": "n6kpo42etq7teh9"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Ein ehemaliger Wildmeister zu Dresden (sehr glaubwürdig ist mir diese Geschichte erzählt worden) gerieth einst auf der Schweinsjagd mit einem rüstigen Keuler in so gefährliche Collision,",
+      "language": [],
+      "musenalm_id": 120257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.584Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "ymh382pmwrvdfmt"
+        }
+      ],
+      "source_id": "lfq0piawit60i78"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Kürzlich sah ich eine alte Original-Visitenkarte, auf der eine gewisse Frau Oberjägermeisterin von S** sich Grande Maitresse de la Venaison (deutsch: Grosmeisterin vom Wildprets-Feist) betitelt hatte.",
+      "language": [],
+      "musenalm_id": 120258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.584Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "09tzna5lbnn6zid"
+        }
+      ],
+      "source_id": "dqz2fp8qe08abhn"
+    },
+    {
+      "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Ein mir noch unbekanntes Pröbchen von alten Jägeraberglauben fand ich neulich in einem Buche, betitelt: Neu vermehrter Heldenschatz von Johann Stracio,",
+      "language": [],
+      "musenalm_id": 120259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.585Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.585Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "fa1dtehy6rab3q0"
+        }
+      ],
+      "source_id": "jsp1h5jgs4mz8dr"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 120261-120264, Obj 36-39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Neue Jägergedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Neue Jägergedichte",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "r5xht695h4dlyj8"
+    },
+    {
+      "annotation": "XIV. Neue Jägergedichte (Sammlung INr 127260, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Bekränzt mit Laub die runden Jägerhüte! / Lobsingt den Wald mit mir!",
+      "language": [],
+      "musenalm_id": 120261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Wald. / Parodie des treflichen Rheinweinliedes von / Claudius. / In bekannter Melodie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Wald. / Parodie des treflichen Rheinweinliedes von / Claudius. / In bekannter Melodie",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.742Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "y0te4v2cck1lddd"
+        }
+      ],
+      "source_id": "053bgtvmuy45978"
+    },
+    {
+      "annotation": "XIV. Neue Jägergedichte (Sammlung INr 127260, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Am kältesten Tag  des letztern Winters strich / Magister -us, Pastor, ich weiß wohl wo, / Vom nächsten Dorf zur Vesperzeit nach Haus.",
+      "language": [],
+      "musenalm_id": 120262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Schwarz und Grün. / Wahre Anekdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Schwarz und Grün. / Wahre Anekdoten",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.742Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "2336eundcc2d9tz"
+        }
+      ],
+      "source_id": "n4ww0law87berfi"
+    },
+    {
+      "annotation": "XIV. Neue Jägergedichte (Sammlung INr 127260, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Hör' o Königin der Haine, / Deines Priesters Klaggesang! / Trostlos steh' ich und beweine / Deines Reiches Untergang.",
+      "language": [],
+      "musenalm_id": 120263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Lamentoso an Dianen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Lamentoso an Dianen",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.742Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "gwqf6cl7h84db83"
+        }
+      ],
+      "source_id": "uio22v30ljg6ce5"
+    },
+    {
+      "annotation": "XIV. Neue Jägergedichte (Sammlung INr 127260, Obj 35) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Ein Thier mit seinem Kalbe saß / Auf lichtem Schlag im hohem Gras -",
+      "language": [],
+      "musenalm_id": 120264,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Jägercostume. / Eine Fabel. / Hier machen Kleider nicht Leute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Jägercostume. / Eine Fabel. / Hier machen Kleider nicht Leute",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.742Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "1y0wecnfo2ybw0n"
+        }
+      ],
+      "source_id": "z5cn6mndagarz1u"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120265,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1130_120265_wreoo3u1yh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "4aoxhu934j5ytcf"
+    }
   ],
   "agents": [
     {

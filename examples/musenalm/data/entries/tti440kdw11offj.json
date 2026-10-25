@@ -49,80 +49,3054 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "dunm0hycucdsqxh"
+    {
+      "annotation": "K gibt an: Taschenbuch für Forst u. Jagdfreunde Jgg 1800-1812 in 8 Bdn; Forts.: Sylvan 1813-1828 (ab 1823 bei K. Groß, Leipzig, Heidelberg); und: TB z. Nutzen und Vergnügen f. Wald- u. Jagdfreunde (1827/28?; 1831?). K 90 u. L/R 137 ff geben als Vorläuferreihe an: Neujahrsgeschenk für Forst- und Jagdliebhaber (L/R: Jgg 1793-1799; K: 1794-1798)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.538Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404017",
+      "location": "105P05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.538Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "dunm0hycucdsqxh"
+    }
   ],
   "contents": [
-    "nuyn9s3sqmwltd7",
-    "r6x5z690h5xk4fx",
-    "v01gkye0zmwf1l7",
-    "z22whpvrxy5xh4q",
-    "yqr3l5day214wk3",
-    "bujmj8f9zzywqn7",
-    "21d2dn0zutzddru",
-    "c2d9pz7o739c5sf",
-    "1gqzhafofeyajkq",
-    "77fzuthi1518gof",
-    "48hjc8l3oy10jh6",
-    "yowugd5hafgia1o",
-    "uiy3246a8qf0g6l",
-    "spep7p2wb8lheoh",
-    "mvuyt2rnhudek0j",
-    "h4ip8l5u4n70xcv",
-    "lpot05yz7c1la6w",
-    "k5r7yppu1vzvk8v",
-    "qufjvhtk3yri593",
-    "fs0o8m54bs40gcc",
-    "zl2gzxsjdzpqyfn",
-    "c6z1zrd3l24584s",
-    "owuy0u0jxq01apg",
-    "96v8qmzmxvcbswt",
-    "pyi1lwh6zda79q8",
-    "9x4lceks4ju52om",
-    "fkcxoggb42vy1pz",
-    "eh3io2bs7rh8a8b",
-    "qhc34yytoa80cp1",
-    "vl8vv5h4qhqho95",
-    "zxs05no3aux9wy6",
-    "aeudq59gleokr3x",
-    "9kddmydpf5pvuh2",
-    "qk0szb2znlh2lpt",
-    "p8c1hkf421qe9z9",
-    "a0vkzoy615p1s7q",
-    "mgmmro090k3ff4z",
-    "ibn5qr2k292py5z",
-    "q4t5nnuj4idogpr",
-    "2nd1m6twdduxgaq",
-    "5d6otvyila5x0o7",
-    "5wroasa5a70b73g",
-    "94zfhd7a8kvk19q",
-    "2ol4jhu84hqii2l",
-    "n1py563oyzisykq",
-    "3antn88jxonmscd",
-    "7v0s9379efegs7q",
-    "sh34saoimw9tpbu",
-    "mafingt6ornmz8a",
-    "5wo1jv9mojv2xe2",
-    "sgmdwky2aac29xf",
-    "wvk96qiz8vg96yi",
-    "507zv9ii0vzq7hy",
-    "djrqj349qvd7gbb",
-    "31heij9q2tk4p21",
-    "l6ql2m2jjb2bytk",
-    "62qswjmqopdoq1s",
-    "10w9k1wocy20fog",
-    "kzw6aaxgm5vjsqd",
-    "nqjfyffu9099jnl",
-    "46ngqr5gxapesr0",
-    "viwfpv8ocu9i3de",
-    "y7bv4hbpevt0yt9",
-    "u3s97rvkf2zehxe",
-    "o10v8cqthbrcc15",
-    "0ex28b3qy4r8mvh",
-    "bmb1owhj373kgwr",
-    "nogks8uqu7qatof",
-    "5yfzuml47ruzyoq",
-    "1f2gzuwwcnq9pf2",
-    "dlzmjr3bfwddoxb"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67229,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1149_67229_qbheugdhc5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "nuyn9s3sqmwltd7"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 67237, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67230,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WILHELM FRIED. FREYHERR VON DER BORCH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger sen. sc.",
+      "scans": [
+        "alm_1149_67230_h5uvqz46s5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WILHELM FRIED. FREYHERR VON DER BORCH",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "h8gadeagbve3am5"
+        }
+      ],
+      "source_id": "r6x5z690h5xk4fx"
+    },
+    {
+      "annotation": "gest. Titel s. Textbezug INr 67233, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67231,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SYLVAN, / ein Jahrbuch / für Forstmänner, Jäger / und Jagdfreunde / auf das Jahr 1816. / von / C. P. LAUROP, / Grosh. Badischem Oberforstrathe / und / V. F. FISCHER. / Grosh. Badischem Forstrathe / Marburg und Cassel / bey Johann Christian Krieger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1149_67231_et8zyexnnd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SYLVAN, / ein Jahrbuch / für Forstmänner, Jäger / und Jagdfreunde / auf das Jahr 1816. / von / C. P. LAUROP, / Grosh. Badischem Oberforstrathe / und / V. F. FISCHER. / Grosh. Badischem Forstrathe / Marburg und Cassel / bey Johann Christian Krieger",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "v01gkye0zmwf1l7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67232,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihren Hoheiten / dem Herrn Markgrafen / Leopold / dem Herrn Markgrafen / Wilhelm / und / dem Herrn Markgrafen / Maximilian / zu Baden, Herzogen zu Zähringen etc etc / den edelsten Jagd- und Jägerfreunden / ehrfurchtsvoll gewidmet / von den Herausgebern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von den Herausgebern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihren Hoheiten / dem Herrn Markgrafen / Leopold / dem Herrn Markgrafen / Wilhelm / und / dem Herrn Markgrafen / Maximilian / zu Baden, Herzogen zu Zähringen etc etc / den edelsten Jagd- und Jägerfreunden / ehrfurchtsvoll gewidmet / von den Herausgebern",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "20ldxbr4i8whm1q",
+          "source_id": "e0j99zt4b5ajt2u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "g5rhj9rfkqblqxi"
+        }
+      ],
+      "source_id": "z22whpvrxy5xh4q"
+    },
+    {
+      "annotation": "s. gest. Titel INr 67231, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Aus der reichhaltigen Sammlung monströser Geweihe, welche sich in dem markgräflich Badischen Lust- und Jagdschlosse Zwingenberg am Neckar befindet, sind diesmal hier drei Rehbocksgehörne abgebildet,",
+      "language": [],
+      "musenalm_id": 67233,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Titelvignette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Titelvignette",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "6ob48go7qnv5xcj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "20ldxbr4i8whm1q",
+          "source_id": "chyk483nxn1ru1r"
+        }
+      ],
+      "source_id": "yqr3l5day214wk3"
+    },
+    {
+      "annotation": "Vorwort der Herausgeber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Bloß um unsern friedfertigen Sylvan, für welchen es, - Dank sey unseren wackeren Mitarbeitern! - nie an Ausstattungsstoff gefehlt hat, nicht mit dem zaudernden Merkur in Collision zu bringen,",
+      "language": [],
+      "musenalm_id": 67234,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "20ldxbr4i8whm1q",
+          "source_id": "9bpqshdwpdrhqbv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "pvuk5w4d66xdhtv"
+        }
+      ],
+      "source_id": "bujmj8f9zzywqn7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67235,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "21d2dn0zutzddru"
+    },
+    {
+      "annotation": "Es folgt: Beitrag INr 67237, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Biographie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Biographie",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "c2d9pz7o739c5sf"
+    },
+    {
+      "annotation": "I. Biographie (Sammlung INr 67236, Obj 8) mit einer Illustration s. Titelportrait INr 67230, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die würdigen Herausgeber des freundlichen Sylvans haben mich aufgefordert, meine eigene Biographie für den Jahrgang 1820 zu liefern.",
+      "language": [],
+      "musenalm_id": 67237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebens-Skizze / des / Königl. Bairischen Forstmeisters Freiherrn / von der Borch. / (Von ihm selbst entworfen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebens-Skizze / des / Königl. Bairischen Forstmeisters Freiherrn / von der Borch. / (Von ihm selbst entworfen.)",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "48f9br52kg2kwzk"
+        }
+      ],
+      "source_id": "1gqzhafofeyajkq"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen mit 5 Illustrationen INr 67239-67240, 67242-67250, Obj 11-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Naturhistorische Aufsätze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Naturhistorische Aufsätze",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "77fzuthi1518gof"
+    },
+    {
+      "annotation": "paginiert I. /) kol. Illustration zu »Der Vielfraß« von V. F. S. Fischer INr 67240, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ursus Gulo (Linn.) Taxus Gulo (Tiedem.) Der Vielfraß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sandhaas jun. del. G. Boettger sen. sc.",
+      "scans": [
+        "alm_1149_67239_ovvafxjq4e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ursus Gulo (Linn.) Taxus Gulo (Tiedem.) Der Vielfraß",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.973Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "aou7tyxg31s135h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.973Z",
+          "agent": "93i1cvgb16cjfey",
+          "source_id": "dnna4d7k7q06q2x"
+        }
+      ],
+      "source_id": "48hjc8l3oy10jh6"
+    },
+    {
+      "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67238, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67239, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Viel bekannter, als dieser vierläufige Wütherich selbst, ist sein trivialer Name, der so alltäglich klingt als wäre er aus einer Gaunerliste entnommen worden",
+      "language": [],
+      "musenalm_id": 67240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Vielfraß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Vielfraß",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.973Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "1o35c99heflamlm"
+        }
+      ],
+      "source_id": "yowugd5hafgia1o"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert II. kol. Illustration zu »Der Saufinder« von von der Borch INr 67243, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canis aprinus (Lin.) Der Saubeller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Sandhaas jun. del. G. Boettger sen. sc.",
+      "scans": [
+        "alm_1149_67242_mphw8r6dyx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canis aprinus (Lin.) Der Saubeller",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.973Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "0yd9bz30r6tr1tc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.973Z",
+          "agent": "93i1cvgb16cjfey",
+          "source_id": "spe7gar4gptpkpg"
+        }
+      ],
+      "source_id": "uiy3246a8qf0g6l"
+    },
+    {
+      "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67238, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67242, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.831Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Dem Verfall der Jägerei und dem modernen Zuschnitt unserer Waidmänner verdanken wir es, wenn der ächte Saufinder nunmehr zu den Jagd- Seltenheiten gezählt werden darf.",
+      "language": [],
+      "musenalm_id": 67243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Saufinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Saufinder",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "7cmqhjwy8gnqot2"
+        }
+      ],
+      "source_id": "spep7p2wb8lheoh"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert III. kol. Illustration zu »Die weißwangigte Gans« von V. F. S. Fischer INr 67245, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.831Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anser leucopsis (Bechst.) Die weißwangige Gans",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Sandhaas del. ad. viv. G. Boettger sen. sc.",
+      "scans": [
+        "alm_1149_67244_xiq31xhlu6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anser leucopsis (Bechst.) Die weißwangige Gans",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "93illta72c9tml2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "93i1cvgb16cjfey",
+          "source_id": "qpwcezzst9f6wyx"
+        }
+      ],
+      "source_id": "mvuyt2rnhudek0j"
+    },
+    {
+      "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67238, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67244, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Wenn wir in dem Nachlasse von meiner Mutter Gans oder in der Tausend und einen Nacht lesen würden, daß auf Weidenbäumen Muscheln wachsen",
+      "language": [],
+      "musenalm_id": 67245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die weißwangigte Gans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die weißwangigte Gans",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "h4ip8l5u4n70xcv"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert IV. kol. Illustration zu »Noch zwei deutsche Adler« von V. F. S. Fischer INr 67247, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aquila brachydactyla (Wolf.) Der kurzzehige Adler",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Sandhaas junior del. G. Boettger sen.",
+      "scans": [
+        "alm_1149_67246_xyu9rfnyya.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aquila brachydactyla (Wolf.) Der kurzzehige Adler",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "93i1cvgb16cjfey",
+          "source_id": "j1f2bt4dtz15df2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "pu8t3m3r2fka6a5"
+        }
+      ],
+      "source_id": "lpot05yz7c1la6w"
+    },
+    {
+      "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67238, Obj 10) mit zahlreichen Anmerkungen /) Es folgt: Erster Teil des Beitrags mit dem Untertitel: »Der kurzzehige Adler« /) mit einer Illustration s. Graphik INr 67246, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Damit der Stammbaum des berühmten und berüchtigten Adlergeschlechtes in unserem Sylvan seinen Wuchs vollende und der Jäger und Jagdliebhaber mit den einheimischen Sprößlingen desto früher bekannt gemacht werde,",
+      "language": [],
+      "musenalm_id": 67247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Noch zwei deutsche Adler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Noch zwei deutsche Adler",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "cgwqh7ef7trffp2"
+        }
+      ],
+      "source_id": "k5r7yppu1vzvk8v"
+    },
+    {
+      "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67238, Obj 10) mit zahlreichen Anmerkungen /) 2. Teil des Beitrags »4. Noch zwei deutsche Adler« INr 67247, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Wir wollen nun seinen sauberen Spießgesellen näher betrachten nämlich den Schrei-Adler",
+      "language": [],
+      "musenalm_id": 67248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir wollen nun seinen sauberen Spießgesellen näher betrachten nämlich den Schrei-Adler…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "bi7s4wcaxkb7qxy"
+        }
+      ],
+      "source_id": "qufjvhtk3yri593"
+    },
+    {
+      "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67238, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67250, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Zu den eigentlichen gefiederten Bewohnern des Meeres, welche jedoch zuweilen eine Lustreise in das Land anstellen, und dort, obschon nicht häufig, doch einzeln an Gewässern angetroffen werden,",
+      "language": [],
+      "musenalm_id": 67249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Komoran",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Komoran",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.256Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "3zpm8nkbb6nmz57"
+        }
+      ],
+      "source_id": "fs0o8m54bs40gcc"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert V. kol. Illustration zu »Der Kormoran« von V. F. S. Fischer INr 67249, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carbo Cormoranus (Meyer.) Kormoran-Scharbe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Sandhaas ad viv. del. G. Boettger sen. sc.",
+      "scans": [
+        "alm_1149_67250_06wjoos4vn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Carbo Cormoranus (Meyer.) Kormoran-Scharbe",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.256Z",
+          "agent": "93i1cvgb16cjfey",
+          "source_id": "399tptz3eafgynu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.256Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "fuc1fztu6kn1mzj"
+        }
+      ],
+      "source_id": "zl2gzxsjdzpqyfn"
+    },
+    {
+      "annotation": "Es folgt: Beitrag INr 67252, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Kleinere / gemeinnützige Aufsätze / aus der / Forst- und Jagdkunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Kleinere / gemeinnützige Aufsätze / aus der / Forst- und Jagdkunde",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "c6z1zrd3l24584s"
+    },
+    {
+      "annotation": "III. Kleinere gemeinnützige Aufsätze aus der Forst- und Jagdkunde (Sammlung INr 67251, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Die Forstwissenschaft ist eine empirische Wissenschaft die ihre Regeln aus vielfältig wiederholten Erfahrungen herleitet.",
+      "language": [],
+      "musenalm_id": 67252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Art und Weise der Bildung des / Forstmannes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. P. Laurop",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Art und Weise der Bildung des / Forstmannes",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.256Z",
+          "agent": "20ldxbr4i8whm1q",
+          "source_id": "ct5jpxj4x4jlivk"
+        }
+      ],
+      "source_id": "owuy0u0jxq01apg"
+    },
+    {
+      "annotation": "Es folgt: Beitrag INr 67254, Obj 25 mit einer Illustration INr 67255, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Topographie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Topographie",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "96v8qmzmxvcbswt"
+    },
+    {
+      "annotation": "IV. Topographie (Sammlung INr 67253, Obj 24) mit einer Illustration s. Graphik INr 67255, Obj 26 /) Mit Anm. am Objekt : Eine ausführliche Abhandlung über die Hackwaldwirthschaft des Odenwaldes und Neckarthales von mir [...] findet man in Laurops und Gatterers Annalen der Forstwissenschaft 1r. Bd. 2s. u. 3s. Heft, v. Jahr 1810",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.710Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Zu den interessantesten Gegenden in dem südlichen Deutschlande gehört unstreitig das anmuthigste Thal, durch welches sich der eingezwängte, reißende Neckarfluß mühesam einen Ausweg in das deutsche Paradies, in die gesegnete Rheinebene, sucht,",
+      "language": [],
+      "musenalm_id": 67254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwingenberg / am / Neckar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwingenberg / am / Neckar",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "pyi1lwh6zda79q8"
+    },
+    {
+      "annotation": "Illustration zu »Zwingenberg am Neckar« von V. F. S. Fischer INr 67254, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwingenberg am Neckar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sandhaas jun. del. G. Boettger sen. sc. 1820",
+      "scans": [
+        "alm_1149_67255_tvojn8pqce.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwingenberg am Neckar",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "awk38vwc3ol1sb3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.089Z",
+          "agent": "93i1cvgb16cjfey",
+          "source_id": "oygiupz8k19hi5o"
+        }
+      ],
+      "source_id": "9x4lceks4ju52om"
+    },
+    {
+      "annotation": "Sammlung von 12 Beiträgen INr 67257-67268, Obj 28-39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Vermischte Gegenstände",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Vermischte Gegenstände",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "fkcxoggb42vy1pz"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27) mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Auch in diesem Jahre kann der Sylvan mit heiterer Miene, - denn keine trübe Zeit des Krieges und des Mangels schwebt mehr über ihn hin,",
+      "language": [],
+      "musenalm_id": 67257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Forst- und Jagddenkwürdigkeiten des ver- / flossenen Jahres aus dem Südlichen / Deutschlande, insbesondere aus der Rheingegend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Forst- und Jagddenkwürdigkeiten des ver- / flossenen Jahres aus dem Südlichen / Deutschlande, insbesondere aus der Rheingegend",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.170Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "pgpf4wkny1ly3sy"
+        }
+      ],
+      "source_id": "eh3io2bs7rh8a8b"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 67259, Obj 30 /) V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Was uns ein hoher Jagdliebhaber, emsiger Naturbeobachter, und großmüthiger Gönner unseres Sylvans über diese Rubrik mittheilte,",
+      "language": [],
+      "musenalm_id": 67258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Ungewöhnlich späte Brunft des Edelwilds",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Ungewöhnlich späte Brunft des Edelwilds",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.170Z",
+          "agent": "20ldxbr4i8whm1q",
+          "source_id": "qnk16kmu6h3f561"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.170Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "rxzxsebnn3ng0jh"
+        }
+      ],
+      "source_id": "qhc34yytoa80cp1"
+    },
+    {
+      "annotation": "mit einer Einleitung der Herausgeber INr 67258, Obj 29 /) V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Ich glaube, daß die treue Erzählung folgender Natur-Abweichnung, nicht unwert ist, ein Plätzchen in Ihrem so gerne gelesenen Sylvan einzunehmen,",
+      "language": [],
+      "musenalm_id": 67259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[2. Ungewöhnlich späte Brunft des Edelwilds]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dero ganz ergebener Heinrich, Herzog von Würtemberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[2. Ungewöhnlich späte Brunft des Edelwilds]",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.183Z",
+          "agent": "99yevqykqqug6cm",
+          "source_id": "d0wnhw34e85owci"
+        }
+      ],
+      "source_id": "vl8vv5h4qhqho95"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Im Monat Jenner 1797, als ich in Blaubeuren Königlich Würtembergischer Oberforstmeister war, ritt ich eines Vormittags in Dienstgeschäften in das Gerhauser Forstrevier,",
+      "language": [],
+      "musenalm_id": 67260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Hasen-Parforcejagd durch eine Fuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oberforstrath und Professor Graf Sponeck zu Heidelberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Hasen-Parforcejagd durch eine Fuchs",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.183Z",
+          "agent": "b96bpcyyap183qh",
+          "source_id": "ufo33h1tirb44kz"
+        }
+      ],
+      "source_id": "zxs05no3aux9wy6"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Aufgefordert durch meinen Bruder, den Mitherausgeber des Sylvans, will ich einen abentheuerlichen Vorfall über die Auerhahnenbalz hier erzählen,",
+      "language": [],
+      "musenalm_id": 67261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Hahnenkampf im Walde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Fischer, Großherzogl. Badischer Oberjäger zu Friedrichsthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Hahnenkampf im Walde",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "aeudq59gleokr3x"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Vor einiger Zeit erfuhr ich, daß in der Gegend von Arensberg ein Bastard von einem Hirsche und einem Rinde zur Welt gekommen sey.",
+      "language": [],
+      "musenalm_id": 67262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Bastard von einem Hirsche und einem / Rinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Borchmeyer, Forstmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Bastard von einem Hirsche und einem / Rinde",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.183Z",
+          "agent": "8tr0b5scd4xovpl",
+          "source_id": "2mossnyvfd1v33v"
+        }
+      ],
+      "source_id": "9kddmydpf5pvuh2"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Wenn man auch weiß, daß die Alk-Arten oder Papageientaucher in großen Gesellschaften innerhalb des arktischen Kreises leben und das insbesondere der, bei uns sehr seltene kleine Alk (Alca alle) in ungeheuren Schaaren",
+      "language": [],
+      "musenalm_id": 67263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Ein Hauptjagen auf den kleinen Alk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Ein Hauptjagen auf den kleinen Alk",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.183Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "mg86n5fhx4o9us3"
+        }
+      ],
+      "source_id": "qk0szb2znlh2lpt"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.313Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Im Winter 1788 gieng ich eines Vormittags an dem Remsflusse unfern dem Dorfe Winterbach im Königreich Würtemberg gelegen-",
+      "language": [],
+      "musenalm_id": 67264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Außerordentliche Dreistigkeit des gemeinen / Habichts, Falco palumbarius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oberforstrath und Professor, Graf von Sponeck in Heidelberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Außerordentliche Dreistigkeit des gemeinen / Habichts, Falco palumbarius",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.211Z",
+          "agent": "b96bpcyyap183qh",
+          "source_id": "vcugvlbbmgyxarc"
+        }
+      ],
+      "source_id": "p8c1hkf421qe9z9"
+    },
+    {
+      "annotation": "Nachtrag zum Beitrag »Außerordentliche Dreistigkeit des gemeinen Habichts, Falco palumarius« von von Sponeck INr 67264, Obj 35 /) V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.313Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "An Dreistigkeit steht dem Hühnerhabicht sein kleiner Vetter im Duodezformate, der Finkenhabicht oder Sperber ( Falco nisus minor) nicht nach, der sich oft sogar in unsrer Wohnstuben wagt.",
+      "language": [],
+      "musenalm_id": 67265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Dreistigkeit steht dem Hühnerhabicht sein kleiner Vetter im Duodezformate, der Finkenhabicht oder Sperber ( Falco nisus minor) nicht nach, der sich oft sogar in unsrer Wohnstuben wagt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.211Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "dw9ql5el2s8lu5u"
+        }
+      ],
+      "source_id": "a0vkzoy615p1s7q"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Der Scepticismus in der Naturgeschichte ist dem Fortschreiten dieser Wissenschaft eben so hinderlich, als es die große Leichtgläubigkeit unserer naturhistorischen Ahnen war,",
+      "language": [],
+      "musenalm_id": 67266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Hydrotechnische Ehrenrettung des Biebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Hydrotechnische Ehrenrettung des Biebers",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.211Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "fix64c5jj57rx7n"
+        }
+      ],
+      "source_id": "mgmmro090k3ff4z"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Sie ward, wie wir bereits in unserem allgemeinen Jagdbericht kurz erzählt haben, am 23sten Januar dieses Jahrs, im Oberforstamt Kandern, Basel gegenüber abgehalten.",
+      "language": [],
+      "musenalm_id": 67267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Die neueste Wolfsjagd im Großherzog- / thum Baden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Die neueste Wolfsjagd im Großherzog- / thum Baden",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.211Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "p6bt5hm6sdkaf12"
+        }
+      ],
+      "source_id": "ibn5qr2k292py5z"
+    },
+    {
+      "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27) mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Die unermüdeten Forschungen eifriger Zoologen und besonders die Nordpolexpedition der Britten im Jahr 1818 bereicherten in dem verflossenen Jahre das weite Gebiet der Naturwissenschaft mit sehr interessanten Entdeckungen.",
+      "language": [],
+      "musenalm_id": 67268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Neue Entdeckungen in der Jagdzoologie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Neue Entdeckungen in der Jagdzoologie",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.211Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "4es92e9u7ld06wi"
+        }
+      ],
+      "source_id": "q4t5nnuj4idogpr"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Nach dem reichlich besetzten Zeugjagen auf neue Erfindungen im vorigen Jahr folgt hier ein magerer Kesseltrieb, in welchem dem Forstmanne und Jäger nur wenig Willkomenes anlaufen wird,",
+      "language": [],
+      "musenalm_id": 67269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Neue Erfindungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Neue Erfindungen",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "20ldxbr4i8whm1q",
+          "source_id": "hm5dh5j2lenkxws"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "n2y0cms473d4x5q"
+        }
+      ],
+      "source_id": "2nd1m6twdduxgaq"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 67271-67278, Obj 42-49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Anekdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Anekdoten",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "5d6otvyila5x0o7"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Ein neu angestellter Pastor, der zugleich nach der Mode der Zeit Dichter und musikalischer, auch plastischer Künstler war, ward von dem alten Förster seines Wohnortes um die Darleihung eines Buches zur Verkürzung der Winterabende gebeten.",
+      "language": [],
+      "musenalm_id": 67271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "k45xvibbw6t6ywx"
+        }
+      ],
+      "source_id": "5wroasa5a70b73g"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Bei einem Jagdschmaus kam ein zäher, nicht weich gekochter, Hirschziemer auf den Tisch",
+      "language": [],
+      "musenalm_id": 67272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "57o9e12n6pxppad"
+        }
+      ],
+      "source_id": "94zfhd7a8kvk19q"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Zwey Förster in der Gegend von H....... hatten sich verabredet, da ihre aneinander grenzende Reviere öfters von Wilddieben beunruhigt wurden, denselben zu einer festgesetzten Zeit aufzulaueren, sie wo möglich auf frischer That zu ertappen,",
+      "language": [],
+      "musenalm_id": 67273,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B...",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ol4jhu84hqii2l"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Ein vornehemer Forst- und Jagdbeamter wollte seinem minder vornehmen Gaste einen Steich dadurch spielen, daß er einen Raben wie ein Haselhuhn zubereiten",
+      "language": [],
+      "musenalm_id": 67274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "n1py563oyzisykq"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Ein Forstkandidat rühmte sich gegen seinen Kameraden, der nur bei einem Förster lernte, auf dem Forstinstitut große Fortschritte in der Forstbotanik und Holzzucht gemacht zu haben,",
+      "language": [],
+      "musenalm_id": 67275,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "3antn88jxonmscd"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Ein königlich ****ischer Forstbeamter, welcher in der Jagdterminologie nicht sehr bewandert war, wurde gefragt:",
+      "language": [],
+      "musenalm_id": 67276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "7v0s9379efegs7q"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Ein betrunkener Jägerpursche rannte im Walde wider einen Baum und verletzte sich empfindlich.",
+      "language": [],
+      "musenalm_id": 67277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "sh34saoimw9tpbu"
+    },
+    {
+      "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Ein Förster sollte einem Bauern eine Klafter Holz anweisen, um sie mit dem Wagen sogleich abzuführen.",
+      "language": [],
+      "musenalm_id": 67278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.339Z",
+          "agent": "ju4ru5jtl9hri75",
+          "source_id": "urp9yvshuhix9oz"
+        }
+      ],
+      "source_id": "mafingt6ornmz8a"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten, einer Sammlung mit 9 Gedichten und einer Sammlung mit 2 Rätseln INr 67280-67298, Obj 51-69",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Gedichte",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "5wo1jv9mojv2xe2"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten [Nr. 1-12] INr 67281-67289, Obj 52-60 /) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Empfindungen im Walde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Empfindungen im Walde",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.339Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "sa0hkyhb3n7fet8"
+        }
+      ],
+      "source_id": "sgmdwky2aac29xf"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Nimm mich auf in deine Schatten, / Heut, wie immer, stiller Wald!",
+      "language": [],
+      "musenalm_id": 67281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Förster [1.; 2.]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Förster [1.; 2.]",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.339Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "f9gul7bcqkfbpr4"
+        }
+      ],
+      "source_id": "wvk96qiz8vg96yi"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Eichen, so die Wolken tragen, / Schlank wie Kerzen voller Holz!",
+      "language": [],
+      "musenalm_id": 67282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. [und 4.]/ Der Speculant",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. [und 4.]/ Der Speculant",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.339Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "x0xvb7pqu3igf2t"
+        }
+      ],
+      "source_id": "507zv9ii0vzq7hy"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Den Bulen zu necken / Will ich mich verstecken / Hier hinter den Strauch,",
+      "language": [],
+      "musenalm_id": 67283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die Liebende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die Liebende",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.339Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "pf97sjsru7msn1o"
+        }
+      ],
+      "source_id": "djrqj349qvd7gbb"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Bin ich endlich denn im Freien / Und der Sklavenkette los,",
+      "language": [],
+      "musenalm_id": 67284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Der Geschäftsmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Der Geschäftsmann",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.168Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "nbrsyy2jntf1j2p"
+        }
+      ],
+      "source_id": "31heij9q2tk4p21"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "So ist's denn gelungen / Die Beut ist errungen / Durch sorgsamen Fleiß",
+      "language": [],
+      "musenalm_id": 67285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der Jäger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der Jäger",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.168Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "o9zd8m233jpwouk"
+        }
+      ],
+      "source_id": "l6ql2m2jjb2bytk"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Bald, bald ist sie nun vollendet / Meine lange Wanderschaft,",
+      "language": [],
+      "musenalm_id": 67286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Der Wanderer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Der Wanderer",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.168Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "zqmml6kru2awn2p"
+        }
+      ],
+      "source_id": "62qswjmqopdoq1s"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Wenn ein Lied mir soll gelingen, / Muß zum Stadtthor ich hinaus,",
+      "language": [],
+      "musenalm_id": 67287,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Der Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Der Sänger",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.168Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "wyf14lm7fk78cmb"
+        }
+      ],
+      "source_id": "10w9k1wocy20fog"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "So enge ward mir, ach so trübe / Dort unten in der dunkeln Stadt,",
+      "language": [],
+      "musenalm_id": 67288,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Der Liebende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Der Liebende",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.168Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "7uom44noh96m3iq"
+        }
+      ],
+      "source_id": "kzw6aaxgm5vjsqd"
+    },
+    {
+      "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Mein still Gebet hab ich vollendet, / Dem Thron' des Ew'gen mich genaht",
+      "language": [],
+      "musenalm_id": 67289,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Der Einsiedler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Der Einsiedler",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.406Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "xi0czbc4po7otme"
+        }
+      ],
+      "source_id": "nqjfyffu9099jnl"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50) mit Anm. d. Hrsg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Es irrt der Graf von Eberstein / In tiefer Nacht durchs Thalgewinde;",
+      "language": [],
+      "musenalm_id": 67290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Entstehung von Herrnalb. / (Nach der Sage.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alois Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Entstehung von Herrnalb. / (Nach der Sage.)",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.406Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "ra9db2hvj01u7bs"
+        }
+      ],
+      "source_id": "46ngqr5gxapesr0"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Hornung! dich preißet als biedern Gesellen, / Wer sich befreundet mit Wein und Gesang;",
+      "language": [],
+      "musenalm_id": 67291,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Hornung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Hornung",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "viwfpv8ocu9i3de"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Der grünen Farbe bin ich zwar / Von Herzen hold nach alter Weise,",
+      "language": [],
+      "musenalm_id": 67292,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die Farben des Jägers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die Farben des Jägers",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "y7bv4hbpevt0yt9"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50) mit Anm.: Hinweis auf Matthisson und Salis die »Alpensänger«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Des Abends ernstes Düster / Beschleicht das stille Thal,",
+      "language": [],
+      "musenalm_id": 67293,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Elegie im Walde an die Abgeschiedenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Elegie im Walde an die Abgeschiedenen",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.407Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.407Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "jheltyodpfnldqz"
+        }
+      ],
+      "source_id": "u3s97rvkf2zehxe"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "An einem selten nur betret'nen Wege / Steht eine Eiche kräftig, doch allein.",
+      "language": [],
+      "musenalm_id": 67294,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Eiche und das Epheu, / eine Parabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Eiche und das Epheu, / eine Parabel",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.347Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "7gzon9mf7jjfif3"
+        }
+      ],
+      "source_id": "o10v8cqthbrcc15"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Hülfe! Hülfe! ich vergehe, / Wehe ruf' ich Doctor wehe! / Schenk' mir diesmal deine Gunst,",
+      "language": [],
+      "musenalm_id": 67295,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der Förster an den Arzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der Förster an den Arzt",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.347Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.347Z",
+          "agent": "2xhyvvcaj1v6uqn",
+          "source_id": "z459j4jsyho14ve"
+        }
+      ],
+      "source_id": "0ex28b3qy4r8mvh"
+    },
+    {
+      "annotation": "Sammlung von 2 Rätseln INr 67297, 67298; Obj 68, 69 /) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67296,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Charaden",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "bmb1owhj373kgwr"
+    },
+    {
+      "annotation": "8. Charaden (Sammlung INr 67296, Obj 67) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "In meiner ersten Sylbe stellt / Ein Thier sich dar, das aller Welt / Bekannt",
+      "language": [],
+      "musenalm_id": 67297,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "nogks8uqu7qatof"
+    },
+    {
+      "annotation": "8. Charaden (Sammlung INr 67296, Obj 67) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Die ersten beiden Sylben deuten / Dir viele fromme Pilger an.",
+      "language": [],
+      "musenalm_id": 67298,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "5yfzuml47ruzyoq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67299,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "1f2gzuwwcnq9pf2"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.038Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67300,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1149_67300_ri56775nfe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-10-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "dlzmjr3bfwddoxb"
+    }
   ],
   "agents": [
     {

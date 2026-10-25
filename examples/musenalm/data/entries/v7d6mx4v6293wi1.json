@@ -48,50 +48,1614 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "os4vlmbotujyb2i"
+    {
+      "annotation": "Almanah [sic]",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.721Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407365",
+      "location": "105A03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.721Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "os4vlmbotujyb2i"
+    }
   ],
   "contents": [
-    "dl2shif0mm6k0jz",
-    "1godd94hvsaffjt",
-    "sgb1f54yind00vi",
-    "ys0gt6ygj2e1kt8",
-    "z2ykyg1i5cyz1gt",
-    "bmv8oldtmw2uyd2",
-    "a0ogi0pzd2limjy",
-    "g0hwmvs3udn06di",
-    "hflc1xkmrl4y1vn",
-    "3fnuwxkdd8cx2hm",
-    "gjv9dx9hflfwquk",
-    "oe03i2qrm59fzvt",
-    "rqfsfit0vp7ywq8",
-    "sck3kqtbr42acxr",
-    "3mjjn05ehab3dyv",
-    "3ihyvuyg2jgvpy4",
-    "z0p30drib5ge7ay",
-    "p2ng69iukq2v8sw",
-    "u9sahnjjne1smk2",
-    "wwh1fgfb5gdro1z",
-    "3spd3di98iqbkwv",
-    "91diw34z14of68b",
-    "0n6ry5ydhy26wva",
-    "x5ua3zrwdd3jdrt",
-    "zytw5ttfevxapzf",
-    "5korhgj7kyfe6fc",
-    "dzsp55y0weyiqce",
-    "d2idjfotfkq2mxb",
-    "ohbkrmazlgm2oee",
-    "192yz5h4tecerb5",
-    "7h5ee2o68hgmb13",
-    "6aswsd559doi9kl",
-    "b22004v5yqeur0k",
-    "quu7zocgeoqu1gd",
-    "lkwbyfge9beh3sk",
-    "bwh62tiohf0xupl",
-    "eqcbcpb0wbfkwfh",
-    "6qdwv6bvm3bxx1d",
-    "z8pkbm5qoftz4gp",
-    "ka4gt05xi31a6kl",
-    "lsxzw0k71iobjih"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114760,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3837_114760_ymqgtdogmk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "dl2shif0mm6k0jz"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114761,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3837_114761_w8hts3yt57.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1846",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "1godd94hvsaffjt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärthnerthore / auf das Jahr / 1846. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3837_114762_x596menag4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärthnerthore / auf das Jahr / 1846. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "sgb1f54yind00vi"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 11 Tabellen darin 5 Graphiken INr 114764-114779, Obj 5-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistische Verzeichnisse / des / kaiserl. königl. Hofoperntheaters / nächst dem Kärthnerthore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statistische Verzeichnisse / des / kaiserl. königl. Hofoperntheaters / nächst dem Kärthnerthore",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "ys0gt6ygj2e1kt8"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Administrations-, Kanzellei- und / Kassapersonals",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Administrations-, Kanzellei- und / Kassapersonals",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "z2ykyg1i5cyz1gt"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Opernpersonals",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Opernpersonals",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "bmv8oldtmw2uyd2"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / sämmtlicher Orchestermitglieder / in der Ordnungsfolge ihrer Instrumente",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / sämmtlicher Orchestermitglieder / in der Ordnungsfolge ihrer Instrumente",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0ogi0pzd2limjy"
+    },
+    {
+      "annotation": "Beigabe zu: Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dlle. Fanny Elssler / in dem Ballette: Der Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Leybold sc.",
+      "scans": [
+        "alm_3837_114767_197t9g7zwg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dlle. Fanny Elssler / in dem Ballette: Der Traum",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "zl8mf3ojkw5upsb"
+        }
+      ],
+      "source_id": "g0hwmvs3udn06di"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Dekorations-, Beleuchtungs- und / Garderobepersonals",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Dekorations-, Beleuchtungs- und / Garderobepersonals",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "hflc1xkmrl4y1vn"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der Vorstellungen vom 1. Juli 1844 bis / Ende Mai 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der Vorstellungen vom 1. Juli 1844 bis / Ende Mai 1845",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "3fnuwxkdd8cx2hm"
+    },
+    {
+      "annotation": "Beigabe zu: Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Made. Hasselt Barth / in der Oper: Die Heimkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Leybold sc.",
+      "scans": [
+        "alm_3837_114770_0pzyytmxhq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Made. Hasselt Barth / in der Oper: Die Heimkehr",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "uhxuxb9v3atb5s6"
+        }
+      ],
+      "source_id": "gjv9dx9hflfwquk"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der Parthien-Besetzung der deutschen / Opern-Vorstellungen vom Monat Juli / 1844 bis Ende März 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der Parthien-Besetzung der deutschen / Opern-Vorstellungen vom Monat Juli / 1844 bis Ende März 1845",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "oe03i2qrm59fzvt"
+    },
+    {
+      "annotation": "Beigabe zu: Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Staudigel / in der Oper: Die Heimkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Leybold sc.",
+      "scans": [
+        "alm_3837_114772_uz2qqmikkj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herr Staudigel / in der Oper: Die Heimkehr",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.251Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.251Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "mrrnd2lpzg448no"
+        }
+      ],
+      "source_id": "rqfsfit0vp7ywq8"
+    },
+    {
+      "annotation": "Beigabe zu: Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Erl u. Made. Stöckel Heinefetter / in der Oper: Dom Sebastian",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Leybold sc.",
+      "scans": [
+        "alm_3837_114773_b5c1codha4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herr Erl u. Made. Stöckel Heinefetter / in der Oper: Dom Sebastian",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.318Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "81z2cblg5u8ofad"
+        }
+      ],
+      "source_id": "sck3kqtbr42acxr"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personale / der italienischen Sängergesellschaft in / der Staggione 1844-1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personale / der italienischen Sängergesellschaft in / der Staggione 1844-1845",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "3mjjn05ehab3dyv"
+    },
+    {
+      "annotation": "Beigabe zu: Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fräulein v. Marra / in der Oper: Der Liebeszauber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Leybold sc.",
+      "scans": [
+        "alm_3837_114775_auamc19jj4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fräulein v. Marra / in der Oper: Der Liebeszauber",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.318Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "05z9seaor8d0hxt"
+        }
+      ],
+      "source_id": "3ihyvuyg2jgvpy4"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der italienischen Opernvorstellungen im / April, Mai und Juni 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der italienischen Opernvorstellungen im / April, Mai und Juni 1844",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "z0p30drib5ge7ay"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der Rollenbesetzung in den italienischen / Opernvorstellungen im April, Mai und / Juni 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der Rollenbesetzung in den italienischen / Opernvorstellungen im April, Mai und / Juni 1844",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "p2ng69iukq2v8sw"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personale / der französischen Schauspielergesellschaft / in der deutschen Saison 1844-1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personale / der französischen Schauspielergesellschaft / in der deutschen Saison 1844-1845",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "u9sahnjjne1smk2"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rollenbesetzung / in den französischen Vaudevilles",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rollenbesetzung / in den französischen Vaudevilles",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "wwh1fgfb5gdro1z"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte und Musikbeigaben des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische und musikalische Beiträge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poetische und musikalische Beiträge",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "3spd3di98iqbkwv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Vom Besuch der Freunde auf dem Heimweg / Reitet Don Alvarez. - Horch! ein Sang / wunderrührend tönt zu Harfenklang",
+      "language": [],
+      "musenalm_id": 114781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schutzgeists Walten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz v. Braunau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schutzgeists Walten",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "91diw34z14of68b"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrag; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Willst Du Theater dirigirten, / Magst Du Dich selbst zuvor probiren",
+      "language": [],
+      "musenalm_id": 114782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansichten, Bemerkungen, theatralische Erfah- / rungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Frhr. v. Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ansichten, Bemerkungen, theatralische Erfah- / rungen",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.318Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "msq2z10lvm09iot"
+        }
+      ],
+      "source_id": "0n6ry5ydhy26wva"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrag; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Die Oper ist köstlich, Musik und Text! / Das heiß ich geschrieben, und nicht geklext;",
+      "language": [],
+      "musenalm_id": 114783,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Distelblätter für die Opernbühne zu / Disteldürringen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Distelblätter für die Opernbühne zu / Disteldürringen",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.318Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "d78tj23gq08bj72"
+        }
+      ],
+      "source_id": "x5ua3zrwdd3jdrt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Zitternd liegt auf seinen Knien / Vor dem jungen Jägersmann / Der betretene Wildschütz, flehend / Ruft er seine Gnade an.",
+      "language": [],
+      "musenalm_id": 114784,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kreuzweg. / Poetische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kreuzweg. / Poetische Erzählung",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "zytw5ttfevxapzf"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Motto: Ja was die Aeltern jetzt den Kindern für Kummer / und Sorgen verursachen, das ist außerordentlich. / Raimund's Verschwender",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Ihr Veteranen deutscher Bühne / Was jammert Ihr in einem fort; / Daß jetzt der Kunst kein Blatt mehr grüne,",
+      "language": [],
+      "musenalm_id": 114785,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jungen an die Alten im Jahre 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Löwe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Jungen an die Alten im Jahre 1846",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.318Z",
+          "agent": "6opc5xq453lnr5a",
+          "source_id": "wlu7cayib6iutky"
+        }
+      ],
+      "source_id": "5korhgj7kyfe6fc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Sprich, kennst du deiner Sippschaft Bahn, / Ihr Schicksal, wachsgelber Vogel,",
+      "language": [],
+      "musenalm_id": 114786,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor einem Kanarienkäfig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor einem Kanarienkäfig",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "dzsp55y0weyiqce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Wie sich ein Traum verliert in seiner Sendung / Und Blumen in den Schlaf des Alters streut,",
+      "language": [],
+      "musenalm_id": 114787,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spätes Begegnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Spätes Begegnen",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "d2idjfotfkq2mxb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Rüstig heran! füllt den Ballon! / Hört, wie er rauscht in den Armen der Luft!",
+      "language": [],
+      "musenalm_id": 114788,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Besuch Mohamed's. / Komische Oper in 1 Akte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Besuch Mohamed's. / Komische Oper in 1 Akte",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "ci4xspfkc50eo26"
+        }
+      ],
+      "source_id": "ohbkrmazlgm2oee"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Der Himmel hört und sieht Alles auf der Welt, / Er hört das Haar, wenn es vom greisen Haupte fällt,",
+      "language": [],
+      "musenalm_id": 114789,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erdenfluch und Himmelssegen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erdenfluch und Himmelssegen",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "aei7wo5ad4ftsfh"
+        }
+      ],
+      "source_id": "192yz5h4tecerb5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Wenn allgemach der Nacht gestirnter Schleier / Zerflattert an des Himmels fernstem Saum,",
+      "language": [],
+      "musenalm_id": 114790,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musik. / (Als Prolog im Konzerte des Josefstädter Kirchenmusik-Vereins am / 24. März gesprochen von K. Lucas, k.k. Hofschauspieler.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Musik. / (Als Prolog im Konzerte des Josefstädter Kirchenmusik-Vereins am / 24. März gesprochen von K. Lucas, k.k. Hofschauspieler.)",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "pk2llctlgtek6kn"
+        }
+      ],
+      "source_id": "7h5ee2o68hgmb13"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Mir ist, als müßt' ich ihr was sagen / So recht aus tiefstem Herzesgrund;",
+      "language": [],
+      "musenalm_id": 114791,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mir ist, als müßt' ich ihr was sagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mir ist, als müßt' ich ihr was sagen",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "6aswsd559doi9kl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Eine Rebe stand geflochten / In ein Efeu-Laubendach,",
+      "language": [],
+      "musenalm_id": 114792,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fabel",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "b22004v5yqeur0k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Der genialste Opernkompositeur des Jahrhunderts, Meyerbeer, königl. preuß. Hofkapellmeister, verweilt seit einigen Tagen in Schwalbach, und wie auch der berühmte und weltgefeierte Kompositeur des Robert und der Hugenotten ganz zurückgezogen",
+      "language": [],
+      "musenalm_id": 114793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meyerbeer in Schwalbach / (August 1842.) / Aus den Erinnerungen eines Journalisten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wiest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meyerbeer in Schwalbach / (August 1842.) / Aus den Erinnerungen eines Journalisten",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "vbbgdl34fnjdnll",
+          "source_id": "b97m9jsnebfiahv"
+        }
+      ],
+      "source_id": "quu7zocgeoqu1gd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Am Morgen nach der ersten Aufführung der Anna Boleyn sehen wir die Primadonna assoluta im geschmackvollsten, reizenden Négligée.",
+      "language": [],
+      "musenalm_id": 114794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Levéer einer Primadonna assoluta / in Klingkalnghausen. / Ein Lorgnonsblick in das Kunstleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wiest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Levéer einer Primadonna assoluta / in Klingkalnghausen. / Ein Lorgnonsblick in das Kunstleben",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "vbbgdl34fnjdnll",
+          "source_id": "ycazgmwhywh0ewt"
+        }
+      ],
+      "source_id": "lkwbyfge9beh3sk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Die Musik war in den Tagen des Mittelalters schon, auch ausser ihrer Verwendung im Kirchendienste, auch zu Volksfesten und öffentlichen Feierlichkeiten in Anspruch genommen worden;",
+      "language": [],
+      "musenalm_id": 114795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Entstehung der italienischen Oper",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Weidmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Entstehung der italienischen Oper",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "e499h9zfmuf983p",
+          "source_id": "etv4bbt7b4tzdud"
+        }
+      ],
+      "source_id": "bwh62tiohf0xupl"
+    },
+    {
+      "annotation": "Photos 114796,01-114796,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114796,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "L'Amore / Romanza composta da Parish Alvars",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Parish Alvars",
+      "scans": [
+        "alm_3837_114796_01_pkebfexliq.jpg",
+        "alm_3837_114796_02_rv0qzjte3e.jpg",
+        "alm_3837_114796_03_favv9yziad.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "L'Amore / Romanza composta da Parish Alvars",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "eqcbcpb0wbfkwfh"
+    },
+    {
+      "annotation": "Photos 114797,01-114797,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114797,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klage. / Gedicht von Ludwig Löwe, / k.k. Hof- Schauspieler. / Musik von Adolf Müller, Hofkapellmeister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Müller",
+      "scans": [
+        "alm_3837_114797_01_t723jxy56s.jpg",
+        "alm_3837_114797_02_9aid98x1ia.jpg",
+        "alm_3837_114797_03_4o44l3pejk.jpg",
+        "alm_3837_114797_04_xj9ql00nys.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Klage. / Gedicht von Ludwig Löwe, / k.k. Hof- Schauspieler. / Musik von Adolf Müller, Hofkapellmeister",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "1x3wweh7slzeyeq",
+          "source_id": "akvfevcabgbj4a9"
+        }
+      ],
+      "source_id": "6qdwv6bvm3bxx1d"
+    },
+    {
+      "annotation": "Photos 114798,01-114798,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114798,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scherzo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Proch, k.k. Hofoperntheater-Kapellmeister",
+      "scans": [
+        "alm_3837_114798_01_mohmq9t63e.jpg",
+        "alm_3837_114798_02_9nhbf2v9ul.jpg",
+        "alm_3837_114798_03_q1n12tite4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Scherzo",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "d5qebprx0tlpzv8",
+          "source_id": "72tbkeszzr6jjs9"
+        }
+      ],
+      "source_id": "z8pkbm5qoftz4gp"
+    },
+    {
+      "annotation": "Photos 114799,01-114799,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114799,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Russischer Tanz / aus dem Ballet: Fortuna und der Stern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilh. Reuling",
+      "scans": [
+        "alm_3837_114799_01_3lt516vcw6.jpg",
+        "alm_3837_114799_02_r71ovqq7p1.jpg",
+        "alm_3837_114799_03_knjdavbuqf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Russischer Tanz / aus dem Ballet: Fortuna und der Stern",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.566Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.566Z",
+          "agent": "xtiwvrgc1mzxgw9",
+          "source_id": "k0i88t1ttrk650v"
+        }
+      ],
+      "source_id": "ka4gt05xi31a6kl"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114800,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3837_114800_884g90j095.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "lsxzw0k71iobjih"
+    }
   ],
   "agents": [
     {

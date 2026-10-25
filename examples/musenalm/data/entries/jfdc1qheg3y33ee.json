@@ -48,22 +48,613 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "91lq5k2rwzdqhti"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1808: Mit Ku 6(coloriert) und 208 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.546Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100099",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.546Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "91lq5k2rwzdqhti"
+    }
   ],
   "contents": [
-    "n7nexyhm936268w",
-    "ew082vx9argi4fs",
-    "yrha6ty4u7actvg",
-    "immgyzbrjhy0oqj",
-    "po57e3bjiondein",
-    "s20zcbcao6t0ejy",
-    "e9h20jdzy359g7n",
-    "thnxxzk9fnb0ltu",
-    "u8ou18sesjl3pnu",
-    "ra2ql3djnw2mpyd",
-    "0vfgk6a7rk0nyuf",
-    "zpfo8tcv85b2izn",
-    "mjsfqnfw082ioy7"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123392,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Sechster Jahrgang. / Leipzig / bei P. G. Kummer, / 1808",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1276_123392_276v3h1cv3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Sechster Jahrgang. / Leipzig / bei P. G. Kummer, / 1808",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "n7nexyhm936268w"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123394, Obj 3; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Frisch, munter, lustig, schnell, alles reinlich, alles in Ordnung. Heute hoffe ich Zusrpruch. Die Schlacht bey Prag – Sapperment! es ist eine herrliche Sache um so eine derbe Schlacht",
+      "language": [],
+      "musenalm_id": 123393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Posthaus in Treuenbrietzen. / Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Posthaus in Treuenbrietzen. / Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.839Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "wpe0kq610qilu13"
+        }
+      ],
+      "source_id": "ew082vx9argi4fs"
+    },
+    {
+      "annotation": "Illustration zu »Das Posthaus in Treuenbrietzen« von Kotzebue (INr 123393, Obj 2); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Es ist meine Frau! es ist hohl mich / der Teufel meine Frau! / Das Posthaus in Treuenbrietzen 12te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr del. C. Müller sc. $",
+      "scans": [
+        "alm_1276_123394_hdb05yoxqz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. / Es ist meine Frau! es ist hohl mich / der Teufel meine Frau! / Das Posthaus in Treuenbrietzen 12te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "8rvdjvvmk5shelm"
+        }
+      ],
+      "source_id": "yrha6ty4u7actvg"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123394, Obj 3); Illustration zu »Der Leineweber« von Kotzebue (INr 123396, Obj 5); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Ober Hof Paucken und Trompeten Inspector! / Der Leineweber. 9te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr del. C. Müller sc. # $",
+      "scans": [
+        "alm_1276_123395_94batsx9fs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "2. / Ober Hof Paucken und Trompeten Inspector! / Der Leineweber. 9te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "z87skut5c31pkmm"
+        }
+      ],
+      "source_id": "immgyzbrjhy0oqj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123395, Obj 4; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Sagt meiner Nichte – Aha! da bist Du ja schon wieder? Darf man wissen, warum Du seit einigen Wochen den Vorsaal zu Deinem Arbeitszimmer gemacht hast?",
+      "language": [],
+      "musenalm_id": 123396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leineweber. / Ein Schauspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Leineweber. / Ein Schauspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "yp3xx16dhmkx8vy"
+        }
+      ],
+      "source_id": "po57e3bjiondein"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123394, Obj 3); Illustration zu »Der Stumme« von Kotzebue (INr 123398, Obj 7); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Zunge, mein Herr, empfängt die meisten Nerven aus dem Gehirn. / der Stumme. 11te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr del. C. Müller sc. # $",
+      "scans": [
+        "alm_1276_123397_9eknui9r8q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Zunge, mein Herr, empfängt die meisten Nerven aus dem Gehirn. / der Stumme. 11te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "icyui6y5jjprqo4"
+        }
+      ],
+      "source_id": "s20zcbcao6t0ejy"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123397, Obj 7; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Acht Tage, Herr Gemahl, volle acht Tage. / Ich weiß. / Kein Wort hat er seitdem gesprochen. / Keine Sylbe.",
+      "language": [],
+      "musenalm_id": 123398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stumme. / Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stumme. / Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.808Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.808Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "uwlrhx00a1kgxcr"
+        }
+      ],
+      "source_id": "e9h20jdzy359g7n"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123394, Obj 3); Illustration zu »Die Erbschaft« von Kotzebue (INr 123400, Obj 9); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Leider stirbt der Mensch früher seinen schönsten Gefühlen als dem Leben ab. / die Erbschaft. 12te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr del. C. Müller sc. # $",
+      "scans": [
+        "alm_1276_123399_ibgtn5aq69.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "4. / Leider stirbt der Mensch früher seinen schönsten Gefühlen als dem Leben ab. / die Erbschaft. 12te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.808Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.808Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "8ctfjd4oa7uw28c"
+        }
+      ],
+      "source_id": "thnxxzk9fnb0ltu"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123399, Obj 8; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Morgen soll ich erst aus meinem Krankenzimmer schleichen? – Warum nicht heute? – hab’ ich doch die reine Luft seit vielen Wochen entbehrt. Es wird mir wohl thun.",
+      "language": [],
+      "musenalm_id": 123400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erbschaft. / Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erbschaft. / Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.808Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.808Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "hsqxxi0qqu1mo57"
+        }
+      ],
+      "source_id": "u8ou18sesjl3pnu"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123394, Obj 3); Illustration zu »Der Graf von Gleichen« von Kotzebue (INr 123402, Obj 11); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Man kann in dieser Mummery zu / guter Compagnie sie gar nicht produciren. / Der Graf von Gleichen 8te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr del. C. Müller sc. # $",
+      "scans": [
+        "alm_1276_123401_gno1bivfew.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "5. / Man kann in dieser Mummery zu / guter Compagnie sie gar nicht produciren. / Der Graf von Gleichen 8te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "sddbuc4b2lqqg9r"
+        }
+      ],
+      "source_id": "ra2ql3djnw2mpyd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123401, Obj 10; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Der Frühling ist erwacht! auf blumenreichen Fluren / Erblickt man überall unkeusche Creaturen.",
+      "language": [],
+      "musenalm_id": 123402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Graf von Gleichen. / Ein Spiel für lebendige Marionetten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Graf von Gleichen. / Ein Spiel für lebendige Marionetten",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "cqg95gbh8aany64"
+        }
+      ],
+      "source_id": "0vfgk6a7rk0nyuf"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123394, Obj 3); Illustration zu »Der Deserteur« von Kotzebue (INr 123404, Obj 13); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / In Runzeln kann die Liebe tiefer / nisten als auf glatten Gesichtern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr del. C. Müller sc. # $",
+      "scans": [
+        "alm_1276_123403_aarsmkm3e9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "6. / In Runzeln kann die Liebe tiefer / nisten als auf glatten Gesichtern",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.840Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "al1aqntido26bpc"
+        }
+      ],
+      "source_id": "zpfo8tcv85b2izn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123430, Obj 12; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Gott sey Dank, daß der verdammte Mond endlich einmal / zu Hause bleibt. Acht Tage hat er so hell geschie- / nen, daß man nicht die kleinste Sünde auf der Straße verlieren durfte, gleich hörte man hinter sich: »pst! »pst!",
+      "language": [],
+      "musenalm_id": 123431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Deserteur. / Eine Posse in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Deserteur. / Eine Posse in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.753Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.753Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "er1run6eb0vo07l"
+        }
+      ],
+      "source_id": "mjsfqnfw082ioy7"
+    }
   ],
   "agents": [
     {

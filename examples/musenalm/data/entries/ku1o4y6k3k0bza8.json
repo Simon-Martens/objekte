@@ -48,22 +48,522 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "etq873hujy82swa",
-    "gq6sgg9qjsnz6tk"
+    {
+      "annotation": "B: recto vT, verso VrlgM und UG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "406523",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "etq873hujy82swa"
+    },
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812) <br> Kartonierter Umschlag; VB, verso G, T, S I-Verz, SS 1-422\n§$§ vermutl. fehlt B: recto vT, verso VrlgM",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101009",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gq6sgg9qjsnz6tk"
+    }
   ],
   "contents": [
-    "b8q9o8fjdc93o91",
-    "s5kzvgxm9b1scar",
-    "hvscae5ig8koe5w",
-    "zv3dsi6fahvfh75",
-    "fyorsmu0cvs3p6j",
-    "q52hc671f0tahb8",
-    "ezjibkmy4v7gwrv",
-    "iwd27oc74by5iin",
-    "32nezo503i3p9n4",
-    "d0bhl62s13reqoz",
-    "arsj86sydhe6xsc",
-    "i7g6wyb6b22lpq1"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73765,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_66_73765_nngynvnlep.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "b8q9o8fjdc93o91"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73766,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1840",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1840",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5kzvgxm9b1scar"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73767,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "hvscae5ig8koe5w"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2039,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Felix Mendelssohn-Bartholdy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. Th. Hildebrand Gest. v. Ed. Eichens. 1839",
+      "scans": [
+        "alm_66_2039_1qvd7e5igm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Felix Mendelssohn-Bartholdy",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "mb3mjtp0wkmk6y5",
+          "source_id": "lbdzr73i959ivd3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "08mp0at2gr8kp3n",
+          "source_id": "up9c5yv51668e07"
+        }
+      ],
+      "source_id": "zv3dsi6fahvfh75"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18799,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1840 / Neue Folge. / zweiter Jahrgang. / Mit dem Bildnisse Felix Mendelssohn's. / Leipzig: / F. A. Brockhaus. / 1840",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_66_18799_nzt4ovepie.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1840 / Neue Folge. / zweiter Jahrgang. / Mit dem Bildnisse Felix Mendelssohn's. / Leipzig: / F. A. Brockhaus. / 1840",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "fyorsmu0cvs3p6j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18800,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "q52hc671f0tahb8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf den versteckten Wegen einer sich in ein dichtes Wäldchen verlierenden Parkanlage wandelte ein junger Mann,",
+      "language": [],
+      "musenalm_id": 2040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Pulcherie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Pulcherie",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "m7ojd6v93tukiy5"
+        }
+      ],
+      "source_id": "ezjibkmy4v7gwrv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Wir hatten unsern Freund Hermann, welcher auf dem Lande lebte, am ersten schönen Frühlingstage heimgesucht",
+      "language": [],
+      "musenalm_id": 2041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die blaue Blume. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Mosen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die blaue Blume. / Eine Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "ya686aytqngnsyo",
+          "source_id": "i9vicfgdyk6p4pp"
+        }
+      ],
+      "source_id": "iwd27oc74by5iin"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Als mein Vater in der Heimat mich zum letzten Male umarmte, trat er an seinen Schreibtisch",
+      "language": [],
+      "musenalm_id": 2042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Angelica. / Aus den Papieren eines deutschen Edelmanns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Angelica. / Aus den Papieren eines deutschen Edelmanns",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "s35t0dzu8qlgu0e"
+        }
+      ],
+      "source_id": "32nezo503i3p9n4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Ich sah schon lange in die Straßendämmerung zum Fenster hinaus, ob der Wagen noch nicht käme;",
+      "language": [],
+      "musenalm_id": 2043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Frühlingstraum. / Novelle, / Nach den Mittheilungen eines Freundes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bülow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Frühlingstraum. / Novelle, / Nach den Mittheilungen eines Freundes",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "s80i7s99e9gsncg",
+          "source_id": "1okl4kimr5yhx9b"
+        }
+      ],
+      "source_id": "d0bhl62s13reqoz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Auf einem ausspringenden Zweige des waldigen Gebirgrückens, der die äußerste Provinz eines deutschen Königreiches durchschneidet,",
+      "language": [],
+      "musenalm_id": 2044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Todte von St.-Anna's Kapelle. / Ein Criminalfall. / Nach Acten und brieflichen Mittheilungen erzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Ludwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Todte von St.-Anna's Kapelle. / Ein Criminalfall. / Nach Acten und brieflichen Mittheilungen erzählt",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.655Z",
+          "agent": "kjstiikwr65p9jw",
+          "source_id": "o68p723v76xf3j2"
+        }
+      ],
+      "source_id": "arsj86sydhe6xsc"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73768,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_66_73768_mg2sczkdhy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "i7g6wyb6b22lpq1"
+    }
   ],
   "agents": [
     {

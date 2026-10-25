@@ -48,106 +48,3944 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "70fg90hgr9f3xok"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.666Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406575",
+      "location": "105F05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.666Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "70fg90hgr9f3xok"
+    }
   ],
   "contents": [
-    "de5s5pz7wxf4emd",
-    "hijxc4a4zd9zpk1",
-    "au314vnputz3vr0",
-    "6wz7j5k7yoh4h8g",
-    "dvc5grjvv3espuo",
-    "ppb0x4u5q4bsch6",
-    "v4vy7o12jzrvslu",
-    "baqdubpavhrc63n",
-    "89ul8dzn5qvbiwo",
-    "eisu2ose27ko4o5",
-    "wlc5kbk2wynvqb2",
-    "4zhhq5m1ned61rw",
-    "quz018feoacrhy3",
-    "x8mt3vqiqtzow6f",
-    "obntgsafxh9il34",
-    "x76ha8bbiglurz2",
-    "jbdu79jxm5jrash",
-    "z4mm1ik6kfg7xhq",
-    "0dqjkx2cxmfup46",
-    "nm1u8zfcerrxf10",
-    "juy2bafxu78sqwg",
-    "5ifo3rg42opqvg2",
-    "udjf9rzb680ius2",
-    "0cq3l8fys6qfu8m",
-    "qerr9ayw1nrt16o",
-    "kfjjesu6jxwmel0",
-    "wqwzx8tim5e9pi2",
-    "q0776w97scs0z6g",
-    "of01vypwq975snr",
-    "wibllsl1x313tkk",
-    "ixnqhjb43y1yv34",
-    "4mu2yiodfx5obt7",
-    "705av66moxbvgom",
-    "otitp40ps7mgk25",
-    "cq32d6nfh04burg",
-    "93w5uaecx7imas7",
-    "ae0aqswl2vyzcgr",
-    "o0vg2nl5m76mli8",
-    "og6ukksw9hdm9q5",
-    "vsggvc2binf82xl",
-    "pb3al92riswbgpj",
-    "56shl4kc2i1ad6h",
-    "0dta9rvuwjhwjrg",
-    "ddoc3t0e76jtmh1",
-    "1lxzvh0xt2fdf9r",
-    "6m2p4acu965ssz4",
-    "uys3mt3wxn3xrfq",
-    "snfbllgphrfgb5b",
-    "pqk2qqvlbwmu7t4",
-    "lfb6y0xjatuydxu",
-    "2s26ebger5zdrj3",
-    "730er5x3b1aygyd",
-    "yskwxurye7r1zlw",
-    "2is0t8c46xv4doj",
-    "8hf5pbkgmdqiga0",
-    "63plc06wycwmv1g",
-    "g5eql33gs64u7cd",
-    "1ohkhy8kfkplh73",
-    "77cixfbzbrpdrbz",
-    "j1w0uzj97dtn3vp",
-    "twh17oiy2yzdaat",
-    "me8ro2olgvqgkok",
-    "wuvjh6zuiioraia",
-    "prjag0v3twu8czh",
-    "72cls90ytfbw7bx",
-    "bwsfkicgu1js5en",
-    "qa1gi736xy3rrjm",
-    "wkdc1zi4bb6p8jt",
-    "vm4ru7vjcj8zwgm",
-    "ungdbmr3vzygfpx",
-    "o4610xxzzz9z5kf",
-    "epwcxkmuohrtrlm",
-    "fmxodbr5y9gg772",
-    "8xkfqhho5xyx1q7",
-    "pt3u874k7tqrbvg",
-    "xctgobo9fws21ze",
-    "gdg99assob043wt",
-    "nythvu5d2k1fc5w",
-    "nkybh5ueefddztc",
-    "g8ck3u1u1okm127",
-    "hio1opkv7ziyb99",
-    "xfv6x9jk8l918c4",
-    "w6f3lrrpj2irdzt",
-    "dyvk3k1svwpnwl2",
-    "h07unq8z99xotxx",
-    "a2nlsqse527q6yp",
-    "krrd6p6tv5j58b2",
-    "amzcrkhfv7z7cek",
-    "hzuxw9r9bjfowdh",
-    "wku57n7m94qmjzf",
-    "830xbxhkub648kj",
-    "qpscn4ntjqulebo",
-    "0qjqv9jimvlvbfe",
-    "czbbe03vyupsl5q",
-    "xx98bhmlxz8iftt",
-    "71dxecgqquamhg9",
-    "a94j2nas28n15fb"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74945,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinische Horen, / Taschenbuch / für 1830. / Unter Mitwirkung von Karl Geib, Ehrenfried / Stöber, J. A. Herzog und Anderen / herausgegeben von / Georg Friedrich Kolb. / Speyer, / Druck und Verlag der J. C. Kolb'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinische Horen, / Taschenbuch / für 1830. / Unter Mitwirkung von Karl Geib, Ehrenfried / Stöber, J. A. Herzog und Anderen / herausgegeben von / Georg Friedrich Kolb. / Speyer, / Druck und Verlag der J. C. Kolb'sche Buchhandlung",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "de5s5pz7wxf4emd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "hijxc4a4zd9zpk1"
+    },
+    {
+      "annotation": "$ vermutl. fehlt Titelgraphik »Bildnis der Jungfrau von Orleans«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die unter Schäferinnen im Gefilde / Wie eine Ros' im Kreis der Blumen war,",
+      "language": [],
+      "musenalm_id": 74947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Bildnisse der Jungfrau von / Orléans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Bildnisse der Jungfrau von / Orléans",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "ivo694h8lzhelib"
+        }
+      ],
+      "source_id": "au314vnputz3vr0"
+    },
+    {
+      "annotation": "mit zahlreichen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "An dem spanischen Hofe entspann sich im Herbste 1807 durch Anmaßung und Mißtrauen eine solche unheilbringende Zwietracht, daß den Himmel der pyrenäischen Halbinsel fürchterliche Gewitterwolken des Jammers umzogen;",
+      "language": [],
+      "musenalm_id": 74948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Grotte in der Sierra Morena",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Eller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Grotte in der Sierra Morena",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "6wz7j5k7yoh4h8g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Die Abenddämmerung verbreitete schon ihren magischen Schleier über Florenz, als Mirandi von einer Wanderung in das apenninische Gebirge, wo er hübsche romantische Landschaftsansichten skizzirte, und selber Pflanzen sammelte, heimkehrte.",
+      "language": [],
+      "musenalm_id": 74949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Villa Fidelta",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Eller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Villa Fidelta",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "dvc5grjvv3espuo"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten und einer Sammlung mit 11 Gedichten INr 74951-74964, Obj 6-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Dichtungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Dichtungen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "wsju3i8vuu7soqj"
+        }
+      ],
+      "source_id": "ppb0x4u5q4bsch6"
+    },
+    {
+      "annotation": "Sammlung von 11 Gedichten INr 74952-74962, Obj 8-18 /) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Denksteine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Denksteine",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "5cpi10rvxqy6gkx"
+        }
+      ],
+      "source_id": "v4vy7o12jzrvslu"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Horcht, wie donnert das Wort herab von hoher / Tribune, / Seht, wie flammet die Glut in des Begeisterten / Blick!",
+      "language": [],
+      "musenalm_id": 74952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mirabeau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mirabeau",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.334Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.334Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "yie2kfmap7cawa8"
+        }
+      ],
+      "source_id": "baqdubpavhrc63n"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Heil sey, Trefflicher, Dir! Du achtest die Mühen / des Volkes; / Strebest zu mindern die Last, förderst Wohlstand / und Glück;",
+      "language": [],
+      "musenalm_id": 74953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Necker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Necker",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.334Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.334Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "trdm0ygjjiwdn0z"
+        }
+      ],
+      "source_id": "89ul8dzn5qvbiwo"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Ludwig, Du hast es gewollt, das Gute mit lieben- / dem Sinne, / Doch der Höflinge Schaar hemmte die strebende / Kraft,",
+      "language": [],
+      "musenalm_id": 74954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludwig XVI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ludwig XVI",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.335Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "xuj5e5bb939fk23"
+        }
+      ],
+      "source_id": "eisu2ose27ko4o5"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Wüthrich, sage woher die menschenähnlichen Züge? / Keine Mutter hat je liebend im Schoos Dich ge- / wiegt.",
+      "language": [],
+      "musenalm_id": 74955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Marat",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.335Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "3y4mpuzb5058jcw"
+        }
+      ],
+      "source_id": "wlc5kbk2wynvqb2"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Dich schmückt ewiger Ruhm mit nimmer welkenden / Kränzen, / Hoher, herrlicher Greis!",
+      "language": [],
+      "musenalm_id": 74956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Malesherbes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Malesherbes",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.335Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "w4bhpl2s4y7bxjr"
+        }
+      ],
+      "source_id": "4zhhq5m1ned61rw"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Hehrer Jüngling! so früh erreicht Dich das blutige / Mordbley! / Zieh in Frieden dahin, nach dem olympischen Chor!",
+      "language": [],
+      "musenalm_id": 74957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Desaix",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Desaix",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.335Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "ecky3et6nj7nnd6"
+        }
+      ],
+      "source_id": "quz018feoacrhy3"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Dir vor Allen, bekränzt mit Ruhm, ertönet die Leier, / Sohn der Alsa, ihr Schmuck!",
+      "language": [],
+      "musenalm_id": 74958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleber",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.450Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.450Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "ovvjnhuxayoz4j1"
+        }
+      ],
+      "source_id": "x8mt3vqiqtzow6f"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Riese! wie ragst Du empor aus Fluthen vergangener / Zeiten! / Ha! Dein Herrschergebot fesselte siegend die Welt;",
+      "language": [],
+      "musenalm_id": 74959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Napoleon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Napoleon",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.455Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "zlrftk3xvp39zjs"
+        }
+      ],
+      "source_id": "obntgsafxh9il34"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Fest, mit eisernem Schritt durchzogst Du die ernstere / Laufbahn, / Und dem Vaterlande treu, schufest Du Sieg ihm / und Schutz,",
+      "language": [],
+      "musenalm_id": 74960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carnot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Carnot",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "wu19w2acwqqsu0k"
+        }
+      ],
+      "source_id": "x76ha8bbiglurz2"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Schwerdt und Leyer vereint, sie schaffen gar liebliche / Klänge, / So auch Rede und Schwerdt, würdigem Ziele ge- / weiht.",
+      "language": [],
+      "musenalm_id": 74961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Foy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Foy",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "40wr3vbnp3k4sdv"
+        }
+      ],
+      "source_id": "jbdu79jxm5jrash"
+    },
+    {
+      "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Siegesjauchzen ertönt, es hebt ein Päan der Völker / sich von Meer zu Meer,",
+      "language": [],
+      "musenalm_id": 74962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lafayette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lafayette",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "oi2yzrd1o6rnl6c"
+        }
+      ],
+      "source_id": "z4mm1ik6kfg7xhq"
+    },
+    {
+      "annotation": "III. Dichtungen (Sammlung INr 74950, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Der Wald ist still und düster, / Das leise Blattgeflüster / Spricht zu dem Herzen mild;",
+      "language": [],
+      "musenalm_id": 74963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritt durch den Bergwald, nach Mitter- / nacht, der Sonn' entgegen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritt durch den Bergwald, nach Mitter- / nacht, der Sonn' entgegen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "tuf4ncq0cat1pbs"
+        }
+      ],
+      "source_id": "0dqjkx2cxmfup46"
+    },
+    {
+      "annotation": "III. Dichtungen (Sammlung INr 74950, Obj 6) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Es zieht Franz von Sickingen / Gar keck in Kreuz und Quer,",
+      "language": [],
+      "musenalm_id": 74964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Veste Lützelstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ehrenfried Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Veste Lützelstein",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "pnennqhmzrv3ms6",
+          "source_id": "u51ka38uqopk76m"
+        }
+      ],
+      "source_id": "nm1u8zfcerrxf10"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Es ist bekannt, daß Désaix, dem seine großen militärischen Talente, seine hervorstralende Tapferkeit und ritterliche Gesinnung eine der höchsten Stufen unter den Feldherrn der französischen Kriegsheere erwarben,",
+      "language": [],
+      "musenalm_id": 74965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Anekdote von dem General Désaix",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Anekdote von dem General Désaix",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "0ur3djmy0cea1px"
+        }
+      ],
+      "source_id": "juy2bafxu78sqwg"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 74967-74970, Obj 23-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Dichtungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schnezler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Dichtungen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.374Z",
+          "agent": "dz5hqr7uvnamp20",
+          "source_id": "1vdk2nidke2lmhh"
+        }
+      ],
+      "source_id": "5ifo3rg42opqvg2"
+    },
+    {
+      "annotation": "V. Dichtungen (Sammlung INr 74965, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "O Schweizerland! o Schweizerluft, / Ihr Berge mit dem ewigen Schnee!",
+      "language": [],
+      "musenalm_id": 74967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heimweh nach der Schweiz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schnezler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heimweh nach der Schweiz",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.375Z",
+          "agent": "dz5hqr7uvnamp20",
+          "source_id": "rffpvgki589y33p"
+        }
+      ],
+      "source_id": "udjf9rzb680ius2"
+    },
+    {
+      "annotation": "V. Dichtungen (Sammlung INr 74965, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Ich hatte Dir so viel zu sagen, / Und brachte doch kein Wort hervor,",
+      "language": [],
+      "musenalm_id": 74968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Sprache. An Lida",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schnezler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Sprache. An Lida",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "dz5hqr7uvnamp20",
+          "source_id": "j4seq0atiqw0zx0"
+        }
+      ],
+      "source_id": "0cq3l8fys6qfu8m"
+    },
+    {
+      "annotation": "V. Dichtungen (Sammlung INr 74965, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Schwebe von dem Himmel nieder, / Dort muß Deine Wohnung seyn,",
+      "language": [],
+      "musenalm_id": 74969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Ruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schnezler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Ruhe",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "dz5hqr7uvnamp20",
+          "source_id": "imjqocywit43lhr"
+        }
+      ],
+      "source_id": "qerr9ayw1nrt16o"
+    },
+    {
+      "annotation": "V. Dichtungen (Sammlung INr 74965, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Schweizersohn, willkommen, o willkommen; / Ach, Du kommst ja aus dem Land,",
+      "language": [],
+      "musenalm_id": 74970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Rhein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schnezler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Rhein",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.576Z",
+          "agent": "dz5hqr7uvnamp20",
+          "source_id": "hrbe4cydcmyvgab"
+        }
+      ],
+      "source_id": "kfjjesu6jxwmel0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Schreiber dieses erinnert sich, daß vor geraumer Zeit in einem gesellschaftlichen Kreise, wo er zugegen war, Folgendes erzählt ward: Als der ehrwürdige Dichter Pfeffel der Militär-Akademie in Colmar als Director vorstand, wurde einstmals ein junger Mann",
+      "language": [],
+      "musenalm_id": 74971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Erscheinung in Pfeffel's Garten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Erscheinung in Pfeffel's Garten",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.576Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "a7eytsphpd9i1g4"
+        }
+      ],
+      "source_id": "wqwzx8tim5e9pi2"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 74973-74977, Obj 29-33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Gedichte",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.576Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "cbpjdm0vhyhk2pv"
+        }
+      ],
+      "source_id": "q0776w97scs0z6g"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 74972, Obj 28) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Dem Sänger an der Alsa Strand / Sey ein Normannengruß gesandt!",
+      "language": [],
+      "musenalm_id": 74973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Julius August Hertzog. / (Am ersten Frühlingstage 1829.) / Bei Uebersendung einiger Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Julius August Hertzog. / (Am ersten Frühlingstage 1829.) / Bei Uebersendung einiger Gedichte",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.655Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "u1bozdujv70h987"
+        }
+      ],
+      "source_id": "of01vypwq975snr"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 74972, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Schmeichelnd grüßten süße Harfentöne / Jüngst mein Lied, wie fern vom Heimathland;",
+      "language": [],
+      "musenalm_id": 74974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sklaldendank für Skaldengruß. / (Dem edlen Sänger Karl Geib.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sklaldendank für Skaldengruß. / (Dem edlen Sänger Karl Geib.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "wibllsl1x313tkk"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 74972, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Es sinkt die Nacht auf Lochlin's Ebne nieder, / Der Sänger wallt im mondbeglänzten Hain;",
+      "language": [],
+      "musenalm_id": 74975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mahnung",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "oxfup9p3u89ig10"
+        }
+      ],
+      "source_id": "ixnqhjb43y1yv34"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 74972, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Der Skalde regt der Harfe Klang; / Swanhilde fragt: Was ist Gesang?",
+      "language": [],
+      "musenalm_id": 74976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ballade",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "dl1pm457367x21z"
+        }
+      ],
+      "source_id": "4mu2yiodfx5obt7"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 74972, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Zum Lohn der Tugend in sapphir'ne Hallen / Steigst Du bei'm Klang der kriegrischen Drommete:",
+      "language": [],
+      "musenalm_id": 74977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Latour d'Auvergne. / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Latour d'Auvergne. / Sonett",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "wysjqzcw5erfuh4"
+        }
+      ],
+      "source_id": "705av66moxbvgom"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 74979-74986, Obj 35-42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Dichtungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Dichtungen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "otitp40ps7mgk25"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Was röthet so düster der Häuser Reih'n / Mit bläulichem Pupurgefunkel,",
+      "language": [],
+      "musenalm_id": 74979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtscene",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "cq32d6nfh04burg"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Rein wie des Himmels sternbesäte Decke, / Rein sey dein Herz;",
+      "language": [],
+      "musenalm_id": 74980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Fanny",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Fanny",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "93w5uaecx7imas7"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Laß schäumende Becher, / Laß tobende Zecher, / O Freund bey dem Heerde im rauchigen Saal",
+      "language": [],
+      "musenalm_id": 74981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einladung zum Eislauf. / Nach norränischer Weise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einladung zum Eislauf. / Nach norränischer Weise",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "ae0aqswl2vyzcgr"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Tief hatte ich der Liebe Schmerz gefühlt, / Die sich nicht konnt' am heitern Licht entfalten,",
+      "language": [],
+      "musenalm_id": 74982,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebe Rache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Liebe Rache",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "o0vg2nl5m76mli8"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Wie holder Mädchen zarte Himmelmilde, / Rein, fromm und sanft, ruft hier in's offne Herz / Der Dichter freundlich lächelnde Gebilde,",
+      "language": [],
+      "musenalm_id": 74983,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zugabe zu Mimili",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zugabe zu Mimili",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "og6ukksw9hdm9q5"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Dewr Liebe öffnet' ich des Busens Weite, / Da gab sie mich dem düstern Gram zur Beute;",
+      "language": [],
+      "musenalm_id": 74984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Untreue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Untreue",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "vsggvc2binf82xl"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Des Rigiberges wolkumkrönte Stirne, / Des Schwytzerlandes bunte Alpenwelt,",
+      "language": [],
+      "musenalm_id": 74985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zugabe zu Clauren's Liesli. / An Fanny",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zugabe zu Clauren's Liesli. / An Fanny",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "pb3al92riswbgpj"
+    },
+    {
+      "annotation": "VIII. Dichtungen (Sammlung INr 74978, Obj 34) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Umnachtet von den Nebeln ird'schen Strebens, / In welchem keine Freude mir geblüht,",
+      "language": [],
+      "musenalm_id": 74986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Skaldendweihe, / eine nordische Dichtung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius August Hertzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Skaldendweihe, / eine nordische Dichtung",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "56shl4kc2i1ad6h"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 74988-74990, Obj 44-46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Zerstreute Gedanken über Dichtkunst. / (Aus einer Rede: über deutsche Poesie; in einem / literarischen Vereine vorgelesen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Zerstreute Gedanken über Dichtkunst. / (Aus einer Rede: über deutsche Poesie; in einem / literarischen Vereine vorgelesen.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "uxlqg3ierd4lp9s"
+        }
+      ],
+      "source_id": "0dta9rvuwjhwjrg"
+    },
+    {
+      "annotation": "IX. Zerstreute Gedanken über Dichtkunst. Aus einer Rede: über deutsche Poesie; in einem literarischen Vereine vorgelesen. (Sammlung INr 74987, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Guter Sänger! wenn Psyche nicht mit ihrem geistigen Hauch deine Laute rührt; wenn dir im Busen die Harfe nicht ertönet:",
+      "language": [],
+      "musenalm_id": 74988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Guter Sänger! wenn Psyche nicht mit ihrem geistigen Hauch deine Laute rührt; wenn dir im Busen die Harfe nicht ertönet:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "rdif5ffl7j6z7x4"
+        }
+      ],
+      "source_id": "ddoc3t0e76jtmh1"
+    },
+    {
+      "annotation": "IX. Zerstreute Gedanken über Dichtkunst. Aus einer Rede: über deutsche Poesie; in einem literarischen Vereine vorgelesen. (Sammlung INr 74987, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Wen Poesie und Liebe mit ihrem unvergänglichen Zauber umgeben, der bleibt jung, und hätte der Winter achtzigmal die kalten Schneeflocken über sein Haupt geschüttet.",
+      "language": [],
+      "musenalm_id": 74989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wen Poesie und Liebe mit ihrem unvergänglichen Zauber umgeben, der bleibt jung, und hätte der Winter achtzigmal die kalten Schneeflocken über sein Haupt geschüttet.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "rs8oxmj0wrgckw9"
+        }
+      ],
+      "source_id": "1lxzvh0xt2fdf9r"
+    },
+    {
+      "annotation": "IX. Zerstreute Gedanken über Dichtkunst. Aus einer Rede: über deutsche Poesie; in einem literarischen Vereine vorgelesen. (Sammlung INr 74987, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Es gibt eine Dichterschule, die aus der Natur ein Modell der Malerey macht.",
+      "language": [],
+      "musenalm_id": 74990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es gibt eine Dichterschule, die aus der Natur ein Modell der Malerey macht.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.656Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "s0n4k9vg5dxuxf2"
+        }
+      ],
+      "source_id": "6m2p4acu965ssz4"
+    },
+    {
+      "annotation": "Einleitung zu 2 althochdeutschen Gedichten und 2 Übersetzungen von Lacher INr 74992-74995, Obj 48-51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Damit nicht die Sprache der beiden folgenden Gedichte von Einigen für russisch oder gar für türkisch gehalten werde, so bemerken wir, daß diese Sprache von unsern biedern Vorfahren geredet wurde.",
+      "language": [],
+      "musenalm_id": 74991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Proben alt-hochdeutscher Sprache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Lacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Proben alt-hochdeutscher Sprache",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "uys3mt3wxn3xrfq"
+    },
+    {
+      "annotation": "X. Proben alt-hochdeutscher Sprache (Sammlung INr 74991, Obj 47) mit einer Übersetzung INr 74993, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Uostanlufteo sethala aldum iuuero hailanhom geunmagetho broogo doades.",
+      "language": [],
+      "musenalm_id": 74992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HRADAGAST",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "HRADAGAST",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "snfbllgphrfgb5b"
+    },
+    {
+      "annotation": "X. Proben alt-hochdeutscher Sprache (Sammlung INr 74991, Obj 47) Übersetzung der vorstehenden Gedichts Nr 74992, Obj 48 / Dem Beitrag vorangestellt: Vixere fortes Agamemnona / Multi, sed illacrymabiles […] Horatius",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Einsiedler in den Lüften, eure alten Scheitel / Erschüttert nicht des Todes Grausen.",
+      "language": [],
+      "musenalm_id": 74993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einsiedler in den Lüften, eure alten Scheitel / Erschüttert nicht des Todes Grausen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Lacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "pqk2qqvlbwmu7t4"
+    },
+    {
+      "annotation": "X. Proben alt-hochdeutscher Sprache (Sammlung INr 74991, Obj 47) mit einer Übersetzung INr 74995, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Uueroldes hliuhtidhono fuef cahunkom iniu edhiles geuuon ham of cruonan poughilu sunnazorahtan solares.",
+      "language": [],
+      "musenalm_id": 74994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HARIPERAHT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "HARIPERAHT",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "lfb6y0xjatuydxu"
+    },
+    {
+      "annotation": "X. Proben alt-hochdeutscher Sprache (Sammlung INr 74991, Obj 47) Übersetzung der vorstehenden Gedichts Nr 74994, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Gedenkt mir's noch daheim fünf Lustern in dem Gauen / Das Haus auf grünem Berge mit sonnigen Altanen:",
+      "language": [],
+      "musenalm_id": 74995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedenkt mir's noch daheim fünf Lustern in dem Gauen / Das Haus auf grünem Berge mit sonnigen Altanen:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Lacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "2s26ebger5zdrj3"
+    },
+    {
+      "annotation": "Anm. am Objekt: Der Verfasser dieses Gedichtes, aus Heidelberg gebürtig, starb im Jahre 1809, kaum 20 Jahre alt. Der frühe Tod dieses hoffnungsvollen Jünglings war ein großer Verlust",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Im ewigen Wechsel kreiset das Leben, / Von trügendem Nebel und Schein umgeben;",
+      "language": [],
+      "musenalm_id": 74996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Der Alpenwanderer. / 1807",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Freiherr von Zentner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Der Alpenwanderer. / 1807",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "730er5x3b1aygyd"
+    },
+    {
+      "annotation": "Beitrag in 2 Kapiteln mit einem beigegebenen Gedicht INr 74998-75000, Obj 54-56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Notitzen über den Aufenthalt Ihrer / Majestäten des Königs und der Kö- / nigin von Bayern in dem Rhein- / kreise, vom 7. bis 14. Juny. / 1829.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Notitzen über den Aufenthalt Ihrer / Majestäten des Königs und der Kö- / nigin von Bayern in dem Rhein- / kreise, vom 7. bis 14. Juny. / 1829.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "yskwxurye7r1zlw"
+    },
+    {
+      "annotation": "XII. Notitzen über den Aufenthalt Ihrer Majestäten des Königs und der Königin von Bayern in dem Rheinkreise, vom 7. bis 14.Juny 1829 ( INr 74997, Obj 53) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Da, wo in stiller Majestät der schöne Rheinstrom hinflutet, wo die Vogesen ziehen, und das Rebenumgürtete Haardtgebirg; da, wo stolz der Donnersberg sein Haupt in die Wolken erhebt,",
+      "language": [],
+      "musenalm_id": 74998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung. / Blick auf Rheinbayern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung. / Blick auf Rheinbayern",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "2is0t8c46xv4doj"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz /) XII. Notitzen über den Aufenthalt Ihrer Majestäten des Königs und der Königin von Bayern in dem Rheinkreise, vom 7. bis 14.Juny 1829 ( INr 74997, Obj 53) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Vor allem mögen hier - gehört die Sache gleich nur mittelbar an diesen Ort - die Worte stehen mit welchen König Ludwig am 4. November 1825 die Deputation aus Rheinbayern empfing,",
+      "language": [],
+      "musenalm_id": 74999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Züge #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Züge #",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "8hf5pbkgmdqiga0"
+    },
+    {
+      "annotation": "Beigabe zu: XII. Notitzen über den Aufenthalt Ihrer Majestäten des Königs und der Königin von Bayern in dem Rheinkreise, vom 7. bis 14.Juny 1829 ( INr 74997, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Zwar ruh'st Du hier nicht im Orangenschatten, / Dein Blick schweift hier nicht auf Toskana's Matten, / Hier trauert keine Siebenhügelstadt;",
+      "language": [],
+      "musenalm_id": 75000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwar ruh'st Du hier nicht im Orangenschatten, / Dein Blick schweift hier nicht auf Toskana's Matten, / Hier trauert keine Siebenhügelstadt;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Welsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "63plc06wycwmv1g"
+    },
+    {
+      "annotation": "mit Anm : Hinweis auf Gedicht »Auf den Tod enes jungen Sängers« von A. Stöber INr 75004, Obj 60",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "Es regt sich leicht in des Gemüthes Saiten / Ein süßes Spiel von zarten Silberklängen,",
+      "language": [],
+      "musenalm_id": 75001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Erwachen der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludw. Heinr. Bricka",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Erwachen der Liebe",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "g5eql33gs64u7cd"
+    },
+    {
+      "annotation": "Sammlung von 12 Gedichten INr 75003-75014, Obj 59-70 /) Motto: Wenn in der Jugend goldnen Tagen uns / Der Traum von einer schönern Welt umschwebt / Dann werden leicht Gefühle zu Gesängen. / Bouterwek",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Gedichte",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.586Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "nttqrgpgkbsho9l"
+        }
+      ],
+      "source_id": "1ohkhy8kfkplh73"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Schlage die Folianten zu, / Komm hervor aus deiner Zelle!",
+      "language": [],
+      "musenalm_id": 75003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mahnung",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.586Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "aqxg5dewbek2z8i"
+        }
+      ],
+      "source_id": "77cixfbzbrpdrbz"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58) Anm. am Objekt: Veranlaßt durch den Tod eines jungen Sängers /) s. Gedicht INr 75001, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Ob rauschend auch am Fels die Wogen schäumen, / Ob Fluthen auch sich wild an Fluthen drängen;",
+      "language": [],
+      "musenalm_id": 75004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf den Tod enes jungen Sängers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf den Tod enes jungen Sängers",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.586Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "hxdol77wd63zy0s"
+        }
+      ],
+      "source_id": "j1w0uzj97dtn3vp"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Wie der Mond bescheiden, unverdrossen, / Durch Gewölke ziehet, ewig mild:",
+      "language": [],
+      "musenalm_id": 75005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johannes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Johannes",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.612Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.612Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "8p7auleb5l6bgox"
+        }
+      ],
+      "source_id": "twh17oiy2yzdaat"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Wie flimmern doch die Sterne / So licht aus blauem See!",
+      "language": [],
+      "musenalm_id": 75006,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus der Ferne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus der Ferne",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.612Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.612Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "gm4516rtwr8nx7x"
+        }
+      ],
+      "source_id": "me8ro2olgvqgkok"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58) s.: Spindelmann, der Recensent (d.i. L. Uhland): »Frühlingskritik« in: Deutscher Dichterwald 1813; INr 70934",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "Will mich doch vor allen Dingen / Vor der Nachwelt präserviren, / Denn ich hätte zu riskiren / Fieber mit nach Haus zu bringen.",
+      "language": [],
+      "musenalm_id": 75007,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kritikasters Abendgang. / (Seitenstück zu L. Uhland's Frühlingslied des Recen- / senten.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kritikasters Abendgang. / (Seitenstück zu L. Uhland's Frühlingslied des Recen- / senten.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "ala8q217kfexern"
+        }
+      ],
+      "source_id": "wuvjh6zuiioraia"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58) Anm. am Objekt: Nicht weit vom Rheine stand einst, eine halbe Stunde von Erstein im Elsaß, das feste Schloß Schwanau, von Morästen umgeben, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "Wohl magst du Weinsberg schauen, / Im edeln Schwabenland; / Doch blühen treue Frauen / Auch an der Alsa Strand.",
+      "language": [],
+      "musenalm_id": 75008,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Dame von Geroldseck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Dame von Geroldseck",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "b85tb45qvbtxyuc"
+        }
+      ],
+      "source_id": "prjag0v3twu8czh"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "In des Waldes grünem Haus / Ruht der müde Sänger aus,",
+      "language": [],
+      "musenalm_id": 75009,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sängers Heimweh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sängers Heimweh",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "1udlvltvpeme86b"
+        }
+      ],
+      "source_id": "72cls90ytfbw7bx"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "Leicht, von Ätherduft getragen, / Zieht des Tages Königin / Auf dem hellen Sonnenwagen / Unter blauem Baldachin.",
+      "language": [],
+      "musenalm_id": 75010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Sonne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Sonne",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "zw9h691qg4kzt2k"
+        }
+      ],
+      "source_id": "bwsfkicgu1js5en"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "Losgwirbelt von dem Ast / Wohin eilst du , ohne Rast, / Armes Blatt? - Kann ich es wissen?",
+      "language": [],
+      "musenalm_id": 75011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Blatt. / (Nach Arnault.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Blatt. / (Nach Arnault.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "tuf98lukwhvuyjv"
+        }
+      ],
+      "source_id": "qa1gi736xy3rrjm"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "Als im Pappelgezweig ein Mückchen summend umherflog, / Träufelte flüssiges Harz über das Thierchen herab.",
+      "language": [],
+      "musenalm_id": 75012,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mückchen im Bernstein. / (Nach Martial.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mückchen im Bernstein. / (Nach Martial.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "0dwvaywfvg8ie73"
+        }
+      ],
+      "source_id": "wkdc1zi4bb6p8jt"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "O könnt' ich eine Lyra seyn, / So schön wie blankes Elfenbein:",
+      "language": [],
+      "musenalm_id": 75013,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Skolion / (Nach einem anonymen griechischen Dichter.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Skolion / (Nach einem anonymen griechischen Dichter.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "iufayui07c95482"
+        }
+      ],
+      "source_id": "vm4ru7vjcj8zwgm"
+    },
+    {
+      "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "Gleich den Göttern scheinet beglückt und selig / Jener Mann der gegen dir über dasitzt,",
+      "language": [],
+      "musenalm_id": 75014,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schönen Geliebten. / (Nach Sappho.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der schönen Geliebten. / (Nach Sappho.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.775Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "c79qk4i0p9zzkv3"
+        }
+      ],
+      "source_id": "ungdbmr3vzygfpx"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 75016-75023, Obj 72-79",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75015,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. Lehrlings Lieder, / dem verehrten Meister / Ludwig Uhland / geweiht,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. Lehrlings Lieder, / dem verehrten Meister / Ludwig Uhland / geweiht,",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "447e4icpli9wcim"
+        }
+      ],
+      "source_id": "o4610xxzzz9z5kf"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Du lieber Mann, der manche süße Kunde / Uns von dem Wunderland gebracht!",
+      "language": [],
+      "musenalm_id": 75016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Ludwig Uhland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Ludwig Uhland",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "k0087e9029oitp8"
+        }
+      ],
+      "source_id": "epwcxkmuohrtrlm"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Ich ruh' im hohen dunkeln Gras, / Tief in den Halmen drin;",
+      "language": [],
+      "musenalm_id": 75017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stille Wonne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stille Wonne",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "7n8sntznrp8b9h8"
+        }
+      ],
+      "source_id": "fmxodbr5y9gg772"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Komm' in mein Schloß von rosigen Korallen, / Drin wohnt sich's schön, von dunkler Fluth umzogen!",
+      "language": [],
+      "musenalm_id": 75018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Meerfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Meerfrau",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "55bd7g382tcyitr"
+        }
+      ],
+      "source_id": "8xkfqhho5xyx1q7"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71) Motto: Es hatte die Erde sich an den Himmel angelegt, wie der Säugling an die Mutterbrust, und sich freud- und liebevoll gesogen. / Görres",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Seh' ich den grauen Münster festlich ragen, / Mit kühnem Haupt, bis zu den Wolkenringen",
+      "language": [],
+      "musenalm_id": 75019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schöne Zeit.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schöne Zeit.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "ycfviofwn3o4r0i"
+        }
+      ],
+      "source_id": "pt3u874k7tqrbvg"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "350",
+      "incipit_statement": "Was ich von süßer Liebe euch gesungen / Sind Träume nur und heißes Dichtersehnen;",
+      "language": [],
+      "musenalm_id": 75020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bekenntniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bekenntniß",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "nx6pdo3kf39leqh"
+        }
+      ],
+      "source_id": "xctgobo9fws21ze"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71) Anm. am Objekt: Veranlaßt durch seine Bearbeitung des nordischen Epos Ragnar Lodbrok, aus welchem er mehrere Fragmente in einem literarioschen Vereine  vorlas.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Durch deines Liedes ros'ge Zauberreise, / Hast du, aus alter Haft, zu unsern Ohren, / Manch grau Gebilde frisch heraufbeschworen,",
+      "language": [],
+      "musenalm_id": 75021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Julius August Hertzog",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Julius August Hertzog",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "dulsotkulpgarrj"
+        }
+      ],
+      "source_id": "gdg99assob043wt"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71) Anm. am Objekt: Es sind dies die Bilder der Könige Chlodwig , Dagobert, Rudolph von Habsburg und Ludwig XIV. auf der Seite des großen Portals.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Am Straßburger Münster da prangen, gar schön, / Vier mächtige, steinerne Reiter;",
+      "language": [],
+      "musenalm_id": 75022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier steinernen Reiter am Straß- / burger Münster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die vier steinernen Reiter am Straß- / burger Münster",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "fu0ej26vk2qsorx"
+        }
+      ],
+      "source_id": "nythvu5d2k1fc5w"
+    },
+    {
+      "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71) Anm. am Objekt: Das Schloß Arnsberg oder Arnsperg genannt, liegt im Unterelsasse, unweit dem Bärenthale, […]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.114Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "Ein Köhlersmann, im Walde, geht noch, zu später / Nacht; / Die Luft ist schwül und stille, im Laub kein Vogel wacht.",
+      "language": [],
+      "musenalm_id": 75023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kellermeister auf Arnsburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kellermeister auf Arnsburg",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "bak71qikuio7mwy"
+        }
+      ],
+      "source_id": "nkybh5ueefddztc"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 75025-75027, Obj 81-83",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75024,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Historische Fragmente",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Historische Fragmente",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "g8ck3u1u1okm127"
+    },
+    {
+      "annotation": "XVI. Historische Fragmente (Sammlung INr 75024, Obj 80)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Nicht jene, deren Thaten die meisten Blätter der Geschichte füllen, sind die wahren Wohlthäter der Menschheit;",
+      "language": [],
+      "musenalm_id": 75025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Welchem Manne hat die Menschheit am / meisten zu verdanken?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Welchem Manne hat die Menschheit am / meisten zu verdanken?",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "hio1opkv7ziyb99"
+    },
+    {
+      "annotation": "XVI. Historische Fragmente (Sammlung INr 75024, Obj 80)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Wollten die schreibenden Mönche des Mittelalters oder wollen die mönchischen Schriftsteller der neuern Zeit etwas besonders Erstaunliches erzählen, so gab und gibt es immer - ein Wunder, ein Mirakel.",
+      "language": [],
+      "musenalm_id": 75026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wunder bey den Alten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wunder bey den Alten",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "xfv6x9jk8l918c4"
+    },
+    {
+      "annotation": "XVI. Historische Fragmente (Sammlung INr 75024, Obj 80) Anm. am Objekt: Die Ehre, diese wichtige Bemerkung gemacht zu haben, gebührt eigentlich nicht mir; […]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Im Rheinkreise haben die Cysterzienser-Klöster, besonders die von Otterberg und Eußersthal, mehr Dörfer eingehen machen, als selbst der 30jährige Krieg vermochte.",
+      "language": [],
+      "musenalm_id": 75027,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Klöster als Zerstörer der Gemeinden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F. Kolb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Klöster als Zerstörer der Gemeinden",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "w6f3lrrpj2irdzt"
+    },
+    {
+      "annotation": "Sammlung von 6 Rätseln INr 75029-75034, Obj 85-90",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75028,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / Agrionien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / Agrionien",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "dyvk3k1svwpnwl2"
+    },
+    {
+      "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Die Nacht enttflieht, der Tannen Wipfel glühen, / Es jubelt schon die bunte Sängerschaar.",
+      "language": [],
+      "musenalm_id": 75029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Viersilbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Viersilbige Charade",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.817Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "4iz04hpmabuv63g"
+        }
+      ],
+      "source_id": "h07unq8z99xotxx"
+    },
+    {
+      "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Das Jagdhorn schallt; die Rüden stehn und bellen: / Denn raschelnd braust mein Erstes durch den Hain;",
+      "language": [],
+      "musenalm_id": 75030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Zweysilbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Zweysilbige Charade",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "6oopodqc7ur2rkr"
+        }
+      ],
+      "source_id": "a2nlsqse527q6yp"
+    },
+    {
+      "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Kennst du das Land in Asiens Norden, / Das Eisgefild?",
+      "language": [],
+      "musenalm_id": 75031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Logogryph",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "p8towpzz5blr2mw"
+        }
+      ],
+      "source_id": "krrd6p6tv5j58b2"
+    },
+    {
+      "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Es steht ein Haus, mit ros'gen Thoren / Geschmückt, in wunderholdem Glanz,",
+      "language": [],
+      "musenalm_id": 75032,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Charade von vier Silben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Charade von vier Silben",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "gz40jqd4htpspzw"
+        }
+      ],
+      "source_id": "amzcrkhfv7z7cek"
+    },
+    {
+      "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Horch! wie am Ufer die Wogen erbraußen, / Wie aus der Ferne der Hunde Gebell;",
+      "language": [],
+      "musenalm_id": 75033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Logogryph",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "gc3521xz8yrxh7d"
+        }
+      ],
+      "source_id": "hzuxw9r9bjfowdh"
+    },
+    {
+      "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "Wenn glühend fällt der Sonnenstral / Ins stille Thal / Und auf die Matten,",
+      "language": [],
+      "musenalm_id": 75034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Zweysilbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Zweysilbige Charade",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "utgjxyadq6s0v86",
+          "source_id": "uwc4ykf8yo1f51d"
+        }
+      ],
+      "source_id": "wku57n7m94qmjzf"
+    },
+    {
+      "annotation": "Anm. über dem Objekt: Das nachstehende Gedicht ist uns, gerade als die rheinischen Horen geschlossen werden sollten, zugesendet worden. Es hat einen eigenen Anstrich obschon es uns im Ganzen dunkel scheint.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Zauberbrühe ist gar! / Sag mir, warum heul'st du so hohl / Leichen schwelgender Aar, / Der du brüllend dröhnest am Pol!",
+      "language": [],
+      "musenalm_id": 75036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. Die Sturmbeschwörung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. Die Sturmbeschwörung",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "830xbxhkub648kj"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 75038-75042, Obj 93-97",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIX. Miscellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIX. Miscellen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "qpscn4ntjqulebo"
+    },
+    {
+      "annotation": "XIX. Miscellen (Sammlung INr 75037, Obj 92)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Aber wer wälzt uns den Stein - so sprach das Weib - / von der Gruft dort?",
+      "language": [],
+      "musenalm_id": 75038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Distichon, bey Gelegenheit von Paulus's Leben Jesu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Distichon, bey Gelegenheit von Paulus's Leben Jesu",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "0qjqv9jimvlvbfe"
+    },
+    {
+      "annotation": "XIX. Miscellen (Sammlung INr 75037, Obj 92)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Wer den Beruf erfüllt, mit dem ihn Gott beliehen, / Als Bürger und Mensch sein Dasein ganz erfüllt,",
+      "language": [],
+      "musenalm_id": 75039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stammbuchblatt / von Elise Bürger, geborne Hahn. / (Aus dem Stammbuche des verstorbenen Bruders des / Herausgebers.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stammbuchblatt / von Elise Bürger, geborne Hahn. / (Aus dem Stammbuche des verstorbenen Bruders des / Herausgebers.)",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "czbbe03vyupsl5q"
+    },
+    {
+      "annotation": "XIX. Miscellen (Sammlung INr 75037, Obj 92)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Könnt ihr nur die Liebe preisen, / Warum singt ihr Höhres nicht?",
+      "language": [],
+      "musenalm_id": 75040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die erotischen Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die erotischen Sänger",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "xx98bhmlxz8iftt"
+    },
+    {
+      "annotation": "XIX. Miscellen (Sammlung INr 75037, Obj 92)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "War es gut, als N. B. der Erdenwelt durch den Moniteur seine Willensmeinungen kund that,",
+      "language": [],
+      "musenalm_id": 75041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NB oder OB",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "NB oder OB",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "71dxecgqquamhg9"
+    },
+    {
+      "annotation": "Auflösung der Rätsel INr 75029-75034, Obj 85-90 /) XIX. Miscellen (Sammlung INr 75037, Obj 92)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung der Agrionien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung der Agrionien",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "a94j2nas28n15fb"
+    }
   ],
   "agents": [
     {

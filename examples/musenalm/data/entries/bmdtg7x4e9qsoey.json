@@ -48,20 +48,446 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "bskrzxvooklpq24"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.706Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406070",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.706Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bskrzxvooklpq24"
+    }
   ],
   "contents": [
-    "nr0yua81q5eqgfp",
-    "eebv6v0zb2x0er3",
-    "6yea8wy1b878bso",
-    "zpw2jlcs4qjbx14",
-    "b62k45lrdbbzq4f",
-    "ldsprqb6y215sea",
-    "cdwpvdfdrx0jb94",
-    "dfnz1ozxayyi531",
-    "ghelqnuh5cz9mk0",
-    "er1kv30l37hv65p",
-    "lqu61n2kc79l0mk"
+    {
+      "annotation": "Umschlag mit Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70595,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sardellen / für / satyrische Näscher. / Von / T. H. Friedrich, / Verfasser der satyrischen Feldzüge. / Neujahrsgabe / für 1818. / Hamburg, / in der Herold'schen Buchhandlung. / Aufgeschnittene und beschmutzte Exemplare werden nicht / zurück genommen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1153_70595_413c0nspq4.jpg",
+        "alm_3583_70595_3r62we6gf5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sardellen / für / satyrische Näscher. / Von / T. H. Friedrich, / Verfasser der satyrischen Feldzüge. / Neujahrsgabe / für 1818. / Hamburg, / in der Herold'schen Buchhandlung. / Aufgeschnittene und beschmutzte Exemplare werden nicht / zurück genommen",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "nr0yua81q5eqgfp"
+    },
+    {
+      "annotation": "Verlagsmittlung auf dem vorderen Deckel  verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70596,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "eebv6v0zb2x0er3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70597,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sardellen / für saryrische Näscher / von / T. H. Friedrich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sardellen / für saryrische Näscher / von / T. H. Friedrich",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "6yea8wy1b878bso"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70598,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sardellen / für / satyrische Näscher. / Von / T. H. Friedrich, / Verfasser des satyrischen Feldzugs. / Hamburg, / in der Herold'schen Buchhandlung. / 1818",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sardellen / für / satyrische Näscher. / Von / T. H. Friedrich, / Verfasser des satyrischen Feldzugs. / Hamburg, / in der Herold'schen Buchhandlung. / 1818",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "zpw2jlcs4qjbx14"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "b62k45lrdbbzq4f"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Freund Leser! Die Sardelle ist ein kleines leckeres Fischlein von feinem Salze, so in einem See von Essig, Oel und Pfeffer schimmt,",
+      "language": [],
+      "musenalm_id": 70600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Kurze Vorrede über Sardellen / und Heringe, Kochsalz und atti- / sches Salz, nebst Abschweifung / in das Kapitel vom Einsalzen, / namentlcih des Rindfleisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Kurze Vorrede über Sardellen / und Heringe, Kochsalz und atti- / sches Salz, nebst Abschweifung / in das Kapitel vom Einsalzen, / namentlcih des Rindfleisches",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.265Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "m42f9yv8hcmidyl"
+        }
+      ],
+      "source_id": "ldsprqb6y215sea"
+    },
+    {
+      "annotation": "# Bez. am Vorwort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Gottlob! - endlich mein lieber Thomas! können wir uns der Segnungen des Friedens mit ganzer Seele freuen. Hier hast du die Bestätigungen in den Zeitungen.",
+      "language": [],
+      "musenalm_id": 70601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Lachtaube / oder / Bosovia's Zukunft, / das ist: / glaubhaftige Prophezeiung, wie / es sich über kurz oder lang mit / dem Lande Bosovia begeben / wird, wenn kein Wunder ge- / schieht, das ist: wenn die Boso- / viter nicht zu Verstande / kommen. / (Erbauliches Gespräch zwischen Hilarius, / Thomas und einer Lachtaube.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Lachtaube / oder / Bosovia's Zukunft, / das ist: / glaubhaftige Prophezeiung, wie / es sich über kurz oder lang mit / dem Lande Bosovia begeben / wird, wenn kein Wunder ge- / schieht, das ist: wenn die Boso- / viter nicht zu Verstande / kommen. / (Erbauliches Gespräch zwischen Hilarius, / Thomas und einer Lachtaube.)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.265Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "a3cd7imlvnnexgn"
+        }
+      ],
+      "source_id": "cdwpvdfdrx0jb94"
+    },
+    {
+      "annotation": "# Bez. am Vorwort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Es möchte bei'm ersten Anblick seltsam erscheinen, theuerste Standesgenossen! etwas verteidigen zu wollen, was über alle Angriffe erhaben ist, wie Sonne, Mond und Sterne.",
+      "language": [],
+      "musenalm_id": 70602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Vertheidigung des Erbadels ge- / gen / das Gebell der plebejischen / Kläffer; / nebst tiefsinnigen Bemerkungen über / den Unterschied zwischen echtem und / unechtem, oder Geburts- und sogenanntem Verdienst-Adel, auch unmaaßgeb- / lichen Vorschlägen, wie die edlen Ge- / schlechter stets vor unedler Beimischung / zu bewahren, und zu dem Ende Ge- / schlechts-Register, wie über die edle / englische und arabische Pferde-Rasse, / einzuführen. / Eine philosophische Untersuchung des Reichs- / Freiherrn Kurd Konrad von Brausenstein, / Erb-, Lehn- und Gerichtsherrn / auf et caetera",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Vertheidigung des Erbadels ge- / gen / das Gebell der plebejischen / Kläffer; / nebst tiefsinnigen Bemerkungen über / den Unterschied zwischen echtem und / unechtem, oder Geburts- und sogenanntem Verdienst-Adel, auch unmaaßgeb- / lichen Vorschlägen, wie die edlen Ge- / schlechter stets vor unedler Beimischung / zu bewahren, und zu dem Ende Ge- / schlechts-Register, wie über die edle / englische und arabische Pferde-Rasse, / einzuführen. / Eine philosophische Untersuchung des Reichs- / Freiherrn Kurd Konrad von Brausenstein, / Erb-, Lehn- und Gerichtsherrn / auf et caetera",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.265Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "lg0cthnj7wahx6k"
+        }
+      ],
+      "source_id": "dfnz1ozxayyi531"
+    },
+    {
+      "annotation": "# Bez. am Vorwort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Ehrenfester Plebs! Es hat sich in neueren Zeiten eine Stimme der Afteraufklärung erhoben, welche also zu Dir spricht: Erwachet endlich zum Gefühl eurer selbst, ihr Plebejer! lernet endlich Euch selbst schätzen! lasset ab von der Kriecherey",
+      "language": [],
+      "musenalm_id": 70603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Epistel an die Plebejer, und / Aufruf zur Befestigung in / der Tugend der Demuth, / Namentlich in der lobens- / werthen Plebejer-Demuth / gegen den Adel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Epistel an die Plebejer, und / Aufruf zur Befestigung in / der Tugend der Demuth, / Namentlich in der lobens- / werthen Plebejer-Demuth / gegen den Adel",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.266Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.266Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "oq51u4t0uyc8jsv"
+        }
+      ],
+      "source_id": "ghelqnuh5cz9mk0"
+    },
+    {
+      "annotation": "# Bez. am Vorwort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Hochzuehrende Herren! Die Kunst zu schmeicheln, von welcher ich schon früher, jedoch nur im Vorbeigehen sprach, als ich mich über die Wege, zu einem einträglichen Amte zu gelangen, ausbreitete,",
+      "language": [],
+      "musenalm_id": 70604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Bruchstück / aus einer Vorlesung: über / die Kunst zu schmeicheln",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Bruchstück / aus einer Vorlesung: über / die Kunst zu schmeicheln",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.353Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.353Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "44ohx1xcaba4qb9"
+        }
+      ],
+      "source_id": "er1kv30l37hv65p"
+    },
+    {
+      "annotation": "Verlagsmittlung auf dem hinteren Deckel recto und verso; mit weiteren Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "von Kants allgemeiner Beschreibung des Landes, Begriff, Umriß, Durchschnitt, Unfang, u. Größe, ist jetzt der 2te Band der als vorzüglich gekannten Vollmer'schen Ausgabe in neuer Auflage fertig geworden;",
+      "language": [],
+      "musenalm_id": 70605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Immanuel Kant's physische Geographie;",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Immanuel Kant's physische Geographie;",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqu61n2kc79l0mk"
+    }
   ],
   "agents": [
     {

@@ -48,33 +48,968 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "12br88fo9je66bv",
-    "95c4jun6dlnxcu4"
+    {
+      "annotation": "1827-1850 § mindestens 1 G fehlt $ vermutl. fehlen 2 weitere GG im Kal\n§ mindestens 1 G fehlt $ vermutl. fehlen 2 weitere GG im Kal",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404162",
+      "location": "105H08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "12br88fo9je66bv"
+    },
+    {
+      "annotation": "3 Graphiken: Landschaften",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409844",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "95c4jun6dlnxcu4"
+    }
   ],
   "contents": [
-    "6c4kkqvv949agbr",
-    "7f6r8vvq5ld98df",
-    "idyuuigxf7v9k6z",
-    "u7efowdauk9k8gz",
-    "iz76pzq63czn5z6",
-    "bhyuxt8kptwlzyx",
-    "jxl7edk2f8yluxq",
-    "y04vuip05ll2da3",
-    "dw987o64i763r2v",
-    "912vd06bojxeb3a",
-    "ebvq32scy5f7u8b",
-    "2k0k9t4y8rib35j",
-    "xpaleybjc0tno86",
-    "s2wgva3thaoagci",
-    "qw5nv6xalibvxfy",
-    "j9yrjczrmalp44a",
-    "c8earirbmv8k3o5",
-    "ydoltvbhp5zt63j",
-    "yb2eklwf1ewzd3u",
-    "mhy8tnzfenurv6o",
-    "vap0mercz9mpa1k",
-    "6s47igz02zbz53t",
-    "tpzm3un0lflr3gp"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60787,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_875_60787_n1vrz99uf8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "6c4kkqvv949agbr"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60788,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OLGA NICOLAJEWNA / Grossfürstin von Russland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Fr. Krüger gest. v. Auguste Hüssener",
+      "scans": [
+        "alm_875_60788_2c8q1z8xhc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OLGA NICOLAJEWNA / Grossfürstin von Russland",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.824Z",
+          "agent": "dp1i9gllz2qxsbz",
+          "source_id": "pur2sw7gy60ooix"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.824Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "v1iezjpn589k2f3"
+        }
+      ],
+      "source_id": "7f6r8vvq5ld98df"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60789,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / KALENDER / auf das / Schalt-Jahr / 1840. / MIT KUPFERN. / Herausgegeben / VON DER KÖNIGL. PREUSS. KALENDER DEPUTATION",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stange sen. sc.",
+      "scans": [
+        "alm_875_60789_2i6n48hrml.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / KALENDER / auf das / Schalt-Jahr / 1840. / MIT KUPFERN. / Herausgegeben / VON DER KÖNIGL. PREUSS. KALENDER DEPUTATION",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "idyuuigxf7v9k6z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60790,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "u7efowdauk9k8gz"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60791,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Burg Hohenzollern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Marohn. Gest. v. H. Fincke",
+      "scans": [
+        "alm_875_60791_pwu38jnmsz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Burg Hohenzollern",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "bcm1hwjz1r867b7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.824Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "byqxvk5epd02bxo"
+        }
+      ],
+      "source_id": "iz76pzq63czn5z6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121688,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PARETZ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Marohn 1839. Nürnberg, Carl Mayer's Kunst- Anstalt",
+      "scans": [
+        "alm_875_121688_h5gvztnyl8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PARETZ",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.771Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.771Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "a0pzqgwqwnz1fnp"
+        }
+      ],
+      "source_id": "bhyuxt8kptwlzyx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "POTSDAM",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nürnberg, Carl Mayer's Kunst- Anstalt",
+      "scans": [
+        "alm_875_121689_wsllkyx10y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "POTSDAM",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "jxl7edk2f8yluxq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60792,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neu-Ruppin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Herrmann gest. v. H. Fincke",
+      "scans": [
+        "alm_875_60792_o5qxjcmnyf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neu-Ruppin",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "cn1y1djqg28kvzk"
+        }
+      ],
+      "source_id": "y04vuip05ll2da3"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60793,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwedt a / O.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Müller gest. von H. Fincke",
+      "scans": [
+        "alm_875_60793_lddu5i5n4w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schwedt a / O.",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "iz5g6inrj9pwf8l"
+        }
+      ],
+      "source_id": "dw987o64i763r2v"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60794,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Marktplatz zu Prenzlau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Marohn. gest. v. H. Fincke",
+      "scans": [
+        "alm_875_60794_8yzcj5hf5g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Marktplatz zu Prenzlau",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.986Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "12e0ghvltdvgago"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.986Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "26lvr7htt262l2n"
+        }
+      ],
+      "source_id": "912vd06bojxeb3a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121690,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ANSICHT VON FREIENWALDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nürnberg, Carl Mayer's Kunst- Anstalt",
+      "scans": [
+        "alm_875_121690_sbrclvwtz2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ANSICHT VON FREIENWALDE",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "ebvq32scy5f7u8b"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60795,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Märk. Schweitz bei Buckow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. von Bornemann. gest von C. Meyer",
+      "scans": [
+        "alm_875_60795_9ou91l85rf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Märk. Schweitz bei Buckow",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "2k0k9t4y8rib35j"
+    },
+    {
+      "annotation": "Graphik im Kalendarium September",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60796,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brandenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gest. v. H. Fincke",
+      "scans": [
+        "alm_875_60796_422msfz5ts.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Brandenburg",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.963Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "s910lj34pgzn85y"
+        }
+      ],
+      "source_id": "xpaleybjc0tno86"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober /) unter der Graphik: Nürnberg, Carl Mayer's Kunst-Anstalt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60797,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CROSSEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Marohn 1839",
+      "scans": [
+        "alm_875_60797_mj7ymqdke4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CROSSEN",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.964Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "llbsnuswwte2e36"
+        }
+      ],
+      "source_id": "s2wgva3thaoagci"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November;  Illustration zu »Der rechte Erbe« von Willibald Alexis d.i. G. W. H. Häring INr 60801, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60798,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nov. »Der rechte Erbe«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Bornemann Gest. v. H. Fincke",
+      "scans": [
+        "alm_875_60798_85ig0v4lyj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nov. »Der rechte Erbe«",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.964Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "imec0ao010usz7s"
+        }
+      ],
+      "source_id": "qw5nv6xalibvxfy"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember;  Illustration zu »Der rechte Erbe« von Willibald Alexis d.i.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60799,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Novelle der rechte Erbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Bornemann gest. v. H. Fincke",
+      "scans": [
+        "alm_875_60799_7edu04ynro.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Novelle der rechte Erbe",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.964Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "javpo66g8y6cn8c"
+        }
+      ],
+      "source_id": "j9yrjczrmalp44a"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Ein Volk in seiner größten Stumpfsinnigkeit aufassen, den Fortschritt desselben folgen und diese bis in die Zeiten verfolgen, wo es sich zivilisiert hat [...] Friedrich der Zweite in seinen Denkwürdigkeiten der Mark Brandenburg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In welchem Zeit-Abschnitt des menschlichen Geschlechts Deutschland's Bevölkerung ihren Anfang genommen hat, wird schwerlich jemals ausgemittelt werden.",
+      "language": [],
+      "musenalm_id": 60800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / der Mark Brandenburg / Erste Abtheilung, / umfassend einen Zeitraum von vierzehn Jahrhunderten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / der Mark Brandenburg / Erste Abtheilung, / umfassend einen Zeitraum von vierzehn Jahrhunderten",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "c8earirbmv8k3o5"
+    },
+    {
+      "annotation": "mit  Illustrationen s. Graphiken im Kalendarium INr 60788, 60789; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Als sie in den Fichtenwald ritten, stand die Sonne noch hoch am Himmel. In den Krümmungen des Weges, der bergauf, bergab sich schlängelte, bald überschattet von den gewaltigen Bäumen,",
+      "language": [],
+      "musenalm_id": 60801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der rechte Erbe. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Willibald Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der rechte Erbe. / Novelle",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.000Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.000Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "8gmyiwgi79eq1tp"
+        }
+      ],
+      "source_id": "ydoltvbhp5zt63j"
+    },
+    {
+      "annotation": "mit Hinweis auf § fehlende Graphk »Ansicht von Paretz«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Eine Erklärung der zu diesem Jahrgange des Berliner Kalenders gegebenen Kupfer machen ihre Unterschriften überflüssig.",
+      "language": [],
+      "musenalm_id": 60802,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Erklärung der zu diesem Jahrgange des Berliner Kalenders gegebenen Kupfer machen ihre Unterschriften überflüssig.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "yb2eklwf1ewzd3u"
+    },
+    {
+      "annotation": "mit einem Nachtrag s. Tabelle INr 60804, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60803,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist am 15. Julius geschlossen, und darnach sogleich der Druck / angefangen worden, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist am 15. Julius geschlossen, und darnach sogleich der Druck / angefangen worden, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "mhy8tnzfenurv6o"
+    },
+    {
+      "annotation": "Nachtrag zur Tabelle INr 60803, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60804,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachträge zur Genealogie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachträge zur Genealogie",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "vap0mercz9mpa1k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60805,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "6s47igz02zbz53t"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60806,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_875_60806_acyi21ssq5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "tpzm3un0lflr3gp"
+    }
   ],
   "agents": [
     {

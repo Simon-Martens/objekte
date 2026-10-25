@@ -48,23 +48,573 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "qd0f82zgbt8576j"
+    {
+      "annotation": "1807-1812, Jg 1810 nicht erschienen.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.550Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106367",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.550Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qd0f82zgbt8576j"
+    }
   ],
   "contents": [
-    "wpvfjv8ogw5elfw",
-    "853hhowe54eepmn",
-    "8ynp3ox0begtyxk",
-    "gcrdi0xy7cjxxgh",
-    "i7n1qizknr09tx7",
-    "uyh61vbe5w33gbb",
-    "zvv4r0g8nks7g3q",
-    "ytm0snt6wteqm6e",
-    "eybijrci7sam38q",
-    "fda9v3sc4l4d0p6",
-    "hzno6434rbd1cck",
-    "vg94cm7m4cx5aju",
-    "bcs2c7h5x21ul9h",
-    "giwj6wty79zva25"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.042Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110741,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1344_110741_etj7wd8603.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "wpvfjv8ogw5elfw"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.044Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110742,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auguste Schmalz / Königliche Kammer-Sängerinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Bolt fc. 1811 ad vi.",
+      "scans": [
+        "alm_1344_110742_e6x5030u17.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Auguste Schmalz / Königliche Kammer-Sängerinn",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "i6onmfo5jir0sgo"
+        }
+      ],
+      "source_id": "853hhowe54eepmn"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / fürs / Theater / 1812. / von / Aug. Wilh. Iffland. / mit 3 Bildnißen / Berlin / bei Duncker und Humblot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Jättnig sc.",
+      "scans": [
+        "alm_1344_110743_mbndu67n75.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / fürs / Theater / 1812. / von / Aug. Wilh. Iffland. / mit 3 Bildnißen / Berlin / bei Duncker und Humblot",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "4tklyccarri11wd",
+          "source_id": "8k9ltxgfnbog9bc"
+        }
+      ],
+      "source_id": "8ynp3ox0begtyxk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110744,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihro Excellenz / der / Frau Landmarschallin / Gräfin Hahn / mit / dem Gefühl inniger Verehrung gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Iffland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihro Excellenz / der / Frau Landmarschallin / Gräfin Hahn / mit / dem Gefühl inniger Verehrung gewidmet",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "ygkra5epb9ywce3",
+          "source_id": "n9wmie1m2hydjwh"
+        }
+      ],
+      "source_id": "gcrdi0xy7cjxxgh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110745,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Karl Johann Stadler / Director des Theaters zu Bremen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Bollinger sc.",
+      "scans": [
+        "alm_1344_110745_qwx1in5b4o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Karl Johann Stadler / Director des Theaters zu Bremen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "xudps8vzrobe0d5",
+          "source_id": "jnmpir6bummyikl"
+        }
+      ],
+      "source_id": "i7n1qizknr09tx7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.050Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110746,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siegfried Gotthilf Koch / Regisseur des K.K. Hof-Theaters / zu Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Henschel del. D. Berger sc. 1811",
+      "scans": [
+        "alm_1344_110746_msn1v40ts9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Siegfried Gotthilf Koch / Regisseur des K.K. Hof-Theaters / zu Wien",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "91on7gv2zq36bvs",
+          "source_id": "2e9xttepyl0qckg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "h0hbzhvbwneqjwr"
+        }
+      ],
+      "source_id": "uyh61vbe5w33gbb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Allerdings ist es das erste Erforderniß, daß die Worte des Dichters gehört werden.",
+      "language": [],
+      "musenalm_id": 110747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Über die Bildung der Künstler zur Men- / schendarstellung auf der Bühne. / (Fortsetzung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Über die Bildung der Künstler zur Men- / schendarstellung auf der Bühne. / (Fortsetzung.)",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "zvv4r0g8nks7g3q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Dieser Mann pflegte, in seinem gerechten Eifer für die Sache, mit Ungestüm zu sagen: die Probe ist so ehrwürdig, als die Beichte, und die Vorstellung so heilig, als die Messe.",
+      "language": [],
+      "musenalm_id": 110748,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Über ein Sprüchwort des alten Schau- / spielers Uhlich, aus den Zeiten / von 1739",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Über ein Sprüchwort des alten Schau- / spielers Uhlich, aus den Zeiten / von 1739",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ytm0snt6wteqm6e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Es war eine überaus gute Stunde, als Sie vergangenen Winter sich mit mir zum Kamine setzten, und mein Anliegen zu Herzen nahmen.",
+      "language": [],
+      "musenalm_id": 110749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Das Leben des Soufleurs / Leopod Böttger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Das Leben des Soufleurs / Leopod Böttger",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "eybijrci7sam38q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "In einem der Theaterkalender hat der Herausgeber den Vorschlag gethan, die zahlreichen und achtbaren Privattheater in Deutschland möchten sich vereinen, um Schillers Gedächtniß in seinen Hinterbliebenen zu ehren,",
+      "language": [],
+      "musenalm_id": 110750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Schillers Todtenfeier. / (Vorstellung für Schillers Erben auf dem Privat- / theater zu Drebkau in der Niederlausitz.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Schillers Todtenfeier. / (Vorstellung für Schillers Erben auf dem Privat- / theater zu Drebkau in der Niederlausitz.)",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "fda9v3sc4l4d0p6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß sämtlicher Deutscher Thea- / ter und ihrer Mitglieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß sämtlicher Deutscher Thea- / ter und ihrer Mitglieder",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "hzno6434rbd1cck"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanze aus Diana von Poitiers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bernhard Anselm Weber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romanze aus Diana von Poitiers",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.192Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.192Z",
+          "agent": "u71n4xfm3r4625l",
+          "source_id": "udjc2o9a9an4bba"
+        }
+      ],
+      "source_id": "vg94cm7m4cx5aju"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110753,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei den Verlegern dieses Almanachs ist zugleich erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1344_110753_0lff8jl2n4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bei den Verlegern dieses Almanachs ist zugleich erschienen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "bcs2c7h5x21ul9h"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110754,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1344_110754_0ywxjant9v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "giwj6wty79zva25"
+    }
   ],
   "agents": [
     {

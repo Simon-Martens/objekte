@@ -48,22 +48,611 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "swunq8tye1as0jv"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1809: Mit Ku 6(coloriert) und 309 SS.(Druckfehler bei Jahreszahl Titel 1817=1809)",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.773Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100100",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.773Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "swunq8tye1as0jv"
+    }
   ],
   "contents": [
-    "yurm2dwdbwjhf3g",
-    "mpyelj1iahwlzo0",
-    "hk8t6bhtzgswqzc",
-    "i0zrdq3cod7vjgq",
-    "ywd41io6fg75p6x",
-    "0hvkm72j8tycbkg",
-    "axcnzoxo55szf0r",
-    "2abyuyn8r28u655",
-    "olnj0u9rukiy4aj",
-    "b0iju5l3s7100tc",
-    "g8lhbhkktvp3liy",
-    "5i9ga8bg8kitrnx",
-    "o4tzxvafittprcf"
+    {
+      "annotation": "# Titel handschriftlich verbessert zu: siebter Jahrgang 1809. In der Rigaer Ausgabe Jahreszahl und Jahrgang korrekt.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119608,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / von / A. von KOTZEBUE. / Funfzehnter Jahrgang. / Riga / bei C. J. G. Hartmann, / 1819 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4482_119608_f0xtnd9rr7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / von / A. von KOTZEBUE. / Funfzehnter Jahrgang. / Riga / bei C. J. G. Hartmann, / 1819 #",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "yurm2dwdbwjhf3g"
+    },
+    {
+      "annotation": "Illustration zu »Die englischen Waaren« von Kotzebue (INr 123433, Obj 3); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123432,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ey, Ey, das ist also der Mars / Die englischen Waaren. Act II. Scene 6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. C. Müller sc. $",
+      "scans": [
+        "alm_4482_123432_7fu151pc51.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ey, Ey, das ist also der Mars / Die englischen Waaren. Act II. Scene 6.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.754Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "p4o0itowug79b24"
+        }
+      ],
+      "source_id": "mpyelj1iahwlzo0"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123432, Obj 2; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Herein wären wir. / Ja, wenn wir nur auch schon wieder draußen wä- / ren. Das ist eine Mauer trotz der chinesischen.",
+      "language": [],
+      "musenalm_id": 123433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die englischen Waaren. / Posse / in zwei Acten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die englischen Waaren. / Posse / in zwei Acten",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.754Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "8fnshnt5yrqrrv6"
+        }
+      ],
+      "source_id": "hk8t6bhtzgswqzc"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123432, Obj 2); Illustration zu »Die Seeschlacht und die Meerkatze« von Kotzebue (INr 123436, Obj 5); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Sei der Mann immerhin von Eisen und Stahl, / Das Schmollen macht ihn mürbe. / Die Seeschlacht und die Meerkatze. Scene 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. C. Müller sc. # $",
+      "scans": [
+        "alm_4482_123435_083s5z7r2s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "5. / Sei der Mann immerhin von Eisen und Stahl, / Das Schmollen macht ihn mürbe. / Die Seeschlacht und die Meerkatze. Scene 4.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.754Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "emc6hu1xn5f3aoc"
+        }
+      ],
+      "source_id": "i0zrdq3cod7vjgq"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123436, Obj 4; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Ach ich Unglückliche! Drei Freier belagern mich",
+      "language": [],
+      "musenalm_id": 123437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Seeschlacht und die Meerkatze. / Posse in einem Act",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Seeschlacht und die Meerkatze. / Posse in einem Act",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.754Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "86d2cbvqlrgmypq"
+        }
+      ],
+      "source_id": "ywd41io6fg75p6x"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123432, Obj 2); Illustration zu »Das Landhaus an der Heerstraße« von Kotzebue (INr 123439, Obj 7); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Ich kein Recht? oho mein Herr, ich bin ein Deutscher, / und die Deutschen haben heutzutage wohl / das Recht zu betteln. / Das Landhaus an der Heerstrasse. Scene 5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. C. Müller sc. # $",
+      "scans": [
+        "alm_4482_123438_4wv7gir8kg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "3. / Ich kein Recht? oho mein Herr, ich bin ein Deutscher, / und die Deutschen haben heutzutage wohl / das Recht zu betteln. / Das Landhaus an der Heerstrasse. Scene 5.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.754Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "ihg593vxiqwwrzn"
+        }
+      ],
+      "source_id": "0hvkm72j8tycbkg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123438, Obj 6; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Hier also wäre das berühmte Landhaus? – und wirklich schon verkauft? – Gestern erst? – Zwei Stunden vor meiner Ankunft? – ein verdammter Streich!",
+      "language": [],
+      "musenalm_id": 123439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Landhaus an der Heerstraße. / Ein Fastnachtsspiel in einem Act.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Landhaus an der Heerstraße. / Ein Fastnachtsspiel in einem Act.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.778Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.778Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "voy3y98eo8v0awx"
+        }
+      ],
+      "source_id": "axcnzoxo55szf0r"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123432, Obj 2); Illustration zu »Der Kleine Declamator« von Kotzebue (INr 123441, Obj 9); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Bescheert doch Gott jedem Vogel sein Futter, / Und lieber noch hat er ein dankbares Kind! / Der Kleine Declamator. Scene 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. C. Müller sc. # $",
+      "scans": [
+        "alm_4482_123440_jn2rp6jysu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "4. / Bescheert doch Gott jedem Vogel sein Futter, / Und lieber noch hat er ein dankbares Kind! / Der Kleine Declamator. Scene 2.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.778Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.778Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "ifn4m3oznpiybs3"
+        }
+      ],
+      "source_id": "2abyuyn8r28u655"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123441, Obj 8; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Ach Mutter! sieh, wie roth und glühend! / Noch brennt und raucht es überall! / Die armen Bewohner stürzen fliehend / Über den dampfenden, blutigen Wall",
+      "language": [],
+      "musenalm_id": 123441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der kleine Declamator. / Schauspiel in einem Act.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der kleine Declamator. / Schauspiel in einem Act.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.769Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "w0ej5acig6p51hk"
+        }
+      ],
+      "source_id": "olnj0u9rukiy4aj"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123432, Obj 2); Illustration zu »Der Hagestolz und die Körbe« von Kotzebue (INr 123444, Obj 11); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Aber wo – ja wo?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. C. Müller sc. # $",
+      "scans": [
+        "alm_4482_123442_7b77krga3h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "6. / Aber wo – ja wo?",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.770Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "hx2w8exp1s4id1d"
+        }
+      ],
+      "source_id": "b0iju5l3s7100tc"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123442, Obj 10; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Nein, nein, nein, / Ich seh’ es endlich ein, / Man muß sich bequemen / Eine Frau zu nehmen –",
+      "language": [],
+      "musenalm_id": 123444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hagestolz und die Körbe. / Ein Intermezzo",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hagestolz und die Körbe. / Ein Intermezzo",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.770Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "v874o4vzn73mdot"
+        }
+      ],
+      "source_id": "g8lhbhkktvp3liy"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123432, Obj 2); Illustration zu »Die Abendstunde« von Kotzebue (INr 123445, Obj 13); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Seinen Feind retten – eine / Schwere Pflicht! Die Abendstunde. Scene II",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. C. Müller sc. # $",
+      "scans": [
+        "alm_4482_123443_86rsry577s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "2. / Seinen Feind retten – eine / Schwere Pflicht! Die Abendstunde. Scene II",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.770Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "83icv9kjp7733dx"
+        }
+      ],
+      "source_id": "5i9ga8bg8kitrnx"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123443, Obj 12; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Der Wein ist gut, nicht wahr lieber Vater? / Gut. Ich habe ihn selbst gebaut, und trinke ihn mit Zufriedenheit, das sind zwei schöne Gewürze.",
+      "language": [],
+      "musenalm_id": 123445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Abendstunde. / Drama in einem Act.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Abendstunde. / Drama in einem Act.",
+      "updated": "2018-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.770Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.770Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "4877jbcztqm67r7"
+        }
+      ],
+      "source_id": "o4tzxvafittprcf"
+    }
   ],
   "agents": [
     {

@@ -46,13 +46,157 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "k1hcuqt9tzuwpfk",
-    "ll1gxle02l0u8mz"
+    {
+      "annotation": "Vorzugsausgabe auf Velinpapier in Seideneinband aus der Wiener Sammlung von G. Eissler",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.831Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411577",
+      "location": "107AlmDB",
+      "media": [],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.830Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "k1hcuqt9tzuwpfk"
+    },
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.826Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "412487",
+      "location": "107AlmDB",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.826Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ll1gxle02l0u8mz"
+    }
   ],
   "contents": [
-    "o033vbbyo763qkj",
-    "q5rx6obs3ic641p",
-    "zz9g8ibz5uwx6es"
+    {
+      "annotation": "Seidenumschlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 135126,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4889_135126_tgqo9fsil1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2025-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "o033vbbyo763qkj"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 135127,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Fr. Bolt de. et sc. 1795)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Bolt de. et sc. 1795",
+      "scans": [
+        "alm_4889_135127_tbgu65yre6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2025-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.137Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "sru7s6ia8e22lvi"
+        }
+      ],
+      "source_id": "q5rx6obs3ic641p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:54.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 135128,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musen-Almanach / für / das Jahr 1796 / Herausgegeben / von / Schiller. / Neustrelitz, / bei dem Hofbuchhändler Michaelis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4889_135128_hixjme98wy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Musen-Almanach / für / das Jahr 1796 / Herausgegeben / von / Schiller. / Neustrelitz, / bei dem Hofbuchhändler Michaelis",
+      "updated": "2025-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "zz9g8ibz5uwx6es"
+    }
   ],
   "agents": [
     {

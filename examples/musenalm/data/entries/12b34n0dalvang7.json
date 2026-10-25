@@ -48,62 +48,2035 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "7cp22dijcjbtamk"
+    {
+      "annotation": "KVK-GVK mit Standorten für Jgg 1800, 1801, 1804-1807",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.713Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406755",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.713Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7cp22dijcjbtamk"
+    }
   ],
   "contents": [
-    "2tjpfeeqycrzim4",
-    "d6b5xugbtl1k5j6",
-    "edse3mt2i5r368e",
-    "9k0y0jhdvvhi3ib",
-    "pdbebo8n1fmkcn9",
-    "xp3zv34uhz5nm9i",
-    "w5fnd9ccd5ffdeb",
-    "8g930inxw9mfxzm",
-    "wa8lzxe3442h0di",
-    "5ja9v19vmblg0i3",
-    "9vazdst6ltgob2u",
-    "vnr575xf1udcsxd",
-    "7cogsn1ktdg3ccj",
-    "f98luez5xqqsil5",
-    "wx1xvs2h54irqin",
-    "kwry2at7p42zkgo",
-    "xlk99qyr8djkix0",
-    "ualdbwarpmn2m77",
-    "dmbw2z5f92hkc08",
-    "0vnvhe5ouepp07u",
-    "8n99b4v0zjmtb52",
-    "pq3kr39jged12lf",
-    "yx2148j00d0lkl2",
-    "xy3pqqyq9baz98w",
-    "cg7x9quf0jckz55",
-    "4sh34rt35kiyzse",
-    "7bcwfzf6ex3ixlt",
-    "uhno33p5ftpoq8a",
-    "mc67dcvnh6g0j7y",
-    "daxwirc42zmqenb",
-    "forgv9pb9j57xre",
-    "frw60yh35oz1wcs",
-    "uqt3norzyietruw",
-    "0m2isjb5ptmzel6",
-    "1vi68fm5nxmfv3q",
-    "1lasqltnw0iaey3",
-    "pdisw0afjytug0c",
-    "fu84lzg6vmx6pq9",
-    "62kcjits9tipc2u",
-    "s2qkmzrcdvs46ks",
-    "mrzamow6rm3gn5d",
-    "4ocd14td3gifp5w",
-    "ns5tm62hoasxw6o",
-    "9x7pik46a8490ar",
-    "b1id7afnvnzr6xq",
-    "2fzh2fb38yztr63",
-    "0277t4tyvstw6xh",
-    "ta4hcvqp77qgd5r",
-    "sanzxvjotdiwew5",
-    "n6ftk9bec37dqnk",
-    "godedgyyi1x6q8f",
-    "hbo3zusuqyiu6m4",
-    "woi11f059l3ss3b"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119750,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3703_119750_7th8bptpz9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "2tjpfeeqycrzim4"
+    },
+    {
+      "annotation": "paginiert p. 226 /) Illustration zu »Der Additionsfehler« INr 119764, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119732,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwey so ädle Jünglinge sollten nur Schwerter / führen, um für einander in Gefahren zu kämpfen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger Senior del. & sc. 1804",
+      "scans": [
+        "alm_3703_119732_pr1v1l2rtf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwey so ädle Jünglinge sollten nur Schwerter / führen, um für einander in Gefahren zu kämpfen",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.622Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "6y0dn3decmq8ogv"
+        }
+      ],
+      "source_id": "d6b5xugbtl1k5j6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119733,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Freunde und Freundinnen / des Schönen und Nützlichen, / besonders / für edle Gattinnen und Mütter / und solche / die es werden wollen. / Auf / das Jahr 1805. / herausgegeben / von / M. Friedrich Herrmann. / Mit Kupfern. / Leipzog, / bei J. C. Hinrichs, 1805",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Freunde und Freundinnen / des Schönen und Nützlichen, / besonders / für edle Gattinnen und Mütter / und solche / die es werden wollen. / Auf / das Jahr 1805. / herausgegeben / von / M. Friedrich Herrmann. / Mit Kupfern. / Leipzog, / bei J. C. Hinrichs, 1805",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "edse3mt2i5r368e"
+    },
+    {
+      "annotation": "12 Monatskonten und 1 Jahreskonto; 9GG",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.979Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119734,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1805.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1805.",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "9k0y0jhdvvhi3ib"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.979Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119735,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pillnitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günther d et s.",
+      "scans": [
+        "alm_3703_119735_02dqbwjfnf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pillnitz",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.622Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "d8ojqeu7tvr4g0w"
+        }
+      ],
+      "source_id": "pdbebo8n1fmkcn9"
+    },
+    {
+      "annotation": "paginiert p. 168 /) Illustration zu »Der Additionsfehler« INr 119764, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119736,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elender, ich verachte dich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior del & sc. 1804",
+      "scans": [
+        "alm_3703_119736_4h3naosvy1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Elender, ich verachte dich",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.622Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "5v0bpv5ozwhdyng"
+        }
+      ],
+      "source_id": "xp3zv34uhz5nm9i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119737,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von Loschwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günther d. et s.",
+      "scans": [
+        "alm_3703_119737_jnpjylkm07.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von Loschwitz",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.622Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "ec8ogieplg67eln"
+        }
+      ],
+      "source_id": "w5fnd9ccd5ffdeb"
+    },
+    {
+      "annotation": "paginiert p. 181 /) Illustration zu »Der Additionsfehler« INr 119764, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119738,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Um Gotteswillen nein! Grosmuth ist mir / eine größere Marter, als seine Bosheit.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior del. & sc. 1804",
+      "scans": [
+        "alm_3703_119738_2yq9w4lyt7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Um Gotteswillen nein! Grosmuth ist mir / eine größere Marter, als seine Bosheit.",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.622Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "dvtl5yh7tubhqzv"
+        }
+      ],
+      "source_id": "8g930inxw9mfxzm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.986Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119739,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Partie im Loschwitzer Thale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günther d. et s.",
+      "scans": [
+        "alm_3703_119739_7av1vij0fr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Partie im Loschwitzer Thale",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.622Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "10qr2xpckxx5d7k"
+        }
+      ],
+      "source_id": "wa8lzxe3442h0di"
+    },
+    {
+      "annotation": "paginiert p. 197 /) /) Illustration zu »Wie kann eine Prise Schnupftoback ...« INr 119765, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119740,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sind dies die Früchte eurer Versöhnung?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior del. & sc. 1804",
+      "scans": [
+        "alm_3703_119740_xioareog70.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sind dies die Früchte eurer Versöhnung?",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.725Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "vp67x0rkygvc8tn"
+        }
+      ],
+      "source_id": "5ja9v19vmblg0i3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119741,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Partie aus Loschwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günther d. et sc.",
+      "scans": [
+        "alm_3703_119741_eb29ji514v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Partie aus Loschwitz",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.725Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "e79upswspzob5j4"
+        }
+      ],
+      "source_id": "9vazdst6ltgob2u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119742,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "vnr575xf1udcsxd"
+    },
+    {
+      "annotation": "Sammlung von 2 Sammlungen mit insg. 9 Beiträgen mit Erklärungen zu den Graphiken (INr 119744–119747)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119743,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer zum Almanach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer zum Almanach",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "7cogsn1ktdg3ccj"
+    },
+    {
+      "annotation": "»Erklärung der Kupfer zum Almanach« (Sammlung INr 119743, Obj 12) /) siehe Graphik INr 119736, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die unglückliche Natalie hat ihren Gatten bei einer Treulosigkeit ertappt, …",
+      "language": [],
+      "musenalm_id": 119744,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "f98luez5xqqsil5"
+    },
+    {
+      "annotation": "»Erklärung der Kupfer zum Almanach« (Sammlung INr. 119743, Obj 12) /) siehe Graphik INr 119738, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Dieselbe Natalie im Zustande des tiefsten Elends, dadurch herbeigeführt, daß ihr Gatte sie mit den Kindern heimlich verlassen hatte.",
+      "language": [],
+      "musenalm_id": 119745,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "wx1xvs2h54irqin"
+    },
+    {
+      "annotation": "»Erklärung der Kupfer zum Almanach« (Sammlung INr. 119743, Obj 12) /) siehe Graphik INr 119740, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Zwei junge Landleute, durch den edlen Bischof von Sarcat nach langem Hader ausgesöhnt, …",
+      "language": [],
+      "musenalm_id": 119746,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "kwry2at7p42zkgo"
+    },
+    {
+      "annotation": "»Erklärung der Kupfer zum Almanach« (Sammlung INr. 119743, Obj 12) /) siehe Graphik INr 119732, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Titelkupfer. Aurora am Grabe ihres Vaters. Der Graf Biocchi, ein Ghibelline, der sie liebt, hatte in der Wärme des Gesprächs den Dolch gezückt, …",
+      "language": [],
+      "musenalm_id": 119747,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "xlk99qyr8djkix0"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen mit Erläuterungen zu den Landschaftskupfern (Nr 119749–119750, 119752–119754)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119748,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Landschaften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Landschaften",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ualdbwarpmn2m77"
+    },
+    {
+      "annotation": "»Landschaften« (Sammlung INr 119748, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Wer kennt nicht Pillniz, den reizenden Sommeraufenthalt des Kurfürsten von Sachsen, …",
+      "language": [],
+      "musenalm_id": 119749,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "dmbw2z5f92hkc08"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119751,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Partie am Ende des Loschwitzer Thales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günther d. et s.",
+      "scans": [
+        "alm_3703_119751_im5sbjxc0l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Partie am Ende des Loschwitzer Thales",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.635Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.635Z",
+          "agent": "k3qfb3024y59h2x",
+          "source_id": "916w9gu08131571"
+        }
+      ],
+      "source_id": "0vnvhe5ouepp07u"
+    },
+    {
+      "annotation": "»Landschaften« (Sammlung INr 119748, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Ansicht des fröhlichen Dörfchens Loschwiz. Es liegt am Ufer der Elbe, Blasewitz gegen über.",
+      "language": [],
+      "musenalm_id": 119752,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "8n99b4v0zjmtb52"
+    },
+    {
+      "annotation": "»Landschaften« (Sammlung INr 119748, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Künstler führt uns hier in den so eben geschilderten Ziegengrund hinter Loschwiz.",
+      "language": [],
+      "musenalm_id": 119753,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "pq3kr39jged12lf"
+    },
+    {
+      "annotation": "»Landschaften« (Sammlung INr 119748, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Eine Parthie aus Loschwitz selbst. Sie befindet sich in einem Gärtchen, zu welchem der Wanderer, …",
+      "language": [],
+      "musenalm_id": 119754,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "yx2148j00d0lkl2"
+    },
+    {
+      "annotation": "»Landschaften« (Sammlung INr 119748, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Eine neue Parthie aus dem Loschwizer Thale. Sie befindet sich am Ausgange desselben bey der lezten der Gebirgwohnungen, …",
+      "language": [],
+      "musenalm_id": 119755,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5)",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "xy3pqqyq9baz98w"
+    },
+    {
+      "annotation": "Sammlung von 3 Erläuterungen zu den unmittelbar darauf folgenden Stick- und Strickmustern. (INr 119757–119759)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119756,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stick- und Strickmuster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stick- und Strickmuster",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "cg7x9quf0jckz55"
+    },
+    {
+      "annotation": "»Stick- und Strickmuster« (Sammlung INr 119756, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Drei Muster zum Stricken. Sie werden sich vorzüglich als Bordüren zu Röcken und zu Kindermützchen empfehlen.",
+      "language": [],
+      "musenalm_id": 119757,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erste Tafel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erste Tafel",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "4sh34rt35kiyzse"
+    },
+    {
+      "annotation": "»Stick- und Strickmuster« (Sammlung INr 119756, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Ein Muster zum Stricken , das uzm Plattstich geeignet ist. Man kann sich desselben als Einfassung zu Shawls, …",
+      "language": [],
+      "musenalm_id": 119758,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweite Tafel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweite Tafel",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "7bcwfzf6ex3ixlt"
+    },
+    {
+      "annotation": "»Stick- und Strickmuster« (Sammlung INr 119756, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Ebenfalls ein Stickmuster, das so wie das vorige angewendet, aber sehr gut blos mit Garn genäht werden kann.",
+      "language": [],
+      "musenalm_id": 119759,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritte Tafel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritte Tafel",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "uhno33p5ftpoq8a"
+    },
+    {
+      "annotation": "Beigabe zu »Stick- und Strickmuster« INr 119756, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119760,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. A",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3703_119760_c4rp168fbj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tab. A",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "mc67dcvnh6g0j7y"
+    },
+    {
+      "annotation": "Beigabe zu »Stick- und Strickmuster« INr 119756, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119761,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. B",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3703_119761_402m27fqbc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tab. B",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "daxwirc42zmqenb"
+    },
+    {
+      "annotation": "Beigabe zu »Stick- und Strickmuster« INr 119756, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119762,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tab. C",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3703_119762_8h9zjatcvz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tab. C",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "forgv9pb9j57xre"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 119764–119766",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine / Erzählungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine / Erzählungen",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "frw60yh35oz1wcs"
+    },
+    {
+      "annotation": "»Kleine Erzählungen« (Sammlung INr 119763, Obj 32) /) s. Graphik INr 119732, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Für Mädchen, welche noch nicht in die Zwanzig sind, hängt der ganze Himmel voll Morgensonnen und voll Morgensterne, …",
+      "language": [],
+      "musenalm_id": 119764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Additionsfehler, / ein Versuch, Mädchen zusammenzählen zu lernen. / NB. Nur für die Schönen, oder wenigstens für die / Reichen unter meinen bürgerlichen Leserinnen / geschrieben.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Additionsfehler, / ein Versuch, Mädchen zusammenzählen zu lernen. / NB. Nur für die Schönen, oder wenigstens für die / Reichen unter meinen bürgerlichen Leserinnen / geschrieben.",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "uqt3norzyietruw"
+    },
+    {
+      "annotation": "»Kleine Erzählungen« (Sammlung INr 119763, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Ein harter Winter war vorüber. Schon harrete längst jedes Wesen dem kommenden Frühling entgegen. Die Sonne wurde milder;",
+      "language": [],
+      "musenalm_id": 119765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Wie kann eine Prise Schnupftoback / aus einer goldenen Dose so große Dinge thun! / Eine historische Anekdote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Wie kann eine Prise Schnupftoback / aus einer goldenen Dose so große Dinge thun! / Eine historische Anekdote",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "0m2isjb5ptmzel6"
+    },
+    {
+      "annotation": "»Kleine Erzählungen« (Sammlung INr 119763, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "In Mailand dauerte die lange, schon Jahrhunderte hindurch fortgesetzte Fehde zwischen den Geschlechtern der Guelfen und Ghibellinen fort, …",
+      "language": [],
+      "musenalm_id": 119766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Rose / Eine Italienische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Rose / Eine Italienische Novelle",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "1vi68fm5nxmfv3q"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen (INr 119768–119770)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anekdoten / Nebst einigen Nutzanwendungen, die sich zum / Theil selbst ergeben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anekdoten / Nebst einigen Nutzanwendungen, die sich zum / Theil selbst ergeben",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "1lasqltnw0iaey3"
+    },
+    {
+      "annotation": "»Anekdoten« (Sammlung INr 119767, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "In Paris wird jetzt, sagt ein dortiges Blatt vor kurzem, (das Journal de Paris) der Tanz nicht mehr ein Gegenstand des Vergnügens, sondern / der angestrengten Arbeit.",
+      "language": [],
+      "musenalm_id": 119768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In Paris wird jetzt, sagt ein dortiges Blatt vor kurzem, (das Journal de Paris) der Tanz nicht mehr ein Gegenstand des Vergnügens, sondern / der angestrengten Arbeit.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "pdisw0afjytug0c"
+    },
+    {
+      "annotation": "»Anekdoten« (Sammlung INr 119767, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Ein junger Franzose wünschte Rousseau per- / sönlich kennen zu lernen; sein Wunsch wollte ihm / aber nicht gelingen.",
+      "language": [],
+      "musenalm_id": 119769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein junger Franzose wünschte Rousseau per- / sönlich kennen zu lernen; sein Wunsch wollte ihm / aber nicht gelingen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "fu84lzg6vmx6pq9"
+    },
+    {
+      "annotation": "»Anekdoten« (Sammlung INr 119767, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Die Marquise de la Fayette, eine der / geistreichen Damen des siebzehnten Jahrhunderts, / verglich die Uebersetzer mit den Bedienten …",
+      "language": [],
+      "musenalm_id": 119770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Marquise de la Fayette, eine der / geistreichen Damen des siebzehnten Jahrhunderts, / verglich die Uebersetzer mit den Bedienten ……",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "62kcjits9tipc2u"
+    },
+    {
+      "annotation": "Sammlung von 12 Beiträgen (INr 119772–119783) /) Anm. am Obj: Viele derselben werden sich sehr gut zu Aufsätzen für Stammbücher eignen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aussprüche, Bemerkungen, Sittensprüche / und Maximen, / dem einsamen Nachdenken gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aussprüche, Bemerkungen, Sittensprüche / und Maximen, / dem einsamen Nachdenken gewidmet",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "s2qkmzrcdvs46ks"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Zwei Kräfte sind es, die den Menschen lenken; / Sie leiten ihn bald Süd-, bald Nordwärts;",
+      "language": [],
+      "musenalm_id": 119772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Kräfte sind es, die den Menschen lenken; / Sie leiten ihn bald Süd-, bald Nordwärts;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.712Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "anda0ic39liza6u"
+        }
+      ],
+      "source_id": "mrzamow6rm3gn5d"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Die Welt mit ihren Mängeln / Ist besser als ein Reich von willenlosen Engeln.",
+      "language": [],
+      "musenalm_id": 119773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Welt mit ihren Mängeln / Ist besser als ein Reich von willenlosen Engeln.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.712Z",
+          "agent": "uzv4rkvjn6nevu9",
+          "source_id": "4e9d0r4mpv5l733"
+        }
+      ],
+      "source_id": "4ocd14td3gifp5w"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Um das zu können, was wir sollen – / Ich weiß wohl! – ist kein leichtes Spiel;",
+      "language": [],
+      "musenalm_id": 119774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Um das zu können, was wir sollen – / Ich weiß wohl! – ist kein leichtes Spiel;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.712Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "xp43d4hoqp9z3gh"
+        }
+      ],
+      "source_id": "ns5tm62hoasxw6o"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Was sich regt auf diesem großen Balle, / Diese Bäume, dieser Schmuck der Flur;",
+      "language": [],
+      "musenalm_id": 119775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was sich regt auf diesem großen Balle, / Diese Bäume, dieser Schmuck der Flur;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie Mereau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.641Z",
+          "agent": "zoqy5th408hrb4e",
+          "source_id": "b45v5k1itqdp12e"
+        }
+      ],
+      "source_id": "9x7pik46a8490ar"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Mächtig seyd ihr, ihr seyd’s durch der Gegenwart / ruhigen Zauber, / Was die stille nicht wirkt, wirket die rauschende nie.",
+      "language": [],
+      "musenalm_id": 119776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mächtig seyd ihr, ihr seyd’s durch der Gegenwart / ruhigen Zauber, / Was die stille nicht wirkt, wirket die rauschende nie.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.641Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "wwivwjsgunooxks"
+        }
+      ],
+      "source_id": "b1id7afnvnzr6xq"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Dich schuf – Natur zur Mutter; / Zur edeln Mutter schaffst Du dich.",
+      "language": [],
+      "musenalm_id": 119777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dich schuf – Natur zur Mutter; / Zur edeln Mutter schaffst Du dich.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.641Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "tjqimvy80dwlbl7"
+        }
+      ],
+      "source_id": "2fzh2fb38yztr63"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "O seelig wer sein Erdenleben / Am lieben Freundesarm durchwallt;",
+      "language": [],
+      "musenalm_id": 119778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O seelig wer sein Erdenleben / Am lieben Freundesarm durchwallt;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.641Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "9j3mf0kv2snh5vo"
+        }
+      ],
+      "source_id": "0277t4tyvstw6xh"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Reich an Freuden ist das Leben, / Und des Vollgenusses werth;",
+      "language": [],
+      "musenalm_id": 119779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reich an Freuden ist das Leben, / Und des Vollgenusses werth;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.641Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "zq73eo4fhd1gqve"
+        }
+      ],
+      "source_id": "ta4hcvqp77qgd5r"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "O genieß, genieß, was dir beschieden! / Gönne deinem armen Herzen Frieden!",
+      "language": [],
+      "musenalm_id": 119780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O genieß, genieß, was dir beschieden! / Gönne deinem armen Herzen Frieden!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Rudolphi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.642Z",
+          "agent": "dxi2hql7exffxou",
+          "source_id": "732q8h9jjlucvkx"
+        }
+      ],
+      "source_id": "sanzxvjotdiwew5"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Wer die Freundschaft brechen kann, / Fing sie nie von Herzen an.",
+      "language": [],
+      "musenalm_id": 119781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer die Freundschaft brechen kann, / Fing sie nie von Herzen an.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Logau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.642Z",
+          "agent": "2n1ll9s700lds34",
+          "source_id": "pnv7iu38hkl58zf"
+        }
+      ],
+      "source_id": "n6ftk9bec37dqnk"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Verdienst, das sich hervor, gesehn zu werden, / drängt / Und das für jede That – – –",
+      "language": [],
+      "musenalm_id": 119782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verdienst, das sich hervor, gesehn zu werden, / drängt / Und das für jede That – – –…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.642Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "ouo55wuhmf6zm0v"
+        }
+      ],
+      "source_id": "godedgyyi1x6q8f"
+    },
+    {
+      "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Der große Punkt, in welchem, wie ich denke, / Wir alle einig sind, ist der: Ein Biedermann / Zeigt seine Theorie im Leben.",
+      "language": [],
+      "musenalm_id": 119783,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der große Punkt, in welchem, wie ich denke, / Wir alle einig sind, ist der: Ein Biedermann / Zeigt seine Theorie im Leben.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.643Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "pxm18b9zr7jbwp1"
+        }
+      ],
+      "source_id": "hbo3zusuqyiu6m4"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119784,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3703_119784_ao9a8mmvhw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "woi11f059l3ss3b"
+    }
   ],
   "agents": [
     {

@@ -48,39 +48,1200 @@
   "year": 0,
   "editor": "",
   "items": [
-    "astssjljav0lkik"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.761Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409222",
+      "location": "105B03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.761Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "astssjljav0lkik"
+    }
   ],
   "contents": [
-    "1oiyhdptgc4noi9",
-    "4737o0fz5lkaqbb",
-    "bv1d489f7q1hxe8",
-    "yxm8so85cxtxt25",
-    "vlj45vpwk70qk9o",
-    "4xr7qg3nl943h1m",
-    "l4qkzezt8s9z5xg",
-    "4va3iq84isz1cf1",
-    "v5hya2m69h3jvxo",
-    "hs60fdxptldnf7j",
-    "szije6hbzesn0xu",
-    "1vqoj52f9ltrna2",
-    "egl8702wj86jobg",
-    "k5omyrchrwe222m",
-    "tb0bqdmfelfo8t1",
-    "d3vbqzmsu1ekb9l",
-    "e5822fb29a1li38",
-    "49jb13vnfe5hizm",
-    "6sgesjw0ygvqte9",
-    "c8seew2fv3m9jw2",
-    "goe74lqtezx8jnl",
-    "y0tiksatyed8o98",
-    "08s7xs9ppq84fol",
-    "6nqtlz6j2phtlmx",
-    "4ausos3cgazuv8s",
-    "4rd3sismhobyy1m",
-    "nwdpuf9x1qgju3m",
-    "4tph0a78t9080p5",
-    "46ojach0ms3k388",
-    "04nvunuvrgn76u2"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4296_110096_wtdijf2ao1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "1oiyhdptgc4noi9"
+    },
+    {
+      "annotation": "kol. Titelgraphik /) s. Textbezug (Gedicht) INr 110099, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110097,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Blaschke sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Blaschke sc.",
+      "scans": [
+        "alm_4296_110097_m0rx78wb5x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "cshfzkw9164cppb"
+        }
+      ],
+      "source_id": "4737o0fz5lkaqbb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110098,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Gesellschaftswagen / Ein unterhaltendes / TASCHENBUCH / mit zwölf analogen Kupfern /. / Zum neuen Jahr / gewidmet. / Wien / by Joseph Riedler / Buchbinder im Krammergässchen No 679",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4296_110098_mz9ucbjj4e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Gesellschaftswagen / Ein unterhaltendes / TASCHENBUCH / mit zwölf analogen Kupfern /. / Zum neuen Jahr / gewidmet. / Wien / by Joseph Riedler / Buchbinder im Krammergässchen No 679",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "bv1d489f7q1hxe8"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 110097, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Hier ist nun der Gesellschaftswagen, / Er hat erstaunlich viel zu tragen, / Die Fuhr ist wohl beträchtlich schwer,",
+      "language": [],
+      "musenalm_id": 110099,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Titelkupfer",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "yxm8so85cxtxt25"
+    },
+    {
+      "annotation": "s. Graphik INr 110101, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "So Mancher macht die Lebensfahrt, / Bloß auf dem Eis und wird genarrt.",
+      "language": [],
+      "musenalm_id": 110100,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "vlj45vpwk70qk9o"
+    },
+    {
+      "annotation": "kol. Graphik /) s. Textbezug (Gedicht) INr 110100, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110101_q8rxwdndqn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "a5rxysqdbzvvnnp"
+        }
+      ],
+      "source_id": "4xr7qg3nl943h1m"
+    },
+    {
+      "annotation": "s. Graphik INr 110103, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Der Wagen hält, vielmehr der Karren, / Sie wittern hier die Faschingsnarren, / Erleuchtet ist der ganze Saal.",
+      "language": [],
+      "musenalm_id": 110102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "l4qkzezt8s9z5xg"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110102, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110103_siqnujohgx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "9e7btheal1xwmwh"
+        }
+      ],
+      "source_id": "4va3iq84isz1cf1"
+    },
+    {
+      "annotation": "s. Graphik INr 110105, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Ermüdet durch den Maskentanz / Durchfahren sie die Nacht wohl ganz,",
+      "language": [],
+      "musenalm_id": 110104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "v5hya2m69h3jvxo"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110104, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110105_46wk5hh0jw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "emo5ciytqog6chi"
+        }
+      ],
+      "source_id": "hs60fdxptldnf7j"
+    },
+    {
+      "annotation": "s. Graphik INr 110107, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Jetzt steigen sie aus ihrem Wagen, / Denn eine von den Himmelsplagen / Bringt über Vieh und Menschen Weh:",
+      "language": [],
+      "musenalm_id": 110106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "szije6hbzesn0xu"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110106, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110107_jmzysk2udi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.365Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.365Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "40jf9bg6abjp8nd"
+        }
+      ],
+      "source_id": "1vqoj52f9ltrna2"
+    },
+    {
+      "annotation": "s. Graphik INr 110109, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Es lacht nun der keimende Frühling voll Wonne / Sie fahren nun früh in den Aufgang der Sonne:",
+      "language": [],
+      "musenalm_id": 110108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "egl8702wj86jobg"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110108, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110109_5yizubekcm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.365Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.365Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "9tolxhzux9qnd35"
+        }
+      ],
+      "source_id": "k5omyrchrwe222m"
+    },
+    {
+      "annotation": "s. Graphik INr 110111, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Der Dichter ist ein schlauer Junge, / Das Herz hüpft ihm im Doppelsprunge,",
+      "language": [],
+      "musenalm_id": 110110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "tb0bqdmfelfo8t1"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110110, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110111_fp86ndsn3o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.270Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "0rgz01bl4aqz5tr"
+        }
+      ],
+      "source_id": "d3vbqzmsu1ekb9l"
+    },
+    {
+      "annotation": "s. Graphik INr 110113, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Das Liebchen läßt nicht lang ihn warten, / Bestellt den Fischer in den Garten,",
+      "language": [],
+      "musenalm_id": 110112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "e5822fb29a1li38"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110112, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110113_y7rhlw5gnf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.270Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "jq51k7a4rwdcd77"
+        }
+      ],
+      "source_id": "49jb13vnfe5hizm"
+    },
+    {
+      "annotation": "s. Graphik INr 110115, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Der Kuppler und der Wucherer / Sind nun am Freudenborn, / Der Jude bringt schon Kisten her, / Zu wuchern mit dem Korn.",
+      "language": [],
+      "musenalm_id": 110114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "6sgesjw0ygvqte9"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110114, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110115_eojb2x919f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.270Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "o8c9d18q2u446d1"
+        }
+      ],
+      "source_id": "c8seew2fv3m9jw2"
+    },
+    {
+      "annotation": "s. Graphik INr 110117, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Jetzt da bereits die Früchte fallen, / Da sammeln unsre Fahrer ein.",
+      "language": [],
+      "musenalm_id": 110116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "goe74lqtezx8jnl"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110116, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110117_aje9d6c59o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.270Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "wiu7c8u39a0a42p"
+        }
+      ],
+      "source_id": "y0tiksatyed8o98"
+    },
+    {
+      "annotation": "s. Graphik INr 110119, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.565Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Triumph! das Glück hat nun entschieden / Für unsern lieben goldnen Frieden,",
+      "language": [],
+      "musenalm_id": 110118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "08s7xs9ppq84fol"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110118, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110119_ut4sacyss9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.270Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "fm6p45vbw6kftnt"
+        }
+      ],
+      "source_id": "6nqtlz6j2phtlmx"
+    },
+    {
+      "annotation": "s. Graphik INr 110121, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Das Brautpaar und des Wagens Gäste, / Sind nun auch bei dem Hochzeitsfeste,",
+      "language": [],
+      "musenalm_id": 110120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ausos3cgazuv8s"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110120, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110121_v282et87nt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.305Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "zzenkdc7japhk1e"
+        }
+      ],
+      "source_id": "4rd3sismhobyy1m"
+    },
+    {
+      "annotation": "s. Graphik INr 110123, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Wir finden sie nun auf dem Lande, / In dem beglückten freien Stande, / Bereits auf ihrer Mayerey.",
+      "language": [],
+      "musenalm_id": 110122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "nwdpuf9x1qgju3m"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110122, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Weber sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weber sc.",
+      "scans": [
+        "alm_4296_110123_ssouryomyb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.305Z",
+          "agent": "nr66064hkr5h3qt",
+          "source_id": "4h9ak4gkcy2zx38"
+        }
+      ],
+      "source_id": "4tph0a78t9080p5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Für dieses Jahr ist nun geschlossen, / Weil jetzt der Winter ist, die Fahrt - / Doch haben wir noch andre Possen / Für Stationen aufgespart.",
+      "language": [],
+      "musenalm_id": 110124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epilogus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epilogus",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "46ojach0ms3k388"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4296_110125_yda5llpb1l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "04nvunuvrgn76u2"
+    }
   ],
   "agents": [
     {

@@ -48,28 +48,819 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "lxf0ecb07l8htk5"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nHalbledereinband; VB, S I vT, S II VrlgM, verso G, S III T, S V I-Verz, S VII zT, SS VIII-XVI darin 5 GG, SS 1-394",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101005",
+      "location": "105J02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lxf0ecb07l8htk5"
+    }
   ],
   "contents": [
-    "wmyool4livldien",
-    "sh0r1ztnlaylpgh",
-    "06792i9ckvyq8uw",
-    "yfppljb83mljsft",
-    "30qh2qt9pc3a0b6",
-    "buyp0k6vnxbyh31",
-    "9r3j7872gl87suo",
-    "h7bpafhb0ssm9fz",
-    "0svw4zzr33sdew2",
-    "50ow8z2y6i1j6cm",
-    "wt71lnybjl982mg",
-    "bcaovm4q0dicfpv",
-    "f7czt1rjubzr9ya",
-    "ih4by5yavel4evt",
-    "9wghtdebrok3wwn",
-    "2wfooug6a55xxoe",
-    "0x91pehnhqeqikq",
-    "t7p0zlfig525iuf",
-    "76dgtzsg55wv9ee"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18953,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für / 1835",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für / 1835",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "wmyool4livldien"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18954,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "sh0r1ztnlaylpgh"
+    },
+    {
+      "annotation": "Titelportrait (durch Kunstverlag. Creuzbauer in Carlsruhe)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2009,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tegner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jaquemot sculp.",
+      "scans": [
+        "alm_61_2009_wfbua3gadk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tegner",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.669Z",
+          "agent": "qxsajuoxwgz4r3s",
+          "source_id": "jbm21ap4yto2225"
+        }
+      ],
+      "source_id": "06792i9ckvyq8uw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18955,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "URANIA. / Taschenbuch auf das Jahr / 1835. / Mit sechs Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1835",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_61_18955_gv35t5gojr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1835. / Mit sechs Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1835",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "yfppljb83mljsft"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18956,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "30qh2qt9pc3a0b6"
+    },
+    {
+      "annotation": "G-Verz. Sammlung von 5 Textbezügen INr 18957-18961 zu 5 Graphiken INr 2003-2007; Obj 7-16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2008,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Stahlstiche",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "buyp0k6vnxbyh31"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2008, Obj 6) s. Graphik INr 2007, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Im glücklichen Süden ist die Kunst des Schreibens und Schriftstellens noch nicht so epidemisch geworden",
+      "language": [],
+      "musenalm_id": 18957,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Der (öffentliche) Schreiber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Der (öffentliche) Schreiber",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "9r3j7872gl87suo"
+    },
+    {
+      "annotation": "s. Textbezug INr 18957, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2007,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER SCHREIBER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Houdebourt-Lescot pinx. Hessloehl sculp.",
+      "scans": [
+        "alm_61_2007_fzjiw1f301.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER SCHREIBER",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.669Z",
+          "agent": "g141z8lw112bbl6",
+          "source_id": "73v8j1o6zyd919b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.669Z",
+          "agent": "2v8mhsdbi6c7ngh",
+          "source_id": "7drifrx0hewzkuc"
+        }
+      ],
+      "source_id": "h7bpafhb0ssm9fz"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2008, Obj 6) s. Graphik INr 2006, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Die Kunst geht nach Brot, und selbst Paganini macht von dieser Regel keine Ausnahme.",
+      "language": [],
+      "musenalm_id": 18958,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Der blinde Greis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Der blinde Greis",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "0svw4zzr33sdew2"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz. s. Textbezug INr 18958, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2006,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BLINDE GREIS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bonnefonds # W. Hessloehl sculp.",
+      "scans": [
+        "alm_61_2006_fr1aruvykx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BLINDE GREIS",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.669Z",
+          "agent": "g141z8lw112bbl6",
+          "source_id": "8phd12n6dufqk8q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.669Z",
+          "agent": "vr2sj99n5zu1n6i",
+          "source_id": "wxgd4sa2iw84i8u"
+        }
+      ],
+      "source_id": "50ow8z2y6i1j6cm"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2008, Obj 6) s. Graphik INr 2005, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Viel hat die Zeit dem schönen Lande, che'l mar circonda e l' Alpi, von seinen Herrlichkeiten geraubt,",
+      "language": [],
+      "musenalm_id": 18959,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die junge Tänzerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die junge Tänzerin",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "wt71lnybjl982mg"
+    },
+    {
+      "annotation": "s. Textbezug INr 18959, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.799Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2005,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE JUNGE TÄNZERIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krusemann pinx. Ed. Schuler sculp.",
+      "scans": [
+        "alm_61_2005_se9ypmlx0v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE JUNGE TÄNZERIN",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.668Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.668Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "5v3fnh2sdavaocd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.669Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "zsn1vcloyz8kfql"
+        }
+      ],
+      "source_id": "bcaovm4q0dicfpv"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2008, Obj 6) s. Graphik INr 2004, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Le mauvais sujet heißt ein bekanntes Bild von Grenier St. Martin,",
+      "language": [],
+      "musenalm_id": 18960,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Der Taugenichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Der Taugenichts",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "f7czt1rjubzr9ya"
+    },
+    {
+      "annotation": "s. Textbezug INr 18960, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2004,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER TAUGENICHTS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grenier pinx. Ed. Schuler jun. sc.",
+      "scans": [
+        "alm_61_2004_9n6oveopl3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER TAUGENICHTS",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.668Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.668Z",
+          "agent": "m04d7309ko8gubo",
+          "source_id": "4md3hdattcalhn9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.668Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.668Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "ikzr1qgsk3yj1qr"
+        }
+      ],
+      "source_id": "ih4by5yavel4evt"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2008, Obj 6) s. Graphik INr 2003, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Wir erblicken den goodman delver, wie Shakespeare ihn nennt, in seinem Felde,",
+      "language": [],
+      "musenalm_id": 18961,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Der Todtengräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Der Todtengräber",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "9wghtdebrok3wwn"
+    },
+    {
+      "annotation": "s. Textbezug INr 18961, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2003,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER TODTENGRÄBER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tischbein pinx. W. Hessloehl sculp.",
+      "scans": [
+        "alm_61_2003_y0tgxyv4cx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER TODTENGRÄBER",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.968Z",
+          "agent": "1r1bjnmct205k7o",
+          "source_id": "1i82rzaxrf0tyuz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.968Z",
+          "agent": "g141z8lw112bbl6",
+          "source_id": "pll6z7iel9bk5jx"
+        }
+      ],
+      "source_id": "2wfooug6a55xxoe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war ein alter Freund, ein Bekannter aus meiner frühesten Jugend, der mich vor ungefähr drei Jahren verließ,",
+      "language": [],
+      "musenalm_id": 2010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Das alte Buch / und / Die Reise in's Blaue hinein / Eine Märchen-Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Das alte Buch / und / Die Reise in's Blaue hinein / Eine Märchen-Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.887Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "va2zb8aya8qa4w1"
+        }
+      ],
+      "source_id": "0x91pehnhqeqikq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Die kleine Reisegesellschaft, die wir begleiten, ist bereits mehrere Tage von Neapel entfernt.",
+      "language": [],
+      "musenalm_id": 2011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Abenteuer auf einer Reise / durch / die Gebirge von Abruzzo / im sechzehenten Jahrhundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verfasser des Scipio Cicala",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Abenteuer auf einer Reise / durch / die Gebirge von Abruzzo / im sechzehenten Jahrhundert",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "t7p0zlfig525iuf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "In einer jener langen finstern Gassen des alten Dresdens, die so eng sind,",
+      "language": [],
+      "musenalm_id": 2012,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Alchymisten. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Freiherr von Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Alchymisten. / Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.697Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.697Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "u0le36kj6sxryw5"
+        }
+      ],
+      "source_id": "76dgtzsg55wv9ee"
+    }
   ],
   "agents": [
     {

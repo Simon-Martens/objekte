@@ -48,7 +48,26 @@
   "year": 1802,
   "editor": "",
   "items": [
-    "ttonzkjun89toc1"
+    {
+      "annotation": "# L/R nennt nur den Jg. 103 über Rom\nHinweis Antiq. Gätjens: Hayn/Gotendorf S. 252\nVerfasser H. d. i. Hüttner\nUG, verso G, S I T, SS III-V Vwrt d Hrsg, SS VI-XXIV, 8 BB Kal darin 3 GG, zT, SS 1-255",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.572Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200038",
+      "location": "105K06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.572Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ttonzkjun89toc1"
+    }
   ],
   "contents": [],
   "agents": [

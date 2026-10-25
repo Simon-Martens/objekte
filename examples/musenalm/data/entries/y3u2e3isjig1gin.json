@@ -48,68 +48,2595 @@
   "year": 1815,
   "editor": "",
   "items": [
-    "kz42knenltwb7rk",
-    "xsonvya44uni401"
+    {
+      "annotation": "GG komplett, UG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.472Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200192",
+      "location": "105B07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.472Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kz42knenltwb7rk"
+    },
+    {
+      "annotation": "varianter Titel INr 67747, Obj 2,01",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.472Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "100115",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.472Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xsonvya44uni401"
+    }
   ],
   "contents": [
-    "050eqcuuk3o2u6d",
-    "jq467qhhr6zswt9",
-    "dlyvfn6lbnuu1mn",
-    "6efnw9l4g3o31lt",
-    "ugl9r7k58gx0mlw",
-    "uvqz7nkq092extc",
-    "7rk3108jupety6h",
-    "ckckxy1143c50ko",
-    "qm20tgqaxj8fs9l",
-    "phqai0gx2amvbrv",
-    "6f5egln2um9h5us",
-    "asucn8vw6xm4uda",
-    "6fyv6l47kg2i1yt",
-    "krd6vb8avba2ri1",
-    "fyhe0rdywvgngmq",
-    "4i108bfqtxfbbbt",
-    "r116fm2mrofn38i",
-    "35dnyx0ttoihqml",
-    "hxhety0hqn9rtyq",
-    "1emwvhfqbww1n24",
-    "q5rl2v4yx2ufqnz",
-    "h32lxehoastqwlv",
-    "ysvtrktg5jwgdwp",
-    "05z846vc9yct5wl",
-    "llzz79yu4acud2v",
-    "b6q1lzvo3o5fpzq",
-    "vrnl532304yvy5e",
-    "z9yv1s5i2v4ovqx",
-    "jpmlc3pw631ku37",
-    "u1e7o3vz98wdb5b",
-    "30dy85nq6tv09mf",
-    "2fzoxtivnxvrd1u",
-    "p6hccjnnk2zfybr",
-    "as3wfh5a75tqajo",
-    "secypjei9ud9vaa",
-    "tcxdedehyv9mwuy",
-    "cb6kdsdexf4w8lt",
-    "tev5kzz0bjbpfj5",
-    "drq7xxw3v7z54pi",
-    "74f3wx8h3j4njgt",
-    "gdtgb7mlfbhtezp",
-    "8ehrosrs2v7nj6p",
-    "oebdl29615lidk6",
-    "gcn51166nvr56r9",
-    "bdm5yr0x3qtyeb7",
-    "ukxeby9ru1b11w7",
-    "pgomjvqw6zfzgjv",
-    "a7iffp9q2ydk1iv",
-    "cmsvbwtwspcytt9",
-    "vcp7g9p0ejevvj2",
-    "ufdv7h0tssfeyyq",
-    "m4bg49lgomiyuoq",
-    "24gw0ruwfi768wk",
-    "kmkac1lm3dl64em",
-    "xswb3h6y0ob42qy",
-    "fa87xbnotjdmkle",
-    "hwlwajqu7dhvufr",
-    "bfecipixzpp63zh"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32106,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_222_32106_sai0qm862r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "050eqcuuk3o2u6d"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14182,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Correggio pinx. F. John sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Correggio pinx. F. John sc.",
+      "scans": [
+        "alm_222_14182_4upo99hdd3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.524Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.524Z",
+          "agent": "irhvezh3jd0m3va",
+          "source_id": "acaulwy0jjhkrzg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.524Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.524Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "o2ocedh8o7pnt3t"
+        }
+      ],
+      "source_id": "jq467qhhr6zswt9"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14184,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGLAJA. / Ein Taschenbuch / für das Jahr 1815 / Erster / Jahrgang. / WIEN / gedruckt und im Verlag / bey Joh. Bapt. Wallishausser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junker sc.",
+      "scans": [
+        "alm_222_14184_uld3eiu0r9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGLAJA. / Ein Taschenbuch / für das Jahr 1815 / Erster / Jahrgang. / WIEN / gedruckt und im Verlag / bey Joh. Bapt. Wallishausser",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.426Z",
+          "agent": "zuzc1anf4hbbexc",
+          "source_id": "moojcn6fkjkqsbm"
+        }
+      ],
+      "source_id": "dlyvfn6lbnuu1mn"
+    },
+    {
+      "annotation": "Varianter gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67747,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGLAJA. / Ein Taschenbuch / für das Jahr 1815 / herausgegeben / von Joseph Sonnleithner, / k.k. Hoftheatersecretar: / Erster Jahrgang. / Wien / gedruckt und im Verlag / bey Joh. Bapt. Wallishausser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_222_67747_uj6snug06l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGLAJA. / Ein Taschenbuch / für das Jahr 1815 / herausgegeben / von Joseph Sonnleithner, / k.k. Hoftheatersecretar: / Erster Jahrgang. / Wien / gedruckt und im Verlag / bey Joh. Bapt. Wallishausser",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "6efnw9l4g3o31lt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 16684,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "ugl9r7k58gx0mlw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14183,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Van Dÿck p. F. John sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Van Dÿck p. F. John sc.",
+      "scans": [
+        "alm_222_14183_8kkcpaswrg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.426Z",
+          "agent": "yfpqp089ikjb1ej",
+          "source_id": "017kr8ijwzuo5dt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.426Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "lfschlmb6lx1fyk"
+        }
+      ],
+      "source_id": "uvqz7nkq092extc"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 16728,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Simon Cantarini p. F. John sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Simon Cantarini p. F. John sc.",
+      "scans": [
+        "alm_222_16728_9tcsaorhaa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.634Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "ic2pcfxwx9oyhnf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.634Z",
+          "agent": "f7ysze58w24sxp6",
+          "source_id": "v8npj943p54x67q"
+        }
+      ],
+      "source_id": "7rk3108jupety6h"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aglaja. / Ein Taschenbuch / auf das Jahr 1815",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aglaja. / Ein Taschenbuch / auf das Jahr 1815",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "ckckxy1143c50ko"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 14199. Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Unter zwey dicht verschlungenen Linden, am Ufer eines kleinen Flußes stand eine dürftige Hütte,",
+      "language": [],
+      "musenalm_id": 14186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die arme Liese. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Franul v. Weissenthurn, / k. k. Hofschauspielerin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die arme Liese. / Eine Erzählung",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "athxhstryt7anbh",
+          "source_id": "2tronj9y3vwp1zv"
+        }
+      ],
+      "source_id": "qm20tgqaxj8fs9l"
+    },
+    {
+      "annotation": "Illustration zu »Die arme Liese« von Johanna Franul v. Weissenthurn INr 14186. Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Lips sculp.",
+      "scans": [
+        "alm_222_14199_waqxuy61h5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.458Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "enm6ncbgmmknw7o"
+        }
+      ],
+      "source_id": "phqai0gx2amvbrv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Tief war der Franken stolzes Reich gesunken, / Es herrschte an der Seine Albion,",
+      "language": [],
+      "musenalm_id": 14187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Johanna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freyherr v. Rothkirch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Johanna",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "6f5egln2um9h5us"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Kartenhäuser baut der frohe Knabe, / Die mit leichtem Muth er selbst zerstört;",
+      "language": [],
+      "musenalm_id": 14188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Kartenhäuser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Contessa",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Kartenhäuser",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "asucn8vw6xm4uda"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Von Städten und Gewinnsucht weit, / Durchlebt' ein Schäfer seine Zeit.",
+      "language": [],
+      "musenalm_id": 14189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der Schäfer und der Philosoph / Fabel von John Gay",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Bapt. Rupprecht",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der Schäfer und der Philosoph / Fabel von John Gay",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.646Z",
+          "agent": "47jltbo11xjvoib",
+          "source_id": "sb3u6gn5yqknr73"
+        }
+      ],
+      "source_id": "6fyv6l47kg2i1yt"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 14191-14193, Obj 12-14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Drey Frühlingsbilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Drey Frühlingsbilder",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.646Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "idjd5wuwsbm850o"
+        }
+      ],
+      "source_id": "krd6vb8avba2ri1"
+    },
+    {
+      "annotation": "5. Drey Frühlingsbilder (Sammlung INr 14190, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Schön ist der Lenz, wenn er das Blatt entfaltet, / Und die belaubten Äste breiter steckt;",
+      "language": [],
+      "musenalm_id": 14191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Blumen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Blumen",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.646Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "70awzv2gthozb4y"
+        }
+      ],
+      "source_id": "fyhe0rdywvgngmq"
+    },
+    {
+      "annotation": "5. Drey Frühlingsbilder (Sammlung INr 14190, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Kraus rollet sich der Horizont zusammen; / Die Sonn' erlischt, der Wind empört den Staub,",
+      "language": [],
+      "musenalm_id": 14192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das Gewitter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das Gewitter",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.457Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "smdcj2afc0pi79f"
+        }
+      ],
+      "source_id": "4i108bfqtxfbbbt"
+    },
+    {
+      "annotation": "5. Drey Frühlingsbilder (Sammlung INr 14190, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Heiß war der Maytag; heißer die Schlacht. / Endlich senket den Fittig die Nacht,",
+      "language": [],
+      "musenalm_id": 14193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Nachtigall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Nachtigall",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.457Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "rld49gszasv118m"
+        }
+      ],
+      "source_id": "r116fm2mrofn38i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Es lebt' in einem Kloster Portugalls / Bernhardus, von dem Orden Dominiks,",
+      "language": [],
+      "musenalm_id": 14194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Das Gastgebot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Meinert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Das Gastgebot",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.457Z",
+          "agent": "6g8r11hxaocz3tf",
+          "source_id": "pj12q7ghpr5mgbh"
+        }
+      ],
+      "source_id": "35dnyx0ttoihqml"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Ein neues Lebensjahr beginnt, / O mög' es Freude dir gewähren!",
+      "language": [],
+      "musenalm_id": 14195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Am Geburtstag einer Freundinn 1808",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marianne Neumann von Weißenthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Am Geburtstag einer Freundinn 1808",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.457Z",
+          "agent": "blexso3sv1n2ckh",
+          "source_id": "u2xbj2abqydz5gi"
+        }
+      ],
+      "source_id": "hxhety0hqn9rtyq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Drey Brüder lebten einst in einer Stadt, / Der Nahme thut zur Sache nichts",
+      "language": [],
+      "musenalm_id": 14196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die drey Fackeln. / Eine Erzählung 1808",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marianne Neumann von Weißenthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die drey Fackeln. / Eine Erzählung 1808",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.458Z",
+          "agent": "blexso3sv1n2ckh",
+          "source_id": "cjlbrci1eq0ttw1"
+        }
+      ],
+      "source_id": "1emwvhfqbww1n24"
+    },
+    {
+      "annotation": "mit einer Illustration s. INr 14198 Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Wenn Florens Hand, vom Lenz geführt, / Frischfarbig Hain und Fluren ziert,",
+      "language": [],
+      "musenalm_id": 14197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Valentius und Ursinus. / Ballade in zwey Gesängen. / nach dem Altenglischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Bapt. Rupprecht",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Valentius und Ursinus. / Ballade in zwey Gesängen. / nach dem Altenglischen",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.458Z",
+          "agent": "47jltbo11xjvoib",
+          "source_id": "k222hphecml0rse"
+        }
+      ],
+      "source_id": "q5rl2v4yx2ufqnz"
+    },
+    {
+      "annotation": "Illustration zu »Valentinus und Ursinus« von J. B. Rupprecht INr 14197, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Lips sculp.",
+      "scans": [
+        "alm_222_14198_10578lfnrv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.458Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "f77hsn6vivwejpu"
+        }
+      ],
+      "source_id": "h32lxehoastqwlv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "An einem schönen Herbstabend ging der Baron von Mollberg mit seinem fünfzehnjährigen Sohn im Park spazieren,",
+      "language": [],
+      "musenalm_id": 14200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Die Familie Mollberg, oder der Page. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marianne Neumann v. Meißenthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Die Familie Mollberg, oder der Page. / Eine Erzählung",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.458Z",
+          "agent": "blexso3sv1n2ckh",
+          "source_id": "pr3k55quus24ffg"
+        }
+      ],
+      "source_id": "ysvtrktg5jwgdwp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Seht Ihrs dort, am Saum der Wogen? / Wachsend kömmts heran gezogen,",
+      "language": [],
+      "musenalm_id": 14201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Agamemnonn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theone",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Agamemnonn",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.458Z",
+          "agent": "easxd2ciuxkfl7o",
+          "source_id": "jer89vl29gmzdeb"
+        }
+      ],
+      "source_id": "05z846vc9yct5wl"
+    },
+    {
+      "annotation": "Sammlung von 15 Beiträgen INr 14203-14217, Obj 23-37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Sinngedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Sinngedichte",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.573Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "2tbu14hdhymaml9"
+        }
+      ],
+      "source_id": "llzz79yu4acud2v"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Der Schwelger Thrax gehöret zum Geschlecht / Der Gegenfüßler wohl mit Recht.",
+      "language": [],
+      "musenalm_id": 14203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / An Thrax",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / An Thrax",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "zecxry4k88dapij"
+        }
+      ],
+      "source_id": "b6q1lzvo3o5fpzq"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Gestern führtest du dein Weib ins Haus, / Heute jagst du wieder es hinaus.",
+      "language": [],
+      "musenalm_id": 14204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / An Kilian",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / An Kilian",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "f78aqba4vgis8jb"
+        }
+      ],
+      "source_id": "vrnl532304yvy5e"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Rohn, der weise, tapfre Fant, / Ach! entbrannte zu den Musen.",
+      "language": [],
+      "musenalm_id": 14205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Rohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Rohn",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "3wkinqpc9xyytxy"
+        }
+      ],
+      "source_id": "z9yv1s5i2v4ovqx"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Du bist als Schmeichler wohlbekannt, / Als Kuppler, als Denunciant;",
+      "language": [],
+      "musenalm_id": 14206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / An Malus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / An Malus",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "drbivocbm52ls14"
+        }
+      ],
+      "source_id": "jpmlc3pw631ku37"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Daß schön du bist, das rühmt das Publicum. / Ach! wärst du minder schön, und minder dumm!",
+      "language": [],
+      "musenalm_id": 14207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / An Gellia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / An Gellia",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "22u57jf3gtkvcxh"
+        }
+      ],
+      "source_id": "u1e7o3vz98wdb5b"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Die Welt ist, traun! / Ein großes Narrenhaus. / Und willst du keinen Narren schaun,",
+      "language": [],
+      "musenalm_id": 14208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Welt",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "gqx2u8jbfc6aus9"
+        }
+      ],
+      "source_id": "30dy85nq6tv09mf"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.118Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Ich las dein Buch, bewunderte den Geist, / Der dich so großen Unsinn schreiben heißt.",
+      "language": [],
+      "musenalm_id": 14209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / An Doktor Lips in E.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / An Doktor Lips in E.",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.574Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "qjhlsmlkec2v3k2"
+        }
+      ],
+      "source_id": "2fzoxtivnxvrd1u"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Ich bin ein Mahler der Natur! So spricht / Der Dichter Stax ganz ungescheut.",
+      "language": [],
+      "musenalm_id": 14210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Stax",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Stax",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.373Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "nanttmg16xorxog"
+        }
+      ],
+      "source_id": "p6hccjnnk2zfybr"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Im Richtersaal auf dem Kamine hält / Der Fried' im Arme der Gerechtigekeit;",
+      "language": [],
+      "musenalm_id": 14211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Das Bild der Gerechtigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Das Bild der Gerechtigkeit",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.373Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "73qyuylt4lkl8ct"
+        }
+      ],
+      "source_id": "as3wfh5a75tqajo"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Du glaubst, ich zürne dir, weil ich erfahren, / Du haltest mich für einen Narren.",
+      "language": [],
+      "musenalm_id": 14212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / An Rufus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / An Rufus",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.493Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "jq9se0tdzwatxyi"
+        }
+      ],
+      "source_id": "secypjei9ud9vaa"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Stimmt in unsre Loblied ein, / Und erhebt der Weisheit Macht!",
+      "language": [],
+      "musenalm_id": 14216,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / An Bav",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / An Bav",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.443Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "etifslb4167q6vr"
+        }
+      ],
+      "source_id": "tcxdedehyv9mwuy"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Daß dich dein Weib verlassen und zurück / In ihres Vaters Haus gekehrt,",
+      "language": [],
+      "musenalm_id": 14213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Die beyden Ehemänner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Die beyden Ehemänner",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.507Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "vmzi3lg1edmh03j"
+        }
+      ],
+      "source_id": "cb6kdsdexf4w8lt"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Faul, ungeschickt und klein, / Will Trill gefürchtet seyn.",
+      "language": [],
+      "musenalm_id": 14214,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII / Trill",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII / Trill",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.507Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "oavwcvqn308lxdd"
+        }
+      ],
+      "source_id": "tev5kzz0bjbpfj5"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Zu wenig Scham hat Julia, / Zu viele Scham hat Lucia;",
+      "language": [],
+      "musenalm_id": 14215,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Die beyden Schwestern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Die beyden Schwestern",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.507Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "ovlo1x4l8aa5jn5"
+        }
+      ],
+      "source_id": "drq7xxw3v7z54pi"
+    },
+    {
+      "annotation": "12. Sinngedichte (Sammlung INr 14202, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Dein Gedicht ist schön; so schön, Poet, / Wie die flur, die Hans neu abgemäht.",
+      "language": [],
+      "musenalm_id": 14217,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Auf einen Poeten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L. Pfest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Auf einen Poeten",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.443Z",
+          "agent": "8td4tnl8jdjdkcj",
+          "source_id": "6w0763j70i6uivr"
+        }
+      ],
+      "source_id": "74f3wx8h3j4njgt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Vier Jungfern, rasch und wohlgewandt, / Luft, Wasser, Wahrheit, Feur' genannt,",
+      "language": [],
+      "musenalm_id": 14218,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Die Wahrheit. / (S. Ign. Felners. Neue Allem. Gedichte S. 19.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlieb Leon",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Die Wahrheit. / (S. Ign. Felners. Neue Allem. Gedichte S. 19.)",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "r0cj8qhqzdwnywn",
+          "source_id": "cplcrktb0acumql"
+        }
+      ],
+      "source_id": "gdtgb7mlfbhtezp"
+    },
+    {
+      "annotation": "Mit einer Illustration s. INr 14234, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Don Ramiro der Zweyte, König von Aragonien, war gestorben. Er hatte eine unmündige Tochter hinterlassen,",
+      "language": [],
+      "musenalm_id": 14219,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / Der Graf von Barcellona",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Pichler, geb. von Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / Der Graf von Barcellona",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "up56va3f1ohhz53"
+        }
+      ],
+      "source_id": "8ehrosrs2v7nj6p"
+    },
+    {
+      "annotation": "Illustration zu »Der Graf von Barcellona« von Caroline Pichler INr 14219, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Lips sculp.",
+      "scans": [
+        "alm_222_14234_0tqbj3kix0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.564Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "sgagrw1ibhmuqjb"
+        }
+      ],
+      "source_id": "oebdl29615lidk6"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 14222-14226, Obj 42-46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14220,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Die Pracht der Stephanskirche. / Fünf Sonette. (im März 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Treitschke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Die Pracht der Stephanskirche. / Fünf Sonette. (im März 1814.)",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "zxn7he3vfca86w3",
+          "source_id": "lvf6t609v61hvum"
+        }
+      ],
+      "source_id": "gcn51166nvr56r9"
+    },
+    {
+      "annotation": "Die Pracht der Stephanskirche. Fünf Sonette. im März 1814. (Sammlung INr 14221, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Am Boden hielt der Griechen Kunst und Wollen; / Des Simses Last, der Säulen starke Glieder,",
+      "language": [],
+      "musenalm_id": 14222,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Gothische Baukunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Treitschke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Gothische Baukunst",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "zxn7he3vfca86w3",
+          "source_id": "pvjsm7mt8y6fl3z"
+        }
+      ],
+      "source_id": "bdm5yr0x3qtyeb7"
+    },
+    {
+      "annotation": "Die Pracht der Stephanskirche. Fünf Sonette. im März 1814. (Sammlung INr 14221, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Viel' schlafen hier, viel' sind vorangegangen. / Vom Marmor lehren's halbverloschne Zeiten,",
+      "language": [],
+      "musenalm_id": 14223,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Stephanskirchhof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Treitschke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Stephanskirchhof",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.646Z",
+          "agent": "zxn7he3vfca86w3",
+          "source_id": "96qc5tmb7hzg3la"
+        }
+      ],
+      "source_id": "ukxeby9ru1b11w7"
+    },
+    {
+      "annotation": "Die Pracht der Stephanskirche. Fünf Sonette. im März 1814. (Sammlung INr 14221, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Nur Einen soll die Welt bewundernd nennen; / Vollendetes verwehret seines Gleichen.",
+      "language": [],
+      "musenalm_id": 14224,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der unausgebaute Thurm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Treitschke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der unausgebaute Thurm",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.314Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.314Z",
+          "agent": "zxn7he3vfca86w3",
+          "source_id": "g3o28831zr9tqzb"
+        }
+      ],
+      "source_id": "pgomjvqw6zfzgjv"
+    },
+    {
+      "annotation": "Die Pracht der Stephanskirche. Fünf Sonette. im März 1814. (Sammlung INr 14221, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Fürst aller Thürme, die durch Deutschlands Gauen / Um Rang und Ruhm, um Pracht und Dauer streiten,",
+      "language": [],
+      "musenalm_id": 14225,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der ausgebaute Thurm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Treitschke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der ausgebaute Thurm",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.268Z",
+          "agent": "zxn7he3vfca86w3",
+          "source_id": "x8np1ih8a2f0d5l"
+        }
+      ],
+      "source_id": "a7iffp9q2ydk1iv"
+    },
+    {
+      "annotation": "Die Pracht der Stephanskirche. Fünf Sonette. im März 1814. (Sammlung INr 14221, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "So dort das Heil, als hier die Macht zu gründen, / Ist unser Herr und Kaiser ausgezogen.",
+      "language": [],
+      "musenalm_id": 14226,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Das Riesenthor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Treitschke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Das Riesenthor",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.269Z",
+          "agent": "zxn7he3vfca86w3",
+          "source_id": "wmm9eviknvd22ey"
+        }
+      ],
+      "source_id": "cmsvbwtwspcytt9"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 14228-14232, Obj 48-52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 14227,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / Sinngedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / Sinngedichte",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.269Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "qedht7yjrcxnxhf"
+        }
+      ],
+      "source_id": "vcp7g9p0ejevvj2"
+    },
+    {
+      "annotation": "Sinngedichte (Sammlung INr 14227, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Der filzge K** hat / Sein Leben reich, doch unbenützt, geendet,",
+      "language": [],
+      "musenalm_id": 14228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Auf K**s Tod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Auf K**s Tod",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.269Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "27hkf2x56xil01q"
+        }
+      ],
+      "source_id": "ufdv7h0tssfeyyq"
+    },
+    {
+      "annotation": "Sinngedichte (Sammlung INr 14227, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "So zärtlich lieben sie, so treu,die schönen Seelen ! / O daß sie sich nur nicht vermählen!",
+      "language": [],
+      "musenalm_id": 14229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das liebende Paar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das liebende Paar",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.269Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "rc5bwryiwv1mnbg"
+        }
+      ],
+      "source_id": "m4bg49lgomiyuoq"
+    },
+    {
+      "annotation": "Sinngedichte (Sammlung INr 14227, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "O wie bezaubernd spielt die schöne / Mathilde! Jedes Herz ergreifen ihre Töne;",
+      "language": [],
+      "musenalm_id": 14230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / An die schöne Clavierspielerinn Mathilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / An die schöne Clavierspielerinn Mathilde",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.269Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "qpsa7tcupbtomqc"
+        }
+      ],
+      "source_id": "24gw0ruwfi768wk"
+    },
+    {
+      "annotation": "Sinngedichte (Sammlung INr 14227, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Seit Jahren macht sich Rutilas / Die Weisheit des Pythagoras",
+      "language": [],
+      "musenalm_id": 14231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der neue Pythagoras",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der neue Pythagoras",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.563Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.563Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "ge12tzd5e4r4hje"
+        }
+      ],
+      "source_id": "kmkac1lm3dl64em"
+    },
+    {
+      "annotation": "Sinngedichte (Sammlung INr 14227, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Veit schwört, er lieb' Agnesen nur allein, / Er liebe nichts als sie; das scheint dir übertrieben?",
+      "language": [],
+      "musenalm_id": 14232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Hoher Grad der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Hoher Grad der Liebe",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.564Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "iwiyq0xh7oc4535"
+        }
+      ],
+      "source_id": "xswb3h6y0ob42qy"
+    },
+    {
+      "annotation": "Anmerkung des Verfassers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Als ich mein Wort gab, die Herausgabe eines Taschenbuches zu besorgen",
+      "language": [],
+      "musenalm_id": 14233,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlußwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Sonnleithner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlußwort",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.564Z",
+          "agent": "v2707y6y5mu8c55",
+          "source_id": "91comtdxj77hi57"
+        }
+      ],
+      "source_id": "fa87xbnotjdmkle"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 16703,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "hwlwajqu7dhvufr"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33802,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_222_33802_fpijnzqyb9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "bfecipixzpp63zh"
+    }
   ],
   "agents": [
     {

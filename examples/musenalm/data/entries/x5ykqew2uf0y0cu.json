@@ -48,36 +48,1228 @@
   "year": 1856,
   "editor": "",
   "items": [
-    "8j0nafqxnu4aqah"
+    {
+      "annotation": "1816-1873.\nHg:1816-1842 = A. Schreiber. \n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell.\n     1857-1862 = A. Henninger.\n     1863-1873 = Frater Hilarius (pseude).",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.533Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106488",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.533Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8j0nafqxnu4aqah"
+    }
   ],
   "contents": [
-    "crbijo1grlxtkq5",
-    "jcyiz2zxflnrqso",
-    "g9s9djpumen5tnf",
-    "cvob95r846ezi8o",
-    "dqc2zaxbr0gvemt",
-    "fvpz9k005alm5m8",
-    "ysjc4bymlwsyaj2",
-    "snji43p9f27iei8",
-    "wl5wrilgrp7sofr",
-    "xl9cp4ultjywl18",
-    "effzhp07o8qgye8",
-    "flluwdzthdv45yp",
-    "n5qruuqb1vxfjzo",
-    "6phy9gwlu4aex4h",
-    "oe7h1v8uzvk84yv",
-    "g9hxui8rujs2s8f",
-    "r13reltmg8a1mti",
-    "dc6lavarpgpd5z8",
-    "go3qrzn14jmx995",
-    "o88rcc0kev2dvyi",
-    "yqqbhe0u8xmd9si",
-    "5d9sdm4nvw30wr7",
-    "8jd7dpzs4z76ptc",
-    "1a7yj6hd6kftdar",
-    "knf2cksuzt2vjzn",
-    "kq23zgwphzoyg3v",
-    "skpwryhr3bk68dj"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64233,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1856 / DARMSTADT / im Verlag / VON G. G. LANGE / New-York Lange & Kronfeld / William Street 202. Store No. 3",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1064_64233_p48hx717gx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1856 / DARMSTADT / im Verlag / VON G. G. LANGE / New-York Lange & Kronfeld / William Street 202. Store No. 3",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [],
+      "source_id": "crbijo1grlxtkq5"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 64239, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64234,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angelica Kronfeld / als / Goldschmied's Töchterlein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Schwarz delt. W. Otto sculpt.",
+      "scans": [
+        "alm_1064_64234_j5377lqgqf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Angelica Kronfeld / als / Goldschmied's Töchterlein",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [],
+      "source_id": "jcyiz2zxflnrqso"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64235,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1856 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 41r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Schad. sc.",
+      "scans": [
+        "alm_1064_64235_pgon0x7845.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1856 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 41r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "cr0zan0ffiogof3"
+        }
+      ],
+      "source_id": "g9s9djpumen5tnf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64236,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1856 / Herausgegeben von / J. W. Appell. / 41. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1064_64236_flw6irrac4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1856 / Herausgegeben von / J. W. Appell. / 41. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [],
+      "source_id": "cvob95r846ezi8o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64237,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [],
+      "source_id": "dqc2zaxbr0gvemt"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten INr 64239-64247, Obj 7-15 als Textbezüge zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64238,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reihenfolge / und / Erklärung der Stahlstiche / in neun Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reihenfolge / und / Erklärung der Stahlstiche / in neun Gedichten",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "k634nh8i0iamsx4"
+        }
+      ],
+      "source_id": "fvpz9k005alm5m8"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Titelportrait INr 64234, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "So sahst Du aus, mein liebes schönes Kind, / Als Du die heißen Breter erst betreten,",
+      "language": [],
+      "musenalm_id": 64239,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Goldschmied's Töchterlein. / (Fräulein Angelika Kronfeld,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Goldschmied's Töchterlein. / (Fräulein Angelika Kronfeld,",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "u1ywg3fq6hw33lk"
+        }
+      ],
+      "source_id": "ysjc4bymlwsyaj2"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64248, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Holdselig Kind, das war ein heitrer Spaß, / Als du erhascht des Vaters Augenglas",
+      "language": [],
+      "musenalm_id": 64240,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Mädchen mit der Brille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Mädchen mit der Brille",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "dxmjmjvqm093j4x"
+        }
+      ],
+      "source_id": "snji43p9f27iei8"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64249, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ogygia das Feeneiland winkt, / Dort wo Kalypso Zauberfäden schlingt,",
+      "language": [],
+      "musenalm_id": 64241,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Telemach und Kalypso",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Telemach und Kalypso",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "qdp382tv3e5z36u"
+        }
+      ],
+      "source_id": "wl5wrilgrp7sofr"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64250, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Abend säuselt lind im Buchenbach, / Mein holdes, liebes Kind was sinnst du nach?",
+      "language": [],
+      "musenalm_id": 64242,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Vergißmeinnicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Vergißmeinnicht",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "nvs5aglmul78tpe"
+        }
+      ],
+      "source_id": "xl9cp4ultjywl18"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64251, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der heiligen Familie Lichtgestalten: / Die Himmelsmutter mit dem Jesusknaben,",
+      "language": [],
+      "musenalm_id": 64243,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Die heilige Familie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Die heilige Familie",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "raw4ef43fl34ufa"
+        }
+      ],
+      "source_id": "effzhp07o8qgye8"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64252, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zum Himmel schwebt, von Wolken licht getragen, / Verklärten Blicks die heiligste der Frauen,",
+      "language": [],
+      "musenalm_id": 64244,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Die Himmelskönigin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Die Himmelskönigin",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.139Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "7owvc6m39upraym"
+        }
+      ],
+      "source_id": "flluwdzthdv45yp"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64253, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "O sieh hoch auf der Kuppe von Basalt, / Wie eine Felseninsel tief im Wald,",
+      "language": [],
+      "musenalm_id": 64245,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Die Schaumburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Die Schaumburg",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.062Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "nx3lee3pl0cynox"
+        }
+      ],
+      "source_id": "n5qruuqb1vxfjzo"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64254, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein Park von Bäumen schlank und laubgeschmückt, / Fußpfade rings von reger Hand beschickt,",
+      "language": [],
+      "musenalm_id": 64246,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. Der Friedhof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. Der Friedhof",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.062Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "dxa0hu73spr8njo"
+        }
+      ],
+      "source_id": "6phy9gwlu4aex4h"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64255, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Sieh hier der Festung drohendes Gemäuer, / Auf hohem Felsen mächtig hingereckt,",
+      "language": [],
+      "musenalm_id": 64247,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. Blick auf Ofen und Pesth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. Blick auf Ofen und Pesth",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.062Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "20lqxcy0pnnr8br"
+        }
+      ],
+      "source_id": "oe7h1v8uzvk84yv"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64240, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64248,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Mädchen mit der Brille #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafosse pinxt. J. W. Baumann sculpt.",
+      "scans": [
+        "alm_1064_64248_0ygo5nwtgx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. Mädchen mit der Brille #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "jfx6mc31qu17k04",
+          "source_id": "i2azobdmk67kjt6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "pjn80zbwzi2r7m4"
+        }
+      ],
+      "source_id": "g9hxui8rujs2s8f"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64241, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64249,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Telemach und Kalypso #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Schopin pinxt. I. W. Baumann sculpt.",
+      "scans": [
+        "alm_1064_64249_atl82iszww.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Telemach und Kalypso #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "lz69kcosofccumg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "rzeigvne9106dpe",
+          "source_id": "w50os6wlt1y3lfu"
+        }
+      ],
+      "source_id": "r13reltmg8a1mti"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64242, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64250,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schlesinger delt. Gerhard sculpt.",
+      "scans": [
+        "alm_1064_64250_wcbarxumav.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "q0ll739boyttklq",
+          "source_id": "4coysaqbjbgpwlb"
+        }
+      ],
+      "source_id": "dc6lavarpgpd5z8"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64243, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64251,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die heilige Familie #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Murillo pinxt. J. W. Baumann sculpt. Mchn.",
+      "scans": [
+        "alm_1064_64251_a5c1zyz4yg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die heilige Familie #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "zikixfku6z2uhtf",
+          "source_id": "c8y2114cx8vr9tl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "cdyqs42g293j60i"
+        }
+      ],
+      "source_id": "go3qrzn14jmx995"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64244, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64252,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Himmelskönigin #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Murillo pinxt. W. Otto sculpt.",
+      "scans": [
+        "alm_1064_64252_h6xpo9st54.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Himmelskönigin #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "zikixfku6z2uhtf",
+          "source_id": "02grzi2ti2ym6tq"
+        }
+      ],
+      "source_id": "o88rcc0kev2dvyi"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64245, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.103Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64253,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schaumburg #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rohbock delt. G. M. Kurz sculpt.",
+      "scans": [
+        "alm_1064_64253_faofq3rf9w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schaumburg #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "8s55wr0epunphdd",
+          "source_id": "m9uk0zm9cvl9rh4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.978Z",
+          "agent": "s6x2mf7qulf094x",
+          "source_id": "sebn8jg54vol63l"
+        }
+      ],
+      "source_id": "yqqbhe0u8xmd9si"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64246, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.756Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64254,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Friedhof #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rohbock delt. G. M. Kurz sculpt.",
+      "scans": [
+        "alm_1064_64254_lypgw3oqrw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Friedhof #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.094Z",
+          "agent": "s6x2mf7qulf094x",
+          "source_id": "3nnt6mpha67tmg6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.094Z",
+          "agent": "8s55wr0epunphdd",
+          "source_id": "gtd9931dl9sydf6"
+        }
+      ],
+      "source_id": "5d9sdm4nvw30wr7"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64247, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.758Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64255,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blick auf Ofen und Pesth #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rohbock delt. G. M. Kurz sculpt.",
+      "scans": [
+        "alm_1064_64255_aucyu5cie9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Blick auf Ofen und Pesth #",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.094Z",
+          "agent": "s6x2mf7qulf094x",
+          "source_id": "2lytwd1h5q2b6jq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.094Z",
+          "agent": "8s55wr0epunphdd",
+          "source_id": "b5dowzznky6pqx7"
+        }
+      ],
+      "source_id": "8jd7dpzs4z76ptc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Sonne stand in ihrer Mittagshöhe, es war ein brennender heißer Tag im Hochsommer. Kein Wölkchen milderte auch nur momentan vorübersegelnd die Glut der Strahlen",
+      "language": [],
+      "musenalm_id": 64256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aniello Falcone. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aniello Falcone. / Novelle",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.094Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "rogy8xh2npgjwr7"
+        }
+      ],
+      "source_id": "1a7yj6hd6kftdar"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Geleite mich einmal, mein freundlicher Leser, an eine Stelle, die so wenig wie irgend eine der ganze Gattung je den Schauplatz einer Novelle abgab.",
+      "language": [],
+      "musenalm_id": 64257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schneiderpoet. / Scene aus dem bayerischen Landleben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Hilarius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schneiderpoet. / Scene aus dem bayerischen Landleben",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.163Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.163Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "9cz6ho025swtnpy"
+        }
+      ],
+      "source_id": "knf2cksuzt2vjzn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Oho! rief der alte Förster Bärwald zornig aus, indem er aus dem Dickicht in ein Gestell trat, das einen weiten, freien Blick hinunter gewährte;",
+      "language": [],
+      "musenalm_id": 64258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oho und Aha!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rellstab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Oho und Aha!",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.087Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.087Z",
+          "agent": "zi8zh5xhvi7k26j",
+          "source_id": "zimr6sxnh1u13ld"
+        }
+      ],
+      "source_id": "kq23zgwphzoyg3v"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64259,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1064_64259_0x1c5w8hhx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1856,
+      "editor": "",
+      "agents": [],
+      "source_id": "skpwryhr3bk68dj"
+    }
   ],
   "agents": [
     {

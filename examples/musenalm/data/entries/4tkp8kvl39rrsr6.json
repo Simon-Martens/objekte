@@ -48,7 +48,26 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "hlfne57r4d68vt6"
+    {
+      "annotation": "1798 - 1803 und 1805.\nKartonierter Einband.(Buchrücken beschädigt.)\n1799: (K: Ku 29 und Mu 6.) Mit Ku 4, VIII, 32 SS, 308 SS und Bl 2. \nAuch unter Titel : Jahrbuch d. Maurerey.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.660Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106813",
+      "location": "105G01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.660Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hlfne57r4d68vt6"
+    }
   ],
   "contents": [],
   "agents": [

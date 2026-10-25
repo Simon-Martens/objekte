@@ -48,26 +48,634 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "af5l0ju3somrxhn"
+    {
+      "annotation": "Umschlaggraphiken: Lithos von J. P. Lyser /Burmeister",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.547Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200660",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.547Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "af5l0ju3somrxhn"
+    }
   ],
   "contents": [
-    "6qz3jkzwk5uoexz",
-    "uwom36iofzvdoiz",
-    "vgev7fot4ziuln5",
-    "rolowvg6tzj2azj",
-    "2z9yq56nfc326lk",
-    "nvvg12gp1ovb7b8",
-    "mu6bz2vfrb4pzno",
-    "cddnclcuvm0zgvz",
-    "58qq5f3562grehz",
-    "1ul9w5pn1rbadgr",
-    "taaa0q8c9hqvzbp",
-    "javba8oloyzddmg",
-    "y6j65duidvznmpa",
-    "39rdqzznvfarj53",
-    "qpcxii7d0gfucp1",
-    "l60iipqd60g1t8p",
-    "6ptkxcvn97dw95w"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124250,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124250_69ekslrs21.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "6qz3jkzwk5uoexz"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124251,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach dramatischer Spiele / für das Jahre 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Almanach dramatischer Spiele / für das Jahre 1832",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "uwom36iofzvdoiz"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124252,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei Hoffmann und Campe in Hamburg sind erschienen und durch alle Buchhandlungen zu bekommen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei Hoffmann und Campe in Hamburg sind erschienen und durch alle Buchhandlungen zu bekommen.",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "vgev7fot4ziuln5"
+    },
+    {
+      "annotation": "Illustration zu »Hamburger in Wien« von Lewald (INr 124259, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muki: Die Alte war als Kind / einst wunderschön! Hamburger in Wien v. Lewald, Sc 2",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124253_ecwks3ldmo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Muki: Die Alte war als Kind / einst wunderschön! Hamburger in Wien v. Lewald, Sc 2",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "rolowvg6tzj2azj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124254,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Begründet / von / AUG. v. KOTZEBUE, / Dreißigster Jahrgang. / herausgegeben / von / CARL LEBRÜN / Sechste Fortsetzung. / Hamburg / bei Hoffmann und Campe. / 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124254_1x7uveb63a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Begründet / von / AUG. v. KOTZEBUE, / Dreißigster Jahrgang. / herausgegeben / von / CARL LEBRÜN / Sechste Fortsetzung. / Hamburg / bei Hoffmann und Campe. / 1832",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "2z9yq56nfc326lk"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es ist der sechste Jahrgang der neuen Reihenfolge des Almanachs dramatischer Spiele, den ich dem Publicum hiermit übergebe",
+      "language": [],
+      "musenalm_id": 124255,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "nvvg12gp1ovb7b8"
+    },
+    {
+      "annotation": "enthält auch I-Verz der Jg. 1829–1831",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124256,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt dieses Jahrgangs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt dieses Jahrgangs",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "mu6bz2vfrb4pzno"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Wer kennt nicht die alte Legende – (se nenn’ ich die Begebenheit, denn es ist eine heilige Wahrheit drin) – vom Schöpfer Paris, diesem geschmackvollen prinzlichen Schaf?",
+      "language": [],
+      "musenalm_id": 124257,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärungen der Zeichnungen auf dem Umschlag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärungen der Zeichnungen auf dem Umschlag",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "cddnclcuvm0zgvz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Huhu! ruschi, uschi, husch! / Nord, Süd, Ost und Westen. – / Ueber Berg’ und Thal und Busch: / Wind, vom allerbesten",
+      "language": [],
+      "musenalm_id": 124258,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Intermezzo. / Der deutsche Ex-Parnaß, ( Neujahr-Nachtstraum). / Windfahnen und Zeitungen, ( als Ouverture fortissimo)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Intermezzo. / Der deutsche Ex-Parnaß, ( Neujahr-Nachtstraum). / Windfahnen und Zeitungen, ( als Ouverture fortissimo)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "58qq5f3562grehz"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124253, Obj 4;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf! rings gescheuert und gefegt! / Daß nirgends sich ein Stäubchen regt! / Denn heut ist ein Freudentag, / Wo sich ein Jeder freuen mag!",
+      "language": [],
+      "musenalm_id": 124259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hamburger in Wien / Liederposse in einem Akt / von August Lewald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Lewald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hamburger in Wien / Liederposse in einem Akt / von August Lewald",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.780Z",
+          "agent": "bv9so4m92p9fsk9",
+          "source_id": "nlb3v5o3qatjhqn"
+        }
+      ],
+      "source_id": "1ul9w5pn1rbadgr"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124261, Obj 12;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Zwölf Gulden vier und zwanzig Kreuzer. Immer genug für meine Wochencollecte.",
+      "language": [],
+      "musenalm_id": 124260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bettler. / Schauspiel in einem Aufzuge / von / Dr. Ernst Raupach #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Ernst Raupach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bettler. / Schauspiel in einem Aufzuge / von / Dr. Ernst Raupach #",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.780Z",
+          "agent": "uxyu52yd3v030gq",
+          "source_id": "8ald1dn94zn3ff2"
+        }
+      ],
+      "source_id": "taaa0q8c9hqvzbp"
+    },
+    {
+      "annotation": "Illustration zu »Der Bettler« von Raupach (INr 124260, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walter: Etwas für meine Armen. / Der Bettler v. Raupach. Sc. 2",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124261_5qpn4rynwf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walter: Etwas für meine Armen. / Der Bettler v. Raupach. Sc. 2",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "javba8oloyzddmg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124263, Obj 14;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Nun? / Gut. / Weißt du Bescheid? / Wie im Hause meiner Großmut- / ter;",
+      "language": [],
+      "musenalm_id": 124262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seltsame Ehen. / Eine Posse für den Carneval in zwei Akten / von / Albini",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Albini",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seltsame Ehen. / Eine Posse für den Carneval in zwei Akten / von / Albini",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "y6j65duidvznmpa"
+    },
+    {
+      "annotation": "Illustration zu »Seltsame Ehen« von Albini (INr 124262, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mauderich: Hyon – Hyn – Hyun – Hyund – Hund. / Seltsame Ehen v. Albini, Act 1, Sc. 11",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124263_2mqlgavyot.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mauderich: Hyon – Hyn – Hyun – Hyund – Hund. / Seltsame Ehen v. Albini, Act 1, Sc. 11",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "39rdqzznvfarj53"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124265, Obj 16;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Alles eins! aber die reichen Leute haben Einfälle, wenn unsereins darauf käme, ich glaube man sperrte uns in das Narrenhaus.",
+      "language": [],
+      "musenalm_id": 124264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der letzte April. / Posse in einem Aufzuge / von / Prof. Serle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der letzte April. / Posse in einem Aufzuge / von / Prof. Serle",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.859Z",
+          "agent": "1g5ju8pfs3rggmg",
+          "source_id": "thg0tghlgpgarim"
+        }
+      ],
+      "source_id": "qpcxii7d0gfucp1"
+    },
+    {
+      "annotation": "Illustration zu »Der letzte April« von Gerle (INr 124264, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gottlieb Zwick. / Der letzte April v. Gerle. Sc. 11",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124265_a4zbhyy6u5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gottlieb Zwick. / Der letzte April v. Gerle. Sc. 11",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "l60iipqd60g1t8p"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1300_124269_igi0qo5xz5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ptkxcvn97dw95w"
+    }
   ],
   "agents": [
     {

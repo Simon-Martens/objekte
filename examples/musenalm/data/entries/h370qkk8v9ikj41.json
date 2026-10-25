@@ -48,43 +48,1652 @@
   "year": 1836,
   "editor": "",
   "items": [
-    "pkar8l1vnt20nl9"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt.(Buchrücken beschädigt.)\n1836: (K:Bl 10, 335 SS und Ku 12.) Mit Bl 11, Ku 11 und 335 SS.\n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101309",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pkar8l1vnt20nl9"
+    }
   ],
   "contents": [
-    "udy0mxvuyykkshl",
-    "i2ydfuqgqaan5ku",
-    "q6hyncvpcfa4e78",
-    "vjcl81nx5tauq6c",
-    "xg5u2wpy4iiisg8",
-    "my9fgvqtxpk35oe",
-    "dkevomh8nhsowhf",
-    "2f8ujmw8j91ttk8",
-    "8g6rmpfac1etzfh",
-    "9ew28d6fh8wxkul",
-    "bxohhrcyc26hsg3",
-    "cul6hsau60m499y",
-    "66aigwss82ekufc",
-    "7pvvt56hcesyhtm",
-    "7hsj77gz8no9gyo",
-    "bx3vl3mou75l5ao",
-    "hzgcz01zhoj1upk",
-    "mzcaxpfgfcfyavb",
-    "wo45zlwpwv7avae",
-    "tri9ij697p07og9",
-    "6uhqxat5oylst26",
-    "aybq6d2v0iav6iw",
-    "6kbu0gc8b0npnmk",
-    "hkqba3itj7i345m",
-    "q4o2ve4m6n9thxl",
-    "tkjwiekwyu2encd",
-    "6orsjirv8mkwzor",
-    "8x1bh7671pg349s",
-    "ieoortzcpcr4lsb",
-    "qnwlq9lzboiqkrg",
-    "gkc8tjz187goeqf",
-    "n5z1qxavq00t024",
-    "an3ubsnlwlb5n5w",
-    "qf71x61lnsqgsiw"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30408,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retzsch del. Leop. Beyer sc. Vienna)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. Leop. Beyer sc. Vienna",
+      "scans": [
+        "alm_399_30408_vad6yo3eo5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "d2xcc874b5dnwaw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "ftw91imsrf2madl"
+        }
+      ],
+      "source_id": "udy0mxvuyykkshl"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30409,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH. / DER / Liebe und Freundschaft / GEWIDMET / 1836 / Herausgegeben / von / Dr. St. SCHÜTZE. / FRANKFURT a. M. / Friedrich Wilmans Verlagshandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Brandt sculp.",
+      "scans": [
+        "alm_399_30409_l23l15sntz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH. / DER / Liebe und Freundschaft / GEWIDMET / 1836 / Herausgegeben / von / Dr. St. SCHÜTZE. / FRANKFURT a. M. / Friedrich Wilmans Verlagshandlung",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "i2ydfuqgqaan5ku"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30410,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "q6hyncvpcfa4e78"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 8 Textbezügen zu 8 Graphiken INr 30412-30427, Obj 5-20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30411,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebestäuschungen / in / acht Bildern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebestäuschungen / in / acht Bildern",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "psy4zm25y0ii22f"
+        }
+      ],
+      "source_id": "vjcl81nx5tauq6c"
+    },
+    {
+      "annotation": "s. Textbezug INr 30413, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30412,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler sculps.",
+      "scans": [
+        "alm_399_30412_9vzz43j896.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "3pxh2xit506d5oo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "qvo1twoekz80jyu"
+        }
+      ],
+      "source_id": "xg5u2wpy4iiisg8"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30412, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ist Venus einst aus Schaum geboren, / Stieg hold sie aus dem Meer herauf,",
+      "language": [],
+      "musenalm_id": 30413,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der unerfahr'ne Jüngling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der unerfahr'ne Jüngling",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "esr7ksoywenq4e1"
+        }
+      ],
+      "source_id": "my9fgvqtxpk35oe"
+    },
+    {
+      "annotation": "s. Textbezug INr 30415, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30414,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler sculps.",
+      "scans": [
+        "alm_399_30414_mnh72cnvos.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.555Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.555Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "jtwv21xjhohcur7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.555Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.555Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "mjflcf5eicwf5n8"
+        }
+      ],
+      "source_id": "dkevomh8nhsowhf"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30414, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Flüstern hört' ich in der Laube, / Schmeichelnd strich der Abendwind",
+      "language": [],
+      "musenalm_id": 30415,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Ehe nach den Flitterwochen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Ehe nach den Flitterwochen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.555Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.555Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "irr4qk9oebunjsg"
+        }
+      ],
+      "source_id": "2f8ujmw8j91ttk8"
+    },
+    {
+      "annotation": "s. Textbezug INr 30417, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30416,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler sculps.",
+      "scans": [
+        "alm_399_30416_zzbokz2w45.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.555Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.555Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "81h7ov12dm8q9i1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.555Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.555Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "la3ed2gf0dg44xc"
+        }
+      ],
+      "source_id": "8g6rmpfac1etzfh"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30416, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wissenschaft, und Geld und Ehre / Macht den Kreis des ird'schen Strebens,",
+      "language": [],
+      "musenalm_id": 30417,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der vornehme Freier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der vornehme Freier",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.511Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "cddvg0lk2mb8thl"
+        }
+      ],
+      "source_id": "9ew28d6fh8wxkul"
+    },
+    {
+      "annotation": "s. Textbezug INr 30419, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30418,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler sculps.",
+      "scans": [
+        "alm_399_30418_bvcpdcm8ud.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "4611hf9y8cdyrzr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "cinbb9dxqq4lthw"
+        }
+      ],
+      "source_id": "bxohhrcyc26hsg3"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30418, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Liebe darf nach Jenseit schwärmen, / Neu sich eine Welt erbau'n",
+      "language": [],
+      "musenalm_id": 30419,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Hoffnung auf Amerika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Hoffnung auf Amerika",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "55xjbm4r71etxz5"
+        }
+      ],
+      "source_id": "cul6hsau60m499y"
+    },
+    {
+      "annotation": "s. Textbezug INr 30421, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30420,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler sculps.",
+      "scans": [
+        "alm_399_30420_8z8lbp2yh0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "e0ac00zrxvoh9s3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "egoheio7xjzqdaq"
+        }
+      ],
+      "source_id": "66aigwss82ekufc"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30420, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.524Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Clara, Clara zu erwerben / Trieb ihn heiße Liebesglut,",
+      "language": [],
+      "musenalm_id": 30421,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der feurige Eheherr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der feurige Eheherr",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "9c4r2w7lyskl1vf"
+        }
+      ],
+      "source_id": "7pvvt56hcesyhtm"
+    },
+    {
+      "annotation": "s. Textbezug INr 30423, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.525Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30422,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler s.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler s.",
+      "scans": [
+        "alm_399_30422_cy74ifw3ot.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "7laxf2xrd4zsj27"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "symma5ghuj77wf0"
+        }
+      ],
+      "source_id": "7hsj77gz8no9gyo"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30422, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es ist zu viel, und paßt nicht zum Geschlechte, / Wenn man den Sohn nur pflegt und herzt und liebt:",
+      "language": [],
+      "musenalm_id": 30423,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Der ungerathene Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Der ungerathene Sohn",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "nxso6rdrn3x6sib"
+        }
+      ],
+      "source_id": "bx3vl3mou75l5ao"
+    },
+    {
+      "annotation": "s. Textbezug INr 30425, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30424,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff pinx. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff pinx. Schuler sc.",
+      "scans": [
+        "alm_399_30424_aoiwgts4zn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.513Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.513Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "15cck9nshtq6gry"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.512Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "h4htuhdcbq4o9uu"
+        }
+      ],
+      "source_id": "hzgcz01zhoj1upk"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30424, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gezündet sind die Hochzeitskerzen, / Der Kreis umringt zwei frohe Herzen,",
+      "language": [],
+      "musenalm_id": 30425,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der treulose Bräutigam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der treulose Bräutigam",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.373Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "kw03ogpg2nw7hy3"
+        }
+      ],
+      "source_id": "mzcaxpfgfcfyavb"
+    },
+    {
+      "annotation": "s. Textbezug INr 30427, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30426,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff del. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Schuler sc.",
+      "scans": [
+        "alm_399_30426_ccs65wnj5f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.373Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "am25icy54d49wfw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.373Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "hsyayhycbphozgs"
+        }
+      ],
+      "source_id": "wo45zlwpwv7avae"
+    },
+    {
+      "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30426, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wohl nicht zum Schreck, doch unverhofft / Ist Käthchen ihrem Mann gestorben,",
+      "language": [],
+      "musenalm_id": 30427,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die Auferstandene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die Auferstandene",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.373Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "5ss968a152d3qs1"
+        }
+      ],
+      "source_id": "tri9ij697p07og9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30429, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war nicht weit mehr bis zur Mitternacht die Mondsichel ging unter, und die Schleier der Tagesstunden woben sich dichter um die alten Berghäupter und die Stadt,",
+      "language": [],
+      "musenalm_id": 30428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / braune Marthe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / braune Marthe. / Novelle",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.373Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "8tcbw8g2u6htmms"
+        }
+      ],
+      "source_id": "6uhqxat5oylst26"
+    },
+    {
+      "annotation": "Illustration zu »Die braune Marthe« von L. Storch INr 30428, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die braune Marthe, / von Ludwig Storch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Danhauser del. Leop. Beyer sc.",
+      "scans": [
+        "alm_399_30429_tyrrofeec9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die braune Marthe, / von Ludwig Storch",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.063Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "hnefz88djg6zyh8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.063Z",
+          "agent": "te5k7582adtmhfm",
+          "source_id": "thvqohnhlool13e"
+        }
+      ],
+      "source_id": "aybq6d2v0iav6iw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30431, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Dir ist der alte Müller bekannt, / Bolei, der wack're, wird er genannt,",
+      "language": [],
+      "musenalm_id": 30430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Auge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelbert von Chamisso",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Auge",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.555Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.555Z",
+          "agent": "3emdj29jey7pglq",
+          "source_id": "dhku0elmwhczzi6"
+        }
+      ],
+      "source_id": "6kbu0gc8b0npnmk"
+    },
+    {
+      "annotation": "Illustration zu »Das Auge« von A. v. Chamisso INr 30430, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Auge, / von Adelbert von Chamisso",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Danhauser del. Leop. Beyer sc. Viennae",
+      "scans": [
+        "alm_399_30431_4bfcybxyt8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Auge, / von Adelbert von Chamisso",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.516Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.516Z",
+          "agent": "te5k7582adtmhfm",
+          "source_id": "83b26xt3j1djhcn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "sv36m2bcb6evzq1"
+        }
+      ],
+      "source_id": "hkqba3itj7i345m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Der Landgraf saß im Klostersaale, / Dicht drängte Volk sich am Portale",
+      "language": [],
+      "musenalm_id": 30432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die geistliche Comödie. / Thüringische Chronikensage 1322",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die geistliche Comödie. / Thüringische Chronikensage 1322",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "g8bb1vovshfx16w"
+        }
+      ],
+      "source_id": "q4o2ve4m6n9thxl"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30434, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Keiner von den zahllosen Fremden, welcher das germanische Wunderland, den majestätischen Naturtempel Tyrols zum Ziele seiner Forschungen wählte,",
+      "language": [],
+      "musenalm_id": 30433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Robler. / Tyroler-Bilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Robler. / Tyroler-Bilder",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "0u2iks8qf9iq4g8"
+        }
+      ],
+      "source_id": "tkjwiekwyu2encd"
+    },
+    {
+      "annotation": "Illustration zu »Die Robler« von W. Blumenhagen INr 30433, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Robler, / von Wilhelm Blumenhagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. Leop. Beyer sc.",
+      "scans": [
+        "alm_399_30434_df7i62kit5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Robler, / von Wilhelm Blumenhagen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "ep198d59pymh2e4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "qh203r7srwxoiox"
+        }
+      ],
+      "source_id": "6orsjirv8mkwzor"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Es funkeln die Sterne gar grimmig kalt, / Im eisigen Schmucke glänzet der Wald;",
+      "language": [],
+      "musenalm_id": 30435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winterlandschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Raupach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winterlandschaft",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "uxyu52yd3v030gq",
+          "source_id": "a4jq505eiug4o2a"
+        }
+      ],
+      "source_id": "8x1bh7671pg349s"
+    },
+    {
+      "annotation": "# Dem Text vorangestellt: Motto. / Seine Farbe war die des Kameleons, seine Stirn schien eisern, seine Faust von Stahl, sein Herz ein Stein, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Es war zu Anfang Frühlings des Jahres 1585, als das Gerücht, daß Pabst Gregor der dreizehnte im Sterben läge, die ganze Bevölkerung Roms in Bewegung brachte.",
+      "language": [],
+      "musenalm_id": 30436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Montalto. / Eine Erzählung #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Montalto. / Eine Erzählung #",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "3r6rzt1kae30ziw"
+        }
+      ],
+      "source_id": "ieoortzcpcr4lsb"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 30438-30441, Obj 31-34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "9rr2jlkdmltf3e0"
+        }
+      ],
+      "source_id": "qnwlq9lzboiqkrg"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30437, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Auch sie, die reinem Licht entstammet, / Die Sonne, unser schönster Stern,",
+      "language": [],
+      "musenalm_id": 30438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Sonne und der Komet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Sonne und der Komet",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "0clemb9mqp2netb"
+        }
+      ],
+      "source_id": "gkc8tjz187goeqf"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30437, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Zürnend auf des Tages Schwüle / Fliehest, süße Thörin du,",
+      "language": [],
+      "musenalm_id": 30439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / An die Unentschlossene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / An die Unentschlossene",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "xlvo7f7gut6j10j"
+        }
+      ],
+      "source_id": "n5z1qxavq00t024"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30437, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Die Blumen-Töchter freuen mich / Am Abend wie am Morgen,",
+      "language": [],
+      "musenalm_id": 30440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Gärtner und sein Rosenpaar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Gärtner und sein Rosenpaar",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "vc8oqoczc6l7gas"
+        }
+      ],
+      "source_id": "an3ubsnlwlb5n5w"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30437, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Da eure Wünsche weiter streben, / Zum Abschied ihr die Schritte lenkt,",
+      "language": [],
+      "musenalm_id": 30441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Bei'm Abschiede der Kinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Bei'm Abschiede der Kinder",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "bs19nysfe07ka2e"
+        }
+      ],
+      "source_id": "qf71x61lnsqgsiw"
+    }
   ],
   "agents": [
     {

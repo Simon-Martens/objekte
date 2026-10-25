@@ -48,24 +48,630 @@
   "year": 1787,
   "editor": "",
   "items": [
-    "urli7btuo5qf2j6"
+    {
+      "annotation": "lt. K 35:  7 Jgg 1784, 1786, 1787, 1789, 1798, 1799, 1800",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106627",
+      "location": "105K06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "urli7btuo5qf2j6"
+    }
   ],
   "contents": [
-    "j5uavxpyc4w87yw",
-    "65la4dpqz986ohj",
-    "8fqy2hkbhvvyhde",
-    "5dpul9a0cvcdfnu",
-    "70k8xxrlsqxcjbp",
-    "v3tw1zuqdtcc4hg",
-    "jzpy5tc8syblhe5",
-    "rvfrgfzw8k5s1w6",
-    "2w93aylrpdcltv5",
-    "f77j26lx4cijipr",
-    "su8twmlddzv2tn2",
-    "d68f7d9c332iya2",
-    "j1t0h4lkpgyvslb",
-    "q125i2xn7w5dkpr",
-    "10xliqezo2pqaqz"
+    {
+      "annotation": "Verlagsbroschur",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80756,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [],
+      "source_id": "j5uavxpyc4w87yw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80757,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeines historisches / Taschenbuch / oder / Abriß / der merkwürdigsten neuen / Welt-Begebenheiten, / für 1787 / enthaltend / Zusätze / zu der für das Jahr 1786 herausgegebenen / Geschichte / der wichtigsten / Staats- und Handelsveränderungen / von / Ostindien / von / M. C. Sprengel / Professor der Geschichte auf der Universität / zu Halle. / Mit dem Bildnis des Lord Cornwallis. / Berlin, / bei Haude und Spener",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_927_80757_pn29bf7xvw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeines historisches / Taschenbuch / oder / Abriß / der merkwürdigsten neuen / Welt-Begebenheiten, / für 1787 / enthaltend / Zusätze / zu der für das Jahr 1786 herausgegebenen / Geschichte / der wichtigsten / Staats- und Handelsveränderungen / von / Ostindien / von / M. C. Sprengel / Professor der Geschichte auf der Universität / zu Halle. / Mit dem Bildnis des Lord Cornwallis. / Berlin, / bei Haude und Spener",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [],
+      "source_id": "65la4dpqz986ohj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [],
+      "source_id": "8fqy2hkbhvvyhde"
+    },
+    {
+      "annotation": "Vowort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Mein erster Versuch, die neuesten Weltbegebenheiten in einem Taschenbuche vorzutragen, hat das Glück gehabt, den Beifall des deutschen Piublikums zu finden",
+      "language": [],
+      "musenalm_id": 80759,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.968Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "rtjr6j7ju7pdghe"
+        }
+      ],
+      "source_id": "5dpul9a0cvcdfnu"
+    },
+    {
+      "annotation": "Vorwort der Verleger",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Als der diesjährige historisch-genealogische Calender, der, für 1786, von Herrn Prof. Sprengel ausgearbeitet, die Geschichte der wichtigsten Staats- und Handlungsveränderungen Ostindiens enthielt, herauskam,",
+      "language": [],
+      "musenalm_id": 80760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift der Verleger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Verleger Haude und Spener",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift der Verleger",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [],
+      "source_id": "70k8xxrlsqxcjbp"
+    },
+    {
+      "annotation": "Literaturliste zum folgenden Beitrag INr 80762, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtrag / der neuesten und in diesen Zusätzen / gebrauchten Werke über Ostindien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtrag / der neuesten und in diesen Zusätzen / gebrauchten Werke über Ostindien",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [],
+      "source_id": "v3tw1zuqdtcc4hg"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) in: Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1787; alm-926, INr 59791",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Warren Hastings, bisheriger General-Gouverneur von Bengalen, der hier nach einem sehr ähnlichen von West gemahlten Bilde gestochen ist, ward im Jahre 1730 zu Darlsford in Worcester gestochen.",
+      "language": [],
+      "musenalm_id": 80762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurzgefaßte Nachricht / von dem Leben Warren Hastings / bisherigen Generalgouverneurs von Bengalen / und von der gegenwärtigen Lage des durch Herrn / Burcke bei dem Parlament von England ge- / gen ihn verhängten Processes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurzgefaßte Nachricht / von dem Leben Warren Hastings / bisherigen Generalgouverneurs von Bengalen / und von der gegenwärtigen Lage des durch Herrn / Burcke bei dem Parlament von England ge- / gen ihn verhängten Processes",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.957Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "gdwacp747b9qncw"
+        }
+      ],
+      "source_id": "jzpy5tc8syblhe5"
+    },
+    {
+      "annotation": "Illustration zu »Data zu einer Lebensgeschichte des Lord Cornwallis jetzigen Generalgouverneur von Bengalen« INr 80764, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CARL LORD CORNWALLIS / Zum General-Gouverneur von Bengalen ernannt / am 24. Febr. 1786",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hamilton del. D. Berger sculps. 1787",
+      "scans": [
+        "alm_927_80763_658ddmeiws.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CARL LORD CORNWALLIS / Zum General-Gouverneur von Bengalen ernannt / am 24. Febr. 1786",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.957Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "nrf8ydbrcm0gxzg"
+        }
+      ],
+      "source_id": "rvfrgfzw8k5s1w6"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik (Portrait) INr 80675, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Lord Cornwallis hat sich als einen der unternehmendsten und tapfersten Officiere in der brittischen Armee ausgezeichnet.",
+      "language": [],
+      "musenalm_id": 80764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Data zu einer / Lebensgeschichte des Lord Cornwallis / jetzigen Generalgouverneur / von Bengalen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Data zu einer / Lebensgeschichte des Lord Cornwallis / jetzigen Generalgouverneur / von Bengalen",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.074Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "39ki1emm7jwb1xq"
+        }
+      ],
+      "source_id": "2w93aylrpdcltv5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die endlich erfolgte Zerstörung des Mogolischen Reichs, oder daß Hindus den Mahometanern 1785 zuletzt die Führung des indischen Schattenkaisers entrissen, ist ohne Zweifel die wichtigste Begebenheit unsrer Zeiten.",
+      "language": [],
+      "musenalm_id": 80765,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige der / wichtigsten neuesten indischen Staats- / und Handelsveränderungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige der / wichtigsten neuesten indischen Staats- / und Handelsveränderungen",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.074Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "ji3ezxidpuqz3i8"
+        }
+      ],
+      "source_id": "f77j26lx4cijipr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Unter den vielen und vielleicht an Sprache, Sitten und Meinungen mannigfaltig verschiednen Völkern, die wir in Europa unter zwey Classen, Hindus und Mohren, zu ordnen pflegen,",
+      "language": [],
+      "musenalm_id": 80766,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die / Rohillas, Seiks und Dschaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die / Rohillas, Seiks und Dschaten",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.075Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.075Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "f5ze8uvssps8wu9"
+        }
+      ],
+      "source_id": "su8twmlddzv2tn2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Schah Allum, oder Herr der Welt, ist der Name dieses indischen Kaisers, der in der vierten Generation von dem berühmten Kaiser Aurungzebe stammt",
+      "language": [],
+      "musenalm_id": 80767,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regierungsgeschichte / des jetzigen und wahrscheinlich letzten / Grosmoguls",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regierungsgeschichte / des jetzigen und wahrscheinlich letzten / Grosmoguls",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.980Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.980Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "1v1w3cwjjpvmqbj"
+        }
+      ],
+      "source_id": "d68f7d9c332iya2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Diese überall in Hindostan, zur Pracht, zum Kriege und um Lasten fortzuschaffen gezähmten Thiere, werden am meisten im nördlichen Hindostan,",
+      "language": [],
+      "musenalm_id": 80768,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Nachrichten von den / indischen Elefanten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige Nachrichten von den / indischen Elefanten",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.980Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.980Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "98rkdlqbfwidf5j"
+        }
+      ],
+      "source_id": "j1t0h4lkpgyvslb"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Quisdam magnus videlicet vir et sapiens cognovit, quae materia esset, […] Cic.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Wer die Vorzüge des gesitteten Lebens ohne Vorurtheil erwägt, wird nicht in Abrede seyn, daß der Mensch in diesem Zustande erst eigentlich der Natur, die ihn mit Fähigkeiten ausrüstete, ein Genüge zu leisten anfängt,",
+      "language": [],
+      "musenalm_id": 80769,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neuholland und die brittische Colonie / in Botany-Bay",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Forster",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neuholland und die brittische Colonie / in Botany-Bay",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.825Z",
+          "agent": "1pak95y0mo37cff",
+          "source_id": "vtlla2c8psgjh64"
+        }
+      ],
+      "source_id": "q125i2xn7w5dkpr"
+    },
+    {
+      "annotation": "Verlagsbroschur v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80770,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1787,
+      "editor": "",
+      "agents": [],
+      "source_id": "10xliqezo2pqaqz"
+    }
   ],
   "agents": [
     {

@@ -48,67 +48,2410 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "f77h57csvvja377"
+    {
+      "annotation": "1784-1820.\nLeineneinband überzogen und Goldschnitt.\n1798: (K:Tku 1, Ku 13, kol Taf 1 und  Mu 2 ) Mit Tku 1, Mu 2,  Ku 13 + Ku 1(coloriert) und Bl 11 + 282 SS.\nFrauenzimmer Allmanach Zum Nutzen und Vergnügen, auch unter Titel Leipziger Taschenbuch für Frauenzimmer Zum Nutzen und Vergnügen. \nSiehe auch Leipziger Taschenbuch für Frauenzimmer..... .",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.507Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100225",
+      "location": "105D01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.507Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "f77h57csvvja377"
+    }
   ],
   "contents": [
-    "zxi0d55kgru00m1",
-    "ym5tqlmiwv4fhll",
-    "a3htmcsjfzgfh35",
-    "ruozaacva67lvga",
-    "2ifc3th9uzngbn1",
-    "rh1ldkxw30g4csb",
-    "n1ulbt1955zwpvs",
-    "tw3p2x7cj4pllmi",
-    "kxk2edwcngzvhua",
-    "886fqo9cw9odcs6",
-    "chgu3mvtnc807j7",
-    "7qqdbngautihydl",
-    "2h4m7q4td65st0e",
-    "1ify5iwxkm4uiqd",
-    "b3srm5v1rs7c241",
-    "vz3rgzuf97k0qnq",
-    "ojkqbt2z3ar8b4k",
-    "35wnbq0yo9kt0of",
-    "lrse1g8ralrtez4",
-    "oe8t3z7hlevmsui",
-    "nchjsedhf3tf7f2",
-    "nb6c6tb8e58sbjk",
-    "az67q6p59x6sxpi",
-    "f9xrxumz8t35rj7",
-    "jq5kdcu3d29wgpv",
-    "i68fkt46w84crix",
-    "de4zbypk5w7sbk8",
-    "hbdvjgbebnqz6hv",
-    "mhdhiq7pos5p41q",
-    "j7lk58h1dci6icb",
-    "se52uqrzdea7otx",
-    "m45gb2hkkgxqs31",
-    "ty24yb6wb9kqrt5",
-    "2s0n0w1odzvtryx",
-    "angkspiu4ljhoy9",
-    "81q9rb1zo27dwxd",
-    "mg2vzz55skj8gwl",
-    "ukg087botpsjt0o",
-    "s0dqbo8kt9tzmxo",
-    "s5shcbp2u8y2st1",
-    "a0zj7c76vx4f7y6",
-    "akgjda83l39nx9x",
-    "heq0381z3qtj7yv",
-    "clddb544i0sb244",
-    "l65cfdghoo4slcy",
-    "5cs47f7u4hyx985",
-    "zau68al6q202hks",
-    "73bwsfz4olqmboq",
-    "5x11zqeoh1mlnmt",
-    "r540wa16mfwb40v",
-    "cwguwww2fzddxwc",
-    "k5em90hecivs3ah",
-    "2xm5skc2mnchl4w",
-    "d3dcyf3wwvvqsm6",
-    "uyfa09494azb1ke",
-    "688xclzvcjxt5v2",
-    "i3j9qkupjk2t1mf",
-    "mhumqfshykzsmhf"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47404,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hoppe sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hoppe sc.",
+      "scans": [
+        "alm_643_47404_mjlcycmvkt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zxi0d55kgru00m1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47405,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1798. / Leipzig / bey A. F. Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_643_47405_9zhgnux94i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1798. / Leipzig / bey A. F. Böhme",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ym5tqlmiwv4fhll"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47406,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "a3htmcsjfzgfh35"
+    },
+    {
+      "annotation": "Modekupfer im Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47407,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Boettger sen. fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger sen. fec.",
+      "scans": [
+        "alm_643_47407_xr4pww3g8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.263Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "7lhdvrzfp1zx0f5"
+        }
+      ],
+      "source_id": "ruozaacva67lvga"
+    },
+    {
+      "annotation": "Modekupfer im Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47408,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Boettger sen. fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger sen. fec.",
+      "scans": [
+        "alm_643_47408_m5vhklcx43.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.614Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "t92wuc0wz9npzd7"
+        }
+      ],
+      "source_id": "2ifc3th9uzngbn1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47409,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1798. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_643_47409_0z1gq0zzfw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1798. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "rh1ldkxw30g4csb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47410,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "n1ulbt1955zwpvs"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Ergebung« von v. Salis-Seewis INr 47413, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47411,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ergebung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Tag",
+      "scans": [
+        "alm_643_47411_csewc04hsa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ergebung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "mxi7h5rzgqwc6st",
+          "source_id": "2hsajc8rd4dks3a"
+        }
+      ],
+      "source_id": "tw3p2x7cj4pllmi"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auswahl von Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auswahl von Gedichten",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "kxk2edwcngzvhua"
+    },
+    {
+      "annotation": "mit einer Vertonung s. Musikbeigabe INr 47411, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mag immerhin der Strom entgleiten, / Der meines Lebens Kahn entführt,",
+      "language": [],
+      "musenalm_id": 47413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ergebung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Salis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ergebung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "ftlu3x5ip5cgcvs",
+          "source_id": "6cxnc8cv9a9c02q"
+        }
+      ],
+      "source_id": "886fqo9cw9odcs6"
+    },
+    {
+      "annotation": "# [sic]:  falsche Bezeichnung, falscher Titel. Das Gedicht erschien zuerst in: Musenalmanach (Schiller) 1797; INr 37938 /) Mit einer Vertonung s. Musikbeigabe INr 47415, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "In einem Thal bey armen Hirten / Erschien mit jedem neuen Jahr, / Sobald die ersten Lerchen schwirrten, / Ein Mädchen schön und wunderbar.",
+      "language": [],
+      "musenalm_id": 47414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen in der Fremde #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen in der Fremde #",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "9hv3e2mgw9s8puz"
+        }
+      ],
+      "source_id": "chgu3mvtnc807j7"
+    },
+    {
+      "annotation": "Vetonung des Gedichts »Das Mädchen aus der Fremde« von Fr. Schiller INr 47414, Obj 11; s. Anm. dort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen in der Fremde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Tag",
+      "scans": [
+        "alm_643_47415_qxqcb70s2y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen in der Fremde",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "mxi7h5rzgqwc6st",
+          "source_id": "nl45twtot0z1dvb"
+        }
+      ],
+      "source_id": "7qqdbngautihydl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Hast du's in meinem Auge nicht gelesen, / Was ungestühm dein Mund seit gestern fragt?",
+      "language": [],
+      "musenalm_id": 47416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Matthison",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bund",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "dlb9omzg4xix4dh"
+        }
+      ],
+      "source_id": "2h4m7q4td65st0e"
+    },
+    {
+      "annotation": "# Das Gedicht erschien zuerst in: Musenalmanach  (Schiller) 1797; INr 379",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Thyrsis singt dir süße Lieder / Voll von Schmeicheleyen vor,",
+      "language": [],
+      "musenalm_id": 47417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zauberey der Töne. / Die Mutter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller M. A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zauberey der Töne. / Die Mutter",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "stasese2l43xq94",
+          "source_id": "n9qais094qqi58b"
+        }
+      ],
+      "source_id": "1ify5iwxkm4uiqd"
+    },
+    {
+      "annotation": "# Das Gedicht erschien zuerst in: Musenalmanach  (Schiller) 1797; INr 379",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Zauberey der Töne] / Die Tochter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller M. A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Zauberey der Töne] / Die Tochter",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "stasese2l43xq94",
+          "source_id": "es3t8o0ipy3k380"
+        }
+      ],
+      "source_id": "b3srm5v1rs7c241"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Einsam, auf des Berges ödem Gipfel / Schau ich, über die bewegten Wipfel",
+      "language": [],
+      "musenalm_id": 47419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Landschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie Merau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Landschaft",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "zoqy5th408hrb4e",
+          "source_id": "8t11skp51xz8w25"
+        }
+      ],
+      "source_id": "vz3rgzuf97k0qnq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Daß tausend Ehen nicht gelingen, / So zärtlich auch als Bräutigam der Mann,",
+      "language": [],
+      "musenalm_id": 47420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hymens Meisterstück. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. Pockels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hymens Meisterstück. / Eine Erzählung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "byawwvreucy8ohr",
+          "source_id": "ad1qmkpzz08r67w"
+        }
+      ],
+      "source_id": "ojkqbt2z3ar8b4k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Kennst du ein Land, wo stets die Veilchen blühn, / Am ewig grünen Busch die Rosen glühn",
+      "language": [],
+      "musenalm_id": 47421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das glückliche Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das glückliche Land",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "35wnbq0yo9kt0of"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Du, die der Himmel uns gegeben, / Dem müden Pilger neues Leben, / Und Trost dem Dulder zu verleyhn,",
+      "language": [],
+      "musenalm_id": 47422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Hoffnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Maria Anna E-y",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Hoffnung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "lrse1g8ralrtez4"
+    },
+    {
+      "annotation": "# s. Die drey Rosen des Lebens. Ein Gesellschaftslied. (Nach dem Dänischen des Herrn Guldberg) in: Neuer Teutscher Merkur 8. Stück 1796 S. 421",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Vom Schooße der Natur ließ Gott / Uns eine Rose steigen, / Die düftet seelig, rein und süß",
+      "language": [],
+      "musenalm_id": 47423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosen des Lebens. / Gesellschaftslied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wielands teutscher Merkur Nr. 8. 1796",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosen des Lebens. / Gesellschaftslied",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "oe8t3z7hlevmsui"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "O Theon, seit ein Gott mich dir gegeben, / Verwallt mir zephyrleicht daß süße Leben;",
+      "language": [],
+      "musenalm_id": 47424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theon und Theane",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theon und Theane",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.427Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.427Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "pcn9r35ue37o54q"
+        }
+      ],
+      "source_id": "nchjsedhf3tf7f2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Kein Veilchen schwängert mehr die Luft mit Bal- / samdüften, / Kein Klee bepurpurt mehr der Niedrung fette Triften,",
+      "language": [],
+      "musenalm_id": 47425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Erndte. / Elegie aus dem Engl. des I. Scott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der Erndte. / Elegie aus dem Engl. des I. Scott",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.305Z",
+          "agent": "cxnpeuic3nrym95",
+          "source_id": "dl88rpw1msdf7h7"
+        }
+      ],
+      "source_id": "nb6c6tb8e58sbjk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Hinab gen Süden steigt die Sonn; ihr schrä- / ger Strahl / Erwärmt die Luft nur schwach.",
+      "language": [],
+      "musenalm_id": 47426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beym Herannahen des Winters. / Von eben demselben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beym Herannahen des Winters. / Von eben demselben",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.466Z",
+          "agent": "cxnpeuic3nrym95",
+          "source_id": "zdhwr6u9pzabpq4"
+        }
+      ],
+      "source_id": "az67q6p59x6sxpi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "O Theon, welche Wehmuth, welch Entzücken / Durchbebt mich seit den sel'gen Augenblicken,",
+      "language": [],
+      "musenalm_id": 47427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Geständniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Geständniß",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.466Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "wqtgiz66x7m6zve"
+        }
+      ],
+      "source_id": "f9xrxumz8t35rj7"
+    },
+    {
+      "annotation": "Es folgen die Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine Erzählungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine Erzählungen",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "jq5kdcu3d29wgpv"
+    },
+    {
+      "annotation": "mit 5  Illustrationen s. Graphiken INr 47430-47434, Obj 27-31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Der Onkel Spellneck blieb eine geraume Zeit bey den guten Braunbergs. Täglich erwärmte sich sein Herz mehr und mehr an dem schönen Bild ihrer glücklichen Ehe.",
+      "language": [],
+      "musenalm_id": 47429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mariane / oder / der vollendete Sieg der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mariane / oder / der vollendete Sieg der Liebe",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "i68fkt46w84crix"
+    },
+    {
+      "annotation": "paginiert S. 59. numeriert 1. /) Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verschonen Sie mich, ich bin eine arme, arme / Frau!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1797",
+      "scans": [
+        "alm_642_47430_lfigbyhvrk.jpg",
+        "alm_643_47430_qbsgb8twzp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verschonen Sie mich, ich bin eine arme, arme / Frau!",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.466Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "2d1yl59kwnet7f9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.466Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "duj8wfi1zn3um43"
+        }
+      ],
+      "source_id": "de4zbypk5w7sbk8"
+    },
+    {
+      "annotation": "paginiert S. 69. numeriert 2. /) Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entscheiden Sie selbst Charlotte, was ein Mann / von Ehre hier zu thun hat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 97",
+      "scans": [
+        "alm_643_47431_4nmr2suo3w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Entscheiden Sie selbst Charlotte, was ein Mann / von Ehre hier zu thun hat",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.048Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "dx3uzdtded9ejjt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.048Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "gutmlbz4pnfelt0"
+        }
+      ],
+      "source_id": "hbdvjgbebnqz6hv"
+    },
+    {
+      "annotation": "paginiert S. 113. numeriert 3. /) Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nur der stille Wohlthäter giebt der menschli- / chen Natur ihre schönste Würde!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 97",
+      "scans": [
+        "alm_643_47432_vgx1sye3he.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nur der stille Wohlthäter giebt der menschli- / chen Natur ihre schönste Würde!",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "5tmutux2irm7nq6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "v0k1cai7alw4uzf"
+        }
+      ],
+      "source_id": "mhdhiq7pos5p41q"
+    },
+    {
+      "annotation": "paginiert S. 134. /) numeriert 4. Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.092Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Er ist mir gut, ich ihn - und wenn er auch / noch älter wäre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1797",
+      "scans": [
+        "alm_643_47433_0igew4wt31.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Er ist mir gut, ich ihn - und wenn er auch / noch älter wäre",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "47qcttm8lrx8fbj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.615Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "907oa7x6fh59oi1"
+        }
+      ],
+      "source_id": "j7lk58h1dci6icb"
+    },
+    {
+      "annotation": "paginiert S. 133. /) Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der hat kein Herz, der es nicht für häusliche Freuden hat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 97",
+      "scans": [
+        "alm_643_47434_1vhsk0e2q0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der hat kein Herz, der es nicht für häusliche Freuden hat",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.616Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.616Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "8x6vi8zdfg01p4r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.616Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.616Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "lf3jgtus05zif4q"
+        }
+      ],
+      "source_id": "se52uqrzdea7otx"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 47436-47438, Obj 33-35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Traurig, wie von sich selbst geschieden, saß Adelheid am Vorabend der Trennung von ihrem Gatten da, und ihrem Auge enttröpfelten stille, kaum bemerkbare Thränen.",
+      "language": [],
+      "musenalm_id": 47435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adelheid von Thurn. / Das Beyspiel ehelicher Tugend / und / weiblicher Tapferkeit. / Eine Geschichte aus dem dreyzehnten / Jahrhunderte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Adelheid von Thurn. / Das Beyspiel ehelicher Tugend / und / weiblicher Tapferkeit. / Eine Geschichte aus dem dreyzehnten / Jahrhunderte",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "m45gb2hkkgxqs31"
+    },
+    {
+      "annotation": "paginiert S. 146. /) Illustration zu »Adelheid von Thurn. Das Beyspiel ehelicher Tugend und weiblicher Tapferkeit. Eine Geschichte aus dem dreyzehnten Jahrhunderte« INr 47435, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zurück! ziemt das dem Mann von deutscher / Ehre.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 97",
+      "scans": [
+        "alm_643_47436_ri441zlflo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zurück! ziemt das dem Mann von deutscher / Ehre.",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.616Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.616Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "gbve5wk8f6wr1t0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.616Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.616Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "xpr98at83m4yib3"
+        }
+      ],
+      "source_id": "ty24yb6wb9kqrt5"
+    },
+    {
+      "annotation": "paginiert S. 149. /) Illustration zu »Adelheid von Thurn. Das Beyspiel ehelicher Tugend und weiblicher Tapferkeit. Eine Geschichte aus dem dreyzehnten Jahrhunderte« INr 47435, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So wahr Gott der Rächer der Unschuld ist, so wahr / solst du mich retten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1797",
+      "scans": [
+        "alm_643_47437_eupd68f2bq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "So wahr Gott der Rächer der Unschuld ist, so wahr / solst du mich retten",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.616Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.616Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "mf2i5svidvrc485"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.616Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.616Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "p7tt0uau2t624ii"
+        }
+      ],
+      "source_id": "2s0n0w1odzvtryx"
+    },
+    {
+      "annotation": "paginiert S. 151. /) Illustration zu »Adelheid von Thurn. Das Beyspiel ehelicher Tugend und weiblicher Tapferkeit. Eine Geschichte aus dem dreyzehnten Jahrhunderte« INr 47435, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seht hier, Adelheit; Sie selbst war die Vertheidigerin / ihrer Unschuld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1797",
+      "scans": [
+        "alm_643_47438_yr27x58ykn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seht hier, Adelheit; Sie selbst war die Vertheidigerin / ihrer Unschuld",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.669Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "hmgz0bupfpavznv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.669Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "s6wirtn5hpuk011"
+        }
+      ],
+      "source_id": "angkspiu4ljhoy9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Schottland (Scotland) theilt sich in Hochländer (Highlanders) und Niederländer, (Lowlanders); oder in Süd- Mittel- und Nordschottland.",
+      "language": [],
+      "musenalm_id": 47439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Staaten- und Völkerkunde. / Schottland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Staaten- und Völkerkunde. / Schottland",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "81q9rb1zo27dwxd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 47441, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Die Reichhaltigkeit dieses Gegenstandes soll uns vermuthlich entschuldigen, wenn auch andern unsre Wahl mißfallen sollte, weil man ihn schon so oft aufgestellt hat.",
+      "language": [],
+      "musenalm_id": 47440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naturgeschichte. / Etwas von und über die Affen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Naturgeschichte. / Etwas von und über die Affen",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "mg2vzz55skj8gwl"
+    },
+    {
+      "annotation": "kol. Graphik s. Textbezug INr 47440, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_643_47441_q2h8zsqfe0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ukg087botpsjt0o"
+    },
+    {
+      "annotation": "Sammlung von 9 Beiträgen INr 47443-47451, Obj 40-48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wirthschaftliches Vademecum. / Regeln der Vorsicht, für junge Frauen- / zimmer, die ihren Haushaltungen mit / Nutzen vorstehen, und sich vor den Be- / trügereyen, die bey der Anschaffung der / ihnen nöthigen Bedürfnisse vorkommen, / gehörig hüten wollen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wirthschaftliches Vademecum. / Regeln der Vorsicht, für junge Frauen- / zimmer, die ihren Haushaltungen mit / Nutzen vorstehen, und sich vor den Be- / trügereyen, die bey der Anschaffung der / ihnen nöthigen Bedürfnisse vorkommen, / gehörig hüten wollen.",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "s0dqbo8kt9tzmxo"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Butter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Butter",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5shcbp2u8y2st1"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Milch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Milch",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0zj7c76vx4f7y6"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eyer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eyer",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "akgjda83l39nx9x"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Federvieh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Federvieh",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "heq0381z3qtj7yv"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fleisch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fleisch",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "clddb544i0sb244"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Getraide",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Getraide",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "l65cfdghoo4slcy"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erbsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erbsen",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "5cs47f7u4hyx985"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Linsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Linsen",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zau68al6q202hks"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum. Regeln der Vorsicht, für junge Frauenzimmer, die ihren Haushaltungen mit Nutzen vorstehen, und sich vor den Betrügereyen, die bey der Anschaffung der  ihnen nöthigen Bedürfnisse vorkommen, gehörig hüten wollen. (Sammlung INr 47442, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hirsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hirsen",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "73bwsfz4olqmboq"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1797, INr 47374",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Da wir in dem vorigen Jahrgange unsers Taschenbuchs von dem diätetischen Nutzen und Gebrauch des Dostes handelten,",
+      "language": [],
+      "musenalm_id": 47452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diätetik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Diätetik",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "5x11zqeoh1mlnmt"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1797, INr 47392",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Ich gedenke sie, meine Freundinnen! in dieser Stunde von einigen wichtigen Gegenständen der körperlichen Erziehung der Kinder zu unterhalten.",
+      "language": [],
+      "musenalm_id": 47453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz Ehrenbergs Reden / über die körperliche Erziehung. / Fünfzehnte Rede",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Franz Ehrenbergs Reden / über die körperliche Erziehung. / Fünfzehnte Rede",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.622Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "b37qh7f8zm94u4m"
+        }
+      ],
+      "source_id": "r540wa16mfwb40v"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1797, INr 47394. mit einer Illustration s. Graphik INr 47455, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Benndorf küßte sein theures, liebes Weibchen, wie sie nach Hause kamen auf das innigste.",
+      "language": [],
+      "musenalm_id": 47454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen aus der Familie Ehrenberg. / I. / Charlotte Benndorf. Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenen aus der Familie Ehrenberg. / I. / Charlotte Benndorf. Fortsetzung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "cwguwww2fzddxwc"
+    },
+    {
+      "annotation": "paginiert S. 254. /) Illustration zu »Scenen aus der Familie Ehrenberg. Charlotte Benndorf« INr 47454, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Häusliche Arbeiten sind weicher Seelen glücklich- / ste Zerstreuung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del D. Berger sc. 97",
+      "scans": [
+        "alm_643_47455_742j00wt8n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Häusliche Arbeiten sind weicher Seelen glücklich- / ste Zerstreuung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.622Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "rjooond8is3vvhu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.622Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "ut7bfuxdvoljroc"
+        }
+      ],
+      "source_id": "k5em90hecivs3ah"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1797, INr 47396. mit 2 Illustrationen s. Graphiken INr 47457, 47458; Obj 54, 55",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Alles schien im Trunemannschen Haus freyer und offener wieder zu athmen, seit Madam Felsenthal es verlassen hatte.",
+      "language": [],
+      "musenalm_id": 47456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Scenen aus der Familie Ehrenberg.] II. / Amalie Trunemann. / Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Scenen aus der Familie Ehrenberg.] II. / Amalie Trunemann. / Fortsetzung",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "2xm5skc2mnchl4w"
+    },
+    {
+      "annotation": "paginiert S. 274. /) Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann.« INr 47456, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kein Erbarmen! Wer dir aufhilft reicht seine / Hand neuen Verbrechen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del D. Berger sc. 1797",
+      "scans": [
+        "alm_643_47457_pnnib0phed.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kein Erbarmen! Wer dir aufhilft reicht seine / Hand neuen Verbrechen",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.622Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "6s6d2w1fte9xag7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.622Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.622Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "x9mzkseqdo3fpnt"
+        }
+      ],
+      "source_id": "d3dcyf3wwvvqsm6"
+    },
+    {
+      "annotation": "paginiert S. 277. /) Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann.« INr 47456, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebe wohl! und werde ein braver Mann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del D. Berger sc. 1797",
+      "scans": [
+        "alm_643_47458_cx722rkrmo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lebe wohl! und werde ein braver Mann",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.382Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "epq1i1s7hmddwdd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.382Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "o8xs88no7cg84kv"
+        }
+      ],
+      "source_id": "uyfa09494azb1ke"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Sie fordern mich auf, Ihnen einige neuere Schriften vorzuschlagen, die ihre Tochter mit Nutzen lesen, und für ihre Bildung anwenden könnte.",
+      "language": [],
+      "musenalm_id": 47459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Briefwechsel. / An die Baronesse Frau v. W**r.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Briefwechsel. / An die Baronesse Frau v. W**r.",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "688xclzvcjxt5v2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Sind die Zähne die vorzüglichste Zierde des Mundes, so dürfen sie schlechterdings von der Toilettenpflicht nicht ausgeschlossen werden.",
+      "language": [],
+      "musenalm_id": 47460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige kleine Bemerkungen für die / Toilette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige kleine Bemerkungen für die / Toilette",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "i3j9qkupjk2t1mf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "mhumqfshykzsmhf"
+    }
   ],
   "agents": [
     {

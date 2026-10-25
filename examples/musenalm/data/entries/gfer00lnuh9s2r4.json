@@ -48,7 +48,26 @@
   "year": 1787,
   "editor": "",
   "items": [
-    "xlqb957o1daf1tn"
+    {
+      "annotation": "ohne Kalendarium; §§ SS 222-225 darin 3 GG (Blätter B. C. D. von Riepenhausen nach Hogarth) fehlen",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.761Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409218",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.761Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xlqb957o1daf1tn"
+    }
   ],
   "contents": [],
   "agents": [

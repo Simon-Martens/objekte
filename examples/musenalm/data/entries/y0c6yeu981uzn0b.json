@@ -49,12 +49,146 @@
   "year": 1797,
   "editor": "",
   "items": [
-    "d0sk8ss6yfzztny"
+    {
+      "annotation": "Gedruckt in Basel, bei Wilhelm Haas, dem Sohne <br> mit dem Gedicht SS 277/278: »Rundgesang« von Gerner: Titel, I-Verz, Gedicht als Vollbild <br> § Umschlag, Kr fehlt, 6 MusBB fehlenmit Gedicht: Rundgesang von Gerning\n§ Umschlag, Kr fehlt, 6 MusBB fehlen; mit Gedicht: Rundgesang von Gerning",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.809Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "410923",
+      "location": "105E08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.809Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "d0sk8ss6yfzztny"
+    }
   ],
   "contents": [
-    "uqxq4n7lz22whud",
-    "ze8jij7o3qebog6",
-    "6g0z3muacpz2x13"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 126710,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / und / Taschenbuch / für / HAEUSLICHE / u. GESELLSCHAFTL. / FREUDEN. / 1797. / von / Carl Lang. / mit Kupfern / von D. Chodowiecki, H. Guttenberg & / FRANKFURT am MAYN bei GUILHAUMANN / HEILBRONN am NEKAR bei dem HERAUSGEBER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4772_126710_7kq2oo7t25.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / und / Taschenbuch / für / HAEUSLICHE / u. GESELLSCHAFTL. / FREUDEN. / 1797. / von / Carl Lang. / mit Kupfern / von D. Chodowiecki, H. Guttenberg & / FRANKFURT am MAYN bei GUILHAUMANN / HEILBRONN am NEKAR bei dem HERAUSGEBER",
+      "updated": "2021-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "uqxq4n7lz22whud"
+    },
+    {
+      "annotation": "Photos 126711,01-126711,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 126711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4772_126711_01_nrkc83182i.jpg",
+        "alm_4772_126711_02_o0ynkif488.jpg",
+        "alm_4772_126711_03_rdccq0al5z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2021-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "ze8jij7o3qebog6"
+    },
+    {
+      "annotation": "Photos 126712,01 und 126712,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Herein zum Kreis, o Brüder! / Mit warmer reiner Brust; / Und jetzt auch froh und heiter / Nach aller Herzenslust",
+      "language": [],
+      "musenalm_id": 126712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rundgesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [
+        "alm_4772_126712_01_uo1kbmzzht.jpg",
+        "alm_4772_126712_02_bohz5vpa1h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rundgesang",
+      "updated": "2021-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.797Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "fq1agk4ohlh94ja"
+        }
+      ],
+      "source_id": "6g0z3muacpz2x13"
+    }
   ],
   "agents": [
     {

@@ -48,73 +48,2753 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "31vm8p94z1u4bt4",
-    "qmdj9xu98ntgy2z"
+    {
+      "annotation": "6 GG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.480Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "408020",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.480Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "31vm8p94z1u4bt4"
+    },
+    {
+      "annotation": "§§§ GG fehlen <br> Kart. Einband mit Goldschnitt; VB, verso G, T, nT, 7 BB Kal, SS I-VIII I-Verz, SS 1-230",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.480Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100721",
+      "location": "105D04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.480Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qmdj9xu98ntgy2z"
+    }
   ],
   "contents": [
-    "ft1t7ju4o33hza9",
-    "6w9kjhiwwm76sq1",
-    "czcbbminsrn4qaa",
-    "bzj9lr23ixfiaxb",
-    "v3wn2ffb07uxu7w",
-    "glc7f3vxx3643is",
-    "7fbi1n2gy9a5fan",
-    "swxo2ndnfduj6gr",
-    "rvbx725k0085zrx",
-    "hlzg0g3bzajity9",
-    "oy412mxmf3b073g",
-    "jqwi0z8ezi8tikw",
-    "j7uiy0ixawlml7x",
-    "vtb3uovagok0dzy",
-    "fodab11dzu6aack",
-    "p79j9ov6q67536i",
-    "zocekfb87kqkeau",
-    "1pozs40wdxvnbmh",
-    "hyktgnan05hiql1",
-    "me5364q52yyfmff",
-    "5i0qqx7g64qaekv",
-    "lc11o6pr1d1sp9p",
-    "ir83oeqee4itirt",
-    "9fu92499dvv8891",
-    "f5cvqbs70a6j0ju",
-    "sdgjl1obo76ilna",
-    "hga1dgi6whlj98o",
-    "h51edx9byg8owqz",
-    "3qyjqyql5n9xldw",
-    "zcmmm57b8pvsyck",
-    "fnkcu6vmcegz4zk",
-    "3wll5ucgck0wcmb",
-    "m97zmo6cjahhwo5",
-    "gw0n78uo3u46xj4",
-    "e4ux6kdi8lberq7",
-    "xfrnzwrm3wu5yb1",
-    "ng9rb2lve5n6x2r",
-    "579efeewnssoqux",
-    "38ivef3yrl11ut1",
-    "lc2gvwyqb4ynkru",
-    "il4twj1xhw4c5pw",
-    "tz54v02p3k20evj",
-    "6a2o4zxuxetr3lg",
-    "pniw55abvwpgloq",
-    "u9qoteob23uydkq",
-    "cmiygr0c81uyupw",
-    "t056vykyv87q152",
-    "g1ey8kq6sfo66v2",
-    "bkz41a3dybzz20e",
-    "x1ox5qju6ttgudb",
-    "mmq2du0y6p3qyms",
-    "s31birc5jyiyu4m",
-    "89ccpm1g3lx08n7",
-    "gp9s33f7qkxcl62",
-    "zmngze4mblh197v",
-    "qk1tkthix8yq4du",
-    "p81kk03fv27uyif",
-    "t87ax5isu0yzohy",
-    "qxk6bqa2udovgx9",
-    "b3ainq0q0igxvpa",
-    "jnugvyqd7j7a829",
-    "9h0qwd83v9wehf5",
-    "asn56ret9q9b1qm"
+    {
+      "annotation": "Titelgraphik s. Vorrede INr 23289 ; Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23285,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kein Fleiß bereicherte, überfüllte jene Hand, die zuerst sich / aufthat. Sie hat das Empfängliche erfunden, weil sie / Ueberflüssiges unendlich darzureichen hatte. S. Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. W. Meil inv. et sc.",
+      "scans": [
+        "alm_311_23285_oinip95y7w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kein Fleiß bereicherte, überfüllte jene Hand, die zuerst sich / aufthat. Sie hat das Empfängliche erfunden, weil sie / Ueberflüssiges unendlich darzureichen hatte. S. Vorrede",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.245Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.245Z",
+          "agent": "mmq9ql2t3b3zqca",
+          "source_id": "696ue39nc7609qu"
+        }
+      ],
+      "source_id": "ft1t7ju4o33hza9"
+    },
+    {
+      "annotation": "gest. Titel mit kleiner Graphik (Sphinxmotiv)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23286,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueberflüßiges Taschenbuch / für das Jahr 1800. / Herausgegeben von / Johann Georg Jacobi, / dazu eine Vorrede / von / Friedrich Heinrich Jacobi. / Hamburg bey Friedrich Perthes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. W. M. f.",
+      "scans": [
+        "alm_311_23286_qxu3sgsym1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ueberflüßiges Taschenbuch / für das Jahr 1800. / Herausgegeben von / Johann Georg Jacobi, / dazu eine Vorrede / von / Friedrich Heinrich Jacobi. / Hamburg bey Friedrich Perthes",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.245Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.245Z",
+          "agent": "mmq9ql2t3b3zqca",
+          "source_id": "bj1rl8lgtlwv6c4"
+        }
+      ],
+      "source_id": "6w9kjhiwwm76sq1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23287,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "czcbbminsrn4qaa"
+    },
+    {
+      "annotation": "Graphik im Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58350,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fissau bey Eutin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Strack del. Lütke sc.",
+      "scans": [
+        "alm_311_58350_zmzy9gmkgt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fissau bey Eutin",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "w7gyb4f5e9renta",
+          "source_id": "dsib02cq73nu12x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "1y6xbfxhnpqc2nc",
+          "source_id": "ogw12u8yswinf7x"
+        }
+      ],
+      "source_id": "bzj9lr23ixfiaxb"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58351,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sielbecker Lustgarten bey Eutin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lud. Strack del. J. A. Darnstedt sc.1797",
+      "scans": [
+        "alm_311_58351_wz9s1p6tyz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sielbecker Lustgarten bey Eutin",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "u6pky2di4kfp1de"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "w7gyb4f5e9renta",
+          "source_id": "v5nmxpdqxjo3h8v"
+        }
+      ],
+      "source_id": "v3wn2ffb07uxu7w"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58352,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dieksee bey Eutin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lud. Strack del. Veith sc.",
+      "scans": [
+        "alm_311_58352_xvrfd0c0fk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Dieksee bey Eutin",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "l7lcq3fnmggt5o6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "w7gyb4f5e9renta",
+          "source_id": "m2li3hd6y7ito0l"
+        }
+      ],
+      "source_id": "glc7f3vxx3643is"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58353,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hamburg von der Aussenalster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Rosenberg del. Joh. Ad. Darnstedt sc.",
+      "scans": [
+        "alm_311_58353_p5g8qs0nzz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hamburg von der Aussenalster",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "j2osin3hcq2ol0e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "j5a6ony3yu030e1",
+          "source_id": "plvcw6xg8cvs1dw"
+        }
+      ],
+      "source_id": "7fbi1n2gy9a5fan"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58354,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aussicht auf den Keller-See / aus dem Sielbecker Lustgarten bey Eutin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Strack del. Lütke sc.",
+      "scans": [
+        "alm_311_58354_21y25w74oe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aussicht auf den Keller-See / aus dem Sielbecker Lustgarten bey Eutin",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "w7gyb4f5e9renta",
+          "source_id": "c4jkjeaqjh7wtk7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "1y6xbfxhnpqc2nc",
+          "source_id": "t1rum5yadct6jkl"
+        }
+      ],
+      "source_id": "swxo2ndnfduj6gr"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58355,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hamburg von der Elbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Rosenberg del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_311_58355_umxwblg1hx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hamburg von der Elbe",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.731Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "51q27713vvf6fic"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.730Z",
+          "agent": "j5a6ony3yu030e1",
+          "source_id": "j45noj74fefn37f"
+        }
+      ],
+      "source_id": "rvbx725k0085zrx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23288,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "hlzg0g3bzajity9"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Der Verfasser des folgenden Briefs hält es für nöthig, über die Anwendung der neuesten Philosophie, welche darin beyläufig statt gefunden hat,[...] /) Mit einer Illustration s. Titelgraphik INr 23285, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Deine Sorge, du lieber alter Freund, um einen neuen Titel für dein Taschenbuch, dem neuen Verleger zu Liebe, der ihn wünscht,",
+      "language": [],
+      "musenalm_id": 23289,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede. / Ein Brief an den Herausgeber [Eutin 1799. Am heiligen 3 Königs Tage.]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Heinrich Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede. / Ein Brief an den Herausgeber [Eutin 1799. Am heiligen 3 Königs Tage.]",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.060Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "j6a2hz6s2m49mii"
+        }
+      ],
+      "source_id": "oy412mxmf3b073g"
+    },
+    {
+      "annotation": "dem Beitrag »Vorrede« INr 23290, Obj 5 nachgestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Ich vergaß das Wesentlichste: die Verzierungen des überflüßigen Taschenbuchs.",
+      "language": [],
+      "musenalm_id": 23290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschreiben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Heinrich Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschreiben",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.060Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "hc1bz7ouk4xuz1f"
+        }
+      ],
+      "source_id": "jqwi0z8ezi8tikw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Wohl mit, ihr Götter! mir der Dürftigkeit, / Den Menschen heilige Nothwendigkeit.",
+      "language": [],
+      "musenalm_id": 23291,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Dürftigkeit und der Ueberfluß. / Nach Platons Allegorie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Dürftigkeit und der Ueberfluß. / Nach Platons Allegorie",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.060Z",
+          "agent": "stasese2l43xq94",
+          "source_id": "xaedpsfcpjmisd3"
+        }
+      ],
+      "source_id": "j7uiy0ixawlml7x"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 7 Beiträgen INr 23294-23300, Obj 9-16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23292,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winter",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "vtb3uovagok0dzy"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Da unsere neue Zaarin, liebe Mit-Unterthanen und Erdsassen, sich erst um 8 Uhr 15 Minuten 2 Sekunden zu uns erhebt: so kann ich vorher ein vernünftiges Wort mit euch reden.",
+      "language": [],
+      "musenalm_id": 23294,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Huldigungspredigt / vor und unter / dem Regierungsantritt der Sonne / gehalten / am Neujahrsmorgen 1800 / vom / Frühprediger dahier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Huldigungspredigt / vor und unter / dem Regierungsantritt der Sonne / gehalten / am Neujahrsmorgen 1800 / vom / Frühprediger dahier",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.060Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "huyh11y9g6j83v6"
+        }
+      ],
+      "source_id": "fodab11dzu6aack"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Hätt' ich deine Zauberhand, o Miris! / Deine Farben, lieblich, leicht",
+      "language": [],
+      "musenalm_id": 23295,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Familien-Gemählde, / der Familie / des Herrn Präsidenten, Freyherrn von B* / gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Familien-Gemählde, / der Familie / des Herrn Präsidenten, Freyherrn von B* / gewidmet",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.175Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.175Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "9tz9fz6htlh9jt1"
+        }
+      ],
+      "source_id": "p79j9ov6q67536i"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.296Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Schleuß die gewaltigen Thore, du Gott, dem er- / habnen Olympos! / Hüte die heiligen Höhn, Zeus, der ätheri- / schen Burg!",
+      "language": [],
+      "musenalm_id": 23296,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die allherrschende Roma / Nach der Anthologie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die allherrschende Roma / Nach der Anthologie",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.079Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "y90qz0sr3sr5yeo"
+        }
+      ],
+      "source_id": "zocekfb87kqkeau"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Hoch auf den friedlichen Höh'n der weltum- / schauenden Alpen / Saßen die Götter Homers, noch froh der neuen / Verehrung,",
+      "language": [],
+      "musenalm_id": 23297,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ode an Voß. / Ille deûm vitam accipiet, divisque videbit / Permixtos heroas, et ipse videbitur illis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Baggesen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ode an Voß. / Ille deûm vitam accipiet, divisque videbit / Permixtos heroas, et ipse videbitur illis",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "jq74p3fe1dijn5g",
+          "source_id": "29n4lc28xmpixkh"
+        }
+      ],
+      "source_id": "1pozs40wdxvnbmh"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Kypria rufte den Sohn mit tönender Stimme, den / Eros: / Hat auf den Wegen mir einer den irrenden Eros / gesehen,",
+      "language": [],
+      "musenalm_id": 23298,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der entlaufende Eros. / Nach Moschos",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der entlaufende Eros. / Nach Moschos",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "59r1oqw63d3jwrp"
+        }
+      ],
+      "source_id": "hyktgnan05hiql1"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Pisa vorbei stürzt nieder zum salzigen Meer der / Alfeios; Lenkt dann zur Quell' Arethusa die ölbäumtragenden / Wasser,",
+      "language": [],
+      "musenalm_id": 23299,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des / Eros Macht. / Nach demselben [Moschos]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des / Eros Macht. / Nach demselben [Moschos]",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.937Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "hh8oj3157ib860i"
+        }
+      ],
+      "source_id": "me5364q52yyfmff"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Du siehst, wie glanzhell steht in gethürmtem / Schnee / Sorakte, kaum noch unter der Flockenlast / Der Wald sich aufringt,",
+      "language": [],
+      "musenalm_id": 23300,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Thaliarchus. / (Horaz I. 9)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Thaliarchus. / (Horaz I. 9)",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.797Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "t1umsxpa6lh3mff"
+        }
+      ],
+      "source_id": "5i0qqx7g64qaekv"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 11 Beiträgen INr 23302-23313, Obj 18-28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23301,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "lc11o6pr1d1sp9p"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Ihre Beschreibung Freyburgs und seiner Umgebung hat mir viel Freude gemacht,",
+      "language": [],
+      "musenalm_id": 23302,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Herrn Schnetzler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedr. von Zinck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Herrn Schnetzler",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ir83oeqee4itirt"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Flügel! wer giebt mir Flügel! daß ich Ruhe / Finde? Flügel mir her!",
+      "language": [],
+      "musenalm_id": 23303,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehnsucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Graf zu Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sehnsucht",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.797Z",
+          "agent": "7gwss5mvx858qah",
+          "source_id": "tta3nl03dumv6x6"
+        }
+      ],
+      "source_id": "9fu92499dvv8891"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Die Herr'n in unserm Hochgericht / Sind ehrlich und sind klug;",
+      "language": [],
+      "musenalm_id": 23304,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein hohes Tribunal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein hohes Tribunal",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5cvqbs70a6j0ju"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17) /) Dieses Gedicht wurde von G. C. Claudius »um es allgemeiner bekannt zu machen« im Frauenzimmer-Almanach 1801 gedruckt und eine Vertonung von J. F. Reichhardt beigegeben. s. Frauenzimmer-Almanach 1801, INr 48784, 48785",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Seit meinen ersten Kinderspielen / Wie oft entwich der Frühling schon!",
+      "language": [],
+      "musenalm_id": 23305,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einfalt",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.797Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "hz3nxo41wh5rnpa"
+        }
+      ],
+      "source_id": "sdgjl1obo76ilna"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "O wie elend ist ein Mägdlein, das dem Amor sich / entziehn muß, / Und der Tröstung des Lysäus,",
+      "language": [],
+      "musenalm_id": 23306,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neobule / an sich selbst. / (Horaz III. 12.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neobule / an sich selbst. / (Horaz III. 12.)",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.797Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "gth6xib41gr515p"
+        }
+      ],
+      "source_id": "hga1dgi6whlj98o"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Den Fuchs und Esel nahm der Leu / Mit auf die Jagd.",
+      "language": [],
+      "musenalm_id": 23307,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Löwe, der Fuchs und der Esel. / Nach Luthern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Löwe, der Fuchs und der Esel. / Nach Luthern",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.798Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "97vpzi8yvg86r3e"
+        }
+      ],
+      "source_id": "h51edx9byg8owqz"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Sagen Sie mir wie es kommt, Herr Roscius, im- / mer ist voll Ihr / Musenhaus,",
+      "language": [],
+      "musenalm_id": 23308,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wahres Gespräch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Graf zu Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wahres Gespräch",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.798Z",
+          "agent": "gtq8zou6jpsfpy4",
+          "source_id": "a6ggi7k6cyzi25g"
+        }
+      ],
+      "source_id": "3qyjqyql5n9xldw"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Ein Bauer, der die Cypria / Weit lieber als Caplans Madonne",
+      "language": [],
+      "musenalm_id": 23309,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Venus. 1769",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Venus. 1769",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.798Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "qd0sjufa63edywj"
+        }
+      ],
+      "source_id": "zcmmm57b8pvsyck"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.689Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Noch voll von jenen innigen Gefühlen, / Womit mein Herz Dich jedesmahl verläßt",
+      "language": [],
+      "musenalm_id": 23311,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / den Herausgeber. / Emmendingen, den 24. May, 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedr. von Zinck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / den Herausgeber. / Emmendingen, den 24. May, 1799",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "fnkcu6vmcegz4zk"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Im Schatten dieses Baums, warum / So unbeweglich und so stumm?",
+      "language": [],
+      "musenalm_id": 23312,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebhaberey",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebhaberey",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.065Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "befrdd21wb0uyy4"
+        }
+      ],
+      "source_id": "3wll5ucgck0wcmb"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23201, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Hört auf, Ihr Lieben, / Die Stirn zu trüben, / Und bittern Spott",
+      "language": [],
+      "musenalm_id": 23313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine Freunde. / Im May 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine Freunde. / Im May 1799",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.065Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "4hm4h68d2jj3fde"
+        }
+      ],
+      "source_id": "m97zmo6cjahhwo5"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 13 Beiträgen INr 23315-23327, Obj 30-42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23314,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sommer",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "gw0n78uo3u46xj4"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Nimm diese Blätter als die Frucht einer Stunde, da wir noch beysammen unsers gemeinschaftlichen Vaters uns freuten.",
+      "language": [],
+      "musenalm_id": 23315,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sokrates. / An E*** S**",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sokrates. / An E*** S**",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "e4ux6kdi8lberq7"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Mehrere Orte in der Nähe von Freyburg befanden sich zu dieser Zeit in den bedrängtesten Umständen.",
+      "language": [],
+      "musenalm_id": 23316,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem / Landständischen Präsidenten / Freyherrn von Baden, / am / Nahmensfeste desselben / Von seinen Kindern / bey der Tafel überreicht. / Freiburg im Breisgau, am 13. Juny 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem / Landständischen Präsidenten / Freyherrn von Baden, / am / Nahmensfeste desselben / Von seinen Kindern / bey der Tafel überreicht. / Freiburg im Breisgau, am 13. Juny 1799",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.065Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "qscq7i6x6ewx5ue"
+        }
+      ],
+      "source_id": "xfrnzwrm3wu5yb1"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Bist du nicht mehr dem Sänger hold? / Was that ich, traute Nacht?",
+      "language": [],
+      "musenalm_id": 23317,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Nacht",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.066Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "pwwmzgunaohctet"
+        }
+      ],
+      "source_id": "ng9rb2lve5n6x2r"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Nicht sind bange die Musen, zu nahn dem grausa- / men Eros; / Nein, ihn lieben sie herzlich,",
+      "language": [],
+      "musenalm_id": 23318,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Musen und Eros. / Nach Bion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Musen und Eros. / Nach Bion",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.066Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "p3w8jk54cd5z6s0"
+        }
+      ],
+      "source_id": "579efeewnssoqux"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Kunstreich übte den Fang ein vogelstellender Knabe / Im vielstämmigen Hain, und sah den entflohnenen Eros,",
+      "language": [],
+      "musenalm_id": 23319,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vogelsteller. / Nach demselben [Bion]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vogelsteller. / Nach demselben [Bion]",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.066Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "shqk03ngbmyrcks"
+        }
+      ],
+      "source_id": "38ivef3yrl11ut1"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Hart an der Jungfrau Fuß, wo zwischen des / Mönchs- und des Schwarzbergs / Himmeltragenden Säulen",
+      "language": [],
+      "musenalm_id": 23320,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Fußwaschen / aus einem größeren Gedicht / (Parhenäis.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Baggesen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Fußwaschen / aus einem größeren Gedicht / (Parhenäis.)",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.066Z",
+          "agent": "jq74p3fe1dijn5g",
+          "source_id": "xavafo5s3oy1iyf"
+        }
+      ],
+      "source_id": "lc2gvwyqb4ynkru"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Ein alter griechischer Prälat / Besaß ein Kabinet von heiligen Gebeinen,",
+      "language": [],
+      "musenalm_id": 23321,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Reliquien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Reliquien",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.066Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "6lw8wesk8a6yczw"
+        }
+      ],
+      "source_id": "il4twj1xhw4c5pw"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Für Menschenwohl hat er mit Kraft / Und mit Gefühl geschrieben;",
+      "language": [],
+      "musenalm_id": 23322,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf Beccarias Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Derselbe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf Beccarias Grab",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.066Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "ynxhh3v7ff5eem4"
+        }
+      ],
+      "source_id": "tz54v02p3k20evj"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Diese Leiche hüte Gott! / Wir vertrauen sie der Erde,",
+      "language": [],
+      "musenalm_id": 23323,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey ihrem Grabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Claudius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bey ihrem Grabe",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.175Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.175Z",
+          "agent": "bm6n1x459jfghwe",
+          "source_id": "b25o2m53suvsq4a"
+        }
+      ],
+      "source_id": "6a2o4zxuxetr3lg"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Dir sang ich, als Naiden, / Auf leichtem Hirten-Rohr / Einst meine Sehnsucht vor:",
+      "language": [],
+      "musenalm_id": 23324,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / meine Frau, / an ihrem Geburtstage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / meine Frau, / an ihrem Geburtstage",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.202Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.202Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "gehv2qdz5z0n8l9"
+        }
+      ],
+      "source_id": "pniw55abvwpgloq"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Es traf auf seiner Blumenbahn / Gott Hymen einst den Knöchler an,",
+      "language": [],
+      "musenalm_id": 23325,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hymen und der Tod. / Nach Imbert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hymen und der Tod. / Nach Imbert",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.202Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.202Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "s7r36gof9pdptx3"
+        }
+      ],
+      "source_id": "u9qoteob23uydkq"
+    },
+    {
+      "annotation": "# Übersetzung des folgenden franz. Gedichts.INr 23327, Obj 42 /) Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Chloe, kennst du noch die Stunde, / Die zu schnell vorüber gieng,",
+      "language": [],
+      "musenalm_id": 23326,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kuß #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kuß #",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "cmiygr0c81uyupw"
+    },
+    {
+      "annotation": "mit einer Übersetzung INr 23326, Obj 41 /) Sommer (Sammlung INr 23314, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Chloë te souvient il de l'heure ravissante / Qu'un vol si rapide emportoit?",
+      "language": [],
+      "musenalm_id": 23327,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Baiser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Le Baiser",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "t056vykyv87q152"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von Beiträgen INr 23329-2333",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23328,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbst",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "g1ey8kq6sfo66v2"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 23330, 23331; Obj 46, 47 /) Herbst (Sammlung INr 23328, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23329,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwey / Briefe aus St. Croix / an / F. H. Jacobi / von / C. Vanderbourgh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwey / Briefe aus St. Croix / an / F. H. Jacobi / von / C. Vanderbourgh",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "bkz41a3dybzz20e"
+    },
+    {
+      "annotation": "Zwey Briefe aus St. Croix an F. H. Jacobi (Sammlung INr 23329, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Ich habe Ihnen lange geschwiegen, mein lieber Freund. Weit mehr hat es mir an Muth als an Gelegenheit zum Schreiben gefehlt.",
+      "language": [],
+      "musenalm_id": 23330,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Den 8. Nov. 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Vanderbourgh",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Den 8. Nov. 1796",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1ox5qju6ttgudb"
+    },
+    {
+      "annotation": "Zwey Briefe aus St. Croix an F. H. Jacobi (Sammlung INr 23329, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Ihre Neugierde, mein lieber philosophischer Lehrer, ist also durch meinen Brief vom November gereizt worden?",
+      "language": [],
+      "musenalm_id": 23331,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Den 15. May 1797",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Vanderbourgh",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Den 15. May 1797",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "mmq2du0y6p3qyms"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Nimm, Pindar, deinen Theil an meinem Opfer hin! / So rief am Brandaltar Apollos Oberpriester",
+      "language": [],
+      "musenalm_id": 23332,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klopstock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klopstock",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "c8lz5zy7mcsqui0"
+        }
+      ],
+      "source_id": "s31birc5jyiyu4m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Schönheit, er sahe dich, wie, edle, dich wenige nur, / Glückliche nur dich sahn.",
+      "language": [],
+      "musenalm_id": 23333,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erscheinende. / Im September 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erscheinende. / Im September 1798",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "9rzcu0mm4628d1t"
+        }
+      ],
+      "source_id": "89ccpm1g3lx08n7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Wenn mir Anakreon, von Grazien umringt, / Das Lächeln der Natur, des Lebens Freuden singt;",
+      "language": [],
+      "musenalm_id": 23334,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Son pittore anch'io",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Son pittore anch'io",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "wnrg9fhliuyt4yp"
+        }
+      ],
+      "source_id": "gp9s33f7qkxcl62"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Blätter fallen, Nebel steigen, / Und zum Winterschlafe neigen",
+      "language": [],
+      "musenalm_id": 23335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die Natur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die Natur",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "yzr9j4h05vhe0pc"
+        }
+      ],
+      "source_id": "zmngze4mblh197v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Umkniet vom Hof, als Gott geschmücket, / Saß einst im goldnen Schooß / Des Thrones Crösus.",
+      "language": [],
+      "musenalm_id": 23336,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Crösus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Crösus",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "doftpyr1c706qrm"
+        }
+      ],
+      "source_id": "qk1tkthix8yq4du"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "So recht! Die Läden auf, daß wir dem Tages- / schein, / Dem Sonnenlicht' entgegen lachen!",
+      "language": [],
+      "musenalm_id": 23337,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufklärung",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "b3jlx6qozj0gx72"
+        }
+      ],
+      "source_id": "p81kk03fv27uyif"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Auf dem Wege von Carlsruhe bis hier dachte ich hin und her über die gar zu große Bevölkerung Europas, hauptsächlich Deutschlands.",
+      "language": [],
+      "musenalm_id": 23338,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Abentheuer in Rastadt. / Bruchstück / aus / meinem ungedruckten Tagebuche. / Geschrieben an Ort und Stelle / den 8. August 1797",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Baggesen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Abentheuer in Rastadt. / Bruchstück / aus / meinem ungedruckten Tagebuche. / Geschrieben an Ort und Stelle / den 8. August 1797",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "jq74p3fe1dijn5g",
+          "source_id": "582aqdv194o9gmm"
+        }
+      ],
+      "source_id": "t87ax5isu0yzohy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Dem Freund, und nicht dem lange schon / Von mir vergeßnen Reichs-Baron;",
+      "language": [],
+      "musenalm_id": 23339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Nahmenstag. / Freyburg, am 4. November 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Nahmenstag. / Freyburg, am 4. November 1798",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "39zw54gt6joqp4n"
+        }
+      ],
+      "source_id": "qxk6bqa2udovgx9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Der Meistersänger, ach, wie viel! / Mein Ohr umschwirren tausend Reime,",
+      "language": [],
+      "musenalm_id": 23340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach / dem Durchblättern / einer / poetischen Blumenlese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach / dem Durchblättern / einer / poetischen Blumenlese",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "b3ainq0q0igxvpa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Auch Gott spricht. Von der Sprache des / Ewigen / Erblickt das Auge mehr, wie das Ohr von ihr / Hört;",
+      "language": [],
+      "musenalm_id": 23341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wißbegierde. / (Im Januar 1799)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wißbegierde. / (Im Januar 1799)",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.034Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "5wfdqz9rpfp32jw"
+        }
+      ],
+      "source_id": "jnugvyqd7j7a829"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Holdes Kind, das in der Mutter Schooß / Eingeschlummert liegt! des Himmels Melodien / Tönen dir im Traum,",
+      "language": [],
+      "musenalm_id": 23342,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ruhe in Egypten / ein Gemählde / von / Hannibal Carraccio",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ruhe in Egypten / ein Gemählde / von / Hannibal Carraccio",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.030Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.030Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "y15xp0xbjd4ulna"
+        }
+      ],
+      "source_id": "9h0qwd83v9wehf5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Auf seinem Bett von grünem Laube / Lag ein betagter Schwan und sang / Sein frohes Sterbelied,",
+      "language": [],
+      "musenalm_id": 23343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Schwan, die Taube und der Truthan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Schwan, die Taube und der Truthan",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.030Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.030Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "uwqygnc1fz6pwjw"
+        }
+      ],
+      "source_id": "asn56ret9q9b1qm"
+    }
   ],
   "agents": [
     {

@@ -48,24 +48,670 @@
   "year": 1836,
   "editor": "",
   "items": [
-    "telhagb2qj0ij7d"
+    {
+      "annotation": "1827-1837.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.627Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106729",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.627Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "telhagb2qj0ij7d"
+    }
   ],
   "contents": [
-    "ppaoqdqv171a0yg",
-    "w7eaqjhvy87m25j",
-    "zeovi9d5j32xunn",
-    "i74edocetl2uiyf",
-    "uzlvdavpkccu2uy",
-    "x213roq0va2p9t2",
-    "x5ae6xn2feqvw3s",
-    "4il4spa9kf6isnj",
-    "ihcirqlrpvp6e5f",
-    "s2gaixkioeo6awt",
-    "mgdxzyafta6hhge",
-    "d7i799obdxfvv5c",
-    "i2gicohysp6s3ls",
-    "leybmpr6fnwuqr4",
-    "5y53xfz2p6m7xz2"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.207Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112649,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2478_112649_rmm2ioxs97.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "ppaoqdqv171a0yg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112650,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN. / EIN / TASCHENBUCH / FÜR 1836. / Leipzig, bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2478_112650_u12fjnij03.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN. / EIN / TASCHENBUCH / FÜR 1836. / Leipzig, bei Friedrich August Leo",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "w7eaqjhvy87m25j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Welch' ein lautes, banges Rufen / Tönet durch den stillen Hain?",
+      "language": [],
+      "musenalm_id": 112651,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die rothe Rose. / (Mythe.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Thekla",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die rothe Rose. / (Mythe.)",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.191Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.191Z",
+          "agent": "aynjnikxgmzv0y5",
+          "source_id": "cj4ek44mj9qo3qv"
+        }
+      ],
+      "source_id": "zeovi9d5j32xunn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112652,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "i74edocetl2uiyf"
+    },
+    {
+      "annotation": "Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112653,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BETTI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2478_112653_r9u087xgfc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BETTI",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "uzlvdavpkccu2uy"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. bei Susemihl /) Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112654,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GABRIELE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Ender del. J. Passini sc. Viennae",
+      "scans": [
+        "alm_2478_112654_my7pghpuoc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GABRIELE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.191Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.191Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "u4q5ab6matq8qv1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.191Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.191Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "wr2krvwvssrjhav"
+        }
+      ],
+      "source_id": "x213roq0va2p9t2"
+    },
+    {
+      "annotation": "Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112655,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Serz",
+      "scans": [
+        "alm_2478_112655_jnatc4j7em.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.191Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.191Z",
+          "agent": "fmgi30c4k9z8twt",
+          "source_id": "3shqwe002lvqf5b"
+        }
+      ],
+      "source_id": "x5ae6xn2feqvw3s"
+    },
+    {
+      "annotation": "Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112656,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DONNA BLANDINA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Ender del. J. Passini sc. Viennae",
+      "scans": [
+        "alm_2478_112656_9tbvtcryfp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DONNA BLANDINA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.191Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.191Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "1qbyufd1aw1s03l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.191Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.191Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "q00pjnzxsnzbjzo"
+        }
+      ],
+      "source_id": "4il4spa9kf6isnj"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. bei Susemihl /) Illustration zu »Die Töchter der Haide« Wilhelm Blumenhagen INr 112661, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112657,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAMGAJA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_2478_112657_cr35pdg1oc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAMGAJA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.173Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "ddagimgnl5r9d79"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.174Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.174Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "xaxliwpbunpw973"
+        }
+      ],
+      "source_id": "ihcirqlrpvp6e5f"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. bei Susemihl /) Illustration zu »Liebe und verbrechen« von Carl Val. Mielau INr 112662, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112658,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TORTONI UND THECKLA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Ender del. J. Passini sc. Viennae",
+      "scans": [
+        "alm_2478_112658_tnyo397zya.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TORTONI UND THECKLA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.174Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.174Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "uy9wql36liucu93"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.174Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.174Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "yr9dhfb54qmv8ug"
+        }
+      ],
+      "source_id": "s2gaixkioeo6awt"
+    },
+    {
+      "annotation": "Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112659,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MELITTA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc.",
+      "scans": [
+        "alm_2478_112659_fwzue1rttj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MELITTA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.519Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "5wt4njcazwqha3e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.519Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "6sz9whq9mxf38vq"
+        }
+      ],
+      "source_id": "mgdxzyafta6hhge"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Aus den Wolken muß es fallen / Aus der Götter Schooß, das Glück,",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im Vorzimmer des Bürgermeisters von Haarlem sah es ganz besonders bunt aus;",
+      "language": [],
+      "musenalm_id": 112660,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Götzenauge. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludmilla Rose",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Götzenauge. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7i799obdxfvv5c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112657, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Am Fuße der Pyrenäen, und zwar an ihrer westlichen Seite, da, wo Navarra und Aragon sich berühren, liegt ein kleines, merkwürdiges Thal.",
+      "language": [],
+      "musenalm_id": 112661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Töchter der Haide. Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Töchter der Haide. Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "bo58udjgpkel4pt"
+        }
+      ],
+      "source_id": "i2gicohysp6s3ls"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112658, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Vor mehreren Jahren lebte in Berlin ein gewisser Banquier Reichhell, der in der ganzen Stadt als ein sehr reicher Mann bekannt war,",
+      "language": [],
+      "musenalm_id": 112662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe und Verbrechen. / Ein Criminal-Fall. / Treu nach den Acten berichtet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Val. Mielau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe und Verbrechen. / Ein Criminal-Fall. / Treu nach den Acten berichtet",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "leybmpr6fnwuqr4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Der Schnee war geschmolzen und die Erde lag grün. Das Korn im Felde stand eben hoch genug, daß ein Hase darin sich verbergen, oder ein Huhn darin sein Nest bauen konnte.",
+      "language": [],
+      "musenalm_id": 112663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tuchmacher aus Brügge. / Geschichtliche Novelle / aus / dem Anfang des vierzehnten Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tuchmacher aus Brügge. / Geschichtliche Novelle / aus / dem Anfang des vierzehnten Jahrhunderts",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "5y53xfz2p6m7xz2"
+    }
   ],
   "agents": [
     {

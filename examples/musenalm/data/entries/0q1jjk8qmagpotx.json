@@ -48,65 +48,2142 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "agtnmxyqval2n4w"
+    {
+      "annotation": "2 Jgg: 1803 Hgg.: J.u. A. Werden d.i. Friedrich Mann u. Alexander Mann; 1805 Hg.: Fr. Th. Mann. s. DBI 1314, 2185; Musik von Johann Georg Wilhelm Schneider 1781-1811\n§ Titelgraphik fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.451Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106596",
+      "location": "105G07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.451Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "agtnmxyqval2n4w"
+    }
   ],
   "contents": [
-    "kiumkl8pilwcd83",
-    "72yvr31406sn5um",
-    "8pkfjjas01yba51",
-    "u3xs89wkqjo3wrj",
-    "8qz4y6eg83qy9hw",
-    "kmkl6il7c63rulv",
-    "docheg030kbfy36",
-    "wgrbrgfepu5j8q4",
-    "8rpldo7jsx4npf4",
-    "uoi5v4ab3dd1h4y",
-    "gvrs6cai4x4kewy",
-    "m2jx1437v45rfbn",
-    "nqhrcyycz32rmxx",
-    "wh2entiishdqd8q",
-    "d4ojqmmjypf756t",
-    "daadtmo3rotors9",
-    "hvyq6eh9h27dtae",
-    "nzk7q7sjtkd5hnb",
-    "11kutmofgaog5oj",
-    "rpv04bsgcr5pnty",
-    "65dvdut908nzh0v",
-    "14ib0swd1q9vq1j",
-    "n6zkmag740f9yrs",
-    "5gafafvvb2l7zoh",
-    "mzvtk4flkcmf30j",
-    "5n4monwih54ckev",
-    "3j0r0iv2t5jz8v0",
-    "qhipyxpb687ssuk",
-    "lha194fp8p2vp7n",
-    "zbfl4k3len5mfsd",
-    "ps152s3z4g210rn",
-    "yqxho8xp723qki6",
-    "ei0wa9zy4aq8kfj",
-    "z5f67fa2ch3brx4",
-    "pir7c1mgg97tiq7",
-    "jsyylboca7xxay8",
-    "cmxkibkrngmsk18",
-    "z4a1kioww18c6fg",
-    "j61rrl6nto1ceij",
-    "m642kdmxbh1y3wv",
-    "sp4x6rqodw17pw4",
-    "sbm3a36lql57b0j",
-    "yl15r7stw45oa57",
-    "aingrvwazwu64px",
-    "a6dn5s54wxk8zh8",
-    "5zvqjold40zv2eo",
-    "3esdxuiolpl4amv",
-    "lt13f1rltw1q21y",
-    "94jvr2xqkkbmf2b",
-    "k05r4shydqyrjgg",
-    "w6t1rkr5ke31lvu",
-    "j07rhyk21i55i3l",
-    "km1k3bnj92p7czx",
-    "e0mfaugi9abwxvr",
-    "ljj1y17aldv1jhn",
-    "gxcjepu7ineo627"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56333,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56333_x3pmn8m1o1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "kiumkl8pilwcd83"
+    },
+    {
+      "annotation": "Titelgraphik; wohl Bildnis des Orpheus",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56334,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Arndt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Arndt sc.",
+      "scans": [
+        "alm_24_56334_yj0dz7msck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.735Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "8gubqghqvbpv9g8"
+        }
+      ],
+      "source_id": "72yvr31406sn5um"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musicalisches / Taschenbuch / auf das Jahr / 1805. / herausgegeben / von / Friedr. Theodor Mann / mit Music von / Wilhelm Schneider. / Zweiter Jahrgang. / Penig / bey F. Dienemann & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56335_wha18rvzx6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Musicalisches / Taschenbuch / auf das Jahr / 1805. / herausgegeben / von / Friedr. Theodor Mann / mit Music von / Wilhelm Schneider. / Zweiter Jahrgang. / Penig / bey F. Dienemann & Comp.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "8pkfjjas01yba51"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.065Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Treu seinen Grundsätzen und Utheilen, welche aus einer emsigen Prüfung, einem partheylosen Geiste und einem geläuterten Geschmacke entsprungen sind, erscheint dies Taschenbuch auch mit diesem Jahre",
+      "language": [],
+      "musenalm_id": 56382,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "u3xs89wkqjo3wrj"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 56337-56342, Obj 5-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56336,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Uebersicht des jetzigen Musikzustandes, / vorzüglich in Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Uebersicht des jetzigen Musikzustandes, / vorzüglich in Deutschland",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "8qz4y6eg83qy9hw"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Verschiedentlich haben sich die Leipziger beklagt, als wäre ihnen im vorigen Jahre viel Unrecht geschehen; der Herausgeber hat deshalb dafür gesorgt, aus Leipzig selbst die folgende umständliche Uebersicht zu erhalten, [...] /) I. Uebersicht des jetzigen Musikzustandes, vorzüglich in Deutschland (Sammlung INr 56336, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Indem hier von dem Musikzustande Leipzigs gesprochen werden soll, muß zuerst bey dem Bedingnisse aller aufzuführenden größeren musicalischen Kunstwerke, dem Orchstre angefangen werden.",
+      "language": [],
+      "musenalm_id": 56337,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Ueber / den Musikzustand Leipzigs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Ueber / den Musikzustand Leipzigs",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "kmkl6il7c63rulv"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Die folgende Uebersicht ist von demselben Freunde der Tonkunst ausgearbeitet, welcher schon dem Apollon einiges im Allgemeinen über Berlin mitgetheilt hatte. /) I. Uebersicht des jetzigen Musikzustandes, vorzüglich in Deutschland (Sammlung INr 56336, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Seit einem Quinquennio etwa ist unsere heimische Kunst aus einem wahrhaft lethargischen Interegno hervorgegangen, wo süßliche Tändeley und kokettirende Oberflächlichkeit sie unterjochten.",
+      "language": [],
+      "musenalm_id": 56338,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Jetziger / Musikzustand in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Jetziger / Musikzustand in Berlin",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "docheg030kbfy36"
+    },
+    {
+      "annotation": "I. Uebersicht des jetzigen Musikzustandes, vorzüglich in Deutschland (Sammlung INr 56336, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Erinnerung. Die folgenden Notizen sind mit Genauigkeit aus den hier und da zerstreuten Nachrichten der Musicalischen Zeitung (April 1802 bis zum 38sten Stück des Juny 1803)",
+      "language": [],
+      "musenalm_id": 56339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musikzustand in den übrigen bedeutenden Städten, vorzüglich Deutschlands.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Musikzustand in den übrigen bedeutenden Städten, vorzüglich Deutschlands.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "wgrbrgfepu5j8q4"
+    },
+    {
+      "annotation": "I. Uebersicht des jetzigen Musikzustandes, vorzüglich in Deutschland (Sammlung INr 56336, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht des jetzigen Musikzustandes / in Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht des jetzigen Musikzustandes / in Weimar",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "8rpldo7jsx4npf4"
+    },
+    {
+      "annotation": "I. Uebersicht des jetzigen Musikzustandes, vorzüglich in Deutschland (Sammlung INr 56336, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Instrumentalmusik besteht aus den Stadtmusikern, den Oboisten und eingen Dilletanten.",
+      "language": [],
+      "musenalm_id": 56341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht des Musikzustandes in / Halle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht des Musikzustandes in / Halle",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "uoi5v4ab3dd1h4y"
+    },
+    {
+      "annotation": "I. Uebersicht des jetzigen Musikzustandes, vorzüglich in Deutschland (Sammlung INr 56336, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56342,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Uebersicht des Musikzustandes / im Auslande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Uebersicht des Musikzustandes / im Auslande",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "gvrs6cai4x4kewy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Der gegenwärtige Zustand der Musik in Mannheim kann nicht wohl dargestellt werden, ohne zuvor einen Rückblick auf jene glücklichen Zeiten geworfen zu haben, wo unter dem Schutze des gütigen Fürsten alle Künste und Wissenschaften in unserm Lande blüheten.",
+      "language": [],
+      "musenalm_id": 56343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus einem Schreiben von Mannheim den / 22. August 1803. Ueber den Zustand der / Musik daselbst und in Heidelberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "n-et-ck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus einem Schreiben von Mannheim den / 22. August 1803. Ueber den Zustand der / Musik daselbst und in Heidelberg",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "m2jx1437v45rfbn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Das Aufsehen, welches die Sängerin Mara in diesem Jahre bey ihrer Reise durch Deutschland erregt hat, bewog den Herausgeber gegenwärtigen Aufsatz mitzutheilen,",
+      "language": [],
+      "musenalm_id": 56344,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sängerin Mara. / (Eine biographische Skizze.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sängerin Mara. / (Eine biographische Skizze.)",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.270Z",
+          "agent": "nlhzvqpr8pan6w2",
+          "source_id": "7zb4dv0r7qv20eq"
+        }
+      ],
+      "source_id": "nqhrcyycz32rmxx"
+    },
+    {
+      "annotation": "Der Sammlung vorangestellt: Die meisten der folgenden Lieder sind aus einem Aufsatze über Volkslieder entlehnt, der anfangs für das Taschenbuch bestimmt war seiner Extension wegen aber hierin nicht mehr Raum finden konnte. Leser, die für diesen wichtigen Gegenstand Interesse hegen, werden im 8ten Stücke des Apollon, 1803, jenen Aufsatz gedruckt finden, doch mit Weglassung der hier mitgetheilten Lieder, auf die dort nur verwiesen worden ist. /) Sammlung von 9 Liedern mit 5 Musikbeigaben INr 56346-5659 , Obj 14-27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56345,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Volkslieder / mit Melodieen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Volkslieder / mit Melodieen",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "wh2entiishdqd8q"
+    },
+    {
+      "annotation": "Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Wol kumbt der May / Mit mancherley, / Der Blümlein zart / Nach ihrer Art",
+      "language": [],
+      "musenalm_id": 56346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Ein Lyd vom Mayen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jahrg. II. Seite 48",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Ein Lyd vom Mayen",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "d4ojqmmjypf756t"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 56348, Obj 15 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Allerschönster Engel, / Allerschönstes Kind! / Komm eyle dych, / Unndt küsze mych, / Unndt mache geschwynd!",
+      "language": [],
+      "musenalm_id": 56347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Ein Berglyd vom Hartze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jahrg. II. 128",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Ein Berglyd vom Hartze",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "daadtmo3rotors9"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Ein Berglyd vom Hartze« INr 56347, Obj 15 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodie zum II. Liede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56348_ulkwgnty3b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodie zum II. Liede",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "hvyq6eh9h27dtae"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 56350, Obj 18 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Tzum Sterben bin ij / Verlybet in dich, / Dayne schwarz-brawne Eugeleyn, / Versuren ya mich.",
+      "language": [],
+      "musenalm_id": 56349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ein Schwebisch Lyebes Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. c. I, 89",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ein Schwebisch Lyebes Lyd",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzk7q7sjtkd5hnb"
+    },
+    {
+      "annotation": "Musikbeigabe zu »III. Ein Schwebisch Lyebes Lyd« INr 56349, Obj 17 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodie zum III Liede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56350_zw2rq3widi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodie zum III Liede",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "11kutmofgaog5oj"
+    },
+    {
+      "annotation": "Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Wilt du nichts vom Freyen horenn? / Wünschest dyr dafür den Tod?",
+      "language": [],
+      "musenalm_id": 56351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Ein Lyd vom Freyen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. c. II, 77",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Ein Lyd vom Freyen",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "rpv04bsgcr5pnty"
+    },
+    {
+      "annotation": "Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Mach uff meyn Hort / Vernymm meyn Wort,",
+      "language": [],
+      "musenalm_id": 56352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Tageweysz von eym jungen Knaben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. c. II, 52",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Tageweysz von eym jungen Knaben",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "65dvdut908nzh0v"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 56354, Obj 22 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Jungkfrewleyn soll ich myt euch geen / Ynn ewren Rosengarten,",
+      "language": [],
+      "musenalm_id": 56353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Lyd vom Rosengarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. c. I, 69",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Lyd vom Rosengarten",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "14ib0swd1q9vq1j"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Lyd vom Rosengarten« INr 56353, Obj 21 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodie zum VI Liede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56354_cirdo55rur.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodie zum VI Liede",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "n6zkmag740f9yrs"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 56356, Obj 24 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "So wünsch ich jr eyn gute Nacht / Bey der ich war alleyne,",
+      "language": [],
+      "musenalm_id": 56355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Eyn Lyd von eym Rewtersknaben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I, c. II, 25",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Eyn Lyd von eym Rewtersknaben",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "5gafafvvb2l7zoh"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Eyn Lyd von eym Rewtersknaben« INr 56355, Obj 23 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodie zum VII Liede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56356_1oas1g77n4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodie zum VII Liede",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "mzvtk4flkcmf30j"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 56358, Obj 26 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "'s Morgens wenn ich fru uffstee / Undt den Schorsteyn fegenn gee,",
+      "language": [],
+      "musenalm_id": 56357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Eyn Schlottfeger Lyd. / (Melodie dazu V.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. c. I, 158",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Eyn Schlottfeger Lyd. / (Melodie dazu V.)",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "5n4monwih54ckev"
+    },
+    {
+      "annotation": "Musikbeigabe zu »VIII. Eyn Schlottfeger Lyd« INr 56357, Obj 25 /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodie zum VIII Liede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56358_pc2tjnwp7z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodie zum VIII Liede",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "3j0r0iv2t5jz8v0"
+    },
+    {
+      "annotation": "Anm. am Objekt: Mitgetheilt aus einem Werke, welches in einiger Zeit über die Geschichte der hallischen Salzgruben und ihre Bebauer (die Halloren) herauskommen wird. [...] /) Volkslieder mit Melodieen (Sammlung INr 56345, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Eine Magd is weis un schone, / Gott fur den höchsten Preis.",
+      "language": [],
+      "musenalm_id": 56359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. Hall-Lyd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. Hall-Lyd",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "qhipyxpb687ssuk"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Die hierzu nothwendigen Vorerinnerungen, sowie ein Theil der Characteristik selbst stehen schon im vorjährigen Taschenbuch, wohin ich den Leser, dem es um ein organisirtes Ganzes zu thun ist, verweisen muß. Der Verf. /) Fortsetzung des Beitrags »Johann Friedrich Reichhardt Zweite Periode« in: Taschenbuch, Musikalisches 1803; INr 56267",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "Wie es dem weisen Forscher ein eben so großes Entzücken gewährt, mag er mit weitumfassenden Blicken eindringen in die großen kühnen Massen der einzelnen in sich selbst und durch sich selbst feststehenden Welten,",
+      "language": [],
+      "musenalm_id": 56360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Joahnn Friedrich Reichardt. / (Eine Charakteristik.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Joahnn Friedrich Reichardt. / (Eine Charakteristik.)",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "lha194fp8p2vp7n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Wem Dunkelheit des Lebens-Glanz umnachtet, / Die Sterne all' erblassen, / Wen Lieb' und Freude einsam schmachten lassen,",
+      "language": [],
+      "musenalm_id": 56361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / An Wilhelm Schneider. / (Die Lieder zum 2ten Jahrgange des Musicali- / schen Taschenbuchs.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedr. Theodor Mann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / An Wilhelm Schneider. / (Die Lieder zum 2ten Jahrgange des Musicali- / schen Taschenbuchs.)",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "nlhzvqpr8pan6w2",
+          "source_id": "aa5lajm1pqqyh80"
+        }
+      ],
+      "source_id": "zbfl4k3len5mfsd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Kraftlos, um träg zu schlummern, hingesunken / Lag ohne Leben einst die Kunst der Klänge;",
+      "language": [],
+      "musenalm_id": 56362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / An Joseph Haydn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / An Joseph Haydn",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ps152s3z4g210rn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "Der fernern Welten Geistertöne / Fühl' ich allmächtig mir das Herz durchdringen,",
+      "language": [],
+      "musenalm_id": 56363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / An Dülon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S-n.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / An Dülon",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "yqxho8xp723qki6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Aus nächtlich dunkler Erde tiefstem Grunde, / seh ich geheim das Schreckliche geboren:",
+      "language": [],
+      "musenalm_id": 56364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Hexen im Macbeth. / (nach Reichardts Musik zu Bürgers Bearbeitung / desselben.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amadeus Wendt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Hexen im Macbeth. / (nach Reichardts Musik zu Bürgers Bearbeitung / desselben.)",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.971Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.971Z",
+          "agent": "67zaqw1ahn1z54k",
+          "source_id": "uh6twujxtr1zht0"
+        }
+      ],
+      "source_id": "ei0wa9zy4aq8kfj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "387",
+      "incipit_statement": "Vom Himmel ward zur Erd der Mensch getragen, / In ihn verpflanzt zum Ewigen die Keime;",
+      "language": [],
+      "musenalm_id": 56365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Mozarts Requiem",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Th. M.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Mozarts Requiem",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.971Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.971Z",
+          "agent": "nlhzvqpr8pan6w2",
+          "source_id": "ukcvs1p1c2leqab"
+        }
+      ],
+      "source_id": "z5f67fa2ch3brx4"
+    },
+    {
+      "annotation": "Anm. am Objekt: Der Herausgeber hat keinen Anstand genommen, diese wunderlichen und oft dunklen Sprüche aufzunehmen, da die unschuldige Laune des hier Mitgetheilten durchaus nicht beleidigend ist. /) Sammlung von 7 Beiträgen INr 56367-56373, Obj 35-41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Charactere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Charactere",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "pir7c1mgg97tiq7"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Wollt ihr dulden die Wahrheit, verschleyert in ernst- / hafter Predigt, / Gut, so duldet sie auch, dichtet ein Vers sie im Scherz;",
+      "language": [],
+      "musenalm_id": 56367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "jsyylboca7xxay8"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Mittel, die fehlen euch nicht, o hegt nur kräftigen / Willen, / Manches steht euch zu Dienst,",
+      "language": [],
+      "musenalm_id": 56368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "cmxkibkrngmsk18"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Alles der Nachklang nur verfloßner schönerer Zeiten, / Aber doch glaubet ihr fest, herrlicher könnt' es / nicht seyn.",
+      "language": [],
+      "musenalm_id": 56369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4a1kioww18c6fg"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Glaubt nur, bey Euch wird nimmer 'was Rechts für / die Künste geschehen,",
+      "language": [],
+      "musenalm_id": 56370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "j61rrl6nto1ceij"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "Ja, das Studium erst verwandelt die Geister in Geister; / Zeigen vor allen nicht zwey Bildungsanstalten dies / klar?",
+      "language": [],
+      "musenalm_id": 56371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "m642kdmxbh1y3wv"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "392",
+      "incipit_statement": "Du erboße dich nicht, entleerend die Brust von dem Winde; / Klappert der Müller doch fort,",
+      "language": [],
+      "musenalm_id": 56372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18. / Trost für P-z.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18. / Trost für P-z.",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "sp4x6rqodw17pw4"
+    },
+    {
+      "annotation": "6. Charactere (Sammlung INr 56366, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "392",
+      "incipit_statement": "Giebt es doch einige Früchte, die nach dem Pflük- / ken verderben.",
+      "language": [],
+      "musenalm_id": 56373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "25. Monatsfrüchte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "25. Monatsfrüchte",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "sbm3a36lql57b0j"
+    },
+    {
+      "annotation": "Vertonung des Lieds der Lila aus »Zerbino oder die Reise nach dem guten Geschmack« von L. Tieck /) unter der Musikbeigabe: Tiek /) Photos 56374,01-56374,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Rädchen dreht munter das Fädchen hinunter: / Wo weilst du, Lieber, was eilst du fernüber?",
+      "language": [],
+      "musenalm_id": 56374,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Rädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56374_01_buux0srsxy.jpg",
+        "alm_24_56374_02_94e25nbk85.jpg",
+        "alm_24_56374_03_zlwnzuw3dw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Rädchen",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "tcpntmp18wyhtvz"
+        }
+      ],
+      "source_id": "yl15r7stw45oa57"
+    },
+    {
+      "annotation": "Vertonung des Lieds des Jeremias aus »Prinz Zerbino oder die Reise nach dem guten Geschmack« von L. Tieck /) unter der Musikbeigabe: Tiek /) Photos 56375,01; 56375,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Den Teufel kennt fast niemand , und wär' er noch so dick;",
+      "language": [],
+      "musenalm_id": 56375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56375_01_eq5ff2c7hm.jpg",
+        "alm_24_56375_02_0tvbs2r7ho.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lied",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "3f9w6hpnkskbefe"
+        }
+      ],
+      "source_id": "aingrvwazwu64px"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die Sterne « von A. Mahlmann /) unter der Musikbeigabe: August Mahlmann /) Photos 56376,01; 56376,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "An Himmels Höhn, die Sternlein gehn in frommer stiller Bahn!",
+      "language": [],
+      "musenalm_id": 56376,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sterne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56376_01_me7gvxa0xa.jpg",
+        "alm_24_56376_02_wvjsuipob0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Sterne",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "c4fvau09qnlpgqg"
+        }
+      ],
+      "source_id": "a6dn5s54wxk8zh8"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Das Lieblingsörtchen« von Sophie Mereau /) unter der Musikbeigabe: Sophie Mereau",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Wohl wölbet sich lieblich am kühligen Bach mach duftend Gewinde zum blühenden Dach;",
+      "language": [],
+      "musenalm_id": 56377,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Lieblingsörtchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56377_6vktc6mch6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Lieblingsörtchen",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "89i6fwck36kjyu2"
+        }
+      ],
+      "source_id": "5zvqjold40zv2eo"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »An den Erlöser« von K. H. Giesebrecht /) unter der Musikbeigabe: Giesebrecht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Du, der in Schmach und Hohne am Stamm des Kreuzes starb; du, der mit seinem Blute der Sündenwelt zu Gute, das Leben neu erwarb;",
+      "language": [],
+      "musenalm_id": 56378,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Erlöser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56378_b7usa5xr2k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An den Erlöser",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "s5fbgk7n9xa4nzg"
+        }
+      ],
+      "source_id": "3esdxuiolpl4amv"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Bergmannsleben« von Novalis /) unter der Musikbeigabe: Novalis /) Photos 56379,01; 56379,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.039Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Der ist der Herr der Erde, der ihre Tiefen mißt,",
+      "language": [],
+      "musenalm_id": 56379,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bergmannsleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56379_01_fx5ex1is3p.jpg",
+        "alm_24_56379_02_sqedthhxkt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bergmannsleben",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "kgfyyhsc535brsy"
+        }
+      ],
+      "source_id": "lt13f1rltw1q21y"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Der König in Thule« von J. W. v. Goethe /) unter der Musikbeigabe: Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Es war ein König in Thule, gar treu bis an das Grab",
+      "language": [],
+      "musenalm_id": 56380,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der König in Tule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56380_r1sho4w34d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der König in Tule",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "qyz37g1ihazvxcv"
+        }
+      ],
+      "source_id": "94jvr2xqkkbmf2b"
+    },
+    {
+      "annotation": "Photos 56381,01-56381,05",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Hört! Sianitinnen, meine Gespielinnen! Seht mich mitleidig an, saget dem Bräutigam:",
+      "language": [],
+      "musenalm_id": 56381,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vor Liebe sterbende Maria / Hymnus nach dem Lateinischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56381_01_e21k1v5w1c.jpg",
+        "alm_24_56381_02_vs30zpwrjw.jpg",
+        "alm_24_56381_03_gjvwym8sfj.jpg",
+        "alm_24_56381_04_0z27snzkdm.jpg",
+        "alm_24_56381_05_6e9z0pz6fj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die vor Liebe sterbende Maria / Hymnus nach dem Lateinischen",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.911Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "t87nta5z2nb4gpr"
+        }
+      ],
+      "source_id": "k05r4shydqyrjgg"
+    },
+    {
+      "annotation": "UNter der Musikbeigabe: Aus dem Jakobischen Tagebuche 1801 /) Photos 56383,01-56383,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Minna! kennst du noch die Stunde, die zu schnell vorüber gieng,",
+      "language": [],
+      "musenalm_id": 56383,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kuß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56383_01_ie5ev55lpz.jpg",
+        "alm_24_56383_02_dtzbyjv3sk.jpg",
+        "alm_24_56383_03_lz5brhmgtx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Kuß",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.004Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.004Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "j9g9n5lz0j48wb1"
+        }
+      ],
+      "source_id": "w6t1rkr5ke31lvu"
+    },
+    {
+      "annotation": "Lied des Marmotte aus »Das Jahrmarktsfest von Plundersweilern« von J. W. von Goethe /) unter der Muskikbeigabe: Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Ich komme schon durch manche Land, avecque la Marmote, und immer was zu essen fand, avecque la Marmotte,",
+      "language": [],
+      "musenalm_id": 56384,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marmotte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56384_01_1pmacgewtz.jpg",
+        "alm_24_56384_02_gwseh3fu2v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marmotte",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.004Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.004Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "loizcxuh30loxoa"
+        }
+      ],
+      "source_id": "j07rhyk21i55i3l"
+    },
+    {
+      "annotation": "unter der Musikbeigabe: Tiek",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "O, alte Heimath! süß Wo find' ich wieder dich? Welche Qual ist dies?",
+      "language": [],
+      "musenalm_id": 56385,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56385_mjys2qr67u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lid",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.957Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "f6ccoy9hxmnjy8q"
+        }
+      ],
+      "source_id": "km1k3bnj92p7czx"
+    },
+    {
+      "annotation": "Vertonung des Lieds des Brandner aus »Faust. Eine Tragödie. [Auerbachs Keller in Leipzig]« von J. W. von Goethe /) unter der Musikbeigabe: Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Es war eine Ratt' im Kellernest, lebte nur von Fett und Butter, hatte sich ein Ränzlein angemäst, als wie der Doktor Luther",
+      "language": [],
+      "musenalm_id": 56386,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ratte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56386_eks81b0ww2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ratte",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.957Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "k4t1v8k6jyfknkr"
+        }
+      ],
+      "source_id": "e0mfaugi9abwxvr"
+    },
+    {
+      "annotation": "Photos 56387,01-56387,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56387,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marcia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Schneider",
+      "scans": [
+        "alm_24_56387_01_pb49ar2nu0.jpg",
+        "alm_24_56387_02_qd6kwiav5z.jpg",
+        "alm_24_56387_03_n54n7fu047.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marcia",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.957Z",
+          "agent": "5j4ifce1qy52izk",
+          "source_id": "o2y0mn9l83sm590"
+        }
+      ],
+      "source_id": "ljj1y17aldv1jhn"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 56388,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_24_56388_90gxrqtdxf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-03-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "gxcjepu7ineo627"
+    }
   ],
   "agents": [
     {

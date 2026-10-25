@@ -48,39 +48,1290 @@
   "year": 1851,
   "editor": "",
   "items": [
-    "g57dzf1oxzyg3ym",
-    "s5uwaj1h59zdket"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.504Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "100516",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.504Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "g57dzf1oxzyg3ym"
+    },
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband.\n1851: (K: M.8 Stahlst.) Mit Port 1, Ku 7, XLVIII, 379 SS und Bl 2.  \nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.504Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100606",
+      "location": "105J10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.504Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "s5uwaj1h59zdket"
+    }
   ],
   "contents": [
-    "5ushci84sg7trmm",
-    "jeeuam0q9skhpbo",
-    "piwn8z1ilpb3cgm",
-    "5qniuh9ongrffbm",
-    "9v8d4rctob82gtm",
-    "qz8z6wqnonrfyth",
-    "cd514b2aw9g6aja",
-    "aigp89t67kqz780",
-    "oizdiiku9gecx78",
-    "1om2oz53m6885i3",
-    "l2hjmncwkaujjdn",
-    "rgdjhk2je3lt4hm",
-    "6ilaoixolo4lwp4",
-    "vrwm5x243m3lqfb",
-    "185ywvu26dks60i",
-    "qeht8pt75m81itm",
-    "fbh8de64n6q5y4g",
-    "7kzh9tmra01mmpq",
-    "912btro1vol43ou",
-    "k2513voy684n8wl",
-    "yxcdv7erj6i3xsg",
-    "5kpb64eskainjmd",
-    "3entspk7vung6me",
-    "82v06e0loh5r8tc",
-    "iblp024g6a69pxw",
-    "yggy3gl1m6aw76q",
-    "ar7vs3nqt41b7on",
-    "jil4awkbgf57t5g",
-    "stzgtkw1e9njthc"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44452,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / 1851",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_605_44452_t2oxvc4bsk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / 1851",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ushci84sg7trmm"
+    },
+    {
+      "annotation": "Titelportrait [unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44458, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44453,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "M. v. Schwind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Rietschel modell. J. Thaeter gest.",
+      "scans": [
+        "alm_605_44453_j25zfvq3ht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "M. v. Schwind",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.360Z",
+          "agent": "twrtpodruagfi9d",
+          "source_id": "36yvemapeht8rq9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.360Z",
+          "agent": "qi10amp5h8cm81m",
+          "source_id": "5jj57qw17vij3g2"
+        }
+      ],
+      "source_id": "jeeuam0q9skhpbo"
+    },
+    {
+      "annotation": "graph. Titel [unter der Graphik: W. Maas impr.]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44454,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / 1851",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zwecker del. Grünewald & Cooke sc.",
+      "scans": [
+        "alm_605_44454_9oxw3gbb1m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / 1851",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "1ih3q5zwi5sbzkz",
+          "source_id": "cyt1ag2m4jfk2zm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "usgtr6dipvre26m",
+          "source_id": "liyqbkt55vdq6sd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "uohs1l6y8ng1p96",
+          "source_id": "phrx105x9wfrase"
+        }
+      ],
+      "source_id": "piwn8z1ilpb3cgm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44455,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1851. / Herausgegeben / von / C. Dräxler-Manfred. / Mit 8 Stahlstichen. / Frankfurt am Main. / J. D. Sauerländer's Verlag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_605_44455_bou25q0ule.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1851. / Herausgegeben / von / C. Dräxler-Manfred. / Mit 8 Stahlstichen. / Frankfurt am Main. / J. D. Sauerländer's Verlag",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "5qniuh9ongrffbm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44456,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "9v8d4rctob82gtm"
+    },
+    {
+      "annotation": "Sammlung von 7 Textbezügen zu 8 Graphiken INr 44453, 44458-44471; Obj 2, 7-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44457,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miniatur-Salon. / Ausstellung 1851",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miniatur-Salon. / Ausstellung 1851",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "qz8z6wqnonrfyth"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Titelportrait INr 44453, Obj 2 und Graphik INr 44459, Obj 8. Dem Text vorangestellt: Der Mann ist vielfach groß, den du dir auserwählt / Du kannst dich lang' an seinen Werken üben; [...] Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Wenn wir diese zwei Bilder zusammenfassen, haben wir uns die ausschließliche Aufgabe gestellt, Moritz von Schwind in diesen Blättern zu besprechen.",
+      "language": [],
+      "musenalm_id": 44458,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moritz von Schwind / Nach einem Medaillon von Rietschel, gestochen von Julius Thaeter. / Ein Landschaftsmaler vom Jahr 1743. / Gemalt von Moritz von Schwind, gestochen von Adrian Schleich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Moritz von Schwind / Nach einem Medaillon von Rietschel, gestochen von Julius Thaeter. / Ein Landschaftsmaler vom Jahr 1743. / Gemalt von Moritz von Schwind, gestochen von Adrian Schleich",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "cd514b2aw9g6aja"
+    },
+    {
+      "annotation": "s. Textbezug INr 44458, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44459,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EIN LANDSCHAFTSMALER VOM JAHR 1743",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. v. Schwind pt. Adrian Schleich sc.",
+      "scans": [
+        "alm_605_44459_vee72gtn3c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EIN LANDSCHAFTSMALER VOM JAHR 1743",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "ajbryh44ri4p6b5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "x494ejn8uabo7dp",
+          "source_id": "clhiolr5u3wkc2b"
+        }
+      ],
+      "source_id": "aigp89t67kqz780"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Graphik INr 44461, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Der das Mährchen geschrieben, und der es gemalt hat, sind zwei so innig verwandte Naturen, daß Alles, was wir in diesen Blättern zur Charakteristik des Einen niederschrieben, auch ein Beitrag zur Charakteristik des Andern ist.",
+      "language": [],
+      "musenalm_id": 44460,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fanferlieschen Schönefüßchen. / Erzählt von Cl. Brentano. / Gemalt von Eduard Steinle. / Gestochen von A. Schleich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fanferlieschen Schönefüßchen. / Erzählt von Cl. Brentano. / Gemalt von Eduard Steinle. / Gestochen von A. Schleich",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "oizdiiku9gecx78"
+    },
+    {
+      "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] Illustration zu »Fanferlieschen, Schönefüßchen« von Cl. Brentano s. Textbezüge INr 44460, 44478; Obj 9, 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44461,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FANFERLIESCHEN SCHÖNEFÜSSCHEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Steinle del. Adr. Schleich sc.",
+      "scans": [
+        "alm_605_44461_8r5dw82b5i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FANFERLIESCHEN SCHÖNEFÜSSCHEN",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "wdyn1i7226e5p59",
+          "source_id": "bfqfohhp8g0e1tg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "x494ejn8uabo7dp",
+          "source_id": "hr34xfu9h5td01k"
+        }
+      ],
+      "source_id": "1om2oz53m6885i3"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Graphik INr 44463, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Die lebensgeschichtlichen Notizen über Ph. Foltz haben wir bereits im Miniatur-Salon mitgetheilt.",
+      "language": [],
+      "musenalm_id": 44462,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Strande. / Gemalt von Philipp Foltz, gestochen von Adrian Schleich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Strande. / Gemalt von Philipp Foltz, gestochen von Adrian Schleich",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "l2hjmncwkaujjdn"
+    },
+    {
+      "annotation": "s. Textbezug INr 44462, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44463,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AM STRANDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp Folz pinx. Adrian Schleich sc",
+      "scans": [
+        "alm_605_44463_elgvc1vyhy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AM STRANDE",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "q352vh257bwt4mb",
+          "source_id": "akfldlpaquu74kf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.343Z",
+          "agent": "0bmeck77h5fvi5x",
+          "source_id": "f2km7hk9n10lykj"
+        }
+      ],
+      "source_id": "rgdjhk2je3lt4hm"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Graphik INr 44465, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Otto Arnz aus Düsseldorf hat seine Studien an verschiedenen Seeküsten gemacht, besonders in Holland, wo er sich drei Jahre aufhielt.",
+      "language": [],
+      "musenalm_id": 44464,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Matrosenleben. / Gemalt von Otto Arnz, gestochen von Ch. Hoffmeister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Matrosenleben. / Gemalt von Otto Arnz, gestochen von Ch. Hoffmeister",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ilaoixolo4lwp4"
+    },
+    {
+      "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44464, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44465,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MATROSENLEBEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Arnz pinx. C. Hoffmeister scu.",
+      "scans": [
+        "alm_605_44465_2kjr0hnhyi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MATROSENLEBEN",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.242Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.242Z",
+          "agent": "zuqeig2avlr6rku",
+          "source_id": "triegw5fdfws7dk"
+        }
+      ],
+      "source_id": "vrwm5x243m3lqfb"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Graphik INr 44467, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Wer die Geschichte Frankreichs kennt, weiß, daß es eigentlich die Geschichte von ewigen Aufständen ist, die Geschichte einer wachsenden Unzufriedenheit,",
+      "language": [],
+      "musenalm_id": 44466,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erfindung der Spielkarten. / Gemalt von J. Lunteschütz, gestochen von Nordorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erfindung der Spielkarten. / Gemalt von J. Lunteschütz, gestochen von Nordorf",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "185ywvu26dks60i"
+    },
+    {
+      "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44466, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44467,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE ERSTEN SPIELKARTEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. J. Lunteschütz Gest. v. A. Rordorf",
+      "scans": [
+        "alm_605_44467_h66yv9s9ie.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE ERSTEN SPIELKARTEN",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.235Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.235Z",
+          "agent": "q9hf9lofgjx9rvu",
+          "source_id": "7flk2tj1lxwvv8q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.235Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.235Z",
+          "agent": "yyjxmf6pf9lptxp",
+          "source_id": "wolpob5qvtsnnz8"
+        }
+      ],
+      "source_id": "qeht8pt75m81itm"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Graphik INr 44469, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.708Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "C. F. M. Müller lebt der Zeit in München. Er wurde 1807 zu Dresden geboren, kam aber später nach Zittau,",
+      "language": [],
+      "musenalm_id": 44468,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sylvesterabend. / Gemalt von Carl Friedrich Moritz Müller, gestochen von Carl Arnold Conzenbach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sylvesterabend. / Gemalt von Carl Friedrich Moritz Müller, gestochen von Carl Arnold Conzenbach",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "fbh8de64n6q5y4g"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag von J. D. Sauerländer] s. Textbezug INr 44468, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44469,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER SYLVESTERABEND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. M. Müller Gest. v. C. Gonzenbach",
+      "scans": [
+        "alm_605_44469_yez9izoswk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER SYLVESTERABEND",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.375Z",
+          "agent": "lcntzxm40duy73m",
+          "source_id": "9932z028bdvinrh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.375Z",
+          "agent": "5q6ebv8kym3mtpt",
+          "source_id": "gvozsdlmjmjnt0c"
+        }
+      ],
+      "source_id": "7kzh9tmra01mmpq"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1851 (Sammlung INr 44457, Obj 6) s. Graphik INr 44471 Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Die Kunstkritik steht schon geraume Zeit im Felde gegen die Kupfer zu den Taschenbüchern. Man kann sagen seit 1799, wo A. W. von Schlegel den Feldzug dagegen eröffnete.",
+      "language": [],
+      "musenalm_id": 44470,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Großvater. / Gemalt von Ph. Herrlich, gestochen von W. Otto",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Großvater. / Gemalt von Ph. Herrlich, gestochen von W. Otto",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "912btro1vol43ou"
+    },
+    {
+      "annotation": "[unter der Graphik: gedr. v. E. Münch; Verl. v.Sauerländer; ] s. Textbezug INr 44468, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44471,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER GROSSVATER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gem. v. Herrlich gest. v. W. Otto",
+      "scans": [
+        "alm_605_44471_0g09wwz331.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER GROSSVATER",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.375Z",
+          "agent": "e2mwn7tfqz58e94",
+          "source_id": "hbzd0o44hhrr7b9"
+        }
+      ],
+      "source_id": "k2513voy684n8wl"
+    },
+    {
+      "annotation": "Vorwort zur folgenden szen. Darstellung von J. L. Tieck INr 44473, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Gespräche und Erinnerungen führten meinen verehrten Freund, Ludwig Tieck in Berlin während des Winters 1847 öfter zu der Zeit seiner ersten Jugend zurück.",
+      "language": [],
+      "musenalm_id": 44472,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sommernacht. / Eine Jugenddichtung / Ludwig Tieck's. / Zum ersten Mal dem Druck übergeben und mit einem Vorwort / begleitet / von / Eduard von Bülow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Bülow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sommernacht. / Eine Jugenddichtung / Ludwig Tieck's. / Zum ersten Mal dem Druck übergeben und mit einem Vorwort / begleitet / von / Eduard von Bülow",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.375Z",
+          "agent": "s80i7s99e9gsncg",
+          "source_id": "10si41oj1cfkae9"
+        }
+      ],
+      "source_id": "yxcdv7erj6i3xsg"
+    },
+    {
+      "annotation": "mit einem Vorwort von E. v. Bülow INr 44472, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Auch hier, auch hier noch nicht der Weg nach Hause? / O, die verdammten Büsche! Nimmer will / Ich wieder Brombeeren suchen.",
+      "language": [],
+      "musenalm_id": 44473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommernacht. / Eine dramatische Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sommernacht. / Eine dramatische Scene",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.376Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "3lmyco2obg7qp9v"
+        }
+      ],
+      "source_id": "5kpb64eskainjmd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Die Bürgerwehrwachtstube Numero 5 befand sich in der Bierstube zum grünen Esel.",
+      "language": [],
+      "musenalm_id": 44474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Professor Violet / oder politische Künstlernöthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Professor Violet / oder politische Künstlernöthen",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "dii69uyjdj5ln7l",
+          "source_id": "zc5fj4roji2j2tk"
+        }
+      ],
+      "source_id": "3entspk7vung6me"
+    },
+    {
+      "annotation": "Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Das Dörfchen Rheindiebach, zum Unterschide von dem höher in dem Seitenthale gelegenen Pfarrdorfe Oberdiebach also genannt, bildet in dem Thalkessel des Rheins, welcher Bacharach und Lorch in sich schließt, einen gar schönen Punkt.",
+      "language": [],
+      "musenalm_id": 44475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die böse Frau von Fürstenberg. / Eine Rheinische Schmugglergeschichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. O. von Horn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die böse Frau von Fürstenberg. / Eine Rheinische Schmugglergeschichte",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "u657j3m1foor2a9",
+          "source_id": "l66q2ioph73ibmc"
+        }
+      ],
+      "source_id": "82v06e0loh5r8tc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Abend war es, so zwischen Tag und Licht, zur Stunde, da die Fledermäuse streichen, den Himmel verhüllte dichtes Gewölk, woraus ein feiner Regen niedersprühte.",
+      "language": [],
+      "musenalm_id": 44476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Stern zu Waldach. / Badische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Stern zu Waldach. / Badische Erzählung",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "k66tx7kn1jargbw",
+          "source_id": "nwxodxjdpa14r5u"
+        }
+      ],
+      "source_id": "iblp024g6a69pxw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Die Nacht war dunkel, die zwölfte Stunde nahe; stille war's im ganzen Hause. In der Stube kniete ein Mann vor einem Kruzifix und betete.",
+      "language": [],
+      "musenalm_id": 44477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kleinen Herrscher. / Ein Bild aus dem Polizeistaat vor dem März 1848",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Josef Rank",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die kleinen Herrscher. / Ein Bild aus dem Polizeistaat vor dem März 1848",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "h1rm6ctjxvxk0m6",
+          "source_id": "3wd795rlc6qiypf"
+        }
+      ],
+      "source_id": "yggy3gl1m6aw76q"
+    },
+    {
+      "annotation": "Anm. am Objekt: Dieses in prägnantester Kürze zusammengedrängten, und so weit möglich in des Dichters eigenen Worten abgefaßten Auszug aus einem Märchen von Clemes Brentano theilen wir zum besseren Verständniß des im Salon unter dem gleichen Namen aufgenommenen Kupfers mit. s. Graphik INr 44461, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "In der Hauptstadt Besserdich des Reiches Skandalia residirte der König Jerum, ein gottloser Neuerer, der mit den Freimaurern und andern Religionsspöttern im geheimen Bunde war.",
+      "language": [],
+      "musenalm_id": 44478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fanferlieschen Schönefüßchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet nach Cl. Brentano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fanferlieschen Schönefüßchen",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "ar7vs3nqt41b7on"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44479,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In demselben Verlag ist erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In demselben Verlag ist erschienen",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "jil4awkbgf57t5g"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44480,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_605_44480_hhbz9md4sr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-07-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "stzgtkw1e9njthc"
+    }
   ],
   "agents": [
     {

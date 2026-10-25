@@ -48,18 +48,393 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "py1w9jv4w227xrf"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.464Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404871",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.464Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "py1w9jv4w227xrf"
+    }
   ],
   "contents": [
-    "mdbzt6heyi7wzdh",
-    "a70u2sgb1543kuw",
-    "a32jzgc8ny7fg4v",
-    "4652d60i2nul9wt",
-    "f7iemh9db7zwx96",
-    "grtr0rbwxy46gji",
-    "w7u0tzhkglxlw3j",
-    "f2slkjs3onecjvz",
-    "kcet4aytqdkl2b6"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115725,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BERLINER / Theater-Almanach / auf / das Jahr 1838. / Herausgegeben / von / Alexander Cosmar. / Dritter Jahrgang. / Berlin. / Verlag von Th. Bade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "BERLINER / Theater-Almanach / auf / das Jahr 1838. / Herausgegeben / von / Alexander Cosmar. / Dritter Jahrgang. / Berlin. / Verlag von Th. Bade",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "mdbzt6heyi7wzdh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie schmeichlerisch um mich die Töne gleiten, / Wie lind, wie lockend sie in's Herz mir ziehn-",
+      "language": [],
+      "musenalm_id": 115726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poesie und Prosa. / Spiel in Versen, in einem Akt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Hocker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poesie und Prosa. / Spiel in Versen, in einem Akt",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "a70u2sgb1543kuw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Das ist nun schon das funfzehnte Frühstück, welches ich heute servire, aber an das meinige habe ich noch nicht denken können.",
+      "language": [],
+      "musenalm_id": 115727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ehestandswirren. / Lustspiel in einem Aufzuge, frei nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Cosmar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ehestandswirren. / Lustspiel in einem Aufzuge, frei nach dem Französischen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.499Z",
+          "agent": "2s3vhf9nlntlu1k",
+          "source_id": "dzoyj3ei59jy9bq"
+        }
+      ],
+      "source_id": "a32jzgc8ny7fg4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Meiner Treu, es lebe der heilige Martin! Es ist doch eine schöne Sache um die Pacht-Termine,",
+      "language": [],
+      "musenalm_id": 115728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stumme von Ingouville. / Melodrama in zwei Akten, / nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Genée",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stumme von Ingouville. / Melodrama in zwei Akten, / nach dem Französischen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.499Z",
+          "agent": "k3v4k6tlmdbu8n9",
+          "source_id": "l63ogxhff1z33jz"
+        }
+      ],
+      "source_id": "4652d60i2nul9wt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Ein Paar sonderbare Exemplare diese beiden Fremden! Man sagt doch: Gleich und Gleich gesellt sich gern",
+      "language": [],
+      "musenalm_id": 115729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schicksals-Pastete. / Lustspiel in einem Aufzuge, / nach einer Spindlerschen Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Bartsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schicksals-Pastete. / Lustspiel in einem Aufzuge, / nach einer Spindlerschen Erzählung",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.499Z",
+          "agent": "sp5lqflokonqbf3",
+          "source_id": "plm67j1eg8b35og"
+        }
+      ],
+      "source_id": "f7iemh9db7zwx96"
+    },
+    {
+      "annotation": "mit Vorwort: Den vorliegenden Scherz sah ich vor etwa zwölf Jahren in Paris. Die Darstellung des Hauptcharakters durch den berühmten Komiker Potier war eine so vollendete [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Ich lasse mich nicht so tyrannisiren! Tyrannisiren kann nur ein Tyrann; ich bin kein Tyrann.",
+      "language": [],
+      "musenalm_id": 115730,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / schöne Narciss. / Bagatelle in einem Aufzuge, / frei nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Blum",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / schöne Narciss. / Bagatelle in einem Aufzuge, / frei nach dem Französischen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.500Z",
+          "agent": "v8do49ob5395gqd",
+          "source_id": "gdq8h41omglmsj0"
+        }
+      ],
+      "source_id": "grtr0rbwxy46gji"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Hier ist Niemand. Alles schläft, Alles ruht; ach! nur ich finde keine Ruhe.",
+      "language": [],
+      "musenalm_id": 115731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Phlegma siegt, / oder: / das Messer des Virginins",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Albini",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Phlegma siegt, / oder: / das Messer des Virginins",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.500Z",
+          "agent": "j7o4gfpm608mbdy",
+          "source_id": "7elrt3pmw6gknsz"
+        }
+      ],
+      "source_id": "w7u0tzhkglxlw3j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Damen vor! - tourner! - chassez an die Wand! - nein, nein! Sie sind ja an der Reihe!",
+      "language": [],
+      "musenalm_id": 115732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gefangene wider Willen. / Dramatische Aufgabe in einem Akt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Cosmar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gefangene wider Willen. / Dramatische Aufgabe in einem Akt",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.500Z",
+          "agent": "2s3vhf9nlntlu1k",
+          "source_id": "3b35ctpt4zb6per"
+        }
+      ],
+      "source_id": "f2slkjs3onecjvz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115733,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "kcet4aytqdkl2b6"
+    }
   ],
   "agents": [
     {

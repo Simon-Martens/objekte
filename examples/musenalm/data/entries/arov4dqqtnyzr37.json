@@ -48,20 +48,491 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "xg8owz41t9cab7k"
+    {
+      "annotation": "Doppelband 3.und 4. Teil",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.713Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406772",
+      "location": "105D10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.713Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xg8owz41t9cab7k"
+    }
   ],
   "contents": [
-    "lble2xj8waedf2m",
-    "pm67btdhxl8nsgl",
-    "yecniz4tgto3i9k",
-    "fhi79vcqtpe7qj5",
-    "5x8aiec34bwwo8v",
-    "4pd8l27f0japtxz",
-    "7bjjtmit67extjz",
-    "6jqiyf16yr0f7by",
-    "cb7c4fmnk29htwm",
-    "4krk3lye0ml3er6",
-    "6rv8cpo15u3sl39"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gaben der Milde / Viertes Bändchen. / Mit Beiträgen / von / L. Achim von Arnim, F. W. Gubitz, / Heraklius, C. F. E. Ludwig, Wilh. / Müller, L. Velhar und Julius / von Voß. / Für die Bücher-Verloosung »zum Vortheil hülfloser Krie- / ger« herausgegeben von F. W. Gubitz. / Berlin, 1818",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3714_124367_uepplh93zc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gaben der Milde / Viertes Bändchen. / Mit Beiträgen / von / L. Achim von Arnim, F. W. Gubitz, / Heraklius, C. F. E. Ludwig, Wilh. / Müller, L. Velhar und Julius / von Voß. / Für die Bücher-Verloosung »zum Vortheil hülfloser Krie- / ger« herausgegeben von F. W. Gubitz. / Berlin, 1818",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "lble2xj8waedf2m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Doch es ist Zeit zu erzählen, wie der junge Ritter von Wädenschwyl so plötzlich wieder in dieser Gegend erschien.",
+      "language": [],
+      "musenalm_id": 128366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ida von Unspunnen. / (Schluß.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Velhar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ida von Unspunnen. / (Schluß.)",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "pm67btdhxl8nsgl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Wenn des Frühlings Rosen Dich umblühen, / Wenn der Jugend Morgenröthe winkt, / Denke: daß einst Sonnen selbst verglühen, / Schnell auch Deines Lebens Blüthe sinkt.",
+      "language": [],
+      "musenalm_id": 128367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Menschenleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. E. Ludwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Menschenleben",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.932Z",
+          "agent": "s1kns2oa9jymcwb",
+          "source_id": "cupu44y38mpqq42"
+        }
+      ],
+      "source_id": "yecniz4tgto3i9k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Gräfin: Dein Besuch, liebe Julie, freut mich sehr / Graf: Seit du am Hofe bist, haben wir das Vergnügen selten.",
+      "language": [],
+      "musenalm_id": 128368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Potsdammer Unteroffizier in / St. Petersburg. / (Dramatisirte Anekdote aus dem Leben des General von / Winterfeld.) / Versuch eines preußischen National-Schauspiels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius von Voß",
+      "scans": [
+        "alm_1773_128368_13tl1ai90s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Potsdammer Unteroffizier in / St. Petersburg. / (Dramatisirte Anekdote aus dem Leben des General von / Winterfeld.) / Versuch eines preußischen National-Schauspiels",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "abhfgnguv4pxoz1",
+          "source_id": "djwirwgi0eon3x5"
+        }
+      ],
+      "source_id": "fhi79vcqtpe7qj5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Graf Dürande, der gute alte Kommandant von Marseille, saß einsam frierend an einem kalt stürmenden Oktoberabende bei dem schlecht eingerichteten Kamine seiner prachtvollen Kommandantenwohnung",
+      "language": [],
+      "musenalm_id": 128369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der tolle Invalide auf dem Fort / Ratonneau. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Achim von Arnim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der tolle Invalide auf dem Fort / Ratonneau. / Erzählung",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "nj1bnjvv1lsid0i",
+          "source_id": "av9zrh4mykzgjnq"
+        }
+      ],
+      "source_id": "5x8aiec34bwwo8v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Im Morgenlande, wo die Weiber Sclavinnen seyn sollen und am Ende die Rolle so gut zu vertauschen wissen, wie die europäischen Frauen, hatte ein Philosoph gewaltig geliebelt;",
+      "language": [],
+      "musenalm_id": 128370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abdul Adef. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abdul Adef. / Erzählung",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "vsrh0rtn48r94zn"
+        }
+      ],
+      "source_id": "4pd8l27f0japtxz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Wilhelm Horner hatte in seinem drei und zwanzigsten Jahre eine derjenigen Uebereilungen begangen, die so mancher Weichherzige hienieden begeht: Er hatte geheiratet.",
+      "language": [],
+      "musenalm_id": 128371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der verkaufte Knabe. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heraklius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der verkaufte Knabe. / Erzählung",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "7bjjtmit67extjz"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 128373,128375, Obj 9-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Müllerlieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Müllerlieder",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "pcxk3uf54akmy6h"
+        }
+      ],
+      "source_id": "6jqiyf16yr0f7by"
+    },
+    {
+      "annotation": "Müllerlieder (Sammlung INr 128372, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Das Wandern ist des Müllers Lust / Das Wandern! / Das muß ein schlechter Müller sein, / Dem niemals fiel das Wandern ein, / Das Wandern!",
+      "language": [],
+      "musenalm_id": 128373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderlust",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderlust",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "fng35ndw22r5qqu"
+        }
+      ],
+      "source_id": "cb7c4fmnk29htwm"
+    },
+    {
+      "annotation": "Müllerlieder (Sammlung INr 128372, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Ich hört' ein Bächlein rauschen / Wohl aus dem Felsenquell, / Hinab zum Thal es rauschte / So frisch, so wunderhell.",
+      "language": [],
+      "musenalm_id": 128374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bach",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "2a37q2z7unta2c8"
+        }
+      ],
+      "source_id": "4krk3lye0ml3er6"
+    },
+    {
+      "annotation": "Müllerlieder (Sammlung INr 128372, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "Hätt' ich tausend / Arme zu rühren! / Könnt ich brausend / Die Räder führen!",
+      "language": [],
+      "musenalm_id": 128375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Feierabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Feierabend",
+      "updated": "2011-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.933Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "1uid7s79z11m1rh"
+        }
+      ],
+      "source_id": "6rv8cpo15u3sl39"
+    }
   ],
   "agents": [
     {

@@ -44,7 +44,26 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "q7ex74ygfhxnyij"
+    {
+      "annotation": "",
+      "condition": "80",
+      "created": "2026-06-11 10:17:37.828Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106529",
+      "location": "107AlmDB",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.828Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "q7ex74ygfhxnyij"
+    }
   ],
   "contents": [],
   "agents": []

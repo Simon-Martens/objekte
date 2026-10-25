@@ -48,62 +48,2313 @@
   "year": 1836,
   "editor": "",
   "items": [
-    "s2uxudvsxdwp3rw"
+    {
+      "annotation": " 1835-1838.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.569Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106499",
+      "location": "105A06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.569Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "s2uxudvsxdwp3rw"
+    }
   ],
   "contents": [
-    "uledrerx3001u5w",
-    "rcpocft2hfamqt9",
-    "3jd05o7k6n48908",
-    "ky14shgjnojaz31",
-    "a7ro9lvose30u7v",
-    "ns7rud9z6wm23lw",
-    "443leb0pj1fctoh",
-    "vokfx6we1ebcrlm",
-    "zh90lfdvqfwk6b2",
-    "7fd5sohshzwkynr",
-    "r75hycf92vgi68g",
-    "c4gm1tgpvojttfk",
-    "dd17c9lrx0n7zzu",
-    "c7i3p6799ozy5ph",
-    "kqs0wmzgmflwdzi",
-    "s6bb2y5t7g5wacn",
-    "bzv5vjjyds4afxh",
-    "g6w8yto1rqnx6hr",
-    "uvmqn6whyzzax39",
-    "8aq8a9135isyohm",
-    "zejh9ufl22c3vsa",
-    "imeif9nuqvliq11",
-    "8jb92d9e6fse3hu",
-    "yawef7cmnb4bzmc",
-    "lyzwph4280bp5g3",
-    "4tt0kha5q6ffseb",
-    "3mlke1rlh16qxzu",
-    "jgzh7s3sln0kwgp",
-    "yscadadr13sxyav",
-    "w32oxoab9h0g6az",
-    "890zbpg0dl3pngt",
-    "cjime5t83tkiatg",
-    "uf6fuymdp8udf5j",
-    "b0hedc27ure42z4",
-    "piqnnmuiz7xaa73",
-    "x59hfo4try5a67k",
-    "neuwgvh2sec3cwa",
-    "zuylqld3flp4qr0",
-    "v1ukavu6uuasgoc",
-    "57kt1z5dssmb4ef",
-    "oyav675y1vhhcio",
-    "5gthrxf3i2841sj",
-    "gy4h0di6bnc69hb",
-    "m86x8bff2yjyowo",
-    "pfqi0dnlfe5akse",
-    "4qf828aacf70wdx",
-    "1c5ztcysqtmyh5z",
-    "1j7jarx308s6l26",
-    "jdl4tkay6o2el8k",
-    "edts5hzii8wb3ve",
-    "umrkobzwp7hkjid",
-    "avyzenicwqyopvh",
-    "mlqnclw0cuanyvi"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113180,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenlob. / Taschenbuch / für / das Jahr / 1836",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1781_113180_f44uujkatu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenlob. / Taschenbuch / für / das Jahr / 1836",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "uledrerx3001u5w"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Schubert's schönstes Lied. / Musikalische Novelle« von J. B. C. v. Jannach INr 113192, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113181,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Steinrucker del. Leop. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1781_113181_b0yzokcs5a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "676ekai5edpan1q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "kci4d7okedmxtwl"
+        }
+      ],
+      "source_id": "rcpocft2hfamqt9"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113182,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenlob. / Taschenbuch / für das Jahr / 1836. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / WIEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Passini del. et sc.",
+      "scans": [
+        "alm_1781_113182_w2tf5o53zl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenlob. / Taschenbuch / für das Jahr / 1836. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / WIEN",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "3yi92r1cu3m35y9"
+        }
+      ],
+      "source_id": "3jd05o7k6n48908"
+    },
+    {
+      "annotation": "Illustration zu »Giulietta Amieri« von Fr. Fitziger INr 113209, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.863Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113183,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ZUR ERZAEHLUNG: GUGLIETTA AMIERI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker del. Jos. Jung sc.",
+      "scans": [
+        "alm_1781_113183_npk86m6ndo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ZUR ERZAEHLUNG: GUGLIETTA AMIERI",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "5uvf40a06obh14i"
+        }
+      ],
+      "source_id": "ky14shgjnojaz31"
+    },
+    {
+      "annotation": "Illustration zu »Ahasverus« von Chr. Kuffner INr 113185, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113184,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AHASVERUS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker del. Dav. Burkhart sc.",
+      "scans": [
+        "alm_1781_113184_3wxrkrmpx9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AHASVERUS",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "327xfzdoy71t9fl",
+          "source_id": "aurjsplwhesjuox"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "dalbs9t348du7gk"
+        }
+      ],
+      "source_id": "a7ro9lvose30u7v"
+    },
+    {
+      "annotation": "Illustration zu »Das Brauthemde« von J. N. Vogl INr 113215, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.867Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113186,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS BRAUTHEMDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1781_113186_65fq78al6t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS BRAUTHEMDE",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "0394c0jgfalqoov"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "q3ayhq94x83qtfa"
+        }
+      ],
+      "source_id": "ns7rud9z6wm23lw"
+    },
+    {
+      "annotation": "Illustration zu »Schön Jela« von J. N. Vogl INr 113218, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113187,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ZUR ERZAEHLUNG: SCHOEN JELA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker del. Jos. Jung sc.",
+      "scans": [
+        "alm_1781_113187_q6m09pvcsm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ZUR ERZAEHLUNG: SCHOEN JELA",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "p4dupwh6fgddm7m"
+        }
+      ],
+      "source_id": "443leb0pj1fctoh"
+    },
+    {
+      "annotation": "Illustration zu »Schön Jela« von J. N. Vogl INr 113218, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113188,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ZUR ERZAEHLUNG: SCHOEN JELA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker del. Jos. Jung sc.",
+      "scans": [
+        "alm_1781_113188_m2owxdkp0v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ZUR ERZAEHLUNG: SCHOEN JELA",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "n3mbb2rd4c0wo15"
+        }
+      ],
+      "source_id": "vokfx6we1ebcrlm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113189,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "zh90lfdvqfwk6b2"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenlob. / Taschenbuch für das Jahr / 1836. / Zweiter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenlob. / Taschenbuch für das Jahr / 1836. / Zweiter Jahrgang",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "7fd5sohshzwkynr"
+    },
+    {
+      "annotation": "Motto a. d. Titelblatt verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Ich lob die Frauen früh und spat, / Ihr Lob das will ich immer mehren.",
+      "language": [],
+      "musenalm_id": 113191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich lob die Frauen früh und spat, / Ihr Lob das will ich immer mehren.…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Frauenlob",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "r75hycf92vgi68g"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 113181, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Vor einer Lache stand ich und horchte dem klagenden Unkenrufe, der aus zwei Kehlen mit der kleinen, wehmüthigen Terze zu vernehmen war.",
+      "language": [],
+      "musenalm_id": 113192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schubert's schönstes Lied. / Musikalische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. C. von Jannach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schubert's schönstes Lied. / Musikalische Novelle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "eu2eboe6793wtwx",
+          "source_id": "kch9kgfbp28f0qp"
+        }
+      ],
+      "source_id": "c4gm1tgpvojttfk"
+    },
+    {
+      "annotation": "Sammlung von 15 Gedichten INr 113194-113208, Obj 14-28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fliegende Blätter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fliegende Blätter",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "oaw3hhcp7xbvz8y"
+        }
+      ],
+      "source_id": "dd17c9lrx0n7zzu"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Neigte sich die Sonne nieder / Mit dem Antlitz, mit dem klaren,",
+      "language": [],
+      "musenalm_id": 113194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "x8q0te43bkxjogy"
+        }
+      ],
+      "source_id": "c7i3p6799ozy5ph"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Es hat der Herr statt eitlen Guts / Gegeben mir den Sang",
+      "language": [],
+      "musenalm_id": 113195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "50pfvhh7evb6y7f"
+        }
+      ],
+      "source_id": "kqs0wmzgmflwdzi"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Vogel ist mein bester Freund / Und ich bin der seine,",
+      "language": [],
+      "musenalm_id": 113196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.410Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "vpneg2trp99l1en"
+        }
+      ],
+      "source_id": "s6bb2y5t7g5wacn"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Jetzt singen zusammen. / Der Vogel und ich,",
+      "language": [],
+      "musenalm_id": 113197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.410Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "g2s3q5eriwnjcjm"
+        }
+      ],
+      "source_id": "bzv5vjjyds4afxh"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Der Vogel auf dem Zweige / Von einer Rose sang,",
+      "language": [],
+      "musenalm_id": 113198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.410Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "hu1ittffpc8smsc"
+        }
+      ],
+      "source_id": "g6w8yto1rqnx6hr"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Stand einst unter einem Baume / Noch als Knab' von Lust erglüht",
+      "language": [],
+      "musenalm_id": 113199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.410Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "iwp31inkixx18ri"
+        }
+      ],
+      "source_id": "uvmqn6whyzzax39"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Hab' als Vöglein oft belauscht / In den grünen Zweigen",
+      "language": [],
+      "musenalm_id": 113200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.417Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "eu72ll7rngmsme7"
+        }
+      ],
+      "source_id": "8aq8a9135isyohm"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.342Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Ich möcht's in Noten setzen / Was Fink und Lerche singt,",
+      "language": [],
+      "musenalm_id": 113201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "uoc7lkhry3uk3zv"
+        }
+      ],
+      "source_id": "zejh9ufl22c3vsa"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.342Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Vöglein mag Gesellschaft gern / Auf der grünen Haid',",
+      "language": [],
+      "musenalm_id": 113202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "uygbkb4eolie7yx"
+        }
+      ],
+      "source_id": "imeif9nuqvliq11"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Ich lieb's so sehr zu liegen / Umblüht vom wald'gen Raum,",
+      "language": [],
+      "musenalm_id": 113203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "pgheg3q6edx1gc4"
+        }
+      ],
+      "source_id": "8jb92d9e6fse3hu"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Ein Adler sitzt in seinem Horst / Auf naktem Felsgestein,",
+      "language": [],
+      "musenalm_id": 113204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "qc35r3owa1po7e2"
+        }
+      ],
+      "source_id": "yawef7cmnb4bzmc"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Willst du einen Vogel haben, / Liebchen, der im Käfig singt,",
+      "language": [],
+      "musenalm_id": 113205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "emqfapgp7dimhk9"
+        }
+      ],
+      "source_id": "lyzwph4280bp5g3"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Nur umrauscht von grünen Blättern / Läßt die Nachtigall mir Lust",
+      "language": [],
+      "musenalm_id": 113206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "uunnbu5l7mzfaiw"
+        }
+      ],
+      "source_id": "4tt0kha5q6ffseb"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Weißt Vöglein du, warum der Tag / So heiter uns verstreicht,",
+      "language": [],
+      "musenalm_id": 113207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "wt8g5xghugy6sfh"
+        }
+      ],
+      "source_id": "3mlke1rlh16qxzu"
+    },
+    {
+      "annotation": "Fliegende Blätter (Sammlung INr 113193, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Wenn ein kalter Wind aus Norden / Sausend durch die Blätter zieht",
+      "language": [],
+      "musenalm_id": 113208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "52ptyl7jo9s3x6n"
+        }
+      ],
+      "source_id": "jgzh7s3sln0kwgp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 113183, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Helleuchtende Blitze durchzuckten eine, zum Ersticken schwüle Augustnacht des für Italien so verderblichen Jahres 1348.",
+      "language": [],
+      "musenalm_id": 113209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Giuletta Amieri. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Giuletta Amieri. / Novelle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "7mt8748ybe4ggtj"
+        }
+      ],
+      "source_id": "yscadadr13sxyav"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 113184, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.867Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Todesmüd' - und dennoch ohne Ruh'! / Lebenssatt - und dennoch lebensvoll!",
+      "language": [],
+      "musenalm_id": 113185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ahasverus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christoph Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ahasverus",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.409Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "tjx9jli975srxa6"
+        }
+      ],
+      "source_id": "w32oxoab9h0g6az"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Wie ? ist das freundlich Herr April, / Mit Schnee uns zu begrüßen,",
+      "language": [],
+      "musenalm_id": 113210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aprilflocken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andr. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aprilflocken",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "ddrlaol83nopvg9"
+        }
+      ],
+      "source_id": "890zbpg0dl3pngt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Flüchtig enteilen in Scherzen die Stunden, / Freundlich doch heilen sie Schmerzen und Wunden;",
+      "language": [],
+      "musenalm_id": 113211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sylvesterabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andr. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sylvesterabend",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "n9wu1hb5x2ntsme"
+        }
+      ],
+      "source_id": "cjime5t83tkiatg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Laß dich willig pflücken, / Weiße Lilie hier, / Und der Worte schönstes / Schreib' ich hin mit dir!",
+      "language": [],
+      "musenalm_id": 113212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das schönste Wort",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carlopago",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das schönste Wort",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "xaj6m1llkx5hiyx",
+          "source_id": "hsb0kyzhlpj9rt3"
+        }
+      ],
+      "source_id": "uf6fuymdp8udf5j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "An der silberklaren Quelle / Lag ich träumend und entschlief -",
+      "language": [],
+      "musenalm_id": 113213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesassecuranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Hannusch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesassecuranz",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.443Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.443Z",
+          "agent": "1gx7z956tuv7ghs",
+          "source_id": "69t9l6qhmopnosj"
+        }
+      ],
+      "source_id": "b0hedc27ure42z4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Im Hause der Baronin von Schrank war eine zahlreiche Gesellschaft versammelt.",
+      "language": [],
+      "musenalm_id": 113214,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der gespenstige Obrist. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der gespenstige Obrist. / Erzählung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.444Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.444Z",
+          "agent": "nz03xhzpzbg7xlq",
+          "source_id": "2nmi3oxw2sklfvq"
+        }
+      ],
+      "source_id": "piqnnmuiz7xaa73"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 113186, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Mit Kaiser Barbarossas Macht / Herr Kuno zog in die Heidenschlacht,",
+      "language": [],
+      "musenalm_id": 113215,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Brauthemde. / (Schwank.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Brauthemde. / (Schwank.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.444Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.444Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "m3e5u0dnvy3q28w"
+        }
+      ],
+      "source_id": "x59hfo4try5a67k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Oft ist es tief, im Herbste schon, / Und immer ist noch grün das Laub der Bäume,",
+      "language": [],
+      "musenalm_id": 113216,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eitle Hoffnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eitle Hoffnung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.444Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.444Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "c6bdv8m7v6q887h"
+        }
+      ],
+      "source_id": "neuwgvh2sec3cwa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Wir saßen und scherzten und sangen / Champagner kreist' in dem Chor;",
+      "language": [],
+      "musenalm_id": 113217,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bundesbruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bundesbruch",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.444Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.444Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "ah45fyy7a5g2quc"
+        }
+      ],
+      "source_id": "zuylqld3flp4qr0"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 113187, 113188; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "In einer Gegend, welche gegenwärtig zur Türkei gehört, herrschte ein gewaltiger und weiser König.",
+      "language": [],
+      "musenalm_id": 113218,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schön Jela. / Serbisches Volksmärchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schön Jela. / Serbisches Volksmärchen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.262Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "zwnu2tndc9kawjk"
+        }
+      ],
+      "source_id": "v1ukavu6uuasgoc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Wie wandelt die Burgfrau von Falkenstein / So prunkend im gold'nen Geschmeide!",
+      "language": [],
+      "musenalm_id": 113219,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der beinerne Tisch. / (Kärntnerische Volkssage.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der beinerne Tisch. / (Kärntnerische Volkssage.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.262Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "ge1cowr0ik5xbsy"
+        }
+      ],
+      "source_id": "57kt1z5dssmb4ef"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Ungefähr achtzig Jahre vor jener Epoche, wo das von Leopold dem Ruhmwürdigen auf den Mauern von Ptolemais gepflanzte Panier,",
+      "language": [],
+      "musenalm_id": 113220,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die erste Eroberung von Ptolemais. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Kupelwieser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die erste Eroberung von Ptolemais. / Historische Erzählung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "oyav675y1vhhcio"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Fels auf Felsen hingewälzet, / Fester Grund und treuer Halt, [...] Joh. Mayerhofer /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Der Erdfall Maczocha, früher Propast oder Proposte genannt, der größte in den österreichischen Kaiserstaaten, befindet sich nordwärts von Brünn, in der Gemeinde Willimowitz",
+      "language": [],
+      "musenalm_id": 113221,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Höhle von Marzocha in Mähren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Höhle von Marzocha in Mähren",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "5gthrxf3i2841sj"
+    },
+    {
+      "annotation": "Der Sammlung vonrangestellt: Dunkler engt sich die Schlucht und immer dunkler zusammen. / Kundiger Führer o sag', was deutet die plötzliche Stille, [...] G. A. von Maltitz /) Es folgen 2 Beiträge INr 113223, 113224; Obj 44, 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113222,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sagen und Mährchen / von der Höhle Maczocha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sagen und Mährchen / von der Höhle Maczocha",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "gy4h0di6bnc69hb"
+    },
+    {
+      "annotation": "Sagen und Mährchen von der Höhle Maczocha (Sammlung INr 113222, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.367Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Ueber lockres Steingerölle und über furchtbar aufgeschichtete Felsentrümmer gelangt man, nicht ohne die größten Mühen, auf den Giebel des Felsens,",
+      "language": [],
+      "musenalm_id": 113223,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Stiefmutter. / Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Böhm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Stiefmutter. / Volkssage",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "m86x8bff2yjyowo"
+    },
+    {
+      "annotation": "Sagen und Mährchen von der Höhle Maczocha (Sammlung INr 113222, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Zur Zeit der Hussiten wurde, wie die Sage erzählt, ein Räuber mit Namen Obesslik, der sich nur auf das Versprechen: daß man seines Blutes schonen würde, ergeben hatte, zum Hungertode verurtheilt,",
+      "language": [],
+      "musenalm_id": 113224,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Lindwurm in der Maczocha. Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeno",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Lindwurm in der Maczocha. Volkssage",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "pfqi0dnlfe5akse"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 113226-113229, Obj 47-50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2901",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113225,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte auf die Maczocha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte auf die Maczocha",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "4qf828aacf70wdx"
+    },
+    {
+      "annotation": "Gedichte auf die Maczocha (Sammlung INr 113225, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Inmitten der mährische Landen, waldein, / Da windet der Weg sich durch's wilde Gestein,",
+      "language": [],
+      "musenalm_id": 113226,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.331Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.331Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "zd2agv5ho3iu2cm"
+        }
+      ],
+      "source_id": "1c5ztcysqtmyh5z"
+    },
+    {
+      "annotation": "Gedichte auf die Maczocha (Sammlung INr 113225, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Im fels'gen Thal nicht ferne von Brünn / Erhebt eine Wald sich, mitten darin / Stürzt ab in ein Felsenkessel.",
+      "language": [],
+      "musenalm_id": 113227,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. von Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.331Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.331Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "lygvybvmjb3yx3f"
+        }
+      ],
+      "source_id": "1j7jarx308s6l26"
+    },
+    {
+      "annotation": "Gedichte auf die Maczocha (Sammlung INr 113225, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.689Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Es wandert durch den dichten Hain / Die junge Köhlerin, / Fromm wie ein Lämmlein hinterdrein / Ihr Kind, mit muntrem Sinn.",
+      "language": [],
+      "musenalm_id": 113228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. A. Frankl",
+      "scans": [
+        "alm_1782_113228_z34oogrx43.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.460Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.460Z",
+          "agent": "fjw259e60ifm3ie",
+          "source_id": "oi3hbqo0t23ghs2"
+        }
+      ],
+      "source_id": "jdl4tkay6o2el8k"
+    },
+    {
+      "annotation": "Gedichte auf die Maczocha (Sammlung INr 113225, Obj 46) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "Hoch über'm letzten Wipfel, / Über der Wolken Flug, / Dort auf Nivonas Gipfel / Schaut' ich der Alpen Zug.",
+      "language": [],
+      "musenalm_id": 113229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.460Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.460Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "czatoyenr13k1gm"
+        }
+      ],
+      "source_id": "edts5hzii8wb3ve"
+    },
+    {
+      "annotation": "Dem Gedicht vorangestellt: Da ließ der Herr Schwefel und Feuer vom Himmel herab auf Sodom und Gomorrha. [...] Genesis",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Seht dort die schwarze Wolk' ihr wohl vorübergehn, / Bald blaß, bald wieder roth und glänzend anzusehn / Und trüb, gleich dürren Sommertagen?",
+      "language": [],
+      "musenalm_id": 113230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Feuer des Himmels",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Victor Hugo [übers.] Carlopago",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Feuer des Himmels",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.460Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.460Z",
+          "agent": "xaj6m1llkx5hiyx",
+          "source_id": "gz44ucuz2zh1716"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.460Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.460Z",
+          "agent": "qpv7d20ox0ad1sj",
+          "source_id": "w620bwmgcpdkd40"
+        }
+      ],
+      "source_id": "umrkobzwp7hkjid"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "avyzenicwqyopvh"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113232,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1781_113232_msbj5e3dze.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "mlqnclw0cuanyvi"
+    }
   ],
   "agents": [
     {

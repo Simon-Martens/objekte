@@ -48,52 +48,1613 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "wdc94re4ywlhehx"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.511Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200410",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.511Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wdc94re4ywlhehx"
+    }
   ],
   "contents": [
-    "x3km6xgtq40nhh4",
-    "sqt5mqyt53kemgf",
-    "ue6c16jtntmxnwp",
-    "23knc9mzrjmns6w",
-    "0tdwm4w0s6qzype",
-    "t356galpf6pasfs",
-    "38ed2372oq1dpau",
-    "ukm139jc2c3gyzh",
-    "9hhhz92owr48bgr",
-    "6qocse98rmkd4xq",
-    "sznx4df5h4oxps2",
-    "b6rjg94stqvoyg3",
-    "knylotyxpyzrsxk",
-    "1k1xfrkzwq84yg1",
-    "ittx5jyejfwgo4x",
-    "m4cp0qmdmkfxdne",
-    "st1oykmq8apcskr",
-    "g5st2mfwve1d5r3",
-    "1ai9nyvkmqobc3u",
-    "5a0fogzakwo77rr",
-    "8rc6p05k0jyn7s7",
-    "crv2ijrqajkpziz",
-    "dupuktharuofptk",
-    "5930hw379m7ea4a",
-    "tcowm63vdvpa0do",
-    "d9nx3vq0qubmos3",
-    "12hufg1296csqox",
-    "hd19fcb7ck2r3j8",
-    "qevemui0ltzs9sv",
-    "71qqa8jcbg4w9vd",
-    "710jdxcifiygdbv",
-    "n4o564ys4egw0k8",
-    "ob3wqjcgu6lkfuy",
-    "783zzdcx6we9s7t",
-    "1nq2i5ermhekjds",
-    "90zmdgoc7zsvwem",
-    "hzfk2fffyobxmju",
-    "a91u5tllyi7fy64",
-    "78xnydpo0j0metd",
-    "itdys46nmlnqgjf",
-    "az79ta71s79nq6o",
-    "3hfqk54r7rjivde",
-    "8j5u2hdkirgk52i"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51503,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_699_51503_z8maj12tci.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "x3km6xgtq40nhh4"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 51533, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51504,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kiltgang im Canton Bern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. König del. H. Lips sculp.",
+      "scans": [
+        "alm_699_51504_ip5mh0fqrg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Kiltgang im Canton Bern",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.487Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "4h13pa192caar65"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.487Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "ecw3p4nhfqnqeml"
+        }
+      ],
+      "source_id": "sqt5mqyt53kemgf"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51505,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / für das Jahr / 1800. / Zürich, / bey Orell, Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_699_51505_cjwlmfcg5q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / für das Jahr / 1800. / Zürich, / bey Orell, Füssli & Comp.",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ue6c16jtntmxnwp"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51506,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Revolutionsalmanach / für / das Jahr 1800. / Zürich, bey Orell, Füßli und Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_699_51506_5ijmtb339l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Revolutionsalmanach / für / das Jahr 1800. / Zürich, bey Orell, Füßli und Comp.",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "23knc9mzrjmns6w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51507,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "0tdwm4w0s6qzype"
+    },
+    {
+      "annotation": "kol. Tachtenkupfer im Kalendarium (März) s. Textbezug INr 51534, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51508,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schweizer Soldat / aus dem 16ten Jahrhundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Holbein del.",
+      "scans": [
+        "alm_699_51508_pufhm89cvp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schweizer Soldat / aus dem 16ten Jahrhundert",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.603Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.603Z",
+          "agent": "knbo7jjf5xxcvwi",
+          "source_id": "79ozpti86p7xxkc"
+        }
+      ],
+      "source_id": "t356galpf6pasfs"
+    },
+    {
+      "annotation": "kol. Tachtenkupfer im Kalendarium (Juni) s. Textbezug INr 51535, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51509,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Unterwaldner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_699_51509_70yqqp0huo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Unterwaldner",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "38ed2372oq1dpau"
+    },
+    {
+      "annotation": "kol. Tachtenkupfer im Kalendarium (Oktober) s. Textbezug INr 51535, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.893Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51510,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Unterwaldnerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_699_51510_l3s8w9sdg8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Unterwaldnerin",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ukm139jc2c3gyzh"
+    },
+    {
+      "annotation": "kol. Tachtenkupfer im Kalendarium s. Textbezug INr 51536, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51511,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einsamkeit Arnold Winkelrieds v. Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer f.",
+      "scans": [
+        "alm_699_51511_hvundrvnmw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einsamkeit Arnold Winkelrieds v. Unterwalden",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.603Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.603Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "irstkmrsnhhtcsk"
+        }
+      ],
+      "source_id": "9hhhz92owr48bgr"
+    },
+    {
+      "annotation": "Januar-Oktober 1799; mit einem Nachtrag INr 51540, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51512,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chronik / des / Jahrs 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chronik / des / Jahrs 1799",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "6qocse98rmkd4xq"
+    },
+    {
+      "annotation": "s. Textbezug INr 51537, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51513,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Scholberg-dem Lucisteig gegenüber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Hess sc.",
+      "scans": [
+        "alm_699_51513_vme10g94zj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Am Scholberg-dem Lucisteig gegenüber",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.603Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.603Z",
+          "agent": "uc4ahm2w7hhtikb",
+          "source_id": "icuidsamg7ly4yb"
+        }
+      ],
+      "source_id": "sznx4df5h4oxps2"
+    },
+    {
+      "annotation": "s. Textbezug INr 51538, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51514,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey Hirslanden unweit Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Hess fec.",
+      "scans": [
+        "alm_699_51514_mvoq51y08i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bey Hirslanden unweit Zürich",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.603Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.603Z",
+          "agent": "uc4ahm2w7hhtikb",
+          "source_id": "jysk7s0emqfgt5o"
+        }
+      ],
+      "source_id": "b6rjg94stqvoyg3"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich schreibe dir diesen Brief aus den hiesigen Bädern, wohin mich die Gicht an den Händen getrieben, und denke, sie verdienen es, sowohl die Lage und Anmuth derselben, als die Sitten der sich hier aufhaltenden Gäste, und ihre Badensweise dir zu schildern.",
+      "language": [],
+      "musenalm_id": 51515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Bäder / zu / Baden in der Schweiz. J. J. 1417. / Joh. Franz Poggio / an seinen Landsmann / Nicolo Nicoli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Bäder / zu / Baden in der Schweiz. J. J. 1417. / Joh. Franz Poggio / an seinen Landsmann / Nicolo Nicoli",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "knylotyxpyzrsxk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Von Baden, wo ich mich mehrere Tage aufhielt, schrieb ich einen Brief an Nikolaus, den du, wie ich vermuthe, lesen wirst. Ich war wieder einige Tage in Constanz, als der Proceß des Hieronymus, den man für eine Ketzter hält, seinen Anfang nahm,",
+      "language": [],
+      "musenalm_id": 51516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Hieronymus von Prag. / J. J. 1417. / Poggius an Leonard von Aretium",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Hieronymus von Prag. / J. J. 1417. / Poggius an Leonard von Aretium",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "1k1xfrkzwq84yg1"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Bald jederman kennt aus Schillers Horen die äusserst anziehende Selbstbiographie des berühmten florentinischen Bildhauers, Stempelschneiders und Goldarbeiters, Benvenuto Cellini ( geb. 1500. st. 1573.),",
+      "language": [],
+      "musenalm_id": 51517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Benvenuto Cellini / in der / Schweiz / 1537",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Benvenuto Cellini / in der / Schweiz / 1537",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ittx5jyejfwgo4x"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Von Tann kamen wir nach Mühlhausen, eine kleine schweizerische Stadt des Kantons Basel. Der Herr von Montaigne sah hier, mit ganz besondrer Lust, seinen Gastwirth zur Traube, von dem prächtigen ganz vergoldeten Rathaus,",
+      "language": [],
+      "musenalm_id": 51518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Michel Montaigne's / Reise durch die Schweiz. / J. J. 1580",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Michel Montaigne's / Reise durch die Schweiz. / J. J. 1580",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "m4cp0qmdmkfxdne"
+    },
+    {
+      "annotation": "mit Anmerkungen /) mit einer Illustration s. Graphik INr 51520, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "An der östlichen Seite des Vierwaldstätter-Sees, fast im Mittelpunkte desselben, liegt der Flecken Gersau, und bildet mit den dazu gehörigen Grundstücken ein Vorgebürge am Fuß des Rigi-Berges.",
+      "language": [],
+      "musenalm_id": 51519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Republik / Gersau. / J. J. 1797",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Republik / Gersau. / J. J. 1797",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "st1oykmq8apcskr"
+    },
+    {
+      "annotation": "Illustration zu »Die Republik Gersau. J. J. 1797« INr 51519, Obj 17 s.a. Textbezug INr 51539, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gersau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Hess",
+      "scans": [
+        "alm_699_51520_9hs4hmlrm6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gersau",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.583Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.583Z",
+          "agent": "uc4ahm2w7hhtikb",
+          "source_id": "uhwmtupx34mgvfc"
+        }
+      ],
+      "source_id": "g5st2mfwve1d5r3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Es gehört mit zu dem Charakteristischen unsrer Tage, daß sich auch unter dem Gewühl der Leidenschaften, der Revolutionen, und dem Geräusche der Waffen, mitten unter dem blutigen Kampf exaltirter Meinungen,",
+      "language": [],
+      "musenalm_id": 51521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Merkwürdige Confirmation / einer taubstummen Tochter / zu / Genf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Merkwürdige Confirmation / einer taubstummen Tochter / zu / Genf",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ai9nyvkmqobc3u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Ungeachtet ich noch nicht weiß, ob und wann dieser Brief wird an Sie gelangen können, indem seit mehr als sechs Wochen aller Verkehr zwischen Deutschland und der Schweiz aufgehoben ist,",
+      "language": [],
+      "musenalm_id": 51522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Ueber die / Gemählde-Ausstellung / in Zürich. / An einen Freund in Deutschland. / (Aus einem Briefe, geschrieben im May 1799.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Ueber die / Gemählde-Ausstellung / in Zürich. / An einen Freund in Deutschland. / (Aus einem Briefe, geschrieben im May 1799.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "5a0fogzakwo77rr"
+    },
+    {
+      "annotation": "Anm. am Objekt: Der selbe, von Zürich gebürthige junge Bildhauer in Rom, dessen S. 141. mit Recht so rühmlich Erwähnung geschieht. [...] s. Beitrag INr 51522, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Wie auf doppeltem Pfad einst Herkules, steh' / ich, verwirret / Durch den zweifachen Ruf, der mir verwehrt, / und mich heißt.",
+      "language": [],
+      "musenalm_id": 51523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Der / Jüngling auf dem Scheideweg. / (May 1799.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Keller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Der / Jüngling auf dem Scheideweg. / (May 1799.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.679Z",
+          "agent": "xydtn3fjijfv56e",
+          "source_id": "yhyyggnfpehfzov"
+        }
+      ],
+      "source_id": "8rc6p05k0jyn7s7"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 51525, 51526; Obj 23, 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Litteratur und Kunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Litteratur und Kunst",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "crv2ijrqajkpziz"
+    },
+    {
+      "annotation": "IX. Litteratur und Kunst (Sammlung INr 51524, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Zehn in den zwey letzten Jahren erschienen Werke, die Schweiz betreffend, welche mehr als gewöhnliche Aufmerksamkeit verdienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Zehn in den zwey letzten Jahren erschienen Werke, die Schweiz betreffend, welche mehr als gewöhnliche Aufmerksamkeit verdienen",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "dupuktharuofptk"
+    },
+    {
+      "annotation": "IX. Litteratur und Kunst (Sammlung INr 51524, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Kunstanzeigen / von 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Kunstanzeigen / von 1799",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "5930hw379m7ea4a"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz s. INr 51540, Obj 38 /)  paginiert C s. Textbezug INr 51529, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Zürchersee",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. Heß",
+      "scans": [
+        "alm_699_51527_nn3j627rmz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Am Zürchersee",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.679Z",
+          "agent": "uc4ahm2w7hhtikb",
+          "source_id": "xsktu6xqheph6s4"
+        }
+      ],
+      "source_id": "tcowm63vdvpa0do"
+    },
+    {
+      "annotation": "mit 2 Kapiteln INr 51329, 51530; Obj 27, 28 als Textbezüge zu 2 Graphiken INr 51527, Obj 25; INr 51531, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Auffallend verschieden sind diese zwey Arten von ländlichen Wohnungen, aus einem und demselben helvetischen Canton",
+      "language": [],
+      "musenalm_id": 51528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetische Bauarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helvetische Bauarten",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "d9nx3vq0qubmos3"
+    },
+    {
+      "annotation": "Helvetische Bauarten (Sammlung INr 51528, Obj 26) s. Graphik INr 51527, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Stellt die Wohnung eines Landmanns vom Ufer des Zürich-Sees vor, und zwar von der gewöhnlichen, gemeinern Art.",
+      "language": [],
+      "musenalm_id": 51529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C.",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "12hufg1296csqox"
+    },
+    {
+      "annotation": "Helvetische Bauarten (Sammlung INr 51528, Obj 26) s. Graphik INr 51531, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Ist die Wohnung eines Landmanns aus dem Wehnthal im nordwestlichen Theile des Cantons;",
+      "language": [],
+      "musenalm_id": 51530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "D",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "hd19fcb7ck2r3j8"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz s. INr 51540, Obj 38 /) paginiert D s. Textbezug INr 51530, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Wenthal, Canton Zürich",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. Heß",
+      "scans": [
+        "alm_699_51531_5ymsdsccvq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Im Wenthal, Canton Zürich",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.679Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.679Z",
+          "agent": "uc4ahm2w7hhtikb",
+          "source_id": "thed7i2124deu6g"
+        }
+      ],
+      "source_id": "qevemui0ltzs9sv"
+    },
+    {
+      "annotation": "Sammlung von 9 Textbezügen INr 51533-51541, Obj 31-39 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "71qqa8jcbg4w9vd"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Titelgraphik INr 51504, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Fast allgemein herrschend ist im Canton Bern noch die Sitte älterer Zeiten, die man auch in vielen deutschen Gegenden findet, der Abendbesuch zwischen mannbaren Jünglingen und Mädchen,",
+      "language": [],
+      "musenalm_id": 51533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Dem Titelblatt gegenüber.) / Der Kiltgang. / (Gezeichnet von H. König, gest. v. H. Lips.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Dem Titelblatt gegenüber.) / Der Kiltgang. / (Gezeichnet von H. König, gest. v. H. Lips.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "710jdxcifiygdbv"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphik im Kalendarium INr 51508, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Ein Schweizer-Soldat aus dem XVI. Jahrhundert, ungefähr so, wie wir uns denselben in seiner Streitlust und Siegesstolz, während den italiänischen Feldzügen vorstellen müssen, nach Holbeins Zeichnung;",
+      "language": [],
+      "musenalm_id": 51534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Merz.) / Schweizer Trachten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Merz.) / Schweizer Trachten",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4o564ys4egw0k8"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphiken im Kalendarium INr 51509, 51510; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Die Sitten der Unterwaldner sagt Norrmann II. 1343 u.s.f. sind unter allen Schweizer Sitten wohl am wenigsten verdorben,",
+      "language": [],
+      "musenalm_id": 51535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Schweizer Trachten.] (Juny.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Schweizer Trachten.] (Juny.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ob3wqjcgu6lkfuy"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphik im Kalendarium INr 51511, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "In den drückendsten Tagen unsers Vaterlandes, unterm wilden Kriegesgelerm und dem Donner des Geschützes zweyer mächtiger Heere im Schoos unserer Berge,",
+      "language": [],
+      "musenalm_id": 51536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Christmonat.) / Einsamkeit Winkelrieds. / (Von J. H. Meyer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Christmonat.) / Einsamkeit Winkelrieds. / (Von J. H. Meyer.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "783zzdcx6we9s7t"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphik INr 51513, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Da, wo der Rhein die räthische Landschaft verläßt und den flächern Gegenden des Rheinthals und der vorderösterreichischen Lande zueilt,",
+      "language": [],
+      "musenalm_id": 51537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Schollberg unweit Sargans. / (Von Ludwig Heß.) / Seite XXXI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Schollberg unweit Sargans. / (Von Ludwig Heß.) / Seite XXXI",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "1nq2i5ermhekjds"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphik INr 51514, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "An jenen blutigen Schlachttagen des 2. 3. und 4. Jun. wo zwischen der damahls schnell vorrükenden K. K. und der fränkischen Armee, längs ihrer Linie vom Zürcher-Berg, ununterbrochen gefochten ward,",
+      "language": [],
+      "musenalm_id": 51538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unweit Hirslanden bey Zürich. / (Von Ludwig Heß.) / Seite XXXVI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unweit Hirslanden bey Zürich. / (Von Ludwig Heß.) / Seite XXXVI",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "90zmdgoc7zsvwem"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphik INr 51520, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Dieser Prospekt umfaßt beynahe das ganze Gebiet der ehmaligen Republik Gersau.",
+      "language": [],
+      "musenalm_id": 51539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gersau am Vierwaldstätter-See. / (Von Ludwig Heß.) / Seite 85.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gersau am Vierwaldstätter-See. / (Von Ludwig Heß.) / Seite 85.",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "hzfk2fffyobxmju"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Graphiken INr 51527, 51531; Obj 25, 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Am Zürich See Seite 178. / Im Wehnthal. Cant. Zürich. Seite 178",
+      "language": [],
+      "musenalm_id": 51540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetische Bauarten. / (Von L. Heß.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helvetische Bauarten. / (Von L. Heß.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "a91u5tllyi7fy64"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51532, Obj 30) s. Karte INr 51544, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grundriß der Stadt Zürich und der umliegenden Gegend. / (Gezeichnet von Keller, gest. von Lips.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grundriß der Stadt Zürich und der umliegenden Gegend. / (Gezeichnet von Keller, gest. von Lips.)",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "78xnydpo0j0metd"
+    },
+    {
+      "annotation": "Nachtrag zur Tabelle INr 51512, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zusätze zur Chronik des J. 1799. / November",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zusätze zur Chronik des J. 1799. / November",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "itdys46nmlnqgjf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "az79ta71s79nq6o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51544,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grundriss / der / Stadt Zürich / und der umliegenden Gegend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Keller del. Lips sculp.",
+      "scans": [
+        "alm_699_51544_t1lmr8wbie.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Grundriss / der / Stadt Zürich / und der umliegenden Gegend",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.613Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.613Z",
+          "agent": "hp3ztaqa2ipzjih",
+          "source_id": "6pthwld7k1mo1ks"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.613Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.613Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "evrvbdmmi6b9lnb"
+        }
+      ],
+      "source_id": "3hfqk54r7rjivde"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51545,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_699_51545_ozfybr69im.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "8j5u2hdkirgk52i"
+    }
   ],
   "agents": [
     {

@@ -48,25 +48,762 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "vo36gpxx4fqogo0"
+    {
+      "annotation": "1830-1843.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.697Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108638",
+      "location": "105R02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.697Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vo36gpxx4fqogo0"
+    }
   ],
   "contents": [
-    "u2zbgv16hbrtls4",
-    "xcow8rnzi4sgxjo",
-    "v5ervtqcx7x8rza",
-    "dquhzgf6tt5wdd8",
-    "nruf31h1nzuu00s",
-    "f60m4ld4piqoptg",
-    "0reb5hmhpm962ou",
-    "4r4m7zia9oixask",
-    "99u06e2faajzx6u",
-    "hclet1ra2d8q6lr",
-    "0980jrn2be194yg",
-    "3jzjm0bops53upe",
-    "p6dnhfxtiujn6bd",
-    "vtq6h8vwbz978w2",
-    "4zd2m1cxw5z8l4n",
-    "cirt9mpyvvti10b"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103022,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3404_103022_gszeud7v2m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "u2zbgv16hbrtls4"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Engel-Lieschen« INr 103035, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103023,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Engel-Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich von F. Fleischmann",
+      "scans": [
+        "alm_3404_103023_kmmiy0vvay.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Engel-Lieschen",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.169Z",
+          "agent": "pkfbc939lebcr82",
+          "source_id": "wlc23ghm578bvjf"
+        }
+      ],
+      "source_id": "xcow8rnzi4sgxjo"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103024,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISS MEIN NICHT. / Taschenbuch / für das Jahr / 1831. / Herausgegeben / von / C. Spindler. / MÜNCHEN / bey / F. G. Franckh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Seitz. sc.",
+      "scans": [
+        "alm_3404_103024_k82ieyerrx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISS MEIN NICHT. / Taschenbuch / für das Jahr / 1831. / Herausgegeben / von / C. Spindler. / MÜNCHEN / bey / F. G. Franckh",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.170Z",
+          "agent": "cz18k5n47dz11wc",
+          "source_id": "qi8seg8l8b3ewab"
+        }
+      ],
+      "source_id": "v5ervtqcx7x8rza"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103025,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht. / Taschenbuch für das Jahr 1831. / Herausgegeben / von / C. Spindler. / Mit 3 Stahlstichen von F. Fleischmann, und 4 Kupferstichen / von L. Beyer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht. / Taschenbuch für das Jahr 1831. / Herausgegeben / von / C. Spindler. / Mit 3 Stahlstichen von F. Fleischmann, und 4 Kupferstichen / von L. Beyer",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "dquhzgf6tt5wdd8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103026,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "nruf31h1nzuu00s"
+    },
+    {
+      "annotation": "Illustration zu »Nenuphar« INr 103033, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103027,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nenuphar. / I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung von M. v. Schwind. Stahlstich v. F. Fleischmann",
+      "scans": [
+        "alm_3404_103027_jx0iwnlejp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nenuphar. / I.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.170Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "2flmdn2hks34dgm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.170Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "jf1efwawvkj8nys"
+        }
+      ],
+      "source_id": "f60m4ld4piqoptg"
+    },
+    {
+      "annotation": "Illustration zu »Nenuphar« INr 103033, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103028,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nenuphar. / II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung v. Schwind. Stahlstich v. F. Fleischmann",
+      "scans": [
+        "alm_3404_103028_glyn6pcsur.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nenuphar. / II.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "78jt8lthrkj35nr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "yxgulykui7qcbl4"
+        }
+      ],
+      "source_id": "0reb5hmhpm962ou"
+    },
+    {
+      "annotation": "Illustration zu »Die Mohrin von Toldeo« INr 103034, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103029,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mohrin von Toledo I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Schwind del. L. Beyer sc.",
+      "scans": [
+        "alm_3404_103029_kdyekgyzl6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Mohrin von Toledo I.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "3g0l1010nowyzzb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "ytnk8bzx8mlqwir"
+        }
+      ],
+      "source_id": "4r4m7zia9oixask"
+    },
+    {
+      "annotation": "Illustration zu »Die Mohrin von Toldeo« INr 103034, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.710Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103030,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mohrin von Toledo II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Schwind del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3404_103030_63kewws65c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Mohrin von Toledo II.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "q56c2urfyi6n9ao"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "vr3piv2ikvpd5at"
+        }
+      ],
+      "source_id": "99u06e2faajzx6u"
+    },
+    {
+      "annotation": "Illustration zu »Furchtlos und treu« INr 103036, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103031,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Furchtlos und treu. I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Schwind del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3404_103031_p3we0huva2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Furchtlos und treu. I.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "dmj9auvyt03v062"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.993Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.993Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "ptr4ejbxoe8gvlk"
+        }
+      ],
+      "source_id": "hclet1ra2d8q6lr"
+    },
+    {
+      "annotation": "Illustration zu »Furchtlos und treu« INr 103036, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Furchtlos und treu. II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Schwind del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3404_103032_7sfohh00la.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Furchtlos und treu. II.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.994Z",
+          "agent": "dz642gh37bafou9",
+          "source_id": "2xndsmeqpqyj69v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.994Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "oglhll5toutgvry"
+        }
+      ],
+      "source_id": "0980jrn2be194yg"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103027, 103028, Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.882Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf seiner hohen Burg, im goldverzierten Fensterbogen, saß der Herr des Landes, den seine Unterthanen den goldenen Fürsten, und ferne, seinen Gesetzen unterworfene, eroberte, und von seinen Statthaltern beherrschte Reiche den Kaiser",
+      "language": [],
+      "musenalm_id": 103033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nenuphar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nenuphar",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.184Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.184Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "c2q3vvgqzaoud34"
+        }
+      ],
+      "source_id": "3jzjm0bops53upe"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103029, 103030, Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Die Dämmerung schwebte über den Giebeldächern der alten Stadt und über den Zinnen des maurischen Schlosses Alcazar,",
+      "language": [],
+      "musenalm_id": 103034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mohrin von Toledo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mohrin von Toledo",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.129Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.129Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "jndy4bw4lt44syb"
+        }
+      ],
+      "source_id": "p6dnhfxtiujn6bd"
+    },
+    {
+      "annotation": "mit einer Illustrationen s. Titelgraphik INr 103023, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Der Buchhändler Wilpert sagte eines Tags zu seinem Freunde, dem Schriftsteller Guido: o Herr, aus dessen Schädel ich meinen Wein trinke, höre mir gefälligst zu.",
+      "language": [],
+      "musenalm_id": 103035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Engel-Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Engel-Lieschen",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.129Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.129Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "l63mgyp27tiqu3l"
+        }
+      ],
+      "source_id": "vtq6h8vwbz978w2"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103031, 103032, Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Vor den Fenstern liegt der Winter, um den Schornstein heult der Sturm, und ich sitze im traulichen Stüblein, an dem gewaltigen Ofen, dessen Wärme mir wohl thut;",
+      "language": [],
+      "musenalm_id": 103036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Furchtlos und treu. / Denkwürdigkeiten aus dem 16ten Jahrhundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Furchtlos und treu. / Denkwürdigkeiten aus dem 16ten Jahrhundert",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.130Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.130Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "gu6mf9dzfk3g5ht"
+        }
+      ],
+      "source_id": "4zd2m1cxw5z8l4n"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103037,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3404_103037_knmbedv0fm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "cirt9mpyvvti10b"
+    }
   ],
   "agents": [
     {

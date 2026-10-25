@@ -48,24 +48,690 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "v6y6kd306whfe84"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit eingeprägten Muster und Goldschnitt.\n1834: (K: M. Ku 8.) Mit Port 1, Tku 1, Ku 6, Bl 5 und 500 SS.\n1-2 Ku lose. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100773",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "v6y6kd306whfe84"
+    }
   ],
   "contents": [
-    "7zqb7ad0u2qsk8p",
-    "i5kjbc24d9jywta",
-    "p99hc5nx4tj8bwm",
-    "ix41j2m8xvvdzer",
-    "vbl2p2nus7nwk6b",
-    "hd9sxut2h9o02g0",
-    "3mqruxt33p00ahh",
-    "57qxxpzey7oalst",
-    "3pprymylxlretam",
-    "zh92oemc9yyrzvw",
-    "puud1a8bhsuq121",
-    "qetyzess1ak3brx",
-    "2mlyvhbpskk3vwx",
-    "3h4bavhxhnxndut",
-    "3p692mlzqyle6xq"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.072Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102909,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PAULINE. / Regirende Herzogin von Nassau / geb. Prinzesin von Würtemberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Passini sc. Viennae",
+      "scans": [
+        "alm_3378_102909_8n3wntfjue.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PAULINE. / Regirende Herzogin von Nassau / geb. Prinzesin von Würtemberg",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.080Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "arpjvbx5dbot490"
+        }
+      ],
+      "source_id": "7zqb7ad0u2qsk8p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR / 1834. / VON / H. CLAUREN. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3378_102910_grqdjycce7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR / 1834. / VON / H. CLAUREN. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "i5kjbc24d9jywta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102911,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WEIHGESCHENK",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Jos. Stöber sc.",
+      "scans": [
+        "alm_3378_102911_lmq3v0m13i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WEIHGESCHENK",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.080Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "ny4ccryt4cm9dsz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.080Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "sfvn7oox4kfcqg2"
+        }
+      ],
+      "source_id": "p99hc5nx4tj8bwm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Schon in früher Morgenstunde, / Bei der Sonne erstem Schein, / Sucht' ich in des Gartens Runde / Dir ein kleines Blümelein.",
+      "language": [],
+      "musenalm_id": 102912,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Edwin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "ix41j2m8xvvdzer"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102913,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "vbl2p2nus7nwk6b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102914,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kauft lieber Herr! / Probirt diesen selbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3378_102914_u456mq2u7r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kauft lieber Herr! / Probirt diesen selbst",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.080Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "5k316ktja354nw5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.080Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "wcnwqn6tx00ogx0"
+        }
+      ],
+      "source_id": "hd9sxut2h9o02g0"
+    },
+    {
+      "annotation": "Illustration zu »Manon. Eine von tausend Geschichten aus der französischen Revolution im Jahre 1830. In Briefen« INr 102921, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102915,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MANON",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3378_102915_1znw1cwllh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MANON",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "7o9veias9p6ak2n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "buv9aqclo9dielu"
+        }
+      ],
+      "source_id": "3mqruxt33p00ahh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102916,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ELISABETH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Hofmann u. F. Stöber sc. Viennae",
+      "scans": [
+        "alm_3378_102916_ab1ogd48kq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ELISABETH",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "eq7l57yevnvhvk8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "lm1qe9y3segd5k8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "o2vz4iy02w6s363"
+        }
+      ],
+      "source_id": "57qxxpzey7oalst"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102917,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MADAME BERNHARD",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. Passini sc.",
+      "scans": [
+        "alm_3378_102917_83j9i1159k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MADAME BERNHARD",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "0n7w2dbgffov7qt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "et7s0ioln1oigpi"
+        }
+      ],
+      "source_id": "3pprymylxlretam"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102918,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott sendet Dich als seine Botinn hin, / die Heiden zu bekehren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Passini sc. Viennae",
+      "scans": [
+        "alm_3378_102918_jbufnb1g3w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott sendet Dich als seine Botinn hin, / die Heiden zu bekehren",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "d0q0kfzuubnvddd"
+        }
+      ],
+      "source_id": "zh92oemc9yyrzvw"
+    },
+    {
+      "annotation": "s. folgende Graphik (Portrait) INr 102920, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Charlotte von Hagn ward am 23. März 1813 in München geboren.",
+      "language": [],
+      "musenalm_id": 102919,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Biographische Notizen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Biographische Notizen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "puud1a8bhsuq121"
+    },
+    {
+      "annotation": "s. vorstehenden Textbezug INr 102919, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102920,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CHARLOTTE von HAGN / Königl. Bayerische Hofschauspielerin zu München",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3378_102920_itm1ml2h0p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CHARLOTTE von HAGN / Königl. Bayerische Hofschauspielerin zu München",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "41w4rbx69offxsn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.081Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "f6xu7y8jlq7gnp5"
+        }
+      ],
+      "source_id": "qetyzess1ak3brx"
+    },
+    {
+      "annotation": "miteiner  Illustration s. Graphik INr 102915, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Alles hübsch umständlich berichtet rief mir Dein holdes Jettchen, bei meiner Abreise, noch in den Wagen nach, und tippte dazu, unter schelmischer Pantomine, mit dem Zeigefinger ihrer Rechten, sich aufs Herz.",
+      "language": [],
+      "musenalm_id": 102921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manon. / Eine von tausend Geschichten aus der französi- / schen Revolution im Jahre 1830. / In / Briefen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Manon. / Eine von tausend Geschichten aus der französi- / schen Revolution im Jahre 1830. / In / Briefen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "2mlyvhbpskk3vwx"
+    },
+    {
+      "annotation": "$ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Der reiche Kauf- und Handelsherr zu Hamburg, Herr Justus Buch empfing beim Morgenpfeifchen die eingelaufenen Briefe; durch flog sie mit gewohntem Schnellblick;",
+      "language": [],
+      "musenalm_id": 102922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gegenüber / im Bäcker-Gange zu Hamburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gegenüber / im Bäcker-Gange zu Hamburg",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "3h4bavhxhnxndut"
+    },
+    {
+      "annotation": "$ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Noch dämmerte der Johannis Morgen im grauen Dunkel, als der junge Winter, eine der holdesten Fürstentöchter ihrer Zeit, mit Musik und Gesang zu unterrichten, nach Braunschweig berufen, aus seinem bisherigen Wohnorte, mit Extrapost abfuhr.",
+      "language": [],
+      "musenalm_id": 102923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kindtaufe und Hochzeit / an einem Tage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kindtaufe und Hochzeit / an einem Tage",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "3p692mlzqyle6xq"
+    }
   ],
   "agents": [
     {

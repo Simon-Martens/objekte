@@ -48,35 +48,1104 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "eohb8vn4n1bnx1p"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200769",
+      "location": "105H08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "eohb8vn4n1bnx1p"
+    }
   ],
   "contents": [
-    "4xuv8nh3j3c966p",
-    "t5l57148rjuen5w",
-    "9zri9xyblmdu31u",
-    "b84edcmpg689j2z",
-    "b9wtq999dz76imv",
-    "u42chmqzdt9ubvp",
-    "jmyw0b70bgqiq5i",
-    "mmxfxj023paxpfa",
-    "ksdp453418dlr7o",
-    "s9t4c99uxw2f7tb",
-    "32evd9luoqvxu4q",
-    "80c0rhj5ffzbzos",
-    "4p55hnk9ncz7m18",
-    "9unw42389y7glw4",
-    "kswbzmkuvna7t3s",
-    "r14vhvll75d7r4b",
-    "qhesxvadr34an07",
-    "vwxrln3t93np6qu",
-    "y45rwbupof182ep",
-    "4ajng74xz339mat",
-    "7jmf7w7hv4mqw13",
-    "kllythqvcggk2c1",
-    "boimg0mhwtbw2iv",
-    "stur5xxw65wid6t",
-    "q4d2aumcsrmyceb",
-    "dt8n0wzsuua35t3"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59137,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Entwurf u. Lithographie von H. Asmus in Berlin)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Entwurf u. Lithographie von H. Asmus in Berlin",
+      "scans": [
+        "alm_881_59137_uthttr1stp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.065Z",
+          "agent": "wvzx8yp0t9tqzmo",
+          "source_id": "mu189x8sdvui22t"
+        }
+      ],
+      "source_id": "4xuv8nh3j3c966p"
+    },
+    {
+      "annotation": "Titelportrait. /) unter der Grafik: Gedr. von Altmayer /) s. Textbezug 59142, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59138,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIE LUISE ANNA / Prinzessin von Preußen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von C. l'Allemand Gest. von Alb. Teichel",
+      "scans": [
+        "alm_881_59138_ozzqm3xx7n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIE LUISE ANNA / Prinzessin von Preußen",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.066Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.065Z",
+          "agent": "filrbdi16sdmhwd",
+          "source_id": "r3w42cx78fisd67"
+        }
+      ],
+      "source_id": "t5l57148rjuen5w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59139,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / Kalender / für / 1846. / Zwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_881_59139_39nrqrif1w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / Kalender / für / 1846. / Zwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "9zri9xyblmdu31u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59140,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "b84edcmpg689j2z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59141,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "b9wtq999dz76imv"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Titelportrait INr 58138, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marie Louise Anna / Prinzessin von Preußen / älteste Tochter Seiner Königlichen Hoheit / des / Prinzen Carl von Preußen. / Geboren 1. März 1829. / (Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Marie Louise Anna / Prinzessin von Preußen / älteste Tochter Seiner Königlichen Hoheit / des / Prinzen Carl von Preußen. / Geboren 1. März 1829. / (Titelkupfer.)",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "u42chmqzdt9ubvp"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59144, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Den schönen Parkanlagen Seiner Königlichen Hoheit des Prinzen von Preußen auf dem Babelsberge haben die angelegten Fontainen einen ganz besonderen Reiz und hauptsächlich auch eine damit mögliche Arrosirung, im Sinne des hohen Besitzers, verliehen.",
+      "language": [],
+      "musenalm_id": 59143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fontainen-Anlagen auf dem Ba- / belsberge bei Potsdam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fontainen-Anlagen auf dem Ba- / belsberge bei Potsdam",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "jmyw0b70bgqiq5i"
+    },
+    {
+      "annotation": "s. Textbezug INr 59143, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FONTAINE AM BABELSBERGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Biermann. Gest. v. Sagert",
+      "scans": [
+        "alm_881_59144_i1o3yg4e9d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FONTAINE AM BABELSBERGE",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "1qb3i6hz422rxnj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "p6t60u659wxd203"
+        }
+      ],
+      "source_id": "mmxfxj023paxpfa"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59146, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Die ausführliche Mittheilung über die Anlagen in Sansouci sind bereits im letzten Jahrgange dieses Taschenbuches vollständig mitgetheilt.",
+      "language": [],
+      "musenalm_id": 59145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maschinenhaus bei Sansouci",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maschinenhaus bei Sansouci",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "ksdp453418dlr7o"
+    },
+    {
+      "annotation": "s. Textbezug INr 59145, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MASCHINEN-HAUS BEI SANSOUCI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Biermann. Gest. v. Sagert",
+      "scans": [
+        "alm_881_59146_rwy7963xs3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MASCHINEN-HAUS BEI SANSOUCI",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "mn64mtd957c5eyt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "zqfgh0h2h7e08yo"
+        }
+      ],
+      "source_id": "s9t4c99uxw2f7tb"
+    },
+    {
+      "annotation": "s. Textbezug INr 59148, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER WEISSE SAAL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. H. Waesemann. Gest. v. Schulin",
+      "scans": [
+        "alm_881_59147_fja158y4z8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER WEISSE SAAL",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "geb1oxmsebys1c8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "bc0nh7vfegh6kb9",
+          "source_id": "nzu1w50w2onjc24"
+        }
+      ],
+      "source_id": "32evd9luoqvxu4q"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59147, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Die Reihe der Prachtgemächer in dem Königl. Schlosse zu Berlin ist neuerdings, durch die gänzliche Umgestaltung und Vergrößerung des weißen Saales, mit einem großartigen und reich geschmückten Raum vermehrt worden,",
+      "language": [],
+      "musenalm_id": 59148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der weiße Saal im Königl. Schlosse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der weiße Saal im Königl. Schlosse",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "80c0rhj5ffzbzos"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59150, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Die Markgrafen Otto der Lange und Albrecht III., Söhne Otto III., schenktem im Jahre 1271 den Franciskaner Mönchen eine Platz zur Erbauung ihres Klosters,",
+      "language": [],
+      "musenalm_id": 59149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Klosterkirche zu Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Klosterkirche zu Berlin",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "4p55hnk9ncz7m18"
+    },
+    {
+      "annotation": "s. Textbezug INr 59149, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KLOSTERKIRCHE ZU BERLIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Biermann del. H. Fincke sc.",
+      "scans": [
+        "alm_881_59150_gx86zus4cs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "KLOSTERKIRCHE ZU BERLIN",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "di4qbi7l2twanhk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.746Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "uwvjk68zbcuyqbo"
+        }
+      ],
+      "source_id": "9unw42389y7glw4"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 59152, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mausoleum in Charlottenburg #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Meyerheim. Gest. von Authwaite",
+      "scans": [
+        "alm_881_59151_ki7yiu6ng6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mausoleum in Charlottenburg #",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.645Z",
+          "agent": "hy6ig57her0xbis",
+          "source_id": "wuafh0vvsfkmodj"
+        }
+      ],
+      "source_id": "kswbzmkuvna7t3s"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59151, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Dies Gebäude enthält die Ruhestätte des jedem Preußen unvergeßlichen Königspaares: Des Königs Friedrich Wilhelm III. und seiner Gemahlin Luise.",
+      "language": [],
+      "musenalm_id": 59152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mausoleum in Charlottenburg. / Gezeichnet von Professor Meyerheim, / gestochen von Authwaite in Paris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mausoleum in Charlottenburg. / Gezeichnet von Professor Meyerheim, / gestochen von Authwaite in Paris",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "r14vhvll75d7r4b"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59154, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Nachdem am 18. Juni 1826 das Denkmal des Feldmarschall Fürsten Blücher in Berlin errichtet war, wurde später von Seiner Majestät dem jetzt regierenden König, damals Kronprinzen, der Gendanke ausgesprochen,",
+      "language": [],
+      "musenalm_id": 59153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "York, Blücher, Gneisenau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "York, Blücher, Gneisenau",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "qhesxvadr34an07"
+    },
+    {
+      "annotation": "s. Textbezug INr 59153, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GNEISENAU, BLÜCHER, YORK",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Meyerheim Entw. von Rauch. Gest. von Sagert",
+      "scans": [
+        "alm_881_59154_mj8j59pmnq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GNEISENAU, BLÜCHER, YORK",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.763Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "alm0as7qkj0v3mq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.763Z",
+          "agent": "fep8fdjaqu5b315",
+          "source_id": "job9xatm8bmgbwu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.763Z",
+          "agent": "hy6ig57her0xbis",
+          "source_id": "klfsuvbogtdqnhe"
+        }
+      ],
+      "source_id": "vwxrln3t93np6qu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Verhaftung Voltaire's in Frankfurt am Main durch den preußischen Residenten von Freytag ist ein Ereigniß, welchem einst die ganze gebildete Welt in Staunen und Spannung horchte,",
+      "language": [],
+      "musenalm_id": 59155,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Voltaire / in Frankfurt am Main 1753",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Varnhagen von Ense",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Voltaire / in Frankfurt am Main 1753",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.763Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "ku1t8sj6nikrhd7"
+        }
+      ],
+      "source_id": "y45rwbupof182ep"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Wer auf die Aeußerungen achten will, die gegenwärtig von verschiedenen Seiten her über die deutsche Bühne laut werden, der kann erfahren, daß durch die jetzigen Leistungen derselben eigentlich Niemand zufriedengestellt ist.",
+      "language": [],
+      "musenalm_id": 59156,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Zukunft der deutschen Bühne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Melchior Meyr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Zukunft der deutschen Bühne",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.763Z",
+          "agent": "3xjuaca9goettib",
+          "source_id": "p7marb4kx5itdg9"
+        }
+      ],
+      "source_id": "4ajng74xz339mat"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Der Freiherr von Polenz hielt in jeder Hand eine Wachskerze und betrachtete sich in den großen Spiegel. Fehlt irgend noch Etwas, Franziskus? fragte er. Nicht das Geringste, gnädiger Herr, erwiderte der Diener.",
+      "language": [],
+      "musenalm_id": 59157,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Ehen. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwei Ehen. / Novelle",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.763Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "xvhf48c3nv2s27b"
+        }
+      ],
+      "source_id": "7jmf7w7hv4mqw13"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59158,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / Hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist am 1. Junius geschlossen, und darnach sogleich der Druck angefangen / worden, so daß die späteren Veränderungen nicht mehr haben eingetragen / werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / Hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist am 1. Junius geschlossen, und darnach sogleich der Druck angefangen / worden, so daß die späteren Veränderungen nicht mehr haben eingetragen / werden können.)",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "kllythqvcggk2c1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59159,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berichtigungen und Nachträge / zu den / im Jahrgang 1845 enthaltenen Nachrichten / über den / Königl. Preuß. Hofstaat und über die obersten / Staatsbehörden. / (Am 20. October 1845 abgeschlossen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berichtigungen und Nachträge / zu den / im Jahrgang 1845 enthaltenen Nachrichten / über den / Königl. Preuß. Hofstaat und über die obersten / Staatsbehörden. / (Am 20. October 1845 abgeschlossen.)",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "boimg0mhwtbw2iv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Druck von Eduard Hänel in Berlin",
+      "language": [],
+      "musenalm_id": 59160,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von Eduard Hänel in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "stur5xxw65wid6t"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59161,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Verlage von Carl Reimarus in Berlin (Gropius'sche / Buch- und Kunsthandlung in der Königlichen Bauschule / Laden No. 12) ist erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Verlage von Carl Reimarus in Berlin (Gropius'sche / Buch- und Kunsthandlung in der Königlichen Bauschule / Laden No. 12) ist erschienen:",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "q4d2aumcsrmyceb"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59162,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BERLIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "HA.",
+      "scans": [
+        "alm_881_59162_5t4dsbm072.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BERLIN",
+      "updated": "2008-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.939Z",
+          "agent": "wvzx8yp0t9tqzmo",
+          "source_id": "hmtopt27qdl22hi"
+        }
+      ],
+      "source_id": "dt8n0wzsuua35t3"
+    }
   ],
   "agents": [
     {

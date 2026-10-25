@@ -48,38 +48,1227 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "ks0ub0fk2wlnuqt",
-    "u5u4mgdnw83lda2"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nHalbledereinband.\n1844: (K: M.8 Stahlst.) Mit TKu 1,  XL, Ku 8 und 440 SS.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. \n§1§ T fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100512",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ks0ub0fk2wlnuqt"
+    },
+    {
+      "annotation": "Umschlaggraphiken; Titel",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "407840",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "u5u4mgdnw83lda2"
+    }
   ],
   "contents": [
-    "o9n3tdmghpzz6s7",
-    "j16fihwbzcg7w7e",
-    "b4jomh4ydhnasbr",
-    "aw2dc9wnfn2jvwg",
-    "0jg2pe16h9bth93",
-    "85nxonifes3nhdw",
-    "tzpn3xtul0trvq0",
-    "0qtrb34cdhv70s5",
-    "rnsi20g2zywi8ae",
-    "woydgt70sdqtn7b",
-    "yxeogjzskggxk9u",
-    "atv4p5zjyk8gkaj",
-    "mrbck8qgbcoj13n",
-    "zfqtfuh43ne0w55",
-    "p0xxn9y1zt3n59v",
-    "qpswfl3hj41k1mz",
-    "s1v15pmv81f3qh2",
-    "chyg0g7o8u3ozrm",
-    "ynq5oysq1kre94f",
-    "a88rvfq3jyd1xoj",
-    "65mvcgq7q4q6hce",
-    "0md6zvwjv75gkdw",
-    "nat8lax2tv7kmg7",
-    "ghh3n1n5tk1mhn2",
-    "a3e36985wziiey1",
-    "1jh2gescek1vaod",
-    "jgcru4vt1xeplpq",
-    "bikfvxnma922t0l"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119601,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH. / 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_599_119601_nnfevpp10z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH. / 1844",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "o9n3tdmghpzz6s7"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 44131, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44126,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "P. v. Cornelius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kaulbach del. Neubauer sc.",
+      "scans": [
+        "alm_599_44126_1fxi3flbrr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "P. v. Cornelius",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "c7q5lldf9je7fx6",
+          "source_id": "g2df4oorzdtbwqu"
+        }
+      ],
+      "source_id": "j16fihwbzcg7w7e"
+    },
+    {
+      "annotation": "graph. Titel; [unter der Graphik: Atelier v. Grünewald & Cooke. / Verlag von J. D. Sauerländer]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44127,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1844 / Rheinisches / Taschenbuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. I. B. Zwecker W. J. Cooke sc",
+      "scans": [
+        "alm_599_44127_td0jmmh16t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1844 / Rheinisches / Taschenbuch",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.241Z",
+          "agent": "uohs1l6y8ng1p96",
+          "source_id": "i9mqyq66uy6y8fs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.241Z",
+          "agent": "usgtr6dipvre26m",
+          "source_id": "xfsbwypq6jw4ht5"
+        }
+      ],
+      "source_id": "b4jomh4ydhnasbr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44128,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1844. / Herausgegeben / von / Dr. Adrian. / Mit 8 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_599_44128_5o6i02w3z5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1844. / Herausgegeben / von / Dr. Adrian. / Mit 8 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer.",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "aw2dc9wnfn2jvwg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44129,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "0jg2pe16h9bth93"
+    },
+    {
+      "annotation": "Sammlung von 9 Textbezügen zu 8 Graphiken INr 44126, 44131-44146, Obj 1, 6-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44130,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miniatur-Salon. / Ausstellung 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miniatur-Salon. / Ausstellung 1844",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "85nxonifes3nhdw"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) Dem Text vorangestellt: Ich verachte jedes Machwerk und erkenne Nichts als Kunst an, was nicht lebt; [...] [P. v. Cornelius] s. Titelportrait INr 44126, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Wir sehen hier den ersten und größesten Reformator der Kunst, den feurigsten und kräftigsten Apostel des in dem Vereine deutscher Künstler zu Rom erwachenden neuen Zeitalters,",
+      "language": [],
+      "musenalm_id": 44131,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Peter von Cornelius' Portrait",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Peter von Cornelius' Portrait",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "tzpn3xtul0trvq0"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44133, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Der erste Theil des Faust erschien, nachdem der Dichter seit 1774 in oft langen Pausen die einzelnen Scenen ausgearbeitet hatte,1807 zum ersten Male in der Form, die er in den gesammelten Werken behalten hat,",
+      "language": [],
+      "musenalm_id": 44132,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Faust und Gretchen. / Von Peter v. Cornelius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Faust und Gretchen. / Von Peter v. Cornelius",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "0qtrb34cdhv70s5"
+    },
+    {
+      "annotation": "Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 44132, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44133,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FAUST UND MARGARETHE / Mein schönes Fräulein darf ich wagen, / Meinen Arm und Geleit Ihr anzutragen? / Bin weder Fräulein, weder schön, Kann ungeleit' nach Hause gehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. P. v. Cornelius Gest. v. Carl Müller",
+      "scans": [
+        "alm_599_44133_cbvz5rl237.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FAUST UND MARGARETHE / Mein schönes Fräulein darf ich wagen, / Meinen Arm und Geleit Ihr anzutragen? / Bin weder Fräulein, weder schön, Kann ungeleit' nach Hause gehen",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.410Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "2dnj5xima9o7h88"
+        }
+      ],
+      "source_id": "rnsi20g2zywi8ae"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44135, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Ariost's rasender Roland, jenes wunderbar reiche, vielfach verschlungene Epos, das Jahrhunderte hindurch",
+      "language": [],
+      "musenalm_id": 44134,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bradamante. / Von Julius Schnorr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bradamante. / Von Julius Schnorr",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "woydgt70sdqtn7b"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke / Verlag von J. D. Sauerländer] Illustration zu » Der rasende Roland« von L. Ariosto s. Textbezug INr 44134, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44135,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BRADAMANTE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gem. v. Schnorr v. Karolsfeld T. S. Engleheart gest.",
+      "scans": [
+        "alm_599_44135_za85899crf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BRADAMANTE",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "4m4h8g356vfmlly"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "tde193c0dlujf8r"
+        }
+      ],
+      "source_id": "yxeogjzskggxk9u"
+    },
+    {
+      "annotation": "dem Beitrag »Der Fischer Von Christian Heinrich Hanson« vorangestellt. Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44137, Obj 12 u. Beitrag INr 44138, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Das Wasser rauscht', das Wasser schwoll, / Ein Fischer saß daran,",
+      "language": [],
+      "musenalm_id": 44136,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "vbxvu6205gzldd7"
+        }
+      ],
+      "source_id": "atv4p5zjyk8gkaj"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke / Verlag von J. D. Sauerländer] Illustration zu »Der Fischer« von J. W. von Goethe s. Textbezüge INr 44136, 44138; Obj 11, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44137,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FISCHER / Halb zog sie ihn, halb sank er hin / Und ward nicht mehr geseh'n... (Göthe)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hansen pinx. T. S. Englehaert",
+      "scans": [
+        "alm_599_44137_7785wcw7hw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FISCHER / Halb zog sie ihn, halb sank er hin / Und ward nicht mehr geseh'n... (Göthe)",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "gsnlcjf80zakyoj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "5ytc9ywezwv5nmb",
+          "source_id": "iz0klbzxh1f9wy0"
+        }
+      ],
+      "source_id": "mrbck8qgbcoj13n"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44137, Obj 12 u. Gedicht INr 44136, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Wir haben schon von dem Zauber gesprochen, den das Wasser, besonders die Fluthen des Meeres auf das Gefühl des Menschen üben.",
+      "language": [],
+      "musenalm_id": 44138,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer / Von Christian Heinrich Hanson",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer / Von Christian Heinrich Hanson",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "zfqtfuh43ne0w55"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag von J. D. Sauerländer / Dr. v. W. Maas] s. Textbezug INr 44140, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44139,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BLONDEL VOR DEM GEFÄNGNISSE DES RICHARD LÖWENHERZ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. K. W. v. Heideck Gest. v. Carl Müller",
+      "scans": [
+        "alm_599_44139_hd4ajr3a8w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BLONDEL VOR DEM GEFÄNGNISSE DES RICHARD LÖWENHERZ",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "d05hk8pdykf008a",
+          "source_id": "wfpwquiz1wtznrl"
+        }
+      ],
+      "source_id": "p0xxn9y1zt3n59v"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44139, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Blondel, das Muster eines ritterlichen Troubadours, Meister im Gesang und Lautenspiel und treuer Kampfgenosse des löwenherzigen Richard's von England",
+      "language": [],
+      "musenalm_id": 44140,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blondel. / Von Karl Wilhelm von Heideck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blondel. / Von Karl Wilhelm von Heideck",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "qpswfl3hj41k1mz"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag von J. D. Sauerländer / Dr. v. W. Maas] s. Textbezug INr 44142, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44141,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DES MÜLLERS TOCHTER AN DER BRÜCKE: / Er liebt mich nicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. Aug. von Emde Gest. v. Carl Müller",
+      "scans": [
+        "alm_599_44141_84hmwua0ay.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DES MÜLLERS TOCHTER AN DER BRÜCKE: / Er liebt mich nicht",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "x8yxsrt1rt2g6o1",
+          "source_id": "cbmg6i4zibkmbdm"
+        }
+      ],
+      "source_id": "s1v15pmv81f3qh2"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44141, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Das liebliche Mädchen ruht von der Arbeit; der Gedanke an den geliebten, der sie im Wachen und Träumen beschäftigt hat, sie verlockt",
+      "language": [],
+      "musenalm_id": 44142,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Müllers Tochter an der Brücke. / Von August von der Emde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Müllers Tochter an der Brücke. / Von August von der Emde",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "chyg0g7o8u3ozrm"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) mit Zitat aus der zweiten Elegie: Du brachst nun die Früchte geschäftig / Und die goldene Last zog das geschürzte Gewand [...] s. Graphik INr 44144, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "In des zweiten Buches erster Elegie, die den Titel: Alexis und Dora führt, schildert Goethe innig und klar Glück und Leid der ersten Liebe.",
+      "language": [],
+      "musenalm_id": 44143,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexis und Dora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alexis und Dora",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "ynq5oysq1kre94f"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag v. J. D. Sauerländer] s. Textbezug INr 44143, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44144,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALEXIS UND DORA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. n. Kaulbach v. Zwecker Gest. v. Müller",
+      "scans": [
+        "alm_599_44144_dwvuhnvwpf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALEXIS UND DORA",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "c7q5lldf9je7fx6",
+          "source_id": "2z23rrxbxofpsro"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "usgtr6dipvre26m",
+          "source_id": "e5ivlot77z9atq8"
+        }
+      ],
+      "source_id": "a88rvfq3jyd1xoj"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag v. J. D. Sauerländer] s. Textbezug INr 44146, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44145,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE HIRTEN AUF DEM BERGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bendemann pinx. Engleheart sc.",
+      "scans": [
+        "alm_599_44145_6wjt5ngd0b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE HIRTEN AUF DEM BERGE",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "tgvn6iyntlkd9zp",
+          "source_id": "9ar55pra5scnvwb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "i1867lmmkzaamoy"
+        }
+      ],
+      "source_id": "65mvcgq7q4q6hce"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1844 (Sammlung INr 44130, Obj 5) s. Graphik INr 44145, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Wer erinnert sich bei diesem lieblichen Bildchen nicht des zarten Gedichtes von unserm Uhland: des Hirten Winterlied: / O Winter, schlimmer Winter! / Wie ist die Welt so klein!",
+      "language": [],
+      "musenalm_id": 44146,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hirten auf dem Berge. / Von Eduard Bendemann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Hirten auf dem Berge. / Von Eduard Bendemann",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "0md6zvwjv75gkdw"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Die Mittel, die ein Leid curiren, / Erst führen meist den Tod herbei; / Auf europäisch Cultiviren / Ist schlimmer als die Barbarei.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein jedes Volk hat seinen Zopf; und der schlimmste ist nicht der auswendige! Aber an jedem ist es zu retten.",
+      "language": [],
+      "musenalm_id": 44147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "China's Erretter. / Ein altes Schaustück aus Anno 1644",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "China's Erretter. / Ein altes Schaustück aus Anno 1644",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "r2vlpm2yjup46gz"
+        }
+      ],
+      "source_id": "nat8lax2tv7kmg7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Ein prächtiges Gemach, durch die Flammen des Kaminfeuers traulich hell! Die Art des Baues, die hohen Fenster, das kunstreich gearbeitete Getäfel aus Eichenholz,",
+      "language": [],
+      "musenalm_id": 44148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johann von Aragon. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Duller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Johann von Aragon. / Erzählung",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.272Z",
+          "agent": "7bekt7k216mxue5",
+          "source_id": "q3z7s609xg42m8g"
+        }
+      ],
+      "source_id": "ghh3n1n5tk1mhn2"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Des Dichters Aug', im schönen Wahnsinn rollend, / Blitzt auf zum Himmel, blitzt zur Erd' hinab, [...] Sommernachtstraum",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Anmuthig Thal, wie wunderbar / Besängst du meinen Sinn; / Du zauberst eine bunte Schaar / Gestalten vor mich hin.",
+      "language": [],
+      "musenalm_id": 44149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tochter der Luft. / Mährchen aus dem Wisper-Thale / in drei Gesängen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Genth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tochter der Luft. / Mährchen aus dem Wisper-Thale / in drei Gesängen",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "5dmql3fb0aixt0f",
+          "source_id": "l0rb9z14jtd6frn"
+        }
+      ],
+      "source_id": "a3e36985wziiey1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Ist euch wohl jemals einer jener Männer der Wissenschaft, der Staubfäden und der langen lateinischen Namen, der Salbentöpfe und der Pillenschachteln, zum ersten Mal begegnet,",
+      "language": [],
+      "musenalm_id": 44150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Frauenherz. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levin Schücking",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Frauenherz. / Novelle",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "g37v62wgwv6p784",
+          "source_id": "g5ixlb7aip8bppa"
+        }
+      ],
+      "source_id": "1jh2gescek1vaod"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Eine Gesellschaft von Fremden ließ sich mittelst der Fähre oberhalb der Nydeckbrücke zu Bern über die Aar setzen.",
+      "language": [],
+      "musenalm_id": 44151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der grüne Schüler. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav von Heeringen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der grüne Schüler. / Novelle",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "hffp5p53qsk8bxy",
+          "source_id": "i9xa3rfxw29ug9g"
+        }
+      ],
+      "source_id": "jgcru4vt1xeplpq"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_599_119602_zb3j8fpbfd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "bikfvxnma922t0l"
+    }
   ],
   "agents": [
     {

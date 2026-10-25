@@ -48,23 +48,656 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "w57fnhozu7tpssv"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1807: Mit Ku 6 und 298 SS.(Druckfehler bei Jahreszahl Titel 1807=1806)",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.546Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100097",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.546Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "w57fnhozu7tpssv"
+    }
   ],
   "contents": [
-    "fiavqo1lycpvka9",
-    "6e0r4as5iybd5rx",
-    "f9s5zahxwf76med",
-    "a1k42oiite5x2jd",
-    "lhszn24doib94ju",
-    "nlr42hb36dl4s6y",
-    "3285huoga9a4lvl",
-    "te8whqy047j2il7",
-    "rosfh680jww191u",
-    "2ycviy0a0gspy6k",
-    "3smb9tahw0xif1v",
-    "emiox0ks2ztsj79",
-    "aefvkflz8cpriif",
-    "sp2g14q1fcl8vsy"
+    {
+      "annotation": "# falscher Jahrgang und Jahreszahl. Aus dem Vorwort (INr 123233, Obj 2): vierter Jahrgang",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.369Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123232,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Fünfter Jahrgang / Berlin / bei F. J. de La Garde / 1807 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1274_123232_orkvieey8u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Fünfter Jahrgang / Berlin / bei F. J. de La Garde / 1807 #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "fiavqo1lycpvka9"
+    },
+    {
+      "annotation": "# hier der Jahrgang korrekt angegeben; im Titel (INr 123232, Obj 1) falsche Angabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich habe bei diesem vierten Jahrgange meines Almanachs nichts weiter zu bemerken, als daß er diesesmal keine Nachbildung aus irgend einer fremden Sprache, sondern lauter Originale enthält.",
+      "language": [],
+      "musenalm_id": 123233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "prr85gsifty2nch"
+        }
+      ],
+      "source_id": "6e0r4as5iybd5rx"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123241, Obj 4; # Bezeichnung aus dem Vorwort (INr 123239, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Folgt mir der Herr Gemahl? – Nein, ich bin ungestört. – / Verdammter Brief, der mich gar saubre Dinge lehrt!",
+      "language": [],
+      "musenalm_id": 123240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Beichte / Ein Lustspiel in gereimten Versen und in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Beichte / Ein Lustspiel in gereimten Versen und in Einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "qrly5hcqe1q09xv"
+        }
+      ],
+      "source_id": "f9s5zahxwf76med"
+    },
+    {
+      "annotation": "Illustration zu »Die Beichte« von Kotzebue (INr 123234, Obj 3); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Doch Männer sind ganz unverbesserlich gebohren! / An ihnen ist der Hopfen wie das Malz verlohren. / Die Beichte. Erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1274_123235_7esyv3tnx2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. / Doch Männer sind ganz unverbesserlich gebohren! / An ihnen ist der Hopfen wie das Malz verlohren. / Die Beichte. Erste Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "x7rkr7txh05z7pf"
+        }
+      ],
+      "source_id": "a1k42oiite5x2jd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123237, Obj 6; # Bezeichnung aus dem Vorwort (INr 123233, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Mein Mäuschen sieht mich ja gar nicht an? / Ach lieber Herr Vormund! wenn ich Sie oft an- / sehe, so lasse ich Maschen fallen.",
+      "language": [],
+      "musenalm_id": 123236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gefährliche Nachbarschaft / Ein Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die gefährliche Nachbarschaft / Ein Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "ihhdzu9bsqw923f"
+        }
+      ],
+      "source_id": "lhszn24doib94ju"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123235, Obj 4); Illustration zu »Die gefährliche Nachbarschafft« von Kotzebue (INr 123236, Obj 5); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / »Ich Rindvieh! habe selbst das / Brautkleid gemacht!« / Die gefährliche Nachbarschafft. 16te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / »Ich Rindvieh! habe selbst das / Brautkleid gemacht!« / Die gefährliche Nachbarschafft. 16te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "lwicwme2rqhzldx"
+        }
+      ],
+      "source_id": "nlr42hb36dl4s6y"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123243, Obj 8; # Bezeichnung aus dem Vorwort (INr 123233, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Dir, Brama, Dank und Preis! der schöne Morgen / tagt, / An dem die Söhne mir die Heimkehr zugesagt.",
+      "language": [],
+      "musenalm_id": 123242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Köstlichste / Schauspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Köstlichste / Schauspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "51v1axaduj2rctx"
+        }
+      ],
+      "source_id": "3285huoga9a4lvl"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123235, Obj 4); Illustration zu »Das Köstlichste« von Kotzebue (INr 123236, Obj 5); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Wer fern das Köstlichste nur sucht, der ist ein Thor! / Es liegt ihm nah, ein jeder Weltteil bringts hervor. / das Köstlichste 3te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1274_123243_gtb0m78pmc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "3. / Wer fern das Köstlichste nur sucht, der ist ein Thor! / Es liegt ihm nah, ein jeder Weltteil bringts hervor. / das Köstlichste 3te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "zango8sk9f3nt6u"
+        }
+      ],
+      "source_id": "te8whqy047j2il7"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123245, Obj 10; # Bezeichnung aus dem Vorwort (INr 123233, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Nein, das ist nicht auszustehen! / Lieber lauf’ ich in die weite Welt! / Schlimmer kann es mir doch nicht gehen, Aerger werde ich nirgend gequält",
+      "language": [],
+      "musenalm_id": 123244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eulenspiegel / Ein dramatischer Schwank, in Einem Akt, / und in zwanglosen Reimen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eulenspiegel / Ein dramatischer Schwank, in Einem Akt, / und in zwanglosen Reimen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.676Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "nkz1wc2zpj7y3rh"
+        }
+      ],
+      "source_id": "rosfh680jww191u"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123235, Obj 4); Illustration zu »Eulenspiegel« von Kotzebue (INr 123244, Obj 9); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / »Ich thue, als ein guter Christ, / Nicht mehr als mir befohlen ist.« / Eulenspiegel, 7te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+      "scans": [
+        "alm_1274_123245_zecd8xu4z1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "4. / »Ich thue, als ein guter Christ, / Nicht mehr als mir befohlen ist.« / Eulenspiegel, 7te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.676Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "rzrzteqo1u392o9"
+        }
+      ],
+      "source_id": "2ycviy0a0gspy6k"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123247, Obj 10; # Bezeichnung aus dem Vorwort (INr 123233, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Das Regiment soll in’s Quartier rücken. Das erste Bataillon bleibt in der Stadt. Das zweite wird auf Dörfer verlegt.",
+      "language": [],
+      "musenalm_id": 123246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Brandschatzung / Ein Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Brandschatzung / Ein Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.676Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "btwo9k2w2wm6l32"
+        }
+      ],
+      "source_id": "3smb9tahw0xif1v"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123235, Obj 4); Illustration zu »Die Brandschatzung« von Kotzebue (INr 123246, Obj 11); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Will ich den honnet Handeln? Wer bezahlt mir das? / Die Brandschatzung, 10te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # §",
+      "scans": [
+        "alm_1274_123247_o6q6l0zv3v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "5. / Will ich den honnet Handeln? Wer bezahlt mir das? / Die Brandschatzung, 10te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.676Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "pv4ltds1e5uk0a1"
+        }
+      ],
+      "source_id": "emiox0ks2ztsj79"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort (INr 123233, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Hier ist’s still und öde – keines Menschen Fuß verirrt sich wohl hieher – auf diesem Platze will ich sterben –",
+      "language": [],
+      "musenalm_id": 123248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das verlohrne Kind. / Ein Schauspiel in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das verlohrne Kind. / Ein Schauspiel in Einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.676Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "he0c11oikvpeqiy"
+        }
+      ],
+      "source_id": "aefvkflz8cpriif"
+    },
+    {
+      "annotation": "Illustration zu »Das verlorene Kind« von Kotzebue (INr 123235, Obj 4); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.778Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Giebt es auch einen Preiss in der Welt, um den eine / Mutter ihr Kind weggibt? / Das verlohrne Kind, 8te Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. # §",
+      "scans": [
+        "alm_1274_123249_85gi2f8jgu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "6. / Giebt es auch einen Preiss in der Welt, um den eine / Mutter ihr Kind weggibt? / Das verlohrne Kind, 8te Scene #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.676Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "itzkz6a1m9s2im4"
+        }
+      ],
+      "source_id": "sp2g14q1fcl8vsy"
+    }
   ],
   "agents": [
     {

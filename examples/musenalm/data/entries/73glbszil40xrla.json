@@ -48,22 +48,549 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "mzxn12kydvjg63m"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.564Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405333",
+      "location": "105G10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.564Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mzxn12kydvjg63m"
+    }
   ],
   "contents": [
-    "onhhqcz0yy75kxv",
-    "j9qtdzi2zdv0k2l",
-    "jpdesk31nbjcpit",
-    "t3ez2ynzn04t4xw",
-    "e85h84ukr28egrc",
-    "qy342ctn9c2gga9",
-    "b85euheoddgrbfb",
-    "qqlki66jrrjeo27",
-    "tgodtik0lz6xr9t",
-    "vr703wvtl78d7bw",
-    "pw2lpm6kopicst9",
-    "obwaqbold3lf75a",
-    "d4ipxegruuteiqv"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118562,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1630_118562_mi3wtvxdrl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "onhhqcz0yy75kxv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118563,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bettlers Gabe. / Taschenbuch für 1846 / von / Wilhelm Müller. / Zwölfter Jahrgang. / Berlin. / Verlag von C. G. von Puttkammer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1630_118563_s60i6sknq4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bettlers Gabe. / Taschenbuch für 1846 / von / Wilhelm Müller. / Zwölfter Jahrgang. / Berlin. / Verlag von C. G. von Puttkammer",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "j9qtdzi2zdv0k2l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118564,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "jpdesk31nbjcpit"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Seht Ihr jene Wesen, die still, furchtsam, fast wie im Traume befangen, beinahe nackt, unter dem Gewoge von Persern, Truchmenen, Tataren, und Russen umher wandern?",
+      "language": [],
+      "musenalm_id": 118565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Atash-Gah. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Atash-Gah. / Erzählung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.447Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.447Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "uq5j12tf2qo0xq4"
+        }
+      ],
+      "source_id": "t3ez2ynzn04t4xw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Welch' ein Land, welch' ein Paradies Gottes! - Welch' ein Himmel, welch' eine Hölle! Ach, diese Widersprüche einen sich hier in der Schöpfung wie in den Menschenherzen.",
+      "language": [],
+      "musenalm_id": 118566,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaidur. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kaidur. / Novelle",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.447Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.447Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "qgjyoinilimwsyh"
+        }
+      ],
+      "source_id": "e85h84ukr28egrc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Neigt Euer Ohr, Ihr Holden, einen Augenblick einem Manne zu, der nicht schön, nicht liebenswerth, nicht einmal jugendlich ist.",
+      "language": [],
+      "musenalm_id": 118567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Siebengestirn. / Humoristische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Siebengestirn. / Humoristische Erzählung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.447Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.447Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "ted1cr2l59rn1ze"
+        }
+      ],
+      "source_id": "qy342ctn9c2gga9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Wenn Ihr jene Stätte der untergegangenen Welten betretet, die einst in der Menschenbrust eingeschlossen, Freude und Schmerz wie Ihr empfunden haben, findet Ihr linker Hand ein einfaches Grab,",
+      "language": [],
+      "musenalm_id": 118568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kupfer in der / Modenzeitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kupfer in der / Modenzeitung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.447Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.447Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "md2rd9tnlfda3q7"
+        }
+      ],
+      "source_id": "b85euheoddgrbfb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Das Unheil und den Fluch über den tückischen, geizigen Buben, zürnte Kunibert der weinenden Geliebten zu,",
+      "language": [],
+      "musenalm_id": 118569,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Teufel in Spandau. / Vaterländische Sage / dem Dr. Martin Luther nacherzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Teufel in Spandau. / Vaterländische Sage / dem Dr. Martin Luther nacherzählt",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.423Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "9f43hcl4losqaaq"
+        }
+      ],
+      "source_id": "qqlki66jrrjeo27"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Es ist Dorfjahrmarkt; Alles ist voller Lust, voll Frohsinn un dwildem Jubel",
+      "language": [],
+      "musenalm_id": 118570,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Possenspieler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Possenspieler",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.423Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "67k7q4ohbbd02mf"
+        }
+      ],
+      "source_id": "tgodtik0lz6xr9t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "In uralten Zeiten, als noch die geistige Nacht über das Pommerland herrschte, und dessen Bewohner, blinde Heiden, noch nicht erkannt hatten den Erlöser,",
+      "language": [],
+      "musenalm_id": 118571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Heidenglocken. / Sage aus dem Pommerlande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Heidenglocken. / Sage aus dem Pommerlande",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.423Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "e8vdtfi546huhg6"
+        }
+      ],
+      "source_id": "vr703wvtl78d7bw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "321",
+      "incipit_statement": "Denkt Euch einen Jüngling von ohngefähr achtzehn Jahren, den ein gütiges Geschick im Auftrage seiner Eltern in das Katharinenstift, gewöhnlich Smolnoi Monastir genannt, führt.",
+      "language": [],
+      "musenalm_id": 118572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Stunde im Smolnoi / Monastir. / Ein Lebensbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Stunde im Smolnoi / Monastir. / Ein Lebensbild",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.423Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "b6ck6fr45z9y1lk"
+        }
+      ],
+      "source_id": "pw2lpm6kopicst9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck der Buchdruckerei des Preuß. Volksfreundes",
+      "language": [],
+      "musenalm_id": 118573,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck der Buchdruckerei des Preuß. Volksfreundes…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "obwaqbold3lf75a"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118574,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1630_118574_2bnxbjkrgz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "d4ipxegruuteiqv"
+    }
   ],
   "agents": [
     {

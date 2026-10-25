@@ -48,58 +48,2179 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "7nlyrl7pck7w2sj",
-    "qvo7puzcd7zjkh8"
+    {
+      "annotation": "Titelportrait",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.452Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "406568",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.452Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7nlyrl7pck7w2sj"
+    },
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\n§ Titelportrait fehlt: Coupé sculp.: »Ernst Schulze« <br> Kartonierter Einband. (Buchrücken beschädigt.);UG, VB, S I vT, S II VrlgM, S III T, SS V-VI I-Verz, S VII G-Verz, S IX zT, SS X-XX darin 6 GG, SS XXI-LV, SS 1-504, G",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.452Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100988",
+      "location": "105J01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.452Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qvo7puzcd7zjkh8"
+    }
   ],
   "contents": [
-    "z8hcht8a54os39r",
-    "wq5nggxgv215f6q",
-    "mp0pkeoupg3nfgw",
-    "ntf4fgntt38w1wr",
-    "pva82cb5eyxmexu",
-    "3m84a6hk2x2cr5n",
-    "rim0xpou4a4g1q3",
-    "2y4ye3vucog11k2",
-    "gmhv8vfh7cica5a",
-    "korfqugh7qskoat",
-    "k0ove2i0krcqeac",
-    "av1zogvl81jy6mf",
-    "546lwclyjb9fil2",
-    "d096rp1jvx8wygl",
-    "nmvm0cuqvtwv01m",
-    "wjs242r3psxhy1v",
-    "t76ceud46c7m6gp",
-    "xyutiht4tnco7yh",
-    "fbwn5lf3zhxse9t",
-    "ksg4wp81tek6b1n",
-    "95dhwh3xl80497v",
-    "f3nlh5dclug2hvc",
-    "dte3y7o2c5aw4w6",
-    "azwl49e2voz2095",
-    "ky4n8bcckulxwdk",
-    "2qjqdbmopa6v5z3",
-    "jartfvvxo3lvntr",
-    "8kkzvg1k16ztw54",
-    "uztgnqxjl12nvu7",
-    "c51no141iqj6w9g",
-    "to2rr529qdhvl75",
-    "ko5u7vepscztvqg",
-    "p3luq061on9l2wp",
-    "ch5zz50bzkwr19z",
-    "07echdo5phsee4f",
-    "3dnow1mms1p1nu6",
-    "ebn3cb7b2tnw1f5",
-    "f4uvmo5fj1cuo3u",
-    "xm5bu2r1t4e3kn0",
-    "vdh4sk2ph6zxeq3",
-    "vfg0ptodb30ag0e",
-    "do33g4k0tq4s54j",
-    "qyqownb91wb2cgo",
-    "71mq2p90lvgjx8b",
-    "653xtkx1lvvsals",
-    "38msagridtbbxg3",
-    "sa163hgf2tcbono",
-    "q5tq1s4hw3wuixe"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19252,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_43_19252_sqj9i2fcwd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "z8hcht8a54os39r"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19240,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für / 1820",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für / 1820",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "wq5nggxgv215f6q"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19241,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ernst Schulz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Coupé sc.",
+      "scans": [
+        "alm_43_19241_2b3mye2mp4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ernst Schulz",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.766Z",
+          "agent": "7iv6j55k1t2fudg",
+          "source_id": "sepmg2oupi8liqn"
+        }
+      ],
+      "source_id": "mp0pkeoupg3nfgw"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74691,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ntf4fgntt38w1wr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19242,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch / auf / das Jahr 1820. / Neue Folge, zweiter Jahrgang. / Mit acht Kupfern: / Ernst Schulze's Bildniß gest. von Coupé in / Paris; sechs Darstellungen zu Hamlet, nach / Opiz von Bein, Cardon, Leclerc und Vil- / lerey in Paris, und einem Vasenbilde. / (Ausgabe mit Kupfern vor der Schrift.) / Leipzig: / F. A. Brockhaus / 1820",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_43_19242_8kcfiilh8n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch / auf / das Jahr 1820. / Neue Folge, zweiter Jahrgang. / Mit acht Kupfern: / Ernst Schulze's Bildniß gest. von Coupé in / Paris; sechs Darstellungen zu Hamlet, nach / Opiz von Bein, Cardon, Leclerc und Vil- / lerey in Paris, und einem Vasenbilde. / (Ausgabe mit Kupfern vor der Schrift.) / Leipzig: / F. A. Brockhaus / 1820",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "pva82cb5eyxmexu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19243,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "3m84a6hk2x2cr5n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19244,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Kupfer",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "rim0xpou4a4g1q3"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 6 Graphiken INr 9280-9285 mit 6 Textbezügen INr 19245-19250, Obj 8-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9279,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kupfer / zu Hamlet, / erläutert durch Beifügung der dargestellten Scenen / nach der Üebersetzung / von A. W. Schlegel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kupfer / zu Hamlet, / erläutert durch Beifügung der dargestellten Scenen / nach der Üebersetzung / von A. W. Schlegel",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "2y4ye3vucog11k2"
+    },
+    {
+      "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9280, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Wirf, guter Hamlet, ab die nächtge Farbe, / Und laß dein Aug' als Freund auf Dänmark sehn.",
+      "language": [],
+      "musenalm_id": 19245,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hamlet. Erster Aufzug, zweite Scene. / Ein Staatszimmer im Schlosse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hamlet. Erster Aufzug, zweite Scene. / Ein Staatszimmer im Schlosse",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.766Z",
+          "agent": "confomdodiakpla",
+          "source_id": "otf9k0sy2bql4qz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.766Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "y7abs1cyjsj53kt"
+        }
+      ],
+      "source_id": "gmhv8vfh7cica5a"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz; Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19245, Obj 7 /)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9280,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Aufzug, zweite Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opitz de; Villerey sc.",
+      "scans": [
+        "alm_43_9280_tha5lpu0x9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erster Aufzug, zweite Scene #",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "7o6g1oe8niu81et"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "ma3za88jxdb73s7",
+          "source_id": "w3er3e049h606ud"
+        }
+      ],
+      "source_id": "korfqugh7qskoat"
+    },
+    {
+      "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9281, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Im Ernste, auf mein Schwert, im Ernste. / Schwört.",
+      "language": [],
+      "musenalm_id": 19246,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hamlet. Erster Aufzug, fünfte Scene. / Ein abgelegener Theil der Terrasse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hamlet. Erster Aufzug, fünfte Scene. / Ein abgelegener Theil der Terrasse",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "1iavnhqavohazkb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "confomdodiakpla",
+          "source_id": "nbikl49rkfafgrw"
+        }
+      ],
+      "source_id": "k0ove2i0krcqeac"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19246, Obj 9 /) # Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9281,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Aufzug, fünfte Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opitz d.; Villerey s.",
+      "scans": [
+        "alm_43_9281_q2756uahjp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erster Aufzug, fünfte Scene #",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "7tevn59p1zepzfe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "ma3za88jxdb73s7",
+          "source_id": "nn5kdq9ea7stj39"
+        }
+      ],
+      "source_id": "av1zogvl81jy6mf"
+    },
+    {
+      "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9282, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Er findt alsbald ihn, / Wie er den Feind verfehlt: sein altes Schwert / Gehorcht nicht seinem Arm;",
+      "language": [],
+      "musenalm_id": 19247,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Aufzug, zweite Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Aufzug, zweite Scene",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "confomdodiakpla",
+          "source_id": "2ks177cvy87cof2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "bpfaprx89k5x9xv"
+        }
+      ],
+      "source_id": "546lwclyjb9fil2"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19247, Obj 11 /) # Bezeichnung und Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9282,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Aufzug, zweite Scene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Opiz; Leclerc",
+      "scans": [
+        "alm_43_9282_qxdi0z1fec.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Aufzug, zweite Scene #",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "rsb2dkxnzdxotdo"
+        }
+      ],
+      "source_id": "d096rp1jvx8wygl"
+    },
+    {
+      "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9283, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Schirmt mich und schwingt die Flügel über mir, / Ihr Himmelsschaaren! Was will dein würdig Bild?",
+      "language": [],
+      "musenalm_id": 19248,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Aufzug, vierte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Aufzug, vierte Scene",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "dvvq8ba211oyoi4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "confomdodiakpla",
+          "source_id": "vsdv3087sj07j42"
+        }
+      ],
+      "source_id": "nmvm0cuqvtwv01m"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung und Titel aus dem G-Verz. Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19248, Obj 13 /) # Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9283,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Aufzug, vierte Scene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. Bein sc. 1819",
+      "scans": [
+        "alm_43_9283_k2tv0nj364.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Aufzug, vierte Scene #",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "zmvjdej6nue3uh9",
+          "source_id": "8wkdaapu73m6dx6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.177Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "h70xvhhea4r3mk1"
+        }
+      ],
+      "source_id": "wjs242r3psxhy1v"
+    },
+    {
+      "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9284, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Da ist Vergißmeinnicht, das ist zum Andenken: ich / bitte euch, liebes Herz, gedenkt meiner!",
+      "language": [],
+      "musenalm_id": 19249,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Aufzug, fünfte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Aufzug, fünfte Scene",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "3ikuudbr8v830m0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.820Z",
+          "agent": "confomdodiakpla",
+          "source_id": "7ce7zaf365kaf23"
+        }
+      ],
+      "source_id": "t76ceud46c7m6gp"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19249, Obj 15 /) # Bezeichnung undTitel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9284,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Aufzug, fünfte Scene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Opiz; Cardon",
+      "scans": [
+        "alm_43_9284_i8l6uwogsa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Aufzug, fünfte Scene #",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.338Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.338Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "crrb5jffsgfnufv"
+        }
+      ],
+      "source_id": "xyutiht4tnco7yh"
+    },
+    {
+      "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9285, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Der Süßen süßes: Lebe wohl! Ich hoffte, / Du solltest meines Hamlets Gattin seyn.",
+      "language": [],
+      "musenalm_id": 19250,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Aufzug, erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Aufzug, erste Scene",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.879Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.879Z",
+          "agent": "confomdodiakpla",
+          "source_id": "hdudvlzvlgms99q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.879Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.879Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "w3k42hgue4rn5p9"
+        }
+      ],
+      "source_id": "fbwn5lf3zhxse9t"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19250, Obj 17 /) # Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9285,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Aufzug, erste Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz d. Villerey sc.",
+      "scans": [
+        "alm_43_9285_fpb9je532j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Aufzug, erste Scene #",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.338Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.338Z",
+          "agent": "ma3za88jxdb73s7",
+          "source_id": "1qmm0qigxektet5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.338Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.338Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "y3l4ei3dben44we"
+        }
+      ],
+      "source_id": "ksg4wp81tek6b1n"
+    },
+    {
+      "annotation": "s. a. Vorworte in: Urania 1817, INr 9243 und Urania 1819, INr 1520",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Von den für unsre Preisaufgaben eingegangenen Gedichten haben wir diejenigen hier mitgetheilt, die wir mehr oder weniger einer besondern Auszeichnung werth fanden.",
+      "language": [],
+      "musenalm_id": 9288,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort I. / Bericht über die zur Preisbewerbung / nach den Aufgaben in der vorjährigen / Urania eingegangenen Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Redaction der Urania",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort I. / Bericht über die zur Preisbewerbung / nach den Aufgaben in der vorjährigen / Urania eingegangenen Gedichte",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "95dhwh3xl80497v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Die von mir im Jahr 1818 (in der Urania für 1819) auf die beste poetische Erzählung und Epistel gesetzten Preise haben auch diesmal der Urania eine so schöne Ausstattung verschafft,",
+      "language": [],
+      "musenalm_id": 9289,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Vorwort] II. / Programm / über die Preisaufgaben für die Urania auf / 1821",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Brockhaus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Vorwort] II. / Programm / über die Preisaufgaben für die Urania auf / 1821",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.338Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.338Z",
+          "agent": "manlqagw1uz9rp2",
+          "source_id": "p614v30h4kohd69"
+        }
+      ],
+      "source_id": "f3nlh5dclug2hvc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die schöne Gräfin Rosa Donato verfärbte sich, als man ihr sagte, das zarte Kind, das sie geboren, sey ein Mägdlein.",
+      "language": [],
+      "musenalm_id": 704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosa. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Freiherr von der Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosa. / Erzählung",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.755Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "5qyqgqs00n9voc4"
+        }
+      ],
+      "source_id": "dte3y7o2c5aw4w6"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 9276, 1581, Obj 23-24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wunderblume. / Poetische Erzählung in sechs Gesängen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise Ehrhardt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wunderblume. / Poetische Erzählung in sechs Gesängen",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "azwl49e2voz2095"
+    },
+    {
+      "annotation": "Einleitendes Gedicht zur folgenden poetischen Erzählung »Die Wunderblume« s. INr 1581, Obj 23. Dem Gedicht vorangestellt: Was kein Verstand der Verständigen sieht, / Das übet in Einfalt ein kindlich Gemüth. / Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Von einer alten Veste, / Der Vorzeit stolzem Bau, / Begrüßen euch die Reste / Weit durch die Nachbarau.",
+      "language": [],
+      "musenalm_id": 9276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueberlieferung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise Ehrhardt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueberlieferung",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ky4n8bcckulxwdk"
+    },
+    {
+      "annotation": "Anm. d. Hrsg.: Diesem Gedichte ist das Accessit unter den zur Concurrenz eingegangenen poetischen Erzählungen zugesprochen worden. s. Vorworte in: Urania 1817, INr 9243 und Urania 1819, INr 1520; /) mit einem einleitenden Gedicht s. INr 9276, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "In finstrer Mitternacht, durch Sturm und Regen, / Ging Raimund, seines Pfades ungewiß,",
+      "language": [],
+      "musenalm_id": 1581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wunderblume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise Ehrhardt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wunderblume",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "2qjqdbmopa6v5z3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Was lockt mich wieder hin nach diesem Thale? / Und welche Fessel hält mich an der Klippe?",
+      "language": [],
+      "musenalm_id": 1582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hirtenknabe. / Dramatische Idylle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adam Oehlenschläger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hirtenknabe. / Dramatische Idylle",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "1g34ln4fr2bstzc",
+          "source_id": "88ifa5x38jo78d0"
+        }
+      ],
+      "source_id": "jartfvvxo3lvntr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "In einem der anmuthigsten Thale des Königreichs Valencia lebte auf ihrem angeerbten Rittersitze Donna Lucia de Flores-Mendoza,",
+      "language": [],
+      "musenalm_id": 1583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / glückliche Köhler / oder / Lorenzo heiß ich! / Spanische Novelle aus Phillipp des Zweiten Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina von Chezy, geb. Freyin Klencke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / glückliche Köhler / oder / Lorenzo heiß ich! / Spanische Novelle aus Phillipp des Zweiten Zeit",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "wrc7ry1sjbrsw01"
+        }
+      ],
+      "source_id": "8kkzvg1k16ztw54"
+    },
+    {
+      "annotation": "Anm. d. Hrsg.: Abgedruckt als das beste für diese Aufgabe eingegangene Gedicht. s. Vorworte in: Urania 1817, INr 9243 und Urania 1819, INr 1520. Dem Text vorangestellt: Haec studia adolescentiam alunt, senectutem / oblectant, [...] / Cicero orat. pro. Arch. poët.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Zupfest du immer noch, Freund, am Oelzweigkranze / des Friedens, / Unmuthsvoll und verdrießlich, und möchtest wohl gern / ihn zerpflücken,",
+      "language": [],
+      "musenalm_id": 1584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Glück / welches in allen Lagen des Lebens die Beschäftigung / mit den Künsten und Wissenschaften gewährt. / Drei Episteln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August von Blumröder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Glück / welches in allen Lagen des Lebens die Beschäftigung / mit den Künsten und Wissenschaften gewährt. / Drei Episteln",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "afol13njmocrx8d",
+          "source_id": "89lburm4g1vmn2z"
+        }
+      ],
+      "source_id": "uztgnqxjl12nvu7"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Jetzt grad ist die Behexungszeit der Nacht. / Kirchhöfe gähnen auf, [...]. s.a. die Graphiken dieses Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Mit diesen Worten Hamlets (Akt 3. Scene 2. ) ist Stimmung und Charakter des ganzen Stücks genau bezeichnet,",
+      "language": [],
+      "musenalm_id": 1585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / Shakspeare's Philosophie, / besonders / im Hamlet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. H. Clodius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / Shakspeare's Philosophie, / besonders / im Hamlet",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "y9foh5fiai75ps8",
+          "source_id": "fuo1sfm92rtu3qw"
+        }
+      ],
+      "source_id": "c51no141iqj6w9g"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 1586-1592, Obj 30-36. /) # s. Friedrich Treitschke: »Schlaf' ein! Ein Kranz von sieben Sonetten. Seitenstück zu Ernst von Houwalds: Wach auf! Im Taschenbuche Urania 1820. Seite 323 u. f.« in: Aglaja 1821 INr 14641-14648",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wach auf! / Ein Kranz / von / sieben Sonetten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wach auf! / Ein Kranz / von / sieben Sonetten",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "t7snq48o0ticq0e"
+        }
+      ],
+      "source_id": "to2rr529qdhvl75"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Wacht auf, so rufts: es kommt der Lenz / gegangen! / Und sie erwachen alle ungesäumt.",
+      "language": [],
+      "musenalm_id": 1586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Der Lenz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Der Lenz",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.978Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "ovyeb3vz3pzoezg"
+        }
+      ],
+      "source_id": "ko5u7vepscztvqg"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "Wach auf! Die Mutter steht an deiner Wiege! / Horch nur, wie lustig schon die Vöglein sind,",
+      "language": [],
+      "musenalm_id": 1587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Die Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Die Mutter",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.978Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "8ipnmc228blnhml"
+        }
+      ],
+      "source_id": "p3luq061on9l2wp"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Wach auf! Die Liebe naht mit ihrem Glücke! / So tönts dem Herzen, süß wie Schwäne ziehn.",
+      "language": [],
+      "musenalm_id": 1588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die Liebe",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.978Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "cro5qgpmv09w22r"
+        }
+      ],
+      "source_id": "ch5zz50bzkwr19z"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Wach auf! Du darfst nicht länger Ruhe halten! / So tönt der Sorge strengeres Geheiß.",
+      "language": [],
+      "musenalm_id": 1589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die Sorge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die Sorge",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.978Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "pz51olr61gc2g1i"
+        }
+      ],
+      "source_id": "07echdo5phsee4f"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Wacht auf! Wacht auf! Hört die Trompeten / schallen! / Frisch auf zur Schlacht! es bricht der Feind / herein!",
+      "language": [],
+      "musenalm_id": 1590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Die Trompete",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Die Trompete",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "313jauoeussstvx"
+        }
+      ],
+      "source_id": "3dnow1mms1p1nu6"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Wacht auf, ihr Geister! Rüstet euch, ihr Träume! / So ruft die ernste sternumkränzte Nacht.",
+      "language": [],
+      "musenalm_id": 1591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Die Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Die Nacht",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "09a9v3srm8ioqjc"
+        }
+      ],
+      "source_id": "ebn3cb7b2tnw1f5"
+    },
+    {
+      "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Wacht auf! Die Todten sollen auferstehen! / Es tagt, der Auferstehungs-Engel ruft!",
+      "language": [],
+      "musenalm_id": 1592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Der Engel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Der Engel",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "rdz9qzbaybehq2w"
+        }
+      ],
+      "source_id": "f4uvmo5fj1cuo3u"
+    },
+    {
+      "annotation": "Anm. d. Hrsg.: Dieses Gedicht ist unter den eingegangenen zwanzig erzählenden Gedichten nach der Wunderblume vorzüglich ehrenvoll ausgezeichnet worden. /) s. Vorworte in: Urania 1817, INr 9243 und Urania 1819, INr 1520; mit Anmerkungen S 382",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Auf jenes Landes immergrünen Auen, / Das einem mildern Himmel zugewandt,",
+      "language": [],
+      "musenalm_id": 1593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amida's Thränen. / Romantisches Gedicht in drei Gesängen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Borromäus von Miltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amida's Thränen. / Romantisches Gedicht in drei Gesängen",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "e36ydmk4x9m4umt",
+          "source_id": "alnic0th7od1k9g"
+        }
+      ],
+      "source_id": "xm5bu2r1t4e3kn0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Mehr als jemals war im Sommer 18.. Pyrmont besucht. Von Tag zu Tage mehrte sich der Zufluß reicher Fremden und machte den Wetteifer der Spekulanten jeder Art rege.",
+      "language": [],
+      "musenalm_id": 1594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spieler-Glück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. T. A. Hofmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Spieler-Glück",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "hhytu0neum83euj",
+          "source_id": "9tu8tdqnlyqgqzd"
+        }
+      ],
+      "source_id": "vdh4sk2ph6zxeq3"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 1595-1597, Obj 40-42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "423",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei / zusammenhängende / romantische Episteln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst von Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei / zusammenhängende / romantische Episteln",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "exi3e8lq2nuz9as"
+        }
+      ],
+      "source_id": "vfg0ptodb30ag0e"
+    },
+    {
+      "annotation": "Drei zusammenhängende Episteln (Sammlung INr 9278, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "425",
+      "incipit_statement": "Du willst, daß ich drei Pfeifenköpfe sende, / von Meerschaum, federleicht und rar?",
+      "language": [],
+      "musenalm_id": 1595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epistel I. Die Peifen-Köpfe. / Holm an Oscar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst von Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epistel I. Die Peifen-Köpfe. / Holm an Oscar",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "o1stehab39x8oey"
+        }
+      ],
+      "source_id": "do33g4k0tq4s54j"
+    },
+    {
+      "annotation": "Drei zusammenhängende Episteln (Sammlung INr 9278, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "431",
+      "incipit_statement": "Ich saß in meiner Freunde Kreise / Am traulich flüsternden Kamin;",
+      "language": [],
+      "musenalm_id": 1596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epistel II. / Die Probe. / Oscar an Holm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst von Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epistel II. / Die Probe. / Oscar an Holm",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "gz9msxjkfeef23n"
+        }
+      ],
+      "source_id": "qyqownb91wb2cgo"
+    },
+    {
+      "annotation": "Drei zusammenhängende Episteln (Sammlung INr 9278, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "438",
+      "incipit_statement": "Du hast zwar meiner Köpfe Zaubergaben / Mit zartem Sinn gar schön erprobt,",
+      "language": [],
+      "musenalm_id": 1597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epistel III. / Die Wunderröhre. / Holm an Oscar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst von Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epistel III. / Die Wunderröhre. / Holm an Oscar",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "xvlqd069ukj9b4c"
+        }
+      ],
+      "source_id": "71mq2p90lvgjx8b"
+    },
+    {
+      "annotation": "Anm. d. Hrsg.: Abgedruckt als das beste für diese Aufgabe eingegangene Gedicht. s. Vorworte in: Urania 1817, INr 9243 und Urania 1819, INr 1520",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "447",
+      "incipit_statement": "Freund, es befremde dich nicht, einmal im leichten / Gewande / Traulicher Dichtung begrüßt dich zu sehn von der / ernsteren Weisheit.",
+      "language": [],
+      "musenalm_id": 1598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Glück des Glaubens. / Epistel an einen Freund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. G. Lehmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Glück des Glaubens. / Epistel an einen Freund",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "653xtkx1lvvsals"
+    },
+    {
+      "annotation": "s. Graphik INr 9286, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "475",
+      "incipit_statement": "In einer Skizze, welche nach des berümten Kanzelredners und Teologen Fr. V. Reinhard Tod",
+      "language": [],
+      "musenalm_id": 1599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebeszauber: / Zur Erklärung eines antiken Vasengemäldes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Böttiger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Liebeszauber: / Zur Erklärung eines antiken Vasengemäldes",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.881Z",
+          "agent": "7cdnqd525rp9gi5",
+          "source_id": "baj34ox2lx4yqnx"
+        }
+      ],
+      "source_id": "38msagridtbbxg3"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem G-Verz /) Bildbeigabe zu »Der Liebeszauber. Zur Erklärung eines antiken Vasengemäldes« von C. A. Böttiger INr 1599, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "504",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helena von Paris bethört . / Millingen: Vases grecs pl. 72",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stölzel; Skerl",
+      "scans": [
+        "alm_43_9286_qjdgk291bq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helena von Paris bethört . / Millingen: Vases grecs pl. 72",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.338Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.338Z",
+          "agent": "e5dzzklohvjx1fv",
+          "source_id": "vve96hgmniplk6q"
+        }
+      ],
+      "source_id": "sa163hgf2tcbono"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37231,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_43_37231_32sgyptz2g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "q5tq1s4hw3wuixe"
+    }
   ],
   "agents": [
     {

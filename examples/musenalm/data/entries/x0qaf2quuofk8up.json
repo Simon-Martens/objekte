@@ -48,7 +48,26 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "yro3txxr3xzjx6w"
+    {
+      "annotation": "1809-1812.\nKartonierter Einband, Buchrücken beschädigt.\n1809: (K: Mit 1 Port.) Mit XIV und 218 SS.",
+      "condition": "5b",
+      "created": "2026-06-11 10:17:37.550Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101302",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.550Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yro3txxr3xzjx6w"
+    }
   ],
   "contents": [],
   "agents": [

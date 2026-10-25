@@ -48,23 +48,572 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "ugztn5ybypq0d2n"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1810: Mit Ku 6(coloriert) und 381 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100101",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ugztn5ybypq0d2n"
+    }
   ],
   "contents": [
-    "d1wie73yu6dosys",
-    "tj5os4l6q6mec3j",
-    "nubm56kgesuwm3s",
-    "ztmyz4qy285fvdt",
-    "47oz2fa3mblgsuq",
-    "4rsernb1bgstrup",
-    "3rq2ngmq5r6y1hx",
-    "e4uz60xmxz5wtgl",
-    "oioshnz2j7xxnjw",
-    "v08fcylo0l8otbf",
-    "wgdirpii6cu7g4q",
-    "vrc5zims9as0b57",
-    "dbi247yyhoh1tmp",
-    "uxs8zwkw7muaidd"
+    {
+      "annotation": "kol. Illustration zu »Herr Gottlieb Merks« von Kotzebue (INr 123544, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123543,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Denn es beherrschen nie den Weisen /andre Gründe, / Als dass Er glücklich sei, dass Er sich / wohlbefinde. / Herr Gottlieb Merks. Erster Act fünfte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_123543_ghm4uq4pd2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Denn es beherrschen nie den Weisen /andre Gründe, / Als dass Er glücklich sei, dass Er sich / wohlbefinde. / Herr Gottlieb Merks. Erster Act fünfte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "d1wie73yu6dosys"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123554,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Achter Jahrgang / Riga / bei C. J. G. Hartmann, / 1810",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_123554_g1ahbai7si.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Achter Jahrgang / Riga / bei C. J. G. Hartmann, / 1810",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "tj5os4l6q6mec3j"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123553, Obj 1; # Bezeichnung aus den Vorworten bis Jg. 1806 /) enthält eine Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die vorige Nummer hat gleichsam nur gewetterleuchtet, jetzt folgen Blitz und Donner.",
+      "language": [],
+      "musenalm_id": 123555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Gottlieb Merks, / der Egoist und Criticus. / Eine Burleske in zwey Acten #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herr Gottlieb Merks, / der Egoist und Criticus. / Eine Burleske in zwey Acten #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.842Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.842Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "vtllamr2iaxc84o"
+        }
+      ],
+      "source_id": "nubm56kgesuwm3s"
+    },
+    {
+      "annotation": "Beigabe zu »Herr Gottlieb Merks« von Kotzebue (INr 123544, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_124101_77z4a7o5u4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "ztmyz4qy285fvdt"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Harem« von Kotzebue (INr 123602, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Lieb’ ist kein Pflicht, / die Lieb’ ist keine Gnade. / Der Harem. Fünfte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_123602_c9i9vm8xmn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Lieb’ ist kein Pflicht, / die Lieb’ ist keine Gnade. / Der Harem. Fünfte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "47oz2fa3mblgsuq"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123565, Obj 7; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Holla! ihr Himmelsgeister! / Den Adler haltet mir fest! / Nehmt Euch in Acht – daß dich die Pest! / Wen er nicht kennt, den beißt er.",
+      "language": [],
+      "musenalm_id": 123563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pandorens Büchse. / (Nach der Fabel des Hesiod.) / Eine burleske Tragödie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pandorens Büchse. / (Nach der Fabel des Hesiod.) / Eine burleske Tragödie",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.842Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.842Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "ormkr3zlj1bslkb"
+        }
+      ],
+      "source_id": "4rsernb1bgstrup"
+    },
+    {
+      "annotation": "kol. Illustration zu »Pandorens Büchse« (INr 123564, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Deckel wackelt, ich reiss’ ihn los! / Pandorens Büchse. Neunte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Deckel wackelt, ich reiss’ ihn los! / Pandorens Büchse. Neunte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "3rq2ngmq5r6y1hx"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123596, Obj 9; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Da geht er – jetzt kommt er – Pft! Pft! kommen Sie herauf, ich bin allein. Das läßt er sich nicht zweimal sagen.",
+      "language": [],
+      "musenalm_id": 123568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zerstreuten. / Eine Posse in einem Act.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zerstreuten. / Eine Posse in einem Act.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.844Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.844Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "cjnxytpkvncn9q9"
+        }
+      ],
+      "source_id": "e4uz60xmxz5wtgl"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Zerstreuten« von Kotzebue (INr 123595, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / In Venedig ist ein neuer Doge gewählt worden. / Der Zerstreute. Vierte Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_123596_nhumn7sg0s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / In Venedig ist ein neuer Doge gewählt worden. / Der Zerstreute. Vierte Scene #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "oioshnz2j7xxnjw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123598, Obj 11; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Unübertrefflich schön! – ja, Diamanten blitzen, / Doch einfach edler ist ein Schmuck von ächten Spitzen, / Der, reich gefaltet, sich um Hals und Arme webt, / Und durch sein Kaffeegelb des Busens Weiße hebt.",
+      "language": [],
+      "musenalm_id": 123597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der häusliche Zwist. / Ein Lustspiel in einem Act.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der häusliche Zwist. / Ein Lustspiel in einem Act.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "4aachr7gwk2pw68"
+        }
+      ],
+      "source_id": "v08fcylo0l8otbf"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der häusliche Zwist« von Kotzebue (INr 123597, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Auf Rosen schläft man ein / und man erwacht dann auf Nesseln. / Der häusliche Zwist. Dritte Scene #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_123598_a63kzhyy9n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Auf Rosen schläft man ein / und man erwacht dann auf Nesseln. / Der häusliche Zwist. Dritte Scene #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "wgdirpii6cu7g4q"
+    },
+    {
+      "annotation": "kol. Illustration zu »Des Esels Schatten« von Kotzebue (INr 123599, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Silentium! / Des Esels Schatten. Achtzehnte Scene.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1278_123600_7onntqyaof.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Silentium! / Des Esels Schatten. Achtzehnte Scene.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "vrc5zims9as0b57"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123602, Obj 5; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "Willkommen, lieber Herr! seyd tausendmal will- / kommen! / Und dem Propheten Dank, der euch in Schutz genommen!",
+      "language": [],
+      "musenalm_id": 123601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Harem. / Ein Lustspiel in Einem Act",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Harem. / Ein Lustspiel in Einem Act",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "fi2cme8pk7sgfym"
+        }
+      ],
+      "source_id": "dbi247yyhoh1tmp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123600, Obj 12; # Bezeichnung aus den Vorworten bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Das ist ein Tag! – die Sonne wird sich wundern / wenn sie hereinguckt. So einen Tag hat Krähwinkel nicht erlebt, seitdem die verfluchte Delinquentin mit meinen Würsten davon lief.",
+      "language": [],
+      "musenalm_id": 123599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Esels Schatten / oder / der Proceß in Krähwinkel / Eine Posse",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Esels Schatten / oder / der Proceß in Krähwinkel / Eine Posse",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "ltny1gwfzfqlcey"
+        }
+      ],
+      "source_id": "uxs8zwkw7muaidd"
+    }
   ],
   "agents": [
     {

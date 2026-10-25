@@ -48,10 +48,59 @@
   "year": 1795,
   "editor": "",
   "items": [
-    "9oquz673o0vaqq4"
+    {
+      "annotation": "KVK Hebis: 1794-1796",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.779Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409673",
+      "location": "105B06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.779Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9oquz673o0vaqq4"
+    }
   ],
   "contents": [
-    "wi9gamvy4dmq7kt"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121256,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "wi9gamvy4dmq7kt"
+    }
   ],
   "agents": [
     {

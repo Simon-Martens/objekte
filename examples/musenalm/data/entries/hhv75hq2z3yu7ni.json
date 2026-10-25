@@ -48,25 +48,732 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "brlz7uc66g1p6hq"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit Goldschnitt und Schuber.\n1828: (K: M. Ku 8.) Mit Port 5, Tku 1, Bl 3, Ku 2 und 442 SS.\n\nim Schuber",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100775",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "brlz7uc66g1p6hq"
+    }
   ],
   "contents": [
-    "figkvt5hu0j3alg",
-    "obrrgf2ha8p6qkg",
-    "vtjvrb2qnufu8uw",
-    "euck6d0jy5n7ym2",
-    "mtzx7pt88np28os",
-    "mk91seb0dmjokb8",
-    "kmxjsjc4lbr87xx",
-    "ziqgm3g5sg4t22x",
-    "af6tss9jee0ppim",
-    "w58fsgqmnqw5cm4",
-    "vo3fk50m9kvxm1r",
-    "8koxc2wcqfw232j",
-    "iqmbp3ladac57da",
-    "895xox2ptqa4ufk",
-    "lgv3fea043cqrj9",
-    "6iy4p42a5st6tog"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102831,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA, / Prinzessin Carl von Preussen, / geb. Prinzessin von Sachsen-Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Gebauer del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3373_102831_kuw33124ch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA, / Prinzessin Carl von Preussen, / geb. Prinzessin von Sachsen-Weimar",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.022Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.022Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "1t7uuu6hjkb2se5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.022Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.022Z",
+          "agent": "j5b45aa7xjnnuky",
+          "source_id": "nkge78uf8ibx8pd"
+        }
+      ],
+      "source_id": "figkvt5hu0j3alg"
+    },
+    {
+      "annotation": "Portrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102832,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRANZISKA / Vice-Königin des Lombard. u. Venet. Königreichs / Erzherzogin von Oestreich / geb. Prinzessin v. Savoyen-Carignan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3373_102832_zyfe9qzxx8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRANZISKA / Vice-Königin des Lombard. u. Venet. Königreichs / Erzherzogin von Oestreich / geb. Prinzessin v. Savoyen-Carignan",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.023Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "fbdglih9d87phya"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.023Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "ief1ojaakhdxb2e"
+        }
+      ],
+      "source_id": "obrrgf2ha8p6qkg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102833,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / Taschenbuch / für 1828. / von / H. CLAUREN. / Leipzig, bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_3373_102833_wdoaweb33o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / Taschenbuch / für 1828. / von / H. CLAUREN. / Leipzig, bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.023Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "jsd9z5tfprqc8mj"
+        }
+      ],
+      "source_id": "vtjvrb2qnufu8uw"
+    },
+    {
+      "annotation": "graph. Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102834,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT An / von",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3373_102834_kh0ueqoz2r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT An / von",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "euck6d0jy5n7ym2"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Von wem dies Buch in Deine Hand gegeben, / Es sagt's der Name, mög' das Herz es sagen!",
+      "language": [],
+      "musenalm_id": 102835,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.023Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "w2imp83vuo247nw"
+        }
+      ],
+      "source_id": "mtzx7pt88np28os"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102836,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "mk91seb0dmjokb8"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 102838, 102839; Obj 8, 9 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Sie müssen wahrhaftig denken, meine Kassen seien lauter Goldgruben fuhr der Kriegs-Kammer-Präsident ärgerlich heraus.",
+      "language": [],
+      "musenalm_id": 102837,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die drei Waisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die drei Waisen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "kmxjsjc4lbr87xx"
+    },
+    {
+      "annotation": "Illustration zu »Die drei Waisen« INr 102837, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102838,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Und ihre Lichtscheuen werden fliehen vor ihm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Wien",
+      "scans": [
+        "alm_3373_102838_u1cj4awtdn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Und ihre Lichtscheuen werden fliehen vor ihm",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.023Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "h0kybex0elyoai1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.023Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "hz6el1zatgn9l0j"
+        }
+      ],
+      "source_id": "ziqgm3g5sg4t22x"
+    },
+    {
+      "annotation": "Illustration zu »Die drei Waisen« INr 102837, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102839,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Konradine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3373_102839_chf0slu4we.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Konradine",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.927Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.927Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "3dhacpkw12v0iq2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.927Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.927Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "tuz49xxvzaj4zkd"
+        }
+      ],
+      "source_id": "af6tss9jee0ppim"
+    },
+    {
+      "annotation": "s. folgende Graphik (Portrait) INr 102841, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Wie rasch sind uns die Jahre hingeschwunden, / Da Du der Zeit behende Schwingen liehst;",
+      "language": [],
+      "musenalm_id": 102840,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Henriette Sontag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Henriette Sontag",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "w58fsgqmnqw5cm4"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 102840, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HENRIETTE SONNTAG. / Königl. Preuss. Kammer-Sängerin / und / Erste Sängerin bei der Königlichen Italienischen / Oper in Paris / als Anna in der Oper: Die weisse Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber sc.",
+      "scans": [
+        "alm_3373_102841_kjga017tbu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HENRIETTE SONNTAG. / Königl. Preuss. Kammer-Sängerin / und / Erste Sängerin bei der Königlichen Italienischen / Oper in Paris / als Anna in der Oper: Die weisse Frau",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.927Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.927Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "ei603tn42kouiw6"
+        }
+      ],
+      "source_id": "vo3fk50m9kvxm1r"
+    },
+    {
+      "annotation": "s. folgende Graphik INr 102843, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Das Kupfer mit der Unterschrift »Jungfer Lieschen weißt Du was« gehört zu der Erzählung unter dieser Aufschrift im Jahrgang 1827 von H. Clauren Vergißmeinnicht",
+      "language": [],
+      "musenalm_id": 102842,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kupfer mit der Unterschrift »Jungfer Lieschen weißt Du was« gehört zu der Erzählung unter dieser Aufschrift im Jahrgang 1827 von H. Clauren Vergißmeinnicht…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "8koxc2wcqfw232j"
+    },
+    {
+      "annotation": "Illustration zu »Jungfer Lieschen weisst du was, Komm mit mir ins grüne Gras« in: Vergißmeinnicht (Clauren) 1827; INr 102828",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102843,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jungfer Lieschen weisst du was, / Komm mit mir ins grüne Gras",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3373_102843_2ljc8ep46j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jungfer Lieschen weisst du was, / Komm mit mir ins grüne Gras",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.863Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.863Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "kgvn9yx9by8vngy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.863Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.863Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "qzr4gtww39fg4ct"
+        }
+      ],
+      "source_id": "iqmbp3ladac57da"
+    },
+    {
+      "annotation": "$ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Victoria! rief die Tante und gab Dorchen den eben angekommenen Brief. Hundert Thaler jährlich; der Frau Amtsräthin rechte Hand; tägliche Gelegenheit immer mehr zu lernen;",
+      "language": [],
+      "musenalm_id": 102844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Liebe auf der Schnellpost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Liebe auf der Schnellpost",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "895xox2ptqa4ufk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102845,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Joli ist wohl jaloux?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Emil von Loqueyssie del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3373_102845_trd0dssgu9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Joli ist wohl jaloux?",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.863Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.863Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "822es4t96xdpo0k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.863Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.863Z",
+          "agent": "o9xuskcqhm8it0x",
+          "source_id": "8ybvhg4udwo9je5"
+        }
+      ],
+      "source_id": "lgv3fea043cqrj9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "442",
+      "incipit_statement": "Druck und Papier von C. L. Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 102846,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von C. L. Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "6iy4p42a5st6tog"
+    }
   ],
   "agents": [
     {

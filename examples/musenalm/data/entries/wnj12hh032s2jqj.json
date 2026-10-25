@@ -48,12 +48,131 @@
   "year": 1853,
   "editor": "",
   "items": [
-    "br5wbcqr96hs0bc"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.779Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409700",
+      "location": "105A05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.779Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "br5wbcqr96hs0bc"
+    }
   ],
   "contents": [
-    "zwhpojqsohkvb5n",
-    "ed33swi2u9kw4uc",
-    "d6moc2ykyx25nnu"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4610_121604_ervlijgk8w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-11-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "zwhpojqsohkvb5n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121605,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THALIA. / Taschenbuch / für / 1853. / Herausgegeben / von / Dr. Joh. Nep. Vogl. / Vierzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / In Commission bei Jacob Dirnböck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4610_121605_ar767ln5ab.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THALIA. / Taschenbuch / für / 1853. / Herausgegeben / von / Dr. Joh. Nep. Vogl. / Vierzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / In Commission bei Jacob Dirnböck",
+      "updated": "2018-11-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "ed33swi2u9kw4uc"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4610_121606_ojlb21jjm3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-11-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "d6moc2ykyx25nnu"
+    }
   ],
   "agents": [
     {

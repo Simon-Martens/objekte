@@ -48,40 +48,1364 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "grwet9yatrh6unc",
-    "h41zjwk748gypea"
+    {
+      "annotation": "var. Umschlagprägung",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.483Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409314",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.483Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "grwet9yatrh6unc"
+    },
+    {
+      "annotation": "1831-1836.\nKartonierter Einband mit Goldschnitt.\n1834: (K: Bl 3, 365 SS. M. gest Tit. u. Stahlst 7. ) Mit  Port 1, Tku 1, Ku 6, Bl 2 und 365 SS.\n\\par",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.482Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100954",
+      "location": "105A08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.482Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "h41zjwk748gypea"
+    }
   ],
   "contents": [
-    "6uj054v4f2p0yys",
-    "chc38c14iieegzq",
-    "dqu29eueb4nd08r",
-    "3efevrw6d56xbit",
-    "6y3cood3g4jd8rr",
-    "55ie7cwm7w9xvcf",
-    "hgde8j19ejgm2p0",
-    "scucob7rtqev5c0",
-    "caixnww6hfo38db",
-    "cw24gtbsgnicw75",
-    "w09i59z0vj4hk01",
-    "kbe07edqsbmunvr",
-    "a0cutl2i6h4x305",
-    "6hsmt5barzasuzr",
-    "vvb0unctpn4210l",
-    "sc27yj0jfpz7o1k",
-    "m6mfjus7e64oyex",
-    "r2k9pkaxswcs2qx",
-    "6x0tf51gazqaqpt",
-    "6tmjdfjtkjjqwhv",
-    "zeiel6kin8nhv7w",
-    "l57py4ifvr2n6co",
-    "3viz208tcxgqxn7",
-    "y30ubtcgmitl3va",
-    "u5jqoh8zm5ymtu3",
-    "wl5aw5x5ezwwnoa",
-    "dntkcuymihu22hl",
-    "mdp7xylizxtqe84",
-    "4w49e4yw0s5ot8l",
-    "odo3m2t13c9w8r9"
+    {
+      "annotation": "var. Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113036,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_341_113036_k4glpvs3tg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "6uj054v4f2p0yys"
+    },
+    {
+      "annotation": "var. Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113037,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_341_113037_34pp3hctie.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "chc38c14iieegzq"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.799Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_341_26088_3u2xne3ar5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "dqu29eueb4nd08r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26089,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IRENE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Rieder del. J. Passini sc. Viennae",
+      "scans": [
+        "alm_341_26089_29v6qt0xvy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IRENE",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "m6rtseuhu18l6ft"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "pu4sqp9qy5whtve"
+        }
+      ],
+      "source_id": "3efevrw6d56xbit"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26090,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VESTA / Taschenbuch für das Jahr 1834. / Auf Kosten des Herausgebers. / IV. Jahrgang. / Gedruckt von Franz Ludwig / WIEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Burkhart sc.",
+      "scans": [
+        "alm_341_26090_1tmfw605uv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VESTA / Taschenbuch für das Jahr 1834. / Auf Kosten des Herausgebers. / IV. Jahrgang. / Gedruckt von Franz Ludwig / WIEN",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "327xfzdoy71t9fl",
+          "source_id": "q7ip60da25i1b0z"
+        }
+      ],
+      "source_id": "6y3cood3g4jd8rr"
+    },
+    {
+      "annotation": "Illustration zu »Witekind« von J. N. Vogl INr 26099, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26091,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WITTEKIND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schweminger pinx. J. Passini sc. Viennæ",
+      "scans": [
+        "alm_341_26091_wev1h0gwmk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WITTEKIND",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "f1ed39anik0dqmn"
+        }
+      ],
+      "source_id": "55ie7cwm7w9xvcf"
+    },
+    {
+      "annotation": "Illustration zu »Die Unschuld« von F. Grillparzer INr 26100, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26092,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE UNSCHULD",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt v. Prof Waldmüller Stahlstich v. J. Passini",
+      "scans": [
+        "alm_341_26092_6q5n7qqyzn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE UNSCHULD",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "30mh43xegynue78",
+          "source_id": "cpmwrds359ty0fn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "om0jkpoqu97yeat"
+        }
+      ],
+      "source_id": "hgde8j19ejgm2p0"
+    },
+    {
+      "annotation": "Illustration zu »Das Gewitter« von C. G. Leitner INr 26101, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26093,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS GEWITTER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Waldmüller pinx. J. Passini sculp.",
+      "scans": [
+        "alm_341_26093_6rvj530w1m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS GEWITTER",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "30mh43xegynue78",
+          "source_id": "2tlncl0l3pckuze"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "5p59dwlwy04jfwd"
+        }
+      ],
+      "source_id": "scucob7rtqev5c0"
+    },
+    {
+      "annotation": "Illustration zu »Die Kuenringer« von C. W. Huber INr 26102, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26094,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIRNSTEIN VON DER DONAUSEITE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemahlt v. Th. Ender Stahlstich v. J. Axmann",
+      "scans": [
+        "alm_341_26094_gapryel78j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIRNSTEIN VON DER DONAUSEITE",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "khcw8dnelutk2eg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "x22uzijnhb4lbpp",
+          "source_id": "oxbr7izndd8jetd"
+        }
+      ],
+      "source_id": "caixnww6hfo38db"
+    },
+    {
+      "annotation": "Illustration zu »Die Kuenringer« von C. W. Huber INr 26102, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26095,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIRNSTEIN VON DER RÜCKSEITE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemahlt v. Th. Ender Stahlstich v. J. Axmann",
+      "scans": [
+        "alm_341_26095_lxg9croj3c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIRNSTEIN VON DER RÜCKSEITE",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "mi0onx6xmqz9hq8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "x22uzijnhb4lbpp",
+          "source_id": "r7un9ib51i22qco"
+        }
+      ],
+      "source_id": "cw24gtbsgnicw75"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26096,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER EDELHIRSCH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemahlt v. F. Gauermann Stahlstich v. J. Passini i. Wien",
+      "scans": [
+        "alm_341_26096_wyqdwae0st.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER EDELHIRSCH",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "39mc6151u0cpcgt",
+          "source_id": "7mgeq5nfos3p4vx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.169Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "dbr8mg4gfnei687"
+        }
+      ],
+      "source_id": "w09i59z0vj4hk01"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26097,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "kbe07edqsbmunvr"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26098,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vesta / Kleine Halle / für / deutsche Kunst und Literatur. / Vierter Jahrgang / 1834",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vesta / Kleine Halle / für / deutsche Kunst und Literatur. / Vierter Jahrgang / 1834",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0cutl2i6h4x305"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 26091, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es steht der Sachsenführer Held Witekind gar wild / Um Mitternacht alleine auf wüstem Schlachtgefild,",
+      "language": [],
+      "musenalm_id": 26099,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Witekind. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Witekind. / Ballade",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "q7py8ob9zwicsyb"
+        }
+      ],
+      "source_id": "6hsmt5barzasuzr"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 26092, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Ach du schöne weiße Taube, / Zitterst du gleich Espenlaube?",
+      "language": [],
+      "musenalm_id": 26100,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Unschuld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Unschuld",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "yn3f4z05rs860b3"
+        }
+      ],
+      "source_id": "vvb0unctpn4210l"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 26093, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Seht dort im Walde, vom Sturm durchfacht, / Vom Regen durchrauscht und vom Donner umkracht,",
+      "language": [],
+      "musenalm_id": 26101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gewitter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Ritter von Leitner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gewitter",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "kzo5zf1o5a1ke0s",
+          "source_id": "lridd05jcsa6v3j"
+        }
+      ],
+      "source_id": "sc27yj0jfpz7o1k"
+    },
+    {
+      "annotation": "# Dem Text vorangestellt: Gleichwie Blätter im Walde, so sind die Geschlechter der Menschen, / [...] Ilias VI. 144 /) mit 2 Illustrationen s. Graphiken INr 26094, 26095; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Frische Waldesnacht mit ihrem Blätterrauschen umfängt den einsamen Wanderer wonneschaurig, wie ein Traum alter Wunderzeit.",
+      "language": [],
+      "musenalm_id": 26102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kuenringer / Eine Erinnerung aus dem Mittelalter #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Wilhelm Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kuenringer / Eine Erinnerung aus dem Mittelalter #",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "m6mfjus7e64oyex"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 9 Gedichten INr 26104-26112, Obj 17-25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Abbassiden / Ein Gedicht in neun Gesängen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Abbassiden / Ein Gedicht in neun Gesängen",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "vs79etckwhmqrlj"
+        }
+      ],
+      "source_id": "r2k9pkaxswcs2qx"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Tausend Zelten waren aufgeschlagen / Durch's Gefild vor den Thoren Bagdads,",
+      "language": [],
+      "musenalm_id": 26104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "337zubgmax0g9z8"
+        }
+      ],
+      "source_id": "6x0tf51gazqaqpt"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Auf dem Vorsprung einer Felsenkuppe, / Peinlich harrend, stand indessen Assad.",
+      "language": [],
+      "musenalm_id": 26105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.033Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.033Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "i0tdbwv1e92geck"
+        }
+      ],
+      "source_id": "6tmjdfjtkjjqwhv"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Prinz Arnim auf seinem Flügelpferde / War indessen weit umhergegaukelt.",
+      "language": [],
+      "musenalm_id": 26106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.033Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.033Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "54rv2gyqkqksu6w"
+        }
+      ],
+      "source_id": "zeiel6kin8nhv7w"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Eingewurzelt stand der Mohr, dem Prinzen / Blickt' er nach und rief ergrimmt:",
+      "language": [],
+      "musenalm_id": 26107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.033Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.033Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "0bxdlrf1v4612s0"
+        }
+      ],
+      "source_id": "l57py4ifvr2n6co"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Ausserhalb der Stadt und längs der schönen / Gärten Bagdads, trabten jene Beiden,",
+      "language": [],
+      "musenalm_id": 26108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.637Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "fwf7hi8i6rsbqxg"
+        }
+      ],
+      "source_id": "3viz208tcxgqxn7"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Auf der Magierstadt indessen schwebte / Manch Verhängniß, einem Sturm vergleichbar.",
+      "language": [],
+      "musenalm_id": 26109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechster Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechster Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.637Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "zrsvdsatvb4z5o2"
+        }
+      ],
+      "source_id": "y30ubtcgmitl3va"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Unterdeß erwartete lang vergeblich / Ihren Freund die Königinn Selmira:",
+      "language": [],
+      "musenalm_id": 26110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebenter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebenter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.637Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "dhb6cn8qcob427p"
+        }
+      ],
+      "source_id": "u5jqoh8zm5ymtu3"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Welch ein Anblick ward dem guten Assad, / Als er rund umher den Blick versandte!",
+      "language": [],
+      "musenalm_id": 26111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.097Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "nlhqqpdjcysbiye"
+        }
+      ],
+      "source_id": "wl5aw5x5ezwwnoa"
+    },
+    {
+      "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Durch die Magierstadt indessen wälzte / Sich Tumult und nach dem Haven drängte sich / Alles Volk.",
+      "language": [],
+      "musenalm_id": 26112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunter Gesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunter Gesang",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.256Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "yrsl6d330rwhwkx"
+        }
+      ],
+      "source_id": "dntkcuymihu22hl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Der gutmüthige Sonderling, Organist Heinrich Moll, saß eben wieder zwischen den drei Mauern seines Studierstübchens am Clavir.",
+      "language": [],
+      "musenalm_id": 26113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jagdparthie. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stierle Holzmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Jagdparthie. / Erzählung",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.234Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.234Z",
+          "agent": "5dlgex4wmvni1qx",
+          "source_id": "appdkfj284ajpbo"
+        }
+      ],
+      "source_id": "mdp7xylizxtqe84"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "4w49e4yw0s5ot8l"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37220,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_341_37220_wldro77bp0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "odo3m2t13c9w8r9"
+    }
   ],
   "agents": [
     {

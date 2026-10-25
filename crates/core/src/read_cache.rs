@@ -1,7 +1,7 @@
 //! Record caches validated by stamps; collection snapshots maintained by file events.
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct Stamp {
     len: u64,
     modified: std::time::SystemTime,
@@ -145,6 +145,7 @@ pub(super) struct ReadCache {
     pub lists: QueryCache<super::listing::CachedListPage>,
     pub prepared: QueryCache<super::listing::PreparedList>,
     pub references: Mutex<ReferenceCache>,
+    pub reference_file: Mutex<Option<(PathBuf, String)>>,
     pub parents: Mutex<ReferenceCache>,
     // Coalesce cold queries, but let scoped child reads bypass a full list build.
     pub preparation: Mutex<HashMap<(String, bool), Arc<Mutex<()>>>>,
@@ -160,6 +161,7 @@ impl ReadCache {
             lists: Default::default(),
             prepared: Default::default(),
             references: Default::default(),
+            reference_file: Default::default(),
             parents: Default::default(),
             preparation: Default::default(),
             matchers: Default::default(),
@@ -853,6 +855,37 @@ mod tests {
         );
     }
     #[test]
+    fn array_relation_labels_refresh_and_embedded_rows_display_as_counts() {
+        let (t, _) = fixture("filename");
+        let schema_path = t.path().join(".editor/schema.json");
+        let mut schema: Value = serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+        schema["oneOf"][0]["properties"]["links"] =
+            json!({"type":"array","items":{"type":"string","x-relation":{"collection":"items"}}});
+        schema["oneOf"][0]["properties"]["contents"] = json!({"type":"array","items":{"type":"object","properties":{"title":{"type":"string"}}}});
+        fs::write(schema_path, schema.to_string()).unwrap();
+        let e = Editor::open(t.path()).unwrap();
+        write(&t, &e, "a", json!({"name":"Alpha", "contents":[]}));
+        write(
+            &t,
+            &e,
+            "b",
+            json!({"name":"Bravo", "links":["a"], "contents":[{"title":"First"},{"title":"Second"}]}),
+        );
+        let request = ListRequest {
+            limit: 10,
+            sort: "contents".into(),
+            descending: true,
+            ..Default::default()
+        };
+        let page = e.query_collection("items", &request).unwrap();
+        assert_eq!(page.rows[0].id, "b");
+        assert_eq!(page.rows[0].display["contents"], "2");
+        assert_eq!(page.rows[0].display["links"], "Alpha");
+        write(&t, &e, "a", json!({"name":"Updated", "contents":[]}));
+        let page = e.query_collection("items", &request).unwrap();
+        assert_eq!(page.rows[0].display["links"], "Updated");
+    }
+    #[test]
     fn unrelated_target_changes_keep_prepared_rows_and_search_results() {
         let t = tempfile::tempdir().unwrap();
         fs::create_dir_all(t.path().join(".editor")).unwrap();
@@ -1169,6 +1202,107 @@ mod tests {
             Err(Error::Conflict(_))
         ));
         assert!(t.path().join("data/items/a.json").exists());
+    }
+
+    #[test]
+    fn reference_snapshots_reuse_unchanged_sources_and_reconcile_files_and_schemas() {
+        let (t, e) = fixture("filename");
+        let storage = tempfile::tempdir().unwrap();
+        write(&t, &e, "a", json!({"name":"Alpha"}));
+        write(&t, &e, "b", json!({"name":"Bravo","link":"a"}));
+        e.enable_reference_snapshot(storage.path()).unwrap();
+        assert_eq!(e.cached_references_to("items", "a").unwrap().len(), 1);
+        let restored = Editor::open(t.path()).unwrap();
+        restored.enable_reference_snapshot(storage.path()).unwrap();
+        assert_eq!(
+            restored.cached_references_to("items", "a").unwrap().len(),
+            1
+        );
+        assert_eq!(restored.read_cache.parses.load(Ordering::Relaxed), 0);
+        fs::remove_file(t.path().join("data/items/b.json")).unwrap();
+        fs::write(
+            t.path().join("data/items/c.json"),
+            r#"{"name":"New source","link":"a"}"#,
+        )
+        .unwrap();
+        let changed = Editor::open(t.path()).unwrap();
+        changed.enable_reference_snapshot(storage.path()).unwrap();
+        let refs = changed.cached_references_to("items", "a").unwrap();
+        assert_eq!(refs.len(), 1);
+        assert_eq!(refs[0].record_id, "c");
+        assert_eq!(changed.read_cache.parses.load(Ordering::Relaxed), 1);
+        let schema_path = t.path().join(".editor/schema.json");
+        let mut schema: Value = serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+        schema["oneOf"][0]["properties"]["link"]
+            .as_object_mut()
+            .unwrap()
+            .remove("x-relation");
+        fs::write(schema_path, schema.to_string()).unwrap();
+        let revised = Editor::open(t.path()).unwrap();
+        revised.enable_reference_snapshot(storage.path()).unwrap();
+        assert!(
+            revised
+                .cached_references_to("items", "a")
+                .unwrap()
+                .is_empty()
+        );
+        assert_eq!(revised.read_cache.parses.load(Ordering::Relaxed), 2);
+        let snapshot = fs::read_dir(storage.path())
+            .unwrap()
+            .next()
+            .unwrap()
+            .unwrap()
+            .path();
+        fs::write(&snapshot, "corrupted cache").unwrap();
+        let recovered = Editor::open(t.path()).unwrap();
+        recovered.enable_reference_snapshot(storage.path()).unwrap();
+        assert!(
+            recovered
+                .cached_references_to("items", "a")
+                .unwrap()
+                .is_empty()
+        );
+        assert_eq!(recovered.read_cache.parses.load(Ordering::Relaxed), 2);
+        assert!(serde_json::from_slice::<Value>(&fs::read(snapshot).unwrap()).is_ok());
+    }
+
+    #[test]
+    fn markdown_reference_shortcut_keeps_entities_escapes_images_and_definitions() {
+        let (t, e) = fixture("filename");
+        write(&t, &e, "a", json!({"name":"Target"}));
+        write(
+            &t,
+            &e,
+            "b",
+            json!({"name":"Source", "links":[
+                "[Label](/collections/items/records/a)",
+                "[Label](&#47;collections/items/records/a)",
+                r"[Label](/collections\/items/records/a)",
+                "[alias][source]\n\n[source]: /collections/items/records/a",
+                "![picture](#/collections/items/a)"
+            ]}),
+        );
+        assert_eq!(e.cached_references_to("items", "a").unwrap().len(), 5);
+    }
+
+    #[test]
+    fn nested_reference_results_follow_array_order() {
+        let (t, e) = fixture("filename");
+        write(&t, &e, "a", json!({"name":"Target"}));
+        let links: Vec<_> = (0..15)
+            .map(|n| format!("[Item {n}](/collections/items/records/a)"))
+            .collect();
+        write(&t, &e, "b", json!({"name":"Source", "links":links}));
+        let paths: Vec<_> = e
+            .cached_references_to("items", "a")
+            .unwrap()
+            .into_iter()
+            .map(|reference| reference.path)
+            .collect();
+        assert_eq!(
+            paths,
+            (0..15).map(|n| format!("/links/{n}")).collect::<Vec<_>>()
+        );
     }
 
     #[test]

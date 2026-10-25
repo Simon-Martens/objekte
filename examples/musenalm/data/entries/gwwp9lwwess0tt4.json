@@ -49,47 +49,1585 @@
   "year": 1795,
   "editor": "",
   "items": [
-    "x4i0q6q10vjkjmw"
+    {
+      "annotation": "1795-1799.\nKartonierter Einband mit Muster und Grafik.\n1795: (K: M.Ku 5.) Mit Bl 3, Ku 4 und 186 SS. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.480Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100687",
+      "location": "105D04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.480Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "x4i0q6q10vjkjmw"
+    }
   ],
   "contents": [
-    "s1g91dgjsxuop2r",
-    "wkzcubztgzndj1l",
-    "c939jjzok8uckyj",
-    "h8s6yt1mnyvwh2o",
-    "2klajlt3hxi92l9",
-    "0ds2nf6fk2sbv8z",
-    "xenxypxt9b32qb4",
-    "ytfqqbnp5rn51ok",
-    "2v005ckqmtoj2v9",
-    "6308mwf08gf589m",
-    "xfsxivuklk9q91b",
-    "djlx1c8d3zsqmcm",
-    "6fbf9tambc4jhpb",
-    "9ret1cszlj1zqeu",
-    "5jhzzath7arrb5v",
-    "s4bbq1qrh5xokjv",
-    "uu4uzr6ej7qjeap",
-    "g9s4xhbat7tamsr",
-    "o1yd8wnc5wax9s5",
-    "xnii711n247gqac",
-    "9n6uq7chuh2fve8",
-    "sr4jg4kvi4w22yk",
-    "89d24houq6bogiy",
-    "ver1g5j0y63bpqt",
-    "3pzv4ai5wh41je5",
-    "wigpe0iiz615uyt",
-    "k02ffi5j8l4lytk",
-    "qsgl7g6sml8magp",
-    "1fhsiscace5ex13",
-    "0kfu9is74yx6bbx",
-    "xfcbh3uugo8fezl",
-    "d8jyhfxdn3xtcuf",
-    "5wq5ghqqaff58gt",
-    "ubcs4weoo025anx",
-    "ksmlpl5uuwkcdti",
-    "f54wqknjq4j844t",
-    "rp4nb3otjtn20kl",
-    "nxticjdapop6vmi"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22990,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_305_22990_kg836xn1gg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "s1g91dgjsxuop2r"
+    },
+    {
+      "annotation": "# lt. G-Verz: Illustration zum Gedicht »An Gleim« von J. G. Jacobi (INr 23216, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22991,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Gleim #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki d. J. F. Bolt sc. 94",
+      "scans": [
+        "alm_305_22991_sr2fqpzpty.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An Gleim #",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.844Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.844Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "q8wxfmlphmmqv68"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.844Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.844Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "yo9h175qwxyggs1"
+        }
+      ],
+      "source_id": "wkzcubztgzndj1l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22992,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / von / J. G. Jacobi und seinen Freunden / für / 1795. / Mit Kupfern nach Chodowiecky. / Königsberg und Leipzig, / bei Friedrich Nicolovius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_305_22992_tlmdhkuv16.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / von / J. G. Jacobi und seinen Freunden / für / 1795. / Mit Kupfern nach Chodowiecky. / Königsberg und Leipzig, / bei Friedrich Nicolovius",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "c939jjzok8uckyj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22993,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "h8s6yt1mnyvwh2o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22994,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "2klajlt3hxi92l9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22995,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ds2nf6fk2sbv8z"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 7 Beiträgen INr 23210-23216, Obj 9-15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winter",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "xenxypxt9b32qb4"
+    },
+    {
+      "annotation": "paginiert II /) # Titel aus dem G-Verz /) als Stecher ist der Berliner F. Ramberg anzunehmen (kurze Erwähnung bei L/R 159 und bei Rümann: Die iIllustrierten deutschen Bücher des 18. Jahrhunderts )",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23209,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nichts Geweihtes mehr #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. F. Ramberg sc.",
+      "scans": [
+        "alm_305_23209_d0kd8u3w5u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nichts Geweihtes mehr #",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.060Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "cywsqs3mz9e5kt1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.060Z",
+          "agent": "yn5dqo3oyes0o9i",
+          "source_id": "ewa5vbsiv7wqrpi"
+        }
+      ],
+      "source_id": "ytfqqbnp5rn51ok"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23208, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Rabbinen und die Gelehrten, welche sich die unfruchtbare Mühe gegeben haben,",
+      "language": [],
+      "musenalm_id": 23210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Genialis hiems. / Virgil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Schlosser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Genialis hiems. / Virgil",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.958Z",
+          "agent": "duknmoonx2qc6nr",
+          "source_id": "w2eekib6sywa3bx"
+        }
+      ],
+      "source_id": "2v005ckqmtoj2v9"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23208, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "O gute Zeit, als man nach alter Weise / Noch traulich im geschloßnen Kreise,",
+      "language": [],
+      "musenalm_id": 23211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Todten-Kapelle bei Collin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Todten-Kapelle bei Collin",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.958Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "7411m8h1hqz4v3v"
+        }
+      ],
+      "source_id": "6308mwf08gf589m"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23208, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Verzeihen Sie, daß ich mein Versprechen so spät erfülle: Mühselige Berufsarbeiten halten oft von angenehmen Geschäften mich ab;",
+      "language": [],
+      "musenalm_id": 23212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schreiben / des Herrn A** in C** / an den Herausgeber des Almanachs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schreiben / des Herrn A** in C** / an den Herausgeber des Almanachs",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "xfsxivuklk9q91b"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz. Es folgt: Sammlung von 3 Gedichten INr 23214-23216, Obj 13-15 / Winter (Sammlung INr 23208, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Winter #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Winter #",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.958Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "hvclsdpar4kkqgr"
+        }
+      ],
+      "source_id": "djlx1c8d3zsqmcm"
+    },
+    {
+      "annotation": "III. Winter (Sammlung INr 23213, Obj 12) Winter (Sammlung INr 23208, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Erbitten darst du nichts für mich im / neuen Jahr, / Als was mein Glück im alten war:",
+      "language": [],
+      "musenalm_id": 23214,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jänner. / An **",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jänner. / An **",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.958Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "576w1mi1hax7bbq"
+        }
+      ],
+      "source_id": "6fbf9tambc4jhpb"
+    },
+    {
+      "annotation": "III. Winter (Sammlung INr 23213, Obj 12) Winter (Sammlung INr 23208, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Arbeit, ihr Mädchen, / Bringt süßen Gewinn: / Da schnurren am Rädchen",
+      "language": [],
+      "musenalm_id": 23215,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Februar. / Spinnerlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Februar. / Spinnerlied",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.958Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "fpfm28kwnykr8hm"
+        }
+      ],
+      "source_id": "9ret1cszlj1zqeu"
+    },
+    {
+      "annotation": "III. Winter (Sammlung INr 23213, Obj 12) Winter (Sammlung INr 23208, Obj 7) mit einer Illustration s. Graphik INr 22991, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Dich trösten soll ich, liebster Gleim, / In diesen schreckenvollen Zeiten?",
+      "language": [],
+      "musenalm_id": 23216,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "März. / An Gleim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "März. / An Gleim",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.958Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "akhggtoqx41w1kr"
+        }
+      ],
+      "source_id": "5jhzzath7arrb5v"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 4 Beiträgen INr 23219-23221, 37205; Obj 18-21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23217,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "s4bbq1qrh5xokjv"
+    },
+    {
+      "annotation": "paginiert III. /) # Titel aus dem G-Verz /) als Stecher ist der Berliner F. Ramberg anzunehmen (kurze Erwähnung bei L/R 159 und bei Rümann: Die iIllustrierten deutschen Bücher des 18. Jahrhunderts )",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23218,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost im Ungewitter #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. F. Ramberg sc.",
+      "scans": [
+        "alm_305_23218_ghihm4h6sa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trost im Ungewitter #",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.959Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.959Z",
+          "agent": "yn5dqo3oyes0o9i",
+          "source_id": "pblqhwmrxjvlzxt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.959Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.959Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "so2v7fus0xz71jr"
+        }
+      ],
+      "source_id": "uu4uzr6ej7qjeap"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23217, Obj 16) dem Beitrag beigefügt: Gedicht mit dem Incipit: Wo Tempel und Pallast in ihren Trüm- / ern liegen, / Durch öde Hallen, Jahrelang,",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Von allen Freuden, welche die Natur uns darbeut, sind keine so allgemein durch Lieder verherrlicht worden, als die Freuden des Frühlings",
+      "language": [],
+      "musenalm_id": 23219,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Qui mare et terras, variisque mundum / Temperat horis. / Horat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Qui mare et terras, variisque mundum / Temperat horis. / Horat",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.913Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "cvzv3lowh7d5uf7"
+        }
+      ],
+      "source_id": "g9s4xhbat7tamsr"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23217, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Wohlan denn , Kinder, aber erst die Fensterladen zugemacht, und Holz in den Ofen gelegt!",
+      "language": [],
+      "musenalm_id": 23220,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der erste Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Graf zu Stollberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der erste Frühling",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.913Z",
+          "agent": "7gwss5mvx858qah",
+          "source_id": "27v650mfmz8qi7h"
+        }
+      ],
+      "source_id": "o1yd8wnc5wax9s5"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23217, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Was kümmerts dich in deinen Wolken / droben, / Du launischer April,",
+      "language": [],
+      "musenalm_id": 23221,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "April",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "April",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.980Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.980Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "tlnduvctqnwtdqt"
+        }
+      ],
+      "source_id": "xnii711n247gqac"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23217, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Wenn in Gärten voller Pracht / Uns die Rose nicht, umglänzt von Tulpen / lacht;",
+      "language": [],
+      "musenalm_id": 37205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "May #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "May #",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.728Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.728Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "c36azt49koxkcq0"
+        }
+      ],
+      "source_id": "9n6uq7chuh2fve8"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 5 Beiträgen INr 23224-23228, Obj 24-28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23222,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sommer",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "sr4jg4kvi4w22yk"
+    },
+    {
+      "annotation": "paginiert IV. /) # Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23223,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gräuel des Kriegs #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. W. Arndt fec. Berlin 1794",
+      "scans": [
+        "alm_305_23223_pgotb3h9bg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gräuel des Kriegs #",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.817Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "m8lh8s9nd2zhlg9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.817Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "se99mcyg464zngp"
+        }
+      ],
+      "source_id": "89d24houq6bogiy"
+    },
+    {
+      "annotation": "Vorwort zum folgenden Beitrag INr 23225, Obj 25 /) Sommer (Sammlung INr 23222, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Zaubermährchen sind eigentlich für den Winter, und lesen sich am besten Abends,",
+      "language": [],
+      "musenalm_id": 23224,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.818Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "xwrhqr9shsjh565"
+        }
+      ],
+      "source_id": "ver1g5j0y63bpqt"
+    },
+    {
+      "annotation": "mit einem Vorwort INr 23224, Obj 24 /) Sommer (Sammlung INr 23222, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Fernando hatte mit seiner Miranda glückliche Jahre gelebt, als der König von Neapolis, Mirandas Vater, starb.",
+      "language": [],
+      "musenalm_id": 23225,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fernando und Miranda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Katharina Gräfinn zu Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fernando und Miranda",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.818Z",
+          "agent": "ak6p08rx5qghnt7",
+          "source_id": "k07ltg8131m5mgl"
+        }
+      ],
+      "source_id": "3pzv4ai5wh41je5"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23222, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Groß und rothentflammet schwebet / Noch die Sonn' am Himmelsrand,",
+      "language": [],
+      "musenalm_id": 23226,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Juny. / Abendlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Graf zu Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Juny. / Abendlied",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.008Z",
+          "agent": "7gwss5mvx858qah",
+          "source_id": "lubtvu0pduaeafb"
+        }
+      ],
+      "source_id": "wigpe0iiz615uyt"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23222, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Zürnen mit dem Erdenvolke, / Zürnen will der Himmel nicht,",
+      "language": [],
+      "musenalm_id": 23227,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "July",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "July",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.008Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "ryxz4cajyh9pgfg"
+        }
+      ],
+      "source_id": "k02ffi5j8l4lytk"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23222, Obj 22) s. französische Fassung in ungebundener Rede in: Taschenbuch von J. G. Jacobi und seinen Freunden 1796, INr 52267",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Lieblich ist es sich zu lagern, / Wenn die Sonne brennet, / Unter dichtbelaubte Bäume;",
+      "language": [],
+      "musenalm_id": 23228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "August. / Madagaskisches Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "August. / Madagaskisches Lied",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "qsgl7g6sml8magp"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen: 2 Sammlungen mit 6 Beiträgen und einer Illustration INr 23230-23237, Obj 30-37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbst",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "1fhsiscace5ex13"
+    },
+    {
+      "annotation": "paginiert V. /) lt. G-Verz Illustration zum Gedicht »September. An ...« von J. G. Jacobi INr 23232, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23230,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Chodowiecki del. Geyser s.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki del. Geyser s.",
+      "scans": [
+        "alm_305_23230_5itpe0qlq1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "lfyqx1j23ipmczg",
+          "source_id": "gxcazo593ge5y4w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "vze2jx95kzf3z8u"
+        }
+      ],
+      "source_id": "0kfu9is74yx6bbx"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23229, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Sie werden sich erinnern, wie oft ich mit Ihnen über die alte Bemerkung gesprochen habe",
+      "language": [],
+      "musenalm_id": 23231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Beschreibung einer Reise / an den Fuß des Mont blanc. / Genf den 10 October 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Arnold Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Beschreibung einer Reise / an den Fuß des Mont blanc. / Genf den 10 October 1791",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "xfcbh3uugo8fezl"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 23230, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Könnt' ich singen, o Naide, / Wie ich einst am Arm der jungen Freude / sang;",
+      "language": [],
+      "musenalm_id": 23232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "September. / An ..",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "September. / An ..",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "59ze56ntcb2xl9s"
+        }
+      ],
+      "source_id": "d8jyhfxdn3xtcuf"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 23234-23236, Obj 34-36 /) Herbst (Sammlung INr 23229, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oktober und November / Madagaskische Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Oktober und November / Madagaskische Lieder",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "5wq5ghqqaff58gt"
+    },
+    {
+      "annotation": "Oktober und November. Madagaskische Lieder (Sammlung INr 23233, Obj 33) Herbst (Sammlung INr 23229, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Nur diese Tochter hatte die Mutter, / Und schleppte sie ohn' Erbarmen hin",
+      "language": [],
+      "musenalm_id": 23234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "ubcs4weoo025anx"
+    },
+    {
+      "annotation": "Oktober und November. Madagaskische Lieder (Sammlung INr 23233, Obj 33) Herbst (Sammlung INr 23229, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Zanhar und Niang schufen die Welt. / O Zanhar! dir schicken wir keine Gebete / zu;",
+      "language": [],
+      "musenalm_id": 23235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "ksmlpl5uuwkcdti"
+    },
+    {
+      "annotation": "Oktober und November. Madagaskische Lieder (Sammlung INr 23233, Obj 33) Herbst (Sammlung INr 23229, Obj 29) s. franz. Fassung in: Taschenbuch von J. G. Jacobi und seinen Freunden 1796, INr 52266",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Deinen Namen, junge Gefangne? / Mein Name ist Vayna",
+      "language": [],
+      "musenalm_id": 23236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "f54wqknjq4j844t"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23229, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Schließ die Aeuglein, Kleiner! / Schlafe sicher mir im Arm!",
+      "language": [],
+      "musenalm_id": 23237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "December. / Lied einer Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "December. / Lied einer Mutter",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "6v4lfuq8qgjz1y9"
+        }
+      ],
+      "source_id": "rp4nb3otjtn20kl"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37206,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_305_37206_6sc2u7x251.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-03-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "nxticjdapop6vmi"
+    }
   ],
   "agents": [
     {

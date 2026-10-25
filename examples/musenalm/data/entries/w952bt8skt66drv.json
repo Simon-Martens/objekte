@@ -48,61 +48,2018 @@
   "year": 1797,
   "editor": "",
   "items": [
-    "l5cn4ezie5h8k5z",
-    "xv579i4at4knprt"
+    {
+      "annotation": "UGG, verso G, G mit 3 Portraits, SS",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.527Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409259",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.527Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "l5cn4ezie5h8k5z"
+    },
+    {
+      "annotation": "§1§ und §4§ Umschlaggraphiken fehlen; §2§ Titelportrait fehlt; §3§ Graphik mit 3 Portraits fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100460",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xv579i4at4knprt"
+    }
   ],
   "contents": [
-    "xiy0ud0hc66pqqb",
-    "48xxolhv531eg1v",
-    "07pdt8rzxzrbi4w",
-    "pobeqhhbzx6c3o3",
-    "ct1v3qil6b89e91",
-    "hpxk3qw4ymqv9ad",
-    "oo2kwrmwqtgk25g",
-    "9u43ipdfhy9fi6g",
-    "7ap9qj7q1c7mw3g",
-    "vf2u7kmdsh5reuc",
-    "r81ft8qndso4mx3",
-    "lnzzqbfkbw6sufo",
-    "n7trux5isubrz2r",
-    "afuliv0qaxlh9jj",
-    "wwwntpwkojelfdk",
-    "vlaleb74hv24p7x",
-    "xuw9krvi19casx8",
-    "yd1b4674e8gr906",
-    "rrmbzfek35zr9fn",
-    "wcc6ud97394wn75",
-    "eod979rgds6v438",
-    "2rdg48c4sbp7dln",
-    "z3zzxcadnink0nn",
-    "l5xdjuoh8k39s08",
-    "ex1ogtty1h88i4n",
-    "5c1pvqzuv84lka3",
-    "5p2y7zarjcjh80p",
-    "srvdw9cmot41gc5",
-    "t0lwgz6rznmg3x0",
-    "rgn3c1grvjdpbo6",
-    "rds57z8tnu56sj5",
-    "rgg8bya1xe7mt3o",
-    "u94ra0a5ko0k0xc",
-    "62l7te4kwjtj3vs",
-    "tzn2lq3pozoo0q5",
-    "bjmkmoj0oalvvme",
-    "ket43y0ima7sz1r",
-    "zshc3xdlibdwqgu",
-    "dh615pbylsjoewr",
-    "gg70lhd42iz1uqm",
-    "2ykjpdfaa1h14qb",
-    "f9d1yhmlncnklez",
-    "sejlbaukgnxbu6q",
-    "3zciaacf22e56kr",
-    "quib2gr7eggx9tm",
-    "uidh4n7c4uttkt0",
-    "lagh54mjhzhdnft",
-    "kipcxchs40xc7w4",
-    "sfhufo1wx1k97o7",
-    "eyk0hloze51m5tz",
-    "2b80dw8z4nrzcoa"
+    {
+      "annotation": "Umschlaggraphik r. /) s. G-Verz INr 60158, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60161,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der berühmte Hufschmied aus der / Vendée",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60161_51xvfndy90.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der berühmte Hufschmied aus der / Vendée",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "xiy0ud0hc66pqqb"
+    },
+    {
+      "annotation": "Titelportrait # Bez. und Titel aus dem G-Verz INr 60158, Obj 45 /) §2§ Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60162,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Madame Royale, Tochter Ludwigs XVI. Königs von Frankreich #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Mechel del. Sergent sc.",
+      "scans": [
+        "alm_938_60162_9be2h711xv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Madame Royale, Tochter Ludwigs XVI. Königs von Frankreich #",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "ll2sifvc81lxqrn",
+          "source_id": "206w4yc7yebvu0v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "advz1g7p1gcqv62",
+          "source_id": "h88r5csm0r6yw7y"
+        }
+      ],
+      "source_id": "48xxolhv531eg1v"
+    },
+    {
+      "annotation": "graph.-typograph. Titel mit Portrait Graf Clairfayt s. Textbezug INr 60158, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60114,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Revolutions- / Almanach / von / 1797. / Göttingen, / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60114_kc89zl2tex.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Revolutions- / Almanach / von / 1797. / Göttingen, / bey Johann Christian Dieterich",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "07pdt8rzxzrbi4w"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Als ich den R. A. von 1796 schloß, waren die Neu-Franken über den Rhein, und vor ihnen her wie gewöhnlich Kleinmuth und Zagheit gegangen.",
+      "language": [],
+      "musenalm_id": 60115,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht des Herausgebers",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "0s0rfehirbczvup"
+        }
+      ],
+      "source_id": "pobeqhhbzx6c3o3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60116,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "ct1v3qil6b89e91"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie in des Lenzes Pracht / Der Eiche Wipfel lacht / Am Felsenrand;",
+      "language": [],
+      "musenalm_id": 60117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Lied / für deutsche Vaterlandsfreunde. / (Nach der Melodie des englischen / God save the King.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Lied / für deutsche Vaterlandsfreunde. / (Nach der Melodie des englischen / God save the King.)",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "hpxk3qw4ymqv9ad"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Revolutions-Almanach 1796; INr 60113",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Ein sehr eifriger Patriote, der hauptsächlich Straßburg revolutionirte, sagte hier selbst beym Abschiede, als er seine Commission erledigte: Die Constitution sey für Philososphen, sie mache wohl erst die kommende Generation glücklich",
+      "language": [],
+      "musenalm_id": 60118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Weitere Bruchstücke aus dem Tage- / buche eines Deutschen, der vom Jahr / 1789-95 in Frankreich war",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Weitere Bruchstücke aus dem Tage- / buche eines Deutschen, der vom Jahr / 1789-95 in Frankreich war",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "oo2kwrmwqtgk25g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Auf, meine Seele! steig in den goldenen, / Mit Reitz' und Wahrheit, Kraft und Erhabenheit / Bespannten Wagen, / den die Musen / Und Charitinnen dir heut' entbiethen!",
+      "language": [],
+      "musenalm_id": 60119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Dem Retter Deutschlands, / zum Beschlusse des vierten Feldzuges / wider die Franzosen, gesungen von Lorenz / Leopold  Haschka, im Januar 1776 / Sieges-Hymne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lorenz Leopold Haschka",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Dem Retter Deutschlands, / zum Beschlusse des vierten Feldzuges / wider die Franzosen, gesungen von Lorenz / Leopold  Haschka, im Januar 1776 / Sieges-Hymne",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.194Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.194Z",
+          "agent": "j63e4oki0d4f74a",
+          "source_id": "g3l4x84jnq3dl90"
+        }
+      ],
+      "source_id": "9u43ipdfhy9fi6g"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Nun ist ein Jahr verflossen, seitdem wir Franken zum zweytenmal vor Mainz ankamen. Es warin einem Zeitpunct, worin sich Ueberfluß im ganzen Lande befand,",
+      "language": [],
+      "musenalm_id": 60120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Bruchstücke aus der geheimen Ge- / schichte der Regierung des Landes zwi- / schen dem Rhein und der Mosel; von / einem neu-fränkischen Officier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ein neu-fränkischer Officier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Bruchstücke aus der geheimen Ge- / schichte der Regierung des Landes zwi- / schen dem Rhein und der Mosel; von / einem neu-fränkischen Officier",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ap9qj7q1c7mw3g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Es müßte ein lesenswürdiges Büchlein werden, wenn ein kenntnißvoller Bewohner der Gegenden, die der Schauplatz des blutigsten und grausamsten aller Kriege sind,",
+      "language": [],
+      "musenalm_id": 60121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Deutscher Biedersinn und französische / Dankbarkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Deutscher Biedersinn und französische / Dankbarkeit",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "vf2u7kmdsh5reuc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "In einer gewissen Stadt, in welcher man zur Einleitung des neuen französischen Systrems schon lange auf Proseliten rechnete, und leider auch viele fand,",
+      "language": [],
+      "musenalm_id": 60122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Der französische Apostel in Deutschland; / eine Warnung ans Volk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Der französische Apostel in Deutschland; / eine Warnung ans Volk",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "r81ft8qndso4mx3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.233Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Wir wollen nicht frey seyn! sagen die Belgier. Wenn Master Hyam mich einladet, mich, der ich in seinem halsbrechendem Studium kaum ein Neuling bin,",
+      "language": [],
+      "musenalm_id": 60123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Belgier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Belgier",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "lnzzqbfkbw6sufo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.233Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Nichts ist schwerer für den gleichzeitigen Geschichtsschreiber, als das Wahre von dem Falschen zu scheiden, ohne das Parteygeist und Leidenschaft die Hand führt;",
+      "language": [],
+      "musenalm_id": 60124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Straßburg, / unter der Revolutions-Regierung: / aus öffentlichen Acten und gerichtlichen Urkun- / den gezogen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Straßburg, / unter der Revolutions-Regierung: / aus öffentlichen Acten und gerichtlichen Urkun- / den gezogen",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.554Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "3tnv4n8gwkcg9ty"
+        }
+      ],
+      "source_id": "n7trux5isubrz2r"
+    },
+    {
+      "annotation": "Übersetzung eines dem Beitrag »Miscellen« beigegebenen Gedichts in: Revolutions-Almanach 1796; INr 60084",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.233Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Schon hallt die ernste Todesstunde, / Die mich von euch, ihr Trauten! ruft;",
+      "language": [],
+      "musenalm_id": 60125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Der Abschied. / nach dem Französischen des Nicolas Montjour- / dain frey übersetzt. / (S. 233 des vor. R. A.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nicolas Montjourdain; [übers.] Friedrich Rothmaler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Der Abschied. / nach dem Französischen des Nicolas Montjour- / dain frey übersetzt. / (S. 233 des vor. R. A.)",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "afuliv0qaxlh9jj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.233Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Wenn man die Geschichte mit Aufmerksamkeit durchlieset, so wird man mehr Fürsten finden, die vom Thron gestürzt wurden, weil sie zu gut, als weil sie zu böse waren,",
+      "language": [],
+      "musenalm_id": 60126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Drey Wahrheiten, über Staaten- / Revolutionen, vor mehr denn hundert / Jahren, von dem berühmten Peter / Bayle niedergeschrieben, und seine Weis- / sagung von Frankreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Peter Bayle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Drey Wahrheiten, über Staaten- / Revolutionen, vor mehr denn hundert / Jahren, von dem berühmten Peter / Bayle niedergeschrieben, und seine Weis- / sagung von Frankreich",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "wwwntpwkojelfdk"
+    },
+    {
+      "annotation": "2 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Helden der alten Freiheit. / Washington / Tell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60127_8bj5cc71gh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Helden der alten Freiheit. / Washington / Tell",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "vlaleb74hv24p7x"
+    },
+    {
+      "annotation": "3 Portraits",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Helden der neuen Freiheit. / Horne Tooke / Ankarström / Chalier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60128_4u8bo992rk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Helden der neuen Freiheit. / Horne Tooke / Ankarström / Chalier",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "xuw9krvi19casx8"
+    },
+    {
+      "annotation": "mit einem Nachwort des Herausgebers INr 60130, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Der gegenwärtige Zustand der vereingten Staaten von Amerika ist in unserm Welttheil wenig bekannt.",
+      "language": [],
+      "musenalm_id": 60129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Die vereinigten Staaten von Nord- / amerika: von Carl Pictet aus Genf: nebst / einer Nachschrift des Herausgebers, sein / politisches Glaubensbekenntniß enthaltend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Pictet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Die vereinigten Staaten von Nord- / amerika: von Carl Pictet aus Genf: nebst / einer Nachschrift des Herausgebers, sein / politisches Glaubensbekenntniß enthaltend",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "yd1b4674e8gr906"
+    },
+    {
+      "annotation": "Nachwort zum vorstehenden Beitrag INr 60129, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.980Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Glückliche Americaner! und doch, wenn man dem Briefe eines zurückgekommenen Deutschen in der Minerva vom vorigen Jahr, und andern Nachrichten trauen darf,",
+      "language": [],
+      "musenalm_id": 60130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift des Herausgebers, sein politi- / sches Glaubensbekenntniß enthaltend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift des Herausgebers, sein politi- / sches Glaubensbekenntniß enthaltend",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.607Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "0kehozfge7mr7ci"
+        }
+      ],
+      "source_id": "rrmbzfek35zr9fn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Als im Jahre 1796 die Neu-Franken zu Worms und in der Gegend, nur mit kärglicher und spärlicher Kost vorlieb nehmen mußten, bestand ein Theil ihrer Nahrungsmittel in unreifen Kornähren,",
+      "language": [],
+      "musenalm_id": 60131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Miscellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Miscellen",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.607Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "f6wse2bg46vmgw8"
+        }
+      ],
+      "source_id": "wcc6ud97394wn75"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Ich erwachte gegen sechs Uhr des Morgens, die Sonne trat eben aus den Wolken hervor; ihr matter Schein verkündigte die längst gefürchtete Annäherung des 5. Octobers oder des 13. Vendemiär",
+      "language": [],
+      "musenalm_id": 60132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Bruchstücke / aus dem Testamente eines Pariser Wahl- / herrn, von Boffroy-Reigny, / (gewöhn- / lich Vetter Jacob genannt) / übersetzt von Nn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Beffroy-Reigny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Bruchstücke / aus dem Testamente eines Pariser Wahl- / herrn, von Boffroy-Reigny, / (gewöhn- / lich Vetter Jacob genannt) / übersetzt von Nn",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "eod979rgds6v438"
+    },
+    {
+      "annotation": "paginiert 1. /) s. Textbezug INr 60135, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die alten und neuen Franzosen. / Die Franzosen zu Speyer, vor 100 Jahren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60133_3ns5pzhed9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die alten und neuen Franzosen. / Die Franzosen zu Speyer, vor 100 Jahren",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "2rdg48c4sbp7dln"
+    },
+    {
+      "annotation": "Sammlung von 13 Textbezügen zu den Graphiken des Almanachs INr 60135-60159; Obj 22-47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Erklärung der Kupfer",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "5ek0gjti4ry0xfj"
+        }
+      ],
+      "source_id": "z3zzxcadnink0nn"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60133, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Als die Franzosen im vorigen Jahrhunderte, unter Ludwigs XIV. monarchischer Regierung, die Pfalz und die anliegenden Länder eben so verwüsteten, wie in unsern Zeiten ein großer Theil dieser Rheinländer von ihren Nachkommen,",
+      "language": [],
+      "musenalm_id": 60135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die alten und neuen Franzosen. / 1. / Die Franzosen zu Speyer vor hundert Jahren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die alten und neuen Franzosen. / 1. / Die Franzosen zu Speyer vor hundert Jahren",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "6mqm06x5aci19yz"
+        }
+      ],
+      "source_id": "l5xdjuoh8k39s08"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60137, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "Zu den Briefen Nr. IV. gehörig. Ob diese Briefsteller Wahrheit durchaus geredet, wird der Augenzeuge am besten beurtheilen können.",
+      "language": [],
+      "musenalm_id": 60136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die alten und neuen Franzosen.] 2. / Barbareyen eines kleinen Theils der Jourdan- / schen Armee im Oktober 1795",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die alten und neuen Franzosen.] 2. / Barbareyen eines kleinen Theils der Jourdan- / schen Armee im Oktober 1795",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.601Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.601Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "lz22imnrtht55ej"
+        }
+      ],
+      "source_id": "ex1ogtty1h88i4n"
+    },
+    {
+      "annotation": "paginiert 2. /) s. Textbezug INr 60136, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Barbareyen eines Theils der Jourdanschen / Armee im October 1795",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60137_7e0zu4tdna.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Barbareyen eines Theils der Jourdanschen / Armee im October 1795",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "5c1pvqzuv84lka3"
+    },
+    {
+      "annotation": "paginiert 3. /) s. Textbezug INr 60139, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Religiöse Intoleranz unter Ludwig XIV",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60138_dzna48amoz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Religiöse Intoleranz unter Ludwig XIV",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "5p2y7zarjcjh80p"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60138, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "Wem ist der Verlust an guten und fleißigen Bürgern unbekannt, den Frankreich vor 100 Jahren durch Intoleranz in Glaubens- und Meinungs-Lehren erlitt?",
+      "language": [],
+      "musenalm_id": 60139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Religiöse Intoleranz unter Ludwig XIV",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Religiöse Intoleranz unter Ludwig XIV",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.601Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.601Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "oak3bwlihzaqvtb"
+        }
+      ],
+      "source_id": "srvdw9cmot41gc5"
+    },
+    {
+      "annotation": "paginiert 4. /) s. Textbezug INr 60141, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Politisch-philosophische Intoleranz des / National Convents",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60140_cwcowa4yo9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Politisch-philosophische Intoleranz des / National Convents",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "t0lwgz6rznmg3x0"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60140, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.370Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "Intoleranz ist sich immer gleich, sie nehme eine Larve vor, welche sie wolle, ihre Gestalt wird dadurch nicht minder scheußlich,",
+      "language": [],
+      "musenalm_id": 60141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Politisch-philosophische Intoleranz des National- / Convents",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Politisch-philosophische Intoleranz des National- / Convents",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.996Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.996Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "yr3ovj0iha15vwr"
+        }
+      ],
+      "source_id": "rgn3c1grvjdpbo6"
+    },
+    {
+      "annotation": "paginiert 5. /) s. Textbezug INr 60143, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "342",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der edle Neufranken und der Schulmeister 1794",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60142_ahgje68318.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der edle Neufranken und der Schulmeister 1794",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "rds57z8tnu56sj5"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60142, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "Ein deutscher Schulmeister, der schon verschiedene Mißhandlungen von den französischen Räumungs- alias Plünderungs-Commissarien und ihren Begleitern erduldet hatte,",
+      "language": [],
+      "musenalm_id": 60143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der edle Neu-Franke und der Schulmeister, 1794",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der edle Neu-Franke und der Schulmeister, 1794",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.996Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.996Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "beznq62w5ydwm6u"
+        }
+      ],
+      "source_id": "rgg8bya1xe7mt3o"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60145, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "Matthison erzählt diesen Zug im zweyten Bande seiner schönen Briefe. Ein französischer Grenadier wurde von Piemontesern umringt und gefangen.",
+      "language": [],
+      "musenalm_id": 60144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Das ça ira des französischen Grenadiers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Das ça ira des französischen Grenadiers",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.996Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.996Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "dkvi52e3lc4b9lr"
+        }
+      ],
+      "source_id": "u94ra0a5ko0k0xc"
+    },
+    {
+      "annotation": "paginiert 6. /) s. Textbezug INr 60144, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Ça ira des französischen Gre- / nadiers. 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60145_ao6778er0v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Ça ira des französischen Gre- / nadiers. 1796",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "62l7te4kwjtj3vs"
+    },
+    {
+      "annotation": "paginiert 7. /) s. Textbezug INr 60147, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die alten und neuen Deutschen. / Der deutsche Minirer zu Turin 1706",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60146_6o6ad24bex.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die alten und neuen Deutschen. / Der deutsche Minirer zu Turin 1706",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "tzn2lq3pozoo0q5"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60146, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Daun vertheidigte schon ein Vierteljahr lang Turin, und vereitelte alle Stürme und Angriffe des französischen Heeres:",
+      "language": [],
+      "musenalm_id": 60147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die alten und neuen Deutschen. / 7. / Der deutsche Minirer zu Turin, 1706",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die alten und neuen Deutschen. / 7. / Der deutsche Minirer zu Turin, 1706",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.960Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "p6y0rfr9eal7emg"
+        }
+      ],
+      "source_id": "bjmkmoj0oalvvme"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60149, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "Als Clerfait im Herbst 1795 die Jourdansche Armee an der Nidda angriff, und sie der Niederlage nur durch eine schleunige Flucht entging,",
+      "language": [],
+      "musenalm_id": 60148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die Frankfurter und Sachsenhäuser pflegen die / braven kaiserlichen Verwundeten zu Nidda 1795",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die Frankfurter und Sachsenhäuser pflegen die / braven kaiserlichen Verwundeten zu Nidda 1795",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.960Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "i7rgchodkufi3x0"
+        }
+      ],
+      "source_id": "ket43y0ima7sz1r"
+    },
+    {
+      "annotation": "paginiert 8. /) s. Textbezug INr 60148, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frankfurther und Sachsenhäuser pflegen die / braven Kaiserlichen Verwundeten an der Nidda 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60149_eqi08ym2tj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Frankfurther und Sachsenhäuser pflegen die / braven Kaiserlichen Verwundeten an der Nidda 1796",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "zshc3xdlibdwqgu"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60151, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Diese für die kaiserlichen Truppen und für die mit ihnen kämpfenden Salzburger, Mainzer, Lütticher, Bamberger etc so rühmliche Großthat, würde jeden Krieg verherrlicht haben",
+      "language": [],
+      "musenalm_id": 60150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Erstürmung des französischen unüberwindlichen La- / gers vor Mainz 1795",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Erstürmung des französischen unüberwindlichen La- / gers vor Mainz 1795",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.960Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "qis5bej59pqbcu0"
+        }
+      ],
+      "source_id": "dh615pbylsjoewr"
+    },
+    {
+      "annotation": "paginiert 9. /) s. Textbezug INr 60150, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstürmung des französischen unüberwind- / lichen Lagers vor Mainz 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60151_kvv6noymbd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erstürmung des französischen unüberwind- / lichen Lagers vor Mainz 1796",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "gg70lhd42iz1uqm"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60153, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Der Sieg über die Franzosen bey Höchstädt oder Blenheim 1704 ( S. Rev. Alm. von 1795.) erregte allgemeine Freude in Deutschland,",
+      "language": [],
+      "musenalm_id": 60152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Ein deutscher Zeitungsschreiber von 1704, und / zwar ein patriotischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Ein deutscher Zeitungsschreiber von 1704, und / zwar ein patriotischer",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.038Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "8ucplchv47jyodl"
+        }
+      ],
+      "source_id": "2ykjpdfaa1h14qb"
+    },
+    {
+      "annotation": "paginiert 10. /) s. Textbezug INr 60152, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Zeitungsschreiber von 1704, und zwar ein / patriotischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60153_9k91b7wdfn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Zeitungsschreiber von 1704, und zwar ein / patriotischer",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "f9d1yhmlncnklez"
+    },
+    {
+      "annotation": "paginiert 11. /) s. Textbezug INr 60155, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Die Tiroler Bauern von 1703",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60154_tke9j324rf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "11. / Die Tiroler Bauern von 1703",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "sejlbaukgnxbu6q"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60154, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Vendome bombardirte Trient; von der andern Seite waren die Bayern über Kufstein eingedrungen",
+      "language": [],
+      "musenalm_id": 60155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Die Tyroler Bauern von 1703",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Die Tyroler Bauern von 1703",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.038Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "tkle90m2qnoawbj"
+        }
+      ],
+      "source_id": "3zciaacf22e56kr"
+    },
+    {
+      "annotation": "paginiert 12. /) s. Textbezug INr 60157, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das brennende Frankfurth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60156_6r7pq4hmen.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das brennende Frankfurth",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "quib2gr7eggx9tm"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60156, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Stellt die Begebenheit der ersten Tage des Julius vor, wo durch das Feuer-Einwerfen der Franzosen ein Theil der Stadt in Brand gerieth,",
+      "language": [],
+      "musenalm_id": 60157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Das brennende Frankfurt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Das brennende Frankfurt",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.038Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "8a9tnhcfym6f9nw"
+        }
+      ],
+      "source_id": "uidh4n7c4uttkt0"
+    },
+    {
+      "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Portrait auf dem Titel INr 60114, Obj 1; s. Graphik mit 2 Portraits INr 60159, Obj 46 ; §1§  §4§ Umschlaggraphiken fehlen; §2§ Titelportrait fehlt;  §3§ Graphik mit 3 Portraits fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Madame Royale, Tochter Ludwigs XVI. Könige von Frankreich. Es ist nach dem großen farbigen Kupferstich copirt, den Hr. von Mecheln zu Basel von Sr. Königl. Hoheit in der ihm eigenen Vollkommenheit geliefert hat.",
+      "language": [],
+      "musenalm_id": 60158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Portraite und übrige Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Portraite und übrige Kupfer",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.038Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "yo1dmdogfn4dfs8"
+        }
+      ],
+      "source_id": "lagh54mjhzhdnft"
+    },
+    {
+      "annotation": "zwei Portraits (Medaillons)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzherzog Carl. / Graf Wurmser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60159_1ge8o8rox2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erzherzog Carl. / Graf Wurmser",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "kipcxchs40xc7w4"
+    },
+    {
+      "annotation": "s. G-Verz INr 60158, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60163,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Camus . Chenier / Lanjuinais",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60163_xl586flq9n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Camus . Chenier / Lanjuinais",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "sfhufo1wx1k97o7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Ausgabe des Allmanachs ist nach meiner Zurückkehr von einer Reise geschehen; aber ich bin zu voll von den glorreichen Begebenheiten der neuern Zeitgeschichte,",
+      "language": [],
+      "musenalm_id": 60160,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beylage zum Revolutions-Almanach / von 1797. / Vom Herausgeber desselben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beylage zum Revolutions-Almanach / von 1797. / Vom Herausgeber desselben",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.038Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "289khr66b669jma"
+        }
+      ],
+      "source_id": "eyk0hloze51m5tz"
+    },
+    {
+      "annotation": "Umschlaggraphik v. /) # Angabe aus dem G-Verz INr 60158, Obj 45  §4§  Umschlaggraphik v. fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60164,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine von den Erdhütten, aus welchen gewöhnlich die Läger der Neu-Franken in Ermangelung der Zelte bestehen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_938_60164_hxdqowuxho.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine von den Erdhütten, aus welchen gewöhnlich die Läger der Neu-Franken in Ermangelung der Zelte bestehen #",
+      "updated": "2008-09-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "2b80dw8z4nrzcoa"
+    }
   ],
   "agents": [
     {

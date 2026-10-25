@@ -48,34 +48,1043 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "qze6x0kut8ppefy"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.531Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407577",
+      "location": "105Q05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.531Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qze6x0kut8ppefy"
+    }
   ],
   "contents": [
-    "hj3vg3h1wyziss3",
-    "ydaiedwbcwlxh2f",
-    "feauio00fmke4q7",
-    "jeoim4hyyc0v0dd",
-    "a9p5bm0b3jytfd9",
-    "9gh4pwfnq2ezov4",
-    "b9cxvbxkw6snoqf",
-    "wl474crwcd1dh3c",
-    "btmzhzicvnqomn9",
-    "h9agdlzjw4u6xuc",
-    "pbkceiyf2p8aszv",
-    "9fyg77ypmdazska",
-    "hw2s2tmfictv1v2",
-    "nogol81ql1qaiwf",
-    "39inur95pxz9yt5",
-    "i28p8t8cnh6fib9",
-    "biyu3ne3fqtxgx7",
-    "upxncmlplu5axyt",
-    "lqb3v9n7fgbwx2e",
-    "l870b4bjhxq2ta8",
-    "8f9cgrcwpvoyww5",
-    "9zy7e64902jjiyc",
-    "h1ahip4atij9iu0",
-    "99l035z2vgdj9pg",
-    "su2u49nhtwwis5m"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.856Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1041_85743_iq0zxmgi8s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "hj3vg3h1wyziss3"
+    },
+    {
+      "annotation": "# Titel u. Bez. aus dem G-Verz /) Titelportrait s.Textbezug INr 63447, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexandine Victoire, Kronprinzessin von England #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fowler pinx. Fleischmann sc.",
+      "scans": [
+        "alm_1041_63443_jd1l3shr5o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alexandine Victoire, Kronprinzessin von England #",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.135Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "cxxohc75j5sexal"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "hm4y8adyarbtaty",
+          "source_id": "wwjdzqhyac1y1my"
+        }
+      ],
+      "source_id": "ydaiedwbcwlxh2f"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia / TASCHENBUCH / für / DEUTSCHE FRAUEN / auf das Jahr / 1833. / HERAUSGEGEBEN / von / Aloys Schreiber. / 18. Jahrgang. Neue Folge 10. Jahrgang. mit 8 Kupfern. / HEIDELBERG. / im Verlag bei Joseph Engelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steindr. v. Gebr. Thiese in Heidelberg",
+      "scans": [
+        "alm_1041_63444_45rm0eqtw3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia / TASCHENBUCH / für / DEUTSCHE FRAUEN / auf das Jahr / 1833. / HERAUSGEGEBEN / von / Aloys Schreiber. / 18. Jahrgang. Neue Folge 10. Jahrgang. mit 8 Kupfern. / HEIDELBERG. / im Verlag bei Joseph Engelmann",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "feauio00fmke4q7"
+    },
+    {
+      "annotation": "Sammlung von 7 Textbezügen INr 63446-63452, Obj 4-10  zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63445,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kupfererklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kupfererklärung",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "jeoim4hyyc0v0dd"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Titelportrait INr 63443, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Alexandine Victoire, Kronprinzessin von England, geboren den 24. Mai 1819; Tochter des verstorbenen Herzogs von Kent,",
+      "language": [],
+      "musenalm_id": 63446,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Titelkupfer",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "a9p5bm0b3jytfd9"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Graphik INr 63455, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vor alter grauer Zeit beschlossen die Bürger Aachens eine Kirche zu bauen. Rasch begann das Werk, und fleißige Hände förderten es - da versagten die Mittel",
+      "language": [],
+      "musenalm_id": 63447,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Der Kirchenbau in Aachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Der Kirchenbau in Aachen",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "9gh4pwfnq2ezov4"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Graphik INr 63456, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "In den furchtbaren Fehdezeiten des Mittelalters lebte Bligger von Steinach, genannt der Landschaden, in schon altergrauer, unzugänglicher Burg, das Schwalbennest geheißen,",
+      "language": [],
+      "musenalm_id": 63448,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Landschaden von Steinach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Landschaden von Steinach",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "b9cxvbxkw6snoqf"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Graphik INr 63457, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Burg zu Lauf, eigentlich Neuwindeck genannt, soll vor ihrer Zerstörung lange unbewohnt gewesen seyn, wegen des Geisterspuks, der sich Tag und Nacht darin hören ließ.",
+      "language": [],
+      "musenalm_id": 63449,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Die todte Braut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Die todte Braut",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "wl474crwcd1dh3c"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Graphik INr 63458, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Rheinau gegenüber lag einst das feste Schloß Baden, von einem uralten Geschlecht bewohnt.",
+      "language": [],
+      "musenalm_id": 63450,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Die Burgfrau von Baden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Die Burgfrau von Baden",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "btmzhzicvnqomn9"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Graphik INr 63460, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Zu der Erzählung von Georg Döring: Der Sackpfeifer",
+      "language": [],
+      "musenalm_id": 63451,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Lady Elisa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Lady Elisa",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "h9agdlzjw4u6xuc"
+    },
+    {
+      "annotation": "Kupfererklärung (Sammlung INr 63445, Obj 3) s. Graphiken INr 63264, 63265; Obj 22, 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Zu der Erzählung von Demselben: Ueber jede Neigung der Liebe",
+      "language": [],
+      "musenalm_id": 63452,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII u. VIII",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII u. VIII",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "pbkceiyf2p8aszv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63453,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "9fyg77ypmdazska"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63454,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "hw2s2tmfictv1v2"
+    },
+    {
+      "annotation": "s. Textbezug INr 63447, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63455,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kirchebau in Aachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Opitz Gest. v. Fleischmann",
+      "scans": [
+        "alm_1041_63455_o5f4igios7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Kirchebau in Aachen",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "ewvzrgutpcwmipi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "y6je4swru9dlthe"
+        }
+      ],
+      "source_id": "nogol81ql1qaiwf"
+    },
+    {
+      "annotation": "s. Textbezug INr 63448, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63456,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Landschaden von Steinach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Opitz Gest. v. Fleischmann",
+      "scans": [
+        "alm_1041_63456_1uvttf5r0l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Landschaden von Steinach",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "2hiv8qe96s3gbxv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "68hiiv5uthgxw5v"
+        }
+      ],
+      "source_id": "39inur95pxz9yt5"
+    },
+    {
+      "annotation": "s. Textbezug INr 63449, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63457,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die todte Braut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Geisler Gest. v. Fleischmann",
+      "scans": [
+        "alm_1041_63457_qbub693pe1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die todte Braut",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "15elql6s2628z75"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "5loado5izom95wf"
+        }
+      ],
+      "source_id": "i28p8t8cnh6fib9"
+    },
+    {
+      "annotation": "s. Textbezug INr 63450, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63458,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Burgfrau von Baden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Geisler Gest. v. Fleischmann",
+      "scans": [
+        "alm_1041_63458_twl2aasb0x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Burgfrau von Baden",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "d96xgn9l7v9sa1n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.144Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "ntkdqz8m6ef0jb6"
+        }
+      ],
+      "source_id": "biyu3ne3fqtxgx7"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 63560, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nicht fern von dem kleinen Städtchen Dunkeld in Schottland erheben sich die romantischen Grampian-Berge, die ein großes Amphitheater vom Loch-Lomond bis Aberdeen bilden.",
+      "language": [],
+      "musenalm_id": 63459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sackpfeifer. / Eine Schottische Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sackpfeifer. / Eine Schottische Geschichte",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "n6h3g2a4m18las5"
+        }
+      ],
+      "source_id": "upxncmlplu5axyt"
+    },
+    {
+      "annotation": "# Titel aus dem G-.Verz /) Illustration zu »Der Sackpfeifer« von Georg Döring INr 63459, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lady Elisa #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1041_63460_s8dxlltpfs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lady Elisa #",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqb3v9n7fgbwx2e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Vor dem kleinen Fenster einer Wirtsstube saß ein Mann von mittlern Jahren und kriegerischem, fast wilden Aussehen.",
+      "language": [],
+      "musenalm_id": 63461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jehuist. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adalbert von Schonen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Jehuist. / Historische Novelle",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "l870b4bjhxq2ta8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Ein Reitersmann von hohem Wuchs trabte durch die rauhe Novembernacht, ungestüm wie das Verlanegn, über die Sandebene daher,",
+      "language": [],
+      "musenalm_id": 63462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schatten auf Bergen. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schatten auf Bergen. / Historische Erzählung",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "ipn6vqsenapeqs6"
+        }
+      ],
+      "source_id": "8f9cgrcwpvoyww5"
+    },
+    {
+      "annotation": "mit zwei Illustrationen s. Graphiken INr 63464, 63645; Obj 22, 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Das Schloß der Zwillingsbrüder von Erfeld lag in einer der reizendsten Gegenden Deutschlands. Um den Hügel, der es trug, schlangen sich Rebenpflanzungen und reichten hinab zu den Kornfeldern und Wiesengründen,",
+      "language": [],
+      "musenalm_id": 63463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber jede Neigung Liebe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber jede Neigung Liebe. / Novelle",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "pkaddthrwbvvztb"
+        }
+      ],
+      "source_id": "9zy7e64902jjiyc"
+    },
+    {
+      "annotation": "Illustration zu »Ueber jede Neigung Liebe« von Georg Döring INr 63463, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber jede Neigung Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Passini sc. Viennae",
+      "scans": [
+        "alm_1041_63464_pii64mz19o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ueber jede Neigung Liebe",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "muyq8o2vycf6l4s"
+        }
+      ],
+      "source_id": "h1ahip4atij9iu0"
+    },
+    {
+      "annotation": "Illustration zu »Ueber jede Neigung Liebe« von Georg Döring INr 63463, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber jede Neigung Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Stothard del. J. Axmann sc.",
+      "scans": [
+        "alm_1041_63465_1vmxcxhqnl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ueber jede Neigung Liebe",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "1ij2xp7aqcxhdxg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "uadmjwx3g0fmtcu",
+          "source_id": "m0l5queh40v688v"
+        }
+      ],
+      "source_id": "99l035z2vgdj9pg"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85744,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1041_85744_vwftyfai22.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1833",
+      "updated": "2009-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "su2u49nhtwwis5m"
+    }
   ],
   "agents": [
     {

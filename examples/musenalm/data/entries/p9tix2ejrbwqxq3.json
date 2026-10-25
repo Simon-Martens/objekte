@@ -49,7 +49,26 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "xjun06xjpd37xjd"
+    {
+      "annotation": "Der Almanach-Titel verso. Titel recto gegenüber lautet: Sieben / Sylvester-Abende. / Lebensgeschichte eines alten Mannes, / in sieben Abschnitten, / von Alexander Bronikowski",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.543Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405055",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.543Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xjun06xjpd37xjd"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,12 +48,127 @@
   "year": 1815,
   "editor": "",
   "items": [
-    "xkx9vvvpeq57ra8"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.740Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411042",
+      "location": "105J08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.740Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xkx9vvvpeq57ra8"
+    }
   ],
   "contents": [
-    "io649nodk2c04sl",
-    "0xa4rhze9ccfgiu",
-    "bv0fjgxwsubq4o4"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127653,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4068_127653_j7mbtqxzxy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "io649nodk2c04sl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127654,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Titel]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4068_127654_u9i2rx18wz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "0xa4rhze9ccfgiu"
+    },
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127655,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4068_127655_zvvkthtbxb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "bv0fjgxwsubq4o4"
+    }
   ],
   "agents": [
     {

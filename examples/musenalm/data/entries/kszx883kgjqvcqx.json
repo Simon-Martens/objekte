@@ -48,43 +48,1290 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "f98236o9qq3gma3"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200415",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "f98236o9qq3gma3"
+    }
   ],
   "contents": [
-    "dwjfihetwdcumyz",
-    "qi7h8lnqviv4g1g",
-    "qi7z74ju2rhet8u",
-    "4oxscz33dariv7d",
-    "nk0illom2tu3125",
-    "hwdg5atv3xp5hj7",
-    "3w531ow34d7k0l7",
-    "9yug0thb6slqjyv",
-    "r411u32pri1limj",
-    "485giuzr246r37z",
-    "97wrv2bivo9kqmw",
-    "fdipfx8rpba67ao",
-    "khnf22m9rzw0mdj",
-    "zr064l5bs7yvdxn",
-    "z1c7v4j01fyxhzl",
-    "vj7yqxn1xp6v7qb",
-    "707s6n2k6mdqb96",
-    "w7hz3at2xa91ck8",
-    "9nymwq3ibrrhghv",
-    "n9vyqxuxw6s8owm",
-    "n90v0iqhttq22hh",
-    "tz94kiwt6zea7u6",
-    "3an6ceif82nv2pn",
-    "1nzkjvxp604la5f",
-    "jeaujbbna5ggdea",
-    "bj3t1uzvab2lavj",
-    "n0pybixe8x4jxnt",
-    "pr79kczm9b6lwrr",
-    "ay3qpgb62aue4e8",
-    "lnyficv3i4ui0mr",
-    "ugrrm7ml3b2bq7n",
-    "obiyf6yh06tlgu0",
-    "rjti07qq0tat9pu",
-    "hyh06gacx544uh3"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51785,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_705_51785_os9uj0q32e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "dwjfihetwdcumyz"
+    },
+    {
+      "annotation": "Titelgraphik # Bez. aus dem G-Verz s. Textbezug INr 51806, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51786,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Käsemacherey",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_705_51786_7ynmq8mber.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Käsemacherey",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.705Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.705Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "fydrtqn7nzw54dg"
+        }
+      ],
+      "source_id": "qi7h8lnqviv4g1g"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51787,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / für das Jahr / 1805. / Zürich. / bey Orell, Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_705_51787_93sgy0puf7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / für das Jahr / 1805. / Zürich. / bey Orell, Füssli & Comp.",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "qi7z74ju2rhet8u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51788,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "4oxscz33dariv7d"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [Februar] Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug INr 51807, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51789,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Uri. / Urner im Hirtenhemd",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_705_51789_k70d8r4rh9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Uri. / Urner im Hirtenhemd",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.706Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "k5w50pwryhm8b1o"
+        }
+      ],
+      "source_id": "nk0illom2tu3125"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [April] Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug INr 51807, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51790,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Uri. / Urnermädchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_705_51790_dsgultawgd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Uri. / Urnermädchen",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.706Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "1hxs1oe2pb4voxd"
+        }
+      ],
+      "source_id": "hwdg5atv3xp5hj7"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [Juni] Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug INr 51807, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51791,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Unterwalden. / Ein Unterwaldner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_705_51791_9kzacz4s6s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Unterwalden. / Ein Unterwaldner",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.706Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "ufe3fwa4qjy6ma9"
+        }
+      ],
+      "source_id": "3w531ow34d7k0l7"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer im Kalendarium [Oktober] Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug INr 51807, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.828Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51792,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Unterwalden. / Unterwaldnermädchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_705_51792_7hldvfn3bo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Unterwalden. / Unterwaldnermädchen",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.534Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "vuhe1cchmrjbqym"
+        }
+      ],
+      "source_id": "9yug0thb6slqjyv"
+    },
+    {
+      "annotation": "Graphiken und Karte des Almanachs beziehen sich auf die Kantone Uri und Unterwalden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Kurze / geographisch-statistische / Darstellung / der Cantone / Uri / und / Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Kurze / geographisch-statistische / Darstellung / der Cantone / Uri / und / Unterwalden",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "r411u32pri1limj"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a.Textbezug INr 51808, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altdorf / im Canton Uri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König fec. 1804",
+      "scans": [
+        "alm_705_51794_d5unpnrlmz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Altdorf / im Canton Uri",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.534Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "v83ef4335o9u9x4"
+        }
+      ],
+      "source_id": "485giuzr246r37z"
+    },
+    {
+      "annotation": "1. Teil von »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Zustand Uri's vor dem zwölften Jahrhundert liegt im historischen Dunkel.",
+      "language": [],
+      "musenalm_id": 51795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Canton Uri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Canton Uri",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "97wrv2bivo9kqmw"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug INr 51812, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In Fluelen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_705_51796_yhs9z6mvfv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "In Fluelen",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "9h1rr0docww1vk2"
+        }
+      ],
+      "source_id": "fdipfx8rpba67ao"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug Nr 51809, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bürglen / im Canton Uri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_705_51797_e203un8phv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bürglen / im Canton Uri",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "7n2mpv6brl7bank"
+        }
+      ],
+      "source_id": "khnf22m9rzw0mdj"
+    },
+    {
+      "annotation": "2. Teil von »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Was wir über diesen Gegenstand unter der gleichen Rubrik bey Uri sagten, gilt auch hier.",
+      "language": [],
+      "musenalm_id": 51798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Canton Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Canton Unterwalden",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "zr064l5bs7yvdxn"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a.Textbezug INr 51810, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stanz / im Canton Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft.",
+      "scans": [
+        "alm_705_51799_qcpv46fz29.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Stanz / im Canton Unterwalden",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "fdwi4ouml4z66k9"
+        }
+      ],
+      "source_id": "z1c7v4j01fyxhzl"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug INr 51811, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stansstad, / am Vierwaldstätter-See, im September 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Biedermann f.",
+      "scans": [
+        "alm_705_51800_8ssayvzojd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Stansstad, / am Vierwaldstätter-See, im September 1798",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "ukud3h5af10w8d8",
+          "source_id": "p0ti79ldtiie73c"
+        }
+      ],
+      "source_id": "vj7yqxn1xp6v7qb"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s. Textbezug INr 51813, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Engelberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König ft.",
+      "scans": [
+        "alm_705_51801_s22w75kfsi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zu Engelberg",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.606Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "157kiznd85qrxib"
+        }
+      ],
+      "source_id": "707s6n2k6mdqb96"
+    },
+    {
+      "annotation": "Januar-Oktober 1803",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetische / Chronik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helvetische / Chronik",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "w7hz3at2xa91ck8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Unter den diesjährigen Produkten der Schweizer-Pressen zeichnet sich die vermehrte Ebelsche Anleitung, auf die nützlichste und genußvollste Art die Schweiz zu bereisen, vorzüglich aus;",
+      "language": [],
+      "musenalm_id": 51803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber die neue Ausgabe / von J. G. Ebels / Anleitung, auf die nützlichste und genuß- / vollste Art die Schweiz zu bereisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber die neue Ausgabe / von J. G. Ebels / Anleitung, auf die nützlichste und genuß- / vollste Art die Schweiz zu bereisen",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "9nymwq3ibrrhghv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Schweizerische Litteratur- und / Kunst-Anzeigen / vom Jahr 1804",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Schweizerische Litteratur- und / Kunst-Anzeigen / vom Jahr 1804",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9vyqxuxw6s8owm"
+    },
+    {
+      "annotation": "Sammlung von 9 Textbezügen INr 51806-51814, Obj 22-30 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Erklärung der Kupfer",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "n90v0iqhttq22hh"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Titelgraphik INr 51786, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Das Zimmer einer Alphütte. Ein Aelpler ist beschäftigt, seinen eben verfertigten Käs zu pressen. Er hat Besuch - lieben Besuch - seine Frau und seinen Knaben;",
+      "language": [],
+      "musenalm_id": 51806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / (Dem Titelblatt gegenüber) / Die Käsefabrike",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / (Dem Titelblatt gegenüber) / Die Käsefabrike",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "tz94kiwt6zea7u6"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphiken im Kalendarium INr 51789-51792, Obj 5-8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Urner-und Unterwaldner-Landstrachten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Urner-und Unterwaldner-Landstrachten",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "3an6ceif82nv2pn"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphik INr 51794, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Altorf, der Hauptflecken des Cant. Uri",
+      "language": [],
+      "musenalm_id": 51808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / (S. 3)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / (S. 3)",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "1nzkjvxp604la5f"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphik INr 51797, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Bürglen, im Cant. Uri, Geburtsort von Wilhelm Tell",
+      "language": [],
+      "musenalm_id": 51809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / (S. 47)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / (S. 47)",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "jeaujbbna5ggdea"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphik INr 51799, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Stanz, der Hauptflecken des Cant. Unterwalden nid dem Kernwald",
+      "language": [],
+      "musenalm_id": 51810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / (S. 50)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / (S. 50)",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "bj3t1uzvab2lavj"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphik INr 51800, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Die Ruinen von Stanstad, im Sept. 1798",
+      "language": [],
+      "musenalm_id": 51811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / (S. 70)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / (S. 70)",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "n0pybixe8x4jxnt"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphik INr 51196, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Bauarten. / (S. 36) / a) Ein Bauernhaus im Cant. Uri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Bauarten. / (S. 36) / a) Ein Bauernhaus im Cant. Uri",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "pr79kczm9b6lwrr"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Graphik INr 51801, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Die Bauart der Unterwaldner- und Urner- Bauernhäuser ist den angrenzenden Oberländischen sehr gleich.",
+      "language": [],
+      "musenalm_id": 51813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[7. Bauarten] (S. 83) / b) Ein Bauernhaus im Cant. Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[7. Bauarten] (S. 83) / b) Ein Bauernhaus im Cant. Unterwalden",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ay3qpgb62aue4e8"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51805, Obj 21) s. Karte INr 51815, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / (S. 226) / Charte der Cantone Uri und Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / (S. 226) / Charte der Cantone Uri und Unterwalden",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "lnyficv3i4ui0mr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.298Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51815,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Cantone / Uri und Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gestochen von J. Scheurmann in Arau",
+      "scans": [
+        "alm_705_51815_gnymcyggug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Cantone / Uri und Unterwalden",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ugrrm7ml3b2bq7n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51816,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "obiyf6yh06tlgu0"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51817,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey Orell, Füßli und Kompagnie / sind zu haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bey Orell, Füßli und Kompagnie / sind zu haben",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "rjti07qq0tat9pu"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51818,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_705_51818_emdl7mpsds.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "hyh06gacx544uh3"
+    }
   ],
   "agents": [
     {

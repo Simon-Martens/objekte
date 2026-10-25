@@ -48,7 +48,26 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "o33v2q26z5zzuvi"
+    {
+      "annotation": "Kritisch-etymologisches / Wörterbuch / oder / vergleichende Anatomie / der  / deutschen Sprache / Nebst / Materialien für slaw. und lat. Spracherforschung. / 1. Heft. / Juspiciens haec / despiciat - perpendens dummodo pendat / 1843",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.609Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200926",
+      "location": "105T10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.609Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "o33v2q26z5zzuvi"
+    }
   ],
   "contents": [],
   "agents": [

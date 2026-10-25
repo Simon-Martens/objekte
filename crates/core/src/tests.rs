@@ -1205,7 +1205,10 @@ fn strict_references_cover_nested_mapped_documents_and_follow_rename() {
     assert_eq!(renamed.updated_items, 1);
     let links = e.json_document("links", "links.json").unwrap();
     assert_eq!(links.value["rows"][0]["owner"], "renamed");
-    assert_eq!(links.value["note"], "See [person](/collections/people/renamed).");
+    assert_eq!(
+        links.value["note"],
+        "See [person](/collections/people/renamed)."
+    );
     assert_eq!(e.references_to("people", "renamed").unwrap().len(), 2);
     assert!(e.references_to("people", "valid").unwrap().is_empty());
     e.save_json_document("links", "links.json", json!({}), &links.revision)

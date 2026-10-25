@@ -48,28 +48,796 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "r02nwl276qe2l0f"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200428",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "r02nwl276qe2l0f"
+    }
   ],
   "contents": [
-    "gei9x6m3iogwuug",
-    "c1xzhaxeifbt1qy",
-    "hlsfbcev7vai6mk",
-    "mffxl2erdkw2mbu",
-    "cl93vxn261lny2k",
-    "eb1jvfb4x3w6z4k",
-    "sp2fz2d51o3wjld",
-    "oph0k4mu2nfd3a1",
-    "sf2w8eu1u9z8ky2",
-    "ga5sjub1jgbdbej",
-    "lod9xd7nba028k3",
-    "lerybl28p426eor",
-    "s5pngo2vraft94c",
-    "nw3n1scsimkxp98",
-    "6vy0dz4ox1brqwo",
-    "34ruo3ckdqvj5ui",
-    "9f3h9ei158buf9l",
-    "3cmystmx95j6ao0",
-    "8c8e7d2j4d8ttb6"
+    {
+      "annotation": "Umschlaggraphik r. §§ Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.501Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52425,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "gei9x6m3iogwuug"
+    },
+    {
+      "annotation": "Titelportrait. Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52426,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRED. GUILLAUME / ROI de PRUSSE / PRINCE de NEUCHATEL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Gerard pinx. Leopold Robert de la Chaux de fonds del. et sculp.",
+      "scans": [
+        "alm_718_52426_ed9rbtnonw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRED. GUILLAUME / ROI de PRUSSE / PRINCE de NEUCHATEL",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.877Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.877Z",
+          "agent": "1iq3f8ed71ls2hd",
+          "source_id": "duxmlu2wd8nsw91"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.877Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.877Z",
+          "agent": "bngwvjxc7lwq3li",
+          "source_id": "yscawxo3yt7stbj"
+        }
+      ],
+      "source_id": "c1xzhaxeifbt1qy"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52427,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1818. / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_718_52427_9fz9kygya1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1818. / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "hlsfbcev7vai6mk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52428,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "mffxl2erdkw2mbu"
+    },
+    {
+      "annotation": "mit 7 Illustrationen und 3 Tafeln s. Titelportrait INr 52426, Obj 2; Graphiken und Tafeln INr 52430-52438, Obj 6-14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das, unter der Herrschaft Sr. Maj. des Königs von Preußen stehende, Fürstenthum von Neufchatel und Vallangin macht eine kleine Abtheilung des Jura, eine Kette von Kalkgebirgen aus,",
+      "language": [],
+      "musenalm_id": 52429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistischer Versuch / über das / Fürstenthum / Neuenburg und Vallangin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statistischer Versuch / über das / Fürstenthum / Neuenburg und Vallangin",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "cl93vxn261lny2k"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NEUCHATEL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Moritz del. F. Hegi sc.",
+      "scans": [
+        "alm_718_52430_59twma9zdf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NEUCHATEL",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.519Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "5f4e5wh4zqmh5xk"
+        }
+      ],
+      "source_id": "eb1jvfb4x3w6z4k"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vue du Pont Serrieres près de Neuchatel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Lory fils del. F. Hegi sc.",
+      "scans": [
+        "alm_718_52431_jhx98jki8d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vue du Pont Serrieres près de Neuchatel",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.519Z",
+          "agent": "apfgolbsarcaim2",
+          "source_id": "befz920u4vc1xqy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.519Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "o09jffmwd9bimr4"
+        }
+      ],
+      "source_id": "sp2fz2d51o3wjld"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LA CHAUX DE FOND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Moritz del. F. Hegi sc.",
+      "scans": [
+        "alm_718_52432_zzssqdeli0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LA CHAUX DE FOND",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.519Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "rua7kwnu0ap8jkh"
+        }
+      ],
+      "source_id": "oph0k4mu2nfd3a1"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Neuchatel. / Mädchen in der Stadt dienend",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_718_52433_9jfgd1ga3i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Neuchatel. / Mädchen in der Stadt dienend",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.601Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.601Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "f9kbptopb0d9fru"
+        }
+      ],
+      "source_id": "sf2w8eu1u9z8ky2"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vue sur le Doubs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Lory fils del. F. Hegi sc.",
+      "scans": [
+        "alm_718_52434_n1zsx7sakn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vue sur le Doubs",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.601Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.601Z",
+          "agent": "apfgolbsarcaim2",
+          "source_id": "udz670tl24jbphy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.601Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.601Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "vy34eg5nodrzl98"
+        }
+      ],
+      "source_id": "ga5sjub1jgbdbej"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LE SAUT DU DOUBS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Moritz del. F. Hegi sc.",
+      "scans": [
+        "alm_718_52435_af0x0cdt2q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LE SAUT DU DOUBS",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.602Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.602Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "h07wss4w66dftg4"
+        }
+      ],
+      "source_id": "lod9xd7nba028k3"
+    },
+    {
+      "annotation": "Beigabe zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tafel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tafel]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_718_52436_ah9ujx9zbv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "lerybl28p426eor"
+    },
+    {
+      "annotation": "Beigabe zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tafel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Profil des Couches qui paraissent dans la gorge du Seyon, & qui donnent une idée générale de la constitution du Jura",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_718_52437_g4h3u4muav.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Profil des Couches qui paraissent dans la gorge du Seyon, & qui donnent une idée générale de la constitution du Jura",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5pngo2vraft94c"
+    },
+    {
+      "annotation": "Beigabe zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tafel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coupés du Jura entre le Lac de Neuchatel et le Doubs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_718_52438_9ajwqhf6fw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coupés du Jura entre le Lac de Neuchatel et le Doubs",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "nw3n1scsimkxp98"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "6vy0dz4ox1brqwo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzierungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzierungen",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "34ruo3ckdqvj5ui"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "9f3h9ei158buf9l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Canton de Neuchatel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dessiné et gravé d'après la carte de Mr. d'Osterwald par G. Hegi",
+      "scans": [
+        "alm_718_52442_c27maj230e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Le Canton de Neuchatel",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.683Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "wqyl6lob2u1itrm"
+        }
+      ],
+      "source_id": "3cmystmx95j6ao0"
+    },
+    {
+      "annotation": "Umschlaggraphik v. §§ UG fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.040Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "8c8e7d2j4d8ttb6"
+    }
   ],
   "agents": [
     {

@@ -48,25 +48,715 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "5j3br9j8m0aupnx"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit Goldschnitt.(Vorder - Hintererbuchdeckel und Buchrücken fehlen.)\n1830: (K: M. Ku 7.) Mit Port 1, Bl 4, Ku 7  und 615 SS.\n\\par\n§ beide Deckel fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100966",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5j3br9j8m0aupnx"
+    }
   ],
   "contents": [
-    "ozz98fu04zjkops",
-    "bi5l9mhwjd6h32d",
-    "656jn88xte8qhuo",
-    "mwl5n9dablv1nl8",
-    "s68233r9ig8705s",
-    "70fu4dvxs0xz8qs",
-    "b81mz3d7d68vy7m",
-    "vn975ykc6c7osyr",
-    "bs1lrhaahg8ami3",
-    "4g9bv1vr0mcqrln",
-    "dztztn4a1g9ehgg",
-    "y47z197hil0b1vw",
-    "rvka6hzd72pz2nr",
-    "yth0blnuuq9m22i",
-    "npp1utnzkzxrmws",
-    "ddx4v21ho8psmbd"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102864,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DONNA MARIA DA GLORIA / Königin von Portugal u. Algarbien / geb. 14. Apl. 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dav. Weisss sc. Viennae",
+      "scans": [
+        "alm_3375_102864_af16gw68yu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DONNA MARIA DA GLORIA / Königin von Portugal u. Algarbien / geb. 14. Apl. 1819",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.001Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "pdk8g6p8vt8fcqk"
+        }
+      ],
+      "source_id": "ozz98fu04zjkops"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102865,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR / 1830. / von / H. CLAUREN. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_3375_102865_mh0smlt9r2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR / 1830. / von / H. CLAUREN. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.001Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "8gm3ahj47c8azdd"
+        }
+      ],
+      "source_id": "bi5l9mhwjd6h32d"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Blüthe die am Bache schmachtet / Mit verklärtem Angesicht, / Die nach Liebe Sehnend trachtet,",
+      "language": [],
+      "musenalm_id": 102866,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung. / Vergißmeinnicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung. / Vergißmeinnicht",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "656jn88xte8qhuo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102867,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1830",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3375_102867_m1f55jzz3j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1830",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "mwl5n9dablv1nl8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102868,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "s68233r9ig8705s"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 102870, Obj 7 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Viel tausend Mensch haben die sogenannte gute alte Zeit beständig im Munde, und reden ihr allerlei Rühmliches nach.",
+      "language": [],
+      "musenalm_id": 102869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gute alte Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die gute alte Zeit",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "70fu4dvxs0xz8qs"
+    },
+    {
+      "annotation": "Illustration zu »Die gute alte Zeit« INr 102869, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "STEPHANIE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ender del. J. Passini sc.",
+      "scans": [
+        "alm_3375_102870_raph3rk1g5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "STEPHANIE",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.073Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "10eypov77nntget"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.072Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "mwo8153wa0i6kzi"
+        }
+      ],
+      "source_id": "b81mz3d7d68vy7m"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 102872, Obj 9 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Das mußte anders werden. Das ging länger nicht so. Zehnmal nahm ich mir vor, nun gewiß nicht wieder hinüber zu sehen.",
+      "language": [],
+      "musenalm_id": 102871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Fels- Höhle im Schieferbruche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Fels- Höhle im Schieferbruche",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "vn975ykc6c7osyr"
+    },
+    {
+      "annotation": "Illustration zu »Die Fels-Höhle im Schieferbruche« INr 102871, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BRIGITTA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Vieannae",
+      "scans": [
+        "alm_3375_102872_02opf8xmo6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BRIGITTA",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "ruay8afjhzypyiy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "ypdrrgmy71mio6k"
+        }
+      ],
+      "source_id": "bs1lrhaahg8ami3"
+    },
+    {
+      "annotation": "s. folgende Graphik (Portrait) INr 102874, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "den 28. Mai 1808 zu Heidelberg geboren; vom Jahr 1819 an in der französischen Schweiz erzogen, betrat den 22. Nov. 1822 zum erstenmale die Grossherzogl. Badische Bühne zu Karlsruhe",
+      "language": [],
+      "musenalm_id": 102873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BIOGRAPHISCHE NOTIZ. / KAROLINE BAUER,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "BIOGRAPHISCHE NOTIZ. / KAROLINE BAUER,",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "4g9bv1vr0mcqrln"
+    },
+    {
+      "annotation": "s. vorstehenden Textbezug »Karoline Bauer« INr 102873, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Fr. Stöber gest. in Stahl Wien)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_3375_102874_bijpv8yk5f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "mnnrbp7qkw4jwo2"
+        }
+      ],
+      "source_id": "dztztn4a1g9ehgg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 102876, Obj 13 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Die ganze Familie des Hauses stand dicht gedrängt am Fenster, und sah mit gespannter Theilnahme der Exekution zu, die an einem unglücklichen Neger vollzogen wurde.",
+      "language": [],
+      "musenalm_id": 102875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Milibu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Milibu",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "y47z197hil0b1vw"
+    },
+    {
+      "annotation": "Illustration zu »Milibu« INr 102875, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "492",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MILIBU",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3375_102876_4iqb9dvico.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MILIBU",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "o4tfdift1twql21"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "w8qttqndwfz9pvo"
+        }
+      ],
+      "source_id": "rvka6hzd72pz2nr"
+    },
+    {
+      "annotation": "Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "610",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PRINZESS LUITGARD",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_3375_102877_cr9kq9y2u9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PRINZESS LUITGARD",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "fpako0tabenhsk0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.889Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "mihd1vvhps4bjr7"
+        }
+      ],
+      "source_id": "yth0blnuuq9m22i"
+    },
+    {
+      "annotation": "Textbezug unklar",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "612",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VITTORIA COLONNA GRÄFIN LOUBANI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3375_102878_1tivl13wt9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VITTORIA COLONNA GRÄFIN LOUBANI",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "siog8hs9woxd23y"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.935Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "vlu4cu3ul3woqh8"
+        }
+      ],
+      "source_id": "npp1utnzkzxrmws"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Aus der Druckerei von C. L. Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 102879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus der Druckerei von C. L. Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "ddx4v21ho8psmbd"
+    }
   ],
   "agents": [
     {

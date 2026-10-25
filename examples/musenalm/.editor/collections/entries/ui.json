@@ -7,155 +7,2109 @@
   "sidebarGroup": "Catalogue",
   "fields": {
     "/properties/preferred_title": {
-      "title": "Preferred title"
+      "title": "Title",
+      "x-presentation": {
+        "preview": "hidden"
+      },
+      "translations": {
+        "de": {
+          "title": "Titel"
+        }
+      }
     },
     "/properties/variant_title": {
-      "title": "Variant title"
+      "title": "Alternative title",
+      "translations": {
+        "de": {
+          "title": "Alternativer Titel"
+        }
+      }
     },
     "/properties/parallel_title": {
-      "title": "Parallel title"
+      "title": "Parallel title",
+      "translations": {
+        "de": {
+          "title": "Paralleltitel"
+        }
+      }
     },
     "/properties/title_statement": {
-      "title": "Title statement"
+      "title": "Title as printed",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Titel (Vorlage)"
+        }
+      }
     },
     "/properties/subtitle_statement": {
-      "title": "Subtitle statement"
+      "title": "Subtitle",
+      "translations": {
+        "de": {
+          "title": "Untertitel"
+        }
+      }
     },
     "/properties/incipit_statement": {
-      "title": "Incipit statement"
+      "title": "Opening words",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Incipit"
+        }
+      }
     },
     "/properties/responsibility_statement": {
-      "title": "Responsibility statement"
+      "title": "Attribution as printed",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Verantwortlichkeitsangabe (Vorlage)"
+        }
+      }
     },
     "/properties/place_statement": {
-      "title": "Place statement"
+      "title": "Place as printed",
+      "translations": {
+        "de": {
+          "title": "Ort (Vorlage)"
+        }
+      }
     },
     "/properties/publication_statement": {
-      "title": "Publication statement"
+      "title": "Publication",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Veröffentlichung"
+        }
+      }
     },
     "/properties/year": {
-      "title": "Year"
+      "title": "Year",
+      "translations": {
+        "de": {
+          "title": "Jahr"
+        }
+      }
     },
     "/properties/edition": {
-      "title": "Edition"
+      "title": "Edition",
+      "translations": {
+        "de": {
+          "title": "Ausgabe"
+        }
+      }
     },
     "/properties/pseudonym": {
-      "title": "Pseudonym"
+      "title": "Pseudonym",
+      "translations": {
+        "de": {
+          "title": "Pseudonym"
+        }
+      }
     },
     "/properties/language": {
-      "title": "Language"
+      "title": "Language",
+      "x-presentation": {
+        "inline": true
+      },
+      "translations": {
+        "de": {
+          "title": "Sprachen"
+        }
+      }
     },
     "/properties/content_type": {
-      "title": "Content type"
+      "title": "Content type",
+      "translations": {
+        "de": {
+          "title": "Inhaltstypen"
+        }
+      }
     },
     "/properties/extent": {
-      "title": "Extent"
+      "title": "Extent / pages",
+      "translations": {
+        "de": {
+          "title": "Struktur"
+        }
+      }
     },
     "/properties/dimensions": {
-      "title": "Dimensions"
+      "title": "Dimensions",
+      "translations": {
+        "de": {
+          "title": "Maße"
+        }
+      }
     },
     "/properties/carrier_type": {
-      "title": "Carrier type"
+      "title": "Carrier type",
+      "translations": {
+        "de": {
+          "title": "Datenträger"
+        }
+      }
     },
     "/properties/refs": {
-      "title": "Refs"
+      "title": "References",
+      "translations": {
+        "de": {
+          "title": "Nachweise"
+        }
+      }
     },
     "/properties/places": {
-      "title": "Places"
+      "title": "Places",
+      "x-presentation": {
+        "inline": true
+      },
+      "translations": {
+        "de": {
+          "title": "Orte"
+        }
+      }
     },
     "/properties/edit_fielddata": {
-      "title": "Edit fielddata",
-      "x-editor": "json"
+      "title": "Import details",
+      "x-editor": "json",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Importdaten"
+        }
+      }
     },
     "/properties/musenalm_deprecated": {
-      "title": "Musenalm deprecated",
-      "x-editor": "json"
+      "title": "Original catalogue data",
+      "x-editor": "json",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Ursprüngliche Katalogdaten"
+        }
+      }
     },
     "/properties/created": {
-      "title": "Created"
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
     },
     "/properties/updated": {
-      "title": "Updated"
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
     },
     "/properties/musenalm_id": {
-      "title": "Musenalm id"
+      "title": "Musenalm ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "AlmanachNr"
+        }
+      }
     },
     "/properties/edit_state": {
-      "title": "Edit state"
+      "title": "Review status",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeitungsstand",
+          "x-optionLabels": {
+            "Unknown": "Unknown",
+            "ToDo": "ToDo",
+            "Seen": "Seen",
+            "Partially Edited": "Partially Edited",
+            "Waiting": "Waiting",
+            "Review": "Review",
+            "Edited": "Edited",
+            "": ""
+          }
+        }
+      }
     },
     "/properties/annotation": {
-      "title": "Annotation",
-      "x-editor": "markdown"
+      "title": "Notes",
+      "x-editor": "markdown",
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
     },
     "/properties/edit_comment": {
-      "title": "Edit comment",
-      "x-editor": "markdown"
+      "title": "Editorial notes",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Redaktionelle Anmerkungen"
+        }
+      }
     },
     "/properties/editor": {
-      "title": "Editor"
+      "title": "Editor",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeiter:in"
+        }
+      }
     },
     "/properties/agents/items/properties/source_id": {
-      "title": "Source id"
+      "title": "Source ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Quell-ID"
+        }
+      }
     },
     "/properties/agents/items/properties/agent": {
-      "title": "Agent"
+      "title": "Name",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Name"
+        }
+      }
     },
     "/properties/agents/items/properties/type": {
-      "title": "Type"
+      "title": "Role",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Rolle",
+          "x-optionLabels": {
+            "Autor:in": "Autor:in",
+            "Herausgeber:in": "Herausgeber:in",
+            "Verlag": "Verlag",
+            "Druck": "Druck",
+            "Vertrieb": "Vertrieb",
+            "Zeichner:in": "Zeichner:in",
+            "Komponist:in": "Komponist:in",
+            "Künstler:in": "Künstler:in",
+            "Übersetzer:in": "Übersetzer:in",
+            "Redakteur:in": "Redakteur:in",
+            "Kartograf:in": "Kartograf:in",
+            "Kupferstecher:in": "Kupferstecher:in",
+            "Dargestellt": "Dargestellt"
+          }
+        }
+      }
     },
     "/properties/agents/items/properties/conjecture": {
-      "title": "Conjecture"
+      "title": "Conjecture",
+      "translations": {
+        "de": {
+          "title": "Zuschreibung"
+        }
+      }
     },
     "/properties/agents/items/properties/uncertain": {
-      "title": "Uncertain"
+      "title": "Uncertain",
+      "translations": {
+        "de": {
+          "title": "Unsicher"
+        }
+      }
     },
     "/properties/agents/items/properties/created": {
-      "title": "Created"
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
     },
     "/properties/agents/items/properties/updated": {
-      "title": "Updated"
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
     },
     "/properties/agents/items/properties/annotation": {
-      "title": "Annotation",
-      "x-editor": "markdown"
+      "title": "Notes",
+      "x-editor": "markdown",
+      "x-presentation": {},
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
     },
     "/properties/agents/items/properties/edit_comment": {
-      "title": "Edit comment",
-      "x-editor": "markdown"
+      "title": "Editorial notes",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Redaktionelle Anmerkungen"
+        }
+      }
+    },
+    "/properties/items/items/properties/identifier": {
+      "title": "Shelfmark",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Signatur"
+        }
+      }
+    },
+    "/properties/items/items/properties/location": {
+      "title": "Location",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Standort"
+        }
+      }
+    },
+    "/properties/items/items/properties/owner": {
+      "title": "Holding institution",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Besitzende Institution"
+        }
+      }
+    },
+    "/properties/items/items/properties/media": {
+      "title": "Format",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Format"
+        }
+      }
+    },
+    "/properties/items/items/properties/condition": {
+      "title": "Condition",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Zustand"
+        }
+      }
+    },
+    "/properties/items/items/properties/scans": {
+      "title": "Scans",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Digitalisate"
+        }
+      }
+    },
+    "/properties/items/items/properties/uri": {
+      "title": "Web link",
+      "x-presentation": {
+        "link": true
+      },
+      "translations": {
+        "de": {
+          "title": "Webadresse"
+        }
+      }
+    },
+    "/properties/items/items/properties/created": {
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
+    },
+    "/properties/items/items/properties/updated": {
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
+    },
+    "/properties/items/items/properties/annotation": {
+      "title": "Notes",
+      "x-editor": "markdown",
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
+    },
+    "/properties/items/items/properties/edit_comment": {
+      "title": "Editorial notes",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Redaktionelle Anmerkungen"
+        }
+      }
+    },
+    "/properties/items/items/properties/edit_state": {
+      "title": "Review status",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeitungsstand",
+          "x-optionLabels": {
+            "Unknown": "Unknown",
+            "ToDo": "ToDo",
+            "Seen": "Seen",
+            "Partially Edited": "Partially Edited",
+            "Waiting": "Waiting",
+            "Review": "Review",
+            "Edited": "Edited",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/items/items/properties/public": {
+      "title": "Public",
+      "translations": {
+        "de": {
+          "title": "Öffentlich"
+        }
+      }
+    },
+    "/properties/items/items/properties/basis": {
+      "title": "Basis",
+      "translations": {
+        "de": {
+          "title": "Grundlage"
+        }
+      }
+    },
+    "/properties/items/items/properties/editor": {
+      "title": "Editor",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeiter:in"
+        }
+      }
+    },
+    "/properties/items/items/properties/source_id": {
+      "title": "Source ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Quell-ID"
+        }
+      }
+    },
+    "/properties/contents/items/properties/preferred_title": {
+      "title": "Title",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Titel"
+        }
+      }
+    },
+    "/properties/contents/items/properties/variant_title": {
+      "title": "Alternative title",
+      "translations": {
+        "de": {
+          "title": "Alternativer Titel"
+        }
+      }
+    },
+    "/properties/contents/items/properties/parallel_title": {
+      "title": "Parallel title",
+      "translations": {
+        "de": {
+          "title": "Paralleltitel"
+        }
+      }
+    },
+    "/properties/contents/items/properties/title_statement": {
+      "title": "Title as printed",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Titel (Vorlage)"
+        }
+      }
+    },
+    "/properties/contents/items/properties/subtitle_statement": {
+      "title": "Subtitle",
+      "translations": {
+        "de": {
+          "title": "Untertitel"
+        }
+      }
+    },
+    "/properties/contents/items/properties/incipit_statement": {
+      "title": "Opening words",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Incipit"
+        }
+      }
+    },
+    "/properties/contents/items/properties/responsibility_statement": {
+      "title": "Attribution as printed",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Verantwortlichkeitsangabe (Vorlage)"
+        }
+      }
+    },
+    "/properties/contents/items/properties/place_statement": {
+      "title": "Place as printed",
+      "translations": {
+        "de": {
+          "title": "Ort (Vorlage)"
+        }
+      }
+    },
+    "/properties/contents/items/properties/publication_statement": {
+      "title": "Publication",
+      "x-presentation": {
+        "mode": "multiline"
+      },
+      "translations": {
+        "de": {
+          "title": "Veröffentlichung"
+        }
+      }
+    },
+    "/properties/contents/items/properties/year": {
+      "title": "Year",
+      "translations": {
+        "de": {
+          "title": "Jahr"
+        }
+      }
+    },
+    "/properties/contents/items/properties/pseudonym": {
+      "title": "Pseudonym",
+      "translations": {
+        "de": {
+          "title": "Pseudonym"
+        }
+      }
+    },
+    "/properties/contents/items/properties/language": {
+      "title": "Language",
+      "x-presentation": {
+        "inline": true
+      },
+      "translations": {
+        "de": {
+          "title": "Sprachen"
+        }
+      }
+    },
+    "/properties/contents/items/properties/content_type": {
+      "title": "Content type",
+      "translations": {
+        "de": {
+          "title": "Inhaltstypen"
+        }
+      }
+    },
+    "/properties/contents/items/properties/extent": {
+      "title": "Extent / pages",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Seite"
+        }
+      }
+    },
+    "/properties/contents/items/properties/dimensions": {
+      "title": "Dimensions",
+      "translations": {
+        "de": {
+          "title": "Maße"
+        }
+      }
+    },
+    "/properties/contents/items/properties/musenalm_type": {
+      "title": "Type",
+      "x-presentation": {
+        "inline": true,
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Objekt"
+        }
+      }
+    },
+    "/properties/contents/items/properties/musenalm_pagination": {
+      "title": "Pagination",
+      "translations": {
+        "de": {
+          "title": "Paginierung"
+        }
+      }
+    },
+    "/properties/contents/items/properties/scans": {
+      "title": "Scans",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Digitalisate"
+        }
+      }
+    },
+    "/properties/contents/items/properties/musenalm_id": {
+      "title": "Musenalm ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "AlmanachNr"
+        }
+      }
+    },
+    "/properties/contents/items/properties/created": {
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
+    },
+    "/properties/contents/items/properties/updated": {
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
+    },
+    "/properties/contents/items/properties/edit_state": {
+      "title": "Review status",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeitungsstand",
+          "x-optionLabels": {
+            "Unknown": "Unknown",
+            "ToDo": "ToDo",
+            "Seen": "Seen",
+            "Partially Edited": "Partially Edited",
+            "Waiting": "Waiting",
+            "Review": "Review",
+            "Edited": "Edited",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/contents/items/properties/annotation": {
+      "title": "Notes",
+      "x-editor": "markdown",
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
+    },
+    "/properties/contents/items/properties/edit_comment": {
+      "title": "Editorial notes",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Redaktionelle Anmerkungen"
+        }
+      }
+    },
+    "/properties/contents/items/properties/editor": {
+      "title": "Editor",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeiter:in"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/source_id": {
+      "title": "Source ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Quell-ID"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/agent": {
+      "title": "Name",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Name"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/type": {
+      "title": "Role",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Rolle",
+          "x-optionLabels": {
+            "Autor:in": "Autor:in",
+            "Herausgeber:in": "Herausgeber:in",
+            "Verlag": "Verlag",
+            "Druck": "Druck",
+            "Vertrieb": "Vertrieb",
+            "Zeichner:in": "Zeichner:in",
+            "Komponist:in": "Komponist:in",
+            "Künstler:in": "Künstler:in",
+            "Übersetzer:in": "Übersetzer:in",
+            "Redakteur:in": "Redakteur:in",
+            "Kartograf:in": "Kartograf:in",
+            "Kupferstecher:in": "Kupferstecher:in",
+            "Dargestellt": "Dargestellt"
+          }
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/conjecture": {
+      "title": "Conjecture",
+      "translations": {
+        "de": {
+          "title": "Zuschreibung"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/uncertain": {
+      "title": "Uncertain",
+      "translations": {
+        "de": {
+          "title": "Unsicher"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/created": {
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/updated": {
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/annotation": {
+      "title": "Notes",
+      "x-editor": "markdown",
+      "x-presentation": {},
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents/items/properties/edit_comment": {
+      "title": "Editorial notes",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Redaktionelle Anmerkungen"
+        }
+      }
+    },
+    "/properties/contents/items/properties/source_id": {
+      "title": "Source ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Quell-ID"
+        }
+      }
+    },
+    "/properties/items": {
+      "title": "Items",
+      "x-presentation": {
+        "table": {
+          "columns": [
+            "identifier",
+            "owner",
+            "location",
+            "media"
+          ],
+          "icon": "ri-archive-line"
+        }
+      },
+      "translations": {
+        "de": {
+          "title": "Exemplare"
+        }
+      }
+    },
+    "/properties/contents": {
+      "title": "Contents",
+      "x-presentation": {
+        "table": {
+          "columns": [
+            "preferred_title",
+            "agents",
+            "musenalm_type",
+            "extent"
+          ],
+          "icon": "ri-file-list-3-line"
+        }
+      },
+      "translations": {
+        "de": {
+          "title": "Beiträge"
+        }
+      }
+    },
+    "/properties/contents/items/properties/agents": {
+      "title": "Agents",
+      "x-presentation": {
+        "table": {
+          "columns": [
+            "agent",
+            "type",
+            "annotation"
+          ],
+          "icon": "ri-user-line"
+        }
+      },
+      "translations": {
+        "de": {
+          "title": "Personen & Verlage"
+        }
+      }
+    },
+    "/properties/agents": {
+      "title": "Agents",
+      "x-presentation": {
+        "table": {
+          "columns": [
+            "agent",
+            "type",
+            "annotation"
+          ],
+          "icon": "ri-user-line"
+        }
+      },
+      "translations": {
+        "de": {
+          "title": "Personen & Verlage"
+        }
+      }
+    },
+    "/properties/items/items": {
+      "x-presentation": {
+        "fieldOrder": [
+          "identifier",
+          "owner",
+          "location",
+          "media",
+          "annotation",
+          "condition",
+          "scans",
+          "uri",
+          "created",
+          "updated",
+          "edit_comment",
+          "edit_state",
+          "public",
+          "basis",
+          "editor",
+          "source_id"
+        ]
+      }
+    },
+    "/properties/contents/items": {
+      "x-presentation": {
+        "fieldOrder": [
+          "preferred_title",
+          "musenalm_type",
+          "extent",
+          "incipit_statement",
+          "year",
+          "language",
+          "title_statement",
+          "responsibility_statement",
+          "publication_statement",
+          "annotation",
+          "variant_title",
+          "parallel_title",
+          "subtitle_statement",
+          "place_statement",
+          "pseudonym",
+          "content_type",
+          "dimensions",
+          "musenalm_pagination",
+          "scans",
+          "musenalm_id",
+          "created",
+          "updated",
+          "edit_state",
+          "edit_comment",
+          "editor",
+          "agents",
+          "source_id"
+        ]
+      }
+    },
+    "/properties/contents/items/properties/agents/items": {
+      "x-presentation": {
+        "fieldOrder": [
+          "agent",
+          "type",
+          "annotation",
+          "source_id",
+          "conjecture",
+          "uncertain",
+          "created",
+          "updated",
+          "edit_comment"
+        ]
+      }
+    },
+    "/properties/agents/items": {
+      "x-presentation": {
+        "fieldOrder": [
+          "agent",
+          "type",
+          "annotation",
+          "source_id",
+          "conjecture",
+          "uncertain",
+          "created",
+          "updated",
+          "edit_comment"
+        ]
+      }
+    },
+    "/properties/language/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "abk": "Abchasisch",
+            "aar": "Afar",
+            "afr": "Afrikaans",
+            "aka": "Akan",
+            "alb": "Albanisch",
+            "amh": "Amharisch",
+            "ara": "Arabisch",
+            "arg": "Aragonesisch",
+            "arm": "Armenisch",
+            "asm": "Assamesisch",
+            "ava": "Awarisch",
+            "ave": "Avestisch",
+            "aym": "Aymara",
+            "aze": "Aserbaidschanisch",
+            "bam": "Bambara",
+            "bak": "Baschkirisch",
+            "baq": "Baskisch",
+            "bel": "Weißrussisch",
+            "ben": "Bengalisch",
+            "bis": "Bislama",
+            "bos": "Bosnisch",
+            "bre": "Bretonisch",
+            "bul": "Bulgarisch",
+            "bur": "Burmesisch",
+            "cat": "Katalanisch",
+            "cha": "Chamorro",
+            "che": "Tschetschenisch",
+            "nya": "Chichewa",
+            "chi": "Chinesisch",
+            "chu": "Kirchenslawisch",
+            "chv": "Tschuwaschisch",
+            "cor": "Kornisch",
+            "cos": "Korsisch",
+            "cre": "Cree",
+            "hrv": "Kroatisch",
+            "cze": "Tschechisch",
+            "dan": "Dänisch",
+            "div": "Dhivehi",
+            "dut": "Niederländisch",
+            "dzo": "Dzongkha",
+            "eng": "Englisch",
+            "epo": "Esperanto",
+            "est": "Estnisch",
+            "ewe": "Ewe-Sprache",
+            "fao": "Färöisch",
+            "fij": "Fidschianisch",
+            "fin": "Finnisch",
+            "fre": "Französisch",
+            "fry": "Westfriesisch",
+            "ful": "Ful",
+            "gla": "Gälisch",
+            "glg": "Galizisch",
+            "lug": "Ganda",
+            "geo": "Georgisch",
+            "ger": "Deutsch",
+            "gre": "Neugriechisch (ab 1453)",
+            "kal": "Kalaallisut",
+            "grn": "Guaraní",
+            "guj": "Gujarati",
+            "hat": "Haitianisch",
+            "hau": "Haussa",
+            "heb": "Hebräisch",
+            "her": "Herero",
+            "hin": "Hindi",
+            "hmo": "Hiri-Motu",
+            "hun": "Ungarisch",
+            "ice": "Isländisch",
+            "ido": "Ido",
+            "ibo": "Ibo",
+            "ind": "Indonesisch",
+            "ina": "Interlingua (Internationale Hilfssprachen-Vereinigung)",
+            "ile": "Interlingua",
+            "iku": "Inuktitut",
+            "ipk": "Inupiaq",
+            "gle": "Irisch",
+            "ita": "Italienisch",
+            "jpn": "Japanisch",
+            "jav": "Javanisch",
+            "kan": "Kannada",
+            "kau": "Kanuri",
+            "kas": "Kaschmirisch",
+            "kaz": "Kasachisch",
+            "khm": "Zentral-Khmer",
+            "kik": "Kikuyu",
+            "kin": "Kinyarwanda",
+            "kir": "Kirgisisch",
+            "kom": "Komi",
+            "kon": "Kongo",
+            "kor": "Koreanisch",
+            "kua": "Kwanyama",
+            "kur": "Kurdisch",
+            "lao": "Laotisch",
+            "lat": "Lateinisch",
+            "lav": "Lettisch",
+            "lim": "Limburgisch",
+            "lin": "Lingala",
+            "lit": "Litauisch",
+            "lub": "Luba-Katanga",
+            "ltz": "Luxemburgisch",
+            "mac": "Makedonisch",
+            "mlg": "Malagasi",
+            "may": "Malaiisch",
+            "mal": "Malayalam",
+            "mlt": "Maltesisch",
+            "glv": "Manx",
+            "mao": "Maori",
+            "mar": "Marathi",
+            "mah": "Marschallesisch",
+            "mon": "Mongolisch",
+            "nau": "Nauru",
+            "nav": "Navajo",
+            "nde": "Nord-Ndebele",
+            "nbl": "Süd-Ndebele",
+            "ndo": "Ndonga",
+            "nep": "Nepali",
+            "nor": "Norwegisch",
+            "nob": "Norwegisch Bokmål",
+            "nno": "Norwegisch Nynorsk",
+            "oci": "Okzitanisch (nach 1500)",
+            "oji": "Ojibwa",
+            "ori": "Oriya",
+            "orm": "Oromo",
+            "oss": "Ossetisch",
+            "pli": "Pali",
+            "pus": "Paschtunisch",
+            "per": "Persisch",
+            "pol": "Polnisch",
+            "por": "Portugiesisch",
+            "pan": "Panjabi",
+            "que": "Quechua",
+            "rum": "Rumänisch",
+            "roh": "Bündnerromanisch",
+            "run": "Kirundi",
+            "rus": "Russisch",
+            "sme": "Nord-Samisch",
+            "smo": "Samoanisch",
+            "sag": "Sango",
+            "san": "Sanskrit",
+            "srd": "Sardisch",
+            "srp": "Serbisch",
+            "sna": "Schona",
+            "snd": "Sindhi",
+            "sin": "Singhalesisch",
+            "slo": "Slowakisch",
+            "slv": "Slowenisch",
+            "som": "Somali",
+            "sot": "Sotho (Süd)",
+            "spa": "Spanisch (Kastilisch)",
+            "sun": "Sundanesisch",
+            "swa": "Suaheli",
+            "ssw": "Swazi",
+            "swe": "Schwedisch",
+            "tgl": "Tagalog",
+            "tah": "Tahitisch",
+            "tgk": "Tadschikisch",
+            "tam": "Tamilisch",
+            "tat": "Tatarisch",
+            "tel": "Telugu",
+            "tha": "Thai",
+            "tib": "Tibetisch",
+            "tir": "Tigrinja",
+            "ton": "Tonga (Tonga-Inseln)",
+            "tso": "Tsonga",
+            "tsn": "Tswana",
+            "tur": "Türkisch",
+            "tuk": "Turkmenisch",
+            "twi": "Twi",
+            "uig": "Uigurisch",
+            "ukr": "Ukrainisch",
+            "urd": "Urdu",
+            "uzb": "Usbekisch",
+            "ven": "Venda",
+            "vie": "Vietnamesisch",
+            "vol": "Volapük",
+            "wln": "Wallonisch",
+            "wel": "Walisisch",
+            "wol": "Wolof",
+            "xho": "Xhosa",
+            "iii": "Sichuan Yi",
+            "yid": "Jiddisch",
+            "yor": "Joruba",
+            "zha": "Zhuang",
+            "zul": "Zulu",
+            "": "Nicht angegeben"
+          }
+        }
+      },
+      "x-optionLabels": {
+        "abk": "Abkhazian",
+        "aar": "Afar",
+        "afr": "Afrikaans",
+        "aka": "Akan",
+        "alb": "Albanian",
+        "amh": "Amharic",
+        "ara": "Arabic",
+        "arg": "Aragonese",
+        "arm": "Armenian",
+        "asm": "Assamese",
+        "ava": "Avaric",
+        "ave": "Avestan",
+        "aym": "Aymara",
+        "aze": "Azerbaijani",
+        "bam": "Bambara",
+        "bak": "Bashkir",
+        "baq": "Basque",
+        "bel": "Belarusian",
+        "ben": "Bengali",
+        "bis": "Bislama",
+        "bos": "Bosnian",
+        "bre": "Breton",
+        "bul": "Bulgarian",
+        "bur": "Burmese",
+        "cat": "Catalan",
+        "cha": "Chamorro",
+        "che": "Chechen",
+        "nya": "Chichewa",
+        "chi": "Chinese",
+        "chu": "Church Slavic",
+        "chv": "Chuvash",
+        "cor": "Cornish",
+        "cos": "Corsican",
+        "cre": "Cree",
+        "hrv": "Croatian",
+        "cze": "Czech",
+        "dan": "Danish",
+        "div": "Divehi",
+        "dut": "Dutch",
+        "dzo": "Dzongkha",
+        "eng": "English",
+        "epo": "Esperanto",
+        "est": "Estonian",
+        "ewe": "Ewe",
+        "fao": "Faroese",
+        "fij": "Fijian",
+        "fin": "Finnish",
+        "fre": "French",
+        "fry": "Western Frisian",
+        "ful": "Fulah",
+        "gla": "Gaelic",
+        "glg": "Galician",
+        "lug": "Ganda",
+        "geo": "Georgian",
+        "ger": "German",
+        "gre": "Greek, Modern (1453-)",
+        "kal": "Kalaallisut",
+        "grn": "Guarani",
+        "guj": "Gujarati",
+        "hat": "Haitian",
+        "hau": "Hausa",
+        "heb": "Hebrew",
+        "her": "Herero",
+        "hin": "Hindi",
+        "hmo": "Hiri Motu",
+        "hun": "Hungarian",
+        "ice": "Icelandic",
+        "ido": "Ido",
+        "ibo": "Igbo",
+        "ind": "Indonesian",
+        "ina": "Interlingua (International Auxiliary Language Association)",
+        "ile": "Interlingue",
+        "iku": "Inuktitut",
+        "ipk": "Inupiaq",
+        "gle": "Irish",
+        "ita": "Italian",
+        "jpn": "Japanese",
+        "jav": "Javanese",
+        "kan": "Kannada",
+        "kau": "Kanuri",
+        "kas": "Kashmiri",
+        "kaz": "Kazakh",
+        "khm": "Central Khmer",
+        "kik": "Kikuyu",
+        "kin": "Kinyarwanda",
+        "kir": "Kirghiz",
+        "kom": "Komi",
+        "kon": "Kongo",
+        "kor": "Korean",
+        "kua": "Kuanyama",
+        "kur": "Kurdish",
+        "lao": "Lao",
+        "lat": "Latin",
+        "lav": "Latvian",
+        "lim": "Limburgan",
+        "lin": "Lingala",
+        "lit": "Lithuanian",
+        "lub": "Luba-Katanga",
+        "ltz": "Luxembourgish",
+        "mac": "Macedonian",
+        "mlg": "Malagasy",
+        "may": "Malay",
+        "mal": "Malayalam",
+        "mlt": "Maltese",
+        "glv": "Manx",
+        "mao": "Maori",
+        "mar": "Marathi",
+        "mah": "Marshallese",
+        "mon": "Mongolian",
+        "nau": "Nauru",
+        "nav": "Navajo",
+        "nde": "North Ndebele",
+        "nbl": "South Ndebele",
+        "ndo": "Ndonga",
+        "nep": "Nepali",
+        "nor": "Norwegian",
+        "nob": "Norwegian Bokmål",
+        "nno": "Norwegian Nynorsk",
+        "oci": "Occitan (post 1500)",
+        "oji": "Ojibwa",
+        "ori": "Oriya",
+        "orm": "Oromo",
+        "oss": "Ossetian",
+        "pli": "Pali",
+        "pus": "Pushto",
+        "per": "Persian",
+        "pol": "Polish",
+        "por": "Portuguese",
+        "pan": "Panjabi",
+        "que": "Quechua",
+        "rum": "Romanian",
+        "roh": "Romansh",
+        "run": "Rundi",
+        "rus": "Russian",
+        "sme": "Northern Sami",
+        "smo": "Samoan",
+        "sag": "Sango",
+        "san": "Sanskrit",
+        "srd": "Sardinian",
+        "srp": "Serbian",
+        "sna": "Shona",
+        "snd": "Sindhi",
+        "sin": "Sinhala",
+        "slo": "Slovak",
+        "slv": "Slovenian",
+        "som": "Somali",
+        "sot": "Sotho, Southern",
+        "spa": "Spanish",
+        "sun": "Sundanese",
+        "swa": "Swahili",
+        "ssw": "Swati",
+        "swe": "Swedish",
+        "tgl": "Tagalog",
+        "tah": "Tahitian",
+        "tgk": "Tajik",
+        "tam": "Tamil",
+        "tat": "Tatar",
+        "tel": "Telugu",
+        "tha": "Thai",
+        "tib": "Tibetan",
+        "tir": "Tigrinya",
+        "ton": "Tonga (Tonga Islands)",
+        "tso": "Tsonga",
+        "tsn": "Tswana",
+        "tur": "Turkish",
+        "tuk": "Turkmen",
+        "twi": "Twi",
+        "uig": "Uighur",
+        "ukr": "Ukrainian",
+        "urd": "Urdu",
+        "uzb": "Uzbek",
+        "ven": "Venda",
+        "vie": "Vietnamese",
+        "vol": "Volapük",
+        "wln": "Walloon",
+        "wel": "Welsh",
+        "wol": "Wolof",
+        "xho": "Xhosa",
+        "iii": "Sichuan Yi",
+        "yid": "Yiddish",
+        "yor": "Yoruba",
+        "zha": "Zhuang",
+        "zul": "Zulu",
+        "": "Unspecified"
+      }
+    },
+    "/properties/content_type/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "kartografisches Daten-Set": "kartografisches Daten-Set",
+            "kartografisches Bild": "kartografisches Bild",
+            "kartografisches Bewegtbild": "kartografisches Bewegtbild",
+            "kartografisches taktiles Bild": "kartografisches taktiles Bild",
+            "kartografische taktile dreidimensionale Form": "kartografische taktile dreidimensionale Form",
+            "kartografische dreidimensionale Form": "kartografische dreidimensionale Form",
+            "Computerdaten": "Computerdaten",
+            "Computerprogramm": "Computerprogramm",
+            "Bewegungsnotation": "Bewegungsnotation",
+            "Noten": "Noten",
+            "aufgeführte Musik": "aufgeführte Musik",
+            "Geräusche": "Geräusche",
+            "gesprochenes Wort": "gesprochenes Wort",
+            "unbewegtes Bild": "unbewegtes Bild",
+            "taktiles Bild": "taktiles Bild",
+            "taktile Noten": "taktile Noten",
+            "taktile Bewegungsnotation": "taktile Bewegungsnotation",
+            "taktiler Text": "taktiler Text",
+            "taktile dreidimensionale Form": "taktile dreidimensionale Form",
+            "Text": "Text",
+            "dreidimensionale Form": "dreidimensionale Form",
+            "dreidimensionales Bewegtbild": "dreidimensionales Bewegtbild",
+            "zweidimensionales Bewegtbild": "zweidimensionales Bewegtbild",
+            "aufgeführte Bewegung": "aufgeführte Bewegung",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/carrier_type/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "Tonträger": "Tonträger",
+            "Audiocartridge": "Audiocartridge",
+            "Phonographenzylinder": "Phonographenzylinder",
+            "Audiodisk": "Audiodisk",
+            "Tonspurspule": "Tonspurspule",
+            "Notenrolle": "Notenrolle",
+            "Audiokassette": "Audiokassette",
+            "Tonbandspule": "Tonbandspule",
+            "Datenträger": "Datenträger",
+            "Speicherkarte": "Speicherkarte",
+            "Computerchip-Cartridge": "Computerchip-Cartridge",
+            "Computerdisk": "Computerdisk",
+            "Computerdisk-Cartridge": "Computerdisk-Cartridge",
+            "Magnetbandcartridge": "Magnetbandcartridge",
+            "Magnetbandkassette": "Magnetbandkassette",
+            "Magnetbandspule": "Magnetbandspule",
+            "Online-Ressource": "Online-Ressource",
+            "Datenträger für Mikroformen": "Datenträger für Mikroformen",
+            "Mikrofilmlochkarte": "Mikrofilmlochkarte",
+            "Mikrofiche": "Mikrofiche",
+            "Mikrofichekassette": "Mikrofichekassette",
+            "Mikrofilm-Cartridge": "Mikrofilm-Cartridge",
+            "Mikrofilmkassette": "Mikrofilmkassette",
+            "Mikrofilmspule": "Mikrofilmspule",
+            "Mikrofilmstreifen": "Mikrofilmstreifen",
+            "Lichtundurchlässiger Mikrofiche": "Lichtundurchlässiger Mikrofiche",
+            "Trägermedien für Mikroskop-Anwendungen": "Trägermedien für Mikroskop-Anwendungen",
+            "Objektträger": "Objektträger",
+            "Datenträger von projizierbaren Bildern": "Datenträger von projizierbaren Bildern",
+            "Filmdose": "Filmdose",
+            "Filmkassette": "Filmkassette",
+            "Filmspule": "Filmspule",
+            "Filmstreifen": "Filmstreifen",
+            "Filmstreifen für Einzelbildvorführung": "Filmstreifen für Einzelbildvorführung",
+            "Filmstreifen-Cartridge": "Filmstreifen-Cartridge",
+            "Overheadfolie": "Overheadfolie",
+            "Dia": "Dia",
+            "Stereografische Datenträger": "Stereografische Datenträger",
+            "Stereobild": "Stereobild",
+            "Stereografische Disk": "Stereografische Disk",
+            "Datenträger, die ohne Hilfsmittel zu benutzen sind": "Datenträger, die ohne Hilfsmittel zu benutzen sind",
+            "Karte": "Karte",
+            "Flipchart": "Flipchart",
+            "Rolle": "Rolle",
+            "Blatt": "Blatt",
+            "Band": "Band",
+            "Video-Datenträger": "Video-Datenträger",
+            "Videocartridge": "Videocartridge",
+            "Videokassette": "Videokassette",
+            "Videobandspule": "Videobandspule",
+            "Mikrofilmrolle": "Mikrofilmrolle",
+            "Gegenstand": "Gegenstand",
+            "Videodisk": "Videodisk",
+            "Filmrolle": "Filmrolle",
+            "Audio Belt": "Audio Belt",
+            "Audio wire reel": "Audio wire reel",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/items/items/properties/media/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "Original": "Original",
+            "Reproduktion": "Reproduktion",
+            "Mikrofiche": "Mikrofiche",
+            "Digitalisat": "Digitalisat",
+            "URL": "URL",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/contents/items/properties/language/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "abk": "Abchasisch",
+            "aar": "Afar",
+            "afr": "Afrikaans",
+            "aka": "Akan",
+            "alb": "Albanisch",
+            "amh": "Amharisch",
+            "ara": "Arabisch",
+            "arg": "Aragonesisch",
+            "arm": "Armenisch",
+            "asm": "Assamesisch",
+            "ava": "Awarisch",
+            "ave": "Avestisch",
+            "aym": "Aymara",
+            "aze": "Aserbaidschanisch",
+            "bam": "Bambara",
+            "bak": "Baschkirisch",
+            "baq": "Baskisch",
+            "bel": "Weißrussisch",
+            "ben": "Bengalisch",
+            "bis": "Bislama",
+            "bos": "Bosnisch",
+            "bre": "Bretonisch",
+            "bul": "Bulgarisch",
+            "bur": "Burmesisch",
+            "cat": "Katalanisch",
+            "cha": "Chamorro",
+            "che": "Tschetschenisch",
+            "nya": "Chichewa",
+            "chi": "Chinesisch",
+            "chu": "Kirchenslawisch",
+            "chv": "Tschuwaschisch",
+            "cor": "Kornisch",
+            "cos": "Korsisch",
+            "cre": "Cree",
+            "hrv": "Kroatisch",
+            "cze": "Tschechisch",
+            "dan": "Dänisch",
+            "div": "Dhivehi",
+            "dut": "Niederländisch",
+            "dzo": "Dzongkha",
+            "eng": "Englisch",
+            "epo": "Esperanto",
+            "est": "Estnisch",
+            "ewe": "Ewe-Sprache",
+            "fao": "Färöisch",
+            "fij": "Fidschianisch",
+            "fin": "Finnisch",
+            "fre": "Französisch",
+            "fry": "Westfriesisch",
+            "ful": "Ful",
+            "gla": "Gälisch",
+            "glg": "Galizisch",
+            "lug": "Ganda",
+            "geo": "Georgisch",
+            "ger": "Deutsch",
+            "gre": "Neugriechisch (ab 1453)",
+            "kal": "Kalaallisut",
+            "grn": "Guaraní",
+            "guj": "Gujarati",
+            "hat": "Haitianisch",
+            "hau": "Haussa",
+            "heb": "Hebräisch",
+            "her": "Herero",
+            "hin": "Hindi",
+            "hmo": "Hiri-Motu",
+            "hun": "Ungarisch",
+            "ice": "Isländisch",
+            "ido": "Ido",
+            "ibo": "Ibo",
+            "ind": "Indonesisch",
+            "ina": "Interlingua (Internationale Hilfssprachen-Vereinigung)",
+            "ile": "Interlingua",
+            "iku": "Inuktitut",
+            "ipk": "Inupiaq",
+            "gle": "Irisch",
+            "ita": "Italienisch",
+            "jpn": "Japanisch",
+            "jav": "Javanisch",
+            "kan": "Kannada",
+            "kau": "Kanuri",
+            "kas": "Kaschmirisch",
+            "kaz": "Kasachisch",
+            "khm": "Zentral-Khmer",
+            "kik": "Kikuyu",
+            "kin": "Kinyarwanda",
+            "kir": "Kirgisisch",
+            "kom": "Komi",
+            "kon": "Kongo",
+            "kor": "Koreanisch",
+            "kua": "Kwanyama",
+            "kur": "Kurdisch",
+            "lao": "Laotisch",
+            "lat": "Lateinisch",
+            "lav": "Lettisch",
+            "lim": "Limburgisch",
+            "lin": "Lingala",
+            "lit": "Litauisch",
+            "lub": "Luba-Katanga",
+            "ltz": "Luxemburgisch",
+            "mac": "Makedonisch",
+            "mlg": "Malagasi",
+            "may": "Malaiisch",
+            "mal": "Malayalam",
+            "mlt": "Maltesisch",
+            "glv": "Manx",
+            "mao": "Maori",
+            "mar": "Marathi",
+            "mah": "Marschallesisch",
+            "mon": "Mongolisch",
+            "nau": "Nauru",
+            "nav": "Navajo",
+            "nde": "Nord-Ndebele",
+            "nbl": "Süd-Ndebele",
+            "ndo": "Ndonga",
+            "nep": "Nepali",
+            "nor": "Norwegisch",
+            "nob": "Norwegisch Bokmål",
+            "nno": "Norwegisch Nynorsk",
+            "oci": "Okzitanisch (nach 1500)",
+            "oji": "Ojibwa",
+            "ori": "Oriya",
+            "orm": "Oromo",
+            "oss": "Ossetisch",
+            "pli": "Pali",
+            "pus": "Paschtunisch",
+            "per": "Persisch",
+            "pol": "Polnisch",
+            "por": "Portugiesisch",
+            "pan": "Panjabi",
+            "que": "Quechua",
+            "rum": "Rumänisch",
+            "roh": "Bündnerromanisch",
+            "run": "Kirundi",
+            "rus": "Russisch",
+            "sme": "Nord-Samisch",
+            "smo": "Samoanisch",
+            "sag": "Sango",
+            "san": "Sanskrit",
+            "srd": "Sardisch",
+            "srp": "Serbisch",
+            "sna": "Schona",
+            "snd": "Sindhi",
+            "sin": "Singhalesisch",
+            "slo": "Slowakisch",
+            "slv": "Slowenisch",
+            "som": "Somali",
+            "sot": "Sotho (Süd)",
+            "spa": "Spanisch (Kastilisch)",
+            "sun": "Sundanesisch",
+            "swa": "Suaheli",
+            "ssw": "Swazi",
+            "swe": "Schwedisch",
+            "tgl": "Tagalog",
+            "tah": "Tahitisch",
+            "tgk": "Tadschikisch",
+            "tam": "Tamilisch",
+            "tat": "Tatarisch",
+            "tel": "Telugu",
+            "tha": "Thai",
+            "tib": "Tibetisch",
+            "tir": "Tigrinja",
+            "ton": "Tonga (Tonga-Inseln)",
+            "tso": "Tsonga",
+            "tsn": "Tswana",
+            "tur": "Türkisch",
+            "tuk": "Turkmenisch",
+            "twi": "Twi",
+            "uig": "Uigurisch",
+            "ukr": "Ukrainisch",
+            "urd": "Urdu",
+            "uzb": "Usbekisch",
+            "ven": "Venda",
+            "vie": "Vietnamesisch",
+            "vol": "Volapük",
+            "wln": "Wallonisch",
+            "wel": "Walisisch",
+            "wol": "Wolof",
+            "xho": "Xhosa",
+            "iii": "Sichuan Yi",
+            "yid": "Jiddisch",
+            "yor": "Joruba",
+            "zha": "Zhuang",
+            "zul": "Zulu",
+            "": "Nicht angegeben"
+          }
+        }
+      },
+      "x-optionLabels": {
+        "abk": "Abkhazian",
+        "aar": "Afar",
+        "afr": "Afrikaans",
+        "aka": "Akan",
+        "alb": "Albanian",
+        "amh": "Amharic",
+        "ara": "Arabic",
+        "arg": "Aragonese",
+        "arm": "Armenian",
+        "asm": "Assamese",
+        "ava": "Avaric",
+        "ave": "Avestan",
+        "aym": "Aymara",
+        "aze": "Azerbaijani",
+        "bam": "Bambara",
+        "bak": "Bashkir",
+        "baq": "Basque",
+        "bel": "Belarusian",
+        "ben": "Bengali",
+        "bis": "Bislama",
+        "bos": "Bosnian",
+        "bre": "Breton",
+        "bul": "Bulgarian",
+        "bur": "Burmese",
+        "cat": "Catalan",
+        "cha": "Chamorro",
+        "che": "Chechen",
+        "nya": "Chichewa",
+        "chi": "Chinese",
+        "chu": "Church Slavic",
+        "chv": "Chuvash",
+        "cor": "Cornish",
+        "cos": "Corsican",
+        "cre": "Cree",
+        "hrv": "Croatian",
+        "cze": "Czech",
+        "dan": "Danish",
+        "div": "Divehi",
+        "dut": "Dutch",
+        "dzo": "Dzongkha",
+        "eng": "English",
+        "epo": "Esperanto",
+        "est": "Estonian",
+        "ewe": "Ewe",
+        "fao": "Faroese",
+        "fij": "Fijian",
+        "fin": "Finnish",
+        "fre": "French",
+        "fry": "Western Frisian",
+        "ful": "Fulah",
+        "gla": "Gaelic",
+        "glg": "Galician",
+        "lug": "Ganda",
+        "geo": "Georgian",
+        "ger": "German",
+        "gre": "Greek, Modern (1453-)",
+        "kal": "Kalaallisut",
+        "grn": "Guarani",
+        "guj": "Gujarati",
+        "hat": "Haitian",
+        "hau": "Hausa",
+        "heb": "Hebrew",
+        "her": "Herero",
+        "hin": "Hindi",
+        "hmo": "Hiri Motu",
+        "hun": "Hungarian",
+        "ice": "Icelandic",
+        "ido": "Ido",
+        "ibo": "Igbo",
+        "ind": "Indonesian",
+        "ina": "Interlingua (International Auxiliary Language Association)",
+        "ile": "Interlingue",
+        "iku": "Inuktitut",
+        "ipk": "Inupiaq",
+        "gle": "Irish",
+        "ita": "Italian",
+        "jpn": "Japanese",
+        "jav": "Javanese",
+        "kan": "Kannada",
+        "kau": "Kanuri",
+        "kas": "Kashmiri",
+        "kaz": "Kazakh",
+        "khm": "Central Khmer",
+        "kik": "Kikuyu",
+        "kin": "Kinyarwanda",
+        "kir": "Kirghiz",
+        "kom": "Komi",
+        "kon": "Kongo",
+        "kor": "Korean",
+        "kua": "Kuanyama",
+        "kur": "Kurdish",
+        "lao": "Lao",
+        "lat": "Latin",
+        "lav": "Latvian",
+        "lim": "Limburgan",
+        "lin": "Lingala",
+        "lit": "Lithuanian",
+        "lub": "Luba-Katanga",
+        "ltz": "Luxembourgish",
+        "mac": "Macedonian",
+        "mlg": "Malagasy",
+        "may": "Malay",
+        "mal": "Malayalam",
+        "mlt": "Maltese",
+        "glv": "Manx",
+        "mao": "Maori",
+        "mar": "Marathi",
+        "mah": "Marshallese",
+        "mon": "Mongolian",
+        "nau": "Nauru",
+        "nav": "Navajo",
+        "nde": "North Ndebele",
+        "nbl": "South Ndebele",
+        "ndo": "Ndonga",
+        "nep": "Nepali",
+        "nor": "Norwegian",
+        "nob": "Norwegian Bokmål",
+        "nno": "Norwegian Nynorsk",
+        "oci": "Occitan (post 1500)",
+        "oji": "Ojibwa",
+        "ori": "Oriya",
+        "orm": "Oromo",
+        "oss": "Ossetian",
+        "pli": "Pali",
+        "pus": "Pushto",
+        "per": "Persian",
+        "pol": "Polish",
+        "por": "Portuguese",
+        "pan": "Panjabi",
+        "que": "Quechua",
+        "rum": "Romanian",
+        "roh": "Romansh",
+        "run": "Rundi",
+        "rus": "Russian",
+        "sme": "Northern Sami",
+        "smo": "Samoan",
+        "sag": "Sango",
+        "san": "Sanskrit",
+        "srd": "Sardinian",
+        "srp": "Serbian",
+        "sna": "Shona",
+        "snd": "Sindhi",
+        "sin": "Sinhala",
+        "slo": "Slovak",
+        "slv": "Slovenian",
+        "som": "Somali",
+        "sot": "Sotho, Southern",
+        "spa": "Spanish",
+        "sun": "Sundanese",
+        "swa": "Swahili",
+        "ssw": "Swati",
+        "swe": "Swedish",
+        "tgl": "Tagalog",
+        "tah": "Tahitian",
+        "tgk": "Tajik",
+        "tam": "Tamil",
+        "tat": "Tatar",
+        "tel": "Telugu",
+        "tha": "Thai",
+        "tib": "Tibetan",
+        "tir": "Tigrinya",
+        "ton": "Tonga (Tonga Islands)",
+        "tso": "Tsonga",
+        "tsn": "Tswana",
+        "tur": "Turkish",
+        "tuk": "Turkmen",
+        "twi": "Twi",
+        "uig": "Uighur",
+        "ukr": "Ukrainian",
+        "urd": "Urdu",
+        "uzb": "Uzbek",
+        "ven": "Venda",
+        "vie": "Vietnamese",
+        "vol": "Volapük",
+        "wln": "Walloon",
+        "wel": "Welsh",
+        "wol": "Wolof",
+        "xho": "Xhosa",
+        "iii": "Sichuan Yi",
+        "yid": "Yiddish",
+        "yor": "Yoruba",
+        "zha": "Zhuang",
+        "zul": "Zulu",
+        "": "Unspecified"
+      }
+    },
+    "/properties/contents/items/properties/content_type/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "kartografisches Daten-Set": "kartografisches Daten-Set",
+            "kartografisches Bild": "kartografisches Bild",
+            "kartografisches Bewegtbild": "kartografisches Bewegtbild",
+            "kartografisches taktiles Bild": "kartografisches taktiles Bild",
+            "kartografische taktile dreidimensionale Form": "kartografische taktile dreidimensionale Form",
+            "kartografische dreidimensionale Form": "kartografische dreidimensionale Form",
+            "Computerdaten": "Computerdaten",
+            "Computerprogramm": "Computerprogramm",
+            "Bewegungsnotation": "Bewegungsnotation",
+            "Noten": "Noten",
+            "aufgeführte Musik": "aufgeführte Musik",
+            "Geräusche": "Geräusche",
+            "gesprochenes Wort": "gesprochenes Wort",
+            "unbewegtes Bild": "unbewegtes Bild",
+            "taktiles Bild": "taktiles Bild",
+            "taktile Noten": "taktile Noten",
+            "taktile Bewegungsnotation": "taktile Bewegungsnotation",
+            "taktiler Text": "taktiler Text",
+            "taktile dreidimensionale Form": "taktile dreidimensionale Form",
+            "Text": "Text",
+            "dreidimensionale Form": "dreidimensionale Form",
+            "dreidimensionales Bewegtbild": "dreidimensionales Bewegtbild",
+            "zweidimensionales Bewegtbild": "zweidimensionales Bewegtbild",
+            "aufgeführte Bewegung": "aufgeführte Bewegung",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/contents/items/properties/musenalm_type/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "Corrigenda": "Corrigenda",
+            "Diagramm": "Diagramm",
+            "Gedicht/Lied": "Gedicht/Lied",
+            "Graphik": "Graphik",
+            "Graphik-Verzeichnis": "Graphik-Verzeichnis",
+            "graph. Anleitung": "graph. Anleitung",
+            "graph. Strickanleitung": "graph. Strickanleitung",
+            "graph. Tanzanleitung": "graph. Tanzanleitung",
+            "Inhaltsverzeichnis": "Inhaltsverzeichnis",
+            "Kalendarium": "Kalendarium",
+            "Karte": "Karte",
+            "Musikbeigabe": "Musikbeigabe",
+            "Musikbeigaben-Verzeichnis": "Musikbeigaben-Verzeichnis",
+            "Motto": "Motto",
+            "Prosa": "Prosa",
+            "Rätsel": "Rätsel",
+            "Sammlung": "Sammlung",
+            "Spiegel": "Spiegel",
+            "szen. Darstellung": "szen. Darstellung",
+            "Tabelle": "Tabelle",
+            "Tafel": "Tafel",
+            "Titel": "Titel",
+            "Text": "Text",
+            "Trinkspruch": "Trinkspruch",
+            "Umschlag": "Umschlag",
+            "Widmung": "Widmung",
+            "": ""
+          }
+        }
+      }
+    },
+    "/properties/contents/items/properties/musenalm_pagination/items": {
+      "translations": {
+        "de": {
+          "x-optionLabels": {
+            "5. Römische Seitenzählung": "5. Römische Seitenzählung",
+            "7. Römische Seitenzählung": "7. Römische Seitenzählung",
+            "1. Arabische Seitenzählung": "1. Arabische Seitenzählung",
+            "4. Römische Seitenzählung": "4. Römische Seitenzählung",
+            "Arabische Seitenzählung": "Arabische Seitenzählung",
+            "Alphabetische Seitenzählung": "Alphabetische Seitenzählung",
+            "2. Arabische Seitenzählung": "2. Arabische Seitenzählung",
+            "5. Arabische Seitenzählung": "5. Arabische Seitenzählung",
+            "6. Arabische Seitenzählung": "6. Arabische Seitenzählung",
+            "8. Römische Seitenzählung": "8. Römische Seitenzählung",
+            "": "",
+            "Römische Seitenzählung": "Römische Seitenzählung",
+            "Sonstige Seitenzählung": "Sonstige Seitenzählung",
+            "4. Arabische Seitenzählung": "4. Arabische Seitenzählung",
+            "7. Arabische Seitenzählung": "7. Arabische Seitenzählung",
+            "1. Römische Seitenzählung": "1. Römische Seitenzählung",
+            "2. Römische Seitenzählung": "2. Römische Seitenzählung",
+            "6. Römische Seitenzählung": "6. Römische Seitenzählung",
+            "3. Arabische Seitenzählung": "3. Arabische Seitenzählung",
+            "8. Arabische Seitenzählung": "8. Arabische Seitenzählung",
+            "3. Römische Seitenzählung": "3. Römische Seitenzählung"
+          }
+        }
+      }
     }
   },
   "fieldOrder": [
     "preferred_title",
+    "year",
+    "places",
+    "language",
+    "agents",
+    "items",
+    "contents",
+    "annotation",
+    "title_statement",
+    "responsibility_statement",
+    "publication_statement",
+    "refs",
     "variant_title",
     "parallel_title",
-    "title_statement",
     "subtitle_statement",
     "incipit_statement",
-    "responsibility_statement",
     "place_statement",
-    "publication_statement",
-    "year",
     "edition",
     "pseudonym",
-    "language",
     "content_type",
     "extent",
     "dimensions",
     "carrier_type",
-    "refs",
-    "places",
     "edit_fielddata",
     "musenalm_deprecated",
     "created",
     "updated",
     "musenalm_id",
     "edit_state",
-    "annotation",
     "edit_comment",
-    "editor",
-    "items",
-    "contents",
-    "agents"
+    "editor"
   ],
   "labels": {
     "list": [
@@ -194,7 +2148,10 @@
   "list": {
     "columns": [
       "preferred_title",
-      "year"
+      "year",
+      "places",
+      "contents",
+      "items"
     ],
     "defaultSort": {
       "field": "_label",
@@ -205,5 +2162,14 @@
       "edit_state"
     ]
   },
-  "sidebarTree": false
+  "sidebarTree": false,
+  "presentation": {
+    "hideEmpty": true
+  },
+  "translations": {
+    "de": {
+      "label": "Bände",
+      "singularLabel": "Band"
+    }
+  }
 }

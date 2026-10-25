@@ -48,45 +48,1517 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "41q5fyol73umyh2",
-    "epnjss0ubabqsph"
+    {
+      "annotation": "1824-1827, Hg Fr. Gräffer und 1828-1858, Hg J.G.Seidel (1832 nicht ersch.).\n§§ 2 Graphiken fehlen",
+      "condition": "1b",
+      "created": "2026-06-11 10:17:37.561Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106419",
+      "location": "105B10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.561Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "41q5fyol73umyh2"
+    },
+    {
+      "annotation": "2 GG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.561Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409256",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.561Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "epnjss0ubabqsph"
+    }
   ],
   "contents": [
-    "d6z3kbfeamxac2k",
-    "ak2zbxs7ulu4nng",
-    "lpq9vutztzlw05x",
-    "v8kw7rmzsg0hxks",
-    "3ajrasmgv3r1hin",
-    "c3otbko5ew9m7lc",
-    "mtuy7vbded3dhw9",
-    "drev2r4hiqvec2c",
-    "nuzkhcnup9ygi8k",
-    "3wipd6ordhai831",
-    "or39c7vz4k0a7dt",
-    "cgck6ouxxrbne2k",
-    "h418nx33a85ewgv",
-    "46hrnn1ri44scnw",
-    "vaftxp3natww228",
-    "ez66cv7vbk0ab43",
-    "m0cjcp2zgf51jp4",
-    "wtp0hdst4a8zowl",
-    "n9cs4f1udb6b3k3",
-    "x3errmn1e5lhvze",
-    "jkfipejvpe7460d",
-    "lks7hzdfsyw8rkn",
-    "5hl0wxl51c1wz9c",
-    "0ej11zq3hi2tkom",
-    "mdisftst6a5235e",
-    "n6ebu7ayfwpw3ri",
-    "lxzpsli6mfmlth5",
-    "8c5xs51b2go1vkk",
-    "ao16s0qe9pcnnxg",
-    "s6k5zdg0ok4nsax",
-    "vjppsnl0705ycqr",
-    "4rm8y99pb15cneu",
-    "ipgo763ritegmxl",
-    "b0w7fhq81bs13cp",
-    "3tm1kwyflhl5x17"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1586_110313_2rbcxafiwi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "d6z3kbfeamxac2k"
+    },
+    {
+      "annotation": "Titelgraphik. /) Illustration zu »Die Kreuzfahrer in Litthauen.« Johann Ritter von Gallenstein INr 85620, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JAWINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. I. Krepp sc.",
+      "scans": [
+        "alm_1586_85602_ai1rfq0yn5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JAWINE",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.167Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "bzjuilyiydpfzvk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.167Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "j9xd5zsloznr4sg"
+        }
+      ],
+      "source_id": "ak2zbxs7ulu4nng"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85603,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA / Taschenbuch / für / das Jahr / 1831. / Herausgegeben / von / JOHANN GABRIEL SEIDL. / Achter Jahrgang. / WIEN / bei Heinrich Buchholz, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl sc.",
+      "scans": [
+        "alm_1586_85603_2f1v2wc4t2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA / Taschenbuch / für / das Jahr / 1831. / Herausgegeben / von / JOHANN GABRIEL SEIDL. / Achter Jahrgang. / WIEN / bei Heinrich Buchholz, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "lpq9vutztzlw05x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem / Hochwolgeborenen / Herrn Herrn / Balthasar Edlen v. Ziernfeld, / k.k. wirklichem Gubernialrath und Kreishauptmann / zu Cilli / aus dankbarer Verehrung / gewidmet vom / Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem / Hochwolgeborenen / Herrn Herrn / Balthasar Edlen v. Ziernfeld, / k.k. wirklichem Gubernialrath und Kreishauptmann / zu Cilli / aus dankbarer Verehrung / gewidmet vom / Herausgeber",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.167Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "l751bitcp1faujv"
+        }
+      ],
+      "source_id": "v8kw7rmzsg0hxks"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Als mich mein Loos der Vaterstadt entzogen, / Glaubt' ich bei fremden Menschen fremd zu seyn.",
+      "language": [],
+      "musenalm_id": 85605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als mich mein Loos der Vaterstadt entzogen, / Glaubt' ich bei fremden Menschen fremd zu seyn.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.167Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "sw5vxddvduczavr"
+        }
+      ],
+      "source_id": "3ajrasmgv3r1hin"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 6 Graphiken mit 6 Textbezügen INr 85607-85618, Obj 6-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85606,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bildliche Darstellungen / zu / dramatischen Werken / vaterländischer Dichter. / Vierte Lieferung. / König Ottokar's Glück und Ende. Trauerspiel / in fünf Aufzügen von Grillparzer. Wien / (J. B. Wallishausser) 1825. / Der Arzt seiner Ehre. In drei Abtheilungen. Von / Don Pedro Calderon de la Barca. / Über- / setzt von And. Schumacher. Wien. (J. P. / Sollinger) 1828",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bildliche Darstellungen / zu / dramatischen Werken / vaterländischer Dichter. / Vierte Lieferung. / König Ottokar's Glück und Ende. Trauerspiel / in fünf Aufzügen von Grillparzer. Wien / (J. B. Wallishausser) 1825. / Der Arzt seiner Ehre. In drei Abtheilungen. Von / Don Pedro Calderon de la Barca. / Über- / setzt von And. Schumacher. Wien. (J. P. / Sollinger) 1828",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "c3otbko5ew9m7lc"
+    },
+    {
+      "annotation": "über der Graphik: Ottokar; I. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »König Ottokars Glück und Ende« von Grillparzer /) s. Textbezug INr 85608, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85607,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kanzler. Wer führt das Wort in Eurer Gnaden Sache? / Margaretha: Ich selbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Kienring [?] del. S. Langer sc.",
+      "scans": [
+        "alm_1586_85607_f861qgqlr9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kanzler. Wer führt das Wort in Eurer Gnaden Sache? / Margaretha: Ich selbst",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "mtuy7vbded3dhw9"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) s. Graphik INr 85607, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Erlauchte Frau und Königin Margarethe, / Von Öst'reich Herzogin und Steiermark",
+      "language": [],
+      "musenalm_id": 85608,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Ottokar's Glück und Ende. / (Erster Aufzug)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König Ottokar's Glück und Ende. / (Erster Aufzug)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.268Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "4ijejgg809bldgf"
+        }
+      ],
+      "source_id": "drev2r4hiqvec2c"
+    },
+    {
+      "annotation": "über der Graphik: Ottokar; II. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »König Ottokars Glück und Ende« von Grillparzer /) s. Textbezug INr 85610, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85609,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zawisch. Das müssen Alle sehen, die treuen Herzens sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. Langer sc.",
+      "scans": [
+        "alm_1586_85609_3blan5f1xv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zawisch. Das müssen Alle sehen, die treuen Herzens sind",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.268Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "3llucoc33nr968e"
+        }
+      ],
+      "source_id": "nuzkhcnup9ygi8k"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) s. Graphik INr 85609, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wo ist der König? / In des Kaisers Zelt; / Er nimmt die Lehn!",
+      "language": [],
+      "musenalm_id": 85610,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Ottokar's Glück und Ende. / (Dritter Aufzug)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König Ottokar's Glück und Ende. / (Dritter Aufzug)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.268Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "ohkpt6aanotmx30"
+        }
+      ],
+      "source_id": "3wipd6ordhai831"
+    },
+    {
+      "annotation": "über der Graphik: Ottokar; III. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »König Ottokars Glück und Ende« von Grillparzer /) s. Textbezug INr 85612, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85611,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Emerberg. Was thust du? das Gebot verletzt des Kaisers?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Kienring [?] del. S. Langer sc.",
+      "scans": [
+        "alm_1586_85611_bqxxydv59c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Emerberg. Was thust du? das Gebot verletzt des Kaisers?",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.269Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "qvw38c6vts9usxs"
+        }
+      ],
+      "source_id": "or39c7vz4k0a7dt"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) s. Graphik INr 85611, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Steht, Memmen, steht! / Und ihr gebt Raum! / Im Grabe! / Sonst nicht!",
+      "language": [],
+      "musenalm_id": 85612,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Ottokar's Glück und Ende. / (Fünfter Aufzug)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König Ottokar's Glück und Ende. / (Fünfter Aufzug)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.269Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "z4yiijufwsusp9o"
+        }
+      ],
+      "source_id": "cgck6ouxxrbne2k"
+    },
+    {
+      "annotation": "über der Graphik: D. Gutierro; I. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »Der Arzt seiner Ehre« von Calderon, übers. von A. Schumacher /) s. Textbezug INr 85614, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85613,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mencia. Himmel, was muss ich gewahren?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. M. Hofmann sc.",
+      "scans": [
+        "alm_1586_85613_tfwacxpw25.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mencia. Himmel, was muss ich gewahren?",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.269Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "6yu4839guea8fbz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.269Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "ne8wispkswgyhlq"
+        }
+      ],
+      "source_id": "h418nx33a85ewgv"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) s. Graphik INr 85613, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "In Castiliens edlen Häusern / Herrscht mit solchem hohen Walten, / Unsres Königs Blut,",
+      "language": [],
+      "musenalm_id": 85614,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Arzt seiner Ehre. / (Erste Abtheilung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Calderon [übers.] A. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Arzt seiner Ehre. / (Erste Abtheilung.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.023Z",
+          "agent": "gsvgz03gi17pba8",
+          "source_id": "n6y3c58ijdtbs0u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.023Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "pauebcmmodvprax"
+        }
+      ],
+      "source_id": "46hrnn1ri44scnw"
+    },
+    {
+      "annotation": "über der Graphik: D. Gutierro; II. /) s. Textbezug INr 87616, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.119Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85615,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einsam blieb sie, -- Meine göttliche Mencia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1586_85615_kc5djll4af.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einsam blieb sie, -- Meine göttliche Mencia",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "vaftxp3natww228"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) s. Graphik INr  85615, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Sing' nicht weiter, denn der Schlummer / Gießt in ihre Brust den süßen / Frieden schon,",
+      "language": [],
+      "musenalm_id": 85616,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Arzt seiner Ehre. / (Zweite Abtheilung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Calderon [übers.] A. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Arzt seiner Ehre. / (Zweite Abtheilung.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "1t7l4co7cmig5p6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "gsvgz03gi17pba8",
+          "source_id": "kj4eoysbumsnhyb"
+        }
+      ],
+      "source_id": "ez66cv7vbk0ab43"
+    },
+    {
+      "annotation": "über der Graphik: D. Gutierro; III. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »Der Arzt seiner Ehre« von Calderon, übers. von A. Schumacher /) s. Textbezug INr 85618, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85617,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gutierre. Hier sank sie gleich des Todes eis'gem Bilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder. del. S. Langer sc.",
+      "scans": [
+        "alm_1586_85617_xi710w5vsk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gutierre. Hier sank sie gleich des Todes eis'gem Bilde",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "50ffh8mev9fx40m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "84p0vmpvigrsf9w"
+        }
+      ],
+      "source_id": "m0cjcp2zgf51jp4"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) s. Graphik INr 85617, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Ich bin allein; / Ehre und Elend, treten wir denn ein!",
+      "language": [],
+      "musenalm_id": 85618,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Arzt seine Ehre. / (Dritte Abtheilung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Calderon [übers.] A. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Arzt seine Ehre. / (Dritte Abtheilung.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "gsvgz03gi17pba8",
+          "source_id": "1wts0ut9s4bopd9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "kfof2hpt46kq8hx"
+        }
+      ],
+      "source_id": "wtp0hdst4a8zowl"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aurora",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9cs4f1udb6b3k3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 85602, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Vom hohen Ordensschlosse zu Marienburg herab erscholl der Posaunen und Pfeifen lustiger Klang,",
+      "language": [],
+      "musenalm_id": 85620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kreuzfahrer / in / Litthauen. / Historisch-romantische Erzählung aus dem / Vierzehnten Jahrhunderte,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Ritter von Gallenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kreuzfahrer / in / Litthauen. / Historisch-romantische Erzählung aus dem / Vierzehnten Jahrhunderte,",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "nsvep89di7wnano",
+          "source_id": "pqscc86qtzcg3vd"
+        }
+      ],
+      "source_id": "x3errmn1e5lhvze"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Nemo solus bene ridet!",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Erst neun, und ich schon hier; - von Walther / herbeschieden! / Wie das nur kommen mag? Sonst war es gern ge- / mieden,",
+      "language": [],
+      "musenalm_id": 85621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allein sein ist nicht gut. / Häusliches Gemälde / in / Einem Aufzuge und Versen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allein sein ist nicht gut. / Häusliches Gemälde / in / Einem Aufzuge und Versen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "xfsbf1l5k1qrl0q"
+        }
+      ],
+      "source_id": "jkfipejvpe7460d"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Denke nicht, daß es dir glücke, / Wenn du's wagst mit Weibertücke!",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Ein Duell setzte alle Zungen der Pariser Gesellschaften in Bewegung. Es hatte zwischen zwei Offizieren statt gefunden, welch man zu den bravsten Offizieren der Armee zählte,",
+      "language": [],
+      "musenalm_id": 85622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weibertücke. / Der Verfasserin der Ourika nacherzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weibertücke. / Der Verfasserin der Ourika nacherzählt",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "kdu2nw770fmc9u1"
+        }
+      ],
+      "source_id": "lks7hzdfsyw8rkn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Lange schon hört und liest man nichts mehr von Doctor Gall, und höchstens wenn sich einmal wieder die komische Originalität des Herrn von Rückenmark und die Lazzi seines Matz lustig auf der Bühne herumtummelten,",
+      "language": [],
+      "musenalm_id": 85623,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ziehe dich zurück. / Erzählung / frei nach dem Französischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ziehe dich zurück. / Erzählung / frei nach dem Französischen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "5hl0wxl51c1wz9c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Der begierige Jügling, der seine Heimat mit geringem Schmerz verlassen hatte, beschleunigte die Schritte der Gefährten,",
+      "language": [],
+      "musenalm_id": 85624,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Quell im Walde. / Nach / Giovanni Boccaccio",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Gerle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Quell im Walde. / Nach / Giovanni Boccaccio",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "1g5ju8pfs3rggmg",
+          "source_id": "3ssu796wkc9rjkc"
+        }
+      ],
+      "source_id": "0ej11zq3hi2tkom"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Der Sommerabend lag auf stiller Flur, / Da stand ich sinnend an des Teiches Rand,",
+      "language": [],
+      "musenalm_id": 85625,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Bassin im Volksgarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Bassin im Volksgarten",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "ypfqiuk7nho11rf"
+        }
+      ],
+      "source_id": "mdisftst6a5235e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Die Nacht ist gar schön, und der Vollmond scheint; / Dort drüben unter der Linde / Da sitzen gar frohe Gesellen vereint",
+      "language": [],
+      "musenalm_id": 85626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gerippe. / (Ballade.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ad. Ritter v. Tschabuschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gerippe. / (Ballade.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.358Z",
+          "agent": "snndqassjoh7vf0",
+          "source_id": "asx5lxy8q1l7j47"
+        }
+      ],
+      "source_id": "n6ebu7ayfwpw3ri"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Nied'rer Sinnenlust ist's eigen, / Daß sie zwar Genuß uns zollt,",
+      "language": [],
+      "musenalm_id": 85627,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gnome. / (Nach Boëthius)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schmid von Pihl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gnome. / (Nach Boëthius)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxzpsli6mfmlth5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Der Sänger wandelt am Meeresstrand, / Und blickt auf die Wasser hin;",
+      "language": [],
+      "musenalm_id": 85628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aug. Pfitzmaier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sänger",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "8c5xs51b2go1vkk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Weil sich der Mensch, das Kind, aufwirft zum König / All dessen, was erschuf des Weltgeist's Werde,",
+      "language": [],
+      "musenalm_id": 85629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epilog, / gesprochen nach einer Vorstellung, welche zum / Vortheil durch Brand Verunglückter gege- / ben wurde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Ludwig Jeitteles",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epilog, / gesprochen nach einer Vorstellung, welche zum / Vortheil durch Brand Verunglückter gege- / ben wurde",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.159Z",
+          "agent": "cr0uh3kmaadt1st",
+          "source_id": "vvk8j8z5jstm8sh"
+        }
+      ],
+      "source_id": "ao16s0qe9pcnnxg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Auf des Hofes glatten Höhen / Walte mächtig, wem's gefällt!",
+      "language": [],
+      "musenalm_id": 85630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bescheidenes Loos. / ( Nach Seneca.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schmid von Pihl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bescheidenes Loos. / ( Nach Seneca.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "s6k5zdg0ok4nsax"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Hüllen den Äther / Nächtliche Wolken: / Flieht auch der goldne / Glanz der Gestirne.",
+      "language": [],
+      "musenalm_id": 85631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freier Geist. / (Nach Boëthius.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schmid von Pihl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freier Geist. / (Nach Boëthius.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "vjppsnl0705ycqr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Die Blüte strebet aus dem Keime, / Des holden Frühlings Haupt zu schmücken:",
+      "language": [],
+      "musenalm_id": 85632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blümchen / in Ida's Stammbuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schmid von Pihl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blümchen / in Ida's Stammbuch",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "4rm8y99pb15cneu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Der des Phydias Kunst zum Wolkengipfel getragen, / Schläft hier den Todeschlaf; - doch nicht vom / Tode besiegt.",
+      "language": [],
+      "musenalm_id": 85633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Todestage Canova's",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. A. Budnik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Todestage Canova's",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "ipgo763ritegmxl"
+    },
+    {
+      "annotation": "Unter dem I-Verz: Gedruckt bei Anton Strauß's sel. Witwe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110314,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "b0w7fhq81bs13cp"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85634,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1586_85634_szr9zl7qnd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3tm1kwyflhl5x17"
+    }
   ],
   "agents": [
     {

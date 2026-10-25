@@ -48,89 +48,3235 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "aszzjery5z825f3"
+    {
+      "annotation": "Kartonierter Einband, 2 UGG, VB, verso G, T, 7 BB Kal, nT, 2 SS I-Verz, S 1-196 darin 11 GG Krte",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.686Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106759",
+      "location": "105P02",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.686Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "aszzjery5z825f3"
+    }
   ],
   "contents": [
-    "b1ssq9r770bmog8",
-    "kyj1v4myzfl03i7",
-    "2quiddn1zg8nyf0",
-    "o8otwdfhle87d1h",
-    "6k03ttuvjq4xi9q",
-    "73pgin6uie2n1nj",
-    "a150tnz1ja3n8ce",
-    "lmn53rjdfnb510k",
-    "e4afge2a4zhbc04",
-    "d421j6kt6jis86q",
-    "9y70hff04xjag9a",
-    "skbuyfg7xvkcm5y",
-    "4ww7780i87w0bkl",
-    "w8qtc8j98qlkftq",
-    "fe96jsno5aon49w",
-    "q93bwriv3gkfn2k",
-    "821ltb1r9932z89",
-    "huzbylibm5qudz2",
-    "ku0nkc4eiepk0pp",
-    "t4cevn6c2lbp1gk",
-    "rttmyh7du8cocax",
-    "mkg13qcfkv9348p",
-    "jugd6tsdcsnmhsg",
-    "k2wpk9022yh25t7",
-    "zx67dcpmum0he59",
-    "99d3aaxnzosrfsa",
-    "7o64k22p0uolago",
-    "5c4k45crmyd1xas",
-    "j5quxndsatxjiqi",
-    "773an7k1e1nz1wg",
-    "v3rw2dg2a7ardc3",
-    "vdy5ttj9ervvbef",
-    "xcbhvjv08e8opwf",
-    "zwp5cl1dyd1d2br",
-    "7720tlhlg3ehu1k",
-    "k7mvzvq8r7kev8a",
-    "5b4rgvgoa4an0ww",
-    "bqierjvv00h9do8",
-    "l426x3wl4cxxngj",
-    "edhrdq1jtahash3",
-    "fbt6mjzbt8rytge",
-    "lislbnqp5r4km27",
-    "nvh87kwmaelg2fl",
-    "dm8yfkn9lnh3wny",
-    "4gmego3nwa4bqzn",
-    "vn3pb9j7fjp2mnn",
-    "rjb4f5h6u8e8ev9",
-    "kcdbiu57zurnvl7",
-    "q72lf0o3dngulde",
-    "x46i2ac7k1cxf4t",
-    "ccfquct9tasl3hq",
-    "0kfbjzyeptcj59r",
-    "fcbmfz4qsxl8udf",
-    "v1q6s5pynbw3ldz",
-    "jurkjwhxtnun18n",
-    "68bbkw957cb6s66",
-    "7n94yxv5gd2oltk",
-    "cyw4oqmw8bt8khg",
-    "kcuq0jkbvet171r",
-    "g9ne97vizmn8un4",
-    "memjn8hu7zx09bs",
-    "xkve04z2j8lvt1x",
-    "opkngxtsmif92zn",
-    "9y286n6uwd7xkw6",
-    "ijq4ogjcd7f4wrg",
-    "w4085renc6de942",
-    "tuq7n638epqly4g",
-    "f88zo5wyn7d6f3m",
-    "rw7gvx32wxu0gue",
-    "fxum4drv703nbz6",
-    "f5ieegwycu78fy7",
-    "didyiiro3ge25or",
-    "w2ke2s3n1bz2w0a",
-    "8ovub78fsz78b8y",
-    "2yssap2p78ig5pc",
-    "52nlix6p06uh9y5",
-    "iovkdvnw3ymhc6r",
-    "o54t5q75uxmo7bh",
-    "3yqoxp7ztiugrf7",
-    "3rqyvzokgroos6t"
+    {
+      "annotation": "kol. Umschlaggraphik r. /) # Zuschreibung: Fischer S. 309, zus. bez. dort: Bezeichnung: Gg. Gropius",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74353,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74353_s4sgmvdmkb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.614Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "2xrlfvl8j125xl9"
+        }
+      ],
+      "source_id": "b1ssq9r770bmog8"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Denkmal Eberhards, des ersten Herzogs von Wirtemberg« von G. H. Rapp INr 74368, Obj 16 /) # Zuschreibung: Fischer S. 307",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74354,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Monument Eberhards I.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Duttenhofer sc.",
+      "scans": [
+        "alm_3112_74354_e1rc89h1sh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Monument Eberhards I.",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.614Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "30lqygpt8tj04vm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.614Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "ejawbvkbf0csebp"
+        }
+      ],
+      "source_id": "kyj1v4myzfl03i7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74355,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenkalender / auf das Jahr 1799 / für / Natur- und / Gartenfreunde. / Mit Abbildungen von Hohenheim / und andern Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74355_zm59whp894.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenkalender / auf das Jahr 1799 / für / Natur- und / Gartenfreunde. / Mit Abbildungen von Hohenheim / und andern Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "2quiddn1zg8nyf0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74356,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "o8otwdfhle87d1h"
+    },
+    {
+      "annotation": "Nachtitel /) Auf dem Titelblatt verso: Der Preiß dieses Taschenbuchs ist gebunden 1 Rthlr. 4 gr. sächsisch oder 2 fl. 24 kr. rheinisch",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74357,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / auf das Jahr 1799 / für / Natur- und / Gartenfreunde. / Mit Abbildungen von Hohenheim / und andern Kupfern. / Tübingen, / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74357_ao9tnmx02a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / auf das Jahr 1799 / für / Natur- und / Gartenfreunde. / Mit Abbildungen von Hohenheim / und andern Kupfern. / Tübingen, / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "6k03ttuvjq4xi9q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74358,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "73pgin6uie2n1nj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wahrscheinliche Witterung des Jahres 1799 / nach Höslins Witterungsbeobachtungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wahrscheinliche Witterung des Jahres 1799 / nach Höslins Witterungsbeobachtungen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "a150tnz1ja3n8ce"
+    },
+    {
+      "annotation": "# s. B. Fischer: Der Verleger Johann Friedrich Cotta Chronologische Verlagsbibliographie 1787-1832 Aus den Quellen bearbeitet Marbach a. N. 2003. S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Wir eilten zum gothischen Haus, blikten von absichtlich hingepflanzten Blumen als Wegweiserinnen angezogen, durch ausgehauene Bäume noch einmal zum Floratempel,",
+      "language": [],
+      "musenalm_id": 74360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung des gothischen Hauses im Parke / zu Wörlitz. / Aus dem handschriftlichen Tagebuche / eines Reisenden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung des gothischen Hauses im Parke / zu Wörlitz. / Aus dem handschriftlichen Tagebuche / eines Reisenden",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.614Z",
+          "agent": "7cdnqd525rp9gi5",
+          "source_id": "q39uebkqbblht19"
+        }
+      ],
+      "source_id": "lmn53rjdfnb510k"
+    },
+    {
+      "annotation": "mit einigen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "D. Zwierlein und Brukmann haben die Benuzung des Krauts der Möhren als Zugemüsse vorgeschlagen; diß ist eine nüzliche Vermehrung der leztern,",
+      "language": [],
+      "musenalm_id": 74361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielfachere Benutzung der Garten- und / Feldprodukte. / Neue Zugemüsse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treffz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vielfachere Benutzung der Garten- und / Feldprodukte. / Neue Zugemüsse",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.614Z",
+          "agent": "wnbgysvwlvcts0h",
+          "source_id": "3il9pyuf3y12405"
+        }
+      ],
+      "source_id": "e4afge2a4zhbc04"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Garten ist veredelter Feldbau. Die Gegenstände ihres Fleises und ihrer Beschäftigung sind die Vervollkommnung solcher Gewächse, welche dem Menschen zu seiner Nahrung oder zu seinem Vergnügen vorzüglich angenehm sind.",
+      "language": [],
+      "musenalm_id": 74362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scientifische Skizze der Gartenkunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treffz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scientifische Skizze der Gartenkunst",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.614Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.614Z",
+          "agent": "wnbgysvwlvcts0h",
+          "source_id": "6jrs47rxzxrotyp"
+        }
+      ],
+      "source_id": "d421j6kt6jis86q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Ob man gleich von verschiedenen Gewächsraten, denen die Natur das Vermögen gab, auch völlig gefüllte, d. i. mit lauter schönen, farbigen Blättern versehene Blumen hervorzu bringen, keinen Saamen zu ihrer Fortpflanzung erhält.",
+      "language": [],
+      "musenalm_id": 74363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie erhält man von den einfachen Levcoy und Lak Saamen, der die meisten Pflanzen / mit gefüllten Blüten gibt?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Hedwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wie erhält man von den einfachen Levcoy und Lak Saamen, der die meisten Pflanzen / mit gefüllten Blüten gibt?",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.615Z",
+          "agent": "ane8clotw497vi2",
+          "source_id": "md2kycbeup27t66"
+        }
+      ],
+      "source_id": "9y70hff04xjag9a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Nach Seite 29 vom vorigen Jahr dieses Taschenbuchs, ist mit der vom Hr. Hofr. Mönch, dem Hern D. Römer angezeigten Art, die Aussaat der Saamen in Eyerschalen anzustellen,",
+      "language": [],
+      "musenalm_id": 74364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Vorsichtsregel, daß man den von der / Aussaat aufgegangenen Pflanzen bei dem / Gäten keinen Schaden zufügt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Hedwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Vorsichtsregel, daß man den von der / Aussaat aufgegangenen Pflanzen bei dem / Gäten keinen Schaden zufügt",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.615Z",
+          "agent": "ane8clotw497vi2",
+          "source_id": "irk7tyfrzp3ti3r"
+        }
+      ],
+      "source_id": "skbuyfg7xvkcm5y"
+    },
+    {
+      "annotation": "mit zahlreichen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Lange schon hat der hohe Preiß der Caffeebohne, viele Männer und Männerin, die diese Lekerey unter ihren ganz unentbehrlichen LebensUnterhalt zählen, auf allerley auszuspürende ErsazMittel geleitet.",
+      "language": [],
+      "musenalm_id": 74365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die ErsazMittel der Caffeebohne und / Bekanntmachung eines Neuen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treffz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die ErsazMittel der Caffeebohne und / Bekanntmachung eines Neuen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.615Z",
+          "agent": "wnbgysvwlvcts0h",
+          "source_id": "wvaarhtlvb8cn9y"
+        }
+      ],
+      "source_id": "4ww7780i87w0bkl"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Ein lokeres, gut gedüngtes, oder sonst fettes Erdreich, das eine sonnigte und also warme Lage hat, erfordern die Erdmandeln zu ihrem Anbau.",
+      "language": [],
+      "musenalm_id": 74366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anweisung zu dem Anbau der Erdmandeln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anweisung zu dem Anbau der Erdmandeln",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.615Z",
+          "agent": "wnbgysvwlvcts0h",
+          "source_id": "mb1l4llsqedzjuk"
+        }
+      ],
+      "source_id": "w8qtc8j98qlkftq"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Fortsetzung des Beitrags aus: Taschenkalender für Natur- und Gartenfreunde (Cotta) 1798; INr 74293 ff /) mit Verzeichnis der Illustrationen /) Es folgen 9 Kapitel mit 6 Illustrationen und Karte INr 74368-74383 Obj 16-31, dazu Titelgraphik INr 74354, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung / des / Gartens / in / Hohenheim. / Vierte Fortsetzung und Beschluß",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung / des / Gartens / in / Hohenheim. / Vierte Fortsetzung und Beschluß",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.615Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.615Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "o7yksmhnmyz7pe4"
+        }
+      ],
+      "source_id": "fe96jsno5aon49w"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Titelgraphik INr 74354, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Dem grossen Mann aus dem wirtembergischen Stamme, der durch Verstand und ausgezeichnete Biederkeit seinem Hauße die HerzogsWürde (1495) erworben,",
+      "language": [],
+      "musenalm_id": 74368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Denkmal Eberhards, / des ersten Herzogs von Wirtemberg",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Denkmal Eberhards, / des ersten Herzogs von Wirtemberg",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.452Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "af0zje1bt03mdcu"
+        }
+      ],
+      "source_id": "q93bwriv3gkfn2k"
+    },
+    {
+      "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Der FeigenSaal« von G. H. Rapp INr 74370, Obj 18 /) # Zuschreibung: Fischer S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Feigensaal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74369_yaotb1uprm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Feigensaal",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.698Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.698Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "tbjks7drwqjmx62"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.699Z",
+          "agent": "z5nktfhns99sqss",
+          "source_id": "xikbbay5zaxllzk"
+        }
+      ],
+      "source_id": "821ltb1r9932z89"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74369, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Auf dem Weg vom RathHaus abwärts, gegen den Wasserfall hin, kommt man nach einer kurzen Strecke an den FeigenGarten",
+      "language": [],
+      "musenalm_id": 74370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der FeigenSaal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der FeigenSaal",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.699Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "gt0tpyzjpou974f"
+        }
+      ],
+      "source_id": "huzbylibm5qudz2"
+    },
+    {
+      "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Die Käserei« von G. H. Rapp INr 74372, Obj 20 /) # Zuschreibung: Fischer S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Käserey",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74371_xhu2ydd7li.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Käserey",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.699Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "pfibugj4gtay69t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.699Z",
+          "agent": "z5nktfhns99sqss",
+          "source_id": "vawbu7d121nv5qz"
+        }
+      ],
+      "source_id": "ku0nkc4eiepk0pp"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74371, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Zu denen Parthien, die einen bestimmten Zwek verrathen und doch nicht als für sich selbst stehend angesehen werden können, ist auch diejenige zu rechenen, die man die Käßerei oder zuweilen die kleine Milchkkammer nennet.",
+      "language": [],
+      "musenalm_id": 74372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Käßerei",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Käßerei",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.703Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "auw5jna43b3hq1c"
+        }
+      ],
+      "source_id": "t4cevn6c2lbp1gk"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74374, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Das gutmütige Nomaden-Volk der Schäferzunft lebt überall wohl; und vertauscht seine bewegliche Wohnung, die der lieben Heerde ohne große Mühe folgt,",
+      "language": [],
+      "musenalm_id": 74373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schäferhaus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schäferhaus",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "rmd79b50tkbywdg"
+        }
+      ],
+      "source_id": "rttmyh7du8cocax"
+    },
+    {
+      "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Das Schäferhaus« von G. H. Rapp INr 74373, Obj 21 /) # Zuschreibung: Fischer S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schäferhaus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74374_nl7ibr4jb5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Schäferhaus",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "z5nktfhns99sqss",
+          "source_id": "2o1a3pnk0kkwam6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "xft0o4tyxceb33u"
+        }
+      ],
+      "source_id": "mkg13qcfkv9348p"
+    },
+    {
+      "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Die Galerie« von G. H. Rapp INr 74376, Obj 24 /) # Zuschreibung: Fischer S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Galerie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74375_56zeb8v5hc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Galerie",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "00yf33sfttpaa2r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "z5nktfhns99sqss",
+          "source_id": "ruvvnmx19bdj0mj"
+        }
+      ],
+      "source_id": "jugd6tsdcsnmhsg"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74375, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.965Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Wann man bei den Ruinen des römischen Bades steht, so hat man den alten Thurm gerade vor sich, ohngefähr in der Mitte des Gesichtskreises, und in einiger Entfernung weiterhin erblikt man die Reste einer alten Wasser-Leitung",
+      "language": [],
+      "musenalm_id": 74376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Galerie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Galerie",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "ys7uo38poaye8fz"
+        }
+      ],
+      "source_id": "k2wpk9022yh25t7"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74378, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.965Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Um die verschiedenen Parthien mit Thürmen, die in dem Garten vorkommen, von einander zu unterscheiden, hat jede bei ihrer Bennenung ein carakterisirendes Merkmal bekommen.",
+      "language": [],
+      "musenalm_id": 74377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der rothe Thurm",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der rothe Thurm",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "0yn6zdsq5ep8nkn"
+        }
+      ],
+      "source_id": "zx67dcpmum0he59"
+    },
+    {
+      "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Der rothe Thurm« von G. H. Rapp INr 74377, Obj 25 /) # Zuschreibung: Fischer S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der rothe Thurm",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Duttenhofer sc.",
+      "scans": [
+        "alm_3112_74378_2qhdne9fe6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der rothe Thurm",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "6gekl44zazhyyar"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "oldm88lmoywv3b3"
+        }
+      ],
+      "source_id": "99d3aaxnzosrfsa"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74380, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Der gothischen Capelle ist schon beyí der Beschreibung des Wasserfalls, und an andern Orten im Vorbeygehen gedacht worden.",
+      "language": [],
+      "musenalm_id": 74379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gothische Capelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die gothische Capelle",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "p32v13b65x5my4h"
+        }
+      ],
+      "source_id": "7o64k22p0uolago"
+    },
+    {
+      "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Die gothische Kapelle« von G. H. Rapp INr 74379, Obj 27 /) # Zuschreibung: Fischer S. 308",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gothische Kapelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Duttenhofer sc.",
+      "scans": [
+        "alm_3112_74380_pwu1cbbuks.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die gothische Kapelle",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "4b4lhy0iqevooje",
+          "source_id": "3flmobd6aro5e1z"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "mryxz9qshq5zexa"
+        }
+      ],
+      "source_id": "5c4k45crmyd1xas"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Zur Ergänzung aller merkwürdigen Parthien fehlt hier nun allein noch die Beschreibung der grossen Grotte, deren äusseres Ansehen aber keine besondere Abbildung erfordert.",
+      "language": [],
+      "musenalm_id": 74381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die grosse Grotte / bei dem Wasserfall",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die grosse Grotte / bei dem Wasserfall",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "u46u1s546iijf79"
+        }
+      ],
+      "source_id": "j5quxndsatxjiqi"
+    },
+    {
+      "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Karte s. INr 74383, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Das Versprechen, den Beschreibungen der einzelnen GartenParthien von Hohenheim durch eine summarische Uebersicht Zusammenhung und Rundung zu geben, erfülle ich jetzt,",
+      "language": [],
+      "musenalm_id": 74382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grundriß / des herzoglich wirtembergischen LustSchlosses / und des Gartens in Hohenheim",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlob Heinrich Rapp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grundriß / des herzoglich wirtembergischen LustSchlosses / und des Gartens in Hohenheim",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.558Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "ozvouwrd7m5qkvw"
+        }
+      ],
+      "source_id": "773an7k1e1nz1wg"
+    },
+    {
+      "annotation": "Beigabe zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) Grundriß des herzoglich wirtembergischen LustSchlosses  und des Gartens in Hohenheim INr 74382, Obj 30 /) Zuschreibung aus dem Cottaarchiv; zus. Bezeichnung: gez. von Böbel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Plan / von dem / Herzogl. Wirtemb. Lustschloss / und den Garten Anlagen / in / Hohenheim. / Flaechen Raum der saemtlichen / SchlossGebaeude & ca. 45 Morgen. / Flaechen Gebaeude der Garten Anlagen / ca. 70 Morgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74383_j6ar42j05m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Plan / von dem / Herzogl. Wirtemb. Lustschloss / und den Garten Anlagen / in / Hohenheim. / Flaechen Raum der saemtlichen / SchlossGebaeude & ca. 45 Morgen. / Flaechen Gebaeude der Garten Anlagen / ca. 70 Morgen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.530Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.530Z",
+          "agent": "7d1lltowks8xr95",
+          "source_id": "4diqzbmd1n90svc"
+        }
+      ],
+      "source_id": "v3rw2dg2a7ardc3"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Die erste Frucht des Sonmmers, welche bei uns im Freien reift, sind die Erdbeere; ihr angenehmer Geschmak ist allgemein beliebt,",
+      "language": [],
+      "musenalm_id": 74384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anbau der Erdbeere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anbau der Erdbeere",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.759Z",
+          "agent": "wnbgysvwlvcts0h",
+          "source_id": "cd73n3ihlllq64n"
+        }
+      ],
+      "source_id": "vdy5ttj9ervvbef"
+    },
+    {
+      "annotation": "Illustration zu »SpazierStok für Botaniker und GartenFreunde« INr 74386, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74385_bv6x5wntsn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "xcbhvjv08e8opwf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 74385, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.754Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Zu den nicht unbedeutenden Bequemlichkeiten des GartenFreundes gehört unstreitig ein SpazierStok, der so eingerichtet ist, daß man die nothwendigste GartenWerkzeuge dabei vereiniget findet.",
+      "language": [],
+      "musenalm_id": 74386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SpazierStok / für / Bortaniker und GartenFreunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "SpazierStok / für / Bortaniker und GartenFreunde",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "zwp5cl1dyd1d2br"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.754Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Bekanntlich hat man es in Deutschland mit der Nelken- und AurikelFlor durch die künstliche Befruchtung derselben und den dadurch erhaltenen Samen, so weit gebracht, daß man die schönsten Sorten nach England, Italien Pohlen u.s.w. verschicken konnte.",
+      "language": [],
+      "musenalm_id": 74387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der Hyacinthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfr. Steeb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der Hyacinthe",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.759Z",
+          "agent": "zu59eup06ilx8r1",
+          "source_id": "otynbtg8e42bw1h"
+        }
+      ],
+      "source_id": "7720tlhlg3ehu1k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Die Liebhaber dieser mit Recht so geachteten Blume werden manchmal wahrgenommen haben, daß ihnen eine Pflanze davon unvermutet welckte und dahin starb.",
+      "language": [],
+      "musenalm_id": 74388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Etwas von der LevkojeBlume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfr. Steeb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Etwas von der LevkojeBlume",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.331Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.331Z",
+          "agent": "zu59eup06ilx8r1",
+          "source_id": "435lppgewhlc6o7"
+        }
+      ],
+      "source_id": "k7mvzvq8r7kev8a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Man muß sich wundern, daß man die FackelDistel, (Cereus grandiflorus, flagelliformis) wovon es zwei Arten gibt, so wenig in den TreibHäusern antrift.",
+      "language": [],
+      "musenalm_id": 74389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der FackelDistel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfr. Steeb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der FackelDistel",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.331Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.331Z",
+          "agent": "zu59eup06ilx8r1",
+          "source_id": "o5kfyh6v8w913cr"
+        }
+      ],
+      "source_id": "5b4rgvgoa4an0ww"
+    },
+    {
+      "annotation": "mit Nachtrag s. INr 74391, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Diese Gattung des grosen Afrikanischen HirsenSorghum, werde besonders Sorghum - dora oder Donna genennet:",
+      "language": [],
+      "musenalm_id": 74390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chancey beobachtungen über das Sorgho / Donna, aus der Bibliotheque physico Eco- / nomique, seizieme annee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chancey beobachtungen über das Sorgho / Donna, aus der Bibliotheque physico Eco- / nomique, seizieme annee",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "bqierjvv00h9do8"
+    },
+    {
+      "annotation": "Nachtrag zum vorstehenden Beitrag INr 74390, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Das von Chancey hier beschriebene Sorgho donna ist nach Linné: Holcus sorghum, glumis villosis, semnibus aristatis panicula ovata. SorgoHonigGras, dessen Blumenkelche rauh sind,",
+      "language": [],
+      "musenalm_id": 74391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das von Chancey hier beschriebene Sorgho donna ist nach Linné: Holcus sorghum, glumis villosis, semnibus aristatis panicula ovata. SorgoHonigGras, dessen Blumenkelche rauh sind,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.331Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.331Z",
+          "agent": "wnbgysvwlvcts0h",
+          "source_id": "k889ayawfikksk9"
+        }
+      ],
+      "source_id": "l426x3wl4cxxngj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "D. Barton in England hat einen Versuch mit Kampher gemacht, um seine Wirkung auf Pflanzen zu entdecken.",
+      "language": [],
+      "musenalm_id": 74392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wirkung des Kamphers auf Vegetabilien. / Aus dem Verkündiger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wirkung des Kamphers auf Vegetabilien. / Aus dem Verkündiger",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "edhrdq1jtahash3"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Taschenkalender für Natur- und Gartenfreunde (Cotta) 1798; INr 74318 /) # Bez. dort /) mit einigen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Schwerlich hat mich je die Schönheit und Pracht einer Blume in ein solches Erstaunen versetzt, wie eine Ixia, sagt ein in diesem Fache sehr copeterter Richter,",
+      "language": [],
+      "musenalm_id": 74393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / einige Pflanzen, deren Wartung den / Liebhabern Freude machen, / und ihr Gärten verschönern wird. / (Fortsetzung.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Römer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / einige Pflanzen, deren Wartung den / Liebhabern Freude machen, / und ihr Gärten verschönern wird. / (Fortsetzung.)",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.681Z",
+          "agent": "isv9wrpng7dwls4",
+          "source_id": "psapx4q58owtjki"
+        }
+      ],
+      "source_id": "fbt6mjzbt8rytge"
+    },
+    {
+      "annotation": "mit einigen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Es ist ausser Zweifel, wie grossen Vortheil es gewähre, wenn Pflanzen aus einem wärmeren Himmelsstriche an unser vaterländisches kälteres Clima angewöhnet werden;",
+      "language": [],
+      "musenalm_id": 74394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige / gärtnerische Bemerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Joh. Sam Naumburg in Erfurt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige / gärtnerische Bemerkungen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "lislbnqp5r4km27"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Da die Sicherheit und Gewißheit der Pflanzenkenntnisse eines jeden größtentheils von der Vollständigkeit lebendiger Pflanzensammlungen abhängt,",
+      "language": [],
+      "musenalm_id": 74395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eröfnung eines botanischen Tauschhandels / durch ganz Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Joh. Sam Naumburg in Erfurt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eröfnung eines botanischen Tauschhandels / durch ganz Deutschland",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "nvh87kwmaelg2fl"
+    },
+    {
+      "annotation": "mit 4 IIlustrationen s. Graphiken INr 74397-74400, Obj 45-48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Hr. Klinsky hat für diesen Jahrgang den Gesichtspunkt, woraus die GartenLandschaften betrachtet werden kann, in seiner Ausdehnung angenommen, und die Vorschläge zur Verzierung derselben durch einige schöne Erfindungen",
+      "language": [],
+      "musenalm_id": 74396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erfindungen und Vorschläge / zu / Garten-Gebäuden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erfindungen und Vorschläge / zu / Garten-Gebäuden",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "dm8yfkn9lnh3wny"
+    },
+    {
+      "annotation": "Illustration zu »Erfindungen und Vorschläge  zu Garten-Gebäuden« INr 74396, Obj 44 /) # Titel aus dem Beitrag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorschlag […] für einen schattigten VersammlungsOrt oder RuhePlatz im Wald #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klinsky erf. 1794",
+      "scans": [
+        "alm_3112_74397_89phn6in31.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vorschlag […] für einen schattigten VersammlungsOrt oder RuhePlatz im Wald #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.512Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.512Z",
+          "agent": "jluxmeayxx3ga35",
+          "source_id": "jk9xq0g5bi6nhzv"
+        }
+      ],
+      "source_id": "4gmego3nwa4bqzn"
+    },
+    {
+      "annotation": "Illustration zu »Erfindungen und Vorschläge  zu Garten-Gebäuden« INr 74396, Obj 44 /) # Titel aus dem Beitrag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Offener Tempel der Diana #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klinsky erf. 1794",
+      "scans": [
+        "alm_3112_74398_fdimmnyxiu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Offener Tempel der Diana #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.513Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.513Z",
+          "agent": "jluxmeayxx3ga35",
+          "source_id": "4naklvyvlat8xpb"
+        }
+      ],
+      "source_id": "vn3pb9j7fjp2mnn"
+    },
+    {
+      "annotation": "paginiert 3. /) Illustration zu »Erfindungen und Vorschläge  zu Garten-Gebäuden« INr 74396, Obj 44 /) # Titel aus dem Beitrag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Badhaus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Thouret inv. Duttenhofer sc.",
+      "scans": [
+        "alm_3112_74399_cluh0lhacl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Badhaus #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.513Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.513Z",
+          "agent": "zrmsqolvt94ydaa",
+          "source_id": "7x7cqk2ieb3j0p8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.513Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.513Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "ldoyai5ml91b2as"
+        }
+      ],
+      "source_id": "rjb4f5h6u8e8ev9"
+    },
+    {
+      "annotation": "paginiert 4. /) Illustration zu »Erfindungen und Vorschläge  zu Garten-Gebäuden« INr 74396, Obj 44 /) # Titel aus dem Beitrag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das kleine Wohnhaus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Thouret inv. Duttenhofer sc.",
+      "scans": [
+        "alm_3112_74400_obymwn4obz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das kleine Wohnhaus #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.513Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.513Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "g3ku7p54r8wmevg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.513Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.513Z",
+          "agent": "zrmsqolvt94ydaa",
+          "source_id": "x74jb0nqmhsu3l4"
+        }
+      ],
+      "source_id": "kcdbiu57zurnvl7"
+    },
+    {
+      "annotation": "Sammlung von 29 Beiträgen INr 74402-74430, Obj 50-78",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Garten-Miscellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Garten-Miscellen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "q72lf0o3dngulde"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Nach der Bibliotheque Phys. Economique wird durch den B. Tessier der Anbau des rothen Dinkels empfolen, von welchem er Samen aus England erhalten habe.",
+      "language": [],
+      "musenalm_id": 74402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach der Bibliotheque Phys. Economique wird durch den B. Tessier der Anbau des rothen Dinkels empfolen, von welchem er Samen aus England erhalten habe.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "x46i2ac7k1cxf4t"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49) mit Verw. auf : Wilhelm Ellis Landwirthschft",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Den zweischaarigten Pflug gibt Choquebert als eine Erfindung des nördlichen Asiens an,",
+      "language": [],
+      "musenalm_id": 74403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den zweischaarigten Pflug gibt Choquebert als eine Erfindung des nördlichen Asiens an,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ccfquct9tasl3hq"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Der Sommer ist dazu gemacht, sich unter Gottes freyem Himmel zu vergnügen, und die Natur in ihrer Schönheit zu geniessen.",
+      "language": [],
+      "musenalm_id": 74404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Garten Tivoli zu Paris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Garten Tivoli zu Paris",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "0kfbjzyeptcj59r"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Unter den hiesigen Vorgängen ist das Pflanzfest, welches hier dies Jahr gefeiert und hoffentlich jährlich wiederholt werden wird, das merkwürdigste.",
+      "language": [],
+      "musenalm_id": 74405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Pflanz-Fest in Lüdenscheid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Pflanz-Fest in Lüdenscheid",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "fcbmfz4qsxl8udf"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Man läßt sich einen großen Bohrer, von der Art der sogenannten Stangenbohrer, machen, welcher etwa ein Loch von 4 bis 5 Zoll im Durchmesser gibt.",
+      "language": [],
+      "musenalm_id": 74406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues Mittel zur Vertilgung der Feldmäuse. / (Aus dem Hannöverschen Magazin.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kröncke, der Mathematik Beflissener",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neues Mittel zur Vertilgung der Feldmäuse. / (Aus dem Hannöverschen Magazin.)",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "v1q6s5pynbw3ldz"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "In Schottland sind Pflug-Wettkämpfe schon seit einigen Jahren nichts Neues mehr.",
+      "language": [],
+      "musenalm_id": 74407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wettkämpfe mit Pflügen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wettkämpfe mit Pflügen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "jurkjwhxtnun18n"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Der Bürger Blank in Paris, ehemals Prof. der Philosophie, hat dem gesezgebenden Körper, einen neuen Vorschlag zu geographischen Charten vorgelegt, der ebenso nüzlich als sinnreich scheint.",
+      "language": [],
+      "musenalm_id": 74408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bürger Blank in Paris, ehemals Prof. der Philosophie, hat dem gesezgebenden Körper, einen neuen Vorschlag zu geographischen Charten vorgelegt, der ebenso nüzlich als sinnreich scheint.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "68bbkw957cb6s66"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Vor kurzem las G. T. Goodenough Esq. in der AkerBauGesellschaft einen Aufsaz vor: über den grosen Nuzen, den das Entweichen des Saamens der Gerste und des Habers gewähre.",
+      "language": [],
+      "musenalm_id": 74409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor kurzem las G. T. Goodenough Esq. in der AkerBauGesellschaft einen Aufsaz vor: über den grosen Nuzen, den das Entweichen des Saamens der Gerste und des Habers gewähre.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "7n94yxv5gd2oltk"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Die Sammlung des Düngers ist in China ein so wichtiger Gegenstand, daß man auf den Wegen und Strassen beständig viele Greise, Weiber und Kinder beschäftiget sieht, den Unrath der Thiere und alles was dazu gebraucht werden kann, in kleinen Körben",
+      "language": [],
+      "musenalm_id": 74410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sammlung des Düngers ist in China ein so wichtiger Gegenstand, daß man auf den Wegen und Strassen beständig viele Greise, Weiber und Kinder beschäftiget sieht, den Unrath der Thiere und alles was dazu gebraucht werden kann, in kleinen Körben…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "cyw4oqmw8bt8khg"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Unter die Oel gebenden Pflanzen gehört, wie bekannt, auch der weise englische OelSenf, ein Gewächs, das in mehr als einer Hinsicht zum Anbau zu empfehlen ist.",
+      "language": [],
+      "musenalm_id": 74411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unter die Oel gebenden Pflanzen gehört, wie bekannt, auch der weise englische OelSenf, ein Gewächs, das in mehr als einer Hinsicht zum Anbau zu empfehlen ist.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "kcuq0jkbvet171r"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Man legt die Kartofeln auf die Furche, überzieht das Feld, wenn sie dem Herauskeimen nahe sind, mit der umgekehrten Egge, damit das Unkraut herauskomme und vertrokne;",
+      "language": [],
+      "musenalm_id": 74412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermehrung der Kartoffeln; nach Hr. / D. Stuve in Borna. (ReichsAnzeiger 1798. / Nro. 120.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermehrung der Kartoffeln; nach Hr. / D. Stuve in Borna. (ReichsAnzeiger 1798. / Nro. 120.)",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "g9ne97vizmn8un4"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Es ist bemerkt worden, daß die Fruchtbarkeit der Erde oder der Pflanzen ungleich mehr erhöht werden könnte, wenn man sich beeiferte, der Natur durch Kunst nachzuhelfen.",
+      "language": [],
+      "musenalm_id": 74413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Merkwürdiger Versuch mit etlichen / Gerstenkörnern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Merkwürdiger Versuch mit etlichen / Gerstenkörnern",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "memjn8hu7zx09bs"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "In der Sizung der akad. nüzl. Wissenschaft. zu Erfurt vom 3 Fbr. wurden Hrn. Zizmans Bemerkungen Uiber den Anbau und die Benuzung der Monarde als Gewürz vorgelesen.",
+      "language": [],
+      "musenalm_id": 74414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Sizung der akad. nüzl. Wissenschaft. zu Erfurt vom 3 Fbr. wurden Hrn. Zizmans Bemerkungen Uiber den Anbau und die Benuzung der Monarde als Gewürz vorgelesen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "xkve04z2j8lvt1x"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Nach den Beobachtungen Hrn. Caplan Laudender zu Haussen im Bambergischen, erhält man vorzüglich grose Baumfrüchte, wenn man im Herbst und Winter das Erdreich mit allen Arten von thierischem Blut begießt,",
+      "language": [],
+      "musenalm_id": 74415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach den Beobachtungen Hrn. Caplan Laudender zu Haussen im Bambergischen, erhält man vorzüglich grose Baumfrüchte, wenn man im Herbst und Winter das Erdreich mit allen Arten von thierischem Blut begießt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "opkngxtsmif92zn"
+    },
+    {
+      "annotation": "mit zwei Konstruktionsskizzen im Text",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Um in einem kleinen Raume viele Töpfe zum Ueberwintern hinstellen zu können, räth Hr. Albonico in seinen Bemerkungen etc folgende Stellagen an:",
+      "language": [],
+      "musenalm_id": 74416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blumen-Stellage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blumen-Stellage",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "9y286n6uwd7xkw6"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Der LandBau ist zu nahe mit der Gartenkunst verwandt, als daß es nicht auch Liebhabern blos der letztern interessant seyn sollte,",
+      "language": [],
+      "musenalm_id": 74417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der LandBau ist zu nahe mit der Gartenkunst verwandt, als daß es nicht auch Liebhabern blos der letztern interessant seyn sollte,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Voght",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ijq4ogjcd7f4wrg"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "So oft ich in die Gegend von Coventgarden komme, gehe ich mitten über diesen merkwürdigen Platz hin, ohne die Zeit zu bereuen, die es mich kostet.",
+      "language": [],
+      "musenalm_id": 74418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coventgarden. Das Reich der Flora und Pomona […]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Coventgarden. Das Reich der Flora und Pomona […]",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "w4085renc6de942"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Nach Nro. 4 d. R. A. sichert man die jungen Bäume vor dem Anfressen der Haasen auf folgende Art:",
+      "language": [],
+      "musenalm_id": 74419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach Nro. 4 d. R. A. sichert man die jungen Bäume vor dem Anfressen der Haasen auf folgende Art:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "tuq7n638epqly4g"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "In engl. Blättern ließt man folgendes Mittel, Krähen und Dolen von den Fruchtfeldern abzuhalten,",
+      "language": [],
+      "musenalm_id": 74420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In engl. Blättern ließt man folgendes Mittel, Krähen und Dolen von den Fruchtfeldern abzuhalten,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "f88zo5wyn7d6f3m"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Hr. Superintendent Jacobi in Kranichfeld schlägt als eine selbst erprobte, vorzügliche Methode zur Kultur der Sonnenblumen vor:",
+      "language": [],
+      "musenalm_id": 74421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Cultur der Sonnenblume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Cultur der Sonnenblume",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "rw7gvx32wxu0gue"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Diese besteht aus 2 lothrechten Säulen 8-9 Fuß lang, die mit ihren Streben in ihre horizontal liegende Schwelle gut verzapft sind,",
+      "language": [],
+      "musenalm_id": 74422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung der WasserMaschine, durch welche das ausgetretene Wasser von einer 2 Fuß tief liegenden Wiese leicht wegzuschaffen ist.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Professor Leiste in Wolfenbüttel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung der WasserMaschine, durch welche das ausgetretene Wasser von einer 2 Fuß tief liegenden Wiese leicht wegzuschaffen ist.",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "fxum4drv703nbz6"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Man muß die Zweige, an welchen man die Knospen will zu ihrer völligen Entwickelung kommen sehen, gänzlich vor Regen und Nässe bewahren suchen.",
+      "language": [],
+      "musenalm_id": 74423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie kann man gelbe Rosen zur Blüthen bringen? / (S. R. Anz. 98. Nro. 26.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. J. F. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wie kann man gelbe Rosen zur Blüthen bringen? / (S. R. Anz. 98. Nro. 26.)",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5ieegwycu78fy7"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Die syrische Seidenpflanze (Asclepias syriaca Linn.) ist eine würkliche BaumwollenArt.",
+      "language": [],
+      "musenalm_id": 74424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Etwas über die Syrische Seidenpflanze (Asclepias / syriaca L.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Etwas über die Syrische Seidenpflanze (Asclepias / syriaca L.)",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "didyiiro3ge25or"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Prof. Gotthard sezt folgende Lehren, als Resultate seiner Erfahrungen und Bemerkungen über die Cultur der unächten oder weißblühenden Accacie fest:",
+      "language": [],
+      "musenalm_id": 74425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Cultur der unächten oder weißblühen- / den Accacie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Cultur der unächten oder weißblühen- / den Accacie",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "w2ke2s3n1bz2w0a"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.603Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Die physikalische Klasse der K. Akademie der Wissenschaften in Berlin hat den 9. Aug. für das Jahr 1800 auf die Beantwortung jeder der folgenden zwei PreisFragen 100 Thaler ausgesezt.",
+      "language": [],
+      "musenalm_id": 74426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die physikalische Klasse der K. Akademie der Wissenschaften in Berlin hat den 9. Aug. für das Jahr 1800 auf die Beantwortung jeder der folgenden zwei PreisFragen 100 Thaler ausgesezt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "8ovub78fsz78b8y"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.603Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Hr. Kunstgärtner Schreiner zu Dieskau bei Halle bestätiget, in einem in das 8te Stück des teutschen Obstgärtners eingerükten Brief, als Augenzeuge, daß die von Hrn. Butret angegebene Methode, schöne Pfirschenbäume zu erziehen die nemliche seye,",
+      "language": [],
+      "musenalm_id": 74427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hr. Kunstgärtner Schreiner zu Dieskau bei Halle bestätiget, in einem in das 8te Stück des teutschen Obstgärtners eingerükten Brief, als Augenzeuge, daß die von Hrn. Butret angegebene Methode, schöne Pfirschenbäume zu erziehen die nemliche seye,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "2yssap2p78ig5pc"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Herr Scheidlin, erster Hofgärtner in Ludwigsburg macht den Liebhabern und Freunden der nordamerikanischen immer grünenden Bäumen, im ReichsAnzeiger Nro. 235 aus seinen Erfahrungen bekannt,",
+      "language": [],
+      "musenalm_id": 74428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Scheidlin, erster Hofgärtner in Ludwigsburg macht den Liebhabern und Freunden der nordamerikanischen immer grünenden Bäumen, im ReichsAnzeiger Nro. 235 aus seinen Erfahrungen bekannt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "52nlix6p06uh9y5"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Die Hamburgische Gesellschaft zur Beförderung der Künste und nüzlichen Gewerbe, deren Bemühungen in so mancher Rüksicht, und besonders auch in Rüksicht des Landbaues und der GartenKunst,",
+      "language": [],
+      "musenalm_id": 74429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hamburgische Gesellschaft zur Beförderung der Künste und nüzlichen Gewerbe, deren Bemühungen in so mancher Rüksicht, und besonders auch in Rüksicht des Landbaues und der GartenKunst,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "iovkdvnw3ymhc6r"
+    },
+    {
+      "annotation": "Garten-Miscellen (Sammlung INr 74401, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Als ein wirksames Mittel, alle Jahre vortrefliche Früchte zu erhalten, wird nachfolgende Operation von einem Franzosen, der selbst Versuche damit gemacht hat anempfohlen,",
+      "language": [],
+      "musenalm_id": 74430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als ein wirksames Mittel, alle Jahre vortrefliche Früchte zu erhalten, wird nachfolgende Operation von einem Franzosen, der selbst Versuche damit gemacht hat anempfohlen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "o54t5q75uxmo7bh"
+    },
+    {
+      "annotation": "Impressum Reprint /) Anm. zu den Graphiken: Aus technischen Gründen wurden die im Original als Ausschlagtafeln gebundenen Kupfer in diesem Neudruck auf unpaginierten Seiten eingefügt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74431,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jahresgabe 1998 / der Würtembergischen Bibliotheksgesellschaft e.V. [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jahresgabe 1998 / der Würtembergischen Bibliotheksgesellschaft e.V. [...]",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "3yqoxp7ztiugrf7"
+    },
+    {
+      "annotation": "kol. Umschlaggraphik v. /) # Zuschreibung: Fischer S. 309, zus. Bezeichnung: Gg. Gropius",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 74432,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3112_74432_g404uxznau.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.400Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.400Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "awpd62yx2eglkw0"
+        }
+      ],
+      "source_id": "3rqyvzokgroos6t"
+    }
   ],
   "agents": [
     {

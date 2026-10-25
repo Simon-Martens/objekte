@@ -48,11 +48,94 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "ffd4nbb4hvnrw6x"
+    {
+      "annotation": "Vorzugsausgabe mit Umschlagprägung (vergoldetes florales Motiv); Velinpapier",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.815Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411236",
+      "location": "105D09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.815Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ffd4nbb4hvnrw6x"
+    }
   ],
   "contents": [
-    "00zvon8t8u5a1hy",
-    "xuvetxba668ez3l"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129742,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musenalmanach / für / das Jahr 1832. / Herausgegeben / von Amadeus Wendt. / Dritter Jahrgang. / Leipzig, / Weidmann'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4805_129742_7q4cbrc79h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Musenalmanach / für / das Jahr 1832. / Herausgegeben / von Amadeus Wendt. / Dritter Jahrgang. / Leipzig, / Weidmann'sche Buchhandlung",
+      "updated": "2022-03-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "00zvon8t8u5a1hy"
+    },
+    {
+      "annotation": "Umschlagprägung der Vorzugsausgabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4805_129743_yh2kgh0zna.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2022-03-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "xuvetxba668ez3l"
+    }
   ],
   "agents": [
     {

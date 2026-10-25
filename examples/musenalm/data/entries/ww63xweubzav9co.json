@@ -48,43 +48,1342 @@
   "year": 1792,
   "editor": "",
   "items": [
-    "mpwyhzdpr1anhk0"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.686Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "110620",
+      "location": "105P03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.686Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mpwyhzdpr1anhk0"
+    }
   ],
   "contents": [
-    "mh158x2xavpk6l8",
-    "lzrwat0xrbd6756",
-    "nptzeetidiy6k6e",
-    "r95n8art58tm6zq",
-    "v265vm3rlpgyhwq",
-    "d59shhjszcrbtwv",
-    "nf7tykmzprzbzxk",
-    "hp2oi9d8aidu4nb",
-    "5702hiru8ax557a",
-    "rruk535o5ribzz2",
-    "8fl1n7bcheiiyhi",
-    "k2916hp2nw6sg17",
-    "anwv0eiedeawd8v",
-    "0nkdji6e6urrb2f",
-    "2qevn1nk84ykqml",
-    "enllcgqbbx7thyb",
-    "r5ntpgklj1yn770",
-    "df3mgj63alrvvwv",
-    "66cjcgg1qaw2fub",
-    "ra2savrof2v3c9a",
-    "qh9kl4jrterdrmq",
-    "tyr9j2ibbgldjxz",
-    "zb8v1s11e3eksle",
-    "xc76098sgyvp8xw",
-    "8iukg6uyjofdnsx",
-    "phiikmysgsz41p1",
-    "rucdphdhwi29w50",
-    "x7ox7l6u2ntjlbp",
-    "eq8996z81llv2oi",
-    "x3jtkk720e1uykx",
-    "h1zy62hv4k2cv4s",
-    "y34xc9vny03ce2s",
-    "jc6gddhxg7ztcyc",
-    "v5z6j8lfnxip3jd"
+    {
+      "annotation": "Titelgraphik /) Illustration zu »IV. Pferdezucht. Beschreibung des Churfürstl. Pfalz.-Bayrischen Gestüts zu Rothenfeld« INr 107175, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107152,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Futterhütte für die Mutterstutten und Bescheller auf / dem Gestütt Rothenfeld wo der Hengst im Vorgrund steht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent",
+      "scans": [
+        "alm_3120_107152_7vk7gm4ehe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Futterhütte für die Mutterstutten und Bescheller auf / dem Gestütt Rothenfeld wo der Hengst im Vorgrund steht",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "c9v8gql4vwlgkyz"
+        }
+      ],
+      "source_id": "mh158x2xavpk6l8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107153,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenkalender / auf / das Schalt-Jahr 1792, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der /  Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdrukerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3120_107153_tf2mvosac3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenkalender / auf / das Schalt-Jahr 1792, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der /  Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdrukerei",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "lzrwat0xrbd6756"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Unter der großen Anzahl von Taschenkalendern, Allmanachen u.s.w. welche in diesem Jahrhundert zur Verbreitung nüzlicher Künste und Wissenschaften jährlich erschienen sind, fand sich noch keiner für die Pferdeliebhaber,",
+      "language": [],
+      "musenalm_id": 107154,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zuschrift / an das Publikum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zuschrift / an das Publikum",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "azadxb055n0u58d",
+          "source_id": "d5y4okzk1fim56j"
+        }
+      ],
+      "source_id": "nptzeetidiy6k6e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107167,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Abschnitt. / Zeitrechnung [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Abschnitt. / Zeitrechnung [...]",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "r95n8art58tm6zq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium; nummeriert 1.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107155,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miss Slamerkin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107155_x331u708k4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Miss Slamerkin",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "vpa3m022tqklmai"
+        }
+      ],
+      "source_id": "v265vm3rlpgyhwq"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Januar; nummeriert 2.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107156,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "High-Flyer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107156_y20wrb8ofv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "High-Flyer",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "mrkd0vedjt6c01v"
+        }
+      ],
+      "source_id": "d59shhjszcrbtwv"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Februar; nummeriert 3.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107157,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jason",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107157_lwx0p3xbo0.jpg",
+        "alm_3124_107157_7dgsvipyya.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jason",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "0brdqerv7k28umv"
+        }
+      ],
+      "source_id": "nf7tykmzprzbzxk"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium März; nummeriert 4.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107158,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marquis",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107158_bpzgwkiif4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marquis",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "jsva9b4b55wjo7z"
+        }
+      ],
+      "source_id": "hp2oi9d8aidu4nb"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April; nummeriert 5.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.324Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107159,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Catch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107159_jmouytjv2f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Catch",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "tbcdet6xr4s7i1e"
+        }
+      ],
+      "source_id": "5702hiru8ax557a"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Mai; nummeriert 6.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107160,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carless",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107160_0kotcoewec.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Carless",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "czyayi69c7rd58y"
+        }
+      ],
+      "source_id": "rruk535o5ribzz2"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juni; nummeriert 7.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107161,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trentham",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107161_044riezl53.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trentham",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "fg11u2z8u7dyaoj"
+        }
+      ],
+      "source_id": "8fl1n7bcheiiyhi"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juli; nummeriert 8.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107162,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cardinal Puff",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107162_qs62cck3bg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cardinal Puff",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "8v9rukx1c5yu28d"
+        }
+      ],
+      "source_id": "k2916hp2nw6sg17"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August; nummeriert 9.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107163,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "North-Star, and Carbineer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107163_1lrhajzwap.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "North-Star, and Carbineer",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "qrmkymynnvni4cp"
+        }
+      ],
+      "source_id": "anwv0eiedeawd8v"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium September; nummeriert 10.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107164,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. Race over the Round Course at Neumarket",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107164_yartjhn45r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. Race over the Round Course at Neumarket",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "tftqo4ne4bek95r"
+        }
+      ],
+      "source_id": "0nkdji6e6urrb2f"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Oktober; nummeriert 11.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107165,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pumkin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107165_8ce0o9uv9w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pumkin",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.089Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "t1fk4ba4a419nq1"
+        }
+      ],
+      "source_id": "2qevn1nk84ykqml"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium November; nummeriert 12.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107166,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "King Herod",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3120_107166_jrrp7awic5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "King Herod",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.090Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "i764ntx2anfjfqy"
+        }
+      ],
+      "source_id": "enllcgqbbx7thyb"
+    },
+    {
+      "annotation": "15 SS",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107168,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Abschnitt. / Chronologische Tabelle / der / Kaiser in Deutschland, Könige von / Dänemark, Engelland, Frankreich, Kaiser / in Rußland, Könige von Schweden, / Spanien und Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Abschnitt. / Chronologische Tabelle / der / Kaiser in Deutschland, Könige von / Dänemark, Engelland, Frankreich, Kaiser / in Rußland, Könige von Schweden, / Spanien und Preussen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "r5ntpgklj1yn770"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrags von 12 Pferdebeschreibungen als Textbezüge zu den Graphiken im Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Miß Sammerkin, eine englische Rapp-Stute, ohne Abzeichen",
+      "language": [],
+      "musenalm_id": 107169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Erklärung / der Monatskupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Erklärung / der Monatskupfer",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "df3mgj63alrvvwv"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 107171-107172; Obj 20, 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Biographien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Biographien",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "66cjcgg1qaw2fub"
+    },
+    {
+      "annotation": "II. Biographien (Sammlung INr 107170, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Er war geboren zu Quedlinburg, den 22ten Juni 1744. Sein Vater, Johann Christian Erxleben, war Diaconus an der St. Nicolai-Kirche daselbst.",
+      "language": [],
+      "musenalm_id": 107171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "a) Herrn Johan Polykarp / Erxleben's, / Prof. der Thierarzneykunst zu Göttingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "a) Herrn Johan Polykarp / Erxleben's, / Prof. der Thierarzneykunst zu Göttingen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "ra2savrof2v3c9a"
+    },
+    {
+      "annotation": "II. Biographien (Sammlung INr 107170, Obj 19) mit einer Illustration s. Graphik (Portrait) INr 107173, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Er war geboren, den 30ten Jnauar 1729 zu Dornstetten auf dem Schwarzwald, woselbst sein Vater damals Vogt (nun heißt es Oberamtmann) war,",
+      "language": [],
+      "musenalm_id": 107172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "b) Herrn Adolph Christoph Bühler, her- / zoglicher Würtemberg. Stallmeister in / Stuttgard",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "b) Herrn Adolph Christoph Bühler, her- / zoglicher Würtemberg. Stallmeister in / Stuttgard",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "qh9kl4jrterdrmq"
+    },
+    {
+      "annotation": "Illustration zu »Herrn Adolph Christoph Bühler, herzoglicher Würtemberg. Stallmeister in Stuttgard« INr 107172, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. Ch. Bühler der aeltere. / Herzogl. Würtemb. erster Stallmeister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3120_107173_nwcbscz7jc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. Ch. Bühler der aeltere. / Herzogl. Würtemb. erster Stallmeister",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "tyr9j2ibbgldjxz"
+    },
+    {
+      "annotation": "Anm. am Objekt:Dieser Aufsaz ist zum Theil aus dem Buche eines mir unbekannten Schriftstellers über die Pferdekenntnis gezogen, und mit Zusätzen von mir vermehrt worden. /) mit Anm",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Das Pferd ist ein vierfüßiges Thier, mit Hufen begabt. Seine Stimme wird Wiehern genannt. Unter allen Thieren, welche die Welt kennt, und noch kennen lernen wird, hätte der Mensch für seinen gesellschaftlichen Zustand und Gebrauch",
+      "language": [],
+      "musenalm_id": 107174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Pferdekenntnis und Wartung. / Kurze / Geschichte des Pferdes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Pferdekenntnis und Wartung. / Kurze / Geschichte des Pferdes",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "zb8v1s11e3eksle"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Titelgraphik INr 107152, Obj 1 und Graphik INr 107176, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Pferdezucht. / Beschreibung des Churfürstl. Pfalz-Bayri- / schen Gestüts zu Rothenfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Pferdezucht. / Beschreibung des Churfürstl. Pfalz-Bayri- / schen Gestüts zu Rothenfeld",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "xc76098sgyvp8xw"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »IV. Pferdezucht. Beschreibung des Churfürstl. Pfalz.-Bayrischen Gestüts zu Rothenfeld« INr 107175, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pespectivische Vorstellung der Gestütts- Gebaeude zu Rothenfeld bei Neuburg an der Donau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Abel sc.",
+      "scans": [
+        "alm_3120_107176_1zaldx3m7t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pespectivische Vorstellung der Gestütts- Gebaeude zu Rothenfeld bei Neuburg an der Donau",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.284Z",
+          "agent": "7d1lltowks8xr95",
+          "source_id": "0dvhgl7sckhd2jk"
+        }
+      ],
+      "source_id": "8iukg6uyjofdnsx"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »Fuhrwesen und Equipage. Beschreibung eines Konversations-Wagens« INr 107178, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Abel sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Abel sc.",
+      "scans": [
+        "alm_3120_107177_bwqwxjhmdh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.284Z",
+          "agent": "7d1lltowks8xr95",
+          "source_id": "nin52s3p560kw6l"
+        }
+      ],
+      "source_id": "phiikmysgsz41p1"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 107177, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Der Kasten hat in der Länge, von einem Schweller zum andern, 8 Schuh 1 und halben Zoll zum andern,",
+      "language": [],
+      "musenalm_id": 107178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Fuhrwesen und Equipage. / Beschreibung eines Konversations-Wagens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Fuhrwesen und Equipage. / Beschreibung eines Konversations-Wagens",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "rucdphdhwi29w50"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "In dem Naturalien-Kabinet zu Dresden, ist ein Isabellfärbiges Pferd ausgebalgt, aufbewahrt, dessen Mähne 9 Schuh,",
+      "language": [],
+      "musenalm_id": 107179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Allerley von Pferden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Allerley von Pferden",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "x7ox7l6u2ntjlbp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Die K.K. Thierarzneyschule, oder eigentlich das Thierspital, in Wien liegt in der Vorstadt - in der Raabengasse - zur Vorstadt - die Landstrasse geannt, gehörig.",
+      "language": [],
+      "musenalm_id": 107180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Pferdearzneykunst. / Nachrichten / von der K.K. Thierarzneyschule in Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Pferdearzneykunst. / Nachrichten / von der K.K. Thierarzneyschule in Wien",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "eq8996z81llv2oi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Man erwarte hier nicht eine Abhandlung für Stallmeister und Bereuter, sondern blos Vorsichts-Regeln für Pferdeliebhaber,",
+      "language": [],
+      "musenalm_id": 107181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Reutkunst. / Allgemeine Regeln über den Siz des / Reuters, und die Führung seines / Pferdes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Reutkunst. / Allgemeine Regeln über den Siz des / Reuters, und die Führung seines / Pferdes",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "x3jtkk720e1uykx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Da stehst du Roß, du edles Roß, / Weis und zum Fluge gerüstet, / Wie ein Sonnenstrahl.",
+      "language": [],
+      "musenalm_id": 107182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Der Araber Omaja, Sohn des Abu Agez, an sein Pferd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach Schubarts Uebersetzung",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Der Araber Omaja, Sohn des Abu Agez, an sein Pferd",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "h1zy62hv4k2cv4s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107183,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Abschnitt. / Genealogisches Verzeichnis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Abschnitt. / Genealogisches Verzeichnis",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "y34xc9vny03ce2s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.443Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107184,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Register / der Pferde- und Viehmärkte in / Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Register / der Pferde- und Viehmärkte in / Deutschland",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "jc6gddhxg7ztcyc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107185,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "v5z6j8lfnxip3jd"
+    }
   ],
   "agents": [
     {

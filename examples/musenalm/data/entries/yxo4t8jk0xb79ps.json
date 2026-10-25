@@ -48,25 +48,661 @@
   "year": 1841,
   "editor": "",
   "items": [
-    "twx2tyt56kn6cjf"
+    {
+      "annotation": "1834-1845.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.628Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106736",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.628Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "twx2tyt56kn6cjf"
+    }
   ],
   "contents": [
-    "5387rf543lsq8hs",
-    "b8ssufrcu4yttgj",
-    "9l94vdv7mo0widt",
-    "wrgiaz9bl1ugupa",
-    "8i44cpuwef39er5",
-    "9fqoz3qj1roddjb",
-    "z27w6cqraldu8tk",
-    "e2rppx7nwu6kxrz",
-    "g7eromqsgmyahzb",
-    "sqisyuoehjb9br5",
-    "ikdw9lykkqd99zw",
-    "sglre5dxcr5mfk5",
-    "d9mib4cszhr3uej",
-    "uiuyf1wxcddir1g",
-    "xdzh4qywannl98n",
-    "zy5ljiuzb9djc2r"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119902,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2483_119902_g3q4js4k3u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "5387rf543lsq8hs"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119903,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (T. Ender del., J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Ender del., J. Axmann sc.",
+      "scans": [
+        "alm_2483_119903_bqnz87j5mu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "6f8pn57um60s24o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "x22uzijnhb4lbpp",
+          "source_id": "jif7b67qt2rchrv"
+        }
+      ],
+      "source_id": "b8ssufrcu4yttgj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119904,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1841. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2483_119904_zhwlhia90k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1841. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "9l94vdv7mo0widt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wenn bleichen Angesichts die Sonne scheidet, / Kein lauer West mit Laub und Blüthen kos’t, / Die Erde sich in’s weiße Grabtuch kleidet",
+      "language": [],
+      "musenalm_id": 119905,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "wrgiaz9bl1ugupa"
+    },
+    {
+      "annotation": "unter der Graphik: Nürnberg, Carl Mayer’s Kunst-Anstalt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119906,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Entschluss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. B.",
+      "scans": [
+        "alm_2483_119906_0g5f8ijd0m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Entschluss",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "qcvet3gao0sjfh0"
+        }
+      ],
+      "source_id": "8i44cpuwef39er5"
+    },
+    {
+      "annotation": "unter der Graphik: Nürnberg, Carl Mayer’s Kunst-Anstalt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119907,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pilgerin Einkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. B.",
+      "scans": [
+        "alm_2483_119907_1oww3wml3e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Pilgerin Einkehr",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "d58aijpnhfs6kc7"
+        }
+      ],
+      "source_id": "9fqoz3qj1roddjb"
+    },
+    {
+      "annotation": "unter der Graphik: Nürnberg, Carl Mayer’s Kunst-Anstalt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119908,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Räubers Beute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez.",
+      "scans": [
+        "alm_2483_119908_7vq3g2gula.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Räubers Beute",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "r2pfv9dmar1nez1"
+        }
+      ],
+      "source_id": "z27w6cqraldu8tk"
+    },
+    {
+      "annotation": "unter der Graphik: Nürnberg, Carl Mayer’s Kunst-Anstalt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119909,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wacher Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. C.",
+      "scans": [
+        "alm_2483_119909_pra6m1li6c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wacher Traum",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "pv1b6nsa0ys25hp"
+        }
+      ],
+      "source_id": "e2rppx7nwu6kxrz"
+    },
+    {
+      "annotation": "unter der Graphik: Nürnberg, Carl Mayer’s Kunst-Anstalt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gruss aus dem Balcon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. P.",
+      "scans": [
+        "alm_2483_119910_gn870r65z4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gruss aus dem Balcon",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "luduubdu4gn1dxd"
+        }
+      ],
+      "source_id": "g7eromqsgmyahzb"
+    },
+    {
+      "annotation": "unter der Graphik: Carl Mayer’s Kunst-Anstalt in Nürnberg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gondelfahrt. / Catharina Cornaro",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Ender gez.",
+      "scans": [
+        "alm_2483_119911_5tjcjrvsgg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Gondelfahrt. / Catharina Cornaro",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "x22uzijnhb4lbpp",
+          "source_id": "3azikfrok6y9jb0"
+        }
+      ],
+      "source_id": "sqisyuoehjb9br5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In den Lagunen, nördlich von Venedig, liegt ein freundliches Eiland, Murano. Im 15. und 16. Jahrhundert war diese Insel ein lieblich angebauter Garten",
+      "language": [],
+      "musenalm_id": 119912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Catharina Cornaro. / Geschichtliche Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Günther",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Catharina Cornaro. / Geschichtliche Erzählung",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "ikdw9lykkqd99zw"
+    },
+    {
+      "annotation": "onym",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Es galt schmerzlichen Abschied. Die junge Frau hatte ihre beiden Arme um den Hals des Geliebten geschlungen",
+      "language": [],
+      "musenalm_id": 119913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geflüchtete. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geflüchtete. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.698Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.698Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "jsbd9xzws5kytna"
+        }
+      ],
+      "source_id": "sglre5dxcr5mfk5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Nicht viele Jahre bauchen wir zurück zu gehen, um auf jener prächtigen Halbinsel Michigan, die, von dem Huron- und Michigansee umflossen,",
+      "language": [],
+      "musenalm_id": 119914,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Wanderer durch Michigan. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Robert Keller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Wanderer durch Michigan. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "d9mib4cszhr3uej"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck der Hofbuchdruckerei in Altenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Druck der Hofbuchdruckerei in Altenburg",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "uiuyf1wxcddir1g"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119917,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von dem Verleger dieses Taschenbuchs / ist zu beziehen: / ROSEN, / eine Zeitschrift für die gebildete Welt, / herausgegeben / von Robert Heller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von dem Verleger dieses Taschenbuchs / ist zu beziehen: / ROSEN, / eine Zeitschrift für die gebildete Welt, / herausgegeben / von Robert Heller",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "xdzh4qywannl98n"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2483_120083_aijcs28sx1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "zy5ljiuzb9djc2r"
+    }
   ],
   "agents": [
     {

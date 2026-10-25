@@ -48,53 +48,1901 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "vx9d413nd7u5by6"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen).",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.498Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "111242",
+      "location": "105R01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.498Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vx9d413nd7u5by6"
+    }
   ],
   "contents": [
-    "pco1h36vi4t448d",
-    "5s3n55uc9idb4a2",
-    "vaoms7f8xp7xgl2",
-    "co0wdneyewbc4b9",
-    "bgdxyxubjmc3l9g",
-    "bv07ofij396yb8r",
-    "3o5bzvcn58khbov",
-    "6129iihx98207a7",
-    "ujhvub1wzryy6bm",
-    "2mmzfgvatyzh8sn",
-    "zlm1gmwb8hjjgsp",
-    "u8qn9yxjim2nujp",
-    "t17dildxo7fmzpw",
-    "tpyzjzqw670pdat",
-    "j7zr1tstcblznpb",
-    "w3ahdiskc7766hg",
-    "jwor2dzwuvw23br",
-    "5awi40i80uadf1c",
-    "ohd3jic1zvylp5d",
-    "jzau1m3laajyr98",
-    "exjm50e2o3l2xfq",
-    "f7dax9yg0flwlhx",
-    "7o6tomumoq7w250",
-    "61epw1wbtg3fpm3",
-    "n8n4l68gumzfx13",
-    "oygs5rziawi4wzn",
-    "garm0pd0pdan67q",
-    "u6bhzplq48nb099",
-    "d80vgol0b05gvxg",
-    "lz3u80255urv7o5",
-    "ooyvznl1zvlx4ga",
-    "k2c1bnnmtvibz28",
-    "tq21obtsj3zgt3s",
-    "s16kqsk8xip92mk",
-    "jlz89lr76u8imz7",
-    "8y90i4soys80vz3",
-    "spupa1msla5d970",
-    "28n2k2oygt02197",
-    "5fz112oo6isrxdf",
-    "agztbcnckrp4ejh",
-    "f0un6g287p2v4jf",
-    "wwwdoe5mrsq7qpa",
-    "tbb325yoqgqesd1",
-    "vp5b4axb1zde5f6"
+    {
+      "annotation": "Titelportrait /) s. Textbezug INr 116444, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116430,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BENVENUTO CELLINI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Vasari p. Stahlstich von F. Wagner",
+      "scans": [
+        "alm_534_116430_k1566tze1d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BENVENUTO CELLINI",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.188Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "6c7uqe5qwobyok2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.188Z",
+          "agent": "mdi7eqeqehrf2q6",
+          "source_id": "mnx6gnkdzekd6y3"
+        }
+      ],
+      "source_id": "pco1h36vi4t448d"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116431,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MINERVA / Taschenbuch / FÜR / das Jahr 1831. / Zwei und Zwanzigster / oder der / NEUEN FOLGE / Erster Jahrgang. / Mit 9 Kupfern / Leipzig bei Friedrich Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_534_116431_3axemxgdmv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MINERVA / Taschenbuch / FÜR / das Jahr 1831. / Zwei und Zwanzigster / oder der / NEUEN FOLGE / Erster Jahrgang. / Mit 9 Kupfern / Leipzig bei Friedrich Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "5s3n55uc9idb4a2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116432,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva. / Taschenbuch / für / das Jahr 1831. / Zwei und Zwanzigster / oder der / Neuen Folge / Erster Jahrgang. / Mit 9 Kupfern. / Leipzig, / bei Friedrich Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Minerva. / Taschenbuch / für / das Jahr 1831. / Zwei und Zwanzigster / oder der / Neuen Folge / Erster Jahrgang. / Mit 9 Kupfern. / Leipzig, / bei Friedrich Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "vaoms7f8xp7xgl2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116433,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "co0wdneyewbc4b9"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 10 Beiträgen INr 116435-116444, Obj 6-15 als Textbezüge zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116434,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Kupfer zur Minerva / für 1831",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Kupfer zur Minerva / für 1831",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "bgdxyxubjmc3l9g"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Dieses inhaltschweren und tiefen Dichterwortes erinnert man sich gern bei dem jetzt immer mehr überhandnehmenden Brauche der Taschenbücher, die daür bestimmten bildlichen Darstellungen aus einem ganzen, bekannten, und in die Nation eingegangenen",
+      "language": [],
+      "musenalm_id": 116435,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Findet im Garten die Vielen, empfindet die Vielen wie Einen, / Und ihr habt den Beginn, habet das Ende der Kunst.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Findet im Garten die Vielen, empfindet die Vielen wie Einen, / Und ihr habt den Beginn, habet das Ende der Kunst.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "bv07ofij396yb8r"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116445, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Es ist allerdings ein vertrauliches, heimliches Plätzchen, wo das unschuldige, fast stumme Weben der Natur kaum wie aus seinem Stillleben hervortritt,",
+      "language": [],
+      "musenalm_id": 116436,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Zeichnung des Wahlheimer Lindenplatzes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Zeichnung des Wahlheimer Lindenplatzes",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3o5bzvcn58khbov"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116446, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "S. 53. die Kinder um und auf dem Zimmerboden liegenden und ihnen sich hingebenden Werther,",
+      "language": [],
+      "musenalm_id": 116437,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Kinderscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Kinderscene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "6129iihx98207a7"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116447, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "S. 64. fällt in das reine Kinderleben schon ein kleiner Schatten durch den milden Verweis, den die zartfühlende und ahnende Lotte, wie ihr selbst unbewußt,",
+      "language": [],
+      "musenalm_id": 116438,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Brunnenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Brunnenscene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "ujhvub1wzryy6bm"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116448, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "S. 114 f. auf der Terasse neben dem nachlässig sich auf ihre Lehne stützenden Albert am Saume einer immer düster werdenden Allee,",
+      "language": [],
+      "musenalm_id": 116439,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Mondscheinscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Mondscheinscene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "2mmzfgvatyzh8sn"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116449, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "dargestellt ist, S. 192 f. Dafür nun ist ihm ebendaselbst wieder, wie in einem Zauberspiegel,",
+      "language": [],
+      "musenalm_id": 116440,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Der Irre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Der Irre",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "zlm1gmwb8hjjgsp"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116450, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "S. 198. f. zeigt  Indeß Lotte seelenvoll eine alte himmelsüße Melodie spielt, wie um den dumpf Brütenden zu trösten,",
+      "language": [],
+      "musenalm_id": 116441,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Die Klavierscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Die Klavierscene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "u8qn9yxjim2nujp"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116451, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "stellt die Krisis der in Selbstmord ausschlagenden Krankheit dar.",
+      "language": [],
+      "musenalm_id": 116442,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Der Abschied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Der Abschied",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "t17dildxo7fmzpw"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Graphik INr 116452, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "S. 261. f. im Actenschranke eingeschlummerten Amor gelten. Vielleicht wäre mit kleinen Modification desselben",
+      "language": [],
+      "musenalm_id": 116443,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Pistolenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Pistolenscene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "tpyzjzqw670pdat"
+    },
+    {
+      "annotation": "Erklärung der Kupfer zur Minerva für 1831 (Sammlung INr 116434, Obj 5) s. Titelportrait INr 116430, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Als Gegensatz zu einem überschwenglich über einem Wahn brütenden und sich vernichtenden Leben, wie es der Gegenstand der vorliegenden Bilder ist, wird das als Titelkupfer gegebene Bildniß des thatrüstigen und lebenskühnen Benvenuto Cellini,",
+      "language": [],
+      "musenalm_id": 116444,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Gegensatz zu einem überschwenglich über einem Wahn brütenden und sich vernichtenden Leben, wie es der Gegenstand der vorliegenden Bilder ist, wird das als Titelkupfer gegebene Bildniß des thatrüstigen und lebenskühnen Benvenuto Cellini,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "j7zr1tstcblznpb"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116436, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. H. Ramberg inStahl gest.v. G. Döbler",
+      "scans": [
+        "alm_534_116445_tedqz9bjce.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Erste Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.649Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4urz6nscsy0bxou"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.650Z",
+          "agent": "774ug9zf5qb4ald",
+          "source_id": "cpu016l4ccl85or"
+        }
+      ],
+      "source_id": "w3ahdiskc7766hg"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116437, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116446,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Zweite Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Leop. Beyer sc.",
+      "scans": [
+        "alm_534_116446_y9jf13d7l3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Zweite Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.650Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "jjqfwhnrrin7ube"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.650Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "rq51y17mql5x55t"
+        }
+      ],
+      "source_id": "jwor2dzwuvw23br"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116438, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.313Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116447,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Dritte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Fr. Wagner sc.",
+      "scans": [
+        "alm_534_116447_bumogpil3h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Dritte Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.651Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.651Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5pdw57f4zo0m149"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.651Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.651Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "area1nj4yp4w3k5"
+        }
+      ],
+      "source_id": "5awi40i80uadf1c"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116439, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116448,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Vierte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. F. Wagner sc.",
+      "scans": [
+        "alm_534_116448_niw7ditcuf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Vierte Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.651Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.651Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "dcb5onzmwlaqvyz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.652Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "hp4tn2x02xqblq5"
+        }
+      ],
+      "source_id": "ohd3jic1zvylp5d"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116440, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.318Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116449,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Fünfte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg Rosmäsler in Heidelberg 1830",
+      "scans": [
+        "alm_534_116449_68o9cxnrop.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Fünfte Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.652Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "7bdtewyrmwdu9co"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.652Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "aghqvwycolgopa1"
+        }
+      ],
+      "source_id": "jzau1m3laajyr98"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116441, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116450,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Sechste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Buser sc. Aarau",
+      "scans": [
+        "alm_534_116450_3a4ic2zyj0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Sechste Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.653Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "0kvw3w2s5ka2lw2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.653Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5w380sxv2qv25hq"
+        }
+      ],
+      "source_id": "exjm50e2o3l2xfq"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116442, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116451,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Siebente Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. P. Walther sc.",
+      "scans": [
+        "alm_534_116451_5ufbbl8jfv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Siebente Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.654Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "e2s5ut921x5p4k8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.653Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "jpd0xlsou8n7kdg"
+        }
+      ],
+      "source_id": "f7dax9yg0flwlhx"
+    },
+    {
+      "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116443, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.324Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116452,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Werthers Leiden. / Achte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.",
+      "scans": [
+        "alm_534_116452_8ox3bmwguh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Werthers Leiden. / Achte Scene",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.654Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "6sv5pncidzldimf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.654Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "dgezmztpaq7j69y"
+        }
+      ],
+      "source_id": "7o6tomumoq7w250"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein milder Sommerabend hatte die ermattete Natur erquickt - die Sonne war hinter den westlichen Bergen hinabgesunken,",
+      "language": [],
+      "musenalm_id": 116453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Das Turnire zu Worms",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Pichler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Das Turnire zu Worms",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.281Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.281Z",
+          "agent": "xgh72r9y3fxa6u5",
+          "source_id": "7jlgcijbbezwgio"
+        }
+      ],
+      "source_id": "61epw1wbtg3fpm3"
+    },
+    {
+      "annotation": "Vorwort zur szenischen Darstellung INr 116455, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Die Fabel eines Lustspiels, selbst die eines Trauerspiels, wenn sie für eine private Anecdote ist, kann einen häuslichen Zusammenhang haben,",
+      "language": [],
+      "musenalm_id": 116454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Karl der Große. / Tragödie / Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oehlenschläger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Karl der Große. / Tragödie / Vorwort",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.450Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.450Z",
+          "agent": "1g34ln4fr2bstzc",
+          "source_id": "x4495ijo53vxeon"
+        }
+      ],
+      "source_id": "n8n4l68gumzfx13"
+    },
+    {
+      "annotation": "mit einem Vorwort s. INr 116454, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Hast du sie jetzt getrennt? Die Fleißigen / Zur rechten Hand, zur linken die Trägen?",
+      "language": [],
+      "musenalm_id": 116455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Karl der Große. Tragödie]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oehlenschläger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Karl der Große. Tragödie]",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "1g34ln4fr2bstzc",
+          "source_id": "hh0znqau77swkd5"
+        }
+      ],
+      "source_id": "oygs5rziawi4wzn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "In der Hoffnung, im Verlauf von wenigen Tagen die große Kaiserstadt zu erreichen, die zu sehen von jeher einer meiner Lieblingswünsche gewesen war, hatten wir München verlassen;",
+      "language": [],
+      "musenalm_id": 116456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Reise-Erinnerungen / aus / früherer Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Reise-Erinnerungen / aus / früherer Zeit",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "tbtrtdzrn8s3zkw"
+        }
+      ],
+      "source_id": "garm0pd0pdan67q"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "u6bhzplq48nb099"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "Warum, so sprecht ihr, nährst Du der Liebe Gram / So tief im Herzen? Streife die Fesseln ab,",
+      "language": [],
+      "musenalm_id": 116458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erwiederung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erwiederung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "zbfp7z86tstb6qr"
+        }
+      ],
+      "source_id": "d80vgol0b05gvxg"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "So lange noch des Liebenden Stirn umkränzt / Von Hoffnung glänzte, ging aus Elysium / Ein schöner Traum mir auf,",
+      "language": [],
+      "musenalm_id": 116459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruhe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ruhe",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "3j6yw3px9oxg1x5"
+        }
+      ],
+      "source_id": "lz3u80255urv7o5"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Sammlung von 8 Distichen INr 116461-116468, Obj 32-29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Distichen / an die vollendete Ida",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Distichen / an die vollendete Ida",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "04h3d1l55g923au"
+        }
+      ],
+      "source_id": "ooyvznl1zvlx4ga"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Einen Trost nur hab' ich, nachdem die Geliebte mir hin- / schwand",
+      "language": [],
+      "musenalm_id": 116461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Eine Trost",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Eine Trost",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "cipnay9t3e5fdmg"
+        }
+      ],
+      "source_id": "k2c1bnnmtvibz28"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Blume, wie blühst du empor aus dem engen Schooße der / Urne,",
+      "language": [],
+      "musenalm_id": 116462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blumenleben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blumenleben",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "5elaqej6fdyaji5"
+        }
+      ],
+      "source_id": "tq21obtsj3zgt3s"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Du, die Leben empfing von Idas sterbenden Händen, / Sey mir, o Blume, gegrüßt,",
+      "language": [],
+      "musenalm_id": 116463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geistesverein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geistesverein",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "dcokewx6d3swzu8"
+        }
+      ],
+      "source_id": "s16kqsk8xip92mk"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Hin ist die Blüthenzeit, des Lebens Frühling vorüber, / Schwüler und mühevoll schreitet der Sommer heran.",
+      "language": [],
+      "musenalm_id": 116464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verlust",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verlust",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.560Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "pruqw4wgxb039ow"
+        }
+      ],
+      "source_id": "jlz89lr76u8imz7"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Arm ist mein Leben und leer, wie ein abgeerntetes Frucht- / feld,",
+      "language": [],
+      "musenalm_id": 116465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Besitz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Besitz",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "mdp9mmtwmj78w9v"
+        }
+      ],
+      "source_id": "8y90i4soys80vz3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Hier auf diesem bethräneten Grab will dulden ich lernen,",
+      "language": [],
+      "musenalm_id": 116466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Idas Grab",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Idas Grab",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "mfkrofvjcn2h5h4"
+        }
+      ],
+      "source_id": "spupa1msla5d970"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Süßes, freundliches Bild, das meiner vollendeten Ida / Seelevolle Gestalt stets mir vor Augen hält.",
+      "language": [],
+      "musenalm_id": 116467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Idas Bild",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Idas Bild",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "oz0r4p8ll2dzixp"
+        }
+      ],
+      "source_id": "28n2k2oygt02197"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "Schmachte nicht länger nach Trost, was könnte Dich trösten?",
+      "language": [],
+      "musenalm_id": 116468,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Letzter Trost",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Letzter Trost",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "7lafbsuy7y9podt"
+        }
+      ],
+      "source_id": "5fz112oo6isrxdf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "In Stratford stehet ein altes Haus, / Schon fällt der Schutt aus der Mauer heraus,",
+      "language": [],
+      "musenalm_id": 116469,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "William Shakespeare. ( Romanze.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Oehlenschläger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "William Shakespeare. ( Romanze.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "1g34ln4fr2bstzc",
+          "source_id": "z1et8bswlrnfyvl"
+        }
+      ],
+      "source_id": "agztbcnckrp4ejh"
+    },
+    {
+      "annotation": "einleitendes Gedicht zum Beitrag INr 116471, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Nach Ruga's Gestaden von Pommers Küstenland / Auf hellen Wasserpfaden hatt' ich den Kiel gewandt;",
+      "language": [],
+      "musenalm_id": 116470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Vineta's Untergang. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Vineta's Untergang. / Erzählung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "17olrnjtbpt7mr9"
+        }
+      ],
+      "source_id": "f0un6g287p2v4jf"
+    },
+    {
+      "annotation": "mit einleitendem Gedicht s. INr 116470, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Hoch auf ragte das nördliche Felsengestade Usedoms, eine ungeheure Wand zum Schutze der Insel, zum Trutze den Riesenwellen, die seit Jahrtausenden von Mitternacht herabgerollt,",
+      "language": [],
+      "musenalm_id": 116471,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[V.  Vineta's Untergang. Erzählung]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[V.  Vineta's Untergang. Erzählung]",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.599Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "vxbx6hfwyvftxdt"
+        }
+      ],
+      "source_id": "wwwdoe5mrsq7qpa"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116472,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vortheilhaftes Anerbieten / an die Freunde und Besitzer der Minerva -",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vortheilhaftes Anerbieten / an die Freunde und Besitzer der Minerva -",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "tbb325yoqgqesd1"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116473,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei dem Verleger der Minerva  sind / ferner kürzlich erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei dem Verleger der Minerva  sind / ferner kürzlich erschienen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "vp5b4axb1zde5f6"
+    }
   ],
   "agents": [
     {

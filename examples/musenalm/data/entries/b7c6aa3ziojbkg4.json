@@ -48,81 +48,2948 @@
   "year": 1816,
   "editor": "",
   "items": [
-    "uhqv667z8wokf89"
+    {
+      "annotation": "1816, 1818-1822. <br> Fortgesetzt durch: Frühlingsbote, Der 1823-1825",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.703Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100945",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.703Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "uhqv667z8wokf89"
+    }
   ],
   "contents": [
-    "ve5n8i9jhrikfwa",
-    "mlx3xfkweijyczo",
-    "3afamiaieo2c2kj",
-    "6dn8e7uf7f8azn2",
-    "befhlwuk83a71m6",
-    "63nnvzsoopbc58g",
-    "174o0cmtnhk6y96",
-    "myjpm7cs6pytt3q",
-    "xtoajexeqphaofl",
-    "08ynwbx702dvaba",
-    "oaiyqq8szyu4r4y",
-    "qqlu3fx7nnmq4it",
-    "k78ja9mpi43jayj",
-    "w40e6bewrqvabch",
-    "4nof50qjixs9quk",
-    "z03x5192lqxvskl",
-    "meg0zgk1018la7d",
-    "hjgl1wgzhik9agy",
-    "f0pkuch488qltxi",
-    "6bn85mbxw9hqsjc",
-    "86pxp703oa8p49r",
-    "uibetdx8l7ud0tm",
-    "ayzvjkvytcupao2",
-    "c1evjtqgbqrq329",
-    "i8z9nsvj9ycacph",
-    "wdz9johma32g7pj",
-    "3iibihowflfc3av",
-    "1ttqbamow897k5q",
-    "yq8io6vkcd1qi32",
-    "0mqsrzfo4uojnkm",
-    "qdt4ctk40drtv8x",
-    "enxhsvsgr7alayr",
-    "x1j3d1qww3wie0y",
-    "ujg1a6dzs03eta7",
-    "5icean3tuxmo10e",
-    "1qnxsjv2otnhr1m",
-    "z4hfbptr7b457e8",
-    "vnvd0o2264edjyt",
-    "fz8h61vvl9e91m8",
-    "f1s8s02kzhcu4zr",
-    "658041o3xmqupv6",
-    "vwuxycd84nk08jh",
-    "i4wohxutmnffuow",
-    "umdrl3dfhcfcrkv",
-    "e335g1f8ib1oyiy",
-    "gnaod3lnz452raq",
-    "drqkypr5u5ymo9b",
-    "pl61op6f8ibhzb2",
-    "gugc8dg9fkbj6gp",
-    "yldoa4pij61r2we",
-    "fjoj5in9xnylit7",
-    "mru1s0z3ztt7oyl",
-    "wjiw25fqcogt7vd",
-    "hstvxesv6ybbuir",
-    "9focva4epbg7eej",
-    "kt0lly497dngaai",
-    "rvy2mho4356tqn2",
-    "aaml8sg109u6xg7",
-    "c4k1x162r4929wr",
-    "hr8wbk7glvdql30",
-    "6id65m9ql44pqa7",
-    "0cxi4qnnfkc2o1e",
-    "543dcx096q8qzt8",
-    "x0bcvjbk2amqgpy",
-    "ge3kkcyhwjrs238",
-    "cwigd3vciz2fwey",
-    "y7l7nmotnyzfmdh",
-    "cnizv1yw73n1xzi",
-    "x8r3s0tzc082d7d",
-    "ebfc7ybagf855zz",
-    "q8shcqtcpza12hm",
-    "9d87mjpf22vi46m"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98369,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98369_tz1j119apg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "ve5n8i9jhrikfwa"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Gedicht INr 98375, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98370,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98370_cr58r05vo3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Winter",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.748Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "sy5l3redyb7xl3b"
+        }
+      ],
+      "source_id": "mlx3xfkweijyczo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.754Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98371,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Erster Band. / Frankfurt am Mayn / bei den Gebrüdern Wilmans. / 1816",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98371_bfm4iix9sa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Erster Band. / Frankfurt am Mayn / bei den Gebrüdern Wilmans. / 1816",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "3afamiaieo2c2kj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98372,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "6dn8e7uf7f8azn2"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wintergarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wintergarten",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "befhlwuk83a71m6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Büchlein, wenn in Wintertagen / Schnee und Sturm an's Fenster schlagen, / Wenn die Flamme traulich knistert, / Ein Gespräch den Kreis verschwistert:",
+      "language": [],
+      "musenalm_id": 98374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auftrag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auftrag",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.745Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.745Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "tfkipcvxratvvro"
+        }
+      ],
+      "source_id": "63nnvzsoopbc58g"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 98370, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Es braus't der finst're Kiefernhain, / Von Schneeslast gedrückt,",
+      "language": [],
+      "musenalm_id": 98375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Winter / (Zum Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Winter / (Zum Titelkupfer.)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.745Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.745Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "k4hskdkwl8crzyi"
+        }
+      ],
+      "source_id": "174o0cmtnhk6y96"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Es giebt ein Plätzchen im kühlen Raum, / Da flüstern die Lüftchen so linde;",
+      "language": [],
+      "musenalm_id": 98376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Nestchen der Ruhe. / An meine Friede. 1811",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Brun, geb. Münter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Nestchen der Ruhe. / An meine Friede. 1811",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.745Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.745Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "z6bfbr8qfbombag"
+        }
+      ],
+      "source_id": "myjpm7cs6pytt3q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Schnee umschleiert Wald und Flur, / Und ein Wand'rer seufzt mit Klagen;",
+      "language": [],
+      "musenalm_id": 98377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Buches Ursprung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Buches Ursprung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.745Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.745Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "6zwnm01hbyxwvrc"
+        }
+      ],
+      "source_id": "xtoajexeqphaofl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Am Hofe eines Königs von Arragonien erschienen italische Ritter, Gesandte eines angesehenen Herzogs, für ihren Herrn zu werben um eine der vier schönen Königstöchter.",
+      "language": [],
+      "musenalm_id": 98379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Victoria. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Victoria. / Eine Erzählung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.690Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "y4v2d56m2c95cs6"
+        }
+      ],
+      "source_id": "08ynwbx702dvaba"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Wie glänzt der Tag so freundlich nieder! / Die Lerch' ist wach, der Fink und ich; / Und Adolph bläst schon richtig wieder;",
+      "language": [],
+      "musenalm_id": 98380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der goldene Regen. / Ein ländliches Spiel in einem Akte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der goldene Regen. / Ein ländliches Spiel in einem Akte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.690Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "5n6d9k6c2kf5sdf"
+        }
+      ],
+      "source_id": "oaiyqq8szyu4r4y"
+    },
+    {
+      "annotation": "s. Gedicht INr 98382, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98381_kqpdyu952l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühling",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "v8fab4hl7spqjed"
+        }
+      ],
+      "source_id": "qqlu3fx7nnmq4it"
+    },
+    {
+      "annotation": "s. Graphik INr 98381, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Von neuem Leben schwellen / Die Pulse der Natur, / Es flüstern zarte Quellen / Durch die erwachte Flur.",
+      "language": [],
+      "musenalm_id": 98382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühling",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "3459wtoegx3ymt6"
+        }
+      ],
+      "source_id": "k78ja9mpi43jayj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Im wilden Nahethale lebte ein junger Ritter, Gerwin mit Nahmen, der den Krieg und die Jagd liebte.",
+      "language": [],
+      "musenalm_id": 98383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die verlassene Mühle. / Romantische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aloys Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die verlassene Mühle. / Romantische Novelle",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "qz4pkzndc7inach"
+        }
+      ],
+      "source_id": "w40e6bewrqvabch"
+    },
+    {
+      "annotation": "s. Gedicht INr 98385, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98384_fd8w2xzz0i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Sommer",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "qdrzf7e6hzofu0q"
+        }
+      ],
+      "source_id": "4nof50qjixs9quk"
+    },
+    {
+      "annotation": "s. Graphik INr 98384, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Lichte Flammenstrahlen zücken / Schon in Osten hoch empor,",
+      "language": [],
+      "musenalm_id": 98385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sommer",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "q545dolo8t7nt7f"
+        }
+      ],
+      "source_id": "z03x5192lqxvskl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Es ging gegen den Frühling des Jahres 1664. Mithin kam auch Shakespear's Geburtstag, der 23te April, zum hundertenmale heran,",
+      "language": [],
+      "musenalm_id": 98386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "William Shakespears Jubelfeier. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "William Shakespears Jubelfeier. / Erzählung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "wewrsuinxgt6fim"
+        }
+      ],
+      "source_id": "meg0zgk1018la7d"
+    },
+    {
+      "annotation": "s. Gedicht INr 98388, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98387_gpqk6w0qtg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Herbst",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "hpmf1kxj9slwb6m"
+        }
+      ],
+      "source_id": "hjgl1wgzhik9agy"
+    },
+    {
+      "annotation": "s. Graphik INr 98387, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.452Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Schon gefallen sind die gold'nen Aehren; / Nicht mehr darf in frischen Morgenthau / Tiefer Rosenpurpur sich verklären;",
+      "language": [],
+      "musenalm_id": 98388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Herbst",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.691Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "076bmphxxf19asm"
+        }
+      ],
+      "source_id": "f0pkuch488qltxi"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermischte Gedichte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "6bn85mbxw9hqsjc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Wer bist du, in der fremden Tracht? / Woher zu solcher Stunde?",
+      "language": [],
+      "musenalm_id": 98390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erscheinung im Bildersaale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Scheiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erscheinung im Bildersaale",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.890Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "0sylts1fexvfkrm"
+        }
+      ],
+      "source_id": "86pxp703oa8p49r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Sey gegrüßet, schöne Frau der Huld, / Und der reinen, schönen Minne,",
+      "language": [],
+      "musenalm_id": 98391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Marienbild / in einem Baume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Marienbild / in einem Baume",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.859Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "1098m3z4qebov5h"
+        }
+      ],
+      "source_id": "uibetdx8l7ud0tm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Es hat der Tag sein Werk gethan, / Er zieht den Schlummermantel an,",
+      "language": [],
+      "musenalm_id": 98392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Abend",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.859Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "wh9dw5znjbxop5x"
+        }
+      ],
+      "source_id": "ayzvjkvytcupao2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Ritterlich ist er gefallen, / Gebt ihm seinen Schild ins Grab,",
+      "language": [],
+      "musenalm_id": 98393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altdeutscher Grabgesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Altdeutscher Grabgesang",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.859Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "z46xzqggo7cvldd"
+        }
+      ],
+      "source_id": "c1evjtqgbqrq329"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Schlank und schön im Jagdgeschmeide / Eilt der Jäger durch die Flur;",
+      "language": [],
+      "musenalm_id": 98394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jagd und Blumenwiese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jagd und Blumenwiese",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.859Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "di8tmqavezys86k"
+        }
+      ],
+      "source_id": "i8z9nsvj9ycacph"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Es liegt ein Land, von süßem Hoffnungsgrün / Durchrankt, dort hinter jenen blauen Hügeln,",
+      "language": [],
+      "musenalm_id": 98395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hier und Jenseits",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hier und Jenseits",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.859Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "gyrjf3ofebkly6g"
+        }
+      ],
+      "source_id": "wdz9johma32g7pj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Als der edle Phäderaos / Bei der Auswahl dreihundert / Ehrenkrieger übersehn ward;",
+      "language": [],
+      "musenalm_id": 98401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sparter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sparter",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.811Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.811Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "sbdjyp4w8bi01d2"
+        }
+      ],
+      "source_id": "3iibihowflfc3av"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Ein Gärtner ging einst über Land; / Am Wasser er ein Bäumchen fand,",
+      "language": [],
+      "musenalm_id": 98396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gärtner und das Bäumchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emilla",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gärtner und das Bäumchen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ttqbamow897k5q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Geht ihr geladen zum Fest', ihr zierlichen Lie- / der und Reime, / Schwebt, wie die Paare gesellt, männlich und / weiblich dahin?",
+      "language": [],
+      "musenalm_id": 98397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Elegie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Elegie",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "yq8io6vkcd1qi32"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Als ich am frühen Morgen heut' / Am Fenster stand - just rief die Glocke / Mit herzerbebend Geläut / In's Gotteshaus",
+      "language": [],
+      "musenalm_id": 98398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sonntagsmorgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sonntagsmorgen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.859Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "3b8mtwpeyz6wctk"
+        }
+      ],
+      "source_id": "0mqsrzfo4uojnkm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Verwegner Wünsche frühes Opfer seyn, / Den Himmel stürmen wollen, gleich Titanen,",
+      "language": [],
+      "musenalm_id": 98399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amors Gesetze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amors Gesetze",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.810Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "luwj48pw8qs6eds"
+        }
+      ],
+      "source_id": "qdt4ctk40drtv8x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Krachend schlug der Sturm den Laden an das Fenster. In der Kammer regten sich die Kinder. Wachst du? fragte Heinrich.",
+      "language": [],
+      "musenalm_id": 98400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geburtstag im Walde. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Geburtstag im Walde. / Eine Erzählung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.811Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.811Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "mxnwz65teb83umd"
+        }
+      ],
+      "source_id": "enxhsvsgr7alayr"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freuden- und Scherzgedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freuden- und Scherzgedichte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1j3d1qww3wie0y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Der Bürgermeister Schmoll begab / Im Zwielicht sich an's Thor,",
+      "language": [],
+      "musenalm_id": 98403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Feuersbrunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Feuersbrunst",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.811Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.811Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "vgh5s763c5q72gc"
+        }
+      ],
+      "source_id": "ujg1a6dzs03eta7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Singt, so viel ihr könnt, / Singt, wem singen ist vergönnt!",
+      "language": [],
+      "musenalm_id": 98404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie zu singen wohl thut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wie zu singen wohl thut",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "5icean3tuxmo10e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Sanfte, süße engelreine, / Heil'ge Himmelssprache dir,",
+      "language": [],
+      "musenalm_id": 98405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musiklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Musiklied",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "1qnxsjv2otnhr1m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Mädel sieh mir ins Gesicht / Wenn du kannst und zitt're nicht!",
+      "language": [],
+      "musenalm_id": 98406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unverhofft kommt oft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unverhofft kommt oft",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4hfbptr7b457e8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Sonntag wurden wir ein Päärchen / Quasimodogeniti, / Ich, der Görge, sie, das Klärchen, / Und der Engel weiß nicht wie.",
+      "language": [],
+      "musenalm_id": 98407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sub sigillo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sub sigillo",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "vnvd0o2264edjyt"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Dies, Brüder, ist der König / Von unserm deutschen Wein,",
+      "language": [],
+      "musenalm_id": 98408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied beim Rüdesheimer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied beim Rüdesheimer",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.811Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.811Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "lbxx4nbwglgdf6n"
+        }
+      ],
+      "source_id": "fz8h61vvl9e91m8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Kein Plagiar war so an Künsten reich, / Er stiehlt den Inhalt und das Buch zugleich.",
+      "language": [],
+      "musenalm_id": 98409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Doctor Damian",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Doctor Damian",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "zr2ea4v5ng1dgjf"
+        }
+      ],
+      "source_id": "f1s8s02kzhcu4zr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Risa, Dein Getreuer kam. / Auf die Thür! Ich liebe Dich.",
+      "language": [],
+      "musenalm_id": 98410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesbitte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesbitte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "ikpxzimaysfv6s8"
+        }
+      ],
+      "source_id": "658041o3xmqupv6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Deinen Busen hüllt ein dichter Schleyer; / Deine Blick' entzünden, Agathe!",
+      "language": [],
+      "musenalm_id": 98411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Corins Liebesgalimathias",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Corins Liebesgalimathias",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "378k5ark79ph2b5"
+        }
+      ],
+      "source_id": "vwuxycd84nk08jh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Mädchen, was grämt Dich so sehr, und gehst / doch mit deinem Geliebten?",
+      "language": [],
+      "musenalm_id": 98412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unglück",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "i4wohxutmnffuow"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Daß schwang'rer Frau'n Gelüste wirken, / Das läugnet fest die Frau von Birken?",
+      "language": [],
+      "musenalm_id": 98413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Beweis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Beweis",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "umdrl3dfhcfcrkv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Froh sonst, wo Sumpf und Wasser war, / Und heim in altmn Plunder, / Und jetzt ein netter Bursch fürwahr,",
+      "language": [],
+      "musenalm_id": 98414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Weihnachtswunder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Weihnachtswunder",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.453Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "xy1losci1ksx2ic"
+        }
+      ],
+      "source_id": "e335g1f8ib1oyiy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Sir John Bull war ein ehrlicher Irländer und in der Stadt Cork geboren und erzogen. Er hieß eigentlich Phelim O'Mooney, und war seines Gewerbes ein Stucchoyh oder umherwandelnder Freiherr,",
+      "language": [],
+      "musenalm_id": 98415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wette. / Ein Schwank / aus dem Englischen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Beauregard Pandin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wette. / Ein Schwank / aus dem Englischen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.707Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.707Z",
+          "agent": "9mav4omm7dqt3ib",
+          "source_id": "qopgmnm8cdtqxs0"
+        }
+      ],
+      "source_id": "gnaod3lnz452raq"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "321",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufsätze practischen Inhalts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufsätze practischen Inhalts",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "drqkypr5u5ymo9b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Zuhörer, warum kommst du nicht in die Kirche. Ach! Herr Pastor, es ist so behaglich, so schön zu Hause, wenn sie in der Kirche singen, so still, so sonntäglich.",
+      "language": [],
+      "musenalm_id": 98417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pastor und der Zuhörer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pastor und der Zuhörer",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.707Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.707Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "o40b95upibuk4c0"
+        }
+      ],
+      "source_id": "pl61op6f8ibhzb2"
+    },
+    {
+      "annotation": "Sammlung von 9 Beiträgen INr 98419-98427, Obj 50-58",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruhepunkte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ruhepunkte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "gugc8dg9fkbj6gp"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Es ist unleidlich, bei dem Vergnügen, das man während dem Lesen einer schönen Dichtung genießt, dieselbe zu tadeln,",
+      "language": [],
+      "musenalm_id": 98419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "yldoa4pij61r2we"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Man kann von vielen Schriftstellern mit Bestimmtheit behaupten, daß ihre Schriften gescheider als sie selbst sind.",
+      "language": [],
+      "musenalm_id": 98420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "fjoj5in9xnylit7"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Ja wohl schätzen wir Deutsche das Fremde oft über Gebühr; haben wir doch sogar eigens das Sprichwort dafür: Es ist nicht weit her.",
+      "language": [],
+      "musenalm_id": 98421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "mru1s0z3ztt7oyl"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Es giebt grundschlechte Menschen, die bei gewissen Dingen doch ganz erhrlich zu Werke gehen,",
+      "language": [],
+      "musenalm_id": 98422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "wjiw25fqcogt7vd"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Der Teufel, sagt die Bibel, verwandelte sich in die Gestalt einer Schlange, um die Eva zu verführen.",
+      "language": [],
+      "musenalm_id": 98423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "hstvxesv6ybbuir"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.670Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Es läßt sich allenfalls noch ertragen, wenn Männer, zu denen wir in Gesellschaft kommen",
+      "language": [],
+      "musenalm_id": 98424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "9focva4epbg7eej"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "Große Herren können es uns selten verzeihen und niemals vergessen, daß wir sie in Verlegenheiten gesehen haben.",
+      "language": [],
+      "musenalm_id": 98425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "kt0lly497dngaai"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "Man sollte jede merkwürdige Begebenheit seines Lebens durch ein eignes Fest feiern; denn die Freude verherrlicht alles.",
+      "language": [],
+      "musenalm_id": 98426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "rvy2mho4356tqn2"
+    },
+    {
+      "annotation": "Ruhepunkte (Sammlung INr 98418, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "Die Dämmerungsstunden - und welcher zartgesinnte und gutgeartete Mensch hat nicht schon ihren unendlichen Reiz empfunden -",
+      "language": [],
+      "musenalm_id": 98427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "aaml8sg109u6xg7"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen und einer Sammlung mit 5 Beiträgen INr 98429-98439, Obj 60-70",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rückblicke und Bemerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rückblicke und Bemerkungen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.720Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "mhwzrid9tzwg7nx"
+        }
+      ],
+      "source_id": "c4k1x162r4929wr"
+    },
+    {
+      "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "Wohl noch zu keiner Zeit war der Himmel so sehr aufgelegt, die menschliche Weisheit zu verspotten, als in dem verflossenen Jahre",
+      "language": [],
+      "musenalm_id": 98429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohl noch zu keiner Zeit war der Himmel so sehr aufgelegt, die menschliche Weisheit zu verspotten, als in dem verflossenen Jahre…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "zm39u02p2awz1lh"
+        }
+      ],
+      "source_id": "hr8wbk7glvdql30"
+    },
+    {
+      "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "Ein alter Grieche ging aus seinem Grabe, / Wohl durch ein kräftig Wunder war's geschehn,",
+      "language": [],
+      "musenalm_id": 98430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moderner Zeitvertreib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Moderner Zeitvertreib",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "myz250cq0s2wugs"
+        }
+      ],
+      "source_id": "6id65m9ql44pqa7"
+    },
+    {
+      "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "Die größte Merkwürdigkeite, die lebend aus der alten Welt in die neue hinein ragt, sind die Juden; durch alle Völker zerstreut beweisen sie, wie mächtig Religion und Sitte auf den Menschen wirkt.",
+      "language": [],
+      "musenalm_id": 98431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die größte Merkwürdigkeite, die lebend aus der alten Welt in die neue hinein ragt, sind die Juden; durch alle Völker zerstreut beweisen sie, wie mächtig Religion und Sitte auf den Menschen wirkt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "d504gy7jr4sj2hp"
+        }
+      ],
+      "source_id": "0cxi4qnnfkc2o1e"
+    },
+    {
+      "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.828Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "Ein Hauptaugenmerk ist auf die Religion gerichtet. Während einige tausend Bibeln an arme Christen und entfernte Heiden vertheilt werden,",
+      "language": [],
+      "musenalm_id": 98432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Hauptaugenmerk ist auf die Religion gerichtet. Während einige tausend Bibeln an arme Christen und entfernte Heiden vertheilt werden,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "vbox2nyka3863rk"
+        }
+      ],
+      "source_id": "543dcx096q8qzt8"
+    },
+    {
+      "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.828Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "In den schönsten Künsten und Wissenschaften hat man nach dem Kriege neue Hoffnungen gefaßt.",
+      "language": [],
+      "musenalm_id": 98433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In den schönsten Künsten und Wissenschaften hat man nach dem Kriege neue Hoffnungen gefaßt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "p9jc2b5ynm5qnvo"
+        }
+      ],
+      "source_id": "x0bcvjbk2amqgpy"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 98435-98439, Obj 65-70 /) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.828Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeigen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.817Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "xb920ev4xo11uwh"
+        }
+      ],
+      "source_id": "ge3kkcyhwjrs238"
+    },
+    {
+      "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "Ich habe mich wieder mit Vorrath von ächtem deutschen Geist, der Kraft mit Lieblichkeit verbindet",
+      "language": [],
+      "musenalm_id": 98435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verkauf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verkauf",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.831Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "4i0bpbkqtm4xokz"
+        }
+      ],
+      "source_id": "cwigd3vciz2fwey"
+    },
+    {
+      "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Es hat jemand meine Waare verlästert, und behauptet, daß er den deutschen Geist allein ächt und rein besitze;",
+      "language": [],
+      "musenalm_id": 98436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rechtfertigung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rechtfertigung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.831Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "iq7az3cv5ppqepx"
+        }
+      ],
+      "source_id": "y7l7nmotnyzfmdh"
+    },
+    {
+      "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "In einer neuern Musik ist in der Zerstreung die Melodie abhanden gekommen.",
+      "language": [],
+      "musenalm_id": 98437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verlohren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verlohren",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.831Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "i7ukui6ghzdxugo"
+        }
+      ],
+      "source_id": "cnizv1yw73n1xzi"
+    },
+    {
+      "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Der Rector an der Paulsschule hat einen altdeutschen Schuh gefunden.",
+      "language": [],
+      "musenalm_id": 98438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gefunden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gefunden",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.831Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "dpbohysjz2nbxrs"
+        }
+      ],
+      "source_id": "x8r3s0tzc082d7d"
+    },
+    {
+      "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59) S 352 unten: Druck und Papier von C. L. Brede in Offenbach",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Diejenigen Dichter, welche in der unruhigen Zeit desertirt und aus der Poesie in die Politik übergegangen sind, werdenhiermit ersucht, wieder zur Fahne Apollo's zurückzukehrern,",
+      "language": [],
+      "musenalm_id": 98439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einladung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einladung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.831Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "jlathzokgnyz3o0"
+        }
+      ],
+      "source_id": "ebfc7ybagf855zz"
+    },
+    {
+      "annotation": "Verlagsmittheilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98440,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Laufe dieses Jahres sind in unserm / Verlage folgende empfehlenswerthe Bücher er- / schienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Laufe dieses Jahres sind in unserm / Verlage folgende empfehlenswerthe Bücher er- / schienen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "q8shcqtcpza12hm"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98441,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3532_98441_mnfgd5gdht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "9d87mjpf22vi46m"
+    }
   ],
   "agents": [
     {

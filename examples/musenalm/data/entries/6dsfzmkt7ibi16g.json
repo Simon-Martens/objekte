@@ -48,7 +48,26 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "j05huq6gd5g18tl"
+    {
+      "annotation": "KVK: hbz: Jgg 1796-1799",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.720Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407339",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.720Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "j05huq6gd5g18tl"
+    }
   ],
   "contents": [],
   "agents": [

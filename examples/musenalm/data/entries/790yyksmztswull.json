@@ -49,81 +49,3092 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "4b08b58wt73mrdh"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.571Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200674",
+      "location": "105A09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.571Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4b08b58wt73mrdh"
+    }
   ],
   "contents": [
-    "04afhdqsuff4qlj",
-    "yf3zuz49fpbci8e",
-    "3ud8xgn640pkdum",
-    "6amfcm6f0wya0xz",
-    "gu4evwskj1cry5s",
-    "d1p0jk3i1tfmkjk",
-    "0is22aykfamoa3c",
-    "c5i2t9c4zkr6ixs",
-    "ovddcaj14a4857f",
-    "qwzevvfj46335k1",
-    "0kft742sz5u4ffp",
-    "8g4dt04296mgiuf",
-    "nd0o4qu2cubwzhf",
-    "55azz2s8lack3iw",
-    "p4a8tvoq3btpyxr",
-    "pkaeeq8q1znjmsq",
-    "ixo04nx1sulgkio",
-    "c4r1ss2byuspi86",
-    "msylyhatraug8bf",
-    "nv1m24mq1ixp6ww",
-    "axssok2rgf6vtja",
-    "ozekj2n6brt7s85",
-    "rdgaimkl04bbb5i",
-    "869j27vloctl3yv",
-    "jpssof3f9j5nbb4",
-    "kzpkjr4a2785hhj",
-    "ecjowqxkltsls3n",
-    "glmdlr01ezello1",
-    "nacyuvn8pqsgpca",
-    "d4s1daj97h9bire",
-    "x2pvsrritubzoud",
-    "9xk2f323o1gxruy",
-    "ib7d8bkgxbs0o48",
-    "suugbzi2fbubt9v",
-    "iru8ha1u9mb2xkr",
-    "f0icnv6iyt0bwtc",
-    "kuk8lgarq0y45dm",
-    "i3hpi7orj94h83u",
-    "7utrgofvxms1mme",
-    "w8g7wpr4fsflpw4",
-    "gfd606v0eflhvqt",
-    "1xgubmgyt5tjfc0",
-    "t0etgtgrx6tgt7a",
-    "i7woewfqm280i6t",
-    "5bxff7unfo0dspr",
-    "gihxi2btm7kufgk",
-    "endshdyf39u2zcn",
-    "zbzc6tzqzowvni7",
-    "z1et3d54r6p5yx0",
-    "u751mbo1pet9x1y",
-    "m7oj9606uf1m9rq",
-    "5c8ak9008vwxbvt",
-    "r4jwtxn60f9t0zj",
-    "bdg7k0z2svvo3pi",
-    "jahm195b6q97s2z",
-    "48cc23689bxb55h",
-    "0a7f97zlnqg3d8z",
-    "lric583hl9fzl9q",
-    "zsspad0q0i023r3",
-    "9gi3vp2nqb2hvix",
-    "x9o9w4nnqd88s1c",
-    "0zctbfxsg2pcnl1",
-    "07xjjppjy8827xm",
-    "c6b8nhaccjm298r",
-    "o5q9tkltnx5u3wx",
-    "i9lq5mqs9ohg4vm",
-    "6zpdbldg9o2c6qw",
-    "8j1okelpela9jwt",
-    "lusdlvcs2r559ym",
-    "0y4q9tpdmbcntnb",
-    "7uh3iaz068fcgxw",
-    "p2cs7if9fsuj2m0"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80636,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1797_80636_rmswkvnxv0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "04afhdqsuff4qlj"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Eine Bade-Novelle« von A. v. Tschabuschnigg INr 80688, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80637,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klara. / Zur Novelle von Adolf Ritter v. Tschabuschnigg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Court pt. C. Kotterba sc.",
+      "scans": [
+        "alm_1797_80637_u920iub9h9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Klara. / Zur Novelle von Adolf Ritter v. Tschabuschnigg",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.966Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "d0yp8s7z5whqjih"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.966Z",
+          "agent": "17xk90e0xgar3dn",
+          "source_id": "qgif56gw2v1xomo"
+        }
+      ],
+      "source_id": "yf3zuz49fpbci8e"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80638,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GEDENKE MEIN / 1840 / WIEN und LEIPZIG / Verlag von Friedrich Wilhelm Pfautsch, Seitzergasse No. 423",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. Langer sc.",
+      "scans": [
+        "alm_1797_80638_sixbgir7ni.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GEDENKE MEIN / 1840 / WIEN und LEIPZIG / Verlag von Friedrich Wilhelm Pfautsch, Seitzergasse No. 423",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.966Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "d8oat6gscd71a5p"
+        }
+      ],
+      "source_id": "3ud8xgn640pkdum"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Gedenke Mein! ertönt vielfachen Rufes Klang; / Hört ihn, gedenket sein auf Eurem Lebensgang.",
+      "language": [],
+      "musenalm_id": 80639,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedenke Mein!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedenke Mein!",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "6amfcm6f0wya0xz"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 80639, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80640,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Spinne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Casey del. C. Kotterba sc.",
+      "scans": [
+        "alm_1797_80640_my2n1vb0ql.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Spinne",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.013Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.013Z",
+          "agent": "m13f2ep4cif54gn",
+          "source_id": "c9ypnnv0zva2eqc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.013Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.013Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "kar8k2tbgyifie7"
+        }
+      ],
+      "source_id": "gu4evwskj1cry5s"
+    },
+    {
+      "annotation": "s. vorstehende Graphik INr 80640, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Siehst Du in den grünen Ranken dort die böse Spinne / schweben? / Ach, in ihrem falschen Netze wird verbluten manches Leben;",
+      "language": [],
+      "musenalm_id": 80641,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Spinne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Isidor Lenz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Spinne",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "d1p0jk3i1tfmkjk"
+    },
+    {
+      "annotation": "s. folgende Seite /) Illustration zu »Wirbirge« von L. Tarnowski INr 80651, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80642,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Grevedon del. C. Kotterba sc.",
+      "scans": [
+        "alm_1797_80642_r363o5l71u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Selina",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.013Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.013Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "3ju7gbhigx0tz68"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.013Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.013Z",
+          "agent": "fnowuly66bkynwc",
+          "source_id": "sw6nzgbyhaplsi2"
+        }
+      ],
+      "source_id": "0is22aykfamoa3c"
+    },
+    {
+      "annotation": "s. vorstehende Graphik INr 80642, Obj 7 und Beitrag INr 80651, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80643,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selina. / Zur Novelle: / Wirbirge / von / Ladislaus Tarnowski. / Seite I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Selina. / Zur Novelle: / Wirbirge / von / Ladislaus Tarnowski. / Seite I.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "c5i2t9c4zkr6ixs"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 80645, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80644,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der spanische Krämer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Wilmer del. S. Langer sc.",
+      "scans": [
+        "alm_1797_80644_8qsqyq0xgf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der spanische Krämer",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.013Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.013Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "mahzpe2nuzveswn"
+        }
+      ],
+      "source_id": "ovddcaj14a4857f"
+    },
+    {
+      "annotation": "s. vorstehende Graphik INr 80644, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Kommt herbei ihr Leute alle, / Werft auf meinen Kram den Blick,",
+      "language": [],
+      "musenalm_id": 80645,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der spanische Krämer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Martinowich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der spanische Krämer",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "qwzevvfj46335k1"
+    },
+    {
+      "annotation": "s. folgende Seite INr 80647, Obj 12 /) Illustration zu »Die beiden Venezianer« von J. N. Vogl INr 80704, Obj 69",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80646,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bianca",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Maurin inv. C.Kotterba sc.",
+      "scans": [
+        "alm_1797_80646_fdn43bhq4b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bianca",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.005Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "fncezsjg4cmoejj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.005Z",
+          "agent": "1eb159cypt6gq9j",
+          "source_id": "xztlfrpegc46xh7"
+        }
+      ],
+      "source_id": "0kft742sz5u4ffp"
+    },
+    {
+      "annotation": "s. vorstehende Graphik INr 80642, Obj 7 und Beitrag INr 80704, Obj 69",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80647,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bianca. / Zur Novelle: / Die beiden Venezianer / von / Johann N. Vogl. / Seite 249",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bianca. / Zur Novelle: / Die beiden Venezianer / von / Johann N. Vogl. / Seite 249",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "8g4dt04296mgiuf"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 80649, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80648,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Jünglings Abschied vom Vaterhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Mauro del. S. Langer sc.",
+      "scans": [
+        "alm_1797_80648_pjhpqgntcg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Jünglings Abschied vom Vaterhaus",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.009Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "whsmaqqn3fzg406"
+        }
+      ],
+      "source_id": "nd0o4qu2cubwzhf"
+    },
+    {
+      "annotation": "s. vorstehende Graphik iNr 80648, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Die sich hienieden lieben so innig und rein, / Warum nicht dürfen immer sie bei einander sein?",
+      "language": [],
+      "musenalm_id": 80649,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Jünglings Abschied vom / Vaterhause",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Waldow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Jünglings Abschied vom / Vaterhause",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.009Z",
+          "agent": "nicecucaceak00n",
+          "source_id": "yby9u0g2macfw6s"
+        }
+      ],
+      "source_id": "55azz2s8lack3iw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80650,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedenke Mein! / Taschenbuch / für / 1840. / Neunter Jahrgang. / Mit sechs Kupfer- und Stahlstichen. / Wien und Leipzig. / Verlag von Friedrich Wilhelm Pfautsch. / Zu beziehen von allen Buchhandlungen des In- und Auslandes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1797_80650_mskrtfqh0y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gedenke Mein! / Taschenbuch / für / 1840. / Neunter Jahrgang. / Mit sechs Kupfer- und Stahlstichen. / Wien und Leipzig. / Verlag von Friedrich Wilhelm Pfautsch. / Zu beziehen von allen Buchhandlungen des In- und Auslandes",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "p4a8tvoq3btpyxr"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 80642, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.627Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Im großen Saale des Fürstenschlosses zu Olmütz war eine Versammlung von edlen Herren zu schauen.",
+      "language": [],
+      "musenalm_id": 80651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wirbirge. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ladislaus Tarnowski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wirbirge. / Historische Novelle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "pkaeeq8q1znjmsq"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 80653, 80654; Obj 18, 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.627Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chr. Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.009Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "vc1jd94fod7nymr"
+        }
+      ],
+      "source_id": "ixo04nx1sulgkio"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80652, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Verwaiste Kinder tragen eine Waise; / Verwaiste Kinder wandeln hinter'm Sarg;",
+      "language": [],
+      "musenalm_id": 80653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Des Waisenkindes Begräbniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chr. Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Des Waisenkindes Begräbniß",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.994Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "ds5j22vv6eeg259"
+        }
+      ],
+      "source_id": "c4r1ss2byuspi86"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80652, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Lilienbleich und marmorkalt / Lag des holden Kindes Leiche / Auf der Bahr' im Todesschlaf",
+      "language": [],
+      "musenalm_id": 80654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Des todten Kindes Wiederkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chr. Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Des todten Kindes Wiederkehr",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.994Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "8jng9pgja3aeloh"
+        }
+      ],
+      "source_id": "msylyhatraug8bf"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 80656, 80657; Obj 21,22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.994Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "hixi0b6j1szp73k"
+        }
+      ],
+      "source_id": "nv1m24mq1ixp6ww"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80655, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Die Sonne sinkt! - Den Berg hinauf, / Nachstrebend ihrem schönen Schein, / Nehm' ich am Wanderstab den Lauf -",
+      "language": [],
+      "musenalm_id": 80656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Abendwanderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Abendwanderung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.994Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "4ot0wkt7o1jxpew"
+        }
+      ],
+      "source_id": "axssok2rgf6vtja"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80655, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Unter der Erde ist Schlaf; über der Erde ist Traum! / Zwischen dem Schlaf und dem Traum wandeln, wie Gei- / ster, wie Stern, / Leuchtende Klarheiten hin.",
+      "language": [],
+      "musenalm_id": 80657,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Mitternachts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Mitternachts",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.994Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "ad1d8ra9hwqbqjz"
+        }
+      ],
+      "source_id": "ozekj2n6brt7s85"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "In des Münsters hehrem Dunkel sitz' ich still; ein matter / Schein / Fällt durch die bemalten Fenster in die heil'ge Nacht herein.",
+      "language": [],
+      "musenalm_id": 80658,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Dome",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carlopago",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Dome",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.994Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.994Z",
+          "agent": "xaj6m1llkx5hiyx",
+          "source_id": "yu8f1i4p490qfzh"
+        }
+      ],
+      "source_id": "rdgaimkl04bbb5i"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 80660-80663, Obj 25-28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.850Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "5vn6r718g4j22yf"
+        }
+      ],
+      "source_id": "869j27vloctl3yv"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80661, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Zum Fenster schau' ich trüb hinaus, / Mein Herz pocht wie im Fieber;",
+      "language": [],
+      "musenalm_id": 80660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Herbstschmerzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Herbstschmerzen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.850Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "d48x3959bmkiy85"
+        }
+      ],
+      "source_id": "jpssof3f9j5nbb4"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80661, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Die Welt ist müd von Leiden, / Von Arbeit, Müh' und Plag';",
+      "language": [],
+      "musenalm_id": 80661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Abendröthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Abendröthe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.012Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.012Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "jtozcxvdqxvg6tj"
+        }
+      ],
+      "source_id": "kzpkjr4a2785hhj"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80661, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Trarara! Trarara! / Das Posthorn schallt / Fern und nah, fern und nah / Durch den Wald.",
+      "language": [],
+      "musenalm_id": 80662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Posthorn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Posthorn",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.012Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.012Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "iezw2vv1oq86l0o"
+        }
+      ],
+      "source_id": "ecjowqxkltsls3n"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80661, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Bergesluft / Haucht um uns're Glieder; / Waldesduft / Strömt auf uns hernieder.",
+      "language": [],
+      "musenalm_id": 80663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Berglied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Berglied",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.013Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.013Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "se8fh6qusgk663m"
+        }
+      ],
+      "source_id": "glmdlr01ezello1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Noch liegt der Morgen rings auf den Höhen, / Die Nebel kalt und dicht, / In den Schluchten, wo die Tannen stehen",
+      "language": [],
+      "musenalm_id": 80664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Alpenjäger. / Erzählende Dichtung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Wilhelm Mair",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Alpenjäger. / Erzählende Dichtung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "nacyuvn8pqsgpca"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 80666-80668, Obj 31-33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei Lieder von der Rose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Breier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei Lieder von der Rose",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "d4s1daj97h9bire"
+    },
+    {
+      "annotation": "Drei Lieder von der Rose (Sammlung INr 80665, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Wohl schön und prächtig blühen Blumen / Auf uns'rer Erde fern und nah;",
+      "language": [],
+      "musenalm_id": 80666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Edensblume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Breier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Edensblume",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "x2pvsrritubzoud"
+    },
+    {
+      "annotation": "Drei Lieder von der Rose (Sammlung INr 80665, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Reich geschmückt von Glanz und Schimmer / Lag der Frühling neu enthüllt,",
+      "language": [],
+      "musenalm_id": 80667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Rose Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Breier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Rose Klage",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "9xk2f323o1gxruy"
+    },
+    {
+      "annotation": "Drei Lieder von der Rose (Sammlung INr 80665, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "O Herr, der gütig mich geschaffen, / Mir liebvoll Glanz und Duft gegeben,",
+      "language": [],
+      "musenalm_id": 80668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Rose Gebet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Breier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Rose Gebet",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "ib7d8bkgxbs0o48"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Sieh' dort an sand'ger Stelle / In reiner Aetherhelle / Beim Wald der Bambushalme / Die ausgewach'sne Palme.",
+      "language": [],
+      "musenalm_id": 80669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schirmpalme. / (Corypha umbraculifera.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Bube",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schirmpalme. / (Corypha umbraculifera.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.961Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.961Z",
+          "agent": "e0feijwjpugv8vg",
+          "source_id": "vxbtpf7fu8b7ow1"
+        }
+      ],
+      "source_id": "suugbzi2fbubt9v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Im Thurm der Gefangene schmachtet, / Die Seele vom Jammer umnachtet,",
+      "language": [],
+      "musenalm_id": 80670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der falsche Zeuge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Pfizer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der falsche Zeuge",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.961Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.961Z",
+          "agent": "sv92qni765t0f64",
+          "source_id": "j97vd6l4uj62htm"
+        }
+      ],
+      "source_id": "iru8ha1u9mb2xkr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Fern der Stadt und ihren Lüsten / Schlummert' ich im Gärtchen hier,",
+      "language": [],
+      "musenalm_id": 80671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traum im Gärtchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp von Körber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Traum im Gärtchen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "f0icnv6iyt0bwtc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Ein Jüngling saß mit düst'ren Mienen / In grüner Gräber Mitte da,",
+      "language": [],
+      "musenalm_id": 80672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Warnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Warnung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.962Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "5pfv0bj0tj9eh3v"
+        }
+      ],
+      "source_id": "kuk8lgarq0y45dm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Es ist unmöglich! sagte Malchen mit einem tiefen Seufzer und sah Eduard mit Augen voll Thränen an, niemals kann ich Ihre Gattin werden!",
+      "language": [],
+      "musenalm_id": 80673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arm und reich. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Leonhardt-Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Arm und reich. / Erzählung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.962Z",
+          "agent": "3tut4t2f7uno1ba",
+          "source_id": "rzt6e02mc38ckv9"
+        }
+      ],
+      "source_id": "i3hpi7orj94h83u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Ich saß mit ihr im Grünen, / Wir waren Beid' allein",
+      "language": [],
+      "musenalm_id": 80674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erdbeere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst v. Brunnow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erdbeere",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "7utrgofvxms1mme"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 80676, 80677; Obj 41, 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte. / Zwei Ausgrabungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roswitha Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte. / Zwei Ausgrabungen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.962Z",
+          "agent": "3xtuaei5ajd8iii",
+          "source_id": "mrem14er540suhk"
+        }
+      ],
+      "source_id": "w8g7wpr4fsflpw4"
+    },
+    {
+      "annotation": "Gedichte. Zwei Ausgrabungen (Sammlung INr 80675, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Ein Taubenpaar sah manchen Lenz entschwinden / Im Schutz der niedern, strohbedeckten Hütte,",
+      "language": [],
+      "musenalm_id": 80676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Taubenpaar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roswitha Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Taubenpaar",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.962Z",
+          "agent": "3xtuaei5ajd8iii",
+          "source_id": "vd783rfx4tqdpnt"
+        }
+      ],
+      "source_id": "gfd606v0eflhvqt"
+    },
+    {
+      "annotation": "Gedichte. Zwei Ausgrabungen (Sammlung INr 80675, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Prinz Adelar, das kranke Herz zu heilen, / Will länger noch am heil'gen Tiberstrand, / Im Reich der Kunst und mildern Sonne weilen,",
+      "language": [],
+      "musenalm_id": 80677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Grabeslampe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Roswitha Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Grabeslampe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "3xtuaei5ajd8iii",
+          "source_id": "vrg78dh7lovfs4b"
+        }
+      ],
+      "source_id": "1xgubmgyt5tjfc0"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 80679-80681, Obj 44-46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balladen und Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Balladen und Romanzen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "osrvv1kpz4bnao3"
+        }
+      ],
+      "source_id": "t0etgtgrx6tgt7a"
+    },
+    {
+      "annotation": "Balladen und Romanzen (Sammlung INr 80678, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Vor Großwardein gelagert das Heer der Ungarn liegt, / Kinisy Päl, ihr Führer, das Haupt voll Sorgen wiegt,",
+      "language": [],
+      "musenalm_id": 80679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Türkenflaschen zu Großwardein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Türkenflaschen zu Großwardein",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "tni3d1cjdz95ap7"
+        }
+      ],
+      "source_id": "i7woewfqm280i6t"
+    },
+    {
+      "annotation": "Balladen und Romanzen (Sammlung INr 80678, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Eine bleiche Jungfrau harret / Am öden Meeresstrand.",
+      "language": [],
+      "musenalm_id": 80680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Schwur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Schwur",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "xl7bcf0ksrf87jp"
+        }
+      ],
+      "source_id": "5bxff7unfo0dspr"
+    },
+    {
+      "annotation": "Balladen und Romanzen (Sammlung INr 80678, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Das Schiff durchfliegt die Wogen, der Tag ist hell und klar, / Nur im Verdecke wimmert's; es ist der Sklaven Schaar.",
+      "language": [],
+      "musenalm_id": 80681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Tanz und Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Tanz und Musik",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "wvkvfzs5gjilehh"
+        }
+      ],
+      "source_id": "gihxi2btm7kufgk"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 80683, 80684; Obj 48, 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Waldow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "nicecucaceak00n",
+          "source_id": "2epa11qmrlucj55"
+        }
+      ],
+      "source_id": "endshdyf39u2zcn"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80682, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Nach einem Kleinod strebten / Die Menschen oft und viel,",
+      "language": [],
+      "musenalm_id": 80683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stein der Weisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Waldow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stein der Weisen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.939Z",
+          "agent": "nicecucaceak00n",
+          "source_id": "4fzcfbn9a2v5wcj"
+        }
+      ],
+      "source_id": "zbzc6tzqzowvni7"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80682, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Es gibt im Menschenherzen / So viel verborg'ne Schmerzen, / Die keiner kennt und sieht,",
+      "language": [],
+      "musenalm_id": 80684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schmerz und Freude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Waldow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schmerz und Freude",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.803Z",
+          "agent": "nicecucaceak00n",
+          "source_id": "b6pzqhs9cmlv161"
+        }
+      ],
+      "source_id": "z1et3d54r6p5yx0"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 80686, 80687; Obj 51, 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.803Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "fkg7d334j5s9q06"
+        }
+      ],
+      "source_id": "u751mbo1pet9x1y"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80685, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Die blut'ge Mamelukenschlacht am Nil, / Am Fuße sandumstarrter Pyramiden,",
+      "language": [],
+      "musenalm_id": 80686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Schlacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Schlacht",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "qzn10f0vdb2fm2z"
+        }
+      ],
+      "source_id": "m7oj9606uf1m9rq"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80685, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Du dauerst mich, verblühtes Thalgefilde; / Der Sommer hat dich allzuwarm geküßt.",
+      "language": [],
+      "musenalm_id": 80687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Herbstlandschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Herbstlandschaft",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "ykdw3fj0z6yyxoz"
+        }
+      ],
+      "source_id": "5c8ak9008vwxbvt"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 80637, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Ein schöner Sommermorgen stand über Bad Nirenborn, die Luft zitterte frisch und elastisch über Wiese und Wald; und die Quellnymphe hatte ihre Urne mit dem Thaue der Nacht gefüllt.",
+      "language": [],
+      "musenalm_id": 80688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Bade-Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Bade-Novelle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "snndqassjoh7vf0",
+          "source_id": "3alw5u7c9uw18wd"
+        }
+      ],
+      "source_id": "r4jwtxn60f9t0zj"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 80690-80695, Obj 55-60",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eindrücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eindrücke",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "psp437r9q91hzwa"
+        }
+      ],
+      "source_id": "bdg7k0z2svvo3pi"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80689, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Quelle, was sagst du mir? / Sagst mir: Ein Mann war hier.",
+      "language": [],
+      "musenalm_id": 80690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / An der Quelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / An der Quelle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "elbmx3tc0j4ief7"
+        }
+      ],
+      "source_id": "jahm195b6q97s2z"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80689, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Ein herrliches Landschaftsbildchen / Des größten Meisters werth!",
+      "language": [],
+      "musenalm_id": 80691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Malerzeichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Malerzeichen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "r7s1p9wfm8jxipp"
+        }
+      ],
+      "source_id": "48cc23689bxb55h"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80689, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Ihr Glücklichen in Euren Mauern / Voll Lebensrausch, voll Wechselspiel,",
+      "language": [],
+      "musenalm_id": 80692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Kleinstadtleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Kleinstadtleben",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "xb38yv4v62qk0v9"
+        }
+      ],
+      "source_id": "0a7f97zlnqg3d8z"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80689, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Gar lustig rieselt eine Quelle / Krystallen aus des Berges Brust;",
+      "language": [],
+      "musenalm_id": 80693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Überfluthung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Überfluthung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.808Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.808Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "kb4jixa7hrfmhar"
+        }
+      ],
+      "source_id": "lric583hl9fzl9q"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80689, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "Im grünen Wald ist große Ruh', / Ist unsichtbares Leben;",
+      "language": [],
+      "musenalm_id": 80694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Waldszene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Waldszene",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.980Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.980Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "d3jwk082f6l31vq"
+        }
+      ],
+      "source_id": "zsspad0q0i023r3"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80689, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Gradüber meinem Stubenfenster / Da steht ein schmuckes, neues Haus,",
+      "language": [],
+      "musenalm_id": 80695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Täuschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Täuschung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.980Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.980Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "jqe4crtalapcu9k"
+        }
+      ],
+      "source_id": "9gi3vp2nqb2hvix"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 80697, 80698; Obj 62, 63",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "wu0kfd1a84y22wa"
+        }
+      ],
+      "source_id": "x9o9w4nnqd88s1c"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80696, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Von kriegerischen Tönen / Schallt wider Hag und Haus,",
+      "language": [],
+      "musenalm_id": 80697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der bekannte Ton",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der bekannte Ton",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "ju4wckminsp5yzr"
+        }
+      ],
+      "source_id": "0zctbfxsg2pcnl1"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 80696, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Ist das nicht die wilde Jagd? / Horch, wie Hagelschlossen / Rauscht es hin durch Busch und Baum / Auf den schnellsten Rossen.",
+      "language": [],
+      "musenalm_id": 80698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Parforcejagd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Parforcejagd",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "xuask8dj4vtx04a"
+        }
+      ],
+      "source_id": "07xjjppjy8827xm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Im Thale von Anzaska, welches von der Straße durchschnitten wird, die vom Lago Maggiore nach der Schweiz führt, gibt es Leute, die seit Menschen Gedneken vom Vater auf Sohn nur davon leben, daß sie nach Gold schürfen,",
+      "language": [],
+      "musenalm_id": 80699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Goldgräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leigh Ritchie [übers.] A. Freiherr von Fahnenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Goldgräber",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "c6b8nhaccjm298r"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 80701-80703, Obj 66-68",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andr. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonette",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "kzuz9j4aiwf1ys4"
+        }
+      ],
+      "source_id": "o5q9tkltnx5u3wx"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 80700, Obj 65)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Die Rose süßer Liebe blickt entfaltet / Herüber aus dem grünen Hain des Lebens,",
+      "language": [],
+      "musenalm_id": 80701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mainacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andr. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mainacht",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "9php8m0dh2nl3ar"
+        }
+      ],
+      "source_id": "i9lq5mqs9ohg4vm"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 80700, Obj 65)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Ich seh' ein Thal, das Berge rings umfrieden, / Mit Wiesen, Au'n und niedern Alpenhütten,",
+      "language": [],
+      "musenalm_id": 80702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tempe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andr. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tempe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "wd8ip6jpcyw0oii"
+        }
+      ],
+      "source_id": "6zpdbldg9o2c6qw"
+    },
+    {
+      "annotation": "Sonette (Sammlung INr 80700, Obj 65)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Ich seh' ein Meer, deß Wogen finster rollen, / als dunkle Wasserriesen mächtig schreitend.",
+      "language": [],
+      "musenalm_id": 80703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sturm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andr. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sturm",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.911Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "iimtt828z21jrzm"
+        }
+      ],
+      "source_id": "8j1okelpela9jwt"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 80646, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Es war vor der Schlacht bei Chioggia, welche der Untergang oder die Unabhängigkeit Venedigs entscheiden sollte,",
+      "language": [],
+      "musenalm_id": 80704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Venezianer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Venezianer",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "afip3h5p17cju5j"
+        }
+      ],
+      "source_id": "lusdlvcs2r559ym"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80705,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "0y4q9tpdmbcntnb"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80706,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "7uh3iaz068fcgxw"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80707,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1797_80707_wqhk0ku5wt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "p2cs7if9fsuj2m0"
+    }
   ],
   "agents": [
     {

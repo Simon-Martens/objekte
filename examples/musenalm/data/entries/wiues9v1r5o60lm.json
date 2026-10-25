@@ -48,38 +48,1190 @@
   "year": 1816,
   "editor": "",
   "items": [
-    "giy5aim02xdjmpz"
+    {
+      "annotation": "1812-1818, 1815 nicht erschienen.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.463Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106670",
+      "location": "105A04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.463Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "giy5aim02xdjmpz"
+    }
   ],
   "contents": [
-    "a78gpvbx6axxkrz",
-    "ct8uhgtt078yv78",
-    "z49gs0prirr8af8",
-    "z80yrlcdrrbd9jx",
-    "ue77d71exutpi1n",
-    "futl08yc7ac1nwp",
-    "vmryj2piypyfm69",
-    "xei25lmcqkekjed",
-    "5wj18cr7jdphdr5",
-    "pgtkvnh50dutt7m",
-    "dv33cn9s0hl3yu9",
-    "vrsupa2ry2v2jyw",
-    "3bx4y384r7qcuos",
-    "cdyy8ph7q3w5rlv",
-    "jfve24kj685n3ks",
-    "4d7zgz8h8c4uyct",
-    "brptc7zerby172z",
-    "iyxp8fwmpg2cgib",
-    "51tgfqc3igklqaj",
-    "a6ddnv6d6i2dxuc",
-    "ot9c4iu2yt19dex",
-    "f0r2kylh9vn8cn3",
-    "1djw6agvyqtx2yl",
-    "ur72gl7iynp6sa5",
-    "ckzieythe2gqe6n",
-    "hma6a9q8b0s51b5",
-    "a6f0rjy1zxu6uyl",
-    "1pgmhkop0012l1o",
-    "nx31ib3zgcq2rme"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92115,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3059_92115_bfawdcm2rr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "a78gpvbx6axxkrz"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Riegersburg in Steyermark« von I. Kollmann INr 92142, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92116,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Riegersburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Pfitzer sc.",
+      "scans": [
+        "alm_3059_92116_tqibtzgg75.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Riegersburg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.559Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.559Z",
+          "agent": "1px845aqci1g2n0",
+          "source_id": "31eab0kw12u1i6d"
+        }
+      ],
+      "source_id": "ct8uhgtt078yv78"
+    },
+    {
+      "annotation": "Titelvignette: J. B. Pfitzer sc.: Die Ruine in Klosterneuburg /) s. hierzu: »Empfindungen bey dem Besuche des alten Schlosses zu Klosterneuburg im J. 1797« von J. v. Hammer-Purgstall INr 92129, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92117,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / Natur- und Kunst-Merkwürdigkeiten / der Österreichischen Monarchie. / Vierter Jahrgang. / Wien, 1816. / Im Verlage bey Anton Doll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3059_92117_sgobe57gco.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / Natur- und Kunst-Merkwürdigkeiten / der Österreichischen Monarchie. / Vierter Jahrgang. / Wien, 1816. / Im Verlage bey Anton Doll",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "z49gs0prirr8af8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92118,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem / wohlgebornen / Herrn Franz Schams / in Peterwardein, / meinem  verehrtesten Freunde, / zum / öffentlichen Beweise / herzlicher Hochachtung, / zum Danke / so vieler in seiner geistreichen und höchst angenehmen Ge- / sellschaft verlebten Stunden, / und zur gerechten Würdigung seiner / schriftstellerischen Verdienste, / widmet / dieses Werkchen / der Herausgeber / Dr. Franz Sartori",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem / wohlgebornen / Herrn Franz Schams / in Peterwardein, / meinem  verehrtesten Freunde, / zum / öffentlichen Beweise / herzlicher Hochachtung, / zum Danke / so vieler in seiner geistreichen und höchst angenehmen Ge- / sellschaft verlebten Stunden, / und zur gerechten Würdigung seiner / schriftstellerischen Verdienste, / widmet / dieses Werkchen / der Herausgeber / Dr. Franz Sartori",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.560Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "uzxg6fsrmgf4u5z"
+        }
+      ],
+      "source_id": "z80yrlcdrrbd9jx"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zwey Jahre sind es, als ich mit der Fortsetzung dieses Taschenbuches die Nachsicht des Publicums das letzte Mahl in Anspruch nahm. Zeichnungen, Kupferstiche und der Druck machten es unmöglich, den Jahrgang 1815 zu liefern.",
+      "language": [],
+      "musenalm_id": 92119,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.560Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "m6j1k5bve7txg0e"
+        }
+      ],
+      "source_id": "ue77d71exutpi1n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92120,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "futl08yc7ac1nwp"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92121,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vom Herausgeber dieses Taschenbu- / ches sind nachstehende Werle in mei- / nem Verlage erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vom Herausgeber dieses Taschenbu- / ches sind nachstehende Werle in mei- / nem Verlage erschienen:",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "vmryj2piypyfm69"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahlerisches Taschenbuch / für / Freunde interessanter Gegenden, Natur- und Kunst- / merkwürdigkeiten der österreichischen Monarchie. / Vierter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mahlerisches Taschenbuch / für / Freunde interessanter Gegenden, Natur- und Kunst- / merkwürdigkeiten der österreichischen Monarchie. / Vierter Jahrgang",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "xei25lmcqkekjed"
+    },
+    {
+      "annotation": "Illustration zu »Der weiße und der grüne See in den Karpathen in Ungern« Von C. Genersich INr 92124, Obk 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der grüne See auf den Karpathen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Pfitzer sc.",
+      "scans": [
+        "alm_3059_92123_3ax801c0g8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der grüne See auf den Karpathen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.560Z",
+          "agent": "1px845aqci1g2n0",
+          "source_id": "llvtb363t3qkp4s"
+        }
+      ],
+      "source_id": "5wj18cr7jdphdr5"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 92123, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der länglichtschmahle weiße See liegt im Vordergunde. An ihm liegt eine Gruppe abgerundeter, mit bemoostem Gerölle bekleideter Kieselsinter- und Urbreccien- Berge,",
+      "language": [],
+      "musenalm_id": 92124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der weiße und der grüne See in den Karpathen in / Ungern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prediger Christian Genersich in Käsmark",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der weiße und der grüne See in den Karpathen in / Ungern",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.560Z",
+          "agent": "gtqx9e08ugzg95x",
+          "source_id": "nfvku4cf72j10t4"
+        }
+      ],
+      "source_id": "pgtkvnh50dutt7m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Das Schwefelbad, reich an Schwefel, aber auch einer piquanten Säure, wird auch wegen seiner Heilkräfte häufig besucht.",
+      "language": [],
+      "musenalm_id": 92125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das Schwefelbad und die Leibitzer Berge in der / Zispergespannschaft in Ungern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prediger Christian Genersich in Käsmark",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das Schwefelbad und die Leibitzer Berge in der / Zispergespannschaft in Ungern",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.560Z",
+          "agent": "gtqx9e08ugzg95x",
+          "source_id": "ie4zlzikl1t3y4q"
+        }
+      ],
+      "source_id": "dv33cn9s0hl3yu9"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Die obere Steyermark ist von einem kernhaften Schlage Menschen bewohnet. Ihr Eingeborner hat einen etwas höhern und stärkern Körperbau als der angränzende Kärnthner,",
+      "language": [],
+      "musenalm_id": 92126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Nachträgliche Bemerkungen zu den Schilderungen / der Bewohner Mittelkärnthens und der obern Steyermark. / Von Dr. Schultes, Kajetan und Dr. Fr. Sarorius",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Prf. v. Erd",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Nachträgliche Bemerkungen zu den Schilderungen / der Bewohner Mittelkärnthens und der obern Steyermark. / Von Dr. Schultes, Kajetan und Dr. Fr. Sarorius",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "vrsupa2ry2v2jyw"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Das Wietingthal, nach einem Bache, den endlich die Gurk aufnimmt so genannt, streckt sich durch 4 Stunden hinab, und ist auf der Südseite von den herrlichen Saualpen,",
+      "language": [],
+      "musenalm_id": 92127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Das Wietingthal in Kärnthen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Prf. v. Erd",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Das Wietingthal in Kärnthen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "3bx4y384r7qcuos"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Am Erdrücken St. Paul gegenüber fanden wir über einer Höhle, welche die Fuchshöhle genannt wird, und ohngefähr zwölf Klafter lang ist, eine Menge versteinerter Muscheln und Meerschnecken.",
+      "language": [],
+      "musenalm_id": 92128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Felsengebilde ober Eberstein und St. Walbur- / gen gegenüber",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Prf. v. Erd",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Felsengebilde ober Eberstein und St. Walbur- / gen gegenüber",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "cdyy8ph7q3w5rlv"
+    },
+    {
+      "annotation": "mit einem Nachwort INr 92130, Obj 16 /) s. Titelvignette INr 92117, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Was für ahnungsvolle Schauer / aus dem Grau der Väterzeit, / Was für Bilder von der Dauer / Schimmervoller Wenigkeit,",
+      "language": [],
+      "musenalm_id": 92129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Empfindungen bey dem Besuche des alten Schlosses / zu Klosterneuburg im J. 1797",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. von Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Empfindungen bey dem Besuche des alten Schlosses / zu Klosterneuburg im J. 1797",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.560Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.560Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "bsf5j6fvru8z8zo"
+        }
+      ],
+      "source_id": "jfve24kj685n3ks"
+    },
+    {
+      "annotation": "Nachwort zum vorstehenden Gedicht INr 92129, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Eine der größten Merkwürdigkeiten von Klosterneuburg sind die Überbleibsel des von den Babenbergern erbauten Fürstenhofes,",
+      "language": [],
+      "musenalm_id": 92130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine der größten Merkwürdigkeiten von Klosterneuburg sind die Überbleibsel des von den Babenbergern erbauten Fürstenhofes,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. von Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.564Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "jlj79y3h49zlxjx"
+        }
+      ],
+      "source_id": "4d7zgz8h8c4uyct"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Des Abends Schleyer dämmern / Im thaubesprengten Thal, / Die müden Schnitter hämmern / Den ausgewetzten Stahl;",
+      "language": [],
+      "musenalm_id": 92131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Hainbuch. / Ein Abendgemählde. / Gesungen im J. 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. von Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Hainbuch. / Ein Abendgemählde. / Gesungen im J. 1798",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.564Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "2of2bhd9lsa7i7o"
+        }
+      ],
+      "source_id": "brptc7zerby172z"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Ich glaube kaum, daß es einen Badort gibt, der, wie gegenwärtig Baden, siebzehn, zu gemächlichem Gebrauch für Kranke verschiedener Classen eingerichtete Heilquellen aufzuweisen hat.",
+      "language": [],
+      "musenalm_id": 92132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die Bäder von Baden bey Wien, / in ihrer neuen Gestalt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die Bäder von Baden bey Wien, / in ihrer neuen Gestalt",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.564Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "bg05gdprco7tv0s"
+        }
+      ],
+      "source_id": "iyxp8fwmpg2cgib"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Ihr kennet mein Dörfchen, und sahet dabey / Den stattlichen Kobel auch prangen;",
+      "language": [],
+      "musenalm_id": 92133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traum. / Allen Freunden Weidlings gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justine Freyinn von Krufft",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Traum. / Allen Freunden Weidlings gewidmet",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "51tgfqc3igklqaj"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Gedicht INr 92135, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Die Trümmer der Schlösser Königsberg in der Steyermark und Kaisersberg in Kroatien, auf zwey steilen Bergen einander gegenüber gelegen,",
+      "language": [],
+      "musenalm_id": 92134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ruinen v. Kaisersberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kalchberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ruinen v. Kaisersberg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.428Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.428Z",
+          "agent": "h496zc5w34vctbd",
+          "source_id": "032mxqu5729ryik"
+        }
+      ],
+      "source_id": "a6ddnv6d6i2dxuc"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 92134, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Wanderer, siehst du die Zinnen / Jener einsamen Ruinen; / Noch in ihren Trümmern groß?",
+      "language": [],
+      "musenalm_id": 92135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Ruinen v. Kaisersberg]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kalchberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Ruinen v. Kaisersberg]",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.428Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.428Z",
+          "agent": "h496zc5w34vctbd",
+          "source_id": "m47vdi86q7yv4pq"
+        }
+      ],
+      "source_id": "ot9c4iu2yt19dex"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "O! wären Sie doch selbst neben mir unter meinem Birnbaum, in dessen dunklem Wipfel sich der leise Athem des Abendwindes mit angenehmen Geflüster regt,",
+      "language": [],
+      "musenalm_id": 92136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mariatrost, / ein romantischer Wallfahrtsort bey Grätz. / (Aus einem Schreiben des Herrn J. A. Kumar an Marie Clementine / von Burgwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Kumar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mariatrost, / ein romantischer Wallfahrtsort bey Grätz. / (Aus einem Schreiben des Herrn J. A. Kumar an Marie Clementine / von Burgwalden",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "f0r2kylh9vn8cn3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Freund! Du weißt, daß ich der berühmten Gämsejagd im Rauchthale beywohnte, und du forderst eine Beschreibung davon?",
+      "language": [],
+      "musenalm_id": 92137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gämsejagd / im Rauchthale in Obersteyer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kumar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gämsejagd / im Rauchthale in Obersteyer",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "1djw6agvyqtx2yl"
+    },
+    {
+      "annotation": "Illustration zu Mölk« von F. Sartori INr 92139, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Pfitzer sc.",
+      "scans": [
+        "alm_3059_92138_jpahkemnge.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melk",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.428Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.428Z",
+          "agent": "1px845aqci1g2n0",
+          "source_id": "2nqmwo0mtwmalfz"
+        }
+      ],
+      "source_id": "ur72gl7iynp6sa5"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 92138, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Wenn ich von diesem Orte spreche, so muß ich meine Leser wohl aufmerksam machen, daß sie den Marktflecken gleichen Nahmens von dem berühmten Benedictiner-Stifte genau unterscheiden.",
+      "language": [],
+      "musenalm_id": 92139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mölk",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mölk",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.428Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.428Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "uk8bvesvlla4n1y"
+        }
+      ],
+      "source_id": "ckzieythe2gqe6n"
+    },
+    {
+      "annotation": "Illustration zu »Göttweih« von F. Sartori INr 92141, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göttweih",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Pfitzer sc.",
+      "scans": [
+        "alm_3059_92140_zgx1h4abm8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göttweih",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.556Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.556Z",
+          "agent": "1px845aqci1g2n0",
+          "source_id": "wiawftkekvqfmkm"
+        }
+      ],
+      "source_id": "hma6a9q8b0s51b5"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 92140, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Dieses Benedictiner-Stift in ältern Urkunden Gottwig, insgemein auch Köttwein genannt, liegt zehn Meilen westwärts von Wien,",
+      "language": [],
+      "musenalm_id": 92141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göttweih",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Göttweih",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.556Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.556Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "9ov18txd548brf0"
+        }
+      ],
+      "source_id": "a6f0rjy1zxu6uyl"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 92116, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Ich warf mich den 23. July sehr früh ganz allein in den Wagen, und ein Paar muthige Rappen flogen mit mir die Straße nach Gleisdorf.",
+      "language": [],
+      "musenalm_id": 92142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Riegersburg in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kollmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Riegersburg in Steyermark",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.557Z",
+          "agent": "uby3dbjfjyo2i58",
+          "source_id": "w25rnp3fnu57gq0"
+        }
+      ],
+      "source_id": "1pgmhkop0012l1o"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92143,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3059_92143_9au9v4mvnd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "nx31ib3zgcq2rme"
+    }
   ],
   "agents": [
     {

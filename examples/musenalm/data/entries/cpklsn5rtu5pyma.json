@@ -48,7 +48,26 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "wvt99tnjpo03x5k"
+    {
+      "annotation": "s. a. Titelauflage 1814",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.677Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404786",
+      "location": "105K06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.677Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wvt99tnjpo03x5k"
+    }
   ],
   "contents": [],
   "agents": [

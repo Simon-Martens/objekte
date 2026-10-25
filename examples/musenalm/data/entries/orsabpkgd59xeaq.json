@@ -48,56 +48,2050 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "bqsi51wps7k4dqx",
-    "c2zlhj0vntzk46e"
+    {
+      "annotation": "UG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.531Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "411246",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.531Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bqsi51wps7k4dqx"
+    },
+    {
+      "annotation": "ohne UG",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.531Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100857",
+      "location": "105N03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.531Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "c2zlhj0vntzk46e"
+    }
   ],
   "contents": [
-    "zf5g80v5vstkrr2",
-    "owpb9ta92qbh97d",
-    "8qw6p9yj5dnxjm4",
-    "irl6lws96y85oz0",
-    "uouo5xbmq7aot0p",
-    "c0oxjo8rzl9gbcl",
-    "5s8tgnaxv1um5ln",
-    "st12b7kl1inessl",
-    "64n92wue3ox8vyy",
-    "kjd0xt83oa2u8w5",
-    "cnbxff4sh3z55qc",
-    "7wbvwm28ocd5m2c",
-    "zb13n8y7ktxzf8u",
-    "h9tgzlsk6cteyut",
-    "f03043xya6e4wd1",
-    "sifjq1s4c9ffxp4",
-    "gunhk9t1gly523x",
-    "ssx9plio8otce5n",
-    "bhdioscjg80f3in",
-    "wgn0fnpjso3bf5d",
-    "5mllor5dottluul",
-    "ovzdnluus7dbp29",
-    "b9v25bqbl4og9ou",
-    "ota9lcyl9hfgp1u",
-    "qe60an4muj7m8ci",
-    "skyh952n3etn166",
-    "37bd48ttds08dej",
-    "6cpwy9el7fxbua2",
-    "nidoahbt349bzyk",
-    "utusnju26vsbruh",
-    "5xo1drqs0ehkd2s",
-    "jaiilibpl1rybji",
-    "s8s0zyn45qc6kh1",
-    "mdqz3n1f67w7pvj",
-    "3l6oxlu6ow37x1a",
-    "ngaldg7mgnlits2",
-    "5etltt3e4leioax",
-    "6ywww2p8a1t3jsd",
-    "ubb867l649pnjhe",
-    "whhi1b7vafbw73z",
-    "qtzio7vi5xcpvqz",
-    "2shrkc2y3c1vyvn",
-    "eqakx286he4xkrv",
-    "0zd05cmqnsgcr9h",
-    "8lzomvbiqea1k2m",
-    "4qb0vanlci62dzx"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129822,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1042_129822_b6ud58ajfa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "zf5g80v5vstkrr2"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129823,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1042_129823_1i8faibuqk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "owpb9ta92qbh97d"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. /) Titelportrait s. Textbezug INr 63469, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63466,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Luise, Königin von Belgien, geb Prinzessin von Orleans #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1042_63466_ip3iungi9k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Luise, Königin von Belgien, geb Prinzessin von Orleans #",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "8qw6p9yj5dnxjm4"
+    },
+    {
+      "annotation": "graph.-typograph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63467,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / auf das Jahr / 1834. / HERAUSGEGEBEN / von / Aloys Schreiber. / 19. Jahrgang. Neue Folge 11. Jahrgang mit Kupfern / HEIDELBERG / im Verlag von Joseph Engelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1042_63467_du6zghxpai.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / auf das Jahr / 1834. / HERAUSGEGEBEN / von / Aloys Schreiber. / 19. Jahrgang. Neue Folge 11. Jahrgang mit Kupfern / HEIDELBERG / im Verlag von Joseph Engelmann",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "irl6lws96y85oz0"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu den Graphiken des Almanachs s. Anm. an den Objekten",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63468,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu den Kupfern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu den Kupfern",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "8z2dgd2xj5xhud5"
+        }
+      ],
+      "source_id": "uouo5xbmq7aot0p"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Titelportrait INr 63466, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Haus Orleans bildet eine Seitenlinie der ältern Bourbone und stammt von Philipp I. ab, einem Bruder Ludwigs XIV. Philipp starb am 6. Juniy1701.",
+      "language": [],
+      "musenalm_id": 63469,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Luise, Königin von Belgien, / geb. Prinzessin von Orleans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Luise, Königin von Belgien, / geb. Prinzessin von Orleans",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "0cmkhxegbzeiwfg"
+        }
+      ],
+      "source_id": "c0oxjo8rzl9gbcl"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63479, Obj 14 /) Dem Text vorangestellt: Ziehet hin auf eure Blutgerüste, unter eure Opferthore auf eure Tarpejischen Felsen, ihr großen Seelen über der Erde! Schwingt euch kühn auf die schwarzen Flügel des Todesengels, sie werden bunt entglimmen, wenn sie euch berühren und tragen! Aber ihr seyd schon hinaufgetragen, Sokrates, Leonidas, Morus, und ihr Ewigen alle, und auch du, edle Corday! Jean Paul Fr. Richter",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Es gibt Geister, die sich in eine fremde Zeit verirren, und deren Wirken eben darum von den meisten Menschen falsch oder einseitig beurtheilt wird,",
+      "language": [],
+      "musenalm_id": 63470,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Charlotte Corday",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Charlotte Corday",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.963Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "2m7g6bvkbqvupob"
+        }
+      ],
+      "source_id": "5s8tgnaxv1um5ln"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63472, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Wenn in dem Höllenbreughel'schen Nachtstücke des Französischen Terrorismus noch etwas das Blut des Beschauers zu erfrischen und seine Stelle zu erheben vermag,",
+      "language": [],
+      "musenalm_id": 63471,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Iphignie Desilles",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Iphignie Desilles",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.963Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "vy77yocbb0eg4yi"
+        }
+      ],
+      "source_id": "st12b7kl1inessl"
+    },
+    {
+      "annotation": "s. Textbezug INr 63471, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63472,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iphigenie Désilles / vor dem Revolutionstribunal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Götzenberger del. G. Rist sc.",
+      "scans": [
+        "alm_1042_63472_nb2k8jlgip.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iphigenie Désilles / vor dem Revolutionstribunal",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "a0kphxyhe8edwb8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "0m3r585b0p98uxw",
+          "source_id": "e08zr4j1k5u17ex"
+        }
+      ],
+      "source_id": "64n92wue3ox8vyy"
+    },
+    {
+      "annotation": "s. Textbezug INr 63476, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63473,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sage von Carls des Großen Jugendliebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Opitz Gest. v. Fleischmann",
+      "scans": [
+        "alm_1042_63473_qas9dicrgf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sage von Carls des Großen Jugendliebe",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "ijrs4epb9zzwiyd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "wrbj56tn6wqwyx0"
+        }
+      ],
+      "source_id": "kjd0xt83oa2u8w5"
+    },
+    {
+      "annotation": "s. Textbezug INr 63509, Obj 11,01",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63474,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Glocke auf Burg Wunnenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Opitz Walther",
+      "scans": [
+        "alm_1042_63474_1wqj84lf8a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Glocke auf Burg Wunnenstein",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "smt7e6knke529yh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "xp5zvzxwemkpnaq"
+        }
+      ],
+      "source_id": "cnbxff4sh3z55qc"
+    },
+    {
+      "annotation": "s. Textbezug INr 63477, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63475,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Siebenrohrbrunnen in Heilbronn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Opitz",
+      "scans": [
+        "alm_1042_63475_qxnykbr0kp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Siebenrohrbrunnen in Heilbronn",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "tdf5fv72mj2pdx8"
+        }
+      ],
+      "source_id": "7wbvwm28ocd5m2c"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63473, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Eine Sage aus dem Leben Carls des Großen hat den Gegenstand zu diesem Blatte gegeben,.",
+      "language": [],
+      "musenalm_id": 63476,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Sage von Carls des Grossen Jugendleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Sage von Carls des Grossen Jugendleben",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "9c9bijze647s62u"
+        }
+      ],
+      "source_id": "zb13n8y7ktxzf8u"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63474, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Nicht weit von dem Würtembergischen Bottwar, an einem freundlichen Wiesenthale, erhebt sich ein Bergkegel, der Wunnenstein genannt.",
+      "language": [],
+      "musenalm_id": 63509,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Die Glocke auf Wunnenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Die Glocke auf Wunnenstein",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.047Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "dg6wfjkv23apvgp"
+        }
+      ],
+      "source_id": "h9tgzlsk6cteyut"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63475, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Als die ersten Lehrer des Christentums nach Germanien kamen, bauten sie ihre Zelte auf schattigen Hügeln oder in einsamen Thälern,",
+      "language": [],
+      "musenalm_id": 63477,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Der Siebenrorhrbrunnen in Heilbronn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Der Siebenrorhrbrunnen in Heilbronn",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "oz0jrbmzkcq4yve"
+        }
+      ],
+      "source_id": "f03043xya6e4wd1"
+    },
+    {
+      "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphiken INr 63484, 63485; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Zu der Erzählung von Georg Döring: Ergo bibamus",
+      "language": [],
+      "musenalm_id": 63478,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. und VIII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. und VIII.",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "p5i73vlse81ufrl"
+        }
+      ],
+      "source_id": "sifjq1s4c9ffxp4"
+    },
+    {
+      "annotation": "s. Textbezug INr 63470, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63479,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charlotte von Corday",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gest. v. Fleischmann in München",
+      "scans": [
+        "alm_1042_63479_3za8px7u8h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Charlotte von Corday",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "9iqoly0v6y9e8cy"
+        }
+      ],
+      "source_id": "gunhk9t1gly523x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein furchtbarer Donnerschlag erschütterte die Stadt Wien; der Boden erbebte, als wäre Weltuntergang nahe; die Häuser schienen zu wanken;",
+      "language": [],
+      "musenalm_id": 63480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bürger zu Wien. / Historische Erzählung zu Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilh. Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bürger zu Wien. / Historische Erzählung zu Wien",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "d01abuax5sbt9rq"
+        }
+      ],
+      "source_id": "ssx9plio8otce5n"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Weichet, Sorgen, von mir! - Doch ach! den sterblichen Menschen / Lässet die Sorge nicht los, eh ihn das Leben verläßt. [...] Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Zwischen Susannen und ihrer Mutter war seit einiger Zeit eine so auffallende Verstimmung bemerkbar, daß sie selbst den Dienstboten im Hause nicht entgehen konnte,",
+      "language": [],
+      "musenalm_id": 63481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe um Liebe. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie Schoppe, geb. Weise",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe um Liebe. / Erzählung",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.983Z",
+          "agent": "2nm1hcqes98n5i9",
+          "source_id": "pauooain5bhz69u"
+        }
+      ],
+      "source_id": "bhdioscjg80f3in"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Es war am zwölften August des Jahres 1689, als Anna von Sickingen und Bertha von Schauenburg, die beyden Hoffräulein der Markgräfin Franziska, auf der Terasse des Schlosses zu Baden saßen,",
+      "language": [],
+      "musenalm_id": 63482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zerstörung Badens. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zerstörung Badens. / Historische Novelle",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.983Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "xtuqc2l3yaqbt4y"
+        }
+      ],
+      "source_id": "wgn0fnpjso3bf5d"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 63484, 63485; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Am Hafen von Livorno war an einem heitern Sommerabend eine große Menge Menschen versammelt. Der heitre Himmel, die erquickende Seeluft, die herrliche Lage des Molo lockte jeden,",
+      "language": [],
+      "musenalm_id": 63483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ergo bibamus. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ergo bibamus. / Eine Novelle",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.039Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "1kwpnvqzuwoag83"
+        }
+      ],
+      "source_id": "5mllor5dottluul"
+    },
+    {
+      "annotation": "Illustration zu »Ergo bibamus« von Georg Döring INr 63483, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chiara",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Fendi del. J. Axmann sc.",
+      "scans": [
+        "alm_1042_63484_jjs4vs72yl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chiara",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.039Z",
+          "agent": "aj12jgcexyaf6b2",
+          "source_id": "nr1lz6ge87y9sa2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.039Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "o2o28w2kjfba3b3"
+        }
+      ],
+      "source_id": "ovzdnluus7dbp29"
+    },
+    {
+      "annotation": "Illustration zu »Ergo bibamus« von Georg Döring INr 63483, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63485,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ergo bibamus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_1042_63485_99saful3lp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ergo bibamus",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "b9v25bqbl4og9ou"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Einige Stunden von Massa, zwischen Hügeln, an welchen sonst die Heerstaraße vorüberzog, lagen die Ruinen eines großen römischen Gebäudes,",
+      "language": [],
+      "musenalm_id": 63486,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schlaftrunk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schlaftrunk",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.039Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "f98oxbqwvlqe83f"
+        }
+      ],
+      "source_id": "ota9lcyl9hfgp1u"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 63488-63495, Obj 23-30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "hqxn18wuzwihog0"
+        }
+      ],
+      "source_id": "qe60an4muj7m8ci"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Mir ging ins Garn wohl manches Wild, / Drum war ich guter Dinge,",
+      "language": [],
+      "musenalm_id": 63488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jägers Liebesklage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jägers Liebesklage",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.052Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "azgjok4pvqmw19m"
+        }
+      ],
+      "source_id": "skyh952n3etn166"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Was du hervorbringst, muß der Zeit gehören, / Denn ihre Macht - sie waltet immerdar;",
+      "language": [],
+      "musenalm_id": 63489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.053Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.053Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "tv1xx43915ylx9e"
+        }
+      ],
+      "source_id": "37bd48ttds08dej"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Drey alte Brüder siehst du hier, / Sie schreiten mit Dir durch das Leben,",
+      "language": [],
+      "musenalm_id": 63490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Räthsel",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.076Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.076Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "608sb1ubmnhq4zu"
+        }
+      ],
+      "source_id": "6cpwy9el7fxbua2"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Es geschah einst, daß sich allerley seltsame Erscheinungen zeigten, worüber die Menschen besorgt wurden,",
+      "language": [],
+      "musenalm_id": 63491,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parabel",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.076Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.076Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "g9yhqjnbbt2c81l"
+        }
+      ],
+      "source_id": "nidoahbt349bzyk"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Ich trug des Erdballs Herrscherkrone, / Es beugten sich von meinem Throne",
+      "language": [],
+      "musenalm_id": 63492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anagramm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anagramm",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.076Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.076Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "q71wpo1kj137kuw"
+        }
+      ],
+      "source_id": "utusnju26vsbruh"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Das alte Jahr es will nun scheiden, / Und schnürt den Reisesack in Hast,",
+      "language": [],
+      "musenalm_id": 63493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am letzten Abend des Jahres 1831",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am letzten Abend des Jahres 1831",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.076Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.076Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "s85pyoyxow4rc0h"
+        }
+      ],
+      "source_id": "5xo1drqs0ehkd2s"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Klingen müssen die Polkale / Zu dem frohen Jägermahle",
+      "language": [],
+      "musenalm_id": 63494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jagdlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jagdlied",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.194Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.194Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "ftqty7axmltnkli"
+        }
+      ],
+      "source_id": "jaiilibpl1rybji"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "Es war ein brennender Sommertag. Zwey Wanderer, ein Greis und ein Jüngling, erreichten, von Durst und Hitze geplagt, den Saum der Wüste,",
+      "language": [],
+      "musenalm_id": 63495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parabel",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.046Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.046Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "41ovm5jhx70w7lz"
+        }
+      ],
+      "source_id": "s8s0zyn45qc6kh1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Das alte Jahr hat's schlau gemacht, / Fort ist's bey Nebel und bey Nacht;",
+      "language": [],
+      "musenalm_id": 63496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Hebels Nachlass. / Anzeigeblatt-Träger zum neuen Jahre 1814",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hebel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Hebels Nachlass. / Anzeigeblatt-Träger zum neuen Jahre 1814",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.046Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.046Z",
+          "agent": "u04oy46tu9dlk6x",
+          "source_id": "8nd0hsixvyivxng"
+        }
+      ],
+      "source_id": "mdqz3n1f67w7pvj"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 63498-63504, Obj 33-39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.046Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.046Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "rzq66h5i562jg3b"
+        }
+      ],
+      "source_id": "3l6oxlu6ow37x1a"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Weiß sind die Au'n im Duftgewand: / Der Scalde kehrt vom Hügelrand;",
+      "language": [],
+      "musenalm_id": 63498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trauer und Hoffen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trauer und Hoffen",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.046Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.046Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "71fhdhy3xeksbky"
+        }
+      ],
+      "source_id": "ngaldg7mgnlits2"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32) mit Hinweis am Objekt auf Graphik in Cornelia 1832: INr 63411",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Sie sitzen an der Quelle, / Im trauten, stillen Thal;",
+      "language": [],
+      "musenalm_id": 63499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Seejungfrau. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Seejungfrau. / Ballade",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.046Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.046Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "hb0bojl3ygckcjh"
+        }
+      ],
+      "source_id": "5etltt3e4leioax"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "Oft in Trauer, auch in Wonne, / Scholl des Sängers Harfenspiel:",
+      "language": [],
+      "musenalm_id": 63500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meiner Geliebten. / (Bey Zustellung meiner Gedichte.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meiner Geliebten. / (Bey Zustellung meiner Gedichte.)",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ywww2p8a1t3jsd"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Es weht die Nacht so schauerlich, / Der Ritter zieht am Strand:",
+      "language": [],
+      "musenalm_id": 63501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ballade",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.046Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.046Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "ojhaje1ajaoctcn"
+        }
+      ],
+      "source_id": "ubb867l649pnjhe"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "So lieblich lächelt Hain und Flur! / Erinn'rungswonne labt das Herz",
+      "language": [],
+      "musenalm_id": 63502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerung",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.047Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "xktkg42xfapl54c"
+        }
+      ],
+      "source_id": "whhi1b7vafbw73z"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Will Schwermuth ganz die Seele niederbeugen? / Durch graue Wolken scheint das trübe Licht;",
+      "language": [],
+      "musenalm_id": 63503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erhebung. / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erhebung. / Sonett",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.047Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "3rs1v0edp5kmg7i"
+        }
+      ],
+      "source_id": "qtzio7vi5xcpvqz"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 63497, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Zauber wohnt im smaragdenen Feld der lieblichen Dichtung, / Perlen woget das Meer, goldene Blumen entblüh'n:",
+      "language": [],
+      "musenalm_id": 63504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zauber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zauber",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.047Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "ipi0lx5lgj65jx2"
+        }
+      ],
+      "source_id": "2shrkc2y3c1vyvn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung des Räthsels / Auflösung des Anagramms",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung des Räthsels / Auflösung des Anagramms",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "eqakx286he4xkrv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "0zd05cmqnsgcr9h"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63507,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "8lzomvbiqea1k2m"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63508,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "4qb0vanlci62dzx"
+    }
   ],
   "agents": [
     {

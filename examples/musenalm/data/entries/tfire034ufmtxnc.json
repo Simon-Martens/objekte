@@ -48,7 +48,26 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "0i0x8687rrg3l3h"
+    {
+      "annotation": "?-1845-?.\n1845: Mit Tku 1, VI, Stahlst. 9, 242 SS +Gemeinütziger Anhang Deutschlands Eisenbahnen mit 79 SS und Kart 1.\nDünner Kartonierter Einband.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.564Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "105504",
+      "location": "107K05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.564Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0i0x8687rrg3l3h"
+    }
   ],
   "contents": [],
   "agents": [

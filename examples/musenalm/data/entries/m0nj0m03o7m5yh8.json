@@ -48,41 +48,1452 @@
   "year": 1801,
   "editor": "",
   "items": [
-    "8mnzwzamaj15z04"
+    {
+      "annotation": "1802 wiederholt",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.735Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408512",
+      "location": "105F05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.735Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8mnzwzamaj15z04"
+    }
   ],
   "contents": [
-    "z978xn3ygjabxz9",
-    "c17dd5suutm9hya",
-    "ob5hic8p4auv3f2",
-    "o7xtmwdwaqy7mr8",
-    "e20y88hrqrc85z0",
-    "wm4ip8dnlrii3bh",
-    "h3zjordl8qid3j1",
-    "kdlrk963zu74bb6",
-    "5q0adi35w97f52i",
-    "v6npkea6e15s8pl",
-    "gma5n5y290ijzxm",
-    "pb4m2a57kxd9hwu",
-    "y4gaial76zcci1v",
-    "y460cys4vr6x9gz",
-    "7yjplcdrwwezqdx",
-    "urs3f4k3k30sfy1",
-    "yqicv1kye2anag6",
-    "gvqkf6snxmx350u",
-    "gtrleh1syflwlyj",
-    "88h2rkt3c2eogaq",
-    "qp40qnj6uddbr35",
-    "1tdftxfvukuzt7y",
-    "67j6a4ulcn8ypk0",
-    "gl2p29ibobpzkeh",
-    "rt9sbe6blbb91dl",
-    "upeot0r1664xoo9",
-    "jou9tipryabx193",
-    "l4ig64498o8gzy0",
-    "qb7zuuax945pghq",
-    "azjhm6rksh8s1ey",
-    "r8j3v4m9y764c18",
-    "ea3fikb44pv2m2d"
+    {
+      "annotation": "Verlagsbroschur r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95847,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4017_95847_mx0wvd28ui.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "z978xn3ygjabxz9"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95848,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRIEDRICH der GROSSE / Koenig in Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hein. Ramberg del. Hannov. C. F. Stoelzel sc. Dresd. 1800",
+      "scans": [
+        "alm_4017_95848_2rs8onx3zc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRIEDRICH der GROSSE / Koenig in Preussen",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.423Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "yu9vbqt0njksqlx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.423Z",
+          "agent": "e5dzzklohvjx1fv",
+          "source_id": "yxhae5d7hyymzlo"
+        }
+      ],
+      "source_id": "c17dd5suutm9hya"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95849,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zur / Beförderung der Vaterlandsliebe. / Auf das Jahr 1801. / Schnepfenthal, / im Verlage der Buchhandlung der Erziehungsanstalt. / 1801",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4017_95849_fcxpe3qyg2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zur / Beförderung der Vaterlandsliebe. / Auf das Jahr 1801. / Schnepfenthal, / im Verlage der Buchhandlung der Erziehungsanstalt. / 1801",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "ob5hic8p4auv3f2"
+    },
+    {
+      "annotation": "mit Spalte: Verdienstvolle Teutsche des 18ten Jahrhunderts",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95850,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "o7xtmwdwaqy7mr8"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar; paginiert I /) s. Textbezug INr 95858, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95851,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thomasius sichert die Matronen gegen den Scheiterhauffen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki fec.",
+      "scans": [
+        "alm_4017_95851_2rh1y5hxcy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Thomasius sichert die Matronen gegen den Scheiterhauffen",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.423Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "bzz9x84sqh19zzn"
+        }
+      ],
+      "source_id": "e20y88hrqrc85z0"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar; paginiert II /) s. Textbezug INr 95859, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95852,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zinzendorf legt den Grundstein zu dem Gemein- / hause in Herrenhut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_4017_95852_imrnj640xe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zinzendorf legt den Grundstein zu dem Gemein- / hause in Herrenhut",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.423Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.423Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "xr8ulwmj65fhbg9"
+        }
+      ],
+      "source_id": "wm4ip8dnlrii3bh"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April; paginiert III /) s. Textbezug INr 95860, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95853,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Saechsischen Steuerscheine werden, / gegen baar Geld mit 3 p. C. Gewinn verkauft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H.Ramberg del. C. F. Stoelzel sc. 1800",
+      "scans": [
+        "alm_4017_95853_c65j55ug6a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Saechsischen Steuerscheine werden, / gegen baar Geld mit 3 p. C. Gewinn verkauft",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.424Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.424Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fcrdlycehfv1grd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.424Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.424Z",
+          "agent": "e5dzzklohvjx1fv",
+          "source_id": "yjdjjq43xvir1yw"
+        }
+      ],
+      "source_id": "h3zjordl8qid3j1"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni paginiert IV. /) s. Textbezug INr 95861, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95854,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserte Erziehung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. 1800 [unleserlich] sc.",
+      "scans": [
+        "alm_4017_95854_rs6ypk9cam.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserte Erziehung",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.424Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.424Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "7nr82svk7okd08k"
+        }
+      ],
+      "source_id": "kdlrk963zu74bb6"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August paginiert V /) s. Textbezug INr 95862, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95855,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Teutsche Glaubenseinigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_4017_95855_qhf96bhuzm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Teutsche Glaubenseinigkeit",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.424Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.424Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "b89ke9t58791mhr"
+        }
+      ],
+      "source_id": "5q0adi35w97f52i"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober paginiert VI /) s. Textbezug INr 95863, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95856,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Noth und Hülfsbüchlein erscheint",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki f.",
+      "scans": [
+        "alm_4017_95856_2x31p79z8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Noth und Hülfsbüchlein erscheint",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.482Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "7qjbh5zxyu5j54g"
+        }
+      ],
+      "source_id": "v6npkea6e15s8pl"
+    },
+    {
+      "annotation": "Es folgen 6 Beiträge INr 95858-95863, Obj 12-17 als Textbezüge zu den Graphiken des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.482Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "9puoyhrokc79y6a"
+        }
+      ],
+      "source_id": "gma5n5y290ijzxm"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11) s. Graphik im Kalendarium INr 95851, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es thut ungemein wohl, wenn man auf der Anhöhe, die man mit Mühe und Anstrengung erklimmte, ein Paar Augenblicke verweilet, und in das Thal zurückblickt,",
+      "language": [],
+      "musenalm_id": 95858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thomasius sichert die Matronen gegen den / Scheiterhaufen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thomasius sichert die Matronen gegen den / Scheiterhaufen",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.482Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "t07td0aiis5oe78"
+        }
+      ],
+      "source_id": "pb4m2a57kxd9hwu"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11) s. Graphik im Kalendarium INr 95852, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Den 12. May 17724 wurde der Grundstein zum Gemeinhause in Herrenhut gelegt. Graf Zinzendorf hielt dabei eine Rede, durch welche die Anwesenden sehr gerührt wurden.",
+      "language": [],
+      "musenalm_id": 95859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gründung des Gemeinhauses in / Herrenhut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gründung des Gemeinhauses in / Herrenhut",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.482Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "i8c3vxl2iobepbj"
+        }
+      ],
+      "source_id": "y4gaial76zcci1v"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11/) s. Graphik im Kalendarium INr 95853, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Daß Länder in Schulden gerathen, ist nichts ungewöhnliches, und kann nicht immer verhüthet werden.",
+      "language": [],
+      "musenalm_id": 95860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sächsischen Steuerscheine werden, / gegen baares Geld, mit 3 pro Cent / Gewinn verkauft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sächsischen Steuerscheine werden, / gegen baares Geld, mit 3 pro Cent / Gewinn verkauft",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.626Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "xfhnlwi35nami8z"
+        }
+      ],
+      "source_id": "y460cys4vr6x9gz"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11) s. Graphik im Kalendarium INr 95854, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Daß die Teutschen, in der zweyten Hälfte des achtzehenten Jahrhunderts, sich große Verdienste um die Erziehung erworben haben, erkennen die Ausländer, und machen von ihren Erziehungsschriften Gebrauch.",
+      "language": [],
+      "musenalm_id": 95861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserte Erziehung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserte Erziehung",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.518Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "n3ohisfy4nmvvst"
+        }
+      ],
+      "source_id": "7yjplcdrwwezqdx"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11) s. Graphik im Kalendarium INr 95855, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "So sangen sonst zum Anfange unserer Gottesverehrungen, und höret hernach vielleicht eine Controverspredigt, gegen die Irrglaubigen und Ketzer,",
+      "language": [],
+      "musenalm_id": 95862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutsche Glaubensvereinigung / Das Volk aus aller Welt Zungen ver- / sammelt hast in Einigkeit des / Glaubens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutsche Glaubensvereinigung / Das Volk aus aller Welt Zungen ver- / sammelt hast in Einigkeit des / Glaubens",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.519Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "nlsrvkzzuxft9jg"
+        }
+      ],
+      "source_id": "urs3f4k3k30sfy1"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11) s. Graphik im Kalendarium INr 95856, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Das Noth- und Hülfsbüchlein ist zu merkwürdig und zu wohlthätig, als daß man bey dem Rückblicke auf das verflossene Jahrhundert sie nicht bemerken, und in einem Taschenbuche zur Beförderung der Liebe zum Teutschen Vaterlande ihrer nicht Erwähnung",
+      "language": [],
+      "musenalm_id": 95863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Noth- und Hülsbüchlein / erscheint",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Noth- und Hülsbüchlein / erscheint",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.519Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "wktjt7dnmzfowi1"
+        }
+      ],
+      "source_id": "yqicv1kye2anag6"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruchstücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruchstücke",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.519Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "6dsl5q12sxy4jv7"
+        }
+      ],
+      "source_id": "gvqkf6snxmx350u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Hang zur Empörung liegt sonst nicht in der Gemüthsart des Teutschen. Er ist seiner Obrigkeit treu, trägt die Lasten, die sie ihm auflegt, und, wann sie ihm zu schwer werden, so wandert er lieber aus, als daß er sich empören sollte.",
+      "language": [],
+      "musenalm_id": 95865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie kommt der Empörungsgeist am Ende des / achtzehnten Jahrhunderts nach Teutschland?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wie kommt der Empörungsgeist am Ende des / achtzehnten Jahrhunderts nach Teutschland?",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.519Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "ztb802jin1e58t7"
+        }
+      ],
+      "source_id": "gtrleh1syflwlyj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Höchst ungern lasse ich mich auf die Beantwortung dieser Frage ein, wodurch wenigstens eine von beiden Partheyen beleidigt wird,",
+      "language": [],
+      "musenalm_id": 95866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Woher kommt der große Unwille der Bürger- / lichen gegen den Adel?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Woher kommt der große Unwille der Bürger- / lichen gegen den Adel?",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.520Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "f2gbortizi4jns3"
+        }
+      ],
+      "source_id": "88h2rkt3c2eogaq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Verbesserung und Umwälzung werden oft für gleichbedeutende Namen gehalten, bezeichnen aber ganz verschiedene Sachen.",
+      "language": [],
+      "musenalm_id": 95867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserung und Umwälzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserung und Umwälzung",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.520Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "bdxcgb0phx0i5qn"
+        }
+      ],
+      "source_id": "qp40qnj6uddbr35"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Thusnelde hatte zwey Töchter, Luisen und Friedriken, die ganz verschiedener Sinnesart waren.",
+      "language": [],
+      "musenalm_id": 95868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Luise und Friederike",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Luise und Friederike",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.466Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "be7yfbhegj631oy"
+        }
+      ],
+      "source_id": "1tdftxfvukuzt7y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Das geendigte Jahrhundert hat vor seinen Vorgängern, unter vielen Vorzügen, auch diesen, daß die Beobachtung der Natur, während desselben, weit ausgebreiteter, als jemals, war.",
+      "language": [],
+      "musenalm_id": 95869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Empfehlung der Naturgeschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Empfehlung der Naturgeschichte",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.466Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "895jlborppzj0c7"
+        }
+      ],
+      "source_id": "67j6a4ulcn8ypk0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "In allen Teutschen Staaten sieht man noch Kinder herum laufen, die ohne Unterricht, ohne Erziehung, ohne die nöthige Leibespflege aufwachsen,",
+      "language": [],
+      "musenalm_id": 95870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber einen Schatz, den die Teutschen noch heben / können",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber einen Schatz, den die Teutschen noch heben / können",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "ovxvc2ovyfl11u1"
+        }
+      ],
+      "source_id": "gl2p29ibobpzkeh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Wenn mich die Vorsehung dazu bestimmt hätte, eine Colonie nach Afrika oder Neuseeland zu führen, um daselbst einen neuen Staat zu gründen,",
+      "language": [],
+      "musenalm_id": 95871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Monarchie oder Republik?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Monarchie oder Republik?",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "3r26qnm59fm2q52"
+        }
+      ],
+      "source_id": "rt9sbe6blbb91dl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Preßfreiheit ist das Loosungswort unserer Zeit. Alles, was drucken läßt, fordert sie laut, und wenn ein Censor einmal eine zum Drucke bestimmte Stelle durchstreicht, oder einer Handschrift den Druck versagt: so schreyet man laut",
+      "language": [],
+      "musenalm_id": 95872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Preßfreyheit!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Preßfreyheit!",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "rwihznglz975s1o"
+        }
+      ],
+      "source_id": "upeot0r1664xoo9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Der Begriff von Größe hat so etwas Anziehendes, daß jedermann gern groß seyn möchte.",
+      "language": [],
+      "musenalm_id": 95873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die große Nation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die große Nation",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "sgbrifrmifwc287"
+        }
+      ],
+      "source_id": "jou9tipryabx193"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Von jeher wurden die Völker durch Glauben an göttliche Offenbahrung geleitet, gut oder schlecht, nachdem die Offenbahrung beschaffen war.",
+      "language": [],
+      "musenalm_id": 95874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber göttliche Offenbahrung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber göttliche Offenbahrung",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.345Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "9vsx1vcjpqpxg57"
+        }
+      ],
+      "source_id": "l4ig64498o8gzy0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Hier, mein lieber Sohn! ist der Platz, wo wir uns trennen müssen. Lebe wohl und bleib der Tugend treu!",
+      "language": [],
+      "musenalm_id": 95875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alfreds Trennung von seinem Sohne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alfreds Trennung von seinem Sohne",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.345Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "gx8u9ztmgjggvw3"
+        }
+      ],
+      "source_id": "qb7zuuax945pghq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Eigentlich ist mein Beruf nicht, Taschenbücher zu schreiben, so wenig als ich berufen bin Feuer zu löschen.",
+      "language": [],
+      "musenalm_id": 95876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachrede",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.345Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "813t66yl81mmnza"
+        }
+      ],
+      "source_id": "azjhm6rksh8s1ey"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Da die mehresten Leser dieses Taschenbuchs wünschen werden, von den merkwürdigen Teutschen des achtzehnten Jahrhuderts, deren Namen sie im Kalender fanden, nähere Nachrcht zu haben",
+      "language": [],
+      "musenalm_id": 95877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "kfv8u17t6on8l31"
+        }
+      ],
+      "source_id": "r8j3v4m9y764c18"
+    },
+    {
+      "annotation": "Verlagsbroschur v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95878,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4017_95878_kj9edzjj8d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "zta4jxuxzdm872n",
+          "source_id": "vtx1ngyyri5on5i"
+        }
+      ],
+      "source_id": "ea3fikb44pv2m2d"
+    }
   ],
   "agents": [
     {

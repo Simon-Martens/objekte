@@ -48,29 +48,933 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "87kgb4l0k37og9m"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit schönen Muster, Grafik und Goldschnitt.(Ohne Vorderbuchdeckel und Buchrücken.)\n1822: (K: M.Port 1und Ku 8.) Mit Port 1, Ku 4, Bl 7, 48 SS, 308 SS und Bl 4.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.501Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106715",
+      "location": "105J08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.501Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "87kgb4l0k37og9m"
+    }
   ],
   "contents": [
-    "p9eqc5yz0z2nfrn",
-    "nnopc1kfc2gto3e",
-    "wxznjeo9ix6ffe0",
-    "bf7hmy2opoo59nk",
-    "18m66x46z5wo9gf",
-    "s7t49qy880i98v6",
-    "ixms83bd6u7qrcb",
-    "if84j7ffrajoa7h",
-    "7i66al8dyzgs73f",
-    "w44ze3wwy1vspvh",
-    "jwfvpa7ykc2ugg6",
-    "ogu1mib18usnvh3",
-    "ahhz10y4l3ecg3f",
-    "q4fah8adejrzfip",
-    "jeruvom2yu17vhl",
-    "176zzv7tvtrxxii",
-    "c7k7jj0vtlbh9gy",
-    "w8azikppi3i9xvz",
-    "n3m59ev5s5zg4zt",
-    "bu10vptnd0c5kmd"
+    {
+      "annotation": "Umschlaggraphik r. # Bezeichnung aus dem G-Verz INr  43580, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43574,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff gez. Bock u. Vogel gest.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff gez. Bock u. Vogel gest.",
+      "scans": [
+        "alm_578_43574_pskjxdvlji.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "3vnwln4kja9t347"
+        }
+      ],
+      "source_id": "p9eqc5yz0z2nfrn"
+    },
+    {
+      "annotation": "Titelportrait # vollst. Bezeichnung aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43575,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pauline / Königin von Würtemberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. M. del. # F. Fleischmann sc.",
+      "scans": [
+        "alm_578_43575_n8mzf5i1c7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pauline / Königin von Würtemberg",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "1zewm57ilk6g2lc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "dmfllispixrqk5r",
+          "source_id": "n31rbbyyo9ujy2s"
+        }
+      ],
+      "source_id": "nnopc1kfc2gto3e"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43576,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / TASCHENBUCH / auf das Jahr 1823. / FRANKFURT a/M / bei Joh. David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff del. F. Fleischmann sc. Geiler sc.",
+      "scans": [
+        "alm_578_43576_aglxx0r7r9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / TASCHENBUCH / auf das Jahr 1823. / FRANKFURT a/M / bei Joh. David Sauerländer",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "89n97p3tct84nmb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "bxjolyywqmedven"
+        }
+      ],
+      "source_id": "wxznjeo9ix6ffe0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43577,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "bf7hmy2opoo59nk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43578,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erklärung der Kupfer",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "18m66x46z5wo9gf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43579,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Jean Jouvenet. Müller del. J. Felsing sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Jouvenet. Müller del. J. Felsing sc.",
+      "scans": [
+        "alm_578_43579_1tcf9liqps.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "7d7eetuzv17gjex",
+          "source_id": "kfuzngdidpi986x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "dmfllispixrqk5r",
+          "source_id": "kyjw2mrpc3miwno"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "fh20cks2vrkgse1",
+          "source_id": "ojyeldkj3owz4de"
+        }
+      ],
+      "source_id": "s7t49qy880i98v6"
+    },
+    {
+      "annotation": "s. Umschlaggraphik r. und v. INr 43574, 43593; Obj 1, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "So klar die Idee an sich ist, die den Zeichner bei der Composition des Umschlags leitete, so sollen doch etliche Worte noch zur Erörterung desselben beigefügt werden.",
+      "language": [],
+      "musenalm_id": 43580,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erklärung des Umschlags. / Gezeichnet von Herrn C. Heideloff und gestochen / von den Herren Bock und Vogel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erklärung des Umschlags. / Gezeichnet von Herrn C. Heideloff und gestochen / von den Herren Bock und Vogel",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "ixms83bd6u7qrcb"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches Taschenbuch. / Neue Folge. / Zweiter Jahrgang. 1823",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches Taschenbuch. / Neue Folge. / Zweiter Jahrgang. 1823",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "if84j7ffrajoa7h"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 43583, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Ein langes Herumflattern in den anmuthigsten Gegenden und Orten Europa's hatte dem jungen Ludwig von T - l - w bei seiner Rückkehr in die Geburtstagsstadt den Werth einer ganz neuen Erscheinung verliehen.",
+      "language": [],
+      "musenalm_id": 43582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der blasse Mann / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der blasse Mann / Erzählung",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.064Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "af7uwo82wrq3nkc"
+        }
+      ],
+      "source_id": "7i66al8dyzgs73f"
+    },
+    {
+      "annotation": "paginiert S. 47. /) Illustration zu »Der blasse Mann« von Fr. Laun d. i. Fr. A. Schulze INr 4352, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der blasse Mann von Fr. Laun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff del. J. Felsing sc.",
+      "scans": [
+        "alm_578_43583_ffqc1fj24f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der blasse Mann von Fr. Laun",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.065Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "jztg2vsf8av3xm8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.065Z",
+          "agent": "kacgedziyeqhpsh",
+          "source_id": "l8cuglst9bv7ng5"
+        }
+      ],
+      "source_id": "w44ze3wwy1vspvh"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 43585, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Nicht blos das sichtbar seinen Raum Erfüllende, das jedem Beschauer entgegen springt, ist's was auf Reisen am interessantesten beschäftigt:",
+      "language": [],
+      "musenalm_id": 43584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bettlerkirche. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bettlerkirche. / Erzählung",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "t78m91834uhvoiv"
+        }
+      ],
+      "source_id": "jwfvpa7ykc2ugg6"
+    },
+    {
+      "annotation": "paginiert S. 67. /) Illustration zu »Die Bettlerkirche« von Fr. Krug von Nidda INr 43584, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bettlerkirche, von Fr. Krug von Nidda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff A. Dalbon sculp.",
+      "scans": [
+        "alm_578_43585_kkrbh43rio.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Bettlerkirche, von Fr. Krug von Nidda",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "bomb8jf1umbzs3y"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "42w3wulg3fl03j4",
+          "source_id": "wu2ouobcn0lr7j2"
+        }
+      ],
+      "source_id": "ogu1mib18usnvh3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 43587, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Ei gnädiger Herr! rief Ludwigs des Vierzehnten erster Kammerdiener dem jungen Grafen Lauzun entgegen,",
+      "language": [],
+      "musenalm_id": 43586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Günstling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schoppenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Günstling",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "wd3blwzdfqd60zl"
+        }
+      ],
+      "source_id": "ahhz10y4l3ecg3f"
+    },
+    {
+      "annotation": "paginiert S. 122. /) Illustration zu »Der Günstling« von Joh. Schopenhauer INr 43586, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Günstling, von Johanna Schoppenhauer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff del. A. Weber Nbg sc.",
+      "scans": [
+        "alm_578_43587_3ai69nd163.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Günstling, von Johanna Schoppenhauer",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "fnv2sxw9ryfy5ao"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "g7nwy8gxkm3sfp2",
+          "source_id": "m95nvaj2segycre"
+        }
+      ],
+      "source_id": "q4fah8adejrzfip"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Weder die glücklichen äusseren Lebensverhältnisse, noch auch der höchste Adel der Seele schützen auf dieser Erde vor herbem Seelenleiden,",
+      "language": [],
+      "musenalm_id": 43588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adelheid von Burgund",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Cäcilie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Adelheid von Burgund",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.368Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.368Z",
+          "agent": "e2rrjjwetvb2bmn",
+          "source_id": "vcg7whve90pxwu1"
+        }
+      ],
+      "source_id": "jeruvom2yu17vhl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Keine Ursache trägt wohl mehr dazu bei, das Urtheil über den geistigen und sittlichen Werth der Volksherrscher einseitig und befangen zu machen,",
+      "language": [],
+      "musenalm_id": 43589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus dem Leben / Kaisers Otto des Großen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Hufnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus dem Leben / Kaisers Otto des Großen.",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.368Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.368Z",
+          "agent": "fsthx6rgk9lzsy9",
+          "source_id": "129dnpenqgad19j"
+        }
+      ],
+      "source_id": "176zzv7tvtrxxii"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Empfange hiemeit, theurer Agathias, die geringe Gabe, welche ich dir verhies.",
+      "language": [],
+      "musenalm_id": 43590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chrysaores, der Peleponnesier. / Ein Bruchstück aus dem Griechischen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chrysaores, der Peleponnesier. / Ein Bruchstück aus dem Griechischen.",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.221Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "rd1bxibutqd8pum"
+        }
+      ],
+      "source_id": "c7k7jj0vtlbh9gy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der / regierenden Häuser. / Deutscher Bund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der / regierenden Häuser. / Deutscher Bund",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8azikppi3i9xvz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regierende Häuser in Europa ausserhalb / Deutschlands",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regierende Häuser in Europa ausserhalb / Deutschlands",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "n3m59ev5s5zg4zt"
+    },
+    {
+      "annotation": "Umschlaggraphik v. # Bezeichnung aus dem G-Verz INr 43580, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43593,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Heideloff gez. Bock u. Vogel gest.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff gez. Bock u. Vogel gest.",
+      "scans": [
+        "alm_578_43593_d1a9sukuhi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.221Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "i4f7d1hirx9np02"
+        }
+      ],
+      "source_id": "bu10vptnd0c5kmd"
+    }
   ],
   "agents": [
     {

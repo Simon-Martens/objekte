@@ -48,65 +48,2492 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "ounppxo95oh95f4"
+    {
+      "annotation": "1815-1832.\nKartonierter Einband mit Goldschnitt.(Buchrücken leicht beschädigt.)\n1831: (K: Bl 1, XVI, 367 (372) SS und Ku 7.)Mit  Bl 1, Ku 7, XVI und 368(373) SS.    \n\\par Forts.s.u.:  Taschenbuch zum. Almanach z. gesell. Vergnügen a.d.J.  1794-1814.  Gleditsch\n\\par                      W.G. Beckers Taschenbuch zum geselligen Vergnügen. 1815-1832.  1815-1818 Verl.Gleditsch,\n\\par                                                                                                                                                             1819-1832 Verl.Göschen\n\\par 1819: erfolgt Teilung in W.G. BeckersTaschenbuch zum geselligen Vergnügen: Verl. Göschen.   1815-1832.    \n\\par                                             Taschenbuch zum geselligen Vergnügen: Verl. Gleditsch. 1819-1829.\n\\par \n\\par\nKartonierter Einband mit Goldschnitt; VB, verso G, T, S I I-Verz, SS III-XVI darin 6 GG, SS 1-367",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.478Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101178",
+      "location": "105J06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.478Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ounppxo95oh95f4"
+    }
   ],
   "contents": [
-    "g326erigfyig2qz",
-    "2aktxq9w8t63jy3",
-    "m7rteqgz55bqkj0",
-    "qyhpv9vw96vsmzb",
-    "cs0enwfoj5ip8wb",
-    "j1j8psue31jrkqs",
-    "gsmqa98pvr16qi8",
-    "iyllp78cmnkxeln",
-    "abn1eqtbhn6ex2f",
-    "wz7pobj7fmdsxnw",
-    "ba0g1rw5bn1cbhn",
-    "2pkc7apsy77v8qr",
-    "3elp0kj4q7c6w3q",
-    "03fbjjuri7ijcv1",
-    "rcc1hgiiiknk85m",
-    "pw39aduzb0fgzbw",
-    "6yqw5wke3hky76y",
-    "gmrpvxmyb3pxzno",
-    "3i6j609i9kf0h8b",
-    "0ywou1ovc71cvah",
-    "vrhfiqsy95017p9",
-    "r6yv18x3g1jbwgn",
-    "5xdamktyxxqp02d",
-    "4vayhworkc9dc2a",
-    "bozcql37y9f1lxg",
-    "0sce80qx7e38rf0",
-    "egg7rfndimalw31",
-    "zekwwsqr1xmqgkm",
-    "x82hhrls9e404zf",
-    "20us5k0orwrm01k",
-    "jm1y0gm2a3jjtb6",
-    "d4ignc06gq3i1ly",
-    "fnq97ja6glxaemx",
-    "gt9igltdba4jp8i",
-    "won3h2bbsx7k8of",
-    "hs08xvt1bts6f9s",
-    "smg7iv7rptjvrvt",
-    "53cl8p8tkrz1jvz",
-    "zaa72yyiij3g5ym",
-    "mxxz2kf9o5zh2ya",
-    "iuadgmv3p1a8rum",
-    "iheqluz15p5ai33",
-    "6n52frkmoo9wbry",
-    "dsfceiwkz81itdq",
-    "946gmg9qlkqpkbs",
-    "x12kuaa6waf7xa6",
-    "i060as7goy2v8qr",
-    "6ycfzegyk5c5ryo",
-    "5ey1qphdq1pslhy",
-    "floxd9gsxmdqa9v",
-    "vh5v3epyj6x7uih",
-    "nam7rr08ca2kk2j",
-    "rb6mpi2w0x4icss",
-    "df2kl8vchswluk1",
-    "p2o9kdhwzldzjw2",
-    "h6kreph2hzj7adc"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21021,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AMALIA / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fleischmann",
+      "scans": [
+        "alm_280_21021_qcn3tnlrh7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AMALIA / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.903Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.903Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "dan8jfai0nwhyl8"
+        }
+      ],
+      "source_id": "g326erigfyig2qz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21022,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1831. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig / bei Chr. Heinrich Ferdinand Hartmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_280_21022_40rr83dz90.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1831. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig / bei Chr. Heinrich Ferdinand Hartmann",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "2aktxq9w8t63jy3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21023,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "m7rteqgz55bqkj0"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu 6 Graphiken INr 21024, 21026-21036; Obj 5-16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21025,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erläuterung / der Kupferstiche / aus: »Käthchen von Heilbronn, oder die Feuerprobe, / großes historisches Ritterschauspiel von Heinrich von / Kleist« (Nach der Original-Ausgabe, Berlin / bei Reimer, 1810.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erläuterung / der Kupferstiche / aus: »Käthchen von Heilbronn, oder die Feuerprobe, / großes historisches Ritterschauspiel von Heinrich von / Kleist« (Nach der Original-Ausgabe, Berlin / bei Reimer, 1810.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "qyhpv9vw96vsmzb"
+    },
+    {
+      "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21024, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Nun, bei meiner Treu, so kann ich mich in's Grab / legen: der Traum des Grafen von Strahl ist aus",
+      "language": [],
+      "musenalm_id": 21026,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu. Bl. I. / Zweiter Act. Neunter Auftritt. (S. 79.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Kleist",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu. Bl. I. / Zweiter Act. Neunter Auftritt. (S. 79.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.903Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.903Z",
+          "agent": "jaer15own8gb04o",
+          "source_id": "gh0qc21vzda9i1b"
+        }
+      ],
+      "source_id": "cs0enwfoj5ip8wb"
+    },
+    {
+      "annotation": "paginiert I. /) s. Textbezug INr 21026, Obj 5; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21024,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Käthchen von Heilbronn / von Heinrich von Kleist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. P. Walther sc.",
+      "scans": [
+        "alm_280_21024_x460sdzash.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Käthchen von Heilbronn / von Heinrich von Kleist",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.903Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.903Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "vy19qepe4eho5qu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.903Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.903Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "x06t1kpd68wyuw6"
+        }
+      ],
+      "source_id": "j1j8psue31jrkqs"
+    },
+    {
+      "annotation": "paginiert II. /) s. Textbezug INr 21028, Obj 8; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21027,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_280_21027_too1kj4hga.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.748Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "amv42g7gzubjil8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.747Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fkfp9801cimsgl2"
+        }
+      ],
+      "source_id": "gsmqa98pvr16qi8"
+    },
+    {
+      "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21027, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Fasse dich Alter, und erzähle den Hergang",
+      "language": [],
+      "musenalm_id": 21028,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Bl. II. / Erster Act. Erster Auftritt. (S. 12.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Kleist",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Bl. II. / Erster Act. Erster Auftritt. (S. 12.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.748Z",
+          "agent": "jaer15own8gb04o",
+          "source_id": "z71eeeyjjgacnko"
+        }
+      ],
+      "source_id": "iyllp78cmnkxeln"
+    },
+    {
+      "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21030, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Macht auf! Macht auf! Macht auf! / Holla! Wer ruft?",
+      "language": [],
+      "musenalm_id": 21029,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Bl III. / Dritter Act. Fünfter Auftritt. (S. 309.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Kleist",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Bl III. / Dritter Act. Fünfter Auftritt. (S. 309.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.748Z",
+          "agent": "jaer15own8gb04o",
+          "source_id": "jka9ldf24y858k0"
+        }
+      ],
+      "source_id": "abn1eqtbhn6ex2f"
+    },
+    {
+      "annotation": "paginiert III. /) s. Textbezug INr 21029, Obj 9; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21030,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_280_21030_9kv58pqnsq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "1qsjur93d36l13l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "8ny65wyb3z8qn6t"
+        }
+      ],
+      "source_id": "wz7pobj7fmdsxnw"
+    },
+    {
+      "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21032, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Schirmt mich, ihr Himmlischen! Was widerfährt mir?",
+      "language": [],
+      "musenalm_id": 21031,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Bl. IV. / Dritter Act. Vierzehnter Auftritt. (S. 135.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Kleist",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Bl. IV. / Dritter Act. Vierzehnter Auftritt. (S. 135.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "jaer15own8gb04o",
+          "source_id": "moidwohzr3xk0xv"
+        }
+      ],
+      "source_id": "ba0g1rw5bn1cbhn"
+    },
+    {
+      "annotation": "paginiert IV. /) s. Textbezug INr 21031, Obj 11; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.149Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. F. Wagner sc.",
+      "scans": [
+        "alm_280_21032_n8w695vph3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "e2fmj6olwnpc70t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "rd1ydgincu56zte"
+        }
+      ],
+      "source_id": "2pkc7apsy77v8qr"
+    },
+    {
+      "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21034, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Käthchen schläfst Du? / Nein mein werther Herr. / Und doch hast du die Augenlieder zu.",
+      "language": [],
+      "musenalm_id": 21033,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Bl. V. / Vierter Act. Zweiter Auftritt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Kleist",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Bl. V. / Vierter Act. Zweiter Auftritt",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.963Z",
+          "agent": "jaer15own8gb04o",
+          "source_id": "mlsdzwjuu9t3gdj"
+        }
+      ],
+      "source_id": "3elp0kj4q7c6w3q"
+    },
+    {
+      "annotation": "paginiert V. /) s. Textbezug INr 21033, Obj 13; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21034,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kätchen von Heilbronn / Von Heinrich v. Kleist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_280_21034_e3a2a4quf1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kätchen von Heilbronn / Von Heinrich v. Kleist",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.963Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "bjf55t2in9f46fs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.963Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "v1f7zz1crt8larq"
+        }
+      ],
+      "source_id": "03fbjjuri7ijcv1"
+    },
+    {
+      "annotation": "paginiert VI. /) s. Textbezug INr 21035, Obj 16; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21036,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Buser sc. Arau",
+      "scans": [
+        "alm_280_21036_fk900105v7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.964Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "cqf59ygpx34t431"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.964Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "vds71uhjyvfiwnq"
+        }
+      ],
+      "source_id": "rcc1hgiiiknk85m"
+    },
+    {
+      "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21036, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Heil Dir, o Jungfrau! / Heil Dir, Käthchen von Heilbronn, kaiserliche Prinzessin von Schwaben!",
+      "language": [],
+      "musenalm_id": 21035,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Bl. VI. / Fünfter Act. Vierzehnter Auftritt (S. 196)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Kleist",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Bl. VI. / Fünfter Act. Vierzehnter Auftritt (S. 196)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.963Z",
+          "agent": "jaer15own8gb04o",
+          "source_id": "l4nfe44d0vmsuc3"
+        }
+      ],
+      "source_id": "pw39aduzb0fgzbw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war im ersten Jahre der Thronbesteigung Ludwigs des XV., als eines Morgens ein Irländischer Edelmann, Namens Douglas,",
+      "language": [],
+      "musenalm_id": 21037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Clemenze L'hopital. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Clemenze L'hopital. / Erzählung",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.964Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "wzlnp29jrcavzxp"
+        }
+      ],
+      "source_id": "6yqw5wke3hky76y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Kurze Zeit nachher ,als ich von meiner kleinen, doch herzlich geliebten Dorfgemeinde abgerufen und, wie es in der Vocation hieß: aus absonderlichem Vertrauen, als Prediger auf der Festung angestellt worden war, ließ mich der Commandant zu sich fordern.",
+      "language": [],
+      "musenalm_id": 21038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Engelseherin. / Nach den Papieren eines, ungefähr 1635 verstor- / benen Protestantischen Geistlichen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Engelseherin. / Nach den Papieren eines, ungefähr 1635 verstor- / benen Protestantischen Geistlichen.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.964Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "mn8hwp4dv381gbb"
+        }
+      ],
+      "source_id": "gmrpvxmyb3pxzno"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Man hat bemerken wollen, daß in Dänemarks Hauptstadt, die zugleich die Universität des Landes umschließt,",
+      "language": [],
+      "musenalm_id": 21039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mesmerische Liebe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mesmerische Liebe. / Novelle",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.131Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.131Z",
+          "agent": "jfhywk4cbxcodws",
+          "source_id": "1fkjkqsb7tibng8"
+        }
+      ],
+      "source_id": "3i6j609i9kf0h8b"
+    },
+    {
+      "annotation": "Sammlung von 15 Gedichten INr 21042- 21056, Obj 21-35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor. / Sonettenkranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor. / Sonettenkranz",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.132Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "33yu95yhzno8krm"
+        }
+      ],
+      "source_id": "0ywou1ovc71cvah"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Urheil'ge Nacht, Dir ist das Licht entsprungen! / Es rang sich flammend aus des Chaos Schoos",
+      "language": [],
+      "musenalm_id": 21042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.132Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "ypo19hc325ravno"
+        }
+      ],
+      "source_id": "vrhfiqsy95017p9"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Die Wunderkraft, die Leben weckt und eint, / Das ist der Cama, Gott aus Gott geboren,",
+      "language": [],
+      "musenalm_id": 21043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.132Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "p78vhugboz7mo8v"
+        }
+      ],
+      "source_id": "r6yv18x3g1jbwgn"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "321",
+      "incipit_statement": "Der junge Gott, von Nymphen eingesungen, / Wacht wieder auf, ein ruheloses Kind.",
+      "language": [],
+      "musenalm_id": 21044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.133Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "gargwtrib70e4af"
+        }
+      ],
+      "source_id": "5xdamktyxxqp02d"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Der Sehnsucht anfacht, und in Träumen weint, / Der Eros hat den Himeros gefunden.",
+      "language": [],
+      "musenalm_id": 21045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.133Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "fowiinvfbawlpr4"
+        }
+      ],
+      "source_id": "4vayhworkc9dc2a"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "O bringt dem Hohen heitre Huldigungen! / Laßt Flammen lodern aus der Herzen Schrein,",
+      "language": [],
+      "musenalm_id": 21046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.830Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.830Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "h6n64hgs54h946x"
+        }
+      ],
+      "source_id": "bozcql37y9f1lxg"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Berauscht vom Götterglück, das Euch erscheint, / Pflückt ihr die Frucht der Hesperidenbäume,",
+      "language": [],
+      "musenalm_id": 21047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.830Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.830Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "aojdgw2sv2bv9y8"
+        }
+      ],
+      "source_id": "0sce80qx7e38rf0"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Der kleine Gott hat Könige bezwungen; / Des Ares Sohn, führt Eros wilden Krieg.",
+      "language": [],
+      "musenalm_id": 21048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "vt3y56yej4i8ngy"
+        }
+      ],
+      "source_id": "egg7rfndimalw31"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "Er trotzt dem Schrecken, und besiegt den Feind; / Sein Fackellicht strahlt hell in Kummernächten,",
+      "language": [],
+      "musenalm_id": 21049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "hv5oubha3nd5crr"
+        }
+      ],
+      "source_id": "zekwwsqr1xmqgkm"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Er birgt sich in der Mutter dunkle Schleier; / So, holde Psyche, war er Dir genaht;",
+      "language": [],
+      "musenalm_id": 21050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "gekkaa0wlg7ac8b"
+        }
+      ],
+      "source_id": "x82hhrls9e404zf"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Er bindet Herzen fest mit Rosenketten; / Es ist sein Reich ein schönes Zauberland.",
+      "language": [],
+      "musenalm_id": 21051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "quljs4cgcm6lzur"
+        }
+      ],
+      "source_id": "20us5k0orwrm01k"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Er ist der Dämon, der das All beseelt; / Er trägt den Himmel zu der Erde nieder.",
+      "language": [],
+      "musenalm_id": 21052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "433961fmmj4qtxj"
+        }
+      ],
+      "source_id": "jm1y0gm2a3jjtb6"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Er lockt den Wohllaut aus Apollons Leier, / Da schlingen Sonnen rhytmisch ihre Tänze,",
+      "language": [],
+      "musenalm_id": 21053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "ffe134sg6ixa970"
+        }
+      ],
+      "source_id": "d4ignc06gq3i1ly"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Er kommt, um uns vom ewgen Tod zu retten; / Ein Hohepriester, der das Heil verheißt.",
+      "language": [],
+      "musenalm_id": 21054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "ci67xl1wurkbjl1"
+        }
+      ],
+      "source_id": "fnq97ja6glxaemx"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "Er ist der Gott, der sich der Welt vermählt, / Der an die Menschheit seine Gottheit bindet,",
+      "language": [],
+      "musenalm_id": 21055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "bsxkln8ciprz03r"
+        }
+      ],
+      "source_id": "gt9igltdba4jp8i"
+    },
+    {
+      "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Urheil'ge Nacht, Dir ist das Licht entsprungen, / Die Wunderkraft, die Leben weckt und eint.",
+      "language": [],
+      "musenalm_id": 21056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.955Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.955Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "57zumft1nrec43d"
+        }
+      ],
+      "source_id": "won3h2bbsx7k8of"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Aller Anfang ist schwer. Das fühle ich zwiefach, ich armer Cyrillus Spangenbeck, Staatsgefangener auf der Duodezfestung Kartengrundstein;",
+      "language": [],
+      "musenalm_id": 21057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Autobiographie / des / Dorfschulmeisters / Cyrillus Spangenbeck. / Humoreske",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. L. B. Wolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Autobiographie / des / Dorfschulmeisters / Cyrillus Spangenbeck. / Humoreske",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.962Z",
+          "agent": "9hf3yrzfqx4aso2",
+          "source_id": "e2m2ykca8c1iak9"
+        }
+      ],
+      "source_id": "hs08xvt1bts6f9s"
+    },
+    {
+      "annotation": "Sammlung von 17 Gedichten INr 21059-21077, Obj 38-56",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "350",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermischte Gedichte",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "smg7iv7rptjvrvt"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "Ich kenn' ein schönes Schwesternpaar; / Welch Schwesterchen von Beiden",
+      "language": [],
+      "musenalm_id": 21059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schwesternpaar",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schwesternpaar",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.962Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "ur4wqj6tidao5qa"
+        }
+      ],
+      "source_id": "53cl8p8tkrz1jvz"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Zwei Schwestern nenn' ich, möchtet ihr mich hören! / Die euch vom Himmel wurden hergesandt.",
+      "language": [],
+      "musenalm_id": 21060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zwei Schwestern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aug. Heinr. von Weyrauch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die zwei Schwestern",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "zaa72yyiij3g5ym"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Du, die mild in Thränen lächelt, / Und dem Gram den Stachel nimmt,",
+      "language": [],
+      "musenalm_id": 21061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Wehmuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. G. v. Brunnow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Wehmuth",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "mxxz2kf9o5zh2ya"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Rom, das stolze Rom erzittert, / Und es wankt sein Kapitol,",
+      "language": [],
+      "musenalm_id": 21062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coriolan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. G. von Brunnow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Coriolan",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "iuadgmv3p1a8rum"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Sieh, Freundin hier das Bild / Aus fernem Morgenland,",
+      "language": [],
+      "musenalm_id": 21063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An J. M. / bei Uebersendung einer kleinen bronzenen / Sphinx, als Briefhalter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aug. Heinr. von Weyrauch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An J. M. / bei Uebersendung einer kleinen bronzenen / Sphinx, als Briefhalter",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "iheqluz15p5ai33"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Schöner Jüngling, blickst du wieder / aus dem blauen Aetherzelt?",
+      "language": [],
+      "musenalm_id": 21064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingslied. / Im Mai 1829",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. G. v. Brunnow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingslied. / Im Mai 1829",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "6n52frkmoo9wbry"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Ihr allerliebsten Röschen! / Wie lieblich ihr da hängt!",
+      "language": [],
+      "musenalm_id": 21065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosen und Mädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aug. Heinr. v. Weyrauch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosen und Mädchen",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "dsfceiwkz81itdq"
+    },
+    {
+      "annotation": "5 Gedichte INr 21067-21071, Obj 46-50 /) Vermischte Gedichte (Sammlung INr 21058, Obj 37)\n# Anm. am Obj: Sowohl wegen dieser, bereits ganz, als wegen der in Folgendem genannten, erst zum Theil, ausgeführten Opern-Dichtung, bin ich erbötig, mit bedeutenden Componisten oder Intendanzen in Unterhandlung zu treten.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus der Oper-Dichtung. / Buschmutter, oder : Die Unterirdischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus der Oper-Dichtung. / Buschmutter, oder : Die Unterirdischen",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.962Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "tptjqj9rwolqpti"
+        }
+      ],
+      "source_id": "946gmg9qlkqpkbs"
+    },
+    {
+      "annotation": "Aus der Oper-Dichtung: Buschmutter, oder die Unterirdischen (Sammlung INr 21066, Obj 45) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Der Nebel sank; es siegt die Sonne, / Vergüldet Berge, Wald und Flur;",
+      "language": [],
+      "musenalm_id": 21067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / (Waldige Gegend in einer Berg-Kapelle. Ueber der eiser- / nen Thür vergoldetete Wappenschilder, hinter derselben Särge.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / (Waldige Gegend in einer Berg-Kapelle. Ueber der eiser- / nen Thür vergoldetete Wappenschilder, hinter derselben Särge.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.962Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "hu61puqf5feoazc"
+        }
+      ],
+      "source_id": "x12kuaa6waf7xa6"
+    },
+    {
+      "annotation": "Aus der Oper-Dichtung: Buschmutter, oder die Unterirdischen (Sammlung INr 21066, Obj 45) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Nach den jähsten Felsenrissen, / Die nur Wolk' und Aar umschiffen,",
+      "language": [],
+      "musenalm_id": 21068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / (Heitere Bergstraße.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / (Heitere Bergstraße.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "vrdhsdoy1nf0k5f"
+        }
+      ],
+      "source_id": "i060as7goy2v8qr"
+    },
+    {
+      "annotation": "Aus der Oper-Dichtung: Buschmutter, oder die Unterirdischen (Sammlung INr 21066, Obj 45) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "Es sind sich die Stunden nicht gleich! / Bald hängt voller Geigen der Himmel,",
+      "language": [],
+      "musenalm_id": 21069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Andreas (Steiger)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Andreas (Steiger)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "ejjpmo400qfn4yv"
+        }
+      ],
+      "source_id": "6ycfzegyk5c5ryo"
+    },
+    {
+      "annotation": "Aus der Oper-Dichtung: Buschmutter, oder die Unterirdischen (Sammlung INr 21066, Obj 45) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "In nächtlicher Teuf', in der finstersten Schlucht, / Da sprossen uns Aehren, da reift unsre Frucht;",
+      "language": [],
+      "musenalm_id": 21070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / (Tiefe Felsen-Höhle. Im Hintergrunde Gewehre, eiserne / Kästen, Hämmer und Zangen, ein Heerd mit glühen- / den Kohlen u.s.w.) / Die Unbekannten / (um eine Tafel gereiht, zu Gläser- und Hämmerklang.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / (Tiefe Felsen-Höhle. Im Hintergrunde Gewehre, eiserne / Kästen, Hämmer und Zangen, ein Heerd mit glühen- / den Kohlen u.s.w.) / Die Unbekannten / (um eine Tafel gereiht, zu Gläser- und Hämmerklang.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "mka3fj6syycv7o0"
+        }
+      ],
+      "source_id": "5ey1qphdq1pslhy"
+    },
+    {
+      "annotation": "Aus der Oper-Dichtung: Buschmutter, oder die Unterirdischen (Sammlung INr 21066, Obj 45) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Ihn wiederseh'n nach langer Trennung! Nun / Nicht zitternd mehr an seinem Herzen ruh'n,",
+      "language": [],
+      "musenalm_id": 21071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Blandel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Blandel",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "rdmvqv7avwanky9"
+        }
+      ],
+      "source_id": "floxd9gsxmdqa9v"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Lieblich bist Du, Mondeswölkchen! / Lieblich ist Dein Licht, o Mond",
+      "language": [],
+      "musenalm_id": 21072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus der Oper-Dichtung: / »Die Süd-See-Fahrer.« / Naïa's Klage. / (Bei Matavi. Platz vor einer Hütte,welche mit Kokos-Palmen und Brodtfruchtbäumen umgeben ist. In der / Ferne das Meer. / Der Mond wirft Strahlen durch die / Blätter und auf die Wellen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus der Oper-Dichtung: / »Die Süd-See-Fahrer.« / Naïa's Klage. / (Bei Matavi. Platz vor einer Hütte,welche mit Kokos-Palmen und Brodtfruchtbäumen umgeben ist. In der / Ferne das Meer. / Der Mond wirft Strahlen durch die / Blätter und auf die Wellen.)",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "vme3l4hypb9qo2o"
+        }
+      ],
+      "source_id": "vh5v3epyj6x7uih"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 21074-21076, Obj 53-55 # s. 6 Graphiken nach Zeichnungen von Babette Wottawa und 6 Textbezüge (nach Fouqués »Held des Nordens«) in: Taschenbuch zum geselligen Vergnügen 1830 (1) INr 20986-20998",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei Sigurds-Sonette. / An Fräulein Betty Wottawa / zu Wien #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Motte-Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei Sigurds-Sonette. / An Fräulein Betty Wottawa / zu Wien #",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "q1waa9gn603qj56"
+        }
+      ],
+      "source_id": "nam7rr08ca2kk2j"
+    },
+    {
+      "annotation": "Drei Sigurds-Sonette. An Fräulein Betty Wottawa zu Wien (Sammlung INr 21073, Obj 52) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Geharnischtkühn, umtönt vom Hall der Schilder, / Vom Heldenklang treffend getroff'ner Schwerter,",
+      "language": [],
+      "musenalm_id": 21074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstes",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "0yhg0suehy258o8"
+        }
+      ],
+      "source_id": "rb6mpi2w0x4icss"
+    },
+    {
+      "annotation": "Drei Sigurds-Sonette. An Fräulein Betty Wottawa zu Wien (Sammlung INr 21073, Obj 52) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Ihr frühen Bilder, die Ihr stolz begeisternd / Aus meiner Harfe Saiten sprangt ins Leben.",
+      "language": [],
+      "musenalm_id": 21075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweites",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweites",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "09cavtblec4eruf"
+        }
+      ],
+      "source_id": "df2kl8vchswluk1"
+    },
+    {
+      "annotation": "Drei Sigurds-Sonette. An Fräulein Betty Wottawa zu Wien (Sammlung INr 21073, Obj 52) Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Ich dachte, Deine Bilder all' zu singen, / Ich dachte, Deine Bilder all' zu feiern",
+      "language": [],
+      "musenalm_id": 21076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drittens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drittens",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "uz47zk0218auyj6"
+        }
+      ],
+      "source_id": "p2o9kdhwzldzjw2"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Nordmann, der Du ernst edles Nordlandwort / Hochedlem Frauenwirken hast gesellt,",
+      "language": [],
+      "musenalm_id": 21077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sigurds-Sonett. / An Thor und Legis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sigurds-Sonett. / An Thor und Legis",
+      "updated": "2002-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.954Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "9fg9af15flhp505"
+        }
+      ],
+      "source_id": "h6kreph2hzj7adc"
+    }
   ],
   "agents": [
     {

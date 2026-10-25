@@ -48,76 +48,2652 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "jp5kerj3ye9zg47"
+    {
+      "annotation": "Jgg 1824-1831, 1832-1840",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.569Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404016",
+      "location": "105A06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.569Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "jp5kerj3ye9zg47"
+    }
   ],
   "contents": [
-    "6th7qnl8q6zszc7",
-    "7wv3aylsfwsnfh1",
-    "vksvoiraxyoovmn",
-    "739995dtxdzfxcw",
-    "nnlubse4iodesg0",
-    "juno5aekzn9y8ys",
-    "58hl4xm3rp6pmmi",
-    "8uuae4awatlkeqz",
-    "6p2rrehuubs3nhn",
-    "jeky020a2dc4l1k",
-    "gqxbuug3jsgm82i",
-    "o68k0gse0gwe6xb",
-    "oaqypfbjg6vjwl4",
-    "rec8v5pomkwazgy",
-    "ys3j328tppwlasl",
-    "fwir8ard5vr0iir",
-    "v2smxr17uzm5vnh",
-    "tjcp57lmsyg6w8o",
-    "qtr4clf92n8bsd2",
-    "uacm3ewbdu07fv9",
-    "4ihiktdw88hiquj",
-    "2v7hjsfcncdqmod",
-    "o7ooyn3obqbqbai",
-    "axqd7t36kh6y36d",
-    "e5mfr4hvv9bg9v4",
-    "ihqdnhv096w4xqr",
-    "dewfksv5u6pa6fd",
-    "btw1ewno4ycixtu",
-    "9ssjg12z5p6bjvn",
-    "7edrhjcb9dkikwb",
-    "dj08vnnui9dx18t",
-    "ds6khkgu9ak7bb0",
-    "7kyxbz5kyoqbkb7",
-    "ynbvzpr51d1ngsr",
-    "32ssru3ta9vydxi",
-    "b49ja57y9y6uhuf",
-    "h2e3fg986hplgxq",
-    "olurq279nwctxl8",
-    "a06a8jd1faad9d4",
-    "qoy4yrysjdp7pek",
-    "jja1y2k0axwejrw",
-    "9xod94sgsseu1on",
-    "wgio39w8qq2dirh",
-    "m3cvqpk4y7dejsq",
-    "74qwry8za4e70un",
-    "7hr65x2okjy7ibw",
-    "2921sk3g90w4gyr",
-    "5pp9kytwi3o4qst",
-    "wsl5rl4n8piscil",
-    "u9hi8279cyo9unc",
-    "4gr8vzuibhwfiuq",
-    "r2b1jfz3gpyba3c",
-    "onqc7e3rg57bfp2",
-    "iusvpfp3ooyw62g",
-    "t3zfkilu243h6k3",
-    "quu6w9fb4i0qrws",
-    "s7l0w3q7d352eto",
-    "4dmhtdkucri7uie",
-    "64pizths247i7uz",
-    "zxuj6lkcfw9q96k",
-    "k7o6m9bxnr7o6fo",
-    "piox7s2zjf50c41",
-    "hngyybzhzv4540z",
-    "6rrn6lmwh172z9t",
-    "lh33nao1h2gx2db",
-    "w7xrdr5qzzvdbii",
-    "a99p63epj4o3ovn"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90838,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Lith. bei [unleserlich] in Wien",
+      "scans": [
+        "alm_1775_90838_jkzqifsuj8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "6th7qnl8q6zszc7"
+    },
+    {
+      "annotation": "Illustration zu »Die schuldlos Schuldbewusste« von Chr. Kuffner INr 90842, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90839,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erzählung: Die schuldlos Schuldbewusste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pickersgill pxt. Leop. Beyer sc.",
+      "scans": [
+        "alm_1775_90839_cd5sy5vk9j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erzählung: Die schuldlos Schuldbewusste",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.958Z",
+          "agent": "0a1te3amnrditl6",
+          "source_id": "faz3stfufdh8c6l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.958Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "upi9jyjxj6sp753"
+        }
+      ],
+      "source_id": "7wv3aylsfwsnfh1"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90840,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FORTUNA / Ein Taschenbuch / für das Jahr 1830. / Herausgegeben / von / FRANZ XAV. TOLD. / Siebenter Jahrgang / mit Sechs Kupferstichen / WIEN. / Bei Fr. Tendler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1775_90840_hxzku45pnr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FORTUNA / Ein Taschenbuch / für das Jahr 1830. / Herausgegeben / von / FRANZ XAV. TOLD. / Siebenter Jahrgang / mit Sechs Kupferstichen / WIEN. / Bei Fr. Tendler",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "vksvoiraxyoovmn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 90839, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Freundlich wie die Mutter auf ihren Säugling, schaute die Sonne an einem schönen milden Herbstabende zur Erde herab.",
+      "language": [],
+      "musenalm_id": 90841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schuldlos Schuldbewusste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christ. Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schuldlos Schuldbewusste",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.341Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "v8kkqbetvytrjwt"
+        }
+      ],
+      "source_id": "739995dtxdzfxcw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Ach! blieben wir doch immer / Nur zwanzig Jahre alt! / Verflösse dieß Alter / Der Freude nicht so bald!",
+      "language": [],
+      "musenalm_id": 90842,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwanzig Lebensjahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwanzig Lebensjahre",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.341Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "8ia0m0h4z8yh92s"
+        }
+      ],
+      "source_id": "nnlubse4iodesg0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Ein mächt'ger Kaiser herrschte einst, / Im deutschen Vaterland, / Durch manch Turney, durch manchen Strauß, / Durch manchen Sieg bekannt.",
+      "language": [],
+      "musenalm_id": 90843,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenberg. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenberg. / Ballade",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "juno5aekzn9y8ys"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 90845, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Zurückgezogen aus allen Armen der großen Welt, lebte die gräfliche Familie von M. auf ihrem Landsitze unweit Cassel,",
+      "language": [],
+      "musenalm_id": 90844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wunden und Heilung. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Braun von Braunthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wunden und Heilung. / Erzählung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.367Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "4za3p7c7ox1364r"
+        }
+      ],
+      "source_id": "58hl4xm3rp6pmmi"
+    },
+    {
+      "annotation": "Illustration zu »Wunden und Heilung« von K. J. Braun von Braunthal INr 90844, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90845,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erzählung Wunden und Heilung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Hofmann sc.",
+      "scans": [
+        "alm_1775_90845_f3f7vio8id.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erzählung Wunden und Heilung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.367Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "2lhluae3qm20hw8"
+        }
+      ],
+      "source_id": "8uuae4awatlkeqz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Es sinket die Sonne, mit flammendem Schein / Vergüldend des Schwarzwaldes Wipfeln,",
+      "language": [],
+      "musenalm_id": 90846,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Geisterglocke am schwarzen Thurme. / Romantische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Emmy ***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Geisterglocke am schwarzen Thurme. / Romantische Erzählung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "6p2rrehuubs3nhn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 90848, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Es war ein Löhnungstag, an dem wir die Wache am Pulverthurm bezogen, einem ausgedehnten, aber einsam stehenden Gebäude.",
+      "language": [],
+      "musenalm_id": 90847,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Plutarch auf der Wachstube am / Pulverthurm. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz. Xav. Told",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Plutarch auf der Wachstube am / Pulverthurm. / Erzählung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.367Z",
+          "agent": "tglq0d4pyb420do",
+          "source_id": "7uug0ruwk1cqo23"
+        }
+      ],
+      "source_id": "jeky020a2dc4l1k"
+    },
+    {
+      "annotation": "Illustration zu »Plutarch auf der Wachstube am Pulverthurm« von Fr. X. Told INr 90847, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90848,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erzählung: Plutarch auf der Wachstube / am Pulverthurm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Webster del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1775_90848_l6vpuvm5zi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erzählung: Plutarch auf der Wachstube / am Pulverthurm",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.367Z",
+          "agent": "or1fz8l642chtnf",
+          "source_id": "r3q1igg1sbi00v0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.367Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "up7jj67eyxr9arm"
+        }
+      ],
+      "source_id": "gqxbuug3jsgm82i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Die Menschen sind doch wahre Narren, / Sie wollen froh und glücklich seyn;",
+      "language": [],
+      "musenalm_id": 90849,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Scheiger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "o68k0gse0gwe6xb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Ich bin ein armes Bettlerkind, / Verlassen von der Welt;",
+      "language": [],
+      "musenalm_id": 90850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bettlerkind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bettlerkind",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.397Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.397Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "ckye7gaako1idgq"
+        }
+      ],
+      "source_id": "oaqypfbjg6vjwl4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Ernst sitzt der König auf dem Thron, / Auf seinem Haupt die Herrscherkron;",
+      "language": [],
+      "musenalm_id": 90851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der König und der Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Marsano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der König und der Sänger",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.397Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.397Z",
+          "agent": "rpi79icfm69ol8h",
+          "source_id": "bft1v0aslheap32"
+        }
+      ],
+      "source_id": "rec8v5pomkwazgy"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Des Hasses Bild ein schlangenhaarig Haupt, / Ein Engelantlitz Eurer Liebe Sinnbild! [...] /) Mit einer Illustration s. Graphik INr 90853, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Gewaltige Windstöße thürmten die Wogen des Meeres, und rüttelten die Fenster des Castells Roslavi, das Sicilien gegenüber, einige Miglien von Neapel entfernt, vor fünfzig bis sechzig Jahren noch als Ruine sichtbar gewesen seyn soll,",
+      "language": [],
+      "musenalm_id": 90852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hass und Liebe. / Novelle aus der ersten Hälfte des siebzehnten Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hass und Liebe. / Novelle aus der ersten Hälfte des siebzehnten Jahrhunderts",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "ys3j328tppwlasl"
+    },
+    {
+      "annotation": "Illustration zu »Hass und Liebe« von F. H. Slawik INr 90852, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erzählung: Hass und Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jn. Blaschke",
+      "scans": [
+        "alm_1775_90853_pxip2rzuco.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erzählung: Hass und Liebe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.267Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "bajw5cdxdz840wz"
+        }
+      ],
+      "source_id": "fwir8ard5vr0iir"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Einsam still im Abendscheine / Sitz' ich hier im grünen Haus,",
+      "language": [],
+      "musenalm_id": 90854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Laube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Kasper",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der Laube",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "v2smxr17uzm5vnh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chloe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wood pinxt. Leop. Beyer sc.",
+      "scans": [
+        "alm_1775_90855_1apqgk82wi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chloe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.267Z",
+          "agent": "uaycc1jcy2aky7g",
+          "source_id": "jo4pvy22vdhw871"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.267Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "xqf12oihd61ivxt"
+        }
+      ],
+      "source_id": "tjcp57lmsyg6w8o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Einst in kühler Frühlingsnacht, / Es geschah in unsern Tagen, / Kam ein Knäblein voller Bangen / Durch des Waldes Schlucht gegangen;",
+      "language": [],
+      "musenalm_id": 90856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor auf Reisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. X. Told",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor auf Reisen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.374Z",
+          "agent": "tglq0d4pyb420do",
+          "source_id": "fb5o0ric5alnhyf"
+        }
+      ],
+      "source_id": "qtr4clf92n8bsd2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Vom Winterschlaf umfangen, träumet / In tiefer Höhle Dachs und Bär,",
+      "language": [],
+      "musenalm_id": 90857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine Fliege, / die bey mir überwinterte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Scheiger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine Fliege, / die bey mir überwinterte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "uacm3ewbdu07fv9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "In Paris geboren und erzogen, wurde ich in frühester Jugend schon der Stolz meiner Geburtsstadt. Herrlich ermüdet von den Lobeserhebungen meiner Schönheit, die täglich in Versen und Prosa, Gedichten und Liedern, Gesellschaften und Tagesblättern",
+      "language": [],
+      "musenalm_id": 90858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bekenntnisse einer Französinn. / Aus dem Englischen. / (Forget me not for 1825, London, Ackermann.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Rupprecht",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bekenntnisse einer Französinn. / Aus dem Englischen. / (Forget me not for 1825, London, Ackermann.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.287Z",
+          "agent": "47jltbo11xjvoib",
+          "source_id": "ae637lt0mzscspd"
+        }
+      ],
+      "source_id": "4ihiktdw88hiquj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 90860, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Kein Laut ertönt ob des Meeres Tiefen, / Der stille Lufthauch liegt still eingewiegt,",
+      "language": [],
+      "musenalm_id": 90859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gefangene. / Aus dem Englioschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[übers.] Habermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gefangene. / Aus dem Englioschen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "2v7hjsfcncdqmod"
+    },
+    {
+      "annotation": "Illustration zu »Der Gefangene« von Habermann INr 90859, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Gedichte: Der Gefangene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jn. Blaschke sc.",
+      "scans": [
+        "alm_1775_90860_7xq9qqdppq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zum Gedichte: Der Gefangene",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.287Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "lsny370pr2zt72v"
+        }
+      ],
+      "source_id": "o7ooyn3obqbqbai"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Einst saß ein Dutzend Spatzen / Auf einem Kirchendach,",
+      "language": [],
+      "musenalm_id": 90861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fabelchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fabelchen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "axqd7t36kh6y36d"
+    },
+    {
+      "annotation": "Sammlung von 11 Gedichten INr 90863-90873, Obj 26-36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klänge der Liebe. / Ein Sonettenkranz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klänge der Liebe. / Ein Sonettenkranz",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "gs5enshujbrmd09"
+        }
+      ],
+      "source_id": "e5mfr4hvv9bg9v4"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Ihr Lüfte, die ihr wehet aus dem Süden, / Ihr Wolken, die noch allenthalben zagen,",
+      "language": [],
+      "musenalm_id": 90863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "sf90kwbg2rpv8cg"
+        }
+      ],
+      "source_id": "ihqdnhv096w4xqr"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Ihr schweigt? - ja wohl, ich kann's nicht übel deuten, / Ihr seyd von ihren Reitzen wohl noch trunken,",
+      "language": [],
+      "musenalm_id": 90864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "6rbfx5hvc0r8csa"
+        }
+      ],
+      "source_id": "dewfksv5u6pa6fd"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Machte die Liebe mich nicht eifersüchtig, / Ich dächte gar nicht, daß es Liebe wäre;",
+      "language": [],
+      "musenalm_id": 90865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "2zs0q7h7jq8okdk"
+        }
+      ],
+      "source_id": "btw1ewno4ycixtu"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Der reinen Liebe ist das ganze Leben / Rings aufgethan, gleich einem offenen Buche,",
+      "language": [],
+      "musenalm_id": 90866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "7yncwq4cwjaukv3"
+        }
+      ],
+      "source_id": "9ssjg12z5p6bjvn"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Wenn jemahls wieder mich ein Wunsch beseelte, / So wär' es der, daß ich auf ewig deinen / Geliebten Banden dürfte mich vereinen,",
+      "language": [],
+      "musenalm_id": 90867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "95fgzclu6z53r0e"
+        }
+      ],
+      "source_id": "7edrhjcb9dkikwb"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Was jemahls ich aus süßbewegter Seele, / An Liebesgütern hab' herausgesponnen,",
+      "language": [],
+      "musenalm_id": 90868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "lecze0bbm2q1sj4"
+        }
+      ],
+      "source_id": "dj08vnnui9dx18t"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Du hast verbothen mir, von deinen Küssen / Etwas der Welt im Liede mehr zu sagen,",
+      "language": [],
+      "musenalm_id": 90869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "kajtod2u4wnw322"
+        }
+      ],
+      "source_id": "ds6khkgu9ak7bb0"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Ich und mein Lieb, wir leben euch ein Leben, / Wie ihr kein zweytes in der Schöpfung findet,",
+      "language": [],
+      "musenalm_id": 90870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.288Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "v90w0hhtw4wmiez"
+        }
+      ],
+      "source_id": "7kyxbz5kyoqbkb7"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.038Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Oft hast du mich gefragt, du Engelgute, / Wie ich zum Dichter mich empor geschwungen?",
+      "language": [],
+      "musenalm_id": 90871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.460Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.460Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "a9u2l4pgm283l46"
+        }
+      ],
+      "source_id": "ynbvzpr51d1ngsr"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Und wie ich angefangen, sieh so wende / Ich wieder mich zu dir, der holden Lieben,",
+      "language": [],
+      "musenalm_id": 90872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "ue9jl6jvegnilhc"
+        }
+      ],
+      "source_id": "32ssru3ta9vydxi"
+    },
+    {
+      "annotation": "Klänge der Liebe. Ein Sonettenkranz (Sammlung INr 90862, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "So rührte Liebe tändelnd meine Leyer, / Und was an kleinen Liedern ihr entklungen,",
+      "language": [],
+      "musenalm_id": 90873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "o7l2yk23pgah9cq"
+        }
+      ],
+      "source_id": "b49ja57y9y6uhuf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Kann es wohl ein lästigeres Geschäft geben, als das eines Advocaten? Gewiß nicht! Undank über Undank! Aerger über Aerger!",
+      "language": [],
+      "musenalm_id": 90874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Process um einen Kuss. / Dramatische Kleinigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Xav. Told",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Process um einen Kuss. / Dramatische Kleinigkeit",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "tglq0d4pyb420do",
+          "source_id": "ox45x1x601bjjgu"
+        }
+      ],
+      "source_id": "h2e3fg986hplgxq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Du gingst zum Frieden, du der Friedenlose, / Was menschlich an dir, hast du ausgezogen,",
+      "language": [],
+      "musenalm_id": 90875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey Adolph Müllners Tode",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bey Adolph Müllners Tode",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "32ipyacw80mlss7"
+        }
+      ],
+      "source_id": "olurq279nwctxl8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Um Mitternacht steigt aus tiefem Moor / Ein bleicher Ritter schweigend empor,",
+      "language": [],
+      "musenalm_id": 90876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ritter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Marsano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ritter",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "rpi79icfm69ol8h",
+          "source_id": "ec6ma9ysmd9uoy4"
+        }
+      ],
+      "source_id": "a06a8jd1faad9d4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "So fahre hin - du eitler Wahn! / Von Liebeslust und Minne.",
+      "language": [],
+      "musenalm_id": 90877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der beste Arzt. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der beste Arzt. / Ballade",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "qoy4yrysjdp7pek"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Meinst du denn, mein sprödes Kind, / Daß die Dichter Fliegen sind?",
+      "language": [],
+      "musenalm_id": 90878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichter-Moral. / An ein Röschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Baron Schlechta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichter-Moral. / An ein Röschen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "x1uz1klk4dlr9er",
+          "source_id": "ixtys9v1twxrtlz"
+        }
+      ],
+      "source_id": "jja1y2k0axwejrw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Spiegle euch ihr trüben Seelen / An des jungen Sängers Lust,",
+      "language": [],
+      "musenalm_id": 90879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die erste Lerche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die erste Lerche",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "9xod94sgsseu1on"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Jene Sprossen werden Bäume / Dieser Gipfel Sturz ertönt;",
+      "language": [],
+      "musenalm_id": 90880,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "wgio39w8qq2dirh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "So leb denn wohl, wir müssen scheiden, / Entsagen ist des Pilgers Pflicht;",
+      "language": [],
+      "musenalm_id": 90881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Astalfs Abschied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Astalfs Abschied",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "m3cvqpk4y7dejsq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Der Graf von Lauenheim war nicht minder stolz auf die große Anzahl seiner reinen Ahnen, als auf die eigenen Thaten im dreißigjährigenKriege,",
+      "language": [],
+      "musenalm_id": 90882,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloss und die Hütte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freyh. v. Biedenfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloss und die Hütte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.291Z",
+          "agent": "pfo0elfwwaodex8",
+          "source_id": "0wl3h6c76y4ub58"
+        }
+      ],
+      "source_id": "74qwry8za4e70un"
+    },
+    {
+      "annotation": "Sammlung von 20 Gedichten INr 90884-90903, Obj 47-66",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90883,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder der Liebe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "7hr65x2okjy7ibw"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Vielen, die da lieben dürfen, / Lieben im rechten Sinne, / Ist's vergönnt von ihrer Minne, Frey zu reden, allüberall!",
+      "language": [],
+      "musenalm_id": 90884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "2921sk3g90w4gyr"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Hanns! sieh zu wer schellt / Wieder keine Ruh!",
+      "language": [],
+      "musenalm_id": 90885,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Besuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Besuch",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "5pp9kytwi3o4qst"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Lautlos ist's im weiten Kreise, / Süßer Ruhe freu'n sie sich; / Amoretten flüstern leise,",
+      "language": [],
+      "musenalm_id": 90886,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Stiller Jubel. / (Mitternächtlich.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Stiller Jubel. / (Mitternächtlich.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "wsl5rl4n8piscil"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Darum, darum mußt' ich pflanzen / Schönes zartes Bäumchen dich!",
+      "language": [],
+      "musenalm_id": 90887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Schneller Wechsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Schneller Wechsel",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "u9hi8279cyo9unc"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "Weit geöffnet war'n die Flügel, / Liebesgötter zogen ein,",
+      "language": [],
+      "musenalm_id": 90888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Mein!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Mein!",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "4gr8vzuibhwfiuq"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Raset - ihr Pulse! / Koche - du Blut! / Sprühet ihr Augen / Los ist die Gluth!",
+      "language": [],
+      "musenalm_id": 90889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Entfesselt. / (Traum.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Entfesselt. / (Traum.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "r2b1jfz3gpyba3c"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Also wirklich muß ich scheiden, / Scheiden jetzt - so nach dem Glück!",
+      "language": [],
+      "musenalm_id": 90890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Beym Scheiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Beym Scheiden",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "onqc7e3rg57bfp2"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Hanns! wenn heute Leute kommen, / Sag! ich sey nicht heim?",
+      "language": [],
+      "musenalm_id": 90891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Mein Tagewerk. / (Am Morgen, zu Hause.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Mein Tagewerk. / (Am Morgen, zu Hause.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "iusvpfp3ooyw62g"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Sagen Sie mir, lieber Freund! / Warum diese Eile?",
+      "language": [],
+      "musenalm_id": 90892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[7. Mein Tagewerk.] (Mittags auf dem Wege.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[7. Mein Tagewerk.] (Mittags auf dem Wege.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "t3zfkilu243h6k3"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Mit dem Winde um die Wette / Eile ich zur schönen Frau,",
+      "language": [],
+      "musenalm_id": 90893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[7. Mein Tagewerk.] (Abends, bey ihr.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[7. Mein Tagewerk.] (Abends, bey ihr.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "quu6w9fb4i0qrws"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Herr! Ihr sehet heut so blaß! / Ist euch denn nicht wohl?",
+      "language": [],
+      "musenalm_id": 90894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[7. Mein Tagewerk.] (Nach Mitternacht.) / (Heimgekehrt.))",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[7. Mein Tagewerk.] (Nach Mitternacht.) / (Heimgekehrt.))",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "s7l0w3q7d352eto"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.586Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Gibt ein Haus, das dir vor allen / Hat am meisten stets gefallen!",
+      "language": [],
+      "musenalm_id": 90895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Auf dem Walle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Auf dem Walle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "4dmhtdkucri7uie"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.586Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Könnt ich doch der Wachmann seyn, / Der da unten schildert!",
+      "language": [],
+      "musenalm_id": 90896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. Mein Posten / (Tag über.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. Mein Posten / (Tag über.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "64pizths247i7uz"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Tambour hat die Rast geschlagen, / Aus ist nun das Mühen;",
+      "language": [],
+      "musenalm_id": 90898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[9. Mein Posten.] / (Am Abend)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[9. Mein Posten.] / (Am Abend)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "zxuj6lkcfw9q96k"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Spielmann hör'! was ficht dich an, / Jetzt das Spiel zu rühren?",
+      "language": [],
+      "musenalm_id": 90897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[9. Mein Posten.] / (Am Frühmorgen)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[9. Mein Posten.] / (Am Frühmorgen)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "k7o6m9bxnr7o6fo"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "So leb' denn wohl du schöne Frau, / Bis ich wieder froher schau.",
+      "language": [],
+      "musenalm_id": 90899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. Scheidegruß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. Scheidegruß",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "piox7s2zjf50c41"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Seh' ich oft so Schiff um Schiff / Strom auf - stromabwärts ziehen, / Möcht' ich wohl auch Schiffer seyn!",
+      "language": [],
+      "musenalm_id": 90900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. Am Strom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. Am Strom",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "hngyybzhzv4540z"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Gingen jüngst zusammen spazieren, / Ich und sie, das schöne Weib!",
+      "language": [],
+      "musenalm_id": 90901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Vom Häuschen am Strande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Vom Häuschen am Strande",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "6rrn6lmwh172z9t"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "O nimm es hin, was freudig ich Dir bringe, / Mein Bestes ist's auf weitem Erdenrund,",
+      "language": [],
+      "musenalm_id": 90902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Was ich bringe. / (Siciliane.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Was ich bringe. / (Siciliane.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "lh33nao1h2gx2db"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 90883, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Liebe Herren - schöne Damen! / Haben die Lieder euch behagt?",
+      "language": [],
+      "musenalm_id": 90903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlußwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlußwort",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "w7xrdr5qzzvdbii"
+    },
+    {
+      "annotation": "B",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90904,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "a99p63epj4o3ovn"
+    }
   ],
   "agents": [
     {

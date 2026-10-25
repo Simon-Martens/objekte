@@ -48,17 +48,339 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "i6eo75ble3tocwy"
+    {
+      "annotation": "mit Umschlagggraphiken von 1823",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.782Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409933",
+      "location": "105J04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.782Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "i6eo75ble3tocwy"
+    }
   ],
   "contents": [
-    "gjfvm16ki5py7t0",
-    "za3awfu61wef4wj",
-    "66uma9y219kk4s8",
-    "ba88y5ts46y3afa",
-    "765ep1ye8jth6sg",
-    "hoon6px21joijwt",
-    "tqa043y57p0e0t3",
-    "zjimepbuw4gchra"
+    {
+      "annotation": "Umschlaggraphik r. # Bez. aus demG-Verz des Jg 1823; s. alm-301",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122333,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Junge Frosch)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge Frosch",
+      "scans": [
+        "alm_4660_122333_fo3gs33b4o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "b7bgvfugauco8mw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "yu3zrmynad6aasc"
+        }
+      ],
+      "source_id": "gjfvm16ki5py7t0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122334,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / geselligen Vergnügen / für 1793. / Neue Auflage. / Mit Kupfern. / Leipzig / bei Joh. Friedrich Gleditsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4660_122334_217gsym1bq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / geselligen Vergnügen / für 1793. / Neue Auflage. / Mit Kupfern. / Leipzig / bei Joh. Friedrich Gleditsch",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "za3awfu61wef4wj"
+    },
+    {
+      "annotation": "Vorwort zur neuen Auflage /) Photos 122335,01; 122335,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Diese neue Auflage des 5. Taschenbuchs zum geselligen Vergnügen (welches später durch den Herausgeber Herrn Hofrath Becker bis zu einer Anzahl von 30 Jahrgängen - im herabgesetzten Preise à 22 Thlr. - angewachsen ist,",
+      "language": [],
+      "musenalm_id": 122335,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort / zur neuen Auflage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4660_122335_01_vs5c44eod4.jpg",
+        "alm_4660_122335_02_mhvblzyx8a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort / zur neuen Auflage",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "66uma9y219kk4s8"
+    },
+    {
+      "annotation": "unkolorierte Wiederverwendung der kol. Umschlaggraphik eines Jahrgangs Taschenbuch zum geselligen Vergnügen 2: Gleditsch) um 1820; lt. Vorwort des Herausgebers der Neuen Auflage: Teil der Suite: Die vier Jahreszeiten; hier wohl: Frühling",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122336,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4660_122336_4vltm4w2dv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ba88y5ts46y3afa"
+    },
+    {
+      "annotation": "unkolorierte Wiederverwendung der kol. Umschlaggraphik recto von: Taschenbuch zum geselligen Vergnügen 1820 (2: Gleditsch). alm-298, INr 22953 /) lt. Vorwort des Herausgebers der Neuen Auflage: Teil der Suite: Die vier Jahreszeiten; hier wohl: Herbst",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122337,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4660_122337_60wnu64ur2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "765ep1ye8jth6sg"
+    },
+    {
+      "annotation": "unkolorierte Wiederverwendung der kol. Umschlaggraphik recto von: Taschenbuch zum geselligen Vergnügen 1820 (2: Gleditsch). alm-298, INr 37405 /) lt. Vorwort des Herausgebers der Neuen Auflage: Teil der Suite: Die vier Jahreszeiten; hier wohl: Sommer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122338,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4660_122338_g52okfzpon.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "hoon6px21joijwt"
+    },
+    {
+      "annotation": "unkolorierte Wiederverwendung der kol. Umschlaggraphik eines Jahrgangs Taschenbuch zum geselligen Vergnügen 2: Gleditsch) um 1820; lt. Vorwort des Herausgebers der Neuen Auflage: Teil der Suite: Die vier Jahreszeiten; hier wohl: Winter",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122339,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4660_122339_794h05obzf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "tqa043y57p0e0t3"
+    },
+    {
+      "annotation": "Umschlaggraphik v. # Bez. aus dem G-Verz des Jg 1823; s. alm-301",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122340,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Junge Frosch)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge Frosch",
+      "scans": [
+        "alm_4660_122340_o9rclxb5yz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-07-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "7juiiz12741sgc6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "83twv9w2hh6t0er"
+        }
+      ],
+      "source_id": "zjimepbuw4gchra"
+    }
   ],
   "agents": [
     {

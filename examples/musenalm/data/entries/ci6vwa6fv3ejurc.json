@@ -48,15 +48,230 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "66ebighg1ipxr95"
+    {
+      "annotation": "Identisch mit: Heidelbergisches Taschenbuch auf das Jahr 1809. herausgegeben von A. Schreiber. Erster Jahrgang. Mannheim bei Tobias Löffler (INr 106544) Lediglich die »Vorrede« wurde durch »Vorbericht« ersetzt: Das Heidelberger Taschenbuch auf 1809 kam zu spät in den Buchhandel [...]\n§§§ Standort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.451Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200924",
+      "location": "105N02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.451Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "66ebighg1ipxr95"
+    }
   ],
   "contents": [
-    "f43t8naw4waqzzt",
-    "3kbmc3ganrwk39c",
-    "pvpbr6fn6iafwld",
-    "ftbx1tlq1rks92a",
-    "td7uv99yt8aum1m",
-    "ludcikp22266u4u"
+    {
+      "annotation": "Titelgraphik # Bezeichnung und Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55607,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flucht nach Aegypten #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Dietrich u. Koch",
+      "scans": [
+        "alm_20_55607_mgs2pgpkzq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Flucht nach Aegypten #",
+      "updated": "2008-02-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "f43t8naw4waqzzt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.524Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55608,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spätlinge. / Erzählungen und Gedichte, / mit Kupfern. / Herausgegeben / von / A. Schreiber. / Heidelberg 1809. / Gedruckt und verlegt von J. Engelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_20_55608_mf2p1jxyg6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spätlinge. / Erzählungen und Gedichte, / mit Kupfern. / Herausgegeben / von / A. Schreiber. / Heidelberg 1809. / Gedruckt und verlegt von J. Engelmann",
+      "updated": "2008-02-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "3kbmc3ganrwk39c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55609,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihro Hoheit / der Frau Markgräfin / Amalie Friederike / von Baden / ehrfurchtsvoll gewiedmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihro Hoheit / der Frau Markgräfin / Amalie Friederike / von Baden / ehrfurchtsvoll gewiedmet",
+      "updated": "2008-02-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "pvpbr6fn6iafwld"
+    },
+    {
+      "annotation": "$ vermutl. H. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es muß so vieles Herrliche vergehen, / Es schreckt so Manches, was der Tag uns bringt,",
+      "language": [],
+      "musenalm_id": 55610,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es muß so vieles Herrliche vergehen, / Es schreckt so Manches, was der Tag uns bringt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "ftbx1tlq1rks92a"
+    },
+    {
+      "annotation": "Vorwort d. Verlegers /) Photos 55611,01; 55611,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Das Heidelberger Taschenbuch auf 1809 kam zu spät in den Buchhandel, und unter zu ungünstigen Umständen, als daß es sich in die entfernteren Gegenden Deutschlands hätte verbreiten können.",
+      "language": [],
+      "musenalm_id": 55611,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verleger",
+      "scans": [
+        "alm_20_55611_01_qqh01gcj3x.jpg",
+        "alm_20_55611_02_a828a9e1cf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht",
+      "updated": "2008-02-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "td7uv99yt8aum1m"
+    },
+    {
+      "annotation": "Photos 55612,01; 55612,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_20_55612_01_tdkatms68q.jpg",
+        "alm_20_55612_02_50922c2esq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "ludcikp22266u4u"
+    }
   ],
   "agents": [
     {

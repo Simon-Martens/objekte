@@ -48,28 +48,848 @@
   "year": 1817,
   "editor": "",
   "items": [
-    "lgrczivrie22m2r"
+    {
+      "annotation": "Deckentitel: Dilettantenbühne",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.549Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106357",
+      "location": "105C06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.549Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lgrczivrie22m2r"
+    }
   ],
   "contents": [
-    "1uxz5we7gwt4b23",
-    "t99exb30ol866cz",
-    "3by4k7l481obuq0",
-    "z18gt6vf64dkwb6",
-    "teqne4kn75zobvn",
-    "lss8nye7g8btgxf",
-    "6ea98ghcz3x1kkh",
-    "88h3qf13mzb8nrl",
-    "stonmg7hhxa2d6k",
-    "n7hqbl5i4x4s9op",
-    "misblgbv47tpyzi",
-    "y5f1eschl2t93gv",
-    "qw7gsnd83ipcxob",
-    "ygnvg9h7tdsfp73",
-    "76pn5qsdgbzwjhu",
-    "kl7ueb1nvzmt5g6",
-    "jtp6d6x67u58ngp",
-    "aiuqo4l8orcqhv3",
-    "x2v8ctsf3xjz2hh"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125493,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1337_125493_pev8m1qj1t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "1uxz5we7gwt4b23"
+    },
+    {
+      "annotation": "Titelkupfer; Illustration zu »Die großen Kinder« von Müllner (INr 125507, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125494,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_1337_125494_tdbh6yzl52.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Manon",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "m9ygnj1pach3jq4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "p86ebf21yykpnzl"
+        }
+      ],
+      "source_id": "t99exb30ol866cz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125495,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / für / Privatbühnen. / Erstes Bändchen / auf / das Jahr 1817. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1337_125495_2sn317a5ck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / für / Privatbühnen. / Erstes Bändchen / auf / das Jahr 1817. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "3by4k7l481obuq0"
+    },
+    {
+      "annotation": "Widmung und Vorwort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Königliche Frau! / Als ich im Frühling dieses Jahres, während meines Aufenthalts in Berlin, das Glück hatte, vor Ew. Königliche Hoheit berufen zu werden, glaubte ich, nur einer ehrenden Auszeichnung entgegen zu gehen.",
+      "language": [],
+      "musenalm_id": 125496,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Ihre königliche Hoheit, / Marianne, / Prinzessin Wilhelm von Preußen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Ihre königliche Hoheit, / Marianne, / Prinzessin Wilhelm von Preußen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "gs014dkbhl0cywh"
+        }
+      ],
+      "source_id": "z18gt6vf64dkwb6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125497,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Leser. / Die Schauspielkunst, insofern sie eine redend-bildende ist, wird von der Volksbühne der Deutschen durch eine Übermacht verdrängt [...], durch dasjenige Rührei von Kunst und Unsinn, welches wir Oper nennen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Leser. / Die Schauspielkunst, insofern sie eine redend-bildende ist, wird von der Volksbühne der Deutschen durch eine Übermacht verdrängt [...], durch dasjenige Rührei von Kunst und Unsinn, welches wir Oper nennen.",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "k7iumdbi97mgjw8"
+        }
+      ],
+      "source_id": "teqne4kn75zobvn"
+    },
+    {
+      "annotation": "I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125500,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "lss8nye7g8btgxf"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125502, Obj 8) und einer Nachschrift (INr 125503, Obj 9); # »Mehrere Scenen sind theilweise nach dem französischen: Le séducteur amoureux, comédie ein trois actes, gearbeitet ...« (Nachschrift, INr 125503, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Erfahren in der Kunst, die Herzen zu bezwingen, / Im Angriff immer kühn, stets glücklich im Voll- / bringen [...] wer mocht’s / zu denken wagen, / Daß mir von Schüchternheit die Wang’ / eins würde glühn?",
+      "language": [],
+      "musenalm_id": 125501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zweiflerin. # / Dramatisches Spiel in einem Akt / von / A. Müllner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zweiflerin. # / Dramatisches Spiel in einem Akt / von / A. Müllner",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "494lhyhby8wpcdd"
+        }
+      ],
+      "source_id": "6ea98ghcz3x1kkh"
+    },
+    {
+      "annotation": "Illustration zu »Die Zweiflerin« von Müllner (INr 125501, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Nähe del. H Reinhold sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Nähe del. H Reinhold sculps.",
+      "scans": [
+        "alm_1337_125502_c8eqkwwzea.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "taioarhybgrj69k",
+          "source_id": "hoxjoe4er5ncafu"
+        }
+      ],
+      "source_id": "88h3qf13mzb8nrl"
+    },
+    {
+      "annotation": "Nachschrift zu »Die Zweiflerin« von Müllner (INr 125501, Obj 7); # Bez. aus dem Titel des Stücks (INr 125501, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Ich habe dieses kleine Stück nicht Lustspiel und nicht Schauspiel nennen mögen, weil es im Sinne der deutschen Bühne weder das eine noch das andere ist.",
+      "language": [],
+      "musenalm_id": 125503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "lavzddl1hlj7vah"
+        }
+      ],
+      "source_id": "stonmg7hhxa2d6k"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125505, Obj 11) und einer Nachschrift (INr 125506, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Achmet noch nicht zurück? / Ich sah ihn nicht. / So lang’ ich denke, nie verschloss er sich / Vor mir, und jetzt – auf einmal dieß Ver- / stummen, / Dieß Mißtrau’n seinem Hassan!",
+      "language": [],
+      "musenalm_id": 125504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pflicht um Pflicht. / Schauspiel in einem Akt / von / Pius Alexander Wolff. / Zuerst aufgeführt in Weimar am 25. Mai 1814",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pius Alexander Wolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pflicht um Pflicht. / Schauspiel in einem Akt / von / Pius Alexander Wolff. / Zuerst aufgeführt in Weimar am 25. Mai 1814",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "txnoxc1duud05n7",
+          "source_id": "fitncboh3xhda0r"
+        }
+      ],
+      "source_id": "n7hqbl5i4x4s9op"
+    },
+    {
+      "annotation": "Illustration zu »Pflicht um Pflicht« von Wolff (INr 125504, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schnorr v. K. del. L. Buchhorn del)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. L. Buchhorn del",
+      "scans": [
+        "alm_1337_125505_3tiaz94kwk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.894Z",
+          "agent": "z3xj5kkwhch6rva",
+          "source_id": "1pt257xhym5tsdq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.893Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "umtzb81fin3ltax"
+        }
+      ],
+      "source_id": "misblgbv47tpyzi"
+    },
+    {
+      "annotation": "Nachschrift zu »Pflicht um Pflicht« von Wolff (INr 125504, Obj 10); # Bez. aus dem Vrwrt. (INr 125496, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Ich habe vor zwei Jahren das Vergnügen gehabt, von vorstehendem Drama eine Darstellung zu sehen, an welcher der Dichter selbst [...] in der Rolle des deutschen Ritters Theil nahm.",
+      "language": [],
+      "musenalm_id": 125506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift des Herausgebers",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift des Herausgebers",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.894Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "ei730azluhmm8tn"
+        }
+      ],
+      "source_id": "y5f1eschl2t93gv"
+    },
+    {
+      "annotation": "mit zwei Illustration (Titelkupfer, INr 124494, Obj 2 u 125508, Obj 14) und einer Nachschrift (INr 125509, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Geschrieben wär der Brief; allein durch wessen / Hand / Bring’ ich ihn auf die Post?",
+      "language": [],
+      "musenalm_id": 125507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die großen Kinder. / Lustspiel in zwei Akten / von A. Müllner. / Zuerst aufgeführt in Weimar am 19. Mai 1813",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die großen Kinder. / Lustspiel in zwei Akten / von A. Müllner. / Zuerst aufgeführt in Weimar am 19. Mai 1813",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "cqlsz72xli6q7dn"
+        }
+      ],
+      "source_id": "qw7gsnd83ipcxob"
+    },
+    {
+      "annotation": "Illustration zu »Die großen Kinder« von Müllner (INr 125507, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg de. Meyer sc. Berlin 1810)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg de. Meyer sc. Berlin 1810",
+      "scans": [
+        "alm_1337_125508_elsk6my3x1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "gn3r2osj03wbfoj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "u8e4h5y8h282yg4"
+        }
+      ],
+      "source_id": "ygnvg9h7tdsfp73"
+    },
+    {
+      "annotation": "Nachschrift zu »Die großen Kinder« von Müllner (INr 125507, Obj 13); # Bez. aus dem Vrwrt. (INr 125496, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Die Aufführung des Lustspiels, die großen Kinder, kann nur da gelingen, [...] wo zugleich in den Spielenden die Fähigkeit vorhanden ist, durch Mienen, Geberden und Handlungen eben so deutlich, als mit der Zunge zu reden.",
+      "language": [],
+      "musenalm_id": 125509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "5jtv03h3m78r3fp"
+        }
+      ],
+      "source_id": "76pn5qsdgbzwjhu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Der Reiz, die Bühne zu betreten [...] hat seinen Hauptgrund in der dunklen Vorstellung eines Vergnügens, welches die Ausübung der Schauspielkunst den Spielern zu gewähren scheint.",
+      "language": [],
+      "musenalm_id": 125510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / das Spiel auf der Privatbühne. / Dramaturgische Abhandlung / von / Adolph Müllner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / das Spiel auf der Privatbühne. / Dramaturgische Abhandlung / von / Adolph Müllner",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "w6edim2bkb40cvo"
+        }
+      ],
+      "source_id": "kl7ueb1nvzmt5g6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125511,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druckfehler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Druckfehler",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "jtp6d6x67u58ngp"
+    },
+    {
+      "annotation": "Ankündigung von Neuerscheinungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125512,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei mir ist so eben erschienen und in allen Buchhandlungen zu finden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei mir ist so eben erschienen und in allen Buchhandlungen zu finden",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "aiuqo4l8orcqhv3"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125513,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1337_125513_0o9b51lnd1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "x2v8ctsf3xjz2hh"
+    }
   ],
   "agents": [
     {

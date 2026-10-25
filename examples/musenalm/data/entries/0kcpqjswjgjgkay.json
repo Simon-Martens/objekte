@@ -48,58 +48,2048 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "93j9l4s5lq7n37q"
+    {
+      "annotation": "K gibt an: Taschenbuch für Forst u. Jagdfreunde Jgg 1800-1812 in 8 Bdn; Forts.: Sylvan 1813-1828 (ab 1823 bei K. Groß, Leipzig, Heidelberg); und: TB z. Nutzen und Vergnügen f. Wald- u. Jagdfreunde (1827/28?; 1831?). K 90 u. L/R 137 ff geben als Vorläuferreihe an: Neujahrsgeschenk für Forst- und Jagdliebhaber (L/R: Jgg 1793-1799; K: 1794-1798)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.538Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404572",
+      "location": "105P04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.538Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "93j9l4s5lq7n37q"
+    }
   ],
   "contents": [
-    "j08oqxwxzzlnwee",
-    "j9l79spn7li32yk",
-    "osc8i7qs35m6z6d",
-    "hn4cztdigvx850l",
-    "64v0rkqocn0mdvd",
-    "cgr8xzvaqqww0j9",
-    "xv5io6ee7m9dnor",
-    "x6c6hn8to0by6dt",
-    "rujenlaykyc6ga0",
-    "9f27e5ruqu9g8tj",
-    "ga1vrrcg3gken9u",
-    "c0cbdkwasv00buf",
-    "rfnqx0dxowg6lae",
-    "uw0vjghj93fu6ga",
-    "l6em06qt70qk9tv",
-    "ivmdj73g8xok7ul",
-    "g8s4xk20yav95j9",
-    "898gjwx19b0qzlg",
-    "si6pbaxz4zq8xd9",
-    "9eqxqek7mga6whg",
-    "xax50eko80trkxy",
-    "e4pli51j16tn00e",
-    "tbwfx7h4670qtyz",
-    "rgfaln9occ3h5uc",
-    "vzwkqzc5qsjuorl",
-    "84djxw1d9fd6htm",
-    "0xum99oo24iwctz",
-    "bphzhh93idi7h04",
-    "kqrjxd3yhuzjmtx",
-    "1a4jgc2ahmxv01q",
-    "o34b5yet586wlvi",
-    "qv5m411txheo4f7",
-    "mbphc38z6xkudu8",
-    "kuxfcetk2nv2tpb",
-    "3qabm7dwt1p7np6",
-    "165yqdo2qz0owtl",
-    "yzx2wn97hcv3y24",
-    "zqrb6wm6pkxh5pi",
-    "em722azzd6w5ter",
-    "4a8br43mdf942ou",
-    "99nsg4uyy56qd15",
-    "aveulkf4e79vhtz",
-    "ggt8uya0fbzygt6",
-    "bqm74vingo8jlel",
-    "y5310om57huchze",
-    "9obrwao6okw5wpc",
-    "n23484penkxw06n",
-    "mhspcor9yvxbvpj",
-    "qiuabui8fmtabbh"
+    {
+      "annotation": "Umschlaggraphik r. # Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66734,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Jäger nach Montfaucon T. 3. P. 2. p. 322 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1140_66734_iw8fvtyat4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Jäger nach Montfaucon T. 3. P. 2. p. 322 #",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "j08oqxwxzzlnwee"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.525Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66735,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Boettger sen. sc. 1806)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger sen. sc. 1806",
+      "scans": [
+        "alm_1140_66735_q4np4ui2us.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.233Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "i70juv47l2jrxkc"
+        }
+      ],
+      "source_id": "j9l79spn7li32yk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66736,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für / Forst- und Jagdfreunde / für das Jahr / 1807 / herausgegeben / von / L. C. E. H. F. v. Wildungen /  Oberforstmeister zu Marburg / und / D. P. L. Bunsen, / Fürstl. Waldeckischen Regierungsrath / zu Arolsen. / Marburg, / in der neuen academischen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1140_66736_ca2v2kjtso.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für / Forst- und Jagdfreunde / für das Jahr / 1807 / herausgegeben / von / L. C. E. H. F. v. Wildungen /  Oberforstmeister zu Marburg / und / D. P. L. Bunsen, / Fürstl. Waldeckischen Regierungsrath / zu Arolsen. / Marburg, / in der neuen academischen Buchhandlung",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "osc8i7qs35m6z6d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66737,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des Titelkupfers, / der / Vignette und des Umschlags",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des Titelkupfers, / der / Vignette und des Umschlags",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.233Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "qiolxsa7s9pe059"
+        }
+      ],
+      "source_id": "hn4cztdigvx850l"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Schreiben Sie eine Vorrede! sagt der Herr Oberforstmeister von Wildungen: und gewohnt, alles zu thun, was Er haben will, schreib' ich eine Vorrede.",
+      "language": [],
+      "musenalm_id": 66738,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. L. Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "u7286cg6u9kxjer"
+        }
+      ],
+      "source_id": "64v0rkqocn0mdvd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66739,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "cgr8xzvaqqww0j9"
+    },
+    {
+      "annotation": "paginiert Tab I. /) kol.  Illustration zu »Der Bär« von L. C. E. H. F. von Wildungen INr 66741, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66740,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ursus Arctos fuscus. Der braune Landbär",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. Susemihl del. G. Boettger senior sc. 1806",
+      "scans": [
+        "alm_1140_66740_5y4bnk8j7x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ursus Arctos fuscus. Der braune Landbär",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "0krc3qfy4wkj0vx",
+          "source_id": "lqp20x6yr1o08xm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "olnvm0bp7kumsm7"
+        }
+      ],
+      "source_id": "xv5io6ee7m9dnor"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66740, Obj 7 /) mit zahlr. Anmerkungen /) Dem Text vorangestellt: Nunc ursi partus, formam, moresque canemus! / Natalis Comes",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Bisher haben wir den Verehrern Dianens nur solche jagdbare Thiere hier zur Schau gestellt, die in Deutschland entweder heimisch sind,",
+      "language": [],
+      "musenalm_id": 66741,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Bär",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Bär",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "hk8l0t0i98a16xm"
+        }
+      ],
+      "source_id": "x6c6hn8to0by6dt"
+    },
+    {
+      "annotation": "paginiert Tab II. /) kol.  Illustration zu »Der Biber« von L. C. E. H. F. von Wildungen INr 66743, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66742,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Castor Fiber. Der Biber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. Susemihl del. G. Boettger senior sc. 1806",
+      "scans": [
+        "alm_1140_66742_w4dv3ref10.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Castor Fiber. Der Biber",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "0krc3qfy4wkj0vx",
+          "source_id": "1ycod4fm9mu0uah"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "9gvk6qz8t77uhb7"
+        }
+      ],
+      "source_id": "rujenlaykyc6ga0"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66742, Obj 9 /) mit zahlr. Anmerkungen /) Dem Text vorangestellt: - - consortia tecta / Urbis habent, magisque agitant sub legibus / aevum. / Virg. Georg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Auch er erscheinet hier mit Recht, dieser berühmteste Baumeister im Thierreiche, kunsterfahrener als so manche der unsrigen,",
+      "language": [],
+      "musenalm_id": 66743,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Biber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Biber",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "col0ld59s9xnloj"
+        }
+      ],
+      "source_id": "9f27e5ruqu9g8tj"
+    },
+    {
+      "annotation": "paginiert Tab III. /) kol.  Illustration zu »Der Percnopterus-Geyer« von L. C. E. H. F. von Wildungen INr 66745, Obj 12 s. a. »Beitrag zur Bestimmung der europäischen Geyerarten« INr 66746, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vultur Percnopterus f. leucocephalos. Der Percnopterus-Geyer, / weißköpfiger Geyer. Weibchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. Susemihl del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1140_66744_u9b8d2oaj3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vultur Percnopterus f. leucocephalos. Der Percnopterus-Geyer, / weißköpfiger Geyer. Weibchen",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "kr3s3ydp4oltxx6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "0krc3qfy4wkj0vx",
+          "source_id": "m6l1zsps2dmgz4a"
+        }
+      ],
+      "source_id": "ga1vrrcg3gken9u"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66744, Obj 11 /) mit zahlr. Anmerkungen /) s. a. »Beitrag zur Bestimmung der europäischen Geyerarten« INr 66746, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Dies ist er, der berühmte Fremdling, der am 12. Julius 1803 auf dem Stoppelberge bei Wezlar - welch seltens Jagdabentheuer! - lebendig erhascht wurde.",
+      "language": [],
+      "musenalm_id": 66745,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der Percnopterus-Geyer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der Percnopterus-Geyer",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.173Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.173Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "y2may4zsm2gwqos"
+        }
+      ],
+      "source_id": "c0cbdkwasv00buf"
+    },
+    {
+      "annotation": "mit 3 BB Tab. s. vorstehenden Beitrag » Percnopterus-Geyer« von L. C. E. H. F. von Wildungen INr 66745, Obj 12 und Illustration INr 66744, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "In Europa leben wahrscheinlich nur vier Geyerarten, in deren Bestimmung eine fast unüberwindliche Verwirrung herrscht.",
+      "language": [],
+      "musenalm_id": 66746,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beitrag / zur Bestimmung / der europäischen Geyerarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Merrem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beitrag / zur Bestimmung / der europäischen Geyerarten",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "rfnqx0dxowg6lae"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66748, Obj 15 /) mit zahlr. Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Der sogenannte deutsche Papagey, doch eher noch mit den Raben, Elstern und Hehern, als mit jenen dunklen Ausländern verwandt.",
+      "language": [],
+      "musenalm_id": 66747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Mandelkrähe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Mandelkrähe",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.221Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "5cumehp593vo95r"
+        }
+      ],
+      "source_id": "uw0vjghj93fu6ga"
+    },
+    {
+      "annotation": "paginiert Tab IV. /) kol.  Illustration zu »Die Mandelkrähe« von L. C. E. H. F. von Wildungen INr 66747, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66748,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Corracias garrula. Die Mandelkrähe. blaue Racke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1140_66748_c6u5uprr0d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Corracias garrula. Die Mandelkrähe. blaue Racke",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "l6em06qt70qk9tv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Die Klagen über den Misbrauch der Hütungen und des Streurechens in den Waldungen, erschallten im Forstwesen bereits so oft und so laut,",
+      "language": [],
+      "musenalm_id": 66749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Was wird das künftige Schicksal der ho- / hen Saamenhandlungen seyn, wenn nicht / ernstlicher und gründlicher an Abstellung / der Hütung und des Laubbrechens gearbei- / tet wird?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Witzleben, Oberjägermeister zu Cassel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Was wird das künftige Schicksal der ho- / hen Saamenhandlungen seyn, wenn nicht / ernstlicher und gründlicher an Abstellung / der Hütung und des Laubbrechens gearbei- / tet wird?",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.167Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "espdaauv8okg278"
+        }
+      ],
+      "source_id": "ivmdj73g8xok7ul"
+    },
+    {
+      "annotation": "mit zahlr. Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Der Julius und August des Jahres 1805 zeichneten sich durch fast immerwährenden Regen und durch einen ungewöhnlichen Mangel an Wärme höchst ungünstig aus.",
+      "language": [],
+      "musenalm_id": 66750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Fortgesetzter Beitrag / zur / Forst- und Jagdchronik. / (1805. 1806.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Fortgesetzter Beitrag / zur / Forst- und Jagdchronik. / (1805. 1806.)",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.167Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "46eun38n7hknm77"
+        }
+      ],
+      "source_id": "g8s4xk20yav95j9"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Wer die Sprache der Thiere verstehen lernte (der ächte Weidmann muß sie verstehen), kann im Walde manches erlauschen, was dem Layen ewig verborgen bleibt.",
+      "language": [],
+      "musenalm_id": 66751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Lebensgeschichte / eines / alten Geltthiers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Lebensgeschichte / eines / alten Geltthiers",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.167Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "x0ibvqhobxexi7a"
+        }
+      ],
+      "source_id": "898gjwx19b0qzlg"
+    },
+    {
+      "annotation": "mit einem Zusatz des Herausgebers v. Wildungen INr 66753, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Unzähligemahl ist es schon gesagt, geschrieben und gedruckt, daß die verderblichen unzeitigen Waldhuden, das Laubbrechen, und die sogenannten Holzfrevel",
+      "language": [],
+      "musenalm_id": 66752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Vorschlag / zu / einer Holzpredigt / und einem / Forstkatechismus / für's Landvolk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Vorschlag / zu / einer Holzpredigt / und einem / Forstkatechismus / für's Landvolk",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.167Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "isqocfu01z1ynpe"
+        }
+      ],
+      "source_id": "si6pbaxz4zq8xd9"
+    },
+    {
+      "annotation": "Zusatz zum vorstehenen Beitrag INr 66752, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Wohl gesprochen, Herr Mevius! Eigene Holzpredigten und Holzkatechismen würden für Jung und Alt nützlicher wenigstens, als die gewöhnlich hölzernen seyn.",
+      "language": [],
+      "musenalm_id": 66753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohl gesprochen, Herr Mevius! Eigene Holzpredigten und Holzkatechismen würden für Jung und Alt nützlicher wenigstens, als die gewöhnlich hölzernen seyn.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.167Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "ono71g3soxg61gm"
+        }
+      ],
+      "source_id": "9eqxqek7mga6whg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Bernhardiner Salmi? Was ist das für ein Ding? hör' ich bei weitem den größten Theil unserer Leser fragen.",
+      "language": [],
+      "musenalm_id": 66754,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Bernhardiner Salmi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Bernhardiner Salmi",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.168Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "uonapyo8l2ni4re"
+        }
+      ],
+      "source_id": "xax50eko80trkxy"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten mit einer Einleitung, einer Übersetzung, einer Musikbeigabe und einer Sammlung mit 3 Rätseln INr 66756-66767, Obj 23-34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66755,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Gedichte",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "e4pli51j16tn00e"
+    },
+    {
+      "annotation": "Einleitung zur folgenden Übersetzung INr 66757, Obj 24 /) Anm. am Objekt: v. Fabricii Bibliotheca Lat. Tom. III. pag. 89. Hamb. zuverl. Nachr. II. pag. 6. 29 /) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Unter die weniger bekannten Gedichte des Alterthums deren Gegenstand die Jagd ist, gehört auch das Cynegeticon des Marcus Aurelius Olympius Nemesianus, eines Afrikaners, der gegen das Ende des dritten Jahrhunderts gelebt hat.",
+      "language": [],
+      "musenalm_id": 66756,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Nemesians Cynegeticon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Nemesians Cynegeticon",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "wzlhyp28dkgzpsh"
+        }
+      ],
+      "source_id": "tbwfx7h4670qtyz"
+    },
+    {
+      "annotation": "Übersetzung von über 20 Strophen des Gedichts; der lateinische Text INr 66758, Obj 25 unter der Übersetzung; mit einer Einleitung INr 66756, Obj 25 /) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Die du den dunkeln Forst durchirrst und die liebli- / chen Haine, / Sey uns, Diana! gegrüßt, Latonens unsterbliche / Tochter!",
+      "language": [],
+      "musenalm_id": 66757,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Cynegeticon] V. 86",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marcus Aurelius Olympius Nemesianus; [übers.] Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Cynegeticon] V. 86",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "fvrtye3xg8pzw6q",
+          "source_id": "h0udv3jobqrw80t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "vwmfrbx4igkk555"
+        }
+      ],
+      "source_id": "rgfaln9occ3h5uc"
+    },
+    {
+      "annotation": "lateinischer Text unter der Übersetzung INr 66757, Obj 26 /) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Tu modo quae saltus placidos silvasque pererras / Latonae, Phoebe, magnum decus , eia age suetos",
+      "language": [],
+      "musenalm_id": 66758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Cynegeticon] V. 86",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marcus Aurelius Olympius Nemesianus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Cynegeticon] V. 86",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.324Z",
+          "agent": "fvrtye3xg8pzw6q",
+          "source_id": "z9r5j8kslmk6duk"
+        }
+      ],
+      "source_id": "vzwkqzc5qsjuorl"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 66755, Obj 22) mit einer Musikbeigabe s. INr 66760, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Unter dieser Eiche laßt Euch nieder, / Brüder, seht, hier ist das Mahl bereit:",
+      "language": [],
+      "musenalm_id": 66759,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Lob der Eiche. / Beim Jagdmahl im Wald zu singen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Lob der Eiche. / Beim Jagdmahl im Wald zu singen",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.324Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "c8l2yr8wo4848ed"
+        }
+      ],
+      "source_id": "84djxw1d9fd6htm"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Lob der Eiche. Beim Jagdmahl im Wald zu singen« von P. L. Bunsen INr 66759, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe (Herr Musik Director Rose zu Arolsen)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Musik Director Rose zu Arolsen",
+      "scans": [
+        "alm_1140_66760_u2gugqj96w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "0xum99oo24iwctz"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Ein Otter, den die Wißbegier / schon längst zur Reiselust entbrannte,",
+      "language": [],
+      "musenalm_id": 66761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Fischottern. / Eine Fabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Herzeele, Jagdjunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Fischottern. / Eine Fabel",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "bphzhh93idi7h04"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Ein Wahrheitsfreund vom - Ufer der Garonne, / Sprach oft und viel von seiner Baronie:",
+      "language": [],
+      "musenalm_id": 66762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Gascogner Füchse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Gascogner Füchse",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.324Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "956wjsttsreh9ji"
+        }
+      ],
+      "source_id": "kqrjxd3yhuzjmtx"
+    },
+    {
+      "annotation": "mit Anmerkungen /) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Errathen sollt ihr - wenn ihr könnt - / ein wohlbekanntes Wort!",
+      "language": [],
+      "musenalm_id": 66763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Logogryph",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.932Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "1ss6q15x7zqirer"
+        }
+      ],
+      "source_id": "1a4jgc2ahmxv01q"
+    },
+    {
+      "annotation": "Sammlung von 3 Rätseln INr 66765-66767, Obj 32-34 /) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Charaden",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "o34b5yet586wlvi"
+    },
+    {
+      "annotation": "6. Charaden (Sammlung INr 66764, Obj 31) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Die beiden ersten ziehn auf ungeheuern Reisen, / Zur Meßzeit, über Land und Meer.",
+      "language": [],
+      "musenalm_id": 66765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Drei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Drei Sylben",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.932Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "q021jo4cggf88rb"
+        }
+      ],
+      "source_id": "qv5m411txheo4f7"
+    },
+    {
+      "annotation": "6. Charaden (Sammlung INr 66764, Obj 31) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Die erste zeigt bei Frau und Mann / Den schönen Theil des Körpers an.",
+      "language": [],
+      "musenalm_id": 66766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Zwei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Zwei Sylben",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.932Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "kanzmd7khiihog9"
+        }
+      ],
+      "source_id": "mbphc38z6xkudu8"
+    },
+    {
+      "annotation": "6. Charaden (Sammlung INr 66764, Obj 31) X. Gedichte (Sammlung INr 66755, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Die beiden ersten Sylben nennen / Die Zünftler in der grünen Tracht.",
+      "language": [],
+      "musenalm_id": 66767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Drei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von der Borch, Forstmeister zu Gunzenhausen, im Ausbachischen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Drei Sylben",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "kuxfcetk2nv2tpb"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Zwei Wölfe sind im November 1805, wie in der Jagdchronik schon aufgezeichnet, bei Cassel und Frankfurt erlegt worden.",
+      "language": [],
+      "musenalm_id": 66768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Schon wieder ein Wolf!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Wildungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Schon wieder ein Wolf!",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "zkwar8zqhf3fwup"
+        }
+      ],
+      "source_id": "3qabm7dwt1p7np6"
+    },
+    {
+      "annotation": "Sammlung von 5 Anekdoten mit einer Einleitung INr 66770-6675, Obj 37-42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Anekdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Anekdoten",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "165yqdo2qz0owtl"
+    },
+    {
+      "annotation": "XII. Anekdoten (Sammlung INr 66769, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Unter Ludwig XV., König von Frankreich, war den Pagen erlaubt, bei Fontainebleau Kaninchen mit dem Frettchen zu fangen, weiter aber erstreckten ihre Jagdbefugnisse sich nicht.",
+      "language": [],
+      "musenalm_id": 66770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "yzx2wn97hcv3y24"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Memoires de Mr d. L. R. (de la Rôque) T. I. pag. 210 /) XII. Anekdoten (Sammlung INr 66769, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Mehrere Engländer, die in der ersten Hälfte des vorigen Jahrhunderts des Handels wegen sich zu Bassora aufheilten, ergötzten sich zuweilen in den waldreichen Gegenden am Euphrat, mit der Parforcejagd",
+      "language": [],
+      "musenalm_id": 66771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Mr d. L. R. (de la Rôque)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "zqrb6wm6pkxh5pi"
+    },
+    {
+      "annotation": "Einleitung zu folgenden Anekdote INr 66773, Obj 40 /) XII. Anekdoten (Sammlung INr 66769, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "J. Hope erzählt von einem englischen Fuchshund eine Anekdote, welche nicht nur beweißt, daß dieses Thier rachgierig und listig, sondern auch fähig ist, seine Empfindungen und Gedanken einem Wesen, seiner Art mitzutheilen.",
+      "language": [],
+      "musenalm_id": 66772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "em722azzd6w5ter"
+    },
+    {
+      "annotation": "XII. Anekdoten (Sammlung INr 66769, Obj 36) mit Anmerkungen und einer Einleitung INr 66772, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Herr M** von Whitmore in Straffordshire, sagt der Verfasser, pflegte in häuslichen Angelegenheiten zweimal im Jahr nach London zu reisen.",
+      "language": [],
+      "musenalm_id": 66773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr M** von Whitmore in Straffordshire, sagt der Verfasser, pflegte in häuslichen Angelegenheiten zweimal im Jahr nach London zu reisen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Hope",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "4a8br43mdf942ou"
+    },
+    {
+      "annotation": "XII. Anekdoten (Sammlung INr 66769, Obj 36) # Anm. am Objekt: Aus Ferri de St. Constant, London und die Engländer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Die Engländer sind bekanntlich äußerst leidenschaftliche Jäger.",
+      "language": [],
+      "musenalm_id": 66774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Jagdliebhaberei der Engländer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Jagdliebhaberei der Engländer",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "99nsg4uyy56qd15"
+    },
+    {
+      "annotation": "XII. Anekdoten (Sammlung INr 66769, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Im Jahr 1764 im Spätherbst war ich bei dem damaligen Metropolitan Frantz in Nidda zum Besuch.",
+      "language": [],
+      "musenalm_id": 66775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "aveulkf4e79vhtz"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 66777, 66778; Obj 44, 45 und einem Nachwort INr 66779, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Nein, ich kann nicht länger in dieser Unruhe leben! ich muß, ich muß ihn sehn!",
+      "language": [],
+      "musenalm_id": 66776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Zwei Augen für Eins. / Schauspiel in zwei Aufzügen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. L. Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Zwei Augen für Eins. / Schauspiel in zwei Aufzügen",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.352Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "yrotc4dk3yftfp1"
+        }
+      ],
+      "source_id": "ggt8uya0fbzygt6"
+    },
+    {
+      "annotation": "# Bez. am 2. Blatt der Suite /) Illustration zu »Zwei Augen für Eins. Schauspiel in zwei Aufzügen« von P. L. Bunsen INr 66776, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verendet, Lectoris, verendet!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhaus. del. fec.",
+      "scans": [
+        "alm_1140_66777_y2f9mezuby.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verendet, Lectoris, verendet!",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.352Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "km6e2enirz7w71t"
+        }
+      ],
+      "source_id": "bqm74vingo8jlel"
+    },
+    {
+      "annotation": "Illustration zu »Zwei Augen für Eins. Schauspiel in zwei Aufzügen« von P. L. Bunsen INr 66776, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott segne euch!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhaus. del. fec.",
+      "scans": [
+        "alm_1140_66778_piwf83c0ol.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott segne euch!",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.352Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "yz5ini7qp9624uy"
+        }
+      ],
+      "source_id": "y5310om57huchze"
+    },
+    {
+      "annotation": "Nachwort zum Beitrag »Zwei Augen für Eins. Schauspiel in zwei Aufzügen« von P. L. Bunsen INr 66776, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wenn ein künftiger Beurtheiler dieser Kleinigkeit nach der Strenge der Kritik damit verfahren will; so wird es ohne Zweifel viel zu tadeln geben.",
+      "language": [],
+      "musenalm_id": 66779,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn ein künftiger Beurtheiler dieser Kleinigkeit nach der Strenge der Kritik damit verfahren will; so wird es ohne Zweifel viel zu tadeln geben.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bunsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.353Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.353Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "uq4a59275y5p7en"
+        }
+      ],
+      "source_id": "9obrwao6okw5wpc"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66780,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Verlagsbuchhandlung des Forsttaschenbuchs / und in allen guten Buchhandl. sind zu haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der Verlagsbuchhandlung des Forsttaschenbuchs / und in allen guten Buchhandl. sind zu haben",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "n23484penkxw06n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66781,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "mhspcor9yvxbvpj"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66782,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1140_66782_gxeomk3x03.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "qiuabui8fmtabbh"
+    }
   ],
   "agents": [
     {

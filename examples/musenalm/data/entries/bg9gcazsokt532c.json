@@ -48,45 +48,1459 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "551maeeztpxligh"
+    {
+      "annotation": "Almanah [sic]",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.547Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404900",
+      "location": "105A03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.547Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "551maeeztpxligh"
+    }
   ],
   "contents": [
-    "lhxk0d7cxttg754",
-    "aiu4kru1ycrwxdw",
-    "cachzmy23528z2o",
-    "1omnu246ezdgeza",
-    "ss4q3mz3e12jge7",
-    "bsewtpjseghq2vo",
-    "vgwdhe6zmmn0ksi",
-    "qh8xcov0u7lhmia",
-    "qrj1bcd8ei5pjh7",
-    "thxjxn1q9m1jlga",
-    "tztrhrbd9bq24g1",
-    "0s0x487yc8v7jpy",
-    "rj69m1l3uytrxza",
-    "wnl32gejfqrhizk",
-    "8yn1rt1fu087ndq",
-    "9y92l84naat1mmq",
-    "bzugwpqfy1k3he1",
-    "qu4jvyeodrfegcx",
-    "misxexoxtloz0h6",
-    "gp5oaziyb1gqkbr",
-    "64nowdzpwa53f4n",
-    "jkb9aw8tqdi23t2",
-    "trab4fj21a3e78l",
-    "rxcza2pfewuf9q4",
-    "ahrokf18vgrblrm",
-    "6nr986r0s7ha4bd",
-    "yf53i9wdn40cjf1",
-    "gahu93xvnlj7z2m",
-    "wqoetmoc97k2c04",
-    "t7bu6vbjahai0e5",
-    "p12ojrx3bgyd8v6",
-    "hm6eftiyeqykmp9",
-    "99c7k7of7h3rdys",
-    "lhml6xsqx272pdj",
-    "m7hyabjf4dpaher",
-    "t08qzkk04hx2k2y"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114724,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1304_114724_p4fy9xxfm1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "lhxk0d7cxttg754"
+    },
+    {
+      "annotation": "Almanah (sic)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114725,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanah / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore / auf das Jahr / 1845. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1304_114725_2z7ttgrl25.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanah / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore / auf das Jahr / 1845. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "aiu4kru1ycrwxdw"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Unterzeichneter wagt es, auch mit einem leichtbeschwingten Kinde des Augenblicks - mit einem Almanah zu erscheinen.",
+      "language": [],
+      "musenalm_id": 114726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bergmann, Mitglied des Chores",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "cachzmy23528z2o"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 8 Tabellen INr 114728-114735, Obj 5-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistisches Verzeichnisse / des / kaiserl. königl. Hofoperntheaters / nächst dem Kärntnerthore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statistisches Verzeichnisse / des / kaiserl. königl. Hofoperntheaters / nächst dem Kärntnerthore",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "1omnu246ezdgeza"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Administrations-Kanzellei und Cassa-Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Administrations-Kanzellei und Cassa-Personales",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ss4q3mz3e12jge7"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Opern-Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Opern-Personales",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "bsewtpjseghq2vo"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114730,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / sämmtlicher Orchestermitglieder / in der Ordnungsfolge ihrer Instrumente",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / sämmtlicher Orchestermitglieder / in der Ordnungsfolge ihrer Instrumente",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "vgwdhe6zmmn0ksi"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Ballet-Personal-Standes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Ballet-Personal-Standes",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "qh8xcov0u7lhmia"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personale / des Decorationswesens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personale / des Decorationswesens",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "qrj1bcd8ei5pjh7"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114733,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der Sängergesellschaft in den italienischen Staggionen / vom Jahre 1836 bis ultimo Juni 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der Sängergesellschaft in den italienischen Staggionen / vom Jahre 1836 bis ultimo Juni 1844",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "thxjxn1q9m1jlga"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114734,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der französischen Vorstellungen im Jahre 1837 / unter der Direction des Herrn Doligny des ältern und Alix. / (Vom 1. November angefangen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der französischen Vorstellungen im Jahre 1837 / unter der Direction des Herrn Doligny des ältern und Alix. / (Vom 1. November angefangen.)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "tztrhrbd9bq24g1"
+    },
+    {
+      "annotation": "Statistisches Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114727, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114735,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der / in Gastvorstellungen und Concerten aufgetretenen Individuen, / in der Reihenfolge ihrer Produkzionen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der / in Gastvorstellungen und Concerten aufgetretenen Individuen, / in der Reihenfolge ihrer Produkzionen",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "0s0x487yc8v7jpy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114736,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / aller / Opern und Ballete / im kaiserl. königl. Hofoperntheater / nächst dem Kärtnerthore / vom / 1. April 1836 bis Ende März 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / aller / Opern und Ballete / im kaiserl. königl. Hofoperntheater / nächst dem Kärtnerthore / vom / 1. April 1836 bis Ende März 1844",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "rj69m1l3uytrxza"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte und Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114737,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische und musikalische / Beiträge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poetische und musikalische / Beiträge",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "wnl32gejfqrhizk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Wenn ihr ein reines Auge strahlt, / Rosenglut die Wange malt;",
+      "language": [],
+      "musenalm_id": 114738,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moderne Verzweiflung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Moderne Verzweiflung",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.534Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "67xuiwid9hkro00"
+        }
+      ],
+      "source_id": "8yn1rt1fu087ndq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Es triumphiren gar so gern die kleinen Geister / Und dünken keckk und kühn sich selbst den Besten gleich,",
+      "language": [],
+      "musenalm_id": 114739,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Natürliche Folge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Natürliche Folge",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.534Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "qqqjvlfj9h86t3u"
+        }
+      ],
+      "source_id": "9y92l84naat1mmq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Der Rechte Doctor, nennet sich der Mann / Der Dir in deiner Lage helfen kann.",
+      "language": [],
+      "musenalm_id": 114740,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Impromptû. / Der rechte Doctor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Impromptû. / Der rechte Doctor",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.511Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "7uwaaqtg82jcms4"
+        }
+      ],
+      "source_id": "bzugwpqfy1k3he1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Es war ein König einst, der fühlte sich schwach, / Dem Körper nur, doch nicht dem Geiste nach,",
+      "language": [],
+      "musenalm_id": 114741,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der König",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der König",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.511Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "ii765qpetmgumbl"
+        }
+      ],
+      "source_id": "qu4jvyeodrfegcx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Wie die Blume nach dem Lenze, / Wie der Vogel nach dem Süden, / Wie die Kunst um ihre Kränze, / Wie der Müde nach dem Frieden:",
+      "language": [],
+      "musenalm_id": 114742,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehnsucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sehnsucht",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.511Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "9la2wuvo54cor27"
+        }
+      ],
+      "source_id": "misxexoxtloz0h6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Du Wilder! so willst Du mein Buhle sein? / Dann steig' erst hinab zu dem Todtenschrein, / Wo jüngst sie begraben den Ritter brav,",
+      "language": [],
+      "musenalm_id": 114743,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Todesrose. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Todesrose. / Ballade",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.511Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "7f53ynlkz58ah9z"
+        }
+      ],
+      "source_id": "gp5oaziyb1gqkbr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Im Felde vor Toulon, im Zwanzigpfünderpark, / An einem Pulverfaß - es birgt Kanonenmark - / Liegt ein Gewappneter, ein Buch sein Polster.",
+      "language": [],
+      "musenalm_id": 114744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Traum",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.472Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "ugooi6k42lm4mix"
+        }
+      ],
+      "source_id": "64nowdzpwa53f4n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Durch die schwarze Bienenstraße / Schießt der Falke sausend hin.",
+      "language": [],
+      "musenalm_id": 114745,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Fahrt auf der Havel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Fahrt auf der Havel",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.472Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "jx50aozyttomv68"
+        }
+      ],
+      "source_id": "jkb9aw8tqdi23t2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Am Weihnachtsabend saß wie immer, / Im schönerhellten Festtagszimmer / Herr Jobst schon manche traute Stunde",
+      "language": [],
+      "musenalm_id": 114746,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ratte, die Maus und des Nachbars Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ratte, die Maus und des Nachbars Frau",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.472Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "7updgm5dwpz0jfr"
+        }
+      ],
+      "source_id": "trab4fj21a3e78l"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 114748-114751, Obj 25-28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Proben aus der noch ungedruckten Oper: / Die Freimannshöhle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Proben aus der noch ungedruckten Oper: / Die Freimannshöhle",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.472Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "pf1gvjntiyre7h4"
+        }
+      ],
+      "source_id": "rxcza2pfewuf9q4"
+    },
+    {
+      "annotation": "Proben aus der noch ungedruckten Oper: Die Freimannshöhle (Sammlung INr 114747, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Dort auf der Stangalp' höchsten Wänden / Hauset ein Geist, der Freimann genannt,",
+      "language": [],
+      "musenalm_id": 114748,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Romanze (aus dem ersten Acte.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Romanze (aus dem ersten Acte.)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.472Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "wd9i929wcz0vksh"
+        }
+      ],
+      "source_id": "ahrokf18vgrblrm"
+    },
+    {
+      "annotation": "Proben aus der noch ungedruckten Oper: Die Freimannshöhle (Sammlung INr 114747, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Am Himmel meiner Liebe geht / Ein helles Sternlein auf,",
+      "language": [],
+      "musenalm_id": 114749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Ariette (aus dem ersten Acte)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Ariette (aus dem ersten Acte)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.467Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "27wyx2ot18tt1l1"
+        }
+      ],
+      "source_id": "6nr986r0s7ha4bd"
+    },
+    {
+      "annotation": "Proben aus der noch ungedruckten Oper: Die Freimannshöhle (Sammlung INr 114747, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "In stürmischer Nacht, wenn der Mond nicht scheint, / Da ziehen wir Wildschützen aus,",
+      "language": [],
+      "musenalm_id": 114750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Wildschützen-Chor (aus dem dritten Acte)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Wildschützen-Chor (aus dem dritten Acte)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.467Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "b23r8w7gl2g0msp"
+        }
+      ],
+      "source_id": "yf53i9wdn40cjf1"
+    },
+    {
+      "annotation": "Proben aus der noch ungedruckten Oper: Die Freimannshöhle (Sammlung INr 114747, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Soll der Ehe Glück gedeihen, / Sei die Noth vom Hause fern:",
+      "language": [],
+      "musenalm_id": 114751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Lied (aus dem dritten Acte)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Lied (aus dem dritten Acte)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.467Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "ujenvtjo0o8eed0"
+        }
+      ],
+      "source_id": "gahu93xvnlj7z2m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Wie glüht des Malers Auge so weich, so himmelsmild, / Als ob es Andacht fange aus dem Madonnenbild,",
+      "language": [],
+      "musenalm_id": 114752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Maler und sein Bild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Maler und sein Bild",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "wqoetmoc97k2c04"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Gewiß meine verehrten Hörer und Hörerinnen werden Sie nicht läugnen, daß in unserem friedlichen Jahrhundert die größten Reibungen - wenn auch nur an den Zündhölzchen vor sich gehen!",
+      "language": [],
+      "musenalm_id": 114753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschen und Zündhölzchen. / Capriccio",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Wiest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Menschen und Zündhölzchen. / Capriccio",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.334Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.334Z",
+          "agent": "vbbgdl34fnjdnll",
+          "source_id": "znc437v7bs80to5"
+        }
+      ],
+      "source_id": "t7bu6vbjahai0e5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Es war ein Sonntag, der im Kalender ganz besonders roth angestrichen steht, und die Myfrowen meines Herzens prangte im kostbarsten Flitter,",
+      "language": [],
+      "musenalm_id": 114754,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der verkehrte Kopf. / Capriccio",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Vincenz Schindler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der verkehrte Kopf. / Capriccio",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "p12ojrx3bgyd8v6"
+    },
+    {
+      "annotation": "auszufaltende Musikbeigabe, nummeriert No. 1. /) Vertonung des Gedichts »Emils Klage« von B. Jäckle /) Photos 114755,01; 114755,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Sanft entschlummert ist das Leben, Ruhe athmet die Natur, und die Friedensgeister schweben, still herab auf die Natur",
+      "language": [],
+      "musenalm_id": 114755,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EMIL'S KLAGE / Gedicht von B. Jäckle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Hackel",
+      "scans": [
+        "alm_1304_114755_01_isjbyhx6oq.jpg",
+        "alm_1304_114755_02_emjg6pejtb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EMIL'S KLAGE / Gedicht von B. Jäckle",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.254Z",
+          "agent": "q7itjhi9ow1folm",
+          "source_id": "z0rfm43ynd5ebaj"
+        }
+      ],
+      "source_id": "hm6eftiyeqykmp9"
+    },
+    {
+      "annotation": "auszufaltende Musikbeigabe, nummeriert  No. 2. /) Vertunung des Gedichts »Mahlers Liebchen« von V. Zusner /) Photos 114756,01; 114756,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.293Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Ihre reizende Gestalt hab' ich schlafend mir gemahlt, und die Züge, lieb und mild, legt' ich teu in's zarte Bild,",
+      "language": [],
+      "musenalm_id": 114756,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MAHLERS LIEBCHEN / Gedicht von V. Zusner / in Musik gesetzt von / ADOLF MÜLLER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Müller",
+      "scans": [
+        "alm_1304_114756_01_ov66ivy15n.jpg",
+        "alm_1304_114756_02_nnzpeytmrz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MAHLERS LIEBCHEN / Gedicht von V. Zusner / in Musik gesetzt von / ADOLF MÜLLER",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.254Z",
+          "agent": "1x3wweh7slzeyeq",
+          "source_id": "et4d146m3fmerj3"
+        }
+      ],
+      "source_id": "99c7k7of7h3rdys"
+    },
+    {
+      "annotation": "auszufaltende Musikbeigabe, nummeriert /) No. 3 /) Photos 114757,01; 114757,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Puthöneken, Puthöneken, wat deist in unsern Hof? Du plückst uns all de Blöhmkens af, du mäkest all to groff!",
+      "language": [],
+      "musenalm_id": 114757,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VOLKSLIED / in plattdeutscher Mundart, / in Musik gesetzt von / Otto Nicolai",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "OTTO NICOLAI",
+      "scans": [
+        "alm_1304_114757_01_edev9xoilv.jpg",
+        "alm_1304_114757_02_fcw0abyebr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VOLKSLIED / in plattdeutscher Mundart, / in Musik gesetzt von / Otto Nicolai",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.489Z",
+          "agent": "6b04gnxspwoatkh",
+          "source_id": "s6tgcr8ud3k1szc"
+        }
+      ],
+      "source_id": "lhml6xsqx272pdj"
+    },
+    {
+      "annotation": "auszufaltende Musikbeigabe, nummeriert No. 4 /) Photos 114758,01-114758, 03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Sanft gleite, mein Schifflein, dem Strande zu - und schaukle von Welle zu Welle",
+      "language": [],
+      "musenalm_id": 114758,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS HEIMKEHRENDE SCHIFFERMÄDCHEN, / für zwei Singstimmen mit Begleitung des Pianoforte von / WILHELM REULING, / k.k. Hof- Operntheater Kapellmeister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Reuling",
+      "scans": [
+        "alm_1304_114758_01_ehuw8a172w.jpg",
+        "alm_1304_114758_02_pgi8jmgci0.jpg",
+        "alm_1304_114758_03_fc5smdo52r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS HEIMKEHRENDE SCHIFFERMÄDCHEN, / für zwei Singstimmen mit Begleitung des Pianoforte von / WILHELM REULING, / k.k. Hof- Operntheater Kapellmeister",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.489Z",
+          "agent": "xtiwvrgc1mzxgw9",
+          "source_id": "3t5xdcppyllvvq0"
+        }
+      ],
+      "source_id": "m7hyabjf4dpaher"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114759,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1304_114759_dt8w0vflyu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "t08qzkk04hx2k2y"
+    }
   ],
   "agents": [
     {

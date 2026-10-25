@@ -48,46 +48,1417 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "veqbrpz49co41ue"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.755Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408886",
+      "location": "105P04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.755Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "veqbrpz49co41ue"
+    }
   ],
   "contents": [
-    "64s28klp70gh145",
-    "kzrhs0iq76h7tkw",
-    "aapfl0f2nl8wpbe",
-    "blvklbkn1z9ufgg",
-    "5zd4swhpl9mhdoa",
-    "0oscrrm0588p0wa",
-    "chlta1k51c9lxh2",
-    "7xexpiigoifdqdm",
-    "fvxfxcpmt34e12i",
-    "lv3elyby3ld7h4j",
-    "gdz318mhc97y1h8",
-    "7l0yf3whoxy022k",
-    "fyw4y7bfwxjs3b6",
-    "bica3xk2qd7ecec",
-    "m8juzn40aqlhep0",
-    "vcs3likzl3fxrec",
-    "csgqwwxt97olk24",
-    "5n65i7pu53kln6q",
-    "cnzq921gwrj6jga",
-    "69ci6kk5udicoyv",
-    "qewrlfxarivaxny",
-    "1rqd7x67ftpn9ft",
-    "geak0zuqh7s5dzr",
-    "l3nzh4bojyeg7sr",
-    "wyy3aqfi7o944ww",
-    "02sn1n1hwgoiqk5",
-    "z4bs8rlnpovnrre",
-    "f78f03b4b1ro66d",
-    "huub6ng851vs6ak",
-    "7zk0juuw3mqalv5",
-    "ec7qac6x8r69yev",
-    "xdq93k0tdm0zpa8",
-    "xthfoombq7xlj0q",
-    "f5bacnxbt14o9g9",
-    "ygfudxowve6qck9",
-    "7w9znctdx54emxl",
-    "l5q8d2oelse91sl"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109122,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Plin. Lib. I. Epist. VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4175_109122_nv53flf9zk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Plin. Lib. I. Epist. VI.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "64s28klp70gh145"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 109126, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109123,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das mittlere Waldhuhn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Westermayr s.",
+      "scans": [
+        "alm_4175_109123_9le859ztbc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das mittlere Waldhuhn",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.294Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.294Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "9kl4vwl8xa6uueq"
+        }
+      ],
+      "source_id": "kzrhs0iq76h7tkw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weidmanns Feierabende, / ein neues Handbuch / für / Jäger und Jagdfreunde, / von / L. C. E. H. F. von WILDUNGEN. / Kurhessischen Oberforstmeister / zu Marburg / Viertes Bändchen. / MARBURG. / In der J. Christ. Kriegerschen Buchhandlung. / 1818",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4175_109124_2k5nyhaydd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Weidmanns Feierabende, / ein neues Handbuch / für / Jäger und Jagdfreunde, / von / L. C. E. H. F. von WILDUNGEN. / Kurhessischen Oberforstmeister / zu Marburg / Viertes Bändchen. / MARBURG. / In der J. Christ. Kriegerschen Buchhandlung. / 1818",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "aapfl0f2nl8wpbe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "blvklbkn1z9ufgg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 109123, Obj 2 /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Im grünen Taschenbuche für 1809-1812 und im zweiten Bändchen der Weidmanns-Feierabende habe ich dieses sonderbaren Vogels, dessen Naturgeschichte in mancher Rücksicht noch immer räthselhaft ist, schon erwähnt",
+      "language": [],
+      "musenalm_id": 109126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Das mittlere Waldhuhn. / Tetrao medius Meyeri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Das mittlere Waldhuhn. / Tetrao medius Meyeri",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "5zd4swhpl9mhdoa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Auch dieses bis zum Ende des May's größtentheils unfreundliche und dem vorhergehenden an übermäßiger Nässe fast gleiche Jahr war minder seegensreich,",
+      "language": [],
+      "musenalm_id": 109127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Beitrag / zur Chronik des Jahres 1817. / Aus Kurhessen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Beitrag / zur Chronik des Jahres 1817. / Aus Kurhessen",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.179Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.179Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "zbhhcxm7y7ol9r3"
+        }
+      ],
+      "source_id": "0oscrrm0588p0wa"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »Ueber den höchstmerkwürdigen neuerlichen Fund fossiler Mammuth-Reste bei Canstadt« von v. Wildungen INr 109129, Obj 8 /) unter der Graphik: Zu den Feyerabenden 4ter Theil",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey Cannstatt, im October 1816 ausgegraben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4175_109128_a8rhlmhupv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bey Cannstatt, im October 1816 ausgegraben",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "chlta1k51c9lxh2"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 109128, Obj 7 /) S. Treviranus Biologie. S. B. 3. S. 1 f. Tiedemanns Zoologie B. 1. S. 64, 65",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Unter der großen Menge fossiler Thierreste, die, zum unwidersprechlichsten Beweise, welche ungeheuere Revolutionen unser Erdball einst erlitten haben müsse,",
+      "language": [],
+      "musenalm_id": 109129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber den höchstmerkwürdigen neuerlichen Fund / fossiler Mammuth-Reste bei Canstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber den höchstmerkwürdigen neuerlichen Fund / fossiler Mammuth-Reste bei Canstadt",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.967Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "ct6q2cd2xmd53xe"
+        }
+      ],
+      "source_id": "7xexpiigoifdqdm"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Die schlaue Kriminal-Justiz hat schon oft geniereiche Gaudiebe begnadigt und sie mit Nutzen als Spürhunde zur Jagd auf andere gebraucht.",
+      "language": [],
+      "musenalm_id": 109130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Schelme muß man mit Schelmen fangen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Schelme muß man mit Schelmen fangen",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.967Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "a9jnnad2bv7ryok"
+        }
+      ],
+      "source_id": "fvxfxcpmt34e12i"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Der Jagdthiere sind jetzt weniger, als in der Vorzeit - mit den Jagdbüchern ist es der umgekehrte Fall.",
+      "language": [],
+      "musenalm_id": 109131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Fortgesetzter Beytrag zur älteren Jagdliteratur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Fortgesetzter Beytrag zur älteren Jagdliteratur",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.968Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "iudd0qj7u35u3kg"
+        }
+      ],
+      "source_id": "lv3elyby3ld7h4j"
+    },
+    {
+      "annotation": "Anm. am Objekt: Aus Joh. Lane Buchanans, Missionairs der Schottischen Kirche, Reisen durch die westlichen Hebriden, während der Jahre 1782-1790. Aus dem Englischen. Berlin bey Maurer. 1812 /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Das alte Herta gehört jetzt dem Laird von Harris und ist unter dem Namen von Sankt-Kilda bekannt.",
+      "language": [],
+      "musenalm_id": 109132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Halsbrecherische Seevögeljagd auf der Insel Sankt- / Kilda in den westlichen Hebriden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Lane Buchanan [übers.] unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Halsbrecherische Seevögeljagd auf der Insel Sankt- / Kilda in den westlichen Hebriden",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "gdz318mhc97y1h8"
+    },
+    {
+      "annotation": "dem Text vorangestellt: Im Wald, im Wald ist's traun! ein Götterleben! / Gesegnet sey der Wald! [...] v. Wildungen /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.300Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Was Hubertusburg, dieser Lieblingssitz Dianens, in Sachsen ist, das ist Wildeck in unserm einst wildreichen Hessen.",
+      "language": [],
+      "musenalm_id": 109133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Jagdschloß Wildeck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Jagdschloß Wildeck",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.968Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "zidxti26y58q9f9"
+        }
+      ],
+      "source_id": "7l0yf3whoxy022k"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Daß die Ringamsel wohlschmeckend sey, ist bekannt, ihr aber doch gewiß so panegyrisch noch nie der Preis vor allen leckern Vögeln zuerkannt worden,",
+      "language": [],
+      "musenalm_id": 109134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Lob der Ring- oder Meeramsel. / Turdus torquatus Linn.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Lob der Ring- oder Meeramsel. / Turdus torquatus Linn.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.968Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "msu5j9z9mzz3hrk"
+        }
+      ],
+      "source_id": "fyw4y7bfwxjs3b6"
+    },
+    {
+      "annotation": "dem Text vorangestellt: Hinaus zu Rosse, noch eh' es tagt, / Tief ein zum tannigten Thale, [...] de la Motte Fouqué /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Kaiser Maximilian der Erste von Oestreich soll nicht nur ein bewunderungswürdig tapferer Ritter, sondern auch ein höchstleidenschaftlicher Jäger gewesen seyn",
+      "language": [],
+      "musenalm_id": 109135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Ritter Theurdank, / der mannhafte Jäger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Ritter Theurdank, / der mannhafte Jäger",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.968Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "7hexjjhen9d7kcb"
+        }
+      ],
+      "source_id": "bica3xk2qd7ecec"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Ueber die so berühmte Russische Jagdmusik, welcher ich in meinem Neujahrsgeschenke für Jagd- und Forstliebhaber für das Jahr 1794 kürzlich schon erwähnt habe, ist seitdem ein gewiß nicht allgemein bekanntes typographisch-prächtiges kleines Werk erschienen",
+      "language": [],
+      "musenalm_id": 109136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Russische Jagdmusik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Russische Jagdmusik",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.968Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.968Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "hmqoow4e5l1n88h"
+        }
+      ],
+      "source_id": "m8juzn40aqlhep0"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Ich glaube es war in der ersten Stunde nach meiner Landung zu Verakruz, wo ich nach Neuspanischen Förstern, Jägern und Jagdliebhabern fragte.",
+      "language": [],
+      "musenalm_id": 109137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Mexikanische Jagdpartieen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. T. Sonneschmid",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Mexikanische Jagdpartieen",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "vcs3likzl3fxrec"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Die Epoque, in welcher wir leben, sagt eine Pariser Zeitschrift, ist unwidersprechlich die des Triumphs der Thiere.",
+      "language": [],
+      "musenalm_id": 109138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Hirsche als Luftschiffer, Hunde als Schauspieler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Hirsche als Luftschiffer, Hunde als Schauspieler",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.060Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "mxst1yxs58v500a"
+        }
+      ],
+      "source_id": "csgqwwxt97olk24"
+    },
+    {
+      "annotation": "dem Text vorangestellt: Die Wahrheit harrt mit sich'rer Wage / Im Wolkenzelt der Folgezeit, [...] v. Salis /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Diana behüte mich vor dem Frevel, die Manen eines Biedermannes beunruhigen zu wollen! Daß ich die alte Geschichte des Trappenschützen wieder auffrische, dazu veführten mich glaubwürdige Versicherungen der Wahrheit",
+      "language": [],
+      "musenalm_id": 109139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Ehrenrettung / des sogenannten Trappenschützen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. T. Sonneschmid",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Ehrenrettung / des sogenannten Trappenschützen",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "5n65i7pu53kln6q"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Ueber eine neuentdeckte Gattung des Nashorns hat ein gelehrter Reisender, Nahmens Burchell, im Bulletin des Sciences (Jun. 1817) folgende den Naturforschern sehr merkwürdige Nachrichten bekannt gemacht:",
+      "language": [],
+      "musenalm_id": 109140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Neue Entdeckungen im Thierreiche. / Wahrheit und Dichtung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Neue Entdeckungen im Thierreiche. / Wahrheit und Dichtung",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.243Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.243Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "ntbn97ocr9tmjgf"
+        }
+      ],
+      "source_id": "cnzq921gwrj6jga"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "So herzlich ich den Verfasser des benannten Aufsatzes verehre und so viel ich auch seiner persönlichen Bekanntschaft und seine Schriften verdanke, so wenig kann ich ihm doch verzeihen,",
+      "language": [],
+      "musenalm_id": 109141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Alte Liebe rostet nicht. / Ein Nachtrag / zu dem Aufsatze: Ueber Jagdwesen und Unwesen / im dritten Bändchen der Weidmanns-Feierabende. S. 13 f.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Alte Liebe rostet nicht. / Ein Nachtrag / zu dem Aufsatze: Ueber Jagdwesen und Unwesen / im dritten Bändchen der Weidmanns-Feierabende. S. 13 f.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.248Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.248Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "zpqofu3tcb3ypn5"
+        }
+      ],
+      "source_id": "69ci6kk5udicoyv"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Der wilde oder Singschwan (Anas Cygnus Linn, Cyg. musicus Bechst. C. melanorhynchus Meyer.), der sich vom sogenannten zahmen oder stummen Schwan (Anas Olor Linn. Cyg. gibbus, Höckerschwan. Bechst.) durch etwas geringere Größe,",
+      "language": [],
+      "musenalm_id": 109142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Schwanenjagd in Pommern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Hauptmann August zu Wehrs zu Hannover",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Schwanenjagd in Pommern",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "qewrlfxarivaxny"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Beym K. H...n Amte zu A. ist am 9ten Dez. vor J. folgende sonderbare Klagschrift eingereicht worden:",
+      "language": [],
+      "musenalm_id": 109143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / Wem gehört der Fuchsbalg? / Eine Rechtsfrage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / Wem gehört der Fuchsbalg? / Eine Rechtsfrage",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "1rqd7x67ftpn9ft"
+    },
+    {
+      "annotation": "mit Anm. /) mit Beigaben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Dieser alt-Braunschweigisch-Lüneburgische Wahlspruch, gleichbedeutend mit dem bekannten Motto der Weidmänner: Der Jäger unverdrossen hat manches Wild geschossen,",
+      "language": [],
+      "musenalm_id": 109144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / Neueste Luchsjagd im Harze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Graf v. Veltheim, Herzogl. Braunschweigischer Forstmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / Neueste Luchsjagd im Harze",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "geak0zuqh7s5dzr"
+    },
+    {
+      "annotation": "Sammlung von 8 Anekdoten INr 109146-109153, Obj 25-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIX. / Anecdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIX. / Anecdoten",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "l3nzh4bojyeg7sr"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "John Elwes, ein berühmter sehr reicher Geizhals in England, hatte einen Jäger,",
+      "language": [],
+      "musenalm_id": 109146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "wyy3aqfi7o944ww"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Euer Hund ist ja so mager! sagte ein Jagdliebhaber zur Frau eines armen Unterförsters.",
+      "language": [],
+      "musenalm_id": 109147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "02sn1n1hwgoiqk5"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Ein Jagd-Dilettant, der, wie bey manchem der Fall seyn soll, besser lügen, als schießen konnte, erzählte unter andern, als man von wunderbaren Schüssen sprach,",
+      "language": [],
+      "musenalm_id": 109148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4bs8rlnpovnrre"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Ein Fürst wollte seine Gemahlin gerne mit auf die Jagd haben. Sie aber wollte nicht.",
+      "language": [],
+      "musenalm_id": 109153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "f78f03b4b1ro66d"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Huldrich von Eyben erzählt, ein gewissser Canonicus habe auf seinem Todbette gesagt: Er hätte in seinem Leben drey schöne H sehr geliebt,",
+      "language": [],
+      "musenalm_id": 109149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "huub6ng851vs6ak"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Ein jovialer Jagdpage des Königs August von Pohlen hatte zu Bestreitung verschiedener Unkosten bey einem großen Jagen einen Vorschuß von 400 Dukaten erhalten,",
+      "language": [],
+      "musenalm_id": 109150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "7zk0juuw3mqalv5"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Ein Jagdliebhaber, der einen türkischen Hund hatte, sagte zu einem seiner Freunde: Wahren Sie sich, Lieber, vor meinem Hunde! Er ist so maliziös, wie ein Mensch.",
+      "language": [],
+      "musenalm_id": 109151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "ec7qac6x8r69yev"
+    },
+    {
+      "annotation": "XIX. Anecdoten (Sammlung INr 109145, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Ein Subaltern in Frankreich schrieb seinem Gönner: Ich nehme mir die Freyheit, in beykommendem Körbchen sechs rothe Feldhühner zu übersenden.",
+      "language": [],
+      "musenalm_id": 109152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "xdq93k0tdm0zpa8"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 109155-109157, Obj 34-36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XX. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XX. / Gedichte",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "xthfoombq7xlj0q"
+    },
+    {
+      "annotation": "XX. Gedichte (Sammlung INr 109154, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Brüder, seht, der Schnee zerrinnt! / Muntrer Vögel Lieder / Schallen, da der Lenz beginnt,",
+      "language": [],
+      "musenalm_id": 109155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Frühlingslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Oberförster Hepp, zu Runkel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Frühlingslied",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5bacnxbt14o9g9"
+    },
+    {
+      "annotation": "XX. Gedichte (Sammlung INr 109154, Obj 33) Rätsel in zwei Teilen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Wie heißt die edle Jagd, die in den kältern Zonen, / Wenn bald mit neuem Laub der Lanz die Wälder schmückt, / Den muntern Weidmann hoch entzückt?",
+      "language": [],
+      "musenalm_id": 109156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Riesenlogogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Riesenlogogryph",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.198Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "miml2bk7gan1911"
+        }
+      ],
+      "source_id": "ygfudxowve6qck9"
+    },
+    {
+      "annotation": "XX. Gedichte (Sammlung INr 109154, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "In feinen Zirkeln nennt man nie / Die erste Silbe gern",
+      "language": [],
+      "musenalm_id": 109157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Charade",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.198Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "avez2z2596oeacz"
+        }
+      ],
+      "source_id": "7w9znctdx54emxl"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109158,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ovid. Metam. Lib. X. v. 145",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4175_109158_gkkddzc7zp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ovid. Metam. Lib. X. v. 145",
+      "updated": "2015-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "l5q8d2oelse91sl"
+    }
   ],
   "agents": [
     {

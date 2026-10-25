@@ -48,37 +48,1228 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "9l57fvf3o5iuddl"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.606Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407914",
+      "location": "105R03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.606Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9l57fvf3o5iuddl"
+    }
   ],
   "contents": [
-    "pxcidpx9pghy3ig",
-    "oznzeejcls2na39",
-    "duhoavi0qfrb5z5",
-    "6cn6oppwili5uwg",
-    "v6oa5qnql6lk1ma",
-    "wce7hpa9tcog42i",
-    "qr1qfw91xez9t4w",
-    "5q7700tj1cmepj3",
-    "7pg1m4q8qjd5hv0",
-    "2rx5ayyyv5kgb14",
-    "4rf9x4ifgzcjunb",
-    "e9k32cr1hv13p04",
-    "bsy3wddd3ztnj75",
-    "unyy3rm12d04iu3",
-    "j3601y3jovbwqic",
-    "f4vnu9idztggl8o",
-    "z5tga2w6kb4tpt8",
-    "74qqepx03evtjnc",
-    "r045kfwhjsfaske",
-    "mmj7wt4zcay9lh3",
-    "vbmygrgke34aurh",
-    "n7pqmgek34thjz5",
-    "hkm9yb1w71128gx",
-    "vhf2khby6gmffv1",
-    "jy7ohuj624c21h8",
-    "6y0iyzdhqhevpvp",
-    "io1ihqoapjz4ajb",
-    "57n8vrgjl4vjpzq"
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89311, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.706Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75043,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / IIIr. Aufz. 6r. Auftr. / Nach den Worten der / Agathe: Schieß nicht! Ich bin die Taube!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_2367_75043_bzztfi4q69.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / IIIr. Aufz. 6r. Auftr. / Nach den Worten der / Agathe: Schieß nicht! Ich bin die Taube!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "lqt6o3st6tjmgya"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "sl5bxyc2m7y5vou"
+        }
+      ],
+      "source_id": "pxcidpx9pghy3ig"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89296,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORPHEA / Taschenbuch / für / 1824. / Erster Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / zu Fr. Kind's und Maria v. Weber's Freischützen. / LEIPZIG. / Ernst Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_2367_89296_02l15300mj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORPHEA / Taschenbuch / für / 1824. / Erster Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / zu Fr. Kind's und Maria v. Weber's Freischützen. / LEIPZIG. / Ernst Fleischer",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "oznzeejcls2na39"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mit der Herausgabe dieses neuen Taschenbuchs verbinde ich zunächst die Ausführung einer Kupfergallerie zu den beliebtesten Opern der Deutschen und des Auslandes",
+      "language": [],
+      "musenalm_id": 75044,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Fleischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "orvggoshiht8kde",
+          "source_id": "9vh7xcpwuadfx2g"
+        }
+      ],
+      "source_id": "duhoavi0qfrb5z5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75045,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "6cn6oppwili5uwg"
+    },
+    {
+      "annotation": "Zwischentitel /) Es folgt: Sammlung von 8 Beiträgen als Textbezüge zu 7 Graphiken INr 89299-89313, Obj 6-20 und zur Titelgraphik INr 75053, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89298,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / zu den / Opern. / Erste Lieferung. / Der Freischütz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / zu den / Opern. / Erste Lieferung. / Der Freischütz",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "v6oa5qnql6lk1ma"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89300, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Hirnbrütende Verzweiflung malt sich ergreifend in den Zügen des vom Schicksal Geächteten;",
+      "language": [],
+      "musenalm_id": 89299,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Werbung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Werbung",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "wce7hpa9tcog42i"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89299, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.856Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89300,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / 1r. Aufz. 7r. Auftr. / Caspar. Eins ist Eins und Drei sind Drei! / Drum addirt noch Zweierlei / Zu dem Saft der Reben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_2367_89300_npnwkc5tza.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / 1r. Aufz. 7r. Auftr. / Caspar. Eins ist Eins und Drei sind Drei! / Drum addirt noch Zweierlei / Zu dem Saft der Reben",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.238Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "1hzodrcfvdecc9w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.238Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "e2shlhrng297i7t"
+        }
+      ],
+      "source_id": "qr1qfw91xez9t4w"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89302, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Caspar unternimmt den letzten Sturm auf die fromme Gewissenhaftigkeit des armen, beängstigten Max,",
+      "language": [],
+      "musenalm_id": 89301,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Zauberschuß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Zauberschuß",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "5q7700tj1cmepj3"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89301, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89302,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / 1r. Aufz. 7r. Auftr. / Caspar. Glaubst du, dieser Adler sey dir geschenkt?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Fr. Wilh. Meyer sc.",
+      "scans": [
+        "alm_2367_89302_ocagtsipj6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / 1r. Aufz. 7r. Auftr. / Caspar. Glaubst du, dieser Adler sey dir geschenkt?",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.099Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "h8ggizqn55ij5bz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.099Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "jlrizmcox1yao9g"
+        }
+      ],
+      "source_id": "7pg1m4q8qjd5hv0"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89304, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Während Agathe mit schwermüthigen Bildern ringt, die ihr ahnungsvolles Gemüth quälen,",
+      "language": [],
+      "musenalm_id": 89303,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Freundinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Freundinnen",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "2rx5ayyyv5kgb14"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89303, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89304,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / IIr. Aufz. 1. Auftr. / Annchen. Grillen sind mir böse Gäste. / Immer mit leichtem Sinn / Tanzen durchs Leben hin.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.",
+      "scans": [
+        "alm_2367_89304_18rw18wexf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / IIr. Aufz. 1. Auftr. / Annchen. Grillen sind mir böse Gäste. / Immer mit leichtem Sinn / Tanzen durchs Leben hin.",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "miss6l9i56n4z3s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "uqep7zain4ad1tx"
+        }
+      ],
+      "source_id": "4rf9x4ifgzcjunb"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89306, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ehe noch das Echo des schauerlichen Felskessels diesen gellenden Ruf zurückgegeben, wird Samiel unter furchtbarem Getös sichtbar,",
+      "language": [],
+      "musenalm_id": 89305,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Beschwörung. / Caspar: Samiel! Samiel! erschein! / Bei des Zaubrer's Hirngebein! Samiel! Samiel! erschein!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Beschwörung. / Caspar: Samiel! Samiel! erschein! / Bei des Zaubrer's Hirngebein! Samiel! Samiel! erschein!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "e9k32cr1hv13p04"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89305, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89306,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / IIr. Aufz. 5r. Auftr. / Samiel. Was rufst du mich!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sculps.",
+      "scans": [
+        "alm_2367_89306_ta02vkk3tf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / IIr. Aufz. 5r. Auftr. / Samiel. Was rufst du mich!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "fcgowg85dzphykx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "p4265g0voxmpb3p"
+        }
+      ],
+      "source_id": "bsy3wddd3ztnj75"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89308, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Schon die vierte Kugel war unter Caspars Händen aus der Gießform gefallen, und immer lauter und fruchtbarer bewegen sich die Schreckensgestalten der Wolfsschlucht um den Zauberkreis.",
+      "language": [],
+      "musenalm_id": 89307,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Wehe! Das wilde Heer!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Wehe! Das wilde Heer!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "unyy3rm12d04iu3"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89307, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89308,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / IIr. Aufz. 6r. Auftr. / Caspar Fünf! Wehe! Das wilde Heer!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. G. A. Frenzel sc.",
+      "scans": [
+        "alm_2367_89308_xpe8v9be40.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / IIr. Aufz. 6r. Auftr. / Caspar Fünf! Wehe! Das wilde Heer!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "0mgh7fil3qqq2lk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "f2mcxanvqoj3mlx"
+        }
+      ],
+      "source_id": "j3601y3jovbwqic"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89310, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "In ihrer stillen häuslichen Einsamkeit finden wir die trauernde Agathe, von schmerzlicher Bangigkeit bewegt und nur mit ihrem Gebet beschäftigt,",
+      "language": [],
+      "musenalm_id": 89309,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Andacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Andacht",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4vnu9idztggl8o"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89309, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89310,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / IIIr. Aufz. 2r. Auftr. / Agathe. Und ob die Wolke sie verhülle, / Die Sonne bleibt am Himmelszelt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. F. W. Meyer senior sc. Berol.",
+      "scans": [
+        "alm_2367_89310_7gg4jkg5kk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / IIIr. Aufz. 2r. Auftr. / Agathe. Und ob die Wolke sie verhülle, / Die Sonne bleibt am Himmelszelt",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "jgf222ecd49c2k6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "mtv50by63rq153j"
+        }
+      ],
+      "source_id": "z5tga2w6kb4tpt8"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Titelgraphik INr 75043, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Auf das Geheiß des Fürsten hatte sich Max zu dem Probeschusse fertig gemacht, und bereits die letzte Kugel in seine Büchse rollen lassen.",
+      "language": [],
+      "musenalm_id": 89311,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Himmel siegt! / (Das Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Himmel siegt! / (Das Titelkupfer.)",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "74qqepx03evtjnc"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) s. Graphik INr 89313, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Unter jenem Baume, wo statt dem erkohrnen Opfer die siebente Kugel selbst erreichte, krümmt sich der tödtlich getroffene Caspar in seinem Blute,",
+      "language": [],
+      "musenalm_id": 89312,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Suum Cuique!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Suum Cuique!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "r045kfwhjsfaske"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89312, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREISCHÜTZ. / IIIr. Aufz. 6r. Auftr. / Caspar. Du, Samiel schon hier!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+      "scans": [
+        "alm_2367_89313_3iylvopbs0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREISCHÜTZ. / IIIr. Aufz. 6r. Auftr. / Caspar. Du, Samiel schon hier!",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.032Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "7um5wszylwsqeol"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.032Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "f2ltq5e54l3gjgz"
+        }
+      ],
+      "source_id": "mmj7wt4zcay9lh3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Pfingstsonntag des Jahrfes 1551 ging zu Ende, als zwey Reisende sich dem sächsischen Dorfe Kösen näherten. Vom jungen Grün der Wälder und Saaten glänzten die Abendsonnenstrahlen milder und lieblicher wieder;",
+      "language": [],
+      "musenalm_id": 75046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Luthers Ring / oder / die Fingerzeige des Himmels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Luthers Ring / oder / die Fingerzeige des Himmels",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "vbmygrgke34aurh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89297,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Titel]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "n7pqmgek34thjz5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Unter den Verwundeten, die nach Beendigung eines blutigen Treffens vom Schlachtfeld getragen wurden, befand sich der vierzigjährige Fahnenjunker Liebheim,",
+      "language": [],
+      "musenalm_id": 75047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Fidelfritz. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. G. Prätzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Fidelfritz. / Erzählung",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.714Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.714Z",
+          "agent": "ufh0csiazwb0bf6",
+          "source_id": "km3b6dld3fc1hyu"
+        }
+      ],
+      "source_id": "hkm9yb1w71128gx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Der hochberühmte toscanische Bildhauer und Goldschmidt, Meister Benvenuto Cellini, kam eines schönen Abends auf seinem reichgeschmückten Maulthiere von Fontainebleau",
+      "language": [],
+      "musenalm_id": 75048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der / Kranz am Ziele. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. M. Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der / Kranz am Ziele. / Eine Erzählung",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.722Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "9eduakcsw2fo5r7"
+        }
+      ],
+      "source_id": "vhf2khby6gmffv1"
+    },
+    {
+      "annotation": "mit einer Wiederholung dieses ersten Teils und Fortsetzung in: Orphea 1826; INr 75083, 75084",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Willkommen mit dem Frühlinge und seinen Schwalben, willkommen wieder in den vaterländischen Thälern!",
+      "language": [],
+      "musenalm_id": 75049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die heimliche Ehe. / Erzählung / in zwei Abschnitten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die heimliche Ehe. / Erzählung / in zwei Abschnitten",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.722Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "ykix3hqahxuiskv"
+        }
+      ],
+      "source_id": "jy7ohuj624c21h8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Der Graf von Hoheneichen hatte sich, nachdem er als Staatsmann und als Krieger dem Vaterlande rühmlich gedient, auf seine Besitzungen zurückkgezogen.",
+      "language": [],
+      "musenalm_id": 75050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Geburtstag. / Novelle / nach Sevelinges",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Beauregard Pandin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Geburtstag. / Novelle / nach Sevelinges",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.722Z",
+          "agent": "9mav4omm7dqt3ib",
+          "source_id": "5ctd195ubge8469"
+        }
+      ],
+      "source_id": "6y0iyzdhqhevpvp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Von Jahrtausend zu Jahrtausend fluthet das Meer an den klippigen Ufern der Normandie fluthet das Meer an den klippigen Ufern der Normandie vorüber.",
+      "language": [],
+      "musenalm_id": 75051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die / Ruinen von Tancarville. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Baronin de la Motte Fouque, geb. von Briest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die / Ruinen von Tancarville. / Eine Erzählung",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.722Z",
+          "agent": "t59v9lajt8yljq5",
+          "source_id": "akznzpxittdlacl"
+        }
+      ],
+      "source_id": "io1ihqoapjz4ajb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Verstockt und undankbar sind diese Bauern, / Vergebens müh' ich mich - wie bin ich zu bedauern!",
+      "language": [],
+      "musenalm_id": 75052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Der neue Narziß, / Lustspiel in einem Aufzug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina von Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Der neue Narziß, / Lustspiel in einem Aufzug",
+      "updated": "2010-02-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.722Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "b0v131z0v5z8qo4"
+        }
+      ],
+      "source_id": "57n8vrgjl4vjpzq"
+    }
   ],
   "agents": [
     {

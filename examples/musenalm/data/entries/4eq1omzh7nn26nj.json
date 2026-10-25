@@ -48,132 +48,5291 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "hcd7aepclo97to3",
-    "thlmcbytufe5qb3"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen).\nHalbledereinband und Goldschnitt.\n1821: (K:Ku 9, Bl 3, 54 SS und 513 SS) Mit Ku 2,  XXXIV und 503 SS.\n§1-16 § SS I- XXX u.  6 GG fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.496Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100331",
+      "location": "105Q10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.496Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hcd7aepclo97to3"
+    },
+    {
+      "annotation": "Schuber",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.496Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "200830",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.496Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "thlmcbytufe5qb3"
+    }
   ],
   "contents": [
-    "8b3bqb8xc0yfyjz",
-    "opinwlts7j1gzma",
-    "n0mizp1higdafif",
-    "tuh3938oy1k8mfh",
-    "6zyq6wu8kcq313k",
-    "q6hu0cgtlj7slbn",
-    "rfwwbvrgh65oq1i",
-    "r8joljmmpfwr9ho",
-    "kzolyc65pbh5gtj",
-    "px8nybfg1rsr0bb",
-    "a5oci6q0y7waqv2",
-    "3we9679obliv9wx",
-    "gr69w2l0lumsgqu",
-    "gvyfadqauffecm1",
-    "nfnratzdqtw6puc",
-    "jtu5fiidyo5np8k",
-    "casw5n8mdrm5p1q",
-    "9o8msmjsam0zbq6",
-    "7vo7j2x3sjxo6z7",
-    "7d9t3cdo3kgkaxj",
-    "gmd056iqnzwbw65",
-    "17a4shaprlb72h1",
-    "liesx7i6n2rz390",
-    "tihc1v1t0xumye8",
-    "6dakmyvdw730vjq",
-    "31itw9swel6fsvg",
-    "ajkjh40s0ug3qmb",
-    "nyjwt20272hgj6s",
-    "iue7vjvr3ouo4jq",
-    "yvp8qhbogframv1",
-    "849f1ddfchi14bk",
-    "5lyyu9vnyfuq3w2",
-    "21wglxbszsb7d3i",
-    "kx2e8yhnjt9j7o3",
-    "9d1ksbtzg13qrv7",
-    "bwn7lw5qg6swhfr",
-    "lds0tnsiroyzymd",
-    "pbt8eefc2v6yz88",
-    "c82og0t7pfbtoq2",
-    "ppx8g28fy38bz43",
-    "wcgsn217gwc2vfr",
-    "xnuieikan5tlizp",
-    "566m5ytlzc8l7bn",
-    "bq3tpw7fp76b3ja",
-    "m5avq120gtqte5i",
-    "7u7mxf1djhjr7n5",
-    "dom3sdtczh03grj",
-    "6xd89ikz3llpdmy",
-    "k2yeq3krdcu60hd",
-    "eaaidt266nrng5p",
-    "ldxnj6k21kew2vm",
-    "znqvc4ga14593a0",
-    "3ler7tb67qqgd0q",
-    "o44yn7tspn2hiqw",
-    "e9g6tze0tbkqiai",
-    "7dtfxblovjgmtvn",
-    "xaqjmxwp1unh0gn",
-    "14pfrzb0e9zhaey",
-    "whppkqflfkoine7",
-    "4gk97zf5xcr8x48",
-    "qkgboigj8o5khcm",
-    "yp8v7d6isbr3bdp",
-    "li8ossufok094wu",
-    "62s6x74l1gvrtgf",
-    "jkkcbhpyyb4nwq3",
-    "robm71viplemom4",
-    "2cbhgv1os80w8ug",
-    "n2eq4gf9b9t59cb",
-    "zg6zdvc6rnv2z2s",
-    "cerhk3shiqej7vo",
-    "pqrqorno8uuiqsx",
-    "wyuky7pw5f3xqla",
-    "wpswn3gzrn6s2su",
-    "bh2mzcxy3owqewr",
-    "7ew9clfsgvgrxmw",
-    "dug5rhlqe2tb3r6",
-    "85yi3vbd2rxucl0",
-    "jgrrximfwx5c15r",
-    "1q6b1p575flmkvm",
-    "fpglb50ywhgkpzq",
-    "8vfnuu25mo1kdsd",
-    "zxqlru68bnfjbu6",
-    "5cio25sk8jmuihg",
-    "jju51jpy2sclo67",
-    "uovyn4cvwk3v8ai",
-    "avzmaitn2qqe1k0",
-    "2btqbsfrrudqig9",
-    "8hzbvev5i3dj00c",
-    "hriaj80o4zocu9l",
-    "itadfs87wq3ridw",
-    "y1fpusyjodno2q1",
-    "tqwavmty6apmh88",
-    "chuzcuh79z54n06",
-    "adb43iay5t9xnwm",
-    "rf7jrov1i4eu53h",
-    "6sjcgaxlg4p6sh7",
-    "adt39do03pu1pv1",
-    "0sy8mjeoegterii",
-    "kplp2w69it2kqs6",
-    "tv2ku0a7znl7ftm",
-    "9djo5byuex7kjcn",
-    "rzwsz4lztb7sazk",
-    "mka1wxof348zzpm",
-    "p4geilkar39xaxh",
-    "hqe5fzsgg6d0v69",
-    "th0vkm4k8c8sfi4",
-    "k6qbbn7jicy1tna",
-    "q0em1ygk9e8rvx5",
-    "f21ifv289d1dqvk",
-    "puikzz1p6uhuaxj",
-    "zicwrz0fnmlby96",
-    "e5seihvunkfnjgm",
-    "hlk8e3i69pvf529",
-    "94f7a0vhjxo6cbk",
-    "lghxuuct4ns6w3m",
-    "z7pdbxirl7fohyp",
-    "7b0felyttnis55o",
-    "5k8ygwch9lhg4sa",
-    "m66mfipla6c4tos",
-    "elu8op5p3qhfodj",
-    "4046fttjo8k4sl4",
-    "7g79l8u5yga645o"
+    {
+      "annotation": "Schuber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121750,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_525_121750_4lpttukd2q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "8b3bqb8xc0yfyjz"
+    },
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_525_49942_056buc58h2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "opinwlts7j1gzma"
+    },
+    {
+      "annotation": "Titelgraphik # Titel s. Textbezug INr 40236, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40232,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Pythischen Spiel oder Dichterschicksale. #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_525_40232_3inkkvikw8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Pythischen Spiel oder Dichterschicksale. #",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "2bx81wsj1h6s4j1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ja5pw0q49vdvnp5"
+        }
+      ],
+      "source_id": "n0mizp1higdafif"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40233,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva. / Taschenbuch / für / das Jahr 1821. / Dreizehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_525_40233_i9jp9xj7n6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Minerva. / Taschenbuch / für / das Jahr 1821. / Dreizehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "tuh3938oy1k8mfh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40234,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "6zyq6wu8kcq313k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40235,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "q6hu0cgtlj7slbn"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 40232, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf einer Insel des Mains will amn dem gefeierten Göthe einen Tempel errichten,",
+      "language": [],
+      "musenalm_id": 40236,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Pythischen Spiele oder Dichterschicksale. / Zur Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen, Dr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Pythischen Spiele oder Dichterschicksale. / Zur Erklärung des Titelkupfers",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.056Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "vubnhgz70xp4z4a"
+        }
+      ],
+      "source_id": "rfwwbvrgh65oq1i"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten und 7 Graphiken INr 40238-40253, Obj 7-22, §2-16§ SS I-XXX mit 6 Gedichten fehlen, 6 Graphiken fehlen.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40237,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "r8joljmmpfwr9ho"
+    },
+    {
+      "annotation": "Illustration zu »Wer kauft Liebesgötter« von J. W. von Goethe s. Gedicht INr 40238, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40238,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer kauft Liebesgötter?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_525_40238_a9m9vtarq3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wer kauft Liebesgötter?",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.056Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gksk2d2nt2bb43b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.056Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "whbsvypn3atxpv4"
+        }
+      ],
+      "source_id": "kzolyc65pbh5gtj"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40238, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Von allen schönen Waaren, / Zum Markte hergefahren; / Wird keine mehr behagen, / Als die wir euch getragen",
+      "language": [],
+      "musenalm_id": 40239,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Wer kauft Liebesgötter?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Wer kauft Liebesgötter?",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.057Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "7w56v8296emeura"
+        }
+      ],
+      "source_id": "px8nybfg1rsr0bb"
+    },
+    {
+      "annotation": "Illustration zu »Erlkönig« von J. W. von Goethe s. Gedicht INr 40241, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40240,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erlkönig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. Romney sc.",
+      "scans": [
+        "alm_525_40240_txpw3zqjyp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erlkönig",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.057Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "86w9ck9ru4vfsm8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.057Z",
+          "agent": "lrv91ysphbdyf39",
+          "source_id": "qhsa87c6bbc03je"
+        }
+      ],
+      "source_id": "a5oci6q0y7waqv2"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40240, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Wer reitet so spät durch Nacht und Wind? / Es ist der Vater mit seinem Kind;",
+      "language": [],
+      "musenalm_id": 40241,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Erlkönig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Erlkönig",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.057Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "cpbbabngef0nthc"
+        }
+      ],
+      "source_id": "3we9679obliv9wx"
+    },
+    {
+      "annotation": "Illustration zu »Der Fischer« von J. W. von Goethe s. Gedicht INr 40243, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.373Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40242,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Schwerdgeburth sc.",
+      "scans": [
+        "alm_525_40242_ybzkdawdt9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.058Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.058Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "dncjcy3jm387y1s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.058Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.058Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "jkjnic5ji5ka3jb"
+        }
+      ],
+      "source_id": "gr69w2l0lumsgqu"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40242, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Das Wasser rauscht', das Wasser schwoll, / Ein Fischer saß daran,",
+      "language": [],
+      "musenalm_id": 40243,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Fischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Fischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.058Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.058Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "zegu54lgm4fbgmf"
+        }
+      ],
+      "source_id": "gvyfadqauffecm1"
+    },
+    {
+      "annotation": "Illustration zu »Ritter Knuts Brautfahrt« von J. W. von Goethe s. Gedicht INr 40245, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40244,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Kurts Brautfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_525_40244_xjuk8ma5p3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Kurts Brautfahrt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.058Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.058Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5n495060rf8lomn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.059Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "x83o27zeebt4v6a"
+        }
+      ],
+      "source_id": "nfnratzdqtw6puc"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40244, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Mit des Bräutigams Behagen / Schwingt sich Ritter Kurt auf's Roß.",
+      "language": [],
+      "musenalm_id": 40245,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Ritter Kurts Brautfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Ritter Kurts Brautfahrt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.059Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "mnwmeeo4uzctyd4"
+        }
+      ],
+      "source_id": "jtu5fiidyo5np8k"
+    },
+    {
+      "annotation": "Illustration zu »Spinnerin« von J. W. von Goethe s. Gedicht INr 40247, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40246,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Spinnerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. Romney sc.",
+      "scans": [
+        "alm_525_40246_cf2q24301t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Spinnerin",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.815Z",
+          "agent": "lrv91ysphbdyf39",
+          "source_id": "p9hbwzxlinf68yy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.815Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "qdc3o2hed1suzl6"
+        }
+      ],
+      "source_id": "casw5n8mdrm5p1q"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40246, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Als ich still und ruhig spann, / Ohne nur zu stocken,",
+      "language": [],
+      "musenalm_id": 40247,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die Spinnerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die Spinnerin",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.815Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "jqrcmryic61onmp"
+        }
+      ],
+      "source_id": "9o8msmjsam0zbq6"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40249, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Kannst du, schöne Pächtrin ohne Gleichen, / Unter dieser breiten Schattenlinde, / Wo ich Wandrer kurze Ruhe finde,",
+      "language": [],
+      "musenalm_id": 40248,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Wandrer und Pächterin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Wandrer und Pächterin",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "4x1s2algzszudoq"
+        }
+      ],
+      "source_id": "7vo7j2x3sjxo6z7"
+    },
+    {
+      "annotation": "Illustration zu »Wandrer und Pächterin« von J. W. von Goethe s. Gedicht INr 40248, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40249,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wandrer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_525_40249_lzf9tsj2pf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Wandrer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "ng3ztv5mu7m92zb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "rew4wzkwvc6eklr"
+        }
+      ],
+      "source_id": "7d9t3cdo3kgkaxj"
+    },
+    {
+      "annotation": "Illustration zu »Der neue Pausias und sein Blumenmädchen« von J. W. von Goethe s. Gedicht INr 40251, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40250,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Pausias und sein Blumenmädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Stölzel d. j. sc.",
+      "scans": [
+        "alm_525_40250_sn14zyvnje.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Pausias und sein Blumenmädchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "faptm77901k6u4a",
+          "source_id": "6p1v0i2kbxtjt4q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "hkwt5ybr25svkx7"
+        }
+      ],
+      "source_id": "gmd056iqnzwbw65"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40250, Obj 19 /) Mit einer Einleitung: Pausias von Sieyon, der Mahler, war als Jüngling in Glyceren, seine Mitbürgerin verliebt, welche Blumenkränze zu winden und einen sehr erfinderischen Geist hatte. [...] Plinius B. XXXV. E. XL.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Schütte die Blumen nur her, zu meinen Füßen und deinen! / Welch' ein chaotisches Bild holder Verwirrung du streust!",
+      "language": [],
+      "musenalm_id": 40251,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Pausias und sein Blumenmädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Pausias und sein Blumenmädchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "u0fkdncfbo7ohnv"
+        }
+      ],
+      "source_id": "17a4shaprlb72h1"
+    },
+    {
+      "annotation": "Illustration zu »Lilis Park« von J. W. von Goethe INr 40253, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40252,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lili's Park",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_525_40252_4ppdyd10w4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lili's Park",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "3of1lvcmvib7rjk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "vq4quxwlvsr80x0"
+        }
+      ],
+      "source_id": "liesx7i6n2rz390"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40252, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Ist doch keine Menagerie / So bunt, als meiner Lili ihre!",
+      "language": [],
+      "musenalm_id": 40253,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Lili's Park",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Lili's Park",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.111Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "2kiotaw3ppt8w0s"
+        }
+      ],
+      "source_id": "tihc1v1t0xumye8"
+    },
+    {
+      "annotation": "Sammlung von 43 Beiträgen INr 40255-40297, Obj 24-66 s. a.: »Fliegende Blätter« Sammlung von 103 Beiträgen mit einer Vorbemerkung INr 39746-39850 in Minerva 1817 sowie »Blätter aus F. H. Jacobi's Nachlaß« Sammlung von 63 Beiträgen mit einer einleitenden Bemerkung INr 40098-40162, in: Minerva 1820",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Letzte Blätter / aus / F. H. Jacobi's Nachlaß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Letzte Blätter / aus / F. H. Jacobi's Nachlaß",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.111Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "d5vj0eio34o1dq1"
+        }
+      ],
+      "source_id": "6dakmyvdw730vjq"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Unser Geist macht an die Natur und die Geschichte Forderungen, die ganz und gar kein Gehör finden.",
+      "language": [],
+      "musenalm_id": 40255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unser Geist macht an die Natur und die Geschichte Forderungen, die ganz und gar kein Gehör finden.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.111Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "3gjqvn3ekbk9vcn"
+        }
+      ],
+      "source_id": "31itw9swel6fsvg"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es ist sonderbar, wie mächtig und wie unmächtig Begriffe sind.",
+      "language": [],
+      "musenalm_id": 40256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es ist sonderbar, wie mächtig und wie unmächtig Begriffe sind.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.219Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "t93gqugvw0m7dh3"
+        }
+      ],
+      "source_id": "ajkjh40s0ug3qmb"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Mon ame active a besoin d'aliment.(Mém. D'Hipp.Clairon.) Wie lächerlich ist nicht die Behauptung jener prahlenden Weltweisen: Der Mensch soll allen Genuß verachten",
+      "language": [],
+      "musenalm_id": 40257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mon ame active a besoin d'aliment.(Mém. D'Hipp.Clairon.) Wie lächerlich ist nicht die Behauptung jener prahlenden Weltweisen: Der Mensch soll allen Genuß verachten…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.219Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "57ioy2vm4vewklj"
+        }
+      ],
+      "source_id": "nyjwt20272hgj6s"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Was der Mensch sucht, was ihn überall leitet, ja selbst erleuchtet ist Freude.",
+      "language": [],
+      "musenalm_id": 40258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was der Mensch sucht, was ihn überall leitet, ja selbst erleuchtet ist Freude.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "1k1i79wez0kpjq9"
+        }
+      ],
+      "source_id": "iue7vjvr3ouo4jq"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Mensch ist ein strebendes Geschöpf; er empfindet in der Zeit, die nie still steht, keinen eigentlichen Moment hat.",
+      "language": [],
+      "musenalm_id": 40259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mensch ist ein strebendes Geschöpf; er empfindet in der Zeit, die nie still steht, keinen eigentlichen Moment hat.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "xftnfii2kwtvv7r"
+        }
+      ],
+      "source_id": "yvp8qhbogframv1"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Nur diejenigen Wahrheiten, die das Bild ganz erschöpft, die im Bilde wahrer sind, als in der Sache,",
+      "language": [],
+      "musenalm_id": 40260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nur diejenigen Wahrheiten, die das Bild ganz erschöpft, die im Bilde wahrer sind, als in der Sache,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "ccifidi0a7fzajy"
+        }
+      ],
+      "source_id": "849f1ddfchi14bk"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Wir alle möchten gern zaubern, Wesen in Worte bannen, und dann wieder mit Worten Wesen erschaffen zu können.",
+      "language": [],
+      "musenalm_id": 40261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir alle möchten gern zaubern, Wesen in Worte bannen, und dann wieder mit Worten Wesen erschaffen zu können.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "bhzdgctepp04ujs"
+        }
+      ],
+      "source_id": "5lyyu9vnyfuq3w2"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Was übrig bleibt, wenn alles abgezogen ist, was der Empfindung und dem Gefühle gehört,",
+      "language": [],
+      "musenalm_id": 40262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was übrig bleibt, wenn alles abgezogen ist, was der Empfindung und dem Gefühle gehört,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "tmr6c80iybnhg3w"
+        }
+      ],
+      "source_id": "21wglxbszsb7d3i"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Zeichen der Dinge sind Empfindungen, die Zeichen der Begriffe Worte.",
+      "language": [],
+      "musenalm_id": 40263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zeichen der Dinge sind Empfindungen, die Zeichen der Begriffe Worte.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "7huo81n9ng86zda"
+        }
+      ],
+      "source_id": "kx2e8yhnjt9j7o3"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Besser, daß wir uns einer Eselsbrücke bedienen, als gar nicht von der Stelle zu können.",
+      "language": [],
+      "musenalm_id": 40264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Besser, daß wir uns einer Eselsbrücke bedienen, als gar nicht von der Stelle zu können.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "4pdf7bhkykh1a5c"
+        }
+      ],
+      "source_id": "9d1ksbtzg13qrv7"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Darin sind sich die Menschen aller Zeiten ähnlich gewesen, daß sie hartnäckig an sich selbst geglaubt haben.",
+      "language": [],
+      "musenalm_id": 40265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Darin sind sich die Menschen aller Zeiten ähnlich gewesen, daß sie hartnäckig an sich selbst geglaubt haben.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "r8k7r88oj0y28p4"
+        }
+      ],
+      "source_id": "bwn7lw5qg6swhfr"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Wenn wir den Glauben an Personen verlieren, so verlieren wir noch mehr den Glauben an die Allgemeinheiten.",
+      "language": [],
+      "musenalm_id": 40266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn wir den Glauben an Personen verlieren, so verlieren wir noch mehr den Glauben an die Allgemeinheiten.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "klglwteabqufz2e"
+        }
+      ],
+      "source_id": "lds0tnsiroyzymd"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Die Vortrefflichkeit der Urtheilskraft besteht darin, daß man aus einem Theile eines Ganzen das Ganze zu erkennen oder zu errathen vermag.",
+      "language": [],
+      "musenalm_id": 40267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vortrefflichkeit der Urtheilskraft besteht darin, daß man aus einem Theile eines Ganzen das Ganze zu erkennen oder zu errathen vermag.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "0g0gk4dgifi8ku0"
+        }
+      ],
+      "source_id": "pbt8eefc2v6yz88"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Die allgemeinste Regel für den Schriftsteller und auch für den Künstler, die ich kenne, ist, daß sein Ausdruck immer unter der Sache sey, die er darstellt.",
+      "language": [],
+      "musenalm_id": 40268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die allgemeinste Regel für den Schriftsteller und auch für den Künstler, die ich kenne, ist, daß sein Ausdruck immer unter der Sache sey, die er darstellt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "wovs7dafr23mf9a"
+        }
+      ],
+      "source_id": "c82og0t7pfbtoq2"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die wahre Aufmerksamkeit entsteht durch die Liebe.",
+      "language": [],
+      "musenalm_id": 40269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die wahre Aufmerksamkeit entsteht durch die Liebe.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "xvt8js0axtztoeg"
+        }
+      ],
+      "source_id": "ppx8g28fy38bz43"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die deutsche Nation ist nicht die ausgebildetste, nicht die reichste an Geistes und Kunstprodukten, aber sie ist die aufgeklärteste weil sie die gründlichste ist; sie ist eine philosophische Nation.",
+      "language": [],
+      "musenalm_id": 40270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die deutsche Nation ist nicht die ausgebildetste, nicht die reichste an Geistes und Kunstprodukten, aber sie ist die aufgeklärteste weil sie die gründlichste ist; sie ist eine philosophische Nation.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.894Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.894Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "zdc72g2pcn73nbv"
+        }
+      ],
+      "source_id": "wcgsn217gwc2vfr"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Würde und Größe des Menschen besteht darin, daß er eine Wahrheit annehmen kann, die gleichsam außer ihm ist,",
+      "language": [],
+      "musenalm_id": 40271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Würde und Größe des Menschen besteht darin, daß er eine Wahrheit annehmen kann, die gleichsam außer ihm ist,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "kjy7r3tgwbqtoff"
+        }
+      ],
+      "source_id": "xnuieikan5tlizp"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Kein Mensch gibt aus freien Stücken einem andern Menschen zu, daß er besser als er selbst wisse, was recht und unrecht sey;",
+      "language": [],
+      "musenalm_id": 40272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kein Mensch gibt aus freien Stücken einem andern Menschen zu, daß er besser als er selbst wisse, was recht und unrecht sey;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "me3rfvc0ja3bou2"
+        }
+      ],
+      "source_id": "566m5ytlzc8l7bn"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Ohne Seelenruhe wird nichts Großes. Wo kleine Leidenschaften an dem Menschen zerren, kann er nur abgebrochen kleine Dinge thun.",
+      "language": [],
+      "musenalm_id": 40273,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ohne Seelenruhe wird nichts Großes. Wo kleine Leidenschaften an dem Menschen zerren, kann er nur abgebrochen kleine Dinge thun.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "kc1xr2nfho0sqfr"
+        }
+      ],
+      "source_id": "bq3tpw7fp76b3ja"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Nichts ist verderblicher für den Menschen, als wenn er irgend einem Theile mächtig genug ist, um ohne Recht zurecht kommen zu können.",
+      "language": [],
+      "musenalm_id": 40274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nichts ist verderblicher für den Menschen, als wenn er irgend einem Theile mächtig genug ist, um ohne Recht zurecht kommen zu können.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "o3212zmhkz1yctw"
+        }
+      ],
+      "source_id": "m5avq120gtqte5i"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Sollte die Freiheit in dem Vermögen bestehen, entgegengesetzte Dinge zu wählen?",
+      "language": [],
+      "musenalm_id": 40275,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sollte die Freiheit in dem Vermögen bestehen, entgegengesetzte Dinge zu wählen?…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "qs0uct70ky6bb62"
+        }
+      ],
+      "source_id": "7u7mxf1djhjr7n5"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Durch jeden Sinneneindruck werden wir von uns selbst geschieden,",
+      "language": [],
+      "musenalm_id": 40276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Durch jeden Sinneneindruck werden wir von uns selbst geschieden,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "zmyg08mpoiv93on"
+        }
+      ],
+      "source_id": "dom3sdtczh03grj"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Aller Glaube ist unwillkührliche Hingebung des Geistes an eine Vorstellung von Wahrheit.",
+      "language": [],
+      "musenalm_id": 40277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aller Glaube ist unwillkührliche Hingebung des Geistes an eine Vorstellung von Wahrheit.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "j9sfdy9i4il37e8"
+        }
+      ],
+      "source_id": "6xd89ikz3llpdmy"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Wo hat die Natur ein Ende? Sie hat ein Ende da, wo die Freiheit anhebt.",
+      "language": [],
+      "musenalm_id": 40278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wo hat die Natur ein Ende? Sie hat ein Ende da, wo die Freiheit anhebt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "l8xhe7tef8qhd2j"
+        }
+      ],
+      "source_id": "k2yeq3krdcu60hd"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ich habe noch keinen Irreligiösen gekannt, der es nicht für erlaubt gehalten hätte, das Böse zu thun, damit Gutes daraus entstehe.",
+      "language": [],
+      "musenalm_id": 40279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich habe noch keinen Irreligiösen gekannt, der es nicht für erlaubt gehalten hätte, das Böse zu thun, damit Gutes daraus entstehe.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.983Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "ltgqsds0ebp9sdc"
+        }
+      ],
+      "source_id": "eaaidt266nrng5p"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "In der Welt ist Liebe, Weisheit, Fürsorge, Gerechtigkeit u.s.w.",
+      "language": [],
+      "musenalm_id": 40280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Welt ist Liebe, Weisheit, Fürsorge, Gerechtigkeit u.s.w.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "vi9drpt269jd0vq"
+        }
+      ],
+      "source_id": "ldxnj6k21kew2vm"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Das Wahre und das Gute gleicht dem Golde. Das Gold liegt selten offen und gediegen da;",
+      "language": [],
+      "musenalm_id": 40281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Wahre und das Gute gleicht dem Golde. Das Gold liegt selten offen und gediegen da;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "4o1c2y1p040s1tt"
+        }
+      ],
+      "source_id": "znqvc4ga14593a0"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Neuerungen sind überall nicht nur erlaubt, sondern verdienstlich, wenn sie Entdeckung sind.",
+      "language": [],
+      "musenalm_id": 40282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neuerungen sind überall nicht nur erlaubt, sondern verdienstlich, wenn sie Entdeckung sind.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "3oy3buluwcbatlz"
+        }
+      ],
+      "source_id": "3ler7tb67qqgd0q"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Jede Regierungsform, in so fern sie wirklich passend ist, muß dem gegenwärtigen Zustande der Imagination des Volkes, welches sich freiwillig darein fügen soll, angemessen seyn.",
+      "language": [],
+      "musenalm_id": 40283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jede Regierungsform, in so fern sie wirklich passend ist, muß dem gegenwärtigen Zustande der Imagination des Volkes, welches sich freiwillig darein fügen soll, angemessen seyn.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "76o6twfs469biyi"
+        }
+      ],
+      "source_id": "o44yn7tspn2hiqw"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Es ist ein gefählicher Irrthum, daß, weil ein Geist besser als ein anderer ist, auch die Form welche sich nach dem einen nennnt,",
+      "language": [],
+      "musenalm_id": 40284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es ist ein gefählicher Irrthum, daß, weil ein Geist besser als ein anderer ist, auch die Form welche sich nach dem einen nennnt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "52i3n8evxktuqv1"
+        }
+      ],
+      "source_id": "e9g6tze0tbkqiai"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Die französischen Gesetzgeber haben eine zu hohe Meinung von den Kräften des Menschen und eine zu geringe von seiner Bestimmung, welche einen seltsamen, widrigen Kontrast macht.",
+      "language": [],
+      "musenalm_id": 40285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die französischen Gesetzgeber haben eine zu hohe Meinung von den Kräften des Menschen und eine zu geringe von seiner Bestimmung, welche einen seltsamen, widrigen Kontrast macht.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "ov69fh990luye3q"
+        }
+      ],
+      "source_id": "7dtfxblovjgmtvn"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "In dem einzelnen Menschen, wie im Staate, muß die Gesammtrichtung entweder auf Sterbliches oder auf Unsterbliches gehen.",
+      "language": [],
+      "musenalm_id": 40286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In dem einzelnen Menschen, wie im Staate, muß die Gesammtrichtung entweder auf Sterbliches oder auf Unsterbliches gehen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "2atqc2wki0p5xbn"
+        }
+      ],
+      "source_id": "xaqjmxwp1unh0gn"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Wie auch Unwahrheit sich nach der Wahrheit, Unrecht nach dem Rechte sich nothdürftig und gezwungen fügen möge,",
+      "language": [],
+      "musenalm_id": 40287,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie auch Unwahrheit sich nach der Wahrheit, Unrecht nach dem Rechte sich nothdürftig und gezwungen fügen möge,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "bhyhvq77pchqhlr"
+        }
+      ],
+      "source_id": "14pfrzb0e9zhaey"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.099Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "In Deutschland, vornehmlich aber in Frankreich, haben viele aus dem katholischen Klerus eine Zeitlang geglaubt,",
+      "language": [],
+      "musenalm_id": 40288,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In Deutschland, vornehmlich aber in Frankreich, haben viele aus dem katholischen Klerus eine Zeitlang geglaubt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.984Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "jdkuxnpjnnvcubn"
+        }
+      ],
+      "source_id": "whppkqflfkoine7"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Die Geschichte lehrt uns, daß die Menschen sich einer fortdauernden Regierung und Rechtsverwaltung nicht unterwerfen,",
+      "language": [],
+      "musenalm_id": 40289,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte lehrt uns, daß die Menschen sich einer fortdauernden Regierung und Rechtsverwaltung nicht unterwerfen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.280Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.280Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "he2mvq4v9bs2lkx"
+        }
+      ],
+      "source_id": "4gk97zf5xcr8x48"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Keine Sage gibt dem Recht einen Anfang, sondern nur dem Unrecht.",
+      "language": [],
+      "musenalm_id": 40290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Keine Sage gibt dem Recht einen Anfang, sondern nur dem Unrecht.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.280Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.280Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "db1dkqt4xh0a0y6"
+        }
+      ],
+      "source_id": "qkgboigj8o5khcm"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Wir können die vollkommene Einsicht gewinnen, wie es zugegangen ist, daß auf dem selben Acker, auf den vor 1000 Jahren Recht gesäet wurde.",
+      "language": [],
+      "musenalm_id": 40291,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir können die vollkommene Einsicht gewinnen, wie es zugegangen ist, daß auf dem selben Acker, auf den vor 1000 Jahren Recht gesäet wurde.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "7bbyvqv01dn25nf"
+        }
+      ],
+      "source_id": "yp8v7d6isbr3bdp"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "So wenig die Tugend eines Menschen in Formalitäten bestehen kann, so wenig kann es die Tugend des Staates.",
+      "language": [],
+      "musenalm_id": 40292,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So wenig die Tugend eines Menschen in Formalitäten bestehen kann, so wenig kann es die Tugend des Staates.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "z7qpvr6tl8nj8ff"
+        }
+      ],
+      "source_id": "li8ossufok094wu"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Freiheit bezieht sich auf Begierde. Je mehr Begierden, desto schwerer die Freiheit in jedem Verstande.",
+      "language": [],
+      "musenalm_id": 40293,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freiheit bezieht sich auf Begierde. Je mehr Begierden, desto schwerer die Freiheit in jedem Verstande.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "hzwtrcsgqngy8wz"
+        }
+      ],
+      "source_id": "62s6x74l1gvrtgf"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Willkühr, innere Freiheit ist die Seele aller Verfassung.",
+      "language": [],
+      "musenalm_id": 40294,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Willkühr, innere Freiheit ist die Seele aller Verfassung.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "geoqb2ara6idimi"
+        }
+      ],
+      "source_id": "jkkcbhpyyb4nwq3"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Eine überwiegende, unwiderstehliche Gewalt, die Gesellschaft in Ordnung zu halten, ist das unnachläßlichste Bedürfniß für die Gesellschaft.",
+      "language": [],
+      "musenalm_id": 40295,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine überwiegende, unwiderstehliche Gewalt, die Gesellschaft in Ordnung zu halten, ist das unnachläßlichste Bedürfniß für die Gesellschaft.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "bhyco2yv2lv179a"
+        }
+      ],
+      "source_id": "robm71viplemom4"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Daß Sie glauben sollten, das historische System ließe sich, in Beziehung auf den gegenwärtigen Zustand der Dinge, besser behaupten, als das metaphysische, kann ich mir kaum vorstellen.",
+      "language": [],
+      "musenalm_id": 40296,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus einem Briefe vom 28sten November / 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus einem Briefe vom 28sten November / 1791",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "a1kj3hgtifld1zc"
+        }
+      ],
+      "source_id": "2cbhgv1os80w8ug"
+    },
+    {
+      "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "In allen menschlichen Verbindungen ist ein gewisser unsichtbarere Geist spürbar,",
+      "language": [],
+      "musenalm_id": 40297,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In allen menschlichen Verbindungen ist ein gewisser unsichtbarere Geist spürbar,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "o2gw0vodtu4ys3d"
+        }
+      ],
+      "source_id": "n2eq4gf9b9t59cb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Still saß auf der Veste von Helfenstein / Der Ritter Bloß mit dem Töchterlein, / Dem sittigen Fräulein Klothilde.",
+      "language": [],
+      "musenalm_id": 40298,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Hugo von Au / und Klothilde von Helfenstein. / Eine Sage aus der frühen Ritterzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Hugo von Au / und Klothilde von Helfenstein. / Eine Sage aus der frühen Ritterzeit",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "7lgk5qhs27eei24"
+        }
+      ],
+      "source_id": "zg6zdvc6rnv2z2s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Meister Hilemar, der Eigenthümer einer großen Mühle, und schöner, umher liegenden Ländereien, wollte gegen Mitternacht das Licht auslöschen und sich zur Ruhe begeben,",
+      "language": [],
+      "musenalm_id": 40299,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die dankbare Zwergin. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die dankbare Zwergin. / Ein Mährchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "f3mc34msumed5ez"
+        }
+      ],
+      "source_id": "cerhk3shiqej7vo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Endlich sprach der strenge Kaiser, / Kurt der Salische genannnt:",
+      "language": [],
+      "musenalm_id": 40300,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der ältere Fridolin. / Chronikensage in Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der ältere Fridolin. / Chronikensage in Romanzen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.246Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "aygmzm3tfdnwtnn"
+        }
+      ],
+      "source_id": "pqrqorno8uuiqsx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Meister Heimel, der alte, steinreiche Sonderling, fühlte, daß sein Stündlein komme, und verschrieb deshalb einen blutarmen, bisher gänzlich verläugneten Vetter,",
+      "language": [],
+      "musenalm_id": 40301,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Der Oheim in der Schachtel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Der Oheim in der Schachtel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.247Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "kmxqu2dqoz6n0w6"
+        }
+      ],
+      "source_id": "wyuky7pw5f3xqla"
+    },
+    {
+      "annotation": "Sammlung von 12 Gedichten INr 40303-40314, Obj 72-83",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40302,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.247Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "rvd64ismi0lodyo"
+        }
+      ],
+      "source_id": "wpswn3gzrn6s2su"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Dich im Schlummer zu seh'n, Marie! Bezaubernder Anblick! / Schlummerten Engel, sie schlummerten so.",
+      "language": [],
+      "musenalm_id": 40303,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An ein schlummerndes Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An ein schlummerndes Kind",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.247Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "0ycfslnaw8lx2ro"
+        }
+      ],
+      "source_id": "bh2mzcxy3owqewr"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Horch! Der Zauberakkorde Tönen / Kommt aus bläulicher See gewiß.",
+      "language": [],
+      "musenalm_id": 40304,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nächtliche Scene. / Venetianisch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nächtliche Scene. / Venetianisch",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.981Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.981Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "pe1fbcfj5aescq7"
+        }
+      ],
+      "source_id": "7ew9clfsgvgrxmw"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Die Pappeln sind gefällt - Lebt wohl, ihr kühlen / Pfade! / Du süßes Waldkoncert! Du Schattenkolonnade!",
+      "language": [],
+      "musenalm_id": 40305,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der umgehauene Pappelhain",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der umgehauene Pappelhain",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "afpzardlqiow1cm"
+        }
+      ],
+      "source_id": "dug5rhlqe2tb3r6"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71) # Anm. am Objekt: In ihrem neuesten Romane: Die Novize von St. Dominique",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Träumest du schon von Frühlingswonne? / Blume der Luft! Du Kind der Sonne! / Schmetterling!",
+      "language": [],
+      "musenalm_id": 40306,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Maischmetterling im Jahre 1817. / Frei, nach Miß Owenson (Lady Morgan) #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Maischmetterling im Jahre 1817. / Frei, nach Miß Owenson (Lady Morgan) #",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.194Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.194Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "e0ltbgg0h67s7m4"
+        }
+      ],
+      "source_id": "85yi3vbd2rxucl0"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Amor zeigte mir heut', als der Schlummer von / Qualen des Herzens / Und von Gedanken des Tags mich befreite, die lieb- / liche Feindin,",
+      "language": [],
+      "musenalm_id": 40307,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sie",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.103Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.103Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "q1rxtjhakuzh8v1"
+        }
+      ],
+      "source_id": "jgrrximfwx5c15r"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Wie viele Zeichen deiner Hand, / Und jedes kundet deine Güte!",
+      "language": [],
+      "musenalm_id": 40308,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Cölestinen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Cölestinen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "patw37kjc288jyz"
+        }
+      ],
+      "source_id": "1q6b1p575flmkvm"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Der weise große Mann, vom Glück verlassen, / Kann wohl in Ungunst fallen, nie verlieren.",
+      "language": [],
+      "musenalm_id": 40309,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Weise im Mißgeschick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Weise im Mißgeschick",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "lawqcjsjm8cd686"
+        }
+      ],
+      "source_id": "fpglb50ywhgkpzq"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Mußt' im Lenze mein Sohn verblüh'n, / Der des Lebens so würdig schien?",
+      "language": [],
+      "musenalm_id": 40310,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Rogers frühe starb",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als Rogers frühe starb",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "wa0evs1yle45jlt"
+        }
+      ],
+      "source_id": "8vfnuu25mo1kdsd"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Fehde sey zugeschworen / Dir verächtlichem Thoren,",
+      "language": [],
+      "musenalm_id": 40311,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Harpax",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Harpax",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.143Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "7dbvkrboq9bdhp4"
+        }
+      ],
+      "source_id": "zxqlru68bnfjbu6"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Gallien gab mir das Leben, Hispanien Glück mir / und Würden,",
+      "language": [],
+      "musenalm_id": 40312,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift / Bourbon's, Connetables von Frankreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift / Bourbon's, Connetables von Frankreich",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.143Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "x77wo87ss25i53q"
+        }
+      ],
+      "source_id": "5cio25sk8jmuihg"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Meiner Freunde Bitt' und Trost verstumme; / Nur Verzweiflung labe Herz und Sinn!",
+      "language": [],
+      "musenalm_id": 40313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Witwerklage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Witwerklage",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.143Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "kjgy9p8lmwcskej"
+        }
+      ],
+      "source_id": "jju51jpy2sclo67"
+    },
+    {
+      "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Dieses engelgleiche Kind / Starb in seinen Frühlingstagen.",
+      "language": [],
+      "musenalm_id": 40314,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Julius, der Säugling, starb",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als Julius, der Säugling, starb",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.144Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "u5lx7kun27mohw9"
+        }
+      ],
+      "source_id": "uovyn4cvwk3v8ai"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "In dem Hafen einer deutschen Handelsstadt lag, unter mehrern andern Fahrzeugen, ein holländisches Schiff vor Anker, das sich bereits zur Abfahrt anschickte.",
+      "language": [],
+      "musenalm_id": 40315,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Das Wahrzeichen. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Baronin de la Motte Fouqué, geb. von Briest",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Das Wahrzeichen. / Eine Erzählung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.144Z",
+          "agent": "t59v9lajt8yljq5",
+          "source_id": "8mn4lnxzwkryymv"
+        }
+      ],
+      "source_id": "avzmaitn2qqe1k0"
+    },
+    {
+      "annotation": "Mit Anmerkungen zum Bild",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Der fröhlichste Morgen leuchtete über Neapel und seinen schönen Golf, als ein Barke im röthlichen Glanz der aufgehende Sonne der Insel Kapri zusteuerte.",
+      "language": [],
+      "musenalm_id": 40316,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Das Kloster auf Kapri. / Nach einem Gemälde von Catel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Pichler, geb. von Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Das Kloster auf Kapri. / Nach einem Gemälde von Catel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.144Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.144Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "schwoauqejf7gnm"
+        }
+      ],
+      "source_id": "2btqbsfrrudqig9"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten und einer Sammlung von 3 Gedichten INr 40318-40326, Obj 87-95",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40317,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "8hzbvev5i3dj00c"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Als Knabe kannt' ich nicht das schön're Leben; / Mit meiner Leier hüpft' ich fröhlich hin:",
+      "language": [],
+      "musenalm_id": 40318,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Leier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Leier",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "hriaj80o4zocu9l"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Was schafft die Mutter dort mit stillem Bangen? / Ihr Kind ist krank: viel wäre Schlaf Gewinn;",
+      "language": [],
+      "musenalm_id": 40319,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meinem Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meinem Freunde",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "itadfs87wq3ridw"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Seht, wie kräftig, seht, wie schön / Diese beiden deutschen Eichen,",
+      "language": [],
+      "musenalm_id": 40320,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sinnbild der Freundschaft. / (Nach Krummacher.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sinnbild der Freundschaft. / (Nach Krummacher.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "y1fpusyjodno2q1"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Ein Jüngling saß mit der Harf' im Arm / Allein im fröhlichen Städterschwarm",
+      "language": [],
+      "musenalm_id": 40321,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Harfner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Harfner",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "tqwavmty6apmh88"
+    },
+    {
+      "annotation": "X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Du muntrer, glücklicher Jüngling, du, / Bewahr' dir der Himmel die Seelenruh'!",
+      "language": [],
+      "musenalm_id": 40322,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn ich ein Vög'lein wär'!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wenn ich ein Vög'lein wär'!",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "chuzcuh79z54n06"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 40324-40326, Obj 93-95 /) X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40323,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Jünglings Lebenschule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Jünglings Lebenschule",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "adb43iay5t9xnwm"
+    },
+    {
+      "annotation": "Des Jünglings Lebensschule (Sammlung INr 40323, Obj 92) X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Husch, husch! Wie der Frost mir die Finger steift, / Wie der Wind mir grimm um die Ohren pfeift!",
+      "language": [],
+      "musenalm_id": 40324,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Sehnsucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Sehnsucht",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "rf7jrov1i4eu53h"
+    },
+    {
+      "annotation": "Des Jünglings Lebensschule (Sammlung INr 40323, Obj 92) X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "321",
+      "incipit_statement": "Hier ist es still: hier will ich liegen bleiben. / So bin ich endlich, endlich denn allein!",
+      "language": [],
+      "musenalm_id": 40325,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Täuschung. / (Zwei Jahre später.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Täuschung. / (Zwei Jahre später.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "6sjcgaxlg4p6sh7"
+    },
+    {
+      "annotation": "Des Jünglings Lebensschule (Sammlung INr 40323, Obj 92) X. Gedichte (Sammlung INr 40317, Obj 86)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Wie herrlich liegt mein Vaterland / Zu Füßen mir gedehnt!",
+      "language": [],
+      "musenalm_id": 40326,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Besinnung. / (Auf einer Fußreise.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Haas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Besinnung. / (Auf einer Fußreise.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "adt39do03pu1pv1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Die Sonne des Orients brannte mit Schmelzgluth aauf die rückspiegelnden Stahlharnische der Krieger des Occidents,",
+      "language": [],
+      "musenalm_id": 40327,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Uebermuth und Menschlichkeit. / Scenen / aus den Zeiten der Kreuzzüge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Uebermuth und Menschlichkeit. / Scenen / aus den Zeiten der Kreuzzüge",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.911Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "9lphvze2inzpd7s"
+        }
+      ],
+      "source_id": "0sy8mjeoegterii"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "409",
+      "incipit_statement": "Es war in der Zeit, wo noch die Seltenheit des Reisens jeden Reisenden, der über die Gränzen Deutschlands hinaus einige funfzig Meilen zurückgelegt hatte, für ganz vorzüglich interessant gelten ließ,",
+      "language": [],
+      "musenalm_id": 40328,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Minerva. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. M. Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Minerva. / Eine Erzählung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.911Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "5a24tz80n68usn1"
+        }
+      ],
+      "source_id": "kplp2w69it2kqs6"
+    },
+    {
+      "annotation": "Sammlung von 20 Rätseln INr 40330-40349, Obj 99-118",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "483",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40329,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Agrionien / für das Jahr 1821. / gesammelt / von / Theodor Hell",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Agrionien / für das Jahr 1821. / gesammelt / von / Theodor Hell",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.742Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "wcb8p4xt7ogrjh5"
+        }
+      ],
+      "source_id": "tv2ku0a7znl7ftm"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "485",
+      "incipit_statement": "Kopf ohne Aug' - Aug' ohne Kopf, / Bin ich ein wahrer dummer Tropf -",
+      "language": [],
+      "musenalm_id": 40330,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Sylbenräthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Richard Roos",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Sylbenräthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "bmrndjx591terfe",
+          "source_id": "o7b355vevmjexi7"
+        }
+      ],
+      "source_id": "9djo5byuex7kjcn"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Wenn dem Wanderer in entfernten Reichen / Gegenden erscheinen, wild und rauh,",
+      "language": [],
+      "musenalm_id": 40331,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Homonyme. / Nur für Frauen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Homonyme. / Nur für Frauen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.076Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.076Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "9ucym3lchwskcpw"
+        }
+      ],
+      "source_id": "rzwsz4lztb7sazk"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Nicht Euch, Ihr zarten Schönen, / Soll jetzt mein Lied ertönen,",
+      "language": [],
+      "musenalm_id": 40332,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Charade. / Nur für Männer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Charade. / Nur für Männer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.077Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "8bqh8rrd6izifo3"
+        }
+      ],
+      "source_id": "mka1wxof348zzpm"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "489",
+      "incipit_statement": "Wie mit des Lichtes zaubervollem Scheine / Des ersten Paares Dunkel sich vermählen,",
+      "language": [],
+      "musenalm_id": 40333,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Charade. / An den weitentfernten Freund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "- - e.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Charade. / An den weitentfernten Freund",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "p4geilkar39xaxh"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "490",
+      "incipit_statement": "Zwei Sylben, der Geisterwelt innig verbunden, / Beginnen den Reigen in nächtlichen Stunden,",
+      "language": [],
+      "musenalm_id": 40334,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.077Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "vyag3dhorflm27a"
+        }
+      ],
+      "source_id": "hqe5fzsgg6d0v69"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "490",
+      "incipit_statement": "Du meinst, von der Welt sey die Keuschheit verschwun- / den, / Das ist eine Lüge, ich sage dir's frei.",
+      "language": [],
+      "musenalm_id": 40335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Innocenz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "th0vkm4k8c8sfi4"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "492",
+      "incipit_statement": "Der edle Sinn verschmäht es zu genießen, / Was ihm der Zufall leicht entgegen bringt.",
+      "language": [],
+      "musenalm_id": 40336,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "- - e.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "k6qbbn7jicy1tna"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "493",
+      "incipit_statement": "Nie bin ich in des Wassers Fluth, / Nie in der Flamme heißer Gluth,",
+      "language": [],
+      "musenalm_id": 40337,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Palindrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jahn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Palindrom",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "q0em1ygk9e8rvx5"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "493",
+      "incipit_statement": "Hörst du des Ganzen friedliches Getön? / Das Erste weidet still im schatt'gen Thale,",
+      "language": [],
+      "musenalm_id": 40338,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.077Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "fmqk8qi48695o23"
+        }
+      ],
+      "source_id": "f21ifv289d1dqvk"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "494",
+      "incipit_statement": "Ich starb, weil ich's gewagt, das Strahlendste zu lieben, / Doch werd' ich ohne M in meiner Brust geschrieben,",
+      "language": [],
+      "musenalm_id": 40339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Logogriph",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Logogriph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.077Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "3w1y9dbjadvxhap"
+        }
+      ],
+      "source_id": "puikzz1p6uhuaxj"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "494",
+      "incipit_statement": "Der Frühjahrskur mich zu bedienen / So macht' ich in der Stadt bekannt",
+      "language": [],
+      "musenalm_id": 40340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jahn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "zicwrz0fnmlby96"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "496",
+      "incipit_statement": "Wie träufelnd meiner Ersten milder Thau / Den brennend heißen Schmerz der Wunde lindre,",
+      "language": [],
+      "musenalm_id": 40341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "- - e.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "e5seihvunkfnjgm"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "496",
+      "incipit_statement": "Vergangenheit und Zukunft spricht / Ein Wörtchen - kennt Ihr's Wörtchen nicht?",
+      "language": [],
+      "musenalm_id": 40342,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Homonyme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Homonyme",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "hlk8e3i69pvf529"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "497",
+      "incipit_statement": "An eines kleinen Baches Rand / Ein Mann in ärmlichem Gewand, / Gelehnt an eine Weide, saß:",
+      "language": [],
+      "musenalm_id": 40343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.077Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "d8d6lo7xvcq1c25"
+        }
+      ],
+      "source_id": "94f7a0vhjxo6cbk"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "497",
+      "incipit_statement": "Fünf Sylben sollst du jetzt errathen! / Erschrick nur nicht ob dieser Zahl,",
+      "language": [],
+      "musenalm_id": 40344,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Charade an Harpagon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Blankenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Charade an Harpagon",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "lghxuuct4ns6w3m"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "498",
+      "incipit_statement": "Es giebt zwei Häuslein, da halte ich Wacht, / Und schließe bedächtig die Pforte;",
+      "language": [],
+      "musenalm_id": 40345,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "- - o.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "z7pdbxirl7fohyp"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "500",
+      "incipit_statement": "Ist es nicht ein artig Wesen, / Dieses kleine Wörtchen hier;",
+      "language": [],
+      "musenalm_id": 40346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17. / Palindrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jahn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17. / Palindrom",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "7b0felyttnis55o"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "500",
+      "incipit_statement": "Dem ersten Paare dankt der Mensch sein Leben. / Zwar blüht es ihm aus mütterlichem Schmerzen;",
+      "language": [],
+      "musenalm_id": 40347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18. / An den Freund. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "- - o.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18. / An den Freund. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "5k8ygwch9lhg4sa"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "501",
+      "incipit_statement": "Bald braust es wild und graus, / Thürmt höher als ein Haus",
+      "language": [],
+      "musenalm_id": 40348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19. / Zweisylbige Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19. / Zweisylbige Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "hev8mgwqk6s1iy0"
+        }
+      ],
+      "source_id": "m66mfipla6c4tos"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1821. gesammelt von Theodor Hell (Sammlung INr 40329, Obj 98)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "502",
+      "incipit_statement": "Unzählig ist die große Schaar / Von Eins und Zwei, die Jahr zu Jahr",
+      "language": [],
+      "musenalm_id": 40349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jahn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "elu8op5p3qhfodj"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "503",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "4046fttjo8k4sl4"
+    },
+    {
+      "annotation": "Umschlaggraphik v",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 49943,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_525_49943_nmilif3mfl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "7g79l8u5yga645o"
+    }
   ],
   "agents": [
     {

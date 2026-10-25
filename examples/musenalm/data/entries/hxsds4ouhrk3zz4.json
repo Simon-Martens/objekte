@@ -48,7 +48,26 @@
   "year": 1857,
   "editor": "",
   "items": [
-    "qac0od1w5valiwe"
+    {
+      "annotation": "1858-1, 1857-2 in einem Band <br>",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.714Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406195",
+      "location": "105B01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.714Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qac0od1w5valiwe"
+    }
   ],
   "contents": [],
   "agents": [

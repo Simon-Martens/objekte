@@ -48,25 +48,746 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "qzhqhgvd8mdn7bd"
+    {
+      "annotation": "1827-1837.\nHalbledereinband mit Goldschnitt. \n1837: (K: Bl 5, 419 SS und Ku 8 ) Mit Tku 1, Ku 6, Bl 5 und 419 SS.\n",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.628Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100483",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.628Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qzhqhgvd8mdn7bd"
+    }
   ],
   "contents": [
-    "5h7k85odba3l4sz",
-    "zy2o3b39xqfqkj3",
-    "dywpinybuodi9xp",
-    "y9bcla6ouzantus",
-    "uebz0cg9guairbe",
-    "edcy8d426y82943",
-    "bvjhy0ahiwzr5zb",
-    "lcd0b0aons179ts",
-    "bv57qyzmnhvkdfv",
-    "97ejefimxdtg6c6",
-    "iag797w8xle48uw",
-    "mjnv9la6vhvqdz0",
-    "09s56tqlyvq311w",
-    "5aywkg1oiyuqv2a",
-    "6vp07vpp4p5jo9g",
-    "gx71slhtacabxkf"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112664,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Ender del. L. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. L. Beyer sc.",
+      "scans": [
+        "alm_2479_112664_9mgx777kbn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "cwu0egjhoqspvc8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "m8cnlw9l8j57rh0"
+        }
+      ],
+      "source_id": "5h7k85odba3l4sz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112665,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN. / EIN / TASCHENBUCH / FÜR 1837. / Leipzig, bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2479_112665_qp07l19379.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN. / EIN / TASCHENBUCH / FÜR 1837. / Leipzig, bei Friedrich August Leo",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "zy2o3b39xqfqkj3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nehmt sie hin die hundert Blätter / Die sich hier auch Euch entfalten,",
+      "language": [],
+      "musenalm_id": 112666,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosen / an die Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosen / an die Leser",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "dywpinybuodi9xp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112667,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "y9bcla6ouzantus"
+    },
+    {
+      "annotation": "Illustration zu »Die wilde Rose« von B. v. Guseck d.i. C. G. v. Berneck INr 112677, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112668,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE WILDE ROSE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Förster del. LS.",
+      "scans": [
+        "alm_2479_112668_ym1lc8udub.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE WILDE ROSE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "u6usmv9ity89zes",
+          "source_id": "ropt83w6eq0b7br"
+        }
+      ],
+      "source_id": "uebz0cg9guairbe"
+    },
+    {
+      "annotation": "Illustration zu »Psyche. Didaktisches Gedicht« von Ed. Müller INr 112678, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112669,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SEYN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. Joh. Passini sc.",
+      "scans": [
+        "alm_2479_112669_rdk6dwqrzs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SEYN",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "1k2bwpwb1nqe3m0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "f756hjnmh0635jd"
+        }
+      ],
+      "source_id": "edcy8d426y82943"
+    },
+    {
+      "annotation": "Illustration zu »Psyche. Didaktisches Gedicht« von Ed. Müller INr 112678, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112670,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PSYCHE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. Leop. Beyer sc.",
+      "scans": [
+        "alm_2479_112670_tbl34v2qlr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PSYCHE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "4xcqqz9j1d4wj75"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "h4ai2md0cszu832"
+        }
+      ],
+      "source_id": "bvjhy0ahiwzr5zb"
+    },
+    {
+      "annotation": "Illustration zu »Psyche. Didaktisches Gedicht« von Ed. Müller INr 112678, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112671,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE HEIMATH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ender del. J. Passini sc.",
+      "scans": [
+        "alm_2479_112671_hl0fl986jx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE HEIMATH",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "3l8ahl5y9vtnc6s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "vxjlsfdbo8u18j1"
+        }
+      ],
+      "source_id": "lcd0b0aons179ts"
+    },
+    {
+      "annotation": "s. Graphik INr 112673, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wasser holst Du aus der Tiefe / Mit dem ämsigen Bemühn, / Holde Rosa, mußt am Brunnen / Mit den fleiß'gen Händen ziehn,",
+      "language": [],
+      "musenalm_id": 112672,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brunnen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Brunnen",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "v8y23bk3wqt6d08"
+        }
+      ],
+      "source_id": "bv57qyzmnhvkdfv"
+    },
+    {
+      "annotation": "s. Gedicht INr 112672, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.670Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112673,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Zeichnung v. Ender Stahlstich v. Carl Mayer Nrbg.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung v. Ender Stahlstich v. Carl Mayer Nrbg.",
+      "scans": [
+        "alm_2479_112673_rbit4em81k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "53vihzvks4iks1f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "o5upistf7e1kfs3"
+        }
+      ],
+      "source_id": "97ejefimxdtg6c6"
+    },
+    {
+      "annotation": "s. Graphik INr 112675, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die schönsten Blumen sucht sie aus / Im wohlgepflegten kleinen Garten,",
+      "language": [],
+      "musenalm_id": 112674,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Denkmal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Denkmal",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "hgnld3ylhrwvneo"
+        }
+      ],
+      "source_id": "iag797w8xle48uw"
+    },
+    {
+      "annotation": "s. Gedicht INr 112674, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112675,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Ender gez. G. Leybold gest. in Stahl)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. G. Leybold gest. in Stahl",
+      "scans": [
+        "alm_2479_112675_244dv5mgpz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "gv0z9r9odc8vpbn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "u777dh3yczx8hxi"
+        }
+      ],
+      "source_id": "mjnv9la6vhvqdz0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Am Fuße des Kyffhäusers, etwa tausend Schritte entfernt vom Dorfe Tileda, stand, umspült von einem klaren Bache, das stattliche Haus von Margarethe's Mutter.",
+      "language": [],
+      "musenalm_id": 112676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria und Rosa / oder / Feen-Gabe. / Zwie Mährchen in Einem",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Nelly",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria und Rosa / oder / Feen-Gabe. / Zwie Mährchen in Einem",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "09s56tqlyvq311w"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112668, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Der Mittag war heiß und drückend, kein Lüftchen regte sich, im dichten Walde schliefen die Zweige.",
+      "language": [],
+      "musenalm_id": 112677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die wilde Rose. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die wilde Rose. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "xm2wiib5mrwaevz"
+        }
+      ],
+      "source_id": "5aywkg1oiyuqv2a"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 112669-112671, Obj 6-8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Du schwebst, o Nacht, auf dunkelm Fittig nieder, / Und fächelst Kühlung der erschöpften Flur;",
+      "language": [],
+      "musenalm_id": 112678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Psyche. / Didaktisches Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Psyche. / Didaktisches Gedicht",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "6vp07vpp4p5jo9g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wie die alten Helden des Sagenkreises einst auszogen, um Drachen und Lindwürmer zu bekämpfen",
+      "language": [],
+      "musenalm_id": 112679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sternauer. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sternauer. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "ywf9jr8cwlo32f3",
+          "source_id": "z9926rltk4elh4k"
+        }
+      ],
+      "source_id": "gx71slhtacabxkf"
+    }
   ],
   "agents": [
     {

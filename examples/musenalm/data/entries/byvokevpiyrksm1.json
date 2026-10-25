@@ -48,16 +48,261 @@
   "year": 1815,
   "editor": "",
   "items": [
-    "ihs8j3zbnnzoium"
+    {
+      "annotation": "Format: 3,8 x 4,8 <br> Karton: Kleinformat diverse",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.758Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409120",
+      "location": "105H01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.758Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ihs8j3zbnnzoium"
+    }
   ],
   "contents": [
-    "zqzmwa7o9qhiwq7",
-    "sp91lbctrctp9cw",
-    "tcfvjixzi4djxxh",
-    "sjzn8j4t9ewb5mg",
-    "70ek99vx5y61z7b",
-    "zftd2j2t0kc0hrx",
-    "u54g1jjpzrmy2or"
+    {
+      "annotation": "Schuber /) Photo mit Maßstab",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107612,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107612_zfil2mk3xq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "zqzmwa7o9qhiwq7"
+    },
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107613,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107613_0m0cb00ndq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "sp91lbctrctp9cw"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107614,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALEXANDER der I. / Kaiser von Russland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107614_8j9hamc096.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALEXANDER der I. / Kaiser von Russland",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "tcfvjixzi4djxxh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHEN / KALENDER / für das Jahr / 1815. / LEIPZIG / bei / Schreibers Erben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107615_5tz99mnixm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHEN / KALENDER / für das Jahr / 1815. / LEIPZIG / bei / Schreibers Erben",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "sjzn8j4t9ewb5mg"
+    },
+    {
+      "annotation": "Monat Januar als Vollbild",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107616,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107616_h5u6a74rfb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "70ek99vx5y61z7b"
+    },
+    {
+      "annotation": "Doppelseite mit 4 Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107617,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107617_chy8de6b51.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "zftd2j2t0kc0hrx"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 107618,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4230_107618_94lds5c9py.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-10-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "u54g1jjpzrmy2or"
+    }
   ],
   "agents": [
     {

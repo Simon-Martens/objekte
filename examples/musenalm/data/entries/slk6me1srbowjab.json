@@ -48,7 +48,26 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "wfcppjb18mc3xcm"
+    {
+      "annotation": "K gibt Jg 1836 an; KVK : 1836, 1837, 1838",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.785Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409960",
+      "location": "105P06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.785Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wfcppjb18mc3xcm"
+    }
   ],
   "contents": [],
   "agents": [

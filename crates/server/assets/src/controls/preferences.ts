@@ -3,7 +3,6 @@ function apply() {
   const node = document.getElementById('ui-preferences');
   if (!node || node.outerHTML === last) return;
   last = node.outerHTML;
-  document.documentElement.dataset.density = node.dataset.density;
   document.documentElement.style.setProperty('--editor-font-size', `${node.dataset.editorFont}px`);
   window.dispatchEvent(new CustomEvent('preferences-change', {detail: {...node.dataset}}));
 }

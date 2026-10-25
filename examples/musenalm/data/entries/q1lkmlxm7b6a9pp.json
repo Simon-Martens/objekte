@@ -49,20 +49,487 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "utaxeb1wjek1h0m"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.761Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409223",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.761Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "utaxeb1wjek1h0m"
+    }
   ],
   "contents": [
-    "k364uvwy7q2nsux",
-    "2biuvkccsqjy53q",
-    "ahh2k8v76kidgpf",
-    "41fjv2102tkvesn",
-    "fc96qkxk381ff9i",
-    "4o1tt3f1ppijtcg",
-    "fezunbfr8n1n9jt",
-    "h6nrai9su3xp670",
-    "e5v40vldpb6jd24",
-    "1fk39g8c6g36asq",
-    "4i39qcyptzejhde"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Tageszeiten / von / Amalie von Hellwig. / Taschenbuch / für das Jahr 1812",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4295_109935_20wq2xpp8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die / Tageszeiten / von / Amalie von Hellwig. / Taschenbuch / für das Jahr 1812",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "k364uvwy7q2nsux"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1812. / Die / Tageszeiten. / Ein Cyklus griechischer Zeit / und Sitte. / In / vier Idyllen. / Von / Amalie von Hellwig, / gebohrne von Imhoff. / Amsterdam und Leipzig, / Kunst und Industrie-Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4295_109936_rhu3zmx8tx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1812. / Die / Tageszeiten. / Ein Cyklus griechischer Zeit / und Sitte. / In / vier Idyllen. / Von / Amalie von Hellwig, / gebohrne von Imhoff. / Amsterdam und Leipzig, / Kunst und Industrie-Comptoir",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "2biuvkccsqjy53q"
+    },
+    {
+      "annotation": "Es folgen 3 Zwischentitel: Der Mittag, Der Abend, Der Morgen, darin 4 Idyllen INr 109938-109944, Obj 4-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unabweichend befolgt der Tag den geregel- / ten Kreislauf, / Wieget den Menschen in Ruh, der sich Ge- / wohntem erfreut;",
+      "language": [],
+      "musenalm_id": 109937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tageszeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tageszeiten",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.115Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "xhjxr6dwq6ewifw"
+        }
+      ],
+      "source_id": "ahh2k8v76kidgpf"
+    },
+    {
+      "annotation": "Zwischentitel /) Die Tageszeiten (INr 109937, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mittag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mittag",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.115Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "ays1pe3n2ed6oqs"
+        }
+      ],
+      "source_id": "41fjv2102tkvesn"
+    },
+    {
+      "annotation": "Die Tageszeiten (INr 109937, Obj 3) Der Mittag /) Der Idylle vorangestellt: Nikias, ein Athenienser und Schüler des Antidotus, erhöhte den Ruhm seines Meisters durch eigene Vortrefflichkeit. [...] Plinius Naturgeschichte 35tes Buch",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Nikias, welcher noch jüngst, des ernsten An- / tidotus Schüler, / Gleich dem Meister an Fleiß, dem weit an / Ruhm er voraneilt, / Lebt' im schönen Athen,",
+      "language": [],
+      "musenalm_id": 109939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Maler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Maler",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.115Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "wjd6rqtddv2qune"
+        }
+      ],
+      "source_id": "fc96qkxk381ff9i"
+    },
+    {
+      "annotation": "Zwischentitel /) Die Tageszeiten (INr 109937, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Abend",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.115Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "j8tspj7m5z8frki"
+        }
+      ],
+      "source_id": "4o1tt3f1ppijtcg"
+    },
+    {
+      "annotation": "Die Tageszeiten (INr 109937, Obj 3) Der Abend",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.507Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Glücklich gelandet im Port von Tarentum, / trat mit Erwartung / Kallias heiter an's Land, die nährende Erde / begrüßend,",
+      "language": [],
+      "musenalm_id": 109941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schaale. / Idylle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schaale. / Idylle",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.324Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "fov77rk3m20zwja"
+        }
+      ],
+      "source_id": "fezunbfr8n1n9jt"
+    },
+    {
+      "annotation": "Die Tageszeiten (INr 109937, Obj 3) Der Abend",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Ueber Britomis Schwelle, der Nachbarin bie- / tend den Frühgruß, / Trat Timarete zur Kammer des Mägdleins / rüstig und schwatzhaft;",
+      "language": [],
+      "musenalm_id": 109942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Thessalerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Thessalerin",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.226Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.226Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "pzg33crmkalt3b4"
+        }
+      ],
+      "source_id": "h6nrai9su3xp670"
+    },
+    {
+      "annotation": "Zwischentitel /) Die Tageszeiten (INr 109937, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Morgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Morgen",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.226Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.226Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "1wc7fpreyu2tfjg"
+        }
+      ],
+      "source_id": "e5v40vldpb6jd24"
+    },
+    {
+      "annotation": "Die Tageszeiten (INr 109937, Obj 3) Der Morgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Gegen die tobende Wuth des Nachtsturms / kämpften entschlossen / Stumm drei wandernde Männer, dahin gewandt, wo das Obdach / Fern erschienen,",
+      "language": [],
+      "musenalm_id": 109944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.226Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.226Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "zm0klllv8dso3kp"
+        }
+      ],
+      "source_id": "1fk39g8c6g36asq"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109945,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amsterdam und Leipzig / Kunst- und Industrie-Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4295_109945_p0sado6gwx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Amsterdam und Leipzig / Kunst- und Industrie-Comptoir",
+      "updated": "2016-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "4i39qcyptzejhde"
+    }
   ],
   "agents": [
     {

@@ -48,29 +48,852 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "3b531g1x21ogd8c"
+    {
+      "annotation": "1816-1873.\nKartonierter Einband mit Goldschnitt.(Buchrücken leicht beschädigt).\n1843: (K:Stahlst 7) Mit Port 1, Ku 5, XIV, 322 SS und Bl 1.\nHg:1816-1842 = A. Schreiber. \n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell.\n     1857-1862 = A. Henninger.\n     1863-1873 = Frater Hilarius (pseude).   ",
+      "condition": "5b",
+      "created": "2026-06-11 10:17:37.532Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100535",
+      "location": "105N03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.532Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3b531g1x21ogd8c"
+    }
   ],
   "contents": [
-    "sxbo0pvyegymr4m",
-    "msujnus8j8vwkvs",
-    "cujga8qsmr3y207",
-    "5v1kv4boh7hhbyo",
-    "61hmn3gjgqqep4i",
-    "urs1ci7gj6gifbe",
-    "7plomyx7phhv55m",
-    "reol9fcitr1mgkl",
-    "j2p4ijfgm2hk0mv",
-    "oq9bi3xsueeimzq",
-    "ojhotssuhxwvk6n",
-    "05z4wmk4t8xln5z",
-    "60i2ok813w3j3kw",
-    "hra1s1vq7v72jpo",
-    "rnnsgp0qflz374g",
-    "hq7cpo8nj9iww7a",
-    "nrk9fy3o97acb2f",
-    "12gk21zspr6yn1f",
-    "mu9w7hnmy86twgv",
-    "mmdpqcm2f3jw2ef"
+    {
+      "annotation": "Titelportrait # Titel s. Textbezug INr 63901, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63897,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Victorie, Herzogin von Nemours, geb. Prinzessin von Sachsen-Coburg-Gotha #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schuler scp.",
+      "scans": [
+        "alm_1051_63897_bpw457wt55.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Victorie, Herzogin von Nemours, geb. Prinzessin von Sachsen-Coburg-Gotha #",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "27kz0hrta2jij15"
+        }
+      ],
+      "source_id": "sxbo0pvyegymr4m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63898,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / AUF DAS / JAHR / 1843 / BEGRÜNDET / von / ALOYS SCHREIBER / fortgesetzt / von Amalia Schoppe / 28r Jahrgang ZWEITE FOLGE 2r Jahrgang / HEIDELBERG / bei Joseph Engelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1051_63898_u2bf04y89v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / AUF DAS / JAHR / 1843 / BEGRÜNDET / von / ALOYS SCHREIBER / fortgesetzt / von Amalia Schoppe / 28r Jahrgang ZWEITE FOLGE 2r Jahrgang / HEIDELBERG / bei Joseph Engelmann",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "msujnus8j8vwkvs"
+    },
+    {
+      "annotation": "Vorwort der neuen Herausgeberin A. Schoppe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der getreue, geschickte und umsichtige Pilot, welcher so viele Jahr hinduch die oft mit werthvollen Gütern befrachtete »Cornelia« glücklich in den Hafen führte, ist, nach vielen bestandenen Lebensstürmen und geschickt umschifften Klippen,",
+      "language": [],
+      "musenalm_id": 63899,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalia Schoppe, geb. Weise",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.345Z",
+          "agent": "2nm1hcqes98n5i9",
+          "source_id": "t7veeblr9jfpe9o"
+        }
+      ],
+      "source_id": "cujga8qsmr3y207"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 63901, 63902; Obj 5, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63900,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reihenfolge der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reihenfolge der Kupfer",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "5v1kv4boh7hhbyo"
+    },
+    {
+      "annotation": "Reihenfolge der Kupfer (Sammlung INr 63900, Obj 4) s. Titelportrait INr 63897, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Dem erlauchten Fürstenhause Coburg, einem der ältesten von ächtgermanischer Abkunft, das durch männliche und weibliche Zweige den ersten Herrscherfamilien Europa's verwandt ist,",
+      "language": [],
+      "musenalm_id": 63901,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Victorie, Herzogin von Nemours, geb. Prinzessin / von Sachsen-Coburg-Gotha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Victorie, Herzogin von Nemours, geb. Prinzessin / von Sachsen-Coburg-Gotha",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "61hmn3gjgqqep4i"
+    },
+    {
+      "annotation": "Reihenfolge der Kupfer (Sammlung INr 63900, Obj 4) Zuweisung der Graphiken II-VII zu den Textbezügen s. Anmerkung an den Objekten",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63902,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "urs1ci7gj6gifbe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63903,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "7plomyx7phhv55m"
+    },
+    {
+      "annotation": "Illustration zu »Die Bruderfahrt« von E. Tesche INr 63911, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63904,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ed. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler sc.",
+      "scans": [
+        "alm_1051_63904_ekg2ssmenx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.243Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.243Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "rgcstja2myieige"
+        }
+      ],
+      "source_id": "reol9fcitr1mgkl"
+    },
+    {
+      "annotation": "Illustration zu »Die Kronprätendentin« von A. Schoppe INr 63912, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63905,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ed. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler sc.",
+      "scans": [
+        "alm_1051_63905_6wu08slbtt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.243Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.243Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "l6f0aennytpru2g"
+        }
+      ],
+      "source_id": "j2p4ijfgm2hk0mv"
+    },
+    {
+      "annotation": "Illustration zu »Goldlichter« von Bernd von Guseck INr 63913, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63906,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schuler sc.",
+      "scans": [
+        "alm_1051_63906_08grxd8y8s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.244Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "6fjz8gsq4i13jwx"
+        }
+      ],
+      "source_id": "oq9bi3xsueeimzq"
+    },
+    {
+      "annotation": "Illustration zu »Die griechische Mutter« von L.Reinhardt INr 63914, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63907,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ed. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler sc.",
+      "scans": [
+        "alm_1051_63907_zwzshdws0y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.244Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "bqrvlvt18o7y1ra"
+        }
+      ],
+      "source_id": "ojhotssuhxwvk6n"
+    },
+    {
+      "annotation": "Illustration zu »Virginia, oder Liebe und Opfer« von C. M. Ed. INr 63915, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63908,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schuler sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schuler sculp.",
+      "scans": [
+        "alm_1051_63908_j37o2mp9ud.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.244Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "yr2qjlsqayjqbwo"
+        }
+      ],
+      "source_id": "05z4wmk4t8xln5z"
+    },
+    {
+      "annotation": "Illustration zu »Virginia, oder Liebe und Opfer« von C. M. Ed. INr 63915, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63909,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ed. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler sc.",
+      "scans": [
+        "alm_1051_63909_38oqb69wm7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.244Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "tltkwmnw70btpp3"
+        }
+      ],
+      "source_id": "60i2ok813w3j3kw"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto. / Unter den Thaten kann kaum eine edlere gedacht werden, als die Befeiung der Menschheit von einer sie entehrenden Schmach, [...] / Herder",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn eine nach Außen hochgestellte Frau bereits seit beinahe drei Jahrzehnten mit aller ihr innewohnenden Energie und Ausdauer unternimmt, die sittliche Aufbesserung der Sträflinge in den Gefängnissen ihrer Vaterstadt",
+      "language": [],
+      "musenalm_id": 63910,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pantheon. / Elisabeth Fry. / Ein Lebensbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. J. Günther",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pantheon. / Elisabeth Fry. / Ein Lebensbild",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "hra1s1vq7v72jpo"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 63904, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "An dem Altartisch der Marienkirche zu Lübeck stand ein schlanker Jüngling, emsig beschäftigt mit den vor ihm liegenden Zeichengeräthen auf einem Bogen hellgrauen Papier,",
+      "language": [],
+      "musenalm_id": 63911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bruderfahrt. / Reise-Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Walter Tesche",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bruderfahrt. / Reise-Novelle",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.281Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.281Z",
+          "agent": "ayxe6k12ru1cyko",
+          "source_id": "6ni7ft21boe2agn"
+        }
+      ],
+      "source_id": "rnnsgp0qflz374g"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Weßwegen liegt die Kron' auf seinem Kissen, / Die ein so unruhvoller Bettgenoß? [...] König Heinrich IV. zweiter Theil, von Shakespeare /) mit einer Illustration s. Graphik INr 63905, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Die Nacht war bereits angebrochen und hatte ihren dunkleln Schleier über die Erde gebreitet. Stiller und immer stiller wurde es in den sonst so geräuschvollen Gassen Londons.",
+      "language": [],
+      "musenalm_id": 63912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kronpätendentin. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalia Schoppe, geb. Weise",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kronpätendentin. / Historische Erzählung",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.282Z",
+          "agent": "2nm1hcqes98n5i9",
+          "source_id": "mkgur347328ozrw"
+        }
+      ],
+      "source_id": "hq7cpo8nj9iww7a"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 63906, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Am frühen Morgen rasselte ein Wagen durch das gewölbte Thor der Citadelle. Er war von der Wache kaum angehalten worden;",
+      "language": [],
+      "musenalm_id": 63913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Goldlichter. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Goldlichter. / Novelle",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.023Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "41o63y1mvfy3l7j"
+        }
+      ],
+      "source_id": "nrk9fy3o97acb2f"
+    },
+    {
+      "annotation": "/ mit einer Illustration s. Graphik INr 63907, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Der schönste Augustabend dämmerte leise heran; er glich, in erhöheter Färbung, einem zweiten, doch milderen Tage, als der verglühete gewesen.",
+      "language": [],
+      "musenalm_id": 63914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die griechische Mutter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lina Reinhard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die griechische Mutter",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.023Z",
+          "agent": "mkz3b0l4gdht2nh",
+          "source_id": "erdp9ogmvlc7pn8"
+        }
+      ],
+      "source_id": "12gk21zspr6yn1f"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 62908, 62909; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Der Kampf, welchen England und Frankreich in der Mitte des vorigen Jahhrunderts um den Besitz von Nordamerika führten, erhielt bekanntlich dadurch einen so betrübenden Charakter der Grausamkeit und Erbitterung, daß beide Mächte die Hülfe der Indianer",
+      "language": [],
+      "musenalm_id": 63915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Virginia oder Liebe und Opfer. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Ed.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Virginia oder Liebe und Opfer. / Historische Erzählung",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.023Z",
+          "agent": "2k8x09vp5cub27j",
+          "source_id": "ng5875swbwm6wna"
+        }
+      ],
+      "source_id": "mu9w7hnmy86twgv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ach! der leuchtende Stern am heiligen Tage der Weisen / War durch Wolken des Grams unserem Auge verhüllt;",
+      "language": [],
+      "musenalm_id": 63916,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Gedächtniß / der Gattin meines Bruders, / Frau Clementine Geib, gebornen Schäffer, / welche am 6. Januar 1842 von dieser Erdenwelt schied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Gedächtniß / der Gattin meines Bruders, / Frau Clementine Geib, gebornen Schäffer, / welche am 6. Januar 1842 von dieser Erdenwelt schied",
+      "updated": "2009-05-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.157Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "2tzy45m7lupz83q"
+        }
+      ],
+      "source_id": "mmdpqcm2f3jw2ef"
+    }
   ],
   "agents": [
     {

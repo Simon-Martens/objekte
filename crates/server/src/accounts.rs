@@ -8,7 +8,7 @@ use crate::{
 };
 use axum::{
     Router,
-    extract::{Form, Path, State},
+    extract::{Form, Path, Query, State},
     http::HeaderMap,
     response::{Html, IntoResponse, Redirect, Response},
     routing::{get, post},
@@ -34,21 +34,43 @@ fn roles(current: &str) -> String {
             format!(
                 "<option {} value=\"{r}\">{}</option>",
                 if *r == current { "selected" } else { "" },
-                if *r == "user" { "reader" } else { r }
+                match *r {
+                    "user" => "Reader",
+                    "editor" => "Editor",
+                    _ => "Administrator",
+                }
             )
         })
         .collect()
 }
-async fn account(State(state): App, headers: HeaderMap) -> Result<Response> {
+async fn account(
+    State(state): App,
+    Query(query): Query<HashMap<String, String>>,
+    headers: HeaderMap,
+) -> Result<Response> {
     let a = match routes::page_actor(&state, &headers).await {
         Ok(a) => a,
         Err(r) => return Ok(r),
     };
+    let message = if query.get("saved").is_some_and(|v| v == "1") {
+        "<p class=\"valid-text\" role=\"status\">Profile saved.</p>"
+    } else {
+        ""
+    };
     let body = format!(
-        "<form method=\"post\" action=\"/account\">{}<label>Display name<input name=\"name\" value=\"{}\" required></label><button class=\"primary\"><i class=\"ri-save-line\" aria-hidden=\"true\"></i>Save profile</button></form><h2>Change password</h2><form method=\"post\" action=\"/account/password\">{}<label>Current password<input type=\"password\" name=\"current\" autocomplete=\"current-password\" required></label><label>New password<input type=\"password\" name=\"password\" autocomplete=\"new-password\" minlength=\"12\" required></label><button>Change password and sign out all sessions</button></form>",
-        csrf(&a),
-        views::escape(&a.name),
-        csrf(&a)
+        r#"<div class="account-settings">
+        <section class="surface"><div class="section-heading"><h2>Profile</h2><span class="badge">{role}</span></div>
+        <form class="account-form" method="post" action="/account">{token}{message}<label>Display name<input name="name" value="{name}" autocomplete="name" required></label><div class="actions"><button class="primary"><i class="ri-save-line" aria-hidden="true"></i>Save profile</button></div></form></section>
+        {personal}
+        <section class="surface"><div class="section-heading"><h2>Change password</h2></div><form class="account-form" method="post" action="/account/password">{token}<p class="help" id="password-help">Use at least 12 characters. Changing your password signs you out on every device.</p><label>Current password<input type="password" name="current" autocomplete="current-password" required></label><label>New password<input type="password" name="password" autocomplete="new-password" aria-describedby="password-help" minlength="12" required></label><div class="actions"><button>Change password</button></div></form></section></div>"#,
+        token = csrf(&a),
+        name = views::escape(&a.name),
+        role = match a.role.as_str() {
+            "user" => "Reader",
+            "editor" => "Editor",
+            _ => "Administrator",
+        },
+        personal = crate::preferences::personal()
     );
     routes::page(
         &state,
@@ -70,7 +92,7 @@ async fn profile(
         .auth
         .profile(a.id, f.get("name").map(String::as_str).unwrap_or(""))
         .await?;
-    Ok(Redirect::to("/account").into_response())
+    Ok(Redirect::to("/account?saved=1").into_response())
 }
 async fn password(
     State(state): App,

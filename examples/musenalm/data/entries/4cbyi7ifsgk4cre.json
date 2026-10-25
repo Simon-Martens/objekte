@@ -48,28 +48,812 @@
   "year": 1816,
   "editor": "",
   "items": [
-    "300pno7cx01teot"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200426",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "300pno7cx01teot"
+    }
   ],
   "contents": [
-    "hejtq5la738xjyd",
-    "0y9rvbmab6p5zad",
-    "q9q76lfz045uy49",
-    "5yha8svupz0jj3j",
-    "lxk8rbm0wi2b8in",
-    "kj9kph1x5t54awy",
-    "swqfb00n7k80bhw",
-    "5vx0304dd35b3ek",
-    "17m8utjbgppqvuy",
-    "4rvivefijar38rc",
-    "t9fwmiimaqdedtm",
-    "5vgays5f9x5muik",
-    "uk7a17axkln3cq2",
-    "uzk41n58z4zgk3s",
-    "8kv35z3ilbfpvl9",
-    "eoxdkcen4ibh452",
-    "kg2bq3ivt0ocb0y",
-    "7fn26oe4ma1k4hg",
-    "8w56vldrm84mmla"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52386,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_716_52386_zvbuu5srm3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "hejtq5la738xjyd"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr  52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52387,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Stammschloss Habsburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Hegi fec.",
+      "scans": [
+        "alm_716_52387_e8dnyppu5y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Stammschloss Habsburg",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "lyzkffnj75ng2ub"
+        }
+      ],
+      "source_id": "0y9rvbmab6p5zad"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.980Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52388,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1816. / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_716_52388_d028tpe07j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1816. / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "q9q76lfz045uy49"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52389,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "5yha8svupz0jj3j"
+    },
+    {
+      "annotation": "mit 7 Illustrationen s. Titelgraphik INr 52382, Obj 2; Graphiken INr 52391-52393, 52395-52397; Obj 6-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Als die Römer zur Zeit ihrer Weltherrschaft das Land kennen lernten, wohnten im Norden des Jura, längs dem Rhein die Völkerschaft der Rauracher,",
+      "language": [],
+      "musenalm_id": 52390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Topographisch-statistische / Beschreibung / des Cantons / Aargau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Topographisch-statistische / Beschreibung / des Cantons / Aargau",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxk8rbm0wi2b8in"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Aargau / Bauer aus dem Frikthal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_716_52391_60fe3bokyt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Aargau / Bauer aus dem Frikthal",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "grrghi5h2ztyims"
+        }
+      ],
+      "source_id": "kj9kph1x5t54awy"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Aargau / Bäuerinn aus dem Frikthal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_716_52392_w2al4dentr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Aargau / Bäuerinn aus dem Frikthal",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "fnto73j5v8ngfts"
+        }
+      ],
+      "source_id": "swqfb00n7k80bhw"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Baden, aus den kleinen Bädern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wezel del. F. Hegi sc.",
+      "scans": [
+        "alm_716_52393_83khbqvs3o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Baden, aus den kleinen Bädern",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "olm2tn54v04ccro"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "onqoo9scor7ic17"
+        }
+      ],
+      "source_id": "5vx0304dd35b3ek"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aarau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wetzel del. F. Hegi sc.",
+      "scans": [
+        "alm_716_52395_iwarbz79rc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aarau",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "f59ycukd7d3l4x7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "nfkgbnvx88lp0ph"
+        }
+      ],
+      "source_id": "17m8utjbgppqvuy"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schloss Hallwyl im Canton Aargau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wezel del. F. Hegi sc.",
+      "scans": [
+        "alm_716_52396_6s7ivpx1e3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schloss Hallwyl im Canton Aargau",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "qiz4aepfdkso4qx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.537Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "xe9of5svvinh4qh"
+        }
+      ],
+      "source_id": "4rvivefijar38rc"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gegend von Königsfelden, Windisch, und Brugg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wezel del. F. Hegi sc.",
+      "scans": [
+        "alm_716_52397_f3csejmo0q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gegend von Königsfelden, Windisch, und Brugg",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.634Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "fmqw5sy533r5ahr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.634Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "yxwh6y3bzbza23r"
+        }
+      ],
+      "source_id": "t9fwmiimaqdedtm"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 52399-52400, Obj 13, 14 /) Beigabe zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anhang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anhang",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "5vgays5f9x5muik"
+    },
+    {
+      "annotation": "Anhang (Sammlung INr 52398, Obj 12) Beigabe zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Die Salzquellen im Sulzthal unsers Kantons waren schon vor Alters ein Gegenstand der Aufmerksamkeit.",
+      "language": [],
+      "musenalm_id": 52399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Ueber die Salzquellen im Sulzthal des / Cantons Aargau. Vorgelesen in der / Sitzung vom 24. Jenner 1815 der / staatswissenschaftlichen Klasse der Ge- / sellschaft für vaterländische Kultur. Von / Herrn Oberforst- und Berg-Inspektor / Zschokke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Oberforst- und Berg-Inspektor Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Ueber die Salzquellen im Sulzthal des / Cantons Aargau. Vorgelesen in der / Sitzung vom 24. Jenner 1815 der / staatswissenschaftlichen Klasse der Ge- / sellschaft für vaterländische Kultur. Von / Herrn Oberforst- und Berg-Inspektor / Zschokke",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.519Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "5jexjiis5nnw8i0"
+        }
+      ],
+      "source_id": "uk7a17axkln3cq2"
+    },
+    {
+      "annotation": "Anhang (Sammlung INr 52398, Obj 12) Beigabe zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Auf Verlangen mehrerer Mitglieder der Gesellschaft bey der ersten allgemeinen Zusammenkunft derselben im Bad Schinznach am 24. May 1814 ward diese Verfassung, deren Inhalt sonst nur mündlich oder schriftlich mithetheilt wurde, gedruckt.",
+      "language": [],
+      "musenalm_id": 52400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Einrichtung der Gesellschaft für vater- / ländische Kultur im Kanton Aargau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Einrichtung der Gesellschaft für vater- / ländische Kultur im Kanton Aargau",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "uzk41n58z4zgk3s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52401,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "8kv35z3ilbfpvl9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52402,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "eoxdkcen4ibh452"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52403,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "kg2bq3ivt0ocb0y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52404,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Canton Aargau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. u. gest. v. J. J. Scheurmann",
+      "scans": [
+        "alm_716_52404_m0bmfuxt31.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Canton Aargau",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.876Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "f4iyibqoomgms14"
+        }
+      ],
+      "source_id": "7fn26oe4ma1k4hg"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52405,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_716_52405_hrqxqugh4w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "8w56vldrm84mmla"
+    }
   ],
   "agents": [
     {

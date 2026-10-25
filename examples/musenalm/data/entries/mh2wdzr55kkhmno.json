@@ -48,24 +48,690 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "rskemcs98utl6a3"
+    {
+      "annotation": "1837-1842.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.651Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106786",
+      "location": "105C06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.651Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rskemcs98utl6a3"
+    }
   ],
   "contents": [
-    "k6n747i12ssg41c",
-    "7nef0hq9kf7vaqv",
-    "db4d7lucdz6iymd",
-    "cjac4p8qkjad1i5",
-    "1wifkcqlabx2lyu",
-    "3311tcp1x4qwpg7",
-    "a8kgiia8f5hzm8i",
-    "5hk6bz7sxelgfig",
-    "cvllre725vd8hfw",
-    "9irlrm6dh4q6dj2",
-    "jvigdal0x8zjwkh",
-    "e1571t29ux2ljvf",
-    "xpm15dc78snkftr",
-    "flm60b2xiyrk9be",
-    "b3n6lsx9i17rzup"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125833,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / dramatischer Originalien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / dramatischer Originalien",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "k6n747i12ssg41c"
+    },
+    {
+      "annotation": "Portrait von Ignaz Franz Castelli (vgl. INr 125847, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.317Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125834,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I F Castelli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Saar pinx. Fr. Stöber sc.",
+      "scans": [
+        "alm_2733_125834_i2lcjvk7go.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I F Castelli",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "napc3h8k481wgz2",
+          "source_id": "2vrs2cxpi76whj0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "5mx977x8v18cylq"
+        }
+      ],
+      "source_id": "7nef0hq9kf7vaqv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125844,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Vierter Jahrgang. / Mit vier Kupfern. / Leipzig: / F. A. Brockhaus. / 1840",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2733_125844_kzt5v93zd0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Vierter Jahrgang. / Mit vier Kupfern. / Leipzig: / F. A. Brockhaus. / 1840",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "db4d7lucdz6iymd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.321Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125846,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "cjac4p8qkjad1i5"
+    },
+    {
+      "annotation": "mit einem Vorwort des Hrsg. (INr 125850, Obj 6) und einem Vorwort des Vf. (INr 125851, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.321Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "He! Anamiadl! Anamiadl! bst! bst! Anamiadl! / Hasd den nöd ghead main Muaringliadl?",
+      "language": [],
+      "musenalm_id": 125847,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D’Schwoagerin / a Kumödigschbül / a so z’amagsödzd wia s’ in Esdraich röd’n doan / von / I. F. Castelli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "D’Schwoagerin / a Kumödigschbül / a so z’amagsödzd wia s’ in Esdraich röd’n doan / von / I. F. Castelli",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.766Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "ehdho19edx7o3i6"
+        }
+      ],
+      "source_id": "1wifkcqlabx2lyu"
+    },
+    {
+      "annotation": "Vrwrt. zu »D’ Schwoagerin« von Castelli (INr 125847, Obj 5); Dr. Franck erwähnt, dass die »Idee ... einer Operette von Scribe entnommen« ist",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.321Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Verfasser nachfolgender Kleinigkeit, unser wackrer Castelli, hat mit der deutschen Schaubühne so vielfachen Verkehr gepflogen [...], daß ich es für eine Sünde gehalten hätte, sein Bildniß [...] fehlen zu lassen.",
+      "language": [],
+      "musenalm_id": 125850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.766Z",
+          "agent": "q3vezx66ehdwkf0",
+          "source_id": "5je5owrzovmxqgz"
+        }
+      ],
+      "source_id": "3311tcp1x4qwpg7"
+    },
+    {
+      "annotation": "Vrwrt. zu »D’ Schwoagerin« von Castelli (INr 125847, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.321Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Man gestatte mir nur eine Entschuldigung und einige Andeutungen für den Leser in dieser Kleinigkeit.",
+      "language": [],
+      "musenalm_id": 125851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort des Verfassers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort des Verfassers",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.766Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "e7zvdw1ba2n1aoa"
+        }
+      ],
+      "source_id": "a8kgiia8f5hzm8i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Sie haben Alles doch, den Atlas, Tafft und Sammt, den Musselin, den Shawl –",
+      "language": [],
+      "musenalm_id": 125853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesbotschaften. / Lustspiel in zwei Akten / von / Karl Weichselbaumer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Weichselbaumer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesbotschaften. / Lustspiel in zwei Akten / von / Karl Weichselbaumer",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.766Z",
+          "agent": "youdizb7xdzn3qv",
+          "source_id": "nve1bjv8msfhhw6"
+        }
+      ],
+      "source_id": "5hk6bz7sxelgfig"
+    },
+    {
+      "annotation": "mit zwei Illustrationen (INr 125855, 125856, Obj 10, 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Der Morgen graut. Die Sterne verblassen. / Herrlich strahlt noch der flimmernde Feuerstreif des Kometen hernieder.",
+      "language": [],
+      "musenalm_id": 125854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Gespenst auf der Brautschau. / Ritterliches Lustspiel in drei Aufzügen / von Johann Baptist Zahlhas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Baptist von Zahlhas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Gespenst auf der Brautschau. / Ritterliches Lustspiel in drei Aufzügen / von Johann Baptist Zahlhas",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.766Z",
+          "agent": "6zmms3ntrv4ml78",
+          "source_id": "tm72pkkhp6ojrxv"
+        }
+      ],
+      "source_id": "cvllre725vd8hfw"
+    },
+    {
+      "annotation": "Illustration zu »Das Gespenst auf der Brautschau« (INr 125854, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wolf (Im Nachtgewand, den Arm in der Schlinge) Was geht / hier vor! / Hellmar in den Weg tretend) halt!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hofmann sc. Vienna",
+      "scans": [
+        "alm_2733_125855_qgdtzpoo7s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wolf (Im Nachtgewand, den Arm in der Schlinge) Was geht / hier vor! / Hellmar in den Weg tretend) halt!",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.766Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "rv00xm72e9f7gyx"
+        }
+      ],
+      "source_id": "9irlrm6dh4q6dj2"
+    },
+    {
+      "annotation": "Erläuternde Beigabe zu »Das Gespenst auf der Brautschau« von Zahlhas (INr 125854, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Um dem Darsteller des Hellmar das Tragen Amalgundens zu erleichtern [...], kann eine künstliche Puppe füglich ihre Stelle vertreten.",
+      "language": [],
+      "musenalm_id": 125856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenische Bemerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenische Bemerkungen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "jvigdal0x8zjwkh"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125858, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Über Thal und Hügel / Streift das falbe Reh, / Adler wiegt die Flügel / In der blauen Höh!",
+      "language": [],
+      "musenalm_id": 125857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heckthaler. / Schwank in zwei Akten / von / N. v. Lagusius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Lagusius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Heckthaler. / Schwank in zwei Akten / von / N. v. Lagusius",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.767Z",
+          "agent": "zh8bub9m84qyjna",
+          "source_id": "ax9tjzphgz0mzlu"
+        }
+      ],
+      "source_id": "e1571t29ux2ljvf"
+    },
+    {
+      "annotation": "Illustration zu »Der Heckthaler« von Langusius (INr 125857, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich glaube, ich bin betrogen! unerhört, / ja schändlich betrogen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Mayer del. M. Hofmann sc.",
+      "scans": [
+        "alm_2733_125858_al13db1oip.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich glaube, ich bin betrogen! unerhört, / ja schändlich betrogen!",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.767Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "6n29s5utnu6ad67"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.767Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "omixhmenanogtjk"
+        }
+      ],
+      "source_id": "xpm15dc78snkftr"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125860, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "Wohl kann man ernster nicht ein Trauerfest beginnen, / Als wir, die wir betrübt in tiefstem Schweigen sinnen, / Die wir Musik und Tanz [...] versäumen, / Um von vergang’ner Zeit geheimnisvoll zu träumen!",
+      "language": [],
+      "musenalm_id": 125859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bräutigam von Haiti. / Lustspiel in fünf Akten und in Alexandrinern / von / Dr. Frank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bräutigam von Haiti. / Lustspiel in fünf Akten und in Alexandrinern / von / Dr. Frank",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.767Z",
+          "agent": "q3vezx66ehdwkf0",
+          "source_id": "lpuawud9zxcuzbb"
+        }
+      ],
+      "source_id": "flm60b2xiyrk9be"
+    },
+    {
+      "annotation": "Illustration zu »Der Bräutigam von Haiti« von Franck (INr 125859, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "444",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie mag sich solch ein Kerl in Ihre Nähe wagen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Mayer del. M. Hofmann sc.",
+      "scans": [
+        "alm_2733_125860_lhixacpld2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wie mag sich solch ein Kerl in Ihre Nähe wagen!",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.767Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "loytdeies5jp75e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.767Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "peki39lygbv5oxd"
+        }
+      ],
+      "source_id": "b3n6lsx9i17rzup"
+    }
   ],
   "agents": [
     {

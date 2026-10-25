@@ -48,24 +48,545 @@
   "year": 1781,
   "editor": "",
   "items": [
-    "6umnf8526r60n72"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.671Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200110",
+      "location": "105E09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.671Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6umnf8526r60n72"
+    }
   ],
   "contents": [
-    "8k093e2mbae7hpx",
-    "q5nei8ro6nat5py",
-    "5su94xvrg8sj6m5",
-    "uj4q054vwh3b3wq",
-    "gw7txdwn3y54yh3",
-    "22jqsjtaslmwdpx",
-    "j6xvkhk68dcmih8",
-    "bn6obk036f9822w",
-    "7v7yn1hiohzb8c5",
-    "fvjh7bwbytn38q8",
-    "7wsgt6bzjef974x",
-    "tpjt93qmicfp5et",
-    "yzhteguap22d5ls",
-    "lzlgtinmxi3t2f9",
-    "96mnjghrcy9pw06"
+    {
+      "annotation": "Umschlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132121,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2869_132121_4v174sjk9h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "8k093e2mbae7hpx"
+    },
+    {
+      "annotation": "Titelkupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132375,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (gez. u. gest. von D. Chodowiecki in Dantzig 1780)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest. von D. Chodowiecki in Dantzig 1780",
+      "scans": [
+        "alm_2869_132375_b797rnlky1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.088Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ssbc7tn046stule"
+        }
+      ],
+      "source_id": "q5nei8ro6nat5py"
+    },
+    {
+      "annotation": "die Titelvignette ist beschriftet: Wie die Rose welkt Schönheit / Tugend - währt ewig",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132376,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / fürs / Frauenzimmer. / Mit Kupfern von Chodwiecki. / Berlin, 1781. / bey Gottlieb August Lange, / dem Königl. Schlosse gegen über",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2869_132376_nq5ogt1v3p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / fürs / Frauenzimmer. / Mit Kupfern von Chodwiecki. / Berlin, 1781. / bey Gottlieb August Lange, / dem Königl. Schlosse gegen über",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "5su94xvrg8sj6m5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Wohlgebohrnen / Frau Cammergerichts-Räthin / Rudolphi, / gebohrne Pein, / widmet diese Blätter / mit wahrer Hochachtung und Ergebenheit / der / Verleger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Wohlgebohrnen / Frau Cammergerichts-Räthin / Rudolphi, / gebohrne Pein, / widmet diese Blätter / mit wahrer Hochachtung und Ergebenheit / der / Verleger",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "uj4q054vwh3b3wq"
+    },
+    {
+      "annotation": "mit einer Kopfvignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gustav Adolph kam sehr jung zum Thron. In einer Nacht, da er auf einem Balle, den sein erster Minister gab, maskirt tanzte, entfiel der schönsten seiner Unterthaninnen die Maske,",
+      "language": [],
+      "musenalm_id": 132378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adlaide und Valvaise, / eine schwedische Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2869_132378_m0aw708jl4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Adlaide und Valvaise, / eine schwedische Geschichte",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "gw7txdwn3y54yh3"
+    },
+    {
+      "annotation": "mit einer Kopfvignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Damit ich Deinen Forderungen endlich genug thue, so will ich Dich eben von der künftigen Einrichtung unsers Lebens unterhalten. Ich werde mich nicht so sehr auf die allgemeinen Pflichten des Ehestandes einlassen.",
+      "language": [],
+      "musenalm_id": 132379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Felix Hessens / Briefe  an seine Geliebte. / (Fortsetzung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2869_132379_4gyxi812gm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Felix Hessens / Briefe  an seine Geliebte. / (Fortsetzung.)",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "22jqsjtaslmwdpx"
+    },
+    {
+      "annotation": "mit einer Kopfvignette /) Dem Beitrag vorangestellt: Katull. / Weint, ihr Grazien und ihr Amoretten, / Und was Artiges auf der Welt lebt! meines / Mädchens Sperling ist tod! [...] Ramler",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Ich besuchte neulich Mamsel Penelope Doat; und nachdem ich einige Zeit im Besuchzimmer auf sie gewartet hatte, bracht mir das Mädchen ein Kompliment von ihrer Herrschaft,",
+      "language": [],
+      "musenalm_id": 132380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der / Zärtlichkeit für Thiere. / Aus dem Englischen von Holty",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[übers.] Holty",
+      "scans": [
+        "alm_2869_132380_iphp341cyr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Von der / Zärtlichkeit für Thiere. / Aus dem Englischen von Holty",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "j6xvkhk68dcmih8"
+    },
+    {
+      "annotation": "mit einer Kopfvignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Gestern! - ach! wie frey und froh / War nicht diese Mine, / Aber, aber - Adeline! / Ist es heut noch so?",
+      "language": [],
+      "musenalm_id": 132381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied / an / Adeline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2869_132381_sulireugv1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abschied / an / Adeline",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "bn6obk036f9822w"
+    },
+    {
+      "annotation": "mit einer Kopfvignette",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Ich kann diesen Tag nicht besser beschliessen, als mit einem Brief an Sie, meine liebe L. Gewiß die Schilderung einer rechtschaffenen Familie wird sie freuen,",
+      "language": [],
+      "musenalm_id": 132382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Brief / aus Strasburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2869_132382_0r4ng3b4p7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Brief / aus Strasburg",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "7v7yn1hiohzb8c5"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 132384-132386, Obj 11-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schilderungen / deutscher Frauenzimmer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schilderungen / deutscher Frauenzimmer",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "fvjh7bwbytn38q8"
+    },
+    {
+      "annotation": "mit einer Kopfvignette /) Schilderungen deutscher Frauenzimmer (Sammlung INr 132383, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Der Charakter dieser Prinzessin wird in einer französischen Schrift geschildert, die zu Haag herauskam und die sich mit diesen Worten schließt: Ihr Herz war entschlossen und edelmüthig;",
+      "language": [],
+      "musenalm_id": 132384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Anna / Prinzeßinn von Oranien, älteste Tochter / Köng Georg des Andern von Grosbrit- / tannien und der Königin Caroline, geb. / 1709 zu Hannover, gest. 1759",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Anna / Prinzeßinn von Oranien, älteste Tochter / Köng Georg des Andern von Grosbrit- / tannien und der Königin Caroline, geb. / 1709 zu Hannover, gest. 1759",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "7wsgt6bzjef974x"
+    },
+    {
+      "annotation": "Schilderungen deutscher Frauenzimmer (Sammlung INr 132383, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Sie war die Tochter eines fürstlich Pommerschen geheimen Landraths und Bürgermeisters von Greifswalde, und lebte ohngefähr um das Jahr 1638.",
+      "language": [],
+      "musenalm_id": 132385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Sibille Schwarzinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Sibille Schwarzinn",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "tpjt93qmicfp5et"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Sie war die Tochter eines pommerschen Edelmanns und ward 1544 gebohren, und von ihrem vierten Jahre an bis ins ein und zwanzigste in einem Kloster erzogen,",
+      "language": [],
+      "musenalm_id": 132386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Elsa von Below",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Elsa von Below",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "yzhteguap22d5ls"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Seht ich weine, ach! vereinet / Euch mit meiner Noth, / Musen traurt, Zofen weinet / Denn Joli ist todt.",
+      "language": [],
+      "musenalm_id": 132387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elegien / auf / einen Schooshund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elegien / auf / einen Schooshund",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "lzlgtinmxi3t2f9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Aus Versehen ist auf dem Titelblatt gesetzt, mit Kupfern anstatt mit einem Kupfer von Chodowiecki",
+      "language": [],
+      "musenalm_id": 132388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1781,
+      "editor": "",
+      "agents": [],
+      "source_id": "96mnjghrcy9pw06"
+    }
   ],
   "agents": [
     {

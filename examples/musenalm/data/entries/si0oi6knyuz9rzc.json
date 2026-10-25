@@ -49,18 +49,500 @@
   "editor": "",
   "items": [],
   "contents": [
-    "g5mll8ur66tgwmg",
-    "3lf3gy2i4tsfdbb",
-    "iv70v1t3sr3zbkz",
-    "wm0kwyhmvvic1l0",
-    "j5aepeekjuqd1cd",
-    "6axgl2zny4xpd2f",
-    "r91tgusgbl6nk0n",
-    "y0jgm6vnbo1c6eh",
-    "ppchjbyxw5c6elz",
-    "gi302je4y83j8in",
-    "rem4lunm4uz48b6",
-    "5hyzp1axa0avwda"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54829,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der Isar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_18_54829_27sa1r7zji.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Von der Isar",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "g5mll8ur66tgwmg"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54830,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gez. v. Bräutigam. Gest. v. Brennhäuser)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Bräutigam. Gest. v. Brennhäuser",
+      "scans": [
+        "alm_18_54830_44rgiregfa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "jgge0q6uinm3xf0",
+          "source_id": "56jliol7hle1fur"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "xpwqwrivxcv6zzc",
+          "source_id": "wzm8jwqhiio7oxx"
+        }
+      ],
+      "source_id": "3lf3gy2i4tsfdbb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54831,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der Isar. / Jahrbuch / des / Vereins für deutsche Dichtkunst in München / für das Jahr / 1851. / Mit / fünf Stahlstichen nach Originalzeichnungen / von / Bonaventura Genelli, Carl Piloty, August Bräutigam / und Friedrich Mayer. / München, 1851. / Christian Kaiser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_18_54831_qlxcllr6cp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Von der Isar. / Jahrbuch / des / Vereins für deutsche Dichtkunst in München / für das Jahr / 1851. / Mit / fünf Stahlstichen nach Originalzeichnungen / von / Bonaventura Genelli, Carl Piloty, August Bräutigam / und Friedrich Mayer. / München, 1851. / Christian Kaiser",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "iv70v1t3sr3zbkz"
+    },
+    {
+      "annotation": "Photos 54832,01-54832,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54832,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_18_54832_01_ctrt8dfc4u.jpg",
+        "alm_18_54832_02_jtlnn01ubx.jpg",
+        "alm_18_54832_03_betogdp1ho.jpg",
+        "alm_18_54832_04_11donmsm5j.jpg",
+        "alm_18_54832_05_1d06y1vylh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "wm0kwyhmvvic1l0"
+    },
+    {
+      "annotation": "Photos 54833,01; 54833,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Liebe zur Kunst und Verwandschaft des Strebens veranlaßten im Jahre 1848 in München die Gründung eines Veriens für deutsche Dichtkunst",
+      "language": [],
+      "musenalm_id": 54833,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_18_54833_01_dx3xkw2h2w.jpg",
+        "alm_18_54833_02_6jv3bigve3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "j5aepeekjuqd1cd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im Sturm und Drang der wildenTage, / Durch die in düstrer Majestät, / Mit eisenschwerem Flügelschlage / Der Genius des Krieges geht;",
+      "language": [],
+      "musenalm_id": 54834,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der Isar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leonhart Wohlmuth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der Isar",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "6axgl2zny4xpd2f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54835,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Storz sct. Genelli fet.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Storz sct. Genelli fet.",
+      "scans": [
+        "alm_18_54835_jo3bunu8zz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "lq4nkmh5p7o1pxv",
+          "source_id": "c2lcocs5svawept"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "ghlfkh6fncgx0ug",
+          "source_id": "mbvvafheumn97ua"
+        }
+      ],
+      "source_id": "r91tgusgbl6nk0n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.232Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54836,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Carl Piloty A. Volkert)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Piloty A. Volkert",
+      "scans": [
+        "alm_18_54836_2wn56jkxs5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "glm24wcjzmf2hsr",
+          "source_id": "9pza9uofxx5hmwx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "tmt0t6wulwdo4s3",
+          "source_id": "ymfx867zxul7dwn"
+        }
+      ],
+      "source_id": "y0jgm6vnbo1c6eh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.235Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54837,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (F. Maier del.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Maier del.",
+      "scans": [
+        "alm_18_54837_ifkyhvhjk1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "ppchjbyxw5c6elz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54838,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Bräutigam gez. Brennhäuser gest.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bräutigam gez. Brennhäuser gest.",
+      "scans": [
+        "alm_18_54838_bz617wnzoa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.693Z",
+          "agent": "jgge0q6uinm3xf0",
+          "source_id": "cxhjly03kmzpmvy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.692Z",
+          "agent": "xpwqwrivxcv6zzc",
+          "source_id": "kw27eahndodg8mx"
+        }
+      ],
+      "source_id": "gi302je4y83j8in"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.239Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54839,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte / von / August Becker, Eduard Dorsch, Gustav Heiler, Eduard / Ille, Franz Xaver Mittermayr, Carl Woldemar Neu- / mann, Heinrich Reder, Carl Rein- / hold und Leonhart Wohlmuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte / von / August Becker, Eduard Dorsch, Gustav Heiler, Eduard / Ille, Franz Xaver Mittermayr, Carl Woldemar Neu- / mann, Heinrich Reder, Carl Rein- / hold und Leonhart Wohlmuth",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "rem4lunm4uz48b6"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54847,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_18_54847_5awx5j8q2k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "5hyzp1axa0avwda"
+    }
   ],
   "agents": [
     {

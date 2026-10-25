@@ -48,37 +48,1209 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "0ym7ra1zdtwa6rt"
+    {
+      "annotation": "2. Titel lautet: Weiblicher Sinn / und / weibliches Leben, / Charakterzüge. Gemählde und Reflexionen. / Von / Friedrich Ehrenberg, / Königlichem Hofprediger zu Berlin. / Reutlingen, / in der J. J. Mäcken'schen Buchhandlung 1810. <br> Es handelt sich um den Raubdruck von: Friedrich Ehrenberg »Weiblicher Sinn und weibliches Leben«, Berlin 1809",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.450Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200801",
+      "location": "105D07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.450Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0ym7ra1zdtwa6rt"
+    }
   ],
   "contents": [
-    "daqgcn0v0hp8usc",
-    "jrkalvlmgnrseqp",
-    "7i8nsh9bap07mi4",
-    "yl34ojjyshp0nhv",
-    "34zkmasnip1das9",
-    "4150tbpkagly593",
-    "8e93sm408f4pqiu",
-    "nwngucg4mdo1veg",
-    "qrya6xhig4p2wrr",
-    "nsnp23upj7bgx8z",
-    "8nlvt9wov7r8aow",
-    "cioo36yp5zklmzo",
-    "zv1azw9awjursvt",
-    "bvm0rvvagr02is3",
-    "do2w2zrlopbyrpx",
-    "0kazbfg44vdcaau",
-    "grcrvhl7alnfn9o",
-    "c59p486az5451xf",
-    "vzpql4p25vim9e5",
-    "vhk6m2r89idmfob",
-    "26qfmcpj07g4n7i",
-    "a63e4zje6a7ay0v",
-    "qukwr969yb87152",
-    "tzfz4vcyt5zyixr",
-    "c4xwfuuu1epnccm",
-    "90ju6xo67cct61h",
-    "it6lvkg84mg8geb",
-    "5egukwpdao8gzv4"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50439,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_11_50439_6my1ppjj11.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "daqgcn0v0hp8usc"
+    },
+    {
+      "annotation": "Taschenbuchtitel des Raubdrucks",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50440,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Weiber und Mädchen / zur / moralisch-religiösen Bildung / in / charakteristischen Gemählden. / Herausgegeben / von / Friedrich Ehrenberg. / Königlichem Hofprediger zu Berlin. / Mit einem Titelkupfer. / Reutlingen, in der J. J. Mäcken'schen Buchhandlung. / 1810",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_11_50440_lrk5kisen7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Weiber und Mädchen / zur / moralisch-religiösen Bildung / in / charakteristischen Gemählden. / Herausgegeben / von / Friedrich Ehrenberg. / Königlichem Hofprediger zu Berlin. / Mit einem Titelkupfer. / Reutlingen, in der J. J. Mäcken'schen Buchhandlung. / 1810",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "jrkalvlmgnrseqp"
+    },
+    {
+      "annotation": "Veränderter Titel des Originals Berlin 1809",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50441,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weiblicher Sinn / und / weibliches Leben. / Charakterzüge, Gemählde und Reflexionen. / Von / Friedrich Ehrenberg, / Königlichem Hofprediger zu Berlin. / Reutlingen, / in der J. J. Mäcken'schen Buchhandlung 1810",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_11_50441_2inf2iiirh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Weiblicher Sinn / und / weibliches Leben. / Charakterzüge, Gemählde und Reflexionen. / Von / Friedrich Ehrenberg, / Königlichem Hofprediger zu Berlin. / Reutlingen, / in der J. J. Mäcken'schen Buchhandlung 1810",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "7i8nsh9bap07mi4"
+    },
+    {
+      "annotation": "Vorwort des Verfassers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "In seinen Reden an Gebildete aus dem weiblichen Geschlechte hat der Verfasser das Bild der edlen Weiblichkeit, wie dieselbe durch eigene Bemühungen gestaltet werden soll, darzustellen gesucht.",
+      "language": [],
+      "musenalm_id": 50442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.887Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.887Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "6sfi6hohpmj236p"
+        }
+      ],
+      "source_id": "yl34ojjyshp0nhv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "34zkmasnip1das9"
+    },
+    {
+      "annotation": "Zwischentitel: Es folgen 12 Kapitel INr 50445-50456, Obj 7-18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weiblicher Sinn / und / weibliches Leben. / Erstes Buch. / Nach Zügen aus der heiligen Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weiblicher Sinn / und / weibliches Leben. / Erstes Buch. / Nach Zügen aus der heiligen Geschichte",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "4150tbpkagly593"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Eine Holdselige wird, nach Luthers Uebersetzung, die Jungfrau begrüßt, die der Himmel ersehen hatte, die Mutter des Göttlichsten unter den Menschen zu werden.",
+      "language": [],
+      "musenalm_id": 50445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Holdselige. / Luk.1, V. 28",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Holdselige. / Luk.1, V. 28",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.888Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "8vn82xeyhrzijag"
+        }
+      ],
+      "source_id": "8e93sm408f4pqiu"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Der Herr ist mit dir, du gebenedeiete unter den Weibern: so lautet, nach der heiligen Erzählung, der himmlische Gruß an die Holdselige.",
+      "language": [],
+      "musenalm_id": 50446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das glückliche Weib. / Luk. 1, V. 28",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das glückliche Weib. / Luk. 1, V. 28",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "2zu6tdja8cjhutr"
+        }
+      ],
+      "source_id": "nwngucg4mdo1veg"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Ob gleich das Weib vornehmlich durch sein Herz glücklich ist: so ist es doch in noch höherm Grade glücklich, wenn ihm ein günstiges Geschick auch das gewährt, was die wesentlichen Bedürfnisse des Herzens befriedigt.",
+      "language": [],
+      "musenalm_id": 50447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das glückliche Weib. / Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das glückliche Weib. / Fortsetzung",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "uoduf6kbrd5g0lc"
+        }
+      ],
+      "source_id": "qrya6xhig4p2wrr"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Ich bin des Herrn Magd. mir geschehe, wie du gesagt hast: so antwortet Maria, als ihr verkündigt ward, was ihr Herz in große Bewegung setzen mußte.",
+      "language": [],
+      "musenalm_id": 50448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Weibliche Ergebung. / Luk. 1, V. 37",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Weibliche Ergebung. / Luk. 1, V. 37",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "45jdak7gqrticdl"
+        }
+      ],
+      "source_id": "nsnp23upj7bgx8z"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Maria behielt alle diese Worte, und bewegte sie in ihrem Herzen. Auffallendes und Großes war ihr von ihrem Kinde gesagt,",
+      "language": [],
+      "musenalm_id": 50449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Muttersinn. / Luk. 2, V. 19",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Muttersinn. / Luk. 2, V. 19",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "sz83yt1xm4eq303"
+        }
+      ],
+      "source_id": "8nlvt9wov7r8aow"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Es wird ein Schwert durch deine Seele gehen: so wurde zu Maria gesprochen,",
+      "language": [],
+      "musenalm_id": 50450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Mutterschmerz. / Luk. 2, V. 35",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Mutterschmerz. / Luk. 2, V. 35",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "pjiawr6x3muywgd"
+        }
+      ],
+      "source_id": "cioo36yp5zklmzo"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Mein Sohn, warum hast du uns das gethan? siehe dein Vater und ich haben dich mit Schmerzen gesucht.",
+      "language": [],
+      "musenalm_id": 50451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Mütterliche Verweise. / Luk. 2, V. 48",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Mütterliche Verweise. / Luk. 2, V. 48",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "ncj74g0w479bbjg"
+        }
+      ],
+      "source_id": "zv1azw9awjursvt"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Auch von der viel besprochenen und oft bitter getadelten Eitelkeit der Frauen hat uns die heilige Schrift einen Zug aufbewahrt. Salome kommt zu Jesus, und wirft sich vor ihm nieder,",
+      "language": [],
+      "musenalm_id": 50452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Weibliche Eitelkeit. / Matth. 20, V. 20, 21",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Weibliche Eitelkeit. / Matth. 20, V. 20, 21",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "ioyx1zvagwxrrni"
+        }
+      ],
+      "source_id": "bvm0rvvagr02is3"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Eine andre Erzählung der heiligen Geschichte liefert uns das Gegenstück zu der vorigen, indem sie uns weibliche Anspruchslosigkeit, so kindlich, einfach und liebenswürdig, als sie ist, in dem Bilde einer edeln heidnischen Frau darstellt.",
+      "language": [],
+      "musenalm_id": 50453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Weibliche Anspruchslosigkeit. / Matth. 15, V. 21-28",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Weibliche Anspruchslosigkeit. / Matth. 15, V. 21-28",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "aafnjm5p1wqggjk"
+        }
+      ],
+      "source_id": "do2w2zrlopbyrpx"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Zu denjenigen Charakterzügen, in welchen sich das weibliche Gemüth auf eine eigenthümliche Weise ausdrückt, gehört auch die Verehrung.",
+      "language": [],
+      "musenalm_id": 50454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Weibliche Verehrung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Weibliche Verehrung",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "m92j3zpggj7kgcb"
+        }
+      ],
+      "source_id": "0kazbfg44vdcaau"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Noch ein kleines Ereigniß hat uns die heilige Geschichte aufbewahrt, das uns einen interessanten Blick in das weibliche Herz werfen läßt.",
+      "language": [],
+      "musenalm_id": 50455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Die Sünderinn / oder / die tiefen Bewegungen des weiblichen Herzens. / Luk. 7, V. 36-48",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Die Sünderinn / oder / die tiefen Bewegungen des weiblichen Herzens. / Luk. 7, V. 36-48",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "lcxyunl1reox8zz"
+        }
+      ],
+      "source_id": "grcrvhl7alnfn9o"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Ungemein treffend und sinnreich ist die heilige Geschichte in der Darstellung menschlicher Charaktere;",
+      "language": [],
+      "musenalm_id": 50456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Beschränkte und veredelte Häuslichkeit. / Luk. 10, V. 38-42",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Beschränkte und veredelte Häuslichkeit. / Luk. 10, V. 38-42",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "g4kh7ej97h5doo7"
+        }
+      ],
+      "source_id": "c59p486az5451xf"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Nicht weniger häuslich als Martha war gewiß Maria; erscheint sie doch überall als das innige Weib, dem es Bedürfniß ist, sich so anzuschließen, wie man es nur im häuslichen Leben kann.",
+      "language": [],
+      "musenalm_id": 50457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Beschränkte und veredelte Häuslichkeit. / Luk. 10, V. 38-42. / Fortsetzung des Vorigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Beschränkte und veredelte Häuslichkeit. / Luk. 10, V. 38-42. / Fortsetzung des Vorigen",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "xu63pe1w0mr2w2p"
+        }
+      ],
+      "source_id": "vzpql4p25vim9e5"
+    },
+    {
+      "annotation": "Es folgen sieben Kapitel INr 50459-50465, Obj 21-27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weiblicher Sinn / und / weibliches Leben. / Zweytes Buch. / Freye Gemählde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weiblicher Sinn / und / weibliches Leben. / Zweytes Buch. / Freye Gemählde",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "mnnis9amxm5nmcj"
+        }
+      ],
+      "source_id": "vhk6m2r89idmfob"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Jedem unverstimmten Wesen ist es Bedürfniß, sich andern mitzutheilen. Ohne daß wir einen besondern Zweck damit erreichen wollen, offenbaren wir, was uns interessant ist.",
+      "language": [],
+      "musenalm_id": 50459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Weiblicher Mittheilungstrieb",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Weiblicher Mittheilungstrieb",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.709Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "bgmceca0voehwro"
+        }
+      ],
+      "source_id": "26qfmcpj07g4n7i"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Die Freundschaft ist Eine der interessantesten Erscheinungen im menschlichen Leben; es verlohnt sich daher wohl der Mühe, zuzusehen, wie sich darin der Sinn offenbare",
+      "language": [],
+      "musenalm_id": 50460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Weibliche Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Weibliche Freundschaft",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.898Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "v64i1jo2m2vuze4"
+        }
+      ],
+      "source_id": "a63e4zje6a7ay0v"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Wenn man mit dem Worte Freude das bezeichnet, was man immer damit bezeichnen sollte: dann muß man gestehen, daß die Freude mehr bey den Frauen ist, als bey den Männern.",
+      "language": [],
+      "musenalm_id": 50461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Weibliche Freude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Weibliche Freude",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.729Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "fiolbygv3hl69hx"
+        }
+      ],
+      "source_id": "qukwr969yb87152"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Nicht weniger interessant, als in der Freude, zeigt sich der Sinn des guten Weibes im Leiden.",
+      "language": [],
+      "musenalm_id": 50462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das Weib im Unglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das Weib im Unglück",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.729Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "tqw6ktdrv1gvm19"
+        }
+      ],
+      "source_id": "tzfz4vcyt5zyixr"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Der gemeine Stolz gründet sich auf solche Dinge, die, ob sich ihnen gleich eine gewisse Wichtigkeit nicht absprechen läßt, den, der sie besitzt, nicht berechtigt, sich deßwegen höhern Werth zuzuschreiben.",
+      "language": [],
+      "musenalm_id": 50463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Gemeiner und edler Stolz des Weibes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Gemeiner und edler Stolz des Weibes",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.644Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.644Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "hci1a7o3gwyzbj4"
+        }
+      ],
+      "source_id": "c4xwfuuu1epnccm"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Wenn man unter dem Leichtsinne das Leben in den Eindrücken der Gegenwart und in den Spielen der Phantasie, die sich an diese zunächst anschließen, mit Beseitigung des Ernsten,",
+      "language": [],
+      "musenalm_id": 50464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Weiblicher Leichtsinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Weiblicher Leichtsinn",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.644Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.644Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "4ej5bbo1euqv21s"
+        }
+      ],
+      "source_id": "90ju6xo67cct61h"
+    },
+    {
+      "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Mit dem Nahmen der Weltfrauen bezeichnet man nicht bloß diejenigen, die sich in den höhern Kreisen der Gesellschaft umhertreiben,",
+      "language": [],
+      "musenalm_id": 50465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Die Weltfrauen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Die Weltfrauen",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.644Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.644Z",
+          "agent": "w1gkyrmb6cwa21o",
+          "source_id": "wl3c882dwr1mlw1"
+        }
+      ],
+      "source_id": "it6lvkg84mg8geb"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 50466,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige einiger Bücher, / welche besonders für das schöne Geschlecht geeignet / und in allen Buchhandlungen zu / haben sind:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige einiger Bücher, / welche besonders für das schöne Geschlecht geeignet / und in allen Buchhandlungen zu / haben sind:",
+      "updated": "2007-07-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "5egukwpdao8gzv4"
+    }
   ],
   "agents": [
     {

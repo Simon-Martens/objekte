@@ -48,26 +48,835 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "qx703ikkqgcx0bd"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.536Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106674",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.536Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qx703ikkqgcx0bd"
+    }
   ],
   "contents": [
-    "4puzmneju0mw4v1",
-    "8cgtw5uqyasqr6n",
-    "fu7nxlzcqo05npg",
-    "5hknbtc21bkza4h",
-    "sp6pg8k8srifscg",
-    "g97c90j6ux57nm2",
-    "dqe42hfcjh1071w",
-    "7gq5zsun68l9voa",
-    "1mlx5nqv39qtf4h",
-    "b2spb5g7qyng87k",
-    "cm3av02hb0ezzgc",
-    "u8vq8tufokg1pp4",
-    "r95oki8q1u7l7bf",
-    "nv6ee0vv6j3p5oc",
-    "xrylpbmy0svbl87",
-    "0gjbs0f6q7crxqg",
-    "zzj25aw0b22q88o"
+    {
+      "annotation": "Titelgraphik. Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65392, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65390,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thalia #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Führich inv. et del. Buchhorn dir. R. Herzberg sc.",
+      "scans": [
+        "alm_1102_65390_bmasrzepz3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Thalia #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.904Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "fki27pj09cnldqb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.904Z",
+          "agent": "z3xj5kkwhch6rva",
+          "source_id": "rwucrtiq77tovuf"
+        }
+      ],
+      "source_id": "4puzmneju0mw4v1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65391,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Novellenkranz. / Ein Almanach / auf das Jahr 1835. / Von / Ludwig Tieck. / Vierter Jahrgang. / Mit sieben Kupfern. / Berlin, / bei G. Reimer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1102_65391_qoxc7k4t0w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Novellenkranz. / Ein Almanach / auf das Jahr 1835. / Von / Ludwig Tieck. / Vierter Jahrgang. / Mit sieben Kupfern. / Berlin, / bei G. Reimer",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "8cgtw5uqyasqr6n"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 65390, Obj 1 /) Sammlung von 6 Textbezügen zu den Graphiken des Almanachs INr 65393-65404, Obj 4-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Zeichnungen sind diesmal aus dem Zerbino genommen, und sämmtlich von dem geistreichen und talentvollen Jos. Führich aus Prag ausgeführt. Zum Titelkupfer hat derselbe Thalia gewählt,",
+      "language": [],
+      "musenalm_id": 65392,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "fu7nxlzcqo05npg"
+    },
+    {
+      "annotation": "Erklärung der Kupfer: Aus dem »Zerbino« (Sammlung INr 65392, Obj 3) s. Graphik INr 65399, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Polykomikus fängt aus Leibeskräften an zu fegen.",
+      "language": [],
+      "musenalm_id": 65393,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Tieck's Werke Band 10. S. 127",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Tieck's Werke Band 10. S. 127",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.064Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "uvjw34weasxin99"
+        }
+      ],
+      "source_id": "5hknbtc21bkza4h"
+    },
+    {
+      "annotation": "Erklärung der Kupfer: Aus dem »Zerbino« (Sammlung INr 65392, Obj 3) s. Graphik INr 65400, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Nestor hat Stallmeister den Strick abgenommen; dieser rennt den Berg hinunter;",
+      "language": [],
+      "musenalm_id": 65394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Daselbst S. 165",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Daselbst S. 165",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.065Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "clcgt93fqktap3y"
+        }
+      ],
+      "source_id": "sp6pg8k8srifscg"
+    },
+    {
+      "annotation": "Erklärung der Kupfer: Aus dem »Zerbino« (Sammlung INr 65392, Obj 3) s. Graphik INr 65401, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wie treff' ich Euch an dieser Stelle wieder? / Es treibt mich mein Gemüth durch diese Wälder",
+      "language": [],
+      "musenalm_id": 65395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Daselbst S. 192. / Waldbruder, Helikanus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Daselbst S. 192. / Waldbruder, Helikanus",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.065Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "3on5z1mtk5gxvqg"
+        }
+      ],
+      "source_id": "g97c90j6ux57nm2"
+    },
+    {
+      "annotation": "Erklärung der Kupfer: Aus dem »Zerbino« (Sammlung INr 65392, Obj 3) s. Graphik INr 65403, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Seid Ihr denn in der That jemals ein / Dichter gewesen? / Ariost! Petrarca!",
+      "language": [],
+      "musenalm_id": 65396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Daselbst S. 272. / (Im Garten der Poesie)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Daselbst S. 272. / (Im Garten der Poesie)",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.917Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "toxzfa8fu2mjzwq"
+        }
+      ],
+      "source_id": "dqe42hfcjh1071w"
+    },
+    {
+      "annotation": "Erklärung der Kupfer: Aus dem »Zerbino« (Sammlung INr 65392, Obj 3) s. Graphik INr 65402, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Er ist's, o gütige Götter! / Lila! Lila!",
+      "language": [],
+      "musenalm_id": 65397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Daselbst S. 360. / (Cleon findet seine Lila wieder im Beisein von Helikanus / und Dorus.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Daselbst S. 360. / (Cleon findet seine Lila wieder im Beisein von Helikanus / und Dorus.)",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.917Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "vv9xnx2xfl7yiql"
+        }
+      ],
+      "source_id": "7gq5zsun68l9voa"
+    },
+    {
+      "annotation": "Erklärung der Kupfer: Aus dem »Zerbino« (Sammlung INr 65392, Obj 3) s. Graphik INr 65404, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Vor allen Dingen, wer bin ich? / Ein verehrungswürdiger Mann. / Ein Wohlthäter der Menschheit",
+      "language": [],
+      "musenalm_id": 65398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Daselbst S. 372. / (Nestor und Zerbino aus dem Gefängnisse befreit. Stallmeister, / Leander, Hinz von Hinzenfeld treten auf.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Daselbst S. 372. / (Nestor und Zerbino aus dem Gefängnisse befreit. Stallmeister, / Leander, Hinz von Hinzenfeld treten auf.)",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.917Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "edw758ibgh9fx03"
+        }
+      ],
+      "source_id": "1mlx5nqv39qtf4h"
+    },
+    {
+      "annotation": "paginiert I. /)  Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65393, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65399,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Polykomikus fängt aus Leibeskräften an zu fegen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich gez. gest. von A. Hüssener",
+      "scans": [
+        "alm_1102_65399_sg3zuz4e6o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Polykomikus fängt aus Leibeskräften an zu fegen #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.127Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.127Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "p65yviiy4dn5q7a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.127Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.127Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "s3poj8t4is6852f"
+        }
+      ],
+      "source_id": "b2spb5g7qyng87k"
+    },
+    {
+      "annotation": "paginiert II. /) Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65394, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65400,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nestor hat Stallmeister den Strick abgenommen; dieser rennt den Berg hinunter #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich gez. gest. von A. Hüssener",
+      "scans": [
+        "alm_1102_65400_eaxhnwoi7d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nestor hat Stallmeister den Strick abgenommen; dieser rennt den Berg hinunter #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.127Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.127Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "14f3erqoklzy7rj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.127Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.127Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "i5clmh44yrnkhki"
+        }
+      ],
+      "source_id": "cm3av02hb0ezzgc"
+    },
+    {
+      "annotation": "Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65395, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65401,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldbruder, Helikanus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich gez. gest. von Heinrich Hügel sc.",
+      "scans": [
+        "alm_1102_65401_ktikm4wjdp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Waldbruder, Helikanus #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.127Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.127Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "vsft0dbzzw6ge0l"
+        }
+      ],
+      "source_id": "u8vq8tufokg1pp4"
+    },
+    {
+      "annotation": "Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65397, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65402,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cleon findet seine Lila wieder im Beisein von Helikanus und Dorus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich del. Ernst Rauch sc.",
+      "scans": [
+        "alm_1102_65402_z5sab8gcag.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cleon findet seine Lila wieder im Beisein von Helikanus und Dorus #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.128Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "5j10ix15hk698e0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.128Z",
+          "agent": "k7ib4tmw0w1jiao",
+          "source_id": "zmnhnn02u4z2l9t"
+        }
+      ],
+      "source_id": "r95oki8q1u7l7bf"
+    },
+    {
+      "annotation": "Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65396, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65403,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Garten der Poesie #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich del. Stahlst. v. X. Steifensand",
+      "scans": [
+        "alm_1102_65403_i20spxgf2i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Im Garten der Poesie #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.128Z",
+          "agent": "h4r64fn2t7kiv67",
+          "source_id": "mdz99ovns0sszv8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.128Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "qm40w1hwarxomeh"
+        }
+      ],
+      "source_id": "nv6ee0vv6j3p5oc"
+    },
+    {
+      "annotation": "Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65398, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65404,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nestor und Zerbino aus dem Gefängnisse befreit. Stallmeister, / Leander, Hinz von Hinzenfeld treten auf #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich del. Stahlst. v. Carl Rauch sc.",
+      "scans": [
+        "alm_1102_65404_zye8y934jp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nestor und Zerbino aus dem Gefängnisse befreit. Stallmeister, / Leander, Hinz von Hinzenfeld treten auf #",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.128Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "6tf9jdz7b6qulxl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.128Z",
+          "agent": "f1d11drwuuyqin0",
+          "source_id": "mbfxk6wv2n0lq1p"
+        }
+      ],
+      "source_id": "xrylpbmy0svbl87"
+    },
+    {
+      "annotation": "Vorrede zum Beitrag INr 65406, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich könnte auch sagen, ich wollte meine dramatische Novelle bevorworten, damit sie der Leser, oder ein edles Publikum so entgegen nehmen, daß höchst es die Geschichte selbst um so annehmlicher oder verständlicher finden,",
+      "language": [],
+      "musenalm_id": 65405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vogelscheuche. / Märchen-Novelle / in fünf Aufzügen. / Prolog. Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vogelscheuche. / Märchen-Novelle / in fünf Aufzügen. / Prolog. Vorrede",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "nmxa5j7pze55ywu"
+        }
+      ],
+      "source_id": "0gjbs0f6q7crxqg"
+    },
+    {
+      "annotation": "mit einer Vorrede s. INr 65405, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Es war ein hübsches schattiges Plätzchen, eine Viertelstunde von dem kleinen Städtchen Orla, in welchem sich in den Nachmittagsstunden einige gute Freunde des Bürgermeisters Heinzelmann zu versammeln pflegten.",
+      "language": [],
+      "musenalm_id": 65406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Vogelscheuche. Märchen-Novelle in fünf Aufzügen]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Vogelscheuche. Märchen-Novelle in fünf Aufzügen]",
+      "updated": "2009-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "1mfc19dki44t0gy"
+        }
+      ],
+      "source_id": "zzj25aw0b22q88o"
+    }
   ],
   "agents": [
     {

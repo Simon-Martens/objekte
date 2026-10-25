@@ -48,7 +48,26 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "stlqn0c65spujof"
+    {
+      "annotation": "?-1826, 1830, 1831, 1833, 1834, 1835(Neue Folgen) -?.\nLeineneinband.\n1830 Jg 7: Mit VIII und 168 SS.\n1831 Jg 8: Mit VIII und 192 SS.\n1833 Jg 9: Mit VI , 126 SS, Bl 1, 7 SS, 8 SS, 4 SS, 8 SS, 2 SS, 3 SS und 4 SS.\nSammelband Nr 100923, 106644 und 106646.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.580Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100923",
+      "location": "105G01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.580Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "stlqn0c65spujof"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,31 +48,830 @@
   "year": 1836,
   "editor": "",
   "items": [
-    "mz8e7o3vgc6qazx"
+    {
+      "annotation": "Jgg 1836-1853 (ab 1846 Hrsg: A. Heinrich) Der Almanach ist die Weiterführung des »Bühnen-Repertoire«, das von L. Wolff zuvor in 7 Jgg herausgegeben worden war. Die Jahrgänge geben den nachträglichen Überblick auf das Bezugsjahr. Die Reihe wurde fortgesetzt durch: Bühnen-Almanach, Deutscher 1854 bis 1893\n§Standort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.548Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200323",
+      "location": "105C06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.548Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mz8e7o3vgc6qazx"
+    }
   ],
   "contents": [
-    "koe2utaivh7u410",
-    "u0tcju5z4yn818a",
-    "btfb91zvuhaasnc",
-    "nn2wy38qchy4vln",
-    "ci5fqqdnvx1ux1s",
-    "a32f3dex2gj2bww",
-    "1wzcegsiz0hfjju",
-    "sb4854lu45b8wbl",
-    "ifouskj2k99f590",
-    "8vz6mwsd302d4kt",
-    "esne662hg7j86ej",
-    "gz0tr72ut4d937t",
-    "v3x3eyjm97n0gh6",
-    "lk90b2i36dhlnvl",
-    "o3pvu0it7w2y9rf",
-    "5ibu5fu9j50tkz6",
-    "pwrhv8s4wa4adzu",
-    "k4hbnqrybt6em3e",
-    "soio64ckclg6lrc",
-    "hckg0bgvb3674tx",
-    "uliqp76dzxbfwc7",
-    "hr2haax38kuz9c3"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125939,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1310_125939_gt4b6r8wwu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "koe2utaivh7u410"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach, / für / Freunde der Schauspielkunst / auf das Jahr 1836. / Herausgegeben / von L. Wolff, / Soufleur des Königl. Theaters / Berlin, den 1. Januar 1837. / Gedruckt bei Julius Sittenfeld. / Leipzigerstraße Nr. 10",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1310_125940_fcjoew96p3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach, / für / Freunde der Schauspielkunst / auf das Jahr 1836. / Herausgegeben / von L. Wolff, / Soufleur des Königl. Theaters / Berlin, den 1. Januar 1837. / Gedruckt bei Julius Sittenfeld. / Leipzigerstraße Nr. 10",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "u0tcju5z4yn818a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die freundliche Aufnahme welches das von mir herausgegebene Bühnen-Repertoire [...] gefunden, hat mich veranlasst, dasselbe in einen Almanach der Schauspielkunst umzuwandeln.",
+      "language": [],
+      "musenalm_id": 125941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.870Z",
+          "agent": "nm5lk02wastwpnb",
+          "source_id": "zmop166unccuonu"
+        }
+      ],
+      "source_id": "btfb91zvuhaasnc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniss / sämmtlicher / Mitglieder der Königlichen Schauspiele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniss / sämmtlicher / Mitglieder der Königlichen Schauspiele",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "nn2wy38qchy4vln"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniss / der / vom 1. December 1835 bis 30. November 1836 / in Berlin, Potsdam und Charlottenburg auf- / geführten Schauspiel-Vorstellungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniss / der / vom 1. December 1835 bis 30. November 1836 / in Berlin, Potsdam und Charlottenburg auf- / geführten Schauspiel-Vorstellungen",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "ci5fqqdnvx1ux1s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniss / der / vom 1. December 1835 bis 30. November 1836 neu / aufgeführten Stücke, Opern und Ballets",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniss / der / vom 1. December 1835 bis 30. November 1836 neu / aufgeführten Stücke, Opern und Ballets",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "a32f3dex2gj2bww"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniss / der / vom 1. December 1835 bis 30. November 1836 / gespielten Gastrollen und Debüts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniss / der / vom 1. December 1835 bis 30. November 1836 / gespielten Gastrollen und Debüts",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "1wzcegsiz0hfjju"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Kennt ihr das Land, wo Fried’ und Eintracht walten, / Ein Hochgefühl das Herz im Busen schwellt? / Zum Dankgebet sich nur die Hände falten, / Ein lichter Stern des Wissens Pfad erhellt?",
+      "language": [],
+      "musenalm_id": 125946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rede / zur Feier des Allerhöchsten Geburtsfestes / Sr. Majestät des Königs. / Verfaßt von Heinrich Smidt / Im Königlichen Opernhause von Herrn Stawinsky, und im / Schloß-Theater zu Charlottenburg, von Herrn Grua gesprochen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rede / zur Feier des Allerhöchsten Geburtsfestes / Sr. Majestät des Königs. / Verfaßt von Heinrich Smidt / Im Königlichen Opernhause von Herrn Stawinsky, und im / Schloß-Theater zu Charlottenburg, von Herrn Grua gesprochen",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.870Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "kklpcs6nwjp2vsh"
+        }
+      ],
+      "source_id": "sb4854lu45b8wbl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Senkt sich der Lenz zum zweitenmal hernieder, / Prangt nochmals er im bunten Farbenglanz! – / Schau’ ich die Rose üpp’gen Duftes wieder / Um schlanke Säulen winden sich im Kranz? –",
+      "language": [],
+      "musenalm_id": 125947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rede / zur Feier des höchstens Geburtsfestes / Sr. Königl. Hoheit des Kronprinzen. / Verfaßt von A. E. Wollheim. / Im Königlichen Schauspielhause gesprochen von / Madame Werner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Wollheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rede / zur Feier des höchstens Geburtsfestes / Sr. Königl. Hoheit des Kronprinzen. / Verfaßt von A. E. Wollheim. / Im Königlichen Schauspielhause gesprochen von / Madame Werner",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.870Z",
+          "agent": "wypmhwdvyoiah0q",
+          "source_id": "jrp4ubvp4wrb5ug"
+        }
+      ],
+      "source_id": "ifouskj2k99f590"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Répertoire / du / théâtre français / à Berlin / depuis / le premier Décembre 1835 jusqu’à la fin de / Novembre 1836.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Répertoire / du / théâtre français / à Berlin / depuis / le premier Décembre 1835 jusqu’à la fin de / Novembre 1836.",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "8vz6mwsd302d4kt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Jubelfeste wackerer Kunstveteranen sind eine Freude aller ihrer nahen und auswärtigen Freunde, und dienen der Nachwelt zum Zeugniß für das Talent und kräftige Bestreben der Heimgegangenen",
+      "language": [],
+      "musenalm_id": 125949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jonas Beschort’s / funfzigjähriges Jubiläum in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jonas Beschort’s / funfzigjähriges Jubiläum in Berlin",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "esne662hg7j86ej"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Mit folgenden, eben so einfachen als rührenden Worten zeigte Iffland Flecks Tod in der Berliner Zeitung [...] an",
+      "language": [],
+      "musenalm_id": 125950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatisch-Geschichtliches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Iffland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dramatisch-Geschichtliches",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.870Z",
+          "agent": "ygkra5epb9ywce3",
+          "source_id": "g579ppa18koxgyo"
+        }
+      ],
+      "source_id": "gz0tr72ut4d937t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Welcher Kunstfreund und welcher Künstler widmete dem Wirken Schröders nicht gern einen Rückblick? Zwar dürften von den Genossen seiner Zeit wenige noch vorhanden sein, jedoch werden oben Genannte [...] gern bei jener Periode verweilen.",
+      "language": [],
+      "musenalm_id": 125951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schröder und seine Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schröder und seine Zeit",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "v3x3eyjm97n0gh6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Es ist schon seit geraumen Zeiten / Die fromme Sitte eingeführt, / Daß bei des alten Jahres Scheiden / Man seinen Gönnern gratulirt.",
+      "language": [],
+      "musenalm_id": 125952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neujahrs-Gratulation / eines / Theater-Directeurs. / Monodrama mit verschiedenen Episoden in Knittelversen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neujahrs-Gratulation / eines / Theater-Directeurs. / Monodrama mit verschiedenen Episoden in Knittelversen",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "lk90b2i36dhlnvl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Mit dem Beginn unsres Jahrhunderts hat die Bühne so wesentliche [...] Veränderungen erfahren [...], daß es dem darstellenden Künstler wohl ziemt, einmal [...] zu prüfen; welche Vortheile und welche Nachteile seiner Kunst auf diesem Wege entstanden sind.",
+      "language": [],
+      "musenalm_id": 125953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Über die Nothwendigkeit der Errichtung ei- / nes Vereines dramatischer Künstler für dra- / matische Kunst, / von / Eduard Devrient. / Motto: Der Menschheit Würde ist in eure Hand gegeben, / Bewahret sie!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Devrient",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Über die Nothwendigkeit der Errichtung ei- / nes Vereines dramatischer Künstler für dra- / matische Kunst, / von / Eduard Devrient. / Motto: Der Menschheit Würde ist in eure Hand gegeben, / Bewahret sie!",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.870Z",
+          "agent": "k58kpm3nqws8rfg",
+          "source_id": "mfcon42rrazi6u5"
+        }
+      ],
+      "source_id": "o3pvu0it7w2y9rf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Natur, da liegt dein großer Sohn, / Ach, der noch leben sollte, / Ein menschliches Chamäleon, / Der treu durch Mimik, Geist und Ton / Das Leben uns entrollte",
+      "language": [],
+      "musenalm_id": 125954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schröders Grabschrift, / der Englischen auf Garrick nachgebildet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schröders Grabschrift, / der Englischen auf Garrick nachgebildet",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ibu5fu9j50tkz6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Die Prosa ist zu nüchtern, / Die Poesie zu hoch, / Das Komische zu schüchtern, / Das Ernste vollends trog.",
+      "language": [],
+      "musenalm_id": 125955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei Aufführung eines Zauber- / märchens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei Aufführung eines Zauber- / märchens",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "pwrhv8s4wa4adzu"
+    },
+    {
+      "annotation": "mit einem Vorwort (INr 125958, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Aber zum Henker, Ernst, wohin führst du mich? / Wir werden im Plaudern den rechten Weg verfehlt haben.",
+      "language": [],
+      "musenalm_id": 125956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ehrenrettung. / Schauspiel in 2 Aufzügen. / Frei nach dem Französischen bearbeitet / von / Friederike Krickeberg / geb. Koch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Krickeberg geb. Koch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ehrenrettung. / Schauspiel in 2 Aufzügen. / Frei nach dem Französischen bearbeitet / von / Friederike Krickeberg / geb. Koch",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.870Z",
+          "agent": "2y95lr37cv0cno3",
+          "source_id": "xpkmyi3fv418cjm"
+        }
+      ],
+      "source_id": "k4hbnqrybt6em3e"
+    },
+    {
+      "annotation": "Vorwort zu »Die Ehrenrettung« von Krickeberg (INr 125956, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Das Drama: Ehrenrettung, nach dem Französischen le chiffonnier, erschien im Februar des Jahres 1827 zum erstenmale auf dem Berliner Hoftheater und erregte [...] ein ungewöhnliches Interesse.",
+      "language": [],
+      "musenalm_id": 125958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort / zu nachstehendem Schauspiel: Die Ehrenrettung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort / zu nachstehendem Schauspiel: Die Ehrenrettung",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "soio64ckclg6lrc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniss / der / deutschen Bühnen, ihrer Vorstände und Mitglieder, wie sie dem Herausgeber bekannt geworden sind. / (Alphabetisch geordnet.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniss / der / deutschen Bühnen, ihrer Vorstände und Mitglieder, wie sie dem Herausgeber bekannt geworden sind. / (Alphabetisch geordnet.)",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "hckg0bgvb3674tx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Da die Strumpfarbeiten des Herrn Oppermann in Berlin [...] auch außerhalb so vielen Beifall finden, so kann derselbe jeden Auftrag [...] ausrichten, wenn die Herren Besteller das Maaß wie folgt anlegen und dann einsenden.",
+      "language": [],
+      "musenalm_id": 125960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu beachtende / Anzeigen / für / Schauspieler und Bühnenvorstände",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu beachtende / Anzeigen / für / Schauspieler und Bühnenvorstände",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "uliqp76dzxbfwc7"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1310_125961_t4y48ryquh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "hr2haax38kuz9c3"
+    }
   ],
   "agents": [
     {

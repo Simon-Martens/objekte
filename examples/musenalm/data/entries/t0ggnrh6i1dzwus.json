@@ -49,7 +49,26 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "a3jgqj1qkba89iw"
+    {
+      "annotation": "weitere Jahrgänge nicht ermittelt",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.719Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407232",
+      "location": "105C02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.719Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "a3jgqj1qkba89iw"
+    }
   ],
   "contents": [],
   "agents": [

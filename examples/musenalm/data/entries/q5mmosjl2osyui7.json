@@ -48,50 +48,1931 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "bnf93k9vw0qua2a"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt.\n1831:(K:Bl 10, 304 SS, Bl 1, Ku 6 und Monatsku 12.) Mit Tku 1, Bl 2, 9 SS, Ku 11, 304 SS und Bl 1\n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101113",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bnf93k9vw0qua2a"
+    }
   ],
   "contents": [
-    "ewsbwlzt6kpfo0v",
-    "8vcnje9pa2jg3hr",
-    "4xfilao60mh1iac",
-    "j5d2flzuln2tkl7",
-    "4x1ct0wcdxfgnzg",
-    "8cg285lpqfcztpe",
-    "jxkzdnd79vcbif1",
-    "ylw4vdv9jn5wo7l",
-    "wpwdjw4al8he2au",
-    "cresm5gj6z6ckir",
-    "n8z8w8icbhws1j3",
-    "ph6x0tfgvoorw5z",
-    "m9byl9ix8aa6jdp",
-    "f39rq3o3w54tnia",
-    "f6rx9676esabdux",
-    "6i51golcbapz2c6",
-    "4g61l6o69g419l9",
-    "tjced0yagvp316f",
-    "anr4467sgg6gnk1",
-    "enpqqhb6tabpqzj",
-    "xrfal7pdjao856p",
-    "rp328a1wdki1lg6",
-    "fnojtniag1oyg5h",
-    "nx8yfxf8joczkmt",
-    "rsv1mvurp57oykp",
-    "e8a3whl84lv1yhb",
-    "2w4op5l5btl1lnm",
-    "d9zb7iw2vph2d1s",
-    "9hpqfbmyhmtis7p",
-    "h7nmiymx747vunj",
-    "do93lgeaimc357n",
-    "lcm4578r3yd6onl",
-    "zkaa29zg51hjc0s",
-    "hzlqui8ocs1jwnm",
-    "4rhiis5zdof7nbf",
-    "2iutswjyh59m3to",
-    "awupvvjtlz0j4e1",
-    "kijkc3243281w9w",
-    "wlteqhu3ph0htqh",
-    "e97f08nvz0zg690",
-    "db5tz786hwhr7q1"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30216,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für das Jahr 1831 / der Liebe und Freundschaft gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_394_30216_jtqkbno34n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für das Jahr 1831 / der Liebe und Freundschaft gewidmet",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "ewsbwlzt6kpfo0v"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30217,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg, Rosmäsler in Heidelberg 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg, Rosmäsler in Heidelberg 1829",
+      "scans": [
+        "alm_394_30217_tn2zkc853c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.432Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.432Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "1zh0rq1g3bjaz8d"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.432Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.432Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "dv0dhpyxgj7ej31"
+        }
+      ],
+      "source_id": "8vcnje9pa2jg3hr"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30218,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / FÜR DAS JAHR 1831 / der / Liebe und Freundschaft gewidmet / Herausgegeben / von / Dr. ST. SCHÜTZE. / Frankfurt a/M / bei Friedrich Wilmans. / Verlagshandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_394_30218_s48pgxzme4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / FÜR DAS JAHR 1831 / der / Liebe und Freundschaft gewidmet / Herausgegeben / von / Dr. ST. SCHÜTZE. / Frankfurt a/M / bei Friedrich Wilmans. / Verlagshandlung",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "4xfilao60mh1iac"
+    },
+    {
+      "annotation": "Sammlung von 8 Textbezügen zu 8 Graphiken INr 30220-30235, Obj 5-20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30219,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ergötzlichkeiten / in / acht Bildern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ergötzlichkeiten / in / acht Bildern",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.432Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.432Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "mk0amy8yka2klpw"
+        }
+      ],
+      "source_id": "j5d2flzuln2tkl7"
+    },
+    {
+      "annotation": "s. Textbezug INr 30221, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30220,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg, Rosmäsler, 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg, Rosmäsler, 1829",
+      "scans": [
+        "alm_394_30220_mr13onuul0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "09lpnhmszcryold"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "owztaq34qnn8pdh"
+        }
+      ],
+      "source_id": "4x1ct0wcdxfgnzg"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30220, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Seht hier das rechte städt'sche Leben, / Durch Nichtsthun groß und Eitelkeit;",
+      "language": [],
+      "musenalm_id": 30221,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Fensterpromenade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Fensterpromenade",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "9fae9pezqlog0jy"
+        }
+      ],
+      "source_id": "8cg285lpqfcztpe"
+    },
+    {
+      "annotation": "s. Textbezug INr 30223, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30222,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg; Rosmäsler 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg; Rosmäsler 1829",
+      "scans": [
+        "alm_394_30222_nhuyjm6uq3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "19c7p7k0iu6omoc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "6r6g61i9mmoltbe"
+        }
+      ],
+      "source_id": "jxkzdnd79vcbif1"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30222, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zur Freude braucht's nicht großer Thaten; / Ein voller Becher thut es auch;",
+      "language": [],
+      "musenalm_id": 30223,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Trink- und Tanzgesellschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Trink- und Tanzgesellschaft",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "y4rra9xko78dr3h"
+        }
+      ],
+      "source_id": "ylw4vdv9jn5wo7l"
+    },
+    {
+      "annotation": "s. Textbezug INr 30225, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30224,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rmbg; Rosmäsler 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rmbg; Rosmäsler 1829",
+      "scans": [
+        "alm_394_30224_ydlu5lh3ed.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "9ie8url3eepk924"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.576Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "qf2llg6njjppo97"
+        }
+      ],
+      "source_id": "wpwdjw4al8he2au"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30224, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Theekessel soll man keinen schelten; / Er muß im fein gesell'gen Kreis / Jetzt für die Lebenssonne gelten.",
+      "language": [],
+      "musenalm_id": 30225,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Theegesellschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Theegesellschaft",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "cwsfdrboccr8nhi"
+        }
+      ],
+      "source_id": "cresm5gj6z6ckir"
+    },
+    {
+      "annotation": "s. Textbezug INr 30227, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30226,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rmbg, Rsmslr)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rmbg, Rsmslr",
+      "scans": [
+        "alm_394_30226_apnx1fw4go.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "6dvdw2dunog205p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "lcnzs4qgknmjy1l"
+        }
+      ],
+      "source_id": "n8z8w8icbhws1j3"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30226, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ach! auf dem Land' ist ohne Gnade / Der Winterabend wohl betrübt,",
+      "language": [],
+      "musenalm_id": 30227,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Spinnstube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Spinnstube",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "6nel4szho3iy8eq"
+        }
+      ],
+      "source_id": "ph6x0tfgvoorw5z"
+    },
+    {
+      "annotation": "s. Textbezug INr 30229, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30228,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rmbg; Rsmslr 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rmbg; Rsmslr 1829",
+      "scans": [
+        "alm_394_30228_06dwm7vtfj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "i0ztjuelfc9qx0o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "pu4qgcon9034sd6"
+        }
+      ],
+      "source_id": "m9byl9ix8aa6jdp"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30228, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hat denn das Leben Müh' und Sorgen / Nicht schon genug zu Schmerz und Lust,",
+      "language": [],
+      "musenalm_id": 30229,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Spiel und Politik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Spiel und Politik",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "cgxzclzq2anmj2y"
+        }
+      ],
+      "source_id": "f39rq3o3w54tnia"
+    },
+    {
+      "annotation": "s. Textbezug INr 30231, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30230,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rmbrg; Rsmslr)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rmbrg; Rsmslr",
+      "scans": [
+        "alm_394_30230_1ytjisggj3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "3d2v8f5cnv4ty13"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.577Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.577Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "9spi9rgfr9fcvai"
+        }
+      ],
+      "source_id": "f6rx9676esabdux"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30230, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "So mancher trinkt in vollern Zügen / Die Lust, die ihm noch Glanz verleiht,",
+      "language": [],
+      "musenalm_id": 30231,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Heimlichkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Heimlichkeiten",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "o3v30umavom6p93"
+        }
+      ],
+      "source_id": "6i51golcbapz2c6"
+    },
+    {
+      "annotation": "s. Textbezug INr 30234, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.936Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30232,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rmbrg; Rsmslr 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rmbrg; Rsmslr 1829",
+      "scans": [
+        "alm_394_30232_ci5s5bu2z2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "99f4ustuiatm8hi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "pwtf2m3b75vxn8b"
+        }
+      ],
+      "source_id": "4g61l6o69g419l9"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30232, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Was soll man sich mit Gründen plagen, / Wenn Liebe bald, bald Haß sich regt,",
+      "language": [],
+      "musenalm_id": 30233,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Thierliebhaberei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Thierliebhaberei",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "hfhfozrdkeb8jjd"
+        }
+      ],
+      "source_id": "tjced0yagvp316f"
+    },
+    {
+      "annotation": "s. Textbezug INr 30235, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30234,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rmbrg; Rsmslr 1829)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rmbrg; Rsmslr 1829",
+      "scans": [
+        "alm_394_30234_vn8i1pm0j9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "oyx603p24ob7rc3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "sej3cqncpk3c3mo"
+        }
+      ],
+      "source_id": "anr4467sgg6gnk1"
+    },
+    {
+      "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30234, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Vom Ueberdruß am Stadtgetümmel / Heilst du am besten uns, Natur,",
+      "language": [],
+      "musenalm_id": 30235,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Naturfreuden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Naturfreuden",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.350Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.350Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "3ck555q5mx6ajy5"
+        }
+      ],
+      "source_id": "enpqqhb6tabpqzj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30237, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vor einem zierlich Gatterthore von Eisen mit Goldknäufen und durch zwei mächtig dorische Säulen getragen,",
+      "language": [],
+      "musenalm_id": 30236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die letzte Liebe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die letzte Liebe. / Novelle",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.350Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.350Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "2ppl3e3se3ie38g"
+        }
+      ],
+      "source_id": "xrfal7pdjao856p"
+    },
+    {
+      "annotation": "Illustration zu »Die letzte Liebe« von W. Blumenhagen INr 30236, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Die letzte Liebe. Novelle von / Wilhelm Blumenhagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg; Rosmäsler 1829",
+      "scans": [
+        "alm_394_30237_h6webyzgw7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Die letzte Liebe. Novelle von / Wilhelm Blumenhagen",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.351Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5dbxvz08xs5lows"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.351Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "sq9w84ltidtgbcp"
+        }
+      ],
+      "source_id": "rp328a1wdki1lg6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Ein Regenstrom, wie Wolkenbruch, / Fiel rauschend in der Nacht;",
+      "language": [],
+      "musenalm_id": 30238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Zwerg. / Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Zwerg. / Gedicht",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.351Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "qq03gj1x8p6hwam"
+        }
+      ],
+      "source_id": "fnojtniag1oyg5h"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30240, Obj 25. Dem Text vorangestellt: Ich habe genossen das irdische Glück, / Ich habe gelebt und geliebet.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Die Abendsonne nahm Abschied von den Zinnen der Veste Vohburg, die Zugbrücke war schon hinaufgewunden,",
+      "language": [],
+      "musenalm_id": 30239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schwalben. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schwalben. / Erzählung",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.016Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.016Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "kj5k7xyjiowlc4w"
+        }
+      ],
+      "source_id": "nx8yfxf8joczkmt"
+    },
+    {
+      "annotation": "Illustration zu »Die Schwalben« von Fr. Lohmann INr 30239, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Die Schwalben. Erzählung / von Friedericke Lohmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg, Rosmäsler 1829",
+      "scans": [
+        "alm_394_30240_bda3egc97j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Die Schwalben. Erzählung / von Friedericke Lohmann",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.016Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.016Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "6trmrx0nmsnr0cw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.016Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.016Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "k90rim6eenopfb3"
+        }
+      ],
+      "source_id": "rsv1mvurp57oykp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Hier ist nicht Ruh', hinaus in's Feld, / Fort aus den düstern Wänden!",
+      "language": [],
+      "musenalm_id": 30241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stadt und Land. / Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stadt und Land. / Gedicht",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.835Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "qe70rkirm3aeyo1"
+        }
+      ],
+      "source_id": "e8a3whl84lv1yhb"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30243, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Sitz still Friede, oder ich dreh' dir die Nas' auf den Rücken! so eifere Fink, der alte Vogelsteller,",
+      "language": [],
+      "musenalm_id": 30242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vogelsteller. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Borromäus von Miltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vogelsteller. / Erzählung",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.835Z",
+          "agent": "e36ydmk4x9m4umt",
+          "source_id": "mpgbtmmk56e8yrk"
+        }
+      ],
+      "source_id": "2w4op5l5btl1lnm"
+    },
+    {
+      "annotation": "Illustration zu »Der Vogelsteller« von C. B. von Miltitz INr 30242, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Der Vogelsteller. Erzählung von / Carl Borromäus von Miltitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg; Rosmäsler 1829",
+      "scans": [
+        "alm_394_30243_iepfsowptt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Der Vogelsteller. Erzählung von / Carl Borromäus von Miltitz",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.836Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4dy982zgke3ctlw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.836Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "6yo60fsdjby8352"
+        }
+      ],
+      "source_id": "d9zb7iw2vph2d1s"
+    },
+    {
+      "annotation": "Sammlung von 10 Gedichten INr 30245-30254, Obj 30-39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermischte Gedichte",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "9hpqfbmyhmtis7p"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Die Lieb' und Freundschaft, Hand in Hand, / Durchstrichen viel Länder und Reiche;",
+      "language": [],
+      "musenalm_id": 30245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieb' und Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieb' und Freundschaft",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.836Z",
+          "agent": "7z02zmx8ocy9uwz",
+          "source_id": "493fxlm4tgadmrj"
+        }
+      ],
+      "source_id": "h7nmiymx747vunj"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Wie doch ein hübsches Weib zum Guten frommt! / Fidelis macht im Trinken eine Pause,",
+      "language": [],
+      "musenalm_id": 30246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebensänderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebensänderung",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.341Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "oh33yhca7xf13u8"
+        }
+      ],
+      "source_id": "do93lgeaimc357n"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Wenn Freundschaft nur die Braut verspricht, / Dem Bräut'gam klingt's erbaulich eben nicht,",
+      "language": [],
+      "musenalm_id": 30247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Dauernde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Dauernde",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.341Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "2bggnb7s8z8iyks"
+        }
+      ],
+      "source_id": "lcm4578r3yd6onl"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Drei Mädchen gingen über Feld, / Und fröhlich, unter Scherz und Lachen,",
+      "language": [],
+      "musenalm_id": 30248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bräutigam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bräutigam",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.341Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "1330v3diqjcob7x"
+        }
+      ],
+      "source_id": "zkaa29zg51hjc0s"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Wahrlich aus mir hätte vieles / Werden können in der Welt",
+      "language": [],
+      "musenalm_id": 30249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pech",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelbert von Chamisso",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pech",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.370Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.370Z",
+          "agent": "3emdj29jey7pglq",
+          "source_id": "plzz0lby8h31tlo"
+        }
+      ],
+      "source_id": "hzlqui8ocs1jwnm"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Ein Blick war's, der den Lenz gebracht, / Und wieder war's ein Blick,",
+      "language": [],
+      "musenalm_id": 30250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Blick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Ritter von Tschabuschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Blick",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.316Z",
+          "agent": "snndqassjoh7vf0",
+          "source_id": "798tyjabe0u0zq1"
+        }
+      ],
+      "source_id": "4rhiis5zdof7nbf"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Schnür dein Bündel denn zum Wandern, / Schaue nicht nach mir zurück;",
+      "language": [],
+      "musenalm_id": 30251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwist und Sühne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Simrock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwist und Sühne",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.316Z",
+          "agent": "dgebk50hujqbvc5",
+          "source_id": "q6firp9gy8pn7eb"
+        }
+      ],
+      "source_id": "2iutswjyh59m3to"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Leander ging am Morgen aus, / Und kam im Sprunge wieder nach Haus.",
+      "language": [],
+      "musenalm_id": 30252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schlüsselloch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schlüsselloch",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.586Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "5sz1o68kpuxamz3"
+        }
+      ],
+      "source_id": "awupvvjtlz0j4e1"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Als einst in Knabenjahren / Ich an zu kegeln fing,",
+      "language": [],
+      "musenalm_id": 30253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geduld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelbert von Chamisso",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geduld",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.586Z",
+          "agent": "3emdj29jey7pglq",
+          "source_id": "0unj8wv74lm141r"
+        }
+      ],
+      "source_id": "kijkc3243281w9w"
+    },
+    {
+      "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Die sehnende Liebe, die schmachtende Noth, / Die ist mir nun endlich verhaßt in den Tod.",
+      "language": [],
+      "musenalm_id": 30254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Belagerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Simrock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Belagerung",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.586Z",
+          "agent": "dgebk50hujqbvc5",
+          "source_id": "h64i24yho8eaut3"
+        }
+      ],
+      "source_id": "wlteqhu3ph0htqh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30255,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "e97f08nvz0zg690"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32501,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRANKFURT a/M / bei Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_394_32501_vtq3o93aff.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRANKFURT a/M / bei Friedrich Wilmans",
+      "updated": "2002-11-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "db5tz786hwhr7q1"
+    }
   ],
   "agents": [
     {

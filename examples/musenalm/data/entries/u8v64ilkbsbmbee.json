@@ -48,45 +48,1608 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "ueimasgomi94ofa"
+    {
+      "annotation": "einziger Jahrgang",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.706Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406071",
+      "location": "105M01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.706Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ueimasgomi94ofa"
+    }
   ],
   "contents": [
-    "luh45uz8vn95i1i",
-    "nhznnuxs6ec802p",
-    "yhqbjehwrqex3oo",
-    "z8ixlb7cyhja81m",
-    "2wq7npz8oa3o1iu",
-    "9f5kgfu1q38bif5",
-    "l4trpn2atfvvlj0",
-    "xvd3bq9kauayykn",
-    "9wu2uoke9fsevxq",
-    "yhnxd2kqhoszz1k",
-    "eidwyez55vumqe3",
-    "jwwvr64raa7elkp",
-    "pzoxypsa728620k",
-    "s81fnagzjsehj5k",
-    "tkkgbp15fybjpn3",
-    "hkcbdo28dwppkcx",
-    "tyhd3niy9jorszm",
-    "2ivf24l89bthkb0",
-    "e3enujun6p4o6be",
-    "1ciob8ck6knwry1",
-    "zdi4i9uomzxql3z",
-    "kci3dhztipl93xc",
-    "srhbm0wfztzkoc8",
-    "s1ydbj32k3ntqn2",
-    "96afzfv1r5h3ndm",
-    "g62jedaje1e645y",
-    "svo14qrnhg3o5zq",
-    "927dth82nev5eec",
-    "grxj9cnoofk9r4t",
-    "d720f3sg86q8y5h",
-    "0ktnl210jhlbkxz",
-    "rpz8ibd8rceht9k",
-    "yggoy1chdm9vphw",
-    "ltw1ycy7uz5fmpa",
-    "s65147q0y3try1d",
-    "m2fsm74g8cqsvle"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70664,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dr. Coremans / geb. zu Brüssel am 4ten Oct. 1802",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3584_70664_p6d4fed522.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dr. Coremans / geb. zu Brüssel am 4ten Oct. 1802",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "luh45uz8vn95i1i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70665,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freiheitsblitze. / Taschenbuch / für / gesetzliebende Freisinnige / von / Dr. V. A. Coremans. / Vorwärts, vorwärts sollst du schauen, / Darfst zurücke niemals seh'n! / König Ludwig von Bayern. / Mit dem Bildnisse des Verfassers. / Nürnberg, 1832. / Verlag von George Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3584_70665_6m8nxu30j2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Freiheitsblitze. / Taschenbuch / für / gesetzliebende Freisinnige / von / Dr. V. A. Coremans. / Vorwärts, vorwärts sollst du schauen, / Darfst zurücke niemals seh'n! / König Ludwig von Bayern. / Mit dem Bildnisse des Verfassers. / Nürnberg, 1832. / Verlag von George Winter",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "nhznnuxs6ec802p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70666,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seiner Majestät / Leopold I. / König der Belgier, / weihet diese Blätter / in tiefster Ehrfurcht / der Verfasser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seiner Majestät / Leopold I. / König der Belgier, / weihet diese Blätter / in tiefster Ehrfurcht / der Verfasser",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "ewv4ixg9x19v591"
+        }
+      ],
+      "source_id": "yhqbjehwrqex3oo"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Freiheit ist der Inbegriff des Glaubensbekenntnisses unserer Zeitgenossen. Aber diese Freiheit darf keine engherzige seyn, sie muß sich auf alle Meinungen ausdehnen.",
+      "language": [],
+      "musenalm_id": 70667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statt einer Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Coremans",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statt einer Einleitung",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "yp9ueu0jvsx6pod"
+        }
+      ],
+      "source_id": "z8ixlb7cyhja81m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Ueber die Worte: Parthei, Opposition; denen die achtungswerthesten und gebildetsten Männer eine Deutung geben, die sie nicht haben, sich vor Allem hier unverholen, klar zu äußern, möchte nicht unpassend seyn;",
+      "language": [],
+      "musenalm_id": 70668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Oppostion und Patheien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Oppostion und Patheien",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "3dgtftb2r2rgyur"
+        }
+      ],
+      "source_id": "2wq7npz8oa3o1iu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Das konstinutionellen Regierungssystem ist eine moderne Schöpfung, die sich in England langsam ausgebildet und erst in der neuesten Zeit auf dem Continente Wurzel gefaßt hat.",
+      "language": [],
+      "musenalm_id": 70669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König und Minister in konstitutionellen / Staaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König und Minister in konstitutionellen / Staaten",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.507Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "a3lkuejng90a6t0"
+        }
+      ],
+      "source_id": "9f5kgfu1q38bif5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Nicht ohne Erstaunen hört man oft Männer von Geist, die man über jeden Sektengeist erhaben glauben sollte und die es auch gewiß zu seyn vermeinen, sehr ungünstig gegen jede den Katholiken gemachte Einräumung sich äußern,",
+      "language": [],
+      "musenalm_id": 70670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Katholizismus bei den mit dem Zeitgeiste / ortgeschrittenen Völkern des neunzehnten / Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Katholizismus bei den mit dem Zeitgeiste / ortgeschrittenen Völkern des neunzehnten / Jahrhunderts",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.507Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "g87qlthq7n8hi14"
+        }
+      ],
+      "source_id": "l4trpn2atfvvlj0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Die Opposition ist das erste, das unentbehrlichste Element eines konstitutionellen Staates, ohne sie ist ein solcher Staat gar nicht denkbar.",
+      "language": [],
+      "musenalm_id": 70671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Opposition. / (Nach dem Französischen)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Opposition. / (Nach dem Französischen)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "t498j15mbc2logs"
+        }
+      ],
+      "source_id": "xvd3bq9kauayykn"
+    },
+    {
+      "annotation": "Anm. am Objekt: Diese Andeutungen wurden schon im Jahre 1829 geschrieben, sind jedoch jetzt noch wahr, haben sogar an Wahrheit gewonnen.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Die Rednertribüne und die Presse sind in konstitutionellen Staaten die zwei großen Verbündeten der Freiheit.",
+      "language": [],
+      "musenalm_id": 70672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was das Volk wünscht? / (Mit besonderer Beziehung auf Bayern.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was das Volk wünscht? / (Mit besonderer Beziehung auf Bayern.)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "hlgfrxm20vbus2c"
+        }
+      ],
+      "source_id": "9wu2uoke9fsevxq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Die Meinung, daß, wenn das Gericht einmal ein Urtheil gesprochen, jede Kritik unpassend sey, ist eine im höchsten Grade unbegründete, und kann jetzt nur noch von einigen altfränkischen Rechtsgelehrten aufgestellt werden.",
+      "language": [],
+      "musenalm_id": 70673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der gerechten Sache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der gerechten Sache",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "cjxgv92zh2pk0h3"
+        }
+      ],
+      "source_id": "yhnxd2kqhoszz1k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.259Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Die Liberalen aller Länder begehen den unverzeihlichen Fehler, die Ideen durch Gesetze formulieren zu wollen. Sie vergessen immer, daß die Menschen ärgern, quälen, ihnen Gewalt anthun, ein sehr schlechtes Mittel sey, ihre Ueberzeugnung zu ändern,",
+      "language": [],
+      "musenalm_id": 70674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freiheit für Alle! Unterdrückt Niemand! / (Nach Hr. v. Potter.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freiheit für Alle! Unterdrückt Niemand! / (Nach Hr. v. Potter.)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "paalevkcdakmy18"
+        }
+      ],
+      "source_id": "eidwyez55vumqe3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Ueberzeugt, daß der Allmaächtige den Menschen einen freien Willen gegeben, scheinen uns die zu allen Zeiten und in allen Ländern gemachten Anstrengungen, die Meinungen durch körperliche Strafen, Geldbußen, oder Beraubung der bürgerlichen Rechte",
+      "language": [],
+      "musenalm_id": 70675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was im Jahre 1786 geschah. / (Uebersetzung eines Akts der gesetzgebenden / Versammlung Virginiens, zur Sicherung / der Gewissensfreiheit.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was im Jahre 1786 geschah. / (Uebersetzung eines Akts der gesetzgebenden / Versammlung Virginiens, zur Sicherung / der Gewissensfreiheit.)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.700Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "skgc011pju3hgsq"
+        }
+      ],
+      "source_id": "jwwvr64raa7elkp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Aus dem Grabe eines Kriegers, dessen Schicksal der Welt unbekannt ist, hervorgezogen, hingst du, neben andern alten Mordwerkzeugen, im Krame eines Trödlers;",
+      "language": [],
+      "musenalm_id": 70676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Verbannte an seinen aus dem Mittelalter / stammenden Dolch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Verbannte an seinen aus dem Mittelalter / stammenden Dolch",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.700Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "gwddomr5xkdpklr"
+        }
+      ],
+      "source_id": "pzoxypsa728620k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Das achtzehnte Jahrhundert begriff den Werth der Zeitblätter gar nicht, die beperrückten Herren jener Zeit hätten es wahrscheinlich nicht gedacht, daß die Höchsten im Staate, geachtete, berühmte Schriftsteller des kommenden Jahrhunderts",
+      "language": [],
+      "musenalm_id": 70677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zeitungen und Zeitschriften und deren Herausgeber im neunzehnten Jahrhundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zeitungen und Zeitschriften und deren Herausgeber im neunzehnten Jahrhundert",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.700Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "bijmu670cc6tmmf"
+        }
+      ],
+      "source_id": "s81fnagzjsehj5k"
+    },
+    {
+      "annotation": "mit 48 Artikeln und einem Nachtrag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Die Staatsbürger sind ungleich vor dem Gesetze, weil es ein Unsinn wäre, wenn ein zu den gemeinen bürgerlichen Klassen Gehöriger, ein Freisinniger, ein Freund des Lichts,",
+      "language": [],
+      "musenalm_id": 70678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verfassungsurkunde, wie gewisse Antine- / gros auf einer australischen Insel sie wollen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verfassungsurkunde, wie gewisse Antine- / gros auf einer australischen Insel sie wollen",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.700Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "8cchdrxvxd6bxkg"
+        }
+      ],
+      "source_id": "tkkgbp15fybjpn3"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 70680, 70681; Obj 17, 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zeitbilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zeitbilder",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "883h0zskh6bfpxp"
+        }
+      ],
+      "source_id": "hkcbdo28dwppkcx"
+    },
+    {
+      "annotation": "Zeitbilder (Sammlung INr 70679, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Die Segel waren entfaltet, langsam bewegten die Schiffe sich auf dem Ozean, der die Fahrt der flüchtigen Freiheits-Märtyrer nicht hindern zu wollen schien.",
+      "language": [],
+      "musenalm_id": 70680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Januar 1829. / Die portugiesischen Flüchtlinge vor Terceira",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Januar 1829. / Die portugiesischen Flüchtlinge vor Terceira",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "8z2kmqmce41wq9j"
+        }
+      ],
+      "source_id": "tyhd3niy9jorszm"
+    },
+    {
+      "annotation": "Zeitbilder (Sammlung INr 70679, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Wellington hat aufgehört Minister zu seyn. Der Fall Carl X. in Frankreich, welcher mit altersschwacher Hand versuchte, das mächtige Uhrwerk der Zeit aufzuhalten, riß den Mörder der Verbannten von Terceira mit sich fort.",
+      "language": [],
+      "musenalm_id": 70681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Juli 1831. / Die Eroberung der Azoren-Insel St. Miguel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Juli 1831. / Die Eroberung der Azoren-Insel St. Miguel",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "01k88b4d2cq3rh8"
+        }
+      ],
+      "source_id": "2ivf24l89bthkb0"
+    },
+    {
+      "annotation": "Anm. am Objekt: Prophetische Wort in den ersten Tagen Septembers 1831 geschrieben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Frankreichs 2. September 1792 hat in Warschau am 16. August 1831 sich erneuert.",
+      "language": [],
+      "musenalm_id": 70682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der sechszehnte August 1831 in Warschau. / (Nach dem Französischen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der sechszehnte August 1831 in Warschau. / (Nach dem Französischen.)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "aw8uh869l03kcwr"
+        }
+      ],
+      "source_id": "e3enujun6p4o6be"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Die Schläge, welche nichts anders sind, als die Kunst, Schmerz zu schaffen, wo keiner ist, scheinen mir das kräftigste Mittel, welches der Wille des Despoten in dieser Welt gebrauchen kann, um seinen Zweck zu erreichen.",
+      "language": [],
+      "musenalm_id": 70683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stock - ein Sinnbild der rohen / Gewalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stock - ein Sinnbild der rohen / Gewalt",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "acpmzvtrb42vdo5"
+        }
+      ],
+      "source_id": "1ciob8ck6knwry1"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 70685-70688, Obj 22-25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vater - Mutter - Vaterhaus. / Skizzen aus Belgien. / (1790-1802.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vater - Mutter - Vaterhaus. / Skizzen aus Belgien. / (1790-1802.)",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "0hnlan202d4cfp7"
+        }
+      ],
+      "source_id": "zdi4i9uomzxql3z"
+    },
+    {
+      "annotation": "Vater - Mutter - Vaterhaus. Skizzen aus Belgien. (1790-1802.) (Sammlung INr 70684, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Was eine augenblickliche Aufwallung gegründet - die belgische Republik - sie ist untergegangen im Kampfe der Partheien!",
+      "language": [],
+      "musenalm_id": 70685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vater in Valenciennes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vater in Valenciennes",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "3jbyw9yfzpti9c1"
+        }
+      ],
+      "source_id": "kci3dhztipl93xc"
+    },
+    {
+      "annotation": "Vater - Mutter - Vaterhaus. Skizzen aus Belgien. (1790-1802.) (Sammlung INr 70684, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Gesiegt haben die Waffen der Freiheitsmänner. Hoch im Ansehen stehen die Philosophen. Coremans, der Flüchtling von Valenciennes, des Volkes Abgott, ist Präsident des Tribunals.",
+      "language": [],
+      "musenalm_id": 70686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bürger-Präsident",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bürger-Präsident",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "c1qy3w35ujwhgw4"
+        }
+      ],
+      "source_id": "srhbm0wfztzkoc8"
+    },
+    {
+      "annotation": "Vater - Mutter - Vaterhaus. Skizzen aus Belgien. (1790-1802.) (Sammlung INr 70684, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Es waltet ein düsteres Geschick über den Adel und die Anhänger des alten Systems.",
+      "language": [],
+      "musenalm_id": 70687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mutter",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.701Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "35ajin79m53bqpt"
+        }
+      ],
+      "source_id": "s1ydbj32k3ntqn2"
+    },
+    {
+      "annotation": "Vater - Mutter - Vaterhaus. Skizzen aus Belgien. (1790-1802.) (Sammlung INr 70684, Obj 21) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Vieles hat sich verändert. Der glückliche Soldat Bonaparte ist Konsul der französischen Republik geworden.",
+      "language": [],
+      "musenalm_id": 70688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Vaterhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Vaterhaus",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.387Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "hnfmym6gj670j5b"
+        }
+      ],
+      "source_id": "96afzfv1r5h3ndm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Als Kind blickte ich verehrungsvoll auf zum Vater mit den weißen Haaren, den ernsten leidenschaftslosen Zügen, der ehrfurchtgebietenden Haltung!",
+      "language": [],
+      "musenalm_id": 70689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die richterliche Gewalt, Schützerin der gesetz- / lichen Freiheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die richterliche Gewalt, Schützerin der gesetz- / lichen Freiheit",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.387Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "ghzh09hek2ljnjv"
+        }
+      ],
+      "source_id": "g62jedaje1e645y"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen INr 70691-70697, Obj 28-34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleinigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleinigkeiten",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.387Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "utnjxllxmqdjht2"
+        }
+      ],
+      "source_id": "svo14qrnhg3o5zq"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Kennt ihr den Ort, wo die Vernunft keine Stimme hat, das Sonnenklare dunkel erscheint, die Macht der Nothwendigkeit verkannt,",
+      "language": [],
+      "musenalm_id": 70691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der gefährliche Ort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der gefährliche Ort",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.232Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "5etjrc0xdf49tae"
+        }
+      ],
+      "source_id": "927dth82nev5eec"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Wohl standen sie noch aufrecht die alten mosigen Thürme und Mauern der hohen Stadt, wo Freiheit einst thronte,",
+      "language": [],
+      "musenalm_id": 70692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Wiederauferstehung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Wiederauferstehung",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "1pbysaz6t9msqnd"
+        }
+      ],
+      "source_id": "grxj9cnoofk9r4t"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Es ist eine noch unbeantwortete Frage: Ob es die entschiedenen Absolutisten oder die sogenannten Gemäßigten waren, so der Sache der Humanität, der gesetzlichen Freiheiten in den Ländern am meisten schadeten,",
+      "language": [],
+      "musenalm_id": 70693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Mitte in der Politik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Mitte in der Politik",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "nt37xcfjta0uysc"
+        }
+      ],
+      "source_id": "d720f3sg86q8y5h"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Gar mühselig und künstlich haben die Feinde des Mannes in der alten Stadt mit einem Unglücksgewebe ihn umwirkt und umstrickt, aus dem, wie zu berechnen, er nicht mehr entkommen könne.",
+      "language": [],
+      "musenalm_id": 70694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Hohen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Hohen",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "y6q1i8ndl93kwzx"
+        }
+      ],
+      "source_id": "0ktnl210jhlbkxz"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Ja er hat Recht, der Landsmann, welcher sagt, daß die Machthaber keinen größeren Fehler begehen können, als - Märtyrer zu machen;",
+      "language": [],
+      "musenalm_id": 70695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Märtyrer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Märtyrer",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "xip3ie2a9ih60g5"
+        }
+      ],
+      "source_id": "rpz8ibd8rceht9k"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Das Volk: frei, aufgeklärt, im Glauben ungezwungen, immer das Gesetz achtend, die Ordnung liebend,",
+      "language": [],
+      "musenalm_id": 70696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Mein Ideal eines Staates",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Mein Ideal eines Staates",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "78qinhmyf3ixm08"
+        }
+      ],
+      "source_id": "yggoy1chdm9vphw"
+    },
+    {
+      "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "haben vielleicht in den ersten Tagen dieses Bändchens nicht genug Feuer gefunden, um den Titel Blitze vollkommen zu rechtfertigen.",
+      "language": [],
+      "musenalm_id": 70697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Leser",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.333Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.333Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "snq8h7kwwzmhzby"
+        }
+      ],
+      "source_id": "ltw1ycy7uz5fmpa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Nur vier Monate sind seit dem Mai vergangen; aber diese waren vier Jahre der Erfahrung für mich.",
+      "language": [],
+      "musenalm_id": 70698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Coremans",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachwort",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.261Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.261Z",
+          "agent": "p9xocrmcb2o8pu5",
+          "source_id": "y5teq677fq47q4x"
+        }
+      ],
+      "source_id": "s65147q0y3try1d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70699,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "m2fsm74g8cqsvle"
+    }
   ],
   "agents": [
     {

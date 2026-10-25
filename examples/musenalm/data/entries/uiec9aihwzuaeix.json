@@ -48,97 +48,3863 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "56nq4qwzxonrcrm"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen).",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.497Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106683",
+      "location": "105R01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.497Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "56nq4qwzxonrcrm"
+    }
   ],
   "contents": [
-    "r5ksnagcm0vwly2",
-    "esz84shjkuw1xip",
-    "zlvkvvtt3fe3viu",
-    "8dcdkxhtpucjy10",
-    "zttdjrr3p69tk9s",
-    "x9g9fwuoe9x3t1a",
-    "q8oducavbgeucyv",
-    "f744ki51dr6x35p",
-    "z907ev0atqc0xvg",
-    "n27fbhxuh6v2akh",
-    "h1tj9ro33nr4ds2",
-    "myofbbelq697znv",
-    "tnw7qsvwtlrsceo",
-    "f2dtwqh1g1evsbd",
-    "4f6onk2pa9gdflb",
-    "ibvkli5ndg1m5ry",
-    "58w02wqtv6vch48",
-    "9j681l9onitid0f",
-    "udrf28tty2u7kbu",
-    "2oqr9w99txtp5et",
-    "qmx4azt4emtlnk7",
-    "olhljko04iydsxd",
-    "mqnbp8ir7z7f3c3",
-    "ndhfvbipxzy1wa2",
-    "u1olxo6rd4llidq",
-    "oavm6l1gvomv2eo",
-    "8sctacxza2n3hfo",
-    "0kjdjtyd5fn5eew",
-    "06yc9r9nk9lg3pi",
-    "awgbr9jowki2lu0",
-    "h47lrq36yn91ziz",
-    "0f2m5cq2z48mtkr",
-    "16249hfjj42snux",
-    "680z644hsgb1ufz",
-    "bz4ky74ejkxoyqz",
-    "mdz023bduetcg8a",
-    "kzf4kmljvhl67if",
-    "cl7xdu5wcx9q65r",
-    "5x5rc8jshjishak",
-    "6k70r2iyszodb9g",
-    "fgk65x7y9tb2kgt",
-    "r507ibqx2njkfbu",
-    "q7z0t6vdj3ew0wr",
-    "namgziclvan89do",
-    "ttio35ljdwhwa6o",
-    "904b71w43h6g9fg",
-    "dzf8r2rcnqo1v9x",
-    "8bvh7570b9oa3lz",
-    "icukhkuale67mvu",
-    "u9ij9kd5bqooxf4",
-    "y1rke0rw9uxc5in",
-    "p33gap24igz4a0e",
-    "68v38vba27di2ch",
-    "aysi4u9i6226uow",
-    "nzq9yg0fifvb7pm",
-    "t961ym29z3bjjjc",
-    "0pv18uoltjmln2t",
-    "z6kta4deww947k9",
-    "il54hdjapjah0z5",
-    "c4ig1kzoy0d8v37",
-    "f7t3hw96tt886xs",
-    "1gvu9rfyxj5chg8",
-    "8c46pl52ab9z587",
-    "29ne1qs1hl4cld5",
-    "b54du7kklrudyio",
-    "iexjoj2sgqus14j",
-    "li2ht2sppfjhqia",
-    "csui8qg5u16rvu0",
-    "hu7k430gmx8xkkh",
-    "7wis2nrhk5stncl",
-    "x511lrojx184ol2",
-    "vcpocf2b20wexa0",
-    "kotctr7zppplove",
-    "xymltu0ewx5ew3a",
-    "4licli6mts5ihpi",
-    "b4cq9r2z3pkg7e6",
-    "hxdjk71d7mlmfl5",
-    "i1a9z0noyl4y6so",
-    "qp0b6ybfapi3xk9",
-    "mzsqja39qbzfsp4",
-    "ckcndwc66mplyf6",
-    "kg9ma57540a5a8o",
-    "rgya7sohe4k8xm4",
-    "c41s6um92m9208m",
-    "tm97hkty5021pwc",
-    "jyvn69oejvlx4xi",
-    "49q1b5pp9cvo5wt",
-    "5k8homlhme6juuk"
+    {
+      "annotation": "Titelgraphik # Titel s. Textbezug INr 42383, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42379,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Muse Brauttag. Eine allegorische Idylle. Zur Erklärung des Titelkupfers #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sculps.",
+      "scans": [
+        "alm_530_42379_l3lxkwf0dy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Muse Brauttag. Eine allegorische Idylle. Zur Erklärung des Titelkupfers #",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.388Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "10q8jjlwwsrkeoy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.388Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "y8ek1rdezmr0w3n"
+        }
+      ],
+      "source_id": "r5ksnagcm0vwly2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42380,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MINERVA. / Taschenbuch / für / das Jahr 1826. / Achtzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_530_42380_9kk21jbdjn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MINERVA. / Taschenbuch / für / das Jahr 1826. / Achtzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.388Z",
+          "agent": "cefecuqh5ju4cfh",
+          "source_id": "vjrnzbkngln8xa3"
+        }
+      ],
+      "source_id": "esz84shjkuw1xip"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42381,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "zlvkvvtt3fe3viu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42382,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "8dcdkxhtpucjy10"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 42379, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Um des Göttervaters Willen, / Des Gewalt'gen, zu erfüllen,",
+      "language": [],
+      "musenalm_id": 42383,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Muse Brauttag. / Eine allegorische Idylle. / Zur Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Muse Brauttag. / Eine allegorische Idylle. / Zur Erklärung des Titelkupfers",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.088Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "aqi6zczuliahxug"
+        }
+      ],
+      "source_id": "zttdjrr3p69tk9s"
+    },
+    {
+      "annotation": "Sammlung von 8 Textbezügen und  8 Graphiken INr 42385-42400, Obj 6-22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42384,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / zu / Göthe's Werken. / Sechste Lieferung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / zu / Göthe's Werken. / Sechste Lieferung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "x9g9fwuoe9x3t1a"
+    },
+    {
+      "annotation": "Illustration zu »Die Geschwister« von J. W. von Goethe s. Textbezug INr 42386, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42385,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschwister. / Hier gieb eine schöne Hand, eine rechte Patschhand!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.1824",
+      "scans": [
+        "alm_530_42385_vfjk662vm3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschwister. / Hier gieb eine schöne Hand, eine rechte Patschhand!",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.088Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5mrxzswncu9dt52"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "vv83158e2ra2z6p"
+        }
+      ],
+      "source_id": "q8oducavbgeucyv"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42385, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Er will noch gute Nacht sagen, Bruder! Du mußt ihm kein finster Gesicht machen, und mir auch nicht.",
+      "language": [],
+      "musenalm_id": 42386,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Geschwister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Geschwister",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "jztmmdk7eqzgola"
+        }
+      ],
+      "source_id": "f744ki51dr6x35p"
+    },
+    {
+      "annotation": "Illustration zu »Jery und Bätely« von J. W. von Goethe s. Textbezug INr 42388, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42387,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jerry u. Baetely. / Thomas. Nur recht frech gethan, musicirt und so sachte retirirt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_530_42387_6p96liijwx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jerry u. Baetely. / Thomas. Nur recht frech gethan, musicirt und so sachte retirirt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "b8najkdiyo3t9k3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "gxc6y1snz55n54w"
+        }
+      ],
+      "source_id": "z907ev0atqc0xvg"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42387, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "St! St! Das wär zu toll! Nun wird Ernst aus dem Spiele. Du hättest Deine Probe gescheidter anfangen können.",
+      "language": [],
+      "musenalm_id": 42388,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Jery und Bätely",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Jery und Bätely",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "28m1i72rw0dg7gw"
+        }
+      ],
+      "source_id": "n27fbhxuh6v2akh"
+    },
+    {
+      "annotation": "Illustration zu »Die Vögel« von J. W. von Goethe s. Textbezug INr 42390, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42389,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vögel / Treufreund. Wir - sind keine Menschen, sind Vögel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_530_42389_bftcy3mby1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Vögel / Treufreund. Wir - sind keine Menschen, sind Vögel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "688r35fmf9cwujo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "7o4wbm7sbr7ybwq"
+        }
+      ],
+      "source_id": "h1tj9ro33nr4ds2"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42389, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Gib nur Acht, wie ich pfeife. Zu den Vögeln. Ihr seid in Gefahr, euch selbst einen großen Schaden zu thun,",
+      "language": [],
+      "musenalm_id": 42390,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Vögel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Vögel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "3eh31pbgg3mqey9"
+        }
+      ],
+      "source_id": "myofbbelq697znv"
+    },
+    {
+      "annotation": "Illustration zu »Künstlers Erdewallen« von J. W. von Goethe s. Textbezug INr 42392, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42391,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstlers Erdewallen. IIr. Act / Herr, Sie haben jetzt gar viel Runzeln mehr. / Frau. Gib mir Geld ich muss auf den Markt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_530_42391_y4hb82exdd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Künstlers Erdewallen. IIr. Act / Herr, Sie haben jetzt gar viel Runzeln mehr. / Frau. Gib mir Geld ich muss auf den Markt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "m2sd7co7zjr65xy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "rqap1jc92gaan5v"
+        }
+      ],
+      "source_id": "tnw7qsvwtlrsceo"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42391, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Gib mir Geld, ich muß auf den Markt! Ich hab' nichts.",
+      "language": [],
+      "musenalm_id": 42392,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Künstlers Erdenwallen. II. Akt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Künstlers Erdenwallen. II. Akt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.089Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "1338a4tjavkhrn2"
+        }
+      ],
+      "source_id": "f2dtwqh1g1evsbd"
+    },
+    {
+      "annotation": "Illustration zu »Künstlers Apotheose« von J. W. von Goethe s. Textbezug INr 42394, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42393,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstlers Apotheose. / Muse. Sieh nieder und erkenne dich! Dieses ist der Schauplatz deiner Ehre. Künstler. Ich fühle nur den Druck der Atmosphäre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_530_42393_29bfi549e1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Künstlers Apotheose. / Muse. Sieh nieder und erkenne dich! Dieses ist der Schauplatz deiner Ehre. Künstler. Ich fühle nur den Druck der Atmosphäre",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.090Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "57kbwhdybmmrame"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.090Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "wwb7w16zpqq4cag"
+        }
+      ],
+      "source_id": "4f6onk2pa9gdflb"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42393, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Das Bild hat einen großen Werth, / Empfanget hier, was ihr begehrt.",
+      "language": [],
+      "musenalm_id": 42394,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Künstlers Apotheose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Künstlers Apotheose",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "hw4y7c1wk3hovat"
+        }
+      ],
+      "source_id": "ibvkli5ndg1m5ry"
+    },
+    {
+      "annotation": "Illustration zu »Das Jahrmarktfest zu Plundersweilern« von J. W. von Goethe s. Textbezug INr 42396, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42395,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Jahrmarkts-Fest zu Plundersweilern / Pfefferkuchenmädchen.Guten Muth! - Pfeffernüss! ha, ha, ha!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_530_42395_65imcs7epm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Jahrmarkts-Fest zu Plundersweilern / Pfefferkuchenmädchen.Guten Muth! - Pfeffernüss! ha, ha, ha!",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "2d1ocrqzidwnfud"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "8x7u2yhjsa78w0t"
+        }
+      ],
+      "source_id": "58w02wqtv6vch48"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42395, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Ha, Ha, Ha! Nehmt von den Pfefferkuchen da;",
+      "language": [],
+      "musenalm_id": 42396,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Das Jahrmarktsfest zu Plundersweilern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Das Jahrmarktsfest zu Plundersweilern",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "zpqpebl5ec8l8e3"
+        }
+      ],
+      "source_id": "9j681l9onitid0f"
+    },
+    {
+      "annotation": "Illustration zu »Das Jahrmarktsfest zu Plundersweilern« von J. W. von Goethe s. Textbezug INr 42398, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42397,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Jahrmarkts Fest zu Plundersweilern. / Mardochai. Erhalt' mein graues Haupt, Geld, Kinder, Weib und Ehre. Esther: Von Herzen gern, wenn's nur nicht so gefährlich wäre.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_530_42397_fhjg78moxy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Jahrmarkts Fest zu Plundersweilern. / Mardochai. Erhalt' mein graues Haupt, Geld, Kinder, Weib und Ehre. Esther: Von Herzen gern, wenn's nur nicht so gefährlich wäre.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3y4nnpuhtbqizfo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "m8gsmch4rgclj0p"
+        }
+      ],
+      "source_id": "udrf28tty2u7kbu"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42397, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Sag', wem gelüstet's denn, mein Freund, nach Deinem Leben?",
+      "language": [],
+      "musenalm_id": 42398,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Das Jahrmarktsfest zu Plundersweilern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Das Jahrmarktsfest zu Plundersweilern",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "l8j1b11tvrnwh5s"
+        }
+      ],
+      "source_id": "2oqr9w99txtp5et"
+    },
+    {
+      "annotation": "Illustration zu »Ein Fastnachtsspiel« von J. W. von Goethe s. Textbezug INr 42400, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.092Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42399,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fastnachtsspiel. / Hauptm. So komme denn an meine Brust. / O Liebe meines Herzens Lust!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sculps.",
+      "scans": [
+        "alm_530_42399_zln2rri836.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fastnachtsspiel. / Hauptm. So komme denn an meine Brust. / O Liebe meines Herzens Lust!",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "m0y6v2m38h4jvv4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "nkibvpf8l8vjewt"
+        }
+      ],
+      "source_id": "qmx4azt4emtlnk7"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42399, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "So komme denn an meine Brust, / O Liebe, meines Herzens Lust!",
+      "language": [],
+      "musenalm_id": 42400,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Fastnachtsspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Fastnachtsspiel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "3uvtc5fijpbfoyi"
+        }
+      ],
+      "source_id": "olhljko04iydsxd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Völkerschlacht bei Leipzig war geschlagen. Napoleon, verfolgt von den Verbündeten, entwich den französischen Grenzen zu.",
+      "language": [],
+      "musenalm_id": 42401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Einquartierung. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rochlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Einquartierung. / Erzählung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "2wsoz27ytrsps8l",
+          "source_id": "falofpaodrx6x2y"
+        }
+      ],
+      "source_id": "mqnbp8ir7z7f3c3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Ich bin den dritten September 1745 in Bern geboren. Meine allererste Erinnerung ist die an meinen Großvater.",
+      "language": [],
+      "musenalm_id": 42402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Erinnerungen / aus / Bonstetten's Jugendleben./ Von ihm selbst geschrieben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bonstetten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Erinnerungen / aus / Bonstetten's Jugendleben./ Von ihm selbst geschrieben",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.157Z",
+          "agent": "pwvocxnhdz7mzfw",
+          "source_id": "50zvl8nl8mlp8me"
+        }
+      ],
+      "source_id": "ndhfvbipxzy1wa2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Im Jahr 18** an Mariä Heimsuchung kurz nach Sonnenaufgang stieg ein junges Ehepaar von der Anhöhe von Bogenhausen herab,",
+      "language": [],
+      "musenalm_id": 42403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Die Proselyten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Die Proselyten",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "z21c33e2l9hjr51"
+        }
+      ],
+      "source_id": "u1olxo6rd4llidq"
+    },
+    {
+      "annotation": "Sammlung von 17 Epigrammen INr 42405-42421, Obj 27-43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Epigramme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Epigramme",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "npmp31jcl0n53b1"
+        }
+      ],
+      "source_id": "oavm6l1gvomv2eo"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Vieles hat er gesehn, versucht, erfahren, gelitten, / Dich, so wollt' es Geschick, fesselt ein einziger Ort:",
+      "language": [],
+      "musenalm_id": 42405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Doppelquelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Doppelquelle",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "5qtfgqzf9gem776"
+        }
+      ],
+      "source_id": "8sctacxza2n3hfo"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Weil Du herausgetreten aus idealischem Leben, / Und jetzt bleiern, und schwer drückt die gemeine / Natur,",
+      "language": [],
+      "musenalm_id": 42406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mißmuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mißmuth",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "b1sbg1hty0p3gan"
+        }
+      ],
+      "source_id": "0kjdjtyd5fn5eew"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Horch, wie hallt es, wie drohn die Leuchtungen! / Fürchte Nichts, Freund,",
+      "language": [],
+      "musenalm_id": 42407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "34uwmsmikzoxpgt"
+        }
+      ],
+      "source_id": "06yc9r9nk9lg3pi"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Lehrend wollt ihr erfreun: wie trefflich! Eines nur / bitt' ich, / Treibt, Leichtsinnige, nicht Spott mit der Menschen- / vernunft:",
+      "language": [],
+      "musenalm_id": 42408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warnung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "0ltsaxtb74lalpr"
+        }
+      ],
+      "source_id": "awgbr9jowki2lu0"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Laß das eitle Bemühn gestorbenes Leben zu wecken, / Und, die ewig entfloh, neu zu verjüngen die Kraft:",
+      "language": [],
+      "musenalm_id": 42409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergebliches Streben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergebliches Streben",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "mjrr3b5u4spiflv"
+        }
+      ],
+      "source_id": "h47lrq36yn91ziz"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Gift nennst Du, was Ich Arznei? Tod heißet Dir / Leben?",
+      "language": [],
+      "musenalm_id": 42410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trennung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trennung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "uwm9uzbfva09wru"
+        }
+      ],
+      "source_id": "0f2m5cq2z48mtkr"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Allem lächelst Du kalt, was lebt, was empfindet, was / leidet,",
+      "language": [],
+      "musenalm_id": 42411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An **",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An **",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.893Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "kk6fuov89jy50u8"
+        }
+      ],
+      "source_id": "16249hfjj42snux"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Preisend erhebst Du das Eine, und immer das Eine: / mein Guter,",
+      "language": [],
+      "musenalm_id": 42412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einseitigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einseitigkeit",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.893Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "yscbve05retjjbj"
+        }
+      ],
+      "source_id": "680z644hsgb1ufz"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Immer nur Wort, und Wort! Wie in wogendem Schau- / me sich luftig / Mittelmäßigkeit bläht,",
+      "language": [],
+      "musenalm_id": 42413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leerheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leerheit",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "eo95njh5qoqwv75"
+        }
+      ],
+      "source_id": "bz4ky74ejkxoyqz"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Weil Ihr Worte gesprochen, drum sei Euch, meinet / Ihr, folgsam / Aufgestiegen der Geist aus der Vergangenheit Grab",
+      "language": [],
+      "musenalm_id": 42414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alterthümler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alterthümler",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "rucnuyybm76mve1"
+        }
+      ],
+      "source_id": "mdz023bduetcg8a"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Religion, Du hehre! Du Sonnenhelle des Lebens, / Die mildleuchtend verklärt alles Erschaffenen Reiz,",
+      "language": [],
+      "musenalm_id": 42415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Religion und Mystik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Religion und Mystik",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "6bakto4yoqvdfbg"
+        }
+      ],
+      "source_id": "kzf4kmljvhl67if"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Immer stimmen sie, immer: die Fernen bedünket es / Wohllaut, / An das genäherte Ohr schläget ein wildes Geräusch,",
+      "language": [],
+      "musenalm_id": 42416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unentschlossenheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unentschlossenheit",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "aa8bjhc5ynuibc3"
+        }
+      ],
+      "source_id": "cl7xdu5wcx9q65r"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Fertig steht es, ein Stein: frisch grünet im Leben das / andre,",
+      "language": [],
+      "musenalm_id": 42417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unterschied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unterschied",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.168Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.168Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "9dewlsu51b56qhk"
+        }
+      ],
+      "source_id": "5x5rc8jshjishak"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Weil Dir's Einmal gelang, soll's immer gelingen, wie / thöricht,",
+      "language": [],
+      "musenalm_id": 42418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mißgriff",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mißgriff",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.169Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "x0brxz3wfaimcwi"
+        }
+      ],
+      "source_id": "6k70r2iyszodb9g"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Kennst Du die Widerlichste der Widerlichkeiten? Der / Unsinn / Ist's,",
+      "language": [],
+      "musenalm_id": 42419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An P.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An P.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.169Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "g0elc7vyxyt3spf"
+        }
+      ],
+      "source_id": "fgk65x7y9tb2kgt"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Schön ist, was Du erwarbst: vom hausgekröneten / Hügel / Schweifet der Blick ringsher",
+      "language": [],
+      "musenalm_id": 42420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Körper und Geist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Körper und Geist",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.258Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.258Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "v92goai9zk0alqs"
+        }
+      ],
+      "source_id": "r507ibqx2njkfbu"
+    },
+    {
+      "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "Unwillkommen erschreckt, anglänzend der Spiegel der / Wahrheit, / Hauche Du leis' ihn an,",
+      "language": [],
+      "musenalm_id": 42421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rath",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.189Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "jiqyx0dwbg91g9c"
+        }
+      ],
+      "source_id": "q7z0t6vdj3ew0wr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Nie hat es wohl ein im Aeußern sich ungleicheres Paar gegeben, als den Grafen von Strahlenfels und seine Gemahlinn Cölestine.",
+      "language": [],
+      "musenalm_id": 42422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Schnee. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Schnee. / Eine Erzählung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.189Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "nbofxikkic1crsl"
+        }
+      ],
+      "source_id": "namgziclvan89do"
+    },
+    {
+      "annotation": "Sammlung von 27 Rätseln und 1 Sammlung mit 14 Rätseln INr 42424-42465, Obj 46-87",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "473",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Agrionien / für 1826. / Gesammelt von Theodor Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Agrionien / für 1826. / Gesammelt von Theodor Hell",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "ttio35ljdwhwa6o"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "475",
+      "incipit_statement": "Wollest, bevor Du mich prüfst, mein letztes Zeichen ver- / doppeln!",
+      "language": [],
+      "musenalm_id": 42424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Dreisylbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Dreisylbige Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.189Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "9tl15ecn4py6jeh"
+        }
+      ],
+      "source_id": "904b71w43h6g9fg"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "476",
+      "incipit_statement": "Aus England kam die erste Sylbe. - Wohl, / So wollen wir an deutsches Wort sie fügen,",
+      "language": [],
+      "musenalm_id": 42425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.227Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "04sw3xxzjgv21xh"
+        }
+      ],
+      "source_id": "dzf8r2rcnqo1v9x"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "476",
+      "incipit_statement": "Die Zweite rauscht mit ihren leichten Flügeln / Zur Ewigkeit, nichts hemmet ihren Flug,",
+      "language": [],
+      "musenalm_id": 42426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.227Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "vzdw7roaw0atvjl"
+        }
+      ],
+      "source_id": "8bvh7570b9oa3lz"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "477",
+      "incipit_statement": "Meine Erste, wie der Demant hell, / Siehst Du, Leser, vielgestaltig,",
+      "language": [],
+      "musenalm_id": 42427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "icukhkuale67mvu"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "477",
+      "incipit_statement": "Des Hasses Opfer, der mit wilder Muth / Verderben dräut, floh ich zum fernen Reiche.",
+      "language": [],
+      "musenalm_id": 42428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Charade.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Charade.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "u9ij9kd5bqooxf4"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "478",
+      "incipit_statement": "In den beiden ersten, die Natur, / Holde Freundin, Dir so schön gegeben,",
+      "language": [],
+      "musenalm_id": 42429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Charade von drei Sylben. / An .....",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kerkow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Charade von drei Sylben. / An .....",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "y1rke0rw9uxc5in"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "479",
+      "incipit_statement": "Hast Du bei jeglichem Letzten des Nächsten Erstes im / Auge,",
+      "language": [],
+      "musenalm_id": 42430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Charade von zwei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Charade von zwei Sylben",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.227Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "pocha6uereq9m3q"
+        }
+      ],
+      "source_id": "p33gap24igz4a0e"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "479",
+      "incipit_statement": "Ich kenne eine Perle, so rein und klar, / Und ihre Entstehung ist wunderbar:",
+      "language": [],
+      "musenalm_id": 42431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hedwig Hülle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "68v38vba27di2ch"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "480",
+      "incipit_statement": "Spähend nach der Allmacht Reichen, / Sieh' zur Himmelsbahn mich fliegen;",
+      "language": [],
+      "musenalm_id": 42432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. v. Haupt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Logogryph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "aysi4u9i6226uow"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "480",
+      "incipit_statement": "Kennst Du das kleine Halbgewölbe, / Das wohl den reichsten Schatz umschließt?",
+      "language": [],
+      "musenalm_id": 42433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.227Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "5lbgtqpi1i4hq9y"
+        }
+      ],
+      "source_id": "nzq9yg0fifvb7pm"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "481",
+      "incipit_statement": "Sprich mein G. wo kommst Du her / Voller H. und sonder R. ?",
+      "language": [],
+      "musenalm_id": 42434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Logogryph",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Logogryph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "t961ym29z3bjjjc"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "481",
+      "incipit_statement": "Der Ersten gleich, die über uns gewaltet / Aeonen lang, in stiller Majestät;",
+      "language": [],
+      "musenalm_id": 42435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Charade. / An Auguste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Lessing",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Charade. / An Auguste",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "0pv18uoltjmln2t"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "482",
+      "incipit_statement": "Ich bin nicht in der Lieb', / Wohl aber in der Treue,",
+      "language": [],
+      "musenalm_id": 42436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "z6kta4deww947k9"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "482",
+      "incipit_statement": "Ein edler Grieche zog ich einst zum Streit / Und zwar geehrt von den Gefährten allen.",
+      "language": [],
+      "musenalm_id": 42437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / Palindrom",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / Palindrom",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.323Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "1z03ytvjvws4cp2"
+        }
+      ],
+      "source_id": "il54hdjapjah0z5"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "483",
+      "incipit_statement": "Wie sich Manches in der Welt / Sonderbar zusammenstellt!",
+      "language": [],
+      "musenalm_id": 42438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Logogryph",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Logogryph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.323Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "r4lyep3bd1ixvbt"
+        }
+      ],
+      "source_id": "c4ig1kzoy0d8v37"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "483",
+      "incipit_statement": "Was meine Erste Dir nennt, das deutet Dir auch meine / Zweite,",
+      "language": [],
+      "musenalm_id": 42439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "f7t3hw96tt886xs"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "484",
+      "incipit_statement": "Ein Dämchen, selbst mir Dir verwandt, / Des Todes längst verblichen,",
+      "language": [],
+      "musenalm_id": 42440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17. / Palindrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Harrys",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17. / Palindrom",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gvu9rfyxj5chg8"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.513Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "484",
+      "incipit_statement": "Noch einmal sollst Du einen Frühling leben, / Wenn die zwei Ersten sagen, daß er kehrt.",
+      "language": [],
+      "musenalm_id": 42441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18. / Charade von drei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hedwig Hülle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18. / Charade von drei Sylben",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "8c46pl52ab9z587"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "485",
+      "incipit_statement": "Ich bin wohl nicht der kleinste Fluß, / Den man in Deutschland hat,",
+      "language": [],
+      "musenalm_id": 42442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19. / Viersylbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19. / Viersylbige Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "29ne1qs1hl4cld5"
+    },
+    {
+      "annotation": "Sammlung von 14 Rätseln INr 42444-42457, Obj 66-79 /)  VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20. / Zwei-Gespräch in Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20. / Zwei-Gespräch in Charaden",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.294Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.294Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "x60x2jecbtkpstq"
+        }
+      ],
+      "source_id": "b54du7kklrudyio"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "Guten Morgen, meine Freundin! Ei, wie geputzt!",
+      "language": [],
+      "musenalm_id": 42444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.901Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.901Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "3p4reoul0aw46lu"
+        }
+      ],
+      "source_id": "iexjoj2sgqus14j"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "Es wird noch besser kommen, liebes Hannchen! Hast Du Wilhelm gesprochen?",
+      "language": [],
+      "musenalm_id": 42445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. 4. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. 4. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.750Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.750Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "aihn48sx5gfoo75"
+        }
+      ],
+      "source_id": "li2ht2sppfjhqia"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "Du gutes Kind! Man merkt Dir das Erste, daß Du mit Deinem Letzten recht zufrieden bist!",
+      "language": [],
+      "musenalm_id": 42446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.848Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.848Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "m7ah0s2rvym39ks"
+        }
+      ],
+      "source_id": "csui8qg5u16rvu0"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Wenigstens hätte mir das Glück keinen bessern 2. 3. Auf dem Pfade des Lebens zusenden können!",
+      "language": [],
+      "musenalm_id": 42447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.848Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.848Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "p33bvu5nnmd0lke"
+        }
+      ],
+      "source_id": "hu7k430gmx8xkkh"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Da möchte das neidische Röschen wohl ziemlich die Letzten sehen.",
+      "language": [],
+      "musenalm_id": 42448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.848Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.848Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "g4r7h9v2v0ubysu"
+        }
+      ],
+      "source_id": "7wis2nrhk5stncl"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Uns're Hochzeit ist bald nach dem Ganzen angesetzt.",
+      "language": [],
+      "musenalm_id": 42449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.848Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.848Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "pavx3t1ief0evu3"
+        }
+      ],
+      "source_id": "x511lrojx184ol2"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Ein seltsames Ganzes! Doch was Deine Ausstattung anbetrifft, so stelle doch Deiner guten Mutter das Erste,",
+      "language": [],
+      "musenalm_id": 42450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.848Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.848Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "fbs364yuobgrwsr"
+        }
+      ],
+      "source_id": "vcpocf2b20wexa0"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Wie gut Du bist! Wenn Du nun durchaus an meinem Letzten arbeiten willst, so erlaube mir wenigstens,",
+      "language": [],
+      "musenalm_id": 42451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.848Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.848Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "fhv8zknby99vqv0"
+        }
+      ],
+      "source_id": "kotctr7zppplove"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Topp, ich nehm' es an! Also auch vom Tanz ist die Zweite und Dritte!",
+      "language": [],
+      "musenalm_id": 42452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.849Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.849Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "so9azb057wva2px"
+        }
+      ],
+      "source_id": "xymltu0ewx5ew3a"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Du hast Recht! Zu viel Rührung dämpft das Erste und Zweite der Freude.",
+      "language": [],
+      "musenalm_id": 42453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.849Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.849Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "pnnnohvwrvsumvm"
+        }
+      ],
+      "source_id": "4licli6mts5ihpi"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Aber da er so liebreich für uns're Augen sorgt; hat er nicht auch zugleich uns're Ersten bedacht?",
+      "language": [],
+      "musenalm_id": 42454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.849Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.849Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "pprr7o4y9o1i1wj"
+        }
+      ],
+      "source_id": "b4cq9r2z3pkg7e6"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Darauf denkt er gewiß. Er weiß, welche Ersten sein Spiel auf der Dritten und Vierten über mein Gemüth übte;",
+      "language": [],
+      "musenalm_id": 42455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. 3. 4. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. 3. 4. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.849Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.849Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "4pys2pxooyf22cm"
+        }
+      ],
+      "source_id": "hxdjk71d7mlmfl5"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "489",
+      "incipit_statement": "Das soll ein Freudenfest werden! Nimm im Voraus mein Ganzes zu demselben.",
+      "language": [],
+      "musenalm_id": 42456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. / Hannchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. / Hannchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.849Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.849Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "rvz2wrquml7rqhd"
+        }
+      ],
+      "source_id": "i1a9z0noyl4y6so"
+    },
+    {
+      "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "489",
+      "incipit_statement": "Ich danke dir herzlich. Aber begleitest Du mich nicht in mein Erstes?",
+      "language": [],
+      "musenalm_id": 42457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. 2. / Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. 2. / Lieschen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.849Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.849Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "1l2kagmd27qk1ev"
+        }
+      ],
+      "source_id": "qp0b6ybfapi3xk9"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "489",
+      "incipit_statement": "Zwei Sylben biet' ich Euch jetzt an, / Die nie es jemand recht gethan,",
+      "language": [],
+      "musenalm_id": 42458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.850Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "uyjb1x2rnrahjyi"
+        }
+      ],
+      "source_id": "mzsqja39qbzfsp4"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "490",
+      "incipit_statement": "Ach! So lieblich mir entgegen / Sprach's mit W. und wild und süß;",
+      "language": [],
+      "musenalm_id": 42459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "22. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "22. / Logogryph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "ckcndwc66mplyf6"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "491",
+      "incipit_statement": "Wehe! Bist die Dreie Du, / Brauchst Du dann nicht sonder Ruh',",
+      "language": [],
+      "musenalm_id": 42460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "23. / Logogryph. / (Sechs Zeichen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. v. Haupt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "23. / Logogryph. / (Sechs Zeichen.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "kg9ma57540a5a8o"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "491",
+      "incipit_statement": "Seht, ich bin ein eignes Wort, / Aus zwei Sylben nur gedrechselt,",
+      "language": [],
+      "musenalm_id": 42461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "24. / Vielname",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "24. / Vielname",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.880Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.880Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "to7r2a5xkwx2ycm"
+        }
+      ],
+      "source_id": "rgya7sohe4k8xm4"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "492",
+      "incipit_statement": "Lächeln uns der Ersten Blicke, / Sind die Zweiten auch zu schauen,",
+      "language": [],
+      "musenalm_id": 42462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "25. / Viersylbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "25. / Viersylbige Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.880Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.880Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "dykkt9w59s8z1ms"
+        }
+      ],
+      "source_id": "c41s6um92m9208m"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "493",
+      "incipit_statement": "Bald ist das liebe Christkind da! / Man sieht's, weil ämsig Mama",
+      "language": [],
+      "musenalm_id": 42463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "26. / Buchstabenräthsel. / (Die fünf ersten Buchstaben.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lessing",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "26. / Buchstabenräthsel. / (Die fünf ersten Buchstaben.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "tm97hkty5021pwc"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "494",
+      "incipit_statement": "In Fesseln legt des Menschen Geistesstärke, / Die ersten Beiden, nützt als Sklaven sie,",
+      "language": [],
+      "musenalm_id": 42464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "27. / Viersylbige Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "27. / Viersylbige Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.880Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.880Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "on2ou016iitmome"
+        }
+      ],
+      "source_id": "jyvn69oejvlx4xi"
+    },
+    {
+      "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "495",
+      "incipit_statement": "Die erste Sylbe ist des Winters Kind, / Doch auch im Sommer gern gesehn von vielen,",
+      "language": [],
+      "musenalm_id": 42465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "28. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "28. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.147Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.147Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "ba0apxl75zrw795"
+        }
+      ],
+      "source_id": "49q1b5pp9cvo5wt"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "495",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "5k8homlhme6juuk"
+    }
   ],
   "agents": [
     {

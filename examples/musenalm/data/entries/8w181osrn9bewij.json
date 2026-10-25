@@ -48,13 +48,172 @@
   "year": 1769,
   "editor": "gpj6tpa1lmk3vpy",
   "items": [
-    "vb4zddz486nadbw"
+    {
+      "annotation": "franz. Ausgabe mit ausgefallenem Umschlagschmuck. in Kassette",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.806Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "410824",
+      "location": "003Tresor1",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-07-28 08:30:26.674Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vb4zddz486nadbw"
+    }
   ],
   "contents": [
-    "v3l2pl3ldjbqa8g",
-    "0jpjyf3v4af58ar",
-    "yt7grt5hgcoqam3",
-    "uf124jor39mzvmh"
+    {
+      "annotation": "Umschlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134320,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4752_134320_jy9vb65ndz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-09-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1769,
+      "editor": "",
+      "agents": [],
+      "source_id": "v3l2pl3ldjbqa8g"
+    },
+    {
+      "annotation": "<div>Exlibris</div>",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134321,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4752_134321_4kda61ppxs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-07-28 09:23:51.134Z",
+      "variant_title": "",
+      "year": 1769,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "0jpjyf3v4af58ar"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134322,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Marillier)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Marillier",
+      "scans": [
+        "alm_4752_134322_lw6tpjztor.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-09-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1769,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.123Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.123Z",
+          "agent": "bu3konvf3260dzz",
+          "source_id": "fjmtbefdsa5qkvn"
+        }
+      ],
+      "source_id": "yt7grt5hgcoqam3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134323,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / DE GOTHA / contenant / diverses connoissances curieuses et utiles, / pour l'Année / MDCCLIX / à Gotha / Chez la Veuve de J. P. Mevius / et J. C. Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4752_134323_vf7hgov06h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / DE GOTHA / contenant / diverses connoissances curieuses et utiles, / pour l'Année / MDCCLIX / à Gotha / Chez la Veuve de J. P. Mevius / et J. C. Dieterich",
+      "updated": "2020-09-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1769,
+      "editor": "",
+      "agents": [],
+      "source_id": "uf124jor39mzvmh"
+    }
   ],
   "agents": [
     {

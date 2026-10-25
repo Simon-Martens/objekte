@@ -48,33 +48,999 @@
   "year": 1814,
   "editor": "",
   "items": [
-    "0hgbgqak5isvh6r"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200424",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0hgbgqak5isvh6r"
+    }
   ],
   "contents": [
-    "uylsplvetg9yqvo",
-    "zjqejq996kpules",
-    "o0r6di3gyssipp3",
-    "ubls0sc92ry29mc",
-    "afpap7m1cphlkbf",
-    "6mfukz0x9u44r2v",
-    "tv1f62a42ir9y22",
-    "xmxrs83lhdq6l94",
-    "gpejz62mk4t155n",
-    "ow9zaekv9dj4od8",
-    "z2s2g8e6ryc3n5a",
-    "heqvzc6tq3wlslp",
-    "fkaubsodz7yb2tb",
-    "mvo4kz86usmp17e",
-    "5rha4al52lnc2f9",
-    "ppz4sefa4dhrzyc",
-    "uu7e9283j48e25r",
-    "d4nm5cyxj04tdob",
-    "pny0eznhz8qgj1t",
-    "pbsvi4gudwhhrzl",
-    "eylslvw0tt02tdp",
-    "0b6g8teqylhh6ww",
-    "pxpulcp1nxwun6a",
-    "x2ce20ecvbac4j2"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52342,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_714_52342_2x74bj37m9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "uylsplvetg9yqvo"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52343,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. GESSNER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_714_52343_8hi761y59g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. GESSNER",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "zjqejq996kpules"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52344,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Casino",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Hegi",
+      "scans": [
+        "alm_714_52344_zjps11z4xt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Casino",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.465Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.465Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "bctbeteg38fjtw9"
+        }
+      ],
+      "source_id": "o0r6di3gyssipp3"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52345,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1814. / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_714_52345_f8cz92zi7o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1814. / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "ubls0sc92ry29mc"
+    },
+    {
+      "annotation": "s.: Almanach, Helvetischer 1803. alm-703",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Ursache, warum wir eine Darstellung des Kantons Zürich (dergleichen schon in 1803 eine, in mehrern Rücksichten sehr wohlgerathene erschienen war) für das Jahr 1814 zum zweyten Mal geben",
+      "language": [],
+      "musenalm_id": 52346,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "afpap7m1cphlkbf"
+    },
+    {
+      "annotation": "mit 12 Illustrationen s. Titelgraphik 52344, Obj 3; Graphiken INr 52348-52358, Obj 7-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Von Karten, welche den Kanton Zürich ins besondere darstellen, sind unstreitig die besten, oder vielmehr die einzig guten",
+      "language": [],
+      "musenalm_id": 52347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Topographisch-statistische / Beschreibung / des Cantons / Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Topographisch-statistische / Beschreibung / des Cantons / Zürich",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "6mfukz0x9u44r2v"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von dem Signal auf dem Schnabelberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Wezel del. F. Hegi sc.",
+      "scans": [
+        "alm_714_52348_dennhqnxnc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Von dem Signal auf dem Schnabelberg",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.548Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "9m55409ultitjt4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.548Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "liii7oldxxq0w6r"
+        }
+      ],
+      "source_id": "tv1f62a42ir9y22"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Bauer aus der Gegend am Zürichsee",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52349_rzr99moyrb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Bauer aus der Gegend am Zürichsee",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.548Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "csxdkfyjtdovc11"
+        }
+      ],
+      "source_id": "xmxrs83lhdq6l94"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Mädchen aus der Gegend am Zürichsee",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52350_k5exgwkt74.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Mädchen aus der Gegend am Zürichsee",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.548Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "31u212zf42sdusr"
+        }
+      ],
+      "source_id": "gpejz62mk4t155n"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Bauer aus Schöfflistorf",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52351_6ku3o6d3q0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Bauer aus Schöfflistorf",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.548Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "kye6scc9uindjah"
+        }
+      ],
+      "source_id": "ow9zaekv9dj4od8"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Mädchen aus der Gegend v. Knonau",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52358_vivxassklm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Mädchen aus der Gegend v. Knonau",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.549Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "jezt0yw70al6h7b"
+        }
+      ],
+      "source_id": "z2s2g8e6ryc3n5a"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Bauernmädchen von Kyburg",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52352_nxeepdcld3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Bauernmädchen von Kyburg",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.548Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.548Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "dhqohi46ji0asqm"
+        }
+      ],
+      "source_id": "heqvzc6tq3wlslp"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cappel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Hegi del.",
+      "scans": [
+        "alm_714_52353_boh82xphag.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cappel",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.549Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "dfmicoqfcvzap4h"
+        }
+      ],
+      "source_id": "fkaubsodz7yb2tb"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Bauernmädchen aus dem Wenthal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52354_wux52a6341.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Bauernmädchen aus dem Wenthal",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.549Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "9ye6yq6txz5rfqn"
+        }
+      ],
+      "source_id": "mvo4kz86usmp17e"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Zürich. / Mädchen aus der Gegend v. Winterthur",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_714_52355_w50bu703no.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Zürich. / Mädchen aus der Gegend v. Winterthur",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.549Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "wmkyzw2ln9fp90b"
+        }
+      ],
+      "source_id": "5rha4al52lnc2f9"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winterthur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_714_52356_5s4scel3bf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Winterthur",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "ppz4sefa4dhrzyc"
+    },
+    {
+      "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zürich von der Bauschanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Hegi sc.",
+      "scans": [
+        "alm_714_52357_jqzrmfy00v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zürich von der Bauschanze",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.549Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "q5jya3irdk0pezr"
+        }
+      ],
+      "source_id": "uu7e9283j48e25r"
+    },
+    {
+      "annotation": "u.a.: Verfassung des Cantons, Schulwesen, Handelschaft, Bevölkerung etc; die ausfaltbare Tabelle »Viehbestand« wir als Photo gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anhang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anhang",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "d4nm5cyxj04tdob"
+    },
+    {
+      "annotation": "Beigabe zu »Anhang« [zu: Topographisch-statistische Beschreibung des Cantons Zürich] INr 52359, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Viehbestand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_714_52360_mu8g83bna9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Viehbestand",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "pny0eznhz8qgj1t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berichtigungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berichtigungen",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "pbsvi4gudwhhrzl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "eylslvw0tt02tdp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "0b6g8teqylhh6ww"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Canton / ZÜRICH / 1813",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Keller del. J. J. Scheurmann sc.",
+      "scans": [
+        "alm_714_52363_87qbofxpr8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Canton / ZÜRICH / 1813",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.562Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.562Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "zszpn4g2odscp2l"
+        }
+      ],
+      "source_id": "pxpulcp1nxwun6a"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52365,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_714_52365_oittf3d70t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "x2ce20ecvbac4j2"
+    }
   ],
   "agents": [
     {

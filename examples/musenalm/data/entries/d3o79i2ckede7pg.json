@@ -48,65 +48,2343 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "2qkhumb88l538i8",
-    "h398hq3sfo5ncup"
+    {
+      "annotation": "1798-1831\n§1§ G fehlt [Modekupfer No 1.]",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.491Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100643",
+      "location": "105F01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.491Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2qkhumb88l538i8"
+    },
+    {
+      "annotation": "UG, G",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.491Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "405895",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.491Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "h398hq3sfo5ncup"
+    }
   ],
   "contents": [
-    "97zkgcujjcehnmg",
-    "yheqhq4jl0c67eu",
-    "nyv11ea73sd1511",
-    "13tfg45ekhfwa0k",
-    "huuqnpa7nrhtmdw",
-    "v1z9pars4ryqmq8",
-    "lb2ja4g7am22bty",
-    "zaktq82f4kkb492",
-    "f4ru35zei7p9v98",
-    "pp4gsa3q24msiqn",
-    "00y8t84hufniyln",
-    "ffjnp862wzfleba",
-    "77xjgviirdh3y3v",
-    "o8mq6o5b96hh2cc",
-    "royoo77j7eo0ill",
-    "f0nke02mrbc1ja5",
-    "f3vkqmcyvjmehsy",
-    "4n7cce9tzw3mtmo",
-    "q8e7vgqsvif4flm",
-    "3b92g778cpc05nm",
-    "tr07148o8oeqnpo",
-    "zeuh6pvybwpb32p",
-    "61an7y5mv6n5zu1",
-    "9y47a71djav5wt5",
-    "egiemjd0ha5yd19",
-    "mrrserpaxny6cmi",
-    "ww9o4hrt1ggklau",
-    "y55pir4ynmyntfh",
-    "s2zctj1mxywmhbn",
-    "py38r2bv138v1jk",
-    "sjl4slp9boizvvp",
-    "scs5y92k02qw66y",
-    "ao2kjo9ypzdx1dm",
-    "qyw37e4u7zpmi3p",
-    "9e6pbm0lk3xrgc4",
-    "x3xl2xhio1i39nj",
-    "ga66r46ano59d4z",
-    "ch44d9pontpm02v",
-    "1ta0yszj56sq7gn",
-    "nc597j1plwzqk5f",
-    "7menbjidfwqhloe",
-    "aobaxqy4o3er76c",
-    "4rokxpc4in6eel9",
-    "9r6hqb7irsf509x",
-    "d8v0paanmcau87t",
-    "vsbvo4op63ey86s",
-    "0ndz34eomczp5nf",
-    "akiytf7cxas11xl",
-    "jg701zatdsmpzyx",
-    "vi22czig57asxtp",
-    "2hprqfdckk76tx5",
-    "yru244o2u3xsdz5",
-    "emyrq5ii52tt6hg",
-    "86bx2i6th03kzud",
-    "3ofzfzyld6n6rmo"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48652,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_453_48652_2yogj29xul.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "97zkgcujjcehnmg"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 32693, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ehret die Frauen! sie flechten und weben / Himmlische Rosen ins irdischen Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Catel inv.",
+      "scans": [
+        "alm_453_32689_725aj2vqq8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ehret die Frauen! sie flechten und weben / Himmlische Rosen ins irdischen Leben",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "phzf4w13u0j91ko"
+        }
+      ],
+      "source_id": "yheqhq4jl0c67eu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32690,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenkalender / auf das Jahr 1798 / für / Damen. / Herausgegeben / von / Huber, Lafontaine, Pfeffel Sulzer. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_453_32690_hnxkmf1wb8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenkalender / auf das Jahr 1798 / für / Damen. / Herausgegeben / von / Huber, Lafontaine, Pfeffel Sulzer. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "nyv11ea73sd1511"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32691,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "13tfg45ekhfwa0k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32692,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / auf das Jahr 1798 / für / Damen. / Herausgegeben / von / Huber, Lafontaine, Pfeffel, Sulzer. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / auf das Jahr 1798 / für / Damen. / Herausgegeben / von / Huber, Lafontaine, Pfeffel, Sulzer. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "huuqnpa7nrhtmdw"
+    },
+    {
+      "annotation": "Sammlung von 7 Textbezügen zu den Graphiken INr 32689, 32694-32707, Obj 1, 6-19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32693,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "v1z9pars4ryqmq8"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Titelgraphik INr 32689, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Für das Titelkupfer wurde der Anfang des trefflichen Gedichts von Schiller: -Würde der Frauen - gewählt:",
+      "language": [],
+      "musenalm_id": 32694,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Für das Titelkupfer wurde der Anfang des trefflichen Gedichts von Schiller: -Würde der Frauen - gewählt:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "lb2ja4g7am22bty"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) es folgen 6 Textbezügen zu den 6 Graphiken nach Motiven aus: Johann Rudolf Sulzer: Briefe von Julchen Lerse INr 32696-32707, Obj 8-19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Indem wir die Erklärung der Kupfer N. 1-6. beginnen, müssen wir zweyerley bedauern. Einmal daß wir nicht so glücklich sind, sie, von der Meisterhand des Verfassers der Briefe von Julchen Lerse selbst geschrieben, unsern Leserinnen mittheilen zu können.",
+      "language": [],
+      "musenalm_id": 32695,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Indem wir die Erklärung der Kupfer N. 1-6. beginnen, müssen wir zweyerley bedauern. Einmal daß wir nicht so glücklich sind, sie, von der Meisterhand des Verfassers der Briefe von Julchen Lerse selbst geschrieben, unsern Leserinnen mittheilen zu können.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zaktq82f4kkb492"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Graphik INr 32697, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Bald nach des Vaters Abreise ließ sich ein Fremder melden, der mit den vollgültigsten Empfehlungen von einem geschäzten Verwandten,",
+      "language": [],
+      "musenalm_id": 32696,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4ru35zei7p9v98"
+    },
+    {
+      "annotation": "paginiert 1. /) Illustration zu »Briefe von Julchen Lerse« von Johann Rudolf Sulzer s. Textbezug INr 32696, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32697,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unbefangen fragte er nach Julie Lerse. / Ich verneigte mich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1797",
+      "scans": [
+        "alm_453_32697_z3qz29dgob.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Unbefangen fragte er nach Julie Lerse. / Ich verneigte mich",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.744Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "fq5vg91afreyks5"
+        }
+      ],
+      "source_id": "pp4gsa3q24msiqn"
+    },
+    {
+      "annotation": "paginiert 2. /) Illustration zu »Briefe von Julchen Lerse« von Johann Rudolf Sulzer s. Textbezug INr 32699, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32698,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "indem er mit seinem Stock einen Kreis / um mich herum in den Sand zeichnete.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1797",
+      "scans": [
+        "alm_453_32698_qw4xkkq9d4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "indem er mit seinem Stock einen Kreis / um mich herum in den Sand zeichnete.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "lgsx14qlatarft1"
+        }
+      ],
+      "source_id": "00y8t84hufniyln"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Graphik INr 32698, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Mildheim, so nannte sich der Fremde, machte auf Julchen ganz den Eindruck,",
+      "language": [],
+      "musenalm_id": 32699,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ffjnp862wzfleba"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Graphik INr 32703, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Mildheim entwikelt täglich neue Vorzüge des Geistes und des Herzens",
+      "language": [],
+      "musenalm_id": 32700,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "77xjgviirdh3y3v"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Graphik INr 32704, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Mildheim wird immer räthselhafter, man fängt an, die Vermuthung zu fassen,",
+      "language": [],
+      "musenalm_id": 32701,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "o8mq6o5b96hh2cc"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Graphik INr 32706, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Der Schreken über diese Gefahr drohte am folgenden Tage der Tante mit einem Schlagfluß.",
+      "language": [],
+      "musenalm_id": 32702,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "royoo77j7eo0ill"
+    },
+    {
+      "annotation": "paginiert 3. /) Illustration zu »Briefe von Julchen Lerse« von Johann Rudolf Sulzer s. Textbezug INr 32700, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32703,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dir geschehe wie du wünschest! Morgen um acht / Uhr erwarte ich Dich im Gasthof zum Ochsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1797",
+      "scans": [
+        "alm_453_32703_10mfjydqsi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dir geschehe wie du wünschest! Morgen um acht / Uhr erwarte ich Dich im Gasthof zum Ochsen",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "qas1q4q8gpncs0i"
+        }
+      ],
+      "source_id": "f0nke02mrbc1ja5"
+    },
+    {
+      "annotation": "paginiert 4. /) Illustration zu »Briefe von Julchen Lerse« von Johann Rudolf Sulzer s. Textbezug INr 32701, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.671Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32704,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Er rettete mich und die Tante von / der Wuth des Stiers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1797",
+      "scans": [
+        "alm_453_32704_h0tyi80666.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Er rettete mich und die Tante von / der Wuth des Stiers",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "ruez9rw3gg9ihpp"
+        }
+      ],
+      "source_id": "f3vkqmcyvjmehsy"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 32693, Obj 5) s. Graphik INr 32707, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Mildheim hat so eben zwey Menschen vom natürlichen Tode gerettet;",
+      "language": [],
+      "musenalm_id": 32705,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "4n7cce9tzw3mtmo"
+    },
+    {
+      "annotation": "paginiert 5. /) Illustration zu »Briefe von Julchen Lerse« von Johann Rudolf Sulzer s. Textbezug INr 32702, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32706,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermuthlich der fremde Herr von gestern? / Herr Mildheim, denke ich?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1797",
+      "scans": [
+        "alm_453_32706_ditde37sne.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vermuthlich der fremde Herr von gestern? / Herr Mildheim, denke ich?",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "m5wfqr0x81jgdw1"
+        }
+      ],
+      "source_id": "q8e7vgqsvif4flm"
+    },
+    {
+      "annotation": "paginiert 6. /) Illustration zu »Briefe von Julchen Lerse« von Johann Rudolf Sulzer s. Textbezug INr 32705, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32707,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Und an Griesenbergs Hand trat Mildheim ins Zimmer. / Dalberg sprang beyden entgegen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1797",
+      "scans": [
+        "alm_453_32707_9myn6a121o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Und an Griesenbergs Hand trat Mildheim ins Zimmer. / Dalberg sprang beyden entgegen",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "r86fh2pox0wwjl5"
+        }
+      ],
+      "source_id": "3b92g778cpc05nm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein Wilder zwang nach alter Sitte / Einst seines Bübchens weichen Kopf",
+      "language": [],
+      "musenalm_id": 32708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wilde und der Europäer. / Nach Minervois",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wilde und der Europäer. / Nach Minervois",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "5efbyx4mc0hffey"
+        }
+      ],
+      "source_id": "tr07148o8oeqnpo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Nun genug geschwärmt, lieber Goldberg. Ich bin auf dem Kapitolio gewesen, unter den Löwen des Heil.",
+      "language": [],
+      "musenalm_id": 32709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gefährliche Probe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die gefährliche Probe",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.536Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "jbotel92cntpaho"
+        }
+      ],
+      "source_id": "zeuh6pvybwpb32p"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Dem Beitrag vorangestellt: Die Abendgrillen sind Aufsätze von einer sehr liebenswürdigen Frau, oder sie könnten es seyn. [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Freude, Vergnügen, Wollust, Ruhe, Zufriedenheit? keins von den Worten paßt. Wie arm ist die Sprache, die Gefühle zu bezeichnen!",
+      "language": [],
+      "musenalm_id": 32710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendgrillen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendgrillen",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.536Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "826ejp8k1tpaatp"
+        }
+      ],
+      "source_id": "61an7y5mv6n5zu1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Am Fuße des Latmos wölbt sich eine tiefe Grotte, / Vom Finger der Natur der Kunst Vitruvs zum Spotte",
+      "language": [],
+      "musenalm_id": 32711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Galathea. 1764",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Galathea. 1764",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.536Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "ns3s7mw51tv1dq4"
+        }
+      ],
+      "source_id": "9y47a71djav5wt5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Ein schlimmer Weyh, ein Ausbund frecher Diebe, / Traf einst den edlen Pelikan",
+      "language": [],
+      "musenalm_id": 32712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pelikan und der Weyh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pelikan und der Weyh",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.536Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "331mloq4sxbdr3n"
+        }
+      ],
+      "source_id": "egiemjd0ha5yd19"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz. Sammlung von 4 Textbezügen und 4 bez. Graphiken INr 32714-32721, Obj 26-33. §1§ Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fragmente von Briefen einer Mutter / an ihre verheirathete Tochter. / (Als Beilage zu den Kupfern.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fragmente von Briefen einer Mutter / an ihre verheirathete Tochter. / (Als Beilage zu den Kupfern.)",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.536Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "t2ck5mbcp5qvvei"
+        }
+      ],
+      "source_id": "mrrserpaxny6cmi"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Fragmente von Briefen einer Mutter an ihre verheirathete Tochter. Als Beilage zu den Kupfern. (Sammlung INr 32713, Obj 25) s. Graphik INr 32715, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Ich habe deinen Brief, meine geliebte Tochter, und er macht mich fast abergläubig;",
+      "language": [],
+      "musenalm_id": 32714,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "pvahvzek5xgxs3r"
+        }
+      ],
+      "source_id": "ww9o4hrt1ggklau"
+    },
+    {
+      "annotation": "s. Textbezug INr 32714, Obj 26 /) #zur. Bez. s.: B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« SS 278 f",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.714Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32715,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gest. von Anton Karcher Mannh.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Gest. von Anton Karcher Mannh.",
+      "scans": [
+        "alm_453_32715_40h6zkmqzc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "5vg48yr315pum30",
+          "source_id": "441ryij52hpyr3h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "b334ivfypj3aic9",
+          "source_id": "uofudie2ixjwz4t"
+        }
+      ],
+      "source_id": "y55pir4ynmyntfh"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Fragmente von Briefen einer Mutter an ihre verheirathete Tochter. Als Beilage zu den Kupfern. (Sammlung INr 32713, Obj 25) s. Graphik INr 32717, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Alles,was ich iezt erblicke, alles was mich umgiebt, scheint mir Beziehung auf dich und auf unsre Hoffnung zu haben.",
+      "language": [],
+      "musenalm_id": 32716,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "if0hpriiymfa50x"
+        }
+      ],
+      "source_id": "s2zctj1mxywmhbn"
+    },
+    {
+      "annotation": "s. Textbezug INr 32716, Obj 28 /) # zur. Bez. s.: B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« SS 278 f",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (d'Argent sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_453_32717_7cnzm28p57.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "f9au0pr8wk0a0rv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "5vg48yr315pum30",
+          "source_id": "zm92aglo5o9maas"
+        }
+      ],
+      "source_id": "py38r2bv138v1jk"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Fragmente von Briefen einer Mutter an ihre verheirathete Tochter. Als Beilage zu den Kupfern. (Sammlung INr 32713, Obj 25) s. Graphik INr 32719, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "Seit ich mich in diesem Lande niederließ, bin ich jetzt zum erstenmal wieder in die Stadt gekommen,",
+      "language": [],
+      "musenalm_id": 32718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "tz25ezicvabkjd3"
+        }
+      ],
+      "source_id": "sjl4slp9boizvvp"
+    },
+    {
+      "annotation": "s. Textbezug INr 32718, Obj 30 /) # zur. Bez. s.: B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« SS 278 f",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (d'Argent sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_453_32719_0e6qi0ai6w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "mrywnd92kqsr7kb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "5vg48yr315pum30",
+          "source_id": "rag75nrc8duwtrh"
+        }
+      ],
+      "source_id": "scs5y92k02qw66y"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Fragmente von Briefen einer Mutter an ihre verheirathete Tochter. Als Beilage zu den Kupfern. (Sammlung INr 32713, Obj 25) s. Graphik INr 32721, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Mein Besuch bei den guten Menschen in *** hatte mir den angenehmsten Eindruck von ihrer Ruhe und Heiterkeit hinterlassen.",
+      "language": [],
+      "musenalm_id": 32720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.537Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "6hmaixqssqpbggm"
+        }
+      ],
+      "source_id": "ao2kjo9ypzdx1dm"
+    },
+    {
+      "annotation": "s. Textbezug INr 32720, Obj 32 /) # zur. Bez. s.: B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« SS 278 f",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (gest. von Ant. Karcher Mannheim)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "gest. von Ant. Karcher Mannheim",
+      "scans": [
+        "alm_453_32721_ty4r87h58u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "b334ivfypj3aic9",
+          "source_id": "dir5p8gl3rbh7qp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "5vg48yr315pum30",
+          "source_id": "jp6tzj6s3ww1qf4"
+        }
+      ],
+      "source_id": "qyw37e4u7zpmi3p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Die Elster und die Krähe lagen / Schon lange Zeit im Zwist;",
+      "language": [],
+      "musenalm_id": 32722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Elster, die Krähe und der Geyer. / Nach Desbillons",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Elster, die Krähe und der Geyer. / Nach Desbillons",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "dgdlesvo1h9xjj1"
+        }
+      ],
+      "source_id": "9e6pbm0lk3xrgc4"
+    },
+    {
+      "annotation": "mit einem abschließenden Gedicht s. INr 32724, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Keinem Volke auf der Erde haben die Reisenden mehr Unrecht gethan, als dem herumwandernden, gutmüthigen Hirtenvolke, den Hottentotten.",
+      "language": [],
+      "musenalm_id": 32723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hottentotten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Hottentotten",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "0me2riyhc0j3orb"
+        }
+      ],
+      "source_id": "x3xl2xhio1i39nj"
+    },
+    {
+      "annotation": "dem Beitrag INr 32723, Obj 35 beigegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Wohl ihm, daß er es fühlt, / Der wahre Weg des Lebens sey, / sich seines Lebens freuen,",
+      "language": [],
+      "musenalm_id": 32724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohl ihm, daß er es fühlt, / Der wahre Weg des Lebens sey, / sich seines Lebens freuen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "2ttd258yl1ma22z"
+        }
+      ],
+      "source_id": "ga66r46ano59d4z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Zur Grille sprach auf bunter Weide / Die Schnecke: bilde dir nicht ein / Daß ich dein Fußwerk dir beneide.",
+      "language": [],
+      "musenalm_id": 32725,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schnecke und die Grille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schnecke und die Grille",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "nq3c4q4kuyrh4qv"
+        }
+      ],
+      "source_id": "ch44d9pontpm02v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.092Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Einst sang ein Schwan auf einem See / Sein Lied. Sonst hörten's seine Söhne / Apolls,",
+      "language": [],
+      "musenalm_id": 32726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schwan und die Gans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schwan und die Gans",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.599Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "866vmas990oyh5h"
+        }
+      ],
+      "source_id": "1ta0yszj56sq7gn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Schmeichelndes Lüftchen woher? was lockst du mit / duftendem Fittig, / Wehst und erweckest mit Macht höhere Sehnsucht in / mir?",
+      "language": [],
+      "musenalm_id": 32727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bergphantasie. / Im Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie Mereau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bergphantasie. / Im Frühling",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.599Z",
+          "agent": "zoqy5th408hrb4e",
+          "source_id": "xe1qzw8ukr7vcsb"
+        }
+      ],
+      "source_id": "nc597j1plwzqk5f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Ein Widder hielt im weichen Grase / Mit einer Ziege Mittagsruh;",
+      "language": [],
+      "musenalm_id": 32728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Widder, der Fuchs und die Ziege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Widder, der Fuchs und die Ziege",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.599Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "ne40ikmcqhrmjwr"
+        }
+      ],
+      "source_id": "7menbjidfwqhloe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Abenddämm'rung liegt auf meinem Garten, / Und ich blicke mit bewölktem Sinn,",
+      "language": [],
+      "musenalm_id": 32729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwermuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie Mereau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwermuth",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.599Z",
+          "agent": "zoqy5th408hrb4e",
+          "source_id": "7svvrcop2vix1vc"
+        }
+      ],
+      "source_id": "aobaxqy4o3er76c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Ein Schakal fiel mit wildem Zahn, / Als einst das tapfre Heer der Britten",
+      "language": [],
+      "musenalm_id": 32730,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schakal oder Tigerwolf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schakal oder Tigerwolf",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "wd59n0ipoorqcjn"
+        }
+      ],
+      "source_id": "4rokxpc4in6eel9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Ein schlauer Fuchs fieng sich in einer Falle / Und ächzte jämmerlich.",
+      "language": [],
+      "musenalm_id": 32731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fuchs und der Bär",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fuchs und der Bär",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "5s1ftceio8etzui"
+        }
+      ],
+      "source_id": "9r6hqb7irsf509x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Der Adler sprach zum Vögelchor / Am Spiegelquell: nicht wahr / Dem Pfau geh' ich an Schönheit vor?",
+      "language": [],
+      "musenalm_id": 32732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Adler und er Pfau. / Nach Desbillons",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Adler und er Pfau. / Nach Desbillons",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "1jwq695g6m63a2p"
+        }
+      ],
+      "source_id": "d8v0paanmcau87t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Tien hielt auf seinem Sonnenthrone / Mit Xangthi, seinem himmlischen Vezier,",
+      "language": [],
+      "musenalm_id": 32733,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tien und Xangthi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tien und Xangthi",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "okgfzw0n9p5xki0"
+        }
+      ],
+      "source_id": "vsbvo4op63ey86s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Heil uns! heut stieg im Strahl der Sonne / Der feyerliche Tag herab",
+      "language": [],
+      "musenalm_id": 32734,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Chorgesang. / an Geburtstägen edler Frauen zu / singen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelmine Maisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Chorgesang. / an Geburtstägen edler Frauen zu / singen",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "ibdeh1gpf166351",
+          "source_id": "64fhkgv5bzflped"
+        }
+      ],
+      "source_id": "0ndz34eomczp5nf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32735,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "akiytf7cxas11xl"
+    },
+    {
+      "annotation": "Verlagsmitteilung es folgen 5 détaillierte Verlagsmitteilungen und Proben INr 32737-32741, Obj 49-53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32736,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei Verlegern dieses, in der J. G. Cottaschen Buchhandlung in Tübingen sind folgen- / de, dem schönen Geschlecht empfelungs- / werthe Schriften erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei Verlegern dieses, in der J. G. Cottaschen Buchhandlung in Tübingen sind folgen- / de, dem schönen Geschlecht empfelungs- / werthe Schriften erschienen",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "jg701zatdsmpzyx"
+    },
+    {
+      "annotation": "Verlagsmitteilung s. Gedicht INr 32737, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der größte Theil, der in diesem Jahrgang vorkommenden Gedichte ist von Göthe und Schiller- Empfelung genug für diesen Almanach. Zu Probe:",
+      "language": [],
+      "musenalm_id": 32737,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Musenalmanach auf 1798. mit Kupf u. Musik 16. Postp. 2 fl. Velin 3 fl.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Musenalmanach auf 1798. mit Kupf u. Musik 16. Postp. 2 fl. Velin 3 fl.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "vi22czig57asxtp"
+    },
+    {
+      "annotation": "Beigabe zur Verlagsmitteilung INr 32737, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Drey Worte nenn ich euch, inhaltschwer, / Sie gehen von Mund zu Munde,",
+      "language": [],
+      "musenalm_id": 32738,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Worte des Glaubens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Worte des Glaubens",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "0tg1cn8vrk551ht"
+        }
+      ],
+      "source_id": "2hprqfdckk76tx5"
+    },
+    {
+      "annotation": "Verlagsmitteilung s. folgendes Gedicht INr 32740, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Eine Monatsschrift, die man dem schönen Geschlecht nach allen Rücksichten empfelen darf",
+      "language": [],
+      "musenalm_id": 32739,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flora, Teutschlands Töchtern geweihet, herausgegeben von Huber, Lafontaine, Pfeffel, Sulzer und anderen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Flora, Teutschlands Töchtern geweihet, herausgegeben von Huber, Lafontaine, Pfeffel, Sulzer und anderen",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "yru244o2u3xsdz5"
+    },
+    {
+      "annotation": "der Verlagsmitteilung INr 32739, Obj 51 beigegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein junger Mönch aus Portugall / Kam einst nach Madras. Gut und bieder",
+      "language": [],
+      "musenalm_id": 32740,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mönch in Madras. / An meinen Freund Perrier in Grenoble",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mönch in Madras. / An meinen Freund Perrier in Grenoble",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.308Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "l7era0br9o56fua"
+        }
+      ],
+      "source_id": "emyrq5ii52tt6hg"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Auch dieser Jahrgang übertrifft seine 3 Vorgänger an Auswahl und schöner Ausführung der vielen Kupfer,",
+      "language": [],
+      "musenalm_id": 32741,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch der Gartenfreunde auf 1798 / Mit Kupf.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch der Gartenfreunde auf 1798 / Mit Kupf.",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "86bx2i6th03kzud"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48653,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_453_48653_m977m4mjg9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ofzfzyld6n6rmo"
+    }
   ],
   "agents": [
     {

@@ -48,75 +48,2745 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "788ha6m8bdk8vuo"
+    {
+      "annotation": "§1§ Beitrag unvollständig SS 321-324 fehlen, §2§ SS 387 ff fehlen, §3§, §4§ GG fehlen, §5§ UG v. fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100455",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "788ha6m8bdk8vuo"
+    }
   ],
   "contents": [
-    "nvr31y3bbc8yrsv",
-    "fwa710j1pcm3wxt",
-    "dwjy6qqu762p9fs",
-    "dmqi1hfwmgvqpr4",
-    "xorzw0uv4byy360",
-    "lcx5ll8pja2dpcx",
-    "mtegqk4q0bthizp",
-    "8c8u1uge357vo7f",
-    "okw3k2tvcpcwufd",
-    "nyafvslmxq1iabo",
-    "f3rli4bs9qyq9n7",
-    "zsyms3u46zozp5c",
-    "z0z6950p09kzayj",
-    "qm8wo8ncvknb03q",
-    "s91o4eldaq08iaq",
-    "6haablxp53pweo7",
-    "0ow8rhx9xtbth99",
-    "bse9yqi6gya0hgc",
-    "btdgw312i7mrof2",
-    "g2cj6g5eozw4fzi",
-    "iuyfyzd6p6rnalk",
-    "ktcezfjd4h6wri7",
-    "1s54u5pb3l4a5hk",
-    "xya46u7cyn94l70",
-    "723ef50gbrbcayy",
-    "9z80kcts2uyq79l",
-    "zun4sp8vnbyvp1s",
-    "0lerj9tt0xntk8r",
-    "oq352y3mdt9lewd",
-    "rztn6c2c9fnwura",
-    "jkbhkj34flgulvz",
-    "km4lzx6at4b9vyw",
-    "2nwjqt1gsk9nl1j",
-    "opuvrlvtnjshlzt",
-    "71537rw95qqiur6",
-    "o8pkpwkf6m7vlsr",
-    "oquz2ypsr7citt7",
-    "s9f0avzs3eos22b",
-    "qaxw4gbtwgfpr20",
-    "m6zbqjcn93lvpax",
-    "098m1hjciybx43a",
-    "fbsgtngz62wxvq7",
-    "6daz8iynydzclz8",
-    "gu1zpawzk4mit4g",
-    "s41sonabk93d9az",
-    "ia2h4qtnjfrp8wc",
-    "gs0f5du0prfa0jt",
-    "e79qe2ikr0m8cwd",
-    "b5tltdgms3l5d3g",
-    "t8t3mq5t8atxsqe",
-    "qedq2owxqucx5am",
-    "t8j7dyb0l9gh1ug",
-    "eg05cnhjbjhqqym",
-    "ipbgjpy0knljpmn",
-    "5ylcekhiil1nsoi",
-    "e1jgkgiou2egjji",
-    "srej0fszv6f33c0",
-    "8int30m9uoakqwx",
-    "039a0mgax5vphkv",
-    "kabut9k1zvgfw5b",
-    "vaxl0oqbbm67wzp",
-    "2dyqzvb6fu06gbi",
-    "y66wxw2fcm554jh",
-    "zce7tgsy8ri7cwf",
-    "jt0njgooo99wmcx",
-    "dzrzjlbnq9y86n5"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORLÉANS EGALITÉ / der Vater",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59936_zvfhvre5xy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORLÉANS EGALITÉ / der Vater",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "nvr31y3bbc8yrsv"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.670Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59937,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abbildung des Freiheits-Baums und der Piken, so zu / Mainz d. 13. Jänner 1793 gepflanzt wurden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59937_igom1jthqw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abbildung des Freiheits-Baums und der Piken, so zu / Mainz d. 13. Jänner 1793 gepflanzt wurden",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "fwa710j1pcm3wxt"
+    },
+    {
+      "annotation": "graph. typograph. Titel mit Portrait Prinz Coburg s.Textbezug INr 59987, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.671Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59938,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Revolutions- / Almanach / von / 1794. / Göttingen, / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59938_2ea5usmwbu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Revolutions- / Almanach / von / 1794. / Göttingen, / bey Johann Christian Dieterich",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "dwjy6qqu762p9fs"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die nachsichtsvolle Aufnahme des Publicums hat für die Fortsetzung dieses R. A. entschieden, aber ich bitte die bekannten und unbekannten Herren, welche den Almanach ihrer Beyträge gewürdigt haben",
+      "language": [],
+      "musenalm_id": 59939,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht / des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht / des Herausgebers",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "dmqi1hfwmgvqpr4"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Beitrag INr 59941, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Engländer Coxe äußerte im zweyten Bande der neuen Ausgabe seiner Schweizer Briefe, bey Gelegenheit der Erwähnung der Genfer Unruhen von 1789, die Hoffnung:",
+      "language": [],
+      "musenalm_id": 59940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Gleichmacher. / Schreiben eines Genfer Republicaners an / einen Genfer Sans-Culottes: auch für / die  Sans-Culotten anderer Länder / brauchbar. Nebst einer Vorerinnerung / des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Gleichmacher. / Schreiben eines Genfer Republicaners an / einen Genfer Sans-Culottes: auch für / die  Sans-Culotten anderer Länder / brauchbar. Nebst einer Vorerinnerung / des Herausgebers",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "xorzw0uv4byy360"
+    },
+    {
+      "annotation": "mit einer Einleitung INr 59940, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Auch ich, mein lieber und schätzbarer Landsmann, schicke mich mit Ihnen, in das System poltischer Gleichheit; ich schicke mich darein, ungefähr wie ich es mir gefallen lassen mußte, die Blattern zu bekommen, als sie mir eingeimpft wurden,",
+      "language": [],
+      "musenalm_id": 59941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[I. Die Gleichmacher. Schreiben eines Genfer Republicaners an einen Genfer Sans-Culottes: auch für die Sans-Culotten anderer Länder brauchbar.]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ein Genfer Republikaner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[I. Die Gleichmacher. Schreiben eines Genfer Republicaners an einen Genfer Sans-Culottes: auch für die Sans-Culotten anderer Länder brauchbar.]",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "lcx5ll8pja2dpcx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Ich bin, wie Sie wissen, mit großen Ewrwartungen nach Frankreich gegeangen. Ich habe geglaubt, die Revolution müßte auf den Charakter der Einwohner einen sehr auffallenden Einfluß gehabt haben.",
+      "language": [],
+      "musenalm_id": 59942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Schreiben eines reisenden Deutschen, daß die Neu-Franken noch die alten Fran- / zosen sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ein reisender Deutscher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Schreiben eines reisenden Deutschen, daß die Neu-Franken noch die alten Fran- / zosen sind",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "mtegqk4q0bthizp"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen und einer Sammlung mit 2 Beiträgen INr 59944-59948, Obj 9-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Drey öffentliche Reden / über / die jetzigen Zeitläufte, / von / drey Biedermännern, an drey versichieden / Orten, in einem freyen Lande gehalten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Drey öffentliche Reden / über / die jetzigen Zeitläufte, / von / drey Biedermännern, an drey versichieden / Orten, in einem freyen Lande gehalten",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "8c8u1uge357vo7f"
+    },
+    {
+      "annotation": "III. Drey öffentliche Reden über die jetzigen Zeitläufte, von drey Biedermännern, an drey versichieden Orten, in einem freyen Lande gehalten (Sammlung INr 59943, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "O möchte' ich ein schickliches Wort reden können über die gegenwärtigen Zeiten! Laßt es Euch nicht verdrießen - abermahl ein Wort davon zu hören.",
+      "language": [],
+      "musenalm_id": 59944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Fragmente aus Lavaters Predigt. / Sonntags den 28. Weinmonaths 1792. / Ueber Sprichw. XXV. v. 11. / Worte, zu rechter Zeit gesprochen, sind wie goldene / Aepfel in silbernen Schalen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lavater",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Fragmente aus Lavaters Predigt. / Sonntags den 28. Weinmonaths 1792. / Ueber Sprichw. XXV. v. 11. / Worte, zu rechter Zeit gesprochen, sind wie goldene / Aepfel in silbernen Schalen.",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.094Z",
+          "agent": "adxjhf2nm1jjsuh",
+          "source_id": "haosj7lfue2g213"
+        }
+      ],
+      "source_id": "okw3k2tvcpcwufd"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 59945, 59946; Obj 10, 11 /) III. Drey öffentliche Reden über die jetzigen Zeitläufte, von drey Biedermännern, an drey verschieden Orten, in einem freyen Lande gehalten (Sammlung INr 59943, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Zwey Bruchstücke einer Predigt zu Basel / den August 1792 in der Französischen / Kirche gehalten, von H. Boidel. / Text. / 2. Samuelis XV. v. 19-21. / Und der König sprach zu Ithai, dem Gethiter, warum gehest du auch mit uns? Kehre um, und bleibe bey dem Könige denn du bist fremd und von deinem Ort gezogen hierher; [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Boidel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Zwey Bruchstücke einer Predigt zu Basel / den August 1792 in der Französischen / Kirche gehalten, von H. Boidel. / Text. / 2. Samuelis XV. v. 19-21. / Und der König sprach zu Ithai, dem Gethiter, warum gehest du auch mit uns? Kehre um, und bleibe bey dem Könige denn du bist fremd und von deinem Ort gezogen hierher; [...]",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "nyafvslmxq1iabo"
+    },
+    {
+      "annotation": "2. Zwey Bruchstücke einer Predigt zu Basel den August 1792 in der Französischen Kirche gehalten, von H. Boidel (Sammlung INt 59945, Obj 10)  III. Drey öffentliche Reden über die jetzigen Zeitläufte, von drey Biedermännern, an drey verschieden Orten, in einem freyen Lande gehalten (Sammlung INr 59943, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Aber wenigstens behielt David, bey diesem fast gänzlichen Abfall, noch treue Diener, und was in unserm Lande uns weniger sonderbar als in jedem andern Lande vorkommen muß, eine fremde Leibwache hielt fest und treu bei ihm,",
+      "language": [],
+      "musenalm_id": 59946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes Bruchstück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Boidel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstes Bruchstück",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "f3rli4bs9qyq9n7"
+    },
+    {
+      "annotation": "2. Zwey Bruchstücke einer Predigt zu Basel den August 1792 in der Französischen Kirche gehalten, von H. Boidel (Sammlung INt 59945, Obj 10)  III. Drey öffentliche Reden über die jetzigen Zeitläufte, von drey Biedermännern, an drey verschieden Orten, in einem freyen Lande gehalten (Sammlung INr 59943, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Gönnet mir noch einen Augenblick Gehör, meine Brüder; ich habe jetzt zu euch, wie zu Christen, zu Bürgern gesprochen, nun ist es mir noch übrig, zu euch, wie zu Schweizern zu sprechen.",
+      "language": [],
+      "musenalm_id": 59947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweytes Bruchstück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Boidel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweytes Bruchstück",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "zsyms3u46zozp5c"
+    },
+    {
+      "annotation": "III. Drey öffentliche Reden über die jetzigen Zeitläufte, von drey Biedermännern, an drey verschieden Orten, in einem freyen Lande gehalten (Sammlung INr 59943, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Vor einem Jahre lebten wir noch in unsern friedlichen Hütten gänzlich unbesorgt, nichts hatte damahls unsere glückliche Regierung mit irgend einer Erschütterung;",
+      "language": [],
+      "musenalm_id": 59948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Rede eines Schweizer-Patrioten, als / Zunftmeister an seine Zunftgenossen. / Der Feind ist da! wachet auf, ihr Patrioten, erwachet, ihr Freunde des Vaterlands! [...] / Bey Gelegenehit des neu angetretenen, seit der Geburt unseres Erlösers 1793sten / Jahres",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Rede eines Schweizer-Patrioten, als / Zunftmeister an seine Zunftgenossen. / Der Feind ist da! wachet auf, ihr Patrioten, erwachet, ihr Freunde des Vaterlands! [...] / Bey Gelegenehit des neu angetretenen, seit der Geburt unseres Erlösers 1793sten / Jahres",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "z0z6950p09kzayj"
+    },
+    {
+      "annotation": "Illustration zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen« INr 59950, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CÜSTINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59949_aklu17ysua.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CÜSTINE",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "qm8wo8ncvknb03q"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphik (Portrait) INr 59949, Obj 14 und Graphiken INr 59970, 59977; Obj 35, 42; einer graph. Beigabe (Münze recto u. verso) INr 59951, Obj 16 und 2 Anhängen INr 59952, 59953; Obj 17, 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Der unvermuthete Rückzug des Deutschen Heeres aus der Champagne pouilleuse, (ein Beynahme den dieses Gegend wegen der Dürftigkeit ihres Bodens mit Recht trägt) und die Rückgabe der eingenommenen Festungen,",
+      "language": [],
+      "musenalm_id": 59950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Geschichte / des / Cüstineschen Einfalls in Deutschland, / bis / zur Wiedereinnahme von Frankfurt. / Von einem Augenzeugen. Am Schlusse die Skizze einiger Mitglieder des / Mainzer Clubs, und ein Verzeichniß der bey / diesem Vorfall erschienen Pamphlete / und Flugschriften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ein Augenzeuge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Geschichte / des / Cüstineschen Einfalls in Deutschland, / bis / zur Wiedereinnahme von Frankfurt. / Von einem Augenzeugen. Am Schlusse die Skizze einiger Mitglieder des / Mainzer Clubs, und ein Verzeichniß der bey / diesem Vorfall erschienen Pamphlete / und Flugschriften",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "s91o4eldaq08iaq"
+    },
+    {
+      "annotation": "graph. Beigabe (Münze recto u. verso) zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen.« INr 59950, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59951_rcl3x5e7gd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "6haablxp53pweo7"
+    },
+    {
+      "annotation": "Anhang zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen.« INr 59950, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Notiz / von einigen Mitgliedern des Mainzer Jaco- / biner-Clubs.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Notiz / von einigen Mitgliedern des Mainzer Jaco- / biner-Clubs.",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ow8rhx9xtbth99"
+    },
+    {
+      "annotation": "Anhang zu »Geschichte des Cüstineschen Einfalls in Deutschland,  is zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen.« INr 59950, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der bey diesem Vorfall erschie- / nenen Pamphlete und Flugschriften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der bey diesem Vorfall erschie- / nenen Pamphlete und Flugschriften",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "bse9yqi6gya0hgc"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 59955, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Im October 1792 wurde ein Circular in großer Menge, und von verschiedener Handschrift, durch Deutschland verbreitet. Man bediente sich dazu der Post,",
+      "language": [],
+      "musenalm_id": 59954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Nachricht / von einem merkwürdigen Briefe, / der im Oct. 1792. in Deutschland circulirte. / Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Nachricht / von einem merkwürdigen Briefe, / der im Oct. 1792. in Deutschland circulirte. / Vorerinnerung",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "btdgw312i7mrof2"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 59954, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Es ist mir gestern eine Schrift communicirt worden, die an einen Gelehrten meiner Vaterstadt, mit der *** Post anonymisch einlief,",
+      "language": [],
+      "musenalm_id": 59955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[V. Nachricht von einem merkwürdigen Briefe, der im Oct. 1792. in Deutschland circulirte.] / Copey der Anzeige an einen Deutschen / Staatsminister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[V. Nachricht von einem merkwürdigen Briefe, der im Oct. 1792. in Deutschland circulirte.] / Copey der Anzeige an einen Deutschen / Staatsminister",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "g2cj6g5eozw4fzi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "In alten fabelhaften Zeiten erhob eine einzige, zuweilen nur gemeine That einen Mann oft zum Könige, zum Helden, ja selbst zu einem Gott;",
+      "language": [],
+      "musenalm_id": 59956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Thomas Anello, der Fischer, / oder / die Revolution zu Neapel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Thomas Anello, der Fischer, / oder / die Revolution zu Neapel",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "iuyfyzd6p6rnalk"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Beitrag INr 59958, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Diesen Aufsatz erhielt ich, von folgendem Briefe begleitet. Das Gerücht nennt sie als Herausgeber des R. A. und wenn es wahr sagt, so geben sie diesen Fragmenten einen Platz darin,",
+      "language": [],
+      "musenalm_id": 59957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Ueber Deutschen Democratengeist, und / Deutsche Jacobiner. / Fragmente und Erfahrungen eines Reisenden. / Voereinnerung des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Ueber Deutschen Democratengeist, und / Deutsche Jacobiner. / Fragmente und Erfahrungen eines Reisenden. / Voereinnerung des Herausgebers",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "ktcezfjd4h6wri7"
+    },
+    {
+      "annotation": "mit einer Einleitung des Herausgebers s. INr 59957, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Die Preßfreyheit ist das einzige Palladium der wahren Aufklärung und der Geistesfortschritte. Allein so wenig ein Dieb, wenn er auf dem Diebstahl ertappt und verhaftet wird,",
+      "language": [],
+      "musenalm_id": 59958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[VII. / Ueber Deutschen Democratengeist, und / Deutsche Jacobiner. / Fragmente und Erfahrungen eines Reisenden.]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[VII. / Ueber Deutschen Democratengeist, und / Deutsche Jacobiner. / Fragmente und Erfahrungen eines Reisenden.]",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "1s54u5pb3l4a5hk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Die Entweichung des Königs nach Varennes und die Schlüsse der gesetzgebenden Versammlungen, hatten ganz Frankreich in eine neue Gährung versetzt,",
+      "language": [],
+      "musenalm_id": 59959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Guillin Dümontet. / Ein Blatt aus dem Blutschulden-Register / des neuen Frankreichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Guillin Dümontet. / Ein Blatt aus dem Blutschulden-Register / des neuen Frankreichs",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "xya46u7cyn94l70"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 59961-59963, Obj 26-28 Fortsetzung aus: Revolutions-Almanach 1793; INr 59897",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Ueber / verschiedene Producte der Französischen / Revolution; / als Fortsetzung der vorjährigen Abhandlung / vom Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Ueber / verschiedene Producte der Französischen / Revolution; / als Fortsetzung der vorjährigen Abhandlung / vom Herausgeber",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.827Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "aam8ghj5pw2eiya"
+        }
+      ],
+      "source_id": "723ef50gbrbcayy"
+    },
+    {
+      "annotation": "IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59960, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Dergleichen Armseligkeiten, (sagt ein Aufsatz in Girtanners Journal), als Bäume, rothe Mützen, dreyfarbige Bänder und Huthschleifen, welche man zu Dingen von der größten Wichtigkeit macht,",
+      "language": [],
+      "musenalm_id": 59961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Freyheitsbaum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Freyheitsbaum",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.827Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "lqqvrd5z1eyqlj9"
+        }
+      ],
+      "source_id": "9z80kcts2uyq79l"
+    },
+    {
+      "annotation": "IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59960, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Sie (die rothe Mütze) ist die Levrey der zu den Galeeren verdammten, der Räuber, Mörder, unverbesserlichen Taugenichtse, welche die Justiz an Ketten legt,",
+      "language": [],
+      "musenalm_id": 59962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Noch etwas von rothen Mützen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Noch etwas von rothen Mützen",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "zun4sp8vnbyvp1s"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59960, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Thomas Payen. Der Sohn eines Schnürbrustschneiders, zu Thetfort in Norfolk, 1735 geboren,. Er verstand das Hanwerk seines Vaters, und trieb es einige Zeit zu Sandwich,,",
+      "language": [],
+      "musenalm_id": 59963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Portraite einiger Jacobiner und einiger / Deputirten des N. C. Am Schluß eine / Nutzanwendung für Revolutionäre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Portraite einiger Jacobiner und einiger / Deputirten des N. C. Am Schluß eine / Nutzanwendung für Revolutionäre",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "0lerj9tt0xntk8r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Hat man es bey einer Nation dahin gebracht, jedes Gefühl von Religion zu ersticken, ist bey einem Volke von ganz verderbten Sitten der Geist des Raubs und des Müßiggangs an die Stelle des Geistes der Ordnung und Arbeitsamkeit getreten,",
+      "language": [],
+      "musenalm_id": 59964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Ueber / die Revolution vom 10. August 1792, / und über / Revolutionen überhaupt: / eine Lehre für Regenten. / (Aus dem in London 1792, und / mit großem Beyfall aufgenommenen, Dernier / tableau de Paris, par J. Peltier, übersetzt / vom Herausgeber.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Ueber / die Revolution vom 10. August 1792, / und über / Revolutionen überhaupt: / eine Lehre für Regenten. / (Aus dem in London 1792, und / mit großem Beyfall aufgenommenen, Dernier / tableau de Paris, par J. Peltier, übersetzt / vom Herausgeber.)",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "oq352y3mdt9lewd"
+    },
+    {
+      "annotation": "§1§ Beitrag unvollständig SS 321-324 fehlen /) # Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) mit einer Illustration s. Graphik INr 59989, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Als die Spanier America entdeckten, ahndete niemand, daß einst aus diesem Lande ein junger schwärmerischer Mann, (la Fayette) die ersten Keime einer Gährung in sein Vaterland verpflanzen,",
+      "language": [],
+      "musenalm_id": 59965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Miszellen / größtentheils aus der gegenwär- / rtigen Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Miszellen / größtentheils aus der gegenwär- / rtigen Zeit",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "hctcuu83bw5k2xu"
+        }
+      ],
+      "source_id": "rztn6c2c9fnwura"
+    },
+    {
+      "annotation": "§1§ Beitrag unvollständig SS 321-324 fehlen /) mit einer Illustration s. Graphik INr 59967, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59966,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "jkbhkj34flgulvz"
+    },
+    {
+      "annotation": "s. Textbezug in: Revolutions-Almanach 1795; INr 60059",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sieyes als Abbé, vor der Revolution",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59967_7qwobgc9ji.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sieyes als Abbé, vor der Revolution",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "km4lzx6at4b9vyw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "Der Valentini-Tag oder der 14. Februar des 1375. Jahres war der fürchterliche Tag, an welchem in Nordhausen jeder, sonst friedliebender Bürger, nach Mord und Rache dürstete.",
+      "language": [],
+      "musenalm_id": 59968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Nordhausen: / Epoche aus der alten Geschichte dieser / Reichsstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Nordhausen: / Epoche aus der alten Geschichte dieser / Reichsstadt",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "2nwjqt1gsk9nl1j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Senator. Noch auf diese Stunde behaupten Männer, die Anspruch auf Menschenkenntnis machen, die Aufklärung sey an all dem Uebel schuld,",
+      "language": [],
+      "musenalm_id": 59969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Les extrêmes se touchent! / Gespräch zwischen einem Senator der / Deutschen Gelehrten Republik und einem / Dorfprediger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Les extrêmes se touchent! / Gespräch zwischen einem Senator der / Deutschen Gelehrten Republik und einem / Dorfprediger",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "opuvrlvtnjshlzt"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 1. Illustration zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen.« INr 59950, Obj 15 s.a. Textbezug INr 59973, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die braven, biedern Hessen bei Custine's / Manifeste",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59970_999103tx8j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die braven, biedern Hessen bei Custine's / Manifeste",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "65b3wjndx1eqgca"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "rr2zzkyrgh4bc7a"
+        }
+      ],
+      "source_id": "71537rw95qqiur6"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 2. s. Textbezug INr 59974, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Emigranten und der deutsche Bauer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59971_sv5bnxuysd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Emigranten und der deutsche Bauer",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "jm6219z6dixc56l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "wkmq5b3ukj2kfp9"
+        }
+      ],
+      "source_id": "o8pkpwkf6m7vlsr"
+    },
+    {
+      "annotation": "Sammlung von 15 Textbezügen zu 15 Graphiken des Almanachs INr 59970, 59971, 59973-59999, 60001",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Erläuterung / der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Erläuterung / der Kupfer",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "c6f2mkuo1d2tz2o"
+        }
+      ],
+      "source_id": "oquz2ypsr7citt7"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59970, Obj 35 s.a. Beitrag »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen.« INr 59950, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Man schlage S. 102. nach, worauf sich dieses Kupfer bezieht",
+      "language": [],
+      "musenalm_id": 59973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die braven biedern Hessen, bey Cüstine's / Manifeste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die braven biedern Hessen, bey Cüstine's / Manifeste",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "kcfs6s88wvl7mqg"
+        }
+      ],
+      "source_id": "s9f0avzs3eos22b"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59971, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Diese Anekdote erzählt ein Deutsches Journal, folgender Gestalt: Ein Bauersmann, schlecht und recht, stand früh Morgens vor seiner Hütte und schickte ein Vater Unser gen Himmel.",
+      "language": [],
+      "musenalm_id": 59974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Emigranten und der deutsche Bauer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Emigranten und der deutsche Bauer",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "z6yiagk80sysssu"
+        }
+      ],
+      "source_id": "qaxw4gbtwgfpr20"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59977, Obj 42 s.a. Textbezug »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen« INr 59950, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Man schlage S. 126 nach, wo man die Er- / klärung finden kann.",
+      "language": [],
+      "musenalm_id": 59975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Patriotismus einiger Handwerker bey der / Einnahme von Frankfurt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Patriotismus einiger Handwerker bey der / Einnahme von Frankfurt",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "f4rj7qumechfx61"
+        }
+      ],
+      "source_id": "m6zbqjcn93lvpax"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59978, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Die Faustkämpfe sind in neuern Zeiten, so häufig in der Versammlung der Stellvertreter der Neu-Franken vorgefallen, daß es schwer hält zu entscheiden, welche hier vorgestellt werden soll.",
+      "language": [],
+      "musenalm_id": 59976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Faustkampf des National-Convents zu Paris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Faustkampf des National-Convents zu Paris",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "ebxehvzxwb6u1ay"
+        }
+      ],
+      "source_id": "098m1hjciybx43a"
+    },
+    {
+      "annotation": "paginiert No. 3. /) Illustration zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen« INr 59950, Obj 15; s.a. Textbezug INr 59975, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Patriotismus einiger Handwerker, bei / der Einnahme von Frankfurth am Mayn 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhaus. sclp.",
+      "scans": [
+        "alm_935_59977_cyid2tp6cm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Patriotismus einiger Handwerker, bei / der Einnahme von Frankfurth am Mayn 1792",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "cf6aynyookiu3j1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "vdimub6dwxf1xsv"
+        }
+      ],
+      "source_id": "fbsgtngz62wxvq7"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 4. s. Textbezug INr 59976, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Faustkampf, des NationalConvents inParis, / im December 1792",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59978_ck62lp51s9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Faustkampf, des NationalConvents inParis, / im December 1792",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "f17dfjvojeyykc3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.084Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "v6n540dxum86zyy"
+        }
+      ],
+      "source_id": "6daz8iynydzclz8"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert No. 5 s. Textbezug INr 59980, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ermordung Ludwigs XVI. Brandmarkung / unsers Jahrhunderts",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59979_v6e2iyvw0e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ermordung Ludwigs XVI. Brandmarkung / unsers Jahrhunderts",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.835Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "0coor1we3k7njol"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.835Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "1zdfqj8cfqwnmg4"
+        }
+      ],
+      "source_id": "gu1zpawzk4mit4g"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59979, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Ludwig brachte den Sonntag, den 20. Januar, mit der Vorbereitung auf seinen Tod zu.",
+      "language": [],
+      "musenalm_id": 59980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Brandmahl unsers Jahrhunderts, am 21. / Januar 1783",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Brandmahl unsers Jahrhunderts, am 21. / Januar 1783",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "3qsptpqcrbkitru"
+        }
+      ],
+      "source_id": "s41sonabk93d9az"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59982, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "Als der Französische Gesandte, nach der Bartholomäus-Nacht, Audienz bey der Königinn Elisabeth erhielt,",
+      "language": [],
+      "musenalm_id": 59981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Edles Betragen des Englischen Volks bey der / Nachricht von Ludwigs Ermordung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Edles Betragen des Englischen Volks bey der / Nachricht von Ludwigs Ermordung",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "rjn871ags8zr5b7"
+        }
+      ],
+      "source_id": "ia2h4qtnjfrp8wc"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert No. 6. s. Textbezug INr 59981, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59982,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Edles Betragen des Englischen Volks im Schauspiel- / hause, bei der Nachricht von Ludwigs XVI Ermor- / dung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59982_4p7on8emnn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Edles Betragen des Englischen Volks im Schauspiel- / hause, bei der Nachricht von Ludwigs XVI Ermor- / dung",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "jz4di9c1z4252yw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "w83yy5yza83vooe"
+        }
+      ],
+      "source_id": "gs0f5du0prfa0jt"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 7. s. Textbezug INr 600001, Obj 48,01",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59983,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schöne That eines Französischen Grenadiers",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schub. del. Riepenhausen",
+      "scans": [
+        "alm_935_59983_dmyczmoyhs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schöne That eines Französischen Grenadiers",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "p0dcgnp1wrpaefq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "vo45p727wtiyzh3"
+        }
+      ],
+      "source_id": "e79qe2ikr0m8cwd"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59983, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "373",
+      "incipit_statement": "Den 28. Novermber, bey dem Angriffe von Barra unweit Nizza, verfolgte Joseph Graille, Grenadier des zweyten Bataillons des bouches du Rhône, einige Milizen, die sich ins Gebirge flüchteten.",
+      "language": [],
+      "musenalm_id": 60001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Schöne That eines Französischen Grenadiers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Schöne That eines Französischen Grenadiers",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "25h40nok40keziq"
+        }
+      ],
+      "source_id": "b5tltdgms3l5d3g"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59985, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Gleich zu Anfang der Revolution, ließen es die Neu-Franken den Pabst entgelten, daß sie die Stärkern und er der Schwächere sey.",
+      "language": [],
+      "musenalm_id": 59984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Das Volk zu Rom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Das Volk zu Rom",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.071Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.071Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "yzmgoh0sjdv6759"
+        }
+      ],
+      "source_id": "t8t3mq5t8atxsqe"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 8. s. Textbezug INr 59986, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir sind Römer, wir morden keine Weiber",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59985_ho1s00u9s2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wir sind Römer, wir morden keine Weiber",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "adn5rupqlr58k8w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "pgmu88joxhudnn8"
+        }
+      ],
+      "source_id": "qedq2owxqucx5am"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 9. s. Textbezug INr 59987, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die tapfere keiserliche Reuterey ersiegt Ver- / schanzungen und Batterien, im März 1793",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59986_1r4kt9chqc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die tapfere keiserliche Reuterey ersiegt Ver- / schanzungen und Batterien, im März 1793",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "iq1rscuddznkll0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "n1v91bk4yk4bej8"
+        }
+      ],
+      "source_id": "t8j7dyb0l9gh1ug"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59986, Obj 51; s.a. Portrait Prinz Coburg: Titel INr 59386, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Nie war die Anwendung des Cäsarschen Veni, vidi, vici, nie war sie mehr an ihrer Stelle, nie weniger von Schmeicheley entweiht als bey dem schnellen Siegesflug des Prinzen von Coburg,",
+      "language": [],
+      "musenalm_id": 59987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Die tapfere kaiserliche Cavallerie in den Ver- / schanzungen zu Aldenhofen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Die tapfere kaiserliche Cavallerie in den Ver- / schanzungen zu Aldenhofen.",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.026Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "nqw449hy9a0ew73"
+        }
+      ],
+      "source_id": "eg05cnhjbjhqqym"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 11. s. Textbezug INr 59991, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dumouriez vergilt den Commissarien des Natio- / nal-Convents, Gleiches mit Gleichem",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59988_rr2kcgwcuu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dumouriez vergilt den Commissarien des Natio- / nal-Convents, Gleiches mit Gleichem",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "8uw818yelul1ckg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "e3qew5x18mec1y1"
+        }
+      ],
+      "source_id": "ipbgjpy0knljpmn"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 10. s. Textbezug INr 59990, Obj 55 s.a. Beitrag »Miszellen größtentheils aus der gegenwärtigen Zeit« INr 59965, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jacobiner Schwindelköpfe zu Worms müs- / sen ihren Freiheitsbaum selbst ausgraben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59989_735fp6w6d5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Jacobiner Schwindelköpfe zu Worms müs- / sen ihren Freiheitsbaum selbst ausgraben",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.682Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "ar3tj9w2bp8ansv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "j7fzafeiks7h2lf"
+        }
+      ],
+      "source_id": "5ylcekhiil1nsoi"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59989, Obj 54 s.a. Beitrag »Miszellen größtentheils aus der gegenwärtigen Zeit« INr 59965, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Bezieht sich auf die Anekdote S. 320. der / Miszellen",
+      "language": [],
+      "musenalm_id": 59990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Die Jacobiner Schwindelköpfe zu Worms, müssen / ihren Freyheitsbaum selbst ausgraben.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Die Jacobiner Schwindelköpfe zu Worms, müssen / ihren Freyheitsbaum selbst ausgraben.",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.682Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "nc8hwiod3fa9b29"
+        }
+      ],
+      "source_id": "e1jgkgiou2egjji"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59988, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Die Begebenheit welche dieses Kupfer vorstellt, ist allgemein bekannt; der listigere Dümourier, stürzte die Herren selbst in die Grube, die sie ihm gegraben hatten.",
+      "language": [],
+      "musenalm_id": 59991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Dümourier vergilt den Commissarien des N. C. / Gleiches mit Gleichem",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Dümourier vergilt den Commissarien des N. C. / Gleiches mit Gleichem",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.682Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "kyqx7emn9iru1l3"
+        }
+      ],
+      "source_id": "srej0fszv6f33c0"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59993, Obj 58",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Die Umstände von Marats Tod sind noch in zu frischem Angedenken, als daß ich sie weitläufig zu berühren brauchte.",
+      "language": [],
+      "musenalm_id": 59992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Marats Tod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Marats Tod",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.682Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "xew1vz3qn1lka82"
+        }
+      ],
+      "source_id": "8int30m9uoakqwx"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No.12. s. Textbezug INr 59992, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marat stirbt des Tod's , den er für ande- / re gepredigt hatte.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_935_59993_0zatvpyyfs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marat stirbt des Tod's , den er für ande- / re gepredigt hatte.",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.918Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.918Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "ld1vxdlf25ygi7c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.918Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.918Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "vuck0kriy2l9iac"
+        }
+      ],
+      "source_id": "039a0mgax5vphkv"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik (Portrait) INr 59995, Obj 60",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "Das Bildniß ist nach einer Handzeichnung gestochen, die, während seines Aufenthalts in den Gegenden von Frankfurt, von ihm gemacht wurden.",
+      "language": [],
+      "musenalm_id": 59994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dümourier's Bildniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dümourier's Bildniß",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.919Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.919Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "c5zg9akwiaz3r1u"
+        }
+      ],
+      "source_id": "kabut9k1zvgfw5b"
+    },
+    {
+      "annotation": "s. Textbezug INr 59994, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C. F. DUMOURIEZ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_935_59995_r3q7elqk5c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "C. F. DUMOURIEZ",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "vaxl0oqbbm67wzp"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) §3§ bez. Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Sie ist nach einem englischen Kupfer copirt, das nach einer zu Paris gemachten Zeichnung gestochen wurde.",
+      "language": [],
+      "musenalm_id": 59996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abbildung der Guillotine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abbildung der Guillotine",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.919Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.919Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "qozbrxqvq9dwp24"
+        }
+      ],
+      "source_id": "2dyqzvb6fu06gbi"
+    },
+    {
+      "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) §4§ bez. Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Beides bedarf keiner weitern Erklärung, allein ich ergreife die Gelegenheit, hier einige Anecdoten als Pendant zu dem Aufsatz No. IV.",
+      "language": [],
+      "musenalm_id": 59997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mainzer Belagerungs-Assignat, und Münze / von Glockenmetall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mainzer Belagerungs-Assignat, und Münze / von Glockenmetall",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.919Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.919Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "ha8kir20uakjbyh"
+        }
+      ],
+      "source_id": "y66wxw2fcm554jh"
+    },
+    {
+      "annotation": "# Titel vom Textbezug INr 59996, Obj 61 §3§ Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59998,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abbildung der Guillotine #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abbildung der Guillotine #",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "zce7tgsy8ri7cwf"
+    },
+    {
+      "annotation": "# Titel vom Textbezug INr 59997, Obj 62 §4§ Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59999,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mainzer Belagerungs-Assignat, und Münze von Glockenmetall #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mainzer Belagerungs-Assignat, und Münze von Glockenmetall #",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "jt0njgooo99wmcx"
+    },
+    {
+      "annotation": "§ 5§ Umschlaggraphik v. fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60000,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "dzrzjlbnq9y86n5"
+    }
   ],
   "agents": [
     {

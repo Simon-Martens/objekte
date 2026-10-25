@@ -48,34 +48,1075 @@
   "year": 1841,
   "editor": "",
   "items": [
-    "j1xzk9y45z4pvdu"
+    {
+      "annotation": "1827-1850",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200860",
+      "location": "105H08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "j1xzk9y45z4pvdu"
+    }
   ],
   "contents": [
-    "3nfzfjjbkqpc8fs",
-    "zlb2g7yc4zasjn5",
-    "unihesqqyv2n5if",
-    "w52lhvygzg3a4aj",
-    "gav8imggznvo5go",
-    "zfmlvzvt9840jta",
-    "uz4t43yf25tai0h",
-    "3dn5dedld4x6gq0",
-    "v6d5xy8gj8zlbji",
-    "e39rn0gpett5dcg",
-    "b5ja286g3bvyj1q",
-    "mwwjak0oon8o172",
-    "0d4rph3aojx0kwg",
-    "n58mbrh0tsxa5j7",
-    "y9drctpnhti29xt",
-    "jm4slcccoivvf0p",
-    "6ek33zyvl4ixxnf",
-    "ppplely1szalemd",
-    "qsx6c8aa1c8jsro",
-    "3dsfeerg5mo8im4",
-    "gohgmuzrqxqf1sr",
-    "pnm1s1yaj7ur1ls",
-    "8bsi45r1qncc140",
-    "4qi51pbmn7jlmbv",
-    "nl2qlnmgx85hf4g"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_876_59088_oos76xg8e3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "3nfzfjjbkqpc8fs"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59089,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Prinzessin v. Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Fr. Krüger gest. v. Auguste Hüssener",
+      "scans": [
+        "alm_876_59089_5j4crzgmps.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Prinzessin v. Preussen",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "itf6v4l6trwe34g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "dp1i9gllz2qxsbz",
+          "source_id": "quwep8ntmvjern0"
+        }
+      ],
+      "source_id": "zlb2g7yc4zasjn5"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59090,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / KALENDER / auf / das GEMEIN JAHR / 1841. / MIT KUPFERN. / Herausgegeben / VON DER KÖNIGL. PREUSS. KALENDER DEPUTATION",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stange sen. sc.",
+      "scans": [
+        "alm_876_59090_ck29j06so3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / KALENDER / auf / das GEMEIN JAHR / 1841. / MIT KUPFERN. / Herausgegeben / VON DER KÖNIGL. PREUSS. KALENDER DEPUTATION",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "unihesqqyv2n5if"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59091,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "w52lhvygzg3a4aj"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59092,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brandenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gest. v. H. Fincke",
+      "scans": [
+        "alm_876_59092_41ilmjysto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Brandenburg",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.857Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.857Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "ln12kspukn1s569"
+        }
+      ],
+      "source_id": "gav8imggznvo5go"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59093,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cüstrin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Marohn gest. v. Fincke",
+      "scans": [
+        "alm_876_59093_cvuf9rgdq4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cüstrin",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "8irkczdttdkep2b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "g4nrbz5is7v43am"
+        }
+      ],
+      "source_id": "zfmlvzvt9840jta"
+    },
+    {
+      "annotation": "Graphik im Kalendarium März. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59094,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCHLOSS WUSTRAU",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marohn del. nach Masch. Nürnberg Carl Mayers Kunst-Anstalt",
+      "scans": [
+        "alm_876_59094_vpz3n3gjlh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCHLOSS WUSTRAU",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "8t8ns63c54fjanp"
+        }
+      ],
+      "source_id": "uz4t43yf25tai0h"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59095,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rathenow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Laacke gest. v. Schulin",
+      "scans": [
+        "alm_876_59095_2hc93m87ey.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rathenow",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "pta87wecbzmnw1r"
+        }
+      ],
+      "source_id": "3dn5dedld4x6gq0"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59096,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Burg u: Stadt Lenzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gest. v. Schulin",
+      "scans": [
+        "alm_876_59096_iln9pfmk8c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Burg u: Stadt Lenzen",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "rfubbq1zg56uqzz"
+        }
+      ],
+      "source_id": "v6d5xy8gj8zlbji"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59097,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cottbus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Henning gest. v. H. Fincke",
+      "scans": [
+        "alm_876_59097_ga65yetpld.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cottbus",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "3olbi853fwy2d3w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "yuzymu3frbvfdg7",
+          "source_id": "az0zpc67msjl0l8"
+        }
+      ],
+      "source_id": "e39rn0gpett5dcg"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59098,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Falckenberg bei Falkenwalde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Marohn gest. v. H. Fincke",
+      "scans": [
+        "alm_876_59098_50r09cb9jl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Falckenberg bei Falkenwalde",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "0htg2pihmnxapj3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "qmz1wctwh0ne6f9"
+        }
+      ],
+      "source_id": "b5ja286g3bvyj1q"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59099,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sorau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Marohn gest. v. H. Fincke",
+      "scans": [
+        "alm_876_59099_4qqwcn6y06.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sorau",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "wi6r8ioqifv92rf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "yfixcjzj9rlwx41"
+        }
+      ],
+      "source_id": "mwwjak0oon8o172"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59100,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schloss Boytzenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Marohn gest. v. H. Fincke",
+      "scans": [
+        "alm_876_59100_x63n3e1x7b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schloss Boytzenburg",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "0t0wzc2kt4prpe2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.640Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "njueij3j0kvh7m5"
+        }
+      ],
+      "source_id": "0d4rph3aojx0kwg"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59101,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NAUMBURG UND CHRISTIANSTADT. / am Bober",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marohn del. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_876_59101_5g7a6lb4pe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NAUMBURG UND CHRISTIANSTADT. / am Bober",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.774Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "9fdxdk21osin19d"
+        }
+      ],
+      "source_id": "n58mbrh0tsxa5j7"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember; Illustration zu »Alinen's Jugendjahre« INr 59106, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59102,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Novelle Seite 207",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. Marohn gest. v. C. Funke",
+      "scans": [
+        "alm_876_59102_kp5736y9yj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Novelle Seite 207",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.774Z",
+          "agent": "blk0bwibfqnyvz6",
+          "source_id": "3p0y1oagbrl4b9y"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.774Z",
+          "agent": "rmisreoufpo232j",
+          "source_id": "onv6sdbjfmkswfw"
+        }
+      ],
+      "source_id": "y9drctpnhti29xt"
+    },
+    {
+      "annotation": "Beitrag mit einem Vorwort s. INr 59104, 59105; Obj 17, 18 /) mit 10 Illustrationen s. Graphiken im Kalendarium INr 59092-59101, Ob 5-14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / der Mark Brandenburg / unter / den Kurfürsten des Hauses Hohenzollern. / Mit einer Einleitung / betreffend / die Geschichte der Burggrafen von Nürnberg. / Erster Theil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / der Mark Brandenburg / unter / den Kurfürsten des Hauses Hohenzollern. / Mit einer Einleitung / betreffend / die Geschichte der Burggrafen von Nürnberg. / Erster Theil",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "jm4slcccoivvf0p"
+    },
+    {
+      "annotation": "Einleitung zu: Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil;  INr 59103, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die große Thatsache, welche wir darzustellen haben, ist die allmälige Verwandelung der Kurmark Brandenburg in das gegenwärtige Königreich Preußen;",
+      "language": [],
+      "musenalm_id": 59104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ek33zyvl4ixxnf"
+    },
+    {
+      "annotation": "s. INr 59103, Obj 16; mit einem Vorwort s. INr 59104, Obj 17 /) mit 10 Illustrationen s. Graphiken im Kalendarium INr 59092-59101, Ob 5-14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Die Kurmark Brandenburg war zu Anfang des funfzehnten Jahrhunderts nicht sowohl ein Staat,als vielmehr ein Aggregat von Staaten. Gebildet wurde dieses Aggregat durch die nicht unbedeutende Anzahl übermächtiger Edelleute,",
+      "language": [],
+      "musenalm_id": 59105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil]",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "ppplely1szalemd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59102, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Endlich, meine Theure, haben wir Ihren Aufenthalt erfahren und daß Sie sich sehnen, auch von unserm Ergehn Kunde zu erhalten.",
+      "language": [],
+      "musenalm_id": 59106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alinen's Jugendjahre. / (Kein Roman)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alinen's Jugendjahre. / (Kein Roman)",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "qsx6c8aa1c8jsro"
+    },
+    {
+      "annotation": "mit einem Nachtrag s. Tabelle INr 59108, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59107,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist am 15. Julius geschlossen, und darnach sogleich der Druck / angefangen worden, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist am 15. Julius geschlossen, und darnach sogleich der Druck / angefangen worden, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "3dsfeerg5mo8im4"
+    },
+    {
+      "annotation": "falsche Paginierung /) Nachtrag zur vorstehenden Tabelle INr 59107, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zusätze zur Genealogie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zusätze zur Genealogie",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "gohgmuzrqxqf1sr"
+    },
+    {
+      "annotation": "mit 2 Nachträgen s. INr 59110 59111; Obj 23, 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59109,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "pnm1s1yaj7ur1ls"
+    },
+    {
+      "annotation": "falsche Paginierung; Nachtrag zu: Verzeichniß der Postcourse INr 59109, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachträge zum Postcours",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachträge zum Postcours",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "8bsi45r1qncc140"
+    },
+    {
+      "annotation": "falsche Paginierung; Nachtrag zu: Verzeichniß der Postcourse INr 59109, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Nachtrag zum Postcours",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Nachtrag zum Postcours",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "4qi51pbmn7jlmbv"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59113,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_876_59113_tnewx8z323.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "nl2qlnmgx85hf4g"
+    }
   ],
   "agents": [
     {

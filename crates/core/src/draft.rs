@@ -157,6 +157,10 @@ impl DraftField {
                 _ => fallback,
             }
         };
+        // Controls must see the item definition even when the array is empty.
+        if kind == InputKind::Array && schema["items"].is_object() {
+            schema["items"] = resolve(root, &schema["items"], 0);
+        }
         let raw = match (&kind, value) {
             (InputKind::Text, Some(Value::String(text))) => text.clone(),
             (_, Some(v)) => serde_json::to_string_pretty(v).unwrap_or_default(),
@@ -544,6 +548,47 @@ impl Draft {
             Err(issues)
         }
     }
+    /// Move an existing item before another stable item ID (or to the end).
+    /// Move the whole draft field, including incomplete input and nested identities.
+    pub fn array_move(
+        &mut self,
+        field_id: &str,
+        item_id: &str,
+        before: Option<&str>,
+    ) -> Result<(), String> {
+        let field = self
+            .fields
+            .iter_mut()
+            .find_map(|f| f.find_mut(field_id))
+            .ok_or("Unknown array")?;
+        if field.hidden || field.read_only || field.kind != InputKind::Array {
+            return Err("Not an editable array".into());
+        }
+        let from = field
+            .items
+            .iter()
+            .position(|f| f.id == item_id)
+            .ok_or("Unknown array item")?;
+        let to = match before {
+            Some(id) => field
+                .items
+                .iter()
+                .position(|f| f.id == id)
+                .ok_or("Unknown destination item")?,
+            None => field.items.len(),
+        };
+        if from == to {
+            return Ok(());
+        }
+        let item = field.items.remove(from);
+        field
+            .items
+            .insert(if from < to { to - 1 } else { to }, item);
+        for (index, item) in field.items.iter_mut().enumerate() {
+            item.key = index.to_string();
+        }
+        Ok(())
+    }
     /// Structural edits are applied only here; item IDs remain stable across reorder.
     pub fn array_action(
         &mut self,
@@ -679,6 +724,40 @@ mod tests {
         assert_eq!(draft.value().unwrap(), json!({"items":["b","a"]}));
         draft.fields[0].items[0].present = false;
         assert_eq!(draft.value().unwrap_err()[0].path, "/items/0");
+    }
+
+    #[test]
+    fn array_move_preserves_invalid_nested_drafts_and_rejects_unknown_destinations() {
+        let schema = json!({"properties":{"rows":{"type":"array","items":{"type":"object","properties":{"n":{"type":"integer"}}}}}});
+        let mut draft = Draft::new(&schema, &json!({"rows":[{"n":1},{"n":2},{"n":3}]}));
+        let array = draft.fields[0].id.clone();
+        let ids: Vec<_> = draft.fields[0].items.iter().map(|f| f.id.clone()).collect();
+        let child = draft.fields[0].items[2].items[0].id.clone();
+        draft.apply(&HashMap::from([(
+            child.clone(),
+            FieldInput {
+                present: true,
+                raw: "unfinished".into(),
+            },
+        )]));
+        draft.array_move(&array, &ids[2], Some(&ids[0])).unwrap();
+        assert_eq!(draft.fields[0].items[0].id, ids[2]);
+        assert_eq!(draft.fields[0].items[0].items[0].id, child);
+        assert_eq!(draft.value().unwrap_err()[0].path, "/rows/0/n");
+        assert_eq!(draft.field(&child).unwrap().raw, "unfinished");
+        assert!(draft.array_move(&array, &ids[2], Some("missing")).is_err());
+        assert_eq!(draft.fields[0].items[0].id, ids[2]);
+        draft.array_move(&array, &ids[2], None).unwrap();
+        assert_eq!(
+            draft.fields[0]
+                .items
+                .iter()
+                .map(|f| f.id.clone())
+                .collect::<Vec<_>>(),
+            ids
+        );
+        draft.fields[0].read_only = true;
+        assert!(draft.array_move(&array, &ids[1], None).is_err());
     }
 
     #[test]

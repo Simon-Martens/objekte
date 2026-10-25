@@ -49,19 +49,466 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "362evobt0325f8a"
+    {
+      "annotation": "1826-1828. \nMit Bl 3, 201 SS und Nachwort VIII .",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101220",
+      "location": "105F05",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "362evobt0325f8a"
+    }
   ],
   "contents": [
-    "18dztmguouihzva",
-    "we8vyi7zgb0swkm",
-    "r26tsx6rrvtckrj",
-    "lnojt7mtj9dhsep",
-    "wt5kpuae1iovvlw",
-    "zila5cfgkddc0cu",
-    "bjk98vtz77ebf2b",
-    "tpmp6p4cmhe1qhw",
-    "0uyts89ttp1vfmu",
-    "eps9a2x1rbgb0zd"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41626,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mährchen-Almanach / auf / das Jahr 1826, / für / Söhne und Töchter / gebildeter Stände . / Herausgegeben / von / Wilhelm Hauff. / Erster Jahrgang. / Stuttgart. / Druck u. Verlag der J. W. Metzler'schen Buchhandlung. / Papier von der Patentfabrik der Gebrüder Rauch in Heilbronn. / 1826",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_549_41626_87wlppa91u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mährchen-Almanach / auf / das Jahr 1826, / für / Söhne und Töchter / gebildeter Stände . / Herausgegeben / von / Wilhelm Hauff. / Erster Jahrgang. / Stuttgart. / Druck u. Verlag der J. W. Metzler'schen Buchhandlung. / Papier von der Patentfabrik der Gebrüder Rauch in Heilbronn. / 1826",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "18dztmguouihzva"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einem schönen fernen Reiche, von welchem die Sage lebt, daß die Sonne in seinen ewig grünen Gärten niemals untergehe, herrschte von Anfang an bis heute, die Königin Phantasie.",
+      "language": [],
+      "musenalm_id": 41628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mährchen als Almanach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mährchen als Almanach",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.132Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.132Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "ss51m8f9z41jr4k"
+        }
+      ],
+      "source_id": "we8vyi7zgb0swkm"
+    },
+    {
+      "annotation": "Rahmenerzählung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Es zog einmal eine große Caravane durch die Wüste. Auf der ungeheuren Ebene, wo man nichts als Sand und Himmel sieht, hörte man schon in weiter Ferne die Glocken der Cameele und die silbernen Röllchen der Pferde,",
+      "language": [],
+      "musenalm_id": 41629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Caravane",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Caravane",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "jn02abhqp2tlxmj"
+        }
+      ],
+      "source_id": "r26tsx6rrvtckrj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Der Kalif Chasid zu Bagdad saß einmal an einem schönen Nachmittag behaglich auf seinem Sopha,",
+      "language": [],
+      "musenalm_id": 41630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte vom Kalif Storch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte vom Kalif Storch",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "xyop98z36u0etl2"
+        }
+      ],
+      "source_id": "lnojt7mtj9dhsep"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Mein Vater hatte einen kleinen Laden in Balsora; er war weder arm noch reich und war einer von jenen Leuten, die nicht gerne etwas wagen, aus Furcht, das Wenige zu verlieren, das sie haben.",
+      "language": [],
+      "musenalm_id": 41631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte von dem Gespen- / ster-Schiff",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte von dem Gespen- / ster-Schiff",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "bpw67hxro1aqhnm"
+        }
+      ],
+      "source_id": "wt5kpuae1iovvlw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Ich bin in Konstantinopel geboren; mein Vater war ein Dragoman (Dolmetscher) bei der Pforte (dem türkischen Hof), und trieb nebenbei einen ziemlich einträgigen Handel mit wohlriechenden Essenzen und seidenen Stoffen.",
+      "language": [],
+      "musenalm_id": 41632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte von der abgehaue- / nen Hand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte von der abgehaue- / nen Hand",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "wijah2dn6dm82er"
+        }
+      ],
+      "source_id": "zila5cfgkddc0cu"
+    },
+    {
+      "annotation": "# Im I-Verz: Die Befreiung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Mein Bruder Mustapha und meine Schwester Fatme waren beinahe im gleichen Alter; jener hatte höchstens zwei Jahre voraus.",
+      "language": [],
+      "musenalm_id": 41633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Errettung Fatme's #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Errettung Fatme's #",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "mjfvsnywjn0hdih"
+        }
+      ],
+      "source_id": "bjk98vtz77ebf2b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "In Nicea, meiner lieben Vaterstadt, wohnte ein Mann, den man den kleinen Muck hieß.",
+      "language": [],
+      "musenalm_id": 41634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte von dem kleinen / Muck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte von dem kleinen / Muck",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "982v7woacv21yau"
+        }
+      ],
+      "source_id": "tpmp6p4cmhe1qhw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Es war einmal ein ehrsamer Schneider-Geselle, Namens Labakan, der bei einem geschickten Meister in Alessandria sein Handwerk lernte;",
+      "language": [],
+      "musenalm_id": 41635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mährchen vom falschen / Prinzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mährchen vom falschen / Prinzen",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "ls9v8pp36t6o3o8"
+        }
+      ],
+      "source_id": "0uyts89ttp1vfmu"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz. Erzählung des Räubers Orbasan als Schluß der Rahmenerzählung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Ich muß weit ausholen, um mich Dir ganz verständlich zu machen. Ich bin in Alexandrien von christlichen Eltern geboren.",
+      "language": [],
+      "musenalm_id": 41636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orbasan #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Orbasan #",
+      "updated": "2005-12-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.133Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "lu8mxr04rf3bcc3"
+        }
+      ],
+      "source_id": "eps9a2x1rbgb0zd"
+    }
   ],
   "agents": [
     {

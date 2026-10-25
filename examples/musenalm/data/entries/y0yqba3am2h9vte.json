@@ -48,23 +48,624 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "la5lod4wqimromw"
+    {
+      "annotation": "wohl identisch mit: Vergissmeinnicht, eine Prämiengabe zum Thüringer Stadt- und Landboten 1844\nHalbledereinband; VB, T, 2 BB, S I-Verz u G-Verz, 3 GG, S 1-479, S C <br> §§ 3 GG fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.573Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106549",
+      "location": "105R08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.573Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "la5lod4wqimromw"
+    }
   ],
   "contents": [
-    "bac0kyiboli3td7",
-    "7bjxbr9q56u07ki",
-    "wgx4uabuje975p8",
-    "3j6k0nsachjc543",
-    "qn9os0infu1dehh",
-    "f6x23gcmm3wa6dv",
-    "00kcy82ri9o8x8s",
-    "icnwn36ajqy1pqd",
-    "w7hhc914qyn31el",
-    "ozanufyv2edqme5",
-    "fpirwznf2wkfqx7",
-    "000z5w8l6bdqftr",
-    "2rjbr5c70ciyjzg",
-    "jx0c4eejpm818bv"
+    {
+      "annotation": "§ Titelgraphik fehlt; s. Textbezug (Gedicht) INr 106554, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106552,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helena #§",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1832_106552_36y4dkicch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helena #§",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "bac0kyiboli3td7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106553,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helena / Taschenbuch / für / 1837. / Erster Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helena / Taschenbuch / für / 1837. / Erster Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "7bjxbr9q56u07ki"
+    },
+    {
+      "annotation": "§ bez. Titelgraphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wie schön, wie reizend schön war mir das Leben, / Das mir der zauberische Gott der Welt / - Mein Vater - und ihr Vater mir gegeben!",
+      "language": [],
+      "musenalm_id": 106554,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helena. / (Zum Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helena. / (Zum Titelkupfer.)",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.134Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "gcw65xdsx1vi741"
+        }
+      ],
+      "source_id": "wgx4uabuje975p8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106555,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "3j6k0nsachjc543"
+    },
+    {
+      "annotation": "lt. G-Verz: Illustration zu »Der Venetianer« von Herloßsohn«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106556,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Höcker del. Jos. Stöber sc. Vien)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Höcker del. Jos. Stöber sc. Vien",
+      "scans": [
+        "alm_1832_106556_mjx6zujuz7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "7m94befid2m4zdl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.134Z",
+          "agent": "kwzb6jsz3v39813",
+          "source_id": "n9zf5ce77yvbu5r"
+        }
+      ],
+      "source_id": "qn9os0infu1dehh"
+    },
+    {
+      "annotation": "lt. G-Verz: Illustration zu »Der Venetianer« von Herloßsohn«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106557,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Höcker del. Jos. Stöber sc. Vien)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Höcker del. Jos. Stöber sc. Vien",
+      "scans": [
+        "alm_1832_106557_hrfd4gvwza.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "kwzb6jsz3v39813",
+          "source_id": "af6ofhozfdzb6bm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "h40fdx8gqh4li64"
+        }
+      ],
+      "source_id": "f6x23gcmm3wa6dv"
+    },
+    {
+      "annotation": "lt. G-Verz: Illustration zu »Der Venetianer« von Herloßsohn«: Antonio mit Manfrone und Fernandez beim Eremiten",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106558,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Höcker del. Jos. Stöber sc. Vien)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Höcker del. Jos. Stöber sc. Vien",
+      "scans": [
+        "alm_1832_106558_z8o7rv6ipj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "6ul59b5ngeuvtjm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "kwzb6jsz3v39813",
+          "source_id": "ec9193b5pbovj4b"
+        }
+      ],
+      "source_id": "00kcy82ri9o8x8s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war fast Mitternacht. Sie wird heut nicht mehr kommen, sagte der junge Graf, das Schloß liegt ihr zu fern, das Wetter ist ungewiß, die Wege sind nicht die besten,",
+      "language": [],
+      "musenalm_id": 106559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Klausenburg. / Eine Gespenster-Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Klausenburg. / Eine Gespenster-Geschichte",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "5npojfs111p70xy"
+        }
+      ],
+      "source_id": "icnwn36ajqy1pqd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Vom Glanze der untergehenden Sonne umspielt, von der frischen Abendluft umhaucht, die in den südlichen Schweizeralpen schnell auf eine unerträgliche Tageshitze folgt, von den jodelnden Liedern der Sennen umsummt, schritt ein junger Jägersmann,",
+      "language": [],
+      "musenalm_id": 106560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Galeerensklave. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Galeerensklave. / Novelle",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "gqcquwqa7vo1jms"
+        }
+      ],
+      "source_id": "w7hhc914qyn31el"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Da seh ich dich im echten Männerwerth, / Den Ersten von den Freien und den Gleichen, [...] Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Frei und glücklich in dem Gefühl der von den Altvordern ererbten, auf blutiger Wahlstatt theuer behaupteten Freiheit blühte Bern zu Anfang des vierzehnten Jahrhunderts.",
+      "language": [],
+      "musenalm_id": 106561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter und Bürger. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter und Bürger. / Erzählung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "c3ohou2m1qms29e"
+        }
+      ],
+      "source_id": "ozanufyv2edqme5"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Was Einer kann, das soll er thun! / Wie sollten Tausend - Künstler ruhn? /) jedem Kapitel ist ein Gedicht verangestellt: Hier Incipit des Gedichts zum ersten Kapitel s. folgendes Incipt des Prosateils des ersten Kapitels",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Am Abend sind schon die Menschen frei / Von des Erdgeist's Plagen und Sorgen, / Da zieh'n die Gestirne des Himmels herbei",
+      "language": [],
+      "musenalm_id": 106562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / große deutsche Musifest. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / große deutsche Musifest. / Novelle",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "jyenlemybreork8"
+        }
+      ],
+      "source_id": "fpirwznf2wkfqx7"
+    },
+    {
+      "annotation": "jedem Kapitel ist ein Gedicht verangestellt: Hier Incipit des Prosateils des ersten Kapitels",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Wie um einen Tisch in Raphaels Gemälde, der Disputa, wunderlche Männer aus allen Zeiten sitzen; so saßen in dem Casino zur Abendfreiheit am Tisch um die monströse Lampe noch wunderlichere Gestalten.",
+      "language": [],
+      "musenalm_id": 106563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das / große deutsche Musifest. / Novelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das / große deutsche Musifest. / Novelle]",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "zbhbjfnahmow14p"
+        }
+      ],
+      "source_id": "000z5w8l6bdqftr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "479",
+      "incipit_statement": "Breslau, gedruckt bei Leopold Freund",
+      "language": [],
+      "musenalm_id": 106564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Breslau, gedruckt bei Leopold Freund…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "2rjbr5c70ciyjzg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106565,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "jx0c4eejpm818bv"
+    }
   ],
   "agents": [
     {

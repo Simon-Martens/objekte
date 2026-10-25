@@ -48,25 +48,646 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "dyd1su8kc01eaub"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405212",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "dyd1su8kc01eaub"
+    }
   ],
   "contents": [
-    "bsn7bimjry6tiym",
-    "eptry8wb71na9g3",
-    "a0sfv27eddfz63l",
-    "3vh1qquh6zcapsr",
-    "jeqqm64vjyvzvli",
-    "mkooabzfxr9r9ok",
-    "ex8q9y5hvl2cpac",
-    "jwi0uodguzt1iif",
-    "l8rodv5vnxdz4my",
-    "9rhmgfxrpqgviiv",
-    "irygyp2dhl3navi",
-    "7kawwo38nucul2z",
-    "nh1gbc5fxuxudm3",
-    "s27w7r7nuyhrmtv",
-    "s7zbjrdxr0jkihv",
-    "0fmrk1i1usqmzht"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125164,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1263_125164_a5f6r1m1xs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "bsn7bimjry6tiym"
+    },
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Hans als Schildwache« von Kurländer (INr 125169, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125165,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hanns als Schildwache. 16 Scene. / Hanns. / »Nun weiss ich, wie einem Sieger / zu Muthe ist.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1263_125165_ra1tesrpth.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hanns als Schildwache. 16 Scene. / Hanns. / »Nun weiss ich, wie einem Sieger / zu Muthe ist.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "eptry8wb71na9g3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125166,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1835. / von / F. A. von Kurländer. / Fünf und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1835. / von / F. A. von Kurländer. / Fünf und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0sfv27eddfz63l"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 12166, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Mir Geneigte! So darf ich wohl die Leserinnen und Leser [...] ansprechen, die mir nicht Geneigten, werden sich schwerlich in der lesenden Zahl befinden, daher auch diese Bemerkung nicht übel aufnehmen.",
+      "language": [],
+      "musenalm_id": 125167,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "2onu11b7pybl3tg"
+        }
+      ],
+      "source_id": "3vh1qquh6zcapsr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125168,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "jeqqm64vjyvzvli"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (Titelkupfer; INr 125165, Obj 2); $ vermutlich Jacques-Arsène-François-Polycarpe Ancelot (vgl. NBG II, Sp. 498ff.); # Bezeichnung aus dem Titel (INr 12166, Obj 3); ## Titel des Originals aus dem Vrwrt (INr  125167, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Betracht’ ihn nur – so sitzt er den ganzen Vormittag, unbeweglich – Wie dumm er aussieht – / Dafür kann er ja nicht.",
+      "language": [],
+      "musenalm_id": 125169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hanns als Schildwache. / Ländliche Szene in einem Aufzuge, / als Fortsetzung / von / Hanns am Scheidewege / und dem / Wiedersehen ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $ [bearb.] F. A. von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hanns als Schildwache. / Ländliche Szene in einem Aufzuge, / als Fortsetzung / von / Hanns am Scheidewege / und dem / Wiedersehen ##",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "74jbjebbjtlz92d"
+        }
+      ],
+      "source_id": "mkooabzfxr9r9ok"
+    },
+    {
+      "annotation": "mit zwei kol. Illustration (INr 125171, 125172, Obj 8, 9); # Bezeichnung aus dem Titel (INr 12166, Obj 3); ## lt. Vrwrt. (INr 125167, Obj 4) Bearbeitung eines Vaudevilles. Dieses konnte nicht recherchiert werden.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Halt! / Wie so? / Hier geblieben. / Weßwegen? / Um mit mir zu sprechen.",
+      "language": [],
+      "musenalm_id": 125170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Altistinn. / Lustspiel in zwei Aufzügen ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet [bearb.] F. A. von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Altistinn. / Lustspiel in zwei Aufzügen ##",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "bsb2ybo2hlc3td3"
+        }
+      ],
+      "source_id": "ex8q9y5hvl2cpac"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Altistinn« von Kurländer (INr 125170, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Altistinn. 1 Act, 11 Scene / Erwin. / »Wenn das bei der Justiz bekannt / würde!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1263_125171_12tvbotxbk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Altistinn. 1 Act, 11 Scene / Erwin. / »Wenn das bei der Justiz bekannt / würde!«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "jwi0uodguzt1iif"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Altistinn« von Kurländer (INr 125170, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Altistinn. 2 Act, 11 Scene. Marquise. »Ich soll den Sarastro singen!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1263_125172_8mg9rniqaj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Altistinn. 2 Act, 11 Scene. Marquise. »Ich soll den Sarastro singen!«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "l8rodv5vnxdz4my"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 125174, Obj 11); # Bezeichnung aus dem Titel (INr 12166, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Den Kopf in die Höhe, die Augen aufgeschlagen; man sagt ja, unser Geschlecht sei zum Herrschen geboren, die Mittel dazu müssen wir nicht am Boden suchen, sondern von den obern Mächten erflehen.",
+      "language": [],
+      "musenalm_id": 125173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zufall und List. / Lustspiel in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zufall und List. / Lustspiel in zwei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "ifd531z8s60xesh"
+        }
+      ],
+      "source_id": "9rhmgfxrpqgviiv"
+    },
+    {
+      "annotation": "kol. Illustration zu »Zufall und List« von Kurländer (INr 125173, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zufall und List. 2 Act, 1 Scene. / Karoline. / »Liebhaber, Nebenbuhler und / Gemahl sind eingeschlafen.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1263_125174_ngs3e5awfz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zufall und List. 2 Act, 1 Scene. / Karoline. / »Liebhaber, Nebenbuhler und / Gemahl sind eingeschlafen.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "irygyp2dhl3navi"
+    },
+    {
+      "annotation": "mit zwei kol. Illustrationen (INr 125176, 125177, Obj 13, 14); # Bezeichnung aus dem Vrwrt (INr 125167, Obj 4); ## Bezeichnung aus dem Titel (INr 12166, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Traute Seele, wenn ich dich nicht störte, so möchte ich bemerken, daß deine Freundinn uns das ganze Fest verderben wird.",
+      "language": [],
+      "musenalm_id": 125175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haushaltung einer Dichterinn. / Lustspiel in einem Aufzug",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Varner # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Haushaltung einer Dichterinn. / Lustspiel in einem Aufzug",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "7abflypvon54nis"
+        }
+      ],
+      "source_id": "7kawwo38nucul2z"
+    },
+    {
+      "annotation": "kol. Illustration zu »Haushaltung einer Dichterinn« von Kurländer (INr 125175, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haushaltung einer Dichterinn. 1 Act, 4 Scene. / Bohldorf. / »Wie ein Maulesel willst du sagen?«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_1263_125176_v6kg9z8ft1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Haushaltung einer Dichterinn. 1 Act, 4 Scene. / Bohldorf. / »Wie ein Maulesel willst du sagen?«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "lvtq156morjr7pg"
+        }
+      ],
+      "source_id": "nh1gbc5fxuxudm3"
+    },
+    {
+      "annotation": "kol. Illustration zu »Haushaltung einer Dichterinn« von Kurländer (INr 125175, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haushaltung einer Dichterinn. 17 Scene. / Celeste. / »Thorheit, Eitelkeit, Verblendung!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_1263_125177_5meqth964a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Haushaltung einer Dichterinn. 17 Scene. / Celeste. / »Thorheit, Eitelkeit, Verblendung!«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.869Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "qkbfjkpaapkrnxp"
+        }
+      ],
+      "source_id": "s27w7r7nuyhrmtv"
+    },
+    {
+      "annotation": "mit I-Verz der vorherigen Jgg.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125178,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "s7zbjrdxr0jkihv"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125179,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1263_125179_f2q49t0obn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "0fmrk1i1usqmzht"
+    }
   ],
   "agents": [
     {

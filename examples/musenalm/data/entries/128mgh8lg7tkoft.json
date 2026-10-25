@@ -48,13 +48,197 @@
   "year": 1870,
   "editor": "",
   "items": [
-    "2j2zs4tj4ghwz9m"
+    {
+      "annotation": "Österreichische Ausgabe von Cornelia 1870\nvorhanden",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.534Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404549",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.534Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2j2zs4tj4ghwz9m"
+    }
   ],
   "contents": [
-    "n1pbxuq8l6m38wv",
-    "anc577ko22jcc58",
-    "hq8dno7gxsuw6ln",
-    "m9s2dtb3w0urhyx"
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64662,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THALIA / 1870",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1080_64662_btumssfr2k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THALIA / 1870",
+      "updated": "2009-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1870,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.337Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.337Z",
+          "agent": "ocng47uzapri3n3",
+          "source_id": "85tzc8gpl9hitiu"
+        }
+      ],
+      "source_id": "n1pbxuq8l6m38wv"
+    },
+    {
+      "annotation": "graph.-typogarph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.821Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64663,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NEUE THALIA / Wien. / 1870. / MORITZ PERLES / Buch- und Kunstthandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Weigl del. A. Dworak sc.",
+      "scans": [
+        "alm_1080_64663_23tm5x5kef.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NEUE THALIA / Wien. / 1870. / MORITZ PERLES / Buch- und Kunstthandlung",
+      "updated": "2009-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1870,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.337Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.337Z",
+          "agent": "masan4fv3ew8l5z",
+          "source_id": "0hvzsd8dmaxazbi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.337Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.337Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "a1wl3yctgbi15xe"
+        }
+      ],
+      "source_id": "anc577ko22jcc58"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64664,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Thalia. / Taschenbuch für 1870. / Ausgabe der Cornelia für Oesterreich. / Mit sieben Stahlstichen. / Wien. / Verlag von Moritz Perles. / Stadt, Steindelgasse Nr. 2",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1080_64664_eeshnpaag7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neue Thalia. / Taschenbuch für 1870. / Ausgabe der Cornelia für Oesterreich. / Mit sieben Stahlstichen. / Wien. / Verlag von Moritz Perles. / Stadt, Steindelgasse Nr. 2",
+      "updated": "2009-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1870,
+      "editor": "",
+      "agents": [],
+      "source_id": "hq8dno7gxsuw6ln"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64665,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1080_64665_ijfmdp3iqi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1870,
+      "editor": "",
+      "agents": [],
+      "source_id": "m9s2dtb3w0urhyx"
+    }
   ],
   "agents": [
     {

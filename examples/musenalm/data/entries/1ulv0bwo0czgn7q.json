@@ -48,37 +48,1151 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "xs2bggkmsxdqr9e"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200621",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xs2bggkmsxdqr9e"
+    }
   ],
   "contents": [
-    "wb21fl7cgljuxpb",
-    "chmfv5fty1mwu83",
-    "11t95wy2j3u1iny",
-    "x2eieolee4msz15",
-    "df83jkd1ng6pt2u",
-    "9gj6fg0nnj51628",
-    "bmhhc1n4nxtrbri",
-    "5vreweuposkkj3n",
-    "k783ikbzfmzw9sk",
-    "o8b6z4cy389ou2x",
-    "8jdgvoijlks2hlq",
-    "epdfbg2q5pjbgkf",
-    "q0wwnhark88lz2r",
-    "t16el84o66y0e4z",
-    "an2fr6wog70y7oy",
-    "qjtjw62w8ax4mjx",
-    "odth2yz8bfpzctj",
-    "1nalkt4wxafrrvj",
-    "1eh2788sdm4zk26",
-    "0hjqz8efqd87nwi",
-    "xhc1v0du597xmiu",
-    "6evk2vz9rf2pk3x",
-    "78vut7e5mq525wk",
-    "brauoeivn9gwhqc",
-    "y6sq7jsa7ecrp8i",
-    "4pa0a3l3w13zqlh",
-    "evrra7i97209ihm",
-    "p8dprzxgi0rj88n"
+    {
+      "annotation": "lt. G-Verz: aus Barrows Voyage to Cochinchina  London 1806, d.i.: Barrow, John: A Voyage to Cochinchina, in the Years 1792 and 1793 [...] London, T. Cadell, 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41609,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cochinchinesischer Soldat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_548_41609_47c6xjzn6m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cochinchinesischer Soldat",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.206Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "w44evl10mpk48bd"
+        }
+      ],
+      "source_id": "wb21fl7cgljuxpb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41610,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern / von / E. A. W. von ZIMMERMANN. / Neunter Jahrgang / Zweite Abtheilung / für das Jahr / 1810. / Mit 9 Kupfern und 1r. Karte  / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_548_41610_kioh5wqqg1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern / von / E. A. W. von ZIMMERMANN. / Neunter Jahrgang / Zweite Abtheilung / für das Jahr / 1810. / Mit 9 Kupfern und 1r. Karte  / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "chmfv5fty1mwu83"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Schwerlich zeigt sich dem Ethographen ein so auffallender Beweis für die Einwirkung, des Klimas auf Denkart und Sitten, als bei dem Contrast der einander so nahe gelegenen Länder von China und Japan.",
+      "language": [],
+      "musenalm_id": 41746,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. W. v. Zimmermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.339Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "zp5ihd3mtmwag0b"
+        }
+      ],
+      "source_id": "11t95wy2j3u1iny"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41747,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "x2eieolee4msz15"
+    },
+    {
+      "annotation": "Photos 41748,01-41748,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41748,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalts-Anzeige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_548_41748_01_bbuc41m05l.jpg",
+        "alm_548_41748_02_d3od4o1b57.jpg",
+        "alm_548_41748_03_tyk026kkaf.jpg",
+        "alm_548_41748_04_cy8pcpwd7l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Inhalts-Anzeige",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "df83jkd1ng6pt2u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Weit bestimmter und weit eingreifender, als bei den ihm zunächst stehenden Thierarten ist bei dem Menschen der Nachahmungstrieb.",
+      "language": [],
+      "musenalm_id": 41749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.251Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.251Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "7ti6l7tyo0ykaa7"
+        }
+      ],
+      "source_id": "9gj6fg0nnj51628"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Sonderbar genug hängt dieser Ansatz zum chinesischen Reich an dessen östlichem Theile beutelförmig in den Ocean hinab.",
+      "language": [],
+      "musenalm_id": 41750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Korea, Kaoli der Chinesen. / Das Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Korea, Kaoli der Chinesen. / Das Land",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "bmhhc1n4nxtrbri"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Schon jene hohe Bergkette läßt auf bedeutende Bergadern schließen. Und wenn die große Unbekanntheit diese Landes uns gleich keine Minen hat kennen lernen,",
+      "language": [],
+      "musenalm_id": 41751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Korea, Kaoli der Chinesen.] / Natur-Produkte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Korea, Kaoli der Chinesen.] / Natur-Produkte",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "5vreweuposkkj3n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Voraussehen ließ es sich, daß hier der Chinese sich, wenn gleich nicht völlig in Sitten und Gewohnheiten, doch dem Äußern nach,",
+      "language": [],
+      "musenalm_id": 41752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mensch",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "k783ikbzfmzw9sk"
+    },
+    {
+      "annotation": "s. die GraphikenINr 41758-41760, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Kaum 15 Meilen über das Meer hin und schon zeigt sich ein Inselreich, das, wenn gleich von Menschen bewohnt, welche denen des so eben verlassenen Continents ähnlich sind,",
+      "language": [],
+      "musenalm_id": 41753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kaiserreich Japan (Niphon) / und die dazu gehörenden Inseln / Das Land im Allgemeinen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Kaiserreich Japan (Niphon) / und die dazu gehörenden Inseln / Das Land im Allgemeinen",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.105Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.105Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "vqnkpqzgnsx97bh"
+        }
+      ],
+      "source_id": "o8b6z4cy389ou2x"
+    },
+    {
+      "annotation": "s. die Graphiken INr 41758-41760, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "An den östlichen Grenzen Asiens bildet, vom 31 Grade der Breite bis gegen den 42sten, eine Reihe ansehnlicher Inseln, umgeben von hundert kleineren, den Kaiserstaat Japan.",
+      "language": [],
+      "musenalm_id": 41754,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Das Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Das Land",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "8jdgvoijlks2hlq"
+    },
+    {
+      "annotation": "s. die Graphiken INr 41758-41760, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Selbst die todte Natur zeigt hier eine große Mannigfaltigkeit.",
+      "language": [],
+      "musenalm_id": 41755,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Natur-Produkte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Natur-Produkte",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.213Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "z6jmyz2iie7xaun"
+        }
+      ],
+      "source_id": "epdfbg2q5pjbgkf"
+    },
+    {
+      "annotation": "s. die Graphiken INr 41758-41760, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Sowohl der Chinese, als der Japaner, weidet seine Einbildungskraft an erdichteten Thieren;",
+      "language": [],
+      "musenalm_id": 41756,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Thierreiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Thierreiche",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "q0wwnhark88lz2r"
+    },
+    {
+      "annotation": "s. die Graphiken INr 41758-41760, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Unleugbar ist der Japaner dem Tartaren des gegenüberliegenden festen Landes sehr ähnlich.",
+      "language": [],
+      "musenalm_id": 41757,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / der Mensch",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.213Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "mq40jezyjgoig8d"
+        }
+      ],
+      "source_id": "t16el84o66y0e4z"
+    },
+    {
+      "annotation": "$ vermutl. C. Frosch; lt. G-Verz nach Kämpfern S. 110 d.i.: Kämpfer, Engelbrecht: History of Japan and Siam, London 1727",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Japanische Tempel Kiamitz, nebst seinen Umgebungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_548_41758_cmwa39xr63.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Japanische Tempel Kiamitz, nebst seinen Umgebungen",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "an2fr6wog70y7oy"
+    },
+    {
+      "annotation": "$ vermutl. C. Frosch; lt. G-Verz: nach Kämpfern S. 154 d.i.: Kämpfer, Engelbrecht: History of Japan and Siam, London 1727",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41759,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufzug des holländischen Gesandten zur Audienz beim Kaiser von Japan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_548_41759_0zxo4djc74.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aufzug des holländischen Gesandten zur Audienz beim Kaiser von Japan",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "qjtjw62w8ax4mjx"
+    },
+    {
+      "annotation": "$ vermutl. C. Frosch; lt. G-Verz: nach Kämpfern S. 159 d.i.: Kämpfer, Engelbrecht: History of Japan and Siam, London 1727",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.893Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Audienz der Holländer in dem Saale der 100 Matten zu Jedo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_548_41760_nb0v44e8g6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Audienz der Holländer in dem Saale der 100 Matten zu Jedo",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "odth2yz8bfpzctj"
+    },
+    {
+      "annotation": "s. die Graphiken INr 41762, 41763; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Japans Herrschaft erstreckt sich auf ein ihm nördlich gelegenes, ansehnliches Land, welches für uns nur erst seit dem Ende des letzten Jahrhunderts in ein helleres Licht getreten ist.",
+      "language": [],
+      "musenalm_id": 41761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Japans Herrschaft erstreckt sich auf ein ihm nördlich gelegenes, ansehnliches Land, welches für uns nur erst seit dem Ende des letzten Jahrhunderts in ein helleres Licht getreten ist.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "1mb10bru61aopy7"
+        }
+      ],
+      "source_id": "1nalkt4wxafrrvj"
+    },
+    {
+      "annotation": "lt. G-Verz aus : Broughton, William R.: A voyage of discovery to the north Pacific Ocean. London. 1804 S. 238",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mann und Frau aus der Volcano Bay uf Jesso",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_548_41762_rqs9mgqiqp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mann und Frau aus der Volcano Bay uf Jesso",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "cec0o8wdfts82u8"
+        }
+      ],
+      "source_id": "1eh2788sdm4zk26"
+    },
+    {
+      "annotation": "lt. G-Verz:aus: Atlas zu: Voyage de La Pérouse autour du monde. Paris, 1797",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Perousens Unterhaltung mit den Einwohnern von Tschoka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch fec., [unleserlich]",
+      "scans": [
+        "alm_548_41763_yzolrsr8q0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Perousens Unterhaltung mit den Einwohnern von Tschoka",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.774Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "zvm6qqxqfzpl1l1"
+        }
+      ],
+      "source_id": "0hjqz8efqd87nwi"
+    },
+    {
+      "annotation": "s. Graphiken INr 41609, 41765, 41768, 41769; Obj 1, 22, 25, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Von Quangsi, der südlichsten Provinz des chinesischen Reichs, zieht sich in Westen eine große Gebirgskette gegen die Herrschaft der Birmanen hin.",
+      "language": [],
+      "musenalm_id": 41764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tunkin und Cochinchina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tunkin und Cochinchina",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.774Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "95elalbv6fz6vwb"
+        }
+      ],
+      "source_id": "xhc1v0du597xmiu"
+    },
+    {
+      "annotation": "lt. G-Verz: S. 255 aus Barrows Voyage to Cochinchina  London 1806, d.i.: Barrow, John: A Voyage to Cochinchina, in the Years 1792 and 1793... London, T. Cadell, 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfahrt in den Fluss Fai-fu (Cochinchina)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_548_41765_t9xb00xp1z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einfahrt in den Fluss Fai-fu (Cochinchina)",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.774Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "wof5nn6el6q01pq"
+        }
+      ],
+      "source_id": "6evk2vz9rf2pk3x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Das Klima der heißen Zone, die bedeutenden und schön bewässerten Thäler, im Hintergrunde ein mächtiges Kettengebirge,",
+      "language": [],
+      "musenalm_id": 41766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tunkin und Cochinchina] / Naturprodukte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Tunkin und Cochinchina] / Naturprodukte",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "8y95c5p26nitc6u"
+        }
+      ],
+      "source_id": "78vut7e5mq525wk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Auch hier ist der Urbewohner von seinem väterlichen Sitze verdrängt.",
+      "language": [],
+      "musenalm_id": 41767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tunkin und Cochinchina] / Der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Tunkin und Cochinchina] / Der Mensch",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "n36qq7rcbux6rnp"
+        }
+      ],
+      "source_id": "brauoeivn9gwhqc"
+    },
+    {
+      "annotation": "lt. G-Verz: S. 268. Aus den Allgem. Reisen 10 B.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mandarinen von Tunkin. / 1. Grosskanzler. 2. Kriegsmandarinen. 3. Gelehrte Mandarinen. / 4. Kanzler aller Gerichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_548_41768_nuu3m9uavk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mandarinen von Tunkin. / 1. Grosskanzler. 2. Kriegsmandarinen. 3. Gelehrte Mandarinen. / 4. Kanzler aller Gerichte",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.736Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "at2nvpptto2bpnl"
+        }
+      ],
+      "source_id": "y6sq7jsa7ecrp8i"
+    },
+    {
+      "annotation": "lt. G-Verz: S. 294 nach Barrow. d.i.: Barrow, John: A Voyage to Cochinchina, in the Years 1792 and 1793... London, T. Cadell, 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unter dem Banianen Baum opfert der Cochinchinese dem Gotte Fa die ersten Früchte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_548_41769_d4efp95dhk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Unter dem Banianen Baum opfert der Cochinchinese dem Gotte Fa die ersten Früchte",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.736Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "umb44zw0tdhw4ot"
+        }
+      ],
+      "source_id": "4pa0a3l3w13zqlh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41770,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "evrra7i97209ihm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.149Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41771,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "China und Japan / nebst / einigen verwandten Staaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gest. von Fr. Müller in Leipzig",
+      "scans": [
+        "alm_548_41771_beql4uy3ww.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "China und Japan / nebst / einigen verwandten Staaten",
+      "updated": "2005-12-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "p8dprzxgi0rj88n"
+    }
   ],
   "agents": [
     {

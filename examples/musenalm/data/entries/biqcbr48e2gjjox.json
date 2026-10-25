@@ -48,11 +48,108 @@
   "year": 1767,
   "editor": "",
   "items": [
-    "2dxs28r2lrd25vp"
+    {
+      "annotation": "1765-?\nLedereinband.\n1767: Mit Tku 1 und 160 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.494Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100004",
+      "location": "105C01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.494Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2dxs28r2lrd25vp"
+    }
   ],
   "contents": [
-    "6nbbinroetjnrbf",
-    "0w4howx5v2cuom7"
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36696,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANAC DES MUSES / A PARIS / Chez VALLAT LA CHAPELLE ; Libraire, au Palais, / sur le Perron de la Sainte Chapelle. 1767",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Poisson del. et sc.",
+      "scans": [
+        "alm_497_36696_vjfmak3v2b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANAC DES MUSES / A PARIS / Chez VALLAT LA CHAPELLE ; Libraire, au Palais, / sur le Perron de la Sainte Chapelle. 1767",
+      "updated": "2004-02-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1767,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.978Z",
+          "agent": "3gvcwrgjrkx8jl0",
+          "source_id": "yrax0xxsun01czu"
+        }
+      ],
+      "source_id": "6nbbinroetjnrbf"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / DES MUSES, / Ou choix des meilleurs Poësies / fugitives qui ont paru en 1766",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_497_36695_1ggguwx6z8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / DES MUSES, / Ou choix des meilleurs Poësies / fugitives qui ont paru en 1766",
+      "updated": "2004-02-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1767,
+      "editor": "",
+      "agents": [],
+      "source_id": "0w4howx5v2cuom7"
+    }
   ],
   "agents": [
     {

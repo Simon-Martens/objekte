@@ -48,24 +48,742 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "4e9z5flfllfc4qq"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.700Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106772",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.700Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4e9z5flfllfc4qq"
+    }
   ],
   "contents": [
-    "1qi3w7u636lc48s",
-    "r9tjuiygsrqocgb",
-    "y4dz2pgzymzdptm",
-    "7qyileqfigh0q27",
-    "0kcvswr411wper1",
-    "twifx97f27d96m9",
-    "0hl8e8aswqxe7rc",
-    "i773l9i4a2kg3p8",
-    "oca0j18a0gm28fc",
-    "5e2w31npox9wiue",
-    "z19wvemndd1x348",
-    "ykaehhlgk25kyqh",
-    "3i7vc8lm87vhsgm",
-    "9jfn73r0u8e9ct6",
-    "i44z4ic9b5ayngk"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110983,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3476_110983_tn4auuk7hn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "1qi3w7u636lc48s"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Herzogin von Cleveland« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110988, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.508Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110984,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzogin von Cleveland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Ender del. J. Passini sc. Viennae",
+      "scans": [
+        "alm_3476_110984_z3f7cngnzt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herzogin von Cleveland",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "us55fyq4wr0pbn5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "xe6lzv55x5xz23i"
+        }
+      ],
+      "source_id": "r9tjuiygsrqocgb"
+    },
+    {
+      "annotation": "gest. Titel /) Illustration zu »Bruder Estevan « von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110994, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.509Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110985,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN, / 1840. / Leipzig, Baumgaertner's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Kovatsch Wien",
+      "scans": [
+        "alm_3476_110985_ic3onm8wie.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN, / 1840. / Leipzig, Baumgaertner's Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "6d2av1p8xfrtrcy"
+        }
+      ],
+      "source_id": "y4dz2pgzymzdptm"
+    },
+    {
+      "annotation": "Unter dem Titel: I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110986,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1840. / Von / A. von Tromlitz. / Dreizehnter Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3476_110986_3rb4wwlb6h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1840. / Von / A. von Tromlitz. / Dreizehnter Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "7qyileqfigh0q27"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.512Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110987,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "0kcvswr411wper1"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Titelgraphik INr 110984, Obj 2; Graphiken INr 110989, 110990; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.512Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unter der Regierung Carl II. von England, der in dem Schlosse zu Whitehall residirte, lag dicht an der Themse, unfern des St. James-Pallastes, der Wohnung seines Bruders, des Herzogs von York, ein altes gar sonderbares Gebäude,",
+      "language": [],
+      "musenalm_id": 110988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Herzogin von Cleveland",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Herzogin von Cleveland",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "dmww6hzqntgj6x1"
+        }
+      ],
+      "source_id": "twifx97f27d96m9"
+    },
+    {
+      "annotation": "Illustration zu »Die Herzogin von Cleveland« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110988, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.513Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisabeth Woodmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich von. C. Mahlknecht",
+      "scans": [
+        "alm_3476_110989_2v0z78xsph.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Elisabeth Woodmann",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "0c86vk1h6ahpyly"
+        }
+      ],
+      "source_id": "0hl8e8aswqxe7rc"
+    },
+    {
+      "annotation": "Illustration zu »Die Herzogin von Cleveland« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110988, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Retzsch del. Kovatsch & Hofmann)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Retzsch del. Kovatsch & Hofmann",
+      "scans": [
+        "alm_3476_110990_qtprmedrd1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "fy9tf5kmjmw75ic"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "t68q99njzlgox5f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "u8dqsckw31rcnrn"
+        }
+      ],
+      "source_id": "i773l9i4a2kg3p8"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 110992, 110993; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "In dem Jahre 1425 zogen sich von der durch die Hofhaltung der Estés damals so glänzenden Stadt Ferrara eine Menge Landhäuser von den Thoren der Stadt längs dem Po hin.",
+      "language": [],
+      "musenalm_id": 110991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ugolino",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ugolino",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "9ztqfcs8x84svdk"
+        }
+      ],
+      "source_id": "oca0j18a0gm28fc"
+    },
+    {
+      "annotation": "Illustration zu »Ugolino« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110991, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melitta",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Stahlstich v. C. Mahlknecht in Wien",
+      "scans": [
+        "alm_3476_110992_5sn4z8tah8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melitta",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "bw7ytbxz1jix85w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "dihonjgwjgakvyf"
+        }
+      ],
+      "source_id": "5e2w31npox9wiue"
+    },
+    {
+      "annotation": "Illustration zu »Ugolino« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110991, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ugolino",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. C. Kotterba sc.",
+      "scans": [
+        "alm_3476_110993_pqyx3un8x7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ugolino",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "b1lzzbqoka1shqg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "zloryxh8a1svfmd"
+        }
+      ],
+      "source_id": "z19wvemndd1x348"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. graph. Titel INr 11085, Obj 3; Graphiken INr 110995, 110996; Obj 13, 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "In dem Gebirge, welches die Ebene von Cordova umschließt, hebt sich ein steiler Fels empor, dessen höchste, wie ein Kegel geformte Spitze nur durch in den Felsen gehauene Stufen mühsam zu ersteigen ist.",
+      "language": [],
+      "musenalm_id": 110994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruder Estevan",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruder Estevan",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "p4dpkzd1a94rour"
+        }
+      ],
+      "source_id": "ykaehhlgk25kyqh"
+    },
+    {
+      "annotation": "Illustration zu »Bruder Estevan« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110994, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "406",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Retzsch del. Hoffmann s.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Retzsch del. Hoffmann s.",
+      "scans": [
+        "alm_3476_110995_p6qn90zdv1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "iy9j5af1uy6h2rn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "wms1itjt33uwxsp"
+        }
+      ],
+      "source_id": "3i7vc8lm87vhsgm"
+    },
+    {
+      "annotation": "Illustration zu »Bruder Estevan« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110994, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Juanita",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Joh. Ender Stahlstich v. Dav. Weiss i. Wien",
+      "scans": [
+        "alm_3476_110996_1qibm06d48.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Juanita",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "4s3iwkxxsxnkyjh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.453Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "egqpe3j7d9p08h1"
+        }
+      ],
+      "source_id": "9jfn73r0u8e9ct6"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.525Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110997,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3476_110997_gaxr3ioybn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "i44z4ic9b5ayngk"
+    }
   ],
   "agents": [
     {

@@ -1,15 +1,14 @@
-<div class="array-items">
-  {% if not items %}<p class="array-empty muted">No items</p>{% endif %}
+<div class="array-items" data-array="{{ base }}" data-structure-array="{{ id }}" data-array-order="{{ order }}" data-reorder-label="{{ reorder_label }}" data-empty-message="{{ empty_message }}">
+  {% if not items %}<p class="array-empty muted">{{ "No items"|t }}</p>{% endif %}
   {% for item in items %}
-  <div class="array-item" role="group" aria-label="Item {{ loop.index }}">
+  <div class="array-item" data-array-item="{{ item.id }}" role="group" aria-label="Item {{ loop.index }}">
+    {{ item.handle|safe }}
     {{ item.html|safe }}
     <div class="array-item-actions">
-      <button class="icon-button small" formaction="{{ item.up }}" {% if item.first %}disabled{% endif %} aria-label="Move item {{ loop.index }} up" data-tooltip="Move up"><i class="ri-arrow-up-line" aria-hidden="true"></i></button>
-      <button class="icon-button small" formaction="{{ item.down }}" {% if item.last %}disabled{% endif %} aria-label="Move item {{ loop.index }} down" data-tooltip="Move down"><i class="ri-arrow-down-line" aria-hidden="true"></i></button>
-      <button class="icon-button small danger" formaction="{{ item.remove }}" aria-label="{% if item.linked %}Unlink item {{ loop.index }} from this list{% else %}Delete item {{ loop.index }}{% endif %}" data-tooltip="{% if item.linked %}Unlink from this list when saved — the record remains in its collection{% else %}Delete item and its nested contents when saved{% endif %}"><i class="{% if item.linked %}ri-link-unlink{% else %}ri-delete-bin-line{% endif %}" aria-hidden="true"></i></button>
+      <button class="icon-button small danger" data-remove-array-item formaction="{{ item.remove }}" aria-label="{% if item.linked %}Unlink item {{ loop.index }} from this list{% else %}Delete item {{ loop.index }}{% endif %}" data-tooltip="{% if item.linked %}Unlink from this list when saved — the record remains in its collection{% else %}Delete item and its nested contents when saved{% endif %}"><i class="{% if item.linked %}ri-link-unlink{% else %}ri-delete-bin-line{% endif %}" aria-hidden="true"></i></button>
       {% if item.delete_url %}<a class="icon-button small danger" data-nav href="{{ item.delete_url }}" aria-label="{{ item.delete_label }}" data-tooltip="{{ item.delete_label }} Reviews references to the saved record; this draft is not saved."><i class="ri-delete-bin-line" aria-hidden="true"></i></a>{% endif %}
     </div>
   </div>
   {% endfor %}
-  <button class="small quiet" formaction="{{ add }}"><i class="ri-add-line" aria-hidden="true"></i>Add item</button>
+  <button class="small quiet" formaction="{{ add }}"><i class="ri-add-line" aria-hidden="true"></i>{{ "Add"|t }}</button>
 </div>

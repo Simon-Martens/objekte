@@ -48,19 +48,438 @@
   "year": 0,
   "editor": "",
   "items": [
-    "flhp0jyxneg0c0k"
+    {
+      "annotation": "Titelauflage von: Abentheuerliche Wanderung von Weimar nach Carlsbad. Taschenbuch aufs Jahr 1810 mit Kupfern von St. Schütze [...]",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.792Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "410505",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.792Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "flhp0jyxneg0c0k"
+    }
   ],
   "contents": [
-    "qoid3hx3vrkywtn",
-    "x5tc0p0x48clfnz",
-    "397i3hzepglotla",
-    "n2j0bwxfnxbbhx1",
-    "g1j84ygvhfcjyhb",
-    "jvd5eszfcyxuj7b",
-    "yfdpiyv88jn3shy",
-    "n98vmrusbffapyc",
-    "fxy42gokf3r7gpa",
-    "intvbv9u8bllqek"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124356,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4689_124356_hc7paizcxl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "qoid3hx3vrkywtn"
+    },
+    {
+      "annotation": "kol. Titelgaphik /) # Bez. an den übrigen Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124463,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H Ramberg 1809)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "H Ramberg 1809",
+      "scans": [
+        "alm_4689_124463_349twepy89.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.803Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fpza2199pfhhb08"
+        }
+      ],
+      "source_id": "x5tc0p0x48clfnz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124464,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze / Zweite wohlfeilere Ausgabe / mit Kupfern. / Leipzig / bei Johann Friedrich Gleditsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4689_124464_ly0y7gx9mc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze / Zweite wohlfeilere Ausgabe / mit Kupfern. / Leipzig / bei Johann Friedrich Gleditsch",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "397i3hzepglotla"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "n2j0bwxfnxbbhx1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es ist mir oft gegangen, wie andern, wenn ich Romane las: ich zweifelte, daß dergleichen Begebenheiten, als darin erzählt werden, wohl auch im Leben sich wirklich zugetragen könnten,",
+      "language": [],
+      "musenalm_id": 124466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.803Z",
+          "agent": "3v1s1vpur451cyh",
+          "source_id": "rlzw8q7s8pnxt8s"
+        }
+      ],
+      "source_id": "g1j84ygvhfcjyhb"
+    },
+    {
+      "annotation": "Nummerierung II.; auszufaltende kol. Illustration zu »Abentheuerliche Wanderung von Weimar nach Carlsbad« von St. Schütze INr 124466, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H Rmbg 1809)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H Rmbg 1809",
+      "scans": [
+        "alm_4689_124467_sik260g7en.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.803Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ep0mqe97xk824jt"
+        }
+      ],
+      "source_id": "jvd5eszfcyxuj7b"
+    },
+    {
+      "annotation": "Nummerierung III.; auszufaltende kol. Illustration zu »Abentheuerliche Wanderung von Weimar nach Carlsbad« von St. Schütze INr 124466, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124468,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Rmbg Hannover 1809)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Rmbg Hannover 1809",
+      "scans": [
+        "alm_4689_124468_8g9mgdrztd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.803Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "nrl3sqa735yms2z"
+        }
+      ],
+      "source_id": "yfdpiyv88jn3shy"
+    },
+    {
+      "annotation": "Nummerierung IV.; auszufaltende kol. Illustration zu »Abentheuerliche Wanderung von Weimar nach Carlsbad« von St. Schütze INr 124466, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124469,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Rmbg 1809)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Rmbg 1809",
+      "scans": [
+        "alm_4689_124469_tdt1ipushb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.803Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "d0eyi4om8w7zq5h"
+        }
+      ],
+      "source_id": "n98vmrusbffapyc"
+    },
+    {
+      "annotation": "Nummerierung V.; auszufaltende kol. Illustration zu »Abentheuerliche Wanderung von Weimar nach Carlsbad« von St. Schütze INr 124466, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Rmbg 1809)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Rmbg 1809",
+      "scans": [
+        "alm_4689_124470_ot6d2l08dc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.803Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "lhumdlf8pylukul"
+        }
+      ],
+      "source_id": "fxy42gokf3r7gpa"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4689_124471_py77w9k5za.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-01-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "intvbv9u8bllqek"
+    }
   ],
   "agents": [
     {

@@ -48,7 +48,26 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "b9nsu96d4tazdq2"
+    {
+      "annotation": "Reprint facsimilepublisher.com <br> Der Almanach bringt Tabellen und Anekdoten <br> KVK. OVB: 1826-1849",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.790Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404874",
+      "location": "105T10",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.790Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "b9nsu96d4tazdq2"
+    }
   ],
   "contents": [],
   "agents": [

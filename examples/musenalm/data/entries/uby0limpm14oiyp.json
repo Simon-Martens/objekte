@@ -48,69 +48,2476 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "47ds3kv2ktefaaa"
+    {
+      "annotation": "1824-1831.\nKartonierter Einband mit Prägung, Goldschnitt und Schuber.\n1830: (K:Bl 1, II, Bl 2, XVI, 383 SS und Ku 8) Mit Bl 1, II, XVI und 383 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.607Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100639",
+      "location": "105R03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.607Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "47ds3kv2ktefaaa"
+    }
   ],
   "contents": [
-    "qs2wg2lmnyd3ncr",
-    "dbmblivozx3iifl",
-    "7flsuoa627393bl",
-    "coxellrh9zraa9y",
-    "pi8yc14kax7v6hj",
-    "5wbbmcmljexe2bz",
-    "z6h28q2ut9dfrzx",
-    "p57llkphgu9hjkm",
-    "9febkei147t9tbv",
-    "34ee78nxsnk91kb",
-    "ryw63x88inx3di9",
-    "6w25ksifutu98xg",
-    "vswyn9ncbjz6p77",
-    "jj5ygphgpqticmf",
-    "8opomfof1tvb7yy",
-    "dx04vvi24p715t8",
-    "9gykshdcuj8gtzj",
-    "k4goi1h46hww6gu",
-    "bi0tcs3y1sjs99h",
-    "78kcd9xfvo6w1os",
-    "td7t89lf5sslay6",
-    "spvjjb0w7z7drt3",
-    "eduo846nrl7ijm0",
-    "ytdk8ju4alocxop",
-    "vshsirxljfwv9nj",
-    "8heb5spl5j33g83",
-    "9gzax6i4f3qh3rd",
-    "k697by6rf1uqw2x",
-    "xxmr9mv1mgl2f5y",
-    "4i4ijt73zy5wkrw",
-    "c6wrnmo8luihabh",
-    "lu2xgxcxkadqx94",
-    "wgega6sue6n9ghm",
-    "hiskxr00s66tp3x",
-    "i1fzveunhqjvuok",
-    "14iygpucobhm3px",
-    "oceqcie0nb44jzg",
-    "qbnlac7yle1x080",
-    "t1p6p1gfg6jlp0v",
-    "inm90ca8uileomw",
-    "nnnyjyr6siy78oa",
-    "t7rlihvjv54algl",
-    "07la4kwacnfqun8",
-    "uuzlf5jqyqvphho",
-    "n904olekvdwe8h7",
-    "acxy5s8sk39lo3q",
-    "khgyb5wewv9mord",
-    "331mbpnijyi7gvx",
-    "zjike92dlcfybqt",
-    "8boik8kpezev68h",
-    "bcz9q3fu0axg9nz",
-    "d5067t2cx9psjmq",
-    "hfvyfjphxg4azl4",
-    "y7lbb2wc65a5p8e",
-    "qo2w1yswnsjegwe",
-    "rpow09d22ul9lh3",
-    "kpu2585fcm1rh18",
-    "65qaoq9si71hpa0",
-    "5e1m8r4cu3491bg",
-    "f4x07twgrzfcwiy"
+    {
+      "annotation": "Schuber recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75376,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORPHEA / TASCHENBUCH / FUER / 1830",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2374_75376_sgcowytlte.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORPHEA / TASCHENBUCH / FUER / 1830",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "qs2wg2lmnyd3ncr"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75377,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2374_75377_hwb9rnd9vy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "dbmblivozx3iifl"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75397, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75378,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / II. Aufz. / Graf. Meine innigst geliebte Gattin!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_2374_75378_n7353d3540.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / II. Aufz. / Graf. Meine innigst geliebte Gattin!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.561Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.561Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "5f9mcg3tocwm6bo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.561Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.561Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "b1rnythydp0z4np"
+        }
+      ],
+      "source_id": "7flsuoa627393bl"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75379,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORPHEA / TASCHENBUCH / FÜR / 1830. / Siebenter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / zu dem / BARBIER VON SEVILLA. / LEIPZIG. / Ernst Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_2374_75379_5o2mly7axm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1830. / Siebenter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / zu dem / BARBIER VON SEVILLA. / LEIPZIG. / Ernst Fleischer",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "coxellrh9zraa9y"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "So eigenthümlich und geschieden sich irgend zwei Opern durch die Kontraste ihres musikalischen Wesens und Charakters gegen einander verhalten mögen, wie dies mit der Hochzeit des Figaro unsers Mozart und dem Barbier von Sevilla der Fall ist,",
+      "language": [],
+      "musenalm_id": 75380,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Fleischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.561Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.561Z",
+          "agent": "orvggoshiht8kde",
+          "source_id": "bs5qga4dwu55xui"
+        }
+      ],
+      "source_id": "pi8yc14kax7v6hj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75381,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "5wbbmcmljexe2bz"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 8 Scenen aus »Der Barbier von Sevilla« von G. Rossini als Textbezüge zu 7 Graphiken INr 75383-75397, Obj 8-22 und Titelgraphik INr 75378, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75382,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / zu den / Opern. / Siebente Lieferung. / Der Barbier von Sevilla",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / zu den / Opern. / Siebente Lieferung. / Der Barbier von Sevilla",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "z6h28q2ut9dfrzx"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75384, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75383,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / I. Aufz. / Graf. Sieh schon die Morgenröthe / Der Welt entgegen lachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_2374_75383_2cw57tr79d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / I. Aufz. / Graf. Sieh schon die Morgenröthe / Der Welt entgegen lachen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.561Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.561Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "e650gx51mj44042"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.561Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.561Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "rztln81blr3yno2"
+        }
+      ],
+      "source_id": "p57llkphgu9hjkm"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75383, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "(Fiorillo, mit einer Laterne, führt Musikanten vor das Haus. Alle sind mit Lichtern und musikalischen Instrumenten versehen.",
+      "language": [],
+      "musenalm_id": 75384,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "9febkei147t9tbv"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75386, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75385,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / Figaro. Ich bin das Fac-totum / Der schönen Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_2374_75385_htt76nzqiw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / Figaro. Ich bin das Fac-totum / Der schönen Welt",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.510Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "bwlpdhp9rr9yi9r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.510Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "md6ggc2mmxltsip"
+        }
+      ],
+      "source_id": "34ee78nxsnk91kb"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75385, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Arie. / Figaro. / Bin das Factotum / Der schönen Welt; / Ja, ich. La, la, la!",
+      "language": [],
+      "musenalm_id": 75386,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "ryw63x88inx3di9"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75388, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75387,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / 1. Aufz. / Rosine. Das Billetchen wäre da-",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Rosmäsler 1829",
+      "scans": [
+        "alm_2374_75387_afcak12lei.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / 1. Aufz. / Rosine. Das Billetchen wäre da-",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4z3lqfz1losk1r8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "m929uqibnw33okb"
+        }
+      ],
+      "source_id": "6w25ksifutu98xg"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75387, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Duett. / Rosine. / Also ich? Meinst du es wirklich? / Also ich wär' die Erwählte?",
+      "language": [],
+      "musenalm_id": 75388,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "vswyn9ncbjz6p77"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75390, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75389,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / I. Aufz. / Figaro. Herr Graf, ich bitte, / Nicht gar zu toll.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_2374_75389_0q63qyknqf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / I. Aufz. / Figaro. Herr Graf, ich bitte, / Nicht gar zu toll.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "u771h8v69wo3xed"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "wh6ws11rx0uuckv"
+        }
+      ],
+      "source_id": "jj5ygphgpqticmf"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75389, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Figaro. / Stille! stille! / Was ist geschehen? / Welch' tolles Streiten!",
+      "language": [],
+      "musenalm_id": 75390,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "8opomfof1tvb7yy"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75392, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75391,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / II. Aufz. / Figaro. Wohl zu ruhen, wird Sie stärken.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_2374_75391_8li5bjmyxf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / II. Aufz. / Figaro. Wohl zu ruhen, wird Sie stärken.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "sp2s0ufhq2vs0tf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "uw3y4y63q9qff2l"
+        }
+      ],
+      "source_id": "dx04vvi24p715t8"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75391, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Graf (zu Basilio) / Mit dem Fieber? Mit dem Fieber? / Herr Basilio, wer erlaubt es,",
+      "language": [],
+      "musenalm_id": 75392,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "9gykshdcuj8gtzj"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75394, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75393,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BARBIER VON SEVILLA. / II. Aufz. / Bartolo. O, Ihr Schelme, Räuber, Diebe!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_2374_75393_lk7d7imttm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BARBIER VON SEVILLA. / II. Aufz. / Bartolo. O, Ihr Schelme, Räuber, Diebe!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fk8sflf7b1gww3x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.475Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "nyb2ztsr2toxl5i"
+        }
+      ],
+      "source_id": "k4goi1h46hww6gu"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75393, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Figaro. / Beliebt's mein Herr Bartolo? / Bartolo: / Wohlan, nur zu.",
+      "language": [],
+      "musenalm_id": 75394,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "bi0tcs3y1sjs99h"
+    },
+    {
+      "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75396, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.756Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75395,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BABIER VON SEVILLA. / Graf. Ich bin Lindoro und Almaviva",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. J. Axmann sculp.",
+      "scans": [
+        "alm_2374_75395_seeqaviou5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BABIER VON SEVILLA. / Graf. Ich bin Lindoro und Almaviva",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.476Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "3845tywftrlqpfe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.476Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "emtw9slvn4z6846"
+        }
+      ],
+      "source_id": "78kcd9xfvo6w1os"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Graphik INr 75395, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Figaro / Hier wären wir nun. / Graf. / Ein abscheuliches Gewitter!",
+      "language": [],
+      "musenalm_id": 75396,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "td7t89lf5sslay6"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Siebente Lieferung. Der Barbier von Sevilla (Sammlung INr 75382, Obj 7) s. Titelgraphik INr 75378, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "(Basilio, mit einer Laterne, führt den Notar herein.) / Basilio (ruft) / Bartolo! Doctor Bartolo",
+      "language": [],
+      "musenalm_id": 75397,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / (Das Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / (Das Titelkupfer.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "spvjjb0w7z7drt3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wer sollte wol glauben, daß eine schöne reinmenschliche That, die einen Sterbenden die süßesten Thränen der Dankbarkeit und kindliche Liebe einerndten ließ, die Saat eines tiefen Kummers und bittern Jammers in sich trüge?",
+      "language": [],
+      "musenalm_id": 75398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Le Dragon rouge. / Eine französische Kriminalbegebenheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Le Dragon rouge. / Eine französische Kriminalbegebenheit",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "eduo846nrl7ijm0"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: - O Thoren, die nach anderm Glücke rennen! / Zwei Herzen, die sich finden und erkennen, […] / v. Zedlitz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Die schönste Zeit des Jahres hatte die uralte Mutter der Städte, die heilige Roma, mit dem prachtvollen Nachthimmel bedeckt,",
+      "language": [],
+      "musenalm_id": 75399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lorbeer und Myrte, / oder / das blutige Krönungsfest. / Historischer Roman",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lorbeer und Myrte, / oder / das blutige Krönungsfest. / Historischer Roman",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "rkagv3tll1kmumr"
+        }
+      ],
+      "source_id": "ytdk8ju4alocxop"
+    },
+    {
+      "annotation": "Dem Text vorangestellt. - - Das Lied ist alt und schlicht; / Die Spinn- und Knittemädchen an der Luft, / Unschuld'ge Mädchen, wenn ihr Garn sie weifen, / So singen sie's. / Shakspeare im »Dreikönigsabend",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Das Dorf Reichmannsdorf, unweit Saalfeld, trug in alter Zeit mit Recht diesen Namen; denn das Erdreich zeigte sich dort, so an Feldfrüchten, als an edlen Erzen, ungemein ergiebig.",
+      "language": [],
+      "musenalm_id": 75400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Vom versunkenen Bergwerk.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Vom versunkenen Bergwerk.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "mtwt8pjmb6he9lv"
+        }
+      ],
+      "source_id": "vshsirxljfwv9nj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Es mögen wohl schon mehr als tausend Jahre seyn, da der alte Ritter Zdenko von Brawda in dem damaligen Herzogthume Saaz auf seiner Burg Brawda lebte.",
+      "language": [],
+      "musenalm_id": 75401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Lilienbraut. / Eine Volkssage",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Lilienbraut. / Eine Volkssage",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "58p0ra8qoprfk1f"
+        }
+      ],
+      "source_id": "8heb5spl5j33g83"
+    },
+    {
+      "annotation": "mit zahlr. Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Weh' Granada! Weh', Granada! / Warum herrscht in Deinen Mauern / Also bange Stille?",
+      "language": [],
+      "musenalm_id": 75402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Esperanza de Hita. / In vier und zwanzig Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Esperanza de Hita. / In vier und zwanzig Romanzen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "p2z3hpi80h1jsqr"
+        }
+      ],
+      "source_id": "9gzax6i4f3qh3rd"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 75404-75407, Obj 29-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Kryptogamen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rio",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Kryptogamen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "k697by6rf1uqw2x"
+    },
+    {
+      "annotation": "VI. Kryptogamen (Sammlung INr 75403, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Der Tag ist todt. / Noch schäumt ein Meer. / So blutigroth, / Vom Westen her.",
+      "language": [],
+      "musenalm_id": 75404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Herbstnacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rio",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Herbstnacht",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "xxmr9mv1mgl2f5y"
+    },
+    {
+      "annotation": "VI. Kryptogamen (Sammlung INr 75403, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Wandernd vor den Jahreszeiten / Rudert's durch der Lüfte Fluth,",
+      "language": [],
+      "musenalm_id": 75405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Zugvögel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rio",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Zugvögel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "4i4ijt73zy5wkrw"
+    },
+    {
+      "annotation": "VI. Kryptogamen (Sammlung INr 75403, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Hoch aus schwarzer Wolkennacht / Schaut das Haupt der Rächerin,",
+      "language": [],
+      "musenalm_id": 75406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Nemesis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rio",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Nemesis",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "c6wrnmo8luihabh"
+    },
+    {
+      "annotation": "VI. Kryptogamen (Sammlung INr 75403, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "358",
+      "incipit_statement": "Mit des Jünglings Feuerkraft / Ungestümer Leidenschaft, / Streifend ohne Wahl, / Durch Gebirg und Thal.",
+      "language": [],
+      "musenalm_id": 75407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Ferne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Rio",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Ferne",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "lu2xgxcxkadqx94"
+    },
+    {
+      "annotation": "Sammlung von 25 Rätseln INr 75409-75433, Obj 34-58 mit Auflösung der Rätsel INr 75410, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Agrionien / für das Jahr 1830. / Gesammelt von Theodor Hell",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Agrionien / für das Jahr 1830. / Gesammelt von Theodor Hell",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "fjhnue3fn4p6dfr"
+        }
+      ],
+      "source_id": "wgega6sue6n9ghm"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Zwei Wörter, die jedes vier Zeichen enthalten, / Die sollt Ihr zu einem Quadrat mir gestalten,",
+      "language": [],
+      "musenalm_id": 75409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Räthselquadrat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Räthselquadrat",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "hiskxr00s66tp3x"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Wo zwei Konsonen sich mit dem Vokal verbinden, / Wie hier, ist es nicht leicht, ein kürz'res Wort zu finden.",
+      "language": [],
+      "musenalm_id": 75410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Worträthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Worträthsel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.686Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "a4cec1epenec0zb"
+        }
+      ],
+      "source_id": "i1fzveunhqjvuok"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Mit Vorbehalt, daß nicht sogleich die Sphinx / - Ich weiß nicht, sitzt sie rechts mir oder links -",
+      "language": [],
+      "musenalm_id": 75411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "csihw3l7ckfydk9"
+        }
+      ],
+      "source_id": "14iygpucobhm3px"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Bist Du die erste Sylbe körperlich, / Hast Du wohl Ursach', nicht damit zu prahlen;",
+      "language": [],
+      "musenalm_id": 75412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "z7ah30dbn3mq9mq"
+        }
+      ],
+      "source_id": "oceqcie0nb44jzg"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Wenn mandem Flammentod mnich weihet, / Lös' ich mich auf, steigt in die Luft, / Ein Rauchgewölk,",
+      "language": [],
+      "musenalm_id": 75413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Logogryph",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "v4rbsdjp28heiin"
+        }
+      ],
+      "source_id": "qbnlac7yle1x080"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Ein kleiner Ort im grünen Wiesenthale, / Hier still versteckt von wilden Bergeshöh'n,",
+      "language": [],
+      "musenalm_id": 75414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Homonyme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Homonyme",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "t1p6p1gfg6jlp0v"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Was für ein Ort, sprach mein Papa, / Er liegt dem schwarzen Meere nah',",
+      "language": [],
+      "musenalm_id": 75415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Logogryph",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "inm90ca8uileomw"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "Dem Tone nach streift durch den Wald / Die erste Sylbe fröhlich hin,",
+      "language": [],
+      "musenalm_id": 75416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "lmv9crf05nushim"
+        }
+      ],
+      "source_id": "nnnyjyr6siy78oa"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "An jedem Baum kannst Du mich finden; / Doch, wird ein B hinzugefügt, / Dem Gärtner wes dann schon genügt",
+      "language": [],
+      "musenalm_id": 75417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Logogryph",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "vm2zjtlfw2gr7vd"
+        }
+      ],
+      "source_id": "t7rlihvjv54algl"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Als ich jüngst in einem Blatte / In gar wohl gereimten Zeilen",
+      "language": [],
+      "musenalm_id": 75418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Palindrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "X.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Palindrom",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "07la4kwacnfqun8"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Ein Damenkreis! Und nicht auch Räthsel und Charaden? / Das könnte ja fürwahr dem guten Ruf / Der Dichter in der Flora mächtig schaden.",
+      "language": [],
+      "musenalm_id": 75419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Buchstabenräthsel / (In der Flora zu Dresden bei der Damenversammlung vor- / getragen.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Buchstabenräthsel / (In der Flora zu Dresden bei der Damenversammlung vor- / getragen.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "7i0bvrpou2gj53x"
+        }
+      ],
+      "source_id": "uuzlf5jqyqvphho"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Als ich einst das Ganze wagte / Bei Rosetten, sprach ich: Gieb / Auch die zweite.",
+      "language": [],
+      "musenalm_id": 75420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. v. Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "n904olekvdwe8h7"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Zwei Sylben geb' ich Euch zu rathen auf. / Die erste findet in der Töne Lauf / Ihr leicht bei jedem Eurer Instrumente.",
+      "language": [],
+      "musenalm_id": 75421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "yx2ckxpql0qkzr5"
+        }
+      ],
+      "source_id": "acxy5s8sk39lo3q"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Selten werd' ich fehlen, schreitet, / Auf der Schulter das Gewehr,",
+      "language": [],
+      "musenalm_id": 75422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / Räthsel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "vzie4p506osap9r"
+        }
+      ],
+      "source_id": "khgyb5wewv9mord"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "Wär' der Apfel doch gewesen, / Den die Mutter Eva nahm,",
+      "language": [],
+      "musenalm_id": 75423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Charade in drei Sylben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Charade in drei Sylben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "u45lc6u2f1mu41x"
+        }
+      ],
+      "source_id": "331mbpnijyi7gvx"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "373",
+      "incipit_statement": "Hab' als Bursche so gelebt / Wie das Wort Euch deutet,",
+      "language": [],
+      "musenalm_id": 75424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / Logogryph",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / Logogryph",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "pgldc2hz5ez24vz"
+        }
+      ],
+      "source_id": "zjike92dlcfybqt"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Nimm einen Mann von ernstem Wissen / Setz' eine Note noch ihm vor,",
+      "language": [],
+      "musenalm_id": 75425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17. / Charade von zwei Sylben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17. / Charade von zwei Sylben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.723Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "34s7ybc6urwyo7h"
+        }
+      ],
+      "source_id": "8boik8kpezev68h"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Alles schreitet fort auf Erden, / Kultivirt sich immer mehr;",
+      "language": [],
+      "musenalm_id": 75426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "X.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "bcz9q3fu0axg9nz"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Halb Kind der Kunst, halb der Natur, / Verläng're ich zwar nicht das Leben, / Zu sterben, das verhindr' ich nur.",
+      "language": [],
+      "musenalm_id": 75427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19. / Räthsel. / (Nach J. J. Rousseau.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19. / Räthsel. / (Nach J. J. Rousseau.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.754Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "kmn4x74n0fhdx31"
+        }
+      ],
+      "source_id": "d5067t2cx9psjmq"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "Ein Obrist, der von einer Wunde / Vor Kurzem erst genesen war,",
+      "language": [],
+      "musenalm_id": 75428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfvyfjphxg4azl4"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "Wenn mich der Kummer drückt, / Denk' ich die ersten beiden,",
+      "language": [],
+      "musenalm_id": 75429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.754Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "gv469m82uvi71e1"
+        }
+      ],
+      "source_id": "y7lbb2wc65a5p8e"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "Die erste Sylbe wunderbar, / Sie stellt Euch zwei Vokale dar.",
+      "language": [],
+      "musenalm_id": 75430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "22. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "22. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.755Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "mys79brtnzpf6l3"
+        }
+      ],
+      "source_id": "qo2w1yswnsjegwe"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Marien reicht' ich das geschmückte Ganze / An ihrem Wiegenfest beim frohen Tanze.",
+      "language": [],
+      "musenalm_id": 75431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "23. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "23. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.755Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "wymfn4o0mph7mp5"
+        }
+      ],
+      "source_id": "rpow09d22ul9lh3"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Der ersten Sylbe voller Laut / Ist mit dem Staunen sehr vertraut,",
+      "language": [],
+      "musenalm_id": 75432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "24. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "24. / Charade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.755Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "r5r3o8lpuladejg"
+        }
+      ],
+      "source_id": "kpu2585fcm1rh18"
+    },
+    {
+      "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.877Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Zwei Wörter sie geben ein Räthselquadrat, / Verstehst Du geschickt sie zu bauen.",
+      "language": [],
+      "musenalm_id": 75433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "25. / Räthselquadrat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "25. / Räthselquadrat",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "65qaoq9si71hpa0"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden 25 Rätsel INr 75409-75433, Obj 34-58",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "5e1m8r4cu3491bg"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75435,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2374_75435_98bj755iwp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4x07twgrzfcwiy"
+    }
   ],
   "agents": [
     {

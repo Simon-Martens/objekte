@@ -48,7 +48,26 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "yllu4pz21bxamlz"
+    {
+      "annotation": "die beschädigte Jahresangabe auf dem Titel läßt als letzte Ziffer '3' erkennen",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.780Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409383",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.780Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yllu4pz21bxamlz"
+    }
   ],
   "contents": [],
   "agents": [

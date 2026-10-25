@@ -48,58 +48,2051 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "zavyx5fvfcddvxu"
+    {
+      "annotation": "## Fortsetzung von Vergißmeinnicht (Spindler) 1830-1843\n1845-1849.\nHalbleineneinband.\n1846: (K: M. 4 Stahlst u. 8 Holzschn.) Mit Ku 22, Bl 4, 258 SS und Bl 1.\nForts. v.: Vergissmeinnicht . TB f.d.J. 1830-1843.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.697Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101285",
+      "location": "105R02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.697Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zavyx5fvfcddvxu"
+    }
   ],
   "contents": [
-    "v6aq8vmt1xya5s5",
-    "dll5gmibfslz2xi",
-    "2jlg46sak40bvh5",
-    "pnyvfbu5iqwcb2y",
-    "5o17subiu1ev1gi",
-    "zr39bojvilee7k9",
-    "ibkczpio8xnljmd",
-    "b4d3d2kocxsumzt",
-    "jal1o9jtnjf1p1r",
-    "oon0pdgul4bm92u",
-    "4wxfwsccin8evui",
-    "gi8d4yjagchpcii",
-    "ztrxm4hehwp1hao",
-    "rxwxlnvz2gak2qq",
-    "j1xlmp7g3771vrh",
-    "lpctu1o5x9e9bwd",
-    "4c15xf8vhljxp84",
-    "dx4kjqf7h6df4o2",
-    "wvqwsml6uwdis7y",
-    "cl70phb63mftmcr",
-    "672z7j0uswb1onb",
-    "z1spfbw6841txd3",
-    "dziknhywtq4otez",
-    "6jsrzixvqh73xx8",
-    "oyklvk9sw5wemlb",
-    "9j6p1pikxdpos0l",
-    "zqhhv27njiz97mo",
-    "fkv1ljv4667uy5m",
-    "4i8izxiczhc9mea",
-    "r014pp4xvxquxgn",
-    "xyvk63efwrjef1y",
-    "6cpdks30i4jc5dt",
-    "0fks2xkzswcoheh",
-    "i193l1uobonmg1o",
-    "2qwm2jnqzi3s4r5",
-    "rym6z0rwhvpe7jj",
-    "uczgg5kqtzlh8u4",
-    "3ob0ntn790gli3o",
-    "q8etiicar6x45vm",
-    "y5knw7f345oqvzc",
-    "msg5v8wwuv7i5jm",
-    "ifhklwybbo9vez0",
-    "rswq91qbqd4joyl",
-    "bbo8n8xafyw9oud",
-    "0w2ckxee93q6a7c",
-    "pwmyqhfixuctgi3",
-    "en2u3s2dxwq3p7c",
-    "28v4sik2dzsu607",
-    "rujdxdykvor9i7p"
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103457,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / C. Spindler. / Für das Jahr 1846. / Mit Illustrationen von L. Weißer. / Stuttgart. / Franckh'scher Verlag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103457_l9g08ykzvj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / C. Spindler. / Für das Jahr 1846. / Mit Illustrationen von L. Weißer. / Stuttgart. / Franckh'scher Verlag",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "v6aq8vmt1xya5s5"
+    },
+    {
+      "annotation": "graph. Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103458,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "ALGAIER",
+      "scans": [
+        "alm_3418_103458_v39nmc4e3i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.054Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.054Z",
+          "agent": "mx9jzlh4jlxt87l",
+          "source_id": "zagab7w2rpigu2i"
+        }
+      ],
+      "source_id": "dll5gmibfslz2xi"
+    },
+    {
+      "annotation": "Es folgen: 4 Graphiken als Rahmen für Einträge INr 103460-103463, Ob 4-7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es ist ein schöner, frommer Brauch unserer Voreltern gewesen, das, was an Freud' und Leid in den Familien sich begeben, mit wenigen Worten in dem Buche des Lebens, der Heiligen Schrift zu verzeichnen,",
+      "language": [],
+      "musenalm_id": 103459,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Christliche / Haus- und Familienchronik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103459_8o3ckkfjlo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Christliche / Haus- und Familienchronik",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "2jlg46sak40bvh5"
+    },
+    {
+      "annotation": "Christliche Haus- und Familienchronik (Sammlung INr 103459, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103460,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geburtstag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103460_4dcp4s5eyv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Geburtstag",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "pnyvfbu5iqwcb2y"
+    },
+    {
+      "annotation": "Christliche Haus- und Familienchronik (Sammlung INr 103459, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103461,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das heilige Abendmahl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "ALGAIER",
+      "scans": [
+        "alm_3418_103461_7ppn0stnnn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das heilige Abendmahl",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.054Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.054Z",
+          "agent": "mx9jzlh4jlxt87l",
+          "source_id": "iiero5lxwhiw307"
+        }
+      ],
+      "source_id": "5o17subiu1ev1gi"
+    },
+    {
+      "annotation": "Christliche Haus- und Familienchronik (Sammlung INr 103459, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103462,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Trauungsfeier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103462_7s7m6nq1b9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Trauungsfeier",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "zr39bojvilee7k9"
+    },
+    {
+      "annotation": "Christliche Haus- und Familienchronik (Sammlung INr 103459, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103463,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heimgang in die Ewigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103463_9y0d4vd1u7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Heimgang in die Ewigkeit",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "ibkczpio8xnljmd"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an der vierten Graphik der Suite /) ## Titel s. Textbezug INr 103469, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103464,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühling ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. Weisser gez. H. Gugeler gest.",
+      "scans": [
+        "alm_3418_103464_q1xeqid2ol.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühling ##",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "43uwnar863vderb"
+        }
+      ],
+      "source_id": "b4d3d2kocxsumzt"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an der vierten Graphik der Suite /) ## Titel s. Textbezug INr 103470, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103465,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sommer ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. Weisser gez. H. Gugeler gest.",
+      "scans": [
+        "alm_3418_103465_8z8nym7lkg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Sommer ##",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "98q16xtnac35edc"
+        }
+      ],
+      "source_id": "jal1o9jtnjf1p1r"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an der vierten Graphik der Suite /) ## Titel s. Textbezug INr 103471, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103466,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Herbst ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. Weisser gez. H. Gugeler gest.",
+      "scans": [
+        "alm_3418_103466_t6o0yp1ysj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Herbst ##",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "04od5lyc2a982wc"
+        }
+      ],
+      "source_id": "oon0pdgul4bm92u"
+    },
+    {
+      "annotation": "## Titel s. Textbezug INr 103472, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103467,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter ##",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Weisser gez. H. Gugeler gest.",
+      "scans": [
+        "alm_3418_103467_9kq73ypg60.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Winter ##",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "8yuks2rxeatj47y"
+        }
+      ],
+      "source_id": "4wxfwsccin8evui"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 103469-103472, Obj 13-16 als Textbezüge zu vier Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Jahreszeiten und das Leben / gezeichnet von / L. Weisser, / gestochen von / Gugeler. / Erläuterungen des Zeichners zu den Jahreszeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Jahreszeiten und das Leben / gezeichnet von / L. Weisser, / gestochen von / Gugeler. / Erläuterungen des Zeichners zu den Jahreszeiten",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "327n4ebp4339o0h"
+        }
+      ],
+      "source_id": "gi8d4yjagchpcii"
+    },
+    {
+      "annotation": "Die Jahreszeiten und das Leben gezeichnet von L. Weisser, gestochen von Gugeler. Erläuterungen des Zeichners zu den Jahreszeiten (Sammlung INr 103468, Obj 12) s. Graphik INr 103464, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "In der Mitte des Bildes sitzt ein Jüngling mit seiner Geliebten unter einem blühenden Baume.",
+      "language": [],
+      "musenalm_id": 103469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1) Der Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1) Der Frühling",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "u7pln29jqb0sbop"
+        }
+      ],
+      "source_id": "ztrxm4hehwp1hao"
+    },
+    {
+      "annotation": "Die Jahreszeiten und das Leben gezeichnet von L. Weisser, gestochen von Gugeler. Erläuterungen des Zeichners zu den Jahreszeiten (Sammlung INr 103468, Obj 12) s. Graphik INr 103465, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Auf dem vorhergehenden Bilde, welches den Frühling darstellt, zeigte sich das Leben nur von seiner lachenden Seite;",
+      "language": [],
+      "musenalm_id": 103470,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2) Der Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2) Der Sommer",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "z7t0bnta6wopnp9"
+        }
+      ],
+      "source_id": "rxwxlnvz2gak2qq"
+    },
+    {
+      "annotation": "Die Jahreszeiten und das Leben gezeichnet von L. Weisser, gestochen von Gugeler. Erläuterungen des Zeichners zu den Jahreszeiten (Sammlung INr 103468, Obj 12) s. Graphik INr 103466, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ehe der Sonnengott hinabsteigt in's Meer, schüttelt er noch einmal die glänzenden Locken, und gießt purpurne Gluthströme verschwenderisch über die müde Erde aus.",
+      "language": [],
+      "musenalm_id": 103471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3) Der Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3) Der Herbst",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "hdvk4ccledcfkul"
+        }
+      ],
+      "source_id": "j1xlmp7g3771vrh"
+    },
+    {
+      "annotation": "Die Jahreszeiten und das Leben gezeichnet von L. Weisser, gestochen von Gugeler. Erläuterungen des Zeichners zu den Jahreszeiten (Sammlung INr 103468, Obj 12) s. Graphik INr 103467, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Winter hat seinen weißen Mantel um die schlummende Erde gehüllt. Die neckischen Geister, die üppigen, treibenden Kräfte der Natur ruhen und träumen im Schooße der Mutter,",
+      "language": [],
+      "musenalm_id": 103472,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4) Der Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4) Der Winter",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.055Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "wfp92mxer7z6i8f"
+        }
+      ],
+      "source_id": "lpctu1o5x9e9bwd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergissmeinnicht. / Dem deutschen Volke / gewidmet / von / Carl Spindler. / Für / das Jahr 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergissmeinnicht. / Dem deutschen Volke / gewidmet / von / Carl Spindler. / Für / das Jahr 1846",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "4c15xf8vhljxp84"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Druck der J. G. Sprandel'schen Buchdruckerei in Stuttgart und Cannstatt",
+      "language": [],
+      "musenalm_id": 103474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck der J. G. Sprandel'schen Buchdruckerei in Stuttgart und Cannstatt…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "dx4kjqf7h6df4o2"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen mit 6 Einleitungen und 8 Illustrationen INr 103476-103495, Obj 20-39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzählungen beim Licht. / Siebenter bis zwölfter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzählungen beim Licht. / Siebenter bis zwölfter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.001Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "rbolha1i63of5rm"
+        }
+      ],
+      "source_id": "wvqwsml6uwdis7y"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der geneigte Leser, der an der ersten Reihe dieser Erzählungen in dem vorjährigen Vergißmeinnicht seine Freude gehabt hat, ist gebeten, sich für diesesmal nicht in des alten Fideli's Rockenstube",
+      "language": [],
+      "musenalm_id": 103476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebenter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebenter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.020Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "3f64vzvw6cdmkp6"
+        }
+      ],
+      "source_id": "cl70phb63mftmcr"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ich war ungefähr acht Tage vor der Eröffnung des eidgenössischen Frei- und Ehrenschießens in Basel angekommen und zwar wichtiger Geschäfte halber,",
+      "language": [],
+      "musenalm_id": 103477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei König-Abenteuer zu Basel am Freischießen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei König-Abenteuer zu Basel am Freischießen",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.020Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "nlhf9s3jo59dp7q"
+        }
+      ],
+      "source_id": "672z7j0uswb1onb"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit einer Illustration s. Graphik INr 103479, Obj23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Am nächsten Tage sah es schon etwas munterer im Adler aus. Das erkrankte Kind war jetzt außer Gefahr und schlief",
+      "language": [],
+      "musenalm_id": 103478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.020Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "x5yt0q9ev0xwb3i"
+        }
+      ],
+      "source_id": "z1spfbw6841txd3"
+    },
+    {
+      "annotation": "pag. 34 /) Illustration zu »Erzählungen beim Licht. Siebenter bis zwölfter Abend. Achter Abend« INr 103478, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103479_d7ci9ik66w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "dziknhywtq4otez"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit einer Illustration s. Graphik INr 103481, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Es war vor zehn Jahren in der Fastnacht. Ich, ein blutjunger Kerl, ein Doktorchen von ungefähr acht Monaten, der von der Welt gar nichts kannte, als Freiburg, die Universität und meinen Geburtsort",
+      "language": [],
+      "musenalm_id": 103480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Olymp auf dem Schwarzwalde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Olymp auf dem Schwarzwalde",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "syy5l4iy75x83f0"
+        }
+      ],
+      "source_id": "6jsrzixvqh73xx8"
+    },
+    {
+      "annotation": "PAG. 36 /) Illustration zu »Erzählungen beim Licht. Achter Abend. Der Olymp auf dem Schwarzwald« von C. Spindler INr 103480, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Olymp im Schwarzwald. / Der Schneider Abschied nehmend von seiner Heimath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Kunstverlag C.",
+      "scans": [
+        "alm_3418_103481_m121ex9om7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Olymp im Schwarzwald. / Der Schneider Abschied nehmend von seiner Heimath",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "oyklvk9sw5wemlb"
+    },
+    {
+      "annotation": "S. 49 /) Illustration zu »Erzählungen beim Licht. Achter Abend. Der Olymp auf dem Schwarzwald« von C. Spindler INr 103480, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Olymp auf dem Schwarzwalde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Weisser. ALGAIER",
+      "scans": [
+        "alm_3418_103482_s7bdc67r1w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Olymp auf dem Schwarzwalde",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "mx9jzlh4jlxt87l",
+          "source_id": "arlvm2mfcga1t3w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "ewmnajdflq8wfzp",
+          "source_id": "gasmztz0o2kf6fd"
+        }
+      ],
+      "source_id": "9j6p1pikxdpos0l"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Die Geschichte, die der Herr Doktor am gestrigen Abend erzählt hat, dünkt mich lustig; sagte die Adlerwirthin zum Holzschläger,",
+      "language": [],
+      "musenalm_id": 103483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "xeufvfq0rpcbak8"
+        }
+      ],
+      "source_id": "zqhhv27njiz97mo"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit einer Illustration s. Graphik INr 103485, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Unser schwäbisches Donauthal, ein reizender Erdenwinkel, ist noch gar nicht hinlänglich bekannt, und wer weiß, wozu das gut Ist?",
+      "language": [],
+      "musenalm_id": 103484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Naturdichter im Donauthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Naturdichter im Donauthal",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "qg3e9owh7b3d269"
+        }
+      ],
+      "source_id": "fkv1ljv4667uy5m"
+    },
+    {
+      "annotation": "PAG. 68 /) Illustration zu »Erzählungen beim Licht. Neunter Abend. Ein Naturdichter im Donauthal« von C. Spindler INr 103484, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103485,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Naturdichter im Donau-thale. / Benedict und Scholastica",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Kunstverlag Carslruhe",
+      "scans": [
+        "alm_3418_103485_6grmd100qq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Naturdichter im Donau-thale. / Benedict und Scholastica",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "4i8izxiczhc9mea"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Zur gewohnten Zeit saßen die drei Herren beisammen, der Holzschläger fehlte auch nicht,",
+      "language": [],
+      "musenalm_id": 103486,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zehnter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zehnter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "vs0i22p5rx28ggm"
+        }
+      ],
+      "source_id": "r014pp4xvxquxgn"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit einer Illustration s. Graphik INr 103488, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Ich bin erst sechzehn Jahre alt, und noch daheim bei'm Vater in meinem Ort gewesen, da kommt eines Tags die Schulfreundin und gute Bekannte, die Ottilie Jäger -",
+      "language": [],
+      "musenalm_id": 103487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vom Tiroler-Franzl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vom Tiroler-Franzl",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "njpg0mt29eiacut"
+        }
+      ],
+      "source_id": "xyvk63efwrjef1y"
+    },
+    {
+      "annotation": "S. 106 /) Illustration zu »Erzählungen beim Licht. Zehnter Abend.Vom Tiroler-Franzl« von C. Spindler INr 103487, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vom Tiroler-Franzl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103488_nle9c2j0b9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vom Tiroler-Franzl",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "6cpdks30i4jc5dt"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Und da am nächstfolgenden Abend um die Zeit der Mußestunde Kaplan und und Doktor einander in der Nähe des Adlers begegneten, war der erste heiter und der zweite sehr melancholisch.",
+      "language": [],
+      "musenalm_id": 103489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eilfter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eilfter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "dnboz1kbfp0y57n"
+        }
+      ],
+      "source_id": "0fks2xkzswcoheh"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit 2  Illustrationen s. Graphik INr 103491, 103492; Obj 35, 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Wen ich einen Rheingold-Dukaten hätte - ich habe einmal einen bei'm Adlerwirth gesehen - oder meinetwegen einen Maltersack voll gelber Vögel",
+      "language": [],
+      "musenalm_id": 103490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von den Versuchungen des Holzschlägers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von den Versuchungen des Holzschlägers",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "d95hbt9fzo8reew"
+        }
+      ],
+      "source_id": "i193l1uobonmg1o"
+    },
+    {
+      "annotation": "PAG. 118 /) Illustration zu »Erzählungen beim Licht. Eilfter Abend. Von den Versuchungen des Holzschlägers« von C. Spindler INr 103490, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103491,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie der Holzschläger eine Geschichte erzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Kustverlag Carlsruhe",
+      "scans": [
+        "alm_3418_103491_5x6t7szoj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wie der Holzschläger eine Geschichte erzählt",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "2qwm2jnqzi3s4r5"
+    },
+    {
+      "annotation": "S. 140 /) Illustration zu »Erzählungen beim Licht. Eilfter Abend. Von den Versuchungen des Holzschlägers« von C. Spindler INr 103490, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Versuchungen des Holzschlägers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103492_ug3ul13z55.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Versuchungen des Holzschlägers",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "rym6z0rwhvpe7jj"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Der Mensch denkt, der Himmel lenkt. Der gute Doktor konnte nicht nach Mannheim reisen. Bahnzug auf Bahnzug brauste dahin auf der Eisenbahn, und keiner trug den Doktor hianus ins ferne Unterland.",
+      "language": [],
+      "musenalm_id": 103493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwölfter Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwölfter Abend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.021Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "wc6oq95ya6y5q6j"
+        }
+      ],
+      "source_id": "uczgg5kqtzlh8u4"
+    },
+    {
+      "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit einer Illustration s. Graphik INr 103495, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.512Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Schon mein Großvater hatte sich in einem Orte im Herzogthum Nassau niedergelassen, der fern vom Rhein liegt, aber in einer recht hübschen Gegend.",
+      "language": [],
+      "musenalm_id": 103494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des alten fremden Herrn Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des alten fremden Herrn Geschichte",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "n6dvlnuiu6oss4l"
+        }
+      ],
+      "source_id": "3ob0ntn790gli3o"
+    },
+    {
+      "annotation": "S. 162 /) Illustration zu »Erzählungen beim Licht. Zwölfter Abend. Des alten Herrn Geschichte« von C. Spindler INr 103494, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.512Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des alten fremden Herrn Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "ALGAIER",
+      "scans": [
+        "alm_3418_103495_hj4coafrfp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des alten fremden Herrn Geschichte",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "mx9jzlh4jlxt87l",
+          "source_id": "zbtaeo2bdea1y1q"
+        }
+      ],
+      "source_id": "q8etiicar6x45vm"
+    },
+    {
+      "annotation": "PAG. 169 /) Illustration zu »Der Klosterhirt« von C. Spindler INr 103497, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Klosterhirt (LETZTE SCENE.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Kunstverlag",
+      "scans": [
+        "alm_3418_103496_n1ok0r9ybk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Klosterhirt (LETZTE SCENE.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "y5knw7f345oqvzc"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphik INr 103496, 103498; Obj 40, 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Draußen vor dem Städtlein steht auf dem Abhang des Waldsaums ein steinernes Kreuz, unscheinbar und niedrig,",
+      "language": [],
+      "musenalm_id": 103497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Klosterhirt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Klosterhirt",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "6zrk43fic6aaenm"
+        }
+      ],
+      "source_id": "msg5v8wwuv7i5jm"
+    },
+    {
+      "annotation": "S. 181 /) Illustration zu »Der Klosterhirt« von C. Spindler INr 103497, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Klosterhirt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "SIEGLE",
+      "scans": [
+        "alm_3418_103498_dx83ms7g14.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Klosterhirt",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "ifhklwybbo9vez0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Ein ziemlich großer Raum mit ein paar Hecken und Blumenbeeten besetzt, verziert mit einem Hügel, auf welchem ein aus Latten gezimmertes Kiosk,",
+      "language": [],
+      "musenalm_id": 103499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine schwere Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine schwere Nacht",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "679hxerdwg4c5cv"
+        }
+      ],
+      "source_id": "rswq91qbqd4joyl"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 103501, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Der Abend des eiundzwanzigsten August im obenbezeichneten Jahre war ein warmer, ächt sommerlicher.",
+      "language": [],
+      "musenalm_id": 103500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter und Bürger. / Eine Frankfurter Geschichte von Anno 1420",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter und Bürger. / Eine Frankfurter Geschichte von Anno 1420",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "lg2w45qgztf2zzm"
+        }
+      ],
+      "source_id": "bbo8n8xafyw9oud"
+    },
+    {
+      "annotation": "S. 210 /) Illustration zu »Der Klosterhirt« von C. Spindler INr 103500, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter und Bürger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "ALGAIER",
+      "scans": [
+        "alm_3418_103501_4ub7mjpdi3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ritter und Bürger",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "mx9jzlh4jlxt87l",
+          "source_id": "9t94ciokl4hyvpc"
+        }
+      ],
+      "source_id": "0w2ckxee93q6a7c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 103503, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "In den grauen Jahren, da Baden noch ein kleines dumpfiges Städtchen gewesen mit finsteren Thoren, hohen Mauern, tiefen Gräben und dicken Thürmen -",
+      "language": [],
+      "musenalm_id": 103502,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der böse Feind im Sack. / Eine Sage aus der alten Badener Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der böse Feind im Sack. / Eine Sage aus der alten Badener Zeit",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "f16nrlip1vkq8vj"
+        }
+      ],
+      "source_id": "pwmyqhfixuctgi3"
+    },
+    {
+      "annotation": "S. 244 /) Illustration zu »Der böse Feind im Sack« INr 103502, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der böse Feind im Sack",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3418_103503_f6bslfmtiv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der böse Feind im Sack",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "en2u3s2dxwq3p7c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Dieses ist weniger eine Erzählung, als vielmehr ein Bild. Abentheuerliche Geschichten mögen mit Wortaufwand wiedergegeben werden;",
+      "language": [],
+      "musenalm_id": 103504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der glückliche Herd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der glückliche Herd",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "1y8ww75ucenat80"
+        }
+      ],
+      "source_id": "28v4sik2dzsu607"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103505,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "rujdxdykvor9i7p"
+    }
   ],
   "agents": [
     {

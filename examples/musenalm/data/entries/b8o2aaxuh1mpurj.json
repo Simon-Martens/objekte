@@ -48,31 +48,1053 @@
   "year": 1853,
   "editor": "",
   "items": [
-    "n11oqyg42cvevbw"
+    {
+      "annotation": "1816-1873.\nHg:1816-1842 = A. Schreiber. \n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell.\n     1857-1862 = A. Henninger.\n     1863-1873 = Frater Hilarius (pseud).",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.533Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106486",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.533Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "n11oqyg42cvevbw"
+    }
   ],
   "contents": [
-    "8guppjui5z04j8g",
-    "m9u2gjiyvr3p7ps",
-    "juvjgfnnf0dnr1m",
-    "xh212wa437xzute",
-    "jrqlbajk9lez1y4",
-    "e9jnt0hw0ejvqd8",
-    "ibrix172qrq8du9",
-    "rj37rg6jyzfaaoq",
-    "wh6ytvmekqivox2",
-    "pc1dcnty7wsl9ev",
-    "n91e0x5on5rrorz",
-    "nj6vu2dc5y6p9bl",
-    "tdhzq4nq3l1rj3m",
-    "di8tugx1mytpeu5",
-    "k2q4vo7ezinrqgn",
-    "a6174xbx0tot77w",
-    "fvj1crrj6xzun5b",
-    "7rgkq3ujxugmjk3",
-    "b5bhxttt8ga7nl3",
-    "3unlc5vebw6i876",
-    "368758s3havn88v",
-    "3tgz990tsmo47mx"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64161,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1853 / von / J. W. Appell. / 38. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1061_64161_m6pvyopr7p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1853 / von / J. W. Appell. / 38. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "8guppjui5z04j8g"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 64163-64170, Obj 3-10 als Textbezüge zu den Graphiken INr 64162-6414",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64162,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reihenfolge und Erklärung der Stahlstiche in acht / Sonnetten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reihenfolge und Erklärung der Stahlstiche in acht / Sonnetten",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.319Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "xs736kcxuil2zh1"
+        }
+      ],
+      "source_id": "m9u2gjiyvr3p7ps"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64172, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wo sich Jasmine um's Gemäuer ranken / Und Schwalben traulich an's Gesimse bauen,",
+      "language": [],
+      "musenalm_id": 64163,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Die Schauende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Die Schauende",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.319Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.319Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "5ohb4i9a78k8huh"
+        }
+      ],
+      "source_id": "juvjgfnnf0dnr1m"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64174, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Essen rauchen, schlanke Dampfer fliegen, / Auf Eisenschienen keuchen Feuerrosse,",
+      "language": [],
+      "musenalm_id": 64164,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Der Friede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Der Friede",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "ig8xb15azw66qm7"
+        }
+      ],
+      "source_id": "xh212wa437xzute"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64173, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hier Meer und Gartenschmuck; dazwischen inne / Ein holdes Wesen, das in treuen Zügen / Die Landschaft auf ein Blatt wohl möchte fügen,",
+      "language": [],
+      "musenalm_id": 64165,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Die Zeichnende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Die Zeichnende",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "itac7ldqn6b4jyg"
+        }
+      ],
+      "source_id": "jrqlbajk9lez1y4"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64175, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Als Hochlandsjäger siehst Du Dich im Traume, / Das edle Waidwerk ist mit Ruhm vollendet,",
+      "language": [],
+      "musenalm_id": 64166,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Einem Jagdfreunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Einem Jagdfreunde",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "xyffd1waoqf2jiy"
+        }
+      ],
+      "source_id": "e9jnt0hw0ejvqd8"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64176, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gefühle die Geheimniß ihr geblieben, / Weil niemals seiner Lippe sie entflohen,",
+      "language": [],
+      "musenalm_id": 64167,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Geheime Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Geheime Liebe",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "i5cce5v8j448k8n"
+        }
+      ],
+      "source_id": "ibrix172qrq8du9"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64177, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Des Menschen Sohn, er wird einst wiederkehren / In Herrlichkeit, die Engel rings umschweben,",
+      "language": [],
+      "musenalm_id": 64168,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Der Vergelter. / (Matth. XXV. 31.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Der Vergelter. / (Matth. XXV. 31.)",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "qmihw9epnwaqkvh"
+        }
+      ],
+      "source_id": "rj37rg6jyzfaaoq"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64178, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.633Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dem Himmel zugewendet voll Vertrauen / Und mild verklärt von seinem heiligen Lichte,",
+      "language": [],
+      "musenalm_id": 64169,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Madonna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Madonna",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "whw79jeyvv8q5x5"
+        }
+      ],
+      "source_id": "wh6ytvmekqivox2"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64179, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.633Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im Römercircus Christen, glaubenstreue, / Als Beute wilden Thieren preisgegeben,",
+      "language": [],
+      "musenalm_id": 64170,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. Märtyrer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. Märtyrer",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "2yina3lhqa8dh0q"
+        }
+      ],
+      "source_id": "pc1dcnty7wsl9ev"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.633Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64171,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1853 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 38. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Schad. sc.",
+      "scans": [
+        "alm_1061_64171_2n2vojqvvz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1853 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 38. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "6s7giw8salz8ihc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.320Z",
+          "agent": "3gnzs7actzcxdwq",
+          "source_id": "u7dg5hd2ly1vsrl"
+        }
+      ],
+      "source_id": "n91e0x5on5rrorz"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64163, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64172,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schauende #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Buckner pinxt. J. W. Baumann sculpt. Mchn",
+      "scans": [
+        "alm_1061_64172_r2euyfgy8f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schauende #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "vy02snqj23lq979",
+          "source_id": "b7v81h1zmgtgln0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "m1qfv94popghu37"
+        }
+      ],
+      "source_id": "nj6vu2dc5y6p9bl"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64165, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64173,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zeichnende #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. E. Hering pinxt. W. H. Mote sculpt.",
+      "scans": [
+        "alm_1061_64173_6msmds52jm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Zeichnende #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "jzxj1metfvef8yb",
+          "source_id": "4kw83q01qa7ix4p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "o8kezqqcehkzpy8",
+          "source_id": "yjwio4mdz7vjenb"
+        }
+      ],
+      "source_id": "tdhzq4nq3l1rj3m"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64164, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64174,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Friede #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Landseer pinxt. J. W. Baumann sculpt. Mchn.",
+      "scans": [
+        "alm_1061_64174_w5o4gbdfzl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Friede #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "9b2uxqkf8x5d4i0",
+          "source_id": "kb3wc7dynuthus5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "z07ks5pvsws6sa7"
+        }
+      ],
+      "source_id": "di8tugx1mytpeu5"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64166, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64175,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einem Jagdfreunde #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by Mac [unleserlich] Engd. by J. Hollis",
+      "scans": [
+        "alm_1061_64175_6fzr8tadss.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einem Jagdfreunde #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "k2q4vo7ezinrqgn"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64167, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64176,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geheime Liebe #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. E. Buckley delt. W. H. Mote sculpt.",
+      "scans": [
+        "alm_1061_64176_naikv5xf01.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Geheime Liebe #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "jzxj1metfvef8yb",
+          "source_id": "ugy65aqx702ump7"
+        }
+      ],
+      "source_id": "a6174xbx0tot77w"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 64168, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64177,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CHRISTUS REMUNERATOR",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ary Scheffer pinx. J. Allgeyer sc. Ch. Hoffmeister direx.",
+      "scans": [
+        "alm_1061_64177_fi854bcgrl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CHRISTUS REMUNERATOR",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "mx9jzlh4jlxt87l",
+          "source_id": "l70in82d1a7f659"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "zuqeig2avlr6rku",
+          "source_id": "sj9872jsgjvtvwt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.362Z",
+          "agent": "vq2otivrrqio4m2",
+          "source_id": "zc4cc2cug5f29aj"
+        }
+      ],
+      "source_id": "fvj1crrj6xzun5b"
+    },
+    {
+      "annotation": "# s. Textbezug (Gedicht) INr 64169, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64178,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Madonna #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. W. Baumann sct. Mchn",
+      "scans": [
+        "alm_1061_64178_16hih1yhtd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Madonna #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "3ej2nnvlxgh0vyj"
+        }
+      ],
+      "source_id": "7rgkq3ujxugmjk3"
+    },
+    {
+      "annotation": "# s. Textbezug (Gedicht) INr 64170, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64179,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Märtyrer #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leloir pinxt. J. W. Baumann sct. Mchn",
+      "scans": [
+        "alm_1061_64179_r0wbth9yd4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Märtyrer #",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "v7f0dr13o2zaqho",
+          "source_id": "hozwjqe50lnemew"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "ivp9kxgi0mv3wxl"
+        }
+      ],
+      "source_id": "b5bhxttt8ga7nl3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Spätherbst hatte viel sonnige Tage gebracht, wo der Himmel wolkenleer, die Erde in bunter Färbung schimmernd dem Auge wohlgethan hatte.",
+      "language": [],
+      "musenalm_id": 64180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria im Ried. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria im Ried. / Novelle",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "zfpirsqyp119pu2"
+        }
+      ],
+      "source_id": "3unlc5vebw6i876"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Also wohl kannst Du kommen / Zu mir in die Kammer sogleich [...] Schwedisches Lied",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Es gehört zu jenen vielen ungelösten Räthseln in der Welt, daß gleiche Erziehung und Bildung, gleiche gesellschaftliche Beziehungen - überhaupt gleiche menschliche Voraussetzungen zu so unendlich verschiedenen Resultaten führen!",
+      "language": [],
+      "musenalm_id": 64181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sankt Leonhards-Fahrt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Hilarius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sankt Leonhards-Fahrt",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "49czyg3purt8vro"
+        }
+      ],
+      "source_id": "368758s3havn88v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Vor einer, dem Grafen Odoardo Monteleone aus Neapel gehörigen, reizend unfern von Sorrent gelegenen Villa, deren Terasse eine weite Aussicht über das blaue durftende Meer",
+      "language": [],
+      "musenalm_id": 64182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In den Abruzzen. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Rellstab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In den Abruzzen. / Eine Novelle",
+      "updated": "2009-05-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.363Z",
+          "agent": "zi8zh5xhvi7k26j",
+          "source_id": "k2nffvxctvw06ds"
+        }
+      ],
+      "source_id": "3tgz990tsmo47mx"
+    }
   ],
   "agents": [
     {

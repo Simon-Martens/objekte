@@ -46,14 +46,197 @@
   "year": 1829,
   "editor": "",
   "items": [
-    "z0ic2brlrdgbqhj"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.826Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411719",
+      "location": "105C04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.826Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "z0ic2brlrdgbqhj"
+    }
   ],
   "contents": [
-    "n0btzkwqoeruju9",
-    "6abiuaplqvjgeuq",
-    "azl5idvlsoe19p5",
-    "fiwincbz9kn7tg9",
-    "dq55bud1bq2lkih"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134028,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / der / merkwürdigsten Städte der Welt. / Von Ferdiand Ley.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4874_134028_hcetuz0jdj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / der / merkwürdigsten Städte der Welt. / Von Ferdiand Ley.",
+      "updated": "2024-09-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "n0btzkwqoeruju9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / der / merkwürdigsten Städte der Welt. / In alphabetischer Reihenfolge / nach den neuesten Quellen eines Cannabich, Stein u.s.w. / Von / Ferdinand Ley. / Wien, 1829. / Gedruckt und im Verlage bei M. Chr. Adolph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4874_134029_rr40h9n7ow.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / der / merkwürdigsten Städte der Welt. / In alphabetischer Reihenfolge / nach den neuesten Quellen eines Cannabich, Stein u.s.w. / Von / Ferdinand Ley. / Wien, 1829. / Gedruckt und im Verlage bei M. Chr. Adolph",
+      "updated": "2024-09-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "6abiuaplqvjgeuq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Das Lesen der Tagessgeschichte der Menschheit in periodischen Blättern (Zeitungen) ist einem Jeden, der Antheil an dem menschlichen Interesse nimmt, Bedürfniß. Hiezu ist aber die Kenntniß wenigstens gegenwärtiger statistischer Verhältnisse, bedingend",
+      "language": [],
+      "musenalm_id": 134030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2024-09-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "azl5idvlsoe19p5"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrags; die Sammlung (Städte, sortiert nach Anfangsbuchstaben) ist nicht mit ihren Beiträgen aufgenommen.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Aachen, Hauptstadt vom Preußischen Regierungsbezirke gl. N.  hat 2762 Häuser, 35025 Einw. Merkwürdig ist das Münster oder die Domkirche, in welchem die deutschen Kaiser gekrönt wurden, ferner die warmen Bäder.",
+      "language": [],
+      "musenalm_id": 134031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4874_134031_neq2zmxx3m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A.",
+      "updated": "2024-09-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "fiwincbz9kn7tg9"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wien, 1830. / Druck und Verlag von Adolph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4874_134032_udm2d3v0cs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wien, 1830. / Druck und Verlag von Adolph",
+      "updated": "2024-09-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "dq55bud1bq2lkih"
+    }
   ],
   "agents": [
     {

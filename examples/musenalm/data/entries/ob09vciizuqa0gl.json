@@ -48,69 +48,2297 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "77lexcxcvmjt9yy",
-    "hd5mx4g475i3pkm"
+    {
+      "annotation": "§§ es fehlt: auszufaltende Graphik mit Münzdarstellungen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.527Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100457",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.527Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "77lexcxcvmjt9yy"
+    },
+    {
+      "annotation": "auszufaltende Graphik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.527Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409249",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.527Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hd5mx4g475i3pkm"
+    }
   ],
   "contents": [
-    "jgm5q73xtd1ztui",
-    "uhq4c9xxntwdah6",
-    "qj0cftyz3m67tip",
-    "0y7pgk87xdbsb29",
-    "43yuyw6cnu3z1pj",
-    "g3ongb1lz2el3ll",
-    "kulr9uyt79jm6dz",
-    "73eo5230rl56y2i",
-    "spgj2uvgywdnvu6",
-    "mjnqthfrj610lyq",
-    "7zr3gwi6jk9eu4y",
-    "kuiwh3nry6xfsnf",
-    "miobs29vzlkoqah",
-    "a58lo0okv2w1twu",
-    "eyjr6xs7fm61g7m",
-    "jld88mbzsjnzw80",
-    "mri1ap38fwq016h",
-    "gp6n2d3q25pjvy1",
-    "1vuh7x2qombbs5s",
-    "han2gi0njh14nq8",
-    "xc5xd3g5on0ieeh",
-    "m74rbty35dquyqg",
-    "34c71gsa5n5lbd6",
-    "z2d6i00c49jgaiw",
-    "ns4o1ghxo34x6es",
-    "m44z28fqdsnrhxu",
-    "4jbpmbgzcch0mrk",
-    "7q7py3n1ch5q2nu",
-    "ll8lvb9hzuwfbo2",
-    "zs5va3ol8nq2hn8",
-    "i3wu0vb3emit2pe",
-    "2e0fchniopx84k7",
-    "zrcd8d6ya86uy91",
-    "oy7mloqa4j0od8v",
-    "l2t1p4jlbi0c0ud",
-    "08shk20f91gm029",
-    "ybag5hlufq9an37",
-    "v51cehydg4ifyxn",
-    "xy76sne125ftm68",
-    "5cwzbnoeixvk4rl",
-    "1c9zb9ob3nrkxjf",
-    "dwmitehiqokvufl",
-    "tkzbqs3awb6npo2",
-    "cznzqast9b2nz06",
-    "5bxkbcb022yhb9j",
-    "wvpyfx84cg568mn",
-    "efrlpq80h9ztwcq",
-    "2l8ad49p945cjwj",
-    "buvujgwuch2lffs",
-    "dgyasavxm1un0ma",
-    "r7ey3jzdha3qkyb",
-    "i4et825kzi18kie",
-    "l9jss90u1ko4yap",
-    "72gqgc58bw3j94u",
-    "3gb76c60i9brjvv",
-    "vg5swj4n4zqjdyl",
-    "1samj2wj6rnujp6",
-    "iohw4qcgdo0vaeg",
-    "f5psnrrtlr0byi8"
+    {
+      "annotation": "Umschlaggraphik r. (Medaille recto u. verso) s.a.: Umschlaggraphik r. variant wie in Jg 1798: Portraitmedaillons PAULUS / HAHN",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60217,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALL' / ITALICO / L'INSUBRIA / LIBERA / IX LUGLIO / MDCCLXXXXVII",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60217_7skj33axs3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALL' / ITALICO / L'INSUBRIA / LIBERA / IX LUGLIO / MDCCLXXXXVII",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "jgm5q73xtd1ztui"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60218,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OCHS / Stifter der neuen helvetischen Con- / stitutuion, und Director",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60218_vtlszfx097.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OCHS / Stifter der neuen helvetischen Con- / stitutuion, und Director",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "uhq4c9xxntwdah6"
+    },
+    {
+      "annotation": "graph.-typograph. Titel mit Portrait Lord Viscount Duncan s. Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.525Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60219,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Revolutions- / Almanach / von / 1799. / Göttingen, / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60219_5q1txln2bj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Revolutions- / Almanach / von / 1799. / Göttingen, / bey Johann Christian Dieterich",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "qj0cftyz3m67tip"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Welch' eine Zeit unsre jetztige! ruft ein neuerer Geschichtschreiber aus, den gewiß selbst der neufränkischeste Deutsche der Partheylichkeit nicht zeihen wird, Posselt - wie sehr verdient sie, daß nicht nur der Politiker von Profession,",
+      "language": [],
+      "musenalm_id": 60220,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht / des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht / des Herausgebers",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.938Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "jrzw4jkg6vpigmf"
+        }
+      ],
+      "source_id": "0y7pgk87xdbsb29"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60221,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "43yuyw6cnu3z1pj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60222,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "g3ongb1lz2el3ll"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war 7. Uhr des Morgens, als die Landkutsche zu Paris anlangte. Ich stieg aus, und wanderte leichten Schrittes meinen Weg, ein ganz kleines Päckchen unter dem Arm,",
+      "language": [],
+      "musenalm_id": 60223,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Ein Tag in Paris. / (Aus dem französischen, zu Paris im Jahr 6. / der neufränkischen Zeitrechung erschie- / nenen, Original)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Ein Tag in Paris. / (Aus dem französischen, zu Paris im Jahr 6. / der neufränkischen Zeitrechung erschie- / nenen, Original)",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "kulr9uyt79jm6dz"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) mit 2 Illustrationen s. Graphik (Portrait) INr 690225, Obj 9 und Graphik INr 60267, Obj 51 /) s.a. Beitrag »XVI. Supplemente zu dem Aufsatze, Revolutionirung der Schweiz. Aus spätern Briefen. 1798« INr 60245, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Es ergießt sich ein Lava-Strom des Staaten-Umsturzes ... zerstört Helvetiens Glück und wahre Freyheit.",
+      "language": [],
+      "musenalm_id": 60224,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Revolutíonierung der Schweiz. / Bruchstücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Revolutíonierung der Schweiz. / Bruchstücke",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "73eo5230rl56y2i"
+    },
+    {
+      "annotation": "Portrait; Illustration zu »Revolutíonierung der Schweiz. Bruchstücke« INr 60224, Obj 8 s.a. Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60225,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BODMER / von Staefa im Canton Zürich. / erster Präsident des grossen / Raths der helvetischen neuen / Republick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60225_gcutoqd7mx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BODMER / von Staefa im Canton Zürich. / erster Präsident des grossen / Raths der helvetischen neuen / Republick",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "spgj2uvgywdnvu6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "CLASSICUM RESONAT / CONFLUIS PANNONIA.",
+      "language": [],
+      "musenalm_id": 60226,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / PANNONIAE / PIAE, FIDAE, FORTI SACRUM",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / PANNONIAE / PIAE, FIDAE, FORTI SACRUM",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "mjnqthfrj610lyq"
+    },
+    {
+      "annotation": "Portrait s.Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60227,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LUDWIG XVIII / Pätendent von Frankreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60227_a8n8oif0r8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LUDWIG XVIII / Pätendent von Frankreich",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "7zr3gwi6jk9eu4y"
+    },
+    {
+      "annotation": "Portrait s.Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.532Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CHARETTE / General der Vendeer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60228_82a0xn103f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CHARETTE / General der Vendeer",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "kuiwh3nry6xfsnf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.727Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Wer hätte vor einigen Jahren diesem tapfern Adel gesagt, als er sich noch die festeste Stütze eines Thrones wähnte, der schon nicht mehr existirte,",
+      "language": [],
+      "musenalm_id": 60229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Volhynien, / das neue Vaterland von Franzosen. / (Aus dem Französichen eines / derselben.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V*****",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Volhynien, / das neue Vaterland von Franzosen. / (Aus dem Französichen eines / derselben.)",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "miobs29vzlkoqah"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Es ist Pflicht für mich, wenn eine Horde feiler Scribler, unter der blutigen Decke der neuen Philosophie, ihre Federn entweihen, um die bestehenden Regierungen zu erschüttern,",
+      "language": [],
+      "musenalm_id": 60230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Rhülieres und Rußland. / Letzte Schrift des Herrn Richer Serisy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Richer Serisy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Rhülieres und Rußland. / Letzte Schrift des Herrn Richer Serisy",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "a58lo0okv2w1twu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Dougados, Ex-Capuciner, unter dem Nahmen Pater Venance bekannt, wurde in einem kleinen Dorfe, in der Gegend von Carcassonne, 1764, von armen Eltern geboren; sein Vater war ein Schuster.",
+      "language": [],
+      "musenalm_id": 60231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Lebenslauf eines revolutionären Mönchs. / (Ein Beyspiel von vielen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Lebenslauf eines revolutionären Mönchs. / (Ein Beyspiel von vielen.)",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "eyjr6xs7fm61g7m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Noch sind wir Oestrreicher, noch / Belastet uns kein fremdes Joch; / Noch unerschüttert, ungeschwächt / Recht, Glaub' und Sitte, Macht und Recht;",
+      "language": [],
+      "musenalm_id": 60232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Vaterlands-Lied von Haschka am / Jahres-Fest der Erhebung Oesterreichs / in Masse, den 17. April 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haschka",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Vaterlands-Lied von Haschka am / Jahres-Fest der Erhebung Oesterreichs / in Masse, den 17. April 1798",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.078Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.078Z",
+          "agent": "j63e4oki0d4f74a",
+          "source_id": "k4vtjcmtb2q68fl"
+        }
+      ],
+      "source_id": "jld88mbzsjnzw80"
+    },
+    {
+      "annotation": "Anm. am Objekt: Journal de Paris Nro. 91 vom December 1797",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Ich sah einen Theil der Bäume umgehauen, und den Boden durch Haufen Baumaterialien versperrt.",
+      "language": [],
+      "musenalm_id": 60233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Empfindungen im Luxemburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Empfindungen im Luxemburg",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "mri1ap38fwq016h"
+    },
+    {
+      "annotation": "Portrait s.Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MERLIN. / Mitglied des Vollziehungs- / Directoriums",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60234_bvdqxfowoh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MERLIN. / Mitglied des Vollziehungs- / Directoriums",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "gp6n2d3q25pjvy1"
+    },
+    {
+      "annotation": "Portrait s.Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "N. FRANÇOIS. de Neufchâteau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60235_3m9kxfya8o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "N. FRANÇOIS. de Neufchâteau",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "1vuh7x2qombbs5s"
+    },
+    {
+      "annotation": "Anm. am Objekt: Diese aus dem deutschen Magazin des Herrn von Eggers, Jahrgang 1797, abgedruckte Briefe [...] /) # Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Ich drücke Dich nan meine Brust, Bester, von dem ich nie hätte getrennt seyn sollen.",
+      "language": [],
+      "musenalm_id": 60236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Briefe über die Revolutionen von / Genf an Friedrich Matthisson",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Briefe über die Revolutionen von / Genf an Friedrich Matthisson",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "han2gi0njh14nq8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Bürger! Die Unterthanen der verschiedenen Mächte Europens vereinigen sich, wenn sie in fremden Ländern sind, in National-Corps, um das Glück zu genießen, unter Landsleuten zu seyn.",
+      "language": [],
+      "musenalm_id": 60237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Merkwürdige Rede des Leonard / Bourdon, gehalten zu Hamburg den / 6. Ventose VI. (1798) im franzö- / sichen Club",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Merkwürdige Rede des Leonard / Bourdon, gehalten zu Hamburg den / 6. Ventose VI. (1798) im franzö- / sichen Club",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "xc5xd3g5on0ieeh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Während meine Begleiterinnen die Abbildungen und das Costum der Landgrafen von Hessen in dem anstoßenden Saal musterten, besah ich im Vorzimmer die mancherley Rüstwerkzeuge und Morderfindungen der Menschen,",
+      "language": [],
+      "musenalm_id": 60238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Tallards Degen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Tallards Degen",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.918Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.918Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "f0nszff9pywb913"
+        }
+      ],
+      "source_id": "m74rbty35dquyqg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Wenn die Königinn Elisabeth von England sich die Devise wählte: Du sollst Frankreich zum Freunde, aber nicht zum Nachbar haben; so war es so richtig als politisch gedacht.",
+      "language": [],
+      "musenalm_id": 60239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Gallum amicum sed non vicinum / habeas!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Deutscher Recacteur",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Gallum amicum sed non vicinum / habeas!",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "34c71gsa5n5lbd6"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.771Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Das achtzehnte Jahrhundert, dünkt mich, sollte das geblendete, nicht das aufgeklärte genannt werden.",
+      "language": [],
+      "musenalm_id": 60240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Miscellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Miscellen",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.807Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "s287mklmhqlaz5s"
+        }
+      ],
+      "source_id": "z2d6i00c49jgaiw"
+    },
+    {
+      "annotation": "Portrait s.Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AUGERAU / mit der Fahne von Arcola",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60241_bvm3ijfmb9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AUGERAU / mit der Fahne von Arcola",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ns4o1ghxo34x6es"
+    },
+    {
+      "annotation": "Portrait s.Textbezug INr 60272, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PICHEGRU / Hollands Eroberer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60242_k3xy8omw2n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PICHEGRU / Hollands Eroberer",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "m44z28fqdsnrhxu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Unser guter oligarchischer Bär, stark, aber ungelenk, ehrlich, aber nicht schlau genug, mit unblutigen aber gewetzten Klauen, lebte in friedlicher Majestät, Jahre der behaglichen Ruhe,",
+      "language": [],
+      "musenalm_id": 60243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Tod eines deportirten Bären und Skizze / seines politischen Lebenslaufes. / Von einem Alt-Schweizer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ein Alt-Schweitzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Tod eines deportirten Bären und Skizze / seines politischen Lebenslaufes. / Von einem Alt-Schweizer",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "4jbpmbgzcch0mrk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Portugal war nach dem Tode des Köngs Antonio, der ohne männlichen Erben starb (1580), vom König Philipp II. in Spanien,",
+      "language": [],
+      "musenalm_id": 60244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Die Erhebung des Hauses Braganza / auf den portugiesischen Thron",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W-r. V-s.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Die Erhebung des Hauses Braganza / auf den portugiesischen Thron",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "7q7py3n1ch5q2nu"
+    },
+    {
+      "annotation": "Ergänzungen zum Beitrag»II. Revolutíonierung der Schweiz. Bruchstücke« INr 60224, Obj 8 /) mit 2 Illustrationen s. Graphik (Portrait) INr 690225, Obj 9 und Graphik INr 60267, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Zürich den 8. Junius. Ich bin über Rastadt, Emmendingen, Basel, Brugg, Baden, glücklich angelangt. In den letzten Städten fand ich schon französische Truppen,",
+      "language": [],
+      "musenalm_id": 60245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Supplemente zu dem Aufsatze, Revolu- / tionirung der Schweiz. / Aus spätern Briefen. 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Supplemente zu dem Aufsatze, Revolu- / tionirung der Schweiz. / Aus spätern Briefen. 1798",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ll8lvb9hzuwfbo2"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 60247, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Statt Commentars mag die Vorerinnerung dienen, daß in dem 681sten Jahr der Stadt Rom, da sie bereits einen großen Theil der gesitteten Welt bezwungen, plötzlich eine Rotte von Fechtern und entlaufenen Sklaven, unter Spartakus,",
+      "language": [],
+      "musenalm_id": 60246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / Rede eines altrömischen Feldherrn, / über die Mittel dem Kriege eine bessere / Wendung zu geben. / Edirt von einem deutschen Staatsmanne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / Rede eines altrömischen Feldherrn, / über die Mittel dem Kriege eine bessere / Wendung zu geben. / Edirt von einem deutschen Staatsmanne",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "zs5va3ol8nq2hn8"
+    },
+    {
+      "annotation": "mit einer Einleitung INr 60246, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Unter den Legionen, versammelte Väter, welche ihr meinem Oberbefehl anvertraut habt, sind viele alte Krieger, welche einst mit abwechselndem Glück gegen jenen listigen König gestritten,",
+      "language": [],
+      "musenalm_id": 60247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[XVII. Rede eines altrömischen Feldherrn, über die Mittel dem Kriege eine bessere Wendung zu geben. Edirt von einem deutschen Staatsmanne]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[XVII. Rede eines altrömischen Feldherrn, über die Mittel dem Kriege eine bessere Wendung zu geben. Edirt von einem deutschen Staatsmanne]",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "i3wu0vb3emit2pe"
+    },
+    {
+      "annotation": "Sammlung von 12 Textbezügen zu den Graphiken des Almanachs INr 60249-60272, Obj 33-56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / Erklärung der Kupfer",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.890Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "bagmi569dl8dbau"
+        }
+      ],
+      "source_id": "2e0fchniopx84k7"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu 6 engl. Karikaturen INr 60250-60261,Obj 34-45 /) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Sie sind, ursprünglich, aus einem größern Kupferwerke entlehnt, das in England erschien, und die Umschaffung einer benachbarten Republik zum Gegenstand hatte.",
+      "language": [],
+      "musenalm_id": 60249,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die 6. Karikaturen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die 6. Karikaturen",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.890Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.890Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "v301xzb6ojlc16w"
+        }
+      ],
+      "source_id": "zrcd8d6ya86uy91"
+    },
+    {
+      "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60251, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Der feine Sand ist verworfen; die großen haben die Augen voll; nehmet nun den groben und macht auch das Volk blind!",
+      "language": [],
+      "musenalm_id": 60250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Staaten-Sicherheits-Wächter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Staaten-Sicherheits-Wächter",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.818Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "76wzkpc0as6okmq"
+        }
+      ],
+      "source_id": "oy7mloqa4j0od8v"
+    },
+    {
+      "annotation": "paginiert 1. /) s. Textbezug INr 60250, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "STAATEN-SICHERHEITS-WAECHTER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60251_kw5k83ykkq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "STAATEN-SICHERHEITS-WAECHTER",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "l2t1p4jlbi0c0ud"
+    },
+    {
+      "annotation": "paginiert 2. /) s. Textbezug INr 60253, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NEUESTE AUFKLAERUNG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60252_nmwhsnekcq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NEUESTE AUFKLAERUNG",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "08shk20f91gm029"
+    },
+    {
+      "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60252, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Verglommen ist das Docht in der altmodigen Laterne aus dem Zeitalter der Religiosität, des Rechts und Unrechts, der Wahrheit und des Trugs,",
+      "language": [],
+      "musenalm_id": 60253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Neueste Aufklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Neueste Aufklärung",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "oqset570xe22ta4"
+        }
+      ],
+      "source_id": "ybag5hlufq9an37"
+    },
+    {
+      "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60256, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Wo? von wem? und zwischen wem er abgeschlossen worden, dem Leser nach Belieben überlassen;",
+      "language": [],
+      "musenalm_id": 60254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Ein Friedensschluß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Ein Friedensschluß",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "t09cflwbhpwiqsi"
+        }
+      ],
+      "source_id": "v51cehydg4ifyxn"
+    },
+    {
+      "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60257, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Sie sind eben im Machen begriffen. Wer der Hauptheld sey, ist schwer zu errathen;",
+      "language": [],
+      "musenalm_id": 60255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Brüderschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Brüderschaft",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "xfmx840ncoxrtou"
+        }
+      ],
+      "source_id": "xy76sne125ftm68"
+    },
+    {
+      "annotation": "paginiert 3. /) s. Textbezug INr 60254, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EIN FRIEDENSSCHLUS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60256_osh5yvvobl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EIN FRIEDENSSCHLUS",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "5cwzbnoeixvk4rl"
+    },
+    {
+      "annotation": "paginiert 4. /) s. Textbezug INr 60255, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BRÜDERSCHAFT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60257_iy02uhk48q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BRÜDERSCHAFT",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "1c9zb9ob3nrkxjf"
+    },
+    {
+      "annotation": "paginiert 5. /) s. Textbezug INr 60260, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NATIONALVERSAMMLUNG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60258_slxbguy64u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NATIONALVERSAMMLUNG",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "dwmitehiqokvufl"
+    },
+    {
+      "annotation": "paginiert 6. /) s. Textbezug INr 60261, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PAST AUF!!!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60259_58860tsm2e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PAST AUF!!!",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "tkzbqs3awb6npo2"
+    },
+    {
+      "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60258, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.852Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Eine wunderliche Idee des Künstlers, daß die Fasces eine Ruthe vorstellen!",
+      "language": [],
+      "musenalm_id": 60260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Nationalversammlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Nationalversammlung",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "bfxvwo81galsxiz"
+        }
+      ],
+      "source_id": "cznzqast9b2nz06"
+    },
+    {
+      "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60259, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Bald rollt die Zeit den furchtbaren Vorhang der Zukunft auf.",
+      "language": [],
+      "musenalm_id": 60261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Paßt auf!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Paßt auf!",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.834Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.834Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "dq66ixk4xha2pxz"
+        }
+      ],
+      "source_id": "5bxkbcb022yhb9j"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz; paginiert 7. s. Textbezug INr 60264, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anstalten zur Landung in England",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert",
+      "scans": [
+        "alm_940_60262_rf1isiktz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anstalten zur Landung in England",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.834Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.834Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "nhj6x1kql9ucu1c"
+        }
+      ],
+      "source_id": "wvpyfx84cg568mn"
+    },
+    {
+      "annotation": "Sammlung von 9 Textbezügen zu  Graphiken INr 60262, 60264-60271; Obj 46, 48-55 /) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60259, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Schubertschen Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die sechs Schubertschen Kupfer",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.834Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.834Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "y9e5bf1ovb0thld"
+        }
+      ],
+      "source_id": "efrlpq80h9ztwcq"
+    },
+    {
+      "annotation": "Die sechs Schubertschen Kupfer (Sammlung INr 60263, Obj 47) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60262, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.092Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Zu der Zeit, wo dieses Kupfer gezeichnet wurde, war die Landung in England, die Anstalten zu ihrer Gelingung, auf der einen, die Gegenanstalten zu ihrer Vereitelung auf der andern Seite, das Haupt-Sujet aller politischen Gespräche",
+      "language": [],
+      "musenalm_id": 60264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Anstalten zur Landung in England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Anstalten zur Landung in England",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.834Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.834Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "r444zie81dn247h"
+        }
+      ],
+      "source_id": "2l8ad49p945cjwj"
+    },
+    {
+      "annotation": "Die sechs Schubertschen Kupfer (Sammlung INr 60263, Obj 47) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60266, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Man wird sich erinnern, wie unzufrieden die eine Parthey war, als Buonaparte dem Papst den Frieden zugestand.",
+      "language": [],
+      "musenalm_id": 60265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die Neufranken im Capitol",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die Neufranken im Capitol",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.826Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "ygfn35m1nr7cb0m"
+        }
+      ],
+      "source_id": "buvujgwuch2lffs"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz; paginiert 8. s. Textbezug INr 60265, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Neufranken im Capitol",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert",
+      "scans": [
+        "alm_940_60266_yhe6avf109.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Neufranken im Capitol",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.826Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "a2nowjpm35s45q6"
+        }
+      ],
+      "source_id": "dgyasavxm1un0ma"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz; paginiert 9. s. Textbezug INr 60268, Obj 52 /) Illustration zu »II. Revolutíonierung der Schweiz. Bruchstücke« INr 60224, Obj 8 und »XVI. Supplemente zu dem Aufsatze, Revolutionirung der Schweiz. Aus spätern Briefen. 1798« INr 60245, Obj 29 s.a. Graphik (Portrait) INr 690225, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die letzten Winkelriede",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert",
+      "scans": [
+        "alm_940_60267_pxjdnofnkc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die letzten Winkelriede",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.826Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "y54vce9uw0qcepw"
+        }
+      ],
+      "source_id": "r7ey3jzdha3qkyb"
+    },
+    {
+      "annotation": "Die sechs Schubertschen Kupfer (Sammlung INr 60263, Obj 47) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60267, Obj 51 s.a. Textbezüge INr 60224, Obj 8 und INr 69245, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Die Erklärung zu diesem Kupfer findet man S. 86. 90. dieses R. A. und in den Supplementen",
+      "language": [],
+      "musenalm_id": 60268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Die letzten Winkelriede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Die letzten Winkelriede",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.826Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "1i06dg24arz13s8"
+        }
+      ],
+      "source_id": "i4et825kzi18kie"
+    },
+    {
+      "annotation": "Die sechs Schubertschen Kupfer (Sammlung INr 60263, Obj 47) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60271, Obj 55",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Die getreue Darstellung des Auflaufes, welchen die französische Botschaft durch Aushängung einer dreyfarbigen Fahne den 13. April 1708 in Wien veranlaßt hat.",
+      "language": [],
+      "musenalm_id": 60269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Die dreyfarbige Fahne und Bernadotte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Die dreyfarbige Fahne und Bernadotte",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.933Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "8ecaipgmbnpxl1k"
+        }
+      ],
+      "source_id": "l9jss90u1ko4yap"
+    },
+    {
+      "annotation": "Begründung des Herausgebers für das Fehlen der Graphiken 11 und 12 /) Die sechs Schubertschen Kupfer (Sammlung INr 60263, Obj 47) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Die Kupferblätter 11 und 12 waren Buanoparte und seinem Zuge nach Ostindien bestimmt. Allein, in diesem Augenblicke sind die Gerüchte so widersprechend,",
+      "language": [],
+      "musenalm_id": 60270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kupferblätter 11 und 12 waren Buanoparte und seinem Zuge nach Ostindien bestimmt. Allein, in diesem Augenblicke sind die Gerüchte so widersprechend,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.972Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "p2bf0fzo74g9c25"
+        }
+      ],
+      "source_id": "72gqgc58bw3j94u"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz; paginiert 10. s. Textbezug INr 60269, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die dreifarbige, Fahne und Bernadotte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert",
+      "scans": [
+        "alm_940_60271_i5s741u8h5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die dreifarbige, Fahne und Bernadotte",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.972Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "qlhmom6nrks4ftd"
+        }
+      ],
+      "source_id": "3gb76c60i9brjvv"
+    },
+    {
+      "annotation": "XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) mit Hinweisen auf die 9 Portraits des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Duncan. Einer der lebenden, brittischen See-Helden, welche durch neue Siege, die alte Gloria der Flagge ihrer Nation verherrlicht haben:",
+      "language": [],
+      "musenalm_id": 60272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Portraite und übrige Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Portraite und übrige Kupfer",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.972Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "maq462ktjblehsa"
+        }
+      ],
+      "source_id": "vg5swj4n4zqjdyl"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60273,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von Schloss zu Rastatt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_60273_debdy8k1se.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von Schloss zu Rastatt",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "1samj2wj6rnujp6"
+    },
+    {
+      "annotation": "auszufaltende Graphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110302,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Treue Abbildung / der / MANNDATE un der SCHAU- / GELD-MÜNZEN / in Frankreich seit der Revolution; / ingelichen einer zum Verkauf angeschlagenen / PARISER KIRCHE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_110302_4gkk5uaj5u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Treue Abbildung / der / MANNDATE un der SCHAU- / GELD-MÜNZEN / in Frankreich seit der Revolution; / ingelichen einer zum Verkauf angeschlagenen / PARISER KIRCHE",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "iohw4qcgdo0vaeg"
+    },
+    {
+      "annotation": "Umschlaggraphik r. variant wie in Jg 1798: Portraitmedaillons PAULUS / HAHN",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110303,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PAULUS / HAHN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_940_110303_2i0i1bzbso.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PAULUS / HAHN",
+      "updated": "2008-10-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5psnrrtlr0byi8"
+    }
   ],
   "agents": [
     {

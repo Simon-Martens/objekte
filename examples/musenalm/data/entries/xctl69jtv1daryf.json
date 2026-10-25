@@ -48,7 +48,26 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "nzjy8jakqd3kpc7"
+    {
+      "annotation": "vorhanden: 1812 (zweite verbesserte und vermehrte Auflage), 1815 (zweite verbesserte und vermehrte Auflage), 1820, 1823 (dritte verbesserte und vermehrte Auflage); Hrsg: Karl Müchler; Berlin (Duncker und Humblot)",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.698Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100795",
+      "location": "105E09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.698Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nzjy8jakqd3kpc7"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,69 +48,3027 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "rszdib0ljsa8s6f"
+    {
+      "annotation": "1811-1848.\n1826: ( K: BL 5, XVI, 364 SS, BL 2 und Ku 9 ) Mit Tku 1, Bl 8, Ku 8, XVI, 364 SS und Bl 2.\nKartonierter Einband mit Goldschnitt (Buchrücken beschädigt).",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.613Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100435",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.613Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rszdib0ljsa8s6f"
+    }
   ],
   "contents": [
-    "5k71zcbbwvl51gs",
-    "dzaqiydk0z0p3jm",
-    "qhu9br988i7vs5b",
-    "7pj980m0lwqevqh",
-    "skp3bqiubokne8a",
-    "xwuic7oq0u78d86",
-    "lep3ob1l1vfg5rn",
-    "lxqpqon2ywxns4b",
-    "dkyg5vf321i4r5f",
-    "69i11py358wtka0",
-    "6behpq1ppc71uav",
-    "axe6x76bmxxm1y6",
-    "pcrs23seg4fc3mu",
-    "nltw16g6s7raatl",
-    "h9c1ozko23xelkf",
-    "spc8obhgi4vf8pv",
-    "pgljhxiu60wdq6v",
-    "wkt21vjxm79zptb",
-    "387amkt912c65cb",
-    "ds6qegtnea32jhb",
-    "ecqaqoctrm3fc25",
-    "nsgq5v41tud41rg",
-    "kzdc8rct54z6i4f",
-    "j8ul019a6s9bt2c",
-    "khil9hogacewmdm",
-    "mzckf07jws5y737",
-    "az0rp5pone56q0b",
-    "47fa76yvmj6450n",
-    "q03cjg7a1ie4rnt",
-    "mgrcqvg8x7f8fzm",
-    "l66k4h7wgvqa8rc",
-    "gqzqsi8t57arin9",
-    "evkhppmxvpuq6hz",
-    "o1a8e3kkc94ha0n",
-    "y8ye6dg5088v6im",
-    "glqn7mqb61gbty1",
-    "0djo3w5nhxoff7c",
-    "nd7pxgj2o4u7b45",
-    "tfef98u12jzc1mz",
-    "2o12lvv31zzhu9d",
-    "jcd1420m5r99vl1",
-    "j5130y5tq9h7fui",
-    "1d2esgbauozcuis",
-    "u5vgr3ohafmaouw",
-    "fyclxdisttgw2wu",
-    "ve8x39u3r2uijjh",
-    "whcbys50gz1rzxe",
-    "ntngg85ke0annr1",
-    "wfv3jxc4pxujucf",
-    "dxmglcvtnmijieu",
-    "usfvp0g0xcdjc0n",
-    "e9rs49y8n4bsdmt",
-    "payiwr5ahwyt204",
-    "euc182ezt1c8zf7",
-    "7anyzx5u15khtvs",
-    "yc1mgdzgpfjolad",
-    "o6n2dt0w9xizra5",
-    "qrlbioqq7m0g0xz",
-    "6g61msmh6bql7yp",
-    "1hexqn3csajwmi9"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 77084, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.758Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77065,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mistress FRY, Howards Nachfolgerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. H. Schnorr v. K. del. C. Meyer sc.",
+      "scans": [
+        "alm_2397_77065_6ggkupctfn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mistress FRY, Howards Nachfolgerin",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "0487r97i4tesvmn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "9lnuz716p7892de"
+        }
+      ],
+      "source_id": "5k71zcbbwvl51gs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.761Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77066,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE / Taschenbuch / für das Jahr 1826. / Herausgegeben / von / THEODOR HELL. / 15r.  Jahrgang. Mit Kupfern / LEIPZIG / J. C. Hinrichs'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2397_77066_552cifzuc7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE / Taschenbuch / für das Jahr 1826. / Herausgegeben / von / THEODOR HELL. / 15r.  Jahrgang. Mit Kupfern / LEIPZIG / J. C. Hinrichs'sche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "dzaqiydk0z0p3jm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77067,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "qhu9br988i7vs5b"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 8 Illustrationen zu Gedichten von Fr. Schiller dazu 7 Gedichte INr 77069-77083, Obj 5-19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77068,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Schillers Gedichten. / VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Schillers Gedichten. / VI.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "7pj980m0lwqevqh"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphik INr 77070, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Seh' ich nichts Weißes dort schimmern? / Glänzt's nicht wie seidnes Gewand?",
+      "language": [],
+      "musenalm_id": 77069,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erwartung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erwartung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "bj0jn9wilys247d"
+        }
+      ],
+      "source_id": "skp3bqiubokne8a"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Die Erwartung« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77069, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77070,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seh' ich nichts Weißes dort schimmern? / Glänzt's nicht wie seid'nes Gewand?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_2397_77070_fj1jb6brxq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seh' ich nichts Weißes dort schimmern? / Glänzt's nicht wie seid'nes Gewand?",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "4a1mkgk5y7ms8r5"
+        }
+      ],
+      "source_id": "xwuic7oq0u78d86"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphik INr 77072, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ob ich den Verlorenen gefunden? / Glaube mir, ich bin mit ihm vereint.",
+      "language": [],
+      "musenalm_id": 77071,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thekla. / Eine Geisterstimme",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thekla. / Eine Geisterstimme",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "uckskaylylrn9x7"
+        }
+      ],
+      "source_id": "lep3ob1l1vfg5rn"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Thekla« von Fr. Schiller s. Gedicht »Thekla« von Th. Hell d.i. K. G. T. Winkler INr 77071, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77072,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ob ich den Verlorenen gefunden? / Glaube mir, ich bin mit ihm vereint. / Wo sich nicht mehr trennt, was sich verbunden, / Dort wo keine Thräne wird geweint.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. Carl Meyer v. Nbg.",
+      "scans": [
+        "alm_2397_77072_zbkzw7d1sc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ob ich den Verlorenen gefunden? / Glaube mir, ich bin mit ihm vereint. / Wo sich nicht mehr trennt, was sich verbunden, / Dort wo keine Thräne wird geweint.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.762Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "800vxey0mlquavo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.762Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "ye09t7vzwp3juc5"
+        }
+      ],
+      "source_id": "lxqpqon2ywxns4b"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphik INr 77074, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wohl in manche Menschenherzen / Drängt sich trübes Ahnen ein,",
+      "language": [],
+      "musenalm_id": 77073,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kassandra",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kassandra",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.762Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "isii5spmdrufigz"
+        }
+      ],
+      "source_id": "dkyg5vf321i4r5f"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Kassandra« von Fr. Schiller s. Gedicht »Kassandra« von Th. Hell d.i. K. G. T. Winkler INr 77073, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77074,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich allein muss einsam trauern. / Denn mich flieht der süsse Wahn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. H. Schnorr v. C. del. Dav. Weiss sculp. Viennae",
+      "scans": [
+        "alm_2397_77074_x88d0721ls.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich allein muss einsam trauern. / Denn mich flieht der süsse Wahn",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.762Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "120jos11b425g1z"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.762Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "1d5gcv4pij35hse"
+        }
+      ],
+      "source_id": "69i11py358wtka0"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphik INr 77076, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wem ist sie nicht auch einst erschienen, / Die Holde in der Jugend Strahl,",
+      "language": [],
+      "musenalm_id": 77075,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen aus der Fremde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen aus der Fremde",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.533Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "nl02ku0mkl97iak"
+        }
+      ],
+      "source_id": "6behpq1ppc71uav"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Das Mädchen aus der Fremde« von Fr. Schiller s. Gedicht »Das Mädchen aus der Fremde« von Th. Hell d.i. K. G. T. Winkler INr 77075, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77076,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beseligend war ihre Nähe / Und alle Herzen wurden weit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. C. inv. F. Fleischmann",
+      "scans": [
+        "alm_2397_77076_bkld1dyup7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Beseligend war ihre Nähe / Und alle Herzen wurden weit",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.534Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "88aftvxpomnqf5l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.534Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "kbkh68kae09ltte"
+        }
+      ],
+      "source_id": "axe6x76bmxxm1y6"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphiken INr 77078, 77079; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Und wenn's die Götter nicht gewähren, / So acht' auf eines Freundes Lehren",
+      "language": [],
+      "musenalm_id": 77077,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ring des Polykrates",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ring des Polykrates",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.534Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "dqfzbak3mjccegv"
+        }
+      ],
+      "source_id": "pcrs23seg4fc3mu"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) 1. Illustration zu »Der Ring des Polykrates« von Fr. Schiller INr 77077, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77078,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ring des Polykrates von Schiller 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. Kovatsch sc.",
+      "scans": [
+        "alm_2397_77078_tz92dzs84z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Ring des Polykrates von Schiller 1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.534Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "puhx9y9q6v7dwk6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.535Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.535Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "xk28ah32ufgzmfz"
+        }
+      ],
+      "source_id": "nltw16g6s7raatl"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) 2. Illustration zu »Der Ring des Polykrates« von Fr. Schiller INr 77077, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77079,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ring des Polykrates von Schiller 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. Frosch sc. 1823",
+      "scans": [
+        "alm_2397_77079_l05zigl8qm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Ring des Polykrates von Schiller 2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.535Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.535Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "7mf1m1lsdllfow9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.535Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.535Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "dwmca5iktwm5y6k"
+        }
+      ],
+      "source_id": "h9c1ozko23xelkf"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphik INr 77081, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Senke, strahlender Gott! - die Fluren dürsten / Nach erquickendem Thau, der Mensch verschmachtet,",
+      "language": [],
+      "musenalm_id": 77080,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abend. / Nach einem Gemälde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Abend. / Nach einem Gemälde",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.535Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.535Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "sop4r8uzt91t17l"
+        }
+      ],
+      "source_id": "spc8obhgi4vf8pv"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Der Abend« von Fr. Schiller INr 77080, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77081,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abend v. Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec",
+      "scans": [
+        "alm_2397_77081_4rk1catzyp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Abend v. Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.665Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.665Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "cs68s7nv7uv4ip8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.665Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.665Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gz72a5wio64duzw"
+        }
+      ],
+      "source_id": "pgljhxiu60wdq6v"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphiken INr 77083, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hast Du den Säugling gesehn, der, unbewußt noch / der Liebe, / Die ihn wärmet und wiegt, schlafend von Arme zu Arm / Wandert,",
+      "language": [],
+      "musenalm_id": 77082,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der philosophische Egoist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der philosophische Egoist",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.758Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.758Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "1rokwx2pvd76jui"
+        }
+      ],
+      "source_id": "wkt21vjxm79zptb"
+    },
+    {
+      "annotation": "# vollst. Bez. vom Titel der Sammlung /) Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Der philosophische Egoist« von Fr. Schiller INr 77020, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77083,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der philosophische Egoist v. Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg # Esslinger sc.",
+      "scans": [
+        "alm_2397_77083_9a5s1l50bw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der philosophische Egoist v. Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "9aimh87zh8fgr9a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zangshhis2dd4kf"
+        }
+      ],
+      "source_id": "387amkt912c65cb"
+    },
+    {
+      "annotation": "s. Titelportrait INr 77065, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Je seltner es vergönnt ist, den stillen Tugenden des weiblichen Geschlechts einen Lorbeerkranz zu flechten, der meist nur denen zu Theil werden kann, welche öffentlich hervortreten,",
+      "language": [],
+      "musenalm_id": 77084,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisabeth Fry, / Horwards Nachfolgerin. / (Zur Erklärung des Titelkupfers)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elisabeth Fry, / Horwards Nachfolgerin. / (Zur Erklärung des Titelkupfers)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "couix2toip16jms"
+        }
+      ],
+      "source_id": "ds6qegtnea32jhb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es ist genug! - sprach wehmüthig lächelnd der alte trefliche Meister Andrea del Barrochio, nahm seine Staffelei zusammen und lehnte sie sanft in den hintersten Winkel seines Zimmers.",
+      "language": [],
+      "musenalm_id": 77085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Herrn Abendmahl / von Leonardo da Vinci",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Weisflog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Herrn Abendmahl / von Leonardo da Vinci",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "iv41ps6uccpba1n",
+          "source_id": "dzvcncm1l0k13iw"
+        }
+      ],
+      "source_id": "ecqaqoctrm3fc25"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Mit gefalteten Händen, den thränenschweren Blick zu ihm, dem Herrn, emporgerichtet, von dem allein sie Trost erhoffen konnte, stand Elisabeth, des Stadtschultheißen von Solothurns Hugos von Bucheggs einzige Tochter in der Wölbung eines Fensters",
+      "language": [],
+      "musenalm_id": 77086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Belagerung von Solothurn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. Satori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Belagerung von Solothurn",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "2egg2jsoqsham3c",
+          "source_id": "qe8qc67y2m71zrk"
+        }
+      ],
+      "source_id": "nsgq5v41tud41rg"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Penelope 1825; INr 77044",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Sophia Dorothea, im Jahre 1660 zu Celle im Fürstenthum Lüneburg geboren, war die Tochter des letzten regierenden Herzogs von Celle, Georg Wihelm, und der in Folge des grausamen Wiederrufs des Edicts von Nantes mit ihren Eltern und Verwandten aus Poitoux",
+      "language": [],
+      "musenalm_id": 77087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Braunschweig-Lüneburgische Haus / am Ende des siebzehnten Jahrhunderts. / II. / Sophie Dorothea, / Gemahlin Georg des Ersten, Königs von England, / 1660-1726",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. von Montenglaut",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Braunschweig-Lüneburgische Haus / am Ende des siebzehnten Jahrhunderts. / II. / Sophie Dorothea, / Gemahlin Georg des Ersten, Königs von England, / 1660-1726",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "zz565qhzff2329a",
+          "source_id": "bugs9c2qcbs7qjz"
+        }
+      ],
+      "source_id": "kzdc8rct54z6i4f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Wie aus Sonnenlicht gesponnen, / Ruht der Seide zarte Pracht.",
+      "language": [],
+      "musenalm_id": 77088,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Brautkleid. / Meiner Schwester an ihrem Vermählungstage / gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Brautkleid. / Meiner Schwester an ihrem Vermählungstage / gewidmet",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "0f6thgn32io3rg7"
+        }
+      ],
+      "source_id": "j8ul019a6s9bt2c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Der alte Verwalter Pflugbeil rückte verdrüßlich die Brille von der Nase nach der Stirn herauf, spritzte die Feder aus und schob mißmuthig die Balancerechnung des Gutes Rauschenberg, das er seit zwanzig Jahren verwaltete, von sich.",
+      "language": [],
+      "musenalm_id": 77089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Lotterieloos",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Borromäus von Miltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Lotterieloos",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.720Z",
+          "agent": "e36ydmk4x9m4umt",
+          "source_id": "gd6t2aylaty3g44"
+        }
+      ],
+      "source_id": "khil9hogacewmdm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Das Auge düster hinunter nach der vorbeifließenden Seine gerichtet, stand eines Morgens die Königin Anna am Fenster ihres prachtvollen Wohngemachs.",
+      "language": [],
+      "musenalm_id": 77090,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Louise von Lafayette. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Louise von Lafayette. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.665Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.665Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "q5gxhb9vf9zjgev"
+        }
+      ],
+      "source_id": "mzckf07jws5y737"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "In dem räucherischen Gästezimmer der Schenke zum geplückten Haan im niederländischen Orte Braine le Comte saßen drei junge Wehrmänner des hannoverschen Landwehrbattaillons Bremervörde um den braunen Eichentisch,",
+      "language": [],
+      "musenalm_id": 77091,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Vermächtniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Vermächtniß",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.665Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.665Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "e3i9d5zd3kc0ofc"
+        }
+      ],
+      "source_id": "az0rp5pone56q0b"
+    },
+    {
+      "annotation": "mit 26 Übersetzungsproben von Dorothea Tieck INr 77093-77118, Obj 29-54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "Wer diesen Dichter irgend will näher kennen lernen, muß nicht bey seinen gerühmten dramatischen Arbeiten stehen bleiben, sondern sich auch mit allen denen vertraut machen, die lange Zeit vernachlässigt und gering geschätzt wurden.",
+      "language": [],
+      "musenalm_id": 77092,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Shakspears Sonette einige Worte, nebst / Proben einer Uebersetzung derselben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Shakspears Sonette einige Worte, nebst / Proben einer Uebersetzung derselben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "se5k3vkrikxqaia"
+        }
+      ],
+      "source_id": "47fa76yvmj6450n"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "Musik, wie hörst du sie mit trüben Blicken? / Kämpft süß mit Süß? Freut sich nicht Lust der Lust?",
+      "language": [],
+      "musenalm_id": 77093,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Das 8te der Sammlung)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Das 8te der Sammlung)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "0kjdm3awpu2gpt5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.666Z",
+          "agent": "confomdodiakpla",
+          "source_id": "7pscqasrfn3xphq"
+        }
+      ],
+      "source_id": "q03cjg7a1ie4rnt"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.754Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Die Schrift der Sterne kann ich nicht ergründen, / Und doch will ich Astronomie verstehn;",
+      "language": [],
+      "musenalm_id": 77094,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Das 14te.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Das 14te.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.759Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "dih9e7gbs1lecz7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.759Z",
+          "agent": "confomdodiakpla",
+          "source_id": "n0mnbv71ghp21u5"
+        }
+      ],
+      "source_id": "mgrcqvg8x7f8fzm"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Wer wird in Zukunft meinem Verse trauen, / Wenn auch dein hoher Werth ihn ganz erfüllet?",
+      "language": [],
+      "musenalm_id": 77095,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Das 17te)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Das 17te)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.759Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "1pw7vfngk655aqc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.759Z",
+          "agent": "confomdodiakpla",
+          "source_id": "3rl7r6mwzjkpq7k"
+        }
+      ],
+      "source_id": "l66k4h7wgvqa8rc"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Ich möchte nimmer jenem Dichter gleichen, / Der der geschminkten Schönheit Lob verkündet,",
+      "language": [],
+      "musenalm_id": 77096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Das 21ste]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Das 21ste]",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "8yox879dui042xo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "ka0zjpm4k6p60f9"
+        }
+      ],
+      "source_id": "gqzqsi8t57arin9"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Vor aller Zweit ward nicht das Schwarz gepriesen, / Und, wenn's geschah', doch immer schön genannt;",
+      "language": [],
+      "musenalm_id": 77118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Sie. Das 127ste.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Sie. Das 127ste.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.452Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "8ssf9z519zebtrq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.452Z",
+          "agent": "confomdodiakpla",
+          "source_id": "d3np01rjqx11cge"
+        }
+      ],
+      "source_id": "evkhppmxvpuq6hz"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Der Liebsten Blick ist nicht wie Lichtgefunkel, / Nicht sind die Lippen wie Korallen klar.",
+      "language": [],
+      "musenalm_id": 77097,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das 130ste. Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das 130ste. Fortsetzung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "1e7f0fxyu58y93i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "c9h2n2xcn09tbz3"
+        }
+      ],
+      "source_id": "o1a8e3kkc94ha0n"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Oft, wenn du selbst Musik, Musik mir spielst, / Auf dem beglückten Holz, daß tanzend klingt,",
+      "language": [],
+      "musenalm_id": 77098,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[128ste]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[128ste]",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "oki7ksbatb5v2m2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "qru3761s5bujayz"
+        }
+      ],
+      "source_id": "y8ye6dg5088v6im"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Ja, deine Augen lieb' ich, welche klagen, / Wohl wissend, wie mit Hohn mich quält Dein Herz,",
+      "language": [],
+      "musenalm_id": 77099,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob ihrer schwarzen Augen. Das 132ste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob ihrer schwarzen Augen. Das 132ste",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "b0yh1ahxqsn4c59"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "ud3ilwba6c79qma"
+        }
+      ],
+      "source_id": "glqn7mqb61gbty1"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Wie an des Ufers Kies die Welle zieht, / So eilt auch unsre Zeit dem Ende zu.",
+      "language": [],
+      "musenalm_id": 77100,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das 60ste Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das 60ste Sonett",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "861cq93s6qzo0lf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "vqijmd41x83b9i8"
+        }
+      ],
+      "source_id": "0djo3w5nhxoff7c"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Vergleich' ich Dich dem Tag im holden Lenze? / Du bist weit süßer, bist Dir immer gleich:",
+      "language": [],
+      "musenalm_id": 77101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das 18te",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das 18te",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "9kbj5g3uva2fv1v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "ljbolyj78zowimy"
+        }
+      ],
+      "source_id": "nd7pxgj2o4u7b45"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.756Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Zeit, Würgerinn, bezwing' des Löwen Muth, / Die eignen Kinder schling' die Erd' hinab.",
+      "language": [],
+      "musenalm_id": 77102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das 19te. Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das 19te. Fortsetzung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.760Z",
+          "agent": "confomdodiakpla",
+          "source_id": "9m7004juo37ze1s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "ue7o53a54nbxequ"
+        }
+      ],
+      "source_id": "tfef98u12jzc1mz"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.756Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "Vielleicht leb' ich, Dein Epitaph zu schreiben, / Kann seyn, Du lebst, wenn modert mein Gebein.",
+      "language": [],
+      "musenalm_id": 77103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das 81ste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das 81ste",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "confomdodiakpla",
+          "source_id": "pk0il4kmycozwue"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.761Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "rchhknhwblreopg"
+        }
+      ],
+      "source_id": "2o12lvv31zzhu9d"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.831Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Von Dir bin ich im Lenz entfernt gewesen, / Als froh der May sein buntes Kleid erneute,",
+      "language": [],
+      "musenalm_id": 77104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[das 98ste]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[das 98ste]",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.551Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.551Z",
+          "agent": "confomdodiakpla",
+          "source_id": "0rriwe5clnqyn0v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.551Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.551Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "vm13fngtl0i67cu"
+        }
+      ],
+      "source_id": "jcd1420m5r99vl1"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "So schalt ich oft des Veilchens Uebermuth: / Du kleiner Dieb! vom Hauch des Freundes stahl'st / Du Deinen süßen Duft.",
+      "language": [],
+      "musenalm_id": 77105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das 99ste. Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das 99ste. Fortsetzung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.457Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "2etp3hwgxah6vty"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.457Z",
+          "agent": "confomdodiakpla",
+          "source_id": "ztjofwzd0ax3ins"
+        }
+      ],
+      "source_id": "j5130y5tq9h7fui"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Zum Schein geschwächt wächst meiner Liebe Macht, / Nicht lieb' ich wen'ger, weil der Schimmer schwindet.",
+      "language": [],
+      "musenalm_id": 77106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[das 102te Gedicht]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[das 102te Gedicht]",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.457Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "6d4muep7fsa546r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.457Z",
+          "agent": "confomdodiakpla",
+          "source_id": "kp1axnu7k2t7sj8"
+        }
+      ],
+      "source_id": "1d2esgbauozcuis"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Mag jener, den der Sterne Gunst beglückte, / In öffentlichen Würden stolz sich blähn;",
+      "language": [],
+      "musenalm_id": 77107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[25ste]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[25ste]",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.457Z",
+          "agent": "confomdodiakpla",
+          "source_id": "7bzh4fbawfffbsc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.457Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.457Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "zqt07anysc1g3mq"
+        }
+      ],
+      "source_id": "u5vgr3ohafmaouw"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Gar manche Morgen sah ich hell erglühn, / Mit Herrscherblick die Bergesgipfel grüßen.",
+      "language": [],
+      "musenalm_id": 77108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "33.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "33.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "confomdodiakpla",
+          "source_id": "irvym99bwxi306r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "ojx3jv2thjxkk86"
+        }
+      ],
+      "source_id": "fyclxdisttgw2wu"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Wie konntest du so schönen Tag verkünden, / Daß ich den Mantel achtlos ließ zurück?",
+      "language": [],
+      "musenalm_id": 77109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "34. Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "34. Fortsetzung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "c3zropax9fzmb0s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "confomdodiakpla",
+          "source_id": "ck14txh9h3jlu2o"
+        }
+      ],
+      "source_id": "ve8x39u3r2uijjh"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Was du begangen, das beklage nicht. / Schlamm trübt den Quell. die Ros' auf Dornen thront.",
+      "language": [],
+      "musenalm_id": 77110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[35ste]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[35ste]",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "confomdodiakpla",
+          "source_id": "1b2ko7wramhk8s8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "cpkp9b89jktogn0"
+        }
+      ],
+      "source_id": "whcbys50gz1rzxe"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "Herr meiner Liebe, dessen heil'ge Banden / Mit königlicher Macht mein Herz umschlingen,",
+      "language": [],
+      "musenalm_id": 77111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "26.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "26.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "confomdodiakpla",
+          "source_id": "e0jrfadh6atqs3j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "yn8fxj7zkq3npbs"
+        }
+      ],
+      "source_id": "ntngg85ke0annr1"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "O wie viel schöner strahlt die Schönheit doch / Im edlen Schmuck, den ihr die Treue leiht.",
+      "language": [],
+      "musenalm_id": 77112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "54.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "54.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "ij18l0q7oplgm1g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "confomdodiakpla",
+          "source_id": "kmbibi0grx6s56r"
+        }
+      ],
+      "source_id": "wfv3jxc4pxujucf"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Nicht Marmor, noch der Kön'ge Ehrensäule, / Wird diese mächt'ge Dichtung überdauern;",
+      "language": [],
+      "musenalm_id": 77113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "55.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "55.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "confomdodiakpla",
+          "source_id": "8zo2qb3r4yy9p6l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "vnlptez9wpk1qmx"
+        }
+      ],
+      "source_id": "dxmglcvtnmijieu"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "In jener Jahreszeit steht jetzt mein Leben, / Wo gelbe Blätter, einzeln, wen'ge bangen,",
+      "language": [],
+      "musenalm_id": 77114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "73.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "73.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "jelcz6z1lya55ze"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "confomdodiakpla",
+          "source_id": "nzc2fc3n4eoahii"
+        }
+      ],
+      "source_id": "usfvp0g0xcdjc0n"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Doch sei getrost. Wenn jenes Klägers Eile, / Der keine Bürgschaft nimmt, zur Hast mich treibt,",
+      "language": [],
+      "musenalm_id": 77115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "74. Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "74. Fortsetzung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "confomdodiakpla",
+          "source_id": "gj3brjpe0dbh1vh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "q8ustgcegs77urk"
+        }
+      ],
+      "source_id": "e9rs49y8n4bsdmt"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Nicht länger, wenn ich starb, beweine mich, / Als du die Glocke hörst, mit dumpfem Tone,",
+      "language": [],
+      "musenalm_id": 77116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "71.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "71.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.451Z",
+          "agent": "confomdodiakpla",
+          "source_id": "1lud1d7d3t4ab6t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.452Z",
+          "agent": "ajsovud6xavcdfb",
+          "source_id": "fnsf9ja9tln42ue"
+        }
+      ],
+      "source_id": "payiwr5ahwyt204"
+    },
+    {
+      "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Statt alles dies, ruf' ich des Todes Nacht / Als: das Verdienst als Bettler sehn geboren,",
+      "language": [],
+      "musenalm_id": 77117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[66.]Shakespeare, William; Tieck, Johann Ludwig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakspear [übers.] L. Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[66.]Shakespeare, William; Tieck, Johann Ludwig",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.452Z",
+          "agent": "confomdodiakpla",
+          "source_id": "c8xvwf1hnfvacr0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.452Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "ss77uycvm132vm9"
+        }
+      ],
+      "source_id": "euc182ezt1c8zf7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "Dir floß, dem Wiesenbach im Thale gleich, / Das Kindheitsleben sanft und heiter hin.",
+      "language": [],
+      "musenalm_id": 77119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gattin Lebensglück. / Ein ernstes Kapitel aus dem Ehestandskatechismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Trautschold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gattin Lebensglück. / Ein ernstes Kapitel aus dem Ehestandskatechismus",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "7anyzx5u15khtvs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Wann die Sterne nimmer glühen, / Wann die Sonne fand ihr Ziel;",
+      "language": [],
+      "musenalm_id": 77120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiederschöpfung. / (Palingenesis.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiederschöpfung. / (Palingenesis.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.720Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "bzw2r2y44b3t5ap"
+        }
+      ],
+      "source_id": "yc1mgdzgpfjolad"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "Der Erde Feuer scheint verlodert, / Was blühte, hat sie heimgefordert:",
+      "language": [],
+      "musenalm_id": 77121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Süße Täuschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gebriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Süße Täuschung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.720Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "k5ju6lk2m3h3916"
+        }
+      ],
+      "source_id": "o6n2dt0w9xizra5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Flachsenfingen, Flachsenflingen! / Welches Unglück hat gedrohet,",
+      "language": [],
+      "musenalm_id": 77122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Stadt-Musikantens Gefahr / und Rettung. / In 7 Romanzen, / nach altspanischen Anklängen und mit gelegentlichen / Moralien",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Stadt-Musikantens Gefahr / und Rettung. / In 7 Romanzen, / nach altspanischen Anklängen und mit gelegentlichen / Moralien",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "xaz7f6fykgbovsb"
+        }
+      ],
+      "source_id": "qrlbioqq7m0g0xz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Mächtig unser Herz berühret / Eines Auges Zauberschein.",
+      "language": [],
+      "musenalm_id": 77123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweydeutiger Rath. / Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. H. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweydeutiger Rath. / Lied",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "dfy73x6qxxhlxby"
+        }
+      ],
+      "source_id": "6g61msmh6bql7yp"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der I. C. Hinrichsschen Buchhandlung in / Leipzig ist erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der I. C. Hinrichsschen Buchhandlung in / Leipzig ist erschienen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "1hexqn3csajwmi9"
+    }
   ],
   "agents": [
     {

@@ -48,54 +48,1772 @@
   "year": 1784,
   "editor": "",
   "items": [
-    "6h3107lrkfbxy75"
+    {
+      "annotation": "lt. K 35:  7 Jgg 1784, 1786, 1787, 1789, 1798, 1799, 1800",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106628",
+      "location": "105K06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6h3107lrkfbxy75"
+    }
   ],
   "contents": [
-    "2gq082e761jag4p",
-    "azry347p60iix66",
-    "rmk3fdpkojwyha1",
-    "y94xn0jbyalyv8x",
-    "1kwefozue9t5xlw",
-    "94ne1u4tbyu8e6w",
-    "94b0zw80ypqmuif",
-    "rrqzkfog67msak8",
-    "k7btcaq7o2y1ceo",
-    "b7rlng5f1qxha4v",
-    "8kqw75r2qwetfa8",
-    "efwg3va2d0t07nx",
-    "pkfrwguqpfmkfbf",
-    "g3e9z9t4f6rp4cv",
-    "ytvrkj67906n452",
-    "eav1u9yf64dgvpy",
-    "gwebspecps7ft5s",
-    "zreo1qt6b4uo347",
-    "pffieqh0wfsjgf2",
-    "jjsq97js5swm09b",
-    "3t968cdpos5d4jb",
-    "oeq9eyhi3asib69",
-    "666u0pl6phonxxo",
-    "e7pph9yqpyggf4h",
-    "63ia9ehcfc6h6zi",
-    "4umryp8tksddlu0",
-    "uruf93f6rogyjtc",
-    "n0k5zwdq7e7x71t",
-    "jyei8sim7wtbq0v",
-    "btmgzrrjaxv5p2x",
-    "7jvzimsajoc6tsn",
-    "slmd24n1k7tu9c9",
-    "vrb095r0ts87tso",
-    "3oifmtvrgqcnfze",
-    "jk3lv8wwroyplvn",
-    "0xau1p8l35bmflz",
-    "fcawuj7j9exgc7u",
-    "wvu09li2mb1c5w4",
-    "mphit56b7ygio6b",
-    "cplqwk5ugs42jau",
-    "us8lx92mrrh8rvy",
-    "dolygnxrxtl3i8f",
-    "psi4xkswo61rf76",
-    "wap14kjand5xiyk",
-    "4zo3yd71nsxeo7i"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68500,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_925_68500_xezzb7b7y5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "2gq082e761jag4p"
+    },
+    {
+      "annotation": "gest. Titel s. Textbezug INr 68530, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68501,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historisch-genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1784. / Leipzig / zur Messe / bey Haude und Spener von Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. W. Meil del. D. Berger sc. 1783",
+      "scans": [
+        "alm_925_68501_o1x35pshnp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historisch-genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1784. / Leipzig / zur Messe / bey Haude und Spener von Berlin",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.359Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "5otnzr34fdvl3xy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.359Z",
+          "agent": "mmq9ql2t3b3zqca",
+          "source_id": "xtxiqsbom83p0dz"
+        }
+      ],
+      "source_id": "azry347p60iix66"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68502,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "rmk3fdpkojwyha1"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar paginiert 1. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68503,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Amerikaner wiedersetzen sich der / Stempel-Acte, und verbrennen das aus / England nach America gesandte Stempel- / Papier zu Boston im August 1764",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68503_e59nmc36dv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Amerikaner wiedersetzen sich der / Stempel-Acte, und verbrennen das aus / England nach America gesandte Stempel- / Papier zu Boston im August 1764",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "qk2hk660cznqf47"
+        }
+      ],
+      "source_id": "y94xn0jbyalyv8x"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar paginiert 2. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68504,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Einwohner von Boston werfen den / englisch-ostindischen Thee ins Meer / am 18 December 1773",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68504_3nlceu8xqi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Einwohner von Boston werfen den / englisch-ostindischen Thee ins Meer / am 18 December 1773",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "grq775ukylkuojd"
+        }
+      ],
+      "source_id": "1kwefozue9t5xlw"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium März paginiert 3. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68505,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das erste Bürger-Blut, zu Gründung / der Americanischen Freyheit vergossen / bey Lexington, am 19ten April 1774",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68505_vfcsob8xca.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das erste Bürger-Blut, zu Gründung / der Americanischen Freyheit vergossen / bey Lexington, am 19ten April 1774",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "kqcrepuwh1sxjh8"
+        }
+      ],
+      "source_id": "94ne1u4tbyu8e6w"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium April paginiert 4. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die erste förmliche Action zwischen / den Americanern und Engländern bey / Bunkers-Hill, am 17ten Junius 1774",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68506_kvxtbji4jr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die erste förmliche Action zwischen / den Americanern und Engländern bey / Bunkers-Hill, am 17ten Junius 1774",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "qe31vkr19jnwnlb"
+        }
+      ],
+      "source_id": "94b0zw80ypqmuif"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Mai paginiert 5. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68507,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Congreß erklärt die 13 vereinigten / Staaten von Nord-America für in- / dependent. am 1. July 1776",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68507_6qg0fyd3sm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Congreß erklärt die 13 vereinigten / Staaten von Nord-America für in- / dependent. am 1. July 1776",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "cpq6fvl41eghxbr"
+        }
+      ],
+      "source_id": "rrqzkfog67msak8"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juni paginiert 6. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68508,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hessen vom General Washington / am 25ten Dec. 1776 zu Trenton überfal- / len, werden als Kriegsgefangene in Phila- / delphia eingebracht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68508_pih9i6xaon.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Hessen vom General Washington / am 25ten Dec. 1776 zu Trenton überfal- / len, werden als Kriegsgefangene in Phila- / delphia eingebracht",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "b287bg3gle6wcq5"
+        }
+      ],
+      "source_id": "k7btcaq7o2y1ceo"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juli paginiert 7. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68509,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Americaner machen das Corps des / General Bourgoyne zu Gefangnen, bey / Saratoga. am 16ten Octobr. 1777",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68509_b9dos5qtxb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Americaner machen das Corps des / General Bourgoyne zu Gefangnen, bey / Saratoga. am 16ten Octobr. 1777",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "8rt8fwu59mk2chf"
+        }
+      ],
+      "source_id": "b7rlng5f1qxha4v"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium August paginiert 8. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68510,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dr. Franklin erhält, als Gesandter des / Americanischen FreyStaats, seine / erste Audienz in Frankreich, zu Ver- / sailles. am 20ten März 1778",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68510_vpxoyoqjga.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dr. Franklin erhält, als Gesandter des / Americanischen FreyStaats, seine / erste Audienz in Frankreich, zu Ver- / sailles. am 20ten März 1778",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.360Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "tutxials4g27j77"
+        }
+      ],
+      "source_id": "8kqw75r2qwetfa8"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium September paginiert 9. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68511,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Landung einer Französichen Hülfs- / Armee in America, zu Rhode Island. / am 11ten Julius 1780",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68511_v0klesri3l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Landung einer Französichen Hülfs- / Armee in America, zu Rhode Island. / am 11ten Julius 1780",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.266Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.266Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "0b0ysm7s3rv3b3w"
+        }
+      ],
+      "source_id": "efwg3va2d0t07nx"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Oktober paginiert 10. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68512,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Major André, von drey America- / nern angehalten zu Tarrytown / am 23ten September 1780",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68512_euq3snambm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Major André, von drey America- / nern angehalten zu Tarrytown / am 23ten September 1780",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.284Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ark0rbtlkamw1u3"
+        }
+      ],
+      "source_id": "pkfrwguqpfmkfbf"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium November paginiert 11. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68513,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Amercianer machen den Lord Corn- / wallis mit seiner Armee zu Gefangnen, / Bey Yorktown den19ten Octobr 1781",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68513_28i34hvvs7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Amercianer machen den Lord Corn- / wallis mit seiner Armee zu Gefangnen, / Bey Yorktown den19ten Octobr 1781",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.284Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "v4qma3y1iq77n3p"
+        }
+      ],
+      "source_id": "g3e9z9t4f6rp4cv"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Dezember paginiert 12. Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68532, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ende der Feindseligkeiten. Die Eng- / länder räumen den Americanern / Neu-Yorck ein - 1783",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculp.",
+      "scans": [
+        "alm_925_68514_cjxywrhm3x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ende der Feindseligkeiten. Die Eng- / länder räumen den Americanern / Neu-Yorck ein - 1783",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.284Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "4t5tryxvlteppj0"
+        }
+      ],
+      "source_id": "ytvrkj67906n452"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen in Europa",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "eav1u9yf64dgvpy"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68516,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jahrbuch / der / merkwürdigsten neuen / Weltbegebenheiten / für / 1784 / enthaltend / die Geschichte / der / Revolution von Nord-America. / Mit Kupfern und einer Landkarte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jahrbuch / der / merkwürdigsten neuen / Weltbegebenheiten / für / 1784 / enthaltend / die Geschichte / der / Revolution von Nord-America. / Mit Kupfern und einer Landkarte",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "gwebspecps7ft5s"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Von so allgemeinem Gebrauche ein Buch wie der Calender ist, von eben so allgemeinem Interesse sollten billig auch die darinn abgehandelten Materien seyn.",
+      "language": [],
+      "musenalm_id": 68517,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. C. Sprengel, Professor der Geschichte",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.164Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.164Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "uegysa2qov51h04"
+        }
+      ],
+      "source_id": "zreo1qt6b4uo347"
+    },
+    {
+      "annotation": "Lit.-Verz.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68518,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige der vornehmsten bey dieser Aus- / arbeitung benutzten Werke und kleine- / ren Schriften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige der vornehmsten bey dieser Aus- / arbeitung benutzten Werke und kleine- / ren Schriften",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "pffieqh0wfsjgf2"
+    },
+    {
+      "annotation": "Beigabe zu »Beschreibung der dreyzehn vereinigten Provinzen in Nordamerica« INr 68520, Obj 21 s.a. Textbezug INr 68531, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68519,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Vereinigten Staaten von / NORD-AMERICA / nach der von Wm. Faden 1783 / herausgegebenen Charte,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "genau zusammengetragen von D. Sotzmann",
+      "scans": [
+        "alm_925_68519_0a2ljt3wou.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die / Vereinigten Staaten von / NORD-AMERICA / nach der von Wm. Faden 1783 / herausgegebenen Charte,",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.164Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.164Z",
+          "agent": "llfbsdoltk6o89d",
+          "source_id": "pimyftgqvmnjas2"
+        }
+      ],
+      "source_id": "jjsq97js5swm09b"
+    },
+    {
+      "annotation": "s. Karte INr 68519, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Dieser neue Freystaat hat, seit dem eben geendigten Kriege mit Großbritannien, einen größern Umfang als irgend eine europäisches Reich, das russische Kaiserthum ausgenommen.",
+      "language": [],
+      "musenalm_id": 68520,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung / der dreyzehn vereinigten Provinzen in / Nordamerica",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung / der dreyzehn vereinigten Provinzen in / Nordamerica",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "3t968cdpos5d4jb"
+    },
+    {
+      "annotation": "s. folgenden Beitrag »Geschichte der noramericanischen Independenz« INr 68522, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68521,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entwurf / einer Zeitrechnung für Nordamerika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entwurf / einer Zeitrechnung für Nordamerika",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "oeq9eyhi3asib69"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Daß mächtige Reiche durch Ueberspannung ihrer Kräfte, durch Herrschsucht, Despotismus der Regenten, und durch Sittenverderbniß der Unterthanen, sich ihrem Ende nähern;",
+      "language": [],
+      "musenalm_id": 68522,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / der nordamericanischen Independenz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / der nordamericanischen Independenz",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "666u0pl6phonxxo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68523,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Präsidenten des Congresses seit 1774",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Präsidenten des Congresses seit 1774",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "e7pph9yqpyggf4h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Etwa um 1751 zählte man in diesen Ländern, Neuschottland mitgerechnet, eine Millionen Seelen, von denen etwa 80000 von Zeit zu Zeit aus Europa gekommen waren.",
+      "language": [],
+      "musenalm_id": 68524,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bevölkerung / der dreyzehn nordamerikanischen Staaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bevölkerung / der dreyzehn nordamerikanischen Staaten",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "63ia9ehcfc6h6zi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Mit der Independenz-Erklärung haben, wie oben bemerkt worden, die meisten Provinzen wichtige Veränderungen in ihrer alten Verfassung vorgenommen,",
+      "language": [],
+      "musenalm_id": 68525,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neueste Verfassung / der dreyzehn nordamerikanischen Staaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neueste Verfassung / der dreyzehn nordamerikanischen Staaten",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "4umryp8tksddlu0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Alle englischen Politiker haben die Wichtigkeit dieses Handels, der in den unten bemerkten Jahren England so sehr bereicherte, und alle Jahre gewöhnlich siebenhundert britische Schiffe beschäftigte, verschiedentlich bekannt gemacht,",
+      "language": [],
+      "musenalm_id": 68526,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Großbritanniens Handel mit den drey- / zehn nordamerikanischen Staaten seit dem / ersten Pariser Frieden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Großbritanniens Handel mit den drey- / zehn nordamerikanischen Staaten seit dem / ersten Pariser Frieden",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "uruf93f6rogyjtc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Virginien nebst Maryland und Carolina beschäftigten bisher auf 250000 Neger mit dem Bau dieser in Europa seit dem vorigen Jahrhundert so unentbehrlich und wichtig gewordenen Pflanze,",
+      "language": [],
+      "musenalm_id": 68527,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfluß des Krieges auf den virgini- / schen Tobacksbau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einfluß des Krieges auf den virgini- / schen Tobacksbau",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "n0k5zwdq7e7x71t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Im Jahr 1781 sollten von allen dreyzehn Staateten gemeinschaftlich acht Millionen americanischer Dollars zusammengebracht werden;",
+      "language": [],
+      "musenalm_id": 68528,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ungefähre Berechnung, wie viel jede / Provinz zu den allgemeinen Ausgaben / beyträgt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ungefähre Berechnung, wie viel jede / Provinz zu den allgemeinen Ausgaben / beyträgt",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "jyei8sim7wtbq0v"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 68530-68537, Obj 31-38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68529,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erläuterung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erläuterung der Kupfer",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "btmgzrrjaxv5p2x"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. gest. Titel INr 68501, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "ist von der Erfindung und Zeichnung des, besonders in Compositionen dieser Art, nicht genug zu bewundernden Künstlers Herrn J. W. Meil.",
+      "language": [],
+      "musenalm_id": 68530,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Titelkupfer",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "7jvzimsajoc6tsn"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. Karte INr 68519, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "auf welcher das dem nunmehrigen Freystaate von Nordamerika zuständige Land, nebst einen Theil der angränzenden englischen und spanischen Besitzungen vorgestellet ist, erklärt sich theils durch die Inschrift,",
+      "language": [],
+      "musenalm_id": 68531,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Charte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Charte",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "slmd24n1k7tu9c9"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. 12 Graphiken im Kalendarium INr 68503-68514, Obj 4-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "scheinen keiner näheren Erläuterung zu bedürfen,",
+      "language": [],
+      "musenalm_id": 68532,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zwölf Monatskupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die zwölf Monatskupfer",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "vrb095r0ts87tso"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. Graphik INr 68538, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Washington, Gates, Franklin, Laurens, Paul Jones sind so allgemein und so rühmlich bekannte Männer, daß ihre Bildnisse, in gegenwärtiger Sammlung, gewiß willkommen seyn werden.",
+      "language": [],
+      "musenalm_id": 68533,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bildnisse fünf merkwürdigerAme- / rikaner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bildnisse fünf merkwürdigerAme- / rikaner",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "3oifmtvrgqcnfze"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. Graphik INr 68539, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Die erste der hier abgebildeten ist eine Denkmünze auf den Frieden",
+      "language": [],
+      "musenalm_id": 68534,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Münzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Münzen",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "jk3lv8wwroyplvn"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. Graphik INr 68540, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Das zweyte, was hier in Gestalt einer Münze erschient, macht eigentlich den in dieser Form copirten Stempel aus, mit welchem das Papiergeld der Provinz Pennsilvanien bezeichnet ist.",
+      "language": [],
+      "musenalm_id": 68535,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Münzen]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Münzen]",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "0xau1p8l35bmflz"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. Graphik INr 68541, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Von diesem sauber illuminirten Kupfer ist weiter nichts zu sagen, als daß beyde, nach der deshalb getroffenen Uebereinkunft aller dreyzehn Staaten, wirklich so aussehen.",
+      "language": [],
+      "musenalm_id": 68536,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flagge und Wimpel / der dreyzehn vereinigten Staaten von Nord- / america",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Flagge und Wimpel / der dreyzehn vereinigten Staaten von Nord- / america",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "fcawuj7j9exgc7u"
+    },
+    {
+      "annotation": "Zur Erläuterung der Kupfer (Sammlung INr 68529, Obj 30) s. Graphiken INr 68542, 68543, Obj 43, 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Sie sind uns von einem aus America zurück gekommenen Officier, der allen dortigen Feldzügen der deutschen Hülfsvölker beygewohnt hat, in illuminirten Zeichnungen mitgetheilt,",
+      "language": [],
+      "musenalm_id": 68537,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vier Uniformen der amerikanischen / Armee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vier Uniformen der amerikanischen / Armee",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "wvu09li2mb1c5w4"
+    },
+    {
+      "annotation": "Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68533, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68538,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. General Washington, 2. General Gates, / 3. Dr. Franklin, 4. Präsid. Laurens. 5. Paul Jones",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Berger sculps. 1783",
+      "scans": [
+        "alm_925_68538_kk6j46fdm3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. General Washington, 2. General Gates, / 3. Dr. Franklin, 4. Präsid. Laurens. 5. Paul Jones",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.476Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "keqhk5vr42mm75i"
+        }
+      ],
+      "source_id": "mphit56b7ygio6b"
+    },
+    {
+      "annotation": "Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68534, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68539,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (D. Berger sculps. 1783)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Berger sculps. 1783",
+      "scans": [
+        "alm_925_68539_3yydfdr5iq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "y6zvlnm16c34zub"
+        }
+      ],
+      "source_id": "cplqwk5ugs42jau"
+    },
+    {
+      "annotation": "Münze recto verso; Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68535, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68540,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (D. Berger sculps. 1783)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Berger sculps. 1783",
+      "scans": [
+        "alm_925_68540_3i0ycjsjcd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "s2kpj3ckawu633o"
+        }
+      ],
+      "source_id": "us8lx92mrrh8rvy"
+    },
+    {
+      "annotation": "Münze recto verso; Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68536, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68541,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flagge der 13 vereinigten Staaten / von NordAmerica / Wimpel der 13 vereinigten Staaten von Nord America",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_925_68541_4l7efv7m8h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Flagge der 13 vereinigten Staaten / von NordAmerica / Wimpel der 13 vereinigten Staaten von Nord America",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "dolygnxrxtl3i8f"
+    },
+    {
+      "annotation": "Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68537, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68542,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. General Washingon's reitende Leibgarde. / 2. die independent Company, Chef General Washington",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Berger sc.",
+      "scans": [
+        "alm_925_68542_1k85qfpvod.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. General Washingon's reitende Leibgarde. / 2. die independent Company, Chef General Washington",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.476Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "wdpslwlfretxjyj"
+        }
+      ],
+      "source_id": "psi4xkswo61rf76"
+    },
+    {
+      "annotation": "Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68537, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68543,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Americanischer Scharfschütz oder Jäger (Rifleman) / 2. reguläre Infanterie von Pensylvanien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Berger sc.",
+      "scans": [
+        "alm_925_68543_z63syrohn5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. Americanischer Scharfschütz oder Jäger (Rifleman) / 2. reguläre Infanterie von Pensylvanien",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.477Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "jqq7bcttzldcce0"
+        }
+      ],
+      "source_id": "wap14kjand5xiyk"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68544,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_925_68544_cac9g34fnd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "4zo3yd71nsxeo7i"
+    }
   ],
   "agents": [
     {

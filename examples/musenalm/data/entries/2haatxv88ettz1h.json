@@ -48,12 +48,130 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "tdn7ra0vejnoqky"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.779Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409669",
+      "location": "105P08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.779Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tdn7ra0vejnoqky"
+    }
   ],
   "contents": [
-    "fr827n6ho8zfemf",
-    "3frageo049psbh1",
-    "ajf6n3zlj7whe9y"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Astronomisches / Jahrbuch / für das Jahr 1821 / nebst einer Sammlung / der neuesten / in die astronomischen Wissenschaften / einschlagenden Abhandlungen, Beobach- / tungen und Nachrichten. / Mit Genehmhaltung / der Königl. Akademie der Wissenschaften / berechnet und herausgegeben / von / Dr. J. E. Bode, Königl. Astronom [...] / Mit einer Kupfertafel. / Berlin, 1818. / Bey dem Verfasser, und in Commission bey Ferd. Dümm- / ler, Buchhändler in Berlin. / Gedruckt bey C. F. E. Späthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4600_121124_cyqzfgbi45.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Astronomisches / Jahrbuch / für das Jahr 1821 / nebst einer Sammlung / der neuesten / in die astronomischen Wissenschaften / einschlagenden Abhandlungen, Beobach- / tungen und Nachrichten. / Mit Genehmhaltung / der Königl. Akademie der Wissenschaften / berechnet und herausgegeben / von / Dr. J. E. Bode, Königl. Astronom [...] / Mit einer Kupfertafel. / Berlin, 1818. / Bey dem Verfasser, und in Commission bey Ferd. Dümm- / ler, Buchhändler in Berlin. / Gedruckt bey C. F. E. Späthen",
+      "updated": "2018-10-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "fr827n6ho8zfemf"
+    },
+    {
+      "annotation": "Photos 121125,01; 121125,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4600_121125_01_juwiepc9j0.jpg",
+        "alm_4600_121125_02_3ys40vwx8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-10-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "3frageo049psbh1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Astronomisches Jahrbuch 1821",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4600_121126_xwvqozajlq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Astronomisches Jahrbuch 1821",
+      "updated": "2018-10-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "ajf6n3zlj7whe9y"
+    }
   ],
   "agents": [
     {

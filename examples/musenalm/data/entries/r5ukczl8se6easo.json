@@ -48,24 +48,663 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "x2e4zrxdqnel92f"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.513Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200430",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.513Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "x2e4zrxdqnel92f"
+    }
   ],
   "contents": [
-    "4fz2rq7ggt4beuz",
-    "g66122cy1yc0qev",
-    "ckzkzqwv5r98x93",
-    "surqghqv9uqeatf",
-    "7dbmbrqoy4392v0",
-    "es2rpyyr2uvjf8d",
-    "k46dmzp3llrjg4c",
-    "eapk9131i72i2a7",
-    "oz9e0td5ggerv18",
-    "v8o39o8ykw4wy4l",
-    "pm964c3aqzvj9r2",
-    "rjt0z91sijip3ha",
-    "lo8y0v0pfch1dme",
-    "i72hifp736n2f58",
-    "exw24csnr9dfns6"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_720_52444_akmv29nv7m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "4fz2rq7ggt4beuz"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.043Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "L'Hospice du St. Bernard",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Hegi sc.",
+      "scans": [
+        "alm_720_52445_ql5k0un1kc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "L'Hospice du St. Bernard",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.683Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "ijjmlgeqa2vpz8m"
+        }
+      ],
+      "source_id": "g66122cy1yc0qev"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.044Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52446,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1820. / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_720_52446_ad1sxw49xo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1820. / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ckzkzqwv5r98x93"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52447,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "surqghqv9uqeatf"
+    },
+    {
+      "annotation": "mit 8 Illustrationen s. Titelgraphik INr 52445, Obj 2; Graphiken INr 52449-52455, Obj 6-12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nach der gegenwärtigen Reihenordnung der Eydgenößischen Bundesglieder ist das Land Wallis der zwanzigste Canton. Bisweilen wird es auch das Große Rhone-Thal genannt,",
+      "language": [],
+      "musenalm_id": 52448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistischer Versuch / über den / Kanton Wallis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statistischer Versuch / über den / Kanton Wallis",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "7dbmbrqoy4392v0"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Matterhorn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Meyer del. F. Hegi sc.",
+      "scans": [
+        "alm_720_52449_nv236983lu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Matterhorn",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.683Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "khwrt7fo70iikka"
+        }
+      ],
+      "source_id": "es2rpyyr2uvjf8d"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Les Bains de Louëche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Hegi sc.",
+      "scans": [
+        "alm_720_52450_oxch2r4k7c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Les Bains de Louëche",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "vcb4r10ycyfu184"
+        }
+      ],
+      "source_id": "k46dmzp3llrjg4c"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Wetzel del. F. Hegi sc.",
+      "scans": [
+        "alm_720_52451_03zx5ggu23.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sion",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "q17s4ydwikfaxdo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "yt55sljomlfgq6g"
+        }
+      ],
+      "source_id": "eapk9131i72i2a7"
+    },
+    {
+      "annotation": "Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pont de St. Maurice",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Wetzel del. F. Hegi sc.",
+      "scans": [
+        "alm_720_52452_www46rqcxf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pont de St. Maurice",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "l2xzujzn2ajajwc",
+          "source_id": "eir82mhaaihwlmx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "zbskhchsoqwsntq",
+          "source_id": "mw5a6asu43eod3e"
+        }
+      ],
+      "source_id": "oz9e0td5ggerv18"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Wallis / Ein Führer im ober Wallis",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_720_52453_ijst0k5lp3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Wallis / Ein Führer im ober Wallis",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "sh2v2iljbkcwe3s"
+        }
+      ],
+      "source_id": "v8o39o8ykw4wy4l"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.689Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Wallis / Eine Frau aus ober Wallis",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_720_52454_6ilnwxakp5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Wallis / Eine Frau aus ober Wallis",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "cv3bixz6o94z1qk"
+        }
+      ],
+      "source_id": "pm964c3aqzvj9r2"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Wallis / Mädchen von Champery / im Unterwallis",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_720_52455_7e9dfsrono.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Wallis / Mädchen von Champery / im Unterwallis",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.652Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.652Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "dc8l3ittqljj3qn"
+        }
+      ],
+      "source_id": "rjt0z91sijip3ha"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52456,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "lo8y0v0pfch1dme"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.317Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52457,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Canton Wallis / 1820",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. u. gest. v. J. Scheurmann",
+      "scans": [
+        "alm_720_52457_54h8i4ooas.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Canton Wallis / 1820",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.634Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "06811c1hdpl3ygh"
+        }
+      ],
+      "source_id": "i72hifp736n2f58"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.324Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 52458,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_720_52458_dipt1cpcm8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "exw24csnr9dfns6"
+    }
   ],
   "agents": [
     {

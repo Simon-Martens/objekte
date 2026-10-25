@@ -48,106 +48,4172 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "aql3wxrmdk4yj61"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.485Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101083",
+      "location": "105F08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.485Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "aql3wxrmdk4yj61"
+    }
   ],
   "contents": [
-    "602mlsrcahs2qn7",
-    "79dyyqt3nkj2g2c",
-    "4hu6uk3ulwggl0u",
-    "gg1odzztot5qs5f",
-    "9v9nax9mz4wizvd",
-    "2343hmbyjjy1bra",
-    "bqryr8p79qk8bae",
-    "bwi844f0mcs3ptg",
-    "5b6oi09pmn90vg0",
-    "11y3p940djzapwg",
-    "u0hll83663d8hd9",
-    "s374vgrf3brll8r",
-    "v5p9yz8oxslg829",
-    "wald2ox4otsz9k7",
-    "zev1xjo29ms8vip",
-    "5tpmpx0doe4o61d",
-    "acdvw1g52ee2bgs",
-    "g2evs0fq92iluo5",
-    "8xlmaoczroxigwr",
-    "c69xfs9m9h72ldw",
-    "x5uy7zdcyeksid5",
-    "gf2rzympglen2mc",
-    "ag3g7nz7hfr5bai",
-    "76cipy8nqq6emq2",
-    "2zrf224ktwaddju",
-    "h0icwqvgz65e1h8",
-    "fdnh771puxqvpzs",
-    "cdpgcfm5u9p3ppx",
-    "2ufz3ugcmv8bwzc",
-    "zgefna0fjxs5uka",
-    "5202vl7bv6ixqp6",
-    "nodvn23gp176145",
-    "pnb41gt830xbxlt",
-    "uol8q65vhgw46pc",
-    "2132nju3tdax2th",
-    "ne5g1kujvv6cslv",
-    "76sd0cdi72rpfds",
-    "rkvwijdr5f03rwr",
-    "bg6tsm7h2i3o8q2",
-    "e8036k4j8z131fd",
-    "hrklc591i80dcx5",
-    "4l35ggbtv72osgw",
-    "3rbx2kaa6i03n3m",
-    "3agt7inhui4vbeu",
-    "7rbd1oza9aqzea7",
-    "4sw1e2kypmwo7oh",
-    "6dkhbmbxa4x84t7",
-    "8md6xgqy8i1zd4a",
-    "o28l614v3icccoz",
-    "581x58j3u56i6gw",
-    "js0zu6y3nnjics0",
-    "x2jo335g2nux0px",
-    "l0dupcp5ofvecc9",
-    "n03avexpsqo9r3u",
-    "bi4dc3ichb0emzx",
-    "3iiwmaelomyioh5",
-    "609ujw37rrarhy7",
-    "lpju849ma10ravj",
-    "yrphrx2ah9w9rm9",
-    "oecn5beitpumgrl",
-    "4aur1ljeqi3r3ym",
-    "btqhzonlo4qdez8",
-    "ua7g6beybbrud2p",
-    "8ur2rdbol8ch148",
-    "kjt1i4o9ju6ufe5",
-    "4h94lz4zszb9kpt",
-    "jy46m1nup6lmt2h",
-    "3okwic6p1yvgko0",
-    "eqkqnx7hkieudue",
-    "7lxk0tumtcib8eg",
-    "s1jhwyk800pq7vv",
-    "u83vlo0mlfre4y8",
-    "cg8jgfj8bipjm12",
-    "c5qrdqp9cmz9lz4",
-    "8l2jbkjzqmk9nli",
-    "x34wriygsilvnm1",
-    "7qzdbbfn9yvidrx",
-    "72fk58pc83rbqr8",
-    "dl28qhzgnb6m8pf",
-    "gmtvattskk8ondl",
-    "0pyw1rnoo60znue",
-    "7s5ucov4g85i9fk",
-    "4ckyc188qn78h8k",
-    "nakbk063leaeoxg",
-    "hphabb07v00rs1a",
-    "zv52vkh7n3a97b2",
-    "dkwi4fxnbzxp81y",
-    "zq3zsnhc3tx6bjk",
-    "6gen37gan8wmt70",
-    "ngz9kzycj4rc4uw",
-    "7q73gn7gss7odom",
-    "qy2wezd3bpm271s",
-    "w8l341pniqtqm6x",
-    "pfibl7tyr6t8yer",
-    "lkri59frpl61t3h",
-    "mwosz4nu0ybntmt",
-    "kwmnuzgftgzzu6o"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28511,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_370_28511_b8y3demzin.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "602mlsrcahs2qn7"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28512,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_370_28512_m1f2elshhj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "79dyyqt3nkj2g2c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28513,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1807. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn, / bei Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_370_28513_az9grspzkf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1807. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn, / bei Friedrich Wilmans",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "4hu6uk3ulwggl0u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "gg1odzztot5qs5f"
+    },
+    {
+      "annotation": "12 Monatstabellen, 1 Jahresabschlußtabelle",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28515,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1807",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1807",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "9v9nax9mz4wizvd"
+    },
+    {
+      "annotation": "Friedr. Wilh. III., Kön. Luise und Alex. I. am Grabe Friedr. II. 1805",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28516,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die erhabene Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_370_28516_llha49gev3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die erhabene Freundschaft",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.143Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "y69k4w10pigrgzg"
+        }
+      ],
+      "source_id": "2343hmbyjjy1bra"
+    },
+    {
+      "annotation": "Illustration zu »Die Marmorbüste« von *** INr 28573, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28517,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Du bleibst ewig mein Richter! / Sc. aus: Die Marmorbüste. Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et sc.",
+      "scans": [
+        "alm_370_28517_2gbx6esoa7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Du bleibst ewig mein Richter! / Sc. aus: Die Marmorbüste. Eine Erzählung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.143Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "a0rhpb4s424qyjw"
+        }
+      ],
+      "source_id": "bqryr8p79qk8bae"
+    },
+    {
+      "annotation": "Illustration zu »Die Marmorbüste« von *** INr 28573, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28518,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was widerfährt Euch? / Sc. Aus die Marmorbüste. Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_370_28518_yxg00xmd9e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Was widerfährt Euch? / Sc. Aus die Marmorbüste. Eine Erzählung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.143Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "b785mkiqdmcsi25"
+        }
+      ],
+      "source_id": "bwi844f0mcs3ptg"
+    },
+    {
+      "annotation": "Illustration zu »Der Blinde« von E. von Krosigk INr 28586, Obj 76",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28519,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutter wo bist du? / Sc. Aus: Der Blinde. Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_370_28519_of9vsaonoz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mutter wo bist du? / Sc. Aus: Der Blinde. Eine Erzählung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "chv3mmmcxzdzj30"
+        }
+      ],
+      "source_id": "5b6oi09pmn90vg0"
+    },
+    {
+      "annotation": "Illustration zu »Der Blinde« von E. von Krosigk INr 28586, Obj 76",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28520,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seraphine! / Sc. aus: Der Blinde. Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec.",
+      "scans": [
+        "alm_370_28520_rmtz44aniu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seraphine! / Sc. aus: Der Blinde. Eine Erzählung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "5bxe4us7w86m0d7"
+        }
+      ],
+      "source_id": "11y3p940djzapwg"
+    },
+    {
+      "annotation": "Illustration zu »Die Wanderung auf dem Gotthard« vonKarl Stern INr 28594, Obj 84",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28521,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein bedeutendes memento mori! / Sc. aus: Die Wanderung auf dem St. Gotthard",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec",
+      "scans": [
+        "alm_370_28521_ofzevoetcj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein bedeutendes memento mori! / Sc. aus: Die Wanderung auf dem St. Gotthard",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "1pcm2h25e78kzqt"
+        }
+      ],
+      "source_id": "u0hll83663d8hd9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28522,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das neue Jahr. / Eine Erzählung. / Aus Theone. Ein Geschenk für gute Töchter von J. Glatz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del et fec.",
+      "scans": [
+        "alm_370_28522_bhrju0x2xs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das neue Jahr. / Eine Erzählung. / Aus Theone. Ein Geschenk für gute Töchter von J. Glatz",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "fs33w8bpifjh4o3"
+        }
+      ],
+      "source_id": "s374vgrf3brll8r"
+    },
+    {
+      "annotation": "Sammlung von 53 Beiträgen INr 28524-28566, Obj 14-56",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Meine Miscellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Meine Miscellen",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "vrif32pa0gk3741"
+        }
+      ],
+      "source_id": "v5p9yz8oxslg829"
+    },
+    {
+      "annotation": "Vorrede zur Sammlung »Meine Miscellen« INr 28523, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wenn es russische, englische, französische Miszellen giebt, warum soll es nicht deutsche geben? Und wenn diese, warum nicht auch meine.",
+      "language": [],
+      "musenalm_id": 28524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "vl8sexu2bf7mm28"
+        }
+      ],
+      "source_id": "wald2ox4otsz9k7"
+    },
+    {
+      "annotation": "Sammlung von 27 Beiträgen INr 28526- 28552, Obj 16-42 /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 1. / Bemerkungen über den Menschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 1. / Bemerkungen über den Menschen",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.154Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "u9baa1igpht5znr"
+        }
+      ],
+      "source_id": "zev1xjo29ms8vip"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Willst du die Mängel deiner guten künftigen Frau leicht vorauswissen:",
+      "language": [],
+      "musenalm_id": 28526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Willst du die Mängel deiner guten künftigen Frau leicht vorauswissen:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.155Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.155Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "kawoz7numq2yb9e"
+        }
+      ],
+      "source_id": "5tpmpx0doe4o61d"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Der Furchtsame erschrickt vor der Gefahr, der Feige in ihr, der Muthige nach ihr.",
+      "language": [],
+      "musenalm_id": 28527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Furchtsame erschrickt vor der Gefahr, der Feige in ihr, der Muthige nach ihr.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.155Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.155Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "yrsy2dszpttn1r6"
+        }
+      ],
+      "source_id": "acdvw1g52ee2bgs"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Jede kühne That macht eine zweite nöthig, sonst bringt sie Untergang;",
+      "language": [],
+      "musenalm_id": 28528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jede kühne That macht eine zweite nöthig, sonst bringt sie Untergang;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.417Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "yz5sqkzpdobt8nw"
+        }
+      ],
+      "source_id": "g2evs0fq92iluo5"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Schlechte Schriftsteller sollte man vor, große nach ihren Büchern kennen lernen,",
+      "language": [],
+      "musenalm_id": 28529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlechte Schriftsteller sollte man vor, große nach ihren Büchern kennen lernen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.417Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "p6owcl4eqgq744q"
+        }
+      ],
+      "source_id": "8xlmaoczroxigwr"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Jeder Schmeichler hat wieder seinen Schmeichler;",
+      "language": [],
+      "musenalm_id": 28530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jeder Schmeichler hat wieder seinen Schmeichler;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.417Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "0gkgjhf6vve2otj"
+        }
+      ],
+      "source_id": "c69xfs9m9h72ldw"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Im Raume wirken große Männer selten einträchtig und gemeinschaftlich;",
+      "language": [],
+      "musenalm_id": 28531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Raume wirken große Männer selten einträchtig und gemeinschaftlich;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.417Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "lmk4l0kkitdnw7s"
+        }
+      ],
+      "source_id": "x5uy7zdcyeksid5"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Die Weiber spielen auf der Bühne die Rolle der An- und Verstellung viel besser,",
+      "language": [],
+      "musenalm_id": 28532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Weiber spielen auf der Bühne die Rolle der An- und Verstellung viel besser,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "1v0n29be7vrsi6h"
+        }
+      ],
+      "source_id": "gf2rzympglen2mc"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Doch oft scheinen sie sich uns vorher verstellt zu haben,",
+      "language": [],
+      "musenalm_id": 28533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Doch oft scheinen sie sich uns vorher verstellt zu haben,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "6a61cnvlvm8t3k1"
+        }
+      ],
+      "source_id": "ag3g7nz7hfr5bai"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Man fragt den Andern meistens um Rath, nicht weil man nicht weiß, was man thun soll,",
+      "language": [],
+      "musenalm_id": 28534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Man fragt den Andern meistens um Rath, nicht weil man nicht weiß, was man thun soll,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "n75l1qq95jutcla"
+        }
+      ],
+      "source_id": "76cipy8nqq6emq2"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Vor Großen muß man sich niemals tadeln,",
+      "language": [],
+      "musenalm_id": 28535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor Großen muß man sich niemals tadeln,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "5455jhxsd8ml7s9"
+        }
+      ],
+      "source_id": "2zrf224ktwaddju"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Unmoralische Verdienste werden an hohen Orten vor ihrer Geburt bezahlt,",
+      "language": [],
+      "musenalm_id": 28536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unmoralische Verdienste werden an hohen Orten vor ihrer Geburt bezahlt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "37v89mkdy4yn1c2"
+        }
+      ],
+      "source_id": "h0icwqvgz65e1h8"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die weiblichen Laster werden verächtlicher als die männlichen,",
+      "language": [],
+      "musenalm_id": 28537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die weiblichen Laster werden verächtlicher als die männlichen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "6kj5z9wpxb0xysv"
+        }
+      ],
+      "source_id": "fdnh771puxqvpzs"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Menschen erscheinen nie schlaffer, als wenn sie andre mit Worten trösten wollen;",
+      "language": [],
+      "musenalm_id": 28538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Menschen erscheinen nie schlaffer, als wenn sie andre mit Worten trösten wollen;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ify5fdhf1qpzp6j"
+        }
+      ],
+      "source_id": "cdpgcfm5u9p3ppx"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Weiber lieben die Stärke, ohne sie nachzuahmen;",
+      "language": [],
+      "musenalm_id": 28539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Weiber lieben die Stärke, ohne sie nachzuahmen;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.418Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "04hu0hu3ii3rydl"
+        }
+      ],
+      "source_id": "2ufz3ugcmv8bwzc"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Kinder werden am meisten in Krankheiten, die Weiber in der dreivierteljährigen",
+      "language": [],
+      "musenalm_id": 28540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kinder werden am meisten in Krankheiten, die Weiber in der dreivierteljährigen…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.419Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "r7wu56z6woq61kb"
+        }
+      ],
+      "source_id": "zgefna0fjxs5uka"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "So verschieden die Fürsten sind, so sind doch die Höfe ähnlich,",
+      "language": [],
+      "musenalm_id": 28541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So verschieden die Fürsten sind, so sind doch die Höfe ähnlich,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.390Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.390Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "xej4gyd0yrwq38e"
+        }
+      ],
+      "source_id": "5202vl7bv6ixqp6"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Am Throne ist ein Vergrößerungsspiegel angebracht,",
+      "language": [],
+      "musenalm_id": 28542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Throne ist ein Vergrößerungsspiegel angebracht,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.390Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.390Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "9rcberkjol8j9ha"
+        }
+      ],
+      "source_id": "nodvn23gp176145"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Nur wer irgend ein Ideal, das er in's Leben ziehen will,",
+      "language": [],
+      "musenalm_id": 28543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nur wer irgend ein Ideal, das er in's Leben ziehen will,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.390Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.390Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "2fgtmwqstufisfn"
+        }
+      ],
+      "source_id": "pnb41gt830xbxlt"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Großen schätzen dieselbe That höher, die aus persönlicher Rücksicht für sie",
+      "language": [],
+      "musenalm_id": 28544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Großen schätzen dieselbe That höher, die aus persönlicher Rücksicht für sie…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.640Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "9vy3pi6pxc656yo"
+        }
+      ],
+      "source_id": "uol8q65vhgw46pc"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Der Muth im Kabinet ist höher und philosophischer, als der auf dem Schlachtfelde,",
+      "language": [],
+      "musenalm_id": 28545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Muth im Kabinet ist höher und philosophischer, als der auf dem Schlachtfelde,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.640Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "7dhb6s9501wbpfe"
+        }
+      ],
+      "source_id": "2132nju3tdax2th"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Egoisten wissen ziemlich, daß sie es sind, aber Egoistinnen nicht,",
+      "language": [],
+      "musenalm_id": 28546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Egoisten wissen ziemlich, daß sie es sind, aber Egoistinnen nicht,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "rr1brf5djev2ydf"
+        }
+      ],
+      "source_id": "ne5g1kujvv6cslv"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Im Weltleben sehen zwei Menschen ein, daß jeder das Mittel des andern ist;",
+      "language": [],
+      "musenalm_id": 28547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Weltleben sehen zwei Menschen ein, daß jeder das Mittel des andern ist;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "arc4aykx64d007t"
+        }
+      ],
+      "source_id": "76sd0cdi72rpfds"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Warum befürchtet jeder, daß ihn eher das Donnerwetter erschlage,",
+      "language": [],
+      "musenalm_id": 28548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warum befürchtet jeder, daß ihn eher das Donnerwetter erschlage,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "dtdjlp6xgnfnypd"
+        }
+      ],
+      "source_id": "rkvwijdr5f03rwr"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Weiber sprechen lieber von als in der Liebe, Männer umgekehrt.",
+      "language": [],
+      "musenalm_id": 28549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weiber sprechen lieber von als in der Liebe, Männer umgekehrt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "d5ih3ynp91nx8y9"
+        }
+      ],
+      "source_id": "bg6tsm7h2i3o8q2"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Der schmerzliche Abschied von einer Freudin oder Geliebten führt noch etwas Süßes bei sich;",
+      "language": [],
+      "musenalm_id": 28550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schmerzliche Abschied von einer Freudin oder Geliebten führt noch etwas Süßes bei sich;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ku3gtlj32r8bg6q"
+        }
+      ],
+      "source_id": "e8036k4j8z131fd"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Bitten an Große werden leichter erfüllt, wenn man sie thun läßt,",
+      "language": [],
+      "musenalm_id": 28551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bitten an Große werden leichter erfüllt, wenn man sie thun läßt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "lrz4fmpr5txea1y"
+        }
+      ],
+      "source_id": "hrklc591i80dcx5"
+    },
+    {
+      "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Wie unersättlich ist der Mensch, besonders der lesende!",
+      "language": [],
+      "musenalm_id": 28552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie unersättlich ist der Mensch, besonders der lesende!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "d96lzxbyiey1a0y"
+        }
+      ],
+      "source_id": "4l35ggbtv72osgw"
+    },
+    {
+      "annotation": "Einleitung zu INr 28554, Obj 44 /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "So bekannt es ist, daß Nachtwandler aufstanden und sich niedersetzten, und Predigten, Abhandlungen und andre Werke zum Erstaunen aller schrieben,",
+      "language": [],
+      "musenalm_id": 28553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro 2. / Springbrief eines Nachtwandlers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro 2. / Springbrief eines Nachtwandlers",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.641Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.641Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "kpweg0g0vdq7g01"
+        }
+      ],
+      "source_id": "3rbx2kaa6i03n3m"
+    },
+    {
+      "annotation": "Nro 2. Springbrief eines Nachtwandlers s. INr 28553, Obj 43 /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Ich möchte wissen,warum ich seit Ostern nicht an Sie geschrieben habe,",
+      "language": [],
+      "musenalm_id": 28554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Springbrief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Springbrief",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.389Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "tq5o9vvnf96k0br"
+        }
+      ],
+      "source_id": "3agt7inhui4vbeu"
+    },
+    {
+      "annotation": "Sammlung von 11 Beiträgen INr 28556-28566, Obj 46-56 /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 3. / Polymeter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 3. / Polymeter",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.389Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "7gxt97zj5mxy3i1"
+        }
+      ],
+      "source_id": "7rbd1oza9aqzea7"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Bleiche Rose, die Sonne gab dir die Farbe, die glühende nimmt sie dir wieder;",
+      "language": [],
+      "musenalm_id": 28556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine in der Sonne erblassende / Rose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine in der Sonne erblassende / Rose",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.389Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "r40die0unako8vj"
+        }
+      ],
+      "source_id": "4sw1e2kypmwo7oh"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Es weinet die Jugend, es weinet das Alter; aber dort thauet der Morgen,",
+      "language": [],
+      "musenalm_id": 28557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die doppelten Thränen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die doppelten Thränen",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.389Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "zupwds4yfbvqvgz"
+        }
+      ],
+      "source_id": "6dkhbmbxa4x84t7"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Als die Zugvögel über die Städte und Hütten der Menschen hinwegzogen in ihren nächtlichen Wolken,",
+      "language": [],
+      "musenalm_id": 28558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zugvögel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zugvögel",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.389Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "b0h8xm6i4bc7st8"
+        }
+      ],
+      "source_id": "8md6xgqy8i1zd4a"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Die Welt war bange und bedrängt, die Menschen rannten aus brennenden Dörfern in ausgeleerte",
+      "language": [],
+      "musenalm_id": 28559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vögel unter dem Kriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vögel unter dem Kriege",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.390Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.390Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "o08motlmeo4jiwu"
+        }
+      ],
+      "source_id": "o28l614v3icccoz"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Viele Blumen thun sich der Sonne auf, doch nur eine folget ihr immerfort.",
+      "language": [],
+      "musenalm_id": 28560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sinn und That",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sinn und That",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.390Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.390Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "lfu1axv3tq6lhqi"
+        }
+      ],
+      "source_id": "581x58j3u56i6gw"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Unschuldige Mädchen, ihr gleicht der Sonne; von allen Farben ihrer Stralen sucht sie nur die rothe aus,",
+      "language": [],
+      "musenalm_id": 28561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die doppelte Wangenröthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die doppelte Wangenröthe",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "n51i0hy8pnpd8lv"
+        }
+      ],
+      "source_id": "js0zu6y3nnjics0"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Erde, du gehest dem Stern des Kriegs als sanfter Stern der Liebe und des Abends",
+      "language": [],
+      "musenalm_id": 28562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fürsten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fürsten",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ixruct7rqa6enpb"
+        }
+      ],
+      "source_id": "x2jo335g2nux0px"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "O schöner Schmetterling, warum hab' ich dir Wärme gegeben,",
+      "language": [],
+      "musenalm_id": 28563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die eingegangene Erziehungsanstalt / der Völker zur Freiheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die eingegangene Erziehungsanstalt / der Völker zur Freiheit",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "3bd5autqbxj99a0"
+        }
+      ],
+      "source_id": "l0dupcp5ofvecc9"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Der blinde Orion, so sagte das Orakel wahr, wird sehend,",
+      "language": [],
+      "musenalm_id": 28564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost der Wahrheitsforscher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost der Wahrheitsforscher",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "lwv5xsygqigng3v"
+        }
+      ],
+      "source_id": "n03avexpsqo9r3u"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Das offne Grab nenn' ich den Hohlspiegel, der die Stralen des Lebens und des Schmerzens sammelt",
+      "language": [],
+      "musenalm_id": 28565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Gräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Gräber",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "yeehrfzt2trnlzj"
+        }
+      ],
+      "source_id": "bi4dc3ichb0emzx"
+    },
+    {
+      "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Weine nur fort sagte einst ein gelehrter Mann zur Liebenden,",
+      "language": [],
+      "musenalm_id": 28566,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Liebe",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ajvm6aie5ctljvm"
+        }
+      ],
+      "source_id": "3iiwmaelomyioh5"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 28568-28572, Obj 58-62",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Gedichte",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.574Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "wsmqxkycezjypwh"
+        }
+      ],
+      "source_id": "609ujw37rrarhy7"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 28567, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Wohlauf, wohlab, durch Berg und Thal / Zog Ritter Willibald,",
+      "language": [],
+      "musenalm_id": 28568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Nacht in der Mühle. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Nacht in der Mühle. / Romanze",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.642Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "3nrwxjhq9vi8mny"
+        }
+      ],
+      "source_id": "lpju849ma10ravj"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 28567, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Du, traute Freundin, bist mir neu gegeben! / Der Krankheit finstre Stunden sind vorbei;",
+      "language": [],
+      "musenalm_id": 28569,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Nach der Genesung. / Sonnett. / Im Mai 1800",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Nach der Genesung. / Sonnett. / Im Mai 1800",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.642Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "08rmi431heiv81s"
+        }
+      ],
+      "source_id": "yrphrx2ah9w9rm9"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 28567, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Wo, ihr olympischen Mächte! wo habt ihr die trunkene / Seele / Hingetragen? in welch dämmerndes Zaubergefild?",
+      "language": [],
+      "musenalm_id": 28570,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Sommernacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Sommernacht",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.643Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "i4b0s0kh0gt4npi"
+        }
+      ],
+      "source_id": "oecn5beitpumgrl"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 28567, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "In die Heimath süßer Flötentöne, / In des unverwelkten Frühlings Pracht,",
+      "language": [],
+      "musenalm_id": 28571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Meine Freistatt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Meine Freistatt",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.643Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "xeyu3thz3zollik"
+        }
+      ],
+      "source_id": "4aur1ljeqi3r3ym"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 28567, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Was will das bunte Tageslicht mir geben? / Den trüben Blick verwunden seine Farben;",
+      "language": [],
+      "musenalm_id": 28572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonnett. / An F. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonnett. / An F. S.",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.643Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "ffgri8y87huroc6"
+        }
+      ],
+      "source_id": "btqhzonlo4qdez8"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 28517, 28518, Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Leichter wird es dem thatenbegierigen Manne im Staate, den Stürme bewegen, über die Menge hervorzuragen",
+      "language": [],
+      "musenalm_id": 28573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Marmorbüste. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Marmorbüste. / Eine Erzählung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "ua7g6beybbrud2p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Nicht weint um mich sprach sanften Blicks Agatha / in tiefer Nacht, als sie aus wilden Träumen / erwachte",
+      "language": [],
+      "musenalm_id": 28574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die sterbende Aebtissin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die sterbende Aebtissin",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.643Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "51io3ldlin4uag3"
+        }
+      ],
+      "source_id": "8ur2rdbol8ch148"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Gewaltig Leid das Lieben ist, / Und Leid ist's, wenn dies Leid man mißt,",
+      "language": [],
+      "musenalm_id": 28577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das größte Leid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stoll",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das größte Leid",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "kjt1i4o9ju6ufe5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Die Treue, die Beständigkeit, das Worthalten der Liebenden sind herrliche Tugenden.",
+      "language": [],
+      "musenalm_id": 28575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Treu oder untreu? / (Bagatelle aus Ernst Scherzers Papieren.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Eberhard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Treu oder untreu? / (Bagatelle aus Ernst Scherzers Papieren.)",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.643Z",
+          "agent": "9ndls4gksm9067r",
+          "source_id": "szjbb0mbu7mofvm"
+        }
+      ],
+      "source_id": "4h94lz4zszb9kpt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Grüße dich Eos, o freundliches Kind! im dämmernden Licht schon / Hast du die Höhen verlassen,",
+      "language": [],
+      "musenalm_id": 28576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Myrto und Melissa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. H. Gramberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Myrto und Melissa",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.643Z",
+          "agent": "hdhytmzu9u57ana",
+          "source_id": "glabtbn00nw7g43"
+        }
+      ],
+      "source_id": "jy46m1nup6lmt2h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Schöner Sylphe, Liebe! / Glänzend leicht und luftig Ding!",
+      "language": [],
+      "musenalm_id": 28578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stoll",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "3okwic6p1yvgko0"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 28580-28585, Obj 70-75",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28579,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Gedichte",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "eqkqnx7hkieudue"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 28579, Obj 69)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Dämmernd war vom herbstlichen Himmel der Abend ge- / sunken, / welke Blätter entsanken den Wipfeln,",
+      "language": [],
+      "musenalm_id": 28580,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das zweite Gesicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das zweite Gesicht",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "7lxk0tumtcib8eg"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 28579, Obj 69)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Es rauschet der Taumel der wilden KLust, / die Paare drängen sich Brust an Brust",
+      "language": [],
+      "musenalm_id": 28581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Die Brautnacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Die Brautnacht",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "s1jhwyk800pq7vv"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 28579, Obj 69)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Dich begrüß' ich vor allen, dich zart erröthende Jungfrau, / welche des stechenden Dorns rauhe Beschützung verschmäht.",
+      "language": [],
+      "musenalm_id": 28582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Moosrose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Moosrose",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "u83vlo0mlfre4y8"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 28579, Obj 69)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Unter Felsen saß der Sohn des Himmels / voll Begeistrung göttlicher Gedanken,",
+      "language": [],
+      "musenalm_id": 28583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Versuchung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Versuchung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "cg8jgfj8bipjm12"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 28579, Obj 69)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Laute Klagetöne schallen, / tiefe, bange Seufzer hallen",
+      "language": [],
+      "musenalm_id": 28584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Aemilia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Aemilia",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "c5qrdqp9cmz9lz4"
+    },
+    {
+      "annotation": "VII. Gedichte (Sammlung INr 28579, Obj 69)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Das ist das Loos des Schönen auf der Erde: / zum Himmel kehrt es, wo es hergekommen,",
+      "language": [],
+      "musenalm_id": 28585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Sonett",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "8l2jbkjzqmk9nli"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 28519, 28520, Obj 9, 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Es war Nacht - eine schöne freundliche Nacht! Vom lieblichsten Mondglanz umflossen, senkte sie sich auf Hesperiens elisische Gefilde herab.",
+      "language": [],
+      "musenalm_id": 28586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Der Blinde. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. von Krosigk geb. Krüger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Der Blinde. / Eine Erzählung",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.394Z",
+          "agent": "7l6lnr4uxnh3d2o",
+          "source_id": "mh8s2kux83kz757"
+        }
+      ],
+      "source_id": "x34wriygsilvnm1"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 28588-28593, Obj 78-83",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Gedichte",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "nh3xr5acz7mtbu5"
+        }
+      ],
+      "source_id": "7qzdbbfn9yvidrx"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Ueber den Gräbern nur, wo Edens Lüfte / Jedes schönern Gefühles zarte Knospen",
+      "language": [],
+      "musenalm_id": 28588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / An Fernando",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / An Fernando",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "c165leyyrtjze7m"
+        }
+      ],
+      "source_id": "72fk58pc83rbqr8"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Lang' verstummten sie schon, die Töne lärmender Freude, / Der ein Günstling des Glücks einst die Hallen geweiht.",
+      "language": [],
+      "musenalm_id": 28589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Schloß Nischwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Schloß Nischwitz",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "s8hcwxjroobrafh"
+        }
+      ],
+      "source_id": "dl28qhzgnb6m8pf"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Sieh! die Blume, der Baum, sie all' entstreben der Erde, / Die sie nährt und gebahr, auf in die Räume des Lichts,",
+      "language": [],
+      "musenalm_id": 28590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Verschiedenes Streben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Verschiedenes Streben",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "5r3hfb45aot476s"
+        }
+      ],
+      "source_id": "gmtvattskk8ondl"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Steig' aus krystallener Grott' empor heilspendende Nymphe, / Höre der Freundschaft Ruf, der aus der Ferne dir tönt.",
+      "language": [],
+      "musenalm_id": 28591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / An die Nymphe des ***r Brunnens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / An die Nymphe des ***r Brunnens",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "c0ax8dmrdkbeqqe"
+        }
+      ],
+      "source_id": "0pyw1rnoo60znue"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.324Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Wandrer! rührt dich das Kreuz mit dem verwelkten Kranz, / Welches das grünende Haus, wo ich nun schlummre, ziert?",
+      "language": [],
+      "musenalm_id": 28592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Grabschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Grabschrift",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "gcdxo032lb2camd"
+        }
+      ],
+      "source_id": "7s5ucov4g85i9fk"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Wenn sich edlere Geister umschlingen im Streben nach Größe, / Nach dem Kranze, der dich, holdere Menschlichkeit, ziert,",
+      "language": [],
+      "musenalm_id": 28593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / An A****",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. M. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / An A****",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "hh4r4tn8psshz0c"
+        }
+      ],
+      "source_id": "4ckyc188qn78h8k"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 28521, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Mit unnennbarem, schauerlichen Gefühl schritt ich an der Seite meines Führers über die Brücke,",
+      "language": [],
+      "musenalm_id": 28594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Die Wanderung / auf / den St. Gothard. / (Ein Fragment)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Stern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Die Wanderung / auf / den St. Gothard. / (Ein Fragment)",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "j1xlca9cxorphse",
+          "source_id": "4uipmz7dtqm0ar3"
+        }
+      ],
+      "source_id": "nakbk063leaeoxg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Weniger Rouge, liebste Eugenie, Du hast zu viel aufgelegt. Du weißt nicht wie gut es dir steht, wenn Du recht sanft aussiehst.",
+      "language": [],
+      "musenalm_id": 28595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. Toilettenscenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "****",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. Toilettenscenen",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "hphabb07v00rs1a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Möchte nie der Liebe heitern Glauben, / Dem das Herz sich kindlich gern ergeben,",
+      "language": [],
+      "musenalm_id": 28596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In das Stammbuch einer Freundin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stoll",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In das Stammbuch einer Freundin",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "zv52vkh7n3a97b2"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 28598- 28601, Obj 88-91",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. Gedichte",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "c33vkmm39tqu0yz"
+        }
+      ],
+      "source_id": "dkwi4fxnbzxp81y"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 28597, Obj 87)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Warum soll ich doch nicht schauen / Deines Himmels Angesicht,",
+      "language": [],
+      "musenalm_id": 28598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Bescheidene Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Bescheidene Liebe",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "kprtqnkj81ii6mj"
+        }
+      ],
+      "source_id": "zq3zsnhc3tx6bjk"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 28597, Obj 87)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Einst brannt' im Reich der Uraniden / Um unsre Welt ein langer Krieg,",
+      "language": [],
+      "musenalm_id": 28599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die herrschenden Brüder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die herrschenden Brüder",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "sy6pe4qd04zplgj"
+        }
+      ],
+      "source_id": "6gen37gan8wmt70"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 28597, Obj 87)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Fernes Läuten hör' ich schallen, / Und des Klanges still erfreut",
+      "language": [],
+      "musenalm_id": 28600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Jüngling in der Fremde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Jüngling in der Fremde",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.312Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "x69khbc6f6xmrup"
+        }
+      ],
+      "source_id": "ngz9kzycj4rc4uw"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 28597, Obj 87)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "O welch ein Schimmer, welch ein Glanz! / Versammelt sind in gold'nen Sälen",
+      "language": [],
+      "musenalm_id": 28601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der Gang durch den Garten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der Gang durch den Garten",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.312Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "mnrm79vmo4mnmg6"
+        }
+      ],
+      "source_id": "7q73gn7gss7odom"
+    },
+    {
+      "annotation": "s. Gedicht INr 28603, Obj 93",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Corona Schröter war gewiß eine der seltensten und anziehensten weiblichen Erscheinungen des vorigen Jahrhunderts.",
+      "language": [],
+      "musenalm_id": 28602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Erinnerung an / Corona Schröter / aus Weimar. / (Ein Todtenopfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Falk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Erinnerung an / Corona Schröter / aus Weimar. / (Ein Todtenopfer.)",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.207Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.207Z",
+          "agent": "bjik5dzyzk4cu0g",
+          "source_id": "fhu7f9kyy6ws319"
+        }
+      ],
+      "source_id": "qy2wezd3bpm271s"
+    },
+    {
+      "annotation": "s. einleitenden Beitrag INr 28602, Obj 92",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.042Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Bist du auch vorangegangen / In das Schattenland?",
+      "language": [],
+      "musenalm_id": 28603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachruf / an / Corona Schröter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Falk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachruf / an / Corona Schröter",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.207Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.207Z",
+          "agent": "bjik5dzyzk4cu0g",
+          "source_id": "hisos8jmp2axyjr"
+        }
+      ],
+      "source_id": "w8l341pniqtqm6x"
+    },
+    {
+      "annotation": "mit Erläuterungen INr 28605, Obj 95",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.042Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Graumäntelein ging, so grau von Gestalt, / Wohl durch den finstern Bohemischen Wald;",
+      "language": [],
+      "musenalm_id": 28604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Der Becker / und die / Neun Strohwische / (Eine böhmische Volkssage.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Falk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Der Becker / und die / Neun Strohwische / (Eine böhmische Volkssage.)",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.207Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.207Z",
+          "agent": "bjik5dzyzk4cu0g",
+          "source_id": "59u0sehaogenoa1"
+        }
+      ],
+      "source_id": "pfibl7tyr6t8yer"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 28604, Obj 94",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.042Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Das Graumäntelein, von dem in dem vorhergehenden Gedichte die Rede ist, scheint kein anders, als der berühmte Zytho zu seyn,",
+      "language": [],
+      "musenalm_id": 28605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von dem / Altböhmischen Zauberer Zytho, / nebst Erklärung / eines Böhmischen Sprüchworts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Falk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von dem / Altböhmischen Zauberer Zytho, / nebst Erklärung / eines Böhmischen Sprüchworts",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "bjik5dzyzk4cu0g",
+          "source_id": "0jsnbvnb48cl7gb"
+        }
+      ],
+      "source_id": "lkri59frpl61t3h"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.042Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die geehrten Leser dieses Taschenbuchs er- / suche ich folgende Blätter einer Durch- / sicht zu würdigen, indem ich die darauf / angegebenen Werke mit Zuversicht em- / pfehlen und mir schmeicheln darf, daß / dieselben den angenehmsten Genuß der / Unterhaltung geben werden.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Wilmans",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die geehrten Leser dieses Taschenbuchs er- / suche ich folgende Blätter einer Durch- / sicht zu würdigen, indem ich die darauf / angegebenen Werke mit Zuversicht em- / pfehlen und mir schmeicheln darf, daß / dieselben den angenehmsten Genuß der / Unterhaltung geben werden.",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "q9v9seq8bme8931",
+          "source_id": "la5sagr9a2ljqh7"
+        }
+      ],
+      "source_id": "mwosz4nu0ybntmt"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32477,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_370_32477_drxnhq782g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "kwmnuzgftgzzu6o"
+    }
   ],
   "agents": [
     {

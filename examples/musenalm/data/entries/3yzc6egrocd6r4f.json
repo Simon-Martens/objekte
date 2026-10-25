@@ -48,24 +48,643 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "09iks1b1qqwy36m"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405211",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "09iks1b1qqwy36m"
+    }
   ],
   "contents": [
-    "97iy4lgq3bcsh5h",
-    "y6zelcoet9swoc0",
-    "0sqcfbmmrzytehd",
-    "y3o8vktp9pvmd7r",
-    "oolr52vfz42k15f",
-    "bmzt984zd4c1m7b",
-    "l4iyf9umhgsskis",
-    "fdtsl89yazblfbh",
-    "3xxxvk625hpcfki",
-    "w8e6cz7fw0baysh",
-    "mv21fu8tta3r825",
-    "k0d8wjsyitn8nvh",
-    "fudt91xfui76iiy",
-    "nkb5qd76161k991",
-    "imjdulshs2ymcz9"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125111,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1262_125111_e9b0f7zqny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "97iy4lgq3bcsh5h"
+    },
+    {
+      "annotation": "Titelkupfer; kol. Illustration zu »Warum?« von Kurländer (INr 125123, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125112,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warum? Scene 7. / Waldheim. / »Ersticken? An einem Auerhahn? Noch / dazu an einem alten?«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schröter j sc",
+      "scans": [
+        "alm_1262_125112_akc38xbubw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Warum? Scene 7. / Waldheim. / »Ersticken? An einem Auerhahn? Noch / dazu an einem alten?«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "xfvkq55mms1avza"
+        }
+      ],
+      "source_id": "y6zelcoet9swoc0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125113,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1834. / von / F. A. Kurländer. / Vier und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1834. / von / F. A. Kurländer. / Vier und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "0sqcfbmmrzytehd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125114,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "y3o8vktp9pvmd7r"
+    },
+    {
+      "annotation": "mit zwei kol. Illustrationen (INr 125116, 125117, Obj 6, 7); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 125113, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Was soll ich erwiedern? / Daß Sie mich wenigstens anhören wollen. / Mit Vergnügen, wenn Sie von etwas anderem sprechen, als von ihrer Liebe.",
+      "language": [],
+      "musenalm_id": 125115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ewig. / Lustspiel in zwey Aufzügen. / Nach Scribe frey bearbeitet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ewig. / Lustspiel in zwey Aufzügen. / Nach Scribe frey bearbeitet",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "iq3ic3n2405a61u"
+        }
+      ],
+      "source_id": "oolr52vfz42k15f"
+    },
+    {
+      "annotation": "kol. Illustration zu »Ewig« von Kurländer (INr 125115, Obj 5); # Bezeichnung am ersten Blatt der Suite (INr 125112, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ewig. 1 Act, 4 Scene. / Joseph. / »Die Kinder müssen stets in zit- / ternder Ehrfurcht vor uns Alten er- / scheinen«",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schröter j sc",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ewig. 1 Act, 4 Scene. / Joseph. / »Die Kinder müssen stets in zit- / ternder Ehrfurcht vor uns Alten er- / scheinen«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "8wga36f2ggds41z"
+        }
+      ],
+      "source_id": "bmzt984zd4c1m7b"
+    },
+    {
+      "annotation": "kol. Illustration zu »Ewig« von Kurländer (INr 125115, Obj 5); # Bezeichnung am ersten Blatt der Suite (INr 125112, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ewig. 2 Act, 11 Scene. / Mathilde. / »Ich, ich liebe ihn, und werde ihn / ewig lieben.«",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schröter j sc",
+      "scans": [
+        "alm_1262_125117_9ux58wxijo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ewig. 2 Act, 11 Scene. / Mathilde. / »Ich, ich liebe ihn, und werde ihn / ewig lieben.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "xh3veb7xdwmqxpl"
+        }
+      ],
+      "source_id": "l4iyf9umhgsskis"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 125119, Obj 9); # Bezeichnung aus dem Titel (INr 125113, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Du mußt doch gestehen, daß wir wahre Glückskinder sind. Die Glücksgöttin überschwemmt uns.",
+      "language": [],
+      "musenalm_id": 125118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde als Nebenbuhler. / Lustspiel in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde als Nebenbuhler. / Lustspiel in zwei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "1svbphgr9i26fkb"
+        }
+      ],
+      "source_id": "fdtsl89yazblfbh"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Freunde als Nebenbuhler« von Kurländer (INr 125118, Obj 8); # Bezeichnung am ersten Blatt der Suite (INr 125112, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde als Nebenbuhler. 1 Act, 4 Scene. / Clothilde. / »Sollte ich das Mädchen im Schlosse / seyn? Ich wage nicht die Augen / aufzuschlagen.«",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schröter j sc",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde als Nebenbuhler. 1 Act, 4 Scene. / Clothilde. / »Sollte ich das Mädchen im Schlosse / seyn? Ich wage nicht die Augen / aufzuschlagen.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "ghg5ft4cgdfv4y2"
+        }
+      ],
+      "source_id": "3xxxvk625hpcfki"
+    },
+    {
+      "annotation": "mit zwei kol. Illustrationen (INr 125121, 125122, Obj 11, 12); # Bezeichnung aus dem Titel (INr 125113, Obj 3); ## von Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Nein! – Nein! Sie soll den Brief nicht lesen, nicht einmal seinen Inhalt erfahren.",
+      "language": [],
+      "musenalm_id": 125120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siegmund. / Schauspiel in zwei Aufzügen. / Nach »Le gardien« frei bearbeitet ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siegmund. / Schauspiel in zwei Aufzügen. / Nach »Le gardien« frei bearbeitet ##",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "j9aukioimd5fr9f"
+        }
+      ],
+      "source_id": "w8e6cz7fw0baysh"
+    },
+    {
+      "annotation": "kol. Illustration zu »Siegmund« von Kurländer (INr 125120, Obj 10); # Bezeichnung am ersten Blatt der Suite (INr 125112, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siegmund. 1 Act. 14 Scene. / Siegmund. / »Dulden, nicht klagen, nicht verzagen«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schröter j sc",
+      "scans": [
+        "alm_1262_125121_lcm2wshqtx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Siegmund. 1 Act. 14 Scene. / Siegmund. / »Dulden, nicht klagen, nicht verzagen«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "yu2fxjb1otyiy1m"
+        }
+      ],
+      "source_id": "mv21fu8tta3r825"
+    },
+    {
+      "annotation": "kol. Illustration zu »Siegmund« von Kurländer (INr 125120, Obj 10); #",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siegmund. Act 2, Scene 14. / Adolphine. / »Meine Einwilligung? Ich gebe / sie dir –«",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schröter j sc",
+      "scans": [
+        "alm_1262_125122_55aaq9b9gi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Siegmund. Act 2, Scene 14. / Adolphine. / »Meine Einwilligung? Ich gebe / sie dir –«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "0fcx09akg8jbc61"
+        }
+      ],
+      "source_id": "k0d8wjsyitn8nvh"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (Titelkupfer, INr 125112, Obj 2,); # von Joseph-Philippe Simon dit Lockroy (vgl NBG XXXI, Sp 450)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Liebe Henriette, das Frühstück war sehr schlecht, obwohl ich lange darauf warten mußte. / Hättest du mit uns gefrühstückt, so –",
+      "language": [],
+      "musenalm_id": 125123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warum? / Ehestandsszene in einem Aufzuge. / Nach »Pourquoi?« # / frei bearbeitet von F. A. Kurländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warum? / Ehestandsszene in einem Aufzuge. / Nach »Pourquoi?« # / frei bearbeitet von F. A. Kurländer",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.867Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "4lgok3f8m87m6qd"
+        }
+      ],
+      "source_id": "fudt91xfui76iiy"
+    },
+    {
+      "annotation": "enthält ein I-Verz der voraufgehenden Jgg sowie Ankündigungen von Neuerscheinungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "nkb5qd76161k991"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1262_125125_7i6jwe1k1k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "imjdulshs2ymcz9"
+    }
   ],
   "agents": [
     {

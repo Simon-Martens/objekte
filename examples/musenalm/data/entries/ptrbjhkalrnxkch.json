@@ -48,57 +48,2119 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "15wehg8etzfk8l1",
-    "dwjxnt8x2hhrhet"
+    {
+      "annotation": "GG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.474Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "108693",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.474Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "15wehg8etzfk8l1"
+    },
+    {
+      "annotation": "1815-1832.\nSchöner kartonierter Einband mit Grafik, Goldschnitt und Schuber.\n1828: (K: 6 Ku und 292 SS) Mit 282 SS.\nBuchrücken leicht beschädigt und Titelblatt lose.\n§§ GG fehlen",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.474Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100129",
+      "location": "105B07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.474Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "dwjxnt8x2hhrhet"
+    }
   ],
   "contents": [
-    "6lp7w6vxm33xrhc",
-    "r6ydxf7v74si2wc",
-    "01emraxxzqsvcib",
-    "s86ufrv6561r07f",
-    "b07sa417dt4vvn2",
-    "aq63oxinnudl9d6",
-    "uyrnu0z7oh6vlc0",
-    "2ow7ug204ax3459",
-    "9kgnurr9ql5nt4r",
-    "aj8runzxjkl9xqf",
-    "a83bv2t5x7whlym",
-    "8a6hwtqzldzqnus",
-    "m95j7up643211i0",
-    "n2i8csjc1sc9eca",
-    "koiwvpmzbf8m25c",
-    "1gae52vz09843um",
-    "sxuewm9rsp2m97q",
-    "xt4srm1akc3qpkr",
-    "poxdmemru32qr1q",
-    "jq5pbbywk5ao0ds",
-    "oo5e0cuba309ko9",
-    "3wpu5s0zz3o2j1l",
-    "3vh9st658s3nfqc",
-    "xrx7y3sg6shjw35",
-    "gpde0h965uxpcxv",
-    "z6id54hr15bwirq",
-    "1w94sjzptdksl2p",
-    "mgt431ffx8u1sfd",
-    "j3ocd7auagh1x10",
-    "6vdlrsil7yfwkvl",
-    "mklr87k1fjb600g",
-    "fenjnavzskldx65",
-    "ivke95pxgkdon2f",
-    "e1wluhyzb8nsxei",
-    "pw44agushub18m6",
-    "0k5zfg39izzu2k7",
-    "taikzvdpfqcn37c",
-    "qsc4ab2hdwzsuz6",
-    "t294dp4we6uurrl",
-    "wfwbosm2r70kpum",
-    "uepnsu64xsdgctg",
-    "3k6sg7j91pyg6m3",
-    "ylnv9ty8d1s3t25",
-    "icrappv9qaprqcs",
-    "kyxzj7zt2drvt7d",
-    "miha5rk798z1ppq",
-    "3p8lf8j6wle68b4"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 15065,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Berkowetz sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Berkowetz sc.",
+      "scans": [
+        "alm_235_15065_02dhbfz4uv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "bupqhtz2lviuob7",
+          "source_id": "i0fm1vi85mc8876"
+        }
+      ],
+      "source_id": "6lp7w6vxm33xrhc"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 68562, Obj 2,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68560,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE RUHE UNTER DEN PALMEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Raphael d'Urbino pt. Fr. John sc.",
+      "scans": [
+        "alm_235_68560_m4jqc9odey.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE RUHE UNTER DEN PALMEN",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.590Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.590Z",
+          "agent": "ztgmm4mptvjp8o3",
+          "source_id": "4996mceqw5ivi93"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.591Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "91scnlq3omtaidm"
+        }
+      ],
+      "source_id": "r6ydxf7v74si2wc"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 15066,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGLAJA / Taschenbuch / für das Jahr / 1828. / Vierzehnter Jahrgang. / Wien / gedruckt und im Verlage / bey Joh. B. Wallishauser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junker sc.",
+      "scans": [
+        "alm_235_15066_f24rrvz777.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1828. / Vierzehnter Jahrgang. / Wien / gedruckt und im Verlage / bey Joh. B. Wallishauser",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "zuzc1anf4hbbexc",
+          "source_id": "03w7fd54m25c7yx"
+        }
+      ],
+      "source_id": "01emraxxzqsvcib"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68561,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer königlichen Hoheit / der / durchlauchtigsten Frau / Elisabeth, Louise, / Kronprinzessin von Preußen / etc etc etc / ehrfurchtsvoll gewidmet / vom Verleger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "vom Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer königlichen Hoheit / der / durchlauchtigsten Frau / Elisabeth, Louise, / Kronprinzessin von Preußen / etc etc etc / ehrfurchtsvoll gewidmet / vom Verleger",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.591Z",
+          "agent": "uylk38bu9ebsams",
+          "source_id": "78rcku1zq6xgvrc"
+        }
+      ],
+      "source_id": "s86ufrv6561r07f"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 685",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68562,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heilige Familie. / Gemälde von Raphael d'Urbino. / Das Originial befindet sich in der k.k. Gemälde Gallerie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heilige Familie. / Gemälde von Raphael d'Urbino. / Das Originial befindet sich in der k.k. Gemälde Gallerie",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "b07sa417dt4vvn2"
+    },
+    {
+      "annotation": "s.Textbezug INr 68564, Obj 2,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.293Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68563,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SINCERITA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carlo Dolce pt. F. John sc.",
+      "scans": [
+        "alm_235_68563_d9j5cqkwg9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SINCERITA",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.591Z",
+          "agent": "euk2i6r7y1kmuys",
+          "source_id": "1os15qrjq2acvbe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.591Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "ae7dq6rnfzh0j74"
+        }
+      ],
+      "source_id": "aq63oxinnudl9d6"
+    },
+    {
+      "annotation": "s. Graphik INr 68563, Obj 2,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68564,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Sincerità / Gemälde von Carlo Dolce. / Das Original befindet sich in der k.k. Gemälde-Gallerie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Sincerità / Gemälde von Carlo Dolce. / Das Original befindet sich in der k.k. Gemälde-Gallerie",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "uyrnu0z7oh6vlc0"
+    },
+    {
+      "annotation": "s. Textbezug INr 68566, Obj 2,06",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68565,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HAGAR IN DER WÜSTE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Giacomo Bassano pt. F. John sc.",
+      "scans": [
+        "alm_235_68565_cl8451rsj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HAGAR IN DER WÜSTE",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.379Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.379Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "nzcsx2jxmpop5z9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.379Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.379Z",
+          "agent": "yi7b2myt4cnmp9s",
+          "source_id": "zsh25g2011ccply"
+        }
+      ],
+      "source_id": "2ow7ug204ax3459"
+    },
+    {
+      "annotation": "s. Graphik INr 68565, Obj 2,05",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68566,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Hagar. / Gemälde von Giaccomo Bassano. / Das Original befindet sich in der Sammlung des Herrn / C. v. Rosetti",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Hagar. / Gemälde von Giaccomo Bassano. / Das Original befindet sich in der Sammlung des Herrn / C. v. Rosetti",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "9kgnurr9ql5nt4r"
+    },
+    {
+      "annotation": "s. Textbezug INr 68568, Obj 2,08",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68567,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "URANIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carlo Dolce pt. F. John sc.",
+      "scans": [
+        "alm_235_68567_lesflr7l6h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "URANIA",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "55kt004etal28gl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "euk2i6r7y1kmuys",
+          "source_id": "snla0r2mk7oq5op"
+        }
+      ],
+      "source_id": "aj8runzxjkl9xqf"
+    },
+    {
+      "annotation": "s. Graphik INr 68567, Obj 2,07",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68568,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Urania. / Gemälde von Carlo Dolce. / Das Original befindet sich in der Sammlung des Herrn M. / Grittner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Urania. / Gemälde von Carlo Dolce. / Das Original befindet sich in der Sammlung des Herrn M. / Grittner",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "a83bv2t5x7whlym"
+    },
+    {
+      "annotation": "s. Textbezug INr 68570, Obj 2,1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68569,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CHARITAS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Correggio pt. F. John sc.",
+      "scans": [
+        "alm_235_68569_wtlpnvl6xz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CHARITAS",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "ez4ir84yd0vi791"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "irhvezh3jd0m3va",
+          "source_id": "lpea2xzi4lyocuo"
+        }
+      ],
+      "source_id": "8a6hwtqzldzqnus"
+    },
+    {
+      "annotation": "s. Graphik INr 68569, Obj 2,09",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.443Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68570,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Charitas. / Gemälde von Correggio. / Das Original befindet sich in der Sammlung Sr. Durchl. des / Herrn Fürsten v. Dietrichstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Charitas. / Gemälde von Correggio. / Das Original befindet sich in der Sammlung Sr. Durchl. des / Herrn Fürsten v. Dietrichstein",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "m95j7up643211i0"
+    },
+    {
+      "annotation": "s. Textbezug INr 68572, Obj 2,12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68571,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIOLANTE PALMA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Paris Bordone pt. F. John sc.",
+      "scans": [
+        "alm_235_68571_eys0h74ptg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIOLANTE PALMA",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "goloew0b9lvkvjs",
+          "source_id": "dtldcdn7rvwu82f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "fvegdefjgzvjhb7"
+        }
+      ],
+      "source_id": "n2i8csjc1sc9eca"
+    },
+    {
+      "annotation": "s. Graphik INr 68571, Obj 2,11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68572,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Violante Palma. / Gemälde von Paris Bordone. / Das Original befindet sich in der Sammlung des Herrn / Freiherrn v. Puthon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Violante Palma. / Gemälde von Paris Bordone. / Das Original befindet sich in der Sammlung des Herrn / Freiherrn v. Puthon",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "koiwvpmzbf8m25c"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein Taschenbuch / für das Jahr 1828",
+      "language": [],
+      "musenalm_id": 15067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aglaja",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aglaja",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gae52vz09843um"
+    },
+    {
+      "annotation": "Gedicht mit 107 Strophen SS 3-56, u. Anmerkungen SS 57-64",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "1. Mich hatte Waldesdunkel eingeschlossen / Und in Betrachtung lag ich tief versunken, / Von Bildern meiner Träume rings umwoben:",
+      "language": [],
+      "musenalm_id": 15068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Todtenkränze. / Canzone. / \n»En toutes choses ce n'est que l'émotion qui est sublime!« / Lettres et maximes du Prince de Ligne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zedlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Todtenkränze. / Canzone. / \n»En toutes choses ce n'est que l'émotion qui est sublime!« / Lettres et maximes du Prince de Ligne",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "id1mj19iathigp2",
+          "source_id": "ls29srrgrmumpz1"
+        }
+      ],
+      "source_id": "sxuewm9rsp2m97q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Die Strahlen der untergehenden Sonne vergoldeten die Abhänge eines der reizendsten Thäler der Woiwodschaft Sendomir.",
+      "language": [],
+      "musenalm_id": 15079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kloster bei Sendomir. / Nach einer als wahr überlieferten Bege- / benheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Kloster bei Sendomir. / Nach einer als wahr überlieferten Bege- / benheit",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "mq0oc89qg8a5e1l"
+        }
+      ],
+      "source_id": "xt4srm1akc3qpkr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Um Zeus Geburtstag festlich zu begehen / Gab einst die Götterschar ein großes Mahl,",
+      "language": [],
+      "musenalm_id": 15069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Buch des Schicksals. / Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Buch des Schicksals. / Mährchen",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "pld96h53pjrpx7w"
+        }
+      ],
+      "source_id": "poxdmemru32qr1q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Alles, auf Erden, strebt nach Vereine, / Daß es nicht einsam, schutzlos erscheine;",
+      "language": [],
+      "musenalm_id": 15070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alles zum Vereine",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alles zum Vereine",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "f4bu4o76btfa6ej"
+        }
+      ],
+      "source_id": "jq5pbbywk5ao0ds"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Dichten ist kein eitles Träumen, / Und die Kunst kein leeres Spiel,",
+      "language": [],
+      "musenalm_id": 15071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Baron Schlechta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichten",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "x1uz1klk4dlr9er",
+          "source_id": "uhrkrawzinpkjcq"
+        }
+      ],
+      "source_id": "oo5e0cuba309ko9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Den Herrn des Lebens will ich preisen, / In dessen Hand die Welten stehn,",
+      "language": [],
+      "musenalm_id": 15072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsbetrachtung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsbetrachtung",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "s2wgklzzmscshze"
+        }
+      ],
+      "source_id": "3wpu5s0zz3o2j1l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Es gibt Augenblicke, wo das Gefühl so heftig durch die Seele wogt und flutet, daß wir ein Meer von Melodien in uns rauschen hören.",
+      "language": [],
+      "musenalm_id": 15073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Dreifaltigkeitsblümchen. / (Viola tricolor.) / Bruchstücke aus einem Reise-Tagebuche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Dreifaltigkeitsblümchen. / (Viola tricolor.) / Bruchstücke aus einem Reise-Tagebuche",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "03th3hcdbov1vab"
+        }
+      ],
+      "source_id": "3vh9st658s3nfqc"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 15075-15078, Obj 12-15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 15074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "1kjwpd5q0jfuqml"
+        }
+      ],
+      "source_id": "xrx7y3sg6shjw35"
+    },
+    {
+      "annotation": "Lieder ( Sammlung 15074, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Was an Liebe du erfahren, / Trage tief in deiner Brust, / wo es keiner mag gewahren,",
+      "language": [],
+      "musenalm_id": 15075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "pobyxc9ywbwemwm"
+        }
+      ],
+      "source_id": "gpde0h965uxpcxv"
+    },
+    {
+      "annotation": "Lieder ( Sammlung 15074, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Jede Thräne, die ich weine, / wird zur holden Perle dir, / Die mit liebesanftem Scheine,",
+      "language": [],
+      "musenalm_id": 15076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "d0nz5lq2plqwsoo"
+        }
+      ],
+      "source_id": "z6id54hr15bwirq"
+    },
+    {
+      "annotation": "Lieder ( Sammlung 15074, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Gute Nacht, du liebes Kind, / Mögen Engel dich behüten, / Und der Schlummer, leis und lind,",
+      "language": [],
+      "musenalm_id": 15077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "hhh5hko9a6s6msv"
+        }
+      ],
+      "source_id": "1w94sjzptdksl2p"
+    },
+    {
+      "annotation": "Lieder ( Sammlung 15074, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Du bist so schön wohl wie das Glück, / Doch auch so wetterwendig: / Bald ist er leer, dein schöner Blick,",
+      "language": [],
+      "musenalm_id": 15078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.645Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "rlc5uaku9mldtqh"
+        }
+      ],
+      "source_id": "mgt431ffx8u1sfd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Vier Dinge sind's, wodurch der Stein / Vor andren glänzt als Edelstein;",
+      "language": [],
+      "musenalm_id": 15080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dichter an den Wesir. / Nach dem Persischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dichter an den Wesir. / Nach dem Persischen",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.633Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "vv0z06hwcr3nfj3"
+        }
+      ],
+      "source_id": "j3ocd7auagh1x10"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Die Langweiligen sind am besten zum Keltern zu brauchen, / Ihre Gegenwart preßt aus der Traube den Wein,",
+      "language": [],
+      "musenalm_id": 15081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Langweiligen als Weinleser. / Nach dem Persischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Langweiligen als Weinleser. / Nach dem Persischen",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.633Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "y4blr5o0gz6spjt"
+        }
+      ],
+      "source_id": "6vdlrsil7yfwkvl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Versunken bin ich als die Sonn' im Licht', / Wo Licht, wo Leib sich trennen, weiß ich nicht.",
+      "language": [],
+      "musenalm_id": 15082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Phaosophe. / nachdem Persischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Phaosophe. / nachdem Persischen",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.633Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "sqh55xbpevqjy2l"
+        }
+      ],
+      "source_id": "mklr87k1fjb600g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Füg' dich in jegliche Form, um Allen Alles zu werden, / Zucker sey in der Milch, und in dem Essige Senf.",
+      "language": [],
+      "musenalm_id": 15083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sey Allen Alles. / Nach dem Persischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sey Allen Alles. / Nach dem Persischen",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "f2xaj9du17xe4rq"
+        }
+      ],
+      "source_id": "fenjnavzskldx65"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Dürft' ich das Glück im schönsten Bilde krönen, / So möcht' ich es der Schönheit Lächeln nennen,",
+      "language": [],
+      "musenalm_id": 15084,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glück und Schönheit. / Sonett an ***",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Maltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glück und Schönheit. / Sonett an ***",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "enmi0t9mog462m5",
+          "source_id": "wqt9bbgervpu2jn"
+        }
+      ],
+      "source_id": "ivke95pxgkdon2f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Warum die Liebe trägt die Augenbinde, / Das will ich euch, wie Keiner noch, erklären.",
+      "language": [],
+      "musenalm_id": 15085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Maltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "enmi0t9mog462m5",
+          "source_id": "cegbof7u6wi37jk"
+        }
+      ],
+      "source_id": "e1wluhyzb8nsxei"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Zu einem Magus, dem um Rath / Wohl selten wer umsonst genaht, / Der, was da webte, wogt' und wehte,",
+      "language": [],
+      "musenalm_id": 15086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Pfeiler des Glaubens. / Poetische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Pfeiler des Glaubens. / Poetische Erzählung",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "0eta6utg2l1haq2"
+        }
+      ],
+      "source_id": "pw44agushub18m6"
+    },
+    {
+      "annotation": "Erster von 4 Beiträgen verschiedener Autoren zum Tode L. v. Beethovens INr 15087-15090, Obj 23-26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "Was strömt das Volk dort jenem Haus entgegen, / An dessen Thor sich seine Woge bricht?",
+      "language": [],
+      "musenalm_id": 15087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Bei Beethovens Begräbnisse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Christ. Baron Zedlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Bei Beethovens Begräbnisse",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "id1mj19iathigp2",
+          "source_id": "ghxsv9pqhngrlfk"
+        }
+      ],
+      "source_id": "0k5zfg39izzu2k7"
+    },
+    {
+      "annotation": "Zweiter von 4 Beiträgen verschiedener Autoren zum Tode L. v. Beethovens INr 15087-15090, Obj 23-26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Vorfrühling war's; die Sonne schien so mild / Auf alle Giebel Wiens, auf alle Flächen,",
+      "language": [],
+      "musenalm_id": 15088,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Nach Beethovens Begräbnisse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Nach Beethovens Begräbnisse",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9s6j7wldzw40d6j"
+        }
+      ],
+      "source_id": "taikzvdpfqcn37c"
+    },
+    {
+      "annotation": "Dritter von 4 Beiträgen verschiedener Autoren zum Tode L. v. Beethovens INr 15087-15090, Obj 23-26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Abgestreift das Band der Grüfte, / Noch erschreckt, sich findend kaum, / Flog die Seele durch den Raum",
+      "language": [],
+      "musenalm_id": 15089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Beethoven",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Beethoven",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "7dz7jr23q5ub9s2"
+        }
+      ],
+      "source_id": "qsc4ab2hdwzsuz6"
+    },
+    {
+      "annotation": "Letzter von 4 Beiträgen verschiedener Autoren zum Tode L. v. Beethovens INr 15087-15090, Obj 23-26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Wohl! so hänget eure Kränze / An dem heil'gen Hügel auf,",
+      "language": [],
+      "musenalm_id": 15090,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Schlußwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Christ. Baron zu Zedlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Schlußwort",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "id1mj19iathigp2",
+          "source_id": "8ybp2xozsvzs5kl"
+        }
+      ],
+      "source_id": "t294dp4we6uurrl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Herr von Norberg ist einer der ersten Geschäftsmänner Wiens. Sein Haus gehört zu den reichsten der Stadt;",
+      "language": [],
+      "musenalm_id": 15091,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Norberg und Eilsa. / Eine Charakterskizze",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Thomas West",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Norberg und Eilsa. / Eine Charakterskizze",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "ks6j3ite531t4h3",
+          "source_id": "acxvracqcfb2673"
+        }
+      ],
+      "source_id": "wfwbosm2r70kpum"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 15093-15095, Obj 29-31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 15092,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "06ahq2gcv52ncn8"
+        }
+      ],
+      "source_id": "uepnsu64xsdgctg"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 15092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "So oft der Herbst die Rosen stahl; / Ich weiß nicht, wie's entsprungen, / Doch ist mir hell noch jedesmal",
+      "language": [],
+      "musenalm_id": 15093,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "ejobnmr07e0ahk3"
+        }
+      ],
+      "source_id": "3k6sg7j91pyg6m3"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 15092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Wenn ich wär' eine Nachtigall, / So ging' ich vielleicht auf Reisen, / Um auch zu hören meinen Schall",
+      "language": [],
+      "musenalm_id": 15094,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "265kj4m4doiy5xn"
+        }
+      ],
+      "source_id": "ylnv9ty8d1s3t25"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 15092, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Als ich einst das Heimweh hatte / In dem Land Italia, / Wissen, mochte Herz, das matte,",
+      "language": [],
+      "musenalm_id": 15095,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "5joa1uz08tbu36j"
+        }
+      ],
+      "source_id": "icrappv9qaprqcs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Graf Elmoldt kam von seinen Reisen zurück, der zärtlichen Mutter lebhafte Freude empfing ihn,",
+      "language": [],
+      "musenalm_id": 15096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wahrheit und Täuschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie v. Richthofen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wahrheit und Täuschung",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.715Z",
+          "agent": "qleot3zmc5qaaxs",
+          "source_id": "lzkxulhuuwkh9ma"
+        }
+      ],
+      "source_id": "kyxzj7zt2drvt7d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 16724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "miha5rk798z1ppq"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33856,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Berkowetz sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Berkowetz sc.",
+      "scans": [
+        "alm_235_33856_kpk6llqboq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-05-10 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.783Z",
+          "agent": "bupqhtz2lviuob7",
+          "source_id": "4z8fb7jmpjkhf7n"
+        }
+      ],
+      "source_id": "3p8lf8j6wle68b4"
+    }
   ],
   "agents": [
     {

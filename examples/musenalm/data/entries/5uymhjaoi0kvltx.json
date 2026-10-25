@@ -49,37 +49,1249 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "ubjqkz0zwnr6oop"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.781Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409889",
+      "location": "105D06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.781Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ubjqkz0zwnr6oop"
+    }
   ],
   "contents": [
-    "67cmp5xl90i1618",
-    "thkz6njv115od1j",
-    "fiyufdea99m3tdh",
-    "d5ayufxznhc992h",
-    "5jqigg9fvfj29ph",
-    "injvamdlmf6ho9k",
-    "ad53fhflwhumew9",
-    "tf37esy8l8zdhfl",
-    "wcg4zljh6x0n9xj",
-    "5z99tm1hrk4nnsf",
-    "a5w29htyw0cdnhl",
-    "nbp416t896u5sy2",
-    "5cp89h25yb719wn",
-    "thxtmnu2h87yu0n",
-    "qcuzytgmjglmklm",
-    "fn7pc5lbm3anc0a",
-    "f1enkenebyuixbw",
-    "7xhpskwqocqv85i",
-    "nh2yr453wzevo4o",
-    "l5yr015q7mtbenb",
-    "e2xfvepqfylfxo8",
-    "0aba5g8kvedjciz",
-    "r1z0b8x34yt49oo",
-    "hxxut77z9q2tfs6",
-    "yulkm5c294j80fo",
-    "jipm5k9eu5rkwn1",
-    "wrzzz7aro6dmkbf",
-    "nx7tvhqhgts5lt2"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123133,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsgaben. / Erzählungen / von / Elise Freifrau von Hohenhausen, Max von Schenkendorf, Eduard Messow, /  Freiherrn von Münchhausen, Ernst Wah- / lert , / Julie Freifrau von Bechtolsheim, / Alexis dem Wanderer u. a. m. / Herausgegeben / von / Dr. Fr. Raßmann. / Quedlinburg und Leipzig, 1824, / bei Gottfried Basse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsgaben. / Erzählungen / von / Elise Freifrau von Hohenhausen, Max von Schenkendorf, Eduard Messow, /  Freiherrn von Münchhausen, Ernst Wah- / lert , / Julie Freifrau von Bechtolsheim, / Alexis dem Wanderer u. a. m. / Herausgegeben / von / Dr. Fr. Raßmann. / Quedlinburg und Leipzig, 1824, / bei Gottfried Basse",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "67cmp5xl90i1618"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123138,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "thkz6njv115od1j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Wächter rief die zwölfte Stunde. Amalie fuhr zusammen, ließ ihr Buch fallen und lauschte;",
+      "language": [],
+      "musenalm_id": 123139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Feenmärchen. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise Freifrau von Hohenhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Feenmärchen. / Erzählung",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.827Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "ev08xetw9s97bgd"
+        }
+      ],
+      "source_id": "fiyufdea99m3tdh"
+    },
+    {
+      "annotation": "Sammlung von 11 Gedichten und einer Sammlung mit 4 Gedichten INr 123142-123157, Obj 6-21, mit einem Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Reliquien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Reliquien",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.827Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "feafr68dliv8k9a"
+        }
+      ],
+      "source_id": "d5ayufxznhc992h"
+    },
+    {
+      "annotation": "Vorwort zur Sammlung »Reliquien« von v. Schenkendorf",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Diese von theurer Freundeshand mir zugekommenen, nur in einem kleinen Kreise bekannt gewordenen Lieder werden gewiß allen Lesern, die des Verewigten frommen, ächt deutschen Sinn zu schätzen wissen, eine sehr angenehme Gabe seyn.",
+      "language": [],
+      "musenalm_id": 123141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diese von theurer Freundeshand mir zugekommenen, nur in einem kleinen Kreise bekannt gewordenen Lieder werden gewiß allen Lesern, die des Verewigten frommen, ächt deutschen Sinn zu schätzen wissen, eine sehr angenehme Gabe seyn.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "4g2r3ta4uzw1gqd",
+          "source_id": "w4dp5m6750bsx77"
+        }
+      ],
+      "source_id": "5jqigg9fvfj29ph"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 123143-123146, Obj 7-10 /) Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weihnachtslieder (1814)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weihnachtslieder (1814)",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "nldbyib6g9l1yze"
+        }
+      ],
+      "source_id": "injvamdlmf6ho9k"
+    },
+    {
+      "annotation": "Weihnachtslieder 1814 (Sammlung INr 123142, Obj 6) Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Es zieht aus weiter Ferne / Ein Lied zu euch hinein, / Das klingt vom Weihnachtssterne / Und hellem Lichterschein;",
+      "language": [],
+      "musenalm_id": 123143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es zieht aus weiter Ferne / Ein Lied zu euch hinein, / Das klingt vom Weihnachtssterne / Und hellem Lichterschein;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "8mojii6nigybrwl"
+        }
+      ],
+      "source_id": "ad53fhflwhumew9"
+    },
+    {
+      "annotation": "Weihnachtslieder 1814 (Sammlung INr 123142, Obj 6) Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Himmels Botschaft ist erklungen, / Ach, ein wunderbarer Klang!",
+      "language": [],
+      "musenalm_id": 123144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Hirten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Hirten",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "ig91wphn9jk5j8j"
+        }
+      ],
+      "source_id": "tf37esy8l8zdhfl"
+    },
+    {
+      "annotation": "Weihnachtslieder 1814 (Sammlung INr 123142, Obj 6) Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Auf stillen Felsenhöhn / Wir standen viele Nächte, / Dort nach dem Licht zu sehn / Vom künftigen Geschlechte.",
+      "language": [],
+      "musenalm_id": 123145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die heiligen drei Könige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die heiligen drei Könige",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "k2osopnknunzyqr"
+        }
+      ],
+      "source_id": "wcg4zljh6x0n9xj"
+    },
+    {
+      "annotation": "Weihnachtslieder 1814 (Sammlung INr 123142, Obj 6) Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Herr! ich kann in Friede fahren, / Denn Dein Morgen röthet sich,",
+      "language": [],
+      "musenalm_id": 123146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Simeon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Simeon",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "zufnfr6dcfpiay2"
+        }
+      ],
+      "source_id": "5z99tm1hrk4nnsf"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Laßt mich sterben, laßt mich sterben, / Und vergehn im Abendroth!",
+      "language": [],
+      "musenalm_id": 123147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charfreitag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charfreitag",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "9zxe3m3ohpmxz3l"
+        }
+      ],
+      "source_id": "a5w29htyw0cdnhl"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Ostern, Ostern, Frühlingswehen! / Ostern, Ostern, Auferstehen / Aus der tiefsten Grabesnacht!",
+      "language": [],
+      "musenalm_id": 123148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ostern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ostern",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "og3l4ale26zmt4e"
+        }
+      ],
+      "source_id": "nbp416t896u5sy2"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Wohin, wohin, ihr Blumen? / Zu Gottes Heilgthumen, / Hinauf zum Sonnenschein!",
+      "language": [],
+      "musenalm_id": 123149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Himmelfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Himmelfahrt",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "1xks5dongpdoqy8"
+        }
+      ],
+      "source_id": "5cp89h25yb719wn"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Sind es Funken, / Die sich trunken, / Wanden von den Sternen los?",
+      "language": [],
+      "musenalm_id": 123150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pfingsten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pfingsten",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "406yinee9ueodsd"
+        }
+      ],
+      "source_id": "thxtmnu2h87yu0n"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Ach, das ist ein süßes Bild! / Wie es meine Seele füllt!",
+      "language": [],
+      "musenalm_id": 123151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schülerin Maria. / Nach einem alten Bilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schülerin Maria. / Nach einem alten Bilde",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "3ww28i0222ztvbq"
+        }
+      ],
+      "source_id": "qcuzytgmjglmklm"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Ein Gärtner geht im Garten, / Wo tausend Blumen warten.",
+      "language": [],
+      "musenalm_id": 123152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Christ, ein Gärtner. / Nach einem alten Bilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Christ, ein Gärtner. / Nach einem alten Bilde",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.828Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.828Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "to36ir9na07lvkv"
+        }
+      ],
+      "source_id": "fn7pc5lbm3anc0a"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Seht ihr auf den grünen Fluren / Jenen holden Schäfer ziehn?",
+      "language": [],
+      "musenalm_id": 123153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Christ, ein Schäfer. / Nach einem alten Bilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Christ, ein Schäfer. / Nach einem alten Bilde",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "gmysu146efmlxqq"
+        }
+      ],
+      "source_id": "f1enkenebyuixbw"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3951",
+      "incipit_statement": "Morgenstern und Abendstern, / Die der Herr uns angezündet, / Der als Helfer nah' und fern / Sich verheißen und verkündet.",
+      "language": [],
+      "musenalm_id": 123157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Morgen- und Abendandacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Morgen- und Abendandacht",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.627Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.627Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "nm6190glfryp6vx"
+        }
+      ],
+      "source_id": "7xhpskwqocqv85i"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Muttersprache, Mutterlaut, / Wie so wonnesam, so traut!",
+      "language": [],
+      "musenalm_id": 123154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muttersprache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Muttersprache",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "jgih2shl45yxjaz"
+        }
+      ],
+      "source_id": "nh2yr453wzevo4o"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "O Vaterland, das droben ist, / Das uns der Heiland Jesus Christ / Von Ewigkeit bereitet!",
+      "language": [],
+      "musenalm_id": 123155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vaterland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vaterland",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.829Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.829Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "o5sxa8rnd05k3vt"
+        }
+      ],
+      "source_id": "l5yr015q7mtbenb"
+    },
+    {
+      "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Uns klingt aus alten Mähren / Viel Wunders alter Zeit, / Von Helden reich an Ehren / Und arbeitsvollem Streit.",
+      "language": [],
+      "musenalm_id": 123156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seinem ältesten Freunde, Carl Gra- / fen von der Gröben, als er sich mit / dem Fräulein Selma von Dörnberg / Vermählte. / (1816)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seinem ältesten Freunde, Carl Gra- / fen von der Gröben, als er sich mit / dem Fräulein Selma von Dörnberg / Vermählte. / (1816)",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.627Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.627Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "nxulqmcwclbi0kj"
+        }
+      ],
+      "source_id": "e2xfvepqfylfxo8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Aus den heißen Sandwüsten Senegambiens erhebt sich, gleich einer grünen Insel aus dem Weltmeer, eine fruchtbare Strecke Landes,",
+      "language": [],
+      "musenalm_id": 123166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Zelika. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Messow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Zelika. / Erzählung",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.748Z",
+          "agent": "u3h0otg4lapzo9f",
+          "source_id": "44q0neoledjvttb"
+        }
+      ],
+      "source_id": "0aba5g8kvedjciz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Zwischen den bekannten drei Bergen, dem letzten wichtigern Gebirgs-Kleeblatt am Saume des flachern Haidelandes, nämlich dem Süntel, Deister und dem Bückeberge,",
+      "language": [],
+      "musenalm_id": 123158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Ilsedina / oder / die Hexenschwemme zu Waschingshausen. / Eine uralte Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von Münchhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Ilsedina / oder / die Hexenschwemme zu Waschingshausen. / Eine uralte Sage",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.627Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.627Z",
+          "agent": "wfk4mi4tbts3zzx",
+          "source_id": "uxo8297e9gsujb3"
+        }
+      ],
+      "source_id": "r1z0b8x34yt49oo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Das Leben selbst ist eine Pilgerschaft, / Mehr unbequem und rauh, als sanft und eben:",
+      "language": [],
+      "musenalm_id": 123159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Empfang Ihrer Majestät / der / Kaiserin Maria von Rußland / im Schlosse zu Eisenach / im Nov. 1818. / Festspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtolsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Empfang Ihrer Majestät / der / Kaiserin Maria von Rußland / im Schlosse zu Eisenach / im Nov. 1818. / Festspiel",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.627Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.627Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "w1l17z3p784cxnr"
+        }
+      ],
+      "source_id": "hxxut77z9q2tfs6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Nun, Kinder, sagte der Bürgermeister und Kammerrath Staar zu seiner versammelten Familie, über vier Wochen ist der wichtige Tag, wo der Krähwinkeler Vogel abgeschossen werden soll.",
+      "language": [],
+      "musenalm_id": 123160,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Das Vogelschießen zu Krähwinkel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Wahlert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Das Vogelschießen zu Krähwinkel",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.686Z",
+          "agent": "s0zlclb66w9xa97",
+          "source_id": "9z1uwsb61b5r61d"
+        }
+      ],
+      "source_id": "yulkm5c294j80fo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Alfred, Graf von Wildenbruch, hatte kaum sein funfzehntes Jahr erreicht, da starb sein Vater, der allgemein geliebte und geachtete General.",
+      "language": [],
+      "musenalm_id": 123161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der Freibeuter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Alexis der Wanderer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der Freibeuter",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.686Z",
+          "agent": "gxieq9daqd2mcmc",
+          "source_id": "tm9n51ho4wwqtcm"
+        }
+      ],
+      "source_id": "jipm5k9eu5rkwn1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Die Jagd, welche der Graf Zollern gegeben hatte, war vorbei; Hermanns Reitknecht führte die Pferde vor",
+      "language": [],
+      "musenalm_id": 123162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Hermann",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Alexis der Wanderer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Hermann",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.686Z",
+          "agent": "gxieq9daqd2mcmc",
+          "source_id": "kffna84078t6afj"
+        }
+      ],
+      "source_id": "wrzzz7aro6dmkbf"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Folgende interessante Romane sind ganz be- / sonders zu empfehlen, und in allen Buch- / handlungen Deutschlands zu haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Folgende interessante Romane sind ganz be- / sonders zu empfehlen, und in allen Buch- / handlungen Deutschlands zu haben",
+      "updated": "2019-05-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "nx7tvhqhgts5lt2"
+    }
   ],
   "agents": [
     {

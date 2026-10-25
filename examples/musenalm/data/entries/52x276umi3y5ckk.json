@@ -48,26 +48,776 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "89qk74wruofwkcg"
+    {
+      "annotation": "1834-1845.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.628Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106739",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.628Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "89qk74wruofwkcg"
+    }
   ],
   "contents": [
-    "wkmd77vbiws17s2",
-    "3io38r70w1v8kgq",
-    "s5b5crkz384tksw",
-    "znyy6jvm02zqlfs",
-    "gpfew25gd986cu9",
-    "jxg543py57iu6wz",
-    "z1wqg5odacuhh6r",
-    "0rzyei4rqlcl25l",
-    "ojwynvqkrnj8743",
-    "253ii87qseg0sqj",
-    "ad11auyaieieipn",
-    "fm1u8ghj79ozzsz",
-    "0yq97khwkzl1igv",
-    "eh9uejt1k3zv4hy",
-    "g5ylhp4knq0dbvi",
-    "2j8oridggmhrg8d",
-    "5or10eh6nib9eaw"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102985,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2486_102985_bhlhytzdjn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "wkmd77vbiws17s2"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102986,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (P. C. Geissler gez. n. C. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. C. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102986_wrilinsqqb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.966Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "5o10p0xtxs1rfiy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.966Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "82e3o8e13dc5p7q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.966Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "yp6ugsvwzw737sv"
+        }
+      ],
+      "source_id": "3io38r70w1v8kgq"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102987,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1844. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2486_102987_gh0zp9kffc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1844. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5b5crkz384tksw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102988,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "znyy6jvm02zqlfs"
+    },
+    {
+      "annotation": "unter der Graphik: Leipzig bei F. A. Leo",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102989,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS MÄDCHEN VON WELSCHTIROL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. S. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102989_cynyerqxpf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS MÄDCHEN VON WELSCHTIROL",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.966Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "0kwntwe70b9tzx4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.967Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "8eqpxii18n78n0u"
+        }
+      ],
+      "source_id": "gpfew25gd986cu9"
+    },
+    {
+      "annotation": "unter der Graphik: Leipzig bei F. A. Leo",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102990,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE VERSUCHERIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. P. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102990_o780ayujas.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE VERSUCHERIN",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "9gep2y6vxxwiktu",
+          "source_id": "5a6yufvnvhfngt0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "hj7glo8topvaghs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "mi5uddz94ithq8a"
+        }
+      ],
+      "source_id": "jxg543py57iu6wz"
+    },
+    {
+      "annotation": "unter der Graphik: Leipzig bei F. A. Leo",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.220Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102991,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HOFFNUNG UND ZUVERSICHT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. P. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102991_9iplwwao7r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HOFFNUNG UND ZUVERSICHT",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "ai0vua6hp67k3yd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "9gep2y6vxxwiktu",
+          "source_id": "dsgi9i1nkfwlxmu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "l07365idmfbm31f"
+        }
+      ],
+      "source_id": "z1wqg5odacuhh6r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103001,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "0rzyei4rqlcl25l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Festsalon im Palaste des Vicekönigs von Peru schwamm in feenhaftem Ganze. Das Gold des unermeßlich reichen, aber von der Habsucht der Spanier ausgebeuteten Landes hatte den königlichen Palast zu einem Zauberschlosse geschaffen.",
+      "language": [],
+      "musenalm_id": 102992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Morgen der Republik. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Köhler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Morgen der Republik. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "ojwynvqkrnj8743"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 102994, 102995; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Seit dem Sturz des mildesten der Napoleoniden, Joseph, ward die pyrenäische Halbinsel, dieser üppig blühende Garten Europa's, dessen Blumen und Poesien, Sitten und Geschlechter noch einen schwachen Anflug jenes Glanzes an sich tragen,",
+      "language": [],
+      "musenalm_id": 102993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der letzte Ciscar. / Historisch romantisches Gemälde aus dem / jüngsten spanischen Freiheitskriege",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Isidor ( v. M.)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der letzte Ciscar. / Historisch romantisches Gemälde aus dem / jüngsten spanischen Freiheitskriege",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "qidvw5dd47o2pia",
+          "source_id": "rbwmivqn9lxyl67"
+        }
+      ],
+      "source_id": "253ii87qseg0sqj"
+    },
+    {
+      "annotation": "Illustration zu »Der letzte Ciscar« von Isidor (v. M.) d.i. Frau von Mauritius INr 102993, Obj 10 /) unter der Graphik: Leipzig bei F. A. Leo",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DONNA AGNES",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. P. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102994_zaeig2j24y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DONNA AGNES",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "0g80kj5thb1sulf"
+        }
+      ],
+      "source_id": "ad11auyaieieipn"
+    },
+    {
+      "annotation": "# vollst. Bez. an der übrigen Graphiken des Taschenbuchs /) Illustration zu »Der letzte Ciscar« von Isidor (v. M.) d.i. Frau von Mauritius INr 102993, Obj 10 /) unter der Graphik: Leipzig bei F. A. Leo",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DONNA JULIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. P. # Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102995_1qpd0of5hx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DONNA JULIA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.151Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "c49jydkyq4opk16"
+        }
+      ],
+      "source_id": "fm1u8ghj79ozzsz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Leberecht, ich sage Dir, einen wahren Schatz habe ich heute empfangen. Stelle Dir vor: mein guter Stern führt mich ein Werk in die Hände, durch welches alle Witterungstheorie erschöpft ist.",
+      "language": [],
+      "musenalm_id": 102996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Saggio meteorologico. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "George",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Saggio meteorologico. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "0yq97khwkzl1igv"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 102998, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Im Garten, der zum Landsitz des Grafen von Steinberg gehört, war der alte Gärtner Albrecht damit beschäftigt, die zarten Treibhausgewächse an den freien Sonnenstrahl zu bringen.",
+      "language": [],
+      "musenalm_id": 102997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Verrath. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp Jaffé",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Verrath. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.988Z",
+          "agent": "wraahjirsqqblf0",
+          "source_id": "b2qewei7upooe29"
+        }
+      ],
+      "source_id": "eh9uejt1k3zv4hy"
+    },
+    {
+      "annotation": "Illustration zu »Der Verrath« von Philipp Jaffé INr 102997, Obj 14 /) unter der Graphik: Leipzig bei F. A. Leo",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EMMA UND MALWINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. n. P. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+      "scans": [
+        "alm_2486_102998_ytvs0ce5aa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EMMA UND MALWINE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.988Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "wzqsvp5rhttspez"
+        }
+      ],
+      "source_id": "g5ylhp4knq0dbvi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Druck der Hofbuchdruckerei in Altenburg",
+      "language": [],
+      "musenalm_id": 102999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck der Hofbuchdruckerei in Altenburg…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "2j8oridggmhrg8d"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103000,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2486_103000_eun20v9z7o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "5or10eh6nib9eaw"
+    }
   ],
   "agents": [
     {

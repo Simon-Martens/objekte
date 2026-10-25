@@ -48,46 +48,1652 @@
   "year": 1817,
   "editor": "",
   "items": [
-    "sn2iri9jkqpmhis"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.594Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100848",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.594Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "sn2iri9jkqpmhis"
+    }
   ],
   "contents": [
-    "4aq4uhag5qyj35e",
-    "fdu48dofglljame",
-    "0dyqsyazkk039ae",
-    "nf5w6x9hauibxh9",
-    "xs6tzwmghp9wzpr",
-    "fxronyj73cnzvll",
-    "0ahf0a3gpcpex0w",
-    "7nvk8hv2nfndmz7",
-    "g1oh49egpq9dff3",
-    "oxpstrguvq6171j",
-    "je3mxf93s2skyv3",
-    "qqj7rskaiwgfev6",
-    "3biguk3tgnz8t09",
-    "kmx6w2qis7jqu03",
-    "rf1xg4ayx1wbv68",
-    "y0hrulv9kcu18wh",
-    "sbqk30rox456tcm",
-    "oweozlcyky2l67i",
-    "gojq8ngubsdq61c",
-    "c6d94iwfcfpuex8",
-    "fp1kovbs5l79xgu",
-    "qvvbpq4xs2vn8fm",
-    "zrcy7g04zez36d2",
-    "rwwo5k2bzt2mub3",
-    "hh2v1xhhe07mlwf",
-    "rykbnfhppciuj0h",
-    "28an1qbeqvdusvm",
-    "aye54mhd8dvpgsa",
-    "pkmedg0xwyrhylp",
-    "b88o2fmjhnjxre0",
-    "ck0q3o0585gqbk6",
-    "5w6oyzae3uv6abn",
-    "fg7uq6ynaxp664t",
-    "ie7b9d19hlchjf8",
-    "4v8g4msgthn35et",
-    "7e0vjl8zev50be3",
-    "o5zg4c7qtj7hqcv"
+    {
+      "annotation": "Titelgraphik /) s. Gedicht INr 111930, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. A. W. Böhm sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_2203_111928_3bnidcykqc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.286Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "f8z9vqk8yripylj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.286Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fvb9uom7i5q0687"
+        }
+      ],
+      "source_id": "4aq4uhag5qyj35e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111929,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Komus. / Zweite Gabe. / Ein Taschenbuch / mit Beiträgen / von / L. Germar, Fr. Kind, Friedrich Kuhn, / A. F. E. Langbein, Fr. Laun, Gustav Schilling, / St. Schütze, K. Streckfuß und andern. / Herausgegeben / von / Theodor Hell. / Mit Kupfern nach Rambergischen Zeichnungen / von W. Böhm und Jury. / Leipzig 1817. / bei Johann Friedrich Hartknoch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2203_111929_t32bmd0qj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Komus. / Zweite Gabe. / Ein Taschenbuch / mit Beiträgen / von / L. Germar, Fr. Kind, Friedrich Kuhn, / A. F. E. Langbein, Fr. Laun, Gustav Schilling, / St. Schütze, K. Streckfuß und andern. / Herausgegeben / von / Theodor Hell. / Mit Kupfern nach Rambergischen Zeichnungen / von W. Böhm und Jury. / Leipzig 1817. / bei Johann Friedrich Hartknoch",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "fdu48dofglljame"
+    },
+    {
+      "annotation": "s.Titelgraphik INr 111928, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Da bin ich wieder angeommen, / Ihr Freundlichen, mit meinem Scherz; / Ihr hattet gern mich angenommen",
+      "language": [],
+      "musenalm_id": 111930,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Komus der Zweite an die Leser. / (Zur Erläuterung des Titelkupfers.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. Hell",
+      "scans": [
+        "alm_2203_111930_ovvax64k39.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Komus der Zweite an die Leser. / (Zur Erläuterung des Titelkupfers.)",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.286Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "c9x9u8973sbp7zx"
+        }
+      ],
+      "source_id": "0dyqsyazkk039ae"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "nf5w6x9hauibxh9"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Wenn andre bärmlich sich beklagen, / Sollst schankweis deine Sach fürtragen, [...] Göthe, in Hans Sachsens poetischer Sendung /) mit einer Illustration s. Graphik INr 111933, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unter dem Vorwand einer Lustreise, eigentlich aber mit Heirathsgedanken, ritt ich im Sommer 1814 nach Eichenberg zum Guthsherrn Freimund,",
+      "language": [],
+      "musenalm_id": 111932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Turnier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Turnier",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.286Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "bsccdwm8onu050m"
+        }
+      ],
+      "source_id": "xs6tzwmghp9wzpr"
+    },
+    {
+      "annotation": "Illustration zu »Das Turnier« von A. F. E. Langbein INr 111932, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury fec.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.483Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "fjjdiqov1aj5zjo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.483Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "nqgbdmx5bqbk6wv"
+        }
+      ],
+      "source_id": "fxronyj73cnzvll"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Der dickste Seelenhirt vom Land, / Nicht just vom glänzendsten Verstand, / Sollt' einst des Sprengels Oberhirten,",
+      "language": [],
+      "musenalm_id": 111934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Steckenpferd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Steckenpferd",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.483Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "xwaqtz8y1zspbt6"
+        }
+      ],
+      "source_id": "0ahf0a3gpcpex0w"
+    },
+    {
+      "annotation": "mit einigen weiteren Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "An Hörren / Hörren / Lostig Kolanterrihenler In dr Bute zu Schlasgasen Ege",
+      "language": [],
+      "musenalm_id": 111935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allerneuste Muster zu Fertigung richtiger / Addressen auf Briefe, von den Jahren 1811 / bis 1815",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allerneuste Muster zu Fertigung richtiger / Addressen auf Briefe, von den Jahren 1811 / bis 1815",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "7nvk8hv2nfndmz7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Der Kleine saß in Maulbeerzweigen, / Um Christum, unsern Herrn, zu sehn,",
+      "language": [],
+      "musenalm_id": 111936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zachäus und noch Jemand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeisig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zachäus und noch Jemand",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "g1oh49egpq9dff3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Pantoffeln müssen seyn! / Das sagen große Kenner,",
+      "language": [],
+      "musenalm_id": 111937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Pantoffeln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kuhn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Pantoffeln",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.483Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "2o5oq01b5rj58ve"
+        }
+      ],
+      "source_id": "oxpstrguvq6171j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Auf einer kleinen Bühne Italiens gab man in einer zierlichen Uebersetzung die bekannte Operette: das Milchmädchen",
+      "language": [],
+      "musenalm_id": 111938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der christliche Bär",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der christliche Bär",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "1qacjwklaecytv5"
+        }
+      ],
+      "source_id": "je3mxf93s2skyv3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 111940, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Auch der Fürst Kolibri mußte seine Leute zu der großen Armee schicken. Sie erfroren, gleich dieser, im Laufe des Rückzugs,",
+      "language": [],
+      "musenalm_id": 111939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / seltsame Brautgemach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / seltsame Brautgemach",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "jgwgtb9ebt6bciu"
+        }
+      ],
+      "source_id": "qqj7rskaiwgfev6"
+    },
+    {
+      "annotation": "Illustration »Das seltsame Brautgemach« von G. Schilling INr 111939, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. A. W. Böhm sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_2203_111940_ufwqbwxpcv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "3pd1phuj7p4998k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "dw4k23zy0npsi7d"
+        }
+      ],
+      "source_id": "3biguk3tgnz8t09"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Als ich Dasdorf jüngst und Haschen, / Topographen in den Taschen, / Dresden zu beschau'n begann,",
+      "language": [],
+      "musenalm_id": 111941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Trompetenschlößchen zu Dresden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Trompetenschlößchen zu Dresden",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "vcveaygy998woxs"
+        }
+      ],
+      "source_id": "kmx6w2qis7jqu03"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Ein Recensent - er war noch etwas simpel, / Las einst sein Machwerk seinem Gimpel,",
+      "language": [],
+      "musenalm_id": 111942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gimpel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Grill",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gimpel",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "rf1xg4ayx1wbv68"
+    },
+    {
+      "annotation": "mit einigen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Es wird resp. jedermann ergebenst gebeten, da nämlich von dem Klempnermeister Weichelt in der Frohngasse allhier",
+      "language": [],
+      "musenalm_id": 111943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regelrechte Anzeigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Grill",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regelrechte Anzeigen",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "y0hrulv9kcu18wh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Sie wissen, daß Madam die Künste ehrt? / Sehr wohl; mich freut's; das hör' ich gern.",
+      "language": [],
+      "musenalm_id": 111964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hausfreund und Reisender",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Grill",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hausfreund und Reisender",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "sbqk30rox456tcm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Nun Grete sag einmal, frug Herr Pastor Splind, / Was heißt denn das, daß Gott allgegenwärtig?",
+      "language": [],
+      "musenalm_id": 111944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gretchens Examen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gretchens Examen",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "3zr84luftuu8bac"
+        }
+      ],
+      "source_id": "oweozlcyky2l67i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Auf den Jahrmärkten der Sächsischen Landstädte zieht ein närrischer Kauz von Stockhändler umher,",
+      "language": [],
+      "musenalm_id": 111945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anekdote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G .S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anekdote",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.272Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "pyrt855vcvuz88d"
+        }
+      ],
+      "source_id": "gojq8ngubsdq61c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 111947, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "In Neapel lebte einst ein Edelmann, Servisi genannt, welcher bis in sein dreißigstes Jahr sich allen Lüsten ergeben",
+      "language": [],
+      "musenalm_id": 111946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die drei Nebenbuhler. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die drei Nebenbuhler. / Novelle",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.345Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "3q3r3ynv80sdv7i"
+        }
+      ],
+      "source_id": "c6d94iwfcfpuex8"
+    },
+    {
+      "annotation": "Illustration zu »Die drei Nebenbuhler« von K. Streckfuß INr 111946, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. W. Jury sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury sculps.",
+      "scans": [
+        "alm_2203_111947_3mnztd5ulv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.345Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "0j4xa5690r7czf5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.345Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "42pm8lcpba8xwf4"
+        }
+      ],
+      "source_id": "fp1kovbs5l79xgu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Als einst auf hoher Sternenwarte / Ein Astronom die Himmelskarte / Bald mit den Augen übermaas,",
+      "language": [],
+      "musenalm_id": 111948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bauer und die Sternschnuppe. / Eine Parabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kuhn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bauer und die Sternschnuppe. / Eine Parabel",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.345Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "7l7jei71z5nu46u"
+        }
+      ],
+      "source_id": "qvvbpq4xs2vn8fm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "In dieser Oper habt ihr mehr, als Fünftelsaft; / Aus mehr, als Zwanzigen, ist sie zusammengerafft.",
+      "language": [],
+      "musenalm_id": 111949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die neueste Oper",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Grill",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die neueste Oper",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "zrcy7g04zez36d2"
+    },
+    {
+      "annotation": "Illustration zu »Lolo's Leiden und Freuden, oder die drei Amaranthe« von Fr. Kind INr 111949, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. W. Jury sculpt.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury sculpt.",
+      "scans": [
+        "alm_2203_111950_4vq9vz0aue.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.394Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "4ekq45r32bwycrb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.394Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "bo8iupvtryzmh7l"
+        }
+      ],
+      "source_id": "rwwo5k2bzt2mub3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INe 111950, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Als ich einst beim sel'gen Tantchen / Spät bei düstrer Lampe saß, / Und in Amaranth und Nantchen / Statt in Arndt und Schmolke las -",
+      "language": [],
+      "musenalm_id": 111951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lolo's Leiden und Freuden, / oder / die drei Amaranthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lolo's Leiden und Freuden, / oder / die drei Amaranthe",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.394Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "3wx7hhny4k72kmi"
+        }
+      ],
+      "source_id": "hh2v1xhhe07mlwf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Bei einer Musterung fiel folgende Unterredung zwischen dem Muster-Inspektor und einem Soldaten vor.",
+      "language": [],
+      "musenalm_id": 111952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die lange Dienstzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die lange Dienstzeit",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "rykbnfhppciuj0h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Sie sagten, ich sollt' es dem Doctor nur klagen, / Die Angst in der Brust, und wie Schmerzen mich plagen,",
+      "language": [],
+      "musenalm_id": 111953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sympathetische Kur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die sympathetische Kur",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.394Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "an6ie25ic2vhgts"
+        }
+      ],
+      "source_id": "28an1qbeqvdusvm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Die Heiden waren auch nicht dumm / Mit ihren tausend Göttern,",
+      "language": [],
+      "musenalm_id": 111954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tischlied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tischlied",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.394Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "xk7752o3h1zlxwl"
+        }
+      ],
+      "source_id": "aye54mhd8dvpgsa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Vor nicht gar langer wechselvollen Zeit / Erwarb im Vaterland sich weit und breit / Viel Ruhm und wenig Brot der Dichter Schaal.",
+      "language": [],
+      "musenalm_id": 111955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Recht und Gewalt des weiblichen Reims",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Trautschold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Recht und Gewalt des weiblichen Reims",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "pkmedg0xwyrhylp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 111957, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Herr Fricks, Wegezoll-Einnehmer zu Eichthal, war selig verstorben. Gelebt hatte der gute Mann ziemlich lange, denn er zählte 77 Jahr",
+      "language": [],
+      "musenalm_id": 111956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Zollhaus. / Eine Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Zollhaus. / Eine Erzählung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.437Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "or6mymvgm28uqtn"
+        }
+      ],
+      "source_id": "b88o2fmjhnjxre0"
+    },
+    {
+      "annotation": "Illustration zu »Das Zollhaus« von Th. Hell d.i. K. G. Th. Winkler INr 111956, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_2203_111957_72tuqujbi1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.437Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "cykh12l286y94pj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.437Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "trmtrsvo209myl0"
+        }
+      ],
+      "source_id": "ck0q3o0585gqbk6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Frau Muhme, sagen Sie mir, warum, / Spricht man Declamatorium?",
+      "language": [],
+      "musenalm_id": 111958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Belehrung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Grill",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Belehrung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "5w6oyzae3uv6abn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Die ihr um die Rosenfülle / Junger Wangen Dämm'rung webt,",
+      "language": [],
+      "musenalm_id": 111959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die großen Damenhüte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die großen Damenhüte",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.437Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "toixakmt71xy8m4"
+        }
+      ],
+      "source_id": "fg7uq6ynaxp664t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Des Markts Getümmel füllt den Saal, / Ein Streit von Jungen und von Alten / Scheint poln'schen Reichstag hier zu halten,",
+      "language": [],
+      "musenalm_id": 111960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alles Streites Ende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alles Streites Ende",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.437Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "yhb43wnpzqqcw8e"
+        }
+      ],
+      "source_id": "ie7b9d19hlchjf8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Kein Mensch in der ganzen Residenz wußte, was er aus Herrn Massenberg machen sollte.",
+      "language": [],
+      "musenalm_id": 111961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die unsichtbare Prinzessin. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die unsichtbare Prinzessin. / Erzählung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.496Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.496Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "a5c98fsr1ik4vov"
+        }
+      ],
+      "source_id": "4v8g4msgthn35et"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 11963, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Die equilibristischen Darstellungen der Kunstreitertruppe waren längst vorbei, die schöne Jenny schlummerte bereits süß,",
+      "language": [],
+      "musenalm_id": 111962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Komus als Freiwerber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig von Germar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Komus als Freiwerber",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.496Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.496Z",
+          "agent": "qc9rivowlr9gkjc",
+          "source_id": "hz0g9kydqgmn5hz"
+        }
+      ],
+      "source_id": "7e0vjl8zev50be3"
+    },
+    {
+      "annotation": "Illustration zu »Komus als Freiwerber« von L. v. Germar INr 111962, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_2203_111963_p89m5648kr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.504Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.504Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "7a24lcdu91vjhs3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.505Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "snqd3ebpaq4uumf"
+        }
+      ],
+      "source_id": "o5zg4c7qtj7hqcv"
+    }
   ],
   "agents": [
     {

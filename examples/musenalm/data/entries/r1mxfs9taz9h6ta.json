@@ -49,7 +49,26 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "97wvcktdfr2huwh"
+    {
+      "annotation": "2. Titel lautet: Jahrbuch der Rechtsgelahrtheit von 1793. Durch D. Johann Christian Koppe. [...]",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.760Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409173",
+      "location": "105G08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.760Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "97wvcktdfr2huwh"
+    }
   ],
   "contents": [],
   "agents": [

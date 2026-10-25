@@ -49,7 +49,26 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "j6f2gxds93bwr2c"
+    {
+      "annotation": "?-1799-?.\nKartonierter Einband.\n1799: Mit Silh 17 , Bl 12, IV und 308.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.684Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100866",
+      "location": "105K07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.684Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "j6f2gxds93bwr2c"
+    }
   ],
   "contents": [],
   "agents": [

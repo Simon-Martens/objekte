@@ -49,74 +49,2475 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "m9gi77ktj0ra7b9"
+    {
+      "annotation": "1820 - 1828 u. 1838.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.702Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108682",
+      "location": "105L07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.702Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "m9gi77ktj0ra7b9"
+    }
   ],
   "contents": [
-    "dgq23ppqgvdgl6p",
-    "harevsxsf2l5xau",
-    "vs5n7jmxdojn5g3",
-    "mtuuyauth1puwqi",
-    "jb8r3kjkw5biamv",
-    "zsw52rbyuuelq9x",
-    "xw5rpkkv3ecr74h",
-    "cz09y56rctn20t3",
-    "2q58qjvn5chc4f4",
-    "o76a6e9fp8z90sh",
-    "sjlfwe33m7cbdy0",
-    "mgxse32bwks01wn",
-    "vwf4xo5csllgb1v",
-    "rr11toclquyov1u",
-    "xmvrt2go0zc1a0s",
-    "g0sfftwj2y0eg09",
-    "4sbnv7jrtp4n267",
-    "ilrr2a7hl1hw3v6",
-    "85zs4a4pc32jzar",
-    "3vghztia0hv1uz7",
-    "3r0sdbj8yehp49d",
-    "wsbm6d3u9h5pem6",
-    "fick2pd474q3pke",
-    "xncuzesoqa93z8d",
-    "kt11dfgm38gxdrb",
-    "dy94ozvf4c3lgc1",
-    "yudgn9404ly0l3g",
-    "k27jdvm1th7kfb0",
-    "nsl1nkeqoil4s5o",
-    "tv51idhbrqknrz5",
-    "4tnudtws6d9yb8v",
-    "hsde7txek8s5nj0",
-    "nsyfa3qbcp6dl8x",
-    "rocowl25psizf1c",
-    "zlheynz0bcgubxe",
-    "9ojh71lraz11uh1",
-    "e518bxkbia45sl1",
-    "as7hdkxhy0lvtum",
-    "dcqpzk7gts2go5p",
-    "or7s3yl8nzpwjy9",
-    "q8h3crzfpakeld7",
-    "nmg9ketgiqmnjiv",
-    "s4ni63j2u2mxihf",
-    "416f66brmknuixa",
-    "vhjrw7ldhl8kfew",
-    "k5s5j5b88g4l87k",
-    "7pg24yrkqv1akew",
-    "q7bznz1puqw2fcj",
-    "jjqunvscct3n9oz",
-    "bfl9cil0bcdj1ia",
-    "gbahkgqstqvus8b",
-    "ojol0vpzkwieh7y",
-    "b7i9h1ln2unnlvn",
-    "ixq7t0kbs5hvcxz",
-    "vis7dztuweff8cu",
-    "lxze4629m806r8i",
-    "61n4i0oqm7x53bw",
-    "epdy3bhdlzprb5o",
-    "v7wpru5qvkro3fy",
-    "v2pxkxrwhay663a",
-    "1mmt2u372owjfhe",
-    "i9xvkvl3tbfe542",
-    "qbu80jfp5a4md8f",
-    "k9jq2oj52upvtjq",
-    "b95et8o6gnkuvme"
+    {
+      "annotation": "Titelportrait /) s. Textbezug INr 97917, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97913,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LUDWIG V. DER GETREUE / Landgraf von Hessen Darmstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach Merian. Westermayr sc.",
+      "scans": [
+        "alm_3501_97913_a4uwd4hmzz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LUDWIG V. DER GETREUE / Landgraf von Hessen Darmstadt",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.944Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "mhqoo3f23rk8ilh"
+        }
+      ],
+      "source_id": "dgq23ppqgvdgl6p"
+    },
+    {
+      "annotation": "graph. Titel /) s. Textbezug INr 97918, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97914,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE / VORZEIT. / Taschenbuch / für das Jahr 1827. / Marburg und Cassel / bei J. C. Krieger et Comp",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. v. C. F. Müller in Carlsruhe A. Hatzfeld del.",
+      "scans": [
+        "alm_3501_97914_6oxw6er3r8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE / VORZEIT. / Taschenbuch / für das Jahr 1827. / Marburg und Cassel / bei J. C. Krieger et Comp",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "harevsxsf2l5xau"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die wohlwollende Theilnahme mehrerer neuen Mitarbeiter und einiger achtbaren Kunstfreunde hat mich in den Stand gesetzt, dem vorliegenden Jahrgange der Vorzeit eine größere Mannigfaltigkeit des Inhalts und eine reichere Ausstattung an Kupfern",
+      "language": [],
+      "musenalm_id": 97915,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. K. W. Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.944Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "pzbtn65zwbytwa5"
+        }
+      ],
+      "source_id": "vs5n7jmxdojn5g3"
+    },
+    {
+      "annotation": "Sammlung von 10 Beiträgen INr 97917-97926, Obj 5-14 als Textbezüge zu den Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97916,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Kupfer und Steindrücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Kupfer und Steindrücke",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "mtuuyauth1puwqi"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) mit Anmm. /) s. Titelportrait INr 97913, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Das Titelkupfer gibt ein treues Bild des ruhmwürdigen Landgrafen Ludwig's V., des jüngern, von Hessen-Darmstadt, der den Zunamen des Getreuen führte.",
+      "language": [],
+      "musenalm_id": 97917,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.765Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "fpbsk7c03vwysp8"
+        }
+      ],
+      "source_id": "jb8r3kjkw5biamv"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. graph. Titel INr 97914, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Das Titelblatt gibt eine Ansicht des auf dem Karlsberge bei Kassel von dem großherzigen Landgrafen Karl im Anfange des achtzehnten Jahrhunderts aufgeführten, in achteckiger Form erbauten und in seinem Gipfel in die Wolken emporragenden Riesenschlosses,",
+      "language": [],
+      "musenalm_id": 97918,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.489Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "z4u3w77dfnsi9es"
+        }
+      ],
+      "source_id": "zsw52rbyuuelq9x"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. Graphik INr 97937, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Ein kurze Beschreibung und Geschichte der Stadt Höxter, deren treues Bild die beigefügte Kupfertafel gibt,",
+      "language": [],
+      "musenalm_id": 97919,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.489Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "wtp8zgg61i7n83m"
+        }
+      ],
+      "source_id": "xw5rpkkv3ecr74h"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. Graphik INr 97939, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Die schöne Abbildung von dem schlesischen Herzoge Boleslaus dem Hohen gehört zu S. 167 fg.",
+      "language": [],
+      "musenalm_id": 97920,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.489Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "l97wifydt3cu9dx"
+        }
+      ],
+      "source_id": "cz09y56rctn20t3"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. Graphik INr 97948, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Das lithographirte Blatt von dem goldenen Rade im Dome zu Fulda gehört zu S. 204. fg.",
+      "language": [],
+      "musenalm_id": 97921,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.351Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "u4lrahyhiu8bzi4"
+        }
+      ],
+      "source_id": "2q58qjvn5chc4f4"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. Graphik INr 97960, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Die schöne Ruine der Kirche zu Münsterschwarzach am Main gehört zu S. 301 fg.",
+      "language": [],
+      "musenalm_id": 97922,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.351Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "0rp02yw34rc57e8"
+        }
+      ],
+      "source_id": "o76a6e9fp8z90sh"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. Graphik INr 97965, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Die Ansicht der Brücke zu Melsungen bei Fulda, nach einer Zeichnung des Hrn. Hauptmanns und Ingenieurs Matthei dahier, kommt zu S. 318,",
+      "language": [],
+      "musenalm_id": 97923,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.351Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "bksuyg4d0xfffcx"
+        }
+      ],
+      "source_id": "sjlfwe33m7cbdy0"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) s. Graphik INr 97977, Obj 65",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Der von dem Hrn. Organisten Seibert zu Wittelsberg verfertigte Grundriß der uralten St. Elisabeth-Kapelle wird zu S. 340 angeheftet.",
+      "language": [],
+      "musenalm_id": 97924,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.351Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "pvukdbddgiu5ds7"
+        }
+      ],
+      "source_id": "mgxse32bwks01wn"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) Umschlaggraphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Auf der vordern Seite des Umschlags ist das unweit Marburg gelegene Schloß Frauenberg vorgestellt, wie dasselbe vor seiner Zerstörung - vor dem Jahre 1500 - war.",
+      "language": [],
+      "musenalm_id": 97925,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.352Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "0bxgwf5gnbgfc9x"
+        }
+      ],
+      "source_id": "vwf4xo5csllgb1v"
+    },
+    {
+      "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) mit Anm. /) Umschlaggraphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Auf der hintern Seite des Umschlags findet man das, in der Bergstraße, dritthalb Meilen von Darmstadt liegende, Auerbacher Schloß abgebildet.",
+      "language": [],
+      "musenalm_id": 97926,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.684Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "8anu8qxc4yes4zh"
+        }
+      ],
+      "source_id": "rr11toclquyov1u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97927,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "xmvrt2go0zc1a0s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Sitte, das Leben historischer Personen mit willkürlichen Dichtungen auszuschmücken, und durch romanhafte Einkleidung dem verwöhnten Geschmacke der Leser zu huldigen, ist schon alt.",
+      "language": [],
+      "musenalm_id": 97928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Otto der Schütz, / Prinz von Hessen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Otto der Schütz, / Prinz von Hessen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.684Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "ugdcrmlubbxh820"
+        }
+      ],
+      "source_id": "g0sfftwj2y0eg09"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Es ist doch etwas Sonderbares um das Ding, welches wir Glück nennen! Das ist der Ausdruck für alles Gewünschte oder Wünschenswerthe,",
+      "language": [],
+      "musenalm_id": 97929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arno, Graf von Endsee, / zehnter Bischof von Würzburg, / oder Ursprung des Sprüchworts: / Wer das Glück hat, führet die Braut heim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Polykarp Schmitt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Arno, Graf von Endsee, / zehnter Bischof von Würzburg, / oder Ursprung des Sprüchworts: / Wer das Glück hat, führet die Braut heim",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "4sbnv7jrtp4n267"
+    },
+    {
+      "annotation": "Es folgen 3 weitere Kapitel INr 97931-97933, Obj 19-21 /) Fortsetzung des Beitrag aus: Die Vorzeit 1826; INr 97875-97883 /) Herausgegeben u. bezeichnet Karl Jäger",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Den 3ten December gingen wir in die Mette, ließ man uns Sant Catharinen Leichnam in einem sarch zusammengelegt sehen, den er nit ganz mer ist.",
+      "language": [],
+      "musenalm_id": 97930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des / Grafen Albrecht's von Löwenstein / handschriftliche Beschreibung / seiner Wallfahrt nach Jerusalem / und / dem Berge Sinai. / Zweite Hälfte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Graf Albrecht von Löwenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des / Grafen Albrecht's von Löwenstein / handschriftliche Beschreibung / seiner Wallfahrt nach Jerusalem / und / dem Berge Sinai. / Zweite Hälfte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "ilrr2a7hl1hw3v6"
+    },
+    {
+      "annotation": "Des Grafen Albrecht's von Löwenstein handschriftliche Beschreibung seiner Wallfahrt nach Jerusalem und dem Berge Sinai. Zweite Hälfte (INr 97930, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Den 22sten. Diesen Tag hatten wir einen Anschlag, die Mumien zu besichtigen auf fünf Meil von Alkayero,",
+      "language": [],
+      "musenalm_id": 97931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Capitel / hält in sich, wie wir gefangen und wieder ledig worden seyn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Graf Albrecht von Löwenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Capitel / hält in sich, wie wir gefangen und wieder ledig worden seyn",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "85zs4a4pc32jzar"
+    },
+    {
+      "annotation": "Des Grafen Albrecht's von Löwenstein handschriftliche Beschreibung seiner Wallfahrt nach Jerusalem und dem Berge Sinai. Zweite Hälfte (INr 97930, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Den 7ten Febr. Am Morgens um 8 Uhr furen wir mit Freuden und aufgeplanten Segeln im Namen Gottes aus dem Hafen von Alexandria,",
+      "language": [],
+      "musenalm_id": 97932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Capitel. / Heldt in sich, als wir ledig wurden / und auf Ancona zu eingeschift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Graf Albrecht von Löwenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Capitel. / Heldt in sich, als wir ledig wurden / und auf Ancona zu eingeschift",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "3vghztia0hv1uz7"
+    },
+    {
+      "annotation": "Des Grafen Albrecht's von Löwenstein handschriftliche Beschreibung seiner Wallfahrt nach Jerusalem und dem Berge Sinai. Zweite Hälfte (INr 97930, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Den 3. 4ten. War das Fest des Patrons von Acona, liß deßhalb unser Hauptmann etlich Geschüz abgehen, darnach gleich des von Thörning Naven that,",
+      "language": [],
+      "musenalm_id": 97933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Capitel. / Heldt in sich, wie wir wieder heim / komen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Graf Albrecht von Löwenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Capitel. / Heldt in sich, wie wir wieder heim / komen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "3r0sdbj8yehp49d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Die deutsche Lustigkeit und witzige Laune äußerte sich in alter Zeit unter andern auch durch komische Spottnamen, welche, von irgend einem zufälligen Umstande entlehnt, in den Mund des Volkes allenthalben übergingen.",
+      "language": [],
+      "musenalm_id": 97934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Furcht / eines / deutschen Kaisers / vor einem Spottnamen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Schantz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Furcht / eines / deutschen Kaisers / vor einem Spottnamen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "wsbm6d3u9h5pem6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Die französische Nation hat den Korsen durch die Huldigungen, welche sie deren Landsmanne, dem Kaiser Napoleon, in allen Superlativen und Hyperbeln der schmeichelhaftesten Floskeln, deren nur die menschliche Sprache fähig ist,",
+      "language": [],
+      "musenalm_id": 97935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Höchste Ehre und höchste Schande, / den Korsen von den Franzosen erwiesen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Schantz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Höchste Ehre und höchste Schande, / den Korsen von den Franzosen erwiesen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "fick2pd474q3pke"
+    },
+    {
+      "annotation": "mit Anmm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Die, aus dem letzten Viertel des dreizehnten Jahrhunderts stammende, in den beiden folgenden Jahrhunderten erweiterte, und ursprünglich der Jungfrau Maria geweihte, ev. lutherische Pfarrkirche zu Marburg, enthält einige schöne marmorne Epitaphien",
+      "language": [],
+      "musenalm_id": 97936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung / einer großen marmornen / Altar-Verzierung / in der evangelisch-lutherischen / Pfarrkirche zu Marburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung / einer großen marmornen / Altar-Verzierung / in der evangelisch-lutherischen / Pfarrkirche zu Marburg",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.696Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "uh7vnw6pyqij7p1"
+        }
+      ],
+      "source_id": "xncuzesoqa93z8d"
+    },
+    {
+      "annotation": "Illustration zu »Die Stadt Höxter« INr 97938, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Höxter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3501_97937_qpd1b45c52.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Höxter",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "kt11dfgm38gxdrb"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 97937, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Den freundlichen Lesern der Vorzeit, die an den, in einem der vorigen Jahrgänge erzählten Schicksalen der kleine Stadt Höxter im dreißigjährigen Kriege Antheil genommen haben, theilen wir hier eine Ansicht derselben im Bilde mit.",
+      "language": [],
+      "musenalm_id": 97938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Stadt Höxter. / Mit einer Abbildung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Wigand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Stadt Höxter. / Mit einer Abbildung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "dy94ozvf4c3lgc1"
+    },
+    {
+      "annotation": "Illustration zu »Herzog Boleslaus, der Hohe, Herzog von Schlesien« von v. Gersdorf INr 97973, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzog Boleslaus, der Hohe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3501_97939_idrt5hddxn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herzog Boleslaus, der Hohe",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "yudgn9404ly0l3g"
+    },
+    {
+      "annotation": "mit Anm. /) mit einer Illustration s. Graphik INr 97938, Obj 26 und einer Sammlung von 5 Beilagen INr 97940-97945, Obj 29-34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Der Großherzog von Polen, Boleslaus III. Distortus, starb in dem Jahre 1139, und hinterließ von seiner ersten Gemahlin Swislawa, Tochter des Herzogs von Kiow, einen Sohn, Wladislaw II.,",
+      "language": [],
+      "musenalm_id": 97973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzog Boleslaus, der Hohe, / Herzog von Schlesien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Gersdorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herzog Boleslaus, der Hohe, / Herzog von Schlesien",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "k27jdvm1th7kfb0"
+    },
+    {
+      "annotation": "Sammlung von 5 Beilagen INr 99941-97945, Obj 30-34 zum Beitrag »Herzog Boleslaus, der Hohe, Herzog von Schlesien« von v. Gersdorf INr 97939, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beilagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beilagen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "nsl1nkeqoil4s5o"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 979940, Obj 29) zu »Herzog Boleslaus, der Hohe, Herzog von Schlesien«  von v.Gersdorf INr 97939, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "In nomine Sanctae et Individuae Trinitatis. EGO, Boleslaus Dux Zlesiae, Filius primogenitus Illustris quondam principis Wladislai maximi Ducis Zlesia,",
+      "language": [],
+      "musenalm_id": 97941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Boleslaus berief im Jahre 1178 aus dem Kloster Pforte [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Boleslaus berief im Jahre 1178 aus dem Kloster Pforte [...]",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "tv51idhbrqknrz5"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 979940, Obj 29) zu »Herzog Boleslaus, der Hohe, Herzog von Schlesien«  von v.Gersdorf INr 97939, Obj 28 /) auszufaltende Genealogie",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beilage II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beilage II.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "4tnudtws6d9yb8v"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 979940, Obj 29) zu »Herzog Boleslaus, der Hohe, Herzog von Schlesien«  von v.Gersdorf INr 97939, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Dux Boleslaus, honor patriae, virtute dein- / ceps / Cui par nullus erit per Regna polonica prin- / ceps,",
+      "language": [],
+      "musenalm_id": 97943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beilage III. / Der Liegnitzische Kanzler Schramm zeigt nachstehende Grabschrift von ihm an, die aber / schon Schikfuß nicht mehr fand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beilage III. / Der Liegnitzische Kanzler Schramm zeigt nachstehende Grabschrift von ihm an, die aber / schon Schikfuß nicht mehr fand",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "hsde7txek8s5nj0"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 979940, Obj 29) zu »Herzog Boleslaus, der Hohe, Herzog von Schlesien«  von v.Gersdorf INr 97939, Obj 28 /) auszufaltende Genealogie /) Anm. am Objekt: zur Beilage IV. gehörig",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach Ehrhrardts Diplomatischen Beiträgen 1773",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Gersdorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach Ehrhrardts Diplomatischen Beiträgen 1773",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "nsyfa3qbcp6dl8x"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 979940, Obj 29) zu »Herzog Boleslaus, der Hohe, Herzog von Schlesien«  von v.Gersdorf INr 97939, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "In Sacello majori, quod est templo contiguum, tumulus extat editior Boleslai Ducis,",
+      "language": [],
+      "musenalm_id": 97945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beilage IV. / Von dem Denkmahle in seiner Kapelle zu Leu- / bus sagen die Inscript. Lubens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beilage IV. / Von dem Denkmahle in seiner Kapelle zu Leu- / bus sagen die Inscript. Lubens",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "rocowl25psizf1c"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen mit einer Illustration INr 97947-97950, Obj 36-39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine / historische Merkwürdigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine / historische Merkwürdigkeiten",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "zlheynz0bcgubxe"
+    },
+    {
+      "annotation": "Kleine historische Merkwürdigkeiten (Sammlung INr 97946, Obj 35) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Es gehört zu den Sonderbarkeiten, daß, wie zwei Franzosen, die sonst nach ihrem, sich gern mittheilenden Charakter, die Kunst besitzen, über Nichts viel zu reden und deren Sprache für alle Beziehungen des gesellschaftlichen Lebens",
+      "language": [],
+      "musenalm_id": 97947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der General mit dem kürzesten Namen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Schanz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der General mit dem kürzesten Namen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ojh71lraz11uh1"
+    },
+    {
+      "annotation": "Illustration zu »Das goldene Rad im Dom zu Fulda« INr 97949, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das goldene Rad im Dom zu Fulda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3501_97948_siboiauzsp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das goldene Rad im Dom zu Fulda",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "e518bxkbia45sl1"
+    },
+    {
+      "annotation": "Kleine historische Merkwürdigkeiten (Sammlung INr 97946, Obj 35) mit Anmm. /) mit einer Illustration s. Graphik INr 97948, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Eine der vorzüglichsten Merkwürdigkeiten des hohen Doms zu Fulda, von welcher noch bis auf diese Stunde gesprochen wird, obschon sie nicht mehr vorhanden ist,",
+      "language": [],
+      "musenalm_id": 97949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das goldene Rad im Dom zu Fulda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Polykarp Schmitt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das goldene Rad im Dom zu Fulda",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "as7hdkxhy0lvtum"
+    },
+    {
+      "annotation": "Kleine historische Merkwürdigkeiten (Sammlung INr 97946, Obj 35) mit Anm. / ) Dem Beitrag vorangestellt: Diese merkwürdige Original-Urkunde vom Jahre 1539 hat die Aufschrift: Befehl K. Carls V. an den Landgraven von Heßen, die aus der D. D. Kirche zu Marburg weggenommenen Reliquien der heil. Elisabeth wieder zurückzugeben,",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Hochgebohrner lieber Oheim und Fürst! / Uns hat der Erwirdig Walther von Cronberg Administrator des Hochmeister Ampts in Preußen und Meister Dutschs Ordens in dutschen und welschen Landen,",
+      "language": [],
+      "musenalm_id": 97950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Schreiben Kaiser Karl's V. an den hessischen / Landgrafen Philipp den Großmüthigen, / die Reliquien der heiligen Eisabeth be- / treffend / Aus dem Deutschen Ordens-Archive in Mergentheim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Schreiben Kaiser Karl's V. an den hessischen / Landgrafen Philipp den Großmüthigen, / die Reliquien der heiligen Eisabeth be- / treffend / Aus dem Deutschen Ordens-Archive in Mergentheim",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "dcqpzk7gts2go5p"
+    },
+    {
+      "annotation": "mit einem Anhang s. INr 97952, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Des Reiches Herr war Otto, als auf Engern's Höhen, / Die heute noch schattend Eiche und Buche umlaubt,",
+      "language": [],
+      "musenalm_id": 97951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / ehemalige reichsfreie / Damenstift Fischbeck, / in der Grafschaft Schaumburg. / Eien Sage der Vorzeit, / mit geschichtlichen Anmerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / ehemalige reichsfreie / Damenstift Fischbeck, / in der Grafschaft Schaumburg. / Eien Sage der Vorzeit, / mit geschichtlichen Anmerkungen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "or7s3yl8nzpwjy9"
+    },
+    {
+      "annotation": "Anhang zum vorstehenden Gedicht INr 97951, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Der fromme Glaube des Mittelalters, welcher unter den Qualen eines gebrochenen Herzens nirgends eine Freistatt der Ruhe als in geweihten Mauern, oder für großer Sünden Erlaß,",
+      "language": [],
+      "musenalm_id": 97952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der fromme Glaube des Mittelalters, welcher unter den Qualen eines gebrochenen Herzens nirgends eine Freistatt der Ruhe als in geweihten Mauern, oder für großer Sünden Erlaß,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. J. L. Hyneck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "q8h3crzfpakeld7"
+    },
+    {
+      "annotation": "mit Anmm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.939Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Seit der Pflanzung des Christenthumes in der Wüste Buchhonia, im Jahre Christi 744, von dem heiligen Bonifazius, vermittelst des hier an der Fulda erbauten Klosters, hatte sich dessen Umfang wunderbar schnell bevölkert.",
+      "language": [],
+      "musenalm_id": 97953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Denkwürdigkeiten / der / Kirche und Probstei zum heiligen Michael, / in Fulda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Isidor Schleichert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Denkwürdigkeiten / der / Kirche und Probstei zum heiligen Michael, / in Fulda",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "nmg9ketgiqmnjiv"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 97955, 979556; Obj 44, 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.939Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachträge / zu den biographischen Nachrichten / von dem / Margrafen Gero, / und / dem deutschen Ordens-Heermeister / Franko von Kerßdorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Gersdorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachträge / zu den biographischen Nachrichten / von dem / Margrafen Gero, / und / dem deutschen Ordens-Heermeister / Franko von Kerßdorf",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "s4ni63j2u2mxihf"
+    },
+    {
+      "annotation": "Nachträge zu den biographischen Nachrichten von dem Margrafen Gero, und dem deutschen Ordens-Heermeister Franko von Kerßdorf (Sammlung INr 97954, Obj 43) mit Anmm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "In dem Laufe des, von beiden Theilen mit so viel Unerschrockenheit als Erbitterung geführten dreißigjährigen Krieges der Sassen gegen die Franken, in den Jahren 772-802,",
+      "language": [],
+      "musenalm_id": 97955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Gero",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Gersdorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Gero",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "416f66brmknuixa"
+    },
+    {
+      "annotation": "Nachträge zu den biographischen Nachrichten von dem Margrafen Gero, und dem deutschen Ordens-Heermeister Franko von Kerßdorf (Sammlung INr 97954, Obj 43) mit Anm..",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Bereits im Jahre 1260 zogen viele Deutsche nach Preußen, und halfen dem deutschen Orden im Kriege gegen die heidnischen Preußen,",
+      "language": [],
+      "musenalm_id": 97956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Franko von Kerßdorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Gersdorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Franko von Kerßdorf",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "vhjrw7ldhl8kfew"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Was der fromme und reine Sinn mit sich selbst in Einklang stehender Menschen vermöge, wenn es ihnen Ernst um die gute Sache der Religion und Menschheit ist,",
+      "language": [],
+      "musenalm_id": 97957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / von zwei königlichen Prinzessinnen aus Schottland / gegründete adeliche / Jungfrauen-Stift / zu Wetter, in Oberhessen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / von zwei königlichen Prinzessinnen aus Schottland / gegründete adeliche / Jungfrauen-Stift / zu Wetter, in Oberhessen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.773Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.773Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "eu7qpkzl9s8zgdv"
+        }
+      ],
+      "source_id": "k5s5j5b88g4l87k"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen mit 2 Illustrationen und einer Sammlung mit 5 Beiträgen INr 97959-97975, Obj 48-64",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miszellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miszellen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "7pg24yrkqv1akew"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Auf einer kleinen, im vorigen Jahre durch Schlesien gemachten Reise traf ich auf einige Merkwürdigkeiten, die den Leser der Vorzeit, als kleine Beiträge zu ältern Geschichte Schlesiens, nicht unwillkommen seyndürften,",
+      "language": [],
+      "musenalm_id": 97959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Merkwürdigkeiten des ehemaligen Cisterzien- / ser-Klosters Leubus in Schlesien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Gersdorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Merkwürdigkeiten des ehemaligen Cisterzien- / ser-Klosters Leubus in Schlesien",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "q7bznz1puqw2fcj"
+    },
+    {
+      "annotation": "Illustration zu »Worte des Schmerzes bei'm Anblicke der Zerstörung der herrlichen Kirche zu Münsterschwarzach, am Main« INr 97961, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MÜNSTERSCHWARZACH a/Main / während der Demolirung 1825",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. v. C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3501_97960_i3cj7sfj7h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MÜNSTERSCHWARZACH a/Main / während der Demolirung 1825",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "jjqunvscct3n9oz"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit einer Illustration s. Graphik INr 97960, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Ich glaube, daß es jedem Nachsinnenden eine wahre, nicht unbedeutende Wohlthat sey, wenn er auf seinen Wanderungen durch das Vaterland hie und da auf irgend einen Gegenstand stößt, welcher ihm neuen Stoff zum Denken",
+      "language": [],
+      "musenalm_id": 97961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Worte des Schmerzes bei'm Anblicke der Zer- / störung der herrlichen Kirche zu Münster- / schwarzach, am Main",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Worte des Schmerzes bei'm Anblicke der Zer- / störung der herrlichen Kirche zu Münster- / schwarzach, am Main",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "bfl9cil0bcdj1ia"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Von Gottesgnaden Wir Philipps Landgraff zu Hessen, Graf zu Catzenelbogen, Dietz, Ziegenhain und Nidda, etc Fügen allen und jeden unsern Beampten und Unterthanen, Geystlichs und Weltlichen Stands zuwissen,",
+      "language": [],
+      "musenalm_id": 97962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Landgraf Philipp's des jüngern von Hessen / Beschränkung des Aufwandes bei Hochzei- / ten, Taufen und Begräbnissen. Eine Verordnung vom Jahre 1613",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Landgraf Philipp's des jüngern von Hessen / Beschränkung des Aufwandes bei Hochzei- / ten, Taufen und Begräbnissen. Eine Verordnung vom Jahre 1613",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "gbahkgqstqvus8b"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Unter die sehr seltenen Druckschriften dieser Periode gehört folgende: Das Babsttum mit seinen gliedern gemalet und beschryben gebessert und gemehrt. 1526. 4. (Auf dem Titelblatt ein gut gearbeiteter Holzschnitt, den Papst vorstellend.)",
+      "language": [],
+      "musenalm_id": 97963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Nachricht von einer merkwürdigen Druckschrift / aus dem Reformations- Zeitalter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Nachricht von einer merkwürdigen Druckschrift / aus dem Reformations- Zeitalter",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.352Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "82g5n2oymu3x0jb"
+        }
+      ],
+      "source_id": "ojol0vpzkwieh7y"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm. /) mit einer Illustration s. Graphik INr 97965, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Der erste Ursprung der Stadt Melsungen oder Milsungen, welche gegenwärtig der Sitz der Kreisbehörde und der Hauptort des Amtes ist - wird von Einigen dem Kaiser Karl dem Großen zugeschrieben,",
+      "language": [],
+      "musenalm_id": 97964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Einige Nachrichten von der Niederhessischen / Stadt Melsungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Einige Nachrichten von der Niederhessischen / Stadt Melsungen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "b7i9h1ln2unnlvn"
+    },
+    {
+      "annotation": "Illustration zu »Einige Nachrichten von der Niederhessischen Stadt Melsungen« von *** INr 97964, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht der Brücke zu MILSUNGEN über die Fulda; erbaut 1596",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3501_97965_fc8djexz8v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht der Brücke zu MILSUNGEN über die Fulda; erbaut 1596",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "ixq7t0kbs5hvcxz"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm /) Einleitung zum Beitrag INr 97967, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Das Verhältniß des deutschen Ordens zu dem Hause Hessen war nicht immer das erfeulichste. Zur Zeit des dreißigjährigen Krieges hatte die Ordens-Ballei Hessen, besonders unter den Landkommenthuren Konrad Clos und Georg Daniel von Habel, harte Drangsale,",
+      "language": [],
+      "musenalm_id": 97966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Reskript Landgr. Georg's II. von Hessen- / Darmstadt, die Sistirung eines deutschen Ordens-Predigers zur Prüfung bei der theol. / Fakultät zu Marburg betreffend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Reskript Landgr. Georg's II. von Hessen- / Darmstadt, die Sistirung eines deutschen Ordens-Predigers zur Prüfung bei der theol. / Fakultät zu Marburg betreffend",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.821Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.821Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "gigfikxh9p3oxye"
+        }
+      ],
+      "source_id": "vis7dztuweff8cu"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm /) mit einer Einleitung s. INr 97966, Obj 55",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Veste und Hochgelahrte Räthe und libe getrewe. Wir seind berichtet worden, alß unser Professor und iziger Decanus der Theologischen Facultät zu Marpurgk und liber getrewer, D. Johann Heinrich Tonsor,",
+      "language": [],
+      "musenalm_id": 97967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[6. Reskript Landgr. Georg's II. von Hessen- Darmstadt, die Sistirung eines deutschen Ordens-Predigers zur Prüfung bei der theol. Fakultät zu Marburg betreffend] Von Gottes Gnaden Georg Landgraf zu Hessen, Graf zu Catzenelnbogen etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[6. Reskript Landgr. Georg's II. von Hessen- Darmstadt, die Sistirung eines deutschen Ordens-Predigers zur Prüfung bei der theol. Fakultät zu Marburg betreffend] Von Gottes Gnaden Georg Landgraf zu Hessen, Graf zu Catzenelnbogen etc",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxze4629m806r8i"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Noverint universi et singuli Christi fideles praesentem paginam inspecturi, quod anno Dmi. millesimo centesimo nonagesimo,",
+      "language": [],
+      "musenalm_id": 97968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Abschrift einer alten Urkunde, die Stiftung / des deutschen Hauses und die St. Elisa- / beth-Kirche zu Marburg betreffend, welche / in der Pfarr-Repositur zu Gemünden be- / findlich ist.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Abschrift einer alten Urkunde, die Stiftung / des deutschen Hauses und die St. Elisa- / beth-Kirche zu Marburg betreffend, welche / in der Pfarr-Repositur zu Gemünden be- / findlich ist.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.762Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "o9xe5f8cyeosarm"
+        }
+      ],
+      "source_id": "61n4i0oqm7x53bw"
+    },
+    {
+      "annotation": "Sammlung von 5 Beträgen INr 97970-97975, Obj 59-63 /) Miszellen (Sammlung INr 97958, Obj 47) mit Anm",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Kleine Notizen, Anfragen, Bemerkungen und / Zusätze zu den frühern Jahrgängen der / Vorzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Kleine Notizen, Anfragen, Bemerkungen und / Zusätze zu den frühern Jahrgängen der / Vorzeit",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.762Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "syaqui5rlc79hlt"
+        }
+      ],
+      "source_id": "epdy3bhdlzprb5o"
+    },
+    {
+      "annotation": "8. Kleine Notizen, Anfragen, Bemerkungen und Zusätze zu den frühern Jahrgängen der Vorzeit (Sammlung INr 97969, Obj 58) Miszellen (Sammlung INr 97958, Obj 47) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Im Allgemeinen Anzeiger der Deutschen (Nro. 344.) wurde die Frage aufgeworfen: welches wohl der richtige Ursprung dieses Namens sey?",
+      "language": [],
+      "musenalm_id": 97970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "a) / Noch etwas über den Ursprung des Ausdrucks: / deutscher Michel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "a) / Noch etwas über den Ursprung des Ausdrucks: / deutscher Michel",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.762Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "on5t2hsvl4tb2xn"
+        }
+      ],
+      "source_id": "v7wpru5qvkro3fy"
+    },
+    {
+      "annotation": "8. Kleine Notizen, Anfragen, Bemerkungen und Zusätze zu den frühern Jahrgängen der Vorzeit (Sammlung INr 97969, Obj 58) mit Anm. /) Miszellen (Sammlung INr 97958, Obj 47) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "In der Sakristei der St. Elisabeth-Kirche hängt an der Wand, hinter dem eisernen Gitter, welches das Begräbnißdenkmal der heil. Elisabeth umschließt, ein ungewöhnlich-großer eiserner Schlüssel von seltsamer Form",
+      "language": [],
+      "musenalm_id": 97971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "b) / Zwei sonderbare Schlüssel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "b) / Zwei sonderbare Schlüssel",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.762Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "2hggzp8dsb3gj5f"
+        }
+      ],
+      "source_id": "v2pxkxrwhay663a"
+    },
+    {
+      "annotation": "8. Kleine Notizen, Anfragen, Bemerkungen und Zusätze zu den frühern Jahrgängen der Vorzeit (Sammlung INr 97969, Obj 58) Miszellen (Sammlung INr 97958, Obj 47) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "In den kriegsgeschichtlichen Denkwürdigkeiten des Ordens-Haupthauses und der Stadt Marienburg, in Westpreußen. (Danzig 1824.) findet man Seite 84-87 auch ein Verzeichniß des deutschen Ordens",
+      "language": [],
+      "musenalm_id": 97972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "c) / Bemerkungen zur Vorzeit, J. 1821. S. 129 fg.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "c) / Bemerkungen zur Vorzeit, J. 1821. S. 129 fg.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.762Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "48ndbheqj9lotuh"
+        }
+      ],
+      "source_id": "1mmt2u372owjfhe"
+    },
+    {
+      "annotation": "8. Kleine Notizen, Anfragen, Bemerkungen und Zusätze zu den frühern Jahrgängen der Vorzeit (Sammlung INr 97969, Obj 58) Miszellen (Sammlung INr 97958, Obj 47) mit 2 Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "Die Kanonikations-Bulle Gregor's IX., die er 4 Jahre nach dem Tode der heiligen Elisabeth, bei Gelegenheit ihrer Heiligsprechung, erlassen hat, fängt mit den Worten an: Gloriosus in Majestate.",
+      "language": [],
+      "musenalm_id": 97974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "d) / Bemerkungen zur Vorzeit, J. 1823 S. 312, 313 / (Vergl. mit meiner Lebensbeschreibung der heil. Eli- / sabeth, Zürich 1797. S. 129, 161)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "d) / Bemerkungen zur Vorzeit, J. 1823 S. 312, 313 / (Vergl. mit meiner Lebensbeschreibung der heil. Eli- / sabeth, Zürich 1797. S. 129, 161)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.762Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "oqynrr52arwn4jm"
+        }
+      ],
+      "source_id": "i9xvkvl3tbfe542"
+    },
+    {
+      "annotation": "8. Kleine Notizen, Anfragen, Bemerkungen und Zusätze zu den frühern Jahrgängen der Vorzeit (Sammlung INr 97969, Obj 58) Miszellen (Sammlung INr 97958, Obj 47) mit 3 Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "Der, der Universität zu Marburg im J. 1629 vom Landgrafen Georg II. zu Darmstadt verehrte goldene Pokal wird gegenwärtig aufbewahrt.",
+      "language": [],
+      "musenalm_id": 97975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "e) / Bemerkungen zur Vorzeit, J. 1826 S. 73. u. 339",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "e) / Bemerkungen zur Vorzeit, J. 1826 S. 73. u. 339",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.640Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "a8djnvvwpncp9g9"
+        }
+      ],
+      "source_id": "qbu80jfp5a4md8f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9jq2oj52upvtjq"
+    },
+    {
+      "annotation": "# Bez. s. Textbezug INr 97924, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97977,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisabeth-Kapelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Organist Seibert zu Wittelsberg",
+      "scans": [
+        "alm_3501_97977_psn067gw8v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Elisabeth-Kapelle",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "b95et8o6gnkuvme"
+    }
   ],
   "agents": [
     {

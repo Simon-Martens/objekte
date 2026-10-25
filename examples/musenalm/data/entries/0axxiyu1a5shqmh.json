@@ -48,7 +48,26 @@
   "year": 1797,
   "editor": "",
   "items": [
-    "67swviw1s45qw19"
+    {
+      "annotation": "1797-1798.\nKartonierter Einband.\n1797: Mit Bl 2 und 248 SS.\nZusammengestellt von J.O. Thieß als Folgeerscheinung von Bahrdts Almanach.\n",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.594Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100317",
+      "location": "105E08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.594Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "67swviw1s45qw19"
+    }
   ],
   "contents": [],
   "agents": [

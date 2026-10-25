@@ -48,49 +48,1689 @@
   "year": 1817,
   "editor": "",
   "items": [
-    "l4xbr64e3epvet1"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200627",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "l4xbr64e3epvet1"
+    }
   ],
   "contents": [
-    "5swpxq4dubprhtj",
-    "avfmtuv90prdiy5",
-    "1x4nveb8z3y7aj4",
-    "mzz4yd49vd4hh4s",
-    "x1s8wmxa81vxvdg",
-    "0oiagh90yyti2ka",
-    "rku150yrztwcn44",
-    "c69cbymqto4zjq3",
-    "4ixsbfxusbxwfyz",
-    "eq5hpfk7lbjzhjn",
-    "qoc6kj1gy07lnm1",
-    "hrbn98kmz49sqep",
-    "pfjh3og14lpgo0n",
-    "oawz9dekf5kskh2",
-    "2i7no1lfe8l4usd",
-    "lwc8klxxwzvvhnv",
-    "0takw9tg0092o0t",
-    "4ui2w71br3vo8rw",
-    "8czn89mfaoy4iia",
-    "71bmf9suarlum8n",
-    "u5qbk1giv3znhgn",
-    "60ucb4bsjzr9l5x",
-    "lu4s90vcec59i56",
-    "xs92314sm54293v",
-    "4ftyw6o1fdvhghb",
-    "ndbfaei9zzvub5l",
-    "us93owegkowa1h1",
-    "75pnl2plsqupnh7",
-    "zuwsf7y01rkx2g2",
-    "j37kbac1axdf0sa",
-    "0tqdo3t863w2f6b",
-    "ihd7p8m1yjzis1j",
-    "o19wirklzyqsdsb",
-    "d9lskodx126r6h8",
-    "9zwesrst67vpl10",
-    "o88axowp1hrxtd2",
-    "vq9pl15ej7bl3mx",
-    "cjqe731nn88kula",
-    "9gsab9d9l6o8fmc",
-    "590u67u38d1kzba"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42272,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wasser-Schloss zu Djugocarta",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. G. A. Frenzel sc. Dresd.",
+      "scans": [
+        "alm_558_42272_6veiuu530c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wasser-Schloss zu Djugocarta",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.099Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "8723xpu071sg2ht"
+        }
+      ],
+      "source_id": "5swpxq4dubprhtj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42273,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "E. A. W. von ZIMMERMANNS / TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht / auf Länder- Völker- und Productenkunde. / Fortgesetzt / von / F. RÜHS und H. LICHTENSTEIN, / Professoren an der Universität zu Berlin. / Dreizehnter Jahrgang / oder / siebenzehntes Bändchen. / Mit 14 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng. / 1817",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42273_f7zk6q78gz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "E. A. W. von ZIMMERMANNS / TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht / auf Länder- Völker- und Productenkunde. / Fortgesetzt / von / F. RÜHS und H. LICHTENSTEIN, / Professoren an der Universität zu Berlin. / Dreizehnter Jahrgang / oder / siebenzehntes Bändchen. / Mit 14 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng. / 1817",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "avfmtuv90prdiy5"
+    },
+    {
+      "annotation": "Vorwort der Herausgeber",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Aufgefordert durch den Herrn Verleger haben wir die Fortsetzung des Zimmermannschen Taschenbuchs der Reisen übernommen, das sich einen so ausgebreiteten Beifall in der deutschen Lesewelt erworben hat.",
+      "language": [],
+      "musenalm_id": 42274,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rühs. Lichtenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.099Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "br10mr02kqnrcao"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.099Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "hn70o3xay3ily17"
+        }
+      ],
+      "source_id": "1x4nveb8z3y7aj4"
+    },
+    {
+      "annotation": "Photos 42275,01-42275,04",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42275,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42275_01_cb2g3h9r01.jpg",
+        "alm_558_42275_02_65drs2ircf.jpg",
+        "alm_558_42275_03_hx4lg6v2re.jpg",
+        "alm_558_42275_04_hhbhmejzkk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "mzz4yd49vd4hh4s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42276,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1s8wmxa81vxvdg"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der mächtige Zug des Oceans, der, allen Ansichten der heutigen Gestaltung der Oberfläche unsrere Erde nach zu urtheilen, von Süden nach Norden andrang,",
+      "language": [],
+      "musenalm_id": 42277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Lake-diven und Mal-diven",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Lake-diven und Mal-diven",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.099Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ysfxcsrnn4xzrph"
+        }
+      ],
+      "source_id": "0oiagh90yyti2ka"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Thorne's Werk",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Meerkokos; die Maledivische Nuss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42278_l4kqmuftt4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Meerkokos; die Maledivische Nuss",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "rku150yrztwcn44"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Die Maldiver sehen einige englische Schriftsteller für ein Gemisch der Hindus und Araber an.",
+      "language": [],
+      "musenalm_id": 42279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Lake-diven und Mal-diven] Der Mensch",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Lake-diven und Mal-diven] Der Mensch",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "hg4tk6r6301ekls"
+        }
+      ],
+      "source_id": "c69cbymqto4zjq3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Wir treten jetzt ein in den üppigsten Blumen und Fruchtgarten der alten Welt.",
+      "language": [],
+      "musenalm_id": 42280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Indische Archipel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Indische Archipel",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "9tbdoxilwhqbhnt"
+        }
+      ],
+      "source_id": "4ixsbfxusbxwfyz"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Bei der Fahrt in diesem Archipel bietet sich dann zuförderst von jener ersten Hauptabtheilung der darinn enthaltenen Länder, von den Sund-Inseln, die große, am weitesten nach Westen hingestreckte Insel Sumatra dar.",
+      "language": [],
+      "musenalm_id": 42281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sumatra",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sumatra",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "5ld3e2lx1uj0ris"
+        }
+      ],
+      "source_id": "eq5hpfk7lbjzhjn"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Was liefert nun ein so schön gelegenes, und so treflich bewässertes Land für Produkte?",
+      "language": [],
+      "musenalm_id": 42282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Sumatra] Produkte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Sumatra] Produkte",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "th4r4t4axya1hoz"
+        }
+      ],
+      "source_id": "qoc6kj1gy07lnm1"
+    },
+    {
+      "annotation": "paginiert: XIII. Jhrg. S. 66 /) lt. G-Verz: aus Shaw's Zoology d.i.: Zoology and botany of New Holland and the isles adjacent the zoological part by George Shaw ; the botanical part by James Edward Smith; London 1794",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Babirussa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42283_612p3nuc9f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Babirussa",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "hrbn98kmz49sqep"
+    },
+    {
+      "annotation": "paginiert: XIII Jhrg. S. 69 /) # lt. G-Verz: aus den Verhandlungen der batavia'schen Gesellschaft",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Langnasiger Affe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42284_zyqsy6yxup.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Langnasiger Affe",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "pfjh3og14lpgo0n"
+    },
+    {
+      "annotation": "paginiert: XIII. Jhrg. S. 73. a /) # lt. G-Verz: aus den Abhandlungen der Akad. D. Wissensch. Zu Stockholm",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Salangane / (Hirundo fuciphaga Thunb.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. del.",
+      "scans": [
+        "alm_558_42285_30ngvld14g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Salangane / (Hirundo fuciphaga Thunb.)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "ufbepql5sob292z"
+        }
+      ],
+      "source_id": "oawz9dekf5kskh2"
+    },
+    {
+      "annotation": "paginiert: XIII. Jhrg. S. 73. b.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Essbare Nester der Salangane",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42286_g1svdn0zou.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Essbare Nester der Salangane",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "2i7no1lfe8l4usd"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Wenn wir, wie in den vorigen Theilen dieser Arbeit, die Einwohner auch hier in Urbewohner und Eingewanderte oder Fremde eintheilen,",
+      "language": [],
+      "musenalm_id": 42287,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Sumatra] Der Mensch",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "v. Z.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Sumatra] Der Mensch",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "86u54lwwaasth5e"
+        }
+      ],
+      "source_id": "lwc8klxxwzvvhnv"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "So lange die Holländer sich als das erste handelnde Volk behaupteten, war die Insel die bedeutendste und merkwürdigste:",
+      "language": [],
+      "musenalm_id": 42288,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Java",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Java",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "netfej6ykj83pv8"
+        }
+      ],
+      "source_id": "0takw9tg0092o0t"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Desto reicher ist Java an Pflanzen und Thieren, und zwar nicht nur in Hinsicht auf die Menge der Arten und Individuen,",
+      "language": [],
+      "musenalm_id": 42289,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Java] Vegetabilische Natur #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Java] Vegetabilische Natur #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "sp9ppelkvwq4c6g"
+        }
+      ],
+      "source_id": "4ui2w71br3vo8rw"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Bei dem Dunkel, von welchem die ältere Geschichte Ostindiens umhüllt ist und bei der Menge von unvollständigen, und oft irrigen Angaben über die Thiere,",
+      "language": [],
+      "musenalm_id": 42290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Java] Die Thiere Java's #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Java] Die Thiere Java's #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.937Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "jwxwfxgolm0glxy"
+        }
+      ],
+      "source_id": "8czn89mfaoy4iia"
+    },
+    {
+      "annotation": "lt. G-Verz: aus den Spicilegiis zoolgicis von Pallas d.i.:  Pallas, Peter Simon: Spicilegia zoologica, Berl. 1767–1804, 2 Bde",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42291,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Taguan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42291_j59ebd9adh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Taguan",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "71bmf9suarlum8n"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Piso's Historia utriusque Indiae",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42292,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Wasser-Schuppenthier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42292_52xdoca6r7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Wasser-Schuppenthier",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "u5qbk1giv3znhgn"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Daß eine so reiche Flora, wie die javanische ist, theils unmittelbar, teils durch die Insecten, welche sie erzeugt, eine große Anzahl von Vögel ernähren müsse, läßt sich leicht schließen.",
+      "language": [],
+      "musenalm_id": 42293,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Merkwürdige Vögel #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Merkwürdige Vögel #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.937Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "qyfj26mob7p2j7i"
+        }
+      ],
+      "source_id": "60ucb4bsjzr9l5x"
+    },
+    {
+      "annotation": "lt. G-Verz aus: Le Vaillant: Histoire naturelle des Promerops et des Guèpiers d.i.: Le Vaillant, Francois: Histoire Naturelle des Oiseaux de Paradis et des Rolliers suivie de celle des Toucans et des Barbus, 2 vols, Paris (Denné & Perlet): 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42294,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Die Krontaube / 2. Der grösste Honigsauger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42294_j2uk1v9wwr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. Die Krontaube / 2. Der grösste Honigsauger",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "lu4s90vcec59i56"
+    },
+    {
+      "annotation": "lt. G-Verz aus: aus Stavorinus Reisen",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42295,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht der Kirche in Batavia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. A. Frenzel fec. Dresdae",
+      "scans": [
+        "alm_558_42295_43e3un6rrz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht der Kirche in Batavia",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.937Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "4d3h3626ww6cufu"
+        }
+      ],
+      "source_id": "xs92314sm54293v"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Nieuhofs Zee en Land-Reizen d.i.: Nieuhof, Johan f: Zee- en Lant-Reise door verscheide Gewesten van Oostindien, behelzende veele zeldzaame en wonderlijke voorvallen en geschiedenissen. Beneffens een beschrijving van lantschappen, dieren, gewassen, draghten, zeden en godsdienst der inwoonders: E inzonderheit een wijtloopig verhael der Stad Batavia. Amsterdam: de Weduwe van Jacob van Meurs, 1682",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42311,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gouverneur-Haus in Batavia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. A. Frenzel sc. Dresd.",
+      "scans": [
+        "alm_558_42311_oyx5mw427g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gouverneur-Haus in Batavia",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "ymo5u79fzrpwrde"
+        }
+      ],
+      "source_id": "4ftyw6o1fdvhghb"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Thorne's Werk",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42296,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht des Stadthauses in Batavia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frenzel sc. Dresdae",
+      "scans": [
+        "alm_558_42296_n49152h24q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht des Stadthauses in Batavia",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "yy7r91qvudf7i13"
+        }
+      ],
+      "source_id": "ndbfaei9zzvub5l"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Die Bevölkerung der Insel ist sehr schwankend und es ist wohl ausgemacht, daß sie in den ältern Berichten sehr übertrieben ist",
+      "language": [],
+      "musenalm_id": 42297,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bevölkerung. Einwohner. A. Die Javaner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bevölkerung. Einwohner. A. Die Javaner",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "m7fa4o83s65qb0h"
+        }
+      ],
+      "source_id": "us93owegkowa1h1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42298,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ronguine oder Tänzerin von Java",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42298_bjrywzfxpd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ronguine oder Tänzerin von Java",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "75pnl2plsqupnh7"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Die Malayen scheinene früh mit Java in Verbindung gestanden zu haben und es ist höchst wahrscheinlich, daß die ganze höhere Cultur, die sie besitzen, von dem Umgange mit den Javanern stammt.",
+      "language": [],
+      "musenalm_id": 42299,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Bevölkerung.] B. Ankömmlinge. Malayen. Sklaven / verschiedener Art. Sinesen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Bevölkerung.] B. Ankömmlinge. Malayen. Sklaven / verschiedener Art. Sinesen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "e31gtoaeklvf6pe"
+        }
+      ],
+      "source_id": "zuwsf7y01rkx2g2"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Nieuhofs Reisen d.i.: Nieuhof, Johan: Zee- en Lant-Reise door verscheide Gewesten van Oostindien, behelzende veele zeldzaame en wonderlijke voorvallen en geschiedenissen. Beneffens een beschrijving van lantschappen, dieren, gewassen, draghten, zeden en godsdienst der inwoonders: E inzonderheit een wijtloopig verhael der Stad Batavia. Amsterdam: de Weduwe van Jacob van Meurs, 1682",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42300,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Malaier, wie sie sich in Java kleiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_558_42300_4x46nqzo2q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Malaier, wie sie sich in Java kleiden",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "j37kbac1axdf0sa"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Unter den Europäern auf Java befinden sich Menschen aus allen Völkern; die Holländer selbst machen bei weitem den geringsten Theil aus: am zahlreichsten sind die Deutschen",
+      "language": [],
+      "musenalm_id": 42301,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Bevölkerung.] C. Die Europäer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Bevölkerung.] C. Die Europäer",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "0tqdo3t863w2f6b"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Die Holländer hatten bei ihren Niederlassungen nur den Gesichtspunct, sich den Handel ausschließend vorzubehalten,",
+      "language": [],
+      "musenalm_id": 42302,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die politischen Verhältnisse: neueste / Geschichte; Verwaltung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die politischen Verhältnisse: neueste / Geschichte; Verwaltung",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "pe8g4eksmqhfkpb"
+        }
+      ],
+      "source_id": "ihd7p8m1yjzis1j"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Der eigentliche Gründer der holländischen Macht in Indien ist Jan Peterszen Koen (Kuhn), der im J. 1619 den Grund zu Batavia legte",
+      "language": [],
+      "musenalm_id": 42303,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zustand der holländischen Besitzungen #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zustand der holländischen Besitzungen #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.278Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "vihnsv0mzmqyhxa"
+        }
+      ],
+      "source_id": "o19wirklzyqsdsb"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Aus dieser Darstellung wird sich die große Wichtigkeit Java's ergeben:",
+      "language": [],
+      "musenalm_id": 42304,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wichtigkeit Java's für den Handel. Allgemeine Ansichten #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wichtigkeit Java's für den Handel. Allgemeine Ansichten #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.278Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "viqd85rgm725c24"
+        }
+      ],
+      "source_id": "d9lskodx126r6h8"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Nördlich von Java mitten zwischen Sumatra und Celebes liegt Borneo, nach der Bezeichnung der Europäer, mit Ausschluß von Neuholland das größte Eiland auf der Erde;",
+      "language": [],
+      "musenalm_id": 42305,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Borneo",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Borneo",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.197Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "enwf6we55c52jr5"
+        }
+      ],
+      "source_id": "9zwesrst67vpl10"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Sehr dürftig ist unsre Kenntniß von den Pflanzen und Thieren dieser großen Insel",
+      "language": [],
+      "musenalm_id": 42306,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Borneo] Naturproducte, Pflanzen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Borneo] Naturproducte, Pflanzen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.198Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "t1daptvcaoxd6w3"
+        }
+      ],
+      "source_id": "o88axowp1hrxtd2"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Suchen wir nun das, was die Reisenden in zerstreuten Bruchstücken von den Thieren Borneo's erzählen, zu einer allgemeinen Vorstellung zu sammeln,",
+      "language": [],
+      "musenalm_id": 42307,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Borneo] Thiere, Wilde Ochsen, Hirscharten, Pflanzen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Borneo] Thiere, Wilde Ochsen, Hirscharten, Pflanzen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.198Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "v18xizqbleajn36"
+        }
+      ],
+      "source_id": "vq9pl15ej7bl3mx"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "Unsre Nachrichten über die Einwohner dieses großen Eilandes sind sehr unvollkommen,",
+      "language": [],
+      "musenalm_id": 42308,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Borneo] Die Einwohner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Borneo] Die Einwohner",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "ivryvxkv3tkmo9a"
+        }
+      ],
+      "source_id": "cjqe731nn88kula"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42309,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserungen und Nachträge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserungen und Nachträge",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "9gsab9d9l6o8fmc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42310,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herabgesetzte Preise / von / englischen Büchern / welche noch bis Ende des Jahres 1817 / in allen Buchhandlungen zu haben / sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herabgesetzte Preise / von / englischen Büchern / welche noch bis Ende des Jahres 1817 / in allen Buchhandlungen zu haben / sind",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "590u67u38d1kzba"
+    }
   ],
   "agents": [
     {

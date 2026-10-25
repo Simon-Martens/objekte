@@ -48,12 +48,133 @@
   "year": 1829,
   "editor": "",
   "items": [
-    "12c8lq7v95q5xgy"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.647Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405639",
+      "location": "105A04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.647Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "12c8lq7v95q5xgy"
+    }
   ],
   "contents": [
-    "nu90c3skkjjfzsz",
-    "4289250mdz4vrny",
-    "k187x606dfao9wb"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2704_118802_nut3l7qnvh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "nu90c3skkjjfzsz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Titel]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2704_121607_pdfv13rk5s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "4289250mdz4vrny"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2704_121608_24curn8k94.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "k187x606dfao9wb"
+    }
   ],
   "agents": [
     {

@@ -48,11 +48,97 @@
   "year": 1779,
   "editor": "",
   "items": [
-    "zpl7q676t35rqxy"
+    {
+      "annotation": "Zwei Abtlg in einem Nr 100659-106793",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.653Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106793",
+      "location": "105E04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.653Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zpl7q676t35rqxy"
+    }
   ],
   "contents": [
-    "s74mkh91oaoqqvn",
-    "vm2325wu7gr671d"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134153,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Dichter und Dichterfreunde. / Neunte Abtheilung. / Leipzig, / in der Dyckischen Buchhandlung. / 1778",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2747_134153_t33qxeahrl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Dichter und Dichterfreunde. / Neunte Abtheilung. / Leipzig, / in der Dyckischen Buchhandlung. / 1778",
+      "updated": "2010-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1779,
+      "editor": "",
+      "agents": [],
+      "source_id": "s74mkh91oaoqqvn"
+    },
+    {
+      "annotation": "Photos 134154,01-134154,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 134154,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2747_134154_01_kz1ig8gl2f.jpg",
+        "alm_2747_134154_02_uhxg35obs9.jpg",
+        "alm_2747_134154_03_d9s4iqyxrg.jpg",
+        "alm_2747_134154_04_uo6p250gln.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Gedichte",
+      "updated": "2010-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1779,
+      "editor": "",
+      "agents": [],
+      "source_id": "vm2325wu7gr671d"
+    }
   ],
   "agents": [
     {

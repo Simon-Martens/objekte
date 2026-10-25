@@ -48,7 +48,26 @@
   "year": 1888,
   "editor": "",
   "items": [
-    "3ltmqc4dnnft41w"
+    {
+      "annotation": "Fortsetzung von: Almanach für Freunde der Schauspielkunst (Wolff) 1836-1853 (Hrsg: L. Wolff u. A. Heinrich)",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.631Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106524",
+      "location": "105N07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.631Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3ltmqc4dnnft41w"
+    }
   ],
   "contents": [],
   "agents": [

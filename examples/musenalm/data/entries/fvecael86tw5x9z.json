@@ -49,7 +49,26 @@
   "year": 1873,
   "editor": "",
   "items": [
-    "6okyhlclgyas2fe"
+    {
+      "annotation": "zus. mit 1867 <br> s.a.: Novellen-Almanach, Illustrierter 1871 und Novellen-Almanach 1867",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.605Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "110578",
+      "location": "107K06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.605Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6okyhlclgyas2fe"
+    }
   ],
   "contents": [],
   "agents": [

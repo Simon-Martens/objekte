@@ -48,7 +48,26 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "9eywz30cv4cohxb"
+    {
+      "annotation": "1781-1796.\nKartonierter Einband.\n1794: (K: Port 1) Mit Tab 2 und 288 SS. \nBei allen Jg 1787-1795 fehlt S 15-16 Inhalt ist aber komplett. ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.542Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100093",
+      "location": "105O06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.542Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9eywz30cv4cohxb"
+    }
   ],
   "contents": [],
   "agents": [

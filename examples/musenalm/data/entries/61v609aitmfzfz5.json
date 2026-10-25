@@ -48,27 +48,711 @@
   "year": 1816,
   "editor": "",
   "items": [
-    "j8aavn75ue0wew2"
+    {
+      "annotation": "1816, wiederholt 1817",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.550Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200598",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.550Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "j8aavn75ue0wew2"
+    }
   ],
   "contents": [
-    "ymvjjg56ojl7c2c",
-    "5li9m2w4ilnnmlr",
-    "b3geuosathq217n",
-    "hupuroai6ue3kgw",
-    "gjsf7dhpjnerxk3",
-    "5thh66pjryqhxay",
-    "7po3d63xt2olxpt",
-    "an0n88wamwhv0jw",
-    "s6leozk4ivnli9n",
-    "m56kg3kmoc1p8sk",
-    "hpikkwj9cy32hnt",
-    "wce7142l16qxai4",
-    "1vzt95tirvwf0nu",
-    "kizo38oo6mdp0pz",
-    "h0fw6320a3qygzx",
-    "1ae2w478smrqgok",
-    "wan5r2gykyiakhb",
-    "6vbzzheo7szspey"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78136,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78136_rypmgpmebh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "ymvjjg56ojl7c2c"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Scheintoten« von Th. H. Friedrich INr 78149, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78137,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Scheintodten / »Prosit Herr Bruder!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78137_v0p3vqg6zq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Scheintodten / »Prosit Herr Bruder!«",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "5li9m2w4ilnnmlr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78138,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / lustiger / Schwänke / für die Bühne, / herausgegeben / von / T. H. Friedrich. / (Verfasser der satyrischen Feldzüge.) / Mit trefflichen Kupferstichen, / durch treue Abbildung bekannter Personen doppelt anziehend. / Berlin 1816, / in der Maurerschen Buchhandlung. / (Poststraße Nr. 29.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78138_l18fxwhlr0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / lustiger / Schwänke / für die Bühne, / herausgegeben / von / T. H. Friedrich. / (Verfasser der satyrischen Feldzüge.) / Mit trefflichen Kupferstichen, / durch treue Abbildung bekannter Personen doppelt anziehend. / Berlin 1816, / in der Maurerschen Buchhandlung. / (Poststraße Nr. 29.)",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "b3geuosathq217n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.524Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78139,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "hupuroai6ue3kgw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.524Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die gestrenge Meisterin Kritik wird diese Erezugnisse meiner Muse nicht als schulgerechte Lustspiele gelten lassen. Immerhin! so mögen sie als Schwänke in die Welt gehen, welche keinen andern Zweck als den der Erheiterung und Belustigung haben.",
+      "language": [],
+      "musenalm_id": 78140,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.868Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.868Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "3ncuth56hrp1u5e"
+        }
+      ],
+      "source_id": "gjsf7dhpjnerxk3"
+    },
+    {
+      "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78142, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.524Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Laß sehen, was der Herr Oheim weiter schreibt. Auch sollst du den Studiis fleißiger obliegen! Curioser Einfall!",
+      "language": [],
+      "musenalm_id": 78141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Studentenpfiffe. / Ein Lustspiel in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Studentenpfiffe. / Ein Lustspiel in zwei Aufzügen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.868Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.868Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "p4luyd9vhlndtbr"
+        }
+      ],
+      "source_id": "5thh66pjryqhxay"
+    },
+    {
+      "annotation": "Illustration zu »Studentenpfiffe« von Th. H. Friedrich INr 78141, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.525Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Studentenpfiffe. / Wenn ich nicht Ich selbst bin, wer wär ich denn schon?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78142_wbl0zapksy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Studentenpfiffe. / Wenn ich nicht Ich selbst bin, wer wär ich denn schon?",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "7po3d63xt2olxpt"
+    },
+    {
+      "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78144, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Gottlob! da sehn wir ja Hamburgs Palläste, / Und sitzen im Gasthof zum warmen Neste.",
+      "language": [],
+      "musenalm_id": 78143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Schnauz. / Ein Schwank in Einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hans Schnauz. / Ein Schwank in Einem Aufzuge",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.739Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "ejnjftu5wjk4sy8"
+        }
+      ],
+      "source_id": "an0n88wamwhv0jw"
+    },
+    {
+      "annotation": "Illustration zu »Hans Schnauz. Ein Schwank in Einem Aufzuge« von Th. H. Friedrich INr 78143, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Schnauz / Und wenn wir den Alten recht sicher gemacht, / Entführ ich dich englisches Mädchen bey Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78144_lskodob6ht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hans Schnauz / Und wenn wir den Alten recht sicher gemacht, / Entführ ich dich englisches Mädchen bey Nacht",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "s6leozk4ivnli9n"
+    },
+    {
+      "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78146, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Wann, gnädige Frau! werden sich endlich diese Rosenlippen öffnene, um durch ein einziges Wörtchen mich in den Himmel zu zaubern?",
+      "language": [],
+      "musenalm_id": 78145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aetsch! Aetsch! / oder / die Prüfungen. / Ein Lustspiel in Einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aetsch! Aetsch! / oder / die Prüfungen. / Ein Lustspiel in Einem Aufzuge",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.739Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "w7hoa3auyf695ji"
+        }
+      ],
+      "source_id": "m56kg3kmoc1p8sk"
+    },
+    {
+      "annotation": "Illustration zu »Aetsch! Aetsch! oder die Prüfungen. Ein Lustspiel in Einem Aufzuge« von Th. H. Friedrich INr 78145, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Prüfungen. / Ätsch! Ätsch!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78146_ud6c77zylx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Prüfungen. / Ätsch! Ätsch!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "hpikkwj9cy32hnt"
+    },
+    {
+      "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78148, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Da bin ich wieder. / Nun was hast du ausgekundschaftet? / So eben ist in dem gräflichen Schlosse ein Brief angekommen, der große Bestürzung verbreitet hat.",
+      "language": [],
+      "musenalm_id": 78147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geist / oder / die unterbrochene Theaterprobe. / Ein Schwank in Einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Geist / oder / die unterbrochene Theaterprobe. / Ein Schwank in Einem Aufzuge",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "cbvy86yg16gqm0c"
+        }
+      ],
+      "source_id": "wce7142l16qxai4"
+    },
+    {
+      "annotation": "Illustration zu »Der Geist oder die unterbrochene Theaterprobe. Ein Schwank in Einem Aufzuge« von Th. H. Friedrich INr 78147, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geist. / Er lügt!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78148_ehyphns9cm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Geist. / Er lügt!",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "1vzt95tirvwf0nu"
+    },
+    {
+      "annotation": "# Bez. vom Titel /) mit einer Illustration s. Titelgraphik INr 78137, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Wenn sie nicht kämen! / O zweifle du, ewige Zweiflerin! der einzige Fall ist denkbar, daß ihnen der Obrist den Urlaub versagt hat.",
+      "language": [],
+      "musenalm_id": 78149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Scheintodten. / Ein Schwank in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Scheintodten. / Ein Schwank in zwei Aufzügen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.856Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.856Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "2xd0bivn164nqo6"
+        }
+      ],
+      "source_id": "kizo38oo6mdp0pz"
+    },
+    {
+      "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78151, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Nur herein, guter Freund! - setzt Euch! - Und nun erzählt! - aber ich bitte Euch: sprecht leise!",
+      "language": [],
+      "musenalm_id": 78150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / blonden Haarlocken / oder / das patriotische Mädchen. / Ein Schauspiel in Einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "T. H. Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / blonden Haarlocken / oder / das patriotische Mädchen. / Ein Schauspiel in Einem Aufzuge",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.905Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.905Z",
+          "agent": "ig1o98q79i5gv1i",
+          "source_id": "qw7vctfsq5h0elr"
+        }
+      ],
+      "source_id": "h0fw6320a3qygzx"
+    },
+    {
+      "annotation": "Illustration zu »Das patriotische Mädchen« von Th. H. Friedrich INr 78150, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das patriotische Mädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78151_yoe2jpc2v3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das patriotische Mädchen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ae2w478smrqgok"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78152,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / einiger Schriften für gebildete Leser, welche in der Ver- / lagshandlung verlegt und größten Theils neuerdings / erschienen sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / einiger Schriften für gebildete Leser, welche in der Ver- / lagshandlung verlegt und größten Theils neuerdings / erschienen sind",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "wan5r2gykyiakhb"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.072Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78153,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1351_78153_zcwornqu43.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1816,
+      "editor": "",
+      "agents": [],
+      "source_id": "6vbzzheo7szspey"
+    }
   ],
   "agents": [
     {

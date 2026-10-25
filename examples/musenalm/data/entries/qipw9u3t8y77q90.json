@@ -48,98 +48,3900 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "dfjt3fbghpciiti",
-    "ekzqzy9ntfl5xui"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen).\nKartonierter Einband.\n1823: (K:Ku 9, Bl 1, 25 SS, Bl 2 und 504 SS) Mit Ku1, Bl 6 und 504 SS.\n§1-16§ SS III-XXV mit 7 Gedichten von J. W. von Goethe und 7 Graphiken fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.497Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100333",
+      "location": "105Q10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.497Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "dfjt3fbghpciiti"
+    },
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.497Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "404362",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.497Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ekzqzy9ntfl5xui"
+    }
   ],
   "contents": [
-    "93koaf8p9pgyz6r",
-    "5exr3jlanf8zl8z",
-    "ia0j8n4aj4jj2k3",
-    "3bcjfeg84br3pw8",
-    "gmiwew3630edw7r",
-    "f09tledp4c87t4g",
-    "6p9qz6ea9hdkbhe",
-    "3npklgf7h09mkic",
-    "0iwhqb1bcuvcut2",
-    "r716ytlbxpjz1ve",
-    "x21qxzaasnnjwld",
-    "p4eyzrzwka2rib1",
-    "13wx24sxng7wko4",
-    "f6sqjdgelsu385u",
-    "rr8t4bbua0ltjwl",
-    "gxjfupihd6mq9bv",
-    "0a340y23jbpdtsp",
-    "nunq6sbwffkqol0",
-    "8vnucwq9lfkhuq4",
-    "qcv3oro1wg3cc8u",
-    "dcr19p23r2p6uli",
-    "z91n57j3bav288n",
-    "9bpnvqn2jnz0g7d",
-    "tw8uyy87eg2hew8",
-    "89l015ycv3ln1tj",
-    "avp27usn06s0mhk",
-    "algy05npz5dmc2k",
-    "4gu5xudvz6nmecd",
-    "eux41jp42d4xk7k",
-    "ujcfzixodrxtk2r",
-    "x9euobtoahzypdy",
-    "hwi6h3eem5wx7o4",
-    "doo6fxn2scdvp0q",
-    "g3ve9szir2598t1",
-    "9zu2uw1pvvt6v79",
-    "8we6mgfbfqm7x6s",
-    "x007s8g9b7w1jnz",
-    "2805booncl3i83n",
-    "qwq32ijoq5fdu80",
-    "fp3e5xhjwlz12m4",
-    "oh20239hswsoa6v",
-    "bjocxfdsp1d5hyv",
-    "u5hd6ice42mbjqn",
-    "sg2i9dgzby1jsao",
-    "9q5hjik1zbevw1j",
-    "qtwi4tdyhhia3eo",
-    "x3c7xf6ad4hvnj8",
-    "le00016wpueynb1",
-    "evqy8967oquw9p8",
-    "g4uoc4ly62hijq4",
-    "79s3cxx4ach6sm3",
-    "t0jb8q758weltrz",
-    "bybik4l1gbj7ocz",
-    "os882vxbqv8nuod",
-    "7f6mvbq6b5vy8ur",
-    "bpnygg56y1oed1h",
-    "qmpd3mxd8sydtkr",
-    "elfh9vmzxlnzif2",
-    "c8w73jvovta36ch",
-    "oh1jsvasdbqqx8e",
-    "8yc4javuqaxhzgo",
-    "xy6xjm8sdwyomya",
-    "6sm419l3x6hxq2c",
-    "akj0tjrzg79lggb",
-    "zavkuhzqmgvbnuu",
-    "2822qyzaihza2i5",
-    "czitp0p2d14btvq",
-    "ojvukl88ciawvg7",
-    "if9zh8eivvxakyu",
-    "tuy1mjtgarpwho3",
-    "9g9gmoykkn2z1ig",
-    "mouhjmiymczkenc",
-    "eef75xdd5ays05x",
-    "sn6h3qx6gnmtlh3",
-    "nka8e154bofhs8k",
-    "o4xa420qq575k7t",
-    "18vyk7u7t7ws5r8",
-    "nzdq5q7boptm2w7",
-    "a2j3pek8alevd65",
-    "8wairq33rqafula",
-    "hfto7xt2plow4h4",
-    "tpsounvhd3kedya",
-    "4z8nsvzbjql98ei",
-    "shmpkwb51se5agk",
-    "w6duxm1rjlfiqzk",
-    "si7jezwgkne0on6",
-    "qgl7k2j9plpjq7x",
-    "jx7arrqin21rtkj"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40467,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_527_40467_ppe4hmj4b4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.138Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "k1rrfy9it79ndrw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.137Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "y95giub2ichkzl7"
+        }
+      ],
+      "source_id": "93koaf8p9pgyz6r"
+    },
+    {
+      "annotation": "Titelgraphik. # Titel s. Textbezug INr 40471 Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Patronin der Kunst #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm",
+      "scans": [
+        "alm_527_40468_fo00ixgn6a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Patronin der Kunst #",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.138Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "40hgt7jaklhejku"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.138Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "c4b72bze6bkpegl"
+        }
+      ],
+      "source_id": "5exr3jlanf8zl8z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva. / Taschenbuch / für / das Jahr 1823. / Funfzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_527_40469_9recu60qm5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Minerva. / Taschenbuch / für / das Jahr 1823. / Funfzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "ia0j8n4aj4jj2k3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "3bcjfeg84br3pw8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40470,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "gmiwew3630edw7r"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 40467, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unser Taschenbuch gab in diesem Jahre der hohen Dame, von welcher es den Namen trägt, den ihr vor Allen gebührenden Ehrenplatz.",
+      "language": [],
+      "musenalm_id": 40471,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Patronin der Kunst. / Zur / Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Blumenhagen, Dr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Patronin der Kunst. / Zur / Erklärung des Titelkupfers",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.138Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "dquo8c5q07drs50"
+        }
+      ],
+      "source_id": "f09tledp4c87t4g"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten und 8 Graphiken INr 40473-40486, Obj 7-20, 60952, Obj 12,01",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40472,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie zu Goethe's Werken. Dritte Lieferung Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie zu Goethe's Werken. Dritte Lieferung Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "6p9qz6ea9hdkbhe"
+    },
+    {
+      "annotation": "Illustration zu »Der Rattenfänger« von J. W. von Goethe INr 40474, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40473,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Rattenfänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_527_40473_1gigv9ekxq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Rattenfänger",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "nvw9g8n4xvlgsob"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "yzfn2x0zhwgikyf"
+        }
+      ],
+      "source_id": "3npklgf7h09mkic"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40473, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ich bin der wohlbekannte Sänger, / Der vielgereis'te Rattenfänger,",
+      "language": [],
+      "musenalm_id": 40474,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Rattenfänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Rattenfänger",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "hozh2n952rx3s2h"
+        }
+      ],
+      "source_id": "0iwhqb1bcuvcut2"
+    },
+    {
+      "annotation": "Illustration zu »Philomele« von J. W. von Goethe INr 40476, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40475,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philomele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_527_40475_jcfkditpl1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Philomele",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "3ber3z26pntfa8p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "efuftw0uh4hx778"
+        }
+      ],
+      "source_id": "r716ytlbxpjz1ve"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40475, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Dich hat Amor gewiß, o Sängerin, fütternd erzogen; / Kindisch reichte der Gott dir mit dem Pfeile die Kost.",
+      "language": [],
+      "musenalm_id": 40476,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Philomele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Philomele",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "f7kwuroa8bjfgle"
+        }
+      ],
+      "source_id": "x21qxzaasnnjwld"
+    },
+    {
+      "annotation": "1. Illustration zu »Der neue Amor« von J. W. von Goethe INr 60952, Obj 12,01",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40477,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Amor 1. Bl.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_527_40477_9wq1vimapb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Amor 1. Bl.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "an6nhhev3xy4sni"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "auiwezsu6558oh4"
+        }
+      ],
+      "source_id": "p4eyzrzwka2rib1"
+    },
+    {
+      "annotation": "2. Illustration zu »Der neue Amor« von J. W. von Goethe INr 60952, Obj 12,01",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40478,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Amor 2. Bl.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_527_40478_90hrwuln0l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Amor 2. Bl.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "af09ndrqpmglp24"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.079Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "brao9cihtc7cl2x"
+        }
+      ],
+      "source_id": "13wx24sxng7wko4"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit zwei Illustrationen s. Graphiken INr 40477, 40478; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Amor, nicht das Kind, der Jüngling, der Psychen ver- / führte, / Sah im Olympus sich um, fech und der Siege ge- / wohnt,",
+      "language": [],
+      "musenalm_id": 60952,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der neue Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der neue Amor",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.938Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "wxv3ubh6gt26x7o"
+        }
+      ],
+      "source_id": "f6sqjdgelsu385u"
+    },
+    {
+      "annotation": "Illustration zu »Die Nektartropfen« von J. W. von Goethe INr 40480, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40479,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nectartropfen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Schwerdgeburth sc.",
+      "scans": [
+        "alm_527_40479_dxiqcrafa4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Nectartropfen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "766aqxgxh8wdufj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ffrcpiqze4zeqem"
+        }
+      ],
+      "source_id": "rr8t4bbua0ltjwl"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40479, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Als Minerva jenen Liebling, / Den Prometheus, zu begünst'gen, / Eine volle Nektarschale / Von dem Himmel niederbrachte,",
+      "language": [],
+      "musenalm_id": 40480,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nektartropfen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nektartropfen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "0i7za2c3qd6uap2"
+        }
+      ],
+      "source_id": "gxjfupihd6mq9bv"
+    },
+    {
+      "annotation": "Illustration zu »Recensent« von J. W. von Goethe INr 40482, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40481,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Recensent",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. Langer sc.",
+      "scans": [
+        "alm_527_40481_yj2cy12m40.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Recensent",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "89yn41704jz86v4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "wz6bb6w008nxz3h"
+        }
+      ],
+      "source_id": "0a340y23jbpdtsp"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40481, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Da hatt' ich einen Kerl zu Gast, / Er war mir eben nicht zur Last;",
+      "language": [],
+      "musenalm_id": 40482,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Recensent",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Recensent",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "emgs17ypxbw0o81"
+        }
+      ],
+      "source_id": "nunq6sbwffkqol0"
+    },
+    {
+      "annotation": "Illustration zu »Dilettant und Kritiker« von J. W. von Goethe INr 40484, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40483,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dilettant und Kritiker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. Langer sc.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dilettant und Kritiker",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "hawz2xq6ftqs8ll"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "ncv25tio4y7r2eq"
+        }
+      ],
+      "source_id": "8vnucwq9lfkhuq4"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40483, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Es hatt' ein Knab' eine Taube zart, / Gar schön von Farben und bunt,",
+      "language": [],
+      "musenalm_id": 40484,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dilettant und Kritiker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dilettant und Kritiker",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "4tdrmm52j1r2zsy"
+        }
+      ],
+      "source_id": "qcv3oro1wg3cc8u"
+    },
+    {
+      "annotation": "Illustration zu »Hochzeitlied« von J. W. von Goethe INr 40486, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40485,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hochzeitabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. & del. W. Jury fec.",
+      "scans": [
+        "alm_527_40485_p5oj72ko05.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hochzeitabend",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "pd7hgh48ys6ti2u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.080Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "pg49od6dbgfrukh"
+        }
+      ],
+      "source_id": "dcr19p23r2p6uli"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40485, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.244Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Wir singen und sagen vom Grafen so gern, / Der hier in dem Schlosse gehauset,",
+      "language": [],
+      "musenalm_id": 40486,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hochzeitlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hochzeitlied",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.020Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "giab9knzmwvp6su"
+        }
+      ],
+      "source_id": "z91n57j3bav288n"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 40488, 40489; Obj 22, 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.244Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Zwei Briefe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Heinrich Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Zwei Briefe",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.020Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "dcbu2w4jr19g7vy"
+        }
+      ],
+      "source_id": "9bpnvqn2jnz0g7d"
+    },
+    {
+      "annotation": "I. Zwei Briefe (Sammlung INr 40487, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Mein liebster Wieland, Sie werden durch tausend Zerstreuungen in Ihren Geschäften gestört, und ich in den meinigen durch körperliche Leiden.",
+      "language": [],
+      "musenalm_id": 40488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Wieland / Düsseldorf, den 27. Oct. 1772",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Heinrich Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Wieland / Düsseldorf, den 27. Oct. 1772",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "oajlj0ekeykdw3c"
+        }
+      ],
+      "source_id": "tw8uyy87eg2hew8"
+    },
+    {
+      "annotation": "I. Zwei Briefe (Sammlung INr 40487, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ich müßte bei Ihnen seyn, mein lieber Kobell, um Ihnen vernehmlich zu machen, wie lieb Sie mir in Ihrem Briefe vom 26. Jänner sind.",
+      "language": [],
+      "musenalm_id": 40489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Ferdinand Kobell zu Mannheim. / Düsseldorf, den 27. Febr. 1776",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Heinrich Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Ferdinand Kobell zu Mannheim. / Düsseldorf, den 27. Febr. 1776",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "02o1v7ogp6q644r",
+          "source_id": "8cw1vp1a0z8gbjk"
+        }
+      ],
+      "source_id": "89l015ycv3ln1tj"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 40491-4091, Obj 25-27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "fkrusu0chpeq140"
+        }
+      ],
+      "source_id": "avp27usn06s0mhk"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 40490, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Es war einmal ein frommes Weib / Im Langobardenlande.",
+      "language": [],
+      "musenalm_id": 40491,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Besuch nach dem Tode",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Besuch nach dem Tode",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "6in0cf70nj63t5f"
+        }
+      ],
+      "source_id": "algy05npz5dmc2k"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 40490, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Vollendet hat die Nacht den stillen Lauf, / Der Morgen fängt in Osten an zu tagen,",
+      "language": [],
+      "musenalm_id": 40492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Morgengemälde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Morgengemälde",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "gq7tiviua08f8cy"
+        }
+      ],
+      "source_id": "4gu5xudvz6nmecd"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 40490, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Sey mir gegrüßt, du freudenreiche Flur, / Du holdes Thal, durchwürzt von Frühlingslüften!",
+      "language": [],
+      "musenalm_id": 40493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Abendlandschaft im Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Abendlandschaft im Frühling",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "eux41jp42d4xk7k"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Weckt die Todten nicht! Die Todten bringen / Finsterniß wohl in den Erdentag; [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Willst du ewig schlafen? Nie erwachen, Geliebte? Ewig ausruh'n von deiner kurzen Wallfahrt auf Erden?",
+      "language": [],
+      "musenalm_id": 40494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Laßt die Todten ruhen. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Ernst Raupach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Laßt die Todten ruhen. / Ein Mährchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.074Z",
+          "agent": "uxyu52yd3v030gq",
+          "source_id": "310fnw8wy7y6r48"
+        }
+      ],
+      "source_id": "ujcfzixodrxtk2r"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Minerva 1822, INr 40399",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Welche Neuigkeit habe ich Ihnen zu berichten! Wer hätte das gedacht? Sie, meine Freundin, gewiß nicht, und ich bin versichert, daß Sie ebensosehr darüber erstaunen werden,",
+      "language": [],
+      "musenalm_id": 40495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Freundschaftiche Briefe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karoline Pichler, geb. von Greiner. / (Fortsetzung.)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Freundschaftiche Briefe",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.900Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.900Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "gdoy5f8wgr6mkhs"
+        }
+      ],
+      "source_id": "x9euobtoahzypdy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Es war einer der ersten Tage des Augustmonats im Jahre 1533, als Junker Ludolf von Golturne seiner Vaterstadt entgegen zog.",
+      "language": [],
+      "musenalm_id": 40496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Mensch, Schicksal und Glaube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Mensch, Schicksal und Glaube",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "xuywylia5xevw1r"
+        }
+      ],
+      "source_id": "hwi6h3eem5wx7o4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Im starrend blaudamisnen Kasaquin, das graue Haupt mit der rothen Ledermütze, dem grünen Augenschirem und der Brille dekorirt,",
+      "language": [],
+      "musenalm_id": 40497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Liebespossen, / eine Erzählung / aus zwölf gegebenen Wörtern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "van der Velde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Liebespossen, / eine Erzählung / aus zwölf gegebenen Wörtern",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "doo6fxn2scdvp0q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Höhnt immer meinen Glauben / An Silphen oder Feyn, / Ihr sollt mir nimmer rauben / So schönen Nordlichtschein!",
+      "language": [],
+      "musenalm_id": 40498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Feenliebe. / Sage in Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Feenliebe. / Sage in Romanzen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "rrbasiozw8ts5sx"
+        }
+      ],
+      "source_id": "g3ve9szir2598t1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Ernst und freudig schritten Liebhard und Manngold, zwei junge Studenten, dem Kirchthurm ihres heimatlichen Städtchens zu,",
+      "language": [],
+      "musenalm_id": 40499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Der Mensch denkt, und Gott lenkt. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. M. Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Der Mensch denkt, und Gott lenkt. / Eine Erzählung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "12if143scqh0umd"
+        }
+      ],
+      "source_id": "9zu2uw1pvvt6v79"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 40501-40506; Obj 35-40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "rvjj6ezgqf837sz"
+        }
+      ],
+      "source_id": "8we6mgfbfqm7x6s"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Des Lebens Stunden fliehen, / Ein leichtgeschwigtes Heer, / Wie Sandgewölke ziehen,",
+      "language": [],
+      "musenalm_id": 40501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jetzt und damal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jetzt und damal",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "56qea8dhe46eqhq"
+        }
+      ],
+      "source_id": "x007s8g9b7w1jnz"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "373",
+      "incipit_statement": "Ueber des Lebens / Jugengebilde / Hauchet den Schleier / Rosiger Düfte / Die Phantasie.",
+      "language": [],
+      "musenalm_id": 40502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wahrung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wahrung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "o0bmcpc0fnu9tkn"
+        }
+      ],
+      "source_id": "2805booncl3i83n"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Was ringst du, und stämmst, und mühest dich sehr, / Und suchest zu wehren, und dämmen?",
+      "language": [],
+      "musenalm_id": 40503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sisyphus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sisyphus",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.947Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "gpqd3y0pw75p3ln"
+        }
+      ],
+      "source_id": "qwq32ijoq5fdu80"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Hohes erstirbt, Gemeines gedeiht - o laß sie / gewähren! / Schroff sey Neues der Zeit Altem entgegengestellt:",
+      "language": [],
+      "musenalm_id": 40504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altes und Neues",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Altes und Neues",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.322Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "6z72k00ziaryta9"
+        }
+      ],
+      "source_id": "fp3e5xhjwlz12m4"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Wunderbares gesucht, leichtwiegenden Gründen ge- / glaubet: / Wie sie schnell der Natur Räthsel zu lösen verstehn!",
+      "language": [],
+      "musenalm_id": 40505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charakteristik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charakteristik",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.322Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "nxu3rh1jq3z5nw4"
+        }
+      ],
+      "source_id": "oh20239hswsoa6v"
+    },
+    {
+      "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Die am Wipfel des Baums, trunken von lauterem / Himmelsthaue,sich wiegt, während ein süßes Lied,",
+      "language": [],
+      "musenalm_id": 40506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Cikade. / Aus dem Lateinischen des Sarbievsky. / Od. IV. 23",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Haugwitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Cikade. / Aus dem Lateinischen des Sarbievsky. / Od. IV. 23",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.322Z",
+          "agent": "2i4oqqhryhrdin4",
+          "source_id": "zz5hw5a0a99v0kb"
+        }
+      ],
+      "source_id": "bjocxfdsp1d5hyv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "In dem Schlosse des Grafen Nogaret war mehr als gewöhnliches Leben.",
+      "language": [],
+      "musenalm_id": 40507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Die Ausgewanderten. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Die Ausgewanderten. / Novelle",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.322Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "3nucmzp06k7fbmb"
+        }
+      ],
+      "source_id": "u5hd6ice42mbjqn"
+    },
+    {
+      "annotation": "Sammlung von 12 Gedichten INr 40509-40520, Obj 43-54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "461",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Rosenkranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Rosenkranz",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.322Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "1o5wjqodm0xlmb2"
+        }
+      ],
+      "source_id": "sg2i9dgzby1jsao"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "463",
+      "incipit_statement": "Zum Kranze hat die Holde euch gebunden, / Euch in das Haar, das seidene, zu drücken,",
+      "language": [],
+      "musenalm_id": 40509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.322Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "yc4d1v400md7phf"
+        }
+      ],
+      "source_id": "9q5hjik1zbevw1j"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "464",
+      "incipit_statement": "Wenn sich der Lenz aus allen Zweigen windet, / Das zarte Veilchen süße Düfte spendet,",
+      "language": [],
+      "musenalm_id": 40510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.883Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.883Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "87t0y41gfygtbt9"
+        }
+      ],
+      "source_id": "qtwi4tdyhhia3eo"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "464",
+      "incipit_statement": "O glühend Roth,o süßer Düfte Fülle, / O zartgewebter Blätter weicher Flor,",
+      "language": [],
+      "musenalm_id": 40511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.074Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "w5da4kexudcysjk"
+        }
+      ],
+      "source_id": "x3c7xf6ad4hvnj8"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "465",
+      "incipit_statement": "Der Abend sinkt mit lauen Schwingen nieder, / Im Westen strahlt des Himmels ros'ge Gluth,",
+      "language": [],
+      "musenalm_id": 40512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.213Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "xa7llfxubtbumg8"
+        }
+      ],
+      "source_id": "le00016wpueynb1"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "466",
+      "incipit_statement": "Das Lied verstummt, die Sterne sind zergangen, / Geröthet ist vom heitern Morgenstrahl",
+      "language": [],
+      "musenalm_id": 40513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "7838zgu86g48ky8"
+        }
+      ],
+      "source_id": "evqy8967oquw9p8"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "467",
+      "incipit_statement": "Wie deine Blätter sanftes Roth umfließt, / Und doch so heiße Gluth sich rings verbreitet,",
+      "language": [],
+      "musenalm_id": 40514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "42gl9hlcbexaq7z"
+        }
+      ],
+      "source_id": "g4uoc4ly62hijq4"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "467",
+      "incipit_statement": "Welch' neuer Glanz umfließt dein zartes Haupt, / Welch' frische Helle ist umhergebreitet,",
+      "language": [],
+      "musenalm_id": 40515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "tmc27mt5s4in9sd"
+        }
+      ],
+      "source_id": "79s3cxx4ach6sm3"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "468",
+      "incipit_statement": "Auf deiner Blätter zarte Perlen sendet / Die Sonne scharfer Pfeile Gluth herab,",
+      "language": [],
+      "musenalm_id": 40516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "maqquo0nfis0zfu"
+        }
+      ],
+      "source_id": "t0jb8q758weltrz"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "469",
+      "incipit_statement": "Laut heult der Sturm in wilden Ungewittern, / Der Regen strömt aus düst'rer Wolken Nacht,",
+      "language": [],
+      "musenalm_id": 40517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "187y6urpr38itig"
+        }
+      ],
+      "source_id": "bybik4l1gbj7ocz"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "470",
+      "incipit_statement": "Wie stehst du blos in lauer Frühlingsluft, / Die freundlich mild um deine Blätter spielet,",
+      "language": [],
+      "musenalm_id": 40518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "9wjo2ej7fcjohg2"
+        }
+      ],
+      "source_id": "os882vxbqv8nuod"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "470",
+      "incipit_statement": "O, Rose, die an ihrer Brust vergangen, / Wie selig ist dein früher Tod zu preisen,",
+      "language": [],
+      "musenalm_id": 40519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "voh4niegze4r7ci"
+        }
+      ],
+      "source_id": "7f6mvbq6b5vy8ur"
+    },
+    {
+      "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "471",
+      "incipit_statement": "Des Festes letzte Töne sind verklungen, / Im Osten glüht des Tages gold'nes Thor,",
+      "language": [],
+      "musenalm_id": 40520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fr. Jacobs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "ll7waoj43h6ojrc",
+          "source_id": "jc8wdbqr0hcn2sn"
+        }
+      ],
+      "source_id": "bpnygg56y1oed1h"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 40522, 40523; Obj 56, 57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "473",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Graf von Sermage",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "nf6hcprj7w45n4m",
+          "source_id": "syfq1kex4nbuny8"
+        }
+      ],
+      "source_id": "qmpd3mxd8sydtkr"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 40521, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "475",
+      "incipit_statement": "Wo liegt das Land, in dessen Frühlingsauen / Ein dauernd Glück dem müden Wand'rer blüht?",
+      "language": [],
+      "musenalm_id": 40522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wo?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Graf von Sermage",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wo?",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.092Z",
+          "agent": "nf6hcprj7w45n4m",
+          "source_id": "wqxut5h4rx2rauf"
+        }
+      ],
+      "source_id": "elfh9vmzxlnzif2"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 40521, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "477",
+      "incipit_statement": "Ich bin doch wahrlich ganz allein / In dieser weiten Welt;",
+      "language": [],
+      "musenalm_id": 40523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehnsucht des Einsamen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Graf von Sermage",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sehnsucht des Einsamen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.092Z",
+          "agent": "nf6hcprj7w45n4m",
+          "source_id": "4dvolkoy044ja1l"
+        }
+      ],
+      "source_id": "c8w73jvovta36ch"
+    },
+    {
+      "annotation": "Sammlung von 24 Rätseln INr 40525-40548, Obj 59-82",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "479",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Agrionien / für das Jahr 1823, / gesammelt / von / Theodor Hell",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Agrionien / für das Jahr 1823, / gesammelt / von / Theodor Hell",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.092Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "9k9odjci0dpl690"
+        }
+      ],
+      "source_id": "oh1jsvasdbqqx8e"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "481",
+      "incipit_statement": "Zwei Bürger aus dem Sylbenreich / Stellt' ich Euch vor, und - glückt es Euch,",
+      "language": [],
+      "musenalm_id": 40525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Sylbenräthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Richard Roos",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Sylbenräthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.092Z",
+          "agent": "bmrndjx591terfe",
+          "source_id": "mnf948z3muica6w"
+        }
+      ],
+      "source_id": "8yc4javuqaxhzgo"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "483",
+      "incipit_statement": "Die erste Sylbe, wer liebte sie nicht / In heit'rer, belehrender Rede?",
+      "language": [],
+      "musenalm_id": 40526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "f9pvb6z1bgwurh1"
+        }
+      ],
+      "source_id": "xy6xjm8sdwyomya"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "483",
+      "incipit_statement": "Vier Männer nennen Euch die Beiden, / Die an des Wortes Spitze steh'n;",
+      "language": [],
+      "musenalm_id": 40527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Charade. / Fünf Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Anschütz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Charade. / Fünf Sylben",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "6sm419l3x6hxq2c"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "484",
+      "incipit_statement": "Wenn ich unter meinen Brüdern töne, / Bin ich gern geseh'n in Reih' und Glied,",
+      "language": [],
+      "musenalm_id": 40528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "190d0e10t8nsvgv"
+        }
+      ],
+      "source_id": "akj0tjrzg79lggb"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "485",
+      "incipit_statement": "Ein Fremdling naht sich Dir aus fernem Lande, / Gar schön geschmückt in seltn'ner, reicher Pracht,",
+      "language": [],
+      "musenalm_id": 40529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "zavkuhzqmgvbnuu"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "Die erste ohne die zweite ist leer, / Die zweite ohne die erste oft schwer;",
+      "language": [],
+      "musenalm_id": 40530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Panonyme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ziehnert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Panonyme",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "2822qyzaihza2i5"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "486",
+      "incipit_statement": "Eh' man ahnet, man mich sieht, / Geboren kaum, mein Daseyn flieht,",
+      "language": [],
+      "musenalm_id": 40531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "8glheh44ghcm5gr"
+        }
+      ],
+      "source_id": "czitp0p2d14btvq"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Zu schwer für einess Riesen Kraft, / Wenn mich die Kunst aus Eisen schafft,",
+      "language": [],
+      "musenalm_id": 40532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "v4wcgy96sgc6drj"
+        }
+      ],
+      "source_id": "ojvukl88ciawvg7"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "487",
+      "incipit_statement": "Am Fuße recht - im Kopfe schlecht, / Dien' ich so Herrn als Knecht;",
+      "language": [],
+      "musenalm_id": 40533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Rich. Roos",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "bmrndjx591terfe",
+          "source_id": "ypixroloygbi9u3"
+        }
+      ],
+      "source_id": "if9zh8eivvxakyu"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Die erste Sylb' ein Kind des Lebens, / Und doch des Lebens Kerker nur",
+      "language": [],
+      "musenalm_id": 40534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "x9d99x9kqojr7rv"
+        }
+      ],
+      "source_id": "tuy1mjtgarpwho3"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "488",
+      "incipit_statement": "Ist das Höchste, was das Glück / Bieten kann dem Augenblick,",
+      "language": [],
+      "musenalm_id": 40535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Ein neues Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Ein neues Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.093Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "ejwgii9ea7o5ilx"
+        }
+      ],
+      "source_id": "9g9gmoykkn2z1ig"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "489",
+      "incipit_statement": "Voranzugeh'n, und Gutes zu vernichten, / Kommt meiner Ersten oftmals in den Sinn;",
+      "language": [],
+      "musenalm_id": 40536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Charade an ...",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Protz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Charade an ...",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "mouhjmiymczkenc"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "490",
+      "incipit_statement": "Mit weitem Mantel angethan, / Siehst Du zu der bestimmten Stunde",
+      "language": [],
+      "musenalm_id": 40537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.094Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "1xtazz9s85ojm1b"
+        }
+      ],
+      "source_id": "eef75xdd5ays05x"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "490",
+      "incipit_statement": "Vier kleine Zeichen geben / Ein vierfach Zeichen nur;",
+      "language": [],
+      "musenalm_id": 40538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / Logogriph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / Logogriph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "sn6h3qx6gnmtlh3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "492",
+      "incipit_statement": "Das Eine speist - das And're trinkt, / Sobald der Tag im Schooß der Nacht versinkt.",
+      "language": [],
+      "musenalm_id": 40539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Richard Roos",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.094Z",
+          "agent": "bmrndjx591terfe",
+          "source_id": "7o9yasuppnufrwa"
+        }
+      ],
+      "source_id": "nka8e154bofhs8k"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "493",
+      "incipit_statement": "Ueberall werd' ich gebraucht, / Oft schweb' ich in hohen Lüften,",
+      "language": [],
+      "musenalm_id": 40540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.323Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "n1090yqq3bpzif4"
+        }
+      ],
+      "source_id": "o4xa420qq575k7t"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "493",
+      "incipit_statement": "Sag' nur, wo willst du hin? / Will in mein Element,",
+      "language": [],
+      "musenalm_id": 40541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17. / Wildgewordene Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17. / Wildgewordene Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.323Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "yc8b20pkozp6tab"
+        }
+      ],
+      "source_id": "18vyk7u7t7ws5r8"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "495",
+      "incipit_statement": "Der Schmerzen Lind'rung willst du bringen? / Sey Heil dir! möcht' es stets gelingen!",
+      "language": [],
+      "musenalm_id": 40542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18. / Buchstabenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Edwin Röbel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18. / Buchstabenräthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzdq5q7boptm2w7"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "496",
+      "incipit_statement": "Fliehen muß ich, rastlos eilen; / Nirgends darf ich mich verweilen,",
+      "language": [],
+      "musenalm_id": 40543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "a2j3pek8alevd65"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "497",
+      "incipit_statement": "Bald bin ich leicht, bald bin ich schwer, / Bald angefüllet und bald leer,",
+      "language": [],
+      "musenalm_id": 40544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20. / Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20. / Räthsel",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.593Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "evrut8sby3nzia1"
+        }
+      ],
+      "source_id": "8wairq33rqafula"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "498",
+      "incipit_statement": "Die erste Sylb' - ein armen Wicht, / Dem's an dem Besten wohl gebricht.",
+      "language": [],
+      "musenalm_id": 40545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.934Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "eea70upuh4s1qwp"
+        }
+      ],
+      "source_id": "hfto7xt2plow4h4"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "498",
+      "incipit_statement": "Wollt Ihr meine erste Sylbe finden, / Ziehet hin, wo stolz die Alpen ragen,",
+      "language": [],
+      "musenalm_id": 40546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "22. / Charade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "22. / Charade",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.941Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.941Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "f3ypqngc9ui4tgw"
+        }
+      ],
+      "source_id": "tpsounvhd3kedya"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "499",
+      "incipit_statement": "Es sey das Ganze, so spricht der Wahn, / Mit Wunderkräften beliehen;",
+      "language": [],
+      "musenalm_id": 40547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "23. / Logogriph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "23. / Logogriph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "4z8nsvzbjql98ei"
+    },
+    {
+      "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "500",
+      "incipit_statement": "Die Sonne glüht, die Lüfte schweigen, / Der müde Pilger senkt das Haupt,",
+      "language": [],
+      "musenalm_id": 40548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "24. / Logogriph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "24. / Logogriph",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "shmpkwb51se5agk"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "502",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "w6duxm1rjlfiqzk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "503",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "si7jezwgkne0on6"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "504",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 40551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige / für / die / Pränumeranten auf die wohlfeile / Taschenausgabe / von / Schillers Werken / in 18 Bänden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige / für / die / Pränumeranten auf die wohlfeile / Taschenausgabe / von / Schillers Werken / in 18 Bänden",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "qgl7k2j9plpjq7x"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60953,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_527_60953_nudjzoi6kv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "jx7arrqin21rtkj"
+    }
   ],
   "agents": [
     {

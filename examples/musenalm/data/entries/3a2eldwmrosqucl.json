@@ -49,64 +49,2023 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "13jycc8p74naa2i"
+    {
+      "annotation": "Jgg 1792-1801\n§$ vermutl. fehlen Monatskupfer <br> §1§ Graphik nach S. 40 fehlt (vielleicht Illustration zu »IV. Pferdezucht. Beschreibung des Fürstlich Lippischen Senner-Gestütts zu Lopshorn«)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.687Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404111",
+      "location": "105P03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.687Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "13jycc8p74naa2i"
+    }
   ],
   "contents": [
-    "2jo2xc221tjeijz",
-    "igj3txmyptz0brk",
-    "r4sedf8feo676zu",
-    "b8x1f58d0opchsz",
-    "pmlri473pi6wc0i",
-    "4sm0muhl1nwpqgh",
-    "xy34xk0mjubru1v",
-    "yqk8ud3v7v5tk18",
-    "i5dwv1fnh8sa3j6",
-    "wy17qamj482ohiw",
-    "5qowr7gxqwi5c2u",
-    "p2tv22gtdckndxw",
-    "yiodc0i1dgzx3fn",
-    "4oaaho0os4z6po7",
-    "wjpanvtdn3g2cs5",
-    "h9h2r3gyar30ejl",
-    "t4ggq30laf2ub5z",
-    "8kq8pbrlog2ayzk",
-    "9dyex17cwwju9g8",
-    "exru8eujpuo6v36",
-    "3eoi8bob9cm2uoe",
-    "cz8yuo2nyn3jq0j",
-    "ypdvq2b1m9hmvr0",
-    "2muqofw3rio1nyk",
-    "bo8cjx638yrxnh1",
-    "xni378u9opnxlbj",
-    "6h4rfdptc0xfad9",
-    "perqc8mn50sbza2",
-    "88qdfky0ufdsg9a",
-    "x4v7tieh5xljswo",
-    "uyy8t7yfjc5b8i7",
-    "7jlmwhsuf44wflc",
-    "9mobgzfw15zd1lg",
-    "dwziynu83k2skmj",
-    "j3ckuposgvu3x1w",
-    "i61p71a3ti0e4wr",
-    "7e7ntbrexr3jnk1",
-    "36wycrqs6yyaazo",
-    "agvrnibkltvmf5o",
-    "upo8poi5gepic2z",
-    "9h43qnrazvhcvx0",
-    "f2nyyoiwx88nhnl",
-    "tzn3ahsvz5r0s29",
-    "px8zlirt3a3s5ie",
-    "hvloddct3lxzc0g",
-    "f933n1zvgvjclgv",
-    "k07mibi4gscy077",
-    "v56s53wwv8huny9",
-    "ka7vnx2ud7vg5al",
-    "56cln4l0fcjy102",
-    "q472elv5q7ui7r3",
-    "08ia3pufzmls2xm",
-    "4k1tiqiu7esmoxa",
-    "ouz81r55bxlpnwh",
-    "h55ftc8nz622wh1"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85031,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85031_otmhg595n6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "2jo2xc221tjeijz"
+    },
+    {
+      "annotation": "ausfaltbare Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht der Hochfürstlich Salzburgischen Sommer Reutschule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Hempel d. d'Argent sc.",
+      "scans": [
+        "alm_3122_85032_3xfx1c5okf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht der Hochfürstlich Salzburgischen Sommer Reutschule",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.957Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "z3pdsuksll1kgpq"
+        }
+      ],
+      "source_id": "igj3txmyptz0brk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85033,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenkalender / auf / das Jahr 1794, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der /  Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdruckerei, und / im Verlag der J. G. Cottaischen Buch- / handlung in Tübingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85033_ceggl07ot8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenkalender / auf / das Jahr 1794, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der /  Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdruckerei, und / im Verlag der J. G. Cottaischen Buch- / handlung in Tübingen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "r4sedf8feo676zu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.321Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85034,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "b8x1f58d0opchsz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / auf / das Jahr 1794, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdeärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der / Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdruckerei, und / im Verlag der J. G. Cottaischen Buch- / handlung in Tübingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85035_ekwc9jirs4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / auf / das Jahr 1794, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdeärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der / Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdruckerei, und / im Verlag der J. G. Cottaischen Buch- / handlung in Tübingen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "pmlri473pi6wc0i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "4sm0muhl1nwpqgh"
+    },
+    {
+      "annotation": "Graphik vor dem Kalendarium Januar /) # Titel s. Textbezug INr 85051, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein englischer Whiskys #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Ar. sc.",
+      "scans": [
+        "alm_3122_85037_05d6yo6kr1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein englischer Whiskys #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.990Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.990Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "t13w89jhk0jso22"
+        }
+      ],
+      "source_id": "xy34xk0mjubru1v"
+    },
+    {
+      "annotation": "2. Kalendarium: Die Tage eines jeden Monats als Namenstabelle: »Fortsezung der lebenden Oberstallmeister« etc.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85038_sjz4nyglpl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "yqk8ud3v7v5tk18"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar /) # Titel s. Textbezug INr 85052, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein französisches Reischaischen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein französisches Reischaischen #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.990Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.990Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "olkr0h3hw2lo2cg"
+        }
+      ],
+      "source_id": "i5dwv1fnh8sa3j6"
+    },
+    {
+      "annotation": "Graphik im Kalendarium März /) # Titel s.Textbezug INr 85053, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "zweisitziges offenes Fuhrwerk, das zuerst in Brüssel verfertigt wurde #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85040_iul03fxlep.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "zweisitziges offenes Fuhrwerk, das zuerst in Brüssel verfertigt wurde #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.990Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.990Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "7he0i57tnlvhtwc"
+        }
+      ],
+      "source_id": "wy17qamj482ohiw"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April /) # Titel s.Textbezug INr 85054, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine englische Chaise #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85041_xja92kuj0f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine englische Chaise #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.184Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.184Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "uygay56zk3a83as"
+        }
+      ],
+      "source_id": "5qowr7gxqwi5c2u"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai /) # Titel s.Textbezug INr 85055, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein englischer Schwimmer #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85042_efc76v7qkt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein englischer Schwimmer #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.184Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.184Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "nynrlhm3469482i"
+        }
+      ],
+      "source_id": "p2tv22gtdckndxw"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni /) # Titel s.Textbezug INr 85056, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein französischer Schwimmer, nach englischer Facon #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85043_znytpz4qra.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein französischer Schwimmer, nach englischer Facon #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.185Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.185Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "0l3toiwldg6bqox"
+        }
+      ],
+      "source_id": "yiodc0i1dgzx3fn"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli /) # Titel s.Textbezug INr 85057, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein englischer Schwimmer #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85044_0o6400w3rx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein englischer Schwimmer #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "36waj0ii8l1tsxu"
+        }
+      ],
+      "source_id": "4oaaho0os4z6po7"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August /) # Titel s.Textbezug INr 85058, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein englischer Reiswagen für zwei Personen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85045_oc6hc9uey1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein englischer Reiswagen für zwei Personen #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "uaaepdd3v4z3ha0"
+        }
+      ],
+      "source_id": "wjpanvtdn3g2cs5"
+    },
+    {
+      "annotation": "Graphik im Kalendarium September /) # Titel s.Textbezug INr 85059, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein vor 6 Jahren in Paris zuerst verfertigter viersiziger Stadtwagen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85046_thvi4wmzlu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein vor 6 Jahren in Paris zuerst verfertigter viersiziger Stadtwagen #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "hpg5f2dz6t2qlne"
+        }
+      ],
+      "source_id": "h9h2r3gyar30ejl"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober /) # Titel s.Textbezug INr 85060, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein englischer viersiziger Reiswagen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85047_bfv7qwtejh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein englischer viersiziger Reiswagen #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "ahmdc2gbvytaznh"
+        }
+      ],
+      "source_id": "t4ggq30laf2ub5z"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November /) # Titel s.Textbezug INr 85061, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein viersiziger englischer Stadtwagen von der neusten Art #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [
+        "alm_3122_85048_5469osuwyb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein viersiziger englischer Stadtwagen von der neusten Art #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "e7lytrlvpi01ft8"
+        }
+      ],
+      "source_id": "8kq8pbrlog2ayzk"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember /) # Titel s.Textbezug INr 85062, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein anderer viersiziger englischer Wagen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'A. f.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein anderer viersiziger englischer Wagen #",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "5s85p6vn7oylcu7"
+        }
+      ],
+      "source_id": "9dyex17cwwju9g8"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 12 Beiträgen INr 85051-85062, Obj 21-32 als Textbezüge zu den Graphiken im Kalendarium",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Die für dieses Jahr gewählte Monatskupfer bestehen in verschiedenen Fuhrwerken, welche seit 12 Jahren, nach und nach Mode wurden.",
+      "language": [],
+      "musenalm_id": 85050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Erklärung der Monatskupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Erklärung der Monatskupfer",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "exru8eujpuo6v36"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik vor dem Kalendarium INr 85037, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Ein englischer Whiskys, mit vier sehr hohen Rädern.",
+      "language": [],
+      "musenalm_id": 85051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Januarius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Januarius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "3eoi8bob9cm2uoe"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85039, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Ein französisches Reischaischen, dessen Kasten sich unten zuspitzt,",
+      "language": [],
+      "musenalm_id": 85052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Februarius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Februarius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "cz8yuo2nyn3jq0j"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85040, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Ein anderes zweisiziges offenes Fuhrwerk, das zuerst in Brüssel verfertigt wurde.",
+      "language": [],
+      "musenalm_id": 85053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Martius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Martius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "ypdvq2b1m9hmvr0"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85041, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Eine englische Chaise, deren Kasten gleichsam liegend ist, und sich vorne sehr zuspitzt.",
+      "language": [],
+      "musenalm_id": 85054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aprilis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aprilis",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "2muqofw3rio1nyk"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85042, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Ein englischer Schwimmer, dessen Kasten sehr nieder hängt,",
+      "language": [],
+      "musenalm_id": 85055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Majus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Majus",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "bo8cjx638yrxnh1"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85043, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Ein französischer Schwinmer, nach englischer Facon, in Paris unter dem Namen a la D'Ahlem zuerst verfertigt.",
+      "language": [],
+      "musenalm_id": 85056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Junius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Junius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "xni378u9opnxlbj"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85044, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Ein englischer Schwimmer, dessen man sich in der Stadt gewöhnlich bedient; denn die Engländer machen sich nichts daraus, wenn gleich auf dem Stadtwagen unter dem Bok ein Koffer steht.",
+      "language": [],
+      "musenalm_id": 85057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Julius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "6h4rfdptc0xfad9"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85045, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Ein englischer Reiswagen für zwei Personen, der auch einen Vordersiz hat,",
+      "language": [],
+      "musenalm_id": 85058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Augustus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Augustus",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "perqc8mn50sbza2"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85046, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Ein vor 6 Jahren in Paris zuerst verfertigter viersiziger Stadtwagen, dessen Kasten sehr hoch, oben im Dach sehr breit,",
+      "language": [],
+      "musenalm_id": 85059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "September",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "88qdfky0ufdsg9a"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85047, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Ein englischer viersiziger Reiswagen, worauf oben eine grose und hohe Vache imperiale, hinten ein Koffer und vorne ein Bettsak ist.",
+      "language": [],
+      "musenalm_id": 85060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "October",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "October",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "x4v7tieh5xljswo"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85048, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Ein viersiziger englischer Stadtwagen von der neusten Art. Er zeichnet sich dadurch aus, daß der Kasten unten und oben fast gleich weit ist,",
+      "language": [],
+      "musenalm_id": 85061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "November",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "November",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "uyy8t7yfjc5b8i7"
+    },
+    {
+      "annotation": "I. Erklärung der Monatskupfer (Sammlung INr 85050, Obj 20) s. Graphik im Kalendarium INr 85049, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Ein anderer viersiziger englische Wagen, der mehr zu kleinen Landreisen für Vornehme, als in der Stadt gebraucht wird.",
+      "language": [],
+      "musenalm_id": 85062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "December",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "December",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "7jlmwhsuf44wflc"
+    },
+    {
+      "annotation": "Anmerkung zu vorstehender Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Diejenige meiner Leser, welche sowohl über die Entstehung der Kutschen und deren Vervielfältigung [...] sich mehr unterrrichten wollen, verweise ich auf Hrn. Dr. Johann Georg Krünitz, oekonomisch-technologische Encyklopädie",
+      "language": [],
+      "musenalm_id": 85063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diejenige meiner Leser, welche sowohl über die Entstehung der Kutschen und deren Vervielfältigung [...] sich mehr unterrrichten wollen, verweise ich auf Hrn. Dr. Johann Georg Krünitz, oekonomisch-technologische Encyklopädie…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "9mobgzfw15zd1lg"
+    },
+    {
+      "annotation": "Illustration (Silhouette) zu »Hernn Hünnersdorfs, Landgräflich Hessen-Casselschen Oberbereiters« INr 85066, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludwig Hünnersdorf / Landgräfl. Hessen Casselscher Stallmeister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85064_kfopvlgqcd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ludwig Hünnersdorf / Landgräfl. Hessen Casselscher Stallmeister",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "dwziynu83k2skmj"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 85066, 85067, Obj 36, 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Biographien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Biographien",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "j3ckuposgvu3x1w"
+    },
+    {
+      "annotation": "II. Biographien (Sammlung INr 85065, Obj 35) mit einer Illustration s. Graphik INr 85064, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Ludwig Hünnersdorf ward zu Mengsberg bei Ziegenhain im Casselschen im Jahr 1748 geboren. Sein Vater war daselbst Herrschaftlicher reitender Förster.",
+      "language": [],
+      "musenalm_id": 85066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hernn Hünnersdorfs, Land- / gräflich Hessen-Casselschen Ober- / bereiters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hernn Hünnersdorfs, Land- / gräflich Hessen-Casselschen Ober- / bereiters",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "i61p71a3ti0e4wr"
+    },
+    {
+      "annotation": "II. Biographien (Sammlung INr 85065, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Er war geboren den 28 April 1722 zu Oberspiesheim in Franken, wo sein Grosvater, der in Bairischen Diensten als Hauptmann stand,",
+      "language": [],
+      "musenalm_id": 85067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "b.) Herrn Michael Vitalis Abel, / Hoch- und Deutschmeisterischen Stall- / meisters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "b.) Herrn Michael Vitalis Abel, / Hoch- und Deutschmeisterischen Stall- / meisters",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "7e7ntbrexr3jnk1"
+    },
+    {
+      "annotation": "Anm. am Objekt: Dieser Aufsaz ist von dem Herzogl. Wirtembergischen General Baron von Harting zuerst entworfen, und darnach vermehrt, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Wenn mehrere Reiter-Pferde in einem Stall stehen, wobei immerdar eine verhältnismäßige Stallwache seyn muß; so macht selbige vorher, ehe die Reiter in den Stall kommen, so viel Portionen Heu,",
+      "language": [],
+      "musenalm_id": 85068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Pferdekenntnis und Wartung. / Wie die Pferde bei der Reiterei gewartet / und gefüttert werden sollen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Pferdekenntnis und Wartung. / Wie die Pferde bei der Reiterei gewartet / und gefüttert werden sollen.",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "36wycrqs6yyaazo"
+    },
+    {
+      "annotation": "Anm.: Durch die Güte des Herrn Stallmeisters und Majors Lorenz in Detmoldt, der seit 1782 die Direktion des Gestütts hat, [...]. /) §1§ Graphik nach S. 40, (vielleicht Illustration zu diesem Beitrag) fehlt (Ausrißspuren)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Die Zeit, in welcher dieses Gestütt angelegt wurde, ist wegen der, im dreißigjährigen Kriege verlohren gegangenen Nachrichten, nicht ganz genau zu bestimmen:",
+      "language": [],
+      "musenalm_id": 85069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Pferdezucht. / Beschreibung des Fürstlich Lippischen / Senner-Gestütts zu Lopshorn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Pferdezucht. / Beschreibung des Fürstlich Lippischen / Senner-Gestütts zu Lopshorn",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "agvrnibkltvmf5o"
+    },
+    {
+      "annotation": "mit 4 Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Wenn Pferde vonm Sattel gedrückt weren, welches gar oft bei Kavallerie-Pferden",
+      "language": [],
+      "musenalm_id": 85070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Pferdarzneikunst. / Einige Mittel, welche bei verschiedenen / Krankheiten und Zufällen der Pferde mit / Nuzen zu gebrauchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Pferdarzneikunst. / Einige Mittel, welche bei verschiedenen / Krankheiten und Zufällen der Pferde mit / Nuzen zu gebrauchen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "upo8poi5gepic2z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Hülfen wendet man an, um den Fehlern zuvorzukommen, die ein Pferd begehen kan.",
+      "language": [],
+      "musenalm_id": 85071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Reitkunst. / Von den Hülfen und Strafen, welche bei / Abrichtung der Pferde, und bei abge- / richteten Pferden zu gebrauchen / sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Reitkunst. / Von den Hülfen und Strafen, welche bei / Abrichtung der Pferde, und bei abge- / richteten Pferden zu gebrauchen / sind",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "9h43qnrazvhcvx0"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 85074,Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "In den jezigen tobenden Zeitläufen, wo fast ganz Europa durch Frankreichs Gewaltherrschaft im Kriegsfeuer gesetzt ist",
+      "language": [],
+      "musenalm_id": 85072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Fuhrwesen und Equipagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Fuhrwesen und Equipagen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "f2nyyoiwx88nhnl"
+    },
+    {
+      "annotation": "Illustration zu »Fuhrwesen und Equipagen« INr 85072, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85073_8yk67612tf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "tzn3ahsvz5r0s29"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Der türkische Gesandte, welcher im Jahr 1791 in Wien war, erhielt bei seiner Abreise, unter andern für den Gros-Sultan bestimmten Geschenken auch 6 auf deutsche Art dressirte Pferde aus den Kaiserlichen Gestütten.",
+      "language": [],
+      "musenalm_id": 85074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Allerlei von Pferden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Allerlei von Pferden",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "px8zlirt3a3s5ie"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 85076, 85077; Obj 46, 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Zwei Epigramme, / die Claudian an die beiden Brüder Hono- / rius und Arkadius verfertigte, als sie von / Serenen der BrudersTochter ihres Va- / ters Theodosius des Grosen, die zugleich / die Schwiegermutter des Honorius ge- / wesen, jeder einen prächtigen / Reitgurt erhielten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rektor Beyschlag in Nördlingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Zwei Epigramme, / die Claudian an die beiden Brüder Hono- / rius und Arkadius verfertigte, als sie von / Serenen der BrudersTochter ihres Va- / ters Theodosius des Grosen, die zugleich / die Schwiegermutter des Honorius ge- / wesen, jeder einen prächtigen / Reitgurt erhielten",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "hvloddct3lxzc0g"
+    },
+    {
+      "annotation": "IX. Zwei Epigramme, die Claudian an die beiden Brüder Honorius und Arkadius verfertigte (Sammlung INr 85075, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Ha, ein Gürtel reich am Zeuge, / Reicher doch an Kunst noch mehr, / Läuft vom majestät'schen Rüken",
+      "language": [],
+      "musenalm_id": 85076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Arkadius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rektor Beyschlag in Nördlingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Arkadius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "f933n1zvgvjclgv"
+    },
+    {
+      "annotation": "IX. Zwei Epigramme, die Claudian an die beiden Brüder Honorius und Arkadius verfertigte (Sammlung INr 85075, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Nimm sie hin die kleine Gabe, / Von der Schwester zugesandt,",
+      "language": [],
+      "musenalm_id": 85077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Honorius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rektor Beyschlag in Nördlingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Honorius",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "k07mibi4gscy077"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Neue Schriften / über die Pferdewissenschaft, welche im / Jahr 1792 und 1793 herausge- / kommen sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Neue Schriften / über die Pferdewissenschaft, welche im / Jahr 1792 und 1793 herausge- / kommen sind",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "v56s53wwv8huny9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Register / der Pferde- und Viehmärkte in / Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Register / der Pferde- und Viehmärkte in / Deutschland",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "ka7vnx2ud7vg5al"
+    },
+    {
+      "annotation": "8 BB",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85080,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Abschnitt. / Chronologische Tabelle / der / Kaiser in Deutschland, Könige in Dän- / nemark, Engelland, Frankreich, Czaaren und / Kaiser in Rußland, Könige in Schweden, / Spanien und Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Abschnitt. / Chronologische Tabelle / der / Kaiser in Deutschland, Könige in Dän- / nemark, Engelland, Frankreich, Czaaren und / Kaiser in Rußland, Könige in Schweden, / Spanien und Preussen",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "56cln4l0fcjy102"
+    },
+    {
+      "annotation": "Sammlung von 2 genealogischen Tabellen INr 85082, 85083; Obj 52, 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85081,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches Verzeichnis / der jeztlebenden vornehmsten / Potentaten und Fürsten in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches Verzeichnis / der jeztlebenden vornehmsten / Potentaten und Fürsten in Europa",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "q472elv5q7ui7r3"
+    },
+    {
+      "annotation": "Genealogisches Verzeichnis der jeztlebenden vornehmsten Potentaten und Fürsten in Europa (INr 85081, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85082,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erste Abtheilung, / welche / die weltlichen Fürsten enthält",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erste Abtheilung, / welche / die weltlichen Fürsten enthält",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "08ia3pufzmls2xm"
+    },
+    {
+      "annotation": "Genealogisches Verzeichnis der jeztlebenden vornehmsten Potentaten und Fürsten in Europa (INr 85081, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85083,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwote Abtheilung, / über die geistliche Staaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwote Abtheilung, / über die geistliche Staaten",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "4k1tiqiu7esmoxa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85084,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "ouz81r55bxlpnwh"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85085,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3122_85085_0fkhop2x0n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "h55ftc8nz622wh1"
+    }
   ],
   "agents": [
     {

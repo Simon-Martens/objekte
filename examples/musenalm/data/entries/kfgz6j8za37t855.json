@@ -48,7 +48,26 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "xzclp65m24szfuy"
+    {
+      "annotation": "KVK mit Standorten für Jgg 1796-1799",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.720Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407334",
+      "location": "105P03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.720Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xzclp65m24szfuy"
+    }
   ],
   "contents": [],
   "agents": [

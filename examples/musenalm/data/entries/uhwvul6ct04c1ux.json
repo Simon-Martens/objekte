@@ -48,48 +48,1707 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "6mnx5f7ksp1k9l4"
+    {
+      "annotation": "1816-1873.\nKartonierter Einband mit Muster, Grafik und Goldschnitt.(Buchrücken beschädigt.)\n1821:(K: M.Kpf 7.) Mit Port 1, Bl 1, VIII, Ku 6 und 234 SS.\nInhalt Seite V- VI fehlt. \nHg:1816-1842 = A. Schreiber.\n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell\n     1857-1862 = A. Henniger\n     1863-1873 = Frater Hilarius (pseud.).   \nlat. pagina",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.530Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100520",
+      "location": "105N02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.530Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6mnx5f7ksp1k9l4"
+    }
   ],
   "contents": [
-    "f6yd5m00rdq7g4e",
-    "9z5bd88lyguu80k",
-    "30qzmw9wziulb92",
-    "tmhygkse326ak4y",
-    "rfris54wajf1m1n",
-    "ep9znm9x4ks3b1q",
-    "wta6ro63cax2wjf",
-    "jjrk6sja4wxt1p7",
-    "sf7m0pjcyrsxhba",
-    "fq1izwty7ag553o",
-    "laz2mkoywplg6uw",
-    "cf7d6kq57ib9ky0",
-    "9nhk5itoqhenqxn",
-    "6hxsie1ggkvzony",
-    "vu4xjfql852il0x",
-    "ckboxhju8cihleg",
-    "3qzv24ka4yfoo1m",
-    "9by9wfgf8w0rqob",
-    "1ih8wsuw47go8at",
-    "m4p1sp8r5ml3h1b",
-    "nd4fdlz7ypukhua",
-    "2pu6ubjipmpqgmo",
-    "1edumco03p3aqoi",
-    "6zfag0rjqkpm6gr",
-    "9det15l5anznbxc",
-    "cbus5rxm47qmyv0",
-    "ad3cd30hixkloed",
-    "s85kf9pca0nwos3",
-    "os4mohbdt4zv0vv",
-    "5ynjnp9ob2an2iy",
-    "ld37d9yhdnimlns",
-    "01p93uxw061unyf",
-    "qn24jyzeihu3g35",
-    "7b2u3m9z9cmsu99",
-    "9qhthvu1bft6a7e",
-    "841r9o17ue3862w",
-    "ptknxupic1d3b1x",
-    "n822c0idah9etbj",
-    "eqptrk3bgueq17d"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.443Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62781,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Wiesner Nbg.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Wiesner Nbg.",
+      "scans": [
+        "alm_1029_62781_q0rgug923p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.638Z",
+          "agent": "v6whpg6896rh6jd",
+          "source_id": "kah21jcx8ykzas8"
+        }
+      ],
+      "source_id": "f6yd5m00rdq7g4e"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62782,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Paulowna, / Erbprinzessin von Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fleischmann sc. Nbg.",
+      "scans": [
+        "alm_1029_62782_witto22t5i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Paulowna, / Erbprinzessin von Weimar",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.638Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "ha6t723rprrv8ey"
+        }
+      ],
+      "source_id": "9z5bd88lyguu80k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62783,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / TASCHENBUCH / für / Deutsche Frauen / auf das Jahr 1821. / Herausgegeben / von / Aloys Schreiber. / VItr. Jahrgang. / Mit Kupfern. / HEIDELBERG, / im Verlag von Joseph Engelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1029_62783_d31c19ugq1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / TASCHENBUCH / für / Deutsche Frauen / auf das Jahr 1821. / Herausgegeben / von / Aloys Schreiber. / VItr. Jahrgang. / Mit Kupfern. / HEIDELBERG, / im Verlag von Joseph Engelmann",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "30qzmw9wziulb92"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62784,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer Kaiserlichen Hoheit / Maria Paulowna, / Erbgroßherzogin von Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer Kaiserlichen Hoheit / Maria Paulowna, / Erbgroßherzogin von Weimar",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "tmhygkse326ak4y"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Es kommt ein Mägdlein jedes Jahr, / Wenn bald die Wandervögel ziehen,",
+      "language": [],
+      "musenalm_id": 62785,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es kommt ein Mägdlein jedes Jahr, / Wenn bald die Wandervögel ziehen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "rfris54wajf1m1n"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Ueber den Inhalt des Taschenbuchs weiß ich auch diesmal nichts zu erinnern. Durch große Mannichfaltigkeit ist für das Interesse von Vielen gesorgt,",
+      "language": [],
+      "musenalm_id": 62786,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "uzmgwldx4j20oar"
+        }
+      ],
+      "source_id": "ep9znm9x4ks3b1q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62787,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "wta6ro63cax2wjf"
+    },
+    {
+      "annotation": "Illustration zu »Die Abendlieder« von Fouqué INr 62794, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62788,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Abendlieder / von L. M. Fouqué",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Fleischmann sc.",
+      "scans": [
+        "alm_1029_62788_xi4w1i5whc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Abendlieder / von L. M. Fouqué",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "k9sfkm87jdsq2d9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "sl1k3k3am2p51is"
+        }
+      ],
+      "source_id": "jjrk6sja4wxt1p7"
+    },
+    {
+      "annotation": "Illustration zu »Lombardische Sage« von J. C. W. Uthe Spazier INr 62811, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62789,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lombardische Sage. / von J. C. W. Spazier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Fleischmann sc.",
+      "scans": [
+        "alm_1029_62789_m5cjg9njyj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lombardische Sage. / von J. C. W. Spazier",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "i4bn5hy913h175x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "yq63k4a7modtgk3"
+        }
+      ],
+      "source_id": "sf7m0pjcyrsxhba"
+    },
+    {
+      "annotation": "Illustration zu »Swanehild und Otho« von Hekmina von Chézy INr 62813, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62790,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Swanehild und Otho. / Von Helmina von Chézy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. Fleischmann sc.",
+      "scans": [
+        "alm_1029_62790_ierp4hqp9v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Swanehild und Otho. / Von Helmina von Chézy",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "8tvug0k5q43rerj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "e421ghb43er35qh"
+        }
+      ],
+      "source_id": "fq1izwty7ag553o"
+    },
+    {
+      "annotation": "Illustration zu »Der närrische Fiedler« von A. Schreiber INr 62814, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62791,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der närrische Fiedler. / Von A. Schreiber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff inv. Fleischmann sc.",
+      "scans": [
+        "alm_1029_62791_ys79jvild3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der närrische Fiedler. / Von A. Schreiber",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "ed8uam0surkv1bj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "l8mjfh8e72ew08u"
+        }
+      ],
+      "source_id": "laz2mkoywplg6uw"
+    },
+    {
+      "annotation": "Illustration zu »Alles um Liebe« von A. Schreiber INr 62815, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62792,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alles um Liebe. / von A. Schreiber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Fleischmann sc.",
+      "scans": [
+        "alm_1029_62792_jasdi78kn6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alles um Liebe. / von A. Schreiber",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "cadfvmcfbpreu5v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "etyqojb7ff1e100"
+        }
+      ],
+      "source_id": "cf7d6kq57ib9ky0"
+    },
+    {
+      "annotation": "Illustration zu »Laurette von Starkenburg« von A. Schreiber INr 62817, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62793,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laurette von Starkenburg. / von A. Schreiber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Fleischmann sc.",
+      "scans": [
+        "alm_1029_62793_cznjpadhh3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Laurette von Starkenburg. / von A. Schreiber",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "2ii35w7g1i08rb5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.639Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "qu4xolxt72x2wub"
+        }
+      ],
+      "source_id": "9nhk5itoqhenqxn"
+    },
+    {
+      "annotation": "mit mehreren Gedichten, mit einer Illustration s. Graphik INr 62788, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Am Spätabend eines schwülen Sommertages, von herumziehenden Gewittern räthselhaft und leise angedonnert, ritt durch den hohen, beynahe pfadlosen Eichenwald, hin und wieder vergeblich einen Ausweg suchend, der Prinz Philibert von Burgund.",
+      "language": [],
+      "musenalm_id": 62794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Abendlieder. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. M. Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Abendlieder. / Eine Erzählung",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.068Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.068Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "x032xmf66ubccu8"
+        }
+      ],
+      "source_id": "6hxsie1ggkvzony"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Fromme Taube, kommst geflogen / Mit dem grünen Friedenszweig,",
+      "language": [],
+      "musenalm_id": 62795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neujahrstage 1815",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neujahrstage 1815",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.068Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.068Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "z93v5k3ca0z1r2f"
+        }
+      ],
+      "source_id": "vu4xjfql852il0x"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Die beste Schule hält das Leben / Doch muß man theures Lehrgeld geben.",
+      "language": [],
+      "musenalm_id": 62796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Denkspruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Denkspruch",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "ckboxhju8cihleg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Darf ich diesem Thal entschweben? / Seel'ger Flug und seel'ger Lauf!",
+      "language": [],
+      "musenalm_id": 62797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mariä Himmelfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. v. Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mariä Himmelfahrt",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.069Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.069Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "27picwwufafm2rw"
+        }
+      ],
+      "source_id": "3qzv24ka4yfoo1m"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Die Uhr im Dorfe stellt Hans Brill, / Und meint, die Zeit die steht itzt still.",
+      "language": [],
+      "musenalm_id": 62798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kluger Einfall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kluger Einfall",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "9by9wfgf8w0rqob"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Bist so trüb, du stiller Quell? / Sieh die Sternlein auf dich blicken,",
+      "language": [],
+      "musenalm_id": 62799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Quell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Quell",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.069Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.069Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "mjg0gkowyhq4d1i"
+        }
+      ],
+      "source_id": "1ih8wsuw47go8at"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Laub und Gras und Blumen decken / Wieder Anger, Wald und Flur,",
+      "language": [],
+      "musenalm_id": 62800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Frühlinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Frühlinge",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.069Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.069Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "2cwr3f8kylwby0n"
+        }
+      ],
+      "source_id": "m4p1sp8r5ml3h1b"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Drey alte Brüder siehst du hier, / Sie schreiten mit dir durch das Leben,",
+      "language": [],
+      "musenalm_id": 62801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Räthsel",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "nd4fdlz7ypukhua"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Wehmuth leitet meine Schritte / Zu des Schlosses Trümmern hin,",
+      "language": [],
+      "musenalm_id": 62780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elegie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elegie",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.638Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "78yuau06mvvl5pr"
+        }
+      ],
+      "source_id": "2pu6ubjipmpqgmo"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "War denn das Maaß nicht schon, noch bevor ihr gefunden / den Maaßstab?",
+      "language": [],
+      "musenalm_id": 62802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frage",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "1edumco03p3aqoi"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Ein Brunnen, ehmals hell und klar, / Lief jetzo trüb und schlammicht gar.",
+      "language": [],
+      "musenalm_id": 62803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parabel",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.733Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "6t0m9vak95o52w5"
+        }
+      ],
+      "source_id": "6zfag0rjqkpm6gr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Kannst du stumm und düster gehen, / Wenn die Quelle fröhlich springt,",
+      "language": [],
+      "musenalm_id": 62804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An **",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An **",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.733Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "0efi65sdstxtb3g"
+        }
+      ],
+      "source_id": "9det15l5anznbxc"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Er bildet den Apoll zum Affen! / Ein jeder kann ja nur nach eignem Bilde schaffen.",
+      "language": [],
+      "musenalm_id": 62805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auch ein Künstler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auch ein Künstler",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.733Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "m2lkrzie2v5yeoe"
+        }
+      ],
+      "source_id": "cbus5rxm47qmyv0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Fahr wohl, du lieb Schifflein auf ruhigem Meer! / Fahr wohl! jetzt erreicht dich mein Auge nicht mehr!",
+      "language": [],
+      "musenalm_id": 62806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wassermann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wassermann",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.733Z",
+          "agent": "tetas6nm69fwpjp",
+          "source_id": "c74tp5ujjgttex8"
+        }
+      ],
+      "source_id": "ad3cd30hixkloed"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Kannst du die Götter in dir selbst nicht finden, / So wird sie dir umsonst der Sinai verkünden.",
+      "language": [],
+      "musenalm_id": 62807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An *",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An *",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "s85kf9pca0nwos3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Zu des Heretempels hohen Hallen, / Zu der Feyer gottgeweihtem Spiel / Sah man der Argiver Schaaren wallen,",
+      "language": [],
+      "musenalm_id": 62808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleobis und Biton. / Herodotos - Klio. 31.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "JM.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleobis und Biton. / Herodotos - Klio. 31.",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "os4mohbdt4zv0vv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Schon ruft der Hahn; die stille Nacht / Muß sich zum Kampf bereiten:",
+      "language": [],
+      "musenalm_id": 62809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "William und Margarethe. / Frey aus dem Englischen des Mallet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "William und Margarethe. / Frey aus dem Englischen des Mallet",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ynjnp9ob2an2iy"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Windmühlen baut der Herr von Kakdu: / Den Wind den macht er selbst dazu.",
+      "language": [],
+      "musenalm_id": 62810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr von Kakadu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herr von Kakadu",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "ld37d9yhdnimlns"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62789, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Gegen das Ende der glorreichen Regierung Kaiser Otto's des Ersten, - so berichtet eine alte italienische Chronik - lebte nahe der Stadt Savona, auf der steilsten Felsenhöhe der ligurischen Gebirge, eine Köhlerfamilie tief in Waldesdunkel,",
+      "language": [],
+      "musenalm_id": 62811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lombardische Sage von einer deutschen / Kaiserstochter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. W. Uthe-Spazier, geb. Mayer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lombardische Sage von einer deutschen / Kaiserstochter",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.733Z",
+          "agent": "6bba95qi5qffiw1",
+          "source_id": "ysxgulwc0ss2d7f"
+        }
+      ],
+      "source_id": "01p93uxw061unyf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Lieber Sohn, sagte meine Mutter, gestern warst du drey und zwanzig. Es ist Zeit, an eine anständige Heirath zu denken.",
+      "language": [],
+      "musenalm_id": 62812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bekanntschaft auf der Reise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aloys Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bekanntschaft auf der Reise",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "9aiapnnisezx1ey"
+        }
+      ],
+      "source_id": "qn24jyzeihu3g35"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62790, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Der Abend naht, edles Fräulein, sagte Frau Gertraut zur schönen Swanehild, laßt nun die Arbeit ruhn, ihr werdet die hellen Augen trüben!",
+      "language": [],
+      "musenalm_id": 62813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Swanehild und Otho. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina von Chezy, geb. Freyin Klencke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Swanehild und Otho. / Novelle",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "8cymeozsx8656ey"
+        }
+      ],
+      "source_id": "7b2u3m9z9cmsu99"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62791, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Auf ihrer alten, einsamen Burg im Wasgau lebte die betagte Frau von Schoneck mit ihrer einzigen Tochter Bilhild.",
+      "language": [],
+      "musenalm_id": 62814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der närrische Fiedler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aloys Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der närrische Fiedler",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "qje4o7bpp0le7ht"
+        }
+      ],
+      "source_id": "9qhthvu1bft6a7e"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62792, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Auf dem Hügel, an welchen sich das weinreiche Bacharach lehnt, stehen noch die Trümmer der einst weiten und festen Burg Saleck.",
+      "language": [],
+      "musenalm_id": 62815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alles um Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aloys Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alles um Liebe",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "r5p436rdeoz56wh"
+        }
+      ],
+      "source_id": "841r9o17ue3862w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Leb' wohl, o schönste Fatme! Ich muß gehen; / Auch in der Ferne bleibt mein Geist dir nah'.",
+      "language": [],
+      "musenalm_id": 62816,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Araber. / Eine romantische Erzählung. / (Seitenstück zum Troubadour, Jahrg. 1820.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Araber. / Eine romantische Erzählung. / (Seitenstück zum Troubadour, Jahrg. 1820.)",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "ujtx3n1ro44wg54"
+        }
+      ],
+      "source_id": "ptknxupic1d3b1x"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62793, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Nahe bey Enkirchen an der Moel liegen, auf einem Berge, die spärlichen Trümmer der alten Starkenburg, von welcher ein Zweig der FGarfebn von Sponhei der",
+      "language": [],
+      "musenalm_id": 62817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lauretta von Starkenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aloys Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lauretta von Starkenburg",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "894cd56iseb1uoo"
+        }
+      ],
+      "source_id": "n822c0idah9etbj"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62818,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Wiesner Nbg.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Wiesner Nbg.",
+      "scans": [
+        "alm_1029_62818_mxrc6032nk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "v6whpg6896rh6jd",
+          "source_id": "4r1v1p88dqmbyvc"
+        }
+      ],
+      "source_id": "eqptrk3bgueq17d"
+    }
   ],
   "agents": [
     {

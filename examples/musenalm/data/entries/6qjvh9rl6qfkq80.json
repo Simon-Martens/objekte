@@ -48,46 +48,1596 @@
   "year": 1841,
   "editor": "",
   "items": [
-    "gvysh3piy2ywldm",
-    "pxykwvulkkd1b58"
+    {
+      "annotation": "4 GG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409257",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gvysh3piy2ywldm"
+    },
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt.\n1841:(K:BL 7, 312 SS und KU 6.) Mit  Bl 7,  Ku 2 und 312 SS.\nKupfer fehlt (Ku 4)\n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch\n§1§ verso G fehlt, §2-4§ GG fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100779",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pxykwvulkkd1b58"
+    }
   ],
   "contents": [
-    "xv6syhnos9yxbcp",
-    "r59g47jafcyixkt",
-    "2sfta2ci18g6uz4",
-    "oh92r2rrhquirzs",
-    "al00i3tt3uygmql",
-    "xjndfua6mu1zlpk",
-    "xcijd8opbfq3zyt",
-    "r1si49rzd713x92",
-    "w1tnmlo1g5tb9dm",
-    "pg1nloc28wgmjiw",
-    "h47kvyj1nbgpfnx",
-    "ubcgemzu4985p4x",
-    "6spky983bxxoc4b",
-    "ri497dckylqzmw8",
-    "orlg4db397zoy56",
-    "me45btvy04eit4o",
-    "w4b4cxf4mkt2ti3",
-    "5n325o678nkig4y",
-    "049ibruy36kp1wx",
-    "c6pi2utvqwi82z7",
-    "cfq1n74506dvuwf",
-    "86uwadj616lxnhg",
-    "jcqpxwzsqxswowc",
-    "szcrhib6kcri22y",
-    "y1ae4a9nr4fry9s",
-    "cg585sriavbbyl8",
-    "5fe3vleito0wqv9",
-    "ggh8hsxkpur63l2",
-    "tzrs8q3izww46fi",
-    "q7dh6nqhylg8jvc",
-    "nxjbp87pxx5mbwn",
-    "q2qqcyc1se7nf4y",
-    "wkn22pdmh0m4n6p",
-    "v6sub52zlzx78z3",
-    "lcogyzbt93jokhw",
-    "kha1z1stj414ptq"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110315,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gez. von Sonderland Ed. Schuler sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Sonderland Ed. Schuler sculp.",
+      "scans": [
+        "alm_404_110315_nw673xumv2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.193Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "43zh0ebst6df4sj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.193Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "bkx39j9lvyd07hw"
+        }
+      ],
+      "source_id": "xv6syhnos9yxbcp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110316,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / der / Liebe und Freundschaft / gewidmet. / 1841. / Herausgegeben / von / Ludwig Storch. / Frankfurt a. M. / Verlag von Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_404_110316_uvtot79rtw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / der / Liebe und Freundschaft / gewidmet. / 1841. / Herausgegeben / von / Ludwig Storch. / Frankfurt a. M. / Verlag von Friedrich Wilmans",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "r59g47jafcyixkt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "2sfta2ci18g6uz4"
+    },
+    {
+      "annotation": "Sammlung von 4 Textbezügen zu 4 Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30603,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier Menschenalter. / Nach vier Sonderland'schen Bildern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die vier Menschenalter. / Nach vier Sonderland'schen Bildern",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.356Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "kshu8lgamlvvnwl"
+        }
+      ],
+      "source_id": "oh92r2rrhquirzs"
+    },
+    {
+      "annotation": "Die vier Menschenalter. s. Gedicht von L. Storch INr 30604, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.072Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110317,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (I. B. Sonderland C. Deucker sc. Fkft.a/m)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. B. Sonderland C. Deucker sc. Fkft.a/m",
+      "scans": [
+        "alm_404_110317_fe92dtgxl5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.193Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "8kwdmly3rhevtz4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.193Z",
+          "agent": "o82hjun2z18aur7",
+          "source_id": "iy2fnyeururzd11"
+        }
+      ],
+      "source_id": "al00i3tt3uygmql"
+    },
+    {
+      "annotation": "Die vier Menschenalter. Nach vier Sonderland'schen Bildern (Sammlung INr 30603, Obj 3) s. Graphik INr 110317, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ich fühle Blick und Herz gehalten, / Den Kummer plötzlich mir versüßt / Ihr kleinen lieblichen Gestalten,",
+      "language": [],
+      "musenalm_id": 30604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.357Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "yiy5gc36hmg7sla"
+        }
+      ],
+      "source_id": "xjndfua6mu1zlpk"
+    },
+    {
+      "annotation": "Die vier Menschenalter. s. Gedicht von L. Storch INr 30605, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110318,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (I. B. Sonderland Ed. Schuler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. B. Sonderland Ed. Schuler sc.",
+      "scans": [
+        "alm_404_110318_qlupuivju0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.193Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "9ikr790r3bw8kbo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.193Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "r4xvps72hs2lfwm"
+        }
+      ],
+      "source_id": "xcijd8opbfq3zyt"
+    },
+    {
+      "annotation": "Die vier Menschenalter. Nach vier Sonderland'schen Bildern (Sammlung INr 30603, Obj 3) s. Graphik INr 110318, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Des Herzens Knospe, Blüthe nun geworden, / Die Sonne sprengt mit Strahlen ihre Pforten",
+      "language": [],
+      "musenalm_id": 30605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.357Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "x9b9c3724jqfvuc"
+        }
+      ],
+      "source_id": "r1si49rzd713x92"
+    },
+    {
+      "annotation": "Die vier Menschenalter. s. Gedicht von L. Storch INr 30606, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110319,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (I. B. Sonderland C. Deucker sc. Fkft.a/m)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. B. Sonderland C. Deucker sc. Fkft.a/m",
+      "scans": [
+        "alm_404_110319_zmfe7ux4ca.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "w1tnmlo1g5tb9dm"
+    },
+    {
+      "annotation": "Die vier Menschenalter. Nach vier Sonderland'schen Bildern (Sammlung INr 30603, Obj 3) s. Graphik INr 110319, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wie anders sich daß Leben vor dich stellt, / Wenn du die Mittagslinie hast erstiegen,",
+      "language": [],
+      "musenalm_id": 30606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "y51zc5ipaj7ssqe"
+        }
+      ],
+      "source_id": "pg1nloc28wgmjiw"
+    },
+    {
+      "annotation": "Die vier Menschenalter. s. Gedicht von L. Storch INr 30608, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.078Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110320,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (I. B. Sonderland C. Deucker sc. Fkft.a/m)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. B. Sonderland C. Deucker sc. Fkft.a/m",
+      "scans": [
+        "alm_404_110320_34hz1534jk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "h47kvyj1nbgpfnx"
+    },
+    {
+      "annotation": "Die vier Menschenalter. Nach vier Sonderland'schen Bildern (Sammlung INr 30603, Obj 3) s. Graphik INr 110320, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Nacht bricht an: es wird nun Zeit zu schlafen. / Zu ihren Nestern kehren heim die Vögel",
+      "language": [],
+      "musenalm_id": 30608,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "xy63lu42k8cbl3i"
+        }
+      ],
+      "source_id": "ubcgemzu4985p4x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einem der besuchtesten Galanterieläden der großen Newskystraße zu St. Petersburg wurden von dem Herrn des Ladens selbst,",
+      "language": [],
+      "musenalm_id": 30609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Leibeigenen. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav von Heeringen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Leibeigenen. / Novelle",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "hffp5p53qsk8bxy",
+          "source_id": "hls7vl34i6leeoh"
+        }
+      ],
+      "source_id": "6spky983bxxoc4b"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 30611-30615, Obj 11-15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "h946ms9ql6u2snq"
+        }
+      ],
+      "source_id": "ri497dckylqzmw8"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 30612-30614, Obj 12-14 /) Gedichte (Sammlung INr 30609, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Sonst! / Drei Reliquien aus besserer Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Sonst! / Drei Reliquien aus besserer Zeit",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "g0pg93b2z4pho5v"
+        }
+      ],
+      "source_id": "orlg4db397zoy56"
+    },
+    {
+      "annotation": "1. Sonst! Drei Reliquien aus besserer Zeit (Sammlung INr 30611, Obj 11) Gedichte (Sammlung INr 30610, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Ich weiß nicht, soll ich Dich dem Mond vergleichen, / Der aus den Liebes-Augen, sanft verweint,",
+      "language": [],
+      "musenalm_id": 30612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "as8by3fzhilhbv7"
+        }
+      ],
+      "source_id": "me45btvy04eit4o"
+    },
+    {
+      "annotation": "1. Sonst! Drei Reliquien aus besserer Zeit (Sammlung INr 30611, Obj 11) Gedichte (Sammlung INr 30610, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Nun, da Dein Auge von uns scheidet, / Geht auch der Frühling aus dem Land,",
+      "language": [],
+      "musenalm_id": 30613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.500Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "gj92epdo6qqiqrn"
+        }
+      ],
+      "source_id": "w4b4cxf4mkt2ti3"
+    },
+    {
+      "annotation": "1. Sonst! Drei Reliquien aus besserer Zeit (Sammlung INr 30611, Obj 11) Gedichte (Sammlung INr 30610, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "In meiner Nächte Einsamkeit beschlich / Mich ein Gesicht voll schmerzlich-süßer Lüge.",
+      "language": [],
+      "musenalm_id": 30614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.426Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.426Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "n3yvt4x7yz5msey"
+        }
+      ],
+      "source_id": "5n325o678nkig4y"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30610, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Der Abend graut, Dein Tag beginnt zu sinken. / Leb' wohl! Zeit ist's zum Gehen für uns beide!",
+      "language": [],
+      "musenalm_id": 30615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Scheide-Wege / Far thee well! And if for ever / Still for ever, fare thee well!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Scheide-Wege / Far thee well! And if for ever / Still for ever, fare thee well!",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.438Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "8ugfljjnx238thv"
+        }
+      ],
+      "source_id": "049ibruy36kp1wx"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 30617, 30618; Obj 17, 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30616,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.438Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "o986gpci83mxpnt"
+        }
+      ],
+      "source_id": "c6pi2utvqwi82z7"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30616, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Es ist schön in der Fremde, / Wo das Leben frischer blüht; Wo, entfesselt jeder Schranke, / Der Gedanke freier sprüht.",
+      "language": [],
+      "musenalm_id": 30617,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Heimath und Fremde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Heimath und Fremde",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.438Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "ei3i2718tfjhdue"
+        }
+      ],
+      "source_id": "cfq1n74506dvuwf"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30616, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Donner hör' ich rollend schallen; / Prächtig flammt es Blitz auf Blitze.",
+      "language": [],
+      "musenalm_id": 30618,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Mainacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Mainacht",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.439Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.439Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "yuzeii199zutqyq"
+        }
+      ],
+      "source_id": "86uwadj616lxnhg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Das Theater war aus. Das Haus hatte sich diesen Abend keines starken Besuchs erfreut, denn Macbeth, die tiefmystische Schöpfung des großen Briten, war in der Schiller'schen Bearbeitung über die Bühne gegangen,",
+      "language": [],
+      "musenalm_id": 30619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schutzgeist. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schutzgeist. / Novelle",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "8hhzuxkuknl93xh"
+        }
+      ],
+      "source_id": "jcqpxwzsqxswowc"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 30621-30624, Obj 21-24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ph. H. Welcker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "c2o5asnj6lueudj",
+          "source_id": "n4bijpe2wcxeeci"
+        }
+      ],
+      "source_id": "szcrhib6kcri22y"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Schön Aennchen, ohne die Mutter, / Wohin so still und allein?",
+      "language": [],
+      "musenalm_id": 30621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Schön Aennchen im Walde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ph. H. Welcker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Schön Aennchen im Walde",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "c2o5asnj6lueudj",
+          "source_id": "whnc0jk5sw0hipj"
+        }
+      ],
+      "source_id": "y1ae4a9nr4fry9s"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Fort eilt die schöne blasse Maid, / Will über Thal und Berge.",
+      "language": [],
+      "musenalm_id": 30622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Ferge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ph. H. Welcker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Ferge",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "c2o5asnj6lueudj",
+          "source_id": "caklvwg5a2x62t3"
+        }
+      ],
+      "source_id": "cg585sriavbbyl8"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Gedanke, du trüber, / Was thatest du meinem Herzen so weh, / Und färbtest so dunkel mir Wald und See?",
+      "language": [],
+      "musenalm_id": 30623,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Je länger, je lieber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ph. H. Welcker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Je länger, je lieber",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "c2o5asnj6lueudj",
+          "source_id": "opjo7r0b0pk0cot"
+        }
+      ],
+      "source_id": "5fe3vleito0wqv9"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "In einem grünen Hause / Bin ich zu Bett gegangen;",
+      "language": [],
+      "musenalm_id": 30624,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das grüne Haus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ph. H. Welcker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das grüne Haus",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "c2o5asnj6lueudj",
+          "source_id": "c47p3mfwj15dad7"
+        }
+      ],
+      "source_id": "ggh8hsxkpur63l2"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Sie halten heilige Messe / Im Dom zu Ingolstadt: / Sie bitten vom himmlischen Helfer, / Was Jeder zu bitten hat.",
+      "language": [],
+      "musenalm_id": 30625,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Das Marienbild zu Ingolstadt. / Romanze",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig von Erfurt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Das Marienbild zu Ingolstadt. / Romanze",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "iasekwt08rxpzyu",
+          "source_id": "spi90q3e97z2ko0"
+        }
+      ],
+      "source_id": "tzrs8q3izww46fi"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 30627-30630, Obj 27-30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neuses bei Coburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W. von Kawaczynski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neuses bei Coburg",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "q7dh6nqhylg8jvc"
+    },
+    {
+      "annotation": "Neuses bei Coburg (Sammlung INr 30626, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Die Sonne bricht aus trüben Wolkenschleiern / Ihr Strahlenangesicht dem Tag zu zeigen,",
+      "language": [],
+      "musenalm_id": 30627,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Morgenandacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W. von Kawaczynski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Morgenandacht",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "nxjbp87pxx5mbwn"
+    },
+    {
+      "annotation": "Neuses bei Coburg (Sammlung INr 30626, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Wandle vorüber mit schweigender Laute, / Laß ihm die ländliche Stille, die traute,",
+      "language": [],
+      "musenalm_id": 30628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Fr. Rückerts Haus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W. von Kawaczynski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Fr. Rückerts Haus",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "q2qqcyc1se7nf4y"
+    },
+    {
+      "annotation": "Neuses bei Coburg (Sammlung INr 30626, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Und wieder zieht es mich zu dir, / Zur Dichtergruft im Birkenhaine;",
+      "language": [],
+      "musenalm_id": 30629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / A. M. von Thümmels Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W. von Kawaczynski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / A. M. von Thümmels Grab",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "wkn22pdmh0m4n6p"
+    },
+    {
+      "annotation": "Neuses bei Coburg (Sammlung INr 30626, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Ich kenne eine Harfe, die tönet wunderbar, / Bald dumpf, im Moll, und traurig, bald silberhell / und klar",
+      "language": [],
+      "musenalm_id": 30630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Des Wandrers Abendlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W. von Kawaczynski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Des Wandrers Abendlied",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "v6sub52zlzx78z3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30632, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Die Sonne ging unter, wie das wonneberauschte Auge einer reizenden Odaliske in süßen Schlaf untergeht,",
+      "language": [],
+      "musenalm_id": 30631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Stute des Wahabiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Stute des Wahabiten",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.495Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "0mreoiqairb33in"
+        }
+      ],
+      "source_id": "lcogyzbt93jokhw"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedruckt bei E. Grünewald in Darmstadt. /) Illustration zu »Die Stute des Wahabiten« von Ludwig Bechstein INr 30631, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Sonderland del. M. Hofmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. M. Hofmann sc.",
+      "scans": [
+        "alm_404_30632_vk9ymxxrnk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.655Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "2i5gjv1u8hxtc4g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.655Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.655Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "irqkq76gitkz4i4"
+        }
+      ],
+      "source_id": "kha1z1stj414ptq"
+    }
   ],
   "agents": [
     {

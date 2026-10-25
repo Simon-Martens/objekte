@@ -48,35 +48,1079 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "bb64k5ej1ajess2"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.490Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100171",
+      "location": "105D03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.490Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bb64k5ej1ajess2"
+    }
   ],
   "contents": [
-    "ry3q9o7huzseehy",
-    "n2a8kwklc463w2r",
-    "qqqu215590l4yhu",
-    "vmwss6zihhwegga",
-    "5r3a9p8ds8s2ei1",
-    "nhjhy4u3sg1tbpu",
-    "6r4u0jka7j8i3w8",
-    "po6mbkn5lkul0q7",
-    "0t67g77w0etknzy",
-    "nkpjq3mg1exnmjq",
-    "rrrt1ezxrnrj9ye",
-    "4k02pz6rrjk0q5q",
-    "kwpogsgi5592rhk",
-    "q89hjwgv3of0ezj",
-    "kw1e0668nwgw0oa",
-    "myz8g9ko73oafs9",
-    "5j76ftxltqp9rel",
-    "t0g76298p9d4l7p",
-    "7p9pe02unlqzej2",
-    "25jraa8hjsldq3l",
-    "smyxh8k4ix7j1a9",
-    "9jjqi4v4xupyoli",
-    "otxlcbl1u5mbnxr",
-    "z21bcf60hstsggn",
-    "gpie1vrwbsx41mf",
-    "0xkuovl1pz2g70j"
+    {
+      "annotation": "Titelportrait s. Beitrag INr 32351, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32337,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anne Germaine / Baronin von Stael-Holstein / gebohrne Necker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_446_32337_pw1ggbh9mn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anne Germaine / Baronin von Stael-Holstein / gebohrne Necker",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "ry3q9o7huzseehy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32338,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berlinischer / Damen-Kalender / auf / das Gemein-Jahr 1807. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_446_32338_rksz4hwcr1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berlinischer / Damen-Kalender / auf / das Gemein-Jahr 1807. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "n2a8kwklc463w2r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32339,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "qqqu215590l4yhu"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 1. Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32340,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. / Lebt wohl ihr Berge, ihr geliebten Triften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32340_jtka0i4jqd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. / Lebt wohl ihr Berge, ihr geliebten Triften",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3dk7vyb61r9y6j8"
+        }
+      ],
+      "source_id": "vmwss6zihhwegga"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 2. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32341,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. / An diesen Größeren bin ich gesendet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32341_9xivawrner.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. / An diesen Größeren bin ich gesendet",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "9qbjsn6ge7a5fkn"
+        }
+      ],
+      "source_id": "5r3a9p8ds8s2ei1"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 3. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32342,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwarzer Ritter. / Tödte was sterblich ist",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32342_ob5ycaz39q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schwarzer Ritter. / Tödte was sterblich ist",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "33zdcjcqpsccjvb"
+        }
+      ],
+      "source_id": "nhjhy4u3sg1tbpu"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 4. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32343,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. / Tödte mich! Und fliehe!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32343_jd4t22n5ht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. / Tödte mich! Und fliehe!",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3epp63qutb5zn6o"
+        }
+      ],
+      "source_id": "6r4u0jka7j8i3w8"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 5. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32344,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. / Verlaß mich. Wende dich von mir!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32344_brkj5vgoj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. / Verlaß mich. Wende dich von mir!",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "idk8lcks66j4wr6"
+        }
+      ],
+      "source_id": "po6mbkn5lkul0q7"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 6. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32345,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. / -Ach! / Es war nur eine täuschende Erscheinung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32345_hln1a14xcg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. / -Ach! / Es war nur eine täuschende Erscheinung",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "i52bpcbeexq6r8a"
+        }
+      ],
+      "source_id": "0t67g77w0etknzy"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 7. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32346,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Raimond. / Die Strassen / sind leer. Gebt mir die Hand",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32346_pkksn8tce1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Raimond. / Die Strassen / sind leer. Gebt mir die Hand",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "294me61en96mafk"
+        }
+      ],
+      "source_id": "nkpjq3mg1exnmjq"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 8. /)  Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32347,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Köhlerweib. / Trinkt, edle Jungfrau! mög's euch Gott gesegnen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32347_wxnc0v2ozu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Köhlerweib. / Trinkt, edle Jungfrau! mög's euch Gott gesegnen",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "dnk60dwvy7c1f19"
+        }
+      ],
+      "source_id": "rrrt1ezxrnrj9ye"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 9. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32348,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Köhlerbub. / Mutter! Mutter! das ist die Hexe von Orleans!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32348_bddf7d3rpu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Köhlerbub. / Mutter! Mutter! das ist die Hexe von Orleans!",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.633Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "bti4symslew1z2w"
+        }
+      ],
+      "source_id": "4k02pz6rrjk0q5q"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 10. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32349,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. Ermorde mich gleich hier. / Isabeau. Fort mit ihr!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32349_uyyv8hpd45.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. Ermorde mich gleich hier. / Isabeau. Fort mit ihr!",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.634Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "0787uk233xvj1dc"
+        }
+      ],
+      "source_id": "kwpogsgi5592rhk"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite. /) Graphik im Kalendarium paginiert 11. /) Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32350,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna. / So sei Gott mir gnädig",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. & sc.",
+      "scans": [
+        "alm_446_32350_pzzzey3qop.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna. / So sei Gott mir gnädig",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.634Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "obnlpedzk99fsic"
+        }
+      ],
+      "source_id": "q89hjwgv3of0ezj"
+    },
+    {
+      "annotation": "mit einem Portrait s. Titelportrait INr 32337, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Seit ich Berlin verließ, meine liebenswürdige und bewunderte Freundin, habe ich nicht wenige Schauspiele in verschiedenen Ländern und Sprachen gesehen,",
+      "language": [],
+      "musenalm_id": 32351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Über / einige tragische Rollen, / von / Frau von Stael dargestellt. / An / Madame Bethmann, geb. Flitner, / Schauspielerin des königl. National- / Theaters zu Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Über / einige tragische Rollen, / von / Frau von Stael dargestellt. / An / Madame Bethmann, geb. Flitner, / Schauspielerin des königl. National- / Theaters zu Berlin",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.634Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "cvwqfw9xbpha926"
+        }
+      ],
+      "source_id": "kw1e0668nwgw0oa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Mein theures, mein geliebtes Weib, welche Welt voll Schmerz liegt zwischen uns!",
+      "language": [],
+      "musenalm_id": 32352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romantische Briefe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian August Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romantische Briefe",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.634Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.634Z",
+          "agent": "f9dgwof9o4ukhch",
+          "source_id": "rbv7q30e8tyok6o"
+        }
+      ],
+      "source_id": "myz8g9ko73oafs9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Ja, liebster Freund, während die ganze Stadt mich beneidet, und ruft, ich habe durch den Besitz des liebenswürdigsten Weibes das Glück an mich gefesselt",
+      "language": [],
+      "musenalm_id": 32353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Beneidete. / Summa: bitte Gott, der dich erschaffen / hat, daß er dir ein fromm Kind zufüge: / es wird doch Mühe genug haben! / D. Martin Luther",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rochlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Beneidete. / Summa: bitte Gott, der dich erschaffen / hat, daß er dir ein fromm Kind zufüge: / es wird doch Mühe genug haben! / D. Martin Luther",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.640Z",
+          "agent": "2wsoz27ytrsps8l",
+          "source_id": "8qc9czqobhx3gsa"
+        }
+      ],
+      "source_id": "5j76ftxltqp9rel"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Liebes Kind, einen Grund mußt du mir doch für diese kalte Weigerung angeben können.",
+      "language": [],
+      "musenalm_id": 32354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Louisens Abentheuer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rudolphine Teuthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Louisens Abentheuer",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "t0g76298p9d4l7p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Umstarrt vom Eis des Norden, / In trüber Einsamkeit, / Ist mir ein Blümchen worden,",
+      "language": [],
+      "musenalm_id": 32355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Blümchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Natalie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Blümchen",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.640Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.640Z",
+          "agent": "l4enih6aag2oyqg",
+          "source_id": "jsancum05ludqno"
+        }
+      ],
+      "source_id": "7p9pe02unlqzej2"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Gedicht INr 32357, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Die jüngste Tochter der allgemein geschätzten Dichterin Friederike Brun; ein liebenswürdiges Mädchen von noch nicht vierzehn Jahren,",
+      "language": [],
+      "musenalm_id": 32356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Ida Brun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Ida Brun",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "r42k9lvh9obr9wp"
+        }
+      ],
+      "source_id": "25jraa8hjsldq3l"
+    },
+    {
+      "annotation": "mit einer Einleitung INr 32356, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Solch ein zephyrleichtes Leben, / Solcher Anmuth Gang und Schweben",
+      "language": [],
+      "musenalm_id": 32357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Ida Brun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Schlegel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Ida Brun",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "prpkg06tick1nmr",
+          "source_id": "96ug1t3w9zg731m"
+        }
+      ],
+      "source_id": "smyxh8k4ix7j1a9"
+    },
+    {
+      "annotation": "93 Seiten",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32358,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen / in Europa. / (Ist im Monat Juni geschlossen, und / darnach sogleich der Druck angefangen wor- / den, so daß die spätern Veränderungen nicht / mehr haben eingetragen werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen / in Europa. / (Ist im Monat Juni geschlossen, und / darnach sogleich der Druck angefangen wor- / den, so daß die spätern Veränderungen nicht / mehr haben eingetragen werden können.)",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "9jjqi4v4xupyoli"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32359,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige berühmte Messen u. Jahrmärkte / nebst den beigesetzten Tagen, auf welche sie in / dem 1807 ten Jahre einfallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige berühmte Messen u. Jahrmärkte / nebst den beigesetzten Tagen, auf welche sie in / dem 1807 ten Jahre einfallen",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "otxlcbl1u5mbnxr"
+    },
+    {
+      "annotation": "33 Seiten",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32360,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "z21bcf60hstsggn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32361,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "gpie1vrwbsx41mf"
+    },
+    {
+      "annotation": "36 Seiten",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32362,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Namen der Oerter im Cours-Verzeichniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. H. Mathias Geh. Secretair und erster Registrator beim Königl. General-Post-Amte",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Namen der Oerter im Cours-Verzeichniß",
+      "updated": "2003-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "0xkuovl1pz2g70j"
+    }
   ],
   "agents": [
     {

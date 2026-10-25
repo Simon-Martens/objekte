@@ -8,6 +8,16 @@ import './style.css';
 import './controls/theme-switch';
 import './controls/live-validation';
 import './controls/server-picker';
+import { installPickerSearch } from './controls/picker-search';
+installPickerSearch(window);
+import { installChoiceAutocomplete } from './controls/choice-autocomplete';
+import { installChoiceValues } from './controls/choice-values';
+installChoiceAutocomplete(window, installChoiceValues(window));
+import './controls/language-picker';
+import { installArrayReorder } from './controls/array-reorder';
+installArrayReorder(window);
+import { installEditTableSearch } from './controls/edit-table-search';
+installEditTableSearch(document);
 import './controls/action-menu';
 import { installColumnControls } from './controls/list-columns';
 import { openMenu } from './controls/action-menu';
@@ -31,7 +41,7 @@ window.fetch = (input, init) => {
   return nativeFetch(input, {...init, headers});
 };
 import { installRecordReferences } from './controls/record-references';
-installRecordReferences(window);
+installRecordReferences(window, openMenu);
 
 // Navigation mechanics only. Datastar applies every server-generated DOM patch.
 let dirty = false;
@@ -42,26 +52,42 @@ installProjectChooser(document, async () => {
 }, form => form.requestSubmit());
 let version = '';
 let shownUrl = location.pathname + location.search;
+let shownTablePage = document.getElementById('workspace')?.dataset.tablePage ?? '0';
+let anchoredElement: HTMLElement | null = null;
 function syncLocation() {
   syncDraft();
   const workspace = document.getElementById('workspace');
   const url = workspace?.dataset.url;
   const nextVersion = workspace?.querySelector<HTMLInputElement>('input[name="version"], input[name="revision"]')?.value ?? '';
-  if (url && url.split('?')[0] !== shownUrl.split('?')[0]) {
+  const locationKey = (value: string) => {
+    const parsed = new URL(value, location.origin);
+    return parsed.pathname + ':' + (parsed.searchParams.get('node') ?? '');
+  };
+  const tablePage = workspace?.dataset.tablePage ?? '0';
+  if (url && (locationKey(url) !== locationKey(shownUrl) || tablePage !== shownTablePage)) {
     window.scrollTo({top:0,left:0,behavior:'instant'});
     workspace?.focus({preventScroll:true});
   }
   if (url) shownUrl = url;
+  shownTablePage = tablePage;
   if (nextVersion !== version) { dirty = false; version = nextVersion; }
   if (url && url.startsWith('/') && !url.startsWith('//') && location.pathname + location.search !== url) {
     if (location.pathname.includes('/edit-sessions')) history.replaceState(null, '', url);
     else history.pushState(null, '', url);
     dirty = false;
   }
+  // A record edit link can open an expired draft first. Scroll once the
+  // replacement editor inserts its table card into the document.
+  const anchor = location.hash.slice(1);
+  const target = anchor ? document.getElementById(anchor) : null;
+  if (target && target !== anchoredElement) {
+    anchoredElement = target;
+    requestAnimationFrame(() => target.isConnected && target.scrollIntoView({block:'start'}));
+  }
 }
-new MutationObserver(syncLocation).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-url', 'value'] });
+new MutationObserver(syncLocation).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-url', 'data-table-page', 'value'] });
 syncLocation();
-document.addEventListener('input', event => { if ((event.target as Element)?.closest('#record-form, #document-form')) dirty = true; });
+document.addEventListener('input', event => { if ((event.target as Element)?.closest('#record-form, #document-form') && !(event.target as Element)?.closest('server-picker, [data-choice-input]')) dirty = true; });
 document.addEventListener('click', async event => {
   const link = (event.target as Element)?.closest<HTMLAnchorElement>('a[data-nav]');
   if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -102,3 +128,12 @@ import './controls/suggestion-select';
 import { installSearchControls } from './controls/regex-search';
 import { validatePattern } from './controls/search-validator';
 installSearchControls(document, validatePattern);
+
+// GET forms do not reliably retain fragments, so table controls carry an
+// explicit anchor while preserving the other tables' query state.
+const tableAnchor = new URLSearchParams(location.search).get('table_anchor');
+if (tableAnchor && /^array-[0-9a-f]*$/.test(tableAnchor)) {
+  const scrollToTable = () => document.getElementById(tableAnchor)?.scrollIntoView({block:'start'});
+  if (document.readyState === 'complete') scrollToTable();
+  else window.addEventListener('load', scrollToTable, {once:true});
+}

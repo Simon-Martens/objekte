@@ -48,57 +48,2174 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "3zo1oidjoaenm38"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt und Schuber.(Buchrücken leicht beschädigt.)\n1837: (K:Bl 8, 310 SS und Ku 8.) Mit Tku 1, Bl 9, Ku 7 und 310 SS.\n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101122",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3zo1oidjoaenm38"
+    }
   ],
   "contents": [
-    "5njxpbd1ylabc5s",
-    "ab6npgtvd8z35bs",
-    "3yo90uw8pa7ffh8",
-    "g3mtd2hfsladyl1",
-    "swd4te447odv9mx",
-    "nsd2921v1nwvzh4",
-    "za5ozr0id9jizk0",
-    "9c8mt0yi9abb8lh",
-    "yjt25gc3erx97zb",
-    "rj8yvy8xb7r95ps",
-    "6a9zqss6zmtxxnm",
-    "vsdnxkoikqrhn4w",
-    "j2gf68t4vscqvns",
-    "8gk7wpuj7uzi0tn",
-    "kzqwcjqxoggwdr9",
-    "qyjte65bb1cpyk3",
-    "y03dlygf2o2sfof",
-    "eflg86kq1amxbju",
-    "nu6m0k6v1uixfap",
-    "2qaimcwsjplrlrh",
-    "e9oo87hw68h0vmp",
-    "pedway6a307s6u3",
-    "0xtprjeqohl78f4",
-    "dqlen244uswl43i",
-    "u18quc6dj66v79z",
-    "yn838uefxh601y5",
-    "0ebwesu3ec8uaaf",
-    "wjht6xeh5r7q9j5",
-    "kwqihasnxo0hp73",
-    "0qlrqlwf7im4zy8",
-    "by0vy3ep9ig6d4r",
-    "fxqn4kk44rusdym",
-    "8x1dxrnfpyo1f70",
-    "e0727r6gnt9bqmv",
-    "3rq7y2a355f1wag",
-    "ngkqbzy7hqt8jdn",
-    "yl48u2s7kjudvc0",
-    "9l909csb7f1kw9m",
-    "3txsxnmnqy7wz1s",
-    "n1eictex4p0694f",
-    "c4zz5ib3q2buxut",
-    "f8ywyqqk2nuakjv",
-    "8go8eopvwpzrnyw",
-    "nr6lntqwmmr9cr4",
-    "5dmmbhd03rub2z7",
-    "l9fizr3y0n4ahjw",
-    "gng5k37q9e32yit",
-    "xid7zt3fo8hn0cz"
+    {
+      "annotation": "Titelgraphik. zus. Bezeichnung: gedr. v. Lange in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LIEBE / und / FREUND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. Eduard Schuler sculp.",
+      "scans": [
+        "alm_400_30442_50uxo5zaaz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LIEBE / und / FREUND",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "piiycf7yag9enyl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "wafki5baf4aycyz"
+        }
+      ],
+      "source_id": "5njxpbd1ylabc5s"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.545Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / Liebe und Freundschaft / GEWIDMET / 1837. / Herausgegeben / von / Dr. St. SCHÜTZE. / FRANKFURT a. M. / Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Brandt sculp.",
+      "scans": [
+        "alm_400_30443_wag0hfszi9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / Liebe und Freundschaft / GEWIDMET / 1837. / Herausgegeben / von / Dr. St. SCHÜTZE. / FRANKFURT a. M. / Friedrich Wilmans",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ab6npgtvd8z35bs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "3yo90uw8pa7ffh8"
+    },
+    {
+      "annotation": "Sammlung von 4 Textbezügen zu vier Graphiken INr 30446-30453, Obj 5-12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freude des Wiedersehens, / in / vier Bildern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freude des Wiedersehens, / in / vier Bildern",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "qidwy82x762o6bj"
+        }
+      ],
+      "source_id": "g3mtd2hfsladyl1"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. v. Susemihl. /) s. Textbezug INr 30447, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30446,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Sonderland del. D. St. v. Leop. Beyer W.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. D. St. v. Leop. Beyer W.",
+      "scans": [
+        "alm_400_30446_bswp3cm08y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.517Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "beiha2fd968zvzr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.518Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.518Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "p5fgpt0l95nbvcf"
+        }
+      ],
+      "source_id": "swd4te447odv9mx"
+    },
+    {
+      "annotation": "Die Freude des Wiedersehens, in vier Bildern (Sammlung INr 30445, Obj 4) s. Graphik INr 30446, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.549Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Stund' ist da, um die manch Herz gezittert, / Den Anfall oft von Sorg' und Angst ertrug",
+      "language": [],
+      "musenalm_id": 30447,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Des Sohnes Heimkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Des Sohnes Heimkehr",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.518Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.518Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "t7rwgb81je6d2ai"
+        }
+      ],
+      "source_id": "nsd2921v1nwvzh4"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. v. Susemihl. /) s. Textbezug INr 30449, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30448,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Sonderland del. Düsseldorf. Stahlstich v. Leop. Beyer Wien)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. Düsseldorf. Stahlstich v. Leop. Beyer Wien",
+      "scans": [
+        "alm_400_30448_vv4a04uif2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.573Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "3ziephnc4b85yy7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.573Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "lxj5gy5v2ecjwek"
+        }
+      ],
+      "source_id": "za5ozr0id9jizk0"
+    },
+    {
+      "annotation": "Die Freude des Wiedersehens, in vier Bildern (Sammlung INr 30445, Obj 4) s. Graphik INr 30448, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Was hilft's, die halbe Welt durchschwärmen, / Mit Brüdern nächtelang",
+      "language": [],
+      "musenalm_id": 30449,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der alte Liebhaber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der alte Liebhaber",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.573Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "bit4406jffuq8br"
+        }
+      ],
+      "source_id": "9c8mt0yi9abb8lh"
+    },
+    {
+      "annotation": "s. Textbezug INr 30451, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30450,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Sonderland del. Leop. Beyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. Leop. Beyer sc.",
+      "scans": [
+        "alm_400_30450_xwj73oj8im.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.573Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "3bd0hx3me2ulxma"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.573Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "tlmj3dc70whcw59"
+        }
+      ],
+      "source_id": "yjt25gc3erx97zb"
+    },
+    {
+      "annotation": "Die Freude des Wiedersehens, in vier Bildern (Sammlung INr 30445, Obj 4) s. Graphik INr 30450, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wie sollte nicht das Herz erbeben / Bei'm Anblick der bewegten Welt,",
+      "language": [],
+      "musenalm_id": 30451,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Begegnung im Kampfe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Begegnung im Kampfe",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "nmgq3vtc77gcrzo"
+        }
+      ],
+      "source_id": "rj8yvy8xb7r95ps"
+    },
+    {
+      "annotation": "s. Textbezug INr 30453, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30452,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Sonderland del. Leop. Beyer sc. V.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. Leop. Beyer sc. V.",
+      "scans": [
+        "alm_400_30452_xrvq6niwn3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "4hk828n8wcyhd5q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "kfpirg9lrobl8f3"
+        }
+      ],
+      "source_id": "6a9zqss6zmtxxnm"
+    },
+    {
+      "annotation": "Die Freude des Wiedersehens, in vier Bildern (Sammlung INr 30445, Obj 4) s. Graphik INr 30452, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Geschichte vom Bernauer Bier, die sich in Berlin zugetragen, hat sich unter dem Volke allmählich zu einem Schwank ausgebildet,",
+      "language": [],
+      "musenalm_id": 30453,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rückkehr aus dem Kriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rückkehr aus dem Kriege",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.578Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "gb59k3ff9lax2ya"
+        }
+      ],
+      "source_id": "vsdnxkoikqrhn4w"
+    },
+    {
+      "annotation": "# dem Text vorangestellt: Motto. / Ihr seht meine guten Weibsbilder, wie Menschen von Verdienst gesucht werden! / Falstaff in Heinrich IV /) mit einer Illustration s. Graphik INr 30455, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Welch häßlich Land, alter Peter! sagte der junge Schweizerritter Arnold an der Halden, zu einem bejahrten Reisigen,",
+      "language": [],
+      "musenalm_id": 30454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die geheime Sendung. / Eine Erzählung #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die geheime Sendung. / Eine Erzählung #",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.579Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "zjwt5p3vs7rmnvu"
+        }
+      ],
+      "source_id": "j2gf68t4vscqvns"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. v. Susemihl. /) Illustration zu »Die geheime Sendung« von K. v. Wachsmann INr 30454, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die geheime Sendung / von C. von Wachsmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland fc. M. Hofmann sc. Viennae",
+      "scans": [
+        "alm_400_30455_lymlzxiy1m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die geheime Sendung / von C. von Wachsmann",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.579Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "5kdltc9oh48wta4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.579Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "gi5lq0bk364pwur"
+        }
+      ],
+      "source_id": "8gk7wpuj7uzi0tn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30457, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Neu und schön stand die Kapelle / Dort in Varila erhöht,",
+      "language": [],
+      "musenalm_id": 30456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wunderbaum in Varila. / Thüringische Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wunderbaum in Varila. / Thüringische Sage",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.579Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "warase8zx9dgfad"
+        }
+      ],
+      "source_id": "kzqwcjqxoggwdr9"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. v. Lange in Darmstadt. /) Illustration zu »Der Wunderbaum in Varila« INr 30456, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wunderbaum in Varila. / von Ludw. Bechstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland del. Eduard Schuler sculp",
+      "scans": [
+        "alm_400_30457_yb7pb95igw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Wunderbaum in Varila. / von Ludw. Bechstein",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.392Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "td5zq5n5upybao5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.392Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "umrwithevuz5pi8"
+        }
+      ],
+      "source_id": "qyjte65bb1cpyk3"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 30459-30464, Obj 18-23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder junger Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder junger Liebe",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.392Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "r1bf117x8j29dks"
+        }
+      ],
+      "source_id": "y03dlygf2o2sfof"
+    },
+    {
+      "annotation": "Lieder junger Liebe (Sammlung INr 20458, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "So viel am Himmelskreise / Der Sternlein bringt die Nacht,",
+      "language": [],
+      "musenalm_id": 30459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.392Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "bs0zabii41gekbx"
+        }
+      ],
+      "source_id": "eflg86kq1amxbju"
+    },
+    {
+      "annotation": "Lieder junger Liebe (Sammlung INr 20458, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Alles Leid hab' ich vergessen, / Jeder Schmerz war fern gebannt,",
+      "language": [],
+      "musenalm_id": 30460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.497Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.497Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "6y7eyd3jz8xgemj"
+        }
+      ],
+      "source_id": "nu6m0k6v1uixfap"
+    },
+    {
+      "annotation": "Lieder junger Liebe (Sammlung INr 20458, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Nun muß ich immer an Dich denken / Dein Bild geht mit mir überall,",
+      "language": [],
+      "musenalm_id": 30461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.573Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "13b39rah831b27e"
+        }
+      ],
+      "source_id": "2qaimcwsjplrlrh"
+    },
+    {
+      "annotation": "Lieder junger Liebe (Sammlung INr 20458, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Einen Stern hab' ich gesehen / Ueber Deinem Hause stehen,",
+      "language": [],
+      "musenalm_id": 30462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.650Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "4bfjppyogypjdkv"
+        }
+      ],
+      "source_id": "e9oo87hw68h0vmp"
+    },
+    {
+      "annotation": "Lieder junger Liebe (Sammlung INr 20458, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Du kennst mich ganz,so ganz Dein eigen / Bin ich und eins mit Deinem Seyn",
+      "language": [],
+      "musenalm_id": 30463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.650Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "5kgsrvn9w45wc3s"
+        }
+      ],
+      "source_id": "pedway6a307s6u3"
+    },
+    {
+      "annotation": "Lieder junger Liebe (Sammlung INr 20458, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Das eine frag' ich Dich, das eine: / Willst Du mir halten Deinen Schwur?",
+      "language": [],
+      "musenalm_id": 30464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.650Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "4jcpab1my5el3h0"
+        }
+      ],
+      "source_id": "0xtprjeqohl78f4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "In jenen bewegten, merkwürdigen Tagen, die eine der wichtigsten Perioden der Geschichte des mächtigen Englands bilden,",
+      "language": [],
+      "musenalm_id": 30465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blöde Liebe / und kecke Freundschaft. / Novelle.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blöde Liebe / und kecke Freundschaft. / Novelle.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.650Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "ilid0kj27z1qm22"
+        }
+      ],
+      "source_id": "dqlen244uswl43i"
+    },
+    {
+      "annotation": "$ vermutl. St. Schütze",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Der lange Winter drückt das Thal / Und plagt mit trüben Bildern,",
+      "language": [],
+      "musenalm_id": 30466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ihro Kaiserlichen Hoheit / Maria Paulowna / zum 16. Februar 1836 / vom Gartenbau-Verein in Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ihro Kaiserlichen Hoheit / Maria Paulowna / zum 16. Februar 1836 / vom Gartenbau-Verein in Weimar",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "u18quc6dj66v79z"
+    },
+    {
+      "annotation": "$ vermutl. St. Schütze",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Ein Schiff, beschwert mit reichen Lasten, / Kehrt froh von erster Fahrt zurück,",
+      "language": [],
+      "musenalm_id": 30467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Schiff und der Wald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Schiff und der Wald",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "yn838uefxh601y5"
+    },
+    {
+      "annotation": "$ vermutl. St. Schütze",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Lieblich kosend - wie erquicklich / Weht des Lenzes Hauch mich an,",
+      "language": [],
+      "musenalm_id": 30468,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Frühlingsfreude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Frühlingsfreude",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ebwesu3ec8uaaf"
+    },
+    {
+      "annotation": "$ vermutl. St. Schütze",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "Der Vogel singt des Dankes Lieder / Der Heimath, neu entzückt:",
+      "language": [],
+      "musenalm_id": 30469,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Einer für den Andern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Einer für den Andern",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "wjht6xeh5r7q9j5"
+    },
+    {
+      "annotation": "$ vermutl. St. Schütze",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Wenn das Leben sich verenget, / Immer kälter preßt die Brust,",
+      "language": [],
+      "musenalm_id": 30470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die Zuflucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die Zuflucht",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "kwqihasnxo0hp73"
+    },
+    {
+      "annotation": "$ vermutl. St. Schütze /) mit einer Illustration s. Graphik INr 30472, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Herr Wirth, noch einmal schenkt mir ein; / Nun fühl' ich ganz, die Welt ist mein,",
+      "language": [],
+      "musenalm_id": 30471,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Der Trinker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Der Trinker",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "0qlrqlwf7im4zy8"
+    },
+    {
+      "annotation": "zus. Bezeichnung: gedr. v. Susemihl/) Illustration zu »Der Trinker« $ vermutl. von St. Schütze INr 30471, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30472,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Trinker. / von Stephan Schütze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonderland fc. M. Hofmann sc. Viennae",
+      "scans": [
+        "alm_400_30472_y8v5yf6gfy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Trinker. / von Stephan Schütze",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.650Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "5lbs4k6my4d9rmo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.650Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "e9dvj7emjgjnand"
+        }
+      ],
+      "source_id": "by0vy3ep9ig6d4r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "An einem ziemlich nebligen Herbstmorgen war auf dem alten Schlosse Earnhall und in dem dazugehörigen Dorfe in einer der südlichen Grafschaften Irlands viel ungewöhnliche Bewegung.",
+      "language": [],
+      "musenalm_id": 30473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Feen-Linde. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Feen-Linde. / Novelle",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.593Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "la6av818g2pjbmf"
+        }
+      ],
+      "source_id": "fxqn4kk44rusdym"
+    },
+    {
+      "annotation": "Sammlung von 15 Beiträgen INr 30475-30489, Obj 34-48. Aus: Die Weisheit des Brahmanen. Ein Lehrgedicht in Bruchstücken. Leipzig 1836-1839",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus den Bruchstücken eines / Lehrgedichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus den Bruchstücken eines / Lehrgedichts",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.593Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "qcpy5w3kwp0ew3c"
+        }
+      ],
+      "source_id": "8x1dxrnfpyo1f70"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "An einem Bache steht ein junger Rosenstrauch, / Und wiegt sein blühendes Gezweig im Frühlingshauch.",
+      "language": [],
+      "musenalm_id": 30475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.486Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "pm449g3z1leye40"
+        }
+      ],
+      "source_id": "e0727r6gnt9bqmv"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Beglückt ist, wer den Weg der Sünde gar nicht kennt, / Vom eignen Trieb gelenkt, den Weg des guten rennt.",
+      "language": [],
+      "musenalm_id": 30488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.484Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "zmuw230vw525kr3"
+        }
+      ],
+      "source_id": "3rq7y2a355f1wag"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Wenn du nicht ausziehn kannst den Fehler der Natur, / In eine Tugend such' ihn umzubilden nur.",
+      "language": [],
+      "musenalm_id": 30476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "18ucl4y4bnu8sad"
+        }
+      ],
+      "source_id": "ngkqbzy7hqt8jdn"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Du hast es einmal brav gemacht, und meinest nun, / Du könnt'st ein andermal auch etwas minder thun.",
+      "language": [],
+      "musenalm_id": 30477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "cpinahcayp3w5ij"
+        }
+      ],
+      "source_id": "yl48u2s7kjudvc0"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Schon wieder hast Du nicht, was ich gewollt, gethan; / Schon wieder hast Du, was Du nicht gesollt, gethan.",
+      "language": [],
+      "musenalm_id": 30490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.484Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "q4vht5swl95xyl2"
+        }
+      ],
+      "source_id": "9l909csb7f1kw9m"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Die Mutter, die dem Kind nicht selber Nahrung schenkt, / Beneide nur die Brust der Amme, die es tränkt;",
+      "language": [],
+      "musenalm_id": 30478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "7x6e1aru3om415y"
+        }
+      ],
+      "source_id": "3txsxnmnqy7wz1s"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "O hätt' ich Bäume doch vor fünfundzwanzig Jahren / Gepflanzt, als rüstig noch die Hände dazu waren!",
+      "language": [],
+      "musenalm_id": 30479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "4x2c6iirouczff8"
+        }
+      ],
+      "source_id": "n1eictex4p0694f"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Nur das, wie klein es sei, was Du in Dir erlebest, / Ist werth, daß Du davon dem Nachbar Kunde gebest.",
+      "language": [],
+      "musenalm_id": 30480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "mzebolchz9nytjt"
+        }
+      ],
+      "source_id": "c4zz5ib3q2buxut"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Räum' einen Anstoß weg, der einen Schritt könnt' irren, / Und jeden Irrthum, der könnt' einen Sinn verwirren;",
+      "language": [],
+      "musenalm_id": 30481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "j8kaqui4woxrulr"
+        }
+      ],
+      "source_id": "f8ywyqqk2nuakjv"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Der wird nicht wirken viel mit allen seinen Werken, / Wer gleich bei jedem Werk die Wirkung will bemerken.",
+      "language": [],
+      "musenalm_id": 30482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "6mnoepxiy75ip32"
+        }
+      ],
+      "source_id": "8go8eopvwpzrnyw"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Wo üppig Unkraut wächst, von Niemand angebaut, / Wird ebenso, wenn Du es anbaust, wachsen Kraut.",
+      "language": [],
+      "musenalm_id": 30483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "30nq4wd571tvy0r"
+        }
+      ],
+      "source_id": "nr6lntqwmmr9cr4"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Nicht Alles was Du weißt, darffst Allen Du vertrauen, / Noch minder Alle, was Du weißt, lassen schaun.",
+      "language": [],
+      "musenalm_id": 30484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "5hvptp1k5ynso4e"
+        }
+      ],
+      "source_id": "5dmmbhd03rub2z7"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Nicht sein Anliegen kann man stets dem Freunde sagen; / Dem Freunde kommt es zu, dem Freund es abzufragen.",
+      "language": [],
+      "musenalm_id": 30485,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.483Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "j1yjhjwiu3y48ok"
+        }
+      ],
+      "source_id": "l9fizr3y0n4ahjw"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Du weißt es tausendmal, so Schlechtes auf der Welt / Ist nicht zu finden, das nicht Einem wohlgefällt.",
+      "language": [],
+      "musenalm_id": 30486,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.484Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "wvrr4bld4mp0a5t"
+        }
+      ],
+      "source_id": "gng5k37q9e32yit"
+    },
+    {
+      "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Die Jugend ist die Zeit, wo man nach Zweck und Ziel / Nicht fragt, drum lernt man in der Jugend leicht und viel.",
+      "language": [],
+      "musenalm_id": 30487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.484Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "6piww9bkgahhx29"
+        }
+      ],
+      "source_id": "xid7zt3fo8hn0cz"
+    }
   ],
   "agents": [
     {

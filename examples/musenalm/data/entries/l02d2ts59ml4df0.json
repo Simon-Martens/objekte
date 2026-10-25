@@ -48,50 +48,1806 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "e5bhw636s22a8j7"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nHalbleineneinband mit Goldschnitt.\n1841: (K: M.8 Stahlst.) Mit Port 1,  Bl 2,  XXIII,  Ku 6, 336 SS und 337-391 S (Reise Briefe.)\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106718",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "e5bhw636s22a8j7"
+    }
   ],
   "contents": [
-    "o3gozgfadof09v3",
-    "j6z7yj82soqqcur",
-    "zz3ghbpickw13fg",
-    "tk9wx4zc9jowbc6",
-    "5hpxm2l5ceambuz",
-    "zwqblrhfntfbg9p",
-    "eze4joae97kzqhx",
-    "ts7w2zkva1umka4",
-    "kq9upla2ixz1uj9",
-    "hdu2a8yfm5h4p9i",
-    "lqebu8vogab7jxj",
-    "8mkwjgoq92p11ar",
-    "ooyty9dpnh3mie2",
-    "0guo4gersdiw0nr",
-    "ehgqynjbtm37nfy",
-    "y0eheuq2aib6iu9",
-    "q0jd2xmqesfwz2j",
-    "96l4gc2jlivd4al",
-    "7aqwrhc9hk16l6r",
-    "of4b1rhqzdm2oi1",
-    "0292jn0ifz6pw4k",
-    "kbhp06om771jifb",
-    "rkw8xco27m0c612",
-    "uf11j5preigdfbl",
-    "nuadpdrjy5tf8n9",
-    "2rv0qtnz0e20nsl",
-    "pq1parl8whoxekc",
-    "a2tgb5excnwzyca",
-    "z8lheppggbf2yc6",
-    "3e9z7a97fbfa9n0",
-    "s5tk92tpzcbjq7h",
-    "77ab93m1q7zhv8d",
-    "vum1k5z4dwsatyk",
-    "2pwgxu6czavmujw",
-    "nt54gta6qm63a66",
-    "u2ejmp3au53ua6f",
-    "a6lucmpi4evci4o",
-    "i4uxn7ahzgpfggj",
-    "612nck4fdmlj6f5",
-    "dvk4adc3a0utbuc",
-    "mmfyo5ki980mnwd"
+    {
+      "annotation": "Titelportrait [unter der Graphik: W. Maas impr.] s. Textbezug INr 44062, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44055,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ph. Veit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinle del. Schäffer sc.",
+      "scans": [
+        "alm_597_44055_q9dd01qrkw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ph. Veit",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.193Z",
+          "agent": "esns1204g1raav7",
+          "source_id": "i0o30ozb1o35354"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.193Z",
+          "agent": "wdyn1i7226e5p59",
+          "source_id": "soirc6l90649apr"
+        }
+      ],
+      "source_id": "o3gozgfadof09v3"
+    },
+    {
+      "annotation": "graph. Titel s. Gedicht INr 44059, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Limecker del. Grünewald & Cooke sc.",
+      "language": [],
+      "musenalm_id": 44056,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH. / 1842",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserich] del. Grünewald & Cooke sc.",
+      "scans": [
+        "alm_597_44056_bso93eraej.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH. / 1842",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.193Z",
+          "agent": "uohs1l6y8ng1p96",
+          "source_id": "b26jvs83mv90pl5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.193Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.193Z",
+          "agent": "1ih3q5zwi5sbzkz",
+          "source_id": "b5jhm6p24yzp2ef"
+        }
+      ],
+      "source_id": "j6z7yj82soqqcur"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44057,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1842. / Herausgegeben / von / Dr. Adrian. / Mit 8 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1842. / Herausgegeben / von / Dr. Adrian. / Mit 8 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "zz3ghbpickw13fg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44058,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "tk9wx4zc9jowbc6"
+    },
+    {
+      "annotation": "s. graph. Titel INr 44056, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Rhein, und immer wieder / In Bild und Sang der Rhein!",
+      "language": [],
+      "musenalm_id": 44059,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Titelvignette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Titelvignette",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.223Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "dav9pjqymqb3ldo"
+        }
+      ],
+      "source_id": "5hpxm2l5ceambuz"
+    },
+    {
+      "annotation": "Sammlung von 8 Textbezügen zu 7 Graphiken INr 44055, 44061-44074; Obj 1, 7-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44060,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miniatur-Salon. / Ausstellung 1842",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miniatur-Salon. / Ausstellung 1842",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "zwqblrhfntfbg9p"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wohl nicht als die geringste unter den Segnungen des mehr als zwanzigjährigen Friedens darf man es preisen, daß ein neuer, reicher Frühling die alten, fast verwitterten Tempel der bildenden Kunst mit frischen Blüthen belebt",
+      "language": [],
+      "musenalm_id": 44061,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "eze4joae97kzqhx"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Titelportrait INr 44055, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Philipp Veit eröffnet die Reihe der Maler, deren Bildnisse die Bände dieses Taschenbuchs zieren sollen.",
+      "language": [],
+      "musenalm_id": 44062,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Veit's Portrait",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Veit's Portrait",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "ts7w2zkva1umka4"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Graphik INr 44064, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Es ist dies wohl das Gemälde, welches das tieffromme, geistverklärte Gemüth des Meisters am herrlichsten abspiegelt.",
+      "language": [],
+      "musenalm_id": 44063,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Marien am Grabe des Heilands. / Von Philipp Veit. / (Eigenthum des Herrn Bernus du Fay in Frankfurt a. M.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Marien am Grabe des Heilands. / Von Philipp Veit. / (Eigenthum des Herrn Bernus du Fay in Frankfurt a. M.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "kq9upla2ixz1uj9"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44063, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44064,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE BEIDEN MARIEN AM GRABE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ph. Veit pinx. T. S. Engleheart sc.",
+      "scans": [
+        "alm_597_44064_1347q8l2kc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE BEIDEN MARIEN AM GRABE",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.394Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "bqwqj6qb6fv9ncy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.394Z",
+          "agent": "mf70dksjeqdse8p",
+          "source_id": "pkgytn8pndx0s2n"
+        }
+      ],
+      "source_id": "hdu2a8yfm5h4p9i"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44066, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44065,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MÄDCHEN AUF DEM BERGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Begas pinx. T. S. Engleheart sc.",
+      "scans": [
+        "alm_597_44065_rnww48xzxi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MÄDCHEN AUF DEM BERGE",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.394Z",
+          "agent": "p2wbs7ivhx2i5bf",
+          "source_id": "as8w0iqiu7uy8ge"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.395Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "ie63f60sue3ofuz"
+        }
+      ],
+      "source_id": "lqebu8vogab7jxj"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Graphik INr 44065, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Zwei Mädchen, Freundinnen, in dem goldnen Alter, wo noch leicht der Busen sich hebt und frisch und freudig und erwartungsvoll das Auge in die schöne, reiche Welt schaut,",
+      "language": [],
+      "musenalm_id": 44066,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mädchen auf dem Berge. / Von Begas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mädchen auf dem Berge. / Von Begas",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "8mkwjgoq92p11ar"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44068, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44067,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE BRAUT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Rustige pinx. T. S. Engleheart sc.",
+      "scans": [
+        "alm_597_44067_5fit74j89g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE BRAUT",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.149Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "4myvug2wazws49j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.149Z",
+          "agent": "uqsdu0nifidzvmw",
+          "source_id": "xnasu5isdo5fw74"
+        }
+      ],
+      "source_id": "ooyty9dpnh3mie2"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Graphik INr 44067, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Er ist endlich da, der herangesehnte und herangebangte Tag. Zum letzten Male begrüßt die Jungfrau, von der ersten Strahlen der Frühsonne aus unruhigem Schlummer geweckt,",
+      "language": [],
+      "musenalm_id": 44068,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Braut. / Von Rustige. / (Eigenthum des Herrn Thillmanns in Frankfurt a. M.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Braut. / Von Rustige. / (Eigenthum des Herrn Thillmanns in Frankfurt a. M.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "0guo4gersdiw0nr"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Graphik INr 44070, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Das dem deutschen Kaiser ergebene Geschlecht der Ezzeline, das aus Deutschland unter Konrad dem Salier nach Italien gekommen war,",
+      "language": [],
+      "musenalm_id": 44069,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ezzelino da Romano. / Von Fr. Lessing. / (Eigenthum des Städel'schen Kunstinstituts in Frankfurt a. M.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ezzelino da Romano. / Von Fr. Lessing. / (Eigenthum des Städel'schen Kunstinstituts in Frankfurt a. M.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "ehgqynjbtm37nfy"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44069, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44070,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EZELIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. Lessing pinx.T. S. Engleheart sc.",
+      "scans": [
+        "alm_597_44070_8vkdqvapaw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EZELIN",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.199Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.199Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "gaa4b3gzfm2g9g9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.199Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.199Z",
+          "agent": "qwoc4n9phr2r6vu",
+          "source_id": "xh4n86xgj2d11tm"
+        }
+      ],
+      "source_id": "y0eheuq2aib6iu9"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier von. Grünewald & Cooke] s. Textbezug INr 44072, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.856Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44071,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROMEO UND JULIE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Sohn pinx. T. S. Engleheart sc.",
+      "scans": [
+        "alm_597_44071_m1p52qz8ak.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROMEO UND JULIE",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "gkgzk7kd4fzflto"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "kd2m6gqwwqw3i2v",
+          "source_id": "oethc6q540cqvi0"
+        }
+      ],
+      "source_id": "q0jd2xmqesfwz2j"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Graphik INr 44071, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Wer hat nicht schon mit Wehmuth und Entzücken dieses von den Göttern verschwenderisch ausgestattete, durch der Menschen Haß unglücklichste Paar in den Irrgängen seines kurzen Lebens begleitet?",
+      "language": [],
+      "musenalm_id": 44072,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romeo und Julie. / Von C. Spohn. / (Das Original befindet sich in der Herzoglichen Gallerie zu Braunschweig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romeo und Julie. / Von C. Spohn. / (Das Original befindet sich in der Herzoglichen Gallerie zu Braunschweig.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "96l4gc2jlivd4al"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1842 (Sammlung INr 44060, Obj 6) s. Graphik INr 44074, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Die Idee zu diesem Bilde ist aus L. Tieck's unübertrefflichem Mährchen: die Elfen, genommen.",
+      "language": [],
+      "musenalm_id": 44073,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Elfen. / Von Steinbrück. / (Das Original ist im Besitz Ihrer Majestät der Kaiserin von Rußland.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Elfen. / Von Steinbrück. / (Das Original ist im Besitz Ihrer Majestät der Kaiserin von Rußland.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "7aqwrhc9hk16l6r"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier von. Grünewald & Cooke in Darmstadt] s. Textbezug INr 44073, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44074,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE ELFEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt v. C. Steinbrück Gest. v. [unleserlich]",
+      "scans": [
+        "alm_597_44074_ghtswe7udl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE ELFEN",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.112Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.112Z",
+          "agent": "3jqqmlof6ns4knk",
+          "source_id": "nev8j3nbrfoiy08"
+        }
+      ],
+      "source_id": "of4b1rhqzdm2oi1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war in der Zeit der Kriege zwischen Welfen und Ghibellinen, welche das obere Italien so lange bewegten, als in einer hellen Mondnacht zwei bewaffnete Reiter durch das Thal der Adda zogen,",
+      "language": [],
+      "musenalm_id": 44075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tyrann von Padua. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav von Heeringen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tyrann von Padua. / Novelle",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.112Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.112Z",
+          "agent": "hffp5p53qsk8bxy",
+          "source_id": "9nza30h0yd4ueqn"
+        }
+      ],
+      "source_id": "0292jn0ifz6pw4k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Auf dem Herrenhause in Christendorf war große Gesellschaft. Der herrlichste Septembertag hatte aus der Umgegend Alles herbeigelockt, was sich zur vornehmen Welt zählte.",
+      "language": [],
+      "musenalm_id": 44076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "St. Hubertustag. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "St. Hubertustag. / Novelle",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.112Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.112Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "k5snhp71lnxrwrw"
+        }
+      ],
+      "source_id": "kbhp06om771jifb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Die Koffer standen halb gepackt; im Zimmer lag Alles wirr umher: Frauenputz, verblichene Bänder, farbenglühende Cashemire, unächte Blumen und ächte Brüssler Spitzen.",
+      "language": [],
+      "musenalm_id": 44077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Dornen. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Dornen. / Erzählung",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.112Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.112Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "8pdi2tggr7yqczf"
+        }
+      ],
+      "source_id": "rkw8xco27m0c612"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Wohlauf! Noch getrunken / Den funkelnden Wein! / Ade nun, ihr Lieben; / Geschrieben muß sein!",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Dieses schöne Lied des gemüthlichen Justinus Kerner hatten wir auf dem Heidelberger Schlosse gesungen.",
+      "language": [],
+      "musenalm_id": 44078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Luise. / Novelle aus den Kriegsjahren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Creizenach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Luise. / Novelle aus den Kriegsjahren",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "uf11j5preigdfbl"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten INr 44080- 44088, Obj 26-34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alpenlieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alpenlieder",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.344Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "tj0apfmzaybuirg"
+        }
+      ],
+      "source_id": "nuadpdrjy5tf8n9"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Zur Ruh gelehnt an einen Stein / Umblühn mich Alpenrosen purpurroth,",
+      "language": [],
+      "musenalm_id": 44080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gemsenjäger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gemsenjäger",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.344Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "n5zltgnbb1g3mlm"
+        }
+      ],
+      "source_id": "2rv0qtnz0e20nsl"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "O Frühlingsluft, o Tannenschatten, / O Quellenrauschen von der Höh,",
+      "language": [],
+      "musenalm_id": 44081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem Königsee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf dem Königsee",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.344Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "c8e9fiocokrwlgj"
+        }
+      ],
+      "source_id": "pq1parl8whoxekc"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "Auf der Alm in grünen Matten / Glänzt noch goldner Sonnenschein,",
+      "language": [],
+      "musenalm_id": 44082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf der Alm. / (Gaisberg bei Salzburg.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf der Alm. / (Gaisberg bei Salzburg.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.344Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "8y9q3m7zj1boui4"
+        }
+      ],
+      "source_id": "a2tgb5excnwzyca"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "Auf hohen Bergen sich ergehn / Bis in den Abendstrahl, / Und drunten blühn und glänzen sehn / Das stromdurchbrauste Thal;",
+      "language": [],
+      "musenalm_id": 44083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderlust. / (Gastein.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderlust. / (Gastein.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.411Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "yvrpn7tp4jeupdz"
+        }
+      ],
+      "source_id": "z8lheppggbf2yc6"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "Ueber wilde Höh'n gezogen / Grüß' ich gern das offne Thal.",
+      "language": [],
+      "musenalm_id": 44084,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unterinnthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unterinnthal",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.411Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "wmehgjtxcds4zvk"
+        }
+      ],
+      "source_id": "3e9z7a97fbfa9n0"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "Zell! eine Zelle möchte' ich erbaun / An dieser heimlich stillen Bergeshalde,",
+      "language": [],
+      "musenalm_id": 44085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zillerthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zillerthal",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.411Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "7pd5ordimpi310j"
+        }
+      ],
+      "source_id": "s5tk92tpzcbjq7h"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "O Ambras, würd'ger Ort für Fürst und Dichter, / Wer mag noch gern durch deine Hallen irren?",
+      "language": [],
+      "musenalm_id": 44086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schloß Ambras. / (Bei Insbruck.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schloß Ambras. / (Bei Insbruck.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.411Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "h7m5mwzy87ppr2i"
+        }
+      ],
+      "source_id": "77ab93m1q7zhv8d"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "Für deinen Kaiser, für dein Land / Gabst du dein edles Blut!",
+      "language": [],
+      "musenalm_id": 44087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hofer's Denkmal. / (Im Dom zu Insbruck.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hofer's Denkmal. / (Im Dom zu Insbruck.)",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.411Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "mhnjg6xl2t79l15"
+        }
+      ],
+      "source_id": "vum1k5z4dwsatyk"
+    },
+    {
+      "annotation": "Alpenlieder (Sammlung INr 44079, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "Tyrol, Tyrol! so muß ich scheiden wieder, / So wäre dieser schöne Weg vollbracht,",
+      "language": [],
+      "musenalm_id": 44088,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied von Tyrol",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied von Tyrol",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.411Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "mrk7zwjy3kc4ap5"
+        }
+      ],
+      "source_id": "2pwgxu6czavmujw"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 44090-44094, Obj 36-30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Briefe aus Schottland. / Geschrieben im Herbste 1840",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Briefe aus Schottland. / Geschrieben im Herbste 1840",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.455Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "kzbw31fwrli8jq3"
+        }
+      ],
+      "source_id": "nt54gta6qm63a66"
+    },
+    {
+      "annotation": "Briefe aus Schottland. Geschrieben im Herbste 1840 (Sammlung INr 44089, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Von dem Dache des Rathauses zu Liverpool übersah ich noch einmal das in der Morgensonne schimmernde Panorama dieser herrlichen, in jugendlicher Schönheit glänzenden Stadt,",
+      "language": [],
+      "musenalm_id": 44090,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Brief. / Glasgow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Brief. / Glasgow",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "o1v5t9sct87n40i"
+        }
+      ],
+      "source_id": "u2ejmp3au53ua6f"
+    },
+    {
+      "annotation": "Briefe aus Schottland. Geschrieben im Herbste 1840 (Sammlung INr 44089, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "Eine der ersten Fragen meiner liebenswürdigen Wirthin war: Und wie seid Ihr nach Glasgow gekommen?",
+      "language": [],
+      "musenalm_id": 44091,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Brief. / Glasgow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Brief. / Glasgow",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "i9u8ncp0i7rgfd1"
+        }
+      ],
+      "source_id": "a6lucmpi4evci4o"
+    },
+    {
+      "annotation": "Briefe aus Schottland. Geschrieben im Herbste 1840 (Sammlung INr 44089, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Du siehst an dem langen, furchtbaren Namen, daß ich in den schottischen Hochlanden bin;",
+      "language": [],
+      "musenalm_id": 44092,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Brief. / Inn of Ardkenachrocan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Brief. / Inn of Ardkenachrocan",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "1obcn8cqw2jz3f3"
+        }
+      ],
+      "source_id": "i4uxn7ahzgpfggj"
+    },
+    {
+      "annotation": "Briefe aus Schottland. Geschrieben im Herbste 1840 (Sammlung INr 44089, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Wir sind auf dem Verdeck des Emerald. Die Glocke verkündet die Abfahrt,",
+      "language": [],
+      "musenalm_id": 44093,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Brief. / Inn of Ardkenachrocan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Brief. / Inn of Ardkenachrocan",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "09w4ozgi3vlm6k2"
+        }
+      ],
+      "source_id": "612nck4fdmlj6f5"
+    },
+    {
+      "annotation": "Briefe aus Schottland. Geschrieben im Herbste 1840 (Sammlung INr 44089, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Frohen Mutes, leichten Herzens und leichten Schrittes - wir hatten unser Gepäck nach Edinburg vorausgeschickt",
+      "language": [],
+      "musenalm_id": 44094,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Brief. Inn of Ardkenachrocan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Brief. Inn of Ardkenachrocan",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ojn79jzpghjw708"
+        }
+      ],
+      "source_id": "dvk4adc3a0utbuc"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44095,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Verlagsbuchhandlung von J. D. Sauerländer haben / folgende neue Werke die Presse verlassen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der Verlagsbuchhandlung von J. D. Sauerländer haben / folgende neue Werke die Presse verlassen.",
+      "updated": "2006-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "mmfyo5ki980mnwd"
+    }
   ],
   "agents": [
     {

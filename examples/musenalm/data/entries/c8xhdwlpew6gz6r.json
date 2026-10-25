@@ -48,21 +48,490 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "ofge7qfd1ifccv7"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.599Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200524",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.599Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ofge7qfd1ifccv7"
+    }
   ],
   "contents": [
-    "t4vj2roly71bpg8",
-    "ayb97setzyrpfw5",
-    "p7jql8ypc2y6j55",
-    "bgqtoxpdqad5git",
-    "l0ag5plppxbzwbs",
-    "arrw12v6l5xya3y",
-    "flh9gnncu9t1agf",
-    "fyybcsaprjgakq4",
-    "hryqhw6pbiwlmio",
-    "eak5jl5jb7cpxhi",
-    "e6fq9e9c9n4k10p",
-    "u1zw0ktwxk27yiv"
+    {
+      "annotation": "Titelgraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98501,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moosrosen. / Taschenbuch für 1845. / Herausgegeben / von / C. O. Sternau. / Mit einem Stahlstich: Elise, zur Novelle: Candidat Veltheim. / Magdeburg. / Druck und Verlag von A. Falckenberg u. Comp. / 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2287_98501_7zsa8n618t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Moosrosen. / Taschenbuch für 1845. / Herausgegeben / von / C. O. Sternau. / Mit einem Stahlstich: Elise, zur Novelle: Candidat Veltheim. / Magdeburg. / Druck und Verlag von A. Falckenberg u. Comp. / 1845",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "t4vj2roly71bpg8"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Candidat Veltheim« von C. O. Sternau d.i. O. Inkermann INr 98510, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98502,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Schuler del.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Schuler del.",
+      "scans": [
+        "alm_2287_98502_6pfbnt7lmj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.805Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "kixwhg9td285x41"
+        }
+      ],
+      "source_id": "ayb97setzyrpfw5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98503,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moosrosen. / Taschenbuch für 1845. / Herausgegeben / von / C. O. Sternau. / Mit einem Stahlstich: Elise, zur Novelle: Candidat Veltheim. / Magdeburg. / Druck und Verlag von A. Falckenberg u. Comp. / 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2287_98503_03sargaf6s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Moosrosen. / Taschenbuch für 1845. / Herausgegeben / von / C. O. Sternau. / Mit einem Stahlstich: Elise, zur Novelle: Candidat Veltheim. / Magdeburg. / Druck und Verlag von A. Falckenberg u. Comp. / 1845",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "p7jql8ypc2y6j55"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98504,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Therese Novàk / freundlichst zugeeignet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Therese Novàk / freundlichst zugeeignet",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.805Z",
+          "agent": "phkzsbojlf7jna1",
+          "source_id": "kygvynqr8dbptu2"
+        }
+      ],
+      "source_id": "bgqtoxpdqad5git"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im Hain der Kunst, versteckt von grünem Moose, / Blühst Du, vom Quell des Frohsinns kühl umrauscht,",
+      "language": [],
+      "musenalm_id": 98505,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Hain der Kunst, versteckt von grünem Moose, / Blühst Du, vom Quell des Frohsinns kühl umrauscht,…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. O. Sternau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.805Z",
+          "agent": "phkzsbojlf7jna1",
+          "source_id": "ob6uhf5toqjvxzq"
+        }
+      ],
+      "source_id": "l0ag5plppxbzwbs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "arrw12v6l5xya3y"
+    },
+    {
+      "annotation": ",",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie schreckt mich jeder Tritt - und wahrlich so / Gezittert wie das Laub des Herbstes hab' ich / Seit meiner Kindheit nicht.",
+      "language": [],
+      "musenalm_id": 98507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Mädchen von Saragossa. / Trauerspiel in vier Akten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. O. Sternau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Mädchen von Saragossa. / Trauerspiel in vier Akten",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.805Z",
+          "agent": "phkzsbojlf7jna1",
+          "source_id": "cy94ziezlh6se6p"
+        }
+      ],
+      "source_id": "flh9gnncu9t1agf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Beinahe sämmtliche Bewohner des Dorfes U-lach standen nach beendetem Gottesdienste vor der kleinen freundlichen Kirche ihres Wohnortes und unterhielten sich über die so eben gehörte Predigt.",
+      "language": [],
+      "musenalm_id": 98508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stellvertreter./ Eine Criminalgeschichte/ (Nach Dr. Bischoff's Merkwürdige Criminal-Rechtsfälle Bd. IV. Seite 1. bearbeitet.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Baumann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stellvertreter./ Eine Criminalgeschichte/ (Nach Dr. Bischoff's Merkwürdige Criminal-Rechtsfälle Bd. IV. Seite 1. bearbeitet.)",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "fyybcsaprjgakq4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.710Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Wir müssen scheiden, / Ich muß Dich meiden, / Du deutsches Lieb! / Ade! Ade!",
+      "language": [],
+      "musenalm_id": 98509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gisela, / das Zigeunerweib. / Ein Roman in Versen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. O. Sternau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gisela, / das Zigeunerweib. / Ein Roman in Versen",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.805Z",
+          "agent": "phkzsbojlf7jna1",
+          "source_id": "yo0352cga8ek9y1"
+        }
+      ],
+      "source_id": "hryqhw6pbiwlmio"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 98502, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Der Kriegsrath Werder saß behaglich in seinem Armstuhl, dessen weiche Kissen schon seine Vorahnen mit derselben Sorgfalt geborgen hatten;",
+      "language": [],
+      "musenalm_id": 98510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Candidat Veltheim. / Eine Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. O. Sternau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Candidat Veltheim. / Eine Novelle",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.839Z",
+          "agent": "phkzsbojlf7jna1",
+          "source_id": "1x5m15uyp6nnp0d"
+        }
+      ],
+      "source_id": "eak5jl5jb7cpxhi"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Bestäubt, gestoßen und gequetscht, steigen wir arme Fußgänger alle in's Grab; es war Platz genug auf beiden Seiten einander auszuweichen;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Es ist eine stille heilige Mondnacht im Mai des Jahres 1832. Vor dem P..er Thore treten wir in einen Garten.",
+      "language": [],
+      "musenalm_id": 98511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schwärmer. / Wahrheit und Dichtung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Minna Wauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schwärmer. / Wahrheit und Dichtung",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "e6fq9e9c9n4k10p"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98512,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2287_98512_5zjwo29rln.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "u1zw0ktwxk27yiv"
+    }
   ],
   "agents": [
     {

@@ -48,25 +48,626 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "90g4ro7mrfwfnjh"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.670Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "112714",
+      "location": "105E08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.670Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "90g4ro7mrfwfnjh"
+    }
   ],
   "contents": [
-    "f0wzeswij1e0vox",
-    "zdo1tqzkqiwj382",
-    "0d9ijn98rv7zvlh",
-    "x3z4x8klg9og75e",
-    "hoc8f7axye5y58s",
-    "r9pl85t333mcnpa",
-    "nmfqe6g57dqe663",
-    "ik0ed34wmjtd3rc",
-    "xsks18bluqigsi4",
-    "g43w0f4jfhey3r7",
-    "ytlzla5kvh1pxg0",
-    "ix2qu2gmfh8237k",
-    "mlt1ymutr3qtgiz",
-    "6cltofke9tbqit3",
-    "5wlf7gbkujj6o7p",
-    "vknkm44frbjcdt0"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75919,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2857_75919_33abmm324u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "f0wzeswij1e0vox"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75920,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2857_75920_sfg7qtjm8e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zdo1tqzkqiwj382"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75921,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / ROMANTISCHE / LECKTÜRE / 1798. / mit / Nachbildungen merkwürdiger / Natur Scenen / Heilbronn am Neckar im Industrie Comtoir / und Frankfurt am Main bei Guilhaumann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rahl sc.",
+      "scans": [
+        "alm_2857_75921_vyudk68x6j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / ROMANTISCHE / LECKTÜRE / 1798. / mit / Nachbildungen merkwürdiger / Natur Scenen / Heilbronn am Neckar im Industrie Comtoir / und Frankfurt am Main bei Guilhaumann",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.944Z",
+          "agent": "d645btewd8dbrsc",
+          "source_id": "ccmfqr0sw4z2jos"
+        }
+      ],
+      "source_id": "0d9ijn98rv7zvlh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75922,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den / Freunden / der / Natur / heilig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den / Freunden / der / Natur / heilig",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "x3z4x8klg9og75e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75923,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Altstetten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_2857_75923_1vlutc3zsw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zu Altstetten",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "hoc8f7axye5y58s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Lauterbrunn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_2857_75924_gvjd1vdw56.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zu Lauterbrunn",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "r9pl85t333mcnpa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Meiringen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_2857_75925_vf33n701ec.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zu Meiringen",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "nmfqe6g57dqe663"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75926,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schloss zu Niedau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_2857_75926_4u9dvpmsca.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schloss zu Niedau",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ik0ed34wmjtd3rc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75927,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Rheinfall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_2857_75927_qzae3ia9rt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Rheinfall",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "xsks18bluqigsi4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht der Insel Ischia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gezeichnet von Gmelin geaezt von A. Bayer",
+      "scans": [
+        "alm_2857_75928_jce27j5aht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht der Insel Ischia",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "g43w0f4jfhey3r7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Am Ende des Aprils 1775 gieng ich über den St. Bernhard nach Piemont. Die kleine Caravane, in deren Gesellschaft ich diesen Berg erklettere, kam mit mir um 4 Uhr Nachmittags auf dem Gipfel desselben an,",
+      "language": [],
+      "musenalm_id": 75929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Grab der Insel Jennings",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Grab der Insel Jennings",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.944Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "ri3y4nfwzjqksn9"
+        }
+      ],
+      "source_id": "ytlzla5kvh1pxg0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Unser Kandide war ein herzensguter Junge, aber von anderer Art als jener, welcher sich in die schöne Kunigunde von Thunder-ten-tronckh verliebte, dafür lebte er um dreißig Jahrhunderte fürher und vierhundert Meilen weit vom Westphälinger Lande.",
+      "language": [],
+      "musenalm_id": 75930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kandide der zweite / oder / der Freund der Wahrheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kandide der zweite / oder / der Freund der Wahrheit",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "2zgtoazev9z4szg"
+        }
+      ],
+      "source_id": "ix2qu2gmfh8237k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Ich suche mich zu vergnügen, in welcher Gesellschaft es auch sei. Der Witz im zerlumpten Kleide gefällt mir nicht minder.",
+      "language": [],
+      "musenalm_id": 75931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Teufel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Teufel",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "1x5758t0yvn1orw"
+        }
+      ],
+      "source_id": "mlt1ymutr3qtgiz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Dürfte sich wohl eine ähnliche Geschichte in unsern Tagen ereignen? Also, vor Alters, war eine Dame, jung, schön, geistvoll, und bei alldem mit ihrem Gemahle glüklich.",
+      "language": [],
+      "musenalm_id": 75932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frau Clara. / Eine Geschichte aus den vorigen Zeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frau Clara. / Eine Geschichte aus den vorigen Zeiten",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "ot02geagh0cjx9t"
+        }
+      ],
+      "source_id": "6cltofke9tbqit3"
+    },
+    {
+      "annotation": "unter dem Beitrag S. 136: Gedruckt in Basel, bei Wilhelm Haas, dem Sohne",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Baron Wilhelmsthal kam von seiner großen Reise auf seine ansehnlichen Güter zurück. Er hatte die Welt gesehen, seiner Jugend und seines Reichthums genoßen.",
+      "language": [],
+      "musenalm_id": 75933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das untrügliche Mittel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das untrügliche Mittel",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "exsujlgj8lapj9c"
+        }
+      ],
+      "source_id": "5wlf7gbkujj6o7p"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.345Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75934,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2857_75934_bprxv5u0dv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "vknkm44frbjcdt0"
+    }
   ],
   "agents": [
     {

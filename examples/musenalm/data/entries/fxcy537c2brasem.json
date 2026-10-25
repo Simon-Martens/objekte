@@ -49,13 +49,192 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "rw73k3h6olkdszk"
+    {
+      "annotation": "Jgg 1824-1849",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.698Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404979",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.698Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rw73k3h6olkdszk"
+    }
   ],
   "contents": [
-    "zsvk8vs5qvcnr4f",
-    "1x23tkyxj9207ul",
-    "7jtofcpabzhs3qd",
-    "bckjyj6mqm27683"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119488,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatisches / Vergißmeinnicht / für das Jahr 1834 / aus / den Gärten des Auslands nach Deutschland / verpflanzt / von / Theodor Hell. / Eilftes Bändchen. / Enthält: / Immer. / Lustspiel in 2 Aufzügen, / und / Der Staatsgefangene. / Posse in zwei Aufzügen. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1834",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dramatisches / Vergißmeinnicht / für das Jahr 1834 / aus / den Gärten des Auslands nach Deutschland / verpflanzt / von / Theodor Hell. / Eilftes Bändchen. / Enthält: / Immer. / Lustspiel in 2 Aufzügen, / und / Der Staatsgefangene. / Posse in zwei Aufzügen. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1834",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "zsvk8vs5qvcnr4f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Selbstschöpfer reicher, lebender Gestalten / Im Kunstgebiete, das die Welt bedeutet, / Hast Du Dir schon verdienten Ruhm bereitet, Den Lorbeerkranz in’s Lockenhaar erhalten.",
+      "language": [],
+      "musenalm_id": 127964,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seinem / hochgeehrten Freunde / dem / Herrn Vice-Director / Deinhardstein / zu Wien / mit Dank und Liebe / gewidmet.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seinem / hochgeehrten Freunde / dem / Herrn Vice-Director / Deinhardstein / zu Wien / mit Dank und Liebe / gewidmet.",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.974Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.974Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "06z4ye7jjk24t3r"
+        }
+      ],
+      "source_id": "1x23tkyxj9207ul"
+    },
+    {
+      "annotation": "# Eugène Scribe (vgl. Nouvelle biographie générale XLIII, S. 647) und Antoine-François Varner; ## Original: »Toujours, ou L’avenir d’un fils, comédie-vaudeville en deux actes«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Lassen Sie mich, Herr Armand, lassen Sie mich!",
+      "language": [],
+      "musenalm_id": 127965,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Immer! ## / Lustspiel in zwei Aufzügen. / Nach Scribe und Varner. / Von / Th. Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # und Varner [bearb.] Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Immer! ## / Lustspiel in zwei Aufzügen. / Nach Scribe und Varner. / Von / Th. Hell",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.974Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.974Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "wxumz3lee5mo5fp"
+        }
+      ],
+      "source_id": "7jtofcpabzhs3qd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Lieber Vater, es ist ein Militair draußen, der Sie zu sprechen wünscht.",
+      "language": [],
+      "musenalm_id": 127966,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Staatsgefangene, / Posse in zwei Aufzügen. Nach dem Französischen / von / Th. Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell [bearb.]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Staatsgefangene, / Posse in zwei Aufzügen. Nach dem Französischen / von / Th. Hell",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.974Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.974Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "ljv8shf3ue72fgt"
+        }
+      ],
+      "source_id": "bckjyj6mqm27683"
+    }
   ],
   "agents": [
     {

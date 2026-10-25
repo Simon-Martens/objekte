@@ -46,7 +46,9 @@ impl ProjectServer {
                 initial.editor.clone()
             } else {
                 let root = project.path.clone();
-                crate::blocking(move || Ok(Editor::open(root)?)).await?
+                let editor = crate::blocking(move || Ok(Editor::open(root)?)).await?;
+                AppState::prepare_references(&editor, &storage);
+                editor
             };
             let state = AppState::for_project(
                 editor,
@@ -163,13 +165,14 @@ pub(crate) fn chooser(state: &AppState, actor: &crate::auth::Actor) -> String {
             .collect()
     };
     format!(
-        "<form class=\"project-chooser\" action=\"/projects/select\" method=\"post\" data-project-chooser data-project-id=\"{}\"><label for=\"project-select\" class=\"eyebrow\">Project</label><input type=\"hidden\" name=\"csrf\" value=\"{}\"><select id=\"project-select\" name=\"project\" aria-label=\"Project\"{}>{options}</select><noscript><button type=\"submit\">Open project</button></noscript></form>",
+        "<form class=\"project-chooser\" action=\"/projects/select\" method=\"post\" data-project-chooser data-project-id=\"{}\"><label for=\"project-select\" class=\"eyebrow\">{project_label}</label><input type=\"hidden\" name=\"csrf\" value=\"{}\"><select id=\"project-select\" name=\"project\" aria-label=\"{project_label}\"{}>{options}</select><noscript><button type=\"submit\">{open_label}</button></noscript></form>",
         views::escape(&state.project_id),
         views::escape(&actor.csrf),
         if state.projects.len() < 2 {
             " disabled"
         } else {
             ""
-        }
+        },
+        project_label=views::escape(&crate::i18n::t("Project")), open_label=views::escape(&crate::i18n::t("Open project"))
     )
 }

@@ -48,41 +48,1373 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "xv1vwmfba78mwhy"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.489Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200197",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.489Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xv1vwmfba78mwhy"
+    }
   ],
   "contents": [
-    "501ao04hfx5gsqs",
-    "ok9oks0z99ru15s",
-    "q6ozay5vvtfdtrr",
-    "yxr9lxxflv4b130",
-    "szj0fauo51s0xm2",
-    "iix68lmhxa9j8qq",
-    "h91sa4yt6a96h4h",
-    "f83bqsga2omutx4",
-    "y0t0pj8uzxb64gr",
-    "ykmwt0krizha2r4",
-    "xua1dknof0kxvau",
-    "5xpqgkadrmr05xk",
-    "d1xw21fhxamyv8a",
-    "itbost3az9mpnia",
-    "05ikgsjdhtthyk9",
-    "vrfgn2rsjbr5kl8",
-    "rou36er7w65w5k9",
-    "qckgjq211nhr1gz",
-    "0f0102kklr7wx54",
-    "sj1z9ql3s2aebeu",
-    "qzds2vmieqr9uxy",
-    "q1tpzld14qcvpi1",
-    "gfs572dczgy8qc9",
-    "1nl1nc8gi3ji9hz",
-    "e7dfg8tjczp7xe9",
-    "05w2icsin3h8k4d",
-    "t5xhifl35womcyi",
-    "lkfmccgc0mg622m",
-    "ss4mwsmbvtpnma0",
-    "77310k2sjb6li4r",
-    "8z02qq0g3946fml",
-    "70pnbblydasliyn"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hortensia. / ein Taschenbuch für Damen / auf das Jahr / 1827. / Herausgegeben / von / Dr. August Kuhn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_436_79468_cjlh280afs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hortensia. / ein Taschenbuch für Damen / auf das Jahr / 1827. / Herausgegeben / von / Dr. August Kuhn",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "501ao04hfx5gsqs"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fr. August Kuhn. / Doctor der Philosophie geb. zu / Eckartsberga, d. 30ten Dec. 1784",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludw. Wolf del. Ludw. Meyer jun. sc. Berlin",
+      "scans": [
+        "alm_436_79469_urd5vecver.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fr. August Kuhn. / Doctor der Philosophie geb. zu / Eckartsberga, d. 30ten Dec. 1784",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "kuxcs0pkj94jlum"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "l5ef0nkmotzvzwh",
+          "source_id": "sx7mi871ya2en5k"
+        }
+      ],
+      "source_id": "ok9oks0z99ru15s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79470,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hortensia. / Ein / Taschenbuch für Damen / auf das Jahr / 1827. / Herausgegeben / von / Dr. August Kuhn. / Mit dem Bildnisse des Herausgebers / und drei Scenekupfern, nach L. Wolf gestochen von F. W. / Meyer sen. und L. Meyer jun., und Compositionen von / Carl Blum, C. F. Ebers, Carl Klage, I. Moscheles, / A. Neithardt, G. A. Schneider und dem / Ritter Spontini. / Berlin: / Pauli'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_436_79470_5ceorbre3c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hortensia. / Ein / Taschenbuch für Damen / auf das Jahr / 1827. / Herausgegeben / von / Dr. August Kuhn. / Mit dem Bildnisse des Herausgebers / und drei Scenekupfern, nach L. Wolf gestochen von F. W. / Meyer sen. und L. Meyer jun., und Compositionen von / Carl Blum, C. F. Ebers, Carl Klage, I. Moscheles, / A. Neithardt, G. A. Schneider und dem / Ritter Spontini. / Berlin: / Pauli'sche Buchhandlung",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "q6ozay5vvtfdtrr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79471,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pränumeranten-Liste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pränumeranten-Liste",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "yxr9lxxflv4b130"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Den hohen kunstsinnigen Beförderern dieses Taschenbuchs den allerunterthänigsten, unterthänigsten und ehrfurchtsvollsten Dank darbringend, Gefühle nährend, die Worte nicht genügend bezeichnen können,",
+      "language": [],
+      "musenalm_id": 79472,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. August Kuhn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "nn0bvuk2gh888d2"
+        }
+      ],
+      "source_id": "szj0fauo51s0xm2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79473,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "iix68lmhxa9j8qq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79474,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "h91sa4yt6a96h4h"
+    },
+    {
+      "annotation": "Anm. am Objekt: Die Hortensia war eine Lieblingsblume der unvergeßlichen hochseligen Königinn Louise von Preußen Majestät",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wo sich das Andengebirg aufthürmt mit schneeigen Gipfeln, / Wo, Catapaxo, Du, weite Gefilde verheerst.",
+      "language": [],
+      "musenalm_id": 79475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Hortensia Weihe. / Elegie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Hortensia Weihe. / Elegie",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "9tumhducktk5pdn"
+        }
+      ],
+      "source_id": "f83bqsga2omutx4"
+    },
+    {
+      "annotation": "Incipit des Prologs /) Mit 8 Musikbeigaben und 3 Illustrationen INr 79477-79487, Obj 10-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Auf Lichtes Wellen schweb' ich zu Euch nieder, / Ein Friedensbote höherer Natur,",
+      "language": [],
+      "musenalm_id": 79476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Damascener, / historisch-romantisches Trauerspiel / in fünf Aufzügen / mit Chören. / Mit drei Scenekupfern, nach Zeichnungen von L. Wolf, / von F. W. Meyer sen. und L. Meyer jun. gestochen, und / mit Musikbeilagen von / Carl Blum, C. F. Ebers, / I. Moscheles, / A. Neithardt, G. A. Schneider und dem / Ritter Spontini. / Berlin: / Pauli'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Damascener, / historisch-romantisches Trauerspiel / in fünf Aufzügen / mit Chören. / Mit drei Scenekupfern, nach Zeichnungen von L. Wolf, / von F. W. Meyer sen. und L. Meyer jun. gestochen, und / mit Musikbeilagen von / Carl Blum, C. F. Ebers, / I. Moscheles, / A. Neithardt, G. A. Schneider und dem / Ritter Spontini. / Berlin: / Pauli'sche Buchhandlung",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "dce4hrw8m1owuu3"
+        }
+      ],
+      "source_id": "y0t0pj8uzxb64gr"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79477,01; 79477,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.452Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melodramatische Begleitungs-Musik aus dem ersten Aufzuge des Trauer- / spiels: Die Damascener von Dr. Kuhn, / in Musik gesetzt von G. A. Schneider",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Schneider",
+      "scans": [
+        "alm_436_79477_01_2f39dh7x8y.jpg",
+        "alm_436_79477_02_95n98fe4x2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Melodramatische Begleitungs-Musik aus dem ersten Aufzuge des Trauer- / spiels: Die Damascener von Dr. Kuhn, / in Musik gesetzt von G. A. Schneider",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "owhnb6y19jl4oqh",
+          "source_id": "g0qjq340jj3tceo"
+        }
+      ],
+      "source_id": "ykmwt0krizha2r4"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79478,01; 79478,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sieges-Marsch aus dem Trauerspiel: die Damascener, von Dr. Kuhn. / in Musik gesetzt v. A. Neithardt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Neithardt",
+      "scans": [
+        "alm_436_79478_01_nqvc1ggww0.jpg",
+        "alm_436_79478_02_2uufjrlw7v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sieges-Marsch aus dem Trauerspiel: die Damascener, von Dr. Kuhn. / in Musik gesetzt v. A. Neithardt",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "m8ciz8iul2bfztv",
+          "source_id": "26zmfyyufdo24b2"
+        }
+      ],
+      "source_id": "xua1dknof0kxvau"
+    },
+    {
+      "annotation": "Illustration zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexander. / Seid glücklich, seid es ganz! Jetzt aber flieht! / Verlust, Gefahr bringt jegliche Sekunde! / Damascener, IIIr. Aufz. 11e. Sc.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. F. W. Meyer sen. sc.",
+      "scans": [
+        "alm_436_79479_3cjxiofw59.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alexander. / Seid glücklich, seid es ganz! Jetzt aber flieht! / Verlust, Gefahr bringt jegliche Sekunde! / Damascener, IIIr. Aufz. 11e. Sc.",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "j9j2ophimbnxdly"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "nnon923z8ykoyh9"
+        }
+      ],
+      "source_id": "5xpqgkadrmr05xk"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79480,01; 79480,02",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chor der Arabischen Frauen, im dritten Akt der Damascener. Trauerspiel von Dr. Kuhn, in Musik gesetzt von C. Fr. Ebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ebers",
+      "scans": [
+        "alm_436_79480_01_msanzrur3v.jpg",
+        "alm_436_79480_02_3lhxb68crg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chor der Arabischen Frauen, im dritten Akt der Damascener. Trauerspiel von Dr. Kuhn, in Musik gesetzt von C. Fr. Ebers",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "a2ly46jzv1sw27z",
+          "source_id": "88ydvjuvnf95ljr"
+        }
+      ],
+      "source_id": "d1xw21fhxamyv8a"
+    },
+    {
+      "annotation": "Illustration zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.346Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Raphael. / O sprich, mein liebes Bild!. / Damascener, IIIr. Aufz. letzte Sc.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Ludw. Meyer junior sc. Berlin",
+      "scans": [
+        "alm_436_79481_rodbrnhp6j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Raphael. / O sprich, mein liebes Bild!. / Damascener, IIIr. Aufz. letzte Sc.",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "bm7xlaeotgx4mqm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "l5ef0nkmotzvzwh",
+          "source_id": "yumhaqaqjh3kb2c"
+        }
+      ],
+      "source_id": "itbost3az9mpnia"
+    },
+    {
+      "annotation": "Musikbeigabe zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79482,01-79482,08",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grosser Marsch der Araber aus dem Trauerspiel: die Damascener, von Dr. Kuhn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ritter Spontini",
+      "scans": [
+        "alm_436_79482_01_2ta6piqzi7.jpg",
+        "alm_436_79482_02_ayvx7v9mao.jpg",
+        "alm_436_79482_03_oju8z0dh0m.jpg",
+        "alm_436_79482_04_60zxgaemcc.jpg",
+        "alm_436_79482_05_9rqeadqaf4.jpg",
+        "alm_436_79482_06_oku4wjysuy.jpg",
+        "alm_436_79482_07_znaepj3qsk.jpg",
+        "alm_436_79482_08_vpkmjwz5gd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Grosser Marsch der Araber aus dem Trauerspiel: die Damascener, von Dr. Kuhn",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "buonylpc1f9dik9",
+          "source_id": "pg1lwhigy067sax"
+        }
+      ],
+      "source_id": "05ikgsjdhtthyk9"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chor zum Trauerspiel: die Damascener, von Dr. Kuhn, in Musik gesetzt von I. Moscheles",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. Moscheles",
+      "scans": [
+        "alm_436_79483_5y70s03o22.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chor zum Trauerspiel: die Damascener, von Dr. Kuhn, in Musik gesetzt von I. Moscheles",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "91azzzqsdsmpjkt",
+          "source_id": "1w07jdhad2gyxyu"
+        }
+      ],
+      "source_id": "vrfgn2rsjbr5kl8"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79484,01; 79484,02",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chor der Kinder aus den Thälern des Libanon aus dem fünften Act der Damascener, / Trauerspiel von Dr. Kuhn, in Musik gesetzt von Carl Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Klage",
+      "scans": [
+        "alm_436_79484_01_rv4ek945df.jpg",
+        "alm_436_79484_02_5yyl9qqzcy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chor der Kinder aus den Thälern des Libanon aus dem fünften Act der Damascener, / Trauerspiel von Dr. Kuhn, in Musik gesetzt von Carl Klage",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "rxf42pqw17edkfr",
+          "source_id": "wpiduk5a1ffva65"
+        }
+      ],
+      "source_id": "rou36er7w65w5k9"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79485,01; 79485,02",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79485,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chor der Damascener aus dem Trauerspiel: die Damascener von Dr. Kuhn / in Musik gesetzt von Carl Blum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Blum",
+      "scans": [
+        "alm_436_79485_01_uzeiu88hhw.jpg",
+        "alm_436_79485_02_dn3mf96ni9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chor der Damascener aus dem Trauerspiel: die Damascener von Dr. Kuhn / in Musik gesetzt von Carl Blum",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "v8do49ob5395gqd",
+          "source_id": "nd0uiy44q940uyr"
+        }
+      ],
+      "source_id": "qckgjq211nhr1gz"
+    },
+    {
+      "annotation": "Illustration zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79486,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bonifacius. / Die hier geschieden durch des Todes Nacht, / Sind dort vereinigt durch des Kreuzes Macht. / Damascener, Vr. Aufz. letzte Sc.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Ludw. Meyer jun. sc. Berlin",
+      "scans": [
+        "alm_436_79486_p8t5rbktlf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bonifacius. / Die hier geschieden durch des Todes Nacht, / Sind dort vereinigt durch des Kreuzes Macht. / Damascener, Vr. Aufz. letzte Sc.",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "njngx63eu10lqib"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.629Z",
+          "agent": "l5ef0nkmotzvzwh",
+          "source_id": "rv61y1vhr6lce54"
+        }
+      ],
+      "source_id": "0f0102kklr7wx54"
+    },
+    {
+      "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79487,01; 79487,02",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chor der Damascener aus dem Trauerspiel: die Damascener von Dr. Kuhn / in Musik gesetzt von Carl Blum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Blum",
+      "scans": [
+        "alm_436_79487_01_bkt2scfyq3.jpg",
+        "alm_436_79487_02_8k95m9tbwz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chor der Damascener aus dem Trauerspiel: die Damascener von Dr. Kuhn / in Musik gesetzt von Carl Blum",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.630Z",
+          "agent": "v8do49ob5395gqd",
+          "source_id": "7twbl92959v26e1"
+        }
+      ],
+      "source_id": "sj1z9ql3s2aebeu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Unweit Alençon, an der Südgrenze der Normandie, wohnte ein französischer Edelmann, auf welchen sich die Biederkeit seiner Ahnen vollkommen vererbt hatte.",
+      "language": [],
+      "musenalm_id": 79488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Francois de Civile. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Daniel Lessmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Francois de Civile. / Erzählung",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.630Z",
+          "agent": "be4im3j6k51346r",
+          "source_id": "mrlmguz9b2kep8t"
+        }
+      ],
+      "source_id": "qzds2vmieqr9uxy"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 79490-79495, Obj 23-28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Gedichte",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "q1tpzld14qcvpi1"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 79489, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Schwer und düster ruht der Nebel / Auf der Gegend, Stadt und Flur",
+      "language": [],
+      "musenalm_id": 79490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufgang",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "gfs572dczgy8qc9"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 79489, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "Es rüttelt des menschlichen Elends soviel / An Schlössern und Hütten der Erde;",
+      "language": [],
+      "musenalm_id": 79491,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seemannslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seemannslied",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "1nl1nc8gi3ji9hz"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 79489, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Ausgeschieden aus dem Kreise, / Sonst zu Spielen ihm gesellt, / Tritt der Jüngling, bang' und leise, / In die ernste, weite Welt.",
+      "language": [],
+      "musenalm_id": 79492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Ziel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Ziel",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "e7dfg8tjczp7xe9"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 79489, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Es schweift der Geist weit über Thal und Gründe / Und über Strom und Flur, und Berg und Wald.",
+      "language": [],
+      "musenalm_id": 79493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klage",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "05w2icsin3h8k4d"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 79489, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Frohsinn schmückt des Mädchens Seele / Mehr als hochgelehrtes Sinnen,",
+      "language": [],
+      "musenalm_id": 79494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Triolett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Triolett",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "t5xhifl35womcyi"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 79489, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Mein Erstes nennt die Königsblume, / Die man so viel besingt,",
+      "language": [],
+      "musenalm_id": 79495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Arnold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "lkfmccgc0mg622m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Bst! redet leise! Hab' nun wohl mein Weib / So ziemlich gut verwahrt, doch ist sie schlau,",
+      "language": [],
+      "musenalm_id": 79496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Paoli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Paoli",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.630Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "jkc8o0tj6u2r8pr"
+        }
+      ],
+      "source_id": "ss4mwsmbvtpnma0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei A. W. Hayn",
+      "language": [],
+      "musenalm_id": 79497,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei A. W. Hayn…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "77310k2sjb6li4r"
+    },
+    {
+      "annotation": "Einladung zur Pränumeration",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dieses Taschenbuch, das unter so höchst ermunternden Auspicien ins Leben tritt, wird alljährlich fortgesetzt,",
+      "language": [],
+      "musenalm_id": 79498,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bekanntmachung, / das Taschenbuch »Hortensia« betreffend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. August Kuhn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bekanntmachung, / das Taschenbuch »Hortensia« betreffend",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.630Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "hkvleikzhvz7qrv"
+        }
+      ],
+      "source_id": "8z02qq0g3946fml"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79499,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_436_79499_7bk386x9er.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-02-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "70pnbblydasliyn"
+    }
   ],
   "agents": [
     {

@@ -48,7 +48,26 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "gyuxr4hp4i2uoos"
+    {
+      "annotation": "Mit Vorwort des Herausgebers; Anmerkung des Verlags und umfangreicher Tabelle: Geb.-Jahr; Name, Geburtsort, Aemter und Würden, Todestag und Jahr, Anmerk.; sowie Register",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.747Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408535",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.747Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gyuxr4hp4i2uoos"
+    }
   ],
   "contents": [],
   "agents": [

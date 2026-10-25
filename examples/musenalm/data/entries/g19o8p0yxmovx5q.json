@@ -48,51 +48,1797 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "72bwsmvp7qs6mem"
+    {
+      "annotation": "1816-1826.\nLeineneinband.\n1822: (K: M. Tku u. Ku 12.) Mit Tku 1, Ku 12, Bl 13, 331 SS, 28 SS und 102 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.525Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106396",
+      "location": "105H07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.525Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "72bwsmvp7qs6mem"
+    }
   ],
   "contents": [
-    "9hqbww89yvb5k8j",
-    "qfg10723jsz7zcu",
-    "if9xb6yzq1zgqrp",
-    "fiyhak24cyvmbaj",
-    "12mph8oe6zyqi3o",
-    "2jrj4upal5z2k9a",
-    "nz3crcyv0tc44qp",
-    "puafoq6cn6yzubu",
-    "yygrl8ivx3rhpjw",
-    "v0i7yt3aupvtk1d",
-    "6yxnhqezno5sf8d",
-    "e7wxr8wgikek9t3",
-    "sh8ioy3tfuin2aj",
-    "2s13ll3kboz5780",
-    "k0z9qg6puq29jyo",
-    "5s5fvtnt3burbk1",
-    "we323i0qymm3w3b",
-    "lhb4gngbfr63dco",
-    "5jsubuafemcl48w",
-    "lkwg0wcjv6gq2hb",
-    "9ufw0f9uwtc98o4",
-    "ni8qu0ba8t4cldh",
-    "chn3ic1utncbvp2",
-    "iekkxv1oeysi6x5",
-    "9v2q4w0fmyoamxe",
-    "5o27kgfwqm11myb",
-    "4vjp9c6dngwvyyr",
-    "mc5uoiora3di2k0",
-    "xgbhzjlbn42bh7t",
-    "7wqay2mb9hx9ibo",
-    "1npzpa30m29v0yw",
-    "nuhus4794bllk8a",
-    "vvl6deyhg39nn2x",
-    "5dli6lhc5nv6dpn",
-    "kax5lom9sp141ks",
-    "3u2d9yhg6mvo2b3",
-    "t2zby1cywm8ad3f",
-    "deqe2g2elb5kxue",
-    "lut3tnqh91fkl5j",
-    "kkwajztu7cz0dya",
-    "3xinxnrnp3fnu21",
-    "9vig23zd3hu9cit"
+    {
+      "annotation": "Umschlaggraphik r. s. Textbezug INr 59405, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.443Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59370,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BERLINISCHER / TASCHEN-KALENDER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. et del. [unleserlich] sc.",
+      "scans": [
+        "alm_894_59370_tcruygkb0g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BERLINISCHER / TASCHEN-KALENDER",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.875Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.875Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "nbercjikmannebb"
+        }
+      ],
+      "source_id": "9hqbww89yvb5k8j"
+    },
+    {
+      "annotation": "# vollst. Bez. und Titel aus dem G-Verz s. Textbezug INr 59397, Ob 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59371,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blücher #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rauch # Lüderitz del. et sculp L. Buchhorn dir.",
+      "scans": [
+        "alm_894_59371_fhfrrn3rh3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Blücher #",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.875Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.875Z",
+          "agent": "z3xj5kkwhch6rva",
+          "source_id": "7jsr8ygscvyi9iv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.875Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.875Z",
+          "agent": "nsczq7pz19u52r3",
+          "source_id": "9b9g8jn5l1exaak"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.875Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.875Z",
+          "agent": "fep8fdjaqu5b315",
+          "source_id": "elv9jgmw335koeo"
+        }
+      ],
+      "source_id": "qfg10723jsz7zcu"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59372,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BERLINISCHER / Taschen-Kalender / auf / das Schalt-Jahr 1824. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_894_59372_5n4os17jwh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BERLINISCHER / Taschen-Kalender / auf / das Schalt-Jahr 1824. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "if9xb6yzq1zgqrp"
+    },
+    {
+      "annotation": "Verlagsmitteilung; G-Verz INr 59397-59406, Obj 28-37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die sechs Prospekte , die von S. 365 an erklärt sind, können wir erst im künftigen Jahrgange liefern,",
+      "language": [],
+      "musenalm_id": 59373,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sechs Prospekte , die von S. 365 an erklärt sind, können wir erst im künftigen Jahrgange liefern,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "fiyhak24cyvmbaj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59374,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "12mph8oe6zyqi3o"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59376, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Werden wir heute wohl allein bleiben, lieber Ciciero? sprach Terentina zu ihrem Gemahl. Fabia, meine Schwester, und Albulus, der Neffe des Flavius, sind hier,",
+      "language": [],
+      "musenalm_id": 59375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vestalin. / Gemälde aus der Römerwelt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise von Hohenhausen, geb. v. Ochs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vestalin. / Gemälde aus der Römerwelt",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.018Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "0mvipsnglt4befe"
+        }
+      ],
+      "source_id": "2jrj4upal5z2k9a"
+    },
+    {
+      "annotation": "Illustration zu »Die Vestalin. Gemälde aus der Römerwelt« von Elise von Hohenhausen INr 59375, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinke Freiheit und Unsterblichkeit Geliebte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. del. Berger sc.",
+      "scans": [
+        "alm_894_59376_k32xo9nmtj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trinke Freiheit und Unsterblichkeit Geliebte",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "cr54aohx6w8ihe8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "mmgwso6le93wpul"
+        }
+      ],
+      "source_id": "nz3crcyv0tc44qp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59378, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "An einem freundlichen Morgen ging der Assessor Werner auf der Terasse an der Elbe zu Dresden spatzieren. Zwei Blondinen, die er am vorigen Abend im Schauspiel gesehen, hatten sein sinnliches zu reizbares Gemüth aufgeregt,",
+      "language": [],
+      "musenalm_id": 59377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Reise in die sächsische Schweitz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Reise in die sächsische Schweitz",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "2cnqlzid8ekvlpe"
+        }
+      ],
+      "source_id": "puafoq6cn6yzubu"
+    },
+    {
+      "annotation": "Illustration zu »Die Reise in die Sächsische Schweitz« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 59377, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heiliger Gott! was muss ich erblicken. / Die Reise in die Sächsische Schweitz. S. 97",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. del. Berger sc.",
+      "scans": [
+        "alm_894_59378_bdc7wuljx6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Heiliger Gott! was muss ich erblicken. / Die Reise in die Sächsische Schweitz. S. 97",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "dyyimfwohissq0h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "nlqr8n7f5inyprz"
+        }
+      ],
+      "source_id": "yygrl8ivx3rhpjw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59380, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Schwer auf Israel lag Jehova's zürnende Rechte / Und es verschloß die Erde den Schooß; nur dürftige Halme / Keimten vereinzelt empor,",
+      "language": [],
+      "musenalm_id": 59379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruth. / Gedicht in vier Gesängen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ruth. / Gedicht in vier Gesängen",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "87idqlfgbdi9cvn"
+        }
+      ],
+      "source_id": "v0i7yt3aupvtk1d"
+    },
+    {
+      "annotation": "Illustration zu »Ruth. Gedicht in vier Gesängen« von Karl Streckfuß INr 59379, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es ist mit alles verkündet, / Was du gutes gethan an deiner Schwieger Naemi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. fec. Fr. Wi. Meyer sen. sc.",
+      "scans": [
+        "alm_894_59380_bm4nyknqni.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Es ist mit alles verkündet, / Was du gutes gethan an deiner Schwieger Naemi",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "3gozjc8exbcovwq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "y9e9x2wd93zwx8h"
+        }
+      ],
+      "source_id": "6yxnhqezno5sf8d"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59382, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Lange zuvor eh der große Zoroaster vom wolkenhohen Alburs oder Himalaja die Lehre des Zendavest herabgebracht und über das weite Perserreich verbreitet,",
+      "language": [],
+      "musenalm_id": 59381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musa. / Altpersische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Musa. / Altpersische Erzählung",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.989Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "m1lcbovge86kvz9"
+        }
+      ],
+      "source_id": "e7wxr8wgikek9t3"
+    },
+    {
+      "annotation": "Illustration zu »Musa. Altpersische Erzählung« von Fr. Krug (von Nidda) INr 59381, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musa begnadigt Astart. / Seite 179",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. et del. W. Jury sc.",
+      "scans": [
+        "alm_894_59382_dupwra0lsr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Musa begnadigt Astart. / Seite 179",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.989Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "93ahq14aie0jyjc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.989Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "y45qai8izd581qx"
+        }
+      ],
+      "source_id": "sh8ioy3tfuin2aj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Ich habe in den alten Historienbüchern gelesen von Rittern, die jahrelang in Wüsten lebten, und wir machen's ihnen nach, ohne in der Wüste zu seyn.",
+      "language": [],
+      "musenalm_id": 59383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Brüder. / Ein Schauspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Immermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Brüder. / Ein Schauspiel",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.989Z",
+          "agent": "47huvmykx9z6337",
+          "source_id": "98x9dl3lxc0kmvs"
+        }
+      ],
+      "source_id": "2s13ll3kboz5780"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 59385-59392, Obj 16-23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.989Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "lfs1nd1445k3v91"
+        }
+      ],
+      "source_id": "k0z9qg6puq29jyo"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Ich floh den Schlaf, mir so kärglich gespendet, / Der niemals holde Träume mir sendet.",
+      "language": [],
+      "musenalm_id": 59385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das arme Mädchen. / Frei nach Alexis Soumet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das arme Mädchen. / Frei nach Alexis Soumet",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.989Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "fv886d2n9who7dh"
+        }
+      ],
+      "source_id": "5s5fvtnt3burbk1"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "In unschuldvoller Kindlichkeit / Blüht lächelnd auf, ihr holden Wesen!",
+      "language": [],
+      "musenalm_id": 59386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / An zwei kleine Mädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / An zwei kleine Mädchen",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.623Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.623Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "b4rvkdbx9i4403k"
+        }
+      ],
+      "source_id": "we323i0qymm3w3b"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Immer lieben! Nimmer lieben! / Von dem doppelten Gefühl / Werd' ich ohne Maß und Ziel / Herrisch umgetrieben.",
+      "language": [],
+      "musenalm_id": 59387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die getheilte Seele. / Frei nach Franzesko Cei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die getheilte Seele. / Frei nach Franzesko Cei",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.779Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.779Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "s8wsmdjj11yg6i8"
+        }
+      ],
+      "source_id": "lhb4gngbfr63dco"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Länger nicht konnte sein Roß, dem Rossinante ver- / gleichbar / Und von Strapazen erschöpft, Fuentes, den Spanier, / tragen.",
+      "language": [],
+      "musenalm_id": 59388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Anekdote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Anekdote",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.780Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "6ka8hylox60lr2g"
+        }
+      ],
+      "source_id": "5jsubuafemcl48w"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Verbündet kamen drei Marie'n / Zu Christus Sarkophage;",
+      "language": [],
+      "musenalm_id": 59389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Pastor Crispin's Exegese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Pastor Crispin's Exegese",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.780Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "b1y8eycid5w00we"
+        }
+      ],
+      "source_id": "lkwg0wcjv6gq2hb"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Wenn sich Aurorens Pracht erhob, / Wie dumpf in Stadt und Haus!",
+      "language": [],
+      "musenalm_id": 59390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Morgenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Morgenscene",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.780Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "jtwjkagvzyhdx51"
+        }
+      ],
+      "source_id": "9ufw0f9uwtc98o4"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Schlummre sanft, du Liebstes, was ich habe! / Mutterkniee wiegen lind.",
+      "language": [],
+      "musenalm_id": 59391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Die Mutter an ihren Säugling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Die Mutter an ihren Säugling",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.780Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "40cfh3tli3gnju8"
+        }
+      ],
+      "source_id": "ni8qu0ba8t4cldh"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 59384, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Seie schläft, von Laub umdüstert, / In sanfter Ruh.",
+      "language": [],
+      "musenalm_id": 59392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Ihr Schlummer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Ihr Schlummer",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.781Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "l3ys46b6ux25hne"
+        }
+      ],
+      "source_id": "chn3ic1utncbvp2"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 59394, 59395; Obj 25, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Die reiche Fernau ist mit dem Appellationsrath Willmann versprochen. Diese große Neuigkeit beschäftigt alle Kreise der Residenz.",
+      "language": [],
+      "musenalm_id": 59393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zweite Liebe, oder: Ruben Loew",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Reinbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die zweite Liebe, oder: Ruben Loew",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.781Z",
+          "agent": "j6u4xe56jqv8urn",
+          "source_id": "4kbdelpggde4yqa"
+        }
+      ],
+      "source_id": "iekkxv1oeysi6x5"
+    },
+    {
+      "annotation": "Illustration zu »Die zweite Liebe, oder: Ruben Loew« von G. v. Reinbek INr 59393, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruben Loew. / Seite 300.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. fec. Fr. Wi. Meyer senior sc.",
+      "scans": [
+        "alm_894_59394_0y732y5kcl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ruben Loew. / Seite 300.",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.782Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "1ec3a1hfchjsz94"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.781Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "ha2634goxka10en"
+        }
+      ],
+      "source_id": "9v2q4w0fmyoamxe"
+    },
+    {
+      "annotation": "Illustration zu »Die zweite Liebe, oder: Ruben Loew« von G. v. Reinbek INr 59393, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruben Loew. / Seite 340",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. et del. W. Jury sc.",
+      "scans": [
+        "alm_894_59395_n6e5q7dqvf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ruben Loew. / Seite 340",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.782Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "1ian8a7sd2sat3f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.782Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "fgayhozxnvwf0k4"
+        }
+      ],
+      "source_id": "5o27kgfwqm11myb"
+    },
+    {
+      "annotation": "Sammlung von Textbezügen INr 59397-59406, Obj 28-37 zur Titelgraphik, zu 6 Graphiken im folgenden Jahrgang (s. Anm. d. Hrsgg INr 59973, Obj 4) und  zu den Umschlaggraphiken r. u. v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "4vjp9c6dngwvyyr"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 59396, Obj 27) s. Titelgraphik INr 59371, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Das Titelkupfer stellt die in Erz gegossene Statue Blücher's dar, welche die Provinz Schlesien dem Helden und seiner Armee zum dankbaren Angedenken in Breslau errichten läßt.",
+      "language": [],
+      "musenalm_id": 59397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Titelkupfer",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "mc5uoiora3di2k0"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 59399-59404, Obj 30-35 /) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphiken werden  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Prospekte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Prospekte",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "xgbhzjlbn42bh7t"
+    },
+    {
+      "annotation": "Die Prospekte (Sammlung INr 59398, Obj 29) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphik wird  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "ein königlichges Jagdschloß anderthalb Meilen von Berlin,",
+      "language": [],
+      "musenalm_id": 59399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Grunewald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Grunewald",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "7wqay2mb9hx9ibo"
+    },
+    {
+      "annotation": "Die Prospekte (Sammlung INr 59398, Obj 29) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphik wird  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "einem an der Spree zwei Meilen von Berlin gelegenen Städtchen.",
+      "language": [],
+      "musenalm_id": 59400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Schloß zu Köpenik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Schloß zu Köpenik",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "1npzpa30m29v0yw"
+    },
+    {
+      "annotation": "Die Prospekte (Sammlung INr 59398, Obj 29) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphik wird  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Sie steht in baulicher Hinsicht den drei übrigen Seiten weit nach,",
+      "language": [],
+      "musenalm_id": 59401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Wasserseite des königlichen Schlosses / in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Wasserseite des königlichen Schlosses / in Berlin",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "nuhus4794bllk8a"
+    },
+    {
+      "annotation": "Die Prospekte (Sammlung INr 59398, Obj 29) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphik wird  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "jetzt zum königlichen Domainenamte dieses Namens gehörig.",
+      "language": [],
+      "musenalm_id": 59402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das ehemalige Cistercienser Kloster Chorin / in der Uckermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das ehemalige Cistercienser Kloster Chorin / in der Uckermark",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "vvl6deyhg39nn2x"
+    },
+    {
+      "annotation": "Die Prospekte (Sammlung INr 59398, Obj 29) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphik wird  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "welches Se. Majestät der König an der Stelle des 1801 errichteteten und 1817 abgebrannten unter der Direktion des geheimen Oberbauraths Schinkel hat erbauen lassen.",
+      "language": [],
+      "musenalm_id": 59403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Das neue Schauspielhaus in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Das neue Schauspielhaus in Berlin",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "5dli6lhc5nv6dpn"
+    },
+    {
+      "annotation": "Die Prospekte (Sammlung INr 59398, Obj 29) Erklärung der Kupfer (Sammlung INr 59396, Obj 27) bez. Graphik wird  lt. Anm. d. Hrsgg INr 59973, Obj 4  im folgenden Jg gegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "durch welches man von der Lindenallee in die zur neuerbauten Marschallbrücke führende neue Wilhelmstraße tritt.",
+      "language": [],
+      "musenalm_id": 59404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Das neuerrichtete Gebäude,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Das neuerrichtete Gebäude,",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "kax5lom9sp141ks"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 59396, Obj 27) s. Umschlaggraphik r. INr 59370, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Im ewigen Raum schwebt der geflügelte Genius des Jahrs dem Erdball schnell vorüber, tragend die Embleme der vier Jahrszeiten.",
+      "language": [],
+      "musenalm_id": 59405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Umschlag des Kalenders. / Vorderseite",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Umschlag des Kalenders. / Vorderseite",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "3u2d9yhg6mvo2b3"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 59396, Obj 27) s. Umschlaggraphik v. INr 59412, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Die strahlende Leier Apollons von des Epheus Gewinde umschlungen und von den Attributen der Musen umkränzt.",
+      "language": [],
+      "musenalm_id": 59406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Umschlag des Kalenders] Kehrseite",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Umschlag des Kalenders] Kehrseite",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "t2zby1cywm8ad3f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59407,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "deqe2g2elb5kxue"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59408,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / des / Königlich-Preußischen Hauses / und / der übrigen Regenten in Europa. / (Die vollständige Genealogie der regierenden Häu- / ser und anderer fürstlichen Personen in Europa steht in / dem Historisch-Genealogischen Kalender.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / des / Königlich-Preußischen Hauses / und / der übrigen Regenten in Europa. / (Die vollständige Genealogie der regierenden Häu- / ser und anderer fürstlichen Personen in Europa steht in / dem Historisch-Genealogischen Kalender.)",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "lut3tnqh91fkl5j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59410,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "kkwajztu7cz0dya"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Gedruckt bei Trowitzsch und Sohn in Berlin",
+      "language": [],
+      "musenalm_id": 59411,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei Trowitzsch und Sohn in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "3xinxnrnp3fnu21"
+    },
+    {
+      "annotation": "Umschlaggraphik v. s. Textbezug INr 59406, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59412,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf inv. et del. [unleserlich] sc.",
+      "scans": [
+        "alm_894_59412_4w3jg8qew8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.905Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.905Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "ckha1p6n104h46r"
+        }
+      ],
+      "source_id": "9vig23zd3hu9cit"
+    }
   ],
   "agents": [
     {

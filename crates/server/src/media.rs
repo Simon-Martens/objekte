@@ -82,7 +82,14 @@ pub fn render(
         "<form class=\"search-form\" action=\"{base}\" data-indicator:_pending data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{{filterSignals:{{include:/^$/}}}})\"><input type=\"hidden\" name=\"path\" value=\"{}\"><label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search files</span><input name=\"q\" type=\"search\" value=\"{}\" placeholder=\"Search this collection…\"></label><button>Search</button>{}</form><div class=\"actions\">",
         views::escape(path),
         views::escape(q),
-        if q.trim().is_empty() { String::new() } else { format!("<a class=\"button quiet\" data-nav href=\"{base}?path={}\">Show All</a>", views::encode(path)) }
+        if q.trim().is_empty() {
+            String::new()
+        } else {
+            format!(
+                "<a class=\"button quiet\" data-nav href=\"{base}?path={}\">Show All</a>",
+                views::encode(path)
+            )
+        }
     );
     if actor.editable() {
         if editor.allows(name, "mkdir") {
@@ -247,14 +254,29 @@ pub fn render(
     views::panel(&url, &config.label, &body)
 }
 /// Inline previews use the same raster formats served inline by the file endpoint.
-pub(crate) fn thumbnail(editor: &structured_editor_core::Editor, collection: &str, path: &str) -> String {
-    let extension = std::path::Path::new(path).extension().and_then(|s| s.to_str()).unwrap_or("").to_ascii_lowercase();
+pub(crate) fn thumbnail(
+    editor: &structured_editor_core::Editor,
+    collection: &str,
+    path: &str,
+) -> String {
+    let extension = std::path::Path::new(path)
+        .extension()
+        .and_then(|s| s.to_str())
+        .unwrap_or("")
+        .to_ascii_lowercase();
     if !matches!(extension.as_str(), "png" | "jpg" | "jpeg" | "webp" | "gif")
-        || editor.settings().ok().is_some_and(|settings| settings.value["mediaThumbnails"] == false)
+        || editor
+            .settings()
+            .ok()
+            .is_some_and(|settings| settings.value["mediaThumbnails"] == false)
     {
         return String::new();
     }
-    format!("<img class=\"picker-thumbnail\" src=\"/media/{}/file?path={}\" alt=\"\" loading=\"lazy\" decoding=\"async\">", views::encode(collection), views::encode(path))
+    format!(
+        "<img class=\"picker-thumbnail\" src=\"/media/{}/file?path={}\" alt=\"\" loading=\"lazy\" decoding=\"async\">",
+        views::encode(collection),
+        views::encode(path)
+    )
 }
 
 fn reference_id(path: &str) -> String {

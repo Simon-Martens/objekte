@@ -115,18 +115,24 @@ impl Editor {
             if !visible(key) || schema["x-children"] == true {
                 continue;
             }
-            let (Some(target), Some(id)) = (
-                schema
-                    .pointer("/x-relation/collection")
-                    .and_then(Value::as_str),
-                projected.get(key).and_then(Value::as_str),
-            ) else {
+            let (relation_schema, values): (&Value, Vec<&Value>) =
+                if let Some(values) = projected[key].as_array() {
+                    (&schema["items"], values.iter().collect())
+                } else {
+                    (schema, vec![&projected[key]])
+                };
+            let Some(target) = relation_schema
+                .pointer("/x-relation/collection")
+                .and_then(Value::as_str)
+            else {
                 continue;
             };
-            dependencies.insert((target.into(), id.into()));
-            if let Ok(target_doc) = self.get(target, id) {
-                let target_collection = self.config.collection(target)?;
-                dependencies.extend(derived_relation_ids(target_collection, &target_doc.value));
+            for id in values.into_iter().filter_map(Value::as_str) {
+                dependencies.insert((target.into(), id.into()));
+                if let Ok(target_doc) = self.get(target, id) {
+                    let target_collection = self.config.collection(target)?;
+                    dependencies.extend(derived_relation_ids(target_collection, &target_doc.value));
+                }
             }
         }
         Ok(dependencies)
@@ -311,9 +317,9 @@ impl Editor {
                         .values()
                         .any(|schema| schema.get("x-derived").is_some())
                 });
-            let has_relations = props
-                .values()
-                .any(|schema| schema.get("x-relation").is_some());
+            let has_relations = props.values().any(|schema| {
+                schema.get("x-relation").is_some() || schema["items"].get("x-relation").is_some()
+            });
             let display_fields: Vec<_> = props
                 .iter()
                 .filter(|(key, _)| {
@@ -354,28 +360,49 @@ impl Editor {
                 let mut display = BTreeMap::new();
                 for &(key, schema) in &display_fields {
                     if let Some(v) = projected.get(key) {
-                        let mut text = if schema["x-children"] == true {
+                        let mut text = if schema["x-children"] == true
+                            || (schema["type"] == "array" && schema["items"]["type"] == "object")
+                        {
                             v.as_array().map(|a| a.len()).unwrap_or(0).to_string()
                         } else {
                             field_display(v, schema)
                         };
-                        if let (Some(target), Some(id)) = (
-                            schema
+                        let (relation_schema, values): (&Value, Vec<&Value>) =
+                            if let Some(values) = v.as_array() {
+                                (&schema["items"], values.iter().collect())
+                            } else {
+                                (schema, vec![v])
+                            };
+                        if schema["x-children"] != true {
+                            if let Some(target) = relation_schema
                                 .pointer("/x-relation/collection")
-                                .and_then(Value::as_str),
-                            v.as_str(),
-                        ) {
-                            text = relations
-                                .entry((target.to_owned(), id.to_owned()))
-                                .or_insert_with(|| {
-                                    self.get(target, id)
-                                        .ok()
-                                        .and_then(|doc| {
-                                            self.label(target, &doc.value, id, "reference").ok()
-                                        })
-                                        .unwrap_or_else(|| id.into())
-                                })
-                                .clone();
+                                .and_then(Value::as_str)
+                            {
+                                text = values
+                                    .into_iter()
+                                    .filter_map(Value::as_str)
+                                    .map(|id| {
+                                        relations
+                                            .entry((target.to_owned(), id.to_owned()))
+                                            .or_insert_with(|| {
+                                                self.get(target, id)
+                                                    .ok()
+                                                    .and_then(|doc| {
+                                                        self.label(
+                                                            target,
+                                                            &doc.value,
+                                                            id,
+                                                            "reference",
+                                                        )
+                                                        .ok()
+                                                    })
+                                                    .unwrap_or_else(|| id.into())
+                                            })
+                                            .clone()
+                                    })
+                                    .collect::<Vec<_>>()
+                                    .join(" · ");
+                            }
                         }
                         display.insert(key.clone(), text);
                     }
@@ -1062,7 +1089,9 @@ fn compare_rows(
             (None, None) => Ordering::Equal,
             (None, _) => return Ordering::Greater,
             (_, None) => return Ordering::Less,
-            (Some(Value::Array(a)), Some(Value::Array(b))) if props[key]["x-children"] == true => {
+            (Some(Value::Array(a)), Some(Value::Array(b)))
+                if props[key]["x-children"] == true || props[key]["items"]["type"] == "object" =>
+            {
                 a.len().cmp(&b.len())
             }
             (Some(Value::Number(a)), Some(Value::Number(b))) => a

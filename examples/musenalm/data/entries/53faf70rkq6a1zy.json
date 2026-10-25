@@ -48,76 +48,2887 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "349iz0cngt3ebzk"
+    {
+      "annotation": "1824-1827, Hg Fr. Gräffer und 1828-1858, Hg J.G.Seidel (1832 nicht ersch.).",
+      "condition": "1b",
+      "created": "2026-06-11 10:17:37.561Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106417",
+      "location": "105B10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.561Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "349iz0cngt3ebzk"
+    }
   ],
   "contents": [
-    "iubshegmvyz2937",
-    "4exgjewpv8ijtwa",
-    "c8jezi8bskx2fjv",
-    "vibls0r0n1d3ms7",
-    "a68qrj7b3fd8cvi",
-    "k56cddepxn1enew",
-    "otlxgk0iirt63vd",
-    "tq5annzxsey1yy0",
-    "a9viww05aprrlxu",
-    "8qqv4hllpg6zs3d",
-    "dpn9it91i99zans",
-    "luqom6bi3ezncj0",
-    "1pc11v8k2xqqk7t",
-    "5bxstq1bzckmsnb",
-    "b635gowhmnfznjv",
-    "492ndebudvjtv4k",
-    "72ghs0k8jq5c6i2",
-    "f69js8t9tatbftp",
-    "e1g7hjvcatmbyot",
-    "1fmx1lz1y8rk9go",
-    "crghom4g11ibhq5",
-    "vy3tl24xcm6cvks",
-    "6nnyt1fp6hgeyuh",
-    "ismp8u28zdjr07g",
-    "z54yvrmbn4zxppk",
-    "naj4nlujckay1gk",
-    "mj3h48xs2k8r9pj",
-    "nn27e92fbgy20z3",
-    "jw302yxw71mw90z",
-    "q9f14ri07ihv2qk",
-    "nmh3ba7ixplrm1g",
-    "ug2fyvz9gc1dip3",
-    "26v97qbbgfuoreu",
-    "9c2vpwg0u9qakg6",
-    "ws348cmwgfp8tey",
-    "gkh6qxytbqro0ef",
-    "q1vghke4fwzmmxd",
-    "s8ks837j3czq1sd",
-    "cye4fvrjk6q96rh",
-    "rl5ev7inpkovz98",
-    "l0p1bk59t3qg1ro",
-    "wrxx5plhd6m28bt",
-    "arwn8gzji4y1v7t",
-    "psj4ygh97dp8zrx",
-    "8lvb1l029yv8jf1",
-    "hcmq0mwr15zd6lg",
-    "ef8sablpu7g9164",
-    "3juzbjwuk6s0m3r",
-    "pgnn27ktxlw6l0o",
-    "2vjmag3rihuepn9",
-    "wraddgbshyxl6ck",
-    "tc1reehqkww2f7v",
-    "j94dj1svqlma569",
-    "wy6pdr73t7fnjjx",
-    "0tfh2nfz6rlr18y",
-    "oemp2tjsejah8jb",
-    "xjyuptf3wlcfujn",
-    "sy9qmd9jherxb3s",
-    "f2e1bqlcf0cqvjo",
-    "iau2rrcg5w2qg9j",
-    "z471imet6b18bys",
-    "kxzn7z6avwz8abu",
-    "cpzf2p6vw0wewbu",
-    "s2566w9xsowelv3",
-    "kpncvgumphwvxx6",
-    "f1czwbm0q69t6in",
-    "48g3ui1a1jf3f4v"
+    {
+      "annotation": "Schuberprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85458,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1583_85458_mot8v4mto5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "iubshegmvyz2937"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.980Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85459,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1583_85459_7x2lj7lh07.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "4exgjewpv8ijtwa"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Theresa« von J. G. Seidl INr 85479, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85460,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THERESE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sig. v. Perger del. I. Krepp sc.",
+      "scans": [
+        "alm_1583_85460_f3jxsubzuz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THERESE",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "9k8r5q8jl47jati"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "n8fptmrsmf5888w"
+        }
+      ],
+      "source_id": "c8jezi8bskx2fjv"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.986Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85461,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA / Taschenbuch / für das Jahr / 1828. / Herausgegeben von / JOHANN GABRIEL SEIDL. / Fünfter Jahrgang. / WIEN / bei Heinrich Buchholz, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl sc.",
+      "scans": [
+        "alm_1583_85461_66err2kqih.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA / Taschenbuch / für das Jahr / 1828. / Herausgegeben von / JOHANN GABRIEL SEIDL. / Fünfter Jahrgang. / WIEN / bei Heinrich Buchholz, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "vibls0r0n1d3ms7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85462,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Hochgebornen Frau Frau / Katharina Edlen v. Sina / von Hodos und Kizdia, / aus / dankbarer Verehrung / gewidmet / vom / Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Hochgebornen Frau Frau / Katharina Edlen v. Sina / von Hodos und Kizdia, / aus / dankbarer Verehrung / gewidmet / vom / Herausgeber",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "jfpap0hnulhgaqi"
+        }
+      ],
+      "source_id": "a68qrj7b3fd8cvi"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Gärtner bietet Blumen zum Geschenke, / Der Jäger Wild, der Bergmann edles Erz,",
+      "language": [],
+      "musenalm_id": 85463,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gärtner bietet Blumen zum Geschenke, / Der Jäger Wild, der Bergmann edles Erz,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "k56cddepxn1enew"
+    },
+    {
+      "annotation": "Es folgen: Einleitung, 6 Graphiken mit 6 Textbezügen INr 85465-85477, Obj 8-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85464,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bildliche Darstellungen / zu / dramatischen Werken / vaterländischer Dichter. / Erste Lieferung. / Die Ahnfrau. Trauerspiel in fünf Aufzügen. / Wien, 1823. Vierte Auflage. / Sappho. Trauerspiel in fünf Aufzügen. Wien 1822. / Dritte Auflage. / Beide von Franz Grillparzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bildliche Darstellungen / zu / dramatischen Werken / vaterländischer Dichter. / Erste Lieferung. / Die Ahnfrau. Trauerspiel in fünf Aufzügen. / Wien, 1823. Vierte Auflage. / Sappho. Trauerspiel in fünf Aufzügen. Wien 1822. / Dritte Auflage. / Beide von Franz Grillparzer",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "otlxgk0iirt63vd"
+    },
+    {
+      "annotation": "s. folgende 6 Graphiken mit 6 Textbezügen INr 85466-85477, Obj 9-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Abgehend von der Gewohnheit, die Szenen für die Kupfer aus dem erzählenden Theile des Taschenbuches zu wählen, wollt' ich eine kleine szenische Gallerie zu den besten Dramen unserer vaterländischen Dichter gründen,",
+      "language": [],
+      "musenalm_id": 85465,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "vlbd9zns0xpwu6o"
+        }
+      ],
+      "source_id": "tq5annzxsey1yy0"
+    },
+    {
+      "annotation": "Über der Graphik: Ahnfrau 1. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Die Ahnfrau« von Fr. Grillparzer /) s. Textbezug INr 85467, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85466,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Graf. Fort von mir! fort! fort!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. S. v. Perger. S. Langer sc.",
+      "scans": [
+        "alm_1583_85466_2nvcaixff8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Graf. Fort von mir! fort! fort!",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "6ej4yl23ejttchl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "ez06zpcp4c89azi"
+        }
+      ],
+      "source_id": "a9viww05aprrlxu"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85466, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Fort von mir! fort! fort! / Ah - bist du hier meine Bertha?",
+      "language": [],
+      "musenalm_id": 85467,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ahnfrau / (Erster Aufzug. Seite 19.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ahnfrau / (Erster Aufzug. Seite 19.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "v97ldymctxvnstg"
+        }
+      ],
+      "source_id": "8qqv4hllpg6zs3d"
+    },
+    {
+      "annotation": "Über der Graphik: Ahnfrau 3. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Die Ahnfrau«  von Fr. Grillparzer /) s. Textbezug INr 85469, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85468,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bertha. Räuber!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+      "scans": [
+        "alm_1583_85468_rx8enfte8g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bertha. Räuber!",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "pvt6t1b80f9ayye"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "y4m3pplwgckewl5"
+        }
+      ],
+      "source_id": "dpn9it91i99zans"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85468, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Da lieg', unnützes Stück! / Will noch' mal hinaus zum Tanz,",
+      "language": [],
+      "musenalm_id": 85469,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ahnfrau / (Dritter Aufzug. Seite 85.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ahnfrau / (Dritter Aufzug. Seite 85.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.969Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "50ji238gjhqhnel"
+        }
+      ],
+      "source_id": "luqom6bi3ezncj0"
+    },
+    {
+      "annotation": "Über der Graphik: Ahnfrau 5. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Die Ahnfrau« von Fr. Grillparzer /) s. Textbezug INr 85471, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85470,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ahnfrau. Sieh den Brautschmuck den ich bringe!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. S. v. Perger. Gest. v.Langer",
+      "scans": [
+        "alm_1583_85470_a3t457xswr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ahnfrau. Sieh den Brautschmuck den ich bringe!",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "2zbei8ckgn2us3m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "3o0jbrebc44c7ab"
+        }
+      ],
+      "source_id": "1pc11v8k2xqqk7t"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85470, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Flieh', entflieh'! Noch ist es Zeit: / Bertha, hierher meine Bertha!",
+      "language": [],
+      "musenalm_id": 85471,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ahnfrau. / (Fünfter Aufzug. Seite 151.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ahnfrau. / (Fünfter Aufzug. Seite 151.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "wa1tkftzbbuyw1x"
+        }
+      ],
+      "source_id": "5bxstq1bzckmsnb"
+    },
+    {
+      "annotation": "Über der Graphik: Sappho 1. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Sappho« von Fr. Grillparzer s. Textbezug INr 85473, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85472,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sappho. Hier Phaon. Von den Besten stammet er!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+      "scans": [
+        "alm_1583_85472_9y1wlis4aq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sappho. Hier Phaon. Von den Besten stammet er!",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "6d8pfr3wso0bikq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "lb2k6ogxn9j6uky"
+        }
+      ],
+      "source_id": "b635gowhmnfznjv"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85471, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Willkommen auf der Heimat altem Boden, / Willkommen in der Deinem frohem Kreis!",
+      "language": [],
+      "musenalm_id": 85473,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sappho. / (Erster Aufzug. Zweiter Auftritt. Seite 7.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sappho. / (Erster Aufzug. Zweiter Auftritt. Seite 7.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "aot9gk4zmpyffg0"
+        }
+      ],
+      "source_id": "492ndebudvjtv4k"
+    },
+    {
+      "annotation": "Über der Graphik: Sappho 2. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Sappho« von Fr. Grillparzer s. Textbezug INr 85475, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85474,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sappho. Du läßt dich suchen, Freund? - doch ha! was seh' ich?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+      "scans": [
+        "alm_1583_85474_smkyh7pmtk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sappho. Du läßt dich suchen, Freund? - doch ha! was seh' ich?",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "8ei8bfrp6o4h3co"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "lu5b7vhualz2n72"
+        }
+      ],
+      "source_id": "72ghs0k8jq5c6i2"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85473, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "So komm! Ich beuge dir den Zweig! / Ganz recht!",
+      "language": [],
+      "musenalm_id": 85475,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sappho. / (Zweiter Aufzug. Fünfter Auftritt. Seite 40.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sappho. / (Zweiter Aufzug. Fünfter Auftritt. Seite 40.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "c0dz0snt5rsqnog"
+        }
+      ],
+      "source_id": "f69js8t9tatbftp"
+    },
+    {
+      "annotation": "Über der Graphik: Sappho 5 Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Sappho« von Fr. Grillparzer s. Textbezug INr 85475, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85476,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr Götter segnet sie und nehmt mich auf!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+      "scans": [
+        "alm_1583_85476_kv05vi623d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ihr Götter segnet sie und nehmt mich auf!",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "p5mavct50g7b89r",
+          "source_id": "g22t4axdbac1m4x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "vtlb6gjvowywrt1"
+        }
+      ],
+      "source_id": "e1g7hjvcatmbyot"
+    },
+    {
+      "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85476, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Was sinnt sie? Verklärt ist all' ihr Wesen, / Glanz der Unsterblichkeit umleuchtet sie!",
+      "language": [],
+      "musenalm_id": 85477,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sappho. ( (Fünfter Aufzug. Sechster Auftritt. Seite 121.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sappho. ( (Fünfter Aufzug. Sechster Auftritt. Seite 121.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.979Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "zw4p1jy1dkq44yp"
+        }
+      ],
+      "source_id": "1fmx1lz1y8rk9go"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85478,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aurora",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "crghom4g11ibhq5"
+    },
+    {
+      "annotation": "dem Text vorangestellt: Lass' uns nur kräftig und innig vertrauen: / Guten ergeht es am Ende doch gut. / J. G. von Salis /) mit einer Illustration s. Titelgraphik INr 85460, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Umbraus't von der Brandung des irländischen Meeres, erhebt sich zwischen den Küsten von Schottland und Irland die kleine Insel Man.",
+      "language": [],
+      "musenalm_id": 85479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theresa. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theresa. / Novelle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "xqnh43xpxxpatk5"
+        }
+      ],
+      "source_id": "vy3tl24xcm6cvks"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "O Tüchlein! zarte Hülle / Der lebenswarmen Brust,",
+      "language": [],
+      "musenalm_id": 85480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr Busentuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aus Carl Alexdr. Schröckinger's Nachlasse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihr Busentuch",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "6nnyt1fp6hgeyuh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Unter sternenlosem Himmel / Lag auf seinen Knien betend / Einst ein schöner, düst'rer Jüngling.",
+      "language": [],
+      "musenalm_id": 85481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erkenntniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Wenzing",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erkenntniß",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ismp8u28zdjr07g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Es strotzt die feile Welt von Falschheit und von / Lügen, / In jeder Tasche reibt sich falsches Geld am echten,",
+      "language": [],
+      "musenalm_id": 85482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selbstgeständniß der Liebe. / Ghasele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. M. Freiherr v. Nell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Selbstgeständniß der Liebe. / Ghasele",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "z54yvrmbn4zxppk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Es spielt' ein liebendes Mädchen / Alltäglich auf dem Klavier,",
+      "language": [],
+      "musenalm_id": 85483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Begleitung. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Schön",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Begleitung. / Ballade",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "naj4nlujckay1gk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Die Wolke und neiget sich herab zum Garten, / Sie naht und küsset liebend ihn, und weint;",
+      "language": [],
+      "musenalm_id": 85484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wolke und der Garten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wolke und der Garten",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "c1pojrp5obakyrw"
+        }
+      ],
+      "source_id": "mj3h48xs2k8r9pj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Mit Liebe ist der Bach dem Baum geneigt; / Du siehst den Bach des Baumes Wurzeln küssen,",
+      "language": [],
+      "musenalm_id": 85485,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Baum und der Bach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Baum und der Bach",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "tmuc6ew6jh2edan"
+        }
+      ],
+      "source_id": "nn27e92fbgy20z3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "O Grab! o Grab! ist all ihr Reiz vergangen? / O Grab! bist nicht der Himmel, bist der Garten;",
+      "language": [],
+      "musenalm_id": 85486,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Grab",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "a2c9opwcbc9ey3s"
+        }
+      ],
+      "source_id": "jw302yxw71mw90z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Es überfliegt der edle Gaul den Blick, / Du schau'st ihn schwarz, von Stirn und Füßen weiß;",
+      "language": [],
+      "musenalm_id": 85487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Pferd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Pferd",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "2raqasrtbfpl7mc"
+        }
+      ],
+      "source_id": "q9f14ri07ihv2qk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Wenn sie beginnt das Spiel der Harmonie, / Und Tauben ihr Gesang Gehör verleiht,",
+      "language": [],
+      "musenalm_id": 85488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf eine große Sängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf eine große Sängerin",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "7habysy6qrtly69"
+        }
+      ],
+      "source_id": "nmh3ba7ixplrm1g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Der schönste Maimorgen brach an. Phöbos Apollon war nie über eines reineren Himmels blaue Ätherbrücke gefahren,",
+      "language": [],
+      "musenalm_id": 85489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Bräutigam und die Todtenhand. / Komische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Bräutigam und die Todtenhand. / Komische Erzählung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ug2fyvz9gc1dip3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Den Becher füllt' ich, segnete das Haus: / Da stießen sie wild lachend mich hinaus,",
+      "language": [],
+      "musenalm_id": 85490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum neuen Jahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Halirsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum neuen Jahre",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.176Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.176Z",
+          "agent": "98q4i55rpu2zkyi",
+          "source_id": "ggowcsunvmd9vm0"
+        }
+      ],
+      "source_id": "26v97qbbgfuoreu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Du hast, mein Feund, ein Lied begehret / Zu Deinem Taschenbuch von mir;",
+      "language": [],
+      "musenalm_id": 85491,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Lied, welches keines ist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Lied, welches keines ist",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.176Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.176Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "j54xhaydvu25b8f"
+        }
+      ],
+      "source_id": "9c2vpwg0u9qakg6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Meine Stirne trübt kein Harm, / Hab' ich gleich nur wenig;",
+      "language": [],
+      "musenalm_id": 85492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Häuslichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Freyherr v. Schlechta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Häuslichkeit",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.176Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.176Z",
+          "agent": "x1uz1klk4dlr9er",
+          "source_id": "2d6v4tz89rwtqvk"
+        }
+      ],
+      "source_id": "ws348cmwgfp8tey"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Was man dem Reim, dem freundlichen vergibt, / Das wage ja die Prosa nicht;",
+      "language": [],
+      "musenalm_id": 85493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sängerglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Baldamus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sängerglück",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.176Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.176Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "vkm28gp7umbz0xo"
+        }
+      ],
+      "source_id": "gkh6qxytbqro0ef"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Nach einer fast dreijährigen Reise durch Teutschland, Frankreich, Italien und die Schweiz war der junge Baron Hellmuth von B**** nur noch eine halbe Tagreise von dem Wohnorte seiner Ältern entfernt,",
+      "language": [],
+      "musenalm_id": 85494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erscheinung am Grabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Gerle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erscheinung am Grabe",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.176Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.176Z",
+          "agent": "1g5ju8pfs3rggmg",
+          "source_id": "r35rgwdd38ejbpm"
+        }
+      ],
+      "source_id": "q1vghke4fwzmmxd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Nicht blind hat Amor mich geschaffen, / Und auch nicht Alle blind für mich:",
+      "language": [],
+      "musenalm_id": 85495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meinem Reschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meinem Reschen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "69yei27tmzqiejg"
+        }
+      ],
+      "source_id": "s8ks837j3czq1sd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "In tiefe Röthe eingetaucht, / Kenn' ich ein holdes Lippenpaar;",
+      "language": [],
+      "musenalm_id": 85496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Einseitige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mayrhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Einseitige",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "z2a77hujndvxeug",
+          "source_id": "twswtyu6yrsder9"
+        }
+      ],
+      "source_id": "cye4fvrjk6q96rh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Zum Leu'n sprach Zeus: du schüttle deine Mähne / In Lybiens heißem Sand;",
+      "language": [],
+      "musenalm_id": 85497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zeus und die Thiere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. L. Schleifer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zeus und die Thiere",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "90zse4ajt2jiztn",
+          "source_id": "dsrjajvwp3245nz"
+        }
+      ],
+      "source_id": "rl5ev7inpkovz98"
+    },
+    {
+      "annotation": "Sammlung von 9 Beiträgen INr 85499-85507, Obj 42-50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parabeln und Gnomen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parabeln und Gnomen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "ful0snv8nekicdv"
+        }
+      ],
+      "source_id": "l0p1bk59t3qg1ro"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Das Bild der Liebe, wie es uns die Fantasie, ihre Priester, Dichter und Romanen-Schreiber, zeigen, ist ein zartes Himmelskind,",
+      "language": [],
+      "musenalm_id": 85499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "skqyn4uwxi0a7mq"
+        }
+      ],
+      "source_id": "wrxx5plhd6m28bt"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Gott, Gemüth und Welt - sagt Göthe als Motto zu einigen aforistischen Sätzen",
+      "language": [],
+      "musenalm_id": 85500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "ekkfz1ul4ioa8b5"
+        }
+      ],
+      "source_id": "arwn8gzji4y1v7t"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Sogar in der Maxime der Selbstsucht; Jeder ist sich selbst der Nächste - sind die Menschen inkonsequent,",
+      "language": [],
+      "musenalm_id": 85501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "mrrdv0v5os5437d"
+        }
+      ],
+      "source_id": "psj4ygh97dp8zrx"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Es ist eine logische Schönheit der teutschen Sprache, daß sie keinen Reim auf Mensch hat;",
+      "language": [],
+      "musenalm_id": 85502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "58he4wdfiqum339"
+        }
+      ],
+      "source_id": "8lvb1l029yv8jf1"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Wahrlich die teutsche Sprache hat, selbst in ihrem mechanisch-prosodischen Bau, der Schönheiten so manche, voll-sinnig-profetischer Lebensweisheit,",
+      "language": [],
+      "musenalm_id": 85503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "53mvqucay83fz9c"
+        }
+      ],
+      "source_id": "hcmq0mwr15zd6lg"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Für das Leben gibt es keinen ersprießlicheren Gedanken, als jenen an den - Tod:",
+      "language": [],
+      "musenalm_id": 85504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.177Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "iflgbdf9xf7olo4"
+        }
+      ],
+      "source_id": "ef8sablpu7g9164"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Die Liebe ist die Mondnacht des Lebens;",
+      "language": [],
+      "musenalm_id": 85505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "2s5he1t2xewg1os"
+        }
+      ],
+      "source_id": "3juzbjwuk6s0m3r"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Petrarca, den Sänger der Liebe, muß man nur in dem Wonnemonde des Lebens oder des Jahres, im Frühlingsgarten der Natur oder in den Blütenmonden der Liebe lesen,",
+      "language": [],
+      "musenalm_id": 85506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "327b8aypba63ipx"
+        }
+      ],
+      "source_id": "pgnn27ktxlw6l0o"
+    },
+    {
+      "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Dem unzarten Betasten der uneingeweihten Menge verschließt sich die Sinnpflanze der Lebens-Poesie,",
+      "language": [],
+      "musenalm_id": 85507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.080Z",
+          "agent": "scp900xx95d632n",
+          "source_id": "44rrl1eqnkdoi2f"
+        }
+      ],
+      "source_id": "2vjmag3rihuepn9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Der Jüngling weilt in einem Blüthengarten, / Und schaut mit Lust des Lebens Morgenroth,",
+      "language": [],
+      "musenalm_id": 85508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jugendträume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jugendträume",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "wraddgbshyxl6ck"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Festlich dampfen die Altäre, / Froher Rauch des Opfers wallt, / Zu der hohen Götter Ehre,",
+      "language": [],
+      "musenalm_id": 85509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orpheus und Eurydice. / (S. Ovids Metamorfosen. X. Buch.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Orpheus und Eurydice. / (S. Ovids Metamorfosen. X. Buch.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.950Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "a0zk9o7k8mqtv44"
+        }
+      ],
+      "source_id": "tc1reehqkww2f7v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "In dem finst'ren Alterthume, / Da noch viele Gott nicht kannten,",
+      "language": [],
+      "musenalm_id": 85510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Rosenkranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ant. X. Schurz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Rosenkranz",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.950Z",
+          "agent": "m6v439nrgynzyi9",
+          "source_id": "dybkgodsjwdtzav"
+        }
+      ],
+      "source_id": "j94dj1svqlma569"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Es kamen zwei Wandergesellen / Durch's weite Land an's Meer,",
+      "language": [],
+      "musenalm_id": 85511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wandergesellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Friedrich Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wandergesellen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "wy6pdr73t7fnjjx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Zu den angenehmsten und genußreichsten Tagen meines Lebens zähle ich die Herbstmonate des Jahres 1823,",
+      "language": [],
+      "musenalm_id": 85512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carl Maria's von Weber / Muß-Spruch. / Eine Reliquie von ihm und zu seiner Charakteristik / mitgetheilt vom Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Carl Maria's von Weber / Muß-Spruch. / Eine Reliquie von ihm und zu seiner Charakteristik / mitgetheilt vom Herausgeber",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.950Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "ktxohajelccbazx"
+        }
+      ],
+      "source_id": "0tfh2nfz6rlr18y"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 85514-85516, Obj 57-59",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stammbuchblätter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stammbuchblätter",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "oemp2tjsejah8jb"
+    },
+    {
+      "annotation": "Stammbuchblätter (Sammlung INr 85514, Obj 56)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Reich' treulich mir die Hände, / Sei Bruder mir und wende / Den Blick vor Deinem Ende / Nicht wieder ab von mir.",
+      "language": [],
+      "musenalm_id": 85514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / In das Stammbuch des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. Holtei",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / In das Stammbuch des Herausgebers",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.028Z",
+          "agent": "zg6jbd5dfgl0cyy",
+          "source_id": "f2775mvu4pcnwzn"
+        }
+      ],
+      "source_id": "xjyuptf3wlcfujn"
+    },
+    {
+      "annotation": "Stammbuchblätter (Sammlung INr 85514, Obj 56) # Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "So viel errungen hast du schon, / Was mir ein Wunsch nur blieb.",
+      "language": [],
+      "musenalm_id": 85515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / In Carl's von Holtei Stammbuch. / Wien, im September 1823",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / In Carl's von Holtei Stammbuch. / Wien, im September 1823",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.028Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "aif8iute1i8yb6v"
+        }
+      ],
+      "source_id": "sy9qmd9jherxb3s"
+    },
+    {
+      "annotation": "Stammbuchblätter (Sammlung INr 85514, Obj 56)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Der Sänger singe frei - er schaue nur / In's Heiligthum der göttlichen Natur,",
+      "language": [],
+      "musenalm_id": 85516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / In das Stammbuch des Herausgebers. / Sängers Schule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / In das Stammbuch des Herausgebers. / Sängers Schule",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.028Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "kq07z1nfkkfr4qe"
+        }
+      ],
+      "source_id": "f2e1bqlcf0cqvjo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Wo uns immer im Leben oder in der Geschichte Beispiele von ausgezeichnetem Muthe, von entschlossener Tapferkeit, von weiser Mäßigung im Glück, oder unerschütterter Standhaftigkeit im Unglücke aufstoßen,",
+      "language": [],
+      "musenalm_id": 85517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Villiers de l'Isle Adam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Villiers de l'Isle Adam",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.028Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "4fhvoxmgbru593y"
+        }
+      ],
+      "source_id": "iau2rrcg5w2qg9j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Ausgesät' zur späten, herrlichen Ernte / Wird nun, ach! der theure, wuchernde Same;",
+      "language": [],
+      "musenalm_id": 85518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei dem Leichenzug einer Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. D. Gallisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei dem Leichenzug einer Mutter",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "z471imet6b18bys"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Du lieber Gott, je öfters ich es lese, / Je klarer wird mir, was ich hätte sollen,",
+      "language": [],
+      "musenalm_id": 85519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Dichters Qual. / Darmatische Bilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Griesel's Nachlass",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Dichters Qual. / Darmatische Bilder",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "kxzn7z6avwz8abu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Mitternacht war vorüber, und eine Ruhe, wie auf dem Gebiet der Gräber, herrschte in Sevilla's Mauern.",
+      "language": [],
+      "musenalm_id": 85520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Serenade. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Xaver Told",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Serenade. / Novelle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "cpzf2p6vw0wewbu"
+    },
+    {
+      "annotation": "Unter dem I-Verz: Gedruckt bei Anton Strauß",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85521,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "s2566w9xsowelv3"
+    },
+    {
+      "annotation": "Photos 85522,01; 85522,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "In Freud und Schmerz, schlägt mir ein Herz",
+      "language": [],
+      "musenalm_id": 85522,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied von der Herzgeliebten. / Nach einem alten Volksliede, von Gottlieb von Leon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Abbé Maximilian Stadler",
+      "scans": [
+        "alm_1583_85522_01_66i6f2wk53.jpg",
+        "alm_1583_85522_02_wbn8x8w7zz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abschied von der Herzgeliebten. / Nach einem alten Volksliede, von Gottlieb von Leon",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.035Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.035Z",
+          "agent": "k9ba5t6w5z9osea",
+          "source_id": "yh5f75cfnj8k6kz"
+        }
+      ],
+      "source_id": "kpncvgumphwvxx6"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85523,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1583_85523_tby97tocho.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "f1czwbm0q69t6in"
+    },
+    {
+      "annotation": "Schuberprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85524,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1583_85524_x0vfwnn9s0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "48g3ui1a1jf3f4v"
+    }
   ],
   "agents": [
     {

@@ -48,21 +48,458 @@
   "year": 1853,
   "editor": "",
   "items": [
-    "cbjtbq7im919fba"
+    {
+      "annotation": "1847-1853.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108645",
+      "location": "105R06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cbjtbq7im919fba"
+    }
   ],
   "contents": [
-    "3xqfdrz14anzvo8",
-    "lnajtw95jbxyfnq",
-    "co0y6grvj78rgru",
-    "tnqigate7wsdho5",
-    "eab0mfo2t418z21",
-    "twmmtrvahbcfs2a",
-    "f1of6occqpt1r2m",
-    "kwao795v1i8jdir",
-    "we85xdchbnnc82b",
-    "f0q0paqce57r9vp",
-    "n4vvr1f0b4qij24",
-    "c3uep6ajcfc3pu9"
+    {
+      "annotation": "Titelportrait /) s. »Der Ball von Stockhlom« von A. Böttger INr 103715, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103712,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adolf Böttger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weger & Singer sc. Lpzg.",
+      "scans": [
+        "alm_3388_103712_ltr2ax3hzw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Adolf Böttger",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "3xqfdrz14anzvo8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103713,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht. / Taschenbuch für 1853. / Siebenter Jahrgang. / Herausgegeben / von / Jeanne Marie. / Mit Beiträgen von Adolf Böttger, Bernd v. Guseck, Ludewike / Wallenheim, Adolf Görling und der Herausgeberin etc / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3388_103713_as8mzoybh1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht. / Taschenbuch für 1853. / Siebenter Jahrgang. / Herausgegeben / von / Jeanne Marie. / Mit Beiträgen von Adolf Böttger, Bernd v. Guseck, Ludewike / Wallenheim, Adolf Görling und der Herausgeberin etc / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "lnajtw95jbxyfnq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103714,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "co0y6grvj78rgru"
+    },
+    {
+      "annotation": "s. Titelportrait INr 103712, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In Stockholm im Königsschlosse / Saßen nach der Mittagstafel / Graf von Armfeld und von Platen, / Mit dem frohgelaunten Fürsten / Wie vertraute Freunde plaudernd",
+      "language": [],
+      "musenalm_id": 103715,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ball zu Stockholm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Böttger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ball zu Stockholm",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.117Z",
+          "agent": "dy67ht7nshcb4v2",
+          "source_id": "19suymw7hmbxuua"
+        }
+      ],
+      "source_id": "tnqigate7wsdho5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103716,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Lämmel gest. Leipzig",
+      "scans": [
+        "alm_3388_103716_jdflnnk1cz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johanna",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "eab0mfo2t418z21"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103717,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cäcilie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Lämmel gest.",
+      "scans": [
+        "alm_3388_103717_mi4f8ni1tg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cäcilie",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "twmmtrvahbcfs2a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103718,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amaranth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Lämmel gest.",
+      "scans": [
+        "alm_3388_103718_u1v99yo7tv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Amaranth",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "f1of6occqpt1r2m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Sommerferien haben begonnen, die Zeit der großen Mobilmachung ist wieder da. Das Freiheitsbanner flattert über den Gefängißstuben der Gelehrsamkeit,",
+      "language": [],
+      "musenalm_id": 103719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Sommersonnentage",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Jeanne Marie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwei Sommersonnentage",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.117Z",
+          "agent": "3wuzr6tb9xdgoey",
+          "source_id": "3nk7zf3lfl9epwe"
+        }
+      ],
+      "source_id": "kwao795v1i8jdir"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Es war still und einsam in den Bergen. An einem Wegweiser, der mit vier Armen auf einer waldigen Hochebene stand, ruhte zur Mittagszeit ein Wandersmann;",
+      "language": [],
+      "musenalm_id": 103720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der eigene Weg. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der eigene Weg. / Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.117Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "c81aqw7cn1r3rqa"
+        }
+      ],
+      "source_id": "we85xdchbnnc82b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Der Spätherbst begann allmälig das Laub der Bäume zu lichten. Eine formlose Nebelwelt lagerte sich über Berg und Thal, rauhe Winde rauschten über die öden Flure dahin,",
+      "language": [],
+      "musenalm_id": 103721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruchstücke / aus dem Leben des Generals von Winterfeld. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludewike Wallenheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruchstücke / aus dem Leben des Generals von Winterfeld. / Novelle",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "f0q0paqce57r9vp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Der Hafen jener mit Häusern bedeckten englischen Provinz, welche London genannt wird, der Pool, bietet in der Season, nicht der Season von Westend, sondern derjenigen der silberblauen, klaren Thames einen unvergleichlichen Anblick dar.",
+      "language": [],
+      "musenalm_id": 103722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Quinterona",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Görling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Quinterona",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4vvr1f0b4qij24"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Druck von C. P. Melzer in Leipzig",
+      "language": [],
+      "musenalm_id": 103723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von C. P. Melzer in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1853,
+      "editor": "",
+      "agents": [],
+      "source_id": "c3uep6ajcfc3pu9"
+    }
   ],
   "agents": [
     {

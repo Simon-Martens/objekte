@@ -48,7 +48,26 @@
   "year": 1789,
   "editor": "",
   "items": [
-    "rr1zjiytxiir6fj"
+    {
+      "annotation": "50 Jgg 1780-1829",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.551Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404408",
+      "location": "105O07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.551Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rr1zjiytxiir6fj"
+    }
   ],
   "contents": [],
   "agents": [

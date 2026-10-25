@@ -48,21 +48,480 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "ftsnz3blgymdgc4",
-    "fxy4sken386u97x"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\n§$§ vermutl. fehlt B: recto vT, verso VrlgM  <br> Kartonierter Umschlag; VB, verso G, T, S I-Verz, SS 1-378",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101010",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ftsnz3blgymdgc4"
+    },
+    {
+      "annotation": "nT u VrlgM",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "410091",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fxy4sken386u97x"
+    }
   ],
   "contents": [
-    "t5jyn9k4qng141b",
-    "bvn31gjl9yg1sgg",
-    "xji70buu9bqmjk8",
-    "u8y0jchkk6hc9xw",
-    "2e0s6demsxswsxv",
-    "d3qh6aclzbk81vl",
-    "e5pxynnkjbwu8f1",
-    "2w38z42pe9rz6nt",
-    "pxf25nqkxdi5ffy",
-    "ix3y178px86so3y",
-    "cqn63n41yr6uwo8"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123667,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1842",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_68_123667_pi3ds9tzfo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1842",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "t5jyn9k4qng141b"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123668,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1842",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1842",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "bvn31gjl9yg1sgg"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Von früheren Jahrgängen der Urania sind nur noch einzelne Exemplare  von 1831-1838 vorräthig,",
+      "language": [],
+      "musenalm_id": 123669,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Arnold Brockhaus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "manlqagw1uz9rp2",
+          "source_id": "2o05rprzx5poy2n"
+        }
+      ],
+      "source_id": "xji70buu9bqmjk8"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123670,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Victor Hugo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gest. v. Th. Langer",
+      "scans": [
+        "alm_68_123670_sve5fqgu6r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Victor Hugo",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "t6lc63s8wzkilt0",
+          "source_id": "w36iipfs3jz4mz4"
+        }
+      ],
+      "source_id": "u8y0jchkk6hc9xw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123671,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1842. / Neue Folge. / Vierter Jahrgang. / Mit dem Bildnisse Victor Hugo's / Leipzig: / F. A. Brockhaus. / 1842",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_68_123671_sgadcod0zm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1842. / Neue Folge. / Vierter Jahrgang. / Mit dem Bildnisse Victor Hugo's / Leipzig: / F. A. Brockhaus. / 1842",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "2e0s6demsxswsxv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "d3qh6aclzbk81vl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Einige Jahre sind vergangen, als ich zur Jagdzeit das schöne Gut eines Landbesitzers besuchte,",
+      "language": [],
+      "musenalm_id": 2052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der gefährliche Gast. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der gefährliche Gast. / Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.636Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "caxqakcg9mlb224"
+        }
+      ],
+      "source_id": "e5pxynnkjbwu8f1"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Die nachstehende Novelle gehört ursprünglich der bekannten englischen Schriftstellerin, Moß Sophie Lee zu und befindet sich unter den Canterbury Tales, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Im Spätsommer des Jahres 1733 war dereinst im nördlichen Wales eine große Jagdpartie veranstaltet,",
+      "language": [],
+      "musenalm_id": 2053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kind des Thales. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Bülow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Kind des Thales. / Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.636Z",
+          "agent": "s80i7s99e9gsncg",
+          "source_id": "5ho52q4833lqeg0"
+        }
+      ],
+      "source_id": "2w38z42pe9rz6nt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Das Reden hilft all' zu nichts, Jungfer Wernern, es wird nichts draus!",
+      "language": [],
+      "musenalm_id": 2054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der lahme Hans. / Eine Dorfgeschichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Martell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der lahme Hans. / Eine Dorfgeschichte",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.636Z",
+          "agent": "zrsi43h33yxojuh",
+          "source_id": "7oq83xl7by99kkl"
+        }
+      ],
+      "source_id": "pxf25nqkxdi5ffy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Fürchterlich brauste der Sturm durch die Wipfel der entblätterten Eichen",
+      "language": [],
+      "musenalm_id": 2055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das neue Jahr. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frau von W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das neue Jahr. / Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.636Z",
+          "agent": "ngiqzohpakvtqf9",
+          "source_id": "84y94k24sxxe4of"
+        }
+      ],
+      "source_id": "ix3y178px86so3y"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123672,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig: / F. A. Brockhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_68_123672_yi82z6clxr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig: / F. A. Brockhaus",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "cqn63n41yr6uwo8"
+    }
   ],
   "agents": [
     {

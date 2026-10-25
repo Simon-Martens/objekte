@@ -48,7 +48,26 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "px0ssbvkann9p0l"
+    {
+      "annotation": "1839- 1846.\nHalbleinen Einband. \n1844 : Mit VI, Bl 1,Taf. 3,  und 344 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.668Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101334",
+      "location": "105L07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.668Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "px0ssbvkann9p0l"
+    }
   ],
   "contents": [],
   "agents": [

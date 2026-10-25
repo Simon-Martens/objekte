@@ -48,46 +48,1575 @@
   "year": 1822,
   "editor": "",
   "items": [
-    "i3sh428urn187u9"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.683Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404546",
+      "location": "105G04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.683Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "i3sh428urn187u9"
+    }
   ],
   "contents": [
-    "d5fy35hdoy8nn9b",
-    "62no9a08nf9nv9h",
-    "d7hqgm1dnjpzc5f",
-    "pfi5zbxqxq3xvnk",
-    "t0cie4min71k59c",
-    "kuepujsfnjvkkxa",
-    "163blnffahwey7i",
-    "wtxz78ljofn6mqz",
-    "lwlzzn3p060mmr7",
-    "ubbo4wj8nfnzwxo",
-    "9qct6a3vwaqgv80",
-    "omly0oee0pe9qxe",
-    "945j2kne1sfk655",
-    "7v3qhbc0m8lsga6",
-    "64hnikzmse6tk6o",
-    "4i5e1khfkfs6ibs",
-    "w08bc4bxantb2wn",
-    "o1rw5ntsvb61duk",
-    "khb7t3supt8jhwg",
-    "gtax8zfiqwmse80",
-    "y41pb159rmpbx2e",
-    "qkyprw6dwyp49ry",
-    "3zwqbt0gzt319ta",
-    "6ggvdluad8ons4b",
-    "qqjd2eyb0lp6nxm",
-    "y5prtfqutbdu1uw",
-    "97km0syvvjkotoc",
-    "piq29xgdilfof0r",
-    "c9k7bi8v99112pc",
-    "6cuoi03ytxkuton",
-    "ux3qqib0kp6dkpe",
-    "5iu40dc8yldle9v",
-    "fentadbf9f9zynt",
-    "jhh8e79h2l6n1jx",
-    "jn4uv7fcpfsg62w",
-    "e7cq2r5a0qe526u",
-    "4zzoks9yjpknuek"
+    {
+      "annotation": "Umschlaggraphik r. /) # Bezeichnung s. Textbezug INr 82103, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82096,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Zeichnung von Heideloff. Stich von Busser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung von Heideloff. Stich von Busser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.923Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "34zv5i7v8rw40x0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "5hz0zaqtlk9q1rn"
+        }
+      ],
+      "source_id": "d5fy35hdoy8nn9b"
+    },
+    {
+      "annotation": "ausfaltbare Titelgraphik /) s. Textbezug INr 82105, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82097,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nürnberg. / gegen Osten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. Wilder. Gestochen von Fr. Geissler",
+      "scans": [
+        "alm_3070_82097_dfmuo41xko.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nürnberg. / gegen Osten",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.923Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "3dmjkh8bytgk1ex"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.923Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "icw83u1uampd04k"
+        }
+      ],
+      "source_id": "62no9a08nf9nv9h"
+    },
+    {
+      "annotation": "gest. Titel mit bezeichneter Vignette s. INr 82099, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82098,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues / Taschenbuch / von / Nürnberg. / Zweiter Theil. / Nürnberg, 1822. / bei Riegel und Wiessner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. G. Mossner sc.",
+      "scans": [
+        "alm_3070_82098_1m43p7sth1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neues / Taschenbuch / von / Nürnberg. / Zweiter Theil. / Nürnberg, 1822. / bei Riegel und Wiessner",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7hqgm1dnjpzc5f"
+    },
+    {
+      "annotation": "Vignette des graph. Titels INr 82098, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82099,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nürnbergs ältestes Stadtwappen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. F. Weisbeck sc.",
+      "scans": [
+        "alm_3070_82099_nh6a09kw47.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nürnbergs ältestes Stadtwappen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.923Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "zn5xl8z3pa8kr84"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.923Z",
+          "agent": "1yq819tqy4kbasy",
+          "source_id": "zz8wxuv6x30xq4h"
+        }
+      ],
+      "source_id": "pfi5zbxqxq3xvnk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82100,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues / Taschenbuch / von Nürnberg. / Zweiter Theil. / Mit / Beiträgen von Mannert, Siebenkees u. a. / dann / Kunstblättern von Geißler, Fleischmann, Du- / tenhofer etc, gest. Umschlag, gez. von Heideloff, Vignetten und einem Kärtchen vom vor- / maligen Nürnbergischen Gebiete. / Nürnberg / bey Riegel und Wießner. / 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3070_82100_pzsxm96vlf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neues / Taschenbuch / von Nürnberg. / Zweiter Theil. / Mit / Beiträgen von Mannert, Siebenkees u. a. / dann / Kunstblättern von Geißler, Fleischmann, Du- / tenhofer etc, gest. Umschlag, gez. von Heideloff, Vignetten und einem Kärtchen vom vor- / maligen Nürnbergischen Gebiete. / Nürnberg / bey Riegel und Wießner. / 1822",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "t0cie4min71k59c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.318Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82101,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seiner Majestät / dem / Könige von Baiern, / Maximilian Joseph I. / in / tiefster Unterthänigkeit / gewidmet / vom / Verleger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seiner Majestät / dem / Könige von Baiern, / Maximilian Joseph I. / in / tiefster Unterthänigkeit / gewidmet / vom / Verleger",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "kuepujsfnjvkkxa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Mit jener Huld, durch welche sich Eure Königliche Majestät die Herzen aller Unterthanen zu eigen machen, haben höchstdieselbe geruht, meine ehrerbietigste Bitte - diesem Werke den glorreichen Namen Eurer königlichen Majestät vorsetzen zu dürfen",
+      "language": [],
+      "musenalm_id": 82102,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allerdurchlauchtigster, / großmächtigster König, / Allergnädigster König und Herr!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Mainberger, Besitzer der Buchhandlung Riegel und Wießner in Nürnberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allerdurchlauchtigster, / großmächtigster König, / Allergnädigster König und Herr!",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "163blnffahwey7i"
+    },
+    {
+      "annotation": "s. Umschlaggraphik INr 82096, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Durch den Umschlag eines Buches nicht blos in allgemein anwendbaren Sinnbildern und Verzierungen,",
+      "language": [],
+      "musenalm_id": 82103,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des Umschlags. / (Zeichnung von Heideloff. Stich von Busser.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des Umschlags. / (Zeichnung von Heideloff. Stich von Busser.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "wtxz78ljofn6mqz"
+    },
+    {
+      "annotation": "Sammlung von 11 Beiträgen INr 82105-82115, 10-20 als Textbezüge zu den Graphiken und der Karte des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82104,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu den Kunstblättern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu den Kunstblättern",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "lwlzzn3p060mmr7"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Titelgraphik INr 82097, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Gesichtspunkt derselben ist von der sogenannten Petershaide (jetzt zu den jährlichen Uebeungen des K. Militairs als Exercierplatz benützt.) aus, ohnfern der Regensburger Straße genommen",
+      "language": [],
+      "musenalm_id": 82105,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Ansicht der Stadt von Osten, (Titelk.) / (Gez. Von Wilder, Von Geißler gest.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Ansicht der Stadt von Osten, (Titelk.) / (Gez. Von Wilder, Von Geißler gest.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "ubbo4wj8nfnzwxo"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82117, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "giebt uns ein sehr getreues Konterfey dieses hochgefeierten, größten Künstlers der Stadt,",
+      "language": [],
+      "musenalm_id": 82106,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das Portrait Albrecht Dürers. (S. 1.) / (Von Fleischmann gest.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das Portrait Albrecht Dürers. (S. 1.) / (Von Fleischmann gest.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "9qct6a3vwaqgv80"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82119, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Dieser fast mitten in der Stadt befindliche Platz zieht sich an einer Anhöhe aufwärts, und bietet mit seinen stattlichen, großen Gebäuden, dem Auge eine schöne Perspective,",
+      "language": [],
+      "musenalm_id": 82107,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Der Egydienplatz. (S. 15.) / (Zeichnung von Wilder. Stich von Duttenhofer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Der Egydienplatz. (S. 15.) / (Zeichnung von Wilder. Stich von Duttenhofer.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "omly0oee0pe9qxe"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82120, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Diese südwestliche Ansicht des Rathauses zeigt dessen ganze Façade, einen Theil der gegenüberstehenden Hauptwache und des Chors der St. Sebalduskirche",
+      "language": [],
+      "musenalm_id": 82108,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Das Rathhaus. (S. 95.) / (Zeichnung von Heidleoff. Stich von Duttenhofer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Das Rathhaus. (S. 95.) / (Zeichnung von Heidleoff. Stich von Duttenhofer.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "945j2kne1sfk655"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82121, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Dieses Gebäude wurde, nach Angabe und unter Leitung unseres rühmlichst bekannten, um die Erhaltung des ehrwürdigen Alterthümlichen, so wie um die Verschönerung hiesiger Stadt (innen und außen) vielfach verdienten C. Heideloff umgeändert,",
+      "language": [],
+      "musenalm_id": 82109,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Das v. Schwarz'sche Haus. (S. 100.) / (Zeichnung v. Heideloff. Stich v. Schellborn.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Das v. Schwarz'sche Haus. (S. 100.) / (Zeichnung v. Heideloff. Stich v. Schellborn.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "7v3qhbc0m8lsga6"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82122, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "An das ehemalige Deutsche Haus (links im Vordergrunde), welches jetzt dem K. Militair zur Kaserne dient, wurd, an die Stelle der im J. 1784 abgebrochenen Elisabethkapelle, die Deutschhauskirche im J. 1785 zu bauen angefangen.",
+      "language": [],
+      "musenalm_id": 82110,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Das Deutsche Haus und der weiße Thurm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Das Deutsche Haus und der weiße Thurm",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "64hnikzmse6tk6o"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82123, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "neben der sogenannten Brautthüre der St. Lorenzkirche, außen zur Rechten, ist in neuerern Zeiten gereinigt, ausgebessert,",
+      "language": [],
+      "musenalm_id": 82111,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Der Ölberg, Vignette, (S. 126) / (Zeichnung v. Heideloff. Stich v. Geißler.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Der Ölberg, Vignette, (S. 126) / (Zeichnung v. Heideloff. Stich v. Geißler.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "4i5e1khfkfs6ibs"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82125, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "stellt sich uns die Nachbildung von 4 der vorzüglichsten Meisterwerke des Künstlers dar,",
+      "language": [],
+      "musenalm_id": 82112,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. In den vier Aposteln nach Albrecht / Dürer (S. 161.) / (Stich von Fleischmann)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. In den vier Aposteln nach Albrecht / Dürer (S. 161.) / (Stich von Fleischmann)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "w08bc4bxantb2wn"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82127, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Diese von Peter Vischer gegossene niedliche Bronzefigur befindet sich auf dem Röhrbronnen hinter der Frauenkirche am Gänsemarkt.",
+      "language": [],
+      "musenalm_id": 82113,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. Der Gänsmann. Vignette. (S. 231.) / (Zeichnung von Heideloff. Stich von Fleischmann.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. Der Gänsmann. Vignette. (S. 231.) / (Zeichnung von Heideloff. Stich von Fleischmann.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "o1rw5ntsvb61duk"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Graphik INr 82126, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Da der in der Mitte des Maximiliansplatzes befindliche Brunnen mit dem Triton, als offener Springbrunnen, nicht alle Bedürfnisse befriedigen kann,",
+      "language": [],
+      "musenalm_id": 82114,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. Der neue Brunnen am Marktplatz. / (S. 229.) / (Zeichnung von Heideloff. Stich von Geißler.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. Der neue Brunnen am Marktplatz. / (S. 229.) / (Zeichnung von Heideloff. Stich von Geißler.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "khb7t3supt8jhwg"
+    },
+    {
+      "annotation": "Zu den Kunstblättern (Sammlung INr 82204, Obj 9) s. Karte INr 821",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Dasselbe erstreckte sich, von dem südlichen Gränzpunkte des Pflegamts Altdorf bis zum nördlichsten des Pflegamts Petzenstein,",
+      "language": [],
+      "musenalm_id": 82115,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. Das alte Nürnberger Gebiet. / (Kärtchen.) / (Stich von Moßner jun.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. Das alte Nürnberger Gebiet. / (Kärtchen.) / (Stich von Moßner jun.)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "gtax8zfiqwmse80"
+    },
+    {
+      "annotation": "Photos 82116,01-82116,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82116,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3070_82116_01_gfsiyiy7bv.jpg",
+        "alm_3070_82116_02_x95a278w4a.jpg",
+        "alm_3070_82116_03_svr1o113m0.jpg",
+        "alm_3070_82116_04_ufgmjge95v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "y41pb159rmpbx2e"
+    },
+    {
+      "annotation": "s. Textbezug INr 82106, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82117,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albrecht Dürer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt v. Albt. Dürer. Gestochen von Fr. Fleischmann",
+      "scans": [
+        "alm_3070_82117_6ankpgznlu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Albrecht Dürer",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.011Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.011Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "c0x79765e1zuklt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.011Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.011Z",
+          "agent": "o55olxrgmwwwrft",
+          "source_id": "ex2wsyfal45vq5f"
+        }
+      ],
+      "source_id": "qkyprw6dwyp49ry"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Da wo der Pregnitzfluß, seinen Lauf nach Westen haltend, aus dem großen Reichswalde hervortritt, um sich weiter westlich mit der Rednitz zu verbinden, liegt an den südlichen Ufern weit und breit dürrer Sand, untüchtig zu allem Guten.",
+      "language": [],
+      "musenalm_id": 82118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Überblick / von / Nürnbergs / Aufkeimen, Blüthe und Sinken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Konrad Mannert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Überblick / von / Nürnbergs / Aufkeimen, Blüthe und Sinken",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "3zwqbt0gzt319ta"
+    },
+    {
+      "annotation": "s. Textbezug INr 82107, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Egydienplatz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+      "scans": [
+        "alm_3070_82119_sgdhmww7pb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Egydienplatz",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "qd7ws913onncnmp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "z4um96cyofu49wm"
+        }
+      ],
+      "source_id": "6ggvdluad8ons4b"
+    },
+    {
+      "annotation": "s. Textbezug INr 82108, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.565Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Rathaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von C. Heideloff Gestochen von Duttenhofer",
+      "scans": [
+        "alm_3070_82120_de1423wuz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Rathaus",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "1jd65kzn7l780bz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "5y66manatccl2wl"
+        }
+      ],
+      "source_id": "qqjd2eyb0lp6nxm"
+    },
+    {
+      "annotation": "s. Textbezug INr 82109, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Façade des von Schwartzischen Hauses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. C. V. Schellhorn sc.",
+      "scans": [
+        "alm_3070_82121_xm3vedyvb7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Façade des von Schwartzischen Hauses",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "02fmb1t8doqp4ha"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "iloztbvppyig5n1",
+          "source_id": "n78aehn3netd11v"
+        }
+      ],
+      "source_id": "y5prtfqutbdu1uw"
+    },
+    {
+      "annotation": "s. Textbezug INr 82110, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das teutsche Haus und der weisse Thurm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+      "scans": [
+        "alm_3070_82122_xefrtufy1h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das teutsche Haus und der weisse Thurm",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "o5shm5a6znzfv1p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "us3erxr8y4qf9xw"
+        }
+      ],
+      "source_id": "97km0syvvjkotoc"
+    },
+    {
+      "annotation": "s. Textbezug INr 82111, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Oehlberg an der St. Lorenz Kirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von C. Heideloff Gestochen von Fr. Geissler",
+      "scans": [
+        "alm_3070_82123_v8e9cy7prw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Oehlberg an der St. Lorenz Kirche",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "18tuc6zwtw4u3lm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "bwwrh7r8bdmqpd0"
+        }
+      ],
+      "source_id": "piq29xgdilfof0r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Das schöne Gemeingut der kultivirten Menschheit, die Kunst, mit allem, was dieses vieldeutsame Wort in verschiedenen Abstufungen und Anwendungen umfaßt, ist eine Pflanze, die der sorglichen Pflege vieler Hände bedarf,",
+      "language": [],
+      "musenalm_id": 82124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur / Geschichte der Künste in Nürnberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur / Geschichte der Künste in Nürnberg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "u6c8bzfov2d9xtw"
+        }
+      ],
+      "source_id": "c9k7bi8v99112pc"
+    },
+    {
+      "annotation": "s. Textbezug INr 82112, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier Apostel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von Albrecht Dürer. Gestochen von F. Fleischmann",
+      "scans": [
+        "alm_3070_82125_6ysqaxg12w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die vier Apostel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.942Z",
+          "agent": "o55olxrgmwwwrft",
+          "source_id": "hvy44ljvwndzywn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.943Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "kf6ims6cbqtavi6"
+        }
+      ],
+      "source_id": "6cuoi03ytxkuton"
+    },
+    {
+      "annotation": "s. Textbezug INr 82114, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Brunnen am Max Plaze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von C. Heideloff. Gestochen von Fr. Geissler",
+      "scans": [
+        "alm_3070_82126_aff0iov68m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Brunnen am Max Plaze",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.943Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "u182pi01lnii7k2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.943Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "zc09u08igzhcy1z"
+        }
+      ],
+      "source_id": "ux3qqib0kp6dkpe"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 82113, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gänsmann #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff del. F. Fleischmann sc.",
+      "scans": [
+        "alm_3070_82127_3pt5cbgzn7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Gänsmann #",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.943Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "8g5me84019db4tu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.943Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "9ml4gcegwft1s49"
+        }
+      ],
+      "source_id": "5iu40dc8yldle9v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Gegenwärtige Nachricht von dem Leben meines seligen Schwiegervaters ist zu Anfang dieses Jahres auf Veranstaltung der achtbaren Gesellschaft zur Beförderung vaterländischer Industrie gedruckt worden.",
+      "language": [],
+      "musenalm_id": 82128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht / von / dem Leben / Paul Wolfgang Merkel's, / weiland / verordnetem Vorstheher des Handelsplatzes Nürn- / berg , Assessor am königl. Handlesappellations- / gerichte, und Abgeordneten der Stadt Nürnberg / zur Ständeversammlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Roth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht / von / dem Leben / Paul Wolfgang Merkel's, / weiland / verordnetem Vorstheher des Handelsplatzes Nürn- / berg , Assessor am königl. Handlesappellations- / gerichte, und Abgeordneten der Stadt Nürnberg / zur Ständeversammlung",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "fentadbf9f9zynt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "Als in der Mitte des sechzehnten Jahrhunderts das wohlgeordnetete bürgerliche Regiment in Nürnberg, in Oligarchie ausartete, fieng der Staat an zu sinken,",
+      "language": [],
+      "musenalm_id": 82129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nürnberg, in der neuern Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johannes Scharrer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nürnberg, in der neuern Zeit",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "jhh8e79h2l6n1jx"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Opinium commenta delet dies.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Hector Wilhelm von Günderode, ein Frankfurter Partricier, in den Abhandl. über Gegenstände aus der Rechtswiss. und Geschichte (Dessau 1782, 8. S. 103.) hielt es für leicht zu erwisen, daß die rathsfähigen Familien zu Nürnberg",
+      "language": [],
+      "musenalm_id": 82130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der ehemaligen Handelsschaft des Nürn- / bergischen Patriciats",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Siebenkees",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der ehemaligen Handelsschaft des Nürn- / bergischen Patriciats",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "jn4uv7fcpfsg62w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82131,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / vormalige / Nürnbergische / Gebiet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. G. Mossner del et sc.",
+      "scans": [
+        "alm_3070_82131_oe5xeyvgmd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das / vormalige / Nürnbergische / Gebiet",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "e7cq2r5a0qe526u"
+    },
+    {
+      "annotation": "Umschlaggraphik v. /) # Bezeichnung s. Textbezug INr 82103, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82132,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Zeichnung von Heideloff. Stich von Busser)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung von Heideloff. Stich von Busser",
+      "scans": [
+        "alm_3070_82132_gql524thti.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.519Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "7alka5r7oi8zy3m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.519Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "t7rgja308bqhyad"
+        }
+      ],
+      "source_id": "4zzoks9yjpknuek"
+    }
   ],
   "agents": [
     {

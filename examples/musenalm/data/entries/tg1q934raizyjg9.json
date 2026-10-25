@@ -48,54 +48,1721 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "11pjfxqoxu6cu7l"
+    {
+      "annotation": "# Posselt starb 1804; die Beiträge bis S 82 (INr 22081) sind von ihm. <br> Fortsetzung von: Taschenbuch für die neuste Geschichte (Posselt) 1794-1796, 1798-1803 <br> Die Staatsgeschichte Europas erschien bei Cotta 1805, 1806, 1808-1811, 1816 <br> s. Bernhard Fischer: Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbiographie 1787-1832. Aus den Quellen bearbeitet. Marbach a.N., München 2003: Nr. 429\nHalbledereinband (Buchrücken leicht beschädigt); VB, verso G T, B Vrwrt d Hrsg, B I-Verz, G, ar: SS 1-127 darin 5 GG , ar1: S 1 zT, SS 3-136 darin 4 Krtn 2 Diagr, GG, S VrlgM",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.460Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100624",
+      "location": "105K01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.460Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "11pjfxqoxu6cu7l"
+    }
   ],
   "contents": [
-    "7ad48la1ho4tl5a",
-    "vg53c9nrzmft30x",
-    "3kfbi6oa5jy2upp",
-    "suuf6iyh48tdig3",
-    "6911gweiol9n6fk",
-    "mw3yfck5c27wytf",
-    "yhsjpjfsgbs66m9",
-    "osoj4bslcdl5pz5",
-    "bkqaqvbo9xc0vha",
-    "glr410g013et9wt",
-    "f8ozqtajfdj1fg8",
-    "3zzcvkp5m02zb02",
-    "7kqiw5olthsku8h",
-    "mgzr4mr1pbnxq2g",
-    "8br9oupi5kjmjdq",
-    "93ej757nnsjprat",
-    "ava4s62agjs3h7c",
-    "a2zmqnc5268obe1",
-    "gytcmdyr3fdnmn6",
-    "4gr0it2izy2ad3x",
-    "qieycco0p93v51g",
-    "khb5pob7o84hbpa",
-    "5mwmo749nlz85ob",
-    "nkpa1ylss0zfv4j",
-    "o5yn5uhzpkmt13u",
-    "b0bpnlt52d1jigy",
-    "krflu35gy7m86cc",
-    "dq32ia42xui3pvx",
-    "0ppver1jflvd38i",
-    "eoyvpqll8sv8ffp",
-    "ogjs7xcn97g7bpk",
-    "u0up7zy1qh6ub5t",
-    "iay42hqgzljpfm8",
-    "66h3yvxvt4tikcf",
-    "ib0u52b6n8bhr60",
-    "xup01ilk8x6vmkl",
-    "lttd1ywfaffufp8",
-    "s477n9svdy09bd8",
-    "8beio6p87i65aph",
-    "3ee9cuz9utbjue5",
-    "9pvuw4j3g3te4pn",
-    "1crwvlz23rk5p38",
-    "kr957q0ibuyt7us",
-    "hvqu8kg07acdvnw",
-    "xuxncvesg8md2fk"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 22088, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 6825,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALEXANDER I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_131_6825_q79ssi1035.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALEXANDER I.",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.366Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.366Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "zrbn1466367ytc1"
+        }
+      ],
+      "source_id": "7ad48la1ho4tl5a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22050,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "StaatsGeschichte Europa's / vom Tractat von Amiens bis zum Wiederaus- / bruch des Krieges zwischen Frankreich / und / England / von / D. E. L. Posselt. / Als Taschenbuch für 1805. / Mit Karten und Kupfern. / Tübingen, / im Verlag der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_131_22050_wrinhfhbca.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "StaatsGeschichte Europa's / vom Tractat von Amiens bis zum Wiederaus- / bruch des Krieges zwischen Frankreich / und / England / von / D. E. L. Posselt. / Als Taschenbuch für 1805. / Mit Karten und Kupfern. / Tübingen, / im Verlag der J. G. Cotta'schen Buchhandlung",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "vg53c9nrzmft30x"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit Hinweis auf Autorschaft Posselts für die Beiträge INr 22055-INr 22081, Obj 7-32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der berühmte Verfasser dieses Almanachs hat die Herausgabe desselben nicht mehr erlebt. Bis S. 82 ist alles seine Arbeit, die unverändert und ohne irgend einen Zusaz zu geben, ich für heilge Pflicht gegen den Verstorbenen hielt",
+      "language": [],
+      "musenalm_id": 22051,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cotta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.096Z",
+          "agent": "0rnyqiybfu5n3e2",
+          "source_id": "3xnrwwzhy4won10"
+        }
+      ],
+      "source_id": "3kfbi6oa5jy2upp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22052,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "suuf6iyh48tdig3"
+    },
+    {
+      "annotation": "s. Textbezug INr 22089, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22053,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BONAPARTE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_131_22053_j7nc4v13q8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BONAPARTE",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.096Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "7icy2jq5djnlft7"
+        }
+      ],
+      "source_id": "6911gweiol9n6fk"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 22055, 22059; Obj 7, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "StaatsGeschichte Europa's / vom Tractat von Amiens bis zum Wieder- / Ausbruche des Krieges zwischen Frank- / reich und England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "StaatsGeschichte Europa's / vom Tractat von Amiens bis zum Wieder- / Ausbruche des Krieges zwischen Frank- / reich und England",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "mw3yfck5c27wytf"
+    },
+    {
+      "annotation": "StaatsGeschichte Europa's vom Tractat von Amiens bis zum Wiederausbruche des Krieges zwischen Frankreich und England (Sammlung INr 22054, Obj 6) # Bez. aus Cottas Vorrede.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Tractat von Amiens hatte der Gröse Frankreichs und dem Ruhm des Mannes, der dasselbe mitten aus den Stürmen der Revolution",
+      "language": [],
+      "musenalm_id": 22055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Abschnitt. / Kurze Uibersicht der politischen Verhandlungen seit / Bonaparte's Zurükkunft aus Aegypten bis / zum allgemeinen Frieden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Abschnitt. / Kurze Uibersicht der politischen Verhandlungen seit / Bonaparte's Zurükkunft aus Aegypten bis / zum allgemeinen Frieden",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.884Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.884Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "3z0g9xerz06na5q"
+        }
+      ],
+      "source_id": "yhsjpjfsgbs66m9"
+    },
+    {
+      "annotation": "s. Textbezug 22090, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.545Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ERZHERZOG CARL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_131_22056_ae04klqwqa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ERZHERZOG CARL",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "osoj4bslcdl5pz5"
+    },
+    {
+      "annotation": "s. Textbezug 22091, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MOREAU",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_131_22057_tdphcwdtpm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MOREAU",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.884Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.884Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "h9pn3845acncpbt"
+        }
+      ],
+      "source_id": "bkqaqvbo9xc0vha"
+    },
+    {
+      "annotation": "s. Textbezug INr 22092, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NELSON",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_131_22058_7u4cru41th.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NELSON",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "glr410g013et9wt"
+    },
+    {
+      "annotation": "StaatsGeschichte Europa's vom Tractat von Amiens bis zum Wiederausbruche des Krieges zwischen Frankreich und England (Sammlung INr 22054, Obj 6) # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.232Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Bonaparte stand jezt in der Mittagshöhe seines Ruhms. Dem Versprechen gemäs, das er der französischen Nation beim Antritt seines Konsulats gethan,",
+      "language": [],
+      "musenalm_id": 22059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Abschnitt. / Bonaparte, der im Innern Frankreichs einige der / schwersten Wunden der Revolution zu heilen / bemühet ist, und lebenslängliche Ge- / walt erhält",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Abschnitt. / Bonaparte, der im Innern Frankreichs einige der / schwersten Wunden der Revolution zu heilen / bemühet ist, und lebenslängliche Ge- / walt erhält",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.850Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "hdtgjq92up55hk0"
+        }
+      ],
+      "source_id": "f8ozqtajfdj1fg8"
+    },
+    {
+      "annotation": "s. Textbezug INr 22093, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.232Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PITT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_131_22060_tih5h1ni5i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PITT",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "3zzcvkp5m02zb02"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 12 Beiträgen INr 22062-22094, Obj 14-45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22061,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beilagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beilagen",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "7kqiw5olthsku8h"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) mit 10 Tabellen, Karten, Erläuterungen INr 22063-22072, Obj 15-24. # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Frankreich ist im Süden durch die Pyrenäen begrenzt; ein andere Kette von Gebirgen, die Alpen und der Jura genannt, umschließt dasselbe im Osten;",
+      "language": [],
+      "musenalm_id": 22062,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Frankreich, / wie es war, wie es ist, und wie es allmählig / das wurde, was es ist. / (Mit zwei Karten.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Frankreich, / wie es war, wie es ist, und wie es allmählig / das wurde, was es ist. / (Mit zwei Karten.)",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.850Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "1bda770f78vlh6a"
+        }
+      ],
+      "source_id": "mgzr4mr1pbnxq2g"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22063,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Provinzen; Departements; HauptOrte; Morgenzahl; Bevölkerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Provinzen; Departements; HauptOrte; Morgenzahl; Bevölkerung",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "8br9oupi5kjmjdq"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.235Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22064,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Colonien. / Morgenzahl; Bevölkerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Colonien. / Morgenzahl; Bevölkerung",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "93ej757nnsjprat"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.235Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22065,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haupt-Kanäle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Haupt-Kanäle",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ava4s62agjs3h7c"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22066,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haupt-Gebürge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Haupt-Gebürge",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "a2zmqnc5268obe1"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22067,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frankreichs Hydrographie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frankreichs Hydrographie",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "gytcmdyr3fdnmn6"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum »Beitrag Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22068,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlachten aus der Geschichte Frankeichs / mit Angabe der Orte wo sie geliefert wurden etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlachten aus der Geschichte Frankeichs / mit Angabe der Orte wo sie geliefert wurden etc",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "4gr0it2izy2ad3x"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Tabelle zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22069,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berühmte Tractaten aus der Geschichte / Frankreichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berühmte Tractaten aus der Geschichte / Frankreichs",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "qieycco0p93v51g"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Beigabe zum Beitrag »Frankreich wie es war, wie es ist, und wie es allmählig das wurde, was es ist« INr 22062, Obj 14 /) Erläuterungen zu den folgenden 2 Karten INr 220701, 22702; Obj 23, 24. # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Die zweite Karte zur Rechten, darstellend die politische Geographie von Frankreich, zeigt auf eine neue und einfache Art",
+      "language": [],
+      "musenalm_id": 22070,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zweite Karte zur Rechten, darstellend die politische Geographie von Frankreich, zeigt auf eine neue und einfache Art…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.794Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.794Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "jkdwg1051gsabed"
+        }
+      ],
+      "source_id": "khb5pob7o84hbpa"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Beigabe zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmälig das wurde, was es ist« INr 22062, Obj 14. /) kolorierte Karte s. Textbezug INr 22070, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22071,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KARTE / von / FRANKREICH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gestochen von D. Carl Ausfeld 1803",
+      "scans": [
+        "alm_131_22071_7u75g182kr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "KARTE / von / FRANKREICH",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.794Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.794Z",
+          "agent": "eozidzwycwakle8",
+          "source_id": "lxj3hu5xd1cyrc2"
+        }
+      ],
+      "source_id": "5mwmo749nlz85ob"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Beigabe zum Beitrag »Frankreich, wie es war, wie es ist, und wie es allmälig das wurde, was es ist« INr 22062, Obj 14 /) kolorierte Karte s. Textbezug INr 22070, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22072,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BILDUNGS-KARTE / DES FRANZÖSISCHEN GEBIETS / nach der Ordnung und Beschaffenheit der verschiedenen Vergrößerungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Carl Ausfeld",
+      "scans": [
+        "alm_131_22072_74rj1xg9n1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BILDUNGS-KARTE / DES FRANZÖSISCHEN GEBIETS / nach der Ordnung und Beschaffenheit der verschiedenen Vergrößerungen",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.794Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.794Z",
+          "agent": "eozidzwycwakle8",
+          "source_id": "68p0myl9017jwgv"
+        }
+      ],
+      "source_id": "nkpa1ylss0zfv4j"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) # Bez. aus Cottas Vorrede s. Karte INr 22078, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Die Vergleichung des geographisch-politischen Zustandes von Italien, wie er jezt, zu Ende des französischen RevolutionsKrieges, ist,",
+      "language": [],
+      "musenalm_id": 22073,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Italien, / nach seinem neuesten Zustande, mit Rüksicht auf / den vorherigen / (Mit einer Karte, auf welcher zugleich die Feld- / züge von 1796-1800 abgebildet sind.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Italien, / nach seinem neuesten Zustande, mit Rüksicht auf / den vorherigen / (Mit einer Karte, auf welcher zugleich die Feld- / züge von 1796-1800 abgebildet sind.)",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.096Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "oewq926icfa0ex7"
+        }
+      ],
+      "source_id": "o5yn5uhzpkmt13u"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Im Monat April 1796 war der Krieg noch an den Thoren Italiens: seit vier Jahren hatten die andern an Frankreich gränzenden feindlichen Länder",
+      "language": [],
+      "musenalm_id": 22074,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bonaparte's Feldzug von 1796 und 97",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bonaparte's Feldzug von 1796 und 97",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.096Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "nbi8st1lhwn7meh"
+        }
+      ],
+      "source_id": "b0bpnlt52d1jigy"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) 2. Italien (Sammlung INr 22073, Obj 32) # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Die Ermordung des französischen Generals Duphot hatte den Anlaß gegeben, auch Rom in eine Republik zu verwandeln.",
+      "language": [],
+      "musenalm_id": 22075,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Championnet's Feldzug von 1798",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Championnet's Feldzug von 1798",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.009Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "6tecwf8p2moda4f"
+        }
+      ],
+      "source_id": "krflu35gy7m86cc"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) 2. Italien (Sammlung INr 22073, Obj 32) # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Wir müssen zuerst die Lage Italiens vor der Eröffnung dieses Feldzugs kennen lernen.",
+      "language": [],
+      "musenalm_id": 22076,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Suwarow's Feldzug von 1799",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Suwarow's Feldzug von 1799",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.009Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "t7g4vzx08p5lv49"
+        }
+      ],
+      "source_id": "dq32ia42xui3pvx"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) 2. Italien (Sammlung INr 22073, Obj 32) # Bez. aus Cottas Vorrede",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Wer hätte, nach den hier beschriebenen Feldzügen, welche durch die Kühnheit und Neuheit der Unternehmungen,",
+      "language": [],
+      "musenalm_id": 22077,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bonaparte's Feldzug von 1800",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bonaparte's Feldzug von 1800",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.868Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.868Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "bk2laqvbob6anlq"
+        }
+      ],
+      "source_id": "0ppver1jflvd38i"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) 2. Italien (Sammlung INr 22073, Obj 32). Vierfarbig kolorierte Karte s. Textbezüge INr 22073-22077, Obj 25-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22078,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KARTE / von / ITALIEN, / nach seiner neusten politischen / Einthei- / lung, nebst Angabe der lezten Feldzüge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "KARTE / von / ITALIEN, / nach seiner neusten politischen / Einthei- / lung, nebst Angabe der lezten Feldzüge",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "eoyvpqll8sv8ffp"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) 2. Italien (Sammlung INr 22073, Obj 32). Tabelle auf der Karte INr 22078, Obj 30, s. Textbezüge INr 22073-22077, Obj 25-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22079,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geographisch-Politische Uibersicht / der Staaten Italiens vor und nach dem französischen Revolutionskrieg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_131_22079_rz1w2weasq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Geographisch-Politische Uibersicht / der Staaten Italiens vor und nach dem französischen Revolutionskrieg",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ogjs7xcn97g7bpk"
+    },
+    {
+      "annotation": "Im Folgenden: Abdruck der 31 Paragraphen des Deputations-Recesses. Beilagen (Sammlung INr 22061, Obj 13) # Bez. aus Cottas Vorrede. /) 31 Paragraphen des Deputations Recesses /) mit einer Karte s. INr 22082, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Statt alles Commentars geben wir hier den Text des Deputations-Recesses selbst, in so weit er zur Erläuterung der Karte gehört",
+      "language": [],
+      "musenalm_id": 22081,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Teutschland, / nach dem Hauptschluß der ausserordentlichen / ReichsDeputation vom 25. Febr. 1803. / (Mit einer Karte.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Teutschland, / nach dem Hauptschluß der ausserordentlichen / ReichsDeputation vom 25. Febr. 1803. / (Mit einer Karte.)",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.869Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "c11ww5z3oe0k9ch"
+        }
+      ],
+      "source_id": "u0up7zy1qh6ub5t"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Karte zum Beitrag INr 22081, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22082,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KARTE über die ENTSCHÄDIGUNGEN / der durch Abtretung des linken Rheinufers an / Frankreich, an Land und Leuten beschädig- / ten deutschen Erbfürsten, durch Vertheilung der / Erz- und Hochstifte, Abteyen, Reichstädte etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_131_22082_73yufr7bag.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "KARTE über die ENTSCHÄDIGUNGEN / der durch Abtretung des linken Rheinufers an / Frankreich, an Land und Leuten beschädig- / ten deutschen Erbfürsten, durch Vertheilung der / Erz- und Hochstifte, Abteyen, Reichstädte etc",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "iay42hqgzljpfm8"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) s. INr 22081, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22083,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistische Bilanz / über Verlust und Gewinn jedes einzelnen / Reichs- / standes, in Folge vorstehenden Deputa- / tionsrezesses.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statistische Bilanz / über Verlust und Gewinn jedes einzelnen / Reichs- / standes, in Folge vorstehenden Deputa- / tionsrezesses.",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "66h3yvxvt4tikcf"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) s. Diagramme INr 22085, 22086; Obj 36, 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Wie hat der Anfang der französischen Revolution den politischen Zustand von Europa gefunden?",
+      "language": [],
+      "musenalm_id": 22084,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Europa in den Jahren 1789 und 1804. / (Mit zwey statistischen Karten.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Europa in den Jahren 1789 und 1804. / (Mit zwey statistischen Karten.)",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "ib0u52b6n8bhr60"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) vierfarbig koloriertes Diagramm s. Textbezug INr 22084, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22085,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tafel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistische Karte, darstellend den Flächenraum, die Bevölkerung und die Einkünfte der verschiedenen Staaten Europas / vor dem französischen Revolutionskriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_131_22085_i5qtjxx4ko.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Statistische Karte, darstellend den Flächenraum, die Bevölkerung und die Einkünfte der verschiedenen Staaten Europas / vor dem französischen Revolutionskriege",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "xup01ilk8x6vmkl"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) vierfarbig koloriertes Diagramm s. Textbezug INr 22084, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22086,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tafel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistische Karte, darstellend den Flächenraum, die Bevölkerung und die Einkünfte der verschiedenen Staaten Europas / nach dem französischen Revolutionskriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_131_22086_6madji4fvi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Statistische Karte, darstellend den Flächenraum, die Bevölkerung und die Einkünfte der verschiedenen Staaten Europas / nach dem französischen Revolutionskriege",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "lttd1ywfaffufp8"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Sammlung von 5 Textbezügen zu den Graphiken, INr 22088-22092, Obj 39-43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22087,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebensbeschreibungen. / (Hierzu die Portraits.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebensbeschreibungen. / (Hierzu die Portraits.)",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "s477n9svdy09bd8"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Lebensbeschreibungen (Sammlung INr 22087, Obj 38) s. Graphik INr 6825, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Von den Fürsten Europa's ist dem Regenten von Rußland vielleicht das schönste, gewiß das schwerste Loos geworden.",
+      "language": [],
+      "musenalm_id": 22088,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexander",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alexander",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "8beio6p87i65aph"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Lebensbeschreibungen (Sammlung INr 22087, Obj 38) s. Graphik INr 22053, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Unstreitig ist es eine schwierige Aufgabe, über einen Mann zu sprechen, der sich in Zeit von weniger als acht Jahren",
+      "language": [],
+      "musenalm_id": 22089,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bonaparte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bonaparte",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ee9cuz9utbjue5"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Lebensbeschreibungen (Sammlung INr 22087, Obj 38) s. Graphik INr 22056, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Im ganzen Laufe des Revolutionskrieges hat unter den Gegnern kein Feldherrr mit Recht so sehr die allgemeine Bewunderung auf sich gezogen, wie dieser junge Held.",
+      "language": [],
+      "musenalm_id": 22090,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzherzog Carl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzherzog Carl",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "9pvuw4j3g3te4pn"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Lebensbeschreibungen (Sammlung INr 22087, Obj 38) s. Graphik INr 22057, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Als im May 1788 der Kardinal Brienne eine Reform in der Magistratur vorhatte,",
+      "language": [],
+      "musenalm_id": 22091,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "General Moreau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "General Moreau",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "1crwvlz23rk5p38"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Lebensbeschreibungen (Sammlung INr 22087, Obj 38) s. Graphik INr 22058, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Besizt auch vielleicht Großbritannien mehrere Seehelden,die in Rüksicht auf innern Werth und Mannichfaltigkeit großer Eigenschaften, ebenso viel Aufmerksamkeit als Admiral Nelson verdienen könnten,",
+      "language": [],
+      "musenalm_id": 22092,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Horazio Nelson / Viscount vom Nil und Burnham-Thorpe [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Horazio Nelson / Viscount vom Nil und Burnham-Thorpe [...]",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "kr957q0ibuyt7us"
+    },
+    {
+      "annotation": "Beilagen (Sammlung INr 22061, Obj 13) Lebensbeschreibungen (Sammlung INr 22087, Obj 38) s. Graphik INr 22060, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Von diesem ersten aller jezt lebenden Staatsmänner gilt zwiefach, was wir schon oben einmal bemerkten:",
+      "language": [],
+      "musenalm_id": 22093,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "William Pitt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "William Pitt",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "hvqu8kg07acdvnw"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 22094,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "xuxncvesg8md2fk"
+    }
   ],
   "agents": [
     {

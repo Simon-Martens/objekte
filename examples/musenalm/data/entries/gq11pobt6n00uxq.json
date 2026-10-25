@@ -48,62 +48,2165 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "xxhh0alp24g6f7h"
+    {
+      "annotation": "Titelauflage: Neuauflage des 1798 unter dem Titel »Taschenbuch von J. G. Jacobi und seinen Freunden für das Jahr 1798« erschienenen Almanachs, der sich lt. Vorwort wegen der »Schweitzer Revolution« und der »Wiedererneuerung des französischen Revolutions-Krieges im Jahr 1798« nicht verkauft hatte.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.480Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200576",
+      "location": "105D04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.480Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xxhh0alp24g6f7h"
+    }
   ],
   "contents": [
-    "lkz0kpkhyt80kcf",
-    "dkd4k6qxl56qgvv",
-    "ewce194damhdi6w",
-    "c9nd7a8nd3ssn91",
-    "rlh1ki4ahcfq70r",
-    "sp8refy43ae7632",
-    "wtrh0exzacb3441",
-    "kqeyjrzq1oalwka",
-    "w9vdhw4f8ldmigb",
-    "a084wc8ocuzj6j9",
-    "0udd38tf9dmmrrj",
-    "32ie1jhvppe5lpr",
-    "5uazsiszn6pq1rz",
-    "xsaz8fc3i954h1y",
-    "14dh4ne5epdse8a",
-    "qx39yeks58bagpo",
-    "znu59ghrjvczpf9",
-    "r59wc2499p78shq",
-    "gaj5paefry9apfl",
-    "qg210v7ks5t3yz8",
-    "06swexo1e0ttsp5",
-    "oly4riiovxtn0l5",
-    "bzdw89aua39czaw",
-    "pi4ls5g58xeq8rg",
-    "snhtq0zyortrryr",
-    "mig4sca472qmz24",
-    "u1u27lii9yii4hv",
-    "p20vzu4bow6e7n9",
-    "r42xujnjg67jckj",
-    "fdsdtl853oad7hl",
-    "yf7gzyx92zlg7y1",
-    "qilvn9w0tqhpspq",
-    "n71pnz5yleycw2f",
-    "tj0r9csu5miipae",
-    "w5m2e2xoqiur34g",
-    "qn3yei2rgp6loyh",
-    "xo5507rro7m5kkv",
-    "jqxkci9r9eqzqgv",
-    "wvdnjzvolvkru6n",
-    "x88t0bv6lv2nl1x",
-    "8abw21atmg0wgst",
-    "jr0g3ng6tni69ha",
-    "ttxz4f2j3vzlvib",
-    "gqhm5jcrg537f6g",
-    "xag33hk1229s11r",
-    "ecgmoyimb8zwp9o",
-    "hqka00bbnlvcsyn",
-    "zj656oakjwvi8k0",
-    "zgwt1zst7ley7i4",
-    "f5bxg28vq9dfoik",
-    "bud5s1fjbu4tx1x",
-    "dfocyzjsi31tngo",
-    "2hwtddb8utw5qwo"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23283,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_309_23283_i5q60oygqi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "lkz0kpkhyt80kcf"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 23347, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23344,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Stein, ein Wäldchen, und sein Name",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner del. et sc. 1797",
+      "scans": [
+        "alm_309_23344_21o17kclf0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Stein, ein Wäldchen, und sein Name",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.798Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "70ps9sclep8unss"
+        }
+      ],
+      "source_id": "dkd4k6qxl56qgvv"
+    },
+    {
+      "annotation": "Neuauflage des 1798 unter dem Titel »Taschenbuch von J. G. Jacobi und seinen Freunden für das Jahr 1798« Königsberg (Nicolovius) erschienenen Almanachs, der sich lt Vorwort wegen der »Schweitzer Revolution« und der »Wiedererneuerung des französischen Revolutions-Krieges im Jahr 1798« nicht verkauft hatte.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23345,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / zur / angenehmen Unterhaltung / für / das Jahr 1804. / Basel, / bey Samuel Flick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_309_23345_v680jvhq6l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / zur / angenehmen Unterhaltung / für / das Jahr 1804. / Basel, / bey Samuel Flick",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ewce194damhdi6w"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit Hinweis auf das erste Erscheinen des Taschenbuches unter dem Titel »Taschenbuch von J. G. Jacobi und seinen Freunden für das Jahr 1798«",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die erste Erscheinung des gegenwärtigen Taschenbuches fiel in einen Zeitpunkt, der für ein solches Unternehmen äußerst nachtheilig gewesen.",
+      "language": [],
+      "musenalm_id": 23346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "c9nd7a8nd3ssn91"
+    },
+    {
+      "annotation": "s. Graphik INr 23283, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Gewiß sind den wenigsten meiner Leser die poetischen Briefe bekannt, welche Michaelis in dem letzten Jahr seines Lebens schrieb",
+      "language": [],
+      "musenalm_id": 23347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Titelkupfer",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.970Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.970Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "snybl1fea196ueu"
+        }
+      ],
+      "source_id": "rlh1ki4ahcfq70r"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 2 Gedichte INr 23349, 23350; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jänner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jänner",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "sp8refy43ae7632"
+    },
+    {
+      "annotation": "Jänner (Sammlung INr 23348, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Auf einem Schachbrett stund der Steine bunte / Schaar / Nach Stand und Würden hingepflanzet",
+      "language": [],
+      "musenalm_id": 23349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schachspiel. / Nach Aubert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schachspiel. / Nach Aubert",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.245Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.245Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "tfuez3i7sr4npwj"
+        }
+      ],
+      "source_id": "wtrh0exzacb3441"
+    },
+    {
+      "annotation": "Jänner (Sammlung INr 23348, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Der Franken Almanach ist wunderschön: / Er giebt für Heilige mir Schöps'e , Gänse, Fische",
+      "language": [],
+      "musenalm_id": 23350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf den neufränkischen Kalender",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf den neufränkischen Kalender",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.935Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "t64xayh6y6wbt9y"
+        }
+      ],
+      "source_id": "kqeyjrzq1oalwka"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen zwei Gedichte INr 23352, 23352; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Februar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Februar",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "w9vdhw4f8ldmigb"
+    },
+    {
+      "annotation": "Februar (Sammlung INr 23351, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Hier, wo dein Schattenbild, du Lieber, / Vertraulich sich zu mir gesellt,",
+      "language": [],
+      "musenalm_id": 23352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Freyherrn von Zink in Emmendingen. / Freyburg, am 2. Februar 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Freyherrn von Zink in Emmendingen. / Freyburg, am 2. Februar 1796",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.942Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "ysaaw42pytqcynr"
+        }
+      ],
+      "source_id": "a084wc8ocuzj6j9"
+    },
+    {
+      "annotation": "Februar (Sammlung INr 23351, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Ein Veilchenstrauß von deinem Grabe? / Welch trauriges Geschenk, o Freund, für mich,",
+      "language": [],
+      "musenalm_id": 23353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antwort. / Emmendingen, am letzten Februar 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Zink",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Antwort. / Emmendingen, am letzten Februar 1796",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "0udd38tf9dmmrrj"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 6 Gedichten mit einer Illustration INr 23355-23364; Obj 13-19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "32ie1jhvppe5lpr"
+    },
+    {
+      "annotation": "s. Textbezug INr 23356, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sinne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner del. & sc. 1797",
+      "scans": [
+        "alm_309_23355_iae8mcikxd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Sinne",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.942Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "63uq6piolhbjm1f"
+        }
+      ],
+      "source_id": "5uazsiszn6pq1rz"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23354, Obj 12) mit einer Illustration s. Graphik INr 23355, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Unfern eines Städtchens, welches namhaft geworden durch einen häufig besuchten Jahrmarkt aller Wissenschafen",
+      "language": [],
+      "musenalm_id": 23356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sinne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Graf zu Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sinne",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.943Z",
+          "agent": "7gwss5mvx858qah",
+          "source_id": "ah42lkoz43hed9f"
+        }
+      ],
+      "source_id": "xsaz8fc3i954h1y"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23354, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Freundlich ist die Erde / Ihren Kindern, die sie trägt;",
+      "language": [],
+      "musenalm_id": 23358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "März / An die Frau von **, / welche einen Garten anlegte, um selbst darinn zu arbeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "März / An die Frau von **, / welche einen Garten anlegte, um selbst darinn zu arbeiten",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.943Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "45n3jfithrwp64v"
+        }
+      ],
+      "source_id": "14dh4ne5epdse8a"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23354, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Freund! an deiner Holtema / Sah ich, in beglückten Zeiten,",
+      "language": [],
+      "musenalm_id": 23360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "April / An Gleim. / An seinem Geburtstage, den 2. April 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "April / An Gleim. / An seinem Geburtstage, den 2. April 1796",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.943Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "cygil2bnarfwoqf"
+        }
+      ],
+      "source_id": "qx39yeks58bagpo"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23354, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Einst lag der König Adler krank; / Die Galle trat ihm in den Magen.",
+      "language": [],
+      "musenalm_id": 23361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ibis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ibis",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.943Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "366npfyhkm30mdt"
+        }
+      ],
+      "source_id": "znu59ghrjvczpf9"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23354, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Vergiftet hat sich selbst Gargil, / Der Meister im gelehrten Zanken.",
+      "language": [],
+      "musenalm_id": 23362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Selbstmord",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Selbstmord",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.155Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.155Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "8d1zlj7uzkfy400"
+        }
+      ],
+      "source_id": "r59wc2499p78shq"
+    },
+    {
+      "annotation": "Frühling (Sammlung INr 23354, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Sie kommt! Sie kommt! / Psyche kommt! / Seht, wie die spielenden / Weste die Kommende",
+      "language": [],
+      "musenalm_id": 23364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "May / Fragmente aus meinem Drama: / Eros und Psyche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Graf zu Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "May / Fragmente aus meinem Drama: / Eros und Psyche",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.155Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.155Z",
+          "agent": "gtq8zou6jpsfpy4",
+          "source_id": "t0u5z6kohr7jb7n"
+        }
+      ],
+      "source_id": "gaj5paefry9apfl"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 5 Beiträgen mit einer Illustration INr 23366-23372, Obj 21-26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sommer",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "qg210v7ks5t3yz8"
+    },
+    {
+      "annotation": "s. Textbezug INr 23367, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naivetät",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner del & sc. 1797",
+      "scans": [
+        "alm_309_23366_def7ephllr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Naivetät",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.155Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.155Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "bltkmto2lqm1kbb"
+        }
+      ],
+      "source_id": "06swexo1e0ttsp5"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23366, Obj 20) mit einer Illustration s. Graphik INr 23366, Obj 21; s. a. den Beitrag »Zwei Briefe« im Taschenbuch von J. G. Jacobi und seinen Freunden 1796 INr 23253",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Minna ging einst, als Mädchen noch, mit ihrem P*, kurz vor der Erndte, durch die Kornfelder",
+      "language": [],
+      "musenalm_id": 23367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naivetät",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R**",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Naivetät",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "oly4riiovxtn0l5"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23366, Obj 20) s. a. den Beitrag »Zwei Briefe« imTaschenbuch von J. G. Jacobi und seinen Freunden 1796 INr 23253",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Heute Morgen erhielt ich ihren Brief. Einen Tag später; so war er eher beantwortet,",
+      "language": [],
+      "musenalm_id": 23368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herausgeber des Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R **",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herausgeber des Taschenbuchs",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "bzdw89aua39czaw"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23366, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Auch dir, verlaßne laute, / Die vormals die Vertraute / Von meiner Muse war",
+      "language": [],
+      "musenalm_id": 23370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Juny / An die Laute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Juny / An die Laute",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.868Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.868Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "vypv93goptc7n4r"
+        }
+      ],
+      "source_id": "pi4ls5g58xeq8rg"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23366, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Stadt und Thürme schwinden! In umbüschten Gründen",
+      "language": [],
+      "musenalm_id": 23371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "July / Erndtelied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "July / Erndtelied",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.868Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.868Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "8q0mz64ypu4b2on"
+        }
+      ],
+      "source_id": "snhtq0zyortrryr"
+    },
+    {
+      "annotation": "Sommer (Sammlung INr 23366, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Jole sprach zu Alkmene, die blühende Schnur zu der Schwieger: / Fremd ist eurem Geschlecht die Verwandelte,",
+      "language": [],
+      "musenalm_id": 23372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "August / Dryope. / (Ovid Metam. IX. 325-396.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "August / Dryope. / (Ovid Metam. IX. 325-396.)",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.868Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.868Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "d9w0t54qdehj7my"
+        }
+      ],
+      "source_id": "mig4sca472qmz24"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 14 Beiträgen mit einer Illustration und einer Musikbeigabe INr 23372-23388, 37209; Obj 28-43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbst",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "u1u27lii9yii4hv"
+    },
+    {
+      "annotation": "s. Textbezug INr 23375, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kinder Freude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner del. & sc. 1797",
+      "scans": [
+        "alm_309_23374_ampdqymnbr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kinder Freude",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.956Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.956Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "12ywi8h8zcwahhy"
+        }
+      ],
+      "source_id": "p20vzu4bow6e7n9"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27) mit einer Illustration s. Graphik INr 23374, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Mit lebendigen Farben möcht' ich von dem warmen Pinsel eines Teniers die Scene gemalt sehen,",
+      "language": [],
+      "musenalm_id": 23375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kinderfreude. / Freyburg im Breisgau, zur Zeit der Weinlese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kinderfreude. / Freyburg im Breisgau, zur Zeit der Weinlese",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "qyktyckpcd41qfg"
+        }
+      ],
+      "source_id": "r42xujnjg67jckj"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Ich wollte neulich meinen Nachbar Mykon besuchen, um mit ihm etwas wegen unserer Abreise zur Stadt zu verabreden,",
+      "language": [],
+      "musenalm_id": 23376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mykons Selbstgespräch / Infere Daphne pitos, carpent tua poma nepotes. / Virg. / Pfropfe, Daphnis, deine Bäume, deine Enkel werden sich deines Obstes freuen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schlosser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mykons Selbstgespräch / Infere Daphne pitos, carpent tua poma nepotes. / Virg. / Pfropfe, Daphnis, deine Bäume, deine Enkel werden sich deines Obstes freuen",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "duknmoonx2qc6nr",
+          "source_id": "ct840n29mzl5z3x"
+        }
+      ],
+      "source_id": "fdsdtl853oad7hl"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Ein wohlgemästeter Entrich, welcher neben dem Schloß eines Landedelmanns, auf seinem Teiche,",
+      "language": [],
+      "musenalm_id": 23377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zugvögel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zugvögel",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "4subhtg7uult12c"
+        }
+      ],
+      "source_id": "yf7gzyx92zlg7y1"
+    },
+    {
+      "annotation": "2 Beiträge INr 23379, 23380; Obj 33, 34 /) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verschiedne Wege zum Himmel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verschiedne Wege zum Himmel",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "p0lxj1n3tmztkcm"
+        }
+      ],
+      "source_id": "qilvn9w0tqhpspq"
+    },
+    {
+      "annotation": "Verschiedne Wege zum Himmel (Sammlung INr 23378, Obj 32) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Ein Verwandter von mir, ein Protestant, besuchte in E** das Capuciner-Kloster",
+      "language": [],
+      "musenalm_id": 23379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "kd7m355d59cqds1"
+        }
+      ],
+      "source_id": "n71pnz5yleycw2f"
+    },
+    {
+      "annotation": "Verschiedne Wege zum Himmel (Sammlung INr 23378, Obj 32) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Ein apanagierter deutscher Reichsfürst gieng von der evangelischen Religion, zur catholischen über,",
+      "language": [],
+      "musenalm_id": 23380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "exnr3dsme9a02m5"
+        }
+      ],
+      "source_id": "tj0r9csu5miipae"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Gedicht und Übersetzung INr 23382, 23383; Obj 36, 37 /) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Folgende Uebersetzung eines meiner älteren Lieder in die Sprache der alten Provenzaldichter wurde mir von ihrem Verfasser, als Beytrag zu meinem Taschenbuche zugeschickt,",
+      "language": [],
+      "musenalm_id": 23381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "September",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.203Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "ypud0iac1xrdk92"
+        }
+      ],
+      "source_id": "w5m2e2xoqiur34g"
+    },
+    {
+      "annotation": "Übersetzung des folgenden Gedichts von J. G. Jacobi ins Provencalische s. INr 23381, Obj 35; mit einer Musikbeigabe s. INr 23384, Obj 38 /) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Bergére, où sont les violettes / Qui, brillant d'esclat si joyeulx",
+      "language": [],
+      "musenalm_id": 23382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bergére, où sont les violettes / Qui, brillant d'esclat si joyeulx…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Jacobi; [übers.] Vanderbourg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "qn3yei2rgp6loyh"
+    },
+    {
+      "annotation": "mit einer Übersetzung ins Provencalische s. INr 23382, Obj 36 und einer Musikbeigabe s. INr 23384, Obj 38 /) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Sagt, wo sind die Veilchen hin, / Die so freudig glänzten,",
+      "language": [],
+      "musenalm_id": 23383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sagt, wo sind die Veilchen hin, / Die so freudig glänzten,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.203Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "i36jm567cdgjtl2"
+        }
+      ],
+      "source_id": "xo5507rro7m5kkv"
+    },
+    {
+      "annotation": "Vertonung von Vanderbourgs Übersetzung von J. G. Jacobis Gedicht ins Provencalische INr 23382, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23384,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_309_23384_17oo2r0gtb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "jqxkci9r9eqzqgv"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Bist du die Welt zu sehn begierig, wie nach dir / sie seyn wird?",
+      "language": [],
+      "musenalm_id": 23385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus dem Thalmud",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus dem Thalmud",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "wvdnjzvolvkru6n"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Des guten Gottes Becher / Beseeligt frohe Zecher;",
+      "language": [],
+      "musenalm_id": 23386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "October",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "October",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.203Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "yzpmt1xokt2danr"
+        }
+      ],
+      "source_id": "x88t0bv6lv2nl1x"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Boreas warb um die Tochter des attischen / Fürsten Erechtheus.",
+      "language": [],
+      "musenalm_id": 23387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "November. / Orithya. / (Ovid Metam. VI, 682-721.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "November. / Orithya. / (Ovid Metam. VI, 682-721.)",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.203Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "o39bb14jgq95y82"
+        }
+      ],
+      "source_id": "8abw21atmg0wgst"
+    },
+    {
+      "annotation": "# Mit einer Anmerkung Jacobis: Dieses Stück ist im Schillerschen Almanach von 1796, aus Versehen oder nach einer unvollständigen Abschrift, so fehlerhaft abgedruckt worden, daß es seinen ganzen Sinn verlohr; deßwegen hat mein Freund Pfeffel mir erlaubt, es hier vollständig einzurücken. /) s. Musenalmanach (Schiller) 1796, INr 931 /) Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Nach seinem Tode kam ein deutscher Dorfsultan / Der sich zum Krösus stahl, im Reiche Satans an.",
+      "language": [],
+      "musenalm_id": 23388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zwey Verdammten #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die zwey Verdammten #",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.203Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "5hqgy8c3a1sm2xl"
+        }
+      ],
+      "source_id": "jr0g3ng6tni69ha"
+    },
+    {
+      "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Ein deutsches Schloß verließ ein tapfrer Jacobiner. / Hast du alles eingepackt, was unser ist?",
+      "language": [],
+      "musenalm_id": 37209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Herr und der Knecht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Herr und der Knecht",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ttxz4f2j3vzlvib"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 6 Beiträgen mit einer Illustration INr 23390-23396, Obj 45-51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winter",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "gqhm5jcrg537f6g"
+    },
+    {
+      "annotation": "s. Textbezug INr 23391, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23390,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Guter Glaube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner del. & sc. 1797",
+      "scans": [
+        "alm_309_23390_m7jbhlqgah.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Guter Glaube",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.218Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "mvj2h6g8gkh0vte"
+        }
+      ],
+      "source_id": "xag33hk1229s11r"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23389, Obj 44) mit einer Illustration s. Graphik INr 23390, Obj 44 und einer Antwort Schlossers INr 23393, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Dir, lieber Bruder, wiedme ich die folgende Geschichte, zum Andenken an einen unsrer glücklichen Morgen in Emmendingen.",
+      "language": [],
+      "musenalm_id": 23391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Guter Glaube. / An Schlosser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Guter Glaube. / An Schlosser",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.218Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "d77uufbqqkzar1m"
+        }
+      ],
+      "source_id": "ecgmoyimb8zwp9o"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23389, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Wir haben die Gewohnheit, mein lieber Theodor, seit dem Tode der Gattinn unsers Nachbars Aemilius",
+      "language": [],
+      "musenalm_id": 23392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Winterabend. / An Theodor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Winterabend. / An Theodor",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "hqka00bbnlvcsyn"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23389, Obj 44) s. Beiträge INr 23391, 23392; Obj 45, 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Ich danke dir, mein Lieber, daß du auch ferne von mir fortfährst, jede schöne Gefühle deiner Seele,",
+      "language": [],
+      "musenalm_id": 23393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mirza. / Antwort auf das Vorhergehende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schlosser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mirza. / Antwort auf das Vorhergehende",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.218Z",
+          "agent": "duknmoonx2qc6nr",
+          "source_id": "ki2j3in1899i5ej"
+        }
+      ],
+      "source_id": "zj656oakjwvi8k0"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23389, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Ein Magus wußte viel, ihm schien die Fackel / Der hehren Wahrheit rein und klar,",
+      "language": [],
+      "musenalm_id": 23394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "December. / Der Magus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "December. / Der Magus",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.218Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "8tqtjy8jz1lfhcj"
+        }
+      ],
+      "source_id": "zgwt1zst7ley7i4"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23389, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Du bist dir selbst ein Spiegel zweyer Welten, O Mensch! Beschaue dich",
+      "language": [],
+      "musenalm_id": 23395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus dem Persischen Dichter Assedi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leonhard Hug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus dem Persischen Dichter Assedi",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5bxg28vq9dfoik"
+    },
+    {
+      "annotation": "Winter (Sammlung INr 23389, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Das Leben ist ein Traum, der Tod ist das / Erwachen; der Mensch eine nachtwandelnde Gestalt / zwischen beyden.",
+      "language": [],
+      "musenalm_id": 23396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus einem arabischen Dichter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leonhard Hug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus einem arabischen Dichter",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "bud5s1fjbu4tx1x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 23397,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druckfehler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Druckfehler",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "dfocyzjsi31tngo"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.065Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37208,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_309_37208_9nep1iy79t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "2hwtddb8utw5qwo"
+    }
   ],
   "agents": [
     {

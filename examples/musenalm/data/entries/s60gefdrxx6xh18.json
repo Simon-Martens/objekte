@@ -48,47 +48,1619 @@
   "year": 1841,
   "editor": "",
   "items": [
-    "pi7bt1vdbfxeidb",
-    "rmh0j9tjurob17s"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nHalbledereinband.\n1841: (K: M.8 Stahlst.) Mit TKu 1,  Bl 2,  XXIII, Ku 5 und 336 SS.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100511",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pi7bt1vdbfxeidb"
+    },
+    {
+      "annotation": "Umschlaggraphiken, Graphik und SS VII,VIII",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "407839",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rmh0j9tjurob17s"
+    }
   ],
   "contents": [
-    "uy3bwumvmo8977a",
-    "09ox0n73mb8728t",
-    "iy2kj9ereszt1hf",
-    "ivcb786ddhcuyy3",
-    "csy84iiyhsx3kaw",
-    "x7fkhgfnvn90ibo",
-    "0ef2bgt994fqdyz",
-    "dc1ya5cq6rho8al",
-    "umahzs7xddfx6af",
-    "fg8ifityth0gz55",
-    "niuez5xfp0oblrj",
-    "tzuue8t6jt6oja3",
-    "4o0s2vhynru1g0r",
-    "10oazoqjtxvdcfi",
-    "17aukexryrcg4ii",
-    "tklw3vkdtsidnsk",
-    "znirmonj9gfaluk",
-    "pn6olma83hlmev2",
-    "g09stiiwg72gw11",
-    "7ths4jq7c1qov5u",
-    "93debmay2ptpo2z",
-    "6k79unt6vm04h52",
-    "4vdrmt7hfhyffn2",
-    "88w0788znfxynsj",
-    "jnpj1mzlqzxid69",
-    "vb8bf7szwn3x6yk",
-    "aqtw17phw3bc53j",
-    "ti09b3ulwk0f0dx",
-    "c89yvjhuhnv82ma",
-    "lhascbaat8qbawy",
-    "4ieiqgh5r4gcyb0",
-    "ifjkue1hqsm0bls",
-    "lzaztiv1om527vb",
-    "nn5kd0heupyz7gu",
-    "7podjstambp8bwl",
-    "zffzx67h71j81v9",
-    "7b79tkg0qecz6zb"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH / 1841",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_596_119599_kpambs1fxg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH / 1841",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "uy3bwumvmo8977a"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44021,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. von Stolterfoth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_596_44021_t8x34qpqqi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. von Stolterfoth",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "09ox0n73mb8728t"
+    },
+    {
+      "annotation": "graph. Titel s. Gedicht INr 44025, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44022,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH / 1841",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Kunstverlag",
+      "scans": [
+        "alm_596_44022_a3oz4m9a09.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH / 1841",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "iy2kj9ereszt1hf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44023,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1841. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen und einer Ansicht des v. Launitz'schen Monumentes / für die Erfindung des Buchdrucks. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_596_44023_4mutr3nbhi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1841. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen und einer Ansicht des v. Launitz'schen Monumentes / für die Erfindung des Buchdrucks. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "ivcb786ddhcuyy3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44024,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "csy84iiyhsx3kaw"
+    },
+    {
+      "annotation": "s. graph. Titel INr 44022, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Lieber Leser, denkst du gerne / An des Rheinlands heitre Ferne, An die Burgen, hochgethürmt,",
+      "language": [],
+      "musenalm_id": 44025,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Titelvignette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid v. Stolterforth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Titelvignette",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "0rcizpugaq5v1f1"
+        }
+      ],
+      "source_id": "x7fkhgfnvn90ibo"
+    },
+    {
+      "annotation": "s. Graphik IN r88711, Obj 5,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Auf dem hochgethürtmen Walle, / Wo des Königs Fahne weht,",
+      "language": [],
+      "musenalm_id": 88710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flora und Herminie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Flora und Herminie",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ef2bgt994fqdyz"
+    },
+    {
+      "annotation": "s. Gedicht INr 88710, Obj 5,01",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 88711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FLORA UND HERMINIE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Penstone fecit",
+      "scans": [
+        "alm_596_88711_xk3xd4xbtt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FLORA UND HERMINIE",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.996Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.996Z",
+          "agent": "r86tuknlngatn14",
+          "source_id": "bry58xxw1xo9mnj"
+        }
+      ],
+      "source_id": "dc1ya5cq6rho8al"
+    },
+    {
+      "annotation": "s. Gedicht INr 44027, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.579Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44026,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RICHENZA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by F. Stone Engraved by G. A. Periam",
+      "scans": [
+        "alm_596_44026_jot61hsx74.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RICHENZA",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "2b6gl8vhp91d2bf",
+          "source_id": "qpgca0c67wrcgwq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "jij8m2y7q2rp7we",
+          "source_id": "sdsc6j3yjohzn0z"
+        }
+      ],
+      "source_id": "umahzs7xddfx6af"
+    },
+    {
+      "annotation": "s. Graphik INr 44026, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "So viel Schönes seh' ich bieten / Dieser Blätter reiche Pracht,",
+      "language": [],
+      "musenalm_id": 44027,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Richenza",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Richenza",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "fg8ifityth0gz55"
+    },
+    {
+      "annotation": "s. Gedicht INr 44029, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44028,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER MUTTER GLÜCK",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Miss F. Corbaux pinxt. G. A. Periam sculp.",
+      "scans": [
+        "alm_596_44028_qxizwq77l6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER MUTTER GLÜCK",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "3wtmxh3srftglsy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "2b6gl8vhp91d2bf",
+          "source_id": "lspxb8ccime2m1a"
+        }
+      ],
+      "source_id": "niuez5xfp0oblrj"
+    },
+    {
+      "annotation": "s. Graphik INr 44028, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Was der Vater mir geschrieben / Aus dem fernen, fernen Land,",
+      "language": [],
+      "musenalm_id": 44029,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mutter Glück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mutter Glück",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "tzuue8t6jt6oja3"
+    },
+    {
+      "annotation": "s. Gedicht INr 44031, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44030,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARGOT DU CLOS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by F. Stone Engraved by C. Rolls",
+      "scans": [
+        "alm_596_44030_7xusw67a9j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARGOT DU CLOS",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "jij8m2y7q2rp7we",
+          "source_id": "bkafdwx4ssy7hz2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.317Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "irj18zvyizsmils"
+        }
+      ],
+      "source_id": "4o0s2vhynru1g0r"
+    },
+    {
+      "annotation": "s. Graphik INr 44030, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Vor dem Spiegel stand ich lange, / Habe hin und her geblickt,",
+      "language": [],
+      "musenalm_id": 44031,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margot du Clos",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Margot du Clos",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "10oazoqjtxvdcfi"
+    },
+    {
+      "annotation": "s. Gedicht INr 44033, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44032,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIORA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. T. Parris pinxt. E. Scriven sculpt.",
+      "scans": [
+        "alm_596_44032_xbqvjy610c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIORA",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.102Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.102Z",
+          "agent": "9gep2y6vxxwiktu",
+          "source_id": "ava125m9o2jwle1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.102Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.102Z",
+          "agent": "o67x3gobxm8j07o",
+          "source_id": "npbcmrm75athp8y"
+        }
+      ],
+      "source_id": "17aukexryrcg4ii"
+    },
+    {
+      "annotation": "s. Graphik INr 44032, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "In dem duft'gen Baumesschatten / Sitzt das holde Götterbild,",
+      "language": [],
+      "musenalm_id": 44033,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fiora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fiora",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "tklw3vkdtsidnsk"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 44035, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44034,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Monument zum Gedächtniß der Erfindung des Buchdrucks. Erfunden und ausgeführt durch E. von Launitz in Frankfurt a. M. #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_596_44034_nl25lxtbdk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Monument zum Gedächtniß der Erfindung des Buchdrucks. Erfunden und ausgeführt durch E. von Launitz in Frankfurt a. M. #",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "znirmonj9gfaluk"
+    },
+    {
+      "annotation": "s. Graphik INr 44034, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Das Fest des Jahres 1840, die vierte Säcularfeier der Erfindung der Buchdruckerkunst, wurde in Frankfurt a. M., als einer der ältesten und berühmtesten Werkstätten des Buchdrucks, in würdiger, ja großartiger und erhebener Weise begangen.",
+      "language": [],
+      "musenalm_id": 44035,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Monument / zum / Gedächtniß der Erfindung des Buchdrucks. / Erfunden und ausgeführt / durch / E. von Launitz in Frankfurt a. M.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Monument / zum / Gedächtniß der Erfindung des Buchdrucks. / Erfunden und ausgeführt / durch / E. von Launitz in Frankfurt a. M.",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "pn6olma83hlmev2"
+    },
+    {
+      "annotation": "Widmung am Objekt: Der Nais des Emser Krähnchens ein dankbarer Gast. 1839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Kling-ling-ling. Und die Straßenbuben liefen zusammen, einen aufmerksamen Kreis um den interessanten Mann mit der Neuigkeits-Glocke zu bilden,",
+      "language": [],
+      "musenalm_id": 44036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Esel-Fritze. / Bade-Idyll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Esel-Fritze. / Bade-Idyll",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "va7003z4iac5muv"
+        }
+      ],
+      "source_id": "g09stiiwg72gw11"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Die große Glocke der Kathedrale zeigte Mitternacht an; die kleinern Uhren wiederholten diese Neuigkeit,",
+      "language": [],
+      "musenalm_id": 44037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der rothe Zwerg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der rothe Zwerg",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "wxb6q66bt52h45s"
+        }
+      ],
+      "source_id": "7ths4jq7c1qov5u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Fahret langsamer jetzt, lieber Schwager! rief aus dem offenen Wagen die Stimme des Reisenden, welcher seit dem Abscheiden von der freien Stadt Frankfurt, am Main, noch kein Wort gesprochen hatte.",
+      "language": [],
+      "musenalm_id": 44038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerungen / an / den Liedercomponisten / Joseph Panny",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hungari",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerungen / an / den Liedercomponisten / Joseph Panny",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.456Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.456Z",
+          "agent": "6fm7j8napit5zko",
+          "source_id": "nm6gdha073mf2v4"
+        }
+      ],
+      "source_id": "93debmay2ptpo2z"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 44040, 44041; Obj 20, 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "swfwh7pv4cbtkhx"
+        }
+      ],
+      "source_id": "6k79unt6vm04h52"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 44039, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Mann oder Weib! / Der Geist wohnt nur im Leib! / Wär' es allein das Vorrecht nur der Stärke,",
+      "language": [],
+      "musenalm_id": 44040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mann oder Weib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mann oder Weib",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "xi8yxlfz0uptswh"
+        }
+      ],
+      "source_id": "4vdrmt7hfhyffn2"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 44039, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Rings hallt es tausendtönig: / Der deutschen Ströme König / Bist du, o heil'ger Rhein!",
+      "language": [],
+      "musenalm_id": 44041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Rhein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelheid von Stolterfoth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Rhein",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "3jhgiv1hh1vm2en",
+          "source_id": "mwb28c146ldu5j7"
+        }
+      ],
+      "source_id": "88w0788znfxynsj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Ich ging müßig umherschauend an der Außenseite des Palais royal vorüber, durch die rue Montpensier,",
+      "language": [],
+      "musenalm_id": 44042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die französische Bühne / und / einige deutsche Schauspieler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Edurd Beurmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die französische Bühne / und / einige deutsche Schauspieler",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "kztyhenk8mc11yh",
+          "source_id": "yzp0o82c8icm1ab"
+        }
+      ],
+      "source_id": "jnpj1mzlqzxid69"
+    },
+    {
+      "annotation": "Sammlung von 10 Beiträgen INr 44044-44053, Obj 24-33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reise-Briefe, / geschrieben im Herbste 1839",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reise-Briefe, / geschrieben im Herbste 1839",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "qax6o9qviqji6mr"
+        }
+      ],
+      "source_id": "vb8bf7szwn3x6yk"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "Ich sehe wieder das Meer, das ich seit dreizehn Jahren nicht gesehen,",
+      "language": [],
+      "musenalm_id": 44044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Brief. / Triest im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Brief. / Triest im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "deyk56p28m3aqf5"
+        }
+      ],
+      "source_id": "aqtw17phw3bc53j"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "Man verlasse sich auf Reisehandbücher, Reisebeschreibungen und Reisegemälde!",
+      "language": [],
+      "musenalm_id": 44045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Brief. / Triest im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Brief. / Triest im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "gtqnuji6h6sn247"
+        }
+      ],
+      "source_id": "ti09b3ulwk0f0dx"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Ein Jesuit - aber ein wirklicher Jesuit - ging heute mit mir von der reichen und interessanten Villa Fontana herüber.",
+      "language": [],
+      "musenalm_id": 44046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Brief. / Triest im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Brief. / Triest im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "7w5zpl5hx6ofs27"
+        }
+      ],
+      "source_id": "c89yvjhuhnv82ma"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "Der Abend rückt vor - der letzte, den ich in Triest hinbringen werde.",
+      "language": [],
+      "musenalm_id": 44047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Brief. / Triest im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Brief. / Triest im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "iubegafkxqpmey9"
+        }
+      ],
+      "source_id": "lhascbaat8qbawy"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Ich sah diesen Morgen Venezia la dominante, die Herrscherin der Meere, nach zwanzig Jahren wieder",
+      "language": [],
+      "musenalm_id": 44048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Brief. / Venedig im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Brief. / Venedig im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "hzp2sr716mce9p2"
+        }
+      ],
+      "source_id": "4ieiqgh5r4gcyb0"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Ich nehme mir die Freiheit, Herrn Danielli und sein Gasthaus allen zu empfehlen, die Venedig besuchen wollen",
+      "language": [],
+      "musenalm_id": 44049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechster Brief. / Venedig im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechster Brief. / Venedig im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.804Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "wb3n9xl4q0shh13"
+        }
+      ],
+      "source_id": "ifjkue1hqsm0bls"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "Ich bin wieder einmal auf dem Campanile gewesen und zwar bis hoch über die Attika hinauf",
+      "language": [],
+      "musenalm_id": 44050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebenter Brief. / Venedig im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebenter Brief. / Venedig im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.954Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "zu5lwmnxp61cj2k"
+        }
+      ],
+      "source_id": "lzaztiv1om527vb"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "Obgleich ich mich bei meinem Grafen bereits am Morgen für zwei Uhr Nachmittags hatte anmelden lassen,",
+      "language": [],
+      "musenalm_id": 44051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achter Brief. / Venedig im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achter Brief. / Venedig im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "djiravy12ble26t"
+        }
+      ],
+      "source_id": "nn5kd0heupyz7gu"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Nachdem ich heute den ganzen Tag auf den verschiedenen Inseln hingebracht, um deren Merkwürdigkeiten zu sehen",
+      "language": [],
+      "musenalm_id": 44052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunter Brief. / Venedig im Septmeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunter Brief. / Venedig im Septmeber",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "iu0g7gczyr117v3"
+        }
+      ],
+      "source_id": "7podjstambp8bwl"
+    },
+    {
+      "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "387",
+      "incipit_statement": "Ich schreibe dir heute zum letzten Male von Venedig aus. Morgen früh werden Simone und sein Bruder mich nach Fusina rudern,",
+      "language": [],
+      "musenalm_id": 44053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zehnter Brief. / Venedig im September",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zehnter Brief. / Venedig im September",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "2k8g1dj3jnqkmxa"
+        }
+      ],
+      "source_id": "zffzx67h71j81v9"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119600,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_596_119600_1q8j0qx3vk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "7b79tkg0qecz6zb"
+    }
   ],
   "agents": [
     {

@@ -48,48 +48,1648 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "1zjh3dsjwfttsz1",
-    "ox5ddq9esznopcz"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband.(Buchrücken und Vorderbuchdeckel lose.)\n1835: (K:Bl 10, 335 SS und Ku 12.) Mit Bl 11, Ku 11 und 335 SS.\n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch\n§1§ verso G fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101121",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1zjh3dsjwfttsz1"
+    },
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.487Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "405898",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.487Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ox5ddq9esznopcz"
+    }
   ],
   "contents": [
-    "6qllcwvts1rw40d",
-    "w2vmjfihi4266ue",
-    "0z95vyn4mlxlbmm",
-    "gphmayeca4ogwm7",
-    "f49xsr9iei6cmm0",
-    "x2mrm2lo6qkukva",
-    "c43a7ospyb1u4xy",
-    "jwldlxxh793y503",
-    "km05b45ynk1ov6h",
-    "1s9dx318ygu542v",
-    "wm9flo65ie2p9s0",
-    "4wse83dvyo81u2c",
-    "s6e9v7r3246pzni",
-    "g6yt9e1qqptq6zj",
-    "a8b9xp2wy0fiixh",
-    "wfwvdx4bjqf2ucl",
-    "yg71jaarny9m5qu",
-    "03wwcsgvxiljqsa",
-    "0px4hiy7oi6ecef",
-    "oeieck4zka2a9rh",
-    "hq061omvfc4ok04",
-    "7kkbzf42lyswsuo",
-    "m2tph2n42gcsp7k",
-    "b954l5dnzn7wwrn",
-    "ksl2t8gq3sgbxph",
-    "l3edhs3ghisvb7b",
-    "9cn00fztrwxucsh",
-    "dxi2xtm7zt0jycj",
-    "97v0sl5h92z2vul",
-    "fdlhwoukol5zw3r",
-    "whp5lyn23m59mw1",
-    "t857z3yqr9u1na6",
-    "hgsr5g67qfef1oo",
-    "dxn8miyzya9o9xa",
-    "kdqr7tbgddw7yty",
-    "zwk5ybqb12ho2ub",
-    "4d50bsw87fpy2ud",
-    "tu4z0tdf4soygdf"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68559,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (gez. u. gest.v. C. A. Schwerdgeburt)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest.v. C. A. Schwerdgeburt",
+      "scans": [
+        "alm_398_68559_3byu01lnrz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.590Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.590Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "zrjunhgn3sdlso3"
+        }
+      ],
+      "source_id": "6qllcwvts1rw40d"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30371,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / der Liebe und Freundschaft gewidmet / 1835. / HERAUSGEGEBEN / von / Dr. St. Schütze. / FRANKFURT a/M, / Friedrich Wilmans, Verlagshandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Igler sc.",
+      "scans": [
+        "alm_398_30371_n3vtb06lbn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / der Liebe und Freundschaft gewidmet / 1835. / HERAUSGEGEBEN / von / Dr. St. Schütze. / FRANKFURT a/M, / Friedrich Wilmans, Verlagshandlung",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.660Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.660Z",
+          "agent": "wklj72l91t2u9fj",
+          "source_id": "7hrq7j31xq5bcjv"
+        }
+      ],
+      "source_id": "w2vmjfihi4266ue"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30372,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "0z95vyn4mlxlbmm"
+    },
+    {
+      "annotation": "Sammlung von 8 Textbezügen zu 8 Graphiken INr 30374-30389, Obj 4-19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30373,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bedenklichkeiten / in / acht Bildern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stephan Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bedenklichkeiten / in / acht Bildern",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.660Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.660Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "7yuuoj3hocdieo4"
+        }
+      ],
+      "source_id": "gphmayeca4ogwm7"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30375, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30374,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30374_oigzn1g61v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "f49xsr9iei6cmm0"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30374, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ueberall Bedenklichkeiten! / Hat Gefahr uns doch umstellt;",
+      "language": [],
+      "musenalm_id": 30375,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Bedenklichkeit im Umgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Bedenklichkeit im Umgang",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.660Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.660Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "5t030ubl5pplsph"
+        }
+      ],
+      "source_id": "x2mrm2lo6qkukva"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30377, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.507Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30376,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30376_4tzh2g7o7r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "c43a7ospyb1u4xy"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30376, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.508Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein einz'ger schöner Augenblick, / Der plötzlich unser Herz erfaßt,",
+      "language": [],
+      "musenalm_id": 30377,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Bedenklichkeit im Heirathen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Bedenklichkeit im Heirathen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.660Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.660Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "a14aax632newgf3"
+        }
+      ],
+      "source_id": "jwldlxxh793y503"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30379, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.508Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30378,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30378_dfv2cz02dr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "km05b45ynk1ov6h"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30378, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Sehnsucht blieb dir ungestillt, / Was willst du dich noch quälen!",
+      "language": [],
+      "musenalm_id": 30379,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Bedenklichkeit in der Ehe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Bedenklichkeit in der Ehe",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "su0vzvsawhio1dn"
+        }
+      ],
+      "source_id": "1s9dx318ygu542v"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30381, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30380,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30380_3hrqhmmv83.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "wm9flo65ie2p9s0"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30380, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Manche glauben die Gefahren / Draußen nur; daheim in Ruh,",
+      "language": [],
+      "musenalm_id": 30381,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Bedenklichkeit auf Reisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Bedenklichkeit auf Reisen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.003Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.003Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ctsr891rx0h1h77"
+        }
+      ],
+      "source_id": "4wse83dvyo81u2c"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30383, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30382,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30382_3i7x1kmvbt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "s6e9v7r3246pzni"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30382, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "O wahrlich! die Welt kann so schlimm doch nicht seyn / Bei allen Gefahren und Schrecken,",
+      "language": [],
+      "musenalm_id": 30383,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Bedenklichkeiten nach Muthwillen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Bedenklichkeiten nach Muthwillen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.003Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.003Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "bcq5j5gt7ntn6ei"
+        }
+      ],
+      "source_id": "g6yt9e1qqptq6zj"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30385, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30384,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30384_vdas9sporz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "a8b9xp2wy0fiixh"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30384, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Aufzuschweben braucht der Geist / Schwingen nur zur hohen Reise;",
+      "language": [],
+      "musenalm_id": 30385,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Bedenklichkleit im Genuß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Bedenklichkleit im Genuß",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.631Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.631Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "tmqeuvxat0b9e07"
+        }
+      ],
+      "source_id": "wfwvdx4bjqf2ucl"
+    },
+    {
+      "annotation": "$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30387, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30386,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_398_30386_yp0diidzzs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "yg71jaarny9m5qu"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30386, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nur dem Ganzen eingesponnen / Fühlt sich jeder stark und fest,",
+      "language": [],
+      "musenalm_id": 30387,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Bedenklichkeit im Scheiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Bedenklichkeit im Scheiden",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.631Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.631Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "169m0zo50967fvu"
+        }
+      ],
+      "source_id": "03wwcsgvxiljqsa"
+    },
+    {
+      "annotation": "#$ vermutlich K. A. Schwerdgeburth /) s. Textbezug INr 30389, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.239Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30388,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_398_30388_jiv1gc7e35.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.631Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.631Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "fj2eauzwfkwr29w"
+        }
+      ],
+      "source_id": "0px4hiy7oi6ecef"
+    },
+    {
+      "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30388, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wo sind sie nun, so fragt nach kurzer Dauer, / Wenn still des Lebens letzte Stunde kam,",
+      "language": [],
+      "musenalm_id": 30389,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Letzte Bedenklichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Letzte Bedenklichkeit",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.631Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.631Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "s16lndi98jd1xcp"
+        }
+      ],
+      "source_id": "oeieck4zka2a9rh"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30407, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein schöner Herbsttag neigte sich zum Ende. Der westliche Himmel brannte in rothem Feuer,",
+      "language": [],
+      "musenalm_id": 30390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / gesetzwidrige Geheimniss. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / gesetzwidrige Geheimniss. / Erzählung",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.631Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.631Z",
+          "agent": "jfhywk4cbxcodws",
+          "source_id": "irosmkzxrlma69b"
+        }
+      ],
+      "source_id": "hq061omvfc4ok04"
+    },
+    {
+      "annotation": "Illustration zu »Das gesetzwidrige Geheimniss« von L. Kruse INr 30390, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das gesetzwidrige Geheimniss / v. L. Kruse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest. v. Schwertgeburt",
+      "scans": [
+        "alm_398_30407_xuxkt9n0b0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das gesetzwidrige Geheimniss / v. L. Kruse",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "zxr0n0l3enshx9f"
+        }
+      ],
+      "source_id": "7kkbzf42lyswsuo"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30392, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Es wiegte die alte Linde / Ihr blühendes Haupt in dem Winde",
+      "language": [],
+      "musenalm_id": 30391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesprobe. / (Nach dem Volksliede.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelbert von Chamisso",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesprobe. / (Nach dem Volksliede.)",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "3emdj29jey7pglq",
+          "source_id": "0zcyyxpldf3v3dt"
+        }
+      ],
+      "source_id": "m2tph2n42gcsp7k"
+    },
+    {
+      "annotation": "Illustration zu »Die Liebesprobe« von A. v. Chamisso INr 30391, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesprobe / von Adalbert v. Chamisso",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest. v. C. A. Schwertgeburt",
+      "scans": [
+        "alm_398_30392_kkz259rrtb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Liebesprobe / von Adalbert v. Chamisso",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "dr82llz30g15osr"
+        }
+      ],
+      "source_id": "b954l5dnzn7wwrn"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 30394-30398, Obj 25-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klänge aus Thüringen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klänge aus Thüringen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "7lix7d4b0b9p5dt"
+        }
+      ],
+      "source_id": "ksl2t8gq3sgbxph"
+    },
+    {
+      "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Paulinzelle, Paulinzelle! / Ich auch will ein Lied dir weihn!",
+      "language": [],
+      "musenalm_id": 30394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Paulinzelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Paulinzelle",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "9jre40h16osdnas"
+        }
+      ],
+      "source_id": "l3edhs3ghisvb7b"
+    },
+    {
+      "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Du stiller Fluß, der von der Höhe / Des Schneekopfs niederfällt ins Thal,",
+      "language": [],
+      "musenalm_id": 30395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / An die Ilm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / An die Ilm",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "igxg4yos2serfop"
+        }
+      ],
+      "source_id": "9cn00fztrwxucsh"
+    },
+    {
+      "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Ein fremder Knabe wandelt singend / Von Land zu Land.",
+      "language": [],
+      "musenalm_id": 30396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Kinder-Kreuzzug. / (1212.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Kinder-Kreuzzug. / (1212.)",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.531Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "vf4qzs166d8veo6"
+        }
+      ],
+      "source_id": "dxi2xtm7zt0jycj"
+    },
+    {
+      "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Wer ist der Mönch, der Kühne, / Der - Eisenachs Prophet, / Auf hoher Rednerbühne, / Und unerschrocken steht?",
+      "language": [],
+      "musenalm_id": 30397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Johannes Hilten. / (1502.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Johannes Hilten. / (1502.)",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.532Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "jjjfjg3fy8abcit"
+        }
+      ],
+      "source_id": "97v0sl5h92z2vul"
+    },
+    {
+      "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Gefangen auf der Wartburg lag / Der edle Friederich.",
+      "language": [],
+      "musenalm_id": 30398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Von Friedrich, dem Gebissenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bechstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Von Friedrich, dem Gebissenen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.532Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "ece5zre9dmryib3"
+        }
+      ],
+      "source_id": "fdlhwoukol5zw3r"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 30400, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Ein bärtiger Korporal öffnete langsam und träge das südliche Außen-Thor der Stadt Brüssel.",
+      "language": [],
+      "musenalm_id": 30399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Mutter Grab. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Mutter Grab. / Novelle",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.532Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "ra74d3dkcd8ttvb"
+        }
+      ],
+      "source_id": "whp5lyn23m59mw1"
+    },
+    {
+      "annotation": "Illustration zu »Das Grab der Mutter« von W. Blumenhagen INr 30399, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Grab der Mutter / von Wilh. Blumenhagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest. v. Schwertgeburt",
+      "scans": [
+        "alm_398_30400_cenqpzjl2c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Grab der Mutter / von Wilh. Blumenhagen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.532Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "elj3iajiebd8a24"
+        }
+      ],
+      "source_id": "t857z3yqr9u1na6"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 30402-30405, Obj 33-36",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 30401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.532Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ne3s1aoz4m4s2y6"
+        }
+      ],
+      "source_id": "hgsr5g67qfef1oo"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30401, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Ein kleiner Anfang ist gewonnen, / Manch Hinderniß ist schon besiegt,",
+      "language": [],
+      "musenalm_id": 30402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum ersten Gewebe / inländisch gewonnener Seide. / Weimar, am 16. Februar 1834",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum ersten Gewebe / inländisch gewonnener Seide. / Weimar, am 16. Februar 1834",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.653Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "eu4wr8r3sogjq7s"
+        }
+      ],
+      "source_id": "dxn8miyzya9o9xa"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30401, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Wohl, ihr Kinder, bleibet so / Treu in Wort und That verbunden,",
+      "language": [],
+      "musenalm_id": 30403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Goethe / Zum 28. August 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Goethe / Zum 28. August 1833",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "pnel2fprbedzl58"
+        }
+      ],
+      "source_id": "kdqr7tbgddw7yty"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30401, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Auf geht der Tag in Rosenschein, / Das Fest, das jährlich glänzet,",
+      "language": [],
+      "musenalm_id": 30404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reine Fröhlichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reine Fröhlichkeit",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "t0wx2h4xqq2q0e7"
+        }
+      ],
+      "source_id": "zwk5ybqb12ho2ub"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 30401, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Aurora, wo bist du geblieben, / Wo, Laura, hat der Kuckuck dich?",
+      "language": [],
+      "musenalm_id": 30405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entsagung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entsagung",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "lgrkh022u45km10"
+        }
+      ],
+      "source_id": "4d50bsw87fpy2ud"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Es ist eine allgemeine Meinung, daß phantastische, wunderbare Sagen aus vormaliger Zeit, und der Glaube daran, nicht in einem flachen Lande zu Hause sind.",
+      "language": [],
+      "musenalm_id": 30406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der magische Schlüssel. / Ein dänisches Märchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der magische Schlüssel. / Ein dänisches Märchen",
+      "updated": "2002-11-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.554Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.554Z",
+          "agent": "jfhywk4cbxcodws",
+          "source_id": "tu9ctv28zlyyofi"
+        }
+      ],
+      "source_id": "tu4z0tdf4soygdf"
+    }
   ],
   "agents": [
     {

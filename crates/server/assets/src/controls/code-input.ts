@@ -43,6 +43,7 @@ class CodeInput extends HTMLElement {
         tabFocusMode: true,
         links: false,
       });
+      window.addEventListener('preferences-change', this.updatePreferences);
       const layout = () => {
         if (!this.view) return;
         const height = Math.min(inline ? 180 : 480, Math.max(inline ? 46 : this.dataset.language === 'html' ? 200 : 100, this.view.getContentHeight()));
@@ -90,6 +91,10 @@ class CodeInput extends HTMLElement {
 
   private isReadOnly() { return !!this.closest('fieldset[disabled]'); }
 
+  private updatePreferences = () => {
+    this.view?.updateOptions({fontSize: Number(document.getElementById('ui-preferences')?.dataset.editorFont || 13)});
+  };
+
   private syncSelection() {
     const selection = this.view?.getSelection();
     if (!selection || !this.model) return;
@@ -129,6 +134,7 @@ class CodeInput extends HTMLElement {
   }
 
   private dispose() {
+    window.removeEventListener('preferences-change', this.updatePreferences);
     this.resize?.disconnect();
     this.subscriptions.splice(0).forEach(subscription => subscription.dispose());
     this.view?.dispose();

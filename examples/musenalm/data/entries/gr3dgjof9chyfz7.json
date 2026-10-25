@@ -48,7 +48,26 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "wthdupspgs3y2nr"
+    {
+      "annotation": "1823.\nHalblederband und Goldschnitt (Buchrücken leicht beschädigt).\n1823: (K: BL 1, XVIII und 387 SS.) Mit Bl 1, Tku 1, Ku 2 und XVIII+387 SS+Bl 1.\nWurde in Sachsen konfisziert wegen zwei Kupfer (Themistocles, Camillus).\nKöhring gibt Falsches Jahr an 1822=1823.\n",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.566Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100195",
+      "location": "105D08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.566Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wthdupspgs3y2nr"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,22 +48,596 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "zmq3us9dbde9z5h"
+    {
+      "annotation": "Übers. von: Almanach historique de la Revolution Francoise 1792; s.a.Taschenbuch, Historisches von Rabaut de St. Etienne 1793",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.763Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409302",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.763Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zmq3us9dbde9z5h"
+    }
   ],
   "contents": [
-    "cz5s295024lqtoe",
-    "0k2uzddfvnom67o",
-    "tw8nvjgq66ot2xo",
-    "t2t05qkts8oxcns",
-    "4p1gqykic8e8kfu",
-    "kk65jgee0o48n3k",
-    "ylox1g0np6ov1wj",
-    "rfemilb5s53a8js",
-    "96wi6kif5nzp5b7",
-    "89s4hgphe4axavs",
-    "lkrhp02qbeaomyv",
-    "4q4hewe53yg3ziu",
-    "jrzp3blx3e6oiu3"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111591,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach Jahrtausenden Kömmt er / unsere rohen Gesetze zu beßern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau del. d'Argent sc.",
+      "scans": [
+        "alm_4320_111591_3y4bwr5gpc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nach Jahrtausenden Kömmt er / unsere rohen Gesetze zu beßern",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.435Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "renztry7a9xhnh9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.435Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "sjv97dqcdy3ytzs"
+        }
+      ],
+      "source_id": "cz5s295024lqtoe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111592,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HISTORISCHES / TASCHENBUCH / von Rabaut de St. Etienne / für das Jahr 1793 / das erste der Fränkischen Republick / STRASBURG / bey J. G. Treuttel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4320_111592_xn1c96xcgd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HISTORISCHES / TASCHENBUCH / von Rabaut de St. Etienne / für das Jahr 1793 / das erste der Fränkischen Republick / STRASBURG / bey J. G. Treuttel",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0k2uzddfvnom67o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chronologische Tafel / der / vornehmsten Decrete und merkwür- / digsten Begebenheiten während / der Zeit der constituirenden Natio- / nal-Versammlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chronologische Tafel / der / vornehmsten Decrete und merkwür- / digsten Begebenheiten während / der Zeit der constituirenden Natio- / nal-Versammlung",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "tw8nvjgq66ot2xo"
+    },
+    {
+      "annotation": "mit 5 Illustrationen s. Graphiken INr",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich habe mir vorgenommen, die Geschichte der französischen Revolution in einen engen Raum zusammen zu drängen, so daß dieselbe allen Lesern faßlich, desto leichter im rechten Licht bekannt, und der widrige Eindruck, den die Freiheitsfeinde,",
+      "language": [],
+      "musenalm_id": 111594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurzgefaßte / Geschichte / der / französischen Revolution",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Rabaud",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurzgefaßte / Geschichte / der / französischen Revolution",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.312Z",
+          "agent": "w8exdxoc346p0be",
+          "source_id": "9844kq4mksrp21f"
+        }
+      ],
+      "source_id": "t2t05qkts8oxcns"
+    },
+    {
+      "annotation": "paginiert Pl. 2. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  übers.: unbezeichnet] INr 111594, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eid der Volksrepraesententen im Ballhause / Den 20ten Junius 1789",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inv. Guerin sculp.",
+      "scans": [
+        "alm_4320_111595_2hde0asjxo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eid der Volksrepraesententen im Ballhause / Den 20ten Junius 1789",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.312Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "7ffw9xmwf6rjfnj"
+        }
+      ],
+      "source_id": "4p1gqykic8e8kfu"
+    },
+    {
+      "annotation": "paginiert Pl. 3. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne [übers.: unbezeichnet] INr 111594, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eroberung der Bastille. / Den 14ten Julius 1789",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inv. Guerin sculp.",
+      "scans": [
+        "alm_4320_111596_b6l98e8r07.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eroberung der Bastille. / Den 14ten Julius 1789",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "lhlzxu78sess08n"
+        }
+      ],
+      "source_id": "kk65jgee0o48n3k"
+    },
+    {
+      "annotation": "paginiert Pl. 4. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne [übers.: unbezeichnet] INr 111594, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einzug des Königs in Paris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inv. J. Le Roy sc.",
+      "scans": [
+        "alm_4320_111597_y9r281vpkg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einzug des Königs in Paris",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "q22dllesvzbyli1",
+          "source_id": "adibsayqyqxmkuu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "opwf33a9517trwh"
+        }
+      ],
+      "source_id": "ylox1g0np6ov1wj"
+    },
+    {
+      "annotation": "paginiert Pl. 5. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne [übers.: unbezeichnet] INr 111594, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bundesfeyer der Franken. / den 14ten Julius 1790",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moerau del. d'Argent sc.",
+      "scans": [
+        "alm_4320_111598_i3q4gxz4si.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bundesfeyer der Franken. / den 14ten Julius 1790",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "gvsxiwhaodqwi70"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "zvu5r6j9m48492r"
+        }
+      ],
+      "source_id": "rfemilb5s53a8js"
+    },
+    {
+      "annotation": "paginiert Pl. 6. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne [übers.: unbezeichnet] INr 111594, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Roi acceptant La Constitution, au / milieu de l'Aßemblée Nationale. / Le 14 Septembre 1791.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Moerau invent. De Longueil sculp.",
+      "scans": [
+        "alm_4320_111599_gbxl5j84a0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Le Roi acceptant La Constitution, au / milieu de l'Aßemblée Nationale. / Le 14 Septembre 1791.",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "fefojuqn8m9sm1d",
+          "source_id": "dg7qd8kwj5q2c1u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.279Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.279Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "lkc633w0iclcdwd"
+        }
+      ],
+      "source_id": "96wi6kif5nzp5b7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "342",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "89s4hgphe4axavs"
+    },
+    {
+      "annotation": "Anm. des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "Dieses Buch besteht aus vier Abtheilungen,",
+      "language": [],
+      "musenalm_id": 111601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bericht an den Buchbinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bericht an den Buchbinder",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "lkrhp02qbeaomyv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Als ich die Geschichte der französischen Revolution niederschrieb, boten sich mir mancherlei Betrachtungen dar, von denen ich aber, um den Gang der Erzehlung nicht zu unterbrechen, und dieselbe nicht zu weit auszudehnen, keinen Gebrauch machen durfte.",
+      "language": [],
+      "musenalm_id": 111602,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Politische / Betrachtungen / über / die gegenwärtigen Zeitläufte, / von / J. P. Rabaut, / als / ein Anhang zu seinem Entwurfe / der / Geschichte / der / französischen Revolution. / Straßburg 1792. / bey Johann Georg Treuttel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Politische / Betrachtungen / über / die gegenwärtigen Zeitläufte, / von / J. P. Rabaut, / als / ein Anhang zu seinem Entwurfe / der / Geschichte / der / französischen Revolution. / Straßburg 1792. / bey Johann Georg Treuttel",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "4q4hewe53yg3ziu"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein Bürger der Sektion der Lombards zu Paris, der Wittwer und zugleich schon ziemlich alt war, hatte 4 Söhne, die einzigen Stüzen seines Alters",
+      "language": [],
+      "musenalm_id": 111603,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Züge / von / Tapferkeit und Pariotismus / zur / Karakteristik der freien Franken. / Im ersten Jahr der Fränkischen Republik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Züge / von / Tapferkeit und Pariotismus / zur / Karakteristik der freien Franken. / Im ersten Jahr der Fränkischen Republik",
+      "updated": "2016-06-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "jrzp3blx3e6oiu3"
+    }
   ],
   "agents": [
     {

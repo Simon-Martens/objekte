@@ -48,22 +48,525 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "379wgs3niygclnh"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.564Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407707",
+      "location": "105G10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.564Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "379wgs3niygclnh"
+    }
   ],
   "contents": [
-    "jz5ydxcyfmb76eo",
-    "7kpe84jui9gff6c",
-    "d0fd7hobx02cpf5",
-    "czfp8dte5abkgst",
-    "8tz539oltj6hpke",
-    "qg312rg7t9xby71",
-    "iqydb3wih6oll4y",
-    "uz2rw92tbw3krmb",
-    "1jjlwvqpjg8g0tc",
-    "6gg8mciiq8nij3u",
-    "82q2ksqbqtb5h5v",
-    "0n40665whotxe0a",
-    "h6qanwzdvl6sw7h"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.120Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118549,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1628_118549_pgp50s129l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "jz5ydxcyfmb76eo"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118550,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm Müller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Trossien sc.",
+      "scans": [
+        "alm_1628_118550_557uqe1odn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm Müller",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.564Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.564Z",
+          "agent": "83qxof9xtgcpreb",
+          "source_id": "uo8lc2quvf7w5yx"
+        }
+      ],
+      "source_id": "7kpe84jui9gff6c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118551,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bettlers / Gabe. / Taschenbuch für 1844 / von / Wilhelm Müller. / Zehnter Jahrgang. / Mit dem Portrait des Verfassers. / Berlin. / Deutsche Verlagsbuchhandlung. / (C. G. von Puttkammer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1628_118551_ohmomlg0uc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bettlers / Gabe. / Taschenbuch für 1844 / von / Wilhelm Müller. / Zehnter Jahrgang. / Mit dem Portrait des Verfassers. / Berlin. / Deutsche Verlagsbuchhandlung. / (C. G. von Puttkammer.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "d0fd7hobx02cpf5"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dieses Taschenbuch erscheint dem Inhalte nach wieder in seiner Eigenthümlichkeit wie in den frühern Jahren,",
+      "language": [],
+      "musenalm_id": 118552,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbemerkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. M.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbemerkung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "q2lzb1a4iqane7v"
+        }
+      ],
+      "source_id": "czfp8dte5abkgst"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Fast in allen Zonen der Erde, in allen Welttheilen, in Asien, Afrika und Amerika, fanden und finden wir die Spuren der Blutrache",
+      "language": [],
+      "musenalm_id": 118553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blutrache. / Episode aus dem Tscherkessen-Kriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Blutrache. / Episode aus dem Tscherkessen-Kriege",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.565Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "1imrrfpsggbpzoo"
+        }
+      ],
+      "source_id": "8tz539oltj6hpke"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Ehret die Frauen! Sie flechten und weben / Himmlische Rosen in's irdische Leben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Unter Siciliens tiefblauem Himmel, umfächelt von der lauen, milden Luft, in einem Orangenwalde,",
+      "language": [],
+      "musenalm_id": 118554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenwerth. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenwerth. / Erzählung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.524Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.524Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "3xhmw3bsnwnh7t9"
+        }
+      ],
+      "source_id": "qg312rg7t9xby71"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Ich war in Zürichthal gewesen; - in der Schweiz? - ach nein! weit, weit von jenem Lande entfernt; an der Wegscheide zweier Welttheile.",
+      "language": [],
+      "musenalm_id": 118555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Besboßnoi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Besboßnoi",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.524Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.524Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "4hagctgwospdprr"
+        }
+      ],
+      "source_id": "iqydb3wih6oll4y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Die Gewehre knatterten; rothe Feuerblitze zischten auf und erloschen in demselben Augenblick, der Pulverdampf zog wie ein Wolkenheer des Unheils zum Himmel,",
+      "language": [],
+      "musenalm_id": 118556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Er und seine Söhne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Er und seine Söhne",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.524Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.524Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "udimh4cz5zo66gs"
+        }
+      ],
+      "source_id": "uz2rw92tbw3krmb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Buchdruckerei des Preuß. Volksfreundes in Berlin",
+      "language": [],
+      "musenalm_id": 118557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Buchdruckerei des Preuß. Volksfreundes in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "1jjlwvqpjg8g0tc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118558,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "6gg8mciiq8nij3u"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118559,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1628_118559_h4h9rgnew1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "82q2ksqbqtb5h5v"
+    },
+    {
+      "annotation": "varianter Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118560,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1628_118560_6grk8ix13s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "0n40665whotxe0a"
+    },
+    {
+      "annotation": "varianter Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118561,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1628_118561_8cssuhxc9v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "h6qanwzdvl6sw7h"
+    }
   ],
   "agents": [
     {

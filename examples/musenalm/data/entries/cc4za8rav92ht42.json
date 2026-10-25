@@ -48,28 +48,862 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "149txauxv284809",
-    "b0hjroi6sipzbbk"
+    {
+      "annotation": "Umschlaggraphiken",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.701Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409866",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.701Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "149txauxv284809"
+    },
+    {
+      "annotation": "1828-1849.\nHalbledereinband.\n1846: (K: M. Stahlst 8.) Mit Port 1, Tku 1, Bl 4, Ku 6 und 438 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.701Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100788",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.701Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "b0hjroi6sipzbbk"
+    }
   ],
   "contents": [
-    "yajdlgl4w7ln8m2",
-    "v0qiay70ju1zpbt",
-    "0qdzbmoeqrpn2ce",
-    "zgr7j06gssoiimp",
-    "ijgr8y2b03saf4v",
-    "02jmj463yf5qmbh",
-    "yaf6tu2oszc7x9h",
-    "u79h8ip87y3x9in",
-    "hxhfbds7aji18ei",
-    "d609tulrbasujc9",
-    "mrn06a5wr6lsrr6",
-    "k6cy9gmas1262vt",
-    "kq6n0r7d6jgvnw0",
-    "8aojvh7ddyqyi57",
-    "kcewckh8m4xzp3h",
-    "xthivd1r0ioancj",
-    "jac0434s5achm2l",
-    "wun4bkvw7nukmue"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121682,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen 1846",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "yajdlgl4w7ln8m2"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111101,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Pakarny",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabas del. Stahl v. Carl Mahllknecht in Wien",
+      "scans": [
+        "alm_3482_111101_1ep6vdqm2l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Pakarny",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.373Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "fqsnlf8kplk0oxh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.373Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "h41dxg1wbvcbw4h"
+        }
+      ],
+      "source_id": "v0qiay70ju1zpbt"
+    },
+    {
+      "annotation": "gest.Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111102,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELIEBCHEN / 1846. / LEIPZIG, / Baumgaertner's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3482_111102_tu0je8m2wh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELIEBCHEN / 1846. / LEIPZIG, / Baumgaertner's Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "0qdzbmoeqrpn2ce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111103,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1846. / Von / Bernd von Guseck. / Neunzehnter Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3482_111103_gafdnna53c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1846. / Von / Bernd von Guseck. / Neunzehnter Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "zgr7j06gssoiimp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111104,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "ijgr8y2b03saf4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111105,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "02jmj463yf5qmbh"
+    },
+    {
+      "annotation": "s. Gedicht INr 111107, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111106,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Schilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach Gassen. P. Singer sc.",
+      "scans": [
+        "alm_3482_111106_uscx9m6pyy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Im Schilde",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "5foajacecptnfzr",
+          "source_id": "4dlr04e6ft4hqul"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "froxop3q12d5p35",
+          "source_id": "eebwzbeichzo09x"
+        }
+      ],
+      "source_id": "yaf6tu2oszc7x9h"
+    },
+    {
+      "annotation": "Anm. am Objekt: Hierzu die Abbildung als artistische Zugabe der Verlagshandlung /) s. Graphik INr 111106, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Er ging mit guten Waffen, der Sänger, in das Feld, / Da hat er seinen Gegner, den frechen hingestellt,",
+      "language": [],
+      "musenalm_id": 111107,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Schilde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Schilde",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "yngg40i2phjxwqx"
+        }
+      ],
+      "source_id": "u79h8ip87y3x9in"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Schon steh' ich an der Grenze, / Die Lieb und Seele theilt, / Und meine zwanzige Lenze / Sind rasch dahin geeilt. [...] A. Gr. v. Platen /) mit einer Illustration s. Graphik INr 111109, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf den gesegneten Fluren, welche die Theiß in ihrem Laufe zur Donau durchstömt, waltete der Frühling mit all' seinem Zauber.",
+      "language": [],
+      "musenalm_id": 111108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühzeitige. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühzeitige. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "maxkuy65j3jf53m"
+        }
+      ],
+      "source_id": "hxhfbds7aji18ei"
+    },
+    {
+      "annotation": "Illustration zu »Der Frühzeitige« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111108, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (B. Sonderland del. Preisel & Geyer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Sonderland del. Preisel & Geyer sc.",
+      "scans": [
+        "alm_3482_111109_toboip5qz0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "atnuh0864qfck3m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "negu5ea84mvvrew"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.393Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.393Z",
+          "agent": "qy6yej73pl7anzc",
+          "source_id": "w1d6xvjsrkm3f1s"
+        }
+      ],
+      "source_id": "d609tulrbasujc9"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Der Hauptmann dachte drüber, wie viele große Herrn, / Die Zeichen zu begreifen,der Zeit, ist ihnen fern:[...] Fr. Fr. Gaudy /) mit 2 Illustrationen s. Graphiken INr 111111, 111112; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.510Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Frauen im Streite? Was soll das Weib mit seinen unklaren Begriffen, von der Gefühlsübermacht verdunkelt, im Kampfe um die höchsten Güter, den unsere Zeit während eines halben Jahrhunderts nicht ausgefochten hat?",
+      "language": [],
+      "musenalm_id": 111110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rebellin. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rebellin. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "o79764q42ihbk3b"
+        }
+      ],
+      "source_id": "mrn06a5wr6lsrr6"
+    },
+    {
+      "annotation": "Illustration zu »Die Rebellin« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111110, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.510Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. Wyatt Gest. v. H. Robinson",
+      "scans": [
+        "alm_3482_111111_uhlilks8oi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Adele",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "xrw3c5acolw9q30",
+          "source_id": "aqtcbcox8igiryb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.216Z",
+          "agent": "s6x9oyq4n3a2d6x",
+          "source_id": "qyfi1ofvlpusdxu"
+        }
+      ],
+      "source_id": "k6cy9gmas1262vt"
+    },
+    {
+      "annotation": "# vollst. Bez. aus dem G-Verz /) Illustration zu »Die Rebellin« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111110, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlacht von Bautersem",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Krusemann. J. W. Kaiser sculp.",
+      "scans": [
+        "alm_3482_111112_wq2njucw3q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schlacht von Bautersem",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "p3hijooo9pslzw2",
+          "source_id": "fifvm960p5zcedo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "qoey8hql0orbm3v"
+        }
+      ],
+      "source_id": "kq6n0r7d6jgvnw0"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Ja, lieblich ist des Berges Maid, / Inihrer festen Glieder Pracht, [...] Annette von Droste Hülshoff /) mit 2 Illustrationen s. Graphiken INr 111114, 111115; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Ein Sonntagmorgen war in wolkenloser Klarheit über dem Gebirge aufgegangen",
+      "language": [],
+      "musenalm_id": 111113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sainte-Marie. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sainte-Marie. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "pvvwoih7khwvz36"
+        }
+      ],
+      "source_id": "8aojvh7ddyqyi57"
+    },
+    {
+      "annotation": "# vollst. Bez. aus dem G-Verz /) Illustration zu »Sainte-Marie« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111113, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gautier von Bergonz. / Nach einem Original-Gemälde des Franz Hals / im Besitze des Verlegers",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Hals. Gest. von L. Sichling",
+      "scans": [
+        "alm_3482_111114_alkz5eo6hx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gautier von Bergonz. / Nach einem Original-Gemälde des Franz Hals / im Besitze des Verlegers",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "4h5l66xotmujbik",
+          "source_id": "c5d2i9hoptbo28u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "v19edt1iqca9110",
+          "source_id": "yptcsae0367nxz6"
+        }
+      ],
+      "source_id": "kcewckh8m4xzp3h"
+    },
+    {
+      "annotation": "# vollst. Bez. aus dem G-Verz /) Illustration zu »Sainte-Marie« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111113, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Catin. / Nach einem Original-Gemälde des Nicolaus Maas / im Besitze des Verlegers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nicolaus Maas. gest. von L. Sichling",
+      "scans": [
+        "alm_3482_111115_xlm76bugr2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Catin. / Nach einem Original-Gemälde des Nicolaus Maas / im Besitze des Verlegers",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "ihtqyn8nuwml1sk",
+          "source_id": "18lsua10190xhxz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "4h5l66xotmujbik",
+          "source_id": "cyizvufdyo4nwd1"
+        }
+      ],
+      "source_id": "xthivd1r0ioancj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck von J. B. Hirschfeld",
+      "language": [],
+      "musenalm_id": 111116,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von J. B. Hirschfeld…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "jac0434s5achm2l"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121683,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lith. Anst. v. J. B. Hirschfeld, Leipzig)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. Anst. v. J. B. Hirschfeld, Leipzig",
+      "scans": [
+        "alm_3482_121683_vlwsouobbq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "wun4bkvw7nukmue"
+    }
   ],
   "agents": [
     {

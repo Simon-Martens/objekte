@@ -48,14 +48,221 @@
   "year": 1796,
   "editor": "",
   "items": [
-    "crwd7gs0accxcbx"
+    {
+      "annotation": "Bearbeitung von »Avis d'une mere à sa fille« aus Oeuvres de Madame la Marquise de Lambert. Paris, 1785. 12. T. 2 <br> dem »Philosophischen Taschenbuch für denkende Gottesverehrer« 1796 Hrsg. K. H. Heydenreich; Alm Nr 200275 beigebunden",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.817Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200276",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.817Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "crwd7gs0accxcbx"
+    }
   ],
   "contents": [
-    "gnlr18ef897gioy",
-    "a7idehk34039gy1",
-    "jklwjsf9kh4i949",
-    "ivt9mqaqx1ezb2g",
-    "zi9g2hn2ouxbyfy"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130217,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4815_130217_9k7l8vhzsf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2022-05-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "gnlr18ef897gioy"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130218,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. J. Wagner sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Wagner sc.",
+      "scans": [
+        "alm_4815_130218_jbzop9e7h9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2022-05-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.059Z",
+          "agent": "o3ct6ijrde3gzy6",
+          "source_id": "mji8j2ntst0wsah"
+        }
+      ],
+      "source_id": "a7idehk34039gy1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130219,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WORTE / EINER EDLEN MUTTER / an den Geist und das Herz / ihrer Tochter. / nebst einem Anhange / über weibliche Seelengrösse / vom / Herrn Professor Heydenreich / in Leipzig. / bey Gottfried Martini / Leipzig 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4815_130219_8mqe2b0rjl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WORTE / EINER EDLEN MUTTER / an den Geist und das Herz / ihrer Tochter. / nebst einem Anhange / über weibliche Seelengrösse / vom / Herrn Professor Heydenreich / in Leipzig. / bey Gottfried Martini / Leipzig 1796",
+      "updated": "2022-05-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "jklwjsf9kh4i949"
+    },
+    {
+      "annotation": "Bearbeitung von »Avis d'une mere à sa fille« aus Oeuvres de Madame la Marquise de Lambert. Paris, 1785. 12. T. 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Zu allen Zeiten vernachlässigte man die Erziehung der Frauen, dachte blos auf die Bildung des männlichen Geschlechts, und überliess jene, gleichsam als gehörten sie gar nicht zur Menschheit, ohne Stützung und Leitung, ihnen selbst.",
+      "language": [],
+      "musenalm_id": 130220,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Worte / einer / edlen Mutter / an den Geist und das Herz / ihrer Tochter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. H. Heydenreich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Worte / einer / edlen Mutter / an den Geist und das Herz / ihrer Tochter",
+      "updated": "2022-05-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.059Z",
+          "agent": "2fvtrmjxs50cbdn",
+          "source_id": "8vu1opjk7jkw2lf"
+        }
+      ],
+      "source_id": "ivt9mqaqx1ezb2g"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130221,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4815_130221_oks4s2hoje.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2022-05-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "zi9g2hn2ouxbyfy"
+    }
   ],
   "agents": [
     {

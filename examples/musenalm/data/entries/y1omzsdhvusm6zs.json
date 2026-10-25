@@ -48,7 +48,26 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "siuhcswnfqzui2g"
+    {
+      "annotation": "\n\n 1842-1851.\nHalbleineneinband..\n1844: (K: Stahlst 6) Mit Tku 1, Bl 3, Ku 5 und 451 SS.\nSeite 249/250 Untere Ecke eingerissen.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.620Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101207",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.620Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "siuhcswnfqzui2g"
+    }
   ],
   "contents": [],
   "agents": [

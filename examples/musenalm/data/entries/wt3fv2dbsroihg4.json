@@ -48,30 +48,913 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "98qwh1fe1k5mdpr"
+    {
+      "annotation": "Format 7,5x9. Mit Kalendarium, zahlreichen Graphiken und ausschließlich poetischen Beiträgen. Der Almanach ist  offenbar nicht Bestandteil der Reihe »Taschenkalender, Berlinischer (Berlin, Königl. Preuß. Kalender-Deputation)« 1816-1826 oder der Reihe »Kalender, Berliner (Berlin, Königl. Preuß. Kalender-Deputation« 1827-1850\n§§ Standort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.820Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408797",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.820Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "98qwh1fe1k5mdpr"
+    }
   ],
   "contents": [
-    "hvvis1v8oi62k6s",
-    "oczuw5w2hbnl698",
-    "xrdv70c59mc8mfs",
-    "1ac55ylwsdf4nuf",
-    "jmzpmnnoabkrfrt",
-    "vm05k6fa4wv0uby",
-    "oxc8ofqbxlyau6r",
-    "geuwpo3p09c5u1d",
-    "j4mbt5umhunx509",
-    "6dejmmjysza3049",
-    "2k9q1sbucgbkfyg",
-    "q91cvdnd93mew84",
-    "mxnmqywts8w21kb",
-    "ozr1wlne99mu83h",
-    "egzi0av9q1nl6us",
-    "llnigfrlj6ypsob",
-    "43azdo1mb4m1yqr",
-    "ntr8x9rnp1nvyrp",
-    "srnofkznmikbfuh",
-    "6nc18p11v5m17pi",
-    "wtr5w5pgt3yc298"
+    {
+      "annotation": "Umschlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131838,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4833_131838_vx3jkt942l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "hvvis1v8oi62k6s"
+    },
+    {
+      "annotation": "Titelgraphik; nummeriert 1. Illustration zu »Egmont und Klärchen« von H. Smidt INr 131850, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131839,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. H.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H.",
+      "scans": [
+        "alm_4833_131839_da2zs0eqmq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "aoc3cqpv0c1ls3p"
+        }
+      ],
+      "source_id": "oczuw5w2hbnl698"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131840,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschen-Kalender / auf das Jahr 1844, / mit / Gedichten und 8 dazu gehörigen Kupfern / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4833_131840_u36wuu54ji.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschen-Kalender / auf das Jahr 1844, / mit / Gedichten und 8 dazu gehörigen Kupfern / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "xrdv70c59mc8mfs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131841,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ac55ylwsdf4nuf"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar; nummeriert 2. /) Illustration zu »Faust und Gretchen« von H. Smidt INr 131851, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131842,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. H.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H.",
+      "scans": [
+        "alm_4833_131842_dm1miut17h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "ywssa6ctk6jy5b0"
+        }
+      ],
+      "source_id": "jmzpmnnoabkrfrt"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar; nummeriert 3. /) Illustration zu »Das Lootsen-Examen« von H. Smidt INr 131852, Obj 15, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131843,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Auguste Hüssener sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_4833_131843_da2x2hdy1l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "l6xylv914v7rzo2"
+        }
+      ],
+      "source_id": "vm05k6fa4wv0uby"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April; nummeriert 4. /) Illustration zu »Ave Maria« von H. Smidt INr 131853, Obj 16; # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131844,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. H.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H.",
+      "scans": [
+        "alm_4833_131844_2jz1dgzclh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "xawvzyi7b6a5buf"
+        }
+      ],
+      "source_id": "oxc8ofqbxlyau6r"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni; nummeriert 5. /) # Bez. an den übrigen Graphiken der Suite /) Illustration zu »Die fischenden Kinder« von H. Kletke INr 131854, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131845,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Auguste Hüssener sc.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_4833_131845_tnrhsunbxr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "w1f8qscgcwng6qn"
+        }
+      ],
+      "source_id": "geuwpo3p09c5u1d"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August; nummeriert 6. /) Illustration zu »Die Prophezeiung« von H. Kletke INr 131855, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.315Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131846,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. H.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H.",
+      "scans": [
+        "alm_4833_131846_6l5j04sfjc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "wm16pl0taj8pd70"
+        }
+      ],
+      "source_id": "j4mbt5umhunx509"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober; nummeriert 7. /) Illustration zu »Anna« von H. Kletke INr 131856, Obj 19; # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.318Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131847,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Auguste Hüssener sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_4833_131847_u9mwrkytmu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "ii5yktyfzu6hdk6"
+        }
+      ],
+      "source_id": "6dejmmjysza3049"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember; nummeriert 8. /) Illustration zu »Mutterglück« von H. Kletke INr 131857, Obj 20; # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131848,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (A. H.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H.",
+      "scans": [
+        "alm_4833_131848_l686f1tmbn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "cttpv0tf9aq376o"
+        }
+      ],
+      "source_id": "2k9q1sbucgbkfyg"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131849,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "q91cvdnd93mew84"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 131839, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Held tritt durch die Thür herein: / Lieb Klärchen hold, lieb Klärchen mein!",
+      "language": [],
+      "musenalm_id": 131850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Egmont und Klärchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Egmont und Klärchen",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "zqnckjme6pmn5zy"
+        }
+      ],
+      "source_id": "mxnmqywts8w21kb"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131842, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Nicht hoffe, daß du mich bethörst, / Denn was Dein Mund auch spricht,",
+      "language": [],
+      "musenalm_id": 131851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Faust und Gretchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Faust und Gretchen",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.040Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "ijlxp4ud85v4ht4"
+        }
+      ],
+      "source_id": "ozr1wlne99mu83h"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131843, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Tag des Examens ist gekommen! / Herein du Bursche Übermüth, / Und vor dem Tisch dort Platz genommen;",
+      "language": [],
+      "musenalm_id": 131852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Lootsen-Examen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Lootsen-Examen",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.041Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "hq1dctmxdxkf7le"
+        }
+      ],
+      "source_id": "egzi0av9q1nl6us"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131844, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Leise kräuselt sich die Welle, / Murmelnd fließt sie auf und ab;",
+      "language": [],
+      "musenalm_id": 131853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Ave Maria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Ave Maria",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.041Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "8fung4yd7g80lkx"
+        }
+      ],
+      "source_id": "llnigfrlj6ypsob"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131845, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Waldbächlein mit raschem Sinn / Gleitet auf weißem Sand dahin,",
+      "language": [],
+      "musenalm_id": 131854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die fischenden Kinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Kletke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die fischenden Kinder",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.041Z",
+          "agent": "oxvlsvgq5f4m5gr",
+          "source_id": "nv6986pqwb5jtwp"
+        }
+      ],
+      "source_id": "43azdo1mb4m1yqr"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131846, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Was hast Du mit den hübschen Mädchen, / Zigeunerweib, so alt und braun?",
+      "language": [],
+      "musenalm_id": 131855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Prophezeiung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Kletke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Prophezeiung",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.041Z",
+          "agent": "oxvlsvgq5f4m5gr",
+          "source_id": "rkhz9qkdns4d88f"
+        }
+      ],
+      "source_id": "ntr8x9rnp1nvyrp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131847, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Wie lieblich ist's im grünen Wald! / Die Vöglein zwitschern, daß es schallt,",
+      "language": [],
+      "musenalm_id": 131856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Anna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Kletke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Anna",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.041Z",
+          "agent": "oxvlsvgq5f4m5gr",
+          "source_id": "znly78brmmo6g83"
+        }
+      ],
+      "source_id": "srnofkznmikbfuh"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131848, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Seht das Kind, das holde, seht, / Wie's auf schwachen Füßchen steht,",
+      "language": [],
+      "musenalm_id": 131857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Mutterglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Kletke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Mutterglück",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.041Z",
+          "agent": "oxvlsvgq5f4m5gr",
+          "source_id": "e818qxxm5x5e3zn"
+        }
+      ],
+      "source_id": "6nc18p11v5m17pi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Gedruckt bei Trowitsch und Sohn in Berlin",
+      "language": [],
+      "musenalm_id": 131858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei Trowitsch und Sohn in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-01-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "wtr5w5pgt3yc298"
+    }
   ],
   "agents": [
     {

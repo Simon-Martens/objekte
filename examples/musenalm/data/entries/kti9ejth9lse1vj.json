@@ -49,7 +49,26 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "6lajsv0w7jzoc4c"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.567Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200541",
+      "location": "105D07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.567Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6lajsv0w7jzoc4c"
+    }
   ],
   "contents": [],
   "agents": [

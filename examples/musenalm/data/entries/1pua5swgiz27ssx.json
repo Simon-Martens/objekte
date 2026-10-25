@@ -48,7 +48,26 @@
   "year": 1829,
   "editor": "",
   "items": [
-    "a21bc7zxqdv7rhl"
+    {
+      "annotation": "Format beachten bei Standortwahl",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.622Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408398",
+      "location": "105Q01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.622Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "a21bc7zxqdv7rhl"
+    }
   ],
   "contents": [],
   "agents": [

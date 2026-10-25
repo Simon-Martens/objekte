@@ -48,69 +48,2592 @@
   "year": 1817,
   "editor": "",
   "items": [
-    "lgzfj1nmkkqajie"
+    {
+      "annotation": "1812-1818, 1815 nicht erschienen.\nKartonierter Einband (Buchrücken leicht beschädigt.)\n1817 Jg 5 : Mit Tku 1, Bl 1, Ku 3 , 186 SS und Bl 1.\nIm Bd sind 1813 Jg 2 und 1817 Jg 5 zusammengefaßt.\nSammelband Nr 100705-100706",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.463Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100706",
+      "location": "105A04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.463Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lgzfj1nmkkqajie"
+    }
   ],
   "contents": [
-    "j9g26i8ndq51bq7",
-    "29qi1eyhuk1db5l",
-    "94v0uqtix10km83",
-    "6u6l1l5attwybrb",
-    "0dsanjq8n6o3rvq",
-    "uacra1nb3r85pms",
-    "lozqq36o4r67ovn",
-    "a1tx806on5skxzx",
-    "30sxullirip4s6g",
-    "cju857xxwbz8hiv",
-    "h01xx245ywifuyl",
-    "mhsa82o0k2dplip",
-    "4h1yuynlo7anj4x",
-    "fiy7a2te84ayik0",
-    "fibv3c29y2m8zqp",
-    "498669eq7h9hss0",
-    "rdiwyv19sd4vu8y",
-    "1gyduzeskvy8bnt",
-    "98zfxe0nre861of",
-    "5nk11tgoeot1dty",
-    "5u1w0k9oap6qqrz",
-    "8kkshs5kju0z3zk",
-    "jhuezy4w92cfeoh",
-    "qvtf8zyc4opz19h",
-    "dml18yj3xlg52od",
-    "sc9529q17v6civo",
-    "8hzgabojmka4j6r",
-    "alam76e2by06lv7",
-    "tnavs85cgo75tqu",
-    "8ofdp0xl11eb3t4",
-    "wkxcimiah4jt8a9",
-    "6vatvqu3urck6nu",
-    "habgqhl2tcruwgk",
-    "ygp0u3pegfwbi1l",
-    "kxnlgnztg0c2wd2",
-    "bfwd35aylg9uar8",
-    "a2jeaf47el14kx6",
-    "fjd0v9anzf061p4",
-    "v2958n43ar9yuo0",
-    "52qdlyxoh4ntiod",
-    "cch1dfs3gn99dhr",
-    "yd5hfcyvn8qo4zq",
-    "bpdv3yw4eybiwij",
-    "dcw9f3t562wvt4i",
-    "xt5eznd5ys7wd1t",
-    "suyuf9k6enllhnw",
-    "z7q6l2v8bmypmj2",
-    "jteywuepy2kdabu",
-    "phsesaiye2mjxnw",
-    "ad4ivjchl6xtcjx",
-    "3z3txp96qn67jz3",
-    "v3fwakr9yvjq1ot",
-    "8mvv4nd7dm00o4v",
-    "61bhx45zmrh0bqj",
-    "1ai9xpkn5guinu5",
-    "1dnp6qemi9j6men",
-    "09ivcm2yhcor7pi",
-    "e73zg20l6rj4prs",
-    "qqr3ovhcrf8fska",
-    "h6cp465451netb5"
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Frauenburg in Steyermark« von Fr. Sartori INr 92189, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92144,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frauenburg in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. S. Göbwart sc. 1816",
+      "scans": [
+        "alm_3060_92144_yd8lsfjefj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Frauenburg in Steyermark",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.557Z",
+          "agent": "noepczcbklm6eif",
+          "source_id": "e9sw7o2capzb49u"
+        }
+      ],
+      "source_id": "j9g26i8ndq51bq7"
+    },
+    {
+      "annotation": "Titelvignette: Maria Hilf in Kärnthen /) s. hierzu: »Der Wallfahrtsort Maria Hülf bey Gutaring in Kärnthen« von Joseph Mitterdorfer 92190, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / Natur- und Kunst Merkwürdigkeiten / der Österreichischen Monarchie. / Fünfter Jahrgang. / Wien, 1817. / Im Verlage bey Anton Doll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3060_92145_s4e0q44trq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / Natur- und Kunst Merkwürdigkeiten / der Österreichischen Monarchie. / Fünfter Jahrgang. / Wien, 1817. / Im Verlage bey Anton Doll",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "29qi1eyhuk1db5l"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / in / der / österreichischen Monarchie. / Fünfter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / in / der / österreichischen Monarchie. / Fünfter Jahrgang",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "94v0uqtix10km83"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Siehst Vater dort oben die Säule von Stein, / So schwarz in des Himmels hellbläulichem Schein.",
+      "language": [],
+      "musenalm_id": 92147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die steinerne Säule bey Weidling / nächst Wien, / insgemein / das schwarze Kreutz genannt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die steinerne Säule bey Weidling / nächst Wien, / insgemein / das schwarze Kreutz genannt",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "6u6l1l5attwybrb"
+    },
+    {
+      "annotation": "Sammlung von 12 Beiträgen mit 3 beigegebenen Gedichten und einer Illustration INr 92149-92162, 92002, 92203, Obj 6-21 /) einige beigegebene Verse von Körner und Blumauer sind nicht i.E. dargestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Carlsbad und seine Umgebungen, / mit / deren Natur- und Kunstmerkwürdigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Carlsbad und seine Umgebungen, / mit / deren Natur- und Kunstmerkwürdigkeiten",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.309Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "9tcma00ag52pcsi"
+        }
+      ],
+      "source_id": "0dsanjq8n6o3rvq"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Hoch herab von dem Bergrücken, über welchen der Weg von Prag her führt, gleitet von dem zuhöchst stehenden Bergwirthshause die herrliche Kunststraße zwischen Äckern und Gebüschen dem weltberühmten Carlsbade zu,",
+      "language": [],
+      "musenalm_id": 92149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "a) Die Prager Bergstraße",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "a) Die Prager Bergstraße",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.359Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "s2kb91b624matz5"
+        }
+      ],
+      "source_id": "uacra1nb3r85pms"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Hell und klar entspringt diese Quelle aus einem kalkartigen Gesteine, welches die Sprudelschale heißt.",
+      "language": [],
+      "musenalm_id": 92150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "b) Sprudel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "b) Sprudel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.362Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "rp7eumh0mhf9rjr"
+        }
+      ],
+      "source_id": "lozqq36o4r67ovn"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5) mit einer Illustration s. Graphik INr 92152, Obj 9 /) mit 2 beigegebenen Gedichten von Th. Körner INr 92202, 92203; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Diese Quelle ist unter allen in Carlsbad die besuchteste. Sie wird am häufigsten getrunken, sie löset am kräftigsten auf, und ist gerade so warm, daß man sie vom Brunnen weg trinken kann,",
+      "language": [],
+      "musenalm_id": 92151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "c) Neubrunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "c) Neubrunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.362Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "758oz2so0tmcd1x"
+        }
+      ],
+      "source_id": "a1tx806on5skxzx"
+    },
+    {
+      "annotation": "Illustration zu »Der Neubrunnen« von Fr. Sartori INr 92151, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Neubrunnen zu Karlsbad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. S. Göbwart sc. 1816",
+      "scans": [
+        "alm_3060_92152_pes0hwfr9c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Neubrunnen zu Karlsbad",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.362Z",
+          "agent": "noepczcbklm6eif",
+          "source_id": "a9r56knb277atvu"
+        }
+      ],
+      "source_id": "30sxullirip4s6g"
+    },
+    {
+      "annotation": "Beigabe zu »Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten. Neubrunnen; INr92151, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Wie sie wogt, die bunte Menge, / Wie sich alles drängt und treibt.",
+      "language": [],
+      "musenalm_id": 92202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Neubrunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Neubrunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.546Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.546Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "x4nl3zxzo1ju15f"
+        }
+      ],
+      "source_id": "cju857xxwbz8hiv"
+    },
+    {
+      "annotation": "Beigabe zu »Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten. Neubrunnen; INr92151, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Und so leb, wohl, du Nymphe dieser Quelle, / Vertrauend kam ich zu dir hergezogen,",
+      "language": [],
+      "musenalm_id": 92203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als sie von dem Brunnen Abschied nahm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als sie von dem Brunnen Abschied nahm",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.546Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.546Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "d1rbuz1xe9oyc06"
+        }
+      ],
+      "source_id": "h01xx245ywifuyl"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Aus dem Säulengange am Neubrunnen führt eine kurze Treppe auf eine Terasse mit Bäumen besetzt,",
+      "language": [],
+      "musenalm_id": 92153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "d) Theresienbrunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "d) Theresienbrunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.362Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "kw01f9eceshxk5s"
+        }
+      ],
+      "source_id": "mhsa82o0k2dplip"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Nahe an dem Neubrunnen steht das Mühlbadhaus, in dessen Flur der Brunnen in einen Winkel fließt.",
+      "language": [],
+      "musenalm_id": 92154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "e) Der Mühlbrunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "e) Der Mühlbrunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.362Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "6f5der0c5p4zqq1"
+        }
+      ],
+      "source_id": "4h1yuynlo7anj4x"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Von der Wandelbahne am Neubrunnen führt eine Wendeltreppe hinab zu dem Bernardsbrunnen, wegen der Nähe eines Felsens so genannt,",
+      "language": [],
+      "musenalm_id": 92155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "f) Der Bernardsbrunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "f) Der Bernardsbrunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.363Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "qbkyi82cngudzy7"
+        }
+      ],
+      "source_id": "fiy7a2te84ayik0"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Da das Wasser am Brunnen der fixen Luft wegen wirksamer ist, so wird es meistens auch da getrunken.",
+      "language": [],
+      "musenalm_id": 92156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "g) Carlsbader Brunnenbecher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "g) Carlsbader Brunnenbecher",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.363Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "7dfta8wjqbq53e3"
+        }
+      ],
+      "source_id": "fibv3c29y2m8zqp"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Vor einigen Jahren erging in Baden bey Wien ein scharfes Verbot gegen das Zusammenbaden, als wenn solches die Moralität beleidige.",
+      "language": [],
+      "musenalm_id": 92157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "h) Vom Baden und den Bädern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "h) Vom Baden und den Bädern",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.363Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "vmj7f95m7avoc5g"
+        }
+      ],
+      "source_id": "498669eq7h9hss0"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Dieses Salz ist ein abgedampftes Residuum des Sprudelwassers, in dessen Nähe auch das Salzbereitungshaus steht.",
+      "language": [],
+      "musenalm_id": 92158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "i) Das Carlsbader Salz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "i) Das Carlsbader Salz",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.363Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "2bvmpwm8n1n2oll"
+        }
+      ],
+      "source_id": "rdiwyv19sd4vu8y"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Diese Wiese ist die vornehmste Straße in Carlsbad. Rechts stehen schöne, solide, drey Etagen hohe Häuser,",
+      "language": [],
+      "musenalm_id": 92159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "k) Die Wiese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "k) Die Wiese",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "mf869vhomio67vm"
+        }
+      ],
+      "source_id": "1gyduzeskvy8bnt"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Dieses soll nach dem Mannheimer Theater geformt seyn. Es befindet sich der Wiese gegenüber auf der neuen Wiese,",
+      "language": [],
+      "musenalm_id": 92160,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "l) Das Schauspielhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "l) Das Schauspielhaus",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "18dmzg38g4awn7z"
+        }
+      ],
+      "source_id": "98zfxe0nre861of"
+    },
+    {
+      "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5) s. folgendes Gedicht INr 92162, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "So nennt man insgemein zwey große wohlgebaute Häuser am Ende der Wiese, in denen sich zur ebenen Erde und im ersten Stocke Säle befinden,",
+      "language": [],
+      "musenalm_id": 92161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "m) Der sächsische und böhmische Saal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "m) Der sächsische und böhmische Saal",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "w9dqhiagwvm6h2d"
+        }
+      ],
+      "source_id": "5nk11tgoeot1dty"
+    },
+    {
+      "annotation": "Beigabe zu » Der sächsische und böhmische Saal« von Fr. Sartori INr 92161, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Wie die Walzer vorüber fliegen, / Wie sie sich drehen und wiegen, / Im durchwirbelten Kranz!",
+      "language": [],
+      "musenalm_id": 92162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beym Tanze im Sächsischen Saale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beym Tanze im Sächsischen Saale",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "jdg714hqm5jix3z"
+        }
+      ],
+      "source_id": "5u1w0k9oap6qqrz"
+    },
+    {
+      "annotation": "Sammlung von 9 Beiträgen mit 15 beigegebenen Gedichten und einer Prosabeigabe INr 92164-92188, Obj 23-47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Umgebungen von Carlsbad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Umgebungen von Carlsbad",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "y50vlvxl815d2im"
+        }
+      ],
+      "source_id": "8kkshs5kju0z3zk"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebene Gedichte INr 92165-92168, Obj 24-27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Wenn man der Kirche gegenüber, dem Hause zum ABC vorbey, die kleine Anhöhe ersteigt,",
+      "language": [],
+      "musenalm_id": 92164,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Spaziergang. / Laurenzberg, Laurenzcapelle, Sonnen- /schirm, Dorotheentempel, Säuerling, / Friederikens-Fels.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Spaziergang. / Laurenzberg, Laurenzcapelle, Sonnen- /schirm, Dorotheentempel, Säuerling, / Friederikens-Fels.",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "y6x0ram5h9evry8"
+        }
+      ],
+      "source_id": "jhuezy4w92cfeoh"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Erster Spaziergang.  Laurenzberg, Laurenzcapelle, Sonnenschirm, Dorotheentempel, Säuerling, Friederikens-Fels.« von Fr. Sarori INr 92164, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Dorotheens Tempel, dich grüß' ich mit süßer Erinn- / rung. Hier am geweihten Ort kommt mir ein freundlicher Traum.",
+      "language": [],
+      "musenalm_id": 92165,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dorotheens Tempel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dorotheens Tempel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "3bqoawzk3fgcx9j"
+        }
+      ],
+      "source_id": "qvtf8zyc4opz19h"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Erster Spaziergang.  Laurenzberg, Laurenzcapelle, Sonnenschirm, Dorotheentempel, Säuerling, Friederikens-Fels.« von Fr. Sarori INr 92164, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "So lebe wohl, du vielgeliebte Stelle, / Wo ich so oft in süßen Träumen saß,",
+      "language": [],
+      "musenalm_id": 92166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied vom Dorotheen-Tempel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied vom Dorotheen-Tempel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "x3w2kypxm2x5pz2"
+        }
+      ],
+      "source_id": "dml18yj3xlg52od"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Erster Spaziergang.  Laurenzberg, Laurenzcapelle, Sonnenschirm, Dorotheentempel, Säuerling, Friederikens-Fels.« von Fr. Sarori INr 92164, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Du Lieblingsplätzchen meiner stillen Träume, / Das mich so oft der lauten Welt verborgen,",
+      "language": [],
+      "musenalm_id": 92167,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf der Bank vor dem Sauerbrunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf der Bank vor dem Sauerbrunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "3pdfilixivkxfqn"
+        }
+      ],
+      "source_id": "sc9529q17v6civo"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Erster Spaziergang.  Laurenzberg, Laurenzcapelle, Sonnenschirm, Dorotheentempel, Säuerling, Friederikens-Fels.« von Fr. Sarori INr 92164, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Still und düster schaust du mich an, du einsame Fels- / wand, / Und es gemahnt mich streng, wie ein verschlossnes Ge- / müth",
+      "language": [],
+      "musenalm_id": 92168,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friederikens Felsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friederikens Felsen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "xbml8qum5bo429p"
+        }
+      ],
+      "source_id": "8hzgabojmka4j6r"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Obwohl der Hirschenstein von mehreren Seiten bestiegen werden kann, so würde ich doch jedem rathen, auf dem Kaufmann Mayrischen Wege durch den Wald hinanzusteigen.",
+      "language": [],
+      "musenalm_id": 92169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweyter Spatziergang. / Der Hirschenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweyter Spatziergang. / Der Hirschenstein",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "zbppu1exvdn092z"
+        }
+      ],
+      "source_id": "alam76e2by06lv7"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. zwei beigegebene Gedichte INr 92171,92172; Obj 30, 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Dahin führt eine schöne höchst bequeme Fahrstraße, die vom Posthofe noch bis zum Dorf Hammer läuft.",
+      "language": [],
+      "musenalm_id": 92170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Spatziergang. / Der Posthof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Spatziergang. / Der Posthof",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "rmafnywfcs5r1xb"
+        }
+      ],
+      "source_id": "tnavs85cgo75tqu"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Dritter Spatziergang. Der Posthof« von Fr. Sartori INr 92170, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Buchen, seyd mir gegrüßt! Euch hat die Liebe ge- / heiligt, / Euch hat ein treues Volk, treu seiner Mutter geweiht.",
+      "language": [],
+      "musenalm_id": 92171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiserinn-Platz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kaiserinn-Platz",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "tlplfkxtbgxrndu"
+        }
+      ],
+      "source_id": "8ofdp0xl11eb3t4"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Dritter Spatziergang. Der Posthof« von Fr. Sartori INr 92170, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Wenn vor dem Glanz, der um die Herrinn schwebet, / Das Volk sich theilt, in drängendem Gewühle, / Dann gleich um Sie sich neu zu sammeln strebet,",
+      "language": [],
+      "musenalm_id": 92172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn vor dem Glanz, der um die Herrinn schwebet, / Das Volk sich theilt, in drängendem Gewühle, / Dann gleich um Sie sich neu zu sammeln strebet,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.293Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.293Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "3hvb5cx0hbbpjb5"
+        }
+      ],
+      "source_id": "wkxcimiah4jt8a9"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebenes Gedichte INr 92174, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "So beschwerlich dieser Berg zu besteigen ist, wenn man vorwärts seine Spitze erklimmen will, so angenehm wird der Weg, den man über den Galgenberg zu seinem rückwärtigen Abhange einschlägt.",
+      "language": [],
+      "musenalm_id": 92173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Spatziergang. / Der Dreykreuzberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Spatziergang. / Der Dreykreuzberg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.280Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.280Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "xg5rfzdt7gv224j"
+        }
+      ],
+      "source_id": "6vatvqu3urck6nu"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Vierter Spatziergang. Der Dreykreuzberg« von Fr. Sartori INr 92173, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Dort an jener Felsenkette / Glüht es schon wie Abendschein.",
+      "language": [],
+      "musenalm_id": 92174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dreykreutzberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dreykreutzberg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.280Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.280Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "5v45cwq09eup186"
+        }
+      ],
+      "source_id": "habgqhl2tcruwgk"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebene Gedichte INr 92176, 92177; Obj 35, 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Wer von der Puppischen Allee den Weg nach dem Posthofe wandelt, und sich noch ehe, als er zur Carlsbrücke kommt, rechts von der Burg hinan auf die Vier-Uhr-Promenade wendet, wird dem schottischen Grafen Findlater,",
+      "language": [],
+      "musenalm_id": 92175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Spaziergang. / Vier-Uhr-Promenade, Theresien-Plätzchen, / Dichterbank. Stahlsbuche, Hammerfahrt- / straße, Sitz der Freunde, Narischkin-Platz, / Hammer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Spaziergang. / Vier-Uhr-Promenade, Theresien-Plätzchen, / Dichterbank. Stahlsbuche, Hammerfahrt- / straße, Sitz der Freunde, Narischkin-Platz, / Hammer",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.363Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "31qaf8lo5837xkk"
+        }
+      ],
+      "source_id": "ygp0u3pegfwbi1l"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Fünfter Spaziergang. Vier-Uhr-Promnenade, Theresien-Plätzchen, Dichterbank. Stahlsbuche, Hammerfahrt-Straße, Sitz der Freunde, Narischkin-Platz, Hammer« von Fr. Sartori; INr 92175, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Freundlich an dem Berggehänge / In des Thales stiller Enge, / Freundlich, wie ich keines sah / Liegt das liebe Dörfchen da.",
+      "language": [],
+      "musenalm_id": 92176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dorf Hammer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dorf Hammer",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.363Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "ok8ko6q8xpvkcgp"
+        }
+      ],
+      "source_id": "kxnlgnztg0c2wd2"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Fünfter Spaziergang. Vier-Uhr-Promnenade, Theresien-Plätzchen, Dichterbank. Stahlsbuche, Hammerfahrt-Straße, Sitz der Freunde, Narischkin-Platz, Hammer« von Fr. Sartori; INr 92175, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Mit der Freude lichten Träumen / Saßen wir im muntern Kranz,",
+      "language": [],
+      "musenalm_id": 92177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Tepl-Thal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Tepl-Thal",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.372Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "2315odhljco4u74"
+        }
+      ],
+      "source_id": "bfwd35aylg9uar8"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebene 3 Gedichte INr 92179-92181, Obj 38-40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Eben so leicht, wie mancher unserer heutigen Dichter, ersteigt man von dem Wege aus der Puppischen Allee bey der Grotte hinauf den Parnaß,",
+      "language": [],
+      "musenalm_id": 92178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechster Spatziergang. / Der Parnaß, Findlaters Tempel, Durch- / haubank, Katharinen-Plätzchen, Belvedere, / Freundschaftsanhöhe, Findlaters Denk- / säule, Marien-Capelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechster Spatziergang. / Der Parnaß, Findlaters Tempel, Durch- / haubank, Katharinen-Plätzchen, Belvedere, / Freundschaftsanhöhe, Findlaters Denk- / säule, Marien-Capelle",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.373Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "r4pipfojfkw8c3i"
+        }
+      ],
+      "source_id": "a2jeaf47el14kx6"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Sechster Spatziergang. Der Parnaß, Findlaters Tempel, Durchhaubank, Katharinen-Plätzchen, Belvedere, Freundschaftsanhöhe, Findlaters Denksäule, Marien-Capelle« von Fr. Sartori; INr 92178, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Freundlich begrüßt der Wand'rer, der müde, die lich- / tere Halle, / Wenn er vom Thale herauf muthig die Höhe bestieg.",
+      "language": [],
+      "musenalm_id": 92179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Findhaters Tempel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Findhaters Tempel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.373Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "4y1rzco5idvcupg"
+        }
+      ],
+      "source_id": "fjd0v9anzf061p4"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Sechster Spatziergang. Der Parnaß, Findlaters Tempel, Durchhaubank, Katharinen-Plätzchen, Belvedere, Freundschaftsanhöhe, Findlaters Denksäule, Marien-Capelle« von Fr. Sartori; INr 92178, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "So sitzen wir traulich im bunten Kreis, / In der Lüfte freundlichem Wehen,",
+      "language": [],
+      "musenalm_id": 92180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rundgesang auf dem Belvedere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rundgesang auf dem Belvedere",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.340Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.340Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "aynfz39bhctyhx9"
+        }
+      ],
+      "source_id": "v2958n43ar9yuo0"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Sechster Spatziergang. Der Parnaß, Findlaters Tempel, Durchhaubank, Katharinen-Plätzchen, Belvedere, Freundschaftsanhöhe, Findlaters Denksäule, Marien-Capelle« von Fr. Sartori; INr 92178, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Muthig ragst du empor, du Zeuge dankbarer Menschen, / Dem Verschön'rer der Stadt einfach und herzlich ge- / weih't,",
+      "language": [],
+      "musenalm_id": 92181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Obelisk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Obelisk",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.340Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.340Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "b8cpm16v2fgxzfs"
+        }
+      ],
+      "source_id": "52qdlyxoh4ntiod"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebene Gedichte INr 92183, 92184; Obj 42, 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Wenn ich die Aussicht von der Bank bey Marianens-Ruh nicht eben so lobpreisen kann, wie ich bey mehrern Ansicht von Carlsbad that,",
+      "language": [],
+      "musenalm_id": 92182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebenter Spatziergang. / Mariannen-Ruh, Himmel auf Erden, Klein- / Versailles, die Schießhütte, Wari (Alt- / Carlsbad)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebenter Spatziergang. / Mariannen-Ruh, Himmel auf Erden, Klein- / Versailles, die Schießhütte, Wari (Alt- / Carlsbad)",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.340Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.340Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "0wyqbcq2cg2a6wn"
+        }
+      ],
+      "source_id": "cch1dfs3gn99dhr"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Sechster Spatziergang. Siebenter Spatziergang. Mariannen-Ruh, Himmel auf Erden, Klein- Versailles, die Schießhütte, Wari (Alt-Carlsbad)« von Fr. Sartori; INr 92182, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Schweigend liegt die Friedensnacht / Auf dem stillen Thale,",
+      "language": [],
+      "musenalm_id": 92183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Kreutze unfern Mariannens-Ruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Kreutze unfern Mariannens-Ruhe",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.340Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.340Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "ug9fdavw6eduvdy"
+        }
+      ],
+      "source_id": "yd5hfcyvn8qo4zq"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Sechster Spatziergang. Siebenter Spatziergang. Mariannen-Ruh, Himmel auf Erden, Klein- Versailles, die Schießhütte, Wari (Alt-Carlsbad)« von Fr. Sartori; INr 92182, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Wie schön, o Gott! ist deine Welt gemacht, / Wenn sie dein Licht umfließt, / Ihr fehlt's an Engeln nur und nicht an Pracht / Daß sie kein Himmel ist. / 1808",
+      "language": [],
+      "musenalm_id": 92184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie schön, o Gott! ist deine Welt gemacht, / Wenn sie dein Licht umfließt, / Ihr fehlt's an Engeln nur und nicht an Pracht / Daß sie kein Himmel ist. / 1808…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "bpdv3yw4eybiwij"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebenes Gedicht INr 92186, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Wer glaubt, in Carlsbad bloß von Gebirgen eingeschlossen zu seyn, würde sehr irren, denn ein Ausflug in die Ebene nach dem Schlösschen Dalwitz wird ihn eines Bessern belehren.",
+      "language": [],
+      "musenalm_id": 92185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achter Spatziergang. / Dalwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achter Spatziergang. / Dalwitz",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.375Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "f0x7ozxmze2tkzw"
+        }
+      ],
+      "source_id": "dcw9f3t562wvt4i"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Achter Spatziergang. Dalwitz« von Fr. Sartori; INr 92185, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Abend wird's, des Tages Stimmen schweigen, / Röther strahlt der Sonne letztes Glüh'n,",
+      "language": [],
+      "musenalm_id": 92186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die fünf Eichen von Dallwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die fünf Eichen von Dallwitz",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.375Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "caeejl2ixoehune"
+        }
+      ],
+      "source_id": "xt5eznd5ys7wd1t"
+    },
+    {
+      "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. Beigabe INr 92188, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Von dem Gasthause des Dorfes Hammer führt eine gut gebaute Straße in das Dorf Aich, eine Stunde weit von Carlsbad,",
+      "language": [],
+      "musenalm_id": 92187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunter Spatziergang. / Dorf Aich, Hans-Heiling- Felsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunter Spatziergang. / Dorf Aich, Hans-Heiling- Felsen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.375Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "8nnuyiyp0xibh37"
+        }
+      ],
+      "source_id": "suyuf9k6enllhnw"
+    },
+    {
+      "annotation": "Beigabe zu »Umgebungen von Carlsbad. Neunter Spatziergang. Dorf Aich, Hans-Heiling- Felsen« von Fr. Sartori; INr 92187, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Vor langen Zeiten lebte ein reicher Bauer in einem Dörfchen an der Eger.",
+      "language": [],
+      "musenalm_id": 92188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Heilings Felsen. / Eine böhmische Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hans Heilings Felsen. / Eine böhmische Volkssage",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "z7q6l2v8bmypmj2"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Du theurer Ort, wo ich die erste Luft gesogen, / Die erste Lust, den ersten Schmerz empfand; /) mit Anm. /) mit einer Illustration s. Titelgraphik INr 92144, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Nicht bald wird ein Land seyn, daß so reich an Ruinen merkwürdiger Ritterburgen ist, wie die Steyermark, welche, einst die Tummelplätze berühmter und berüchtigter Ritter und Thaten, noch jetzt für den Freund der vaterländischen Geschichte",
+      "language": [],
+      "musenalm_id": 92189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frauenburg / in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Frauenburg / in Steyermark",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.375Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.375Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "oz3z3ehzysjjyrn"
+        }
+      ],
+      "source_id": "jteywuepy2kdabu"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Was kein Verstand der Verständigen sieht, / Das übet in Einfalt ein kindlich Gemüth. / Schiller /) s. Titelvignette INr 92145, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Wallfahrtsörter sind für denjenigen entbehrlich, der Gottes Allmacht, Weisheit und Güte aus dem Gräschen, wie aus der Ceder, aus der Milbe wie aus dem Elephanten,",
+      "language": [],
+      "musenalm_id": 92190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wallfahrtsort Maria Hülf / bey / Gutaring in Kärnthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Mitterdorfer, Justiziär und Bezirks-Commissär in Gurk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wallfahrtsort Maria Hülf / bey / Gutaring in Kärnthen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "phsesaiye2mjxnw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Das hochfürstliche Residenzschloß wurde durch den Fürsten Paul Esterhazy von Galantha, des Königreichs Ungarn Palatin",
+      "language": [],
+      "musenalm_id": 92191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eisenstadt in Ungarn, / die / Residenz des Fürsten Esterhazy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eisenstadt in Ungarn, / die / Residenz des Fürsten Esterhazy",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "ad4ivjchl6xtcjx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Culm ist durch den Krieg im Jahre 1813, durch die heldenmüthige Bravour der Österreicher, Preußen und Russen, die an diesem böhmischen Thermopylä sich mit Ruhm bedeckten,",
+      "language": [],
+      "musenalm_id": 92192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Wallfahrtskirche Maria Culm / in Böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Wallfahrtskirche Maria Culm / in Böhmen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.545Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.545Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "chmaf1szw82gyvo"
+        }
+      ],
+      "source_id": "3z3txp96qn67jz3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 92194, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Ich habe Österreich ob und unter der Enns, gesehen, ich kenne Salzburg und Berchtesgaden, ich war in Kärnthen und in einem Theile von Ungarn,",
+      "language": [],
+      "musenalm_id": 92193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Weichselboden in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Weichselboden in Steyermark",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.545Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.545Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "h1c45krfqfuogh8"
+        }
+      ],
+      "source_id": "v3fwakr9yvjq1ot"
+    },
+    {
+      "annotation": "Illustration zu »Der Weichselboden in Steyermark« von Dr. Franz Sartori INr 92193, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Weichselboden in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. S. Göbwart sc. 1816",
+      "scans": [
+        "alm_3060_92194_1bxckkzid2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Weichselboden in Steyermark",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.545Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.545Z",
+          "agent": "noepczcbklm6eif",
+          "source_id": "qpvnuc175dgbcx8"
+        }
+      ],
+      "source_id": "8mvv4nd7dm00o4v"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Lieben Freunde! Es gab schön're Zeiten / Als die unsern - das ist nicht zu streiten! [...] Fr. Schiller /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Schnell fuhren mich meine muthigen Rappen hinab an den stillen Ufern der Gurk; schnell ging es bey dem Fürstenpallaste zu Pöckstein über die Brücke,",
+      "language": [],
+      "musenalm_id": 92195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloß Mannsberg / und seine Umgebungen in Kärnthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Mitterdorfer, Justiziär und Bezirks-Commissär in Gurk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloß Mannsberg / und seine Umgebungen in Kärnthen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "61bhx45zmrh0bqj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 92197, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Erinnerungen sind es, bloße einzelne Erinnerungen an Momente und Gegenstände, die mein Gedächtniß bewahrt hat, keine Erinnerungen eines Facultisten,",
+      "language": [],
+      "musenalm_id": 92196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerungen von Prag, / gesammelt auf einer Reise von Wien / durch Österreich, Mähren und Böhmen / nach Carlsbad im Sommer 1816",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerungen von Prag, / gesammelt auf einer Reise von Wien / durch Österreich, Mähren und Böhmen / nach Carlsbad im Sommer 1816",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.545Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.545Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "6qxejvhlsycbgx7"
+        }
+      ],
+      "source_id": "1ai9xpkn5guinu5"
+    },
+    {
+      "annotation": "Illustration zu »Erinnerungen von Prag« von Fr. Sartori INr 92196, Obj 55",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Prager Brücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. S. Göbwart sc. 1816",
+      "scans": [
+        "alm_3060_92197_5kiojsna0n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Prager Brücke",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.546Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.546Z",
+          "agent": "noepczcbklm6eif",
+          "source_id": "0ilh1tj9oydwyth"
+        }
+      ],
+      "source_id": "1dnp6qemi9j6men"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Unter dem Gipfel des Kahlenberges, von wo aus die herrlichste Aussicht die ganze Kaiserstadt und Donau mit ihren Umgebungen und Inseln umfaßt,",
+      "language": [],
+      "musenalm_id": 92198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabmahle / von / Carl und Caroline, / auf der Höhe des Kahlenberges",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabmahle / von / Carl und Caroline, / auf der Höhe des Kahlenberges",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "09ivcm2yhcor7pi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Wenn einst auf Sophiens kühlem Grabe / Du still gewandelt; nimm dieß Liedchen hin.",
+      "language": [],
+      "musenalm_id": 92199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanze. / An Caroline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie von Admont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romanze. / An Caroline",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "e73zg20l6rj4prs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Schon deckt die Natur sich mit fröhlichem Grün / Und mit neu sich verjüngendem Leben,",
+      "language": [],
+      "musenalm_id": 92200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie von Admont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romanze",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "qqr3ovhcrf8fska"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "h6cp465451netb5"
+    }
   ],
   "agents": [
     {

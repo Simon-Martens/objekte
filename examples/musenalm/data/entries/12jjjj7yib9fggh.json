@@ -48,27 +48,836 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "2wsjf4nc7yhbn96"
+    {
+      "annotation": "1809-1811.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.700Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106773",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.700Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2wsjf4nc7yhbn96"
+    }
   ],
   "contents": [
-    "30bny2cabupxg7x",
-    "934xgi0pe2pxrmf",
-    "bqyzur4bov9kfa1",
-    "yltmt7mdu7jh2rf",
-    "0swyfsfl50der15",
-    "u3dtdb4dued8s06",
-    "lh1tsvvcpibwun3",
-    "88nwgi2vm1y2dyz",
-    "j6bi6uy0s1xd5ou",
-    "6e4o2ko8t37k28u",
-    "bixm0jlg7pdaou8",
-    "kwd5s7ueup6evjd",
-    "5rfv57sxstn73i8",
-    "r8gheb4a6jjxy1f",
-    "4oc9564n8hn6uvk",
-    "011ap0hhaetz22h",
-    "er3daqkqmi51rq7",
-    "bu7irwhal1buv12"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111045,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3479_111045_ngemvk2qwh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "30bny2cabupxg7x"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111046,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lucie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Ender gez. Stahlstich v. Mahlknecht in Wien",
+      "scans": [
+        "alm_3479_111046_jehk3voqts.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lucie",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.472Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "2y57ufqz2bceach"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "g69bzj15r0om9o9"
+        }
+      ],
+      "source_id": "934xgi0pe2pxrmf"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN. / 1843. / Leipzig, Baumgärtner's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Meyer sc. Zürich",
+      "scans": [
+        "alm_3479_111047_dj6dfl11yk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN. / 1843. / Leipzig, Baumgärtner's Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "77dzhb0ewk2lpur"
+        }
+      ],
+      "source_id": "bqyzur4bov9kfa1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111048,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1843. / Von / Bernd von Guseck. / Sechszehnter Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3479_111048_byowpu6sbk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1843. / Von / Bernd von Guseck. / Sechszehnter Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "yltmt7mdu7jh2rf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111049,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "0swyfsfl50der15"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111050,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "u3dtdb4dued8s06"
+    },
+    {
+      "annotation": "s. Gedicht INr 111052, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111051,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das verirrte Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kadlik gemalt Stahlst. v. Dav. Weiss in Wien",
+      "scans": [
+        "alm_3479_111051_v6vd7czdpa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das verirrte Kind",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.352Z",
+          "agent": "95a977v8mwhsxlp",
+          "source_id": "28ahpt5nxrzr1rx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.352Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.352Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "u556zbrur6jtq5w"
+        }
+      ],
+      "source_id": "lh1tsvvcpibwun3"
+    },
+    {
+      "annotation": "Anm. am Objekt: Hierzu die Abbidung als artistische Zugabe der Verlagshandlung /) s. Graphik INr 111051, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im goldnen Abendschimmer lacht / Gebirg und Thal und Hain - / Des Jägers Kind sieht all' die Pracht:",
+      "language": [],
+      "musenalm_id": 111052,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das verirrte Kind",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das verirrte Kind",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.346Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "2p4prqgvo0vvpp9"
+        }
+      ],
+      "source_id": "88nwgi2vm1y2dyz"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Finstre Nacht! Wie bist du voll des Dunkels [...] Russisches Volkslied /) mit 2 Illustrationen s. Graphiken INr 111054, 111055; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wo sich jetzt die Kaiserstadt, Peters gewaltige Schöpfung, mit ihren heitern Straßen und großartigen Palästen erhebt, da wo die grüne Newa in vier Hauptarme und eine Menge kleine Flüßchen getheilt, eine kleine Gruppe von Inseln bildet,",
+      "language": [],
+      "musenalm_id": 111053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schwan der Newa. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schwan der Newa. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.346Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "5jm64b1jqo0f199"
+        }
+      ],
+      "source_id": "j6bi6uy0s1xd5ou"
+    },
+    {
+      "annotation": "Illustration zu »Der Schwan der Newa« von Bernd von Guseck d.i. C. G. von Berneck INr 111053, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Retzsch del. Hofmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Retzsch del. Hofmann sc.",
+      "scans": [
+        "alm_3479_111054_i8wa745abn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.346Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "hyagq26s1pxl5of"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.346Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "pk2rchxtjjgrx1c"
+        }
+      ],
+      "source_id": "6e4o2ko8t37k28u"
+    },
+    {
+      "annotation": "Illustration zu »Der Schwan der Newa« von Bernd von Guseck d.i. C. G. von Berneck INr 111053, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fürst Alexander",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Retzsch del. A. Duncan sc.Leipzig",
+      "scans": [
+        "alm_3479_111055_0bfs5vtqyv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fürst Alexander",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.346Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "9olltsm7b4bp0uj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.346Z",
+          "agent": "zpixuie3syqjjn3",
+          "source_id": "bgbteaucheg57so"
+        }
+      ],
+      "source_id": "bixm0jlg7pdaou8"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Wohlauf, wohlauf über Berg und Fluß / Dem Morgenroth entgegen, [...] Herwegh /) mit 2 Illustrationen s. Graphiken INr 111057, 111058; Obj 13, 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Die Sonne neigte sich den steilabfallenden Bergen zu, welche das westliche Ufer des Zürichsees umkränzen.",
+      "language": [],
+      "musenalm_id": 111056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hirtenkampf. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hirtenkampf. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.165Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.165Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "bjswsx2o8amj96g"
+        }
+      ],
+      "source_id": "kwd5s7ueup6evjd"
+    },
+    {
+      "annotation": "Illustration zu »Der Hirtenkampf« von Bernd von Guseck d.i. C. G. von Berneck INr 111056, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antonie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by F. Stone Engraved by H. Robinson",
+      "scans": [
+        "alm_3479_111057_jhic1y5pdx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antonie",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "xrw3c5acolw9q30",
+          "source_id": "cct9gqf1xaoq8m6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "jij8m2y7q2rp7we",
+          "source_id": "uthr4x6kghj8bd3"
+        }
+      ],
+      "source_id": "5rfv57sxstn73i8"
+    },
+    {
+      "annotation": "Illustration zu »Der Hirtenkampf« von Bernd von Guseck d.i. C. G. von Berneck INr 111056, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retzsch del. Stahlst. v. Mahlknecht)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. Stahlst. v. Mahlknecht",
+      "scans": [
+        "alm_3479_111058_z9lc2vb2qf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.230Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "2npp7wo590hxrhv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.230Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "4awloncrf29bdfn"
+        }
+      ],
+      "source_id": "r8gheb4a6jjxy1f"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: 'Tis sweet beneath the heather-bell / To live in autumn brown [...] Leyde /) mit einer Illustration s. Graphik INr 111060, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Der Sturm, welcher die Küsten von Argyleshire heimgesucht hatte, verzog sich. Noch rollten die Wogen, wie Berge gethürmt, durch den Sund von Mull und spritzten den weißen Schaum ihrer Brandung zu den Ufern empor,",
+      "language": [],
+      "musenalm_id": 111059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mac Dougal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mac Dougal",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.230Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "3yxv28lo6yjrb0f"
+        }
+      ],
+      "source_id": "4oc9564n8hn6uvk"
+    },
+    {
+      "annotation": "Illustration zu »Mac Dougal« von Bernd von Guseck d.i. C. G. von Berneck INr 111059, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "404",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Katharina Gordon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by Miss L. Sharpe Engraved by Chs. Heath",
+      "scans": [
+        "alm_3479_111060_2crqtza5je.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Katharina Gordon",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.230Z",
+          "agent": "y3npsvpiyhpz296",
+          "source_id": "ynhkuruq9eb51a0"
+        }
+      ],
+      "source_id": "011ap0hhaetz22h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck von Hirschfeld in Leipzig",
+      "language": [],
+      "musenalm_id": 111061,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von Hirschfeld in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "er3daqkqmi51rq7"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111062,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3479_111062_06ng69pfdo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "bu7irwhal1buv12"
+    }
   ],
   "agents": [
     {

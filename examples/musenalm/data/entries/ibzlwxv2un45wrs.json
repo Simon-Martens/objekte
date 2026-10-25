@@ -49,22 +49,495 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "inr64ivl8ksnk7x"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.822Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411370",
+      "location": "105B08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.822Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "inr64ivl8ksnk7x"
+    }
   ],
   "contents": [
-    "heidodi6iyqqf3f",
-    "77j0090qpt8winn",
-    "u7qz0nydm1oy292",
-    "f60dq5k8fctxrun",
-    "c6ggp3mpovmosip",
-    "hikzqs04f1yy6ew",
-    "fw6kydrejv4imm7",
-    "giohce58u0735am",
-    "pxjmtowwvzl5kqn",
-    "mn7rgf9re1ggjvg",
-    "vd103gttj12xdnw",
-    "tis0j5qpig3b22u",
-    "7ku51mdydhhs18q"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm und Luise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4849_132517_jjuv9miitt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm und Luise",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "heidodi6iyqqf3f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132518,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm und Luise. / Ein / Taschenbuch für das Jahr 1811. / Herausgegeben / von / Geßner. / Wien und Triest / verlegt von Geistinger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4849_132518_yskek76o6j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm und Luise. / Ein / Taschenbuch für das Jahr 1811. / Herausgegeben / von / Geßner. / Wien und Triest / verlegt von Geistinger",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "77j0090qpt8winn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wer nie noch der Sonne erwärmends Licht, / Den freundlichen Mond nie geseh'n, / Der singt vom erfreuenden Strahle wohl nicht,",
+      "language": [],
+      "musenalm_id": 132519,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meiner Geliebten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meiner Geliebten",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "u7qz0nydm1oy292"
+    },
+    {
+      "annotation": "Vorwort des Autors",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Dieses Gedicht hat sein Daseyn zwar durch eine besondere Veranlassung erhalten, welche Idee und den Stoff darbot, allein die Hauptgedanken, die Räthe und Winke, welche darin liegen, haben eine allgemeine Anwendbarkeit.",
+      "language": [],
+      "musenalm_id": 132520,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.080Z",
+          "agent": "9n43egon6ewzq3c",
+          "source_id": "xdcl9n8hoao0fh7"
+        }
+      ],
+      "source_id": "f60dq5k8fctxrun"
+    },
+    {
+      "annotation": "mit 6 Illustrationen s. Graphiken INr 132522-131527, Obj 6-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mütterchen, höre, die Sache mit Wernern ist trefflich / gelungen; / Redlich hat er bezahlt! Man muß was wagen;",
+      "language": [],
+      "musenalm_id": 132521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm und Luise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm und Luise",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "c6ggp3mpovmosip"
+    },
+    {
+      "annotation": "Illustration zu »Wilhelm und Luise« von Johann Georg Geßner INr 132521, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv et scul)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv et scul",
+      "scans": [
+        "alm_4849_132522_7cxxl6bwvu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.081Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "591v0w47mdy2fm9"
+        }
+      ],
+      "source_id": "hikzqs04f1yy6ew"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Illustration zu »Wilhelm und Luise« von Johann Georg Geßner INr 132521, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv et scul)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv et scul",
+      "scans": [
+        "alm_4849_132523_ojj6r00cjg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "fw6kydrejv4imm7"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Illustration zu »Wilhelm und Luise« von Johann Georg Geßner INr 132521, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv et scul)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv et scul",
+      "scans": [
+        "alm_4849_132524_jfv2lrj39h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "giohce58u0735am"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Illustration zu »Wilhelm und Luise« von Johann Georg Geßner INr 132521, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv et scul)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv et scul",
+      "scans": [
+        "alm_4849_132525_z1knwxpc6i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "pxjmtowwvzl5kqn"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Illustration zu »Wilhelm und Luise« von Johann Georg Geßner INr 132521, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv et scul)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv et scul",
+      "scans": [
+        "alm_4849_132526_e8z8la0ed9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "mn7rgf9re1ggjvg"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite /) Illustration zu »Wilhelm und Luise« von Johann Georg Geßner INr 132521, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv et scul)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv et scul",
+      "scans": [
+        "alm_4849_132527_g2i909f8zs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "vd103gttj12xdnw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck und Papier von C. L. Brede",
+      "language": [],
+      "musenalm_id": 132528,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von C. L. Brede…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "tis0j5qpig3b22u"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132529,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4849_132529_21b53evfzz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-07-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ku51mdydhhs18q"
+    }
   ],
   "agents": [
     {

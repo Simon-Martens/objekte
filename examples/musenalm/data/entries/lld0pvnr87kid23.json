@@ -46,7 +46,26 @@
   "year": 1772,
   "editor": "",
   "items": [
-    "cs99kn2fovfd7t3"
+    {
+      "annotation": "§ Umschlag  v. fehlt; § Kalendarium unvollständig; im Schuber",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.583Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405124",
+      "location": "105T02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.583Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cs99kn2fovfd7t3"
+    }
   ],
   "contents": [],
   "agents": [

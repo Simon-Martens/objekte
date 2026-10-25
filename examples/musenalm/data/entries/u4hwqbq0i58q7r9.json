@@ -48,23 +48,673 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "6bi5faxp03agnns"
+    {
+      "annotation": "1837-1840.\nKartonierter Einband mit Goldschnitt.\n 1839: (K: M. Stahl. 6.) Mit Ku 6, Bl 2 und 518 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.573Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101186",
+      "location": "105R08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.573Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6bi5faxp03agnns"
+    }
   ],
   "contents": [
-    "0hhwgfi8o58vdo7",
-    "a8bzl2e7bfi0qxj",
-    "35bwormy9ftmgl4",
-    "kttt2a3d57hptgy",
-    "6hkzesw47o88l1i",
-    "apbr6c1ddaepegh",
-    "rr6v3sbbuo1jl9p",
-    "yuydnvk9xvnr2yg",
-    "ic6vcjlmh4h097n",
-    "4ip1wn4cdtauo99",
-    "5pgu8gsa6z3qmwm",
-    "92zumzo6prcpge9",
-    "q3hs48u2lzr6s00",
-    "pejj177kmdi9i0a"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106591,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CROMWELL. / (with his daughter) / Contemplainting the portrait of Charles 1st.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Peint par Decaisne Gravé par Edward Smith",
+      "scans": [
+        "alm_1834_106591_g406gebztr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CROMWELL. / (with his daughter) / Contemplainting the portrait of Charles 1st.",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "7kzwkwa26qghauh",
+          "source_id": "qayy3823v5n90rs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "megatka3x4ncswy",
+          "source_id": "yd77yw5fy8zd51c"
+        }
+      ],
+      "source_id": "0hhwgfi8o58vdo7"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106592,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HELENA / TASCHENBUCH / FÜR / 1839. / Dritter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stich u. Druck von C. Martin",
+      "scans": [
+        "alm_1834_106592_ewsi9m3ar3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HELENA / TASCHENBUCH / FÜR / 1839. / Dritter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "hl8bmny03wfyiyl"
+        }
+      ],
+      "source_id": "a8bzl2e7bfi0qxj"
+    },
+    {
+      "annotation": "mit Kurzerläuterung im G-Verz INr 106598, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106593,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SIR ROGER DE CORVELEY / AND THE GIPSIES.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by C. R. Leslie R. A. Engraved by C. Rolls",
+      "scans": [
+        "alm_1834_106593_ku88pnmx6d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SIR ROGER DE CORVELEY / AND THE GIPSIES.",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "i4ngciqyls3qwnk",
+          "source_id": "vfpgl5yoj1lkslb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "vwqmgf5uah3zvyy"
+        }
+      ],
+      "source_id": "35bwormy9ftmgl4"
+    },
+    {
+      "annotation": "mit Kurzerläuterung im G-Verz INr 106598, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106594,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THE FISHERMAN LEAVING HOME",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by W. Collins, R. A. Engraved by Chas. Rolls",
+      "scans": [
+        "alm_1834_106594_j1nvj8bla6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THE FISHERMAN LEAVING HOME",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "gt7w4j8j82tlk3c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "r1vy04g1bcdp3en",
+          "source_id": "j4rs6thv6yfqls3"
+        }
+      ],
+      "source_id": "kttt2a3d57hptgy"
+    },
+    {
+      "annotation": "mit Kurzerläuterung im G-Verz INr 106598, Obj 8 /) unter der Graphik: Druck u. Papier v. Lange in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106595,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FEEDING THE ROBIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by W. Collins R. A. Engraved by W. Finden",
+      "scans": [
+        "alm_1834_106595_o7q5rt104l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FEEDING THE ROBIN",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "n0s2frkyl2br3jb",
+          "source_id": "3f7jmxlkww1hg96"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "r1vy04g1bcdp3en",
+          "source_id": "fmvurg0xm9ij8lx"
+        }
+      ],
+      "source_id": "6hkzesw47o88l1i"
+    },
+    {
+      "annotation": "mit Kurzerläuterung im G-Verz INr 106598, Obj 8 /) unter der Graphik: Druck u. Papier v. Lange in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106596,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THE STANDARD BEARER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Cooper R. A. Pinxt. J. Webb Sculpt.",
+      "scans": [
+        "alm_1834_106596_e34fa03eya.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THE STANDARD BEARER",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "h4qd0uyq0k105bt",
+          "source_id": "wzx4pnp96ko834d"
+        }
+      ],
+      "source_id": "apbr6c1ddaepegh"
+    },
+    {
+      "annotation": "mit Kurzerläuterung im G-Verz INr 106598, Obj 8 /) unter der Graphik: Druck u. Papier v. Lange in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106597,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CROMWELL AT MARSTON MOOR",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by A. Cooper R. A. from a sketch by an unknown Artist. Engraved by W. Greatbach",
+      "scans": [
+        "alm_1834_106597_7gmauw16qw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CROMWELL AT MARSTON MOOR",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "i8nd5wn3lvtgdna",
+          "source_id": "4nwlnblf9td361g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "h4qd0uyq0k105bt",
+          "source_id": "iaw2jje1gvd33u8"
+        }
+      ],
+      "source_id": "rr6v3sbbuo1jl9p"
+    },
+    {
+      "annotation": "6 Kurzerläuterungen der Graphiken des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106598,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Stahlstiche",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "yuydnvk9xvnr2yg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106599,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "ic6vcjlmh4h097n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war in den hellen Frühlingstagen, als sich am Rhein zwei Schul- und Universitätsfreunde wieder fanden.",
+      "language": [],
+      "musenalm_id": 106600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebeswerben. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebeswerben. / Novelle",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "qvawh5261j622i2"
+        }
+      ],
+      "source_id": "4ip1wn4cdtauo99"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Das Morgenroth schimmerte durch den Wald. Frische Lüfte wehten von der Donau herüber, auf taublitzenden Wiesen stand im Zwielicht das Wild und äsete friedlich.",
+      "language": [],
+      "musenalm_id": 106601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonnenflug. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonnenflug. / Novelle",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "ccht7qhrqwhyr0v"
+        }
+      ],
+      "source_id": "5pgu8gsa6z3qmwm"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Wer dem Gefallenen hilft, der erniedrigt sich nicht, der erhebt sich. Napoleon auf St. Helena",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Liebe, süße Freundin! Hast Du gehört, ich bin im Kloster! im Kloster! Ich das fröhliche Mädchen, das heitre, das muntre!",
+      "language": [],
+      "musenalm_id": 106602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Dschem. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Dschem. / Historische Novelle",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "ewgk31s2dookvhp"
+        }
+      ],
+      "source_id": "92zumzo6prcpge9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Die Nacht lag finster auf dem Meere und den Inseln; nur einzelne Sterne spiegelten sich in der ruhigen Wasserfläche.",
+      "language": [],
+      "musenalm_id": 106603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Niobe von San-Bonifazio. / Corsisches Sittenbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Niobe von San-Bonifazio. / Corsisches Sittenbild",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.225Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.225Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "jmcoyawqt04y8ja"
+        }
+      ],
+      "source_id": "q3hs48u2lzr6s00"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "518",
+      "incipit_statement": "Gedruckt bei Leopold Freund in Breslau",
+      "language": [],
+      "musenalm_id": 106604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei Leopold Freund in Breslau…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "pejj177kmdi9i0a"
+    }
   ],
   "agents": [
     {

@@ -48,59 +48,2155 @@
   "year": 1796,
   "editor": "",
   "items": [
-    "05lrs3unva1zu8o",
-    "xt2syaqxz2qc2mi"
+    {
+      "annotation": "Jgg 1794-1803. (1797 nicht erschienen.) Jg 1804:  unvollst.  und ergänzt Nürnberg, Hrsg. anonym s. Goed. VI, 309, 13. Fortgesetzt durch: Staaatsgeschichte Europas (Cotta) 1805, 1806\n§1§ G fehlt, §2§ UG fehlt <br> Halbledereinband; verso G, gT, S I T, SS III-XVI darin 9 GG, 2 GG, S 1 zT, SS 3-267, S 268 VrlgM, 2 BB VrlgM",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.469Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100497",
+      "location": "105K01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.469Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "05lrs3unva1zu8o"
+    },
+    {
+      "annotation": "Umschlag, Graphik Nr. 2",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.469Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "407931",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.469Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xt2syaqxz2qc2mi"
+    }
   ],
   "contents": [
-    "ui0g9ohynop5yit",
-    "lrxfckraq91vaez",
-    "21hsm6qptl9m7w3",
-    "eo49yla8a6j868z",
-    "3jh32lo3o82atmk",
-    "nkc1nra58ylkpha",
-    "pv485ygpr1at7bu",
-    "k929gqraly04ni8",
-    "5dx1ovaefgi6xh6",
-    "rpr4fl8961d4kt4",
-    "lwyggxcl3mn8bwx",
-    "u57d0ttfrq801mi",
-    "ddovgornzcz4wp4",
-    "rusjmu6zi6bqotk",
-    "28swiccqu1ll6ab",
-    "00l7pq379ztgi3c",
-    "a45a5oroqf33g3m",
-    "uidn8wlam6k73wr",
-    "uichs64aaws57af",
-    "vqz0v9hkdhh25q4",
-    "p9virb8rn8yaadc",
-    "9jm1z6n9mruxyvn",
-    "bojfu8wrymhwjsl",
-    "2890qa81u0b4576",
-    "cbbd3aly3aem8ic",
-    "hbykwkfromvqran",
-    "nyo5ar3w6whepad",
-    "19odmyuxwq39ech",
-    "rxfxt281d3xw1ek",
-    "tgrk2b52qiakjiu",
-    "58akzl7rohoof75",
-    "zc200oks3lkm6ei",
-    "gffmfs6oxjadho8",
-    "b9i8to9bfcp65dn",
-    "v6gityn9w6tvr4l",
-    "25xgmgivit9uzz5",
-    "enxa6srp46rghpt",
-    "500xs8edse1jw5w",
-    "7ugwlhji40pnbyh",
-    "2z0s4tl3waxldsb",
-    "ofrhwbc0fjm2sen",
-    "xvaw4yv1febb8js",
-    "6vijhnis9jd7hnf",
-    "w456cchr56i5fnd",
-    "rfovdjowcodibr0",
-    "2vg506z3698jcl2",
-    "lqvtuhmfvmirc5u",
-    "zvem44259zwb8o3",
-    "82d12vcpf8m3y4c"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89339,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_192_89339_n2r2lruvfv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "ui0g9ohynop5yit"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 18664, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.042Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18614,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BARÈRE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach J. Guerin getreu copirt. A. W. Küffner",
+      "scans": [
+        "alm_192_18614_tgo524ulkh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BARÈRE",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.215Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "3i55xqp7zj2w0cs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.214Z",
+          "agent": "unn5933trorqlfh",
+          "source_id": "nj6ult6wxpz6g6k"
+        }
+      ],
+      "source_id": "lrxfckraq91vaez"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.044Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18615,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für / die neuste Geschichte. / Dritter Jahrgang. / 1796.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Vogel scrip. & sc. Nürnbg.",
+      "scans": [
+        "alm_192_18615_h4nn5su8ii.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für / die neuste Geschichte. / Dritter Jahrgang. / 1796.",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.215Z",
+          "agent": "k5mzhsnsldwkcu7",
+          "source_id": "8zcffaayuobabhz"
+        }
+      ],
+      "source_id": "21hsm6qptl9m7w3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18616,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / die neuste Geschichte. / Herausgegeben / von D. Ernst Ludwig Posselt. / Dritter Jahrgang. / mit Küffnerischen Kupfern. / Nürnberg, / in der Bauer- und Mannischen Buchhandlung. / 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_192_18616_ellng72suo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / die neuste Geschichte. / Herausgegeben / von D. Ernst Ludwig Posselt. / Dritter Jahrgang. / mit Küffnerischen Kupfern. / Nürnberg, / in der Bauer- und Mannischen Buchhandlung. / 1796",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "eo49yla8a6j868z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Was die gewöhnliche, oft so hohle Phrase der Panegyrikus Macher ist:",
+      "language": [],
+      "musenalm_id": 18617,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Wort / an die Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Wort / an die Leser",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.933Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "5he9ih2bmnrm9qw"
+        }
+      ],
+      "source_id": "3jh32lo3o82atmk"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 12 Textbezügen zu 12 Graphiken INr 18619-18650",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18618,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Monatskupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Monatskupfer",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.914Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.914Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "2ww8zducznwy31w"
+        }
+      ],
+      "source_id": "nkc1nra58ylkpha"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Die Gegenstände dieser Kupfer sind aus dem Laufe des Jahrs 1794, im engsten Bezuge auf den Krieg und das innere Frankreich, ausgewählt",
+      "language": [],
+      "musenalm_id": 18619,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bemerkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bemerkung",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.914Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.914Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "9ghpf8dsrxlecf7"
+        }
+      ],
+      "source_id": "pv485ygpr1at7bu"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18621, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "S. hierüber das Taschenbuch selbst, an mehreren Orten.",
+      "language": [],
+      "musenalm_id": 18620,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.) Kanonaden in Lyon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.) Kanonaden in Lyon",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.403Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.403Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "l2r80cu2k1ymvvf"
+        }
+      ],
+      "source_id": "k929gqraly04ni8"
+    },
+    {
+      "annotation": "paginiert 1. /) s. INr 18620, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.244Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18621,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kanonaden in Lÿon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner inv. del. et sc. 1795",
+      "scans": [
+        "alm_192_18621_nnhvwa26ri.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kanonaden in Lÿon",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.403Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.403Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "908hx8v29m98xik"
+        }
+      ],
+      "source_id": "5dx1ovaefgi6xh6"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18623, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.455Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Nach einem Pariser Original. Uiber die Noyaden, die hier in ihrer scheuslichsten Manier dargestellt sind,",
+      "language": [],
+      "musenalm_id": 18622,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. ) / Noyaden in der Vendee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. ) / Noyaden in der Vendee",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.984Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "4oewne25col34sc"
+        }
+      ],
+      "source_id": "rpr4fl8961d4kt4"
+    },
+    {
+      "annotation": "paginiert 2. /) s. INr 18622, Obj 9 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18623,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Noyaden in der Vendée",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18623_jiqrilafa9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Noyaden in der Vendée",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.984Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "vk389nwi22f0qeb"
+        }
+      ],
+      "source_id": "lwyggxcl3mn8bwx"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18631",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Dieser berühmte Mann ist hier mit den Gefährten seines Schicksals auf dem Wege nach dem Schaffot",
+      "language": [],
+      "musenalm_id": 89340,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. ) / Hinrichtung Danton's und seiner Freunde. / (5. April) / S. Taschenbuch , Seite 101-104",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. ) / Hinrichtung Danton's und seiner Freunde. / (5. April) / S. Taschenbuch , Seite 101-104",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.081Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.081Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "mvphjy0jjdt9n5r"
+        }
+      ],
+      "source_id": "u57d0ttfrq801mi"
+    },
+    {
+      "annotation": "paginiert 3. /) s. INr 18624 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.318Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18631,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hinrichtung Dantons und seiner / Freunde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18631_czfny8ros0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hinrichtung Dantons und seiner / Freunde",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.860Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "95ojwmjhfm92q9k"
+        }
+      ],
+      "source_id": "ddovgornzcz4wp4"
+    },
+    {
+      "annotation": "paginiert 4. /) s. INr 18633, Obj 15 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.319Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18632,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Franken erstürmen den Berg- / Gipfel der Bernhards Alpe. ( 24. April)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18632_0h1spxeoml.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Franken erstürmen den Berg- / Gipfel der Bernhards Alpe. ( 24. April)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.860Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "gnz44hgagbde1rx"
+        }
+      ],
+      "source_id": "rusjmu6zi6bqotk"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18632, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ungeheure, zakigte, himmelnahe GebirgMassen, mit ewigem Schnee und Eis bedekt;",
+      "language": [],
+      "musenalm_id": 18633,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.) / Erstürmung der BernhardsAlpe durch / die Franken. / (24. April)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.) / Erstürmung der BernhardsAlpe durch / die Franken. / (24. April)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "djzg3yiqjj8iae3"
+        }
+      ],
+      "source_id": "28swiccqu1ll6ab"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18636, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ein furchtbarer Kampf der fränkischen Infanterie gegen die feindliche Reiterei",
+      "language": [],
+      "musenalm_id": 18634,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. ) Treffen in de Ebene von Bossus. / (6. April.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. ) Treffen in de Ebene von Bossus. / (6. April.)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "3g2r6jsyimhnlto"
+        }
+      ],
+      "source_id": "00l7pq379ztgi3c"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18637, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Eine der Unsterblichkeitwerthesten Meerschlachten. Triumph der Manövrirkunst von Seiten der Britten,",
+      "language": [],
+      "musenalm_id": 18635,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.) / SeeSchlacht auf der Höhe von Quessant. / (1. Jun.) / S. Taschenbuch, Seite 98. 99.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.) / SeeSchlacht auf der Höhe von Quessant. / (1. Jun.) / S. Taschenbuch, Seite 98. 99.",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "xxocse9ou48xxdt"
+        }
+      ],
+      "source_id": "a45a5oroqf33g3m"
+    },
+    {
+      "annotation": "paginiert 5. /) s. INr 18634, Obj 16 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18636,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Treffen in der Ebene von Bossu. / (26. April)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18636_pkdjy2kfqz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Treffen in der Ebene von Bossu. / (26. April)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "y060zzgj0hxe8lw"
+        }
+      ],
+      "source_id": "uidn8wlam6k73wr"
+    },
+    {
+      "annotation": "paginiert 6. /) s. INr 18635, Obj 17 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18637,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seeschlacht auf der Höhe von / Quessant. (1. Juni)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18637_8eu6s6c914.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seeschlacht auf der Höhe von / Quessant. (1. Juni)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "zuciq0j6s7mhunc"
+        }
+      ],
+      "source_id": "uichs64aaws57af"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18639, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "S. hierüber ganz die Beschreibung im Taschenbuche selbst, Seite 109, 110",
+      "language": [],
+      "musenalm_id": 18638,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Robespierre am Feste des höchsten Wesens / (8. Jun.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Robespierre am Feste des höchsten Wesens / (8. Jun.)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "dwzwpc87vr44wtq"
+        }
+      ],
+      "source_id": "vqz0v9hkdhh25q4"
+    },
+    {
+      "annotation": "paginiert 7. /) s. INr 18638, Obj 20 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18639,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Robespierre am Feste des höchsten Wesen. / (8. Jun.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18639_a635brxgjm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Robespierre am Feste des höchsten Wesen. / (8. Jun.)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "g1l4bjfjlshe5iz"
+        }
+      ],
+      "source_id": "p9virb8rn8yaadc"
+    },
+    {
+      "annotation": "paginiert 8. /) s. INr 18641, Obj 23 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18640,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mordbrand von Kussel (26. Jul.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18640_lbsonkdcqw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Mordbrand von Kussel (26. Jul.)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.712Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "63eihyyzn5wd4je"
+        }
+      ],
+      "source_id": "9jm1z6n9mruxyvn"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18640, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Das leibhafte Bild von Troja. Dem Künstler treflich gelungen.",
+      "language": [],
+      "musenalm_id": 18641,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.) / Der Mordbrand von Kussel. / (26. Jul.) / S. Taschenbuch, Seite 79",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.) / Der Mordbrand von Kussel. / (26. Jul.) / S. Taschenbuch, Seite 79",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.781Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "9oqnflwq6dh1h1n"
+        }
+      ],
+      "source_id": "bojfu8wrymhwjsl"
+    },
+    {
+      "annotation": "paginiert 9. /) s. INr 18644, Obj 26 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18642,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Robespierre in der Nacht vom 9. auf / den 10. Thermodor. (28. Jul.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18642_9gxcjv6z8f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Robespierre in der Nacht vom 9. auf / den 10. Thermodor. (28. Jul.)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.781Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "hvxprhhwbpghgj5"
+        }
+      ],
+      "source_id": "2890qa81u0b4576"
+    },
+    {
+      "annotation": "paginiert 10. /) s. INr 18645, Obj 27 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18643,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Letzte Sitzung der Jacobiner (11. Novbr)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18643_ckakj4vaoa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Letzte Sitzung der Jacobiner (11. Novbr)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.781Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "f015rqb6b0r5pjo"
+        }
+      ],
+      "source_id": "cbbd3aly3aem8ic"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18642, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18644,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.) / Robespierre in der Nacht vom 9. auf den / 10 Thermidor. / (28. Jul.) / Nach einem Pariser Original. S. hierüber das Taschenbuch , Seite 114-123",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.) / Robespierre in der Nacht vom 9. auf den / 10 Thermidor. / (28. Jul.) / Nach einem Pariser Original. S. hierüber das Taschenbuch , Seite 114-123",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.781Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "bm7zodpxkl06n9b"
+        }
+      ],
+      "source_id": "hbykwkfromvqran"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18643, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18645,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.) / Letzte Sitzung der Jacobiner. / S. Taschenbuch, Seite 169. 170",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.) / Letzte Sitzung der Jacobiner. / S. Taschenbuch, Seite 169. 170",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.781Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "yywr78yycmno6bb"
+        }
+      ],
+      "source_id": "nyo5ar3w6whepad"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18649, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18646,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.) Übergang der Franken über die Waal / und die Maas. / (27. Dec.). / S. Taschenbuch, Seite 184",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.) Übergang der Franken über die Waal / und die Maas. / (27. Dec.). / S. Taschenbuch, Seite 184",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.782Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "vijbm5mw6e72cvo"
+        }
+      ],
+      "source_id": "19odmyuxwq39ech"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 18618, Obj 6) s. Graphik INr 18650, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18647,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.) / Einzug der Franken in Amsterdam. / (19. Januar 1795.) / S. Taschenbuch, Seite 188",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.) / Einzug der Franken in Amsterdam. / (19. Januar 1795.) / S. Taschenbuch, Seite 188",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.476Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "z1m7hekyfc0589f"
+        }
+      ],
+      "source_id": "rxfxt281d3xw1ek"
+    },
+    {
+      "annotation": "s. Umschlaggraphiken INr 89339, 89341",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Die auf beiden Seiten des Umschlags angebrachten Ideen sind wohl ohne Erklärung verständlich.",
+      "language": [],
+      "musenalm_id": 18648,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die auf beiden Seiten des Umschlags angebrachten Ideen sind wohl ohne Erklärung verständlich.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.476Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "mv93skue7m2gyac"
+        }
+      ],
+      "source_id": "tgrk2b52qiakjiu"
+    },
+    {
+      "annotation": "paginiert 11. /) s. INr 18646, Obj 28 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18649,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Übergang der Franken über die / Waal und die Maas (27. December.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18649_g6s07di4fz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Übergang der Franken über die / Waal und die Maas (27. December.)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.476Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "f9metv5fvn6w2fd"
+        }
+      ],
+      "source_id": "58akzl7rohoof75"
+    },
+    {
+      "annotation": "paginiert 12. /) s. INr 18647, Obj 29 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18650,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einzug der Franken in Amsterdam / (19. Januar)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_192_18650_coor1gvc7x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einzug der Franken in Amsterdam / (19. Januar)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.477Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "9lmezwmphwiwvk8"
+        }
+      ],
+      "source_id": "zc200oks3lkm6ei"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Beitrag in 4 Abschnitten INr 18652-18655, Obj 34-37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Krieg der fränkischen Nation / gegen / die coalirten Mächte Europens / Dritter Jahrgang / 1794. / Von D. Ernst Ludwig Posselt. / Nürnberg, / in der Bauer und Mannischen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Ernst Ludwig Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Krieg der fränkischen Nation / gegen / die coalirten Mächte Europens / Dritter Jahrgang / 1794. / Von D. Ernst Ludwig Posselt. / Nürnberg, / in der Bauer und Mannischen Buchhandlung",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.452Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "jhwf6w65mfr4o15"
+        }
+      ],
+      "source_id": "gffmfs6oxjadho8"
+    },
+    {
+      "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Dritter Jahrgang 1793 (Sammlung INr 18652, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Nach dem zweiten Feldzug des verhängnißvollen Krieges, der nicht, wie die andern, Städte und Länder",
+      "language": [],
+      "musenalm_id": 18652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Abschnitt. / Von dem Anfange des Jahrs bis zur / Eröffnung des Feldzugs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Ernst Ludwig Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Abschnitt. / Von dem Anfange des Jahrs bis zur / Eröffnung des Feldzugs",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.477Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "kaxay9a0myrvjd8"
+        }
+      ],
+      "source_id": "b9i8to9bfcp65dn"
+    },
+    {
+      "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Dritter Jahrgang 1793 (Sammlung INr 18652, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Abschnitt. / Erste Thaten des Feldzuges, bis zum / Sturze Robespierre's. / (28. Juli)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Ernst Ludwig Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Abschnitt. / Erste Thaten des Feldzuges, bis zum / Sturze Robespierre's. / (28. Juli)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.452Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "wxpyqk4m4hlxp4d"
+        }
+      ],
+      "source_id": "v6gityn9w6tvr4l"
+    },
+    {
+      "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Dritter Jahrgang 1793 (Sammlung INr 18652, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Der Sturz Robespierres mit seinen Folgen, oder das, was man die Revolution vom 9 Thermidor nennt,",
+      "language": [],
+      "musenalm_id": 18654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Abschnitt. / Von der Revolution vom 9 Thermidor / (27 Jul) bis zum Schlusse des Jahrs / (1794)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Ernst Ludwig Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Abschnitt. / Von der Revolution vom 9 Thermidor / (27 Jul) bis zum Schlusse des Jahrs / (1794)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.453Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "fevs8ekbx1cbxkz"
+        }
+      ],
+      "source_id": "25xgmgivit9uzz5"
+    },
+    {
+      "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Dritter Jahrgang 1793 (Sammlung INr 18652, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Der Winter war eingetreten. Nach den Thaten, die sie im Laufe dieses Feldzuges vollbracht hatten,",
+      "language": [],
+      "musenalm_id": 18655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Abschnitt. / WinterFeldzug. Eroberung Hollands",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Ernst Ludwig Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Abschnitt. / WinterFeldzug. Eroberung Hollands",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.453Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "858eyyfojzm8r35"
+        }
+      ],
+      "source_id": "enxa6srp46rghpt"
+    },
+    {
+      "annotation": "ausfaltbare Tabelle",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gemählde / des Winter Feldzuges der fränkischen Nord Armee, / vom December 1794 bis in den Februar 1795",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_192_18656_7oo2le2og8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gemählde / des Winter Feldzuges der fränkischen Nord Armee, / vom December 1794 bis in den Februar 1795",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "500xs8edse1jw5w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18657,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Etat aller OberBefehlshaber / der / Armeen und Flotten / der fränkischen Republik, / zur Epoche des 21 Novembers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Etat aller OberBefehlshaber / der / Armeen und Flotten / der fränkischen Republik, / zur Epoche des 21 Novembers",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ugwlhji40pnbyh"
+    },
+    {
+      "annotation": "3 Darstellungen von Heißluftballons s. Textbezug INr 18659, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18658,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aerostat nach / Charles und Robert. / Aerostat nach / Mongolfier. Aerostat / nach Guyton Morveau / und Coutell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Korhammer sc.",
+      "scans": [
+        "alm_192_18658_e25584oo4c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aerostat nach / Charles und Robert. / Aerostat nach / Mongolfier. Aerostat / nach Guyton Morveau / und Coutell",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "2z0s4tl3waxldsb"
+    },
+    {
+      "annotation": "s. Graphik INr 18658, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Die sogenannten Luftbälle, oder Aerostaten, die im Lauf des Jahr 1783 von den Brüdern Montgolfier, Papiermachern zu Annonay in Frankreich, erfunden",
+      "language": [],
+      "musenalm_id": 18659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uiber / die Luftbälle, / als Werkzeuge des Krieges. / (Mit einer Kupfertafel)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uiber / die Luftbälle, / als Werkzeuge des Krieges. / (Mit einer Kupfertafel)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.938Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "fgr4n454k85436f"
+        }
+      ],
+      "source_id": "ofrhwbc0fjm2sen"
+    },
+    {
+      "annotation": "s. Textbezug INr 18662, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Telegraphisches Alphabet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_192_18660_o2x3i3bdfj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Telegraphisches Alphabet",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "xvaw4yv1febb8js"
+    },
+    {
+      "annotation": "s. Textbezug INr 18662, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TELEGRAPH / AUF DEM LOUVRE ZU PARIS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_192_18661_1c0pl581z9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TELEGRAPH / AUF DEM LOUVRE ZU PARIS",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "6vijhnis9jd7hnf"
+    },
+    {
+      "annotation": "mit 2 Graphiken s. INr 16660 u. 18661, Obj 42 u. 43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Regierungen, Befehlshaber von Armeen und Flotten, wissen, wie unendlich wichtig es zuweilen ist, eine Nachricht",
+      "language": [],
+      "musenalm_id": 18662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / Telegraphik und Telegraphen. / (Mit zwei Kupfertafeln)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / Telegraphik und Telegraphen. / (Mit zwei Kupfertafeln)",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.635Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.635Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "sgpz3lnz0iigzk1"
+        }
+      ],
+      "source_id": "w456cchr56i5fnd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Maximilian Robespierre ward gebohren zu Arras, im Jahre 1739.",
+      "language": [],
+      "musenalm_id": 18663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maximilian Robespierre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maximilian Robespierre",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.635Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.635Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "xu6o80kfus85gz6"
+        }
+      ],
+      "source_id": "rfovdjowcodibr0"
+    },
+    {
+      "annotation": "s. Titelportrait INr 18614, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Vor der Revolution Advocat und Dichter in Toulouse.",
+      "language": [],
+      "musenalm_id": 18664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Barere, / oder mit seinem ganzen Namen, / Bertrand Barere von Vieuzac",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Barere, / oder mit seinem ganzen Namen, / Bertrand Barere von Vieuzac",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.762Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "vnl9e7qd1wyjh6j"
+        }
+      ],
+      "source_id": "2vg506z3698jcl2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chronologische Tafel / über die wichtigsten Begebenheiten des / Jahrs 1794, die Bezug auf / den Krieg haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chronologische Tafel / über die wichtigsten Begebenheiten des / Jahrs 1794, die Bezug auf / den Krieg haben",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqvtuhmfvmirc5u"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "zvem44259zwb8o3"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89341,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_192_89341_qdd70alkoo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-01-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "82d12vcpf8m3y4c"
+    }
   ],
   "agents": [
     {

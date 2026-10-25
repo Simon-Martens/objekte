@@ -48,43 +48,1224 @@
   "year": 1849,
   "editor": "",
   "items": [
-    "tx9u6tub65t7ytg"
+    {
+      "annotation": "1845-1849.\nHalbleineneinband. (Buchrücken beschädigt.)\n1849: (K: M.  1. Stahlst, 18 ILL[Ku] u. 2 Musikb.) Mit Tku 1[Stahlst.], XVI, Ku 18 [ILL.], 248 SS, BL 4 und Musikb 2.\n\\par Forts. v.: Vergissmeinnicht . TB f.d.J. 1830-1843.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.698Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100980",
+      "location": "105R02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.698Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tx9u6tub65t7ytg"
+    }
   ],
   "contents": [
-    "nci7j8lnpgbm8zg",
-    "pvvy1c7dtfcefk5",
-    "hs82b8173cqogi5",
-    "pya102yb8vpdlke",
-    "osipb48lseg5277",
-    "0cxxtbk9fhkc0up",
-    "yfxo4ej6r2vybsl",
-    "3ray4yl5myhmaeb",
-    "z2lq3wfqvy2mf3b",
-    "qkgvemdl3g80wvu",
-    "z8jjnidp4qdoili",
-    "77vi4ac3glo8jqn",
-    "nxpsv4f2lalc45d",
-    "0ucuzkp2npm5soh",
-    "2s9czm9n20h943u",
-    "gyoe8cm6z3udyk2",
-    "hqd8bwrhj7rrn9k",
-    "uhvifakh88wqkv0",
-    "ekz7g7oi35tfrjd",
-    "q5lrkdg7ylng3js",
-    "c0vbqzcncuc4s72",
-    "2q0b3kr8i3n7xxx",
-    "7ddmczjaby2z2g4",
-    "1u19raxwao6wf2c",
-    "k67b7dg9y6wo7ov",
-    "741qggtb6m5elnl",
-    "jmeibix4zw29b90",
-    "addb08sqc5cqkr2",
-    "8j5jml7ifxhqiiw",
-    "q1yl4pn9nby1sqk",
-    "e4ax76lifeokys6",
-    "8hhp9v9ur0f5ry3",
-    "p6g9hr124acuujo",
-    "lafif9qwhrbtd51"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103584,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OLGA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein gez. H. Gugeler gest.",
+      "scans": [
+        "alm_3421_103584_cfvpu4o8ki.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OLGA",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "nci7j8lnpgbm8zg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103585,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / Carl Spindler. / Für das Jahr 1849. / Mit einem Stahlstich, achtzehn Illustrationen und zwei illustrirten Musik- / beilagen aus der xylographischen Anstalt von A. Hohenstein. / Stuttgart. / Franck'scher Verlag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103585_6g6nrc1ch9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / Carl Spindler. / Für das Jahr 1849. / Mit einem Stahlstich, achtzehn Illustrationen und zwei illustrirten Musik- / beilagen aus der xylographischen Anstalt von A. Hohenstein. / Stuttgart. / Franck'scher Verlag",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "pvvy1c7dtfcefk5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "hs82b8173cqogi5"
+    },
+    {
+      "annotation": "Vorwort zu folgenden Beiträgen und zu 8 Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Es lag schon früher in unserm Plane, dem deutschen Volke in dem alljährlich wiederkehrenden Almanach einmal das Leben und Treiben unserer Vorfahren im Mittelalter durch einen Cyclus von Darstellungen zu veranschaulichen",
+      "language": [],
+      "musenalm_id": 103587,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es lag schon früher in unserm Plane, dem deutschen Volke in dem alljährlich wiederkehrenden Almanach einmal das Leben und Treiben unserer Vorfahren im Mittelalter durch einen Cyclus von Darstellungen zu veranschaulichen…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Verlagshandlung",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "pya102yb8vpdlke"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Uns ist in altem Mären Wunders viel gefait / Von Helden, werth der Ehren, von großer Kühnheit;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Fern von der Arbeit der Knechte ergötzte den Ritter, wenn er auf seiner Burg hauste, die ritterliche Luft der Jagd, oder ein heiteres Bankett, wo der Wein in Strömen floß",
+      "language": [],
+      "musenalm_id": 103588,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein modernes Bild / aus der / romantischen Zeit / des / Ritterthums",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein modernes Bild / aus der / romantischen Zeit / des / Ritterthums",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "osipb48lseg5277"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Dir entbietet, Fürst der Wüste, seinen Gruß der femde Graf, / Der vom württemberger Lande, der dich oft im Kampfe traf.",
+      "language": [],
+      "musenalm_id": 103589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendland und Morgenland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendland und Morgenland",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "0cxxtbk9fhkc0up"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 8 Graphiken INr 103591-103598, Obj  8-15; die Titel aus dem G-Verz sind dort angegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103590,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Bilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Bilder",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "yfxo4ej6r2vybsl"
+    },
+    {
+      "annotation": "nummeriert I. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103591,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Turnierherr, ein Graf von Württemberg #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein",
+      "scans": [
+        "alm_3421_103591_43036lsraj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Turnierherr, ein Graf von Württemberg #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ray4yl5myhmaeb"
+    },
+    {
+      "annotation": "nummeriert II. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103592,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Turnierpferd desselben nebst 4 Edelknaben, welche Schwerdt, Lamze, Helm und Schild tragen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103592_v80965ve0w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Turnierpferd desselben nebst 4 Edelknaben, welche Schwerdt, Lamze, Helm und Schild tragen #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "z2lq3wfqvy2mf3b"
+    },
+    {
+      "annotation": "nummeriert III. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103593,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ritter von Liechtenstein mit zwei Pagen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103593_g6cgjy15ku.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Ritter von Liechtenstein mit zwei Pagen #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "qkgvemdl3g80wvu"
+    },
+    {
+      "annotation": "nummeriert IV. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103594,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei fechtende Ritter in sausendem Galopp dahersprengend #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein",
+      "scans": [
+        "alm_3421_103594_7xz9z3pzzk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwei fechtende Ritter in sausendem Galopp dahersprengend #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "z8jjnidp4qdoili"
+    },
+    {
+      "annotation": "nummeriert V. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fürst der Wüste, umgeben von 4 Negern, welche kostbare Waffen und Geräthe tragen #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein",
+      "scans": [
+        "alm_3421_103595_y6y3ifbxl8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Fürst der Wüste, umgeben von 4 Negern, welche kostbare Waffen und Geräthe tragen #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "77vi4ac3glo8jqn"
+    },
+    {
+      "annotation": "nummeriert VI. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103596,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Oberste der Sarazenen #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein",
+      "scans": [
+        "alm_3421_103596_w413peu6ap.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Oberste der Sarazenen #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "nxpsv4f2lalc45d"
+    },
+    {
+      "annotation": "nummeriert VII. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103597,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei blitzesschnelle Cavassen [...] #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein",
+      "scans": [
+        "alm_3421_103597_q4ltx4hqoz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zwei blitzesschnelle Cavassen [...] #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ucuzkp2npm5soh"
+    },
+    {
+      "annotation": "nummeriert VIII. /) # Bez. aus dem I-Verz; # Titel s. G-Verz: »Erklärung der Bilder. A. Abendland« INr 103590, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103598,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Aeußere der Turnierhalle am Abend des Festes #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hohenstein",
+      "scans": [
+        "alm_3421_103598_zvirhmcd82.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Aeußere der Turnierhalle am Abend des Festes #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "2s9czm9n20h943u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergissmeinnicht. / Dem deutschen Volke / gewidmet / von Carl Spindler. / Für / das Jahr 1849",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergissmeinnicht. / Dem deutschen Volke / gewidmet / von Carl Spindler. / Für / das Jahr 1849",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "gyoe8cm6z3udyk2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Druck der J. G. Sprandel'schen Buchdruckerei in Stuttgart und Cannstadt",
+      "language": [],
+      "musenalm_id": 103600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck der J. G. Sprandel'schen Buchdruckerei in Stuttgart und Cannstadt…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "hqd8bwrhj7rrn9k"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103602, 103603; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die großartigsten, die welterschütterndsten Ereignisse haben oft in einem unbeachteten Winkel der Erde Wurzel gefaßt.",
+      "language": [],
+      "musenalm_id": 103601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sechs und Vierziger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sechs und Vierziger",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.200Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.200Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "f6dpz2etnm2ahtt"
+        }
+      ],
+      "source_id": "uhvifakh88wqkv0"
+    },
+    {
+      "annotation": "Illustration zu »Der Sechs und Vierziger« von C. Spindler INr 103601, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Baselstabl 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103602_nrgvvgacs6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Baselstabl 1847",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "ekz7g7oi35tfrjd"
+    },
+    {
+      "annotation": "Illustration zu »Der Sechs und Vierziger« von C. Spindler INr 103601, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103603_wd78ew5d73.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "q5lrkdg7ylng3js"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 103605-103607, Obj 22-24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Es ging wohl schon Mancher in die Fremde, und da er zurückkahm, hat er seine Heimath nicht mehr erkannt mit Haus und Hof,",
+      "language": [],
+      "musenalm_id": 103604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Strafgericht der Eidgenossen. / (1587.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Strafgericht der Eidgenossen. / (1587.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.200Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.200Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "nvt4urtezttq8mx"
+        }
+      ],
+      "source_id": "c0vbqzcncuc4s72"
+    },
+    {
+      "annotation": "Illustration zu »Das Strafgericht der Eidgenossen. 1587« von C. Spindler INr 103604, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103605_whdvpfff96.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "2q0b3kr8i3n7xxx"
+    },
+    {
+      "annotation": "Illustration zu »Das Strafgericht der Eidgenossen. 1587« von C. Spindler INr 103604, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103606_hkjok3ueu0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ddmczjaby2z2g4"
+    },
+    {
+      "annotation": "Illustration zu »Das Strafgericht der Eidgenossen. 1587« von C. Spindler INr 103604, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103607_1g743a8d34.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "1u19raxwao6wf2c"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 103609-103611, Obj 26-28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Es war ein herziges Häusl, das des Spinnenewetterbauern auf dem Glitteck, über dem Gebirgsdorf Mahring gelegen. Der Erzähler dieser Geschichte hat das Haus vor Zeiten mit eigenen Augen gesehen.",
+      "language": [],
+      "musenalm_id": 103608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trottl-Nazi / Eine Geschichte aus dem Gebirge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trottl-Nazi / Eine Geschichte aus dem Gebirge",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.219Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "5x6wwrgq5v3mbst"
+        }
+      ],
+      "source_id": "k67b7dg9y6wo7ov"
+    },
+    {
+      "annotation": "Illustration zu »Trottl-Nazi. Eine Geschichte aus dem Gebirge« von C. Spindler INr 103608, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103609_z076dlcyg8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "741qggtb6m5elnl"
+    },
+    {
+      "annotation": "Illustration zu »Trottl-Nazi. Eine Geschichte aus dem Gebirge« von C. Spindler INr 103608, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103610_mrjmqoc7dr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "jmeibix4zw29b90"
+    },
+    {
+      "annotation": "Illustration zu »Trottl-Nazi. Eine Geschichte aus dem Gebirge« von C. Spindler INr 103608, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103611_bfe88agd0m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "addb08sqc5cqkr2"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103612, 103613; Obj 30, 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Zlabings ist ein böhmisches Dorf, wie aus dem Bettelsack in die Hohlwege am Fuß des mährisches Gebirges verzettelt, bewohnt von einer Bevölkerung aus deutschem Stamm, gemischt mit dem Blut der Czechen und Hannaken.",
+      "language": [],
+      "musenalm_id": 103612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kleine Offka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die kleine Offka",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.219Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "4gr60efbbq36pfj"
+        }
+      ],
+      "source_id": "8j5jml7ifxhqiiw"
+    },
+    {
+      "annotation": "Illustration zu »Die kleine Offka« von C. Spindler INr 103612, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103613_8e3amty7j8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "q1yl4pn9nby1sqk"
+    },
+    {
+      "annotation": "Illustration zu »Die kleine Offka« von C. Spindler INr 103612, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.603Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103614_8le26lhu6v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "e4ax76lifeokys6"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103615,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "8hhp9v9ur0f5ry3"
+    },
+    {
+      "annotation": "auszufaltende Musikbeigabe; Vertonung eines Gedichts aus »Buch der Liebe«  von Herlossohn /) Photos 103616,01; 103616,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wenn die Schwalben heimwärts zieh'n, wenn die Rosen nicht mehr blüh'n, wenn der Nachtigall Gesang mit der Nachtigall verklang,",
+      "language": [],
+      "musenalm_id": 103616,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGATHE aus dem BUCH DER LIEBE von Herlossohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3421_103616_01_qemfjlzykx.jpg",
+        "alm_3421_103616_02_gthowho2z6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGATHE aus dem BUCH DER LIEBE von Herlossohn",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "p6g9hr124acuujo"
+    },
+    {
+      "annotation": "auszufaltende Musikbeigabe; lt. I-Verz: aus der Oper »Marie, die Tochter des Regiments« von Donizetti, für Gesang mit Guitarrebegleitung /) Photos 103617,01; 103617,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Heil dir, o Vaterland, Heil euch ihr Tage da ich die Freunde fand, so theuer mir,",
+      "language": [],
+      "musenalm_id": 103617,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3411_103617_2rjnw2qjwk.jpg",
+        "alm_3421_103617_01_dze8u5t5v7.jpg",
+        "alm_3421_103617_02_mqa6gm55jb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIE",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "lafif9qwhrbtd51"
+    }
   ],
   "agents": [
     {

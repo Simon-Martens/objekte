@@ -48,22 +48,626 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "m62exdiryq1uinv"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.594Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405448",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.594Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "m62exdiryq1uinv"
+    }
   ],
   "contents": [
-    "r51otrohgqec5bx",
-    "2h9o0cuhbtb4ala",
-    "l7nqxmiusbv0v57",
-    "r8cqzk19s765clc",
-    "ram1877pgph9rk7",
-    "h9rsv4sfwt65ly9",
-    "axv5l26aw226cra",
-    "91t4rf368cq7pon",
-    "d2lhjkpujl40s57",
-    "19iw9aa2rq3vimm",
-    "xo0bom5ld01x4u0",
-    "gz0knu93ps0ijak",
-    "3gwgmazobohp73l"
+    {
+      "annotation": "Titelportrait /) Illustration zu »Baiern's Königthum. Ein Blick auf die Tage der Vorzeit« INr 78207, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78195,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maximilian Joseph / König von Baiern ect etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2198_78195_esaycm6v5h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maximilian Joseph / König von Baiern ect etc",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "r51otrohgqec5bx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78196,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1807 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2198_78196_gj2twwyo2t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1807 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "2h9o0cuhbtb4ala"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Verfasser hat bei der Uebergabe des zehnten Jahrganges seines Taschenbuches an seine verehrten Leser nichts weiter zu erinnern, als, daß dießmal, durch den Plan des Taschenbuches sowohl, als auch durch die Zeitumstände veranlaßt,",
+      "language": [],
+      "musenalm_id": 78197,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer, Diak. bei St. Jakob",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.742Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "43sxg90u2eoth9l"
+        }
+      ],
+      "source_id": "l7nqxmiusbv0v57"
+    },
+    {
+      "annotation": "Es folgen: 12 Seiten Monatskonten und eine Seite Jahreskonto darin 7 Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78198,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / vom ganzen Jahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / vom ganzen Jahre",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "r8cqzk19s765clc"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Graphiken der Suite /) paginiert I. /) Illustration zu »Gedrängte Darstellung der kriegerischen Ereigniße in den letzten Monathen des Jahres 1805« INr 72206, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78199,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ausmarsch und Waffenauslieferung der / zu Ulm gefangenen ostreich. Armee",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. 1806 AV",
+      "scans": [
+        "alm_2198_78199_zwhxuc7yro.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ausmarsch und Waffenauslieferung der / zu Ulm gefangenen ostreich. Armee",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.586Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "03dv1rdun0wh7w0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.586Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "g9ibl5w8z7j5121"
+        }
+      ],
+      "source_id": "ram1877pgph9rk7"
+    },
+    {
+      "annotation": "paginiert III. /)  Illustration zu »Gedrängte Darstellung der kriegerischen Ereigniße in den letzten Monathen des Jahres 1805« INr 72206, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78200,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "General Deroy wird bey dem / Angriff auf den Tirolerpass Strub / verwundet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. 1806 AV",
+      "scans": [
+        "alm_2198_78200_ogqep2k7wj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "General Deroy wird bey dem / Angriff auf den Tirolerpass Strub / verwundet",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "8ai7htazipqrorx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "np8839y5xk1cl6j"
+        }
+      ],
+      "source_id": "h9rsv4sfwt65ly9"
+    },
+    {
+      "annotation": "paginiert II. /) Illustration zu »Gedrängte Darstellung der kriegerischen Ereigniße in den letzten Monathen des Jahres 1805« INr 72206, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78201,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die tapferen Baiern erobern den / Pass Lofer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. Mon. P. J. Laminit sc. 1806 Aug. Vind.",
+      "scans": [
+        "alm_2198_78201_h27qbqfxje.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die tapferen Baiern erobern den / Pass Lofer",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "j4rzfi2o3td5drj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "wadrlxlyae9w29i"
+        }
+      ],
+      "source_id": "axv5l26aw226cra"
+    },
+    {
+      "annotation": "paginiert IV. /) Illustration zu »Gedrängte Darstellung der kriegerischen Ereigniße in den letzten Monathen des Jahres 1805« INr 72206, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78202,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Napoleon giebt das Signal zur / Schlacht bei Austerlitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. A. V.",
+      "scans": [
+        "alm_2198_78202_8dap9v6vmr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Napoleon giebt das Signal zur / Schlacht bei Austerlitz",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "0ul6zpqkom1g054"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "v16kt05i0jfa6ra"
+        }
+      ],
+      "source_id": "91t4rf368cq7pon"
+    },
+    {
+      "annotation": "paginiert V. /) Illustration zu »Baiern's Königthum. Ein Blick auf die Tage der Vorzeit« INr 78207, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78203,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theodelinde und Autharis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. A. V.",
+      "scans": [
+        "alm_2198_78203_vvjt1qnf6j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Theodelinde und Autharis",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "emb7477mbq5kizh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "f66gcklq20u64k9"
+        }
+      ],
+      "source_id": "d2lhjkpujl40s57"
+    },
+    {
+      "annotation": "paginiert VI. /) Illustration zu »Baiern's Königthum. Ein Blick auf die Tage der Vorzeit« INr 78207, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78204,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tassilo verliert durch Karls des / Grossen Richterspruch Krone / und Reich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. A. V. 1806",
+      "scans": [
+        "alm_2198_78204_045hco7gps.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tassilo verliert durch Karls des / Grossen Richterspruch Krone / und Reich",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "acmnr6paal0to65"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "f3qenxzso7n19g3"
+        }
+      ],
+      "source_id": "19iw9aa2rq3vimm"
+    },
+    {
+      "annotation": "paginiert VII. /) Illustration zu »Baiern's Königthum. Ein Blick auf die Tage der Vorzeit« INr 78207, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78205,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maximilian Joseph I. wird zum / Könige von Baiern ausgerufen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. A. V.",
+      "scans": [
+        "alm_2198_78205_upmnr255q6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maximilian Joseph I. wird zum / Könige von Baiern ausgerufen",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "ytkpkcr4dkc8e0t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.763Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.763Z",
+          "agent": "47esr93u2wyl7ta",
+          "source_id": "zhyajaawaa7dw8l"
+        }
+      ],
+      "source_id": "xo0bom5ld01x4u0"
+    },
+    {
+      "annotation": "mit 4 Illustrationen s. Graphiken INr 78199-78202, Obj 5-8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Friede zu Lüneville hatte dem nach Ruhe schmachtenden Europa die Morgenröthe einer schönern Zukunft verkündet,",
+      "language": [],
+      "musenalm_id": 78206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedrängte / Darstellung / der / kriegerischen Ereigniße / in den / letzten Monathen / des / Jahres 1805",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedrängte / Darstellung / der / kriegerischen Ereigniße / in den / letzten Monathen / des / Jahres 1805",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "gz0knu93ps0ijak"
+    },
+    {
+      "annotation": "mit 4 IIlustrationen s. Titelportrait INr 78195, Obj 1 und 3 Graphiken INr 78203-78205, Obj 9-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Unter den großen Ereignissen, welche dem Morgen des neunzehnten Jahrhunderts eine ausgezeichnete Stelle in den Jahrbüchern der Geschichte anweisen",
+      "language": [],
+      "musenalm_id": 78207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Baiern's Königthum. / Ein Blick / auf / die Tage der Vorzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Baiern's Königthum. / Ein Blick / auf / die Tage der Vorzeit",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "3gwgmazobohp73l"
+    }
   ],
   "agents": [
     {

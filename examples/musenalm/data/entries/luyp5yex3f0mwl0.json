@@ -48,7 +48,26 @@
   "year": 1781,
   "editor": "",
   "items": [
-    "igo6vgnlvj06t2u"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.793Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "410506",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.793Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "igo6vgnlvj06t2u"
+    }
   ],
   "contents": [],
   "agents": [

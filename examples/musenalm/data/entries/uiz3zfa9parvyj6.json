@@ -48,7 +48,26 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "b2pudzqmgk68m06"
+    {
+      "annotation": "wohl einziger Jahrgang <br> 2. Titel lautet: Theater / von Carl Blum. / Die Herrin von der Else / Ich bleibe ledig. / Berlin, / Schlesinger'sche Buch- und Musikhandlung. / 1840 <br> Für »Theater«: Jgg 1839-1844, 4 Bd. Berlin",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.709Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406474",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.709Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "b2pudzqmgk68m06"
+    }
   ],
   "contents": [],
   "agents": [

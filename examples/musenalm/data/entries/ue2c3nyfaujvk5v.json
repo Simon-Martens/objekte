@@ -48,54 +48,1831 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "j0tzhdqmpdsqkuk"
+    {
+      "annotation": "1811-1848",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.614Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106035",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.614Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "j0tzhdqmpdsqkuk"
+    }
   ],
   "contents": [
-    "97er5teby9vq8fk",
-    "vucw2ssi34ytlw6",
-    "oqr6hs45r6wqbwg",
-    "1nmjlp9b2sdipg1",
-    "7326u6pxbh9r9md",
-    "pj400amo6qf1il7",
-    "7fuxsjq5zd179g6",
-    "r0d4g73j5ydlwq3",
-    "wr9uxg3d3szz43l",
-    "5g8wme656aqd90n",
-    "a824mym5fbftnp0",
-    "b23yxohmdb02r77",
-    "qsm88u7w6vc9iov",
-    "hnqgq92u5w4zo81",
-    "fswv0ovmdmz47cc",
-    "v7vda5v4z2drd2v",
-    "nvxxd8o6gc2wwk8",
-    "lof85hrmzwnm7jg",
-    "0fvo27ivflybfgl",
-    "ubzuviqgtslewrh",
-    "9pbyihvocgz4erh",
-    "jljxz51k9wgkgab",
-    "vcq0zg77gndvn0e",
-    "w1lnrup7uh3nsl2",
-    "1sulvds8allp9id",
-    "06ma67rl9tb2kk3",
-    "0oiywvembwsovrb",
-    "4u1lnszibusgf3s",
-    "ccov9gdmx7ybpna",
-    "p5tbwobze41kh8c",
-    "vtrgbtrjk37hhli",
-    "cvs2m49itvgw8wr",
-    "mdqnzocumy32t4q",
-    "x7hmy3f06l3o5mi",
-    "nzkpzp6ddm2ex8u",
-    "3x9w1oc1g5rp3hb",
-    "d7n8bq9l897ex1l",
-    "x9u8s7vafhmuz3g",
-    "ho0xbj9wl0jqqtb",
-    "b1cndi7p6bt7t2c",
-    "8vuuy6jikd74i5q",
-    "kqmi725w5n4w1ub",
-    "hkmeazq8ccfpmgi",
-    "edvgrtu1rwty763",
-    "bvze6t8v4r8l50w"
+    {
+      "annotation": "Titelgraphik s. Textbezug (Gedicht) INr 77353, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77349,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Raphaela",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_2403_77349_x4itjnw6i9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Raphaela",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "047togrultcvdzt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "97htgcgagoat8id"
+        }
+      ],
+      "source_id": "97er5teby9vq8fk"
+    },
+    {
+      "annotation": "gest.Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77350,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE / TASCHENBUCH / für das Jahr 1832. / Herausgegeben / von / THEODOR HELL. / 21r. Jahrgang. Mit Kupfern. / LEIPZIG. / J. C. Hinrichs'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lemmel sc.",
+      "scans": [
+        "alm_2403_77350_zugf14bzz9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE / TASCHENBUCH / für das Jahr 1832. / Herausgegeben / von / THEODOR HELL. / 21r. Jahrgang. Mit Kupfern. / LEIPZIG. / J. C. Hinrichs'sche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "vucw2ssi34ytlw6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77351,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "oqr6hs45r6wqbwg"
+    },
+    {
+      "annotation": "Illustration zu »Der Bettler von Sankt Columba« von Johann Schopenhauer INr 77368, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77352,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Camilla",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pöhacker del. Dav. Weiss sculp. Vieanna",
+      "scans": [
+        "alm_2403_77352_czg5rm3nhc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Camilla",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "7ov5i4fa2p3vp3j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "n3frc0soph8hl9f",
+          "source_id": "y9uvsfaydcuj9no"
+        }
+      ],
+      "source_id": "1nmjlp9b2sdipg1"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 77349, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Lieblich senkte sich der Abend / Auf die heit're Meeresfläche, / Daß der Schein der Abendröthe / Sich im sanften Kräuseln breche,",
+      "language": [],
+      "musenalm_id": 77353,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Raphaela. / (Zur Erklärung des Titelkupfers.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Raphaela. / (Zur Erklärung des Titelkupfers.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "41l51oxfax47tf3"
+        }
+      ],
+      "source_id": "7326u6pxbh9r9md"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) Illustration zu »Faust« von J. W. von Goethe s. Textbezug Nr 77356, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.981Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77354,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Ruh ist hin, mein Herz ist schwer, / Ich finde sie nie, und nimmermehr. / Faust von Göthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Rensch inf. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_2403_77354_tacgap4mvk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Meine Ruh ist hin, mein Herz ist schwer, / Ich finde sie nie, und nimmermehr. / Faust von Göthe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "ail6kpkgq3rdfot",
+          "source_id": "uue56ty341mb9wc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "yjhegldi73yyq8o"
+        }
+      ],
+      "source_id": "pj400amo6qf1il7"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 4 Illustrationen zu zeitgenössischen szen. Darstellungen und 5 Erläuterungen INr 77356-77364, Obj 8-16; dazu auch Graphik INr 77354, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die im vorigen Jahrgange unsers Taschenbuchs begonnene Reihe von bildlichen Darstellungen scheint nicht ohne Beifall geblieben zu seyn,",
+      "language": [],
+      "musenalm_id": 77355,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilderchronik / der theatralischen Zeiterscheinungen für 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilderchronik / der theatralischen Zeiterscheinungen für 1832",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "7fuxsjq5zd179g6"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) s. Graphik INr 77354, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "[…] Nachdem man lange vor dem Gedanken diesen Riesen-Torso auch auf der Bühne zur Darstellung zu bringen zurückgebebt war, wagte es zuerst der nun verstorbene Klingemann, der selbst einmal es früher versucht hatte,",
+      "language": [],
+      "musenalm_id": 77356,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Faust, eine Tragödie / von Göthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Faust, eine Tragödie / von Göthe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "r0d4g73j5ydlwq3"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) Illustration zu »Pfeffer-Rösel« von Charlotte Birch-Pfeiffer s. Textbezug INr 77358, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77357,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pfeffer-Rösel. / Romant. Schausp. von Charlotte Birch-Pfeiffer. / Act IV. Scene 5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retsch del. J. Axmann sculp.",
+      "scans": [
+        "alm_2403_77357_3eqqeda0iv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pfeffer-Rösel. / Romant. Schausp. von Charlotte Birch-Pfeiffer. / Act IV. Scene 5.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "1y3niv4bulomgu5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "d22fztml29g7vcl"
+        }
+      ],
+      "source_id": "wr9uxg3d3szz43l"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) s. Graphik INr 77357, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.986Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wir haben bereits in der vorjährigen Einleitung zu dieser Gallerie bemerkt, daß dabei nicht nur die ausgezeichnetsten, sondern auch die überhaupt für die zeitgemäße Stimmung des Publikums berechnetsten,",
+      "language": [],
+      "musenalm_id": 77358,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pfeffer-Rösel, / oder / die Frankfurter Messe im Jahre 1297. / Großes romantisches Schauspiele in fünf Akten, / von Charlotte Birch-Pfeifer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pfeffer-Rösel, / oder / die Frankfurter Messe im Jahre 1297. / Großes romantisches Schauspiele in fünf Akten, / von Charlotte Birch-Pfeifer",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "5g8wme656aqd90n"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) Illustration zu »Die feindlichen Brüder« von Raupach s. Textbezug INr 77360, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.986Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77359,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die feindlichen Brüder. / Possenspiel von Raupach. / Act II. Scene 7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retsch del. Bl. Höfel sculp. Wr. Neustadt",
+      "scans": [
+        "alm_2403_77359_2lsulpex0a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die feindlichen Brüder. / Possenspiel von Raupach. / Act II. Scene 7.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "6app676qf17b15f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "j6472wgu9ipj9fr"
+        }
+      ],
+      "source_id": "a824mym5fbftnp0"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) s. Graphik INr 77359, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Wie Raupach in seinen Schleichhändlern den Walter-Scottianismus als Zeiterscheinung von seiner lächerlichen Seite betrachtete, so treibt er es hier, - und wo möglich noch toller - mit der Homöopathie und Allopathie.",
+      "language": [],
+      "musenalm_id": 77360,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die feindlichen Brüder. / oder / der Doctor und der Apotheker. / Possenspiel in drei Aufzügen / von E. Raupach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die feindlichen Brüder. / oder / der Doctor und der Apotheker. / Possenspiel in drei Aufzügen / von E. Raupach",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "b23yxohmdb02r77"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) Illustration zu »Der Templer und die Jüdin« von Wohlbrück« s. Textbezug INr 77362, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77361,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Templer und die Jüdin. / Oper von Wohlbrück, Musik von Marschner. / Act I. Scene 17",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retsch del. Bl. Höfel sculp. Wr. Neustadt",
+      "scans": [
+        "alm_2403_77361_bicy8px2ma.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Templer und die Jüdin. / Oper von Wohlbrück, Musik von Marschner. / Act I. Scene 17",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.806Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "p9ptirxazek6y2h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.806Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "z6wccmgwb0bcrrk"
+        }
+      ],
+      "source_id": "qsm88u7w6vc9iov"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) s. Graphik INr 77361, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Dieser mit ausgezeichnetem Beifalle auf den vorzüglichsten Theatern aufgenommenn Oper, liegt der Scottsche Roman Ivanhöe zum Grunde,",
+      "language": [],
+      "musenalm_id": 77362,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Templer und die Jüdin. / Romantische Oper in drei Aufzügen von Wohlbrück. / Musik von Marschner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Templer und die Jüdin. / Romantische Oper in drei Aufzügen von Wohlbrück. / Musik von Marschner",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "hnqgq92u5w4zo81"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung s. Textbezug (Gedicht) INr 77364, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77363,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andromache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pöhacker # A. Brückner sc.",
+      "scans": [
+        "alm_2403_77363_21llcxoi9h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Andromache",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "n3frc0soph8hl9f",
+          "source_id": "ck09342qxzgvu8f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "dv0tp15gx9xuwfr"
+        }
+      ],
+      "source_id": "fswv0ovmdmz47cc"
+    },
+    {
+      "annotation": "s. Graphik INr 76363, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.708Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Hektor schied! - Doch eh' die Waffenhalle / Noch verließ sein rascher Männerschritt,",
+      "language": [],
+      "musenalm_id": 77364,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andromache. / (Hierzu das Kupferblatt nach Pöhacker von Brückner.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andromache. / (Hierzu das Kupferblatt nach Pöhacker von Brückner.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "1f1ikx5bst2oq90"
+        }
+      ],
+      "source_id": "v7vda5v4z2drd2v"
+    },
+    {
+      "annotation": "paginiert S. 79 /) Illustration zu »Afanasja« von A. v. Sartorius INr 77366, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77365,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Afanasja. / Erzählung von A. von Sartorius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del.",
+      "scans": [
+        "alm_2403_77365_62k7hx4v85.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Afanasja. / Erzählung von A. von Sartorius",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "675pwa39aw5apcp"
+        }
+      ],
+      "source_id": "nvxxd8o6gc2wwk8"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 77365, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die späte Abendsonne eines nordischen Frühlingstags vergoldete mit ihrem Schimmer die Paläste der russischen Kaiserstadt, als ein junger Fremder durch die weiten Straßen und prächtigen Kays hinwandelte,",
+      "language": [],
+      "musenalm_id": 77366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Afanasja",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sartorius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Afanasja",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "lof85hrmzwnm7jg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Heißer als gewöhnlich auf den dunstumschleierten Feldern Englands war der Mittag; ein junger Reitersmann spornte sein schlankes Roß aus seinem trägen Schritte zum Trabe,",
+      "language": [],
+      "musenalm_id": 77367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wat-Tyler. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wat-Tyler. / Historische Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "vf7x3p6rh1a0tf0"
+        }
+      ],
+      "source_id": "0fvo27ivflybfgl"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 77352, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.714Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Noch hatte die Turmuhr der abgelegenen Kirche Sankt Columba die fünfte Morgenstunde nicht verkündet; die ganze große Stadt Köln lag in Dunkel und tiefem Schweigen wie begraben,",
+      "language": [],
+      "musenalm_id": 77368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bettler von Sankt Columba. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bettler von Sankt Columba. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "qc6bfcx9g7m9uxj"
+        }
+      ],
+      "source_id": "ubzuviqgtslewrh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.714Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Am 26sten März 1794 bot die Stadt Rouen den Anblick ungewöhnlich regen Lebens dar. Der Marquis von Rosny, bekannter unter dem Namen des Herzogs Sully, war von Paris angekommen",
+      "language": [],
+      "musenalm_id": 77369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Felsen-Feste. / Geschichtliches Bild nach Ritchie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Felsen-Feste. / Geschichtliches Bild nach Ritchie",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.876Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.876Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "vrh0w7vtltx5mtg"
+        }
+      ],
+      "source_id": "9pbyihvocgz4erh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.714Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Es ist beinahe dreyhundert Jahr, / Als in Strathspey ein Musikantenpaar. / Dessen Talent im ganzen Land / Geehret war und allbekannt.",
+      "language": [],
+      "musenalm_id": 77370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Musikanten von Strathspey. / Eine schottische Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Musikanten von Strathspey. / Eine schottische Legende",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.877Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.877Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "ww44erl46jkpjf2"
+        }
+      ],
+      "source_id": "jljxz51k9wgkgab"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "Schwinge, schwinge, traute Lerche, / Von der Wiese Blumenflor",
+      "language": [],
+      "musenalm_id": 77371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Lerche",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theopania",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Lerche",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.877Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.877Z",
+          "agent": "192fn6i1iovaai8",
+          "source_id": "dtnu6p28y8o4bhf"
+        }
+      ],
+      "source_id": "vcq0zg77gndvn0e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "Mit uns sey Gott! Es schalle / Der Kriegsdrommete Ton!",
+      "language": [],
+      "musenalm_id": 77372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlachtgesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schaller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlachtgesang",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.877Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.877Z",
+          "agent": "76znd1aywy8qgx0",
+          "source_id": "ra2zdfbbcm1bcro"
+        }
+      ],
+      "source_id": "w1lnrup7uh3nsl2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "Du Fromme ruhst in Deines Gottes Frieden, / Der trocknete Dir alle Thränen ab,",
+      "language": [],
+      "musenalm_id": 77373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meiner Mutter Grabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meiner Mutter Grabe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.877Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.877Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "rhh39he4mhncabg"
+        }
+      ],
+      "source_id": "1sulvds8allp9id"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "342",
+      "incipit_statement": "Vier erhab'ne Gestalten umschweben mein einsames / Lager, / Schreckend den zagenden Geist, welcher die Dich- / tung versucht.",
+      "language": [],
+      "musenalm_id": 77374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dante. Chalderon. Shakespeare. / Göthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. v. Lüdemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dante. Chalderon. Shakespeare. / Göthe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "jqanokpcqaenxu5",
+          "source_id": "4isuedad44349ta"
+        }
+      ],
+      "source_id": "06ma67rl9tb2kk3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "Bei der Ampel mattem Scheine / Sitzt der Sänger, tief betrübt, / Denkt an sie, die Einzig eine, / Die noch heiß die Seele liebt;",
+      "language": [],
+      "musenalm_id": 77375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sängerliebe. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sängerliebe. / Ballade",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "0oiywvembwsovrb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Ich denke dein - / Ob auch getrennt, in weiter Ferne, / Ist meine Seele stets bei dir",
+      "language": [],
+      "musenalm_id": 77376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich denke Dein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie Krafft",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ich denke Dein",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "4u1lnszibusgf3s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "Heil Liebesglück! doch dreifach Wehe / Der Liebe Plage! rief ich aus",
+      "language": [],
+      "musenalm_id": 77377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der leukadische Fels",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der leukadische Fels",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.837Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "io33zbtdue551zp"
+        }
+      ],
+      "source_id": "ccov9gdmx7ybpna"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Von Kindheit auf war deine Wahl / Des Selbstgenusses Ideal.",
+      "language": [],
+      "musenalm_id": 77378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nie! / Niederschlagendes Pulver für mich und meinesgleichen. / Numen confessis aliquod patet. Ovid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Trautschold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nie! / Niederschlagendes Pulver für mich und meinesgleichen. / Numen confessis aliquod patet. Ovid",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "p5tbwobze41kh8c"
+    },
+    {
+      "annotation": "Sammlung von 13 Gedichten INr 77380-77392, Obj 32-44 /) Anm. am Objekt: Meinem Freunde H. J. Schlinghoff gewidmet",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reiseleben. / Schattenspiel in dreizehn Bildern.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reiseleben. / Schattenspiel in dreizehn Bildern.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "vtrgbtrjk37hhli"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Mein Auge füllet sich mit Thränen, / So oft es wieder rückwärts schaut.",
+      "language": [],
+      "musenalm_id": 77380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Heinrich zur See",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Heinrich zur See",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "cvs2m49itvgw8wr"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Mir wird so bang, mir wird so wehe, / Wenn ich die ersten Knospen sehe,",
+      "language": [],
+      "musenalm_id": 77381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Der Unglückliche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Der Unglückliche",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "mdqnzocumy32t4q"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.078Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Ich lief mit meiner Blendlaterne / In die Ferne, in die Ferne,",
+      "language": [],
+      "musenalm_id": 77382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Diogenes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Diogenes",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "x7hmy3f06l3o5mi"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Dein Lebewohl trag' ich durchs weite Leben, / Es ist ein steter Frühling meiner Lust;",
+      "language": [],
+      "musenalm_id": 77383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Der Wehmüthige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Der Wehmüthige",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzkpzp6ddm2ex8u"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Hanselmann und Hänschen / Ziehen über Feld!",
+      "language": [],
+      "musenalm_id": 77384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Die Gefährten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Die Gefährten",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "3x9w1oc1g5rp3hb"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Heiliger Friede, / Der Verklärung Schein, / Oftmals im Liede / Gedenk' ich Dein.",
+      "language": [],
+      "musenalm_id": 77385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Der Einsame",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Der Einsame",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7n8bq9l897ex1l"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.211Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Wie der Hirte fette Triften / Und der Jäger Busch und Thal, / Wie der Fischer klare Bäche / Und der Pilger Mondesstrahl,",
+      "language": [],
+      "musenalm_id": 77386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Der Ueberschwängliche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Der Ueberschwängliche",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "x9u8s7vafhmuz3g"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Je mehr sie schwillt die süße Traube, / Je mehr es kocht in ihrem Schoos,",
+      "language": [],
+      "musenalm_id": 77387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Der Gefaßte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Der Gefaßte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ho0xbj9wl0jqqtb"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Nach Ganges Riesenufern / Trieb mich mein rasches Blut;",
+      "language": [],
+      "musenalm_id": 77388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. Der Getäuschte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. Der Getäuschte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "b1cndi7p6bt7t2c"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Länder hab' ich oft durchzogen, / Brauchte meine Zeit mit Geiz.",
+      "language": [],
+      "musenalm_id": 77391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. Der Kaufmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. Der Kaufmann",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "8vuuy6jikd74i5q"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Könnt' ich diese Alpen nur durchwühlen, / Nur einmal ablassen jenes Meer;",
+      "language": [],
+      "musenalm_id": 77392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. Der Naturforscher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. Der Naturforscher",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "kqmi725w5n4w1ub"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Nimmer Ruhe, nirgens Rast / Und mein Leben eine Last.",
+      "language": [],
+      "musenalm_id": 77389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. Ahasverus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. Ahasverus",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "hkmeazq8ccfpmgi"
+    },
+    {
+      "annotation": "Reiseleben. Schattenspiel in dreizehn Bildern (Sammlung INr 77369, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "Dich schlug ich, o mein Wanderstab / Mit scharfem Beil aus starken Zweige",
+      "language": [],
+      "musenalm_id": 77390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. An den Wanderstab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Rodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. An den Wanderstab",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "edvgrtu1rwty763"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "Es brennt auf Weihaltären, / Zahllos und wunderbar, / Ein heilig Opferfeuer / Von je, und immerdar.",
+      "language": [],
+      "musenalm_id": 77393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Glaube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Lessing",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Glaube",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "bvze6t8v4r8l50w"
+    }
   ],
   "agents": [
     {

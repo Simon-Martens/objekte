@@ -48,7 +48,26 @@
   "year": 1848,
   "editor": "",
   "items": [
-    "grs0u3wy5njuxf1"
+    {
+      "annotation": "1836–1884; Almanachtitel verso; Titel recto lautet:  Sachs' / Repertorisches / Jahrbuch / für die / neuesten und vorzüglichsten Leistungen / der / gesammten / Heilkunde, / mit / einer Uebersicht der / neuesten ärztlichen Tagesgeschichte. / Bearbeitet / von / mehreren Aerzten. / In parvo copia. / XV. JAHRGANG. / Berlin 1848. / Expedition der med. Central-Zeitung. / (R. Liebmann.)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.633Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200563",
+      "location": "105N09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.633Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "grs0u3wy5njuxf1"
+    }
   ],
   "contents": [],
   "agents": [

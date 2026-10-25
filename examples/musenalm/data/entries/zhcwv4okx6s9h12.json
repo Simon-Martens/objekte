@@ -49,84 +49,3202 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "0ckb5mwe7o3w51l"
+    {
+      "annotation": "",
+      "condition": "1b",
+      "created": "2026-06-11 10:17:37.562Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106431",
+      "location": "105B10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.562Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0ckb5mwe7o3w51l"
+    }
   ],
   "contents": [
-    "l51ypstl6y0lfu4",
-    "q0x1sc6nm3ul833",
-    "9mx6xosydj4xgul",
-    "n8ukzbsebb0agxy",
-    "3siprwj5qfcgxv1",
-    "ex7l09uvbkt9wdl",
-    "fm3703gtlxkmabg",
-    "c1s0mqm9azc5130",
-    "6nuf8djq85ozob6",
-    "qz0die66grm5gp0",
-    "d03deop1x8cm0dn",
-    "wswhxcvykr5cl5g",
-    "joswjb55e3a86ki",
-    "hddp3efmtw00x2x",
-    "f317w3594t0xyjk",
-    "18a0i5lsgti3s56",
-    "2a4xldolhok0rrk",
-    "wulipnatzfvnj01",
-    "8g4e6vwo3p9wchf",
-    "msor5cw4axrbo7g",
-    "m4dv1vw5crp3c5r",
-    "4uavhm3gek6k3yk",
-    "wvvq36dqmy55425",
-    "d3znfqmuqfmu4p4",
-    "anp2t2e64kknr7x",
-    "16k85cnpgts1m21",
-    "vjbmhh4zuwxrsw2",
-    "wns7npmewqwdlk5",
-    "w1ct5lg6ykc9rla",
-    "2u7488g7eai9q4a",
-    "ioke7xes44s55bi",
-    "v2gmwp31ztbqaz0",
-    "tnfqwcpssdeiia1",
-    "ibyikgnv2u8t3l6",
-    "r2k9g33mmyzt091",
-    "bq3h3tvvwlh7ume",
-    "f3glk4sld6rygvs",
-    "njxv3puj90fuhbi",
-    "huynyg80kqjeha6",
-    "xe9mar8vbz6k4zu",
-    "znsd0wvboi82ziz",
-    "eh7iuthahms4tc3",
-    "rip7nah7g2v88jg",
-    "1prpcobzykwi2c7",
-    "7ykmak410b171ao",
-    "gz9ltzlwgqu4lao",
-    "9p0phvs19gkx36u",
-    "n7m9pvvhpk7sdya",
-    "qengymfwb87d4an",
-    "gojdebn3wjy3f68",
-    "4ghbw2c5ktzkjos",
-    "n6b56u1ncql3k90",
-    "70yga3chmsr91dh",
-    "nci5bu8pyhtz5l9",
-    "gfg9mje83m40zpi",
-    "8djrbimoinn6cgj",
-    "kiobcpm17483uql",
-    "0prvwt7p90y0c7f",
-    "lj3i9eyd8m0wsd6",
-    "rrtnl1rxvpcu43i",
-    "di5m0souwbmzw3a",
-    "tzw3eqq264s8921",
-    "p4sm46658sxfywe",
-    "rkq41g1qcjt9lgi",
-    "lqiovcck1rkxfje",
-    "4gs5bsq9tqscv9v",
-    "4o6lmafxgb7xzpf",
-    "x807wh9lcjpcfvn",
-    "hps2ebrju5phcpc",
-    "g02lsr415ohug2q",
-    "k9ux40iolwmap6m",
-    "lhdy3c1up8orgrh",
-    "7rezheub3x4qqtd",
-    "jc852ftn2tm83km",
-    "9lsikzw6v0c9fg8"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86389,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1600_86389_60acys9jv6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "l51ypstl6y0lfu4"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 86395, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86390,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ottilie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ad. Theer pinx. C. Preisel sc.",
+      "scans": [
+        "alm_1600_86390_8s7lrp045d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ottilie",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.153Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.153Z",
+          "agent": "512hnx3l2hp6y3r",
+          "source_id": "18tw639xmgw4nyx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.153Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.153Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "yz7wmvf3mlbw11u"
+        }
+      ],
+      "source_id": "q0x1sc6nm3ul833"
+    },
+    {
+      "annotation": "graph. Titel /) s. Textbezug INr 86396, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86391,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach Flaxmann. A. Dworzack sc.",
+      "scans": [
+        "alm_1600_86391_8fl3rwwj0s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.153Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.153Z",
+          "agent": "masan4fv3ew8l5z",
+          "source_id": "ukcaizrl00hyay9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.153Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.153Z",
+          "agent": "cyk00jy70gkrpk9",
+          "source_id": "zp21vdcgzfovfnf"
+        }
+      ],
+      "source_id": "9mx6xosydj4xgul"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86392,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA. / Taschenbuch für das Jahr / 1845. / Herausgegeben / von / Johann Gabriel Seidl. / Ein und zwanzigster Jahrgang. / WIEN. / Bei Franz Riedl's sel. Witwe und Sohn. / Leipzig, bei A. G. Liebeskind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1600_86392_tgyw2ybtut.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA. / Taschenbuch für das Jahr / 1845. / Herausgegeben / von / Johann Gabriel Seidl. / Ein und zwanzigster Jahrgang. / WIEN. / Bei Franz Riedl's sel. Witwe und Sohn. / Leipzig, bei A. G. Liebeskind",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "n8ukzbsebb0agxy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei A. Strauß's sel. Witwe & Sommer",
+      "language": [],
+      "musenalm_id": 86393,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei A. Strauß's sel. Witwe & Sommer…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "3siprwj5qfcgxv1"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen als Textbezüge zur Titelgraphik, dem graph. Titel und 5 Graphiken INr 86395-86406, Obj 7-18 /) s. Anmerkungen an den Objekten",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86394,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Stahlstiche",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ex7l09uvbkt9wdl"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. Titelgraphik INr 86390, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Weibliches Ideal, gemalt von Adolph Theer (gebor. zu Johannesberg in öst. Schlesien, im J. 1811) für die öffentliche Kunst-Ausstellung im J. 1843;",
+      "language": [],
+      "musenalm_id": 86395,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ottilie. / (Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ottilie. / (Titelkupfer.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "fm3703gtlxkmabg"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. graph. Titel INr 86391, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nach einer Zeichnung des berühmten englischen Bildhauers John Flaxmann",
+      "language": [],
+      "musenalm_id": 86396,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Aurora. / (Titel-Vignette)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Aurora. / (Titel-Vignette)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "c1s0mqm9azc5130"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. Graphik INr 86398, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Eine bildliche Darstellung zur bekannten Gartenszene aus William Shakespeare's Trauerspiel: Romeo und Julie (2. Aufzug, 2. Auftritt)",
+      "language": [],
+      "musenalm_id": 86397,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Romeo und Julie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Romeo und Julie",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "6nuf8djq85ozob6"
+    },
+    {
+      "annotation": "Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 86397, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86398,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romeo und Julie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender pinx. C. Geyer sc.",
+      "scans": [
+        "alm_1600_86398_jkr0aell2w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romeo und Julie",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "7khaq9dnp23l23k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "8rcad7x9vr4zxvx"
+        }
+      ],
+      "source_id": "qz0die66grm5gp0"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. Graphik INr 86400, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein sinniges Genre-Bildchen aus der Kinderwelt, gezeichnet von der liebenswürdigen vaterländischen Künstlerin Klementin Ruß (gebor. zu Wien.),",
+      "language": [],
+      "musenalm_id": 86399,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die kranke Puppe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die kranke Puppe",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "d03deop1x8cm0dn"
+    },
+    {
+      "annotation": "s. Textbezug INr 86399, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86400,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kranke Puppe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clementine Russ del. I. Krepp sc.",
+      "scans": [
+        "alm_1600_86400_efh31xxalw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die kranke Puppe",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "fc7hik722tliooq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "v9rxiowzyzl542l"
+        }
+      ],
+      "source_id": "wswhxcvykr5cl5g"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. Graphik INr 86402, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein überaus charakteristisches Genre-Bild aus dem Landleben, gemalt von dem in seinem Fache unübertrefflichen Künstler J. M. Ranftl (gebor. zu Wien im Jahre 1806)",
+      "language": [],
+      "musenalm_id": 86401,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Mittag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Mittag",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "joswjb55e3a86ki"
+    },
+    {
+      "annotation": "s. Textbezug INr 86401, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.852Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86402,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mittag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. M. Ranftl pinxt. A. Dworzack sc.",
+      "scans": [
+        "alm_1600_86402_vuz0n257yj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Mittag",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "vyuxy9kfo54vvq8",
+          "source_id": "g6j8zwi1g0d2gtx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "masan4fv3ew8l5z",
+          "source_id": "v6ql8h9bshzvh0f"
+        }
+      ],
+      "source_id": "hddp3efmtw00x2x"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. Graphik INr 86404, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Eine Szene aus Walter Scott's bekanntem Romane: Ivanhoe (Bd. II Kap. 6)",
+      "language": [],
+      "musenalm_id": 86403,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Ivanhoe und Rebekka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Ivanhoe und Rebekka",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "f317w3594t0xyjk"
+    },
+    {
+      "annotation": "Illustration zu »Ivanhoe« von W. Scott s. Textbezug INr 86403, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.532Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86404,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ivanhoe und Rebekka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Nep. Mayer inv. I. Krepp sc.",
+      "scans": [
+        "alm_1600_86404_udb82nphpi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ivanhoe und Rebekka",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.133Z",
+          "agent": "wmal9ww794mvk9k",
+          "source_id": "1biy0xz5wugbuze"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.133Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "5xdc23t8kmd2ltv"
+        }
+      ],
+      "source_id": "18a0i5lsgti3s56"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86394, Obj 6) s. Graphik INr 86406, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Kopie eines vielbekannten, aber schönen, nach einem Chopin'schen Gemälde von Jazet in Aquatinta-Manier ausgeführten Kunstblattes, eine Scene aus Fr. A. Vicomte von Chateaubriand's einst allbeliebtem gemüthlichen Roman:",
+      "language": [],
+      "musenalm_id": 86405,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Atala und Cactas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Atala und Cactas",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "2a4xldolhok0rrk"
+    },
+    {
+      "annotation": "Illustration zu »Atala oder die Liebe zweier Wilden« von Chateaubriand /) # vollst. Bez. s. Textbezug INr 86405, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86406,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Atala und Cactas",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Chopin pinx. Jazet. C. Preissel sc.",
+      "scans": [
+        "alm_1600_86406_q7zf3m654i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Atala und Cactas",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "gd1myr1xumav36k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "rzeigvne9106dpe",
+          "source_id": "m9mao5t09dmauow"
+        }
+      ],
+      "source_id": "wulipnatzfvnj01"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86407,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aurora",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "8g4e6vwo3p9wchf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mein Kind, du dauerst mich, allein dich fesselt / Des Dankes Pflicht und dein gegebnes Wort.",
+      "language": [],
+      "musenalm_id": 86408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manuela. / Schauspiel in drei Aufzügen. / (Nach einer Erzählung von Pitre-Chevalier.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Manuela. / Schauspiel in drei Aufzügen. / (Nach einer Erzählung von Pitre-Chevalier.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "cbclqe3bx79gj63"
+        }
+      ],
+      "source_id": "msor5cw4axrbo7g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Der schlesischen Herzöge unaufhörliche Zerwürfniss und blutige Fehden, aus Habsucht und Zwietracht geboren, ließen die politische Unabhängigkeit des Landes in der ersten Hälfte des vierzehnten Jahrhunderts bekanntlich an Böhmen verlohren gehen.",
+      "language": [],
+      "musenalm_id": 86409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sieg der Liebe. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Krebs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sieg der Liebe. / Historische Novelle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "m4dv1vw5crp3c5r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Am klaren Bach so helle, / Ist eine grüne Stelle, / So blütheduftend weich,",
+      "language": [],
+      "musenalm_id": 86410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Fremdlings Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Waldmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Fremdlings Klage",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "4uavhm3gek6k3yk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Auf dem Landhause des Rathes Greifenhorst nächst Wien, welcher im Herbste des Jahres 1833 um den Theetisch eine kleine, aber gewählte Gesellschaft versammelte,",
+      "language": [],
+      "musenalm_id": 86411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Enttäuschung. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Adelmi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Enttäuschung. / Erzählung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "wvvq36dqmy55425"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Es ritten zwei Ritter durch Wälder und Gauen, / Und dann auf den Schloßberg in's glänzende Haus,",
+      "language": [],
+      "musenalm_id": 86412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Korb",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fernand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Korb",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "big4tm69ocucym5",
+          "source_id": "qehyjcywhxpsj11"
+        }
+      ],
+      "source_id": "d3znfqmuqfmu4p4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Als Advocat von einem Handelshause bevollmächtigt, aus der Verlassenschaft des Johann Georg Fischer eine Forderung von beiläufig 3000 Gulden einzutreiben, kam ich aus der Hauptstadt in das hübsche Landstädtchen Glaubenhausen",
+      "language": [],
+      "musenalm_id": 86413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Waise. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fernand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Waise. / Erzählung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "big4tm69ocucym5",
+          "source_id": "bwfobr58oj8p6nw"
+        }
+      ],
+      "source_id": "anp2t2e64kknr7x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Sei einmal ein wenig bei Seite gelegt, du mein liebgewordener Pinsel, den ich zu tauchen bin in's helle Braunroth,",
+      "language": [],
+      "musenalm_id": 86414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Dorfgeschichte / aus dem / Riderwalde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Stelzhammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Dorfgeschichte / aus dem / Riderwalde",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "a014bqncl68cjih",
+          "source_id": "55zdyiglm58t8bp"
+        }
+      ],
+      "source_id": "16k85cnpgts1m21"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 86416-86418, Obj 28-30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orientalische Granaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Orientalische Granaten",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "iim2d0eu7ch7fdl"
+        }
+      ],
+      "source_id": "vjbmhh4zuwxrsw2"
+    },
+    {
+      "annotation": "Orientalische Granaten (Sammlung INr 86415, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Der König von Persien war ein Weiser, / Der Salomon des Orients benannt;",
+      "language": [],
+      "musenalm_id": 86416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Des Herrschers schönstes Vorrecht. / (Orientalisch)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Des Herrschers schönstes Vorrecht. / (Orientalisch)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "70bvwnq7ihidge4"
+        }
+      ],
+      "source_id": "wns7npmewqwdlk5"
+    },
+    {
+      "annotation": "Orientalische Granaten (Sammlung INr 86415, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Benjard, Arabiens Herrscher, / Hatt' in einer blut'gen Schlacht / Obgesiegt und hundert Feinde / Zu Gefangenen gemacht.",
+      "language": [],
+      "musenalm_id": 86417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Gastfreundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Gastfreundschaft",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "vrr9jkxg2o2dseu"
+        }
+      ],
+      "source_id": "w1ct5lg6ykc9rla"
+    },
+    {
+      "annotation": "Orientalische Granaten (Sammlung INr 86415, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Dschemschid glaubte, Erfahrung allein / Müsse die Mutter der Weisheit sein.",
+      "language": [],
+      "musenalm_id": 86418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Tauglichsten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Tauglichsten",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.217Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.217Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "qdjdyssset84dxr"
+        }
+      ],
+      "source_id": "2u7488g7eai9q4a"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Wohl recht, sprach Ibnol-Arabi in Reimen, / Das Alter trägt sich selbst am Kopf zur Schau,",
+      "language": [],
+      "musenalm_id": 86419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hohes Alter. / (Nachtrag zu den 63 Strophen hierzu in den Duftkörnern.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hammer-Purgstall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hohes Alter. / (Nachtrag zu den 63 Strophen hierzu in den Duftkörnern.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.776Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "aje2i7q4r7z7u61"
+        }
+      ],
+      "source_id": "ioke7xes44s55bi"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Zu der wissenschaftlichen Monographie der Palme und ihrer süßen Frucht gehören die vierhundert Wörter, welche das große arabische Wörterbuch Kamus, d.i. das Weltmeer enthält,",
+      "language": [],
+      "musenalm_id": 86420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Palme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hammer-Purgstall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Palme",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.978Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "sgyw4e5w2axt5y1"
+        }
+      ],
+      "source_id": "v2gmwp31ztbqaz0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Wo die ries'gen Zedern blühen, / Wo der mächt'ge Elephant / Und die Anakonda leben,",
+      "language": [],
+      "musenalm_id": 86421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wildensinn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Camillo Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wildensinn",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.978Z",
+          "agent": "xz436m6xv67mixf",
+          "source_id": "xpsuxyc2w4hpr0o"
+        }
+      ],
+      "source_id": "tnfqwcpssdeiia1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.172Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Im Garten steht ein alter Baum, / Von starrem Frost umhüllt,",
+      "language": [],
+      "musenalm_id": 86422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Zusner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Winter",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.978Z",
+          "agent": "bl67sc1w31pzw0u",
+          "source_id": "cjsyun4ui5w2m4q"
+        }
+      ],
+      "source_id": "ibyikgnv2u8t3l6"
+    },
+    {
+      "annotation": "Sammlung von 32 Distichen INr 86424-86455, Obj 36-67",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Distichen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Distichen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.141Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.141Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "pk4s0e0wqs1twc6"
+        }
+      ],
+      "source_id": "r2k9g33mmyzt091"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Wie von des Nebo Höh'n der Prophet, so schauet der Dichter / Fern sein heiliges Land,",
+      "language": [],
+      "musenalm_id": 86424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das heilige Land",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das heilige Land",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.099Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "68mdl0f9sg93tl4"
+        }
+      ],
+      "source_id": "bq3h3tvvwlh7ume"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Viele staunen Dich an und Manche begreifen Dein Einzles,",
+      "language": [],
+      "musenalm_id": 86425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Göthe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Göthe",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.099Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "d2m7m72gq13u9z6"
+        }
+      ],
+      "source_id": "f3glk4sld6rygvs"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Lustiger Mückentanz der Poeten von Gestern und Heute,",
+      "language": [],
+      "musenalm_id": 86426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eintagsfliegen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eintagsfliegen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.119Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "ymuo9erocf2athz"
+        }
+      ],
+      "source_id": "njxv3puj90fuhbi"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Arme! Während du weinst um deine verschwundenen Riesen,",
+      "language": [],
+      "musenalm_id": 86427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Witwe Melpomene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Witwe Melpomene",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.119Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "ycqb0z87ls4k7gp"
+        }
+      ],
+      "source_id": "huynyg80kqjeha6"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Aus dem Halme des Feld's spricht zu dem Guten die Gottheit,",
+      "language": [],
+      "musenalm_id": 86428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stimmen der Gottheit",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stimmen der Gottheit",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.119Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "ok6rc1mgdmo5vci"
+        }
+      ],
+      "source_id": "xe9mar8vbz6k4zu"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Frommes Beichtkind, du nennst dem Pater Publikum jährlich / Zweimal die Sünden getreu,",
+      "language": [],
+      "musenalm_id": 86430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipziger Meßkatalog",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leipziger Meßkatalog",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "f5kaktsfow84oza"
+        }
+      ],
+      "source_id": "znsd0wvboi82ziz"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.501Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Im chaotischen Schwall' erbrausen die Stimmen des Tages,",
+      "language": [],
+      "musenalm_id": 86429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tag und Nacht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tag und Nacht",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "2yt6xalvswgwcla"
+        }
+      ],
+      "source_id": "eh7iuthahms4tc3"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Ist denn jeglicher Schuft berechtigt den Künstler zu meistern?",
+      "language": [],
+      "musenalm_id": 86431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fliegenrecht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fliegenrecht",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "5f5wk9q96vdsg9z"
+        }
+      ],
+      "source_id": "rip7nah7g2v88jg"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Hört! Wie zu Babel bei'm Thurm schrei'n alle verwirrt durch- / einander!",
+      "language": [],
+      "musenalm_id": 86432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Philosophen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Philosophen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "0jan7iknorf6n43"
+        }
+      ],
+      "source_id": "1prpcobzykwi2c7"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Dichter und Bienen: Gebührt Euch Neid?! Gebührt Euch / Bedauern?",
+      "language": [],
+      "musenalm_id": 86433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweifel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweifel",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "l13nn8ksrp5a6lu"
+        }
+      ],
+      "source_id": "7ykmak410b171ao"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Ach, daß du der größte Geist oft niedriger Leidenschaft fröhnet!",
+      "language": [],
+      "musenalm_id": 86434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Irdisches Los",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Irdisches Los",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "xx79hbjga8o6xsb"
+        }
+      ],
+      "source_id": "gz9ltzlwgqu4lao"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Blickst du zum Himmel empor, verschwindet die Erde, ver- / weilst du / Prüfenden Auges auf ihr,",
+      "language": [],
+      "musenalm_id": 86435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klein und Groß",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klein und Groß",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.063Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "aohtx78y3i31gog"
+        }
+      ],
+      "source_id": "9p0phvs19gkx36u"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Jeder Tag ist der jüngste, du sprichst an jedem dein Urtheil",
+      "language": [],
+      "musenalm_id": 86436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jüngster Tag",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jüngster Tag",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.121Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.121Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "pn0qfohx6fsvgcu"
+        }
+      ],
+      "source_id": "n7m9pvvhpk7sdya"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "All zu Tragisches reizt uns die Nerven, doch Pferdegewieher, / Feuerwerk,",
+      "language": [],
+      "musenalm_id": 86437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Theaterdirector",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Theaterdirector",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.121Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.121Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "m0y2bkgohs6tse2"
+        }
+      ],
+      "source_id": "qengymfwb87d4an"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Zög're nicht länger Delphin! Ach rette!",
+      "language": [],
+      "musenalm_id": 86438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Arion's Delphin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Arion's Delphin",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "p13t32q6txfhf7b"
+        }
+      ],
+      "source_id": "gojdebn3wjy3f68"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Leben erkennet dein Aug' in tausend Gestalten und Formen",
+      "language": [],
+      "musenalm_id": 86439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Atheisten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Atheisten",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "vbfuikvuyj4o9xm"
+        }
+      ],
+      "source_id": "4ghbw2c5ktzkjos"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Zwischen den Wendekreisen des Alters verstehst du zu herrschen,",
+      "language": [],
+      "musenalm_id": 86440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Amor",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Amor",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "u6siqwarwqcahr8"
+        }
+      ],
+      "source_id": "n6b56u1ncql3k90"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Sein Gesetz gab Lykurg und schied und kehrte nicht wieder,",
+      "language": [],
+      "musenalm_id": 86441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gewissen Gesetzgebern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gewissen Gesetzgebern",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "kpe5dwqfr15xea3"
+        }
+      ],
+      "source_id": "70yga3chmsr91dh"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Ihr beschwört den Geist des Cheruskers? Bestellt auch den / Hogart,",
+      "language": [],
+      "musenalm_id": 86442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gewissen Heroen der Zeit",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gewissen Heroen der Zeit",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "t61hus2yycmsl15"
+        }
+      ],
+      "source_id": "nci5bu8pyhtz5l9"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Freiheit! brüllet das Volk und zerbricht die gemeinsame Kette,",
+      "language": [],
+      "musenalm_id": 86443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die unzerreißbare Kette",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die unzerreißbare Kette",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "zasmpicfbeu0wv4"
+        }
+      ],
+      "source_id": "gfg9mje83m40zpi"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Löwen habt ihr gezähmt, Hyänen und Tieger gebändigt,",
+      "language": [],
+      "musenalm_id": 86444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Thierbändigern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den Thierbändigern",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "u5xe2u4w8sqpks3"
+        }
+      ],
+      "source_id": "8djrbimoinn6cgj"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "In der Vergangenheit lebt' er, der Zukunft gehöret sein / Wirken",
+      "language": [],
+      "musenalm_id": 86445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Historiker",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Historiker",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "p3eib91pmnfqliw"
+        }
+      ],
+      "source_id": "kiobcpm17483uql"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Freunde hab' ich genug, ich kann sie nach Dutzenden zählen,",
+      "language": [],
+      "musenalm_id": 86446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wunder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wunder",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "o6lprh5xe21l1ax"
+        }
+      ],
+      "source_id": "0prvwt7p90y0c7f"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Beide genießen die Welt, doch scheidet als Schuldner / der eine,",
+      "language": [],
+      "musenalm_id": 86447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weltkind und Dichter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weltkind und Dichter",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "xq8a9z45s4tk5p2"
+        }
+      ],
+      "source_id": "lj3i9eyd8m0wsd6"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Unter Leuten von Welt nimmt man's nicht genau mit der / Wahrheit,",
+      "language": [],
+      "musenalm_id": 86448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leute von Welt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leute von Welt",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "l1t3qhlpf8b2v86"
+        }
+      ],
+      "source_id": "rrtnl1rxvpcu43i"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Alles gilt der Begriff, der richtige dir, aber leider / Kömmst du, mein würdiger Freund,",
+      "language": [],
+      "musenalm_id": 86449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Logiker",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Logiker",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "1l9754ck9otzpin"
+        }
+      ],
+      "source_id": "di5m0souwbmzw3a"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Lerchen wirbelten hoch, im Haine sang Philomele,",
+      "language": [],
+      "musenalm_id": 86450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sänger und Kritikus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sänger und Kritikus",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.239Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "o2j1oda1vo9dgcb"
+        }
+      ],
+      "source_id": "tzw3eqq264s8921"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Beide betrachten mit Fleiß und Schweiß den zergliederten / Leichnahm,",
+      "language": [],
+      "musenalm_id": 86451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grammatiker und Anatom",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grammatiker und Anatom",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.240Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.240Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "ick3ut73uky5ewp"
+        }
+      ],
+      "source_id": "p4sm46658sxfywe"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Seine Mißgeburt warf in des Taygetus Höhlen der Sparter,",
+      "language": [],
+      "musenalm_id": 86452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Tagespoeten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den Tagespoeten",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.240Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.240Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "8o2g56bz3w2cte4"
+        }
+      ],
+      "source_id": "rkq41g1qcjt9lgi"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Christoph Columbus gab der Welt ihre schönere Hälfte,",
+      "language": [],
+      "musenalm_id": 86453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Irving und Franckl",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Irving und Franckl",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.240Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.240Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "h197uiydol4t1wf"
+        }
+      ],
+      "source_id": "lqiovcck1rkxfje"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Zweierlei Lose sind's - das eine wirft die Geburt ihm,",
+      "language": [],
+      "musenalm_id": 86454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lose der Menschen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lose der Menschen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.240Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.240Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "ob3v9rz54d3nxzf"
+        }
+      ],
+      "source_id": "4gs5bsq9tqscv9v"
+    },
+    {
+      "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Über die düstere Welt blitzt leuchtend des Genius Auge",
+      "language": [],
+      "musenalm_id": 86455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ewige Wirkung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rain",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ewige Wirkung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.240Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.240Z",
+          "agent": "ut3gc8g2lomjo63",
+          "source_id": "6o2ttzhu467x84e"
+        }
+      ],
+      "source_id": "4o6lmafxgb7xzpf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Eine Blume in dem Busen, / Wandelt Fathme durch den Hain,",
+      "language": [],
+      "musenalm_id": 86456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rose",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.240Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.240Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "wy6s43k5xlasp1l"
+        }
+      ],
+      "source_id": "x807wh9lcjpcfvn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Der Abend thaut mit kühlem Schatten / Auf Alpenseen und Wiesenmatten;",
+      "language": [],
+      "musenalm_id": 86457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ave Marie!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ave Marie!",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "hps2ebrju5phcpc"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Sammlung von 2 Gedichten INr 86459, 86460; Obj 71, 72",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ghaseln",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "August Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ghaseln",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "g02lsr415ohug2q"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Ghaseln (Sammlung INr 86458, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Wie oft ruf' ich, umkost vom holden Glücke: Wie schön ist / doch das Leben!",
+      "language": [],
+      "musenalm_id": 86459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "August Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9ux40iolwmap6m"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Ghaseln (Sammlung INr 86458, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Wenn dir die Freude winkt, nicht lang besonnen; / Ein Augenblick nur ist's, wie Thau zerronnen!",
+      "language": [],
+      "musenalm_id": 86460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "August Fischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "lhdy3c1up8orgrh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Des Wankelmuthes darfst du mich nicht zeihen, / Weil Fesseln erst ich mußte mich entwinden",
+      "language": [],
+      "musenalm_id": 86461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Hermine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. J. Schaffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Hermine",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "7rezheub3x4qqtd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86462,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "jc852ftn2tm83km"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86463,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1600_86463_512542al2g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "9lsikzw6v0c9fg8"
+    }
   ],
   "agents": [
     {

@@ -48,13 +48,160 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "wrul8xs987qhor6"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.742Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408373",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.742Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wrul8xs987qhor6"
+    }
   ],
   "contents": [
-    "76t671hlt0lxz68",
-    "ea313grxn8rkqiv",
-    "9076sby223oudaa",
-    "6u6oe3g30v54834"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93159,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hellenia. / Ein Taschenbauck / von / F. A. Lessen. / Rostock, drückt bi Adlers Arben. / 1824",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hellenia. / Ein Taschenbauck / von / F. A. Lessen. / Rostock, drückt bi Adlers Arben. / 1824",
+      "updated": "2014-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "76t671hlt0lxz68"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93160,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Subscribenten-Verzeichniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Subscribenten-Verzeichniß",
+      "updated": "2014-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "ea313grxn8rkqiv"
+    },
+    {
+      "annotation": "einleitendes Gedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Hellenia! Ein Taschenbauck! / Wer't köfft un lest, dei deit recht klauck. / Denn jerermann kann hierut liir'n / Wat einen Minschen kann paßir'n",
+      "language": [],
+      "musenalm_id": 93161,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hellenia! Ein Taschenbauck! / Wer't köfft un lest, dei deit recht klauck. / Denn jerermann kann hierut liir'n / Wat einen Minschen kann paßir'n…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "9076sby223oudaa"
+    },
+    {
+      "annotation": "Gedicht in 626 Strophen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Den Stock in miine rechte Hand, / Dei Scheittasch up den Rüggen, / Maackt ick mi up na Griechenland.",
+      "language": [],
+      "musenalm_id": 93162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Stock in miine rechte Hand, / Dei Scheittasch up den Rüggen, / Maackt ick mi up na Griechenland.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Lessen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "6u6oe3g30v54834"
+    }
   ],
   "agents": [
     {

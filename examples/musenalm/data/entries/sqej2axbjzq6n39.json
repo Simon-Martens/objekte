@@ -48,34 +48,1173 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "an61xq1qkkwog74"
+    {
+      "annotation": "nicht bei K 92; nicht bei L/R 96; der Almanach entspricht dem Jg 1829 der Orphea, die Verlagsmitteilungen des Fleischer Verlags Leipzig fehlen hier <br> §1§ Zwischentitel fehlt, §2§ röm1: SS XI-XIV mit 2 Scenen aus »Oberon« als Textbezüge zu 2 Graphiken fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.607Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100429",
+      "location": "105R03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.607Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "an61xq1qkkwog74"
+    }
   ],
   "contents": [
-    "g86r5jbjl553drn",
-    "uqtkl6bjlgmu935",
-    "ckvr4e2psn26pt0",
-    "uldnyg7z8twx3l8",
-    "gg039fa02rycyk1",
-    "te7ywvsl6s9k6vb",
-    "kv0ak9km2nf84r8",
-    "l3l26tolqsitrvu",
-    "k3idcw8slcgf2op",
-    "7l123wtczwnpd96",
-    "ae1gsuc7ccapmmt",
-    "cyobbds1m2cpktl",
-    "f4e7uvnrtrxp5qh",
-    "b5h654y37wye5sq",
-    "hmxvf2f342fk4pn",
-    "s5fbw00g4ldxy3x",
-    "f3jwr7oyzzypah3",
-    "s6s3ydcn9h6i9j6",
-    "krfxcwite3ir5su",
-    "na29kcs4vudcftg",
-    "6ltogkj34v51u0i",
-    "wsd7y0rvkirorsb",
-    "xy80f9jqp0pvb1p",
-    "vt63tbc9ouptnjt",
-    "5uanbgl5iegnr2x"
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr 75354, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75350,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / I. Aufz. 1. Sc. / Rezia. Warum mußt Du schlafen? Held voll Muth? / Ein Mädchen sitzt weinend an Babylons Fluth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_2372_75350_kwjximd9aj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / I. Aufz. 1. Sc. / Rezia. Warum mußt Du schlafen? Held voll Muth? / Ein Mädchen sitzt weinend an Babylons Fluth",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.551Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.551Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "c6116exooxw6l4w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.551Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.551Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "zj9d9vcjs7yx4r8"
+        }
+      ],
+      "source_id": "g86r5jbjl553drn"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75351,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORPHEA / TASCHENBUCH / FÜR / 1828. / Fünfter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU OBERON. / BERLIN. / Carl Heymann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2372_75351_0p48ri9868.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1828. / Fünfter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU OBERON. / BERLIN. / Carl Heymann",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "uqtkl6bjlgmu935"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Webers ritterliche Feenoper, die, kraft des mächtigen Elfenzaubers, den fernen Orient zu Frankens Abendlande kettet, hat auch in dem Reich der Töne die Gränzen ihrer Heimath übersprungen,",
+      "language": [],
+      "musenalm_id": 75353,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Fleischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.552Z",
+          "agent": "orvggoshiht8kde",
+          "source_id": "tl9decd57xdm8eu"
+        }
+      ],
+      "source_id": "ckvr4e2psn26pt0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75375,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "uldnyg7z8twx3l8"
+    },
+    {
+      "annotation": "§1§ Zwischentitel »Gallerie zu den Opern Sechste Lieferung. Oberon« fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75361,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Titel]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "gg039fa02rycyk1"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Titelgraphik INr 75350, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Puck. / Es ist geschehen, mein König, hier erblickest / Den Ritter und den treuen Knappen Du.",
+      "language": [],
+      "musenalm_id": 75354,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / (Das Titelkupfer.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / (Das Titelkupfer.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.552Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "b8wyz4k81o5oht0"
+        }
+      ],
+      "source_id": "te7ywvsl6s9k6vb"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Graphik INr 75363, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Babekan (innerhalb der Bühne.) / Rettung! Hülfe! Hülfe! Wer rettet?!",
+      "language": [],
+      "musenalm_id": 75355,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.552Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "hpire0v5ednyxw0"
+        }
+      ],
+      "source_id": "kv0ak9km2nf84r8"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Graphik INr 75364, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Kalife. / Komm näher, meine Tochter! - (Innerhalb hört man / Schwertergeklirr.) Ha! - Schwertergeklirr! Bei meinem / Barte! - Was für Verwegenheit!",
+      "language": [],
+      "musenalm_id": 75356,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.552Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "2thaan8qmt4rqe9"
+        }
+      ],
+      "source_id": "l3l26tolqsitrvu"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Graphik INr 75365, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Rezia (schreiend). / Ah! - Huon! Huon! Rette mich! Hülfe! Hülfe!",
+      "language": [],
+      "musenalm_id": 75357,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.552Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "3pcb53j7sn9zqkq"
+        }
+      ],
+      "source_id": "k3idcw8slcgf2op"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Graphik INr 75366, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Huon. / Mein Herz klopft ängstlich - wozu dieses sonderbare / Zaudern?",
+      "language": [],
+      "musenalm_id": 75358,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.552Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.552Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "tw2zugk7w2ybud4"
+        }
+      ],
+      "source_id": "7l123wtczwnpd96"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) §2§ Beitrag fehlt s. Graphik INr 75367, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75359,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. §2§",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. §2§",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ae1gsuc7ccapmmt"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) §3§ Beitrag fehlt s. Graphik INr 75368, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75360,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. §3§",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. §3§",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "cyobbds1m2cpktl"
+    },
+    {
+      "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Graphik INr 75369, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.685Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "(Die Wolken hüllen Oberon und Titania ein. Als sie sich wieder zerstreuen, erblikt man Karls des Großen Palast.",
+      "language": [],
+      "musenalm_id": 75362,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "600o0kfnw3jslnr"
+        }
+      ],
+      "source_id": "f4e7uvnrtrxp5qh"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75355, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75363,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / I. Aufz. 1. Sc. / Babekan. Rettung! Hülfe! Hülfe! Wer rettet?!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.",
+      "scans": [
+        "alm_2372_75363_4huzvjar51.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / I. Aufz. 1. Sc. / Babekan. Rettung! Hülfe! Hülfe! Wer rettet?!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "ero0sx4bfg0v03c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ft5aiv6yz2cr71z"
+        }
+      ],
+      "source_id": "b5h654y37wye5sq"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75356, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75364,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / II. Aufz. 1. Sc. / Huon. Stirb ungläubiger Verräther!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+      "scans": [
+        "alm_2372_75364_t6qrmcux8g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / II. Aufz. 1. Sc. / Huon. Stirb ungläubiger Verräther!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "dvoe2khbx049fge"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "hl8uviagflm6tig"
+        }
+      ],
+      "source_id": "hmxvf2f342fk4pn"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75357, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75365,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / II. Aufz. 5. Sc. / Abdallah. Stirb! / Rezia. Gnade! Gnade!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+      "scans": [
+        "alm_2372_75365_mm2gcm9wlz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / II. Aufz. 5. Sc. / Abdallah. Stirb! / Rezia. Gnade! Gnade!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "cm7j0qz2jo4cg9m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.687Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "s7mgoq69cchx4wz"
+        }
+      ],
+      "source_id": "s5fbw00g4ldxy3x"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75358, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75366,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / III. Aufz. 4. Sc. / Huon. Allmächtiger Himmel! Ich bin betrogen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+      "scans": [
+        "alm_2372_75366_8ysdj73gbf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / III. Aufz. 4. Sc. / Huon. Allmächtiger Himmel! Ich bin betrogen!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5uc2a28haytuq09"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ggwovgztvfkdx45"
+        }
+      ],
+      "source_id": "f3jwr7oyzzypah3"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) §2§ Textbezug fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75367,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / III. Aufz. 6. Sc. / Chor. Horch ! Welch Wunderklingen! / Woher kommt der Ton?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+      "scans": [
+        "alm_2372_75367_1ssqi8m3w6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / III. Aufz. 6. Sc. / Chor. Horch ! Welch Wunderklingen! / Woher kommt der Ton?",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "dg0alkdk2viiexq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "wughvlu3a0h5hmt"
+        }
+      ],
+      "source_id": "s6s3ydcn9h6i9j6"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) §3§ Textbezug fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.708Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75368,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "OBERON. / III. Aufz. 6. Sc. / Oberon. Heil treues Paar!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.",
+      "scans": [
+        "alm_2372_75368_bydizovwhc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "OBERON. / III. Aufz. 6. Sc. / Oberon. Heil treues Paar!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "7z4u646u5y9u5h4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "l32abo0m2iv711s"
+        }
+      ],
+      "source_id": "krfxcwite3ir5su"
+    },
+    {
+      "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75362, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75369,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Huon. Sieh Herr! seinem beschwornen Eid getreu! / Kniet Huon vor Deinem Thron auf's neu!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. Büscher sc.",
+      "scans": [
+        "alm_2372_75369_maix73e8nk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Huon. Sieh Herr! seinem beschwornen Eid getreu! / Kniet Huon vor Deinem Thron auf's neu!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "cban62fa5qhnxrj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "rookj8hzrynkcws",
+          "source_id": "wfcl5l26uxoti4v"
+        }
+      ],
+      "source_id": "na29kcs4vudcftg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war am drei und zwanzigsten November des Jahres Christi, als man schrieb 1490, am Tage vor Sancti Chrysogeni Tag, als in der großen, berühmten und freien Stadt Hannover in seinem stattlichen, gothisch gebauten Wohnhause,",
+      "language": [],
+      "musenalm_id": 75370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Hannovers Spartaner. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Hannovers Spartaner. / Historische Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.688Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.688Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "dl4ipbo786m5q55"
+        }
+      ],
+      "source_id": "6ltogkj34v51u0i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "In der Mitte eines ungeheuern Waldgebirges wohnte vor vielen Jahren ein armer Kohlenbrenner, Namens Gebhard, mit seiner Ehefrau Regina,",
+      "language": [],
+      "musenalm_id": 75371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der goldne Zahn. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. G. Prätzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der goldne Zahn. / Ein Mährchen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.796Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.796Z",
+          "agent": "ufh0csiazwb0bf6",
+          "source_id": "0s8f0fqhd8s3fd2"
+        }
+      ],
+      "source_id": "wsd7y0rvkirorsb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "In den mittleren Lebensjahren Ludwigs des Fünfzehnten zwangen zum Theil politische Verhältnisse, die genauer zu entwickeln nicht zum Zwecke folgender Blätter gehört, eine angesehene niederländische Familie, das Vaterland heimlich zu verlassen.",
+      "language": [],
+      "musenalm_id": 75372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der Verschollene. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der Verschollene. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.796Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.796Z",
+          "agent": "jfhywk4cbxcodws",
+          "source_id": "kh9i30er9id81ec"
+        }
+      ],
+      "source_id": "xy80f9jqp0pvb1p"
+    },
+    {
+      "annotation": "Numerierung des Beitrags fälschlich: VI",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Der Maskenball war fast zu Ende, als die Aufmerksamkeit der Anwesenden noch einmal geweckt, das Fest durch ein neues Zwischenspiel erfrischt werden sollte.",
+      "language": [],
+      "musenalm_id": 75373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die graue Maske",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline, Baronin de la Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die graue Maske",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "t59v9lajt8yljq5",
+          "source_id": "dw9faynj1t5q1yh"
+        }
+      ],
+      "source_id": "vt63tbc9ouptnjt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Aus der schönen, mit Reben und Kastanien umkränzten Stadt Ungarns, Oedenburg, zog an einem heitern Maitage, nach dasiger Gewohnheit, eine Schaar junger Bursche und Mädchen, um in dem Weingebirge den Tagelöhnern nachzusehen und zu helfen.",
+      "language": [],
+      "musenalm_id": 75374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Bindegesell. / Romantisches Idyll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Bindegesell. / Romantisches Idyll",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.749Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "nkwrumi7tz6fuyd"
+        }
+      ],
+      "source_id": "5uanbgl5iegnr2x"
+    }
   ],
   "agents": [
     {

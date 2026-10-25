@@ -48,63 +48,2385 @@
   "year": 1814,
   "editor": "",
   "items": [
-    "3ozf66fk9g6vilc"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen).\nKartonierter Einband mit Goldschnitt.\n1814: (K:Ku 10, Bl 3, 60 SS und 448 SS) Mit Ku 10, Bl 4, 60 SS und 448 SS.  ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.495Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100324",
+      "location": "105Q10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.495Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3ozf66fk9g6vilc"
+    }
   ],
   "contents": [
-    "vrpb4ctfsnz04u3",
-    "hrsb4u5rcwqvauv",
-    "6mn5eqw7c5nkoxt",
-    "jbzbskib3wa29yk",
-    "jlzlwd6bwuz5c96",
-    "4g9q1ppilavntws",
-    "b4bltzftk00pmw1",
-    "38oqa5easia0rsu",
-    "abgovfzdmolzych",
-    "mjvh029417mgsn9",
-    "swhgkqr6aj1prxf",
-    "knw35c811u1oy80",
-    "yugtwa3nvu9te20",
-    "tas9q7k4cmalslc",
-    "c84h6puf3ww02x9",
-    "oe38f1ncws7paon",
-    "eq12hunsq6aoboe",
-    "64f0pxj5r7nwxgc",
-    "7hr9r6p5q9b818y",
-    "9bqdck5pjtpixk9",
-    "nhew8ocy6l3tsom",
-    "ynku96wiby545r1",
-    "uf832h3m7o7qbe5",
-    "i89ca11bmzk97jg",
-    "adlr2zk8lo35g36",
-    "3wiy0uu0ccklps6",
-    "px7un6ewm6x38nw",
-    "te8oiwhre5g77lp",
-    "7xf29qsvbm5k3sq",
-    "vwn553gmjltpwi2",
-    "yy0fmpwqt1coucr",
-    "q1fcw26ggz2tgkc",
-    "lbwcirpm8rrngsm",
-    "krm0ohuziypnq3g",
-    "i8r3yd8lz66uuay",
-    "d6xlew8ji9hfkin",
-    "d8fuuc32lm9kz9a",
-    "a418e9paz8ik0q4",
-    "yc9rqwdyb4kvcgh",
-    "hwr6epfoaf786vq",
-    "3xhp2ngweh8tuu9",
-    "dbnv1e8xdki8hcp",
-    "26lzsjlamk01r82",
-    "39p6qtqgenw0kc9",
-    "fmc63gfd5ynbt92",
-    "fyyn817cchbj0nj",
-    "bb9tj83cx2yrbxv",
-    "kq4k4i4o1upnnb3",
-    "v3r3e0255ryeb2i",
-    "sm22k2k77q37980",
-    "oki2vkmmam0j93d",
-    "yw8urpap5unggzt",
-    "b4kv4wirvblwyvo",
-    "j18jgpimodi7hi3"
+    {
+      "annotation": "Titelgraphik # Titel vom Textbezug INr 39465, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39461,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor, ein Raub der Furien #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_518_39461_lnorxz5lmd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Amor, ein Raub der Furien #",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.096Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4o148krt04cj52x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.097Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "tmk6bbor6ka7uss"
+        }
+      ],
+      "source_id": "vrpb4ctfsnz04u3"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39462,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MINERVA. / Sechster Jahrgang / für / das Jahr 1814. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_518_39462_y9589edoiw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MINERVA. / Sechster Jahrgang / für / das Jahr 1814. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "hrsb4u5rcwqvauv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39463,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "6mn5eqw7c5nkoxt"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 8 Textbezügen zu 8 Graphiken INr 39466-39481, Obj 6-21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Des großen Hippokrates Ausspruch: Alles Menschliche ist göttlich, alles Göttliche menschlich! verdient die Inschrift der griechischen Heroenfabel und des Heldenschauspiels der Griechen zu seyn, das man gewöhnlich Trauerspiel nennt.",
+      "language": [],
+      "musenalm_id": 39464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / zu Schillers Gedichten. / Sechste Schaustellung. / Szenen aus der Braut von Messina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / zu Schillers Gedichten. / Sechste Schaustellung. / Szenen aus der Braut von Messina",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "jbzbskib3wa29yk"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 394461, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Amor, beklagenswürdiger Amor! Wo sind deine Herrscherthaten und Triumphzüge,du Allbeherrscher, Allbändiger!",
+      "language": [],
+      "musenalm_id": 39465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor, / ein Raub der Furien. / Zur Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor, / ein Raub der Furien. / Zur Erklärung des Titelkupfers",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "jlzlwd6bwuz5c96"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39467, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina / Die Mutter / O meine Söhne! kommt, entschliesset euch, / Die Rechnung gegenseitig zu vertilgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+      "scans": [
+        "alm_518_39466_km2d552txz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina / Die Mutter / O meine Söhne! kommt, entschliesset euch, / Die Rechnung gegenseitig zu vertilgen",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.097Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fxltvgfguij68b9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.097Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "uzfsvw5ryocswf5"
+        }
+      ],
+      "source_id": "4g9q1ppilavntws"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39466, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Eine der gewichtigsten und kraftvollsten Szenen in den feindlichen Brüdern des Euripides,",
+      "language": [],
+      "musenalm_id": 39467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Unversöhnten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Unversöhnten",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "b4bltzftk00pmw1"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39469 Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Wohl sagt Sterne einmal in seinem letzten humoristischen Vermächtniß, im Koran: es giebt zwei Worte, wovon das eine, Wiedervergeltung (Retaliation), in des Menschen Brust, das andere, Versöhnung (Reconciliation) auf den Lippen eines Engels ausgeprägt",
+      "language": [],
+      "musenalm_id": 39468,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Versöhnten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Versöhnten",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "38oqa5easia0rsu"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39468, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39469,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina / Der erste Chor. / Was stehen wir hier noch feindlich geschieden, / Da die Fürsten sich liebend umfassen?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+      "scans": [
+        "alm_518_39469_kbyywnyjil.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina / Der erste Chor. / Was stehen wir hier noch feindlich geschieden, / Da die Fürsten sich liebend umfassen?",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.166Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.166Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "osn4w5uzlbmqbyi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.166Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.166Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "xf1vd0t24acocvx"
+        }
+      ],
+      "source_id": "abgovfzdmolzych"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39471, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina / Don Manuel. / Bewegungslos starr ich das Wunder an / Den Jagdspies in der Hand, zum Wurf ausholend - / Sie aber blickt mit großen Augen flehend / Mich an",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+      "scans": [
+        "alm_518_39470_d0yp1kbtvv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina / Don Manuel. / Bewegungslos starr ich das Wunder an / Den Jagdspies in der Hand, zum Wurf ausholend - / Sie aber blickt mit großen Augen flehend / Mich an",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.166Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.166Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ar4f9t2fyzrm26q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.167Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "j2bnge5zu784qgh"
+        }
+      ],
+      "source_id": "mjvh029417mgsn9"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39470 Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Das Thier floh durch des Thales Krümmen, / Durch Busch und Kluft und bahnenlos Gestrüpp,",
+      "language": [],
+      "musenalm_id": 39471,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Schicksals-Hindin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Schicksals-Hindin",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "swhgkqr6aj1prxf"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39473, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39472,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina. / Don Cesar. Fremd war sie mir und innig, doch vertraut, / Und klar auf einmahl fühlt ichs in mir werden, / Die ist es, oder keine sonst auf Erden!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Böhm sc.",
+      "scans": [
+        "alm_518_39472_mbk07esnou.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina. / Don Cesar. Fremd war sie mir und innig, doch vertraut, / Und klar auf einmahl fühlt ichs in mir werden, / Die ist es, oder keine sonst auf Erden!",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.167Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fbt5bfdbd7kmlph"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.167Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.167Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "zkhgphico18l91l"
+        }
+      ],
+      "source_id": "knw35c811u1oy80"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39472 Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Die Lilie muß auch den zweiten Lorbeerbaum entzünden. Auch hier bringt das Schicksal die geweihten Opfer an heiliger Stätte zusammen.",
+      "language": [],
+      "musenalm_id": 39473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Das Seelen-Amt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Das Seelen-Amt",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "yugtwa3nvu9te20"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39475, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina. / Blendwerk der Hölle! Was? In seinen Armen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+      "scans": [
+        "alm_518_39474_uwkh0xenep.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina. / Blendwerk der Hölle! Was? In seinen Armen",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.135Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "bvvzkx8vjsu4rav"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.135Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "tz1btpwa34c3jse"
+        }
+      ],
+      "source_id": "tas9q7k4cmalslc"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39474 Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Wir kommen, wir kommen, / Mit festlichen Prangen / Die Braut zu empfangen,",
+      "language": [],
+      "musenalm_id": 39475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Brudermord",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Brudermord",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "c84h6puf3ww02x9"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39477 Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Die Szene selbst bedarf kaum eines erläuternden Fingerzeigs. Der Zeichner hat ihr alle Gerechtigkeit widerfahren lassen",
+      "language": [],
+      "musenalm_id": 39476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Anerkennung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Anerkennung",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "oe38f1ncws7paon"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39476, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina. / Isabella. Kind meines Herzens, komm in meine Arme. / Beatrice. Zu deinen Füssen sieh die Schuldige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Bolt sc.",
+      "scans": [
+        "alm_518_39477_dccknpgggf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina. / Isabella. Kind meines Herzens, komm in meine Arme. / Beatrice. Zu deinen Füssen sieh die Schuldige",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.032Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "qgs9xwp37vuke8e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.032Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.032Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "snkgam834tvmepj"
+        }
+      ],
+      "source_id": "eq12hunsq6aoboe"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39479, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina / Isabella / O himmlische Maechte, es ist mein Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_518_39478_8gzphlhlel.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina / Isabella / O himmlische Maechte, es ist mein Sohn",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.097Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "f292y0pbga7u5nz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.097Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "xdkxltso07pzqu3"
+        }
+      ],
+      "source_id": "64f0pxj5r7nwxgc"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39478 Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Mein Sohn! mein Manuel! o ewige / Erbarmung! so muß ich dich wieder finden!",
+      "language": [],
+      "musenalm_id": 39479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Entwickelung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Entwickelung",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "7hr9r6p5q9b818y"
+    },
+    {
+      "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39421, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Braut von Messina / Das Leben ist der Güter höchstes nicht, / Der Uebel grösstes ist die Schuld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+      "scans": [
+        "alm_518_39480_ste9ha5dbr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Braut von Messina / Das Leben ist der Güter höchstes nicht, / Der Uebel grösstes ist die Schuld",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.970Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.970Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "qhizc89m1fs6p56"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.970Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.970Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "smckuy6v82fn3sp"
+        }
+      ],
+      "source_id": "9bqdck5pjtpixk9"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Sechste Schaustellung. Szenen aus der Braut von Messina (Sammlung INr 39464, Obj 4) s. Graphik INr 39480 Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Einer der neuesten Aesthetiker nimmt dreierlei Arten der hohen, ernsten, dramatischen Darstellung an.",
+      "language": [],
+      "musenalm_id": 39481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die Versöhnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die Versöhnung",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "nhew8ocy6l3tsom"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einer schwülen Juliusnacht fuhr die schwer belastete Reichspost langsam zu dem Thore einer süddeutschen Stadt hinein.",
+      "language": [],
+      "musenalm_id": 39482,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Verwünschung. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline de la Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Verwünschung. / Eine Erzählung",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.970Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.970Z",
+          "agent": "t59v9lajt8yljq5",
+          "source_id": "5frd6p6vge2m2aa"
+        }
+      ],
+      "source_id": "ynku96wiby545r1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Wohl uns, wohl! Da sind wir wieder! / Sind gerettet, wir sind frey!",
+      "language": [],
+      "musenalm_id": 39483,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Mathilde. / Eine tragische Oper in drei Aufzügen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Pichler, geborne von Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Mathilde. / Eine tragische Oper in drei Aufzügen",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.970Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.970Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "qpvobyt0x9wjpo4"
+        }
+      ],
+      "source_id": "uf832h3m7o7qbe5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Der schöne Abend führte zufällig einen kleinen Kreis von Freunden auf der öffentlichen Promenade zusammen.",
+      "language": [],
+      "musenalm_id": 39484,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Das Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Das Räthsel",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.900Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.900Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "w3rtn3omcdhpnbh"
+        }
+      ],
+      "source_id": "i89ca11bmzk97jg"
+    },
+    {
+      "annotation": "Sammlung von 10 Gedichten INr 39486-39488, 39490-39496; Obj 26-35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39485,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Gedichte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.063Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "ctema9cz0vk5q85"
+        }
+      ],
+      "source_id": "adlr2zk8lo35g36"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Laßt mein hohes Glück mich preisen! / Denn ich fand nach langem Reisen",
+      "language": [],
+      "musenalm_id": 39486,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was und wo ich's fand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was und wo ich's fand",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.749Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.749Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "8rvat42trl5pejn"
+        }
+      ],
+      "source_id": "3wiy0uu0ccklps6"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Ha! bist du nun erangelt, Fisch? / Wie lange hab' ich lauern müssen!",
+      "language": [],
+      "musenalm_id": 39487,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischer",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.773Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.773Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "xjidbj2rqq7kbjs"
+        }
+      ],
+      "source_id": "px7un6ewm6x38nw"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "In stiller Frühlingsnacht begann ein eitles / Johanniswürmchen, seinen Glanz bewundernd / Stolz auszurufen:",
+      "language": [],
+      "musenalm_id": 39488,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nachtigall und das Johanniswürmchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nachtigall und das Johanniswürmchen",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.773Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.773Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "y33y8bqwhisanbi"
+        }
+      ],
+      "source_id": "te8oiwhre5g77lp"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Wenn der himmlische Mai segnend herunter schwebt / Prangt in blühendem Schmuck lieblich der Rosenstock;",
+      "language": [],
+      "musenalm_id": 39490,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rose",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.773Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.773Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "hes0u4figcvubri"
+        }
+      ],
+      "source_id": "7xf29qsvbm5k3sq"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Faxs lügt, doch immer nicht, er nimmt die Zeit in Acht, / Lügt nur bei Tag' und redet wahr bei Nacht.",
+      "language": [],
+      "musenalm_id": 39491,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtwächter-Faxs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtwächter-Faxs",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.773Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.773Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "tfvphf97wfafgbm"
+        }
+      ],
+      "source_id": "vwn553gmjltpwi2"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Thut wohl! Es ist Pflicht, kein Erbarmen. / Die Reichen sind Schuldner der Armen.",
+      "language": [],
+      "musenalm_id": 39492,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gnome",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gnome",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.773Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.773Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "zxiv1wp1gt3wqoy"
+        }
+      ],
+      "source_id": "yy0fmpwqt1coucr"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Amor steht ob deinem Schloßportale: / Fama bläht sich im Visitensaale.",
+      "language": [],
+      "musenalm_id": 39493,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Grafen Asot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Grafen Asot",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.229Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "ib7bhxmu7wv8lo7"
+        }
+      ],
+      "source_id": "q1fcw26ggz2tgkc"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Von tausend Leckerei'n, dem wahren Giftgemische, / Erkrankt der Gastronome, Du lebst von seinem Tische;",
+      "language": [],
+      "musenalm_id": 39494,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Arzte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Arzte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.207Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.207Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "edtoheatghvsnjz"
+        }
+      ],
+      "source_id": "lbwcirpm8rrngsm"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Die du schöner als Maria bist, / O Psycharion, gedenke mein!",
+      "language": [],
+      "musenalm_id": 39495,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pater Firmus an Psycharion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pater Firmus an Psycharion",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.172Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "l3zktyl0oc9ha0a"
+        }
+      ],
+      "source_id": "krm0ohuziypnq3g"
+    },
+    {
+      "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Du weinst dich schöner, holde Frau! / Du gleichst der Ros' im Morgenthau.",
+      "language": [],
+      "musenalm_id": 39496,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Franziska weinte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als Franziska weinte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.172Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "tapr44eftjm5ws0"
+        }
+      ],
+      "source_id": "i8r3yd8lz66uuay"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Graf Steinbühl hauste im Gebirg auf Schloß Steinbühl, im Paradiese des Landes.",
+      "language": [],
+      "musenalm_id": 39497,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Mündel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Mündel",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.169Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "nso9du3s9jf5s6q"
+        }
+      ],
+      "source_id": "d6xlew8ji9hfkin"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 39499-39501, Obj 38-40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39498,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Drei Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqé",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Drei Gedichte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.169Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "5iqw6986ujh0mtw"
+        }
+      ],
+      "source_id": "d8fuuc32lm9kz9a"
+    },
+    {
+      "annotation": "VI. Drei Gedichte (Sammlung INr 39498, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Was, Vöglein, singt und rauscht Ihr? / Was, Morgenlichter, lauscht Ihr / Erweckend auf mich hin?",
+      "language": [],
+      "musenalm_id": 39499,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erwachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqé",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erwachen",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.169Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "4jo9jyg0fqzleih"
+        }
+      ],
+      "source_id": "a418e9paz8ik0q4"
+    },
+    {
+      "annotation": "VI. Drei Gedichte (Sammlung INr 39498, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Die Schlacht, wo blut'ge Panner wehten, / Das Fest, im grimmen Rausche blind,",
+      "language": [],
+      "musenalm_id": 39500,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An eine Freundin. / (Bei Uebersendung des Alboin.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqé",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An eine Freundin. / (Bei Uebersendung des Alboin.)",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.169Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.169Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "p1k4l0lkcbeyiwa"
+        }
+      ],
+      "source_id": "yc9rqwdyb4kvcgh"
+    },
+    {
+      "annotation": "VI. Drei Gedichte (Sammlung INr 39498, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Ich hab' einen treuen Falken / Der sitzet mir fromm zur Hand,",
+      "language": [],
+      "musenalm_id": 39501,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Falke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqé",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Falke",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "6203uvwntcl4f1k"
+        }
+      ],
+      "source_id": "hwr6epfoaf786vq"
+    },
+    {
+      "annotation": "Der Beitrag wird fortgesetzt in: Minerva 1815, INr 39540",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Theodor Agrippa von Aubigné, der getreue Anhänger und persönliche Freund Heinrichs IV. von Frankreich, hatte einen Sohn Constantius,",
+      "language": [],
+      "musenalm_id": 39502,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Francisca von Aubigné, / Marquisin von Maintenon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Bredow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Francisca von Aubigné, / Marquisin von Maintenon",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "dtbajicc1tr9ej0",
+          "source_id": "6maga8joc8j5twy"
+        }
+      ],
+      "source_id": "3xhp2ngweh8tuu9"
+    },
+    {
+      "annotation": "Vorwort zum folgenden Beitrag: »Klopstock, im Sommer 1795. Ein Bruchstück aus meinem Tagebuche« INr 39504, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Zu den süßesten Erinnerungen einer Reise, die ich im August des Jahrs 1795 mit einem nun auch schon heimgegangenen Freunde nach Hamburg und bis an die Küste der Ostsee machte,",
+      "language": [],
+      "musenalm_id": 39503,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Böttiger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "7cdnqd525rp9gi5",
+          "source_id": "p6jr6e9j6do05c4"
+        }
+      ],
+      "source_id": "dbnv1e8xdki8hcp"
+    },
+    {
+      "annotation": "mit einem Vorwort s. INr 39503, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "So kindlich gut, so fröhlicher und unbefangener Natur auch der 73jährige Dichtergreis ist, so eifersüchtig ist er doch auf gewisse Vorrechte,",
+      "language": [],
+      "musenalm_id": 39504,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Klopstock, / im Sommer 1795. / Ein / Bruchstück aus meinem Tagebuche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Böttiger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Klopstock, / im Sommer 1795. / Ein / Bruchstück aus meinem Tagebuche",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "7cdnqd525rp9gi5",
+          "source_id": "zeoyueac7m1wfgy"
+        }
+      ],
+      "source_id": "26lzsjlamk01r82"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "In der Stadt Brußa lebte vormals ein ganz verständiger Kaufmann Abdorruuf genannt, eben so reich als scharfsinnig, wachsam und ausharrend.",
+      "language": [],
+      "musenalm_id": 39505,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Die Zahngeschichte. / Ein berühmtes türkisches Mährchen, / aus dem Original übersetzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Die Zahngeschichte. / Ein berühmtes türkisches Mährchen, / aus dem Original übersetzt",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "39p6qtqgenw0kc9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Wenn ich die Wahrheit treu berichte, / Wie Roderich, des alten Jägers Sohn,",
+      "language": [],
+      "musenalm_id": 39506,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Der grüne Benedict. / Ein komisches Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. G.Prätzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Der grüne Benedict. / Ein komisches Gedicht",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "ufh0csiazwb0bf6",
+          "source_id": "dnlhqw3sjfcc4z2"
+        }
+      ],
+      "source_id": "fmc63gfd5ynbt92"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 39508-39512, Obj 47-51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "427",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39507,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Gedichte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "hgdq0f2o8y4ntyi"
+        }
+      ],
+      "source_id": "fyyn817cchbj0nj"
+    },
+    {
+      "annotation": "XI. Gedichte (Sammlung INr 39507, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "429",
+      "incipit_statement": "Was schimmert, Landsmann, ernst und stolz / Aus jenes Hochwalds Nadelholz?",
+      "language": [],
+      "musenalm_id": 39508,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gräfin von Nidda. / (Eine Geschichte der Vorzeit.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gräfin von Nidda. / (Eine Geschichte der Vorzeit.)",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "baammg3tatg7ozr"
+        }
+      ],
+      "source_id": "bb9tj83cx2yrbxv"
+    },
+    {
+      "annotation": "XI. Gedichte (Sammlung INr 39507, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "432",
+      "incipit_statement": "Der Künstlergeist, so bald er schafft, / Nimmt Theil an jener ew'gen Kraft,",
+      "language": [],
+      "musenalm_id": 39509,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstlerwürde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Künstlerwürde",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.180Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.180Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "z09ahorsic545ua"
+        }
+      ],
+      "source_id": "kq4k4i4o1upnnb3"
+    },
+    {
+      "annotation": "XI. Gedichte (Sammlung INr 39507, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "433",
+      "incipit_statement": "Oft thut an rauher Männerstärke, / Die Widerstand und Flehn nicht biegt,",
+      "language": [],
+      "musenalm_id": 39510,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selim und Zulima",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Selim und Zulima",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.154Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "m7idzbnd65zkrj5"
+        }
+      ],
+      "source_id": "v3r3e0255ryeb2i"
+    },
+    {
+      "annotation": "XI. Gedichte (Sammlung INr 39507, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "436",
+      "incipit_statement": "Der niemals in Arkadien gewesen, / Im Garten, wo des Lebens Rose blüht,",
+      "language": [],
+      "musenalm_id": 39511,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Traumbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Traumbild",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.154Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "x6b5rlb8kacauma"
+        }
+      ],
+      "source_id": "sm22k2k77q37980"
+    },
+    {
+      "annotation": "XI. Gedichte (Sammlung INr 39507, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "438",
+      "incipit_statement": "Horch, mein Gemahl, der Siegstrompeten Ton / O daß des Mörders Anjou einz'ger Sohn / Gewognes Glück in unsre Hände spiele,",
+      "language": [],
+      "musenalm_id": 39512,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Triumph der Religion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Triumph der Religion",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.154Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "h067onwpggk7wfv"
+        }
+      ],
+      "source_id": "oki2vkmmam0j93d"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 39514, 39515; Obj 53, 54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "443",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39513,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Zipf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Gedichte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "yw8urpap5unggzt"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 39513, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "445",
+      "incipit_statement": "Die Sonne schwand, ihr letzter Purpurschein / Verglühte, kühler streckten sich die Schatten",
+      "language": [],
+      "musenalm_id": 39514,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die edle Vergeltung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Zipf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die edle Vergeltung",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "b4kv4wirvblwyvo"
+    },
+    {
+      "annotation": "XII. Gedichte (Sammlung INr 39513, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "447",
+      "incipit_statement": "In der Wildniß schweiften mein Tritte, / Als ein Mädchen den Verirrten fand.",
+      "language": [],
+      "musenalm_id": 39515,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geliebte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Zipf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geliebte",
+      "updated": "2005-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1814,
+      "editor": "",
+      "agents": [],
+      "source_id": "j18jgpimodi7hi3"
+    }
   ],
   "agents": [
     {

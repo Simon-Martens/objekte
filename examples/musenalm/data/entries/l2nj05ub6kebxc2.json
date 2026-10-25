@@ -52,7 +52,26 @@
   "year": 1784,
   "editor": "",
   "items": [
-    "84wf8h6wqn3wdwh"
+    {
+      "annotation": "KVH, Gateway-Bayern: nur Jg 1784, mit einem Nachtrag; Herausgeber: Beda Aschenbrenner\nReprint im Großformat",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.777Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409644",
+      "location": "105N01",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.777Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "84wf8h6wqn3wdwh"
+    }
   ],
   "contents": [],
   "agents": []

@@ -5,6 +5,16 @@ use structured_editor_core::{
     draft::{DraftField, InputKind},
 };
 
+/// A friendly option label never changes the JSON value submitted by a control.
+pub fn option_label<'a>(schema: &'a Value, value: &Value) -> Option<&'a str> {
+    if !schema["enum"].as_array()?.contains(value) {
+        return None;
+    }
+    let key = structured_editor_core::display_text(value);
+    crate::i18n::translation(schema).and_then(|v|v.get("x-optionLabels")).and_then(|v|v.get(&key)).and_then(Value::as_str)
+        .or_else(|| schema["x-optionLabels"].get(key).and_then(Value::as_str))
+}
+
 /// Use the same resolved field definitions as the editor, including array items.
 pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
     if field.hidden {
@@ -41,7 +51,11 @@ pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
             if items.is_empty() {
                 return "<span class=\"muted\">No items</span>".into();
             }
-            let mut html = String::from("<ol class=\"preview-array\">");
+            let mut html = if field.schema["x-presentation"]["inline"] == true {
+                String::from("<ol class=\"preview-array preview-inline\">")
+            } else {
+                String::from("<ol class=\"preview-array\">")
+            };
             for (index, item) in items.iter().enumerate() {
                 html += "<li>";
                 html += &field
@@ -92,9 +106,21 @@ pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
     if field.kind == InputKind::Json {
         return json(value);
     }
+    if let Some(label) = option_label(schema, value) {
+        return format!("<span class=\"preview-text\">{}</span>", escape(label));
+    }
     if let Some(text) = value.as_str() {
         if text.is_empty() {
             return "<span class=\"muted\">Empty text</span>".into();
+        }
+        if (schema["format"] == "uri" || schema["x-presentation"]["link"] == true)
+            && (text.starts_with("https://") || text.starts_with("http://"))
+        {
+            return format!(
+                "<a href=\"{}\" target=\"_blank\" rel=\"noopener noreferrer\">{}</a>",
+                escape(text),
+                escape(text)
+            );
         }
         if schema["x-editor"] == "html" || schema["x-content"] == "html" {
             return format!("<pre class=\"preview-source\">{}</pre>", escape(text));

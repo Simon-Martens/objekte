@@ -48,87 +48,3410 @@
   "year": 1817,
   "editor": "",
   "items": [
-    "oyw2by4jyi5jh8e"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt.(Buchrücken nachträglich ersetzt.) \n1817:(K:Bl 14, 316 SS,  Ku 6 und Monatsku 12.) Mit Tku 1, Bl 15, Monatsku 12, Ku 5 und 316 SS.  \n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.486Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101094",
+      "location": "105F08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.486Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "oyw2by4jyi5jh8e"
+    }
   ],
   "contents": [
-    "rsko078vl92wphn",
-    "a21l7tbi4rsv65b",
-    "5yxwvcevzs5zxx6",
-    "n3e1sf4585hciop",
-    "m37vqht6crosifd",
-    "f3vohacfaoljve9",
-    "in391pmgm20705n",
-    "6bcaapuso149gpc",
-    "h6tucij4iju2uhr",
-    "z2jifags3nfmmsj",
-    "rc08ebz0jni9w1j",
-    "ogzirb49agryxao",
-    "6srttcndcztp43w",
-    "uunhexbhyx69uxq",
-    "rlnb1n0vsznj8pu",
-    "8d0rrcfbys4d7zy",
-    "4j256qmiadrhmyk",
-    "b26kmd1e85l53xn",
-    "g9bcrk04zrz7zs7",
-    "87zv7gqfsoejcnf",
-    "zp96azvifbcrdbt",
-    "zvvxjdor0o4dv34",
-    "1tmntoqe30j5q68",
-    "rupy7swjlotupxl",
-    "19wa187cn47exf5",
-    "7vsogd3yzbsy70j",
-    "spgya0duqjmtqfk",
-    "4lgynr0thx50pdj",
-    "tumjb70ild048l0",
-    "h1n3qnfwod3dybd",
-    "gj6f2rytinjcwwu",
-    "bs6ortps0hb1omz",
-    "tyqwji89ham9vlj",
-    "11g2l3ryy0o3s6i",
-    "zw9bytjjfmoxige",
-    "47j8mh6sgagup1g",
-    "yzkq9uf5m6ph2c5",
-    "imcfjrfughoek3u",
-    "zabp2aq4m7uw3qu",
-    "bcqfpc2kuvdtbk4",
-    "azdpnk9pu959irw",
-    "24tbd3jrkg24y51",
-    "v4s4k8r1ax6dd7q",
-    "54lftqjxewqek96",
-    "f8pcb7zb17ccl1v",
-    "0ay0u3gfw1x9f36",
-    "rsutg2fpgn0sl2y",
-    "7jmflzc9g46w20z",
-    "igi52vint4o91o2",
-    "d0uxbpeduvj0n1n",
-    "a7e74m39xxpa6tn",
-    "d6t1qydug6h6bef",
-    "ceh4ovqw4zrd0ym",
-    "eb1wrc9o8tggy7f",
-    "ladtax03c288yw6",
-    "uc6ruydku9b7tj9",
-    "pjapgchc1hd26hy",
-    "8z5etdlzs1nnw1u",
-    "d4881phryh8e916",
-    "3apt34h6jkv4vhi",
-    "gzfpnqgs2ym1c5m",
-    "m2lcuohw9dokxj5",
-    "2hf5sqlpdfnkpy2",
-    "39m42k52yyuij9i",
-    "hodcn36aj1jwvvl",
-    "bk4pjstef8jhve0",
-    "2hmrnw1bv9g7ptm",
-    "7ed2tz926q3anu2",
-    "ni91ypuxyd5vvsi",
-    "okquqygjdzb83xd",
-    "7ry1z9bvn2ss6d9",
-    "ezen4slrnct7a9m",
-    "cxq6ljeyiszihp9",
-    "er2j9ee04p9g6n9",
-    "ra8dho2q5beqh4t",
-    "lpx92w3v42m0spn",
-    "4r5xgn8ljjwni45",
-    "cq28xu7ln8f6u9o"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29389,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / Für das Jahr 1817 / Der Liebe und Freundschaft gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Westermayr",
+      "scans": [
+        "alm_380_29389_ilu7rrdmvq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / Für das Jahr 1817 / Der Liebe und Freundschaft gewidmet",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.583Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.583Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "kx287mc388wr5ic"
+        }
+      ],
+      "source_id": "rsko078vl92wphn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29390,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29390_rzitovxmhn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "a21l7tbi4rsv65b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29391,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1817. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn / bei den Gebrüdern Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29391_q71dkhjq9g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1817. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn / bei den Gebrüdern Wilmans",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "5yxwvcevzs5zxx6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29392,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "n3e1sf4585hciop"
+    },
+    {
+      "annotation": "Sammlung von 12 Textbezügen zu 12 Graphiken mit einem Vorwort INr 29394-29418, Obj 6-30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29393,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Idyllische Scenen / ländlicher Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Idyllische Scenen / ländlicher Liebe",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.584Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "1ro2nittcv0a2fx"
+        }
+      ],
+      "source_id": "m37vqht6crosifd"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es ist nicht Sprache noth den Bildern, / Die klar, auch ohne Wort und Klang,",
+      "language": [],
+      "musenalm_id": 29394,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.584Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "owj3vp2zv0a0yhh"
+        }
+      ],
+      "source_id": "f3vohacfaoljve9"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29396, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Kinderliebe süße Scenen / Giebt manches Buch im Überfluß;",
+      "language": [],
+      "musenalm_id": 29395,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Kinder-Eintracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Kinder-Eintracht",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.476Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "yb6kb2hseo046fx"
+        }
+      ],
+      "source_id": "in391pmgm20705n"
+    },
+    {
+      "annotation": "paginiert 1. /) s.Textbezug INr 29395, Obj 7 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29396,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29396_91vh0mpjmh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.476Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "bs3b27s0u930ydy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.476Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "n7slnqc5byo0k3g"
+        }
+      ],
+      "source_id": "6bcaapuso149gpc"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29398, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wer Tiefe sucht in Bild und Lied, / Taucht hier sich ganz in Wonne nieder,",
+      "language": [],
+      "musenalm_id": 29397,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Gruß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Gruß",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ie2ng2n47qopsg9"
+        }
+      ],
+      "source_id": "h6tucij4iju2uhr"
+    },
+    {
+      "annotation": "paginiert 2. /) s. Textbezug INr 29397, Obj 9 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29398,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29398_7dycsxr4nl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "349v333c53sn2ex"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "86jkfr4rzi4dkgq"
+        }
+      ],
+      "source_id": "z2jifags3nfmmsj"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29400, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Freund Amor, der auf Socken schleicht, / Schwebt bei dem Landvolk nicht so leicht,",
+      "language": [],
+      "musenalm_id": 29399,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Besuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Besuch",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "88pbhinlhjkxu0h"
+        }
+      ],
+      "source_id": "rc08ebz0jni9w1j"
+    },
+    {
+      "annotation": "paginiert 3. /) s. Textbezug INr 29399, Obj 11 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.403Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29400,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29400_lwxlrzyjq0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "00d0grjoy5en2ot"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "l4xcupva5bcefhp"
+        }
+      ],
+      "source_id": "ogzirb49agryxao"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29402, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Liebe liebt geheime Künste, / Blos, um des Glücks gewiß zu seyn,",
+      "language": [],
+      "musenalm_id": 29401,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Entscheidung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Entscheidung",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "v36r8hzx4o89nxu"
+        }
+      ],
+      "source_id": "6srttcndcztp43w"
+    },
+    {
+      "annotation": "paginiert 4. /) s. Textbezug INr 29401, Obj 13 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29402,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29402_m3yxfp59l4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "6dhkmr4c5tuc9iv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "mpea1zve17ediq9"
+        }
+      ],
+      "source_id": "uunhexbhyx69uxq"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29404, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Mag sie die Augen niederschlagen, / Wenn künftig man die Namen nennt,",
+      "language": [],
+      "musenalm_id": 29403,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Geschenk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Geschenk",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "smdkcpogx0utvyv"
+        }
+      ],
+      "source_id": "rlnb1n0vsznj8pu"
+    },
+    {
+      "annotation": "paginiert 5. s. Textbezug 29403, Obj 15 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29404,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29404_3a3owjmwlh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "kdm6ggapdj62w4i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ysrc2lgz0z35o70"
+        }
+      ],
+      "source_id": "8d0rrcfbys4d7zy"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29406, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nun dürfen sie allein sich setzen, / Wenn abends die Geschäfte ruhn,",
+      "language": [],
+      "musenalm_id": 29405,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Vertraulichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Vertraulichkeit",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "r39l99aqvwwhgmb"
+        }
+      ],
+      "source_id": "4j256qmiadrhmyk"
+    },
+    {
+      "annotation": "paginiert 6. /) s. Textbezug INr 29405, Obj 17 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29406,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29406_exc8taiylu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3jcbozdxbbmo5h4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "p1sk6qwe95kwluc"
+        }
+      ],
+      "source_id": "b26kmd1e85l53xn"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29408, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Doch endlich dürfte wohl und möchte / Freund Amor, wie bedünken will,",
+      "language": [],
+      "musenalm_id": 29407,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Verspruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Verspruch",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "0i6r1yk34y0tx3w"
+        }
+      ],
+      "source_id": "g9bcrk04zrz7zs7"
+    },
+    {
+      "annotation": "paginiert 7. /) s. Textbezug INr 29407, Obj 19 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29408,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29408_4q6z0a7t3d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "901imlui9ew4554"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.494Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "zd62oirwr8c2bke"
+        }
+      ],
+      "source_id": "87zv7gqfsoejcnf"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29410, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Brust erhebt ein neues Leben / Beim Anblick frischer Blumenpracht;",
+      "language": [],
+      "musenalm_id": 29409,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Brautschmuck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Brautschmuck",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.272Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "po7ni6srd4vatyj"
+        }
+      ],
+      "source_id": "zp96azvifbcrdbt"
+    },
+    {
+      "annotation": "paginiert 8. /) s. Textbezug INr 29409, Obj 21 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29410,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29410_ismux2vodr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.272Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "no35yk8f6majffe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.272Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "vn7l8e31ckmlcow"
+        }
+      ],
+      "source_id": "zvvxjdor0o4dv34"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29412, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Morgen graut, es nah'n die Gäste / Still, doch vergnügt zum Haus der Braut;",
+      "language": [],
+      "musenalm_id": 29411,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. Kirchgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. Kirchgang",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "nfdbi525lyvrqbv"
+        }
+      ],
+      "source_id": "1tmntoqe30j5q68"
+    },
+    {
+      "annotation": "paginiert 9. s. Textbezug INr 29411, Obj 23 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29412,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29412_kad9jx3kio.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "7wsb01tkhj3gka8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "athoh2wlhr63e0z"
+        }
+      ],
+      "source_id": "rupy7swjlotupxl"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29414, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.565Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Flur und Tenne prangt mit Kränzen, / Schmückt sich mit des Waldes Zier,",
+      "language": [],
+      "musenalm_id": 29413,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. Hochzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. Hochzeit",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "g6dbp1kwzlm9uz8"
+        }
+      ],
+      "source_id": "19wa187cn47exf5"
+    },
+    {
+      "annotation": "paginiert 10. /) s. Textbezug INr 29413, Obj 25 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29414,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29414_08voemcez8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "86hhv4k0b6vgubl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "eyns54z23fb6t8v"
+        }
+      ],
+      "source_id": "7vsogd3yzbsy70j"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29416, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es sag' ein Tag dem andernTage, / Daß freudenvolle Hochzeit sey;",
+      "language": [],
+      "musenalm_id": 29415,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Nachfeier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Nachfeier",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "zr9f605zxcjztt2"
+        }
+      ],
+      "source_id": "spgya0duqjmtqfk"
+    },
+    {
+      "annotation": "paginiert 11. /) s. Textbezug INr 29415, Obj 27 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29416,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29416_7s5r8rh19c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.388Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ek40hc4v3efvob0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.388Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "xm5une271dcp34s"
+        }
+      ],
+      "source_id": "4lgynr0thx50pdj"
+    },
+    {
+      "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29418, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Sonn' entwich; es rauchet / Die Flur vom heißen Strahl,",
+      "language": [],
+      "musenalm_id": 29417,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Eheglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Eheglück",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.462Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "dxctxk98fc53pbg"
+        }
+      ],
+      "source_id": "tumjb70ild048l0"
+    },
+    {
+      "annotation": "paginiert 12. s. Textbezug INr 29417, Obj 29 # s. L/R 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29418,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29418_t34t0mcwom.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.462Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "2s4s3223bd43r7h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.462Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3zg6ia05imiyc82"
+        }
+      ],
+      "source_id": "h1n3qnfwod3dybd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29420, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf dem Mittelpunkt des Jura, wo Frankreich und die Schweiz sich scheiden, liegt ein Dörfchen,",
+      "language": [],
+      "musenalm_id": 29419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Brüder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kähler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Brüder",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.462Z",
+          "agent": "rplcedkwg5rqz7n",
+          "source_id": "mmpn3x4f53tic1p"
+        }
+      ],
+      "source_id": "gj6f2rytinjcwwu"
+    },
+    {
+      "annotation": "Illustration zu »Die Brüder« von L. A. Kähler INr 29419, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Erzählung: Die Brüder von Kähler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29420_qvkx7h3727.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Erzählung: Die Brüder von Kähler",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "bs6ortps0hb1omz"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29422, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Drei Brüder lebten, knapp bei Geld / in einem alten Schlosse,",
+      "language": [],
+      "musenalm_id": 29421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die goldene Gans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die goldene Gans",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.462Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "4jh0v47wt57gc87"
+        }
+      ],
+      "source_id": "tyqwji89ham9vlj"
+    },
+    {
+      "annotation": "Illustration zu »Die goldene Gans« von A. F. E. Langbein INr 29421, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Erzählung. Die goldne Gans / von Langbein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29422_itpjyres37.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Erzählung. Die goldne Gans / von Langbein",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "11g2l3ryy0o3s6i"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29424, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Der Marchese Antonio, welchen man in der kunstblühensten Zeit Italiens ausser seiner Berühmtheit als Kriegsheld und Staatsmann,",
+      "language": [],
+      "musenalm_id": 29423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Die beiden Einsiedler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Die beiden Einsiedler",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.462Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "cg2bbubstoforhc"
+        }
+      ],
+      "source_id": "zw9bytjjfmoxige"
+    },
+    {
+      "annotation": "Illustration zu »Die beiden Einsiedler« von F. de la Motte Fouqué INr 29423, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. aus: Die beiden Einsiedler. / von Fr. de la Motte Fouqé",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29424_mj3kasigsn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. aus: Die beiden Einsiedler. / von Fr. de la Motte Fouqé",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "47j8mh6sgagup1g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.140Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Süß Erschrecken, still Entweichen, / Ja, das ist das erste Zeichen,",
+      "language": [],
+      "musenalm_id": 29425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Stufen der Liebe. / Eingang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Stufen der Liebe. / Eingang",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "dvycva4hfjeimic"
+        }
+      ],
+      "source_id": "yzkq9uf5m6ph2c5"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 29427-29432, Obj 39-44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.140Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Gedichte",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "i9t6g06jhqvm95v"
+        }
+      ],
+      "source_id": "imcfjrfughoek3u"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Zwei gewalt'ge geistige Gestalten / Stehn zur Seit' an unsers Lebens Bahn,",
+      "language": [],
+      "musenalm_id": 29427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wetteifer und Neid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wetteifer und Neid",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "bjhuz62bwcn290a"
+        }
+      ],
+      "source_id": "zabp2aq4m7uw3qu"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Hart verwundet lag der gute Ritter, / Den man: ohne Furcht und Tadel nennt,",
+      "language": [],
+      "musenalm_id": 29428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bayard, / der Ritter ohne Furcht und Tadel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bayard, / der Ritter ohne Furcht und Tadel",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "b53qbsx78sa02lf"
+        }
+      ],
+      "source_id": "bcqfpc2kuvdtbk4"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Es blüht ein Land im Morgenscheine, / Ein gold'nes, wunderschönes Land,",
+      "language": [],
+      "musenalm_id": 29429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ehe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ehe",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "iih7gfyvlh8p7wt"
+        }
+      ],
+      "source_id": "azdpnk9pu959irw"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Warum willst du ihn beklagen, / Daß so früh er schied, mein Herz?",
+      "language": [],
+      "musenalm_id": 29430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Todtenfeier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Todtenfeier",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "owwgpc4e6yr2pes"
+        }
+      ],
+      "source_id": "24tbd3jrkg24y51"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Sagt uns nicht, daß besser uns der Schlummer / Mit geschwärzten Bildern täuschen mag,",
+      "language": [],
+      "musenalm_id": 29431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Traum",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "4fl0euloxq4uprz"
+        }
+      ],
+      "source_id": "v4s4k8r1ax6dd7q"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Jedes Ding im weiten Leben / Hat zwei Seiten, bös und gut,",
+      "language": [],
+      "musenalm_id": 29432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muth im Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Muth im Leben",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "yr0hhhhgsrs9gac"
+        }
+      ],
+      "source_id": "54lftqjxewqek96"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29434, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Es war ein heiterer Sonntagmorgen; wie Geister hoben sich die Felsen zum lichten Himmel.",
+      "language": [],
+      "musenalm_id": 29433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Der Hirtenknabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Der Hirtenknabe",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "0pee0k2zrjfiu5t"
+        }
+      ],
+      "source_id": "f8pcb7zb17ccl1v"
+    },
+    {
+      "annotation": "Illustration zu »Der Hirtenknabe« von St. Schütze INr 29433, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Der Hirtenknabe, von St. Schütze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Jury sc.",
+      "scans": [
+        "alm_380_29434_xdjaamlw95.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Der Hirtenknabe, von St. Schütze",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "44lg8abczsht8bu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.463Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "6jakf72kl1i0jn0"
+        }
+      ],
+      "source_id": "0ay0u3gfw1x9f36"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29436, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Die Lämmer ruhn so friedlich auf den Matten; / Komm, laß uns tiefer in den Schatten / Zur kühlen Felsengrotte gehn",
+      "language": [],
+      "musenalm_id": 29435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Idyll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Idyll",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.464Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.464Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "8jgdvo5opdltonp"
+        }
+      ],
+      "source_id": "rsutg2fpgn0sl2y"
+    },
+    {
+      "annotation": "Illustration zu »Idyll« von Fr. Kind INr 29435, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Idylle von Fr. Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_380_29436_25u9gnr3fw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Idylle von Fr. Kind",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "7jmflzc9g46w20z"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 29438-29441, Obj 50-53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Gedichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Gerstenbergk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Gedichte",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "e9p9e1gc64chtc1"
+        }
+      ],
+      "source_id": "igi52vint4o91o2"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 29437, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Ihr seyd so lieb, und glänzt so mild / Von euren Himmelshöh'n;",
+      "language": [],
+      "musenalm_id": 29438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Sterne",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Gerstenbergk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Sterne",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "p7w4u1blrx190tu"
+        }
+      ],
+      "source_id": "d0uxbpeduvj0n1n"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 29437, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Nicht, wenn Nachtigallen schlagen, / Auch nicht in den Blüten-Tagen,",
+      "language": [],
+      "musenalm_id": 29439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Sonne eines heiligen Wintertages",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Gerstenbergk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Sonne eines heiligen Wintertages",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "1cptkp5mffk46dt"
+        }
+      ],
+      "source_id": "a7e74m39xxpa6tn"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 29437, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Hat's von je ihm doch geklungen! / Als er Weltenbürger ward;",
+      "language": [],
+      "musenalm_id": 29440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mensch und die Glocken",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Gerstenbergk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mensch und die Glocken",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.395Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "b9d0v1fpy6pqq98"
+        }
+      ],
+      "source_id": "d6t1qydug6h6bef"
+    },
+    {
+      "annotation": "VIII. Gedichte (Sammlung INr 29437, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Was ist das ewige Verlangen, / Von unbekannter Geister-Macht",
+      "language": [],
+      "musenalm_id": 29441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bild",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Gerstenbergk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bild",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.396Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.396Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "ur37cny0v9iosk7"
+        }
+      ],
+      "source_id": "ceh4ovqw4zrd0ym"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Seit langen Zeiten mit einander befreundet und verschwägert waren die gräflichen Häuser Hohentanna und Rotheim.",
+      "language": [],
+      "musenalm_id": 29442,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Der Familienbund. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Der Familienbund. / Erzählung",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.486Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "bmqs825bqiahx45"
+        }
+      ],
+      "source_id": "eb1wrc9o8tggy7f"
+    },
+    {
+      "annotation": "Sammlung von 11 Gedichten INr 29444-29454, Obj 56-66",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Vermischte Gedichte",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "ladtax03c288yw6"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Segnend sinkst du, o Abend herab, / Es verglühen des Tages Flammenbilder",
+      "language": [],
+      "musenalm_id": 29444,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendgruß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendgruß",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "uc6ruydku9b7tj9"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Wo die Zweige sich verweben, / In des Abends Dämmerlicht",
+      "language": [],
+      "musenalm_id": 29445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Hain",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Hain",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.486Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "ohc0xyiaqejq22f"
+        }
+      ],
+      "source_id": "pjapgchc1hd26hy"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Ein Pilger wallet immerdar / Wohl auf und ab im Leben,",
+      "language": [],
+      "musenalm_id": 29446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pilger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pilger",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "8z5etdlzs1nnw1u"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Sinkst du schon in dunkle Schattentiefen, / O du holdes, reines Himmelslicht?",
+      "language": [],
+      "musenalm_id": 29447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als ich vom Aschenkegel des Vesuvs, auf noch / glühender Lava, den Mond untergehen sah. / 1809",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Brun, geb. Münter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als ich vom Aschenkegel des Vesuvs, auf noch / glühender Lava, den Mond untergehen sah. / 1809",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.473Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "90rp45mx5neesei"
+        }
+      ],
+      "source_id": "d4881phryh8e916"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Kapitolinischer Gott, o Jupiter, Schleudrer des Donners, / Wer von Tarpeija's Fels hat dich auf immer verbannt?",
+      "language": [],
+      "musenalm_id": 29448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bambino von Ara-celi in Rom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrike Brun, geb. Münter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bambino von Ara-celi in Rom",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.301Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.301Z",
+          "agent": "38esu046kftupf5",
+          "source_id": "0s4nizlm21fvntl"
+        }
+      ],
+      "source_id": "3apt34h6jkv4vhi"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Fliege, wem die Lust gegeben, / Auf zum Himmel, junger Aar!",
+      "language": [],
+      "musenalm_id": 29449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem jungen Blut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem jungen Blut",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "gzfpnqgs2ym1c5m"
+    },
+    {
+      "annotation": "$ vermutl. F. W. Riemer /) X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "So einsam stehst Du Göttliche, und sendest / Den ernsten Blick hinaus in öde Nacht?",
+      "language": [],
+      "musenalm_id": 29450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. R. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonett",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "m2lcuohw9dokxj5"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Ihr Bildniß, wie so fleißig / Seh' ich danach mich um,",
+      "language": [],
+      "musenalm_id": 29451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei ihrem Miniaturbilde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei ihrem Miniaturbilde",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.301Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.301Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "dyopdt3xr1mcp9o"
+        }
+      ],
+      "source_id": "2hf5sqlpdfnkpy2"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Freundlich sahst du jüngst auf meine Blüten, / Und es freute dich der Jugend zartes Grün;",
+      "language": [],
+      "musenalm_id": 29452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Orangebäumchen zum Geburtstage / an eine junge Freundin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedr. v. Gerstenbergk, genannt Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Orangebäumchen zum Geburtstage / an eine junge Freundin",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "wnqj5f34ce3voup"
+        }
+      ],
+      "source_id": "39m42k52yyuij9i"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Glaube mir, täglich noch baut sich die Leiter vom Him- / mel zur Erde,",
+      "language": [],
+      "musenalm_id": 29453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Noten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Noten",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "hodcn36aj1jwvvl"
+    },
+    {
+      "annotation": "X. Vermischte Gedichte (Sammlung INr 29443, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Nicht zu gewinnen ein Herz, das uns wohl reizte, / wir tragen's",
+      "language": [],
+      "musenalm_id": 29454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schmerzende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schmerzende",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "px74i2hz90xcfpz"
+        }
+      ],
+      "source_id": "bk4pjstef8jhve0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Die aufgehende Sonne spiegelte sich als eine Feuersäule in den Fluthen des Rheins,",
+      "language": [],
+      "musenalm_id": 29455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Des Minnesängers Rheinfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. H. F. Posselt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Des Minnesängers Rheinfahrt",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "2hmrnw1bv9g7ptm"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 29457-29464, Obj 69-76",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tändeleien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tändeleien",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ed2tz926q3anu2"
+    },
+    {
+      "annotation": "$ vermutl. F. W. Riemer /) Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Unerreichbar wie die Sterne / Wandelt sie den hohen Gang,",
+      "language": [],
+      "musenalm_id": 29457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nahe Ferne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. R. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nahe Ferne",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "ni91ypuxyd5vvsi"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Schneck ist ihm zum Bild gegeben, / Kriecht spazier'n im Sonnenschein,",
+      "language": [],
+      "musenalm_id": 29458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Höfling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Höfling",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "okquqygjdzb83xd"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Wolt ihr sie kennen? / Soll ich sie nennen,",
+      "language": [],
+      "musenalm_id": 29459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Leibfarben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Leibfarben",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ry1z9bvn2ss6d9"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Es zogen drei Sänger wohl durch das Land, / Dahin an Fels und Gestad';",
+      "language": [],
+      "musenalm_id": 29460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die drei Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Henriette Schubart",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die drei Sänger",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "od6meihhmql1c8r",
+          "source_id": "rkbmhgsx2m36tsu"
+        }
+      ],
+      "source_id": "ezen4slrnct7a9m"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Nein, wer sagt, er trüge keine Früchte, / Unser heil'ger Lorbeer, irrt gar sehr,",
+      "language": [],
+      "musenalm_id": 29461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Lorbeer. / Bemerkung eines Dichterlehrlings",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Lorbeer. / Bemerkung eines Dichterlehrlings",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "46lxvbetp9sy9g6"
+        }
+      ],
+      "source_id": "cxq6ljeyiszihp9"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "O harre nicht mehr, wünschen wir, / Der Zukunft so beklommen!",
+      "language": [],
+      "musenalm_id": 29462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Luisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Luisen",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "gwwhi01vscal2t3"
+        }
+      ],
+      "source_id": "er2j9ee04p9g6n9"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Brüderschaft trink ich dir zu, / Bester Freund! wie heißest du?",
+      "language": [],
+      "musenalm_id": 29463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Studentenbrüderschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Lehr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Studentenbrüderschaft",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "ra8dho2q5beqh4t"
+    },
+    {
+      "annotation": "$ vermutl. F. W. Riemer /) Tändeleien (Sammlung INr 29456, Obj 68)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Nur mit dem Herzen auch die Hand zu schenken / Ist Frauensitte. Du, so hold und milde,",
+      "language": [],
+      "musenalm_id": 29464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hand und Handschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. R. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hand und Handschrift",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "lpx92w3v42m0spn"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ankündigung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gebr. Wilmans",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ankündigung",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [],
+      "source_id": "4r5xgn8ljjwni45"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.513Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frankfurt a/M / bey / Gebrüder Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Westermayr",
+      "scans": [
+        "alm_380_32487_qbd3kwg9mk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frankfurt a/M / bey / Gebrüder Wilmans",
+      "updated": "2002-10-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.776Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "2ns2ez0u9aunsw0"
+        }
+      ],
+      "source_id": "cq28xu7ln8f6u9o"
+    }
   ],
   "agents": [
     {

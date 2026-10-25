@@ -2,8 +2,6 @@
   "records": {
     "series": 1202,
     "entries": 4928,
-    "items": 4180,
-    "contents": 133948,
     "agents": 4010,
     "places": 210
   },
@@ -31,5 +29,9 @@
     "items.xml": "ad4139c77509a1422c77518ef8b5cc5740db7f36fadd3de39a9ae3ff0facd265",
     "places.xml": "c9a950e635e936fa5b5dcc306460fd56cd22575fd86e68bbd0b56260444eec99",
     "series.xml": "f9860a59cfb26a0b13ca32b98321cd9592394c49666fbc8ab228e28da11eeecf"
+  },
+  "embedded_records": {
+    "items": 4180,
+    "contents": 133948
   }
 }

@@ -30,44 +30,64 @@ impl Control for Reference {
                     .and_then(|d| c.editor.label(t, &d.value, &value, "reference").ok())
             })
             .unwrap_or_else(|| value.clone());
-        let mut html = format!(
-            "<div class=\"reference-control\"><input id=\"input-{}\" name=\"value.{}\" value=\"{}\" aria-describedby=\"errors-{}\" autocomplete=\"off\"><button formaction=\"/edit-sessions/{}/fields/{}/actions/picker\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i>{}</button></div>",
-            f.id,
-            f.id,
-            escape(&f.raw),
-            f.id,
-            c.session,
-            f.id,
-            if target.is_some() {
-                "Choose record"
-            } else {
-                "Choose media"
-            }
-        );
-        if f.kind == structured_editor_core::draft::InputKind::Json {
-            html += "<p class=\"help\">JSON string or null. The picker supplies the correct JSON type.</p>";
-        }
-        if let Some(target) = target {
-            if !value.is_empty() {
-                html += &format!(
-                    "<p class=\"reference-label\"><a data-nav href=\"{}\">{} <i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a></p>",
-                    record_url(target, &value),
-                    escape(&label)
-                );
-            }
-        }
-        if target.is_none() && !value.is_empty() {
+        let kind = target
+            .map(|t| crate::views::record_kind(c.editor, t))
+            .transpose()?
+            .unwrap_or_else(|| "media".into());
+        let choose = if value.is_empty() {
+            crate::i18n::message("Choose {type}", &[("type", &kind)])
+        } else {
+            crate::i18n::message("Change {type}", &[("type", &kind)])
+        };
+        let href = if let Some(target) = target {
+            record_url(target, &value)
+        } else {
             let collection = f
                 .schema
                 .pointer("/x-media/collection")
                 .and_then(|v| v.as_str())
                 .unwrap_or("media");
-            html += &format!(
-                "<p class=\"reference-label\"><a href=\"/media/{}/file?path={}\">Open media <i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a></p>",
+            format!(
+                "/media/{}/file?path={}",
                 crate::views::encode(collection),
                 crate::views::encode(&value)
-            );
+            )
+        };
+        let selected = if value.is_empty() {
+            String::new()
+        } else {
+            format!(
+                "<a class=\"reference-name\" {} href=\"{}\">{} <i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a>",
+                if target.is_some() { "data-nav" } else { "" },
+                escape(&href),
+                escape(&label)
+            )
+        };
+        let mut html = format!(
+            "<div class=\"reference-control\">{selected}<button aria-label=\"{}\" id=\"input-{}\" data-reference-picker aria-describedby=\"errors-{}\" formaction=\"/edit-sessions/{}/fields/{}/actions/picker\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i>{}</button></div><details class=\"reference-manual\"><summary>Enter {} manually</summary><label for=\"reference-id-{}\">{}</label><input id=\"reference-id-{}\" name=\"value.{}\" value=\"{}\" aria-describedby=\"errors-{}\" aria-required=\"{}\" autocomplete=\"off\">",
+            escape(&choose),
+            f.id,
+            f.id,
+            c.session,
+            f.id,
+            escape(&choose),
+            if target.is_some() { "ID" } else { "path" },
+            f.id,
+            if target.is_some() {
+                "Record ID"
+            } else {
+                "Media path"
+            },
+            f.id,
+            f.id,
+            escape(&f.raw),
+            f.id,
+            f.required
+        );
+        if f.kind == structured_editor_core::draft::InputKind::Json {
+            html += "<p class=\"help\">Enter a JSON string or null. Choosing a record fills this automatically.</p>";
         }
+        html += "</details>";
         Ok(html)
     }
 }

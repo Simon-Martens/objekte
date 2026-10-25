@@ -48,10 +48,59 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "r3id4rcsgh2ggti"
+    {
+      "annotation": "Titel auch: Hofkalender, Großherzoglich-Hessischer. Jgg 1810-1858. (1849 & 1854 nicht erschienen.)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.738Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200200",
+      "location": "105J08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.738Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "r3id4rcsgh2ggti"
+    }
   ],
   "contents": [
-    "bst2bp16pfr3qoq"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91356,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grossherzoglich / Hessischer / Hofkalender / für das Jahr 1810 / Darmstadt / bei Carl Wilhelm Leske",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grossherzoglich / Hessischer / Hofkalender / für das Jahr 1810 / Darmstadt / bei Carl Wilhelm Leske",
+      "updated": "2013-10-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "bst2bp16pfr3qoq"
+    }
   ],
   "agents": [
     {

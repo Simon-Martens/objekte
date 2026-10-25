@@ -48,14 +48,192 @@
   "year": 1802,
   "editor": "",
   "items": [
-    "qqud3adg2ik6smm"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.712Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406915",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.712Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qqud3adg2ik6smm"
+    }
   ],
   "contents": [
-    "lq2yortzzdybcez",
-    "x31u67ma5vfz0t4",
-    "ssk2rhu76ejf2lr",
-    "5p9x055q1yfxquy",
-    "9dr7vev6segls9i"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78236,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3697_78236_p4pk4fg2zm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "lq2yortzzdybcez"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78237,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manuscript aus Odessa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Manuscript aus Odessa",
+      "updated": "2011-07-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "x31u67ma5vfz0t4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78238,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manuscript aus Odessa. / Miscellen / der / humoristischen Bruderschaft. / Erstes Bändchen. / Mit drei Kupfern. / Leipzig. / F. A. Brockhaus. / 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3697_78238_3e8lvbd81g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Manuscript aus Odessa. / Miscellen / der / humoristischen Bruderschaft. / Erstes Bändchen. / Mit drei Kupfern. / Leipzig. / F. A. Brockhaus. / 1822",
+      "updated": "2011-07-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "ssk2rhu76ejf2lr"
+    },
+    {
+      "annotation": "Photos 78239,01; 78239,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.307Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78239,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3697_78239_01_oj28flq3dh.jpg",
+        "alm_3697_78239_02_9q7m67x4ki.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "5p9x055q1yfxquy"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78240,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3697_78240_rwu2ex3trx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-07-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "9dr7vev6segls9i"
+    }
   ],
   "agents": [
     {

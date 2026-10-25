@@ -48,7 +48,26 @@
   "year": 1789,
   "editor": "",
   "items": [
-    "1ektsrhpoe8i5qk"
+    {
+      "annotation": "KVK, BVB: Nur Jg 1789.  2. Titel lautet dort: Taschenbuch für Aeltern, Erzieher und Jugendfreunde, oder Beiträge zur Pädagogik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.753Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407220",
+      "location": "105D05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.753Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1ektsrhpoe8i5qk"
+    }
   ],
   "contents": [],
   "agents": []

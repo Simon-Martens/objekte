@@ -48,53 +48,1984 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "74yc0wtg2niggjk"
+    {
+      "annotation": "Jgg 1832-1859 /  Bei Pfautsch erschienen: Gedenke Mein 1832-1859; Cyanen 1839-1843; Siona Taschenbuch religiöser Dichtungen 1850",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.570Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106652",
+      "location": "105A09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.570Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "74yc0wtg2niggjk"
+    }
   ],
   "contents": [
-    "hctyonyo39ujez1",
-    "dr4onh11dl4z7v5",
-    "3gxzjhvf0rqbfj3",
-    "oxo3qna3cv7rpbh",
-    "v7v6i6hth8d62kl",
-    "mjkpwico06n6njx",
-    "5l9h21gt3o5j435",
-    "g1qfzu2zr7h926s",
-    "597sflqgqvpb58y",
-    "oe8chmja06sxo07",
-    "a34wzpurofo55n3",
-    "6f1p1d22axiwc9j",
-    "7inuvot8i2sfaeq",
-    "6sywfms86yolz0q",
-    "z78hyg4vp5vrb99",
-    "lmk9li3fepk5e77",
-    "8j1de0tr1x1f7rc",
-    "quxmuglflihgzgi",
-    "u70h2yalsjcriqk",
-    "vkrver3dq0cgj1o",
-    "dj27uim72y5w8gw",
-    "nmkstetrxz3b4hx",
-    "m2jiyxa6dhzcrka",
-    "p70kuwbl5ek7m05",
-    "cvvxo9fa3ua5b4a",
-    "lp3ro2t65al6eqd",
-    "clitdhzlntpiu8t",
-    "7jrjd34cxh33n9b",
-    "cerd0xt2pdtzru7",
-    "xentsz11hlknpj4",
-    "ny70zzm1vlqs6ru",
-    "kl33pb754opjl5o",
-    "npppuxxw697pt3u",
-    "ws15sgb44k382s4",
-    "ugfilpu7d0a6wo9",
-    "xdizlissu12xwrz",
-    "1z4o8kkhqg52qk3",
-    "4i4agflaopsvnsk",
-    "chslk8srn21ekuc",
-    "asldxrapic9qsi3",
-    "x8p7e9v07qjyhdz",
-    "dh3yuy374n0j3a1",
-    "qs0wch1w50nmxcp",
-    "zamqg6arnes5zn2"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120326,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charles de Bessieres",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Weigl del. Dav. Weiss sc. Vienna",
+      "scans": [
+        "alm_1789_120326_46jgogqvpy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Charles de Bessieres",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.742Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.742Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "c4rds8avl6dloui"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "cuw8i177f6d4mb9"
+        }
+      ],
+      "source_id": "hctyonyo39ujez1"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.980Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120327,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GEDENKE MEIN! / 1832 / WIEN / Friedrich Pfautsch, (Kurrentgasse 414)  Leipzig, A. Liebeskind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+      "scans": [
+        "alm_1789_120327_qybfj2jipf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GEDENKE MEIN! / 1832 / WIEN / Friedrich Pfautsch, (Kurrentgasse 414)  Leipzig, A. Liebeskind",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "j2pmcfa3x3gq6e1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "wvign2n1dlf3txm"
+        }
+      ],
+      "source_id": "dr4onh11dl4z7v5"
+    },
+    {
+      "annotation": "gest. Blatt, Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wenn im Kampf mit Lieb’ und Leben / Sich das Aug’ erhebet kühn / Wagt die Hand den Ring zu geben",
+      "language": [],
+      "musenalm_id": 120328,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WIDMUNG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl",
+      "scans": [
+        "alm_1789_120328_y2npycuojj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WIDMUNG",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "f8q8acr6xvfi0lm"
+        }
+      ],
+      "source_id": "3gxzjhvf0rqbfj3"
+    },
+    {
+      "annotation": "Illustration zu »Das Gedenkbuch auf Rauhenstein« von J. G. Seidl (INr 120336, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120330,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Caroline / Zur Novelle: Das Gedenkbuch auf Rauhenstein, von Seidl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+      "scans": [
+        "alm_1789_120330_17zfrk9ifv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Caroline / Zur Novelle: Das Gedenkbuch auf Rauhenstein, von Seidl",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "23z96gf1cf8e9u8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "owy1iwqcw22nkj3"
+        }
+      ],
+      "source_id": "oxo3qna3cv7rpbh"
+    },
+    {
+      "annotation": "Illustration zu »Das Gedenkbuch auf Rauhenstein« von J. G. Seidl (INr 120336, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120331,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedenke Mein / Zur Novelle: Das Gedenkbuch auf Rauhenstein, von Seidl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+      "scans": [
+        "alm_1789_120331_k58l8outg1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gedenke Mein / Zur Novelle: Das Gedenkbuch auf Rauhenstein, von Seidl",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "dt3so7if7t7ztpl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "t15b33088kvrmmg"
+        }
+      ],
+      "source_id": "v7v6i6hth8d62kl"
+    },
+    {
+      "annotation": "Illustration zu »Die Sühnung« von F. Weigl (INr 120341, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120332,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amelie / Zur Erzählung: Die Sühnung, von F. Weigl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+      "scans": [
+        "alm_1789_120332_rj59c9diwo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Amelie / Zur Erzählung: Die Sühnung, von F. Weigl",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "gybiue3fjgleplq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "s3x258fk7df9q7e"
+        }
+      ],
+      "source_id": "mjkpwico06n6njx"
+    },
+    {
+      "annotation": "Illustration zu »Die Sühnung« von F. Weigl (INr 120341, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120333,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tod Montvaillac’s / Zur Erzählung: Die Sühnung, von F. Weigl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weigl del. L. Beyer sc.",
+      "scans": [
+        "alm_1789_120333_0jj2oifbcm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tod Montvaillac’s / Zur Erzählung: Die Sühnung, von F. Weigl",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "7qv6xjexdwltaow"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "l2rbc7z6ymtkhvm"
+        }
+      ],
+      "source_id": "5l9h21gt3o5j435"
+    },
+    {
+      "annotation": "Illustration zu »Südliche Gluth« von F. *** (INr 120360, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120334,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mirza / Zur Erzählung: Südliche Gluth, von F. ***",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rich. Lanc, gestoch. v. C. Kotterba",
+      "scans": [
+        "alm_1789_120334_8x9zgv0vnf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mirza / Zur Erzählung: Südliche Gluth, von F. ***",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "xy5r01u3ut6la2f"
+        }
+      ],
+      "source_id": "g1qfzu2zr7h926s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedenke mein! / TASCHENBUCH / für das Jahr / 1832. / Mit Beiträgen / von / Castelli, Huber, Kuffner, Seidl, Schuhmacher, / Vogl, Weigl, etc / WIEN. / Verlag von Friedrich Pfautsch. / Currentgasse, Nr. 414 / Zu beziehen von allen soliden Buch-und Kunsthandlungen des In- und Auslandes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedenke mein! / TASCHENBUCH / für das Jahr / 1832. / Mit Beiträgen / von / Castelli, Huber, Kuffner, Seidl, Schuhmacher, / Vogl, Weigl, etc / WIEN. / Verlag von Friedrich Pfautsch. / Currentgasse, Nr. 414 / Zu beziehen von allen soliden Buch-und Kunsthandlungen des In- und Auslandes",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "597sflqgqvpb58y"
+    },
+    {
+      "annotation": "Vorangestelltes Motto: »Jede Liebe liebt zu schwärmen, / Sei sie noch so ernst und rein! / Aber soll sie recht erwärmen, / Muß es Lieb’ aus Freundschaft sein!« /) s. Graphiken INr 120330, Obj 4 u. 120331, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Hausquartettchen bei dem Kaufmann Rehberg hatten seit Wochen einige Unterbrechung erlitten.",
+      "language": [],
+      "musenalm_id": 120336,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Gedenkbuch / auf Rauhenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl, / Professor am k. k. Gymnasium in Cilli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Gedenkbuch / auf Rauhenstein",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "5bga9r5lqxdk7o9"
+        }
+      ],
+      "source_id": "oe8chmja06sxo07"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Sahst du auf der bleichen Wange / Dieses Lächeln, scheu und bange, Das, so flüchtig und so kalt,",
+      "language": [],
+      "musenalm_id": 120337,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Lächeln der Wahnsinnigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Lächeln der Wahnsinnigen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.743Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "60h4i0j2cwbu5bn"
+        }
+      ],
+      "source_id": "a34wzpurofo55n3"
+    },
+    {
+      "annotation": "Anm. am Titel: »Nach dem Englischen des John Wolcott«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Gefährtin du der Geisternacht, / Die freundlich leuchtend mit mir wacht,",
+      "language": [],
+      "musenalm_id": 120338,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine Kerze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine Kerze",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.648Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "dnneiv03xpdc2jr"
+        }
+      ],
+      "source_id": "6f1p1d22axiwc9j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Horcht, Frau’n und Ritter, dem Gesang, / Horcht meiner Harfe Saitenklang!",
+      "language": [],
+      "musenalm_id": 120339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Feuerkönig. / Ballade, nach Walter Scott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Feuerkönig. / Ballade, nach Walter Scott",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.649Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "8m6bpbxo5gzjrgb"
+        }
+      ],
+      "source_id": "7inuvot8i2sfaeq"
+    },
+    {
+      "annotation": "Anm am Titel: »Frei nach dem Englischen des Peter Pindar«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Du holder Fremdling, lichtentglommen, / Sey mir auf meiner Flur willkommen!",
+      "language": [],
+      "musenalm_id": 120340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen Johanniskäfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen Johanniskäfer",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.649Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "zesh1e940dj4cpo"
+        }
+      ],
+      "source_id": "6sywfms86yolz0q"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik 120333, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Ja, Charles, es ist vorüber! Die letzten vollen Züge der Glückseligkeit, sie sind getrunken!",
+      "language": [],
+      "musenalm_id": 120341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sühnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ferd. Weigl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sühnung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "z78hyg4vp5vrb99"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 120343–120350",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120342,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein- und Ausfälle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein- und Ausfälle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.649Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "s2gztycdiu9efvh"
+        }
+      ],
+      "source_id": "lmk9li3fepk5e77"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« Inr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "A. / Mein Recht ist klar und, wie mir scheint, / Kann mein Prozeß gar nicht verloren werden. B. / Hast du das Recht auf deiner Seite, Freund, / So fürchte noch die Rechtsgelehrten!",
+      "language": [],
+      "musenalm_id": 120343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prozeß",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prozeß",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "8crfmy618o3uc5j"
+        }
+      ],
+      "source_id": "8j1de0tr1x1f7rc"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Ein Jeder schreibt und singt, was er mag, / Die Welt ist voll literarischer Lichter, Gedichte bringt uns fast jeder Tag",
+      "language": [],
+      "musenalm_id": 120344,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichter und Gedichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichter und Gedichte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "9m1e7ei4py2eodm"
+        }
+      ],
+      "source_id": "quxmuglflihgzgi"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Liebende Seelen! Bewacht eure Triebe, / Daß nicht ein jeder sie kenne und nenne; Leicht kann’s gescheh’n, daß das Feuer der Liebe / Eures Geheimnisses Schleier verbrenne!",
+      "language": [],
+      "musenalm_id": 120345,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warnung für Liebende",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J . F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warnung für Liebende",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "0bjla1zvy6xy84d"
+        }
+      ],
+      "source_id": "u70h2yalsjcriqk"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Britte! Du bist zu beneiden, / Kannst dein Weib du nicht mehr leiden, / Führst du auf den Markt sie hin;",
+      "language": [],
+      "musenalm_id": 120346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorzug der Engländer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorzug der Engländer",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.715Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.715Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "arzxwwiidrzrn1c"
+        }
+      ],
+      "source_id": "vkrver3dq0cgj1o"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Was wir heut zu Tage lesen, / Ist schon früher da gewesen",
+      "language": [],
+      "musenalm_id": 120347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erlaubter Diebstahl",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erlaubter Diebstahl",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "v790cw2ng03x6pb"
+        }
+      ],
+      "source_id": "dj27uim72y5w8gw"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Das Leben ist doch wirklich gar zu schön! / Ich mag nicht gern von dieser Erde gehen",
+      "language": [],
+      "musenalm_id": 120348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wunsch eines Lebenslustigen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wunsch eines Lebenslustigen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "q5huatrah0hkfln"
+        }
+      ],
+      "source_id": "nmkstetrxz3b4hx"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Nachbarin. / Ihr Sohn, mein lieber Nachbar Veit, / Läuft meiner Tochter lange Zeit / Schon nach auf allen ihren Wegen.",
+      "language": [],
+      "musenalm_id": 120349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entgegenkommen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entgegenkommen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "4xa5ki2jbwvy5b5"
+        }
+      ],
+      "source_id": "m2jiyxa6dhzcrka"
+    },
+    {
+      "annotation": "Sammlung »Ein- und Ausfälle« INr 120342, Obj 16 /) # Bezeichnung am Titel der Sammlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Von mannigfachen Menschenschwächen / Läßt die am öftesten sich sehn:",
+      "language": [],
+      "musenalm_id": 120350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine menschliche Schwäche",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J .F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine menschliche Schwäche",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "spjcn3vnifq789y"
+        }
+      ],
+      "source_id": "p70kuwbl5ek7m05"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 120352–120357",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "zcmytoj32zvfcs4"
+        }
+      ],
+      "source_id": "cvvxo9fa3ua5b4a"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Der Tag ist hingegangen, / Der Abend stellt sich ein; / Schon glüht auf allen Wangen / Sein holder Widerschein",
+      "language": [],
+      "musenalm_id": 120352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Im Dorfe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Im Dorfe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "bwtkc2z10x26en3"
+        }
+      ],
+      "source_id": "lp3ro2t65al6eqd"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Seht ihr doch die beiden Berge, / Wie sie dasteh’n, eng vereint, / Daß beim ersten Blick das Auge / Einen nur zu  schau’n vermeint?",
+      "language": [],
+      "musenalm_id": 120353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Täuschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Täuschung",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "5fi9h868x704y6b"
+        }
+      ],
+      "source_id": "clitdhzlntpiu8t"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Horch! Milde Waldhornklänge weh’n / Das Hochgehölz entlang; / Und dennoch läßt kein Wild sich seh’n",
+      "language": [],
+      "musenalm_id": 120354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Im Walde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Im Walde",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "1vfdh08z2xvdz8n"
+        }
+      ],
+      "source_id": "7jrjd34cxh33n9b"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Die Flamme flackert im Kamin, / Und röthet mein Gesicht; / Es ist ein eigner tiefer Sinn, / Der aus den Gluten spricht.",
+      "language": [],
+      "musenalm_id": 120355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Am Kamin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Am Kamin",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "mezodktw984r67e"
+        }
+      ],
+      "source_id": "cerd0xt2pdtzru7"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Hört’ ich sonst ein Posthorn klingen, / Als ich noch zu Hause war, / Ach, wie drängt’ es mich von hinnen",
+      "language": [],
+      "musenalm_id": 120356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Posthornklang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Posthornklang",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "74hl40e5dcz8ccf"
+        }
+      ],
+      "source_id": "xentsz11hlknpj4"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "O, Schiffer, lieber Schiffer, / Heb’ hier dein Ruder aus, / Und mach aus deinem Nachen / Ein unbeweglich’ Haus",
+      "language": [],
+      "musenalm_id": 120357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Auf dem Strom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Auf dem Strom",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "3iwz3ad273udqei"
+        }
+      ],
+      "source_id": "ny70zzm1vlqs6ru"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Vor der Halle seines Hauses / Saß der weise Dichter Bion / Saß bekränzt mit jungen Rosen / Unter Rosen feiner Flur.",
+      "language": [],
+      "musenalm_id": 120358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Entstehung der ersten Rose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ferd. Weigl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Entstehung der ersten Rose",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "kl33pb754opjl5o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "In dem Kreise der Genossen / Saß der ritterliche Sänger, / Von der deutschen Liebestreue / Sang er ein bekanntes Lied.",
+      "language": [],
+      "musenalm_id": 120359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ulrich von Lichtenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ferd. Weigl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ulrich von Lichtenstein",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "npppuxxw697pt3u"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120334, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Bis spät in die Nacht donnerten die furchtbaren Feuerschlünde des französischen Heeres;",
+      "language": [],
+      "musenalm_id": 120360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Südliche Glut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F.***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Südliche Glut",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ws15sgb44k382s4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Gewaltig groß saß Kund auf seinem Throne, / In voller Herrscherpracht, doch mild und hold; Norwegens, Dänemarks, Brittaniens Krone / Verschmilzt’ er kühn in seiner Krone Gold.",
+      "language": [],
+      "musenalm_id": 120361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kund der Grosse / Aus dem Dänischen des Adam Öhlenschläger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adam Öhlenschläger [übers.] Christ. Wilh. Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kund der Grosse / Aus dem Dänischen des Adam Öhlenschläger",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "1g34ln4fr2bstzc",
+          "source_id": "2q41iapas735fp3"
+        }
+      ],
+      "source_id": "ugfilpu7d0a6wo9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Bei Mohacz sitzt Herr Ludewig / In seinem Zelt zur Nacht, / Und träumt von Heldenruhm und Sieg, / Und wüster Heidenschlacht.",
+      "language": [],
+      "musenalm_id": 120362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu früh! / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu früh! / Ballade",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "eqnxmd461sfk9xi"
+        }
+      ],
+      "source_id": "xdizlissu12xwrz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "O Soldatenstand, / O Du schöner Stand! / Ohne Rast, ohne Halt / Drängt’s ihn fort mit Gewalt",
+      "language": [],
+      "musenalm_id": 120363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Denise. / Das Mädchen aus Montfermeuil / Liebesspiel in drei Akten nach den Französischen / von A. Schumacher / mit / Musik vom Kapellmeister C. Kreutzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Denise. / Das Mädchen aus Montfermeuil / Liebesspiel in drei Akten nach den Französischen / von A. Schumacher / mit / Musik vom Kapellmeister C. Kreutzer",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "s2lpikvz5rrhrc6"
+        }
+      ],
+      "source_id": "1z4o8kkhqg52qk3"
+    },
+    {
+      "annotation": "Anm. am Objekt: Die Thatsache wird angeführt in dem Werke: The voiage and travail of Sir John Maundeville",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Zur Zeit, da, seit dem Verluste des Paradieses, der Rosenstrauch auf Erden ausgestorben war, lebte in dem Städtchen Bethlehem eine Jungfrau, Namens Zillah,",
+      "language": [],
+      "musenalm_id": 120364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zillah. / Eine althebräische Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zillah. / Eine althebräische Legende",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "64t0tazy4r5oxai"
+        }
+      ],
+      "source_id": "4i4agflaopsvnsk"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Es ist wohl etwas Gewöhnliches, daß die Dichter poetische Porträts oder auch Gemälde in Lebensgröße von der Schönheit ihrer Geliebten liefern;",
+      "language": [],
+      "musenalm_id": 120365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dante’s Geliebte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dante’s Geliebte",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "u57dflpgogekhma"
+        }
+      ],
+      "source_id": "chslk8srn21ekuc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Die Lügner von Profession, so verächtlich sie auch an und für sich sind, werden doch ergötzliche Personen, wenn sie mit ihrem schnöden Gewerbe das Übertreiben so verbinden, daß man sie hyperbolische Künstler nennen kann.",
+      "language": [],
+      "musenalm_id": 120366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gaskonaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gaskonaden",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "elu7v80voz5vpii"
+        }
+      ],
+      "source_id": "asldxrapic9qsi3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Unter den vielen Kaufleuten, welche die Woll- und Garnmärkte in Schottland jährlich zu besuchen pflegten, war John Robson, ein alter Mann, aber ein großer Liebling der Weiber, einer der vorzüglichsten.",
+      "language": [],
+      "musenalm_id": 120367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schiffskapitän / Erzählung nach dem Englischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schiffskapitän / Erzählung nach dem Englischen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "mlq88etd391kc6w"
+        }
+      ],
+      "source_id": "x8p7e9v07qjyhdz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Am Montag Trinitatis früh, / Da war’s bestimmt, die Schlacht zu schlagen, / In der manch’ edler Degen fiel, – / Nie war im Lande größer Klagen.",
+      "language": [],
+      "musenalm_id": 120368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arthur’s Tod / Ballade aus dem Altenglischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andreas Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Arthur’s Tod / Ballade aus dem Altenglischen",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.744Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "dorhlhv9y7lh8dp"
+        }
+      ],
+      "source_id": "dh3yuy374n0j3a1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120369,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "qs0wch1w50nmxcp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei A. Strauß’s sel. Witwe.",
+      "language": [],
+      "musenalm_id": 120370,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei A. Strauß’s sel. Witwe.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "zamqg6arnes5zn2"
+    }
   ],
   "agents": [
     {

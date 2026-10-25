@@ -48,7 +48,26 @@
   "year": 0,
   "editor": "",
   "items": [
-    "5w92vawszylap18"
+    {
+      "annotation": "Die im Titel vorkommende Zeile: »Dies Buch verfolgt den König« vielleicht Anspielung auf: »Dies Buch gehört dem König« von Bettina von Arnim (erschienen: Berlin,1843). Als Erscheinungsjahr des Almanachs ist zu vermuten: 1844 oder später",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.712Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406702",
+      "location": "105G06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.712Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5w92vawszylap18"
+    }
   ],
   "contents": [],
   "agents": [

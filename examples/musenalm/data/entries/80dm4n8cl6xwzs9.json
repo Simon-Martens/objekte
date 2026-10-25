@@ -46,7 +46,26 @@
   "year": 1764,
   "editor": "gpj6tpa1lmk3vpy",
   "items": [
-    "u0jm5j3f8m78x7w"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-10-07 08:48:40.565Z",
+      "edit_comment": "",
+      "edit_state": "",
+      "identifier": "",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "",
+      "scans": [],
+      "updated": "2026-10-07 08:48:40.565Z",
+      "uri": "",
+      "public": false,
+      "basis": false,
+      "editor": "",
+      "source_id": "u0jm5j3f8m78x7w"
+    }
   ],
   "contents": [],
   "agents": []

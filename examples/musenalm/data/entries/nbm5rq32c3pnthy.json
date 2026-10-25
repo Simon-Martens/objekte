@@ -48,61 +48,2226 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "wq8dt1xz5pv5ska"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.529Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404530",
+      "location": "105B06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.529Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wq8dt1xz5pv5ska"
+    }
   ],
   "contents": [
-    "gkh4z3hqr85peyp",
-    "j8at0hmxzdfu9c1",
-    "1nuugunedpi1q5g",
-    "humbgixp81i8lvf",
-    "bc3gry7gc9ceyy5",
-    "a6tcsl57fe8e1j4",
-    "tvy0vwxxk9cvfr0",
-    "vv4gyvt75q4yzt5",
-    "jrkk98w9xcvapnf",
-    "oieryudunaexw2j",
-    "8zgk1mf25nwoml3",
-    "qc7oyldieu9ufu1",
-    "kiuzybtb4n27rf9",
-    "o7mwj7lyopbf10a",
-    "amu744g1le0ir78",
-    "7ygbej0xvvfdwss",
-    "u31myf8zy4od3ki",
-    "lnzogdaip8ndpuh",
-    "gdzn6093x8f6e9i",
-    "2cqf036el0biy16",
-    "x5j263srmrq3wnd",
-    "n83a1cq71g0oder",
-    "x0jfv3bxqsak69s",
-    "qavunng7ytx3tdy",
-    "dq5dn9m79pvlq81",
-    "nlow5aa0i4c6mt0",
-    "47dtmjbe2dcci95",
-    "ijxp254j7jw869j",
-    "tsqqk9uwyd1jpz6",
-    "k8d2q7k3ejickus",
-    "0ejfrc97z761xmj",
-    "gifo868n5c1iupt",
-    "l63xwact5sm5opv",
-    "n4ofljzxql5wthn",
-    "shuna07v03ubzmg",
-    "m2g9tckidckv91h",
-    "0sxt53wdxypkbmz",
-    "1rpjs2aif8f8r4o",
-    "xkovvc8e8cevzwu",
-    "fdh5dnyj6fgp9cv",
-    "xwoqgehu86ucyfv",
-    "u6biw8xhyckcgn0",
-    "q5kk7iabl0zapl1",
-    "fthasy76igis4ni",
-    "qvxp0v8hht3g1ns",
-    "4hesdvmmj0nha6f",
-    "3l3pqx2v30iebsf",
-    "61uwuvjsvrrx95d",
-    "i50rax1ti2jywwy",
-    "rljropgb3hjj9fw",
-    "oj0ftlggruws9q1",
-    "bgxq8xbw12ngpes"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 67919, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cimburga. / Gemahlin Erzherzog Ernst des Eisernen von Oesterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Weigl del. M. Hofmann sc.",
+      "scans": [
+        "alm_1011_67910_z2xim0br5h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cimburga. / Gemahlin Erzherzog Ernst des Eisernen von Oesterreich",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "8exhybkwm7lsegf",
+          "source_id": "t2fov71r4crisx0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "zzsflywuako8mud"
+        }
+      ],
+      "source_id": "gkh4z3hqr85peyp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67911,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER / FREUND / des / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1847. / Vier und vierzigster Jahrgang. / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hofbuchbinder, / Schottenhof No. 136",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1011_67911_gzss18wz3n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER / FREUND / des / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1847. / Vier und vierzigster Jahrgang. / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hofbuchbinder, / Schottenhof No. 136",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "j8at0hmxzdfu9c1"
+    },
+    {
+      "annotation": "Illustration zu »Die Verlobte. Erzählung aus Oestreichs Vorzeit« von K. Minnich INr 67920, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67912,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verlobte 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1011_67912_03lzswrw63.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Verlobte 1.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "z4uhligbyu3xk33"
+        }
+      ],
+      "source_id": "1nuugunedpi1q5g"
+    },
+    {
+      "annotation": "Illustration zu »Die Verlobte. Erzählung aus Oestreichs Vorzeit« von K. Minnich INr 67920, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67913,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verlobte 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1011_67913_aww11snj23.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Verlobte 2.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "52kfou8qck0wk2q"
+        }
+      ],
+      "source_id": "humbgixp81i8lvf"
+    },
+    {
+      "annotation": "Illustration zu »Brauers Lieschen» von Dr. Rudolph G. Puff INr 67922, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67914,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bräuers Lischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. M. H. sc.",
+      "scans": [
+        "alm_1011_67914_3x3uquru6r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bräuers Lischen",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "8exhybkwm7lsegf",
+          "source_id": "rhq6zavfgdxj0uu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.490Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "uef5kgh8pfp3r9r"
+        }
+      ],
+      "source_id": "bc3gry7gc9ceyy5"
+    },
+    {
+      "annotation": "Illustration zu »Schuld und Busse« von C. Schneider INr 67925, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67915,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schuld und Busse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1011_67915_xzq09t6u20.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schuld und Busse",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.490Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "xx7vk7h39fb4ury"
+        }
+      ],
+      "source_id": "a6tcsl57fe8e1j4"
+    },
+    {
+      "annotation": "Illustration zu »Die Schwester« von H. Gunnacker INr 67926, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67916,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schwester",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. M. H. sc.",
+      "scans": [
+        "alm_1011_67916_4yksj66b45.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schwester",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.299Z",
+          "agent": "8exhybkwm7lsegf",
+          "source_id": "mn5ph4azssz34fs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.299Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "rjo3l4fnxspfks4"
+        }
+      ],
+      "source_id": "tvy0vwxxk9cvfr0"
+    },
+    {
+      "annotation": "Illustration zu »Die stille Stadt« von Silas INr 67927, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.877Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67917,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die stille Stadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. M. H. sc.",
+      "scans": [
+        "alm_1011_67917_iihp399mo2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die stille Stadt",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.343Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "idvse68qpurcb4x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.343Z",
+          "agent": "8exhybkwm7lsegf",
+          "source_id": "o013uoeh3yodytb"
+        }
+      ],
+      "source_id": "vv4gyvt75q4yzt5"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.878Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67918,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Freund / des / schönen Geschlechts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Freund / des / schönen Geschlechts",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "jrkk98w9xcvapnf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelportrait INr 67910, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wir geben hier unsern schönen Leserinnen das Portrait einer Fürstin, welche in vielfacher Hinsicht merkwürdig ist. Für's Erste ist schon die Art der Brautwerbung, welche um diese Braut angestellt wurde, höchst romantisch zu nennen.",
+      "language": [],
+      "musenalm_id": 67919,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cimburga, / Gemahlin Erzherzogs Ernst des / Eisernen von Oesterreich. / (Zum Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cimburga, / Gemahlin Erzherzogs Ernst des / Eisernen von Oesterreich. / (Zum Titelkupfer.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "oieryudunaexw2j"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 67912, 67913; Obj 3, 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die letzten Strahlen der Sonne streiften am Saume des Kahlegebirges vorüber und brachen sich, an den vergoldeten Kuppeln der stolzen Thürme Wiens;",
+      "language": [],
+      "musenalm_id": 67920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verlobte. / Erzählung aus Oestreichs Vorzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Minnich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verlobte. / Erzählung aus Oestreichs Vorzeit",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "8zgk1mf25nwoml3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Gewalt'ger Geist! geschaffen, Erd' und Himmel / In ihrer Gotterhabenheit zu schildern",
+      "language": [],
+      "musenalm_id": 67921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Voltaire",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Voltaire",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.284Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "suu3q5mv4jbxf78"
+        }
+      ],
+      "source_id": "qc7oyldieu9ufu1"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 67914, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Wie spielende Kinder hüpften und tanzten die grünen Wellen des Attersee's bald neugierig die spitzen Häupter über die lange Fläche hebend, bald wie neckisch sie verbergend",
+      "language": [],
+      "musenalm_id": 67922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brauers Lieschen. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph G. Puff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Brauers Lieschen. / Eine Erzählung",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.284Z",
+          "agent": "z276kpo6m8d5nvd",
+          "source_id": "0zb1bn5ulxt9sst"
+        }
+      ],
+      "source_id": "kiuzybtb4n27rf9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Wie bist du nun, mein Wald! so düster, / Und wie so öd und abgeblüht.",
+      "language": [],
+      "musenalm_id": 67923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Herbstwanderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Herbstwanderung",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "o7mwj7lyopbf10a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Um die graue Mauerlücke / Spinnt das Epheu grün und zart.",
+      "language": [],
+      "musenalm_id": 67924,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / In der Burgruine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / In der Burgruine",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "amu744g1le0ir78"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 67915, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Im Jahre 1834 erfreute sich Besançon des unendlichen Glückes, in der ehrenwerthen Person des jungen Herrn Jacob Sylvester Amadeus Marquis von Soulas einen Löwen zu besitzen.",
+      "language": [],
+      "musenalm_id": 67925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schuld und Buße. / (Nach dem Französischen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Schneider",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schuld und Buße. / (Nach dem Französischen.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ygbej0xvvfdwss"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 67916, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Es ist recht fatal, wenn Schwestern einander unähnlich sind und jede ein andres Lied anstimmt, und es ist, unter manchen Umständen auch recht fatal, daß Canarien-Vögel einander ähnlich sind und so ziemlich das gleiche Lied anstimmen.",
+      "language": [],
+      "musenalm_id": 67926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schwester. / Novellette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Gundacker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schwester. / Novellette",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "u31myf8zy4od3ki"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 67917, Obj 8 /) Dem Text vorangestellt: Wort gehalten wird in jenen Räumen / Jedem schönen, gläubigen Gefühl, / Wage du zu irren und zu träumen, / Hoher Sinn liegt oft im kind'schen Spiel.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Es ist doch etwas Schönes, wenn der Mensch das sich selbst gesteckte Ziel erreicht hat, wenn es dazu noch ein edles ist und der Weg dazu von Hindernissen strotzt;",
+      "language": [],
+      "musenalm_id": 67927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die stille Stadt. / Phantasiestück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Silas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die stille Stadt. / Phantasiestück",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "lnzogdaip8ndpuh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "O Todtenland, du Friedensland, / Gibst du mir Trost? / Hab' meinen Schritt zu dir gewandt, / Vom Lebenssturm umtos't.",
+      "language": [],
+      "musenalm_id": 67928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem Friedhofe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf dem Friedhofe",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "gdzn6093x8f6e9i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Im Fluge geht's nun fort auf ehrnen Gleisen, / Das Lebewohl verdrängt der Willkommsgruß,",
+      "language": [],
+      "musenalm_id": 67929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Waggon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Gundacker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Waggon",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "2cqf036el0biy16"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "In einer freundlichen Gegend Schlesiens lag das stattliche Wohngebäude eines Landedelmannes;",
+      "language": [],
+      "musenalm_id": 67930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Jahr nach der Verlobung. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. X. F. Novotný",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Jahr nach der Verlobung. / Erzählung",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "x5j263srmrq3wnd"
+    },
+    {
+      "annotation": "Sammlung von 27 Beiträgen INr 67932-67958, Obj 23-49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Devisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Devisen",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.221Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "4l52o9ld2talxt3"
+        }
+      ],
+      "source_id": "n83a1cq71g0oder"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Den letzten Pfeil aus dem Köcher / Leg' ich auf den Bogen für dich;",
+      "language": [],
+      "musenalm_id": 67932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.221Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "xehjohoeledadgj"
+        }
+      ],
+      "source_id": "x0jfv3bxqsak69s"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Ich wähl' aus den Blumen die Rose, / Und hab' ich nun gefehlt,",
+      "language": [],
+      "musenalm_id": 67933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.221Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "bmir4o5z7xn59kf"
+        }
+      ],
+      "source_id": "qavunng7ytx3tdy"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Mein Herz ist ohne Titel, / Ein angefangener Roman,",
+      "language": [],
+      "musenalm_id": 67934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.221Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "xgqowe75gypjspx"
+        }
+      ],
+      "source_id": "dq5dn9m79pvlq81"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Ich habe Alles verloren, / Doch ärmer bin ich nicht;",
+      "language": [],
+      "musenalm_id": 67935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.221Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "mu949b6j69ac5da"
+        }
+      ],
+      "source_id": "nlow5aa0i4c6mt0"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Was zielst mit steten Schlägen / So grausam auf mein Herz?",
+      "language": [],
+      "musenalm_id": 67936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.222Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.222Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "9omm24ukq789spc"
+        }
+      ],
+      "source_id": "47dtmjbe2dcci95"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Ach, glaube, meine Wunden / Sind sicherlich kein Wahn;",
+      "language": [],
+      "musenalm_id": 67937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.151Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "yva97c7i99ox61y"
+        }
+      ],
+      "source_id": "ijxp254j7jw869j"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Doch deute mit dem Finger leise, / Es dreht sich mein Sinn,",
+      "language": [],
+      "musenalm_id": 67938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.151Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "egqlqqxxsev33wv"
+        }
+      ],
+      "source_id": "tsqqk9uwyd1jpz6"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Meine Liebste will warten, / Bis ich werde gestorben sein,",
+      "language": [],
+      "musenalm_id": 67939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.151Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.151Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "juy0yhw294vphux"
+        }
+      ],
+      "source_id": "k8d2q7k3ejickus"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Wenn du mit goldnem Kamm die weißen / Flöckchen, / Die über Nächt sich machten weich ihr Nest,",
+      "language": [],
+      "musenalm_id": 67940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "ip8nczxy72lqcfy"
+        }
+      ],
+      "source_id": "0ejfrc97z761xmj"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.554Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Ich hör' in meinem Herzen / Beständig klingen und singen,",
+      "language": [],
+      "musenalm_id": 67941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "pj88pxecvjbom7z"
+        }
+      ],
+      "source_id": "gifo868n5c1iupt"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Das ist bei der Lieb', daß keine / Blume fehlt in ihrem Kranz.",
+      "language": [],
+      "musenalm_id": 67942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "wygol7orqhnxjms"
+        }
+      ],
+      "source_id": "l63xwact5sm5opv"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Fallen je die Blätter wahrer Liebe, / Zeugen fort und fort sich andre Triebe,",
+      "language": [],
+      "musenalm_id": 67943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "8bqnff152wwvpv0"
+        }
+      ],
+      "source_id": "n4ofljzxql5wthn"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Willst du in meine Seele schauen, / Drin prangt dein Bild, das hehre,",
+      "language": [],
+      "musenalm_id": 67944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "j9nvme2gl8kmh4p"
+        }
+      ],
+      "source_id": "shuna07v03ubzmg"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Ich war erst in der Kirche, / Es waren viel Leute zugegen,",
+      "language": [],
+      "musenalm_id": 67945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "s8a9hr33h8ett1m"
+        }
+      ],
+      "source_id": "m2g9tckidckv91h"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Es bewegt sich nach meinen Gedanken / Die ganze Welt in Poesie,",
+      "language": [],
+      "musenalm_id": 67946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "ypkfu0h9cinv0mt"
+        }
+      ],
+      "source_id": "0sxt53wdxypkbmz"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Auf meinem stillen, einsamen Sitze / Reiß' ich aus der Brust die tödtliche Spitze,",
+      "language": [],
+      "musenalm_id": 67947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.152Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.152Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "e5ul3wm1jcvvism"
+        }
+      ],
+      "source_id": "1rpjs2aif8f8r4o"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Und wieder naht Erinnrung jener Stunden, / Der Tag verblutet sich ins helle Blau,",
+      "language": [],
+      "musenalm_id": 67948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.973Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "pu418zhwb2qvazl"
+        }
+      ],
+      "source_id": "xkovvc8e8cevzwu"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "In meine Träume blickst du / Ein wunderschöner Stern,",
+      "language": [],
+      "musenalm_id": 67949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "5k6iyx554l8z9we"
+        }
+      ],
+      "source_id": "fdh5dnyj6fgp9cv"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Ich trank auf ihre Gesundheit, / Ich trank ein volles Glas,",
+      "language": [],
+      "musenalm_id": 67950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "d3qc2k8hps24nhe"
+        }
+      ],
+      "source_id": "xwoqgehu86ucyfv"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Ich kämpfte mit edler Liebe, / Es war eine Schachpartie,",
+      "language": [],
+      "musenalm_id": 67951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "q8gvz8c4lkk95mq"
+        }
+      ],
+      "source_id": "u6biw8xhyckcgn0"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "An all' den Wind, an all' dem Regen / Wär' einer Distel wenig gelegen,",
+      "language": [],
+      "musenalm_id": 67952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "x4crold4tr9fp1m"
+        }
+      ],
+      "source_id": "q5kk7iabl0zapl1"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Was nun bringst du hier zum Grabe / Mit dem Blick dem hoffnungslosen?",
+      "language": [],
+      "musenalm_id": 67953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "22.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "22.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "krk3uqojzyx4aab"
+        }
+      ],
+      "source_id": "fthasy76igis4ni"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Die Rosen sah ich verbluten, / Ich sah die Lilien weinen,",
+      "language": [],
+      "musenalm_id": 67954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "23.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "23.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "n311a43c6s3oe2a"
+        }
+      ],
+      "source_id": "qvxp0v8hht3g1ns"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Ist dir die Kunst denn fremde, / Verstehst du nicht Poesie,",
+      "language": [],
+      "musenalm_id": 67955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "24.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "24.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "yid7uycozu36gni"
+        }
+      ],
+      "source_id": "4hesdvmmj0nha6f"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Es läuten die Blumenglocken, / Sie läuten für und für.",
+      "language": [],
+      "musenalm_id": 67956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "25.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "25.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.227Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "tatgm9hx4za5e9u"
+        }
+      ],
+      "source_id": "3l3pqx2v30iebsf"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.456Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Ja, hier in deinem Garten / Da werd' ich wieder frisch,",
+      "language": [],
+      "musenalm_id": 67957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "26.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "26.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.228Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.228Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "ivmpl2wz1ph4vbz"
+        }
+      ],
+      "source_id": "61uwuvjsvrrx95d"
+    },
+    {
+      "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Himmel! alle diese Qualen / Trag' ich wahrlich nicht mehr länger.",
+      "language": [],
+      "musenalm_id": 67958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "27.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Alphons Hamböck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "27.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.228Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.228Z",
+          "agent": "690p6l7d7zmbgvd",
+          "source_id": "fo9aelucthh754r"
+        }
+      ],
+      "source_id": "i50rax1ti2jywwy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Der Sänger singt nicht mehr im Haine, / Im Goldpallast, im Frauenkreise,",
+      "language": [],
+      "musenalm_id": 67959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Modernes Sängerthum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "weil. Franz Millmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Modernes Sängerthum",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "rljropgb3hjj9fw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Könnt' Seele zu der Seele sprechen, / Dann hättest Du schon längst erfahren",
+      "language": [],
+      "musenalm_id": 67960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Könnt' Seele zu der Seele sprechen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "weil. Franz Millmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Könnt' Seele zu der Seele sprechen!",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "oj0ftlggruws9q1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67961,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "bgxq8xbw12ngpes"
+    }
   ],
   "agents": [
     {

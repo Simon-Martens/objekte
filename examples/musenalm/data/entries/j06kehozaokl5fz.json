@@ -48,14 +48,225 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "y0mjkvwtvysqr77"
+    {
+      "annotation": "Almanach dramatischer Spiele für Gesellschaftstheater Jgg 1811-1837, Hrsg: F. A. v. Kurländer; ab 1819: Lustspiele oder dramatischer Alamanach für das Jahr; fortgesetzt als: F. A. von Kurländers dramatischer Alamanach für das Jahr Leipzig 1838-1841. Hrsg: C. W. Koch",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.543Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200266",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.543Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "y0mjkvwtvysqr77"
+    }
   ],
   "contents": [
-    "pix8kmi9wa4oxvi",
-    "4y73e3zgsy1m5pl",
-    "mf10frvzgtgyvzo",
-    "aj2e65yesmzszjv",
-    "3hb3lzv19bf4ezo"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124574,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach dramatischer Spiel / für / Gesellschafts-Theater. / Von / Franz August von Kurländer. / Achter Jahrgang. / Wien 1818. / Im Verlag bey J. B. Wallishausser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Almanach dramatischer Spiel / für / Gesellschafts-Theater. / Von / Franz August von Kurländer. / Achter Jahrgang. / Wien 1818. / Im Verlag bey J. B. Wallishausser",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "pix8kmi9wa4oxvi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124575,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "4y73e3zgsy1m5pl"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124574, Obj 1); $ Alexandre-Vincent Pineu Duval, vgl. NBG XV, Sp. 520",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Theure Miß! Die Pflicht gebeut, heute Nacht muß ich London verlassen, es däucht mich aber unmöglich, wenn mir nicht das Glück zu theil wird, die reizende Eveline zu sprechen, und aus ihrem schönen Munde die Bestimmung meines Schicksals zu vernehmen.",
+      "language": [],
+      "musenalm_id": 124576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Shakspeare als Liebhaber. / Lustspiel in einem Act. / Nach Duval frey bearbeitet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Duval $ [bearb.] Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Shakspeare als Liebhaber. / Lustspiel in einem Act. / Nach Duval frey bearbeitet",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "9vrns72m1o5d1rs"
+        }
+      ],
+      "source_id": "mf10frvzgtgyvzo"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124574, Obj 1); ## Richard Brinsley Sheridan, vgl. https://www.britannica.com/biography/Richard-Brinsley-Sheridan (Zugriff am 18.02.2020)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Herr Moyseshof. / Wird jetzt nicht angenommen. / Aber – / Kein aber. Ihr wißt, daß ich jetzt nicht zu Hause bin.",
+      "language": [],
+      "musenalm_id": 124577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leichtsinn und Heucheley. / Lustspiel in fünf Aufzügen. / Nach Scheridans Lästerschule neu bearbeitet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scheridan ## [bearb.] Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leichtsinn und Heucheley. / Lustspiel in fünf Aufzügen. / Nach Scheridans Lästerschule neu bearbeitet",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "q5d8bmt8vjimyky"
+        }
+      ],
+      "source_id": "aj2e65yesmzszjv"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124574, Obj 1)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "So, nun denke ich, sollen doch Blumen genug in dem Kranz seyn; er ist beinahe so groß, als er Erndtekranz war, auf unserm Dorfe.",
+      "language": [],
+      "musenalm_id": 124578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Charade. Lustspiel in zwey Acten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz August von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Charade. Lustspiel in zwey Acten",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.837Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "3t9tct9tpgbupiq"
+        }
+      ],
+      "source_id": "3hb3lzv19bf4ezo"
+    }
   ],
   "agents": [
     {

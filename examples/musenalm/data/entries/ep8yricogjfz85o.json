@@ -48,67 +48,2568 @@
   "year": 1815,
   "editor": "",
   "items": [
-    "5qsq74ovkjfl62d"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.678Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405705",
+      "location": "105G05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.678Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5qsq74ovkjfl62d"
+    }
   ],
   "contents": [
-    "qvqobcvf6mgy07d",
-    "l7u5z4tilrm63mf",
-    "xthi8q8f9eglndl",
-    "ie4k7bf9qz1gzej",
-    "wk5c1mbbrql9qmf",
-    "p21og9ntt2vw4en",
-    "vmnxzjdfcsmzyjw",
-    "m6spreyo6bsmnuu",
-    "f29ozgy5vpq8xp1",
-    "jm2zzja5utobyt8",
-    "eob0dwe4tyxl7h9",
-    "5mzqe04ezp09jkk",
-    "ryxdpnzas9ochr6",
-    "f35v672ym3ml2mg",
-    "pr22knqaqi0a0ce",
-    "12a6ubreijyxep6",
-    "pgnzp6vf9t6f1g5",
-    "jcduusgb7fvjxsq",
-    "0fxt2n3m9d0wbjg",
-    "9j7oes3l1ureegm",
-    "oxg20ckv3nbppka",
-    "fqwmba4t1u1895r",
-    "v4ln2zam0rpfme2",
-    "wcndvqf7gbid9vv",
-    "l1iuogxmunt1rma",
-    "mb7gzg4q036pcmw",
-    "dqumi32iq2gw6b5",
-    "4m33ky8wglqkk86",
-    "0tsu11fma0too3g",
-    "c603ptr041hcvlf",
-    "80qlhki7b05e5js",
-    "xjl2pcu9a7xbjzu",
-    "71wejzr0vicksgo",
-    "hpsmipzsuinle7p",
-    "iezvwgodpl6ih2f",
-    "pfrze55xpkb3jme",
-    "sluq32gdmhcicus",
-    "921dzupdcjkkn74",
-    "8f369bcmrc6ut76",
-    "hbxv3tynxx74p7a",
-    "q05w0bia48gkefw",
-    "nhn78w2ru3byen6",
-    "9f8ijfa06j1h71j",
-    "gkk32eio985ao74",
-    "dzj3uof6zbgtgrk",
-    "hyznhbeq6q1rgf7",
-    "wtsd5c8juvi6xv5",
-    "8vfr2l4vlf3e4mr",
-    "ugpfli5wmh72e0x",
-    "cxaspxbjkuaadfv",
-    "36joxyb6jzdpyij",
-    "m9ft7iytaminysy",
-    "8t84lmfvabyf8yi",
-    "pnts7roi5gozit1",
-    "c86lnefgnmbu7v8",
-    "yg1llyhujuf761q",
-    "lnsobntat3j00fw",
-    "stt8vk799658kol"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Benevent. Gieb her die Krone, nimm das Geld! / Marschall. Nein! Diese nimm und end' als Held. / Der Corse. Weg mit dem Tod! ich greif' um's Geld!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmäsler jun sculp.",
+      "scans": [
+        "alm_2975_70606_qs159n7y92.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Benevent. Gieb her die Krone, nimm das Geld! / Marschall. Nein! Diese nimm und end' als Held. / Der Corse. Weg mit dem Tod! ich greif' um's Geld!",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.430Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "u4ok4l12plyhiio"
+        }
+      ],
+      "source_id": "qvqobcvf6mgy07d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70607,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spott- und Jubelalmanach / für Deutsche / von / Johann Friedrich Schink. / Hamburg 1815 / in der Bohn'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2975_70607_jak94nzjir.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spott- und Jubelalmanach / für Deutsche / von / Johann Friedrich Schink. / Hamburg 1815 / in der Bohn'schen Buchhandlung",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.315Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "3jvga6hd3aw9p2s"
+        }
+      ],
+      "source_id": "l7u5z4tilrm63mf"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nimm hin, was sich aus Scherz und Jubel webte, / Nimms Büchlein hin; es sey Dir, Freund geweiht,",
+      "language": [],
+      "musenalm_id": 70608,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem hochverdienten Bürger, / dem Freunde der Freiheit, / dem Vater der Hanseaten, / dem edlen Hanfft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem hochverdienten Bürger, / dem Freunde der Freiheit, / dem Vater der Hanseaten, / dem edlen Hanfft",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "o6xwtr49dpb9um7"
+        }
+      ],
+      "source_id": "xthi8q8f9eglndl"
+    },
+    {
+      "annotation": "Mit Einleitung: Vorbericht. / Dier Idee dieses Kalenders rührte von dem Herrn Verleger her. Unstreitig wird es dem Leser Vergnügen gewähren, jeden Tag des Jahres mit einem oder mehrern Zeitereignissen der letzten Jahre bezeichnet zu sehen.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70609,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kalender / wichtiger Welt- und Zeitereignisse in den / lezten Jahrzehenden, / von / des Corsen erstem Emporkommen an bis zu / seinen Sturze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kalender / wichtiger Welt- und Zeitereignisse in den / lezten Jahrzehenden, / von / des Corsen erstem Emporkommen an bis zu / seinen Sturze",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "ie4k7bf9qz1gzej"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 2 einleitende Beiträge INr 70611, 70612; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70610,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung / nebst / einem Gespräche / über eine / dem Corsen gewidmete Schimpf- und Schande / in diesem Almanache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung / nebst / einem Gespräche / über eine / dem Corsen gewidmete Schimpf- und Schande / in diesem Almanache",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "wk5c1mbbrql9qmf"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Schon im Junius des Jahres 1812 feierte mein ahnendes Herz die Nähe der heiligen Vergelterinn alles Frevels;",
+      "language": [],
+      "musenalm_id": 70611,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "pdp1wo9cdp5d1r3"
+        }
+      ],
+      "source_id": "p21og9ntt2vw4en"
+    },
+    {
+      "annotation": "Beigabe zum Vorwort des Herausgebers INr 70611, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Ihr Spott- und Jubelalmanach wird also gedruckt? Endlich. Ich freue mich, daß Sie ihren langen Wunsch erfüllt sehen, daß nun auch das vaterländische Publikum die Zeugnisse Ihres deutschen Gemüths, Ihrer Vaterlandsliebe, Ihres Freiheitssinnes",
+      "language": [],
+      "musenalm_id": 70612,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Freund und ich. / Gespräch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Freund und ich. / Gespräch",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.440Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "9suybprirk9v2hp"
+        }
+      ],
+      "source_id": "vmnxzjdfcsmzyjw"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70613,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spott- und Jubelalmanach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Spott- und Jubelalmanach",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "m6spreyo6bsmnuu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70614,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "f29ozgy5vpq8xp1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Muthig Freunde, bei dem neuen Kriege / Des Tyrannen, träumend neue Siege, / Drükt uns gleich die Sklavenkette noch;",
+      "language": [],
+      "musenalm_id": 70615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Napoleon am Niemen. / Weissung. / (Im Juny 1812.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Napoleon am Niemen. / Weissung. / (Im Juny 1812.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.440Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "0bqapkgtxf04osm"
+        }
+      ],
+      "source_id": "jm2zzja5utobyt8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Der Held der Zeit, deß Machtgebot / So manches Reich erbebte, / Beschloß AUch Rußlands Fall und Tod, / Das kühn ihm widerstrebte;",
+      "language": [],
+      "musenalm_id": 70616,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Europa's Held / oder / der Siegeszug nach Rußland. / Eine Burleske. / (Im Januar 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Europa's Held / oder / der Siegeszug nach Rußland. / Eine Burleske. / (Im Januar 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.440Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.440Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "swqn9a6fofjlesz"
+        }
+      ],
+      "source_id": "eob0dwe4tyxl7h9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Gekommen war der Tag der Vergeltung. Seine Schrekken jagten den Völkerverderber, zagend floh er.",
+      "language": [],
+      "musenalm_id": 70617,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Brennen. / Ein prophetisches Gesicht. / (Im Februar 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Brennen. / Ein prophetisches Gesicht. / (Im Februar 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "ipjo8hay0mfhw77"
+        }
+      ],
+      "source_id": "5mzqe04ezp09jkk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Gefeierter von deinen Millionen, / Die Vater nennen dich, / Erretter Deutschlands, Heil der Nazionen, / Die von der Newa bis zum Ebro wohnen,",
+      "language": [],
+      "musenalm_id": 70618,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / den Kaiser Alexander. / (Im März 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / den Kaiser Alexander. / (Im März 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "7qv1b06c7hfamb0"
+        }
+      ],
+      "source_id": "ryxdpnzas9ochr6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Ström' aus mein Lied! Noch einmal wieder jung, / Erhebe dich, mein Geist, auf Adlerschwingen!",
+      "language": [],
+      "musenalm_id": 70619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Friedrich Wilhelm, den Dritten. / (Im März 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Friedrich Wilhelm, den Dritten. / (Im März 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "7vg6c8x5avyacdn"
+        }
+      ],
+      "source_id": "f35v672ym3ml2mg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Auf, auf zum Kampfe, das Schwert in der Hand, / Ihr wakkern Krieger und Mannen!",
+      "language": [],
+      "musenalm_id": 70620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die zum Kampfe gerüsteten Preußen. / (Im April 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die zum Kampfe gerüsteten Preußen. / (Im April 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.380Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "sp9y49fix8l53ti"
+        }
+      ],
+      "source_id": "pr22knqaqi0a0ce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Auf, auf Kameraden hinaus in den Streit / Für's Vaterland rüstig und munter!",
+      "language": [],
+      "musenalm_id": 70621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutscher Schlachtgesang / in / dem Kriege für Vaterland und Freiheit. / (Im April 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutscher Schlachtgesang / in / dem Kriege für Vaterland und Freiheit. / (Im April 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.381Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "s6jrb77zjz6lcck"
+        }
+      ],
+      "source_id": "12a6ubreijyxep6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Stolz und freudig steh' ich vor euch hier, / Feierlich, als Seher, auch begründet,",
+      "language": [],
+      "musenalm_id": 70622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weissagung. / (Im April 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weissagung. / (Im April 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.381Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "1llu4i26s1cupo6"
+        }
+      ],
+      "source_id": "pgnzp6vf9t6f1g5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Hannoveraner, Ehrenwerth, / Und tapfer in dem Streit, / Schon oft zogt ihr das deutsche Schwert, / Bewährt durch Tapferkeit.",
+      "language": [],
+      "musenalm_id": 70623,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutschlands Streiter / an / Hannovers Tapfere. / (Im April 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutschlands Streiter / an / Hannovers Tapfere. / (Im April 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.381Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "1enweawkwiqih5a"
+        }
+      ],
+      "source_id": "jcduusgb7fvjxsq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Ach! da seid ihr endlich. Herzlich willkommen! Meine Freude, meine Hoffnungen, meine Wünsche wollen Mittheilung.",
+      "language": [],
+      "musenalm_id": 70624,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutschlands Erwachen. / Ein / Gespräch unter deutschen Männern. / (Im April 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutschlands Erwachen. / Ein / Gespräch unter deutschen Männern. / (Im April 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.381Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "lco2ag5t81i75z2"
+        }
+      ],
+      "source_id": "0fxt2n3m9d0wbjg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Verheerend zog durch deutsches Land / Ein Hunnenschwarm, den Pfad / Bezeichneten Mord, Raub und Brand, / Und jede Greuelthat",
+      "language": [],
+      "musenalm_id": 70625,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Schlacht bei Lüneburg. / (Im April 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Schlacht bei Lüneburg. / (Im April 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.381Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "hrgjr1jtrpxezbj"
+        }
+      ],
+      "source_id": "9j7oes3l1ureegm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Nichts von Kongreßen! Wörtelei / Zerbricht nicht uns're Ketten; / Das Bajonett nur macht uns frei,",
+      "language": [],
+      "musenalm_id": 70626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stimme der preußischen Krieger / bei / der Nachricht von einem Friedens-Kongreße. / (Im July 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stimme der preußischen Krieger / bei / der Nachricht von einem Friedens-Kongreße. / (Im July 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.430Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "fkwbhfz0a2gtkus"
+        }
+      ],
+      "source_id": "oxg20ckv3nbppka"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Brich aus Gesang, und tön' auf meinem Munde / Lautjubelnd hin, von Land zu Land!",
+      "language": [],
+      "musenalm_id": 70627,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / den Kaiser Franz, den Zweiten. / (Im August 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / den Kaiser Franz, den Zweiten. / (Im August 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.430Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "djj8s32bycd0sag"
+        }
+      ],
+      "source_id": "fqwmba4t1u1895r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Die Kriegstrompete hör' ich wieder fallen, / Und meine Wangen färbt ein höh'res Roth, / Befreier Deutschlands, eure Fahnen wallen,",
+      "language": [],
+      "musenalm_id": 70628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die verbündeten Heere / nach / Aufhebung des Waffenstillstandes. / (Im August 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die verbündeten Heere / nach / Aufhebung des Waffenstillstandes. / (Im August 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.430Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "txwwto1oxv4qtup"
+        }
+      ],
+      "source_id": "v4ln2zam0rpfme2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Dir, unerschrokk'ner Held, dir, der vom Sieg zu'm / Siege, / Des Vaterlandes Schuzgeist! flog,",
+      "language": [],
+      "musenalm_id": 70629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / den Feldmarschall von Blücher. / (Im Oktober 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / den Feldmarschall von Blücher. / (Im Oktober 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.430Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "24mkafyc5ogr8mx"
+        }
+      ],
+      "source_id": "wcndvqf7gbid9vv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Preis euch, ihr Starken! Hehr, herrlich bewährt / Habt Ahnung ihr, Hoffnung und Glauben!",
+      "language": [],
+      "musenalm_id": 70630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Preußens Krieger / nach den Siegen an der Katzbach, bei Groß- / beeren, Culm, Dennewitz, Wartenberg, Skeudiz / und Leipzig. / (Im Oktober 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Preußens Krieger / nach den Siegen an der Katzbach, bei Groß- / beeren, Culm, Dennewitz, Wartenberg, Skeudiz / und Leipzig. / (Im Oktober 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.435Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "fsn23a0bypx7jl4"
+        }
+      ],
+      "source_id": "l1iuogxmunt1rma"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Heilige, auf Preußens Königsthrone / Einst der Schmuk der deutschen Fürstenfrau'n,",
+      "language": [],
+      "musenalm_id": 70631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / den verklärten Geist / der / Königin, Louise von Preußen. / (Im Oktober 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / den verklärten Geist / der / Königin, Louise von Preußen. / (Im Oktober 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.435Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "rzq0gs7qcfc2sfg"
+        }
+      ],
+      "source_id": "mb7gzg4q036pcmw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Viktoria! warum mit heißen Zähren / Ich aufgefleht zu dir, Vergelterin, / Erfüllt hast du's!",
+      "language": [],
+      "musenalm_id": 70632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die verbündeten Heere / nach / der großen Völkerschlacht bei Leipzig. / (Im Oktober 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die verbündeten Heere / nach / der großen Völkerschlacht bei Leipzig. / (Im Oktober 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "xv8j9jyhv510dla"
+        }
+      ],
+      "source_id": "dqumi32iq2gw6b5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Abschaum der Menschheit, der mit Schwert und Feuer / Die Welt durchzog, verbreitend Ach! und Weh'!",
+      "language": [],
+      "musenalm_id": 70633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Corsen. / Schand- und Schimpfode. / Zur Feier der Zernichtungsschlacht am achtzehnten und / neunzehnten Oktober 1813",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Corsen. / Schand- und Schimpfode. / Zur Feier der Zernichtungsschlacht am achtzehnten und / neunzehnten Oktober 1813",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "6edkowpv0nabmd0"
+        }
+      ],
+      "source_id": "4m33ky8wglqkk86"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Sie fliehen, fliehen, sie fliehn! Ihr furchtbar / strenges Gericht / Hält die Vergeltung. / Hält die Vergeltung.",
+      "language": [],
+      "musenalm_id": 70634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Würgeengel. / (Nach den Kämpfen an der Saale und Unstrut, bei Erfurt, Vach und Hanau.) / In den ersten Tagen des Novembers1813",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Würgeengel. / (Nach den Kämpfen an der Saale und Unstrut, bei Erfurt, Vach und Hanau.) / In den ersten Tagen des Novembers1813",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "9qm4ettphy1lria"
+        }
+      ],
+      "source_id": "0tsu11fma0too3g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Häupter des heil'gen Vereins für Völkerrettung / geweihte, / Gottgesendete, seid hoch mir gesegnet am Rhein!",
+      "language": [],
+      "musenalm_id": 70635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Huldigung. / Im December 1813",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Huldigung. / Im December 1813",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "b6kwypi6p2fo0eq"
+        }
+      ],
+      "source_id": "c603ptr041hcvlf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Tönet laut, des Dankes Jubellieder, / Frei ist Deutschland, Freie sind wir wieder,",
+      "language": [],
+      "musenalm_id": 70636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die Deutschen. / Nach / der Eroberung der beiden Rheinufer durch die / verbündeten Heere. / (Im Januar 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die Deutschen. / Nach / der Eroberung der beiden Rheinufer durch die / verbündeten Heere. / (Im Januar 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "vew512qukg2m77x"
+        }
+      ],
+      "source_id": "80qlhki7b05e5js"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Auf Frankreichs Boden stehen wir, / Der deutsche Banner sieget;",
+      "language": [],
+      "musenalm_id": 70637,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlachtgesang / für / Deutschlands Krieger. / (Im Januar 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlachtgesang / für / Deutschlands Krieger. / (Im Januar 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "q7ktl22x8xboe4m"
+        }
+      ],
+      "source_id": "xjl2pcu9a7xbjzu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Triumphgesang töne! Geschlagen ist er / Auf Frankreichs Gefilden!",
+      "language": [],
+      "musenalm_id": 70638,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Schlacht bei Brienne. / (Im Februar 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Schlacht bei Brienne. / (Im Februar 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "qwny6pj9un6n4g7"
+        }
+      ],
+      "source_id": "71wejzr0vicksgo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Empor, mein Geist, ob Tausende verzagen, / Kleinmüthig, zweifelnd, und das Haupt gebeugt! / Europa siegt, die Stunde hat geschlagen,",
+      "language": [],
+      "musenalm_id": 70639,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weisagung. / (Im März 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weisagung. / (Im März 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "bv1cppy09pnhpm2"
+        }
+      ],
+      "source_id": "hpsmipzsuinle7p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Hinaus, daß ich die volle Brust befreie / Von dem Entzükken, daß sie hehr erfüllt!",
+      "language": [],
+      "musenalm_id": 70640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die Monarchen der verbündeten Völker. / Nach den Siegen bei Bar sur Aube, Challons, / Soissons und Laon. / (Im März 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die Monarchen der verbündeten Völker. / Nach den Siegen bei Bar sur Aube, Challons, / Soissons und Laon. / (Im März 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "rt4g5iywx2em58b"
+        }
+      ],
+      "source_id": "iezvwgodpl6ih2f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Wohin wird plözlich mein Gesang gezogen? / In weite Ferne fühl' ich mich entrükt,",
+      "language": [],
+      "musenalm_id": 70641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Triumphgesang / nach / dem glorreichen Einzuge der Verbündeten / in Paris. / (Im April 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Triumphgesang / nach / dem glorreichen Einzuge der Verbündeten / in Paris. / (Im April 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.498Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "n3eji4w1bejjw9f"
+        }
+      ],
+      "source_id": "pfrze55xpkb3jme"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Nun, Weltbezwinger, Völkerunterjocher, / Du Held der Helden, prahlerischer Pocher, / Wie steht es jetzt um deine Ländergier,",
+      "language": [],
+      "musenalm_id": 70642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Corsen. / Nach / der Eroberung von Paris. / (Im April 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Corsen. / Nach / der Eroberung von Paris. / (Im April 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.635Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.635Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "cgywk4utl0hurlc"
+        }
+      ],
+      "source_id": "sluq32gdmhcicus"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "O kommt herbei, die ihr dem Völkerschrekker / Das Knie sonst beugtet, sklavisch ihn umkrocht,",
+      "language": [],
+      "musenalm_id": 70643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Corse in Fontainebleau. / Im April 1814",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Corse in Fontainebleau. / Im April 1814",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.580Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.580Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "sefgttjvb95va0f"
+        }
+      ],
+      "source_id": "921dzupdcjkkn74"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Auf, wer Possierlichkeiten liebt, / Mir nach in Frankreich's Gauen,",
+      "language": [],
+      "musenalm_id": 70644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des / Corsen Abschied von Frankreich. / Romanze. / (Im Mai 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des / Corsen Abschied von Frankreich. / Romanze. / (Im Mai 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.580Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.580Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "jyyne5bs4ytavlm"
+        }
+      ],
+      "source_id": "8f369bcmrc6ut76"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Nimm, deutscher Fürst, von mir, der deutschen / Eiche Laub / Für deine Heldenstirn!",
+      "language": [],
+      "musenalm_id": 70645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem / Fürsten von Schwarzenberg. / (Im Juni 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem / Fürsten von Schwarzenberg. / (Im Juni 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.580Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.580Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "2mc0629l299ckok"
+        }
+      ],
+      "source_id": "hbxv3tynxx74p7a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Nun, Brüder, auf! schlingt neu das Laub der Eiche / Um's Haupt, als Sieg'spanier!",
+      "language": [],
+      "musenalm_id": 70646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siegeslied der deutschen Heere / bei / ihrer Rükkehr aus Frankreich. / (Im Juni 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siegeslied der deutschen Heere / bei / ihrer Rükkehr aus Frankreich. / (Im Juni 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.487Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "10ny8hi57nqkyz0"
+        }
+      ],
+      "source_id": "q05w0bia48gkefw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Herr, Gott, dich loben wir, / Herr, Gott, wir danken dir! / Dir Jubellaut und Lieder!",
+      "language": [],
+      "musenalm_id": 70647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Religiöser Lobgesang / nach / Deutschlands Befreiung. / (Im Juni 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Religiöser Lobgesang / nach / Deutschlands Befreiung. / (Im Juni 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.487Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "w8dorqzmx1q6ca1"
+        }
+      ],
+      "source_id": "nhn78w2ru3byen6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Seid in Deutschland gegrüßt, uns're Befreier und / Rächer, / Unsers eisernen Joch's ruhmgekrönte Zerbrecher,",
+      "language": [],
+      "musenalm_id": 70648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die Häupter des großen Fürstenvereines / bei / Ihrer Rückkehr auf Deutschlands freien Boden. / (Im Juli 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die Häupter des großen Fürstenvereines / bei / Ihrer Rückkehr auf Deutschlands freien Boden. / (Im Juli 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.487Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "rozb2m8o4w6loa4"
+        }
+      ],
+      "source_id": "9f8ijfa06j1h71j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Die Freiheit siegt, die Fesseln sanken nieder, / Zerschmettert liegt des Treibers Herrschermacht;",
+      "language": [],
+      "musenalm_id": 70649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / die deutsche Nazion. / (Im Juli 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / die deutsche Nazion. / (Im Juli 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.487Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "p4dcp0e1js0j8py"
+        }
+      ],
+      "source_id": "gkk32eio985ao74"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Tochter des Himmels, / Schwester der Hoffnung, / Du, die so freundlich / Prüfender Jahre / Leiden versüßt;",
+      "language": [],
+      "musenalm_id": 70650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedensfeier. / Musilkalisches Gedicht. / (Im Juli 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedensfeier. / Musilkalisches Gedicht. / (Im Juli 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.487Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "cranxyc4x2yzk7w"
+        }
+      ],
+      "source_id": "dzj3uof6zbgtgrk"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Bild jenes Kreuzes, das den Sieg errungen / Einst über Wahn und Finsterniß und Nacht;",
+      "language": [],
+      "musenalm_id": 70651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / eiserne Kreuz. / (Im Juli 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / eiserne Kreuz. / (Im Juli 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "bcvjcbcdpn0kjlh"
+        }
+      ],
+      "source_id": "hyznhbeq6q1rgf7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Fließt in der Leier Feiersaiten nieder, / Der Freude Thränen! Künd' es nah' und fern,",
+      "language": [],
+      "musenalm_id": 70652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein / preußisches Vaterland. / (Im August 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein / preußisches Vaterland. / (Im August 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "c4rxx50fdmz90ct"
+        }
+      ],
+      "source_id": "wtsd5c8juvi6xv5"
+    },
+    {
+      "annotation": "Sammlung von  Gedichten INr 70654-",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zeitgedichte. / (Aus dem Stehgreife.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zeitgedichte. / (Aus dem Stehgreife.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "vxmkkwxqbjj5bso"
+        }
+      ],
+      "source_id": "8vfr2l4vlf3e4mr"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Nun glaub' an alle Wunder ich, / Die Frankreichs Bulletins uns melden;",
+      "language": [],
+      "musenalm_id": 70654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Duroc auf dem Schlachtfelde bei Bauzen. / Nach / Lesung des französischen Zeitungsberichtes. / (Im Juni 1813.) 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Duroc auf dem Schlachtfelde bei Bauzen. / Nach / Lesung des französischen Zeitungsberichtes. / (Im Juni 1813.) 1.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "id4800igwsj66sc"
+        }
+      ],
+      "source_id": "ugpfli5wmh72e0x"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Daß er dahin in Friede möge fahren, / Verspricht Napoleon gerührt ihm Wiederseh'n / In einer bessern Welt.",
+      "language": [],
+      "musenalm_id": 70662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Duroc auf dem Schlachtfelde bei Bauzen. Nach Lesung des französischen Zeitungsberichtes. (Im Juni 1813.)] 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Duroc auf dem Schlachtfelde bei Bauzen. Nach Lesung des französischen Zeitungsberichtes. (Im Juni 1813.)] 2.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "ue95qmtjrk1lsuh"
+        }
+      ],
+      "source_id": "cxaspxbjkuaadfv"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Der König Zwerg, stolzirt auf seinem Throne, / Pocht, trozt und droht; der arme Tropf!",
+      "language": [],
+      "musenalm_id": 70655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Zwerg. / (Im Juni 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König Zwerg. / (Im Juni 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "lh2anmxvpur5n0t"
+        }
+      ],
+      "source_id": "36joxyb6jzdpyij"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Der Würger fiel. O laßt ihn unbegraben, / Durch Mord und Brand geweiht dem Hochgericht,",
+      "language": [],
+      "musenalm_id": 70656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vandamme, / als die Zeitungen meldeten, er sei auf dem / Schlachtfelde bei Culm gefallen. / (Im August 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vandamme, / als die Zeitungen meldeten, er sei auf dem / Schlachtfelde bei Culm gefallen. / (Im August 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "kauhr7w63l4c63k"
+        }
+      ],
+      "source_id": "m9ft7iytaminysy"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Nein, sprach die Nemesis, und hielt den Todesstoß / Von ihm zurück des Helden Ehrenlos,",
+      "language": [],
+      "musenalm_id": 70657,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Derselbe. / Als die Zeitung berichtete: er sei nur gefangen, / nicht getödtet. / (Im August 1813.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Derselbe. / Als die Zeitung berichtete: er sei nur gefangen, / nicht getödtet. / (Im August 1813.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "wegpqidknjaauz2"
+        }
+      ],
+      "source_id": "8t84lmfvabyf8yi"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Nicht seines Gleichen hat Franzosen Heldenthum, / Das Deutsche kann so hoch nicht fliegen;",
+      "language": [],
+      "musenalm_id": 70658,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Generals Pecheux Sieg / bei der Ghörde und Danneberg. / Nach des Ci-devant Prinzen Ekmühls Berichten . / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Generals Pecheux Sieg / bei der Ghörde und Danneberg. / Nach des Ci-devant Prinzen Ekmühls Berichten . / 1.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.488Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "exlvzuulrrclyaq"
+        }
+      ],
+      "source_id": "pnts7roi5gozit1"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Wo ist ein Volk, das je so hoch es trieb? / Welch glorreich Ende das Gefechte nahm!",
+      "language": [],
+      "musenalm_id": 70659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Generals Pecheux Sieg bei der Ghörde und Dannenberg. Nach des Ci-devant Prinzen Ekmühls Berichten .] / 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Generals Pecheux Sieg bei der Ghörde und Dannenberg. Nach des Ci-devant Prinzen Ekmühls Berichten .] / 2.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "jx6k7dl1tlkfhdl"
+        }
+      ],
+      "source_id": "c86lnefgnmbu7v8"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "In Bündniß trat Zaunkönig mit dem Aar, / Sie garantirten sich einander ihre Staaten.",
+      "language": [],
+      "musenalm_id": 70660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Potentaten. / (Im April 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Potentaten. / (Im April 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.489Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "nbsyiy55mmxn660"
+        }
+      ],
+      "source_id": "yg1llyhujuf761q"
+    },
+    {
+      "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Hier ist mein Reich: Pflanzt meine Adler, Fahnen / Und Wappen auf,",
+      "language": [],
+      "musenalm_id": 70661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Majestät auf Elba. / (Im Mai 1814.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Majestät auf Elba. / (Im Mai 1814.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.506Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "il7tb5y792v7456"
+        }
+      ],
+      "source_id": "lnsobntat3j00fw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70663,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "stt8vk799658kol"
+    }
   ],
   "agents": [
     {

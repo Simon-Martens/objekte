@@ -48,7 +48,26 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "1jgwzeqvj4o37ok"
+    {
+      "annotation": "6 Jgg 1830-1835",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.635Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200258",
+      "location": "105G06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.635Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1jgwzeqvj4o37ok"
+    }
   ],
   "contents": [],
   "agents": [

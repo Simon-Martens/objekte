@@ -48,31 +48,920 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "8817zdbuamydrge"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nKartonierter Einband mit Goldschnitt, Buchrücken beschädigt; VB, S I vT, S II VrlgM, verso G, S III T, S V I-Verz, SS VII zT, SS IX-XX G-Verz darin 6 GG, SS 1 388",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101007",
+      "location": "105J02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8817zdbuamydrge"
+    }
   ],
   "contents": [
-    "b7vpl67ilkaf3f4",
-    "herl72q9tokgcuo",
-    "e9jh2qftj3a783f",
-    "j394i5aec9vwwfo",
-    "rvq7cchoqfddwv8",
-    "8shp1girzib6pld",
-    "iy2cr9jpftwhmn2",
-    "otiejga56dx274h",
-    "clvrr2uercyumrb",
-    "j3qyo2cpqsynj3s",
-    "h7ai01kceotwd7a",
-    "dh63e184fy8nko6",
-    "7qifvhh7ozq5c9x",
-    "h4ua5yi2bby555r",
-    "vdvq42816yp7y26",
-    "vgefniu1p0guo2l",
-    "rgrggbvkhgxwpzv",
-    "tahg5dnqxl5x3nh",
-    "j58qdxas9dao4tu",
-    "mn5ww7dewgvvbd4",
-    "1ciw2854kop3me0",
-    "etl0eq4qgosrjml"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18932,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für 1838",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für 1838",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "b7vpl67ilkaf3f4"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18933,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "herl72q9tokgcuo"
+    },
+    {
+      "annotation": "Titelportrait. s. Textbezug INr 18936, Obj 7 (Carlsruhe durch Kunst Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.092Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2029,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "J. C. von Zedlitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Theer pinx. Ch. Schuler sculp.",
+      "scans": [
+        "alm_64_2029_fo0253s5mg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "J. C. von Zedlitz",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "eenxx81f2mcsy2y",
+          "source_id": "7u9dkk4ijju46gw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "r1mrgok6yls9s7m",
+          "source_id": "yv3lzvw4fovcias"
+        }
+      ],
+      "source_id": "e9jh2qftj3a783f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18934,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "URANIA. / Taschenbuch auf das Jahr / 1838. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1838",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_64_18934_adznclak0n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1838. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1838",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "j394i5aec9vwwfo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18935,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "rvq7cchoqfddwv8"
+    },
+    {
+      "annotation": "G-Verz. Sammlung von 7 Textbezügen INr 18936-18942 zu 7 Graphiken INr 2029, 2022-2027; Obj 3, 7-19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2028,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Stahlstiche",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "8shp1girzib6pld"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Titelportrait INr 2029, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Gewohnt, den Cyklus kleiner Bilder, womit wir alljährlich unsere dem Leser befreundete Urania zu schmücken pflegen,",
+      "language": [],
+      "musenalm_id": 18936,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bildniß von / Joseph Christian Freiherrn von Zedlitz / (Titelkupfer)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bildniß von / Joseph Christian Freiherrn von Zedlitz / (Titelkupfer)",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "iy2cr9jpftwhmn2"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Graphik INr 2027, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Nicht unerfreulich wird es gewiß dem deutschgesinnten Leser der Urania sein, in den für dieses Jahr unserm Taschenbuch beigegebenen Stahlstichen fast ausschließlich Abdrücke nach Originalgemälden der düsseldorfer Schule",
+      "language": [],
+      "musenalm_id": 18937,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Die beiden Leonoren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Die beiden Leonoren",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "otiejga56dx274h"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 18937, Obj 8 (Carlsruhe Im Kunst Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2027,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE BEIDEN LEONOREN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sohn pinx. C. Schuler sculp.",
+      "scans": [
+        "alm_64_2027_6bqqi2lhht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE BEIDEN LEONOREN",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "r1mrgok6yls9s7m",
+          "source_id": "rlkncnvuhfjfk4o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "kd2m6gqwwqw3i2v",
+          "source_id": "s8v02innkjcpgjs"
+        }
+      ],
+      "source_id": "clvrr2uercyumrb"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Graphik INr 2026, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Ein herrliches Bild voll Leben und Charakter, obgleich es uns nicht den bunten bewegten Markt des freien Weltverkehrs",
+      "language": [],
+      "musenalm_id": 18938,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Der edle Ritter Don Quixote von / la Mancha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Der edle Ritter Don Quixote von / la Mancha",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "j3qyo2cpqsynj3s"
+    },
+    {
+      "annotation": "s. Textbezug INr 18938, Obj 10 (Carlsruhe Im Kunst Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2026,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DON QUIXOTE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schroeter pinx. Ed. Schuler sculp.",
+      "scans": [
+        "alm_64_2026_gsxeqtyzlk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DON QUIXOTE",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "4ziy8cu4l9njg5h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "9u0zwdm3e3u85se",
+          "source_id": "kf0j98xfujpt4ax"
+        }
+      ],
+      "source_id": "h7ai01kceotwd7a"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Graphik INr 2025, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "In dem jugendlichen Maler des vorstehenden anziehenden Bildes, Hermann Kretschmer aus Anklam, begenen wir einem vielversprechenden Talent,",
+      "language": [],
+      "musenalm_id": 18939,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Rothkäppchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Rothkäppchen",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "dh63e184fy8nko6"
+    },
+    {
+      "annotation": "s. Textbezug INr 18939, Obj 12 (Carlsruhe Im Kunst Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2025,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS ROTHKÄPPCHEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kretschmer pinx. C. Schuler scul.",
+      "scans": [
+        "alm_64_2025_nhpuet5c32.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS ROTHKÄPPCHEN",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "r1mrgok6yls9s7m",
+          "source_id": "27zigpj9vl3cuhs"
+        }
+      ],
+      "source_id": "7qifvhh7ozq5c9x"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Graphik INr 2024, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Dies schöne Bild verdanken wir einem der trefflichsten Künstler aus der Schule des verdienstvollen Schadow - dem jungen Bendemann,",
+      "language": [],
+      "musenalm_id": 18940,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die Mädchen am Brunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die Mädchen am Brunnen",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "h4ua5yi2bby555r"
+    },
+    {
+      "annotation": "s. Textbezug INr 18940, Obj 14 (Carlsruhe Im Kunst Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2024,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE MÄDCHEN AM BRUNNEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bendemann pinx. C. Schuler sculp.",
+      "scans": [
+        "alm_64_2024_7s1c54f194.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE MÄDCHEN AM BRUNNEN",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "r1mrgok6yls9s7m",
+          "source_id": "cz4w6fhcmcy6im9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.698Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.698Z",
+          "agent": "tgvn6iyntlkd9zp",
+          "source_id": "en26qjfll6exd77"
+        }
+      ],
+      "source_id": "vdvq42816yp7y26"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Graphik INr 2023, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Dies kleine, durch Natürlichkeit, Anmuth und Lebhaftigkeit des Humors gleich ausgezeichnete Gemälde",
+      "language": [],
+      "musenalm_id": 18941,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Der Heirathsantrag auf Helgoland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Der Heirathsantrag auf Helgoland",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "vgefniu1p0guo2l"
+    },
+    {
+      "annotation": "s. Textbezug INr 18941, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2023,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EIN HEIRATHSANTRAG AUF HELGOLAND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jordan pinx. Ed. Schuler sculp.",
+      "scans": [
+        "alm_64_2023_ecn1wiax93.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EIN HEIRATHSANTRAG AUF HELGOLAND",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.698Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.698Z",
+          "agent": "1f0xqgbb6vsljyb",
+          "source_id": "9i7z9jrsq2z1uen"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.698Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.698Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "trayl649zcq2s9v"
+        }
+      ],
+      "source_id": "rgrggbvkhgxwpzv"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche. (Sammlung INr 2028, Obj 6) s. Graphik INr 2022, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Dies tiefergreifende Nachtstück, das den Schluß unserer diesmaligen bildlichen Mittheilungen ausmacht,",
+      "language": [],
+      "musenalm_id": 18942,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Eine Scene aus der Sündfluth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Eine Scene aus der Sündfluth",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "tahg5dnqxl5x3nh"
+    },
+    {
+      "annotation": "s. Textbezug INr 18942, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2022,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EINE SCENE AUS DER SÜNDFLUTH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hoÿez sc.",
+      "scans": [
+        "alm_64_2022_k391u68i54.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EINE SCENE AUS DER SÜNDFLUTH",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "j58qdxas9dao4tu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In meinem sechsundzwanzigsten Jahre war ich Hauptmann unter der Garde des Königs von Spanien in Neapel.",
+      "language": [],
+      "musenalm_id": 2030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Biondetta. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Biondetta. / Eine Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "mn5ww7dewgvvbd4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Laß das Feuer nicht ausgehen, Xaveria, das Schießen hört auf; ehe eine halbe Stunde vergeht, sind sie hier, darauf will ich wetten.",
+      "language": [],
+      "musenalm_id": 2031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Elvira. Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Rellstab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Elvira. Eine Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.699Z",
+          "agent": "zi8zh5xhvi7k26j",
+          "source_id": "p6iy3fa3gkb1x9b"
+        }
+      ],
+      "source_id": "1ciw2854kop3me0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.757Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Ein Kloster der Ursulinernonnen, das wir hier nicht näher bezeichnen mögen, unfern der Donau, in einer der herrlichsten Gegenden Oestreichs,",
+      "language": [],
+      "musenalm_id": 2032,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Bekenntnisse. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich v. Heyden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Bekenntnisse. / Eine Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.986Z",
+          "agent": "y4sojkg698u6ihg",
+          "source_id": "o69plmny9oeioun"
+        }
+      ],
+      "source_id": "etl0eq4qgosrjml"
+    }
   ],
   "agents": [
     {

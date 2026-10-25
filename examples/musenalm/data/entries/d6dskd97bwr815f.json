@@ -48,41 +48,1172 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "ij24url6sjgfpy4"
+    {
+      "annotation": "1823.\nKartonierter Einband mit Stoff überzogen,  Muster, Blumenaufdruck und Goldschnitt.\n1823: (K: Mu 1 ) Mit Mu 1 und Bl 4+454 SS.\nIm Jahr 1837 in Regensburg wiederholt.  ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.563Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100198",
+      "location": "105R05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.563Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ij24url6sjgfpy4"
+    }
   ],
   "contents": [
-    "g5rg15l68vsmol9",
-    "4qa7fb1qnczyiy8",
-    "k4kpmcps21bhvei",
-    "d792wttlhhsl9dd",
-    "sibxb6nqf92xlge",
-    "osjy0bh9v5vychp",
-    "6md1a5uv5jhj28k",
-    "ya5mjr0bdtgawbk",
-    "5rze7pdnrfkerci",
-    "2t2837r1puynuvw",
-    "x5bsgjzqyxqjoql",
-    "vmcle0ryz474x1o",
-    "vyordvm0g2ocqn8",
-    "ag5rossn3xtp76e",
-    "e38xdxifoiuni3h",
-    "eghb3mi5oe4k8wj",
-    "swom3khvt2d8a90",
-    "ex6ws82g9t8cstg",
-    "q0o04utv4ylrth0",
-    "pkjsogszlohqgv3",
-    "n0k83134yk096nf",
-    "btusihtz16yi7g9",
-    "trnj7s8b4kwal5s",
-    "0jlsbc2d5pclywb",
-    "4upgnjhp1schbx2",
-    "08jt9afenvi5nce",
-    "zvtwtiylxibpunu",
-    "j8m5hjte57kodj7",
-    "t1is4usje7qajzs",
-    "qazv2dldk1n69ya",
-    "afsq8zflsg196wn",
-    "aaljyhn532wcdou"
+    {
+      "annotation": "kol. Umschlaggraphik r. # vollst. Bez. s. L/R 95",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73547,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (L/S 1822)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L/S 1822",
+      "scans": [
+        "alm_1616_73547_sd765cbwbk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.672Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "z4p3hw9wvysz5db"
+        }
+      ],
+      "source_id": "g5rg15l68vsmol9"
+    },
+    {
+      "annotation": "Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73548,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balsaminen / Ein / Taschenbuch / für das Jahr / 1823 / von / E. J. Veith. / Mit Beyträgen von F. L. Z. Werner. / Wien / Bey Friedrich Volke. / 1823.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73548_tigckidj70.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Balsaminen / Ein / Taschenbuch / für das Jahr / 1823 / von / E. J. Veith. / Mit Beyträgen von F. L. Z. Werner. / Wien / Bey Friedrich Volke. / 1823.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "4qa7fb1qnczyiy8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73549,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer Hochwohlgeboren, / der / Frau Regierungsräthinn / Francisca Raimann, / gebornen Freyinn von Stifft, / mit / aufrichtiger und inniger Hochachtung / gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer Hochwohlgeboren, / der / Frau Regierungsräthinn / Francisca Raimann, / gebornen Freyinn von Stifft, / mit / aufrichtiger und inniger Hochachtung / gewidmet",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "k4kpmcps21bhvei"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73550,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "d792wttlhhsl9dd"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73551,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balsaminen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Balsaminen",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "sibxb6nqf92xlge"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Balsaminen mit frisch grünen Blättern, und buntgefärbten, seltsam gestalteten Blumenkronen, lieben ein mannigfaltig, auch wohl grelles Farbenspiel, und paaren oftmahls ein zartes Weiß mit brennendem Hochhroth.",
+      "language": [],
+      "musenalm_id": 73552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balsaminen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Balsaminen",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "osjy0bh9v5vychp"
+    },
+    {
+      "annotation": "Vignette über dem Titel »Der Organist, der Pudel und die vier Jahrszeiten. Eine wahrhafte Erzählung« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73553_8ez29ilf1f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "6md1a5uv5jhj28k"
+    },
+    {
+      "annotation": "mit einem beigegebenen Gedicht s. INr 73555, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "In einem nahmhaften Städtlein am Fuße des düstern Böhmerwalds hat vor Kurzem noch ein innerlich junger Altgeselle, und äußerlich alter Junggeselle gelebt, gedacht, gefühlt, gespielt, gesungen und gerungen,",
+      "language": [],
+      "musenalm_id": 73554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Organist, der Pudel und die vier / Jahrszeiten. / Eine wahrhafte Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Organist, der Pudel und die vier / Jahrszeiten. / Eine wahrhafte Erzählung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "ya5mjr0bdtgawbk"
+    },
+    {
+      "annotation": "Beigabe zu »Der Organist, der Pudel und die vier Jahrszeiten. Eine wahrhafte Erzählung« INr 73554, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Den heiligen Glauben in Acht mir nimm, / Der sey dir o Mensch! Die echte Prim;",
+      "language": [],
+      "musenalm_id": 73555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den heiligen Glauben in Acht mir nimm, / Der sey dir o Mensch! Die echte Prim;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "5rze7pdnrfkerci"
+    },
+    {
+      "annotation": "Vignette über dem Titel: »Topographische Curiositäten« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73556_rrejc5coz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "2t2837r1puynuvw"
+    },
+    {
+      "annotation": "mit beigegebenem Gedicht und Musikbeigabe s. INr 73558, 73559; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Nachfolgende lyrisch-didactisch-dramatisch-episch-excentrische Herzens-, Land-, Post- und Reise-Charte, buntscheckig gleich allen unstäten Gedanken, Worten und Werken, könnte der Anfang einer abentheuerlichen Trilogie werden.",
+      "language": [],
+      "musenalm_id": 73557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Topographische Curiositäten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Z. Werner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Topographische Curiositäten",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "g7f1xv6d8kkyhx1",
+          "source_id": "cs7f0vutgnnkm36"
+        }
+      ],
+      "source_id": "x5bsgjzqyxqjoql"
+    },
+    {
+      "annotation": "Gedicht in 80 Strophen mit 27 Anm. /) Beigabe zu »Topographische Curiositäten« INr 73557, Obj 11 /) mit einer Vertonung s. INr 73559, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Gelobt sey, der im Morgenstrahl / Kommt freudig angeflogen, / Sich spreitend aus in Berg und Thal, / In Lüften, Feu'r und Wogen;",
+      "language": [],
+      "musenalm_id": 73558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unstäts Morgenpsalm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Z. Werner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unstäts Morgenpsalm",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.769Z",
+          "agent": "g7f1xv6d8kkyhx1",
+          "source_id": "fumr06gyujedxlo"
+        }
+      ],
+      "source_id": "vmcle0ryz474x1o"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Unstäts Morgenpsalm« von F. L. Z. Werner INr 73558, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigabe]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73559_rqub07n0qh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "vyordvm0g2ocqn8"
+    },
+    {
+      "annotation": "Vignette über dem Titel: »Sebastian Motte, eines armen Rechenmeisters, Anfangsgründe der christlichen Arithmetik« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96  als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73560_r3qp9amvz8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "ag5rossn3xtp76e"
+    },
+    {
+      "annotation": "Beitrag in 6 Cursen mit 75 Paragraphen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Ich, Sebastian Motte, armer, jedoch, weil nie reich gewesener, auch nicht verarmter Rechenmeister in hiesiger Stadt: je mehr ich an Jugend abnehme und an Alter zu, desto schätzbarer will die tiefe und nützliche Wissenschaft Arithmetica mir erscheinen,",
+      "language": [],
+      "musenalm_id": 73561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sebastian Motte, eines armen Rechenmeisters, Anfangsgründe der christlichen Arithmetik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sebastian Motte, eines armen Rechenmeisters, Anfangsgründe der christlichen Arithmetik",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "e38xdxifoiuni3h"
+    },
+    {
+      "annotation": "Vignette über dem Titel: »Erste Trostrede an geplagte Leute.« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73562_4l0jdy6sq1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "eghb3mi5oe4k8wj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Vielgeliebte, nicht ungeehrte, allzeit geplagte Leute! Bereits habt ihr, unter vielen andern Dingen, auch von Leichdörnern reden gehört, ha ihr habt selber welche. Leichdörner sind eine große Plage; enge Schuhe nicht minder.",
+      "language": [],
+      "musenalm_id": 73563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erste Trostrede / an geplagte Leute. / »Ein jeder weiß am besten, wo der Schuh ihn drückt.« / (Locus communis)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erste Trostrede / an geplagte Leute. / »Ein jeder weiß am besten, wo der Schuh ihn drückt.« / (Locus communis)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "swom3khvt2d8a90"
+    },
+    {
+      "annotation": "Vignette über dem Titel »Sanct Cäcilia. Ein Altarblatt, gemahlt von Ludwig Schnorr von Carolsfeld« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73564_g4nka1uyip.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "ex6ws82g9t8cstg"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Ernst ist das Leben, heiter die Kunst. Dieser schöne Ausspruch des deutschen Dichters ist keine Sinne wahrhafter, als im christlichen.",
+      "language": [],
+      "musenalm_id": 73565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sanct Cäcilia. / Ein Altarblatt, / gemahlt / von Ludwig Schnorr von Carolsfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sanct Cäcilia. / Ein Altarblatt, / gemahlt / von Ludwig Schnorr von Carolsfeld",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "q0o04utv4ylrth0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "So bekannt der Nahme Marivaux, einem der berühmtesten Mitglieder der glänzenden Académie Française angehörend, in der literarischen Welt ist, so unbekannt dürfte ein seltsamer Zug aus seinem Leben seyn",
+      "language": [],
+      "musenalm_id": 73566,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marivaux und sein Adept. / Eine Anekdote, / in Begleitung einiger andrer Wahrheiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Marivaux und sein Adept. / Eine Anekdote, / in Begleitung einiger andrer Wahrheiten",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "pkjsogszlohqgv3"
+    },
+    {
+      "annotation": "Vignette über dem Titel »Das Eismeer zu Chamouny« von F. l. Z. Werner/) Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73567_csadrwcc6u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "n0k83134yk096nf"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Wir Nonnen, wir frommen, wir wohnen / Unter marmornen Wänden, / In silbernen Schleyern / Und smaragdnen Gewänden,",
+      "language": [],
+      "musenalm_id": 73568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Eismeer zu Chamouny / (Im September 1809.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Z. Werner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Eismeer zu Chamouny / (Im September 1809.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.699Z",
+          "agent": "g7f1xv6d8kkyhx1",
+          "source_id": "g8sy0oub4z97sio"
+        }
+      ],
+      "source_id": "btusihtz16yi7g9"
+    },
+    {
+      "annotation": "Vignette über dem Titel »Maria vom guten Rath. Eine Erzählung« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96 als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73569,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73569_fznijplmhl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "trnj7s8b4kwal5s"
+    },
+    {
+      "annotation": "Beitrag in 111 Kapiteln mit einem als No. 112 beigegeben Gedicht INr 73571, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Der alte Herr Jonas war ein gleich kluger, als menschenfreundlicher Mann. Er hatte seit undenklichen Jahren sich's zum Gesetz gemacht, täglich Vormittags bis neun Uhr zu Hause zu bleiben.",
+      "language": [],
+      "musenalm_id": 73570,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria vom guten Rath. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria vom guten Rath. / Eine Erzählung",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "0jlsbc2d5pclywb"
+    },
+    {
+      "annotation": "als No. 112 dem Beitrag »Maria vom guten Rath. Eine Erzählung« INr 73570, Obj 24 beigebenes Gedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Maria vom guten Rath! / In dunklen Lebenszeiten / Wolle uns leuchten und leiten / Auf schmalem Pfad!",
+      "language": [],
+      "musenalm_id": 73571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "112.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "112.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "4upgnjhp1schbx2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.909Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Der Papagey der Prinzessin von Oranien (einer Mutter Wilhelm des III. Königs von England) spielte am Hofe dieser ehrenwerthen Fürstinn eine Rolle von großer Bedeutung;",
+      "language": [],
+      "musenalm_id": 73572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Prinzessin von Oranien / und / der Papagey",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Prinzessin von Oranien / und / der Papagey",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "08jt9afenvi5nce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "393",
+      "incipit_statement": "Als Herr M., ein Mann von unschätzbaren Geistesanlagen, einstmahlen auf einem dreybeinigen Sessel sich setzte, oder vielmehr setzen wollte, und statt der gewünschten Ruhe in eine unsanfte Bewegung gerieth,",
+      "language": [],
+      "musenalm_id": 73573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der dritte Punct. / Eine Skizze in punctirter Manier. / ***!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der dritte Punct. / Eine Skizze in punctirter Manier. / ***!",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "zvtwtiylxibpunu"
+    },
+    {
+      "annotation": "Vignette über dem Titel »Weg gen Carmel. Eine Biographie aus den Memoires des Mr. Duclos und der Demoiselle Gautier« /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96  als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.500Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "405",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1616_73574_2a22emeyc9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "j8m5hjte57kodj7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "405",
+      "incipit_statement": "Aus den Wogen des Meeres zu den Gipfeln eines felsigen Eylandes hinan scheint eine erwünschliche Zuflucht, und hat wohl derjenige von Glück zu sagen, dem es gelungen ist, aus dem tobenden Element sich dort hinauf zu retten.",
+      "language": [],
+      "musenalm_id": 73575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weg gen Carmel. / Eine Biographie / aus den Memoires des Mr. Duclos und der / Demoiselle Gautier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weg gen Carmel. / Eine Biographie / aus den Memoires des Mr. Duclos und der / Demoiselle Gautier",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "t1is4usje7qajzs"
+    },
+    {
+      "annotation": "Beigabe zu »Weg gen Carmel. Eine Biographie aus den Memoires des Mr. Duclos und der Demoiselles Gautier« INr 73575, Obj 29. /) Unter dem Beitrag : Wien, 1823. Gedruckt bey dem Edlen von Ghelen'schen Erben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "454",
+      "incipit_statement": "THÉRESE je t'entends! Une éternelle vie / Brise de mon exil les liens importuns:",
+      "language": [],
+      "musenalm_id": 73576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THÉRESE je t'entends! Une éternelle vie / Brise de mon exil les liens importuns:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [],
+      "source_id": "qazv2dldk1n69ya"
+    },
+    {
+      "annotation": "kol. Umschlaggraphik v.  # vollst. Bez. s. L/R 95",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73577,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (L/S 1822)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L/S 1822",
+      "scans": [
+        "alm_1616_73577_qt8qfmxrc8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "9ctwyzjpubabw5w"
+        }
+      ],
+      "source_id": "afsq8zflsg196wn"
+    },
+    {
+      "annotation": "Buchrücken  # vollst. Bez. s. L/R 95",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73578,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (L/S 1822)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L/S 1822",
+      "scans": [
+        "alm_1616_73578_e2pgm5dsam.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1823,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.597Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "ci0xyr9av6wnt2h"
+        }
+      ],
+      "source_id": "aaljyhn532wcdou"
+    }
   ],
   "agents": [
     {

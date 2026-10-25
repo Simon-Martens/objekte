@@ -48,36 +48,1110 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "olq5337k4dv8pnn"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200419",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "olq5337k4dv8pnn"
+    }
   ],
   "contents": [
-    "z8sxom7nb9elcdx",
-    "ee0a1za3e6cvn7o",
-    "mg2hi78k9n8y1lm",
-    "khancjwe6kujnte",
-    "i4wys552s8z4nzi",
-    "pkf10rq1dz6g13y",
-    "mafnbev2c4pe7ix",
-    "sh6dpn1cba70cpm",
-    "3l4lwj3cezxjl0d",
-    "6izvrjzf521j6wf",
-    "o7dfzi8szfw7kav",
-    "8tatqbhloyc0enn",
-    "6djl6azqxuyzvu2",
-    "9njzyjje5tfmvfb",
-    "5z18v7jsz1tsi6n",
-    "v3d8vb8fztn9g5f",
-    "lt4xllrk2mokqpn",
-    "mdhja16b9rzdrtg",
-    "l4xdy76hdxmmldl",
-    "z976pavp2je5el4",
-    "h8vrtxin2nx5lzj",
-    "tgz4w56osyd6sht",
-    "7mvlcyn0w68twnc",
-    "3oq5iflsiyhkeqk",
-    "rwg86td339p2pdc",
-    "pbph20rscmr8y19",
-    "7heueu8z6agd55p"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51941,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Eichler fecit)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Eichler fecit",
+      "scans": [
+        "alm_709_51941_ndld25emmv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.837Z",
+          "agent": "uqmz1z1gxwdl23p",
+          "source_id": "b6b54xdyamswyfx"
+        }
+      ],
+      "source_id": "z8sxom7nb9elcdx"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 51956, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ziegerreibe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_709_51942_tu4vpz25wg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ziegerreibe",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "ee0a1za3e6cvn7o"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51943,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / für das Jahr / 1809. / Zürich / bey Orell Füßli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_709_51943_0kdg2rsmxe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / für das Jahr / 1809. / Zürich / bey Orell Füßli & Comp.",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "mg2hi78k9n8y1lm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51958,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "khancjwe6kujnte"
+    },
+    {
+      "annotation": "mit 9 Illustrationen s. Graphiken INr 51942, 51945-51952, Obj 2, 6-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Fast im Südosten des Landes, das, gleichsam das Lieblingswerk des Schöpfers, bald durch die gigantischen Formen seiner Gebirge - diese jedes menschliche Gemüth ergreifende Sinnbilder schöpferischer Naturkraft - bald durch die lieblichsten Gelände",
+      "language": [],
+      "musenalm_id": 51944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Kurze / geographisch-statistische / Darstellung / des Cantons / Glarus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Kurze / geographisch-statistische / Darstellung / des Cantons / Glarus",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "i4wys552s8z4nzi"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51961, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51945,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glarus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Biedermann pinx. J. H. Meyer sc.",
+      "scans": [
+        "alm_709_51945_hwazpxxoun.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Glarus",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "8ziq0a5u52trwbm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "ukud3h5af10w8d8",
+          "source_id": "m3y44l1ly2ev2pq"
+        }
+      ],
+      "source_id": "pkf10rq1dz6g13y"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer; Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51957, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51946,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Glarus / Eine Glarner Landmann",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_709_51946_pnn067fpsl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Glarus / Eine Glarner Landmann",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "4fnm9cqp51aiaqf"
+        }
+      ],
+      "source_id": "mafnbev2c4pe7ix"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer; Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51957, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51947,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Glarus / Ein Glarner Bauernmädchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_709_51947_80h6di5da3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Glarus / Ein Glarner Bauernmädchen",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "p8haaa2t97qyb0q"
+        }
+      ],
+      "source_id": "sh6dpn1cba70cpm"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51959, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.004Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51948,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohnhaus bey Näfels, C. Glarus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer f.",
+      "scans": [
+        "alm_709_51948_cwsyxghrb2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wohnhaus bey Näfels, C. Glarus",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.825Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "7sxvkhe53jhjusw"
+        }
+      ],
+      "source_id": "3l4lwj3cezxjl0d"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51959, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus bey Lintthal, C. Glarus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer f.",
+      "scans": [
+        "alm_709_51949_obr5wnoy7r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus bey Lintthal, C. Glarus",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.651Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.651Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "i743l8ai8bmd69e"
+        }
+      ],
+      "source_id": "6izvrjzf521j6wf"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51962, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gegend von Näfels und Mollis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Keller del. ad nat. J. H. Meyer sc.",
+      "scans": [
+        "alm_709_51950_6g6m176kfu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Gegend von Näfels und Mollis",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.320Z",
+          "agent": "hp3ztaqa2ipzjih",
+          "source_id": "axvckx5xiv1g49q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.320Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "qn3fhu4k1bged3i"
+        }
+      ],
+      "source_id": "o7dfzi8szfw7kav"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51963, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.627Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey Dorrenhaus im Lintthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer f. ad nat.",
+      "scans": [
+        "alm_709_51951_if1t1xmkp2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bey Dorrenhaus im Lintthal",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.320Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "o4gzq4d31nadslb"
+        }
+      ],
+      "source_id": "8tatqbhloyc0enn"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51964, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von Enge gegen Matt im Senrftthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer f. ad nat.",
+      "scans": [
+        "alm_709_51952_1ntuu7tmxu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Von Enge gegen Matt im Senrftthal",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.455Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.455Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "cragobrud4j16a2"
+        }
+      ],
+      "source_id": "6djl6azqxuyzvu2"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Durch den glorreichen Sieg bey Sempach ward die Parthey der Herrschaft Oestreich in Helvetien zwar geschwächt, aber noch lange nicht zu Boden gedrückt.",
+      "language": [],
+      "musenalm_id": 51953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die / Näfelser-Schlacht / (1388.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die / Näfelser-Schlacht / (1388.)",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "9njzyjje5tfmvfb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Nein! nicht ewig zürnet der Himmel, es fliehen die Wolken; / Und aus dem tiefen West grüßest du, Sonne, / das Thal!",
+      "language": [],
+      "musenalm_id": 51954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Beym Kapuziner-Kloster / in Näfels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Hottinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Beym Kapuziner-Kloster / in Näfels",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.346Z",
+          "agent": "9dyqyb46cpqyd97",
+          "source_id": "52cydypld85x0ms"
+        }
+      ],
+      "source_id": "5z18v7jsz1tsi6n"
+    },
+    {
+      "annotation": "Sammlung von 3 Textbezügen und 1 Sammlung mit 4 Textbezügen INr 51956, 51957, 51959-51964, Obj 17-24   zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Erklärung der Kupfer",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "v3d8vb8fztn9g5f"
+    },
+    {
+      "annotation": "IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Titelgraphik INr 51942, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Eines der wichtigsten Alpenprodukte im Canton Glarus ist der grüne Schabzieger. Nirgends in der Schweiz weiß man diese Art Käse so schmackhaft zu bereiten, wie in diesem Canton.",
+      "language": [],
+      "musenalm_id": 51956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / (Dem Titelblatt gegenüber.) / Die Ziegerreibe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / (Dem Titelblatt gegenüber.) / Die Ziegerreibe",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "lt4xllrk2mokqpn"
+    },
+    {
+      "annotation": "IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Graphiken INr 51946, 51947, Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Pracht, Modesucht und Prunk sind in diese Thäler noch nicht eingezogen, obgleich so viele Eingeborne in den ersten Handelsstädten Europa's ein halbes Menschenalter verlebten.",
+      "language": [],
+      "musenalm_id": 51957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Landestrachten / (S. 17, 33.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Landestrachten / (S. 17, 33.)",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "mdhja16b9rzdrtg"
+    },
+    {
+      "annotation": "IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Graphiken INr 51948, 51949, Obj 9, 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "In Glarus, Mollis und Enneda giebt es mehrere Gebäude, die in Absicht auf Geschmack und Größe denen in größern Städten nicht nachstehen.",
+      "language": [],
+      "musenalm_id": 51959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Bauarten. / (S. 49, 65.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Bauarten. / (S. 49, 65.)",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "l4xdy76hdxmmldl"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 51961-51964, Obj 21-24 /) IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Prospekte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Prospekte",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "z976pavp2je5el4"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51960, Obj 20) IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Graphik INr 51945, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.112Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Der Hauptort, der dem Kanton den Namen giebt, liegt eine kleine Stunde oberhalb Näfels.",
+      "language": [],
+      "musenalm_id": 51961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 1.) / Glarus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 1.) / Glarus",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "h8vrtxin2nx5lzj"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51960, Obj 20) IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Graphik INr 51950, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "Der Standpunkt, von welchem diese Gegend von Keller mit aller Genauigkeit aufgenommen worden, findet sich am Abhang des Wiggis,",
+      "language": [],
+      "musenalm_id": 51962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 81.) / Die Gegend von Näfels und Mollis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 81.) / Die Gegend von Näfels und Mollis",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "tgz4w56osyd6sht"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51960, Obj 20) IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Graphik INr 51951, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Die Gebirge im Glarnerland haben durchaus einen ernsten drohenden Charakter.",
+      "language": [],
+      "musenalm_id": 51963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 7.) / Bey Dorrenhaus im Lintthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 7.) / Bey Dorrenhaus im Lintthal",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "7mvlcyn0w68twnc"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51960, Obj 20) IV. Erklärung der Kupfer (Sammlung INr 51955, Obj 16) s. Graphik INr 51952, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Weniger bekannt von den Reisenden, als das Klön-Thal mit seinem romantischen Alpsee, ist das sogeheissene Klein-Thal.",
+      "language": [],
+      "musenalm_id": 51964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 129.) / Von Enge gegen Matt, im Sernft- / Thal.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 129.) / Von Enge gegen Matt, im Sernft- / Thal.",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "3oq5iflsiyhkeqk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "rwg86td339p2pdc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51966,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Canton / Glarus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von H. Keller Gest. v. J. Scheurmann",
+      "scans": [
+        "alm_709_51966_6li3yijzwc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Canton / Glarus",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.546Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.546Z",
+          "agent": "hp3ztaqa2ipzjih",
+          "source_id": "l9y8n0wcvmf6u84"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.547Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.547Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "ofg75j2svbz06nj"
+        }
+      ],
+      "source_id": "pbph20rscmr8y19"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51967,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Eichler fecit)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Eichler fecit",
+      "scans": [
+        "alm_709_51967_aeai0wr9id.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.547Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.547Z",
+          "agent": "uqmz1z1gxwdl23p",
+          "source_id": "hx8qgc28wcnbv67"
+        }
+      ],
+      "source_id": "7heueu8z6agd55p"
+    }
   ],
   "agents": [
     {

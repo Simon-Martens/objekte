@@ -48,27 +48,759 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "h5y7s4y4dfvjrm1"
+    {
+      "annotation": "Titelportrait (Goethe) F. Oberkogler sculp. Neben einer Sammlung von 8 Gedichten des Graphikers und Dichterdilletanten Balthasar Anton  Dunker bingt der Almanach Goethes »Herrmann und Dorothea« mit Nachstichen von 3 Illustrationen von Chodowiecki bzw Küffner zu »Herrmann und Dorothea« von J. W. v. Goethe aus: Taschenbuch für Frauenzimmer von Bildung 1799; INr 21758, 21761, 21762",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.536Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404895",
+      "location": "105S05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.536Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "h5y7s4y4dfvjrm1"
+    }
   ],
   "contents": [
-    "q1x3zdqr5ixmsa0",
-    "06whayf1myo9g71",
-    "sxlj9ymsdxsaznk",
-    "sd180az91ybjyht",
-    "rdkymp3m18mwjp1",
-    "ug3kytuusxmfjr9",
-    "2q61ce1pqohob62",
-    "y23cc2jbg7tkeh8",
-    "g1gft89l30275m2",
-    "5kvavz68hfth8hv",
-    "17go9g7p68ggdqz",
-    "ot9d8x02anayy60",
-    "vlqowaeexlsbxxo",
-    "qwt6q8lxk5vaozw",
-    "bys9igeqn6voqqm",
-    "2nadbhstgl9qffs",
-    "azpjzskn17tlccb",
-    "6d1w330qiu2b8u1"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66227,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1120_66227_ix1cy9itml.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "q1x3zdqr5ixmsa0"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66228,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GOETHE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Oberkogler sculp.",
+      "scans": [
+        "alm_1120_66228_gqrsne9ewd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GOETHE",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.324Z",
+          "agent": "8kggjh40x7muxuq",
+          "source_id": "lgpsgrzqyyzp525"
+        }
+      ],
+      "source_id": "06whayf1myo9g71"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.671Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66229,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berner / Taschen-Kalender / auf / das Jahr 1804. / Bern, bey der Typographischen / Societäts-Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1120_66229_1pj7wfpbs2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berner / Taschen-Kalender / auf / das Jahr 1804. / Bern, bey der Typographischen / Societäts-Buchhandlung",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "sxlj9ymsdxsaznk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66230,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "sd180az91ybjyht"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten mit einer Einleitung INr 66232-66239, Obj 6-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dunkers / launigte Versuche / in Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dunkers / launigte Versuche / in Gedichten",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.324Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "av0miwm49zne72n"
+        }
+      ],
+      "source_id": "rdkymp3m18mwjp1"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Hier erhält das Publikum abermahls eine Auswahl von einigen meiner Gedichte, die ich mit der Zeit zu sammeln und als drittes Bändchen meiner Schriften herauszugeben willens bin,",
+      "language": [],
+      "musenalm_id": 66232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hier erhält das Publikum abermahls eine Auswahl von einigen meiner Gedichte, die ich mit der Zeit zu sammeln und als drittes Bändchen meiner Schriften herauszugeben willens bin,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.324Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "tz1422aky9xr71n"
+        }
+      ],
+      "source_id": "ug3kytuusxmfjr9"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Des Würgens ist genug, ihr Großen dieser Erde, / Zu Wasser und zu Land, zu Fuß und auch zu Pferde.",
+      "language": [],
+      "musenalm_id": 66233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sendschreiben des Todes an die Gewal- / tigen dieser Erde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sendschreiben des Todes an die Gewal- / tigen dieser Erde",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.059Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "m6xjffloy8lfipu"
+        }
+      ],
+      "source_id": "2q61ce1pqohob62"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Ihr, die in manchem Serail / Mädchen so glatt wie Email, / Mädchen so recht in der Blüte,",
+      "language": [],
+      "musenalm_id": 66234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zuruf eines K.K. Volontairs an die / Türken bey Eröffnung des Feldzugs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zuruf eines K.K. Volontairs an die / Türken bey Eröffnung des Feldzugs",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "w9k6rxj548hew01"
+        }
+      ],
+      "source_id": "y23cc2jbg7tkeh8"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Zittert, ungläubige Krieger! / Glaubt ihr so früh euch schon Sieger?",
+      "language": [],
+      "musenalm_id": 66235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antwort eines Janitscharen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Antwort eines Janitscharen",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "8z837qgh8rjta5v"
+        }
+      ],
+      "source_id": "g1gft89l30275m2"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Mit den ungläubigen Hunden / Giebts doch recht schmerzhafte Wunden!",
+      "language": [],
+      "musenalm_id": 66236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachhall des K.K. Volontairs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachhall des K.K. Volontairs",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "in83etwclah3xhq"
+        }
+      ],
+      "source_id": "5kvavz68hfth8hv"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5) mit Anmerkung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Da giebt ers hin, was Ströme Blut / Gekostet hat! Der Helden-Muth / Der tapfern Deutschen war vergebens;",
+      "language": [],
+      "musenalm_id": 66237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf Kaiser Leopolds Frieden mit den / Türken im Jahr 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf Kaiser Leopolds Frieden mit den / Türken im Jahr 1791",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "du28mllmvfdqs03"
+        }
+      ],
+      "source_id": "17go9g7p68ggdqz"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Da sitz' ich armer Vogelsteller / Vergebens nun, / Und bin entblößt vom letzten Heller; / Was soll ich thun?",
+      "language": [],
+      "musenalm_id": 66238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Vogelsteller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Vogelsteller",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "20hq01n8hlr379z"
+        }
+      ],
+      "source_id": "ot9d8x02anayy60"
+    },
+    {
+      "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Hier liegt ein Männchen, das / Erwarb sich vielen Haß,",
+      "language": [],
+      "musenalm_id": 66239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift eines Recensenten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dunker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift eines Recensenten",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "n5liie3i2dvrx17",
+          "source_id": "wtg0mfc115cmazq"
+        }
+      ],
+      "source_id": "vlqowaeexlsbxxo"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 66241-6243; Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Hab' ich den Markt und die Strassen doch nie so einsam / Gesehen! / Ist doch die Stadt wie gekehrt! wie ausgestorben!",
+      "language": [],
+      "musenalm_id": 66240,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herrmann und Dorothea. / 1804",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herrmann und Dorothea. / 1804",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.099Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "audix0vkildohq7"
+        }
+      ],
+      "source_id": "qwt6q8lxk5vaozw"
+    },
+    {
+      "annotation": "Nachstich der Graphik »Erstes Zusammentreffen Herrmanns mit Dorothea« von D. Chodowiecki aus: Taschenbuch für Frauenzimmer von Bildung 1799 INr 21758 /) Illustration zu »Herrmann und Dorothea« von J. W. v. Goethe INr 66240, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.852Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66241,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1120_66241_amvxkrt1ev.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "bys9igeqn6voqqm"
+    },
+    {
+      "annotation": "spiegelverkehrter Nachstich der Graphik »Herrmann und Dorothea auf der Mauer des Brunnens sitzend« von Küffner del et sc. aus: Taschenbuch für Frauenzimmer von Bildung 1799 INr 21761 / Illustration zu »Herrmann und Dorothea« von J. W. v. Goethe INr 66240, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66242,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1120_66242_lphgjyn3pn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "2nadbhstgl9qffs"
+    },
+    {
+      "annotation": "spiegelverkehrter Nachstich der Graphik »Herrmann  führt seine Braut in dem Hause seiner Eltern ein« von D. Chodowiecki del et sc. aus: Taschenbuch für Frauenzimmer von Bildung 1799 INr 21762 / Illustration zu »Herrmann und Dorothea« von J. W. v. Goethe INr 66240, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.856Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66243,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1120_66243_141ct3xau2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "azpjzskn17tlccb"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66244,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1100_66244_2ibvfmgmj4.jpg",
+        "alm_1120_66244_bj25h47dr3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "6d1w330qiu2b8u1"
+    }
   ],
   "agents": [
     {

@@ -48,26 +48,601 @@
   "year": 0,
   "editor": "",
   "items": [
-    "z8fxs1qxixgf1oz"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.689Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200901",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.689Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "z8fxs1qxixgf1oz"
+    }
   ],
   "contents": [
-    "rehkuzxpuj8a9lt",
-    "jwo2t095qcukbhs",
-    "61kponhvb7zxrje",
-    "usbm16uul53vsq7",
-    "x0hhocbt4tw047b",
-    "5l2l92x2eg8lkp4",
-    "y1jb1gv9vm8t9rj",
-    "rubgkdrk2lmq5go",
-    "fzqccvwpjsbblvb",
-    "1zivs92vmvtnzdx",
-    "395u921iuhaaftv",
-    "ch5pw196t2u32r5",
-    "h960twb74u6xc00",
-    "pp8a1c5g8j9gxkm",
-    "1lijdv7f7rxn1i2",
-    "u8z7s8e1wlpyaxd",
-    "u39qmm5l0dah3s5"
+    {
+      "annotation": "UG recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128563_rqhrdjq7c0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "rehkuzxpuj8a9lt"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128443,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theater-Almanach / für die / Jugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theater-Almanach / für die / Jugend",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "jwo2t095qcukbhs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theater-Almanach / für die Jugend / von Aurelie. / II. Band. / Stuttgart. Eduard Hallberger / Illustr. im lith. Inst. v. Arnz & Co. in Düsseldorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128444_plr5r05ouu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Theater-Almanach / für die Jugend / von Aurelie. / II. Band. / Stuttgart. Eduard Hallberger / Illustr. im lith. Inst. v. Arnz & Co. in Düsseldorf",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "61kponhvb7zxrje"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "usbm16uul53vsq7"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 128448, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mir scheints ein wahrer Segen, liebe Mama, daß Sie sich zu dieser Maaßregel entschlossen haben.",
+      "language": [],
+      "musenalm_id": 128446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hofmeister. / (Lustspiel in einem Akt)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hofmeister. / (Lustspiel in einem Akt)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "x0hhocbt4tw047b"
+    },
+    {
+      "annotation": "Illustration zu »Der Hofmeister« (INr 128446, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128448_uwp7m5mo2y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "5l2l92x2eg8lkp4"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 128449, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Nein, ich kehre noch nicht um, Schwesterchen, und wir kommen auch noch zwanzigmal nach dem Schloß, ehe Miß Thompson die holden Augen aufschlägt und uns vermissen könnte.",
+      "language": [],
+      "musenalm_id": 128447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Berggeist. (Lustspiel in einem Akt.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Berggeist. (Lustspiel in einem Akt.)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "y1jb1gv9vm8t9rj"
+    },
+    {
+      "annotation": "Illustration zu »Der Berggeist« (INr 128447, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.232Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128449_y01nbpyxoj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "rubgkdrk2lmq5go"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 128451, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Nun, beim Propheten! gute Sterne müssen / Am Himmel heut regieren. Welch ein Frühstück / Hat sich mein Herr besorgt!",
+      "language": [],
+      "musenalm_id": 128450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Pantoffeln des Abu Casem. (Lustspiel in zwei Aufzügen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Pantoffeln des Abu Casem. (Lustspiel in zwei Aufzügen.)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "fzqccvwpjsbblvb"
+    },
+    {
+      "annotation": "Illustration zu »Die Pantoffeln des Abu Casem« (INr 128447, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128451_x3ub08ef7x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "1zivs92vmvtnzdx"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 128453, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Nein, sagen Sie mir, bester Herr Winter, träume ich? oder hab’ ich mir einen Rausch getrunken?",
+      "language": [],
+      "musenalm_id": 128452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bescheerung im Carcer. / (Schauspiel in drei Aufzügen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bescheerung im Carcer. / (Schauspiel in drei Aufzügen.)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "395u921iuhaaftv"
+    },
+    {
+      "annotation": "Illustration zu »Bescheerung im Carcer« (INr 128452, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128453_sgtz502rz4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "ch5pw196t2u32r5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Hier, lieber Herr Ries, sehen Sie heut an meinem Schreibtische diese Briefe durch; es sind einige Manuscripte dabei.",
+      "language": [],
+      "musenalm_id": 128454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selbstüberschätzung. / (Schauspiel in drei Akten.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Selbstüberschätzung. / (Schauspiel in drei Akten.)",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "h960twb74u6xc00"
+    },
+    {
+      "annotation": "Illustration zu »Selbstüberschätzung« (INr 128454, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128455_p7pluvzgu1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "pp8a1c5g8j9gxkm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserungen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "1lijdv7f7rxn1i2"
+    },
+    {
+      "annotation": "Verlagsmitteilungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In demselben Verlag sind ferner erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In demselben Verlag sind ferner erschienen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "u8z7s8e1wlpyaxd"
+    },
+    {
+      "annotation": "UG verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3236_128564_vma08s9vzg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 0,
+      "editor": "",
+      "agents": [],
+      "source_id": "u39qmm5l0dah3s5"
+    }
   ],
   "agents": [
     {

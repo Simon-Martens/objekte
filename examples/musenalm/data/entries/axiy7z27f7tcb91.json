@@ -48,25 +48,595 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "feo7h2scsa3hsan",
-    "tksz481rvqevcz6"
+    {
+      "annotation": "UG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "410979",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "feo7h2scsa3hsan"
+    },
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405209",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tksz481rvqevcz6"
+    }
   ],
   "contents": [
-    "pee4d5wsg0nwlij",
-    "lpk4kwqger8626h",
-    "7sfdbpeubm3fxfw",
-    "ghjigyv8ip4vgac",
-    "79xhj2rungnjpv8",
-    "t9tnfa48n5ipfnc",
-    "2y1w3blf1q0agbj",
-    "gjmyy6m8lkcn02x",
-    "npntbzielqdgk1o",
-    "8rg2qz4rs7qq7wo",
-    "1b3z3l8om79e74s",
-    "kmkpoi2jxpdncqt",
-    "fx7pacjeml1xxkm",
-    "m81klh3p7stdvjw",
-    "sg8svio8oqooe6x"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127059,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1832 / von / F. A. von Kurländer. / Zwei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1260_127059_1bpuvxvnww.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1832 / von / F. A. von Kurländer. / Zwei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "pee4d5wsg0nwlij"
+    },
+    {
+      "annotation": "Titelkupfer; kol. Illustration zu »Die Ehescheidung« von Melesvilles [bearb.] Kurländer (INr 125101, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125098,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ehescheidung. Scene 12. / Irene. / »Und dass du zu reden verstehst, davon / habe ich viele Beweise.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1260_125098_qqwscf5cs5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ehescheidung. Scene 12. / Irene. / »Und dass du zu reden verstehst, davon / habe ich viele Beweise.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "lpk4kwqger8626h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125099,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1832 / von / F. A. von Kurländer. / Zwei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1260_125099_glgceozvm4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1832 / von / F. A. von Kurländer. / Zwei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "7sfdbpeubm3fxfw"
+    },
+    {
+      "annotation": "Vorwort d. Hrsg.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zum zwei und zwanzigsten Mal sende ich Euch, Ihr anspruchslosen Blüthen, in die Welt, die Euch bis jetzt so rücksichtsvoll aufnahm, daß Ihr es vielleicht wagen dürftet, auch ohne Empfehlungsbrief [...] zu erscheinen.",
+      "language": [],
+      "musenalm_id": 125100,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ghjigyv8ip4vgac"
+    },
+    {
+      "annotation": "mit zwei kol. Illustrationen (INr 125098, Obj 1; INr 125102, Obj 5) # Bezeichnung aus dem Vorwort (INr 125100, Obj 3); # Pseudonym von Anne-Honoré-Joseph Duveyrier (NBG XV, Sp. 559); ## Bezeichnung aus dem Titel (INr 125099, Obj 2); ### Originaltitel: La séparation",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Aber du lieber Himmel, ich beschwöre Euch bei allen Rechtsgelehrten der alten und neuern Zeit, wo wollt Ihr denn meine Akten, mein corpus juris hintragen?",
+      "language": [],
+      "musenalm_id": 125101,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ehescheidung. ### / Lustspiel in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Melesville # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ehescheidung. ### / Lustspiel in zwei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.805Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "2emqfnycd33q9hw"
+        }
+      ],
+      "source_id": "79xhj2rungnjpv8"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Ehescheidung« von Melesvilles [bearb.] Kurländer (INr 125101, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125102,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ehescheidung. Letzte Scene. / Althau. / »Gebracht? Er war also hier?«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ehescheidung. Letzte Scene. / Althau. / »Gebracht? Er war also hier?«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "t9tnfa48n5ipfnc"
+    },
+    {
+      "annotation": "mit einer kol. Illustrationen (INr 125104, Obj 7) # Bezeichnung aus dem Vorwort (INr 125100, Obj 3); $ vermutlich Frédéric-Auguste Duvert (NBG XV, Sp. 556); ## Bezeichnung aus dem Titel (INr 125099, Obj 2);",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Ich will durchaus wissen, warum Sie uns verlassen, und gerade heute, wo Ihre Gegenwart so nöthig ist.",
+      "language": [],
+      "musenalm_id": 125103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Unglücksvogel. / Lustspiel in einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Duvert # $ [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Unglücksvogel. / Lustspiel in einem Aufzuge",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.805Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "b3bokl6q1e9cksg"
+        }
+      ],
+      "source_id": "2y1w3blf1q0agbj"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Unglücksvogel« von Duvert [bearb.] Kurländer (INr 125103, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Unglücksvogel. Scene 6 / Muffel. / »Man kann sich von den Contusionen und / Flecken überzeugen.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Unglücksvogel. Scene 6 / Muffel. / »Man kann sich von den Contusionen und / Flecken überzeugen.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "gjmyy6m8lkcn02x"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 125106, Obj 9); # Bezeichnung aus dem Vorwort (INr 125100, Obj 3); $ möglicherweise Jean-François Mussot (NBG II, Sp. 335); ## Bezeichnung aus dem Titel (INr 125099, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Michel, Monsieur Michel! Hört denn der Mensch nicht? / Gott sey Dank, ich höre jede Grille im Gras.",
+      "language": [],
+      "musenalm_id": 125105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pflegesohn. / Lustspiel in einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arnould # $ [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pflegesohn. / Lustspiel in einem Aufzuge",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.805Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "rki06wvmq6qb1bc"
+        }
+      ],
+      "source_id": "npntbzielqdgk1o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pflegesohn. Scene 25. / Isidor. / »Alles aus Liebe für mich!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pflegesohn. Scene 25. / Isidor. / »Alles aus Liebe für mich!«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "8rg2qz4rs7qq7wo"
+    },
+    {
+      "annotation": "mit zwei kol. Illustrationen (INr 125108, 125109, Obj 11, 12); # Bezeichnung aus dem Vorwort (INr 125100, Obj 3); Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 125099, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Welche Überraschung für das tugendhafte Mädchen, als ihr Geliebter sich ihr zu Füßen warf! – Der Liebhaber ist also wieder gekommen.",
+      "language": [],
+      "musenalm_id": 125107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes und letztes Kapitel. / Gemälde aus dem bürgerlichen Leben, in / zwei Abtheilungen. / Erste Abtheilung. / Schön Klärchen. / Zweite Abtheilung. / Frau Klara",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstes und letztes Kapitel. / Gemälde aus dem bürgerlichen Leben, in / zwei Abtheilungen. / Erste Abtheilung. / Schön Klärchen. / Zweite Abtheilung. / Frau Klara",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.805Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "n2d2hd4isqft2ti"
+        }
+      ],
+      "source_id": "1b3z3l8om79e74s"
+    },
+    {
+      "annotation": "kol. Illustration zu »Erstes und letztes Kapitel« von Scribe [bearb.] Kurländer (INr 125107, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes und letztes Kapitel, 1 Abthlng. Scene 2. / Klärchen. / »Du kennst das Glück nicht, so recht un- / glücklich zu seyn.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1260_125108_wiqdkib07n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erstes und letztes Kapitel, 1 Abthlng. Scene 2. / Klärchen. / »Du kennst das Glück nicht, so recht un- / glücklich zu seyn.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "kmkpoi2jxpdncqt"
+    },
+    {
+      "annotation": "kol. Illustration zu »Erstes und letztes Kapitel« von Scribe [bearb.] Kurländer (INr 125107, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.059Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes und letztes Kapitel, 2 Abthlng. Letzte Scene / Klara. / »Jeder Roman ist gefährlich.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1260_125109_6sgnt3ndl5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erstes und letztes Kapitel, 2 Abthlng. Letzte Scene / Klara. / »Jeder Roman ist gefährlich.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "fx7pacjeml1xxkm"
+    },
+    {
+      "annotation": "VrlgM; enthält ein Verzeichnis der in den vorhergehenden Jgg enthaltenen Stücke",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125110,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "m81klh3p7stdvjw"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1260_127060_vvehvk978x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "sg8svio8oqooe6x"
+    }
   ],
   "agents": [
     {

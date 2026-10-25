@@ -48,66 +48,2585 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "kdd9vx8y762lmp4"
+    {
+      "annotation": "§1§ B fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108623",
+      "location": "105J07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kdd9vx8y762lmp4"
+    }
   ],
   "contents": [
-    "0uv1j34763fxi6e",
-    "abkh2pqf8gfytbm",
-    "4o78pad2ny4c5e1",
-    "cpdz03lhoocykk9",
-    "yyoxo3jf16066xd",
-    "vtlqcdrmag3lzu4",
-    "pgv9s5xb9ogvksi",
-    "3rxfknpquj3754y",
-    "6g2dbum25zo2o7y",
-    "29jzl6r4sncwwnl",
-    "iwtna17brafzumd",
-    "k50quf8wq84fvnp",
-    "hpnf5qvnlopf1jh",
-    "55i42v0m8q64ix1",
-    "m62h39gnri6i30r",
-    "1taybja1s39op38",
-    "63wm66thgcu83jg",
-    "8m9kf29nb3hzzp9",
-    "vwh05hf38ma3exo",
-    "ubmzisk87okn2hw",
-    "f7st4zgizmyb2wj",
-    "ex4q5t018w3y0mb",
-    "6avkd3msn6rxxfa",
-    "2je261w30bjf52l",
-    "m5g37puzj0zm3gx",
-    "es9pcoba9mv632f",
-    "f7pyv3ltonm9fim",
-    "yrdlzb3syldn592",
-    "xgz3eds9yveobny",
-    "rxev5k8zgh8u8se",
-    "429wo3dwjoehww4",
-    "tcuy2nm7x49ways",
-    "b2co6uegff9z416",
-    "hp1xv95njlll3du",
-    "6dslaop4wmv5ybd",
-    "p1k97r8ypcx0y9a",
-    "7yd41hjp8adm7py",
-    "8i1hncnrilrb03k",
-    "9nt4y0xczwccv3i",
-    "prfl0wp2ddylrix",
-    "25aswvgmse1t05p",
-    "6os50pz8dqnkg48",
-    "iafyj9c9ol6626w",
-    "wsz2oif0m3autzr",
-    "vdmi2opo26z5ewy",
-    "zky13ry0xbybh7j",
-    "m7sg283rwiwplm7",
-    "030fe03bby7lbze",
-    "kolfgo9ewzzynef",
-    "hhka7ddly088r8m",
-    "44eaxq7cb4706vd",
-    "nivwuomk6amum8r",
-    "h1bvpit6g002y1w",
-    "x7v828ka07i45of",
-    "93ehe8mj4zb8dxn",
-    "hg41z3d9dzsx9rl",
-    "z7y3dvtceaecbi3"
+    {
+      "annotation": "graph.-typograph. Titel auf dem Schuber",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41357,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen, / 1828. / 38r. Jahrgang. / Mit 12 Kupfern. / Mit Königl. Sächs. allergnäd. Privilegio [...] / LEIPZIG, Verlag von Leopold Voss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_483_41357_3ljdosjiis.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen, / 1828. / 38r. Jahrgang. / Mit 12 Kupfern. / Mit Königl. Sächs. allergnäd. Privilegio [...] / LEIPZIG, Verlag von Leopold Voss",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "0uv1j34763fxi6e"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41358,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PULCRA ES, ET DECORA, VIRGO, ET MATER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Raphael Sanzio pinx. Fr. Wagner sc.",
+      "scans": [
+        "alm_483_41358_ayes1wk2l2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PULCRA ES, ET DECORA, VIRGO, ET MATER",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "ztgmm4mptvjp8o3",
+          "source_id": "0y8ousyl1w0favi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.738Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "nrb1ck85zw4thsh"
+        }
+      ],
+      "source_id": "abkh2pqf8gfytbm"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.072Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41359,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1828. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig. / bei Leopold Voss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_483_41359_pjlw5chhg9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1828. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig. / bei Leopold Voss",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "wtujev23n3a3b4d"
+        }
+      ],
+      "source_id": "4o78pad2ny4c5e1"
+    },
+    {
+      "annotation": "1. Illustration zu »Dorothea Cappel« von Friederike Lohmann INr 41373, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41360,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dorothea Cappel / S. 6",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dähling del. Fr. Wagner sc.",
+      "scans": [
+        "alm_483_41360_igf4adof2x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dorothea Cappel / S. 6",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "irerqwesqs07kw7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "rmjfgfl7di9zgkf"
+        }
+      ],
+      "source_id": "cpdz03lhoocykk9"
+    },
+    {
+      "annotation": "2. Illustration zu »Dorothea Cappel« von Friederike Lohmann INr 41373, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41361,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dorothea Cappel / Seite 78",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dähling del. Buser sc.",
+      "scans": [
+        "alm_483_41361_igc17tu43y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dorothea Cappel / Seite 78",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "ejxvqk5zm3xx0z4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "pxr9kp6qb6r9rwm"
+        }
+      ],
+      "source_id": "yyoxo3jf16066xd"
+    },
+    {
+      "annotation": "1. Illustration zu »Cecilie Stuart« von K. von Wachsmann INr 41375, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41362,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cecilie Stuart. / Seite 243",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herbig del. Döbler sc.",
+      "scans": [
+        "alm_483_41362_u3xtiycjb6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cecilie Stuart. / Seite 243",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "8oou0acn8kvvu4m",
+          "source_id": "7eowncqhg1eizxq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "774ug9zf5qb4ald",
+          "source_id": "s9yl27s1wb368a9"
+        }
+      ],
+      "source_id": "vtlqcdrmag3lzu4"
+    },
+    {
+      "annotation": "2. Illustration zu »Cecilie Stuart« von K. von Wachsmann INr 41375, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.078Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41363,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cecilie Stuart. / Seite 276",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kolbe del. Meyer sc.",
+      "scans": [
+        "alm_483_41363_o9s85q00et.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cecilie Stuart. / Seite 276",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "n8dsvfjir5hw9xq",
+          "source_id": "39r6qeyf0qo3do9"
+        }
+      ],
+      "source_id": "pgv9s5xb9ogvksi"
+    },
+    {
+      "annotation": "Illustration zu »Des Kindes Traum« von Wilh. Müller INr 41378, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41364,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Kindes Traum, / von Wilhelm Müller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Westall pinx. Fr. Walther sc.",
+      "scans": [
+        "alm_483_41364_aoz52dy3pl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Kindes Traum, / von Wilhelm Müller",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.156Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.156Z",
+          "agent": "uq6rhrihzl9bx5q",
+          "source_id": "smi1c0mqmnn5p8x"
+        }
+      ],
+      "source_id": "3rxfknpquj3754y"
+    },
+    {
+      "annotation": "Illustration zu »Selbstbeschauung« von Wilh. Müller INr 41380, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41365,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selbstbeschauung / von Wilhelm Müller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Westall pinx. Fr. Wagner sc.",
+      "scans": [
+        "alm_483_41365_hz0pnvikel.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Selbstbeschauung / von Wilhelm Müller",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.103Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.103Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "38205e9brx9jjv8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.103Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.103Z",
+          "agent": "uq6rhrihzl9bx5q",
+          "source_id": "3mowrqcvjdulh42"
+        }
+      ],
+      "source_id": "6g2dbum25zo2o7y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41366,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Bilder I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thomas del. Döbler sc.",
+      "scans": [
+        "alm_483_41366_8ljmvfaqrl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Römische Bilder I.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.103Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.103Z",
+          "agent": "774ug9zf5qb4ald",
+          "source_id": "77ymab90p9uvrfy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.103Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.103Z",
+          "agent": "axerjmclyw1o0sc",
+          "source_id": "vlipq5vq54eh8wi"
+        }
+      ],
+      "source_id": "29jzl6r4sncwwnl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41367,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Bilder II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thomas del. Döbler sc.",
+      "scans": [
+        "alm_483_41367_rkz56vqgck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Römische Bilder II.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "axerjmclyw1o0sc",
+          "source_id": "jlzcx022xzrnsu1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "774ug9zf5qb4ald",
+          "source_id": "muqqlqyu4f0sfiv"
+        }
+      ],
+      "source_id": "iwtna17brafzumd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.881Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41368,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Bilder III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thomas del. Friedr. Geißler sc.",
+      "scans": [
+        "alm_483_41368_65f9cuzugj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Römische Bilder III.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "4944u0vdp7v0h2a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "axerjmclyw1o0sc",
+          "source_id": "rm5sqg7e7yj6fa0"
+        }
+      ],
+      "source_id": "k50quf8wq84fvnp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41369,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Bilder IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thomas del. Roma. Friedr. Geißler sculp. Nbg.",
+      "scans": [
+        "alm_483_41369_xxml5cxg4q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Römische Bilder IV.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "ci9d9to2f02zi64"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "axerjmclyw1o0sc",
+          "source_id": "kyopz7ovzokwdhn"
+        }
+      ],
+      "source_id": "hpnf5qvnlopf1jh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41370,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "55i42v0m8q64ix1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41371,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "m62h39gnri6i30r"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / geselligen Vergnügen, / 1828. / 38r Jahrgang, oder 8r der neuen Folge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / geselligen Vergnügen, / 1828. / 38r Jahrgang, oder 8r der neuen Folge",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "1taybja1s39op38"
+    },
+    {
+      "annotation": "mit zwei Illustrationen s. Graphiken INr 41360, 41361; Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Nahe bei Strehlen an der Ohlau lebte im siebenjährigen Kriege der Baron W*** auf seinem Schlosse Schönbrunn.",
+      "language": [],
+      "musenalm_id": 41373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dorothea Cappel. / Erzählung von Friederike Lohmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dorothea Cappel. / Erzählung von Friederike Lohmann",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.946Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "bb2mrytjy44nwww"
+        }
+      ],
+      "source_id": "63wm66thgcu83jg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Ihr wisset meine Freunde - sprach Ferdinand - daß ich auf den Reisen, von denen ich nun seit mehrern Jahren zurückgekehrt bin, mich nicht unbedingt nach den Vorschriften richtete, mit denen Alle mich nach meinem Abgange ausrüsteten,",
+      "language": [],
+      "musenalm_id": 41374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Hospizium des Bernhardsberges. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Bronikowski",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Hospizium des Bernhardsberges. / Novelle",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "8m9kf29nb3hzzp9"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 41362, 41363, Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Die Schlacht von Naseby hatte am 14ten Junius 1645 den langen Streit zwischen Karl dem ersten und seinem Parlamente geendet.",
+      "language": [],
+      "musenalm_id": 41375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cecilie Stuart. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cecilie Stuart. / Eine Erzählung",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.799Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.799Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "0xjxvsidv6gy9i9"
+        }
+      ],
+      "source_id": "vwh05hf38ma3exo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Im Palais Royal saßen zwei deutsche charmante Offiziere, wenn das erst dazu gesagt werden muß;",
+      "language": [],
+      "musenalm_id": 41376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die weiße Henne. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die weiße Henne. / Novelle",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.113Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.113Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "py8k2baphqjjgmo"
+        }
+      ],
+      "source_id": "ubmzisk87okn2hw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "O, Hamburg, alte Hafenstadt, / mit vielen Gassen krumm und eng,",
+      "language": [],
+      "musenalm_id": 41377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Waisengrün",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. G. Eberhard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Waisengrün",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.113Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.113Z",
+          "agent": "9ndls4gksm9067r",
+          "source_id": "18tstekiu3p51ic"
+        }
+      ],
+      "source_id": "f7st4zgizmyb2wj"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 41364, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Die Lampe glimmt in stiller Nacht, / Das Kindlein schläft, die Mutter wacht",
+      "language": [],
+      "musenalm_id": 41378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Kindes Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Kindes Traum",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.113Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.113Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "cjs4yemamd9jdo4"
+        }
+      ],
+      "source_id": "ex4q5t018w3y0mb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Hier, wo über der Stadt luftige Tannenhöh'n / Uns mit Kühlung so oft freundlich umschatteten,",
+      "language": [],
+      "musenalm_id": 41379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abschiedsabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Abschiedsabend",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.738Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "va4sjey4okqh0nw"
+        }
+      ],
+      "source_id": "6avkd3msn6rxxfa"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 31365, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "370",
+      "incipit_statement": "Haben ausgetobt die Stürme, / Sind verhallt die Donner, / Sind verglüht die Blitze,",
+      "language": [],
+      "musenalm_id": 41380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selbstbeschauung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Selbstbeschauung",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.738Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "ksmuw8x23ibr0va"
+        }
+      ],
+      "source_id": "2je261w30bjf52l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Mein erwähltes trautes Zimmer, / Wo es mir so wohl gefällt, / Ja, du bist und bleibst für immer / Meine Freundinn, meine Welt.",
+      "language": [],
+      "musenalm_id": 41381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An mein Zimmer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "z. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An mein Zimmer",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "m5g37puzj0zm3gx"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 41387-41390, Obj 27-30 # s. Sammlung »Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord« in : Taschenbuch zum geselligen Vergnügen 1827(2) INr 41293, 41383-41386; Obj 22,  22,01-22,04",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier Jahreszeiten des / Trinkers. / Ein lyrischer Accord. / Zweites Jahr. 1826 #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die vier Jahreszeiten des / Trinkers. / Ein lyrischer Accord. / Zweites Jahr. 1826 #",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.738Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "pqdgbet55zre7ns"
+        }
+      ],
+      "source_id": "es9pcoba9mv632f"
+    },
+    {
+      "annotation": "Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord. Zweites Jahr. 1826 (Sammlung INr 41382, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Ei, ei, wie schläfst du, o Erde, so lang! / Geduld, ihr Kinder, und seyd nicht bang.",
+      "language": [],
+      "musenalm_id": 41387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müller, Wilhelm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "z1i71khzd5gmgdb"
+        }
+      ],
+      "source_id": "f7pyv3ltonm9fim"
+    },
+    {
+      "annotation": "Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord. Zweites Jahr. 1826 (Sammlung INr 41382, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Wenn wir in den Keller gehen, / Kühlen Wein zu trinken,",
+      "language": [],
+      "musenalm_id": 41388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müller, Wilhelm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sommer",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "e5cfau6u45c61j8"
+        }
+      ],
+      "source_id": "yrdlzb3syldn592"
+    },
+    {
+      "annotation": "Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord. Zweites Jahr. 1826 (Sammlung INr 41382, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "In den Reben lieg' ich hier, / Grün und gelb umrankt,",
+      "language": [],
+      "musenalm_id": 41389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müller, Wilhelm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbst",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "b9kllix7wjic41h"
+        }
+      ],
+      "source_id": "xgz3eds9yveobny"
+    },
+    {
+      "annotation": "Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord. Zweites Jahr. 1826 (Sammlung INr 41382, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "Schenke, bringe hellen Wein, / Weil die Lüfte sind dunkel;",
+      "language": [],
+      "musenalm_id": 41390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müller, Wilhelm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winter",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "5felh2h5h4ukj40"
+        }
+      ],
+      "source_id": "rxev5k8zgh8u8se"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "Auf der geraden, kunstgerechten Straße / Fuhr ich einsam hin, verdrießlich sinnend,",
+      "language": [],
+      "musenalm_id": 41391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kellnerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "z. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kellnerin",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "429wo3dwjoehww4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "Wie der Knab' in dunkler Stunde / Spielend hascht auf Moores Grunde / Nach dem Irrlicht, das ihm scheint;",
+      "language": [],
+      "musenalm_id": 41392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bild des Lebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "z. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bild des Lebens",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "tcuy2nm7x49ways"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Ihr Seelenwärter, hört ein ernstes Wort! / Wenn heute sich der göttliche Homer / Vom stillen Sitz der Unterwelt erhübe,",
+      "language": [],
+      "musenalm_id": 41393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Kunstrichtern unsrer zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den Kunstrichtern unsrer zeit",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "0vy22fi6wwk0z3m"
+        }
+      ],
+      "source_id": "b2co6uegff9z416"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Flicken wollt ihr die Welt mit zerissenen Lappen / der Vorwelt,",
+      "language": [],
+      "musenalm_id": 41394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den modernen Weltverbesserern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den modernen Weltverbesserern",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "ysj4bewv83xqm4l"
+        }
+      ],
+      "source_id": "hp1xv95njlll3du"
+    },
+    {
+      "annotation": "Sammlung von 3 Rätseln INr 41396-41398, Obj 36-38",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Räthsel",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "s9wfj02axdksn1q"
+        }
+      ],
+      "source_id": "6dslaop4wmv5ybd"
+    },
+    {
+      "annotation": "Räthsel (Sammlung INr 41395, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Was in afrikanischen Gefilden, / In der heißen Steppe gerne weilt,",
+      "language": [],
+      "musenalm_id": 41396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "547miplrgl6zg5e"
+        }
+      ],
+      "source_id": "p1k97r8ypcx0y9a"
+    },
+    {
+      "annotation": "Räthsel (Sammlung INr 41395, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Es scheu' das Licht. Wo Priester Finsterniß, / Durch dunkler Worte schleichend Gift, verbreiten,",
+      "language": [],
+      "musenalm_id": 41397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.694Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "6foqjctgbm9rri2"
+        }
+      ],
+      "source_id": "7yd41hjp8adm7py"
+    },
+    {
+      "annotation": "Räthsel (Sammlung INr 41395, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Oft muß ich schwere Lasten tragen, / Wohl ganze Häuser gar,",
+      "language": [],
+      "musenalm_id": 41398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "qhzjcbqhxpv0fib"
+        }
+      ],
+      "source_id": "8i1hncnrilrb03k"
+    },
+    {
+      "annotation": "Sammlung von 6 Rätseln INr 41409-41414, Obj 40-45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "387",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charaden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charaden",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "iva13z5fygpxqal"
+        }
+      ],
+      "source_id": "9nt4y0xczwccv3i"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "387",
+      "incipit_statement": "Die Erste wünsch' ich mir, / Und auch die Letzte d'rin;",
+      "language": [],
+      "musenalm_id": 41409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erste wünsch' ich mir, / Und auch die Letzte d'rin;…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.113Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.113Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "7nyb3y53setegwb"
+        }
+      ],
+      "source_id": "prfl0wp2ddylrix"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Heil dem Jüngling, der am treuen Busen / Der zwei Ersten wohlgeschirmt noch weilt!",
+      "language": [],
+      "musenalm_id": 41410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.113Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.113Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "ttaq4sdx3lozrps"
+        }
+      ],
+      "source_id": "25aswvgmse1t05p"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Oft breitet noch ihr weißes Leichentuch / In erster Sylbe wohl die Letzte aus,",
+      "language": [],
+      "musenalm_id": 41411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.113Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.113Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "ib9ntb1hcy07qq3"
+        }
+      ],
+      "source_id": "6os50pz8dqnkg48"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Die Erste läuft umher und macht mir manche Freude, / Doch an der Waffe thut sie Manchem was zu / Leide;",
+      "language": [],
+      "musenalm_id": 41412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.973Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "nbk2qyl2lmo0x7u"
+        }
+      ],
+      "source_id": "iafyj9c9ol6626w"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Aus finst'rem Schooß taucht manche Letzte auf, / Die nicht die beiden Ersten Dir bereitet,",
+      "language": [],
+      "musenalm_id": 41413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.973Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "3n3gdz6c5del64b"
+        }
+      ],
+      "source_id": "wsz2oif0m3autzr"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Heilig werden dem die beiden Ersten seyn, / Dem die Tugend Kraft im Busen wohnet,",
+      "language": [],
+      "musenalm_id": 41414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.948Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.948Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "lorl028yqwmmbyg"
+        }
+      ],
+      "source_id": "vdmi2opo26z5ewy"
+    },
+    {
+      "annotation": "Sammlung von 3 Rätseln INr 41416-41418, Obj 47-49",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anagramme",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anagramme",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.948Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.948Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "jlqrn7uvggfabr2"
+        }
+      ],
+      "source_id": "zky13ry0xbybh7j"
+    },
+    {
+      "annotation": "Anagramme (Sammlung INr 41415, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.898Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Manch' Gutes wird durch das Wörtchen vollbracht; / Zwei Zeichen sez' um, thu's, und Dein Sarg wird / gemacht.",
+      "language": [],
+      "musenalm_id": 41416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.948Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.948Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "av6zmqr4a0qmjg5"
+        }
+      ],
+      "source_id": "m7sg283rwiwplm7"
+    },
+    {
+      "annotation": "Anagramme (Sammlung INr 41415, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Wer heulet wohl wie ich, / Erschaffen zum Zerstören!",
+      "language": [],
+      "musenalm_id": 41417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.948Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.948Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "kopgcs4suyxpitu"
+        }
+      ],
+      "source_id": "030fe03bby7lbze"
+    },
+    {
+      "annotation": "Anagramme (Sammlung INr 41415, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.882Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Wohl giebt es manche reichgeschmückte Auen, / Der Blumen Pracht ist herrlich dort zu schauen;",
+      "language": [],
+      "musenalm_id": 41418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Hold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.136Z",
+          "agent": "utw4utrm977hsx5",
+          "source_id": "gq6yl0qorez7bjc"
+        }
+      ],
+      "source_id": "kolfgo9ewzzynef"
+    },
+    {
+      "annotation": "Auflösungen der Rätsel des Jg 1827",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösungen / der im Jahrgange 1827 enthaltenen Räthsel u. s. w.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösungen / der im Jahrgange 1827 enthaltenen Räthsel u. s. w.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "hhka7ddly088r8m"
+    },
+    {
+      "annotation": "Sammlung mit Sammlung von 4 Musikbeigaben und 1 Musikbeigabe INr 41421-41426, Obj 52-57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41420,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musik-Beilage / zu dem / TASCHENBUCH / zum geselligen Vergnügen / 1828",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Musik-Beilage / zu dem / TASCHENBUCH / zum geselligen Vergnügen / 1828",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "44eaxq7cb4706vd"
+    },
+    {
+      "annotation": "Sammlung von 4 Liedern INr 41422-41425, Obj 53-56 /) Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41421,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vier Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Blangini",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vier Lieder",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.738Z",
+          "agent": "xamymddiprbtm6z",
+          "source_id": "64n7b0d0zu2eq6n"
+        }
+      ],
+      "source_id": "nivwuomk6amum8r"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 41421, Obj 52) Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51) (Photos 41422,01; 41422,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41422,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blangini",
+      "scans": [
+        "alm_483_41422_01_nmhw3x4hvo.jpg",
+        "alm_483_41422_02_sf1h1789s5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No 1.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.739Z",
+          "agent": "xamymddiprbtm6z",
+          "source_id": "niwdj5w2163le5m"
+        }
+      ],
+      "source_id": "h1bvpit6g002y1w"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 41421, Obj 52) Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51) (Photos 41423,01; 41423,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41423,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blangini",
+      "scans": [
+        "alm_483_41423_01_oe4jk3h1xh.jpg",
+        "alm_483_41423_02_60xqco4xs5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.739Z",
+          "agent": "xamymddiprbtm6z",
+          "source_id": "ne8yds3pisep3b5"
+        }
+      ],
+      "source_id": "x7v828ka07i45of"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 41421, Obj 52) Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51) (Photos 41424,01-41424,03)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41424,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blangini",
+      "scans": [
+        "alm_483_41424_01_yg7wcgfiyt.jpg",
+        "alm_483_41424_02_a92xhg6zco.jpg",
+        "alm_483_41424_03_pirbj10er8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.739Z",
+          "agent": "xamymddiprbtm6z",
+          "source_id": "bo8lb4zs8hglw2u"
+        }
+      ],
+      "source_id": "93ehe8mj4zb8dxn"
+    },
+    {
+      "annotation": "Vier Lieder (Sammlung INr 41421, Obj 52) Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51) (Photos 41425,01; 41425,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41425,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blangini",
+      "scans": [
+        "alm_483_41425_01_n19wkrjwdv.jpg",
+        "alm_483_41425_02_8iwf301wl0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.739Z",
+          "agent": "xamymddiprbtm6z",
+          "source_id": "4qiobqp9mpys19g"
+        }
+      ],
+      "source_id": "hg41z3d9dzsx9rl"
+    },
+    {
+      "annotation": "Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51) (Photos 41426,01-41426,03)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41426,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Polonaise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Czerny",
+      "scans": [
+        "alm_483_41426_01_7jx3wx7xwn.jpg",
+        "alm_483_41426_02_m49em5myzq.jpg",
+        "alm_483_41426_03_mbdt77azhl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Polonaise",
+      "updated": "2003-06-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.739Z",
+          "agent": "gr5v2lf8gmc7blx",
+          "source_id": "tkdcoh6uqnu8b3p"
+        }
+      ],
+      "source_id": "z7y3dvtceaecbi3"
+    }
   ],
   "agents": [
     {

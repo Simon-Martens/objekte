@@ -48,31 +48,1085 @@
   "year": 1822,
   "editor": "",
   "items": [
-    "2yn06h3f092mofx"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.522Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404149",
+      "location": "105H05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.522Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2yn06h3f092mofx"
+    }
   ],
   "contents": [
-    "nd573v7ovtw02oq",
-    "2ftr3b9jex2k2mw",
-    "lwcej8gl4sgkp40",
-    "fgfahmtbfccfl5k",
-    "xqrp1e8gennw15s",
-    "zat52tcvv7qyfye",
-    "s5oe0brts3rk2b8",
-    "ekw3dcuy6cbmt1b",
-    "kwkbjtib2x4we7i",
-    "xn32qu16cen4v51",
-    "ji5bi7mvmuryb7w",
-    "ykydgdoqfduswlq",
-    "etisco9jfmqqqsi",
-    "at1ki3t5wujonub",
-    "269r1do5ckuyha3",
-    "teqgw9adf32531w",
-    "0ky9uk9zgpqsblx",
-    "syyewf7wnuhon5e",
-    "ziaxpxecr6hxa1s",
-    "7qxzw0gz0agtwgl",
-    "3yfxzu5mvu7tie0",
-    "i3892btbh3wumd8"
+    {
+      "annotation": "ausfaltbare Titelgraphik /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67962,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht Berlins im Jahre 1717",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stürmer delt. C. F. Thiele sc.",
+      "scans": [
+        "alm_857_67962_p57aokgvvm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht Berlins im Jahre 1717",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "xsc8m0e0lt02y28",
+          "source_id": "emsgof7istlyl0i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "y8hiacmturjds2x",
+          "source_id": "gwf003axuzxajwu"
+        }
+      ],
+      "source_id": "nd573v7ovtw02oq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67963,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1822. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_857_67963_xma1uqkkzy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1822. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ftr3b9jex2k2mw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67964,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "lwcej8gl4sgkp40"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67965,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Jägerhaus auf dem Werder im J. 1690",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. St. del. J. sc.",
+      "scans": [
+        "alm_857_67965_xecaoomevs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Jägerhaus auf dem Werder im J. 1690",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "4ht5ezov61cxhie",
+          "source_id": "2hoe830ikv6hx5g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "mhnvbzyr56apvbt"
+        }
+      ],
+      "source_id": "fgfahmtbfccfl5k"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67966,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Königliche Schloss nach Schlüter's Plan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Stilke del. Jügel sc.",
+      "scans": [
+        "alm_857_67966_410sqhdtjs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Königliche Schloss nach Schlüter's Plan",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "4ht5ezov61cxhie",
+          "source_id": "c66je1rpb2grygs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "j8torz962pbkf0b"
+        }
+      ],
+      "source_id": "xqrp1e8gennw15s"
+    },
+    {
+      "annotation": "Graphik im Kalendarium März /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67967,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Portal der Domkirche nach / Schlüter's Plan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. St. del. J. sc.",
+      "scans": [
+        "alm_857_67967_jkhklcdp81.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Portal der Domkirche nach / Schlüter's Plan",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "4ht5ezov61cxhie",
+          "source_id": "jsyq3z1vm7bamyd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "l5ccxxz64uurd35"
+        }
+      ],
+      "source_id": "zat52tcvv7qyfye"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67968,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stürmer del. L. Haas sculp.",
+      "scans": [
+        "alm_857_67968_i9z10wiekw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Friedrich",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "xsc8m0e0lt02y28",
+          "source_id": "ctapfsz7s9q4p9j"
+        }
+      ],
+      "source_id": "s5oe0brts3rk2b8"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67969,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophie Louise / dritte Gemahlin Friedrich I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stürmer del. F. Berger sc.",
+      "scans": [
+        "alm_857_67969_gdmnezvzh8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sophie Louise / dritte Gemahlin Friedrich I.",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.344Z",
+          "agent": "xsc8m0e0lt02y28",
+          "source_id": "5863isangkfejby"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.345Z",
+          "agent": "sm92um6sdwljy4m",
+          "source_id": "y9hxztokqssh5zm"
+        }
+      ],
+      "source_id": "ekw3dcuy6cbmt1b"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67970,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tabaksgesellschaft Friedrichs I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "nach Leygebe gez. von Stürmer. G. Bretzing sc. 1821",
+      "scans": [
+        "alm_857_67970_myks88mrgz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Tabaksgesellschaft Friedrichs I.",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "mtsa21z6u49e7nn",
+          "source_id": "1h76moxj6ft96ub"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "xsc8m0e0lt02y28",
+          "source_id": "a20q76y01p5opfg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "mpznkfyt4qhxfg1",
+          "source_id": "g8v4vh7hnm77tl5"
+        }
+      ],
+      "source_id": "kwkbjtib2x4we7i"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67971,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die feierliche Ertheilung des schwarzen Adlerordens / am 19. Januar 1703",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "nach Leygebe gez. von Stürmer G. Bretzing sc. 1821",
+      "scans": [
+        "alm_857_67971_0zhowhz6h6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die feierliche Ertheilung des schwarzen Adlerordens / am 19. Januar 1703",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "mpznkfyt4qhxfg1",
+          "source_id": "gwp8c7hpqo78sqy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "xsc8m0e0lt02y28",
+          "source_id": "yjlru0s3jhayn06"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "mtsa21z6u49e7nn",
+          "source_id": "zxv37guyf5htzdv"
+        }
+      ],
+      "source_id": "xn32qu16cen4v51"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67972,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Ritter des schwarzen Adler-Ordens in / seiner Ordenstracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stilke del. L. Haas sculp.",
+      "scans": [
+        "alm_857_67972_mv7o2g1lnx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Ritter des schwarzen Adler-Ordens in / seiner Ordenstracht",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.327Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.327Z",
+          "agent": "4ht5ezov61cxhie",
+          "source_id": "o74mcsy4mrrl7oy"
+        }
+      ],
+      "source_id": "ji5bi7mvmuryb7w"
+    },
+    {
+      "annotation": "Graphik im Kalendarium September /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.727Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67973,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoftrachten unter Friedrich I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Stilke del. Jügel sc.",
+      "scans": [
+        "alm_857_67973_fcbs719g1e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hoftrachten unter Friedrich I.",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "4ht5ezov61cxhie",
+          "source_id": "h17an41hzytxxtk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "r9qubcu87li5yjp"
+        }
+      ],
+      "source_id": "ykydgdoqfduswlq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67974,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoftrachten unter Friedrich I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. St. del. J. sc.",
+      "scans": [
+        "alm_857_67974_qlqa8tayg3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hoftrachten unter Friedrich I.",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "gsssu4mongt7b7v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "4ht5ezov61cxhie",
+          "source_id": "lheu1incu7g0crb"
+        }
+      ],
+      "source_id": "etisco9jfmqqqsi"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67975,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Adam von Schöning / Generalfeldmarschall u. Governeur / von Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stürmer del. F. Berger sc.",
+      "scans": [
+        "alm_857_67975_te023giy51.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hans Adam von Schöning / Generalfeldmarschall u. Governeur / von Berlin",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "sm92um6sdwljy4m",
+          "source_id": "86qt8lb2j0b3yvg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "xsc8m0e0lt02y28",
+          "source_id": "khg32iocdd2c8pc"
+        }
+      ],
+      "source_id": "at1ki3t5wujonub"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67976,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bürgermeister Johann Tieffenbach und seine / Ehegattin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_857_67976_86wpc83thg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Bürgermeister Johann Tieffenbach und seine / Ehegattin",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "89bgssnaip2439b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "m9eup6xdghas05s"
+        }
+      ],
+      "source_id": "269r1do5ckuyha3"
+    },
+    {
+      "annotation": "Beitrag in 2 Kapiteln INr 67978, 67979; Obj 17, 18 /) mit 13 Illustrationen s. Titelgraphik INr 67962, Obj 1 und 12 Graphiken im Kalendarium INr 67965-67976, Obj 4-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Geschichte / von / Berlin und seinen Bewohnern / unter / der Regierung des Königs Friedrich I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wilken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Geschichte / von / Berlin und seinen Bewohnern / unter / der Regierung des Königs Friedrich I.",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.328Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.328Z",
+          "agent": "du7c0gijdnu6wop",
+          "source_id": "m4rjeu9uudwcwdi"
+        }
+      ],
+      "source_id": "teqgw9adf32531w"
+    },
+    {
+      "annotation": "1. Kapitel von: Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I. (INr 67977, Obj 16) mit 13 Illustrationen s. Titelgraphik INr 67962, Obj 1 und 12 Graphiken im Kalendarium INr 67965-67976, Obj 4-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "In der Zeit der glänzenden Regierung des großen Churfürsten war der Churstaat von Brandenburg in die Reihe der größern Europäischen Mächte getreten, welche über die Welthändel entschieden;",
+      "language": [],
+      "musenalm_id": 67978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Berlin in den Jahren 1688-1700",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wilken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Berlin in den Jahren 1688-1700",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.329Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.329Z",
+          "agent": "du7c0gijdnu6wop",
+          "source_id": "neq9momcmbfzz5m"
+        }
+      ],
+      "source_id": "0ky9uk9zgpqsblx"
+    },
+    {
+      "annotation": "Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I. (INr 67977, Obj 16) mit 13 Illustrationen s. Titelgraphik INr 67962, Obj 1 und 12 Graphiken im Kalendarium INr 67965-67976, Obj 4-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Alls das achtzehnte Jahrhundert begann, war Berlin bereits durch die ununterbrochenen und gleichmäßigen Bemühungen, besonders der beiden letzten Churfürsten, eine der schönsten Städte Europa's geworden;",
+      "language": [],
+      "musenalm_id": 67979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Berlin in den Jahren 1701 bis 1713",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wilken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Berlin in den Jahren 1701 bis 1713",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.329Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.329Z",
+          "agent": "du7c0gijdnu6wop",
+          "source_id": "cyy1logssyxdn0a"
+        }
+      ],
+      "source_id": "syyewf7wnuhon5e"
+    },
+    {
+      "annotation": "mit Erläuterungen zu den Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfertafeln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfertafeln",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "ziaxpxecr6hxa1s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67981,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist im Anfang des Monats Julius geschlos- / sen, und darnach sogleich der Druck angefangen wor- / den, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist im Anfang des Monats Julius geschlos- / sen, und darnach sogleich der Druck angefangen wor- / den, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "7qxzw0gz0agtwgl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67982,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "3yfxzu5mvu7tie0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 67983,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt in der Joh. Ungerschen Buchdruckerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedruckt in der Joh. Ungerschen Buchdruckerei",
+      "updated": "2008-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "i3892btbh3wumd8"
+    }
   ],
   "agents": [
     {

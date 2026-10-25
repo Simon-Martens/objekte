@@ -48,7 +48,26 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "aagygj76ggcnbd6"
+    {
+      "annotation": "einziger Jg",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.781Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409919",
+      "location": "105G03",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.781Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "aagygj76ggcnbd6"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,35 +48,1133 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "yiuw321by8rbrlv"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.498Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200615",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.498Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yiuw321by8rbrlv"
+    }
   ],
   "contents": [
-    "vdh2m7wgwegm8t6",
-    "gfzyz4h69vpc9f5",
-    "clwvoqxlrhutxav",
-    "wxcd4herdrs6ued",
-    "ia6cnddv1lt3rkf",
-    "935acv7qmzarn85",
-    "0fi3pe1s79w9niz",
-    "8d42o1ifacoqfmw",
-    "cj3xqr11hpjgnhb",
-    "rclh9ww8t7rbmjn",
-    "ty5cq80f25zeved",
-    "0bofjwgfgapu6p4",
-    "wnsp5yepdiv90d0",
-    "tfb0u1xtjawttlp",
-    "32qqjov23q3ino1",
-    "zgteps35lsa14ir",
-    "eiurftbawajvq9n",
-    "ayhwig6e2d7kh0n",
-    "wkmdfbncdq12qs9",
-    "9sn0b4zh99p10gh",
-    "n3d0t832cmfvdwf",
-    "i96m5vffm0k3ffp",
-    "s0xcn5cikdn2piv",
-    "o1gfdyiwxx7xgvp",
-    "eil9oi8iu1lde48",
-    "m4vrj095gdcgzka"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 41483, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sir Walter Raleigh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. Stoelzel fec. 1805",
+      "scans": [
+        "alm_542_41471_shiambs88c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sir Walter Raleigh",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.297Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.297Z",
+          "agent": "e5dzzklohvjx1fv",
+          "source_id": "n7svqxei2b9w9hs"
+        }
+      ],
+      "source_id": "vdh2m7wgwegm8t6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41472,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / der / REISEN / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Fünfter Jahrgang / für das Jahr / 1806. / Mit 12 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_542_41472_mzw8g9cqok.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / der / REISEN / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Fünfter Jahrgang / für das Jahr / 1806. / Mit 12 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "gfzyz4h69vpc9f5"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41473,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Florida, Mexiko / und / die nördlichsten Theile von Süd- / Amerika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Florida, Mexiko / und / die nördlichsten Theile von Süd- / Amerika",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "clwvoqxlrhutxav"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Eine allgemeine Uebersicht der Thatsachen, die uns in den Stand setzen den Werth beider Erdhälften zu vergleichen, schien wohl da am rechten Orte zu stehen, wo die Rede ist von solchen Ländern, welche die Natur am reichlichsten ausgestattet hat.",
+      "language": [],
+      "musenalm_id": 41474,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.355Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.355Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "urm0s4itmf374gv"
+        }
+      ],
+      "source_id": "wxcd4herdrs6ued"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41475,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige des Inhalts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige des Inhalts",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "ia6cnddv1lt3rkf"
+    },
+    {
+      "annotation": "Es folgen  5 Kapitel mit einer Einleitung INr 41477-41482, Obj 7-12; s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41476,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Florida, Mexiko und die wichtigsten / Theile von Süd-Amerika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Florida, Mexiko und die wichtigsten / Theile von Süd-Amerika",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.356Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "nkxfgjw415ewr35"
+        }
+      ],
+      "source_id": "935acv7qmzarn85"
+    },
+    {
+      "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wir nähern uns dem heißen Gürtel der neuen Welt. Wenn der vorher gehende Jahrgang im Allgemeinen die Unterschiede der alten und neuen Welt übersehen ließ,",
+      "language": [],
+      "musenalm_id": 41477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung / Versuch eines Vergleichs der Länder unter / der heißen Zone in beiden Welten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung / Versuch eines Vergleichs der Länder unter / der heißen Zone in beiden Welten",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.356Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "i8x5gdl68v500vj"
+        }
+      ],
+      "source_id": "0fi3pe1s79w9niz"
+    },
+    {
+      "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Die Entdeckung von Florida enthält manches Sonderbare, welches einer Erwähnung werth scheint.",
+      "language": [],
+      "musenalm_id": 41478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Florida",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Florida",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.356Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "2gunxpxta6uhiyd"
+        }
+      ],
+      "source_id": "8d42o1ifacoqfmw"
+    },
+    {
+      "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Die Länder, die dieser allgemeine Nahme besetzt, sind aber alle die vasten Landschaften jenseits des Flusses Adayes (des Gränzflusses von Louisiana)",
+      "language": [],
+      "musenalm_id": 41479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neu- Mexico",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neu- Mexico",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.356Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "rbjmp94rihkz0vb"
+        }
+      ],
+      "source_id": "cj3xqr11hpjgnhb"
+    },
+    {
+      "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Bereits seit dem Uebergang über den südlichen Theil des Rio del Norte ist man in dem Alten Mexico, im eigentlichen Neu-Spanien,",
+      "language": [],
+      "musenalm_id": 41480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bereits seit dem Uebergang über den südlichen Theil des Rio del Norte ist man in dem Alten Mexico, im eigentlichen Neu-Spanien,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.357Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "xffk01o3orxq9q4"
+        }
+      ],
+      "source_id": "rclh9ww8t7rbmjn"
+    },
+    {
+      "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Höchst merkwürdig bleibt stets die Landenge der Provinzen Veragua und Panama und Darien.",
+      "language": [],
+      "musenalm_id": 41481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Panama, Darien und sodann zu der / Terrafirma der Spanier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Panama, Darien und sodann zu der / Terrafirma der Spanier",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.357Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "6mc7g32d8125u6y"
+        }
+      ],
+      "source_id": "ty5cq80f25zeved"
+    },
+    {
+      "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Die Landschaft, welche unter dieser Benennung anjetzt als reiche Besitzung der Holländer und Franzosen bekannt ist, sollte ihrer Lage nach noch zu dem nördlichen Amerika gerechnet werden.",
+      "language": [],
+      "musenalm_id": 41482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gujana",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gujana",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.357Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "2fnp8dxd0sd4cwz"
+        }
+      ],
+      "source_id": "0bofjwgfgapu6p4"
+    },
+    {
+      "annotation": "s. Titelportrait INr 41471, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Dem großen Mann mit unerschütterter Festigkeit gegen das ihn bestürmende Unglück kämpfen zu sehen,",
+      "language": [],
+      "musenalm_id": 41483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Biographie. / Sr. Walter Raleigh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Biographie. / Sr. Walter Raleigh",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.357Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "k4aoqhnmkbxlqmp"
+        }
+      ],
+      "source_id": "wnsp5yepdiv90d0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.357Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "lm1faamoepgoei9"
+        }
+      ],
+      "source_id": "tfb0u1xtjawttlp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41485,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druckfehler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Druckfehler",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "32qqjov23q3ino1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41486,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ruinen einiger Städte von Nord und Süd Amerika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_542_41486_nb5p5vs5go.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ruinen einiger Städte von Nord und Süd Amerika",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "zgteps35lsa14ir"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kameel-Ziege Guanaco",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Capiex sc. 1805",
+      "scans": [
+        "alm_542_41487_8u60xd8ox1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Kameel-Ziege Guanaco",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.358Z",
+          "agent": "7hrej40ja61vll9",
+          "source_id": "qkg73otcpwir7h8"
+        }
+      ],
+      "source_id": "eiurftbawajvq9n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41488,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schaaf-Kameel Vigogne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Capieux sc.",
+      "scans": [
+        "alm_542_41488_h4vjlq1kdl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Schaaf-Kameel Vigogne",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.358Z",
+          "agent": "7hrej40ja61vll9",
+          "source_id": "a40jfmrlv6cerzp"
+        }
+      ],
+      "source_id": "ayhwig6e2d7kh0n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41489,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cortez empfängt die Donna Maria von dem Caziquen von Tabasko",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cochin Fil. del. Meno Haas sc. Berlin 1805",
+      "scans": [
+        "alm_542_41489_1aly3lsxyx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cortez empfängt die Donna Maria von dem Caziquen von Tabasko",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.358Z",
+          "agent": "6dzmntns23d69x6",
+          "source_id": "owsgeksybol0s28"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.358Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "ycnof8l89jzrz6q"
+        }
+      ],
+      "source_id": "wkmdfbncdq12qs9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41490,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.) der Moschus Ochse von Neu Mexico 2.) Jagd des dortigen Hornviehs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_542_41490_shwojdr8ss.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1.) der Moschus Ochse von Neu Mexico 2.) Jagd des dortigen Hornviehs",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.359Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "88rkk32errp79jk"
+        }
+      ],
+      "source_id": "9sn0b4zh99p10gh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.018Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41491,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Merkwürdige Brücken in Süd-Amerika 1.2.3. / Sonderbare Mondsbögen an dem Cordilleren 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Veith sc.",
+      "scans": [
+        "alm_542_41491_p3uu17tcpn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Merkwürdige Brücken in Süd-Amerika 1.2.3. / Sonderbare Mondsbögen an dem Cordilleren 4.",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.359Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "cc4xrg9u4dsyofv"
+        }
+      ],
+      "source_id": "n3d0t832cmfvdwf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41492,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vanille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Capieux sc. 1805",
+      "scans": [
+        "alm_542_41492_uwo3sie91x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Vanille",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.359Z",
+          "agent": "7hrej40ja61vll9",
+          "source_id": "ut23utzbtoz4ltq"
+        }
+      ],
+      "source_id": "i96m5vffm0k3ffp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41493,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Cochenille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_542_41493_odmgth2cz5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Cochenille",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "s0xcn5cikdn2piv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41494,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nopal-Pflanze (Cactus Opuntia L) / a. a. a. kleine Nester der ausgekrochenen Cochenille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Capieux sculps. 1805",
+      "scans": [
+        "alm_542_41494_ujmou4zwyh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nopal-Pflanze (Cactus Opuntia L) / a. a. a. kleine Nester der ausgekrochenen Cochenille",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.215Z",
+          "agent": "7hrej40ja61vll9",
+          "source_id": "azqg0qalh7wtcly"
+        }
+      ],
+      "source_id": "o1gfdyiwxx7xgvp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41495,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AUSSICHT AUF SURINAME. / 1) Schlange Aboma. 2) Art dort auf dem Marsche zuschlafen. 3) KriegsBarke. 4) der Ai. 5) Kolibri u. Nest",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Veit scp. Dresd.",
+      "scans": [
+        "alm_542_41495_dfm2di7rfx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AUSSICHT AUF SURINAME. / 1) Schlange Aboma. 2) Art dort auf dem Marsche zuschlafen. 3) KriegsBarke. 4) der Ai. 5) Kolibri u. Nest",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.215Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "t7cxq85svzt4qh5"
+        }
+      ],
+      "source_id": "eil9oi8iu1lde48"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41496,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jagd oder Fischerei des Manati",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_542_41496_qytm5aqr91.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jagd oder Fischerei des Manati",
+      "updated": "2005-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.215Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "yxu104vfoltqyae"
+        }
+      ],
+      "source_id": "m4vrj095gdcgzka"
+    }
   ],
   "agents": [
     {

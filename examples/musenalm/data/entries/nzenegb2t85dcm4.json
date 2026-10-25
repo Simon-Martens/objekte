@@ -49,79 +49,2757 @@
   "year": 1788,
   "editor": "",
   "items": [
-    "vuai9udktkka6jn"
+    {
+      "annotation": "Ausgabe ohne Kalendarium\nAusgabe ohne Kalendarium",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.490Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100467",
+      "location": "105D03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.490Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vuai9udktkka6jn"
+    }
   ],
   "contents": [
-    "zfgxju1v3kdwknr",
-    "5ru4lb4jd2r3xav",
-    "e0e81y53ibk2ja1",
-    "yuwlrdv11z4l6lh",
-    "qqu6tonq49ksp5x",
-    "6rpqkqb1slfnef1",
-    "kfk3h94mes22gm3",
-    "95vcu2hnk0ww2s0",
-    "0iyedvhj4bcv27x",
-    "lonfraeapur5unu",
-    "ko5hgyz2nht9e2p",
-    "8bjoor91g98785v",
-    "kr0wifsy5fchj6y",
-    "9p334odieu7gp33",
-    "kc4wk5v1lt05et9",
-    "s2k5uuqe6urogk9",
-    "8oaifh9rk0iu8ej",
-    "0uau9j4p599p65k",
-    "rr90vhz1ovt9fmq",
-    "b3ygz1rcjc7tfgk",
-    "0dlqx6phumdpof9",
-    "sjppg54767te5ad",
-    "4x5gkf12698r9uj",
-    "re31ecxtifkthgt",
-    "maje6a3nbnsqsjm",
-    "b00cnhiz6yajafh",
-    "t8ph78ekry4bcak",
-    "fnm4s4n4oi85g4d",
-    "u00pcbizb2lpzz4",
-    "6txpbrveu3zivma",
-    "rhdhdjq4entdnqn",
-    "8hntudab6bqilzb",
-    "43ybciyuokk9xsk",
-    "qujppes894olgo8",
-    "uqowfaivk7c05b7",
-    "teeqek054agq9yl",
-    "x78vfzu53pjht8x",
-    "hupf028d3k4xa5l",
-    "zyple34h5u7i4j0",
-    "u7p2hswrvpizrdz",
-    "uvw620hg37w92kq",
-    "5vx7a45jzb1vly4",
-    "szmmejv73lsssrl",
-    "d4qrk3bdbeiyk13",
-    "3nbz81iswxi6wwp",
-    "2fb3hyao2s8g1hy",
-    "c8f965b9pnzk4op",
-    "jpwsl1vnr5t3g1m",
-    "2mjedtrqyl9j05l",
-    "vj92i5oolfi34b5",
-    "5k72t23uvazp10v",
-    "g3mp4gy9auryas9",
-    "tj4rwy9qn86l027",
-    "96lj6w5xupebsd9",
-    "x38svidiz20uuob",
-    "m68h9xjba570381",
-    "r5myiwkxe6kf6rh",
-    "62yarwtg4h5p5ad",
-    "n4q5gasc14nze2l",
-    "fjuwqgqozrztp7g",
-    "hypfu2hkf8pjkaf",
-    "pudk5rfdhuy4yg2",
-    "0dbkwarhdgtk92g",
-    "035ux2xkaotajqm",
-    "skk4vtg8i36her0",
-    "u21ht4r5xirrabg",
-    "plkzkjqa895v98l",
-    "k476slxdd5txjk3",
-    "8ys8wbdan3zf38j",
-    "2n612nm6f2jqrd1"
+    {
+      "annotation": "Umschlaggraphik r. Verlagsbroschur mit koloriertem Blumenschmuck im Rahmen",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32504,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32504_t9flkaw8mb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "zfgxju1v3kdwknr"
+    },
+    {
+      "annotation": "# Titel aus dem G- Verz INr 32561, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pandora von den Grazien geschmückt #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. Malvieux sc.",
+      "scans": [
+        "alm_451_32506_wyfpoff93x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pandora von den Grazien geschmückt #",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "962qkoxd7l47zs4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "rpm3jfs7o8do52j",
+          "source_id": "k70aspf7tn23b5v"
+        }
+      ],
+      "source_id": "5ru4lb4jd2r3xav"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32507,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PANDORA / oder / Taschenbuch / des / Luxus und der Moden / für das Jahr / 1788. / Weimar und Leipzig / bey G. J. Göschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32507_5homwlpkpv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PANDORA / oder / Taschenbuch / des / Luxus und der Moden / für das Jahr / 1788. / Weimar und Leipzig / bey G. J. Göschen",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "e0e81y53ibk2ja1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dort oben in der schönen Götterwelt, / Wo Jupiter, nachdem er ausgeliebelt, / Den Zeitvertreib uns Sterblichen ver- / übelt,",
+      "language": [],
+      "musenalm_id": 32508,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Göttin Mode / vor Gericht. / Anstatt eines Prologs zum Kalender / der Moden aufs Jahr 1788,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blumauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Göttin Mode / vor Gericht. / Anstatt eines Prologs zum Kalender / der Moden aufs Jahr 1788,",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "p56m9esfl91y36d",
+          "source_id": "xwpu49mpyz3d95y"
+        }
+      ],
+      "source_id": "yuwlrdv11z4l6lh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Im 16ten Jahrhundert war Italien das Land, das, wie in unsern Tagen England und Frankreich, in den Moden und Sachen des Geschmacks den Ton angab.",
+      "language": [],
+      "musenalm_id": 32509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Miscellaneen / aus der Geschichte der Moden / und häuslichen Gebräuche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Reichard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Miscellaneen / aus der Geschichte der Moden / und häuslichen Gebräuche",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "q1qlwpyitvptfsf"
+        }
+      ],
+      "source_id": "qqu6tonq49ksp5x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Die Damen in der Türkey, sind fast wie die Mannpersonen gekleidet, den Kopfputz ausgenommen,",
+      "language": [],
+      "musenalm_id": 32510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Toilette der Türkischen Damen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Toilette der Türkischen Damen",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "6rpqkqb1slfnef1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "In allen Zeiten war die Art und Weise, wie man seinen Bart trug oder schor, dem Wechsel so sehr unterworfen, wie jede andere Mode.",
+      "language": [],
+      "musenalm_id": 32511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber die Moden der Bärte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herr Reichard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber die Moden der Bärte",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.591Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "6zbhcoyguq9xe50"
+        }
+      ],
+      "source_id": "kfk3h94mes22gm3"
+    },
+    {
+      "annotation": "es folgt: Sammlung von 4 Textbezügen zu 4 Graphiken INr 32513-32520, Obj 9-16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Der Kopf war von jeher, bey allen Völkern der Erde, dasjenige Glied des Leibes, das man am sorgfältigsten und mannigfaltigsten zu putzen suchte;",
+      "language": [],
+      "musenalm_id": 32512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Kopfputz / der vier weiblichen Alter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Kopfputz / der vier weiblichen Alter",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.591Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "5xsidiu7m98dzmf"
+        }
+      ],
+      "source_id": "95vcu2hnk0ww2s0"
+    },
+    {
+      "annotation": "paginiert T. 1. /) Illustration zu »Kopfputz der vier weiblichen Alter« INr 32512, Obj 8 s. Textbezug INr 32514, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32513_ci0hfktpne.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "0iyedvhj4bcv27x"
+    },
+    {
+      "annotation": "Kopfputz der vier weiblichen Alter(Sammlung INr 32513, Obj 9) s. Graphik INr 32513, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Der lieblichste und zugleich natürlichste Putz eines Kinderkopfes ist sein eiges kurzes natürlich oder künstlich krauses und lockigtes Haar;",
+      "language": [],
+      "musenalm_id": 32514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Kind",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.591Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "81x7lu7je138ucs"
+        }
+      ],
+      "source_id": "lonfraeapur5unu"
+    },
+    {
+      "annotation": "Kopfputz der vier weiblichen Alter(Sammlung INr 32513, Obj 9) s. Graphik INr 32516, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Diese zweyte Stufe des weiblichen Alters geht bey und gewöhnlich mit dem vierzehnten Jahre an.",
+      "language": [],
+      "musenalm_id": 32515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2 / Mädchen oder Jungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2 / Mädchen oder Jungfrau",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.591Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "cmvs47c933tlx47"
+        }
+      ],
+      "source_id": "ko5hgyz2nht9e2p"
+    },
+    {
+      "annotation": "paginiert T. 2. /) Illustration zu »Kopfputz der vier weiblichen Alter« INr 32512, Obj 8 s. Textbezug INr 32515, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32516_tqwghbw5hd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "8bjoor91g98785v"
+    },
+    {
+      "annotation": "Kopfputz der vier weiblichen Alter(Sammlung INr 32513, Obj 9) s. Graphik INr 32518, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Diese Periode des weiblichen Alters hat einen ziemlich weiten Umfang,",
+      "language": [],
+      "musenalm_id": 32517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3 / Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3 / Frau",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.591Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "ez6b5qsfz6zdh93"
+        }
+      ],
+      "source_id": "kr0wifsy5fchj6y"
+    },
+    {
+      "annotation": "paginiert T. 3. /) Illustration zu »Kopfputz der vier weiblichen Alter« INr 32512, Obj 8 s. Textbezug INr 32517, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32518_77vp0zed26.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "9p334odieu7gp33"
+    },
+    {
+      "annotation": "paginiert T. 4. /)  Illustration zu »Kopfputz der vier weiblichen Alter« INr 32512, Obj 8 s. Textbezug INr 32520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (d. H.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [
+        "alm_451_32519_eu8j0iphix.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.591Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.591Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "052jdlqhfxcerbn"
+        }
+      ],
+      "source_id": "kc4wk5v1lt05et9"
+    },
+    {
+      "annotation": "Kopfputz der vier weiblichen Alter(Sammlung INr 32513, Obj 9) s. Graphik INr 32519, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Für den Kopfputz der Matrone oder älteren Frau, sonderlich in gewissen Classen",
+      "language": [],
+      "musenalm_id": 32520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Matrone",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Matrone",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.681Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "6b2k7khpipjd8n3"
+        }
+      ],
+      "source_id": "s2k5uuqe6urogk9"
+    },
+    {
+      "annotation": "mit 9 Artikeln",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.072Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Als die Kaiserin Catharina Alexiowna im Jahre 1725 den russischen Thron bestieg",
+      "language": [],
+      "musenalm_id": 32521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Russische Assemblee-Gesetze / im Jahr 1725",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Russische Assemblee-Gesetze / im Jahr 1725",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "8oaifh9rk0iu8ej"
+    },
+    {
+      "annotation": "mit einer Antwort der Herausgeber s. INr 32523, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.072Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Meine Herren, Sie haben uns in Ihrem heurigen beliebten Kalender d. L. u. d. Moden, unter andern auch einen Blumen-Kalender geliefert,",
+      "language": [],
+      "musenalm_id": 32522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Blumenkranz. / An die Herausgeber der Pandora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Blumenreich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Blumenkranz. / An die Herausgeber der Pandora",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "0uau9j4p599p65k"
+    },
+    {
+      "annotation": "Antwort auf vorstehenden Beitrag INr 32522, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Mein Herr, wir haben Ihnen schon im Julio unsers Journals unsere Freude und Dank für Ihren ersten Brief bezeugt,",
+      "language": [],
+      "musenalm_id": 32523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antwort / der Herausgeber der Pandora auf / Obiges",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Antwort / der Herausgeber der Pandora auf / Obiges",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "oe7gmzi7jl0vk0g"
+        }
+      ],
+      "source_id": "rr90vhz1ovt9fmq"
+    },
+    {
+      "annotation": "kol. Modekupfer paginiert 1. s. Textbezug INr 32526, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter- Tracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32524_5dw8xovnxc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Winter- Tracht",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "b3ygz1rcjc7tfgk"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu den 6 kolorierten Modekupfern INr 32524, 32526-32536; Obj 20, 22-32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Neujahrs-Geschenck / für das schöne Geschlecht, / oder / neueste Damen-Trachten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Neujahrs-Geschenck / für das schöne Geschlecht, / oder / neueste Damen-Trachten",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dlqx6phumdpof9"
+    },
+    {
+      "annotation": "Neujahrs-Geschenck für das schöne Geschlecht, oder neueste Damen-Trachten (Sammlung INr 32525, Obj 21) s. Graphik INr 32524, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Für alle Fälle, wo eine Dame im Winter nöthig hat in freyer Luft zu erscheinen,",
+      "language": [],
+      "musenalm_id": 32526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 1. / Winter Tracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. 1. / Winter Tracht",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "sjppg54767te5ad"
+    },
+    {
+      "annotation": "kol. Modekupfer paginiert 2. s. Textbezug INr 32528, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Redouten-Kleid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32527_c4joinxj3t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Redouten-Kleid",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "4x5gkf12698r9uj"
+    },
+    {
+      "annotation": "Neujahrs-Geschenck für das schöne Geschlecht, oder neueste Damen-Trachten (Sammlung INr 32525, Obj 21) s. Graphik INr 32527, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Bal und Redoute erfordern durchaus eine Art von romantischer Tracht,",
+      "language": [],
+      "musenalm_id": 32528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 2. / Redouten-Kleid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. 2. / Redouten-Kleid",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "re31ecxtifkthgt"
+    },
+    {
+      "annotation": "Neujahrs-Geschenck für das schöne Geschlecht, oder neueste Damen-Trachten (Sammlung INr 32525, Obj 21) s. Graphik INr 32530, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Schon der Nahme zeigt die Bestimung dieser Tracht. Sie ist die bequemste Morgenkleidung",
+      "language": [],
+      "musenalm_id": 32529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 3. / Damen-Schlafrock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. 3. / Damen-Schlafrock",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "maje6a3nbnsqsjm"
+    },
+    {
+      "annotation": "kol. Modekupfer paginiert 3. s. Textbezug INr 32529, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Damen-Schlafrock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32530_pzqg0n9yc7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Damen-Schlafrock",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "b00cnhiz6yajafh"
+    },
+    {
+      "annotation": "Modekupfer paginiert 4. s. Textbezug INr 32532, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Großer Abington Rock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32531_tbu5ojgdc9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Großer Abington Rock",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "t8ph78ekry4bcak"
+    },
+    {
+      "annotation": "Neujahrs-Geschenck für das schöne Geschlecht, oder neueste Damen-Trachten (Sammlung INr 32525, Obj 21) s. Graphik INr 32531, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Mistris Abongton ist eine jezt in London lebende vortreffliche Actrize,",
+      "language": [],
+      "musenalm_id": 32532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 4. / Großer Abington Rock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. 4. / Großer Abington Rock",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "fnm4s4n4oi85g4d"
+    },
+    {
+      "annotation": "Neujahrs-Geschenck für das schöne Geschlecht, oder neueste Damen-Trachten (Sammlung INr 32525, Obj 21) s. Graphik INr 32534, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Eine Robe à l'Angloise von Lilas Taft. Rock, Aermel und der Falbala-Kragen",
+      "language": [],
+      "musenalm_id": 32533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 5. / Halber Anzug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. 5. / Halber Anzug",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "u00pcbizb2lpzz4"
+    },
+    {
+      "annotation": "kol. Modekupfer paginiert 5. s. Textbezug INr 32533, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Halber Anzug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32534_lbhaqv8c6w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Halber Anzug",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "6txpbrveu3zivma"
+    },
+    {
+      "annotation": "kol. Modekupfer paginiert 6. s. Textbezug INr 32536, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Voller Anzug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32535_1gyvnr2fzi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Voller Anzug",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "rhdhdjq4entdnqn"
+    },
+    {
+      "annotation": "Neujahrs-Geschenck für das schöne Geschlecht, oder neueste Damen-Trachten (Sammlung INr 32525, Obj 21) s. Graphik INr 32535, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Robe à l'Angloise, für feyerliche Gelegenheiten: Rock und Kleid uni von Lilas Pecking oder Taft,",
+      "language": [],
+      "musenalm_id": 32536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 6. / Voller Anzug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "No. 6. / Voller Anzug",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "8hntudab6bqilzb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Die Blumen waren vor undenklichen Zeiten her ein vorzüglicher Gegenstand des Asiatischen Luxus.",
+      "language": [],
+      "musenalm_id": 32537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die Tulipomanie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S**",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die Tulipomanie",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "43ybciyuokk9xsk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Der gränzenlose Luxus der Alten, besonders der Römer, ware vorzüglich auch in ihren Bädern auffallend,",
+      "language": [],
+      "musenalm_id": 32538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Ueber den Luxus / der Bäder der Alten und Neueren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Ueber den Luxus / der Bäder der Alten und Neueren",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "qujppes894olgo8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Die vier Monarchien haben das mit dem Reiche der Mode gemein, daß beyde auf gleiche Weise für grenzenloß können angenommen werden.",
+      "language": [],
+      "musenalm_id": 32539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Modischer Lebenslauf / eines unmodischen Weltbürgers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Musäus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Modischer Lebenslauf / eines unmodischen Weltbürgers",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "u149vn3y8aoof54",
+          "source_id": "wyekfqgbtv951al"
+        }
+      ],
+      "source_id": "uqowfaivk7c05b7"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 6 Textbezügen zu 6 Graphiken INr 32541-32552, Obj 37-48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Die wahreste Nachahmung unter allen ist ohnstreitig die theatralische.",
+      "language": [],
+      "musenalm_id": 32540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Bemerkungen / Über / die Theatertrachten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Bemerkungen / Über / die Theatertrachten",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "1nrsteokd2gfk43"
+        }
+      ],
+      "source_id": "teeqek054agq9yl"
+    },
+    {
+      "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32542, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Medea als Personage aus der ältesten griechischen fabelhaften Heldenzeit, kann nach keinem bestimmten antiken Kostüme, sondern muß idealisch antik gekleidet werden.",
+      "language": [],
+      "musenalm_id": 32541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. / Idealische Kleidung. / No. 7. / Mlle. Raucourt als Medea",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "A. / Idealische Kleidung. / No. 7. / Mlle. Raucourt als Medea",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "qc5nqzj3g09l0kk"
+        }
+      ],
+      "source_id": "x78vfzu53pjht8x"
+    },
+    {
+      "annotation": "paginiert 7. /) s. Textbezug INr 32541, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Idealische Kleidung. / Mlle. Raucourt als Medea",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. J. Penzel fec.",
+      "scans": [
+        "alm_451_32542_uq1txyseon.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Idealische Kleidung. / Mlle. Raucourt als Medea",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.405Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "f93fsiha7yumfbt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.405Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "k4rdb25sxr7swsk"
+        }
+      ],
+      "source_id": "hupf028d3k4xa5l"
+    },
+    {
+      "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32544, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Brissards Kleidung ist ein Muster von gutem römischen Kostume für das Theater.",
+      "language": [],
+      "musenalm_id": 32543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. / Römische Tracht. / No. 8. / Herr Brissard als alter Horaz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "B. / Römische Tracht. / No. 8. / Herr Brissard als alter Horaz",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "1j3vmq7t25nam9i"
+        }
+      ],
+      "source_id": "zyple34h5u7i4j0"
+    },
+    {
+      "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 8. s. Textbezug INr 32543, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. / Römische Tracht. / No 8. / Herr Brissard als alter Horaz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. J. Penzel fec.",
+      "scans": [
+        "alm_451_32544_2127szzgbn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "B. / Römische Tracht. / No 8. / Herr Brissard als alter Horaz",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "3mv306ea2e5e2v0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.406Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.406Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "kjdbhjlkqis34kn"
+        }
+      ],
+      "source_id": "u7p2hswrvpizrdz"
+    },
+    {
+      "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 9. s. Textbezug INr 32546, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romantische Kleidung / Madme. Vestris als Gabrielle Vergy",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. J. Penzel fec.",
+      "scans": [
+        "alm_451_32545_ffrqo8ovkh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romantische Kleidung / Madme. Vestris als Gabrielle Vergy",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.700Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "bzm01rfuo44wzyj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.700Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "gsvd27r258w166c"
+        }
+      ],
+      "source_id": "uvw620hg37w92kq"
+    },
+    {
+      "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32545, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Die Rolle der Gabrielle de Vergy, in welcher sich Mad. Vestris so außerordentlichen Ruhm erwarb ist auch in Deutschland bekannt genug.",
+      "language": [],
+      "musenalm_id": 32546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C. / Romantische Kleidung. / No. 9. / Mad. Vestris als Gabrielle de Vergy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C. / Romantische Kleidung. / No. 9. / Mad. Vestris als Gabrielle de Vergy",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.607Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "oudy2jpzobbc0te"
+        }
+      ],
+      "source_id": "5vx7a45jzb1vly4"
+    },
+    {
+      "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32548, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Die Rittertracht wird meistens auf unsern Theatern aufs elendeste verhunzt;",
+      "language": [],
+      "musenalm_id": 32547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D. / Ritter-Kleidung. / No. 10. / Herr Lainez als Rodrigue / in der Oper Chimene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "D. / Ritter-Kleidung. / No. 10. / Herr Lainez als Rodrigue / in der Oper Chimene",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.607Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "f9ncbg28vwh2h9e"
+        }
+      ],
+      "source_id": "szmmejv73lsssrl"
+    },
+    {
+      "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 10. s. Textbezug INr 32547, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter-Kleidung / Herr Lainez als Rodrigue i. d. Opera Chimene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. J. Penzel fec.",
+      "scans": [
+        "alm_451_32548_hskrvbumhn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ritter-Kleidung / Herr Lainez als Rodrigue i. d. Opera Chimene",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.607Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "1vkm2nc2fv9hsaw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.607Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "xrj91zlo3w717qd"
+        }
+      ],
+      "source_id": "d4qrk3bdbeiyk13"
+    },
+    {
+      "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 11. s. Textbezug INr 32550, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alt französische Tracht. / Mlle. Contat, als Madme. de Randan, in den / Amours du Chev. Baÿard",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. J. Penzel fec.",
+      "scans": [
+        "alm_451_32549_ja7su2ugaj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alt französische Tracht. / Mlle. Contat, als Madme. de Randan, in den / Amours du Chev. Baÿard",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.607Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "nre3hi9yc4epke8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.607Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "yev69mnioduuku6"
+        }
+      ],
+      "source_id": "3nbz81iswxi6wwp"
+    },
+    {
+      "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32549, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Die vortreffliche Contat gefällt dem Publiko so sehr als Wittwe Randan, in dem famosen Amours du Chev. Bayard,",
+      "language": [],
+      "musenalm_id": 32550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "E. / Tracht aus dem mittleren Zeitalter. / No. 11. / Mlle. Contat als die Wittwe / de Randan / in den Amours du Cheval. Bayard",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "E. / Tracht aus dem mittleren Zeitalter. / No. 11. / Mlle. Contat als die Wittwe / de Randan / in den Amours du Cheval. Bayard",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.608Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "4wy8wy8qnwpvc48"
+        }
+      ],
+      "source_id": "2fb3hyao2s8g1hy"
+    },
+    {
+      "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32552, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Hier erscheint Mlle. Contat als die frivole Soubrette, in der Attitüde wie sie den Grafen Almaviva",
+      "language": [],
+      "musenalm_id": 32551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "F. / Moderne Charakter-Kleidung. / No. 12. / Mlle. Contat als Suzanne / im Mariage de Figaro",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "F. / Moderne Charakter-Kleidung. / No. 12. / Mlle. Contat als Suzanne / im Mariage de Figaro",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.608Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "j7gzqu57pe5mlz4"
+        }
+      ],
+      "source_id": "c8f965b9pnzk4op"
+    },
+    {
+      "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 12. s. Textbezug INr 32551, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moderne CharakterKleidung / Mlle. Contat, als Suzanne in Mar. de Figaro",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kraus del. J. Penzel fec.",
+      "scans": [
+        "alm_451_32552_1zxug26zeh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Moderne CharakterKleidung / Mlle. Contat, als Suzanne in Mar. de Figaro",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.608Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "0s9nqpjfxu1cqoq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.608Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "t3r401ihte597up"
+        }
+      ],
+      "source_id": "jpwsl1vnr5t3g1m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Der Hang zum Tanzen ist so alt als die Welt. Der Mensch hüpft und springt in die Höhe, wenn er fröhlich ist,",
+      "language": [],
+      "musenalm_id": 32553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Der Tanz, / als geselliges Vergnügen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Der Tanz, / als geselliges Vergnügen",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.608Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.608Z",
+          "agent": "1j2glyr4uzfohrn",
+          "source_id": "qs442k2ihpmeuyi"
+        }
+      ],
+      "source_id": "2mjedtrqyl9j05l"
+    },
+    {
+      "annotation": "Sammlung von 6 Tanzanleitungen INr 32555-32560, Obj 51-56 s. a. 6 Musikbeigaben u. 6 graph. Tanzanleitungen32562-32573, Obj 58-69",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechs neue Tänze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechs neue Tänze",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "vj92i5oolfi34b5"
+    },
+    {
+      "annotation": "Sechs neue Tänze (Sammlung INr 32554, Obj 50 s. Anm. dort)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Quadrille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Quadrille",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "5k72t23uvazp10v"
+    },
+    {
+      "annotation": "Sechs neue Tänze (Sammlung INr 32554, Obj 50 s. Anm. dort)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Angloise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Angloise",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "g3mp4gy9auryas9"
+    },
+    {
+      "annotation": "Sechs neue Tänze (Sammlung INr 32554, Obj 50 s. Anm. dort)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Angloise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Angloise",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "tj4rwy9qn86l027"
+    },
+    {
+      "annotation": "Sechs neue Tänze (Sammlung INr 32554, Obj 50 s. Anm. dort)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Angloise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Angloise",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "96lj6w5xupebsd9"
+    },
+    {
+      "annotation": "Sechs neue Tänze (Sammlung INr 32554, Obj 50 s. Anm. dort)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Angloise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Angloise",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "x38svidiz20uuob"
+    },
+    {
+      "annotation": "Sechs neue Tänze (Sammlung INr 32554, Obj 50 s. Anm. dort)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Angloise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Angloise",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "m68h9xjba570381"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Erklärung der Kupfer",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "r5myiwkxe6kf6rh"
+    },
+    {
+      "annotation": "s. Musikbeigabe INr 32563, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32562,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 1",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32562_xz25672pn0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 1",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "62yarwtg4h5p5ad"
+    },
+    {
+      "annotation": "s. graph. Tanzanleitung INr 32562, Obj 58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.230Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32563,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Quadrille. No. 1",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32563_9whyu54b1u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Quadrille. No. 1",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4q5gasc14nze2l"
+    },
+    {
+      "annotation": "s. Musikbeigabe INr 32565, Obj 61",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.526Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32564,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32564_am0npkeubq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 2.",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "fjuwqgqozrztp7g"
+    },
+    {
+      "annotation": "s. graph. Tanzanleitung INr 32654, Obj 60",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32565,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angloise No. 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32565_0w1ya4k37w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Angloise No. 2.",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "hypfu2hkf8pjkaf"
+    },
+    {
+      "annotation": "s. Musikbeigabe INr 32567, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32566,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32566_1cziwg67c0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 3.",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "pudk5rfdhuy4yg2"
+    },
+    {
+      "annotation": "s. graph. Tanzanleitung INr 32566, Obj 62",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32567,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allemande poco lento No. 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32567_6lr8tk69zj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Allemande poco lento No. 3.",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dbkwarhdgtk92g"
+    },
+    {
+      "annotation": "s. Musikbeigabe INr 32573, Obj 65",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32572,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 4",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32572_h0ao193vbn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 4",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "035ux2xkaotajqm"
+    },
+    {
+      "annotation": "s. graph. Tanzanleitung INr 32572, Obj 64",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32573,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angloise No. 4",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32573_ptqx5cc5v9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Angloise No. 4",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "skk4vtg8i36her0"
+    },
+    {
+      "annotation": "s. Musikbeigabe INr 32569, Obj 67",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32568,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32568_e2vb2l621k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 5.",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "u21ht4r5xirrabg"
+    },
+    {
+      "annotation": "s. graph. Tanzleitung INr 32568, Obj 66",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32569,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angloise No. 5",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32569_lyhxv3zq4o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Angloise No. 5",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "plkzkjqa895v98l"
+    },
+    {
+      "annotation": "s. Musikbeigabe INr 32571, Obj 69",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32570,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32570_553eh886bt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 6.",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "k476slxdd5txjk3"
+    },
+    {
+      "annotation": "s. graph. Tanzanleitung INr 32570, Obj 68",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32571,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angloise No. 6",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32571_5xpgqbxa73.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Angloise No. 6",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "8ys8wbdan3zf38j"
+    },
+    {
+      "annotation": "Umschlaggraphik v. Verlagsbroschur mit koloriertem Blumenschmuck im Rahmen",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32574,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_451_32574_p1oan7056a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-03-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1788,
+      "editor": "",
+      "agents": [],
+      "source_id": "2n612nm6f2jqrd1"
+    }
   ],
   "agents": [
     {

@@ -1,4 +1,5 @@
 mod accounts;
+mod i18n;
 pub mod assets;
 pub mod auth;
 mod deletion;
@@ -56,6 +57,7 @@ impl AppState {
             .await
             .map_err(WebError::internal)??;
         let auth = Auth::open(&state.join("server.sqlite"), insecure).await?;
+        Self::prepare_references(&editor, &state);
         Ok(Self::for_project(
             editor,
             auth,
@@ -64,6 +66,19 @@ impl AppState {
             Arc::new(vec![]),
         ))
     }
+    pub(crate) fn prepare_references(editor: &Editor, storage: &Path) {
+        let editor = editor.clone();
+        let directory = storage.join("read-cache");
+        tokio::task::spawn_blocking(move || {
+            if let Err(error) = editor.enable_reference_snapshot(&directory) {
+                tracing::warn!(%error, "Could not enable reference snapshot");
+            }
+            if let Err(error) = editor.prepare_reference_index() {
+                tracing::warn!(%error, "Could not prepare reference index");
+            }
+        });
+    }
+
     pub(crate) fn for_project(
         editor: Editor,
         auth: Auth,
@@ -100,7 +115,8 @@ pub fn router(state: Arc<AppState>) -> axum::Router {
 pub async fn blocking<T: Send + 'static>(
     work: impl FnOnce() -> Result<T> + Send + 'static,
 ) -> Result<T> {
-    tokio::task::spawn_blocking(work)
+    let language = i18n::language();
+    tokio::task::spawn_blocking(move || i18n::with_language(&language, work))
         .await
         .map_err(WebError::internal)?
 }

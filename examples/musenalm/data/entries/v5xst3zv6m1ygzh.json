@@ -48,24 +48,579 @@
   "year": 1822,
   "editor": "",
   "items": [
-    "7gq63k69s7n3wwe"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.544Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405201",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.544Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7gq63k69s7n3wwe"
+    }
   ],
   "contents": [
-    "hiltdse8hx1bx58",
-    "1n2s7aceh84bbe7",
-    "10qkt1h2gbgasz8",
-    "7gtytplv31wwuhm",
-    "hbm8exr8ad5dkqd",
-    "s9gosugqmlfffry",
-    "pqric8q1pmbr1bg",
-    "65o5nt72f5vqzdt",
-    "1mwya61ivm3b0ht",
-    "wej04s747wu08ux",
-    "5zxmv614ysqhcae",
-    "jmwoawmxn7n50wk",
-    "pufonwn3um7b5o2",
-    "grlfk1elkc5lr08",
-    "78glkes5qqa4b1s"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124662,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1250_124662_jg3wl4b12b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "hiltdse8hx1bx58"
+    },
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Der junge Husaren-Oberst« von Kurländer (INr 124672, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124663,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der junge Husaren-Oberste XXte Sc. / Jenny. / »Ich will kein Mann seyn.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1250_124663_4kw460l578.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der junge Husaren-Oberste XXte Sc. / Jenny. / »Ich will kein Mann seyn.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "1n2s7aceh84bbe7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124664,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1822 / von / F. A. von Kurländer. / Zwölfter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1822 / von / F. A. von Kurländer. / Zwölfter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "10qkt1h2gbgasz8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124665,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Obwohl der größere Theil des Publikums sich gewöhnlich sehr wenig darum bekümmert, [...] so halte ich mich doch verpflichtet, [...] die Originale jener Bearbeitungen anzuzeigen, die den Inhalt des zwölfen Jahrgangs dieses Taschenbuchs bilden.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Obwohl der größere Theil des Publikums sich gewöhnlich sehr wenig darum bekümmert, [...] so halte ich mich doch verpflichtet, [...] die Originale jener Bearbeitungen anzuzeigen, die den Inhalt des zwölfen Jahrgangs dieses Taschenbuchs bilden.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "7gtytplv31wwuhm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124666,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "hbm8exr8ad5dkqd"
+    },
+    {
+      "annotation": "mit zwei kol. Illustrationen (INr 124668 u. 124669, Obj 7 u 8); # Bezeichnung aus dem Vrwrt (INr 124664, Obj 4); ## Bezeichnung aus dem Titel (INr 124664, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Bravo! Alle Zeitungen da, ehe die Fremden in meinem Gasthofe erwachen, da kann man früher nach Herzenslust lesen und Einiges für Briefneuigkeiten verkaufen.",
+      "language": [],
+      "musenalm_id": 124667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Liebeserklärung / Lustspiel in zwei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Vial # [bearb.] F. A. von Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Liebeserklärung / Lustspiel in zwei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.739Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "jajjsg6od7059h7"
+        }
+      ],
+      "source_id": "s9gosugqmlfffry"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Liebeserklärung« von Kurländer (INr 124667, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Liebeserklärung, Ir Act. XIIte Sc. / Ernst. / »Sie hat meinen Brief! Nun bin ich / verloren.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1250_124668_01u9aolxr4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Liebeserklärung, Ir Act. XIIte Sc. / Ernst. / »Sie hat meinen Brief! Nun bin ich / verloren.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "pqric8q1pmbr1bg"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Liebeserklärung« von Kurländer (INr 124667, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Liebeserklärung, IIr Act. XIIIte Sc. / Gräfin. / »Diese Versicherung macht auch mich / unaussprechlich glücklich.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Liebeserklärung, IIr Act. XIIIte Sc. / Gräfin. / »Diese Versicherung macht auch mich / unaussprechlich glücklich.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "65o5nt72f5vqzdt"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (INr 124671, Obj 10); # Bezeichnung aus dem Vrwrt (INr 124664, Obj 4); Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 124664, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "So! Es ist doch recht angenehem, wenn aus dem Hausmeister der Hausherr wird.",
+      "language": [],
+      "musenalm_id": 124670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Studenten-Wirthschaft / Lustspiel in einem Aufzug",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. von Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Studenten-Wirthschaft / Lustspiel in einem Aufzug",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.739Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "2nbfsc7o4iuy0xf"
+        }
+      ],
+      "source_id": "1mwya61ivm3b0ht"
+    },
+    {
+      "annotation": "kol. Illustration zu »Studenten-Wirthschaft« von Kurländer (INr 124670, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Studenten-Wirthschaft. IIIte Scene / Glimm. /»Ein solches matrimonium clandestinum / kostet viel Geld.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1250_124671_1zfij4zoj0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Studenten-Wirthschaft. IIIte Scene / Glimm. /»Ein solches matrimonium clandestinum / kostet viel Geld.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "wej04s747wu08ux"
+    },
+    {
+      "annotation": "mit einer koll. Illustration (Titelgraphik INr 124663, Obj 2); # Bezeichnung aus dem Vrwrt (INr 124664, Obj 4); Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 124664, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Lassen Sie sich ja durch nichts aufhalten, nach der Residenz zurückzukehren, Ihre Gegenwarth ist nicht nöthig, Ihre Angelegenheit steht gut.",
+      "language": [],
+      "musenalm_id": 124672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der junge Husaren-Oberste / Lustspiel in einem Aufzug",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. von Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der junge Husaren-Oberste / Lustspiel in einem Aufzug",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.739Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "80o7mv3dksth5wz"
+        }
+      ],
+      "source_id": "5zxmv614ysqhcae"
+    },
+    {
+      "annotation": "mit zwei koll. Illustrationen (INr 124797, 124798); # Bezeichnung aus dem Vrwrt (INr 124664, Obj 4); Alexis-Jacques-Marie Wafflard (vgl. Nouvelle Biographie Générale XLVI, S. 484); ## Bezeichnung aus dem Titel (INr 124664, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Es lebe die Kunst und die Liebe! / Es leben die Künstler und die Liebenden. / Das Getöse nimmt kein Ende.",
+      "language": [],
+      "musenalm_id": 124673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Fahrt zum Seehafen / von Dieppe. / Lustspiel in drei Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wafflard # [bearb.] F. A. von Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Fahrt zum Seehafen / von Dieppe. / Lustspiel in drei Aufzügen",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.739Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "zuap2epnfj8oj12"
+        }
+      ],
+      "source_id": "jmwoawmxn7n50wk"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Fahrt zum Hafen von Dieppe« von Kurländer (INr 124673, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.380Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fahrt zum Hafen von Dieppe. 1ter Act. XIte Sc. / Erbet / »Der allerliebste Mensch; ein ganzes Crocodill?«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1250_124797_ubzkdotm5l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Fahrt zum Hafen von Dieppe. 1ter Act. XIte Sc. / Erbet / »Der allerliebste Mensch; ein ganzes Crocodill?«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "pufonwn3um7b5o2"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Fahrt zum Hafen von Dieppe« von Kurländer (INr 124673, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fahrt zum Hafen von Dieppe. IIIter Act Xte Sc. / Madame / Palmyra’s Kleidung wird dich, braven Mann, / in Erstaunen setzen, nicht wahr?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1250_124798_1hbyw8v70c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Fahrt zum Hafen von Dieppe. IIIter Act Xte Sc. / Madame / Palmyra’s Kleidung wird dich, braven Mann, / in Erstaunen setzen, nicht wahr?",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "grlfk1elkc5lr08"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "423",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachstehende Bücher sind in der Baumgärtnerschen Buchhandlung in Leipzig um beigesetzte Preise zu haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachstehende Bücher sind in der Baumgärtnerschen Buchhandlung in Leipzig um beigesetzte Preise zu haben",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "78glkes5qqa4b1s"
+    }
   ],
   "agents": [
     {

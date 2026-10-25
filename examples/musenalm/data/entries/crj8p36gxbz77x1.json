@@ -48,35 +48,1186 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "1swr64mymr6pzox"
+    {
+      "annotation": "VB, T, SS 1-2 Vrwrt d Hrsg, SS 3-43, SS 44-46 G-Verz, 15 GG,  B Tab § (lt. Titel: Tabelle mit natürlich gefärbten Bandmustern. § Die Muster fehlen)\nqu.-4°§ (lt. Titel: Tabelle mit natürlich gefärbten Bandmustern. § Die Muster fehlen)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.509Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200814",
+      "location": "105G08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.509Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1swr64mymr6pzox"
+    }
   ],
   "contents": [
-    "k1pvkajx8i0lncn",
-    "9nax7rb12pnxlcb",
-    "01y8tpy08zjucf9",
-    "4w0i60gzx85tx00",
-    "go3jemid1zb06e8",
-    "wcslmjhzas0uz5m",
-    "vyzf8w67w34pj05",
-    "askozw7hvctrp42",
-    "9j4p32h8q7sy6zj",
-    "c59zqw654k1uel1",
-    "94jp4l5ne5e21zt",
-    "mr4ktqln41k6cjv",
-    "uhkl618ewuqmetr",
-    "pv4x7485e5phvo0",
-    "oa22zz6p8ndngyc",
-    "emlnjxjikwxu64c",
-    "827aqqsrl9t3y2q",
-    "iam1iix0ctio7a6",
-    "2jt8awu9s5i0d8t",
-    "ddf64uz6qg5sdig",
-    "z9yc3nslxtftu6g",
-    "fcbwnb6s9a06d2u",
-    "9j33eeh08ozwmo8",
-    "qacbhutlvyp1yjk",
-    "hi52zpeaf6mchs3",
-    "vg2zr9yxqkj3xyj"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / der / Strick- Näh- und anderer weiblichen Arbeiten / für das Jahr 1804. / Oder / Anweisung / zu verschiedenen künstlichen Strickereien; zum künstlichen Steppen und andern Mode-Näharbeiten; / zum Waschen und Appretiren der Petinets, Flöhre, Spitzen und Gazen;  zum Färben der Stick- / und Nähseide, Bänder,Taffete, Musseline und Federn, nach einer ganz neuen, / dauerhaften und für Damen bequemen Art. / Von / Johann Friedrich Netto. / Mit funfzehn Kupfertafeln und einer Tabelle mit natürlichen gefärbten Bandmustern. / Leipzig, / bei Johann Conrad Hinrichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_670_48935_qba98m388p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / der / Strick- Näh- und anderer weiblichen Arbeiten / für das Jahr 1804. / Oder / Anweisung / zu verschiedenen künstlichen Strickereien; zum künstlichen Steppen und andern Mode-Näharbeiten; / zum Waschen und Appretiren der Petinets, Flöhre, Spitzen und Gazen;  zum Färben der Stick- / und Nähseide, Bänder,Taffete, Musseline und Federn, nach einer ganz neuen, / dauerhaften und für Damen bequemen Art. / Von / Johann Friedrich Netto. / Mit funfzehn Kupfertafeln und einer Tabelle mit natürlichen gefärbten Bandmustern. / Leipzig, / bei Johann Conrad Hinrichs",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "k1pvkajx8i0lncn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Da mein Taschenbuch der Strick- Näh- und anderer Arbeiten einen so ungetheilten Beifall erhalten hat, daß wenige Monate nach dessen Erscheinen schon eine zweite Auflage nöthig war, und auch durch eine vortheihafte Recension in der Allgemeinen Literatur",
+      "language": [],
+      "musenalm_id": 48936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.446Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.446Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "hnemfixw0y6suqi"
+        }
+      ],
+      "source_id": "9nax7rb12pnxlcb"
+    },
+    {
+      "annotation": "§ 1-3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes Kapitel. / Vom künstlichen Stricken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstes Kapitel. / Vom künstlichen Stricken",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.446Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.446Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "bkv8elvxpjomrg6"
+        }
+      ],
+      "source_id": "01y8tpy08zjucf9"
+    },
+    {
+      "annotation": "§ 4-5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweites Kapitel. / Von der erhabenen oder untergezogenen Strickerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweites Kapitel. / Von der erhabenen oder untergezogenen Strickerei",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.446Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.446Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "dkrgpz3qkjameg6"
+        }
+      ],
+      "source_id": "4w0i60gzx85tx00"
+    },
+    {
+      "annotation": "§ 6-9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drittes Kapitel. / Von durchbrochener Strickerei zu Schleiern, Damen-Aermeln und dergleichen, wie auch vom / Franzen-Stricken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drittes Kapitel. / Von durchbrochener Strickerei zu Schleiern, Damen-Aermeln und dergleichen, wie auch vom / Franzen-Stricken",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.565Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.565Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "2s7iwz1j0whyf1h"
+        }
+      ],
+      "source_id": "go3jemid1zb06e8"
+    },
+    {
+      "annotation": "§ 10- 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Viertes Kapitel. / Vom feinen künstlichen Nähen und Steppen, Hohlnädeln und Spitzenstich, in Linon, Batist und / Englischer Leinwand u. dgl.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Viertes Kapitel. / Vom feinen künstlichen Nähen und Steppen, Hohlnädeln und Spitzenstich, in Linon, Batist und / Englischer Leinwand u. dgl.",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.677Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "904cep9fukq12xk"
+        }
+      ],
+      "source_id": "wcslmjhzas0uz5m"
+    },
+    {
+      "annotation": "§ 14-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünftes Kapitel. / Vom Waschen der Linons, Musseline, Gaze, Petinets und Spitzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünftes Kapitel. / Vom Waschen der Linons, Musseline, Gaze, Petinets und Spitzen",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.677Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "91272p4c33ogwdf"
+        }
+      ],
+      "source_id": "vyzf8w67w34pj05"
+    },
+    {
+      "annotation": "§ 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48942,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechstes Kapitel. / Die neueste Art, die Wäsche in Tambourin zu zeichnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechstes Kapitel. / Die neueste Art, die Wäsche in Tambourin zu zeichnen",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.464Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.464Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "qex330j8n7d7df7"
+        }
+      ],
+      "source_id": "askozw7hvctrp42"
+    },
+    {
+      "annotation": "§ 19-35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48943,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebentes Kapitel. / Vom Färben der Stick- und Nähseide, der seidenen Zeuge, Musseline, Kattune und Federn u. dgl. / nach Hrn. Prof. Palmers Anweisung, mit Anmerkungen von Netto",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Palmer. Netto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebentes Kapitel. / Vom Färben der Stick- und Nähseide, der seidenen Zeuge, Musseline, Kattune und Federn u. dgl. / nach Hrn. Prof. Palmers Anweisung, mit Anmerkungen von Netto",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.464Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.464Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "n1ibhh6i6oxpsig"
+        }
+      ],
+      "source_id": "9j4p32h8q7sy6zj"
+    },
+    {
+      "annotation": "s. graph. Anleitungen INr 48945-48959, Obj 11-25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48944,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupferstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupferstiche",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.464Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.464Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "c1yi62fej11rknk"
+        }
+      ],
+      "source_id": "c59zqw654k1uel1"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab I. enthält Kante zu Jüpons und Damen-Kleidern /) kolorierte graph. Anleitung paginiert I.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48945,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto ft. 2te. Jah. G.",
+      "scans": [
+        "alm_670_48945_0518x440lx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.464Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.464Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "l6kvx3qsfzwn6i6"
+        }
+      ],
+      "source_id": "94jp4l5ne5e21zt"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab I. enthält Kante zu Jüpons und Damen-Kleidern /) graph. Anleitung paginiert I.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto ft. 2te. Jah. G.",
+      "scans": [
+        "alm_670_48946_nowxj8xnhe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.464Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.464Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "3yzcktz4z2u0cbr"
+        }
+      ],
+      "source_id": "mr4ktqln41k6cjv"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. II. befinden sich zwei kleine Kanten, die sich besonders in Kinderbändchen oder Gängelbänder schicken. /) kolorierte graph. Anleitung paginiert II.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.644Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto fec. 2te. Jah. G.",
+      "scans": [
+        "alm_670_48947_9w4xwo8cs6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.517Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "l0x7d67tkvw09d5"
+        }
+      ],
+      "source_id": "uhkl618ewuqmetr"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. II. befinden sich zwei kleine Kanten, die sich besonders in Kinderbändchen oder Gängelbänder schicken. /) graph. Anleitung paginiert II.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto fec. 2te. Jah. G.",
+      "scans": [
+        "alm_670_48948_3i1p1ltd41.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.517Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "y5h8dn6ptvpjh3j"
+        }
+      ],
+      "source_id": "pv4x7485e5phvo0"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab. III. liefert ebenfalls eine Bordüre zu Ofenschirmen, Reitdecken etc /) kolorierte graph. Anleitung paginiert III.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. 2ter. Jah. G.",
+      "scans": [
+        "alm_670_48949_hh3w478pix.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.517Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "bzc2mlmlntgabpr"
+        }
+      ],
+      "source_id": "oa22zz6p8ndngyc"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab. III. liefert ebenfalls eine Bordüre zu Ofenschirmen, Reitdecken etc /) graph. Anleitung paginiert III.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48950,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. 2ter. Jah. G.",
+      "scans": [
+        "alm_670_48950_4w1uzmex1m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.517Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "r5fq4ok4bqct1py"
+        }
+      ],
+      "source_id": "emlnjxjikwxu64c"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. IV. ist eine Alster-Guirlande zu Tisch-Teppichen, Damen-Röcken etc vorpunktirt # /) kolorierte graph. Anleitung paginiert IIII.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. Jah. G. 2te.",
+      "scans": [
+        "alm_670_48951_5ks0du2a4i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.517Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.517Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "7c6z90vutoq1lrj"
+        }
+      ],
+      "source_id": "827aqqsrl9t3y2q"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. IV. ist eine Alster-Guirlande zu Tisch-Teppichen, Damen-Röcken etc vorpunktirt # /) graph. Anleitung paginiert IIII.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48952,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. Jah. G. 2te.",
+      "scans": [
+        "alm_670_48952_p0v9n2hk6k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.698Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.698Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "wzibdxiz8noqs6c"
+        }
+      ],
+      "source_id": "iam1iix0ctio7a6"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab. V. stellt die neuen Arten Geldbeutel dar /) kolorierte graph. Anleitung paginiert V.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48953,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fe. 2te Jah. G.",
+      "scans": [
+        "alm_670_48953_pepbelt2ar.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.650Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "fxom5lqurlgsxqz"
+        }
+      ],
+      "source_id": "2jt8awu9s5i0d8t"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab. V. stellt die neuen Arten Geldbeutel dar /) graph. Anleitung paginiert V.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48954,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fe. 2te Jah. G.",
+      "scans": [
+        "alm_670_48954_schalm7ya1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.650Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "lherif4rteggvck"
+        }
+      ],
+      "source_id": "ddf64uz6qg5sdig"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. VI. ist ein Porte-Feuille zum Stricken vorpunktirt /) kolorierte graph. Anleitung paginiert VI.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48955,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fe. 2te Jah. G.",
+      "scans": [
+        "alm_670_48955_zr4yav1a8g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.586Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "iqr1zy6mk5t18m6"
+        }
+      ],
+      "source_id": "z9yc3nslxtftu6g"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. VI. ist ein Porte-Feuille zum Stricken vorpunktirt /) graph. Anleitung paginiert VI.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48956,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. 2te Jah. G.",
+      "scans": [
+        "alm_670_48956_rzvheog2zr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.587Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "awckdv1tbsxypda"
+        }
+      ],
+      "source_id": "fcbwnb6s9a06d2u"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Tab. VII. enthält Desseins zum Zeichnen der Wäsche in Tambourin /) graph. Anleitung paginiert VII.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48957,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. 2te Jah. G.",
+      "scans": [
+        "alm_670_48957_28npehnhe5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.587Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "0oy3hvjo0j3367b"
+        }
+      ],
+      "source_id": "9j33eeh08ozwmo8"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. VIII sind ebenfalls Muster für Wäsche /) graph. Anleitung paginiert VIII.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48958,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. 2te Jah. G.",
+      "scans": [
+        "alm_670_48958_p63ssuypzw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.587Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "k1z6xdfp4fgynvd"
+        }
+      ],
+      "source_id": "qacbhutlvyp1yjk"
+    },
+    {
+      "annotation": "# Aus dem G-Verz: Auf Tab. IX. endlich befinden sich kleine Muster zu steppen /) graph. Anleitung paginiert VIIII.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48959,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "graph. Anleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "#",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto. fec. 2te Jah. G.",
+      "scans": [
+        "alm_670_48959_uaiz1nieqf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "#",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.690Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "d4q9c5hmtz29gnd"
+        }
+      ],
+      "source_id": "hi52zpeaf6mchs3"
+    },
+    {
+      "annotation": "lt. Titel: Tabelle mit natürlich gefärbten Bandmustern. § Die Muster fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48960,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tabelle (Netto fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Netto fec.",
+      "scans": [
+        "alm_670_48960_td5i29nj7d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-04-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.690Z",
+          "agent": "yc646lrifh4tem5",
+          "source_id": "kfxeiu0mz33bk9n"
+        }
+      ],
+      "source_id": "vg2zr9yxqkj3xyj"
+    }
   ],
   "agents": [
     {

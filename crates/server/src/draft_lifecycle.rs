@@ -37,12 +37,12 @@ pub fn entry(
     if expired {
         body += "<p role=\"alert\">This draft expired or is no longer available. Its unsaved server-side changes are no longer available. Reopen the latest saved record to continue.</p>";
     }
-    body += if expired {
-        "<button class=\"primary\">Reopen editor</button></form>"
+    body += &if expired {
+        format!("<button class=\"primary\">{}</button></form>",views::escape(&crate::i18n::t("Reopen editor")))
     } else {
-        "<p>Opening editor…</p><button>Open editor</button></form>"
+        format!("<p>{}</p><button>{}</button></form>",views::escape(&crate::i18n::t("Opening editor…")),views::escape(&crate::i18n::t("Open editor")))
     };
-    views::panel(url, "Edit", &body)
+    views::panel(url, &crate::i18n::t("Edit"), &body)
 }
 
 pub fn resume(
@@ -68,7 +68,7 @@ pub fn resume(
             .map_err(|error| WebError::bad(format!("Invalid draft recovery data: {error}")))?;
         if restored.get("version").and_then(|v| v.parse::<u64>().ok()) == Some(session.version) {
             let before = session.snapshot();
-            session.apply(&restored)?;
+            session.apply(&state.editor, &restored)?;
             session.history.record(before, &session.snapshot());
         }
     }

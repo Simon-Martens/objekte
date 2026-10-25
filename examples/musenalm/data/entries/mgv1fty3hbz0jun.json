@@ -48,25 +48,776 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "0j7n3chdhaht35u"
+    {
+      "annotation": "1828-1849.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.700Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108670",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.700Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0j7n3chdhaht35u"
+    }
   ],
   "contents": [
-    "nf4sed967ipcccz",
-    "nl8sum267mk9rbh",
-    "c2cdlnlmdpk7n7g",
-    "q5tj7l66n5lvk3j",
-    "wzbno2xpxx7tdhd",
-    "li99nb972dqu4uw",
-    "wv5pjryfn2r5tg8",
-    "jl5ws7j5ljsktc3",
-    "4gpaym2njhouv7d",
-    "kq1w2u73ssm9sxr",
-    "2yw5bqf5io7uiq4",
-    "znft7p4ki7wod59",
-    "uez4u8ckgc3tdd2",
-    "42j0vl9ixmrik48",
-    "8jpu7cr6mzevl1t",
-    "fv58ihnonqscob3"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110967,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3475_110967_coxo1175n8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "nf4sed967ipcccz"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110968,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blanca",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Wien",
+      "scans": [
+        "alm_3475_110968_ixunipqsq2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Blanca",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.324Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "inmw05w4gra8zs7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.324Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "qaq5lfo3ogn11dh"
+        }
+      ],
+      "source_id": "nl8sum267mk9rbh"
+    },
+    {
+      "annotation": "Unter dem Titel: I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110970,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1839. / Von / A. von Tromlitz. / Zwölfter Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3475_110970_lkiihalcj3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1839. / Von / A. von Tromlitz. / Zwölfter Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "c2cdlnlmdpk7n7g"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN, / FÜR / 1839. / VON / A. von Tromlitz. / Leipzig, Baumgärtner's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinr. Meyer sc. Zürich. Schrift und Druck v. C. martin",
+      "scans": [
+        "alm_3475_110969_cz3m0auox5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN, / FÜR / 1839. / VON / A. von Tromlitz. / Leipzig, Baumgärtner's Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.324Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "mqq0nb2s3u33w17"
+        }
+      ],
+      "source_id": "q5tj7l66n5lvk3j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110971,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "wzbno2xpxx7tdhd"
+    },
+    {
+      "annotation": "Anm. hierzu im G-Verz: artistische Zugabe der Verlagshandlung /) s. Gedicht INr 110981, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110972,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gegend in den Apenninen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich von J. Kovatsch in Wien",
+      "scans": [
+        "alm_3475_110972_c1ra5pap0a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gegend in den Apenninen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.320Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.320Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "i145ldk7qk3u5ya"
+        }
+      ],
+      "source_id": "li99nb972dqu4uw"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 110974, 119975; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ist mir denn keine Ruhe auf dieser Erde gegönnt? sprach Kaiser Friedrich II. das Fenster aufreißend und über das herrliche Palermo hinüber nach dem brausenden Meere schauend.",
+      "language": [],
+      "musenalm_id": 110973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rechberge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rechberge",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "8j0tyk1bkm8mdrw"
+        }
+      ],
+      "source_id": "wv5pjryfn2r5tg8"
+    },
+    {
+      "annotation": "Illustration zu »Die Rechberge« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110973, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Retzsch del. Hoffmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Retzsch del. Hoffmann sc.",
+      "scans": [
+        "alm_3475_110974_7p612y3cbq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "08i25nbd31wou1n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "isicrmpdhbvhpwz"
+        }
+      ],
+      "source_id": "jl5ws7j5ljsktc3"
+    },
+    {
+      "annotation": "Illustration zu »Die Rechberge« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110973, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Conrad Rechberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. C. Kotterba sc.",
+      "scans": [
+        "alm_3475_110975_2l6g49lini.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Conrad Rechberg",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "j838guekelmrhio"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "namsypzjm1794cx"
+        }
+      ],
+      "source_id": "4gpaym2njhouv7d"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 11097-110979, Obj 11-13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Als die junge 21 jährige Königin Frankreich verlassen hatte und den 19ten August 1561 in Leith landete, fand sie Schottland in dem Zustande höchster Verwirrung.",
+      "language": [],
+      "musenalm_id": 110976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilder und Scenen / aus den Jugendjahren / der Königin Maria Stuart",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilder und Scenen / aus den Jugendjahren / der Königin Maria Stuart",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "1ts7l6f43tqv2vs"
+        }
+      ],
+      "source_id": "kq1w2u73ssm9sxr"
+    },
+    {
+      "annotation": "Illustration zu »Bilder und Scenen aus den Jugendjahren der Königin Maria Stuart« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110976, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Stuart",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Dav. Weiss gest. in Stahl Wien",
+      "scans": [
+        "alm_3475_110977_hs5uxfv8n6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Stuart",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "n46cjdxbghyezpx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "nst4y0zj7h0ej7h"
+        }
+      ],
+      "source_id": "2yw5bqf5io7uiq4"
+    },
+    {
+      "annotation": "Illustration zu »Bilder und Scenen aus den Jugendjahren der Königin Maria Stuart« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110976, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Ogilvie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl",
+      "scans": [
+        "alm_3475_110978_eerp7n62zt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Ogilvie",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "cgafx7xdaq1eevd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "fzqtu9i1v62y0xo"
+        }
+      ],
+      "source_id": "znft7p4ki7wod59"
+    },
+    {
+      "annotation": "Illustration zu »Bilder und Scenen aus den Jugendjahren der Königin Maria Stuart« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110976, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. R. del. J. A. sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. R. del. J. A. sculp.",
+      "scans": [
+        "alm_3475_110979_ujdbay8jgq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "5oxrbvmf3agj3lu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "v5aw4w2um7rohpx"
+        }
+      ],
+      "source_id": "uez4u8ckgc3tdd2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "396",
+      "incipit_statement": "In Prag lebte schon seit langer Zeit ein wohlhabender alter Böttcher-Meister, der von Würzburg dahin gezogen war.",
+      "language": [],
+      "musenalm_id": 110980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schwere Wahl",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schwere Wahl",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.271Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "1ov1280uc91wvmo"
+        }
+      ],
+      "source_id": "42j0vl9ixmrik48"
+    },
+    {
+      "annotation": "Anm. am Objekt: Hierzu die vorn eingeheftete Abbildung, als artistische Zugabe der Verlagshandlung /) s. Graphik INr 110972, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "467",
+      "incipit_statement": "Wie schön bist Du, Natur! so ruft entzückt / Der Wandrer aus, wenn er in stiller Nacht / Des Berges Gipfel mühevoll erstieg.",
+      "language": [],
+      "musenalm_id": 110981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung zur artistischen Zugabe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung zur artistischen Zugabe",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "c98gp88ho18gfzm"
+        }
+      ],
+      "source_id": "8jpu7cr6mzevl1t"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.504Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110982,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3475_110982_h28duqxjzc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "fv58ihnonqscob3"
+    }
   ],
   "agents": [
     {

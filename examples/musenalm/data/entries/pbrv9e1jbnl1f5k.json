@@ -48,27 +48,763 @@
   "year": 1850,
   "editor": "",
   "items": [
-    "kvrdwoa8zpam4k6"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.596Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406023",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.596Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kvrdwoa8zpam4k6"
+    }
   ],
   "contents": [
-    "ezgwzm8p7t89y8j",
-    "seghtia95tvo7eq",
-    "2dbqypp9jx9axo0",
-    "sgawqcp2wmczr8a",
-    "354nsclbo917mmz",
-    "iqviv7f5w3l60at",
-    "39pqxj7cl5uiy0k",
-    "03ipcq1l91by0ys",
-    "b9ikiv5sxjm5ubv",
-    "vcuvqk1e7p9ujpd",
-    "iujah9ytpvue0nl",
-    "tdf0ixg1550ltde",
-    "rr4qfnbpasn15k7",
-    "jxpravbch2i1f6n",
-    "f3rkkeb9rtcnn4k",
-    "7kl2gm75qk0oj8k",
-    "3zwloafj9yyp1mv",
-    "b98hbfqq78ud689"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110078,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2244_110078_6ivv6gasv1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "ezgwzm8p7t89y8j"
+    },
+    {
+      "annotation": "Titelgraphik /) unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Der Buchstabe tödtet« von C. v. Wachsmann INr 110089, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110079,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2244_110079_u02gku42z4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anna",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "65j295h95dvnb8r"
+        }
+      ],
+      "source_id": "seghtia95tvo7eq"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110080,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LILIEN. / Taschenbuch / historisch-romantischer Erzählungen / für / 1850 / von / C. v. WACHSMANN. / 12ter. Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stdr. v. Hellwig in Merseburg a/S.",
+      "scans": [
+        "alm_2244_110080_pyln97z6c6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LILIEN. / Taschenbuch / historisch-romantischer Erzählungen / für / 1850 / von / C. v. WACHSMANN. / 12ter. Jahrgang",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "2dbqypp9jx9axo0"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Alles ist möglich« von C. v. Wachsmann INr 110093, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110081,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Veronica",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2244_110081_poskhna3id.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Veronica",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "f26zxh5xl24bf7t"
+        }
+      ],
+      "source_id": "sgawqcp2wmczr8a"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Egeria« von C. v. Wachsmann INr 110088, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.207Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110082,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zehra",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2244_110082_gxf2n7yk9w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zehra",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "xzoy2vgqx506kor"
+        }
+      ],
+      "source_id": "354nsclbo917mmz"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die Vendéer von Nantes« von C. v. Wachsmann INr 110092, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110083,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2244_110083_nvs8w89127.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Adele",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "aeiqgzt0chkr9xm"
+        }
+      ],
+      "source_id": "iqviv7f5w3l60at"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die sieben Infanten von Lara« von C. v. Wachsmann INr 110090, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110084,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Isabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2244_110084_aqxf0xuyss.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Isabel",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "izx367hp7315ux1"
+        }
+      ],
+      "source_id": "39pqxj7cl5uiy0k"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die Amazone« von C. v. Wachsmann INr 110091, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110085,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2244_110085_vj1fudtm30.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marion",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "s5n7jzetu1p8bkj"
+        }
+      ],
+      "source_id": "03ipcq1l91by0ys"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110086,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1850, / von / C. von Wachsmann. / Zwölfter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2244_110086_083zpfsqkg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1850, / von / C. von Wachsmann. / Zwölfter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "b9ikiv5sxjm5ubv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110087,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "vcuvqk1e7p9ujpd"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Die Alte hob den dürren Arm, / Sie hielt den Stab empor, [...] Englische Ballade /) mit einer Illustration s. Graphik INr 110082, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In der Zeit, in welcher Ludwig XIV. zu Versailles Wunder der Baukunst schuf, und in der einfachen Ebene Gartenparadiese mit dem Aufwande von Millionen hervorzauberte,",
+      "language": [],
+      "musenalm_id": 110088,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Egeria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Egeria",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "vpotsoa1kcnvg2a"
+        }
+      ],
+      "source_id": "iujah9ytpvue0nl"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: England expects that every man will do his duty! / Nelsons Tagesbefehl /) mit einer Illustration s. Graphik INr 110079, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "James F. war der Sohn armer Eltern. Sein Vater ein fleißiger Handwerker in einer Landstadt des westlichen Englands, hatte ihn für den Seedienst bestimmt.",
+      "language": [],
+      "musenalm_id": 110089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Buchstabe tödtet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Buchstabe tödtet",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.304Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "wbq0y065itwarey"
+        }
+      ],
+      "source_id": "tdf0ixg1550ltde"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Und der Rächer wird erstehen, / So gewiß mein Herzblut strömet, [...] / Spanische Romanze /) mit einer Illustration s. Graphik INr 110084, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Es ist eigenthümlich, wie treu die große Masse des spanischen Volkes selbst die unbedeutenderen historischen Vorgänge aus grauer Vorzeit im Andenken bewahrt,",
+      "language": [],
+      "musenalm_id": 110090,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die sieben Infanten von Lara",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die sieben Infanten von Lara",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.305Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "hrrte4pyn1svte3"
+        }
+      ],
+      "source_id": "rr4qfnbpasn15k7"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: -- Ihr Geist / War seinem Sitz entwandert, und ihr Aug' / Nicht hatt' es eignen Glanz [...] / Spanische Romanze /) mit einer Illustration s. Graphik INr 110085, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Es giebt wohl für den Geologen, wie für den Alterthümler kaum in ganz Frankreich eine anziehendere Gegend, als die sonst von der Natur wenig begünstigte Auvergne.",
+      "language": [],
+      "musenalm_id": 110091,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Amazone",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Amazone",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.305Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "i8i6n2tcicfd75e"
+        }
+      ],
+      "source_id": "jxpravbch2i1f6n"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Und wo eine Einöde geschaffen worden war, da nannte man es Frieden / Tacitus /) mit einer Illustration s. Graphik INr 110083, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Tommelwirbel übertönten den kriegerischen Gesang, unter welchem die Bataillone der Republikaner zur Nachtzeit aus den Thoren von Nantes zogen.",
+      "language": [],
+      "musenalm_id": 110092,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vendéer von Nantes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vendéer von Nantes",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.351Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "uxup4au02ujguq2"
+        }
+      ],
+      "source_id": "f3rkkeb9rtcnn4k"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Sieht er! Das hat er wohl erwogen, / Einen andern Menschen hat er angezogen. / Wallensteins Lager /) mit einer Illustration s. Graphik INr 110081, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Die romantisch am Fuße des Riesengebirges gelegene Stadt Goldberg war im Mittelalter noch blühender und bevölkerter als in unsern Tagen.",
+      "language": [],
+      "musenalm_id": 110093,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alles ist möglich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alles ist möglich",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.408Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "kz7xn8nmz2pfvti"
+        }
+      ],
+      "source_id": "7kl2gm75qk0oj8k"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110094,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vortheilhaftes Anerbieten!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vortheilhaftes Anerbieten!",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "3zwloafj9yyp1mv"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110095,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2244_110095_7bzc5cr8k2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "b98hbfqq78ud689"
+    }
   ],
   "agents": [
     {

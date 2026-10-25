@@ -48,31 +48,1006 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "ge96gdd3qkpfmga"
+    {
+      "annotation": "1824-1831.\nKartonierter Einband mit Prägung, Goldschnitt und Schuber.\n1827: (K:Bl 1, IV, Bl 9, 372 SS, Bl 4 und Ku 8) Mit Bl 1, IV, Bl 9, 372 SS, Bl 4 und Ku 8. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.607Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100637",
+      "location": "105R03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.607Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ge96gdd3qkpfmga"
+    }
   ],
   "contents": [
-    "1f1ptl6102yn5p3",
-    "6rgnapv8jar9u30",
-    "1dy5fdtuabssm10",
-    "k4mae1nlkmyl0zc",
-    "od1nu8fbpw9p22z",
-    "uhqxyd3g3ainwzh",
-    "d22zad6tj0ep2a8",
-    "pmxpszdqg6thd92",
-    "07xvs0rldi4fy81",
-    "frtycw2ot9qyrtb",
-    "t7lfie7xzfhr8vn",
-    "37ojygqymkzumjk",
-    "p0e046ibfvxx5pd",
-    "c1vo635aasbkded",
-    "i2y7vt66xd1ygwd",
-    "7k7gpn6ki7uwbg2",
-    "9u8f63ijbyh6v0g",
-    "qec0nrbo5x53cyq",
-    "gd3deh2xmarf936",
-    "gbaqzysi6o7einv",
-    "8rwkj3utxqu4j1h",
-    "vlxqurg9jbzxd6z"
+    {
+      "annotation": "Schuber recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75111,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORPHEA / Taschenbuch / für / 1827",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2370_75111_ul0y0xppa1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORPHEA / Taschenbuch / für / 1827",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "1f1ptl6102yn5p3"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75112,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2370_75112_fy09dm3fqq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "6rgnapv8jar9u30"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75113,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT / II. Act. / Cherubin. Leb wohl! Die Liebe wird mich schützen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. H. Schmidt. sc.",
+      "scans": [
+        "alm_2370_75113_zvd85sprlq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT / II. Act. / Cherubin. Leb wohl! Die Liebe wird mich schützen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.748Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ehni2yt7237fg74"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.748Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "juzid3debuv1fji"
+        }
+      ],
+      "source_id": "1dy5fdtuabssm10"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75114,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ORPHEA / TASCHENBUCH / FÜR / 1827. / Vierter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU FIGARO'S HOCHZEIT. / LEIPZIG. / Ernst Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_2370_75114_edgr6asrw0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1827. / Vierter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU FIGARO'S HOCHZEIT. / LEIPZIG. / Ernst Fleischer",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "k4mae1nlkmyl0zc"
+    },
+    {
+      "annotation": "Mit Kurzerläuterungen zu den Grapiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "An den Cyclus unsrere Operngallerie reiht sich diesmal eine Schaustellung aus Figaro's Hochzeit, die wichtigsten Momente jenes Stückes in einer Scenenfolge von acht Blättern darbietend.",
+      "language": [],
+      "musenalm_id": 75115,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Fleischer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.654Z",
+          "agent": "orvggoshiht8kde",
+          "source_id": "063wpyuiox17vwq"
+        }
+      ],
+      "source_id": "od1nu8fbpw9p22z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75116,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "uhqxyd3g3ainwzh"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75117,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / zu den / Opern. / Vierte Lieferung. / Figaro's Hochzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / zu den / Opern. / Vierte Lieferung. / Figaro's Hochzeit",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "d22zad6tj0ep2a8"
+    },
+    {
+      "annotation": "Gallerie zu den Opern. Vierte Lieferung. Figaro's Hochzeit Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75118,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT. / I. Act. / Figaro. Fünfe - Zehne - Zwanzig - Dreissig etc / Suzanne. Deutlich saget mir mein Spiegel. etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. Büscher sc.",
+      "scans": [
+        "alm_2370_75118_psc6kihwzi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT. / I. Act. / Figaro. Fünfe - Zehne - Zwanzig - Dreissig etc / Suzanne. Deutlich saget mir mein Spiegel. etc",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.654Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "sap34q4r6hy7zba"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.654Z",
+          "agent": "rookj8hzrynkcws",
+          "source_id": "ygruax75z6e2be0"
+        }
+      ],
+      "source_id": "pmxpszdqg6thd92"
+    },
+    {
+      "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75119,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT. / I. Act. / Graf. Und hob endlich leise - leise / So - den Teppich von ihrem Tische",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_2370_75119_94eoyypoaq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT. / I. Act. / Graf. Und hob endlich leise - leise / So - den Teppich von ihrem Tische",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.654Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "pri7d9h9msgh5r9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.654Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.654Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "t4psajrufzkz5ve"
+        }
+      ],
+      "source_id": "07xvs0rldi4fy81"
+    },
+    {
+      "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.229Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75120,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT. / I. Act. / Figaro. Ueber deinen rothen Wangen / Wird ein schwarzer Schnurrbart prangen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_2370_75120_fu0g335h2i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT. / I. Act. / Figaro. Ueber deinen rothen Wangen / Wird ein schwarzer Schnurrbart prangen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "a8mhndvm18c4n71"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "m6tkpic7bkteonx"
+        }
+      ],
+      "source_id": "frtycw2ot9qyrtb"
+    },
+    {
+      "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.231Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75121,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT. / II. Act. / Susanne. Nun wende doch auf mich den Blick, / Nicht auf die Dame dort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+      "scans": [
+        "alm_2370_75121_0y5qko6hl1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT. / II. Act. / Susanne. Nun wende doch auf mich den Blick, / Nicht auf die Dame dort",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5j5r99e8lswpqsn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "cnlhjf7i7fwayt1"
+        }
+      ],
+      "source_id": "t7lfie7xzfhr8vn"
+    },
+    {
+      "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75122,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT. / III. Act. / Graf. Willst du in den Garten kommen? / Susanne. Ich komme ganz gewiss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. J. Axmann sc. 1825",
+      "scans": [
+        "alm_2370_75122_oozpkkgj3u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT. / III. Act. / Graf. Willst du in den Garten kommen? / Susanne. Ich komme ganz gewiss",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "4bulf26vho2prh7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ezh0w95j3feu448"
+        }
+      ],
+      "source_id": "37ojygqymkzumjk"
+    },
+    {
+      "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75123,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT / III. Act. / Chor. Ihr treuen Geliebten, / Mit Kränzen geschmückt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+      "scans": [
+        "alm_2370_75123_q6itp6113d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT / III. Act. / Chor. Ihr treuen Geliebten, / Mit Kränzen geschmückt",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "o3nnv66we9fzy7x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "yxhyn6abszzxn10"
+        }
+      ],
+      "source_id": "p0e046ibfvxx5pd"
+    },
+    {
+      "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.239Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FIGARO'S HOCHZEIT / IV. Act. / Susanne. Das Alles that die Liebe / Durch meine Schwanenhand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Han. Meyer sc. Ber.",
+      "scans": [
+        "alm_2370_75124_0fbg27t7ch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FIGARO'S HOCHZEIT / IV. Act. / Susanne. Das Alles that die Liebe / Durch meine Schwanenhand",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "dkyesxclxeey7df"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "nxgbjh6apzy8y75"
+        }
+      ],
+      "source_id": "c1vo635aasbkded"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vor der netten Schenke des Gränzdorfes Grüneklee hielten zwei Reisewagen. Der eine trug das Gepräge ausländischer Bauart und Fabrik;",
+      "language": [],
+      "musenalm_id": 75125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Lebens-Räthsel. / Zehn Blätter aus dem Tagebuche / eines Freundes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Lebens-Räthsel. / Zehn Blätter aus dem Tagebuche / eines Freundes",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "2r8vihkyb60euut"
+        }
+      ],
+      "source_id": "i2y7vt66xd1ygwd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Ich will nicht jagen mehr - ich will nicht mehr! - / Pfui! 's ist abscheulich, daß wir, Schakaln gleich, / blutdürstig brechen in des Waldes Horde,",
+      "language": [],
+      "musenalm_id": 75126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Alanghu. / Schauspiel in drei Akten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Ernst Raupach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Alanghu. / Schauspiel in drei Akten",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "uxyu52yd3v030gq",
+          "source_id": "ve4iethjcbzy9kg"
+        }
+      ],
+      "source_id": "7k7gpn6ki7uwbg2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Der kunstreiche Maler, Matthias Wermuth, stand in der Reife des männlichen Alters und die Hoffnungsblüten seines Frühlings fingen an, sich in goldene Früchte zu verwandeln.",
+      "language": [],
+      "musenalm_id": 75127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Der blinde Meister. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Der blinde Meister. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.721Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.721Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "zq9y862z9wxwlt6"
+        }
+      ],
+      "source_id": "9u8f63ijbyh6v0g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Von der Insel Ischia herüber, wo er einige Monate in stiller Verborgenheit gelebt hatte, landete eines schönen, herbstlichen Abends, kurz vor Niedergang der Sonne, Graf Lancilotto Montenegro mit seiner schönen Tochter Chiara",
+      "language": [],
+      "musenalm_id": 75128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Scipionengruft. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich de la Motte Fouqué",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Scipionengruft. / Eine Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "o7c9vhvguvxqoq5"
+        }
+      ],
+      "source_id": "qec0nrbo5x53cyq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Durch den unglücklichen Ausgang einer entscheidenden Schlacht war das Herz des Landes dem in siegreicher Uebermacht daherstürmenden Feinde preis gegeben.",
+      "language": [],
+      "musenalm_id": 75129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Glöcknerin. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. G. Prätzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Glöcknerin. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "ufh0csiazwb0bf6",
+          "source_id": "85lkxansclgvyef"
+        }
+      ],
+      "source_id": "gd3deh2xmarf936"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Wer ist der Greis auf der Felsenhöh'? / Tief unten donnert die Brandung der See.",
+      "language": [],
+      "musenalm_id": 75130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Der Barde und sein Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Moritz Holm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Der Barde und sein Kind",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "gbaqzysi6o7einv"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75131,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERLAGS-BERICHTE / von / ERNST FLEISCHER IN LEIPZIG. / (Peters-Strasse, No. 80.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VERLAGS-BERICHTE / von / ERNST FLEISCHER IN LEIPZIG. / (Peters-Strasse, No. 80.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "8rwkj3utxqu4j1h"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75132,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2370_75132_4q7mpmisti.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "vlxqurg9jbzxd6z"
+    }
   ],
   "agents": [
     {

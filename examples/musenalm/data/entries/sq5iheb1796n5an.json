@@ -48,33 +48,1002 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "aw96gpespzkm8v0"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200421",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "aw96gpespzkm8v0"
+    }
   ],
   "contents": [
-    "ii8t6w0a6sit06u",
-    "p8yt8o22huzcj9w",
-    "9xnn361r687mkuo",
-    "4fqvyjrl5t4zhxg",
-    "n7g56grdgdua8fk",
-    "50212o8861y97ju",
-    "509uyt1xalwafdt",
-    "q2g8qnkx0q73um6",
-    "flwk161aekptvw3",
-    "rtynqq37k9aukw9",
-    "wpjo2xgkipy2zog",
-    "uppd3wsaxwq8kjt",
-    "wyisq4f5fpkg8kp",
-    "2hi17fndvothmif",
-    "xe5483ubt5vikex",
-    "36nti30o1x5z6fu",
-    "tqjfa2nfgxd6su0",
-    "rhwjnnu6hmxtegb",
-    "pup30ac7sn13op2",
-    "7ehjh1xer191ypn",
-    "vymok1waechbnps",
-    "o5qrzv0d9c7m06c",
-    "c9lntbtd85veo5m",
-    "5rd6zlhq93jb4x6"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57514_03hczd5vs9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "ii8t6w0a6sit06u"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57515,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Mühlethal bey Schafhausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Hauenstein pinx. J. H. Meyer sc.",
+      "scans": [
+        "alm_711_57515_sfvfdcgs82.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Im Mühlethal bey Schafhausen",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.674Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "alojbji3ic0uetu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.674Z",
+          "agent": "qfq553jmfkso7qx",
+          "source_id": "picfiizb71v8jw3"
+        }
+      ],
+      "source_id": "p8yt8o22huzcj9w"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57516,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1811. / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57516_wzk9ecxfvw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1811. / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "9xnn361r687mkuo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57517,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "4fqvyjrl5t4zhxg"
+    },
+    {
+      "annotation": "mit 6 Illustrationen INr 57515, 57519-57523; Obj 2, 6-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die richtigste Charte vom Canton Schaffhausen, ist die zuerst von Heinrich Peyer, Bürger und Baumeister der Stadt Schaffhausen in Grund gelegte und geometrisch aufgenommene,",
+      "language": [],
+      "musenalm_id": 57518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Kurze / geographisch-statistische Darstellung / des Cantons / Schaffhausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Kurze / geographisch-statistische Darstellung / des Cantons / Schaffhausen",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "n7g56grdgdua8fk"
+    },
+    {
+      "annotation": "kol. Trachtenkupfer. Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Schaffhausen. / Bauer von Hallau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57519_ihp4xwhvo5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Schaffhausen. / Bauer von Hallau",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "50212o8861y97ju"
+    },
+    {
+      "annotation": "kol. Trachtenkupfer. Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Schaffhausen. / Bäuerin von Hallau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57520_wnuc9box2a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Schaffhausen. / Bäuerin von Hallau",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "509uyt1xalwafdt"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schafhausen / von der Westseite",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Hauenstein del. ad nat. J. H. Meyer sculps.",
+      "scans": [
+        "alm_711_57521_kughnr3n6n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schafhausen / von der Westseite",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.649Z",
+          "agent": "qfq553jmfkso7qx",
+          "source_id": "64t7uv3o553oqhe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.649Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "uitlmiioxhbwrp0"
+        }
+      ],
+      "source_id": "q2g8qnkx0q73um6"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf der neuen Promenade in Schafhausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Hauenstein pinx. J. H. Meyer sculps.",
+      "scans": [
+        "alm_711_57522_temcb6q8a9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Auf der neuen Promenade in Schafhausen",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.649Z",
+          "agent": "qfq553jmfkso7qx",
+          "source_id": "78kkyn4q74g9qxq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.649Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "8aghjj10n0s6k0i"
+        }
+      ],
+      "source_id": "flwk161aekptvw3"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus e. reichen Landmanns in Gächlingen, / Cant. Schaffhausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Hauenstein pinx. J. H. Meyer sculps.",
+      "scans": [
+        "alm_711_57523_3uwk36mync.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus e. reichen Landmanns in Gächlingen, / Cant. Schaffhausen",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.695Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "2d44bosflpmbaee"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.695Z",
+          "agent": "qfq553jmfkso7qx",
+          "source_id": "e5604upuplmcgww"
+        }
+      ],
+      "source_id": "rtynqq37k9aukw9"
+    },
+    {
+      "annotation": "mit 5 Illustrationen siehe Graphiken INr 57525-57529, Obj 12-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Aeltere Karten sind keine von Bedeutung vorhanden; als eine solche mag die fünfte Landtafel in Stumps Kronik angeführt werden.",
+      "language": [],
+      "musenalm_id": 57524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze / geographisch-statistische / Darstellung / des / Cantons Thurgau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze / geographisch-statistische / Darstellung / des / Cantons Thurgau",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "wpjo2xgkipy2zog"
+    },
+    {
+      "annotation": "kol. Trachtenkupfer. Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Thurgau« INr 57524, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Thurgau. / Bauer aus der Gegend von Arbon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57525_0lpokdy5sv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Thurgau. / Bauer aus der Gegend von Arbon",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "uppd3wsaxwq8kjt"
+    },
+    {
+      "annotation": "kol. Trachtenkupfer. Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Thurgau« INr 57524, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.296Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cant. Thurgau. / Bauernmädchen a. d. Gegend von Arbon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57526_35una7cl6g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cant. Thurgau. / Bauernmädchen a. d. Gegend von Arbon",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "wyisq4f5fpkg8kp"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Thurgau« INr 57524, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Eichler fec. ad nat. J. H. Meyer sc.",
+      "scans": [
+        "alm_711_57527_dot2esmbpb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenfeld",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.633Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "m4kdn9i0n13vqix"
+        }
+      ],
+      "source_id": "2hi17fndvothmif"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Thurgau« INr 57524, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Schlossgarten zu Arbon gegen Rorschach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Keller del. ad nat. J. H. Meyer sc.",
+      "scans": [
+        "alm_711_57528_g8rl30xt4s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Im Schlossgarten zu Arbon gegen Rorschach",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.633Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "d3qoeq6ojtss7tq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.633Z",
+          "agent": "hp3ztaqa2ipzjih",
+          "source_id": "gfntntnrdwch41s"
+        }
+      ],
+      "source_id": "xe5483ubt5vikex"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Thurgau« INr 57524, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus in Egnach, Cant. Thurgau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer sc.",
+      "scans": [
+        "alm_711_57529_jsk9zd6lxe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus in Egnach, Cant. Thurgau",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.633Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "o8n4cuqatb4tjyx"
+        }
+      ],
+      "source_id": "36nti30o1x5z6fu"
+    },
+    {
+      "annotation": "Insgesamt 20 Auszüge",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.302Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Durch das Zureden verschiedener deutschen Geschichtsschreiber und eigenen Trieb bewogen, habe ich mich entschlossen, den Theil der englischen Welthistorie auszuarbeiten, der die Helvetische Geschichte enthält.",
+      "language": [],
+      "musenalm_id": 57530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Auszüge / aus den frühesten Briefen / Johanns von Müller / an seinen ältesten Freund / in der / Schweitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann von Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Auszüge / aus den frühesten Briefen / Johanns von Müller / an seinen ältesten Freund / in der / Schweitz",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.633Z",
+          "agent": "e0m51eftg1dzkew",
+          "source_id": "mr0uko6dvscs49f"
+        }
+      ],
+      "source_id": "tqjfa2nfgxd6su0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Maximilian hatte sich, durch etliche seiner neuerlichen Schritte, zu tief in die Nothwendigkeit gesetzt, durch irgend eine entscheidende That die Ehre des Oberhaupts eines Staatskörpers zu retten,",
+      "language": [],
+      "musenalm_id": 57531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Fragment / aus dem / Schwabenkrieg. / 1499",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Fragment / aus dem / Schwabenkrieg. / 1499",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "rhwjnnu6hmxtegb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.694Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Wohl! das Leben athmet freyer, / Und der Sorge Nebelschleyer / Weicht, ich grüße dich Natur, / An der freundlichholden Thur!",
+      "language": [],
+      "musenalm_id": 57532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Besuch zu *** / an der Thur, / 1810",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Besuch zu *** / an der Thur, / 1810",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "pup30ac7sn13op2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.694Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ehjh1xer191ypn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.694Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "vymok1waechbnps"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.694Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey den Verlegern dieses Almanachs ist / ferner im Jahr 1810 gedruckt worden, / und zu haben:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bey den Verlegern dieses Almanachs ist / ferner im Jahr 1810 gedruckt worden, / und zu haben:",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "o5qrzv0d9c7m06c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57536,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Cantone Schaffhausen und Thurgau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest. von Scheurmann",
+      "scans": [
+        "alm_711_57536_7gjcc9xl2r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Cantone Schaffhausen und Thurgau",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.594Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.594Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "6xc0h41931ysfgc"
+        }
+      ],
+      "source_id": "c9lntbtd85veo5m"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57537,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_711_57537_6fpq0fmbc0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "5rd6zlhq93jb4x6"
+    }
   ],
   "agents": [
     {

@@ -48,75 +48,2746 @@
   "year": 1801,
   "editor": "",
   "items": [
-    "ahq1kpoaffk9qgf"
+    {
+      "annotation": "Erstaufnahme 2006 auf der Musenalm nach Ex. fremde Herkunft",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.506Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407179",
+      "location": "105D06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.506Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ahq1kpoaffk9qgf"
+    }
   ],
   "contents": [
-    "1dj9f1ozeevvi4r",
-    "z3gwhevc87q8tsa",
-    "pwslcotu4p8la8y",
-    "q1lalj2z7kzuuxv",
-    "8x7n1o060f11l4c",
-    "m45ewy297eslqmf",
-    "wjchb7256zv7ffl",
-    "pl56bru3cd7oum9",
-    "awe6rdbpns3dj2b",
-    "7d1kt5d2nf72dlg",
-    "o26flgn85dt9uyy",
-    "ke32wrlulnx28h0",
-    "d2nckp6651zd8od",
-    "u4pyoydw2jl44i5",
-    "2mkrp1crxg4gf0e",
-    "usr4xkoaiq7l5md",
-    "4uw4size8qx4cda",
-    "ram5jz2abquoh52",
-    "cdm26lqmcpus6p0",
-    "3esx71gq4lo3h2x",
-    "bfoydexclfl2low",
-    "nfw9pjqq6cu36lm",
-    "n4e3k3kna5yyioj",
-    "h5bdg5fspw42p8q",
-    "g9ik28niqdbq4fp",
-    "3kp1lm9pnrr1k4e",
-    "mmem61zubxa0jam",
-    "ytzcf9iqbp2cx6d",
-    "86h2oh9jyy2gf45",
-    "bi5j8mmz816iul1",
-    "fwba185aoiqmjcg",
-    "ko6161b28skjep1",
-    "18oto4ltktbax5j",
-    "yd8g143yhvzwm8p",
-    "g1ab0qlf9hu5poj",
-    "jgaitphg6xo8l50",
-    "ufxc1a1eouc1iwq",
-    "tbu8iwtaeubl7be",
-    "dov102hfti7cuer",
-    "bfjbj0fnfj81zxt",
-    "n8vq144fs6i0jau",
-    "5dmvrhiam701221",
-    "4v5cy317vppmvrn",
-    "tzjbf4ix8p6fpuq",
-    "lpvcpbwxcu55mes",
-    "t78cddvtj3pxf69",
-    "3j6vbmlqiih12dc",
-    "588j1uqrp7cuf6o",
-    "t0r8iw354vrfkz7",
-    "vh5jjasot7xpq9o",
-    "hmrefy2vuv6c4qm",
-    "orglq0mtjxv779d",
-    "u491bjgq7wa0upe",
-    "yil655ui32myj4r",
-    "2dl30cuylbbf7f3",
-    "wgazplutqr1kp5q",
-    "fn2xeo6mxq59cd4",
-    "re2xkbr9xudpqho",
-    "cf5qsck7hotsmf7",
-    "961ztraubxqerj8",
-    "2eaaabzyh4atccw",
-    "0tzse5436ckjikd",
-    "9nz3s5wu7lrzxpg",
-    "cl189yir61j33u9",
-    "v4df6wm6veo0ss9",
-    "cocyadjae80e9hy"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79465,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_630_79465_dk970ibatx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "1dj9f1ozeevvi4r"
+    },
+    {
+      "annotation": "Titelportrait. Illustration zu »Juliane Ein biographisches Fragment« von K. G. Horstig INr 46494, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79466,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JULIANE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Ulmenstein del. J. G Huck sculpt.",
+      "scans": [
+        "alm_630_79466_yvdsbdgzmt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JULIANE",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "4t1bd668bw1auul"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.867Z",
+          "agent": "lqgqspdgkyiw9c9",
+          "source_id": "wxfqndqjqqqq1fo"
+        }
+      ],
+      "source_id": "z3gwhevc87q8tsa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.233Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46491,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Westphälisches / Taschenbuch. / Erstes Bändchen. / Herausgegeben / von / Karl Gottl. Horstig / und / Christian Ulrich Frhrn v. Ulmenstein. / Minden / bey Justus Heinrich Körber. / Preis 9 ggr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_630_46491_g2s4eu6brm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Westphälisches / Taschenbuch. / Erstes Bändchen. / Herausgegeben / von / Karl Gottl. Horstig / und / Christian Ulrich Frhrn v. Ulmenstein. / Minden / bey Justus Heinrich Körber. / Preis 9 ggr",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "pwslcotu4p8la8y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.234Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46492,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Monatliches Verzeichniß / der Geburtstage / der bekanntesten lebenden Schriftsteller / in / Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Monatliches Verzeichniß / der Geburtstage / der bekanntesten lebenden Schriftsteller / in / Deutschland",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "q1lalj2z7kzuuxv"
+    },
+    {
+      "annotation": "# Titel dem einleitenden Gedicht unpaginiert vorangestellt (Photos 46493,01-46493,07)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.237Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Aus Westphalen kommst du, dem Lande der / Schinken und Würste? / Armes Taschenbuch, du! wie wird es dir / wohl ergehn? / Kann aus Westphalen, dem feisten und wohl- / ernährenden Lande, / Etwas kommen, was noch mehr als Körper verspricht?",
+      "language": [],
+      "musenalm_id": 46493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prologus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [
+        "alm_630_46493_01_io5zp5i9lj.jpg",
+        "alm_630_46493_02_0vyhp55b78.jpg",
+        "alm_630_46493_03_h1anwxyimh.jpg",
+        "alm_630_46493_04_7fqnvftncp.jpg",
+        "alm_630_46493_05_kpnah6erwh.jpg",
+        "alm_630_46493_06_goopck43g7.jpg",
+        "alm_630_46493_07_02ywngtg7e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Prologus #",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.291Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "bhw7ru2zx85djv6"
+        }
+      ],
+      "source_id": "8x7n1o060f11l4c"
+    },
+    {
+      "annotation": "mit einem Gedicht s. INr 46553, Obj 4,01 /) mit einer Illustration s. Titelportrait INr 79466, Obj 0,2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Die allgemeine Theilnahme, welche der am 9ten November 1799 erfolgte, unerwartete Todesfall der Durchlauchtigsten Fürstin und Frau Juliane Wilhelmine Louise, verwittweten Gräfin von Schaumburg Lippe, gebohrnen Landgräfin von Hessen Philipsthal,",
+      "language": [],
+      "musenalm_id": 46494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Juliane / Ein biographisches Fragment",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Juliane / Ein biographisches Fragment",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.291Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.291Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "g9j3ij2oy5pasaz"
+        }
+      ],
+      "source_id": "m45ewy297eslqmf"
+    },
+    {
+      "annotation": "Dem Beitrag »Juliane. Ein biographisches Fragment« von K. G. Horstig INr 46494, Obj 4 beigegeben. /) Horstig  würdigt die Beiträgerin als »eine Dichterin, die nach dem Verluste der Karschin wohl eines dankbaren Blickes von ihrem Vaterlande würdig wäre ...«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Aus des Waldes grausen Schatten, / Wo das Wild sich einst verlohr,",
+      "language": [],
+      "musenalm_id": 46553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedanken / über die Klus / beym annahenden Frühlinge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Frau Projector Martini zu Minden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedanken / über die Klus / beym annahenden Frühlinge",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "wjchb7256zv7ffl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Herr, du bist würdig zu nehmen Preis und / Ehre und Kraft und Stärke von Ewigkeit / zu / Ewigkeit. / Werfet nieder eure Kronen / Ihr verklärten Geister, ihr!",
+      "language": [],
+      "musenalm_id": 46495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Feyer / der Unsterblichen / bey der Ankunft / Julianens / in / Wohnungen des Friedens. / Eine Trauermusik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Feyer / der Unsterblichen / bey der Ankunft / Julianens / in / Wohnungen des Friedens. / Eine Trauermusik",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "pl56bru3cd7oum9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Nicht fern von dem Ufer / der östlichen See, / da schwelgen die Kühe / im blumigen Klee,",
+      "language": [],
+      "musenalm_id": 46496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regine. / Eine Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regine. / Eine Ballade",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.506Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "si04c2bf598i1hq"
+        }
+      ],
+      "source_id": "awe6rdbpns3dj2b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "In angenehmer Damen-Gesellschaft fuhr ich von Oldenburg nach Bremen. Mit den schnell rollenden Rädern in die Wette, eilte flüchtig das Gespräch von Gegenstand zu Gegenstand,",
+      "language": [],
+      "musenalm_id": 46497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gleim / im Osenberge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Halem",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gleim / im Osenberge",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.506Z",
+          "agent": "v5ht3d6rw3do6ml",
+          "source_id": "0t7bj1sy3euw2dg"
+        }
+      ],
+      "source_id": "7d1kt5d2nf72dlg"
+    },
+    {
+      "annotation": "Sammlung von 11 Gedichten INr 46499- 46509, Obj 9-19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sinngedichte / aus dem Martial",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hostig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sinngedichte / aus dem Martial",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.506Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "71leznk3lbychoa"
+        }
+      ],
+      "source_id": "o26flgn85dt9uyy"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Er singt scharmant, er macht scharmante / Lieder, / Er tanzt scharmant, er deklamirt schar- / mant,",
+      "language": [],
+      "musenalm_id": 46499,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Liebling unsrer galanten Damen. / 2. B. 7. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Liebling unsrer galanten Damen. / 2. B. 7. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.417Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "5g130axjtsl0jr4"
+        }
+      ],
+      "source_id": "ke32wrlulnx28h0"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Die ganze Gegend spricht: / Sie ist das schlimmste Weib, er ist der / schlimmste Mann;",
+      "language": [],
+      "musenalm_id": 46500,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das gleiche Ehepaar. / 8. B. 35. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das gleiche Ehepaar. / 8. B. 35. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "csl52w8d5skdciq"
+        }
+      ],
+      "source_id": "d2nckp6651zd8od"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "So auf das Land allein zu gehen, / Was hast du doch davon?",
+      "language": [],
+      "musenalm_id": 46501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Linus und ich. / 2. B. 38. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Linus und ich. / 2. B. 38. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "44ctaccebkxmzm4"
+        }
+      ],
+      "source_id": "u4pyoydw2jl44i5"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Siberne Leuchter hast du und silberne Mes- / ser und Gabeln, / Silbernes Speisegeschirr, silbernes Küchen- / geräth,",
+      "language": [],
+      "musenalm_id": 46502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herrn Karinus. / 3. B. 9. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herrn Karinus. / 3. B. 9. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "zorj7ilx7pbk0pn"
+        }
+      ],
+      "source_id": "2mkrp1crxg4gf0e"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Du willst ein Dichter seyn, du armer Wicht! / Sey, was du willst, nur mache kein Gedicht.",
+      "language": [],
+      "musenalm_id": 46503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Professor Poeseos L. / 2. B. 88. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Professor Poeseos L. / 2. B. 88. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "uahcuwhcknq0smj"
+        }
+      ],
+      "source_id": "usr4xkoaiq7l5md"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Niemals giebtst du etwas, und immer ver- / sprichst du zu geben.",
+      "language": [],
+      "musenalm_id": 46504,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herrn Marx. / 2. B. 25. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herrn Marx. / 2. B. 25. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "99hbyjrpmyzq0m7"
+        }
+      ],
+      "source_id": "4uw4size8qx4cda"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Manches ist gut, was du liesest und mittel- / mäßig ist vieles,",
+      "language": [],
+      "musenalm_id": 46505,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unsre Bücher. / 1. B. 17. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unsre Bücher. / 1. B. 17. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "odi9o2rhm14sqqk"
+        }
+      ],
+      "source_id": "ram5jz2abquoh52"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Nein, Sextus, nein, ich werde dich / Nie wieder meinen Schuldner nennen.",
+      "language": [],
+      "musenalm_id": 46506,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herrn Gemeinderath Sextus. / 2. B. 2. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herrn Gemeinderath Sextus. / 2. B. 2. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "udg75ts1gbl8at0"
+        }
+      ],
+      "source_id": "cdm26lqmcpus6p0"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Was du so vielen Mädchen schreibst, das bleibet, / Fürwahr ein Geheimiß mir;",
+      "language": [],
+      "musenalm_id": 46507,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herrn Philoparth. / 11. B. 65. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herrn Philoparth. / 11. B. 65. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "95jupkm92g5tfzv"
+        }
+      ],
+      "source_id": "3esx71gq4lo3h2x"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Wer einen teuflischen Menschen dich nennet, / Melampus, der lüget,",
+      "language": [],
+      "musenalm_id": 46508,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Melampus. / 11. B. 93. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Melampus. / 11. B. 93. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "cx96s3dcmcqlzgj"
+        }
+      ],
+      "source_id": "bfoydexclfl2low"
+    },
+    {
+      "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Meine Bücher soll ich dir schenken, gehorsa- / mer Diener!",
+      "language": [],
+      "musenalm_id": 46509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herrn D. Pancratius. / 7. B. 76. Ep.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herrn D. Pancratius. / 7. B. 76. Ep.",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.418Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "810fh5kl8xbhfly"
+        }
+      ],
+      "source_id": "nfw9pjqq6cu36lm"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen mit einer Einleitung INr 46511-46519, Obj 21-29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46510,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige neue Fabeln, / mit / einer kurzen Einleitung / in die Leßingsche Fabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige neue Fabeln, / mit / einer kurzen Einleitung / in die Leßingsche Fabel",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4e3k3kna5yyioj"
+    },
+    {
+      "annotation": "Einleitung zu: Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Die Leßingische Fabel - denn warum sollten wir nicht so gut eine Leßingische, wie eine Äsopische haben - die Leßingsche Fabel ist vielleicht unter allen bisher bekannten Fabeln die einzige, die sich durch ihre unleugbare Originalität",
+      "language": [],
+      "musenalm_id": 46511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Leßingische Fabel - denn warum sollten wir nicht so gut eine Leßingische, wie eine Äsopische haben - die Leßingsche Fabel ist vielleicht unter allen bisher bekannten Fabeln die einzige, die sich durch ihre unleugbare Originalität…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.509Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.509Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "lplnbde1qkkx0se"
+        }
+      ],
+      "source_id": "h5bdg5fspw42p8q"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Man fragte einst einen raubgierigen Tiger, warum er den Thieren, die er finge, immer nur das Blut aussauge?",
+      "language": [],
+      "musenalm_id": 46512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tiger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tiger",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "g9ik28niqdbq4fp"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Ich bin doch der vorzüglichste unter euch allen, sprach der eingebildete Affe in der Versammlung der Thiere.",
+      "language": [],
+      "musenalm_id": 46513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der eingebildete Affe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der eingebildete Affe",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.597Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.597Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "bbcv8mae5w2qtv2"
+        }
+      ],
+      "source_id": "3kp1lm9pnrr1k4e"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Ein schwarzes Dintenfaß und eine Sandbüchse kamen in Geschäften auf einem Tische zusammen.",
+      "language": [],
+      "musenalm_id": 46514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Dintenfaß und die Streu- / sandbüchse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Dintenfaß und die Streu- / sandbüchse",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "mmem61zubxa0jam"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Ein Affe hatte sich sagen lassen, daß die Hirten auf der Flöte die lieblichen Töne hervorbrächten, welche er oft von fern aus dem Walde hörte.",
+      "language": [],
+      "musenalm_id": 46515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Affe und die Flöte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Affe und die Flöte",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "ytzcf9iqbp2cx6d"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Eine neugebohrne Eisblume sah an einem heitern Wintermorgen eine wohlriechende Hyazinthe neben sich im Fenster stehen.",
+      "language": [],
+      "musenalm_id": 46516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hyazinthe und die Eisblume / am Fenster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Hyazinthe und die Eisblume / am Fenster",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "86h2oh9jyy2gf45"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Warum nennt man mich nicht den König der Thiere, mich, der ich doch der größte unter euch bin",
+      "language": [],
+      "musenalm_id": 46517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Elephant und der Löwe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Elephant und der Löwe",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "cs58jkc4e2i95tf"
+        }
+      ],
+      "source_id": "bi5j8mmz816iul1"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Ich schämte mich, sprach der geschmeidige Fuchs zum Elephanten, ein so großes Thier und doch so schwerfällig und unbehülflich in allen Bewegungen zu seyn.",
+      "language": [],
+      "musenalm_id": 46518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fuchs und der Elephant",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fuchs und der Elephant",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "jud93y9jjal1nyo"
+        }
+      ],
+      "source_id": "fwba185aoiqmjcg"
+    },
+    {
+      "annotation": "Einige neue Fabeln (Sammlung INr 46510, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "An einem kalten Wintertage fiel eine Schaar von Krähen auf ein todtes Pferd, welches ohnweit der Stadt auf einem Anger lag.",
+      "language": [],
+      "musenalm_id": 46519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Krähe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Krähe",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "d8csjms4k6twvu9"
+        }
+      ],
+      "source_id": "ko6161b28skjep1"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 46521, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "An der Grenze von Westpahlen finden wir einen der Hauptflüsse von Deutschland, die Weser, an deren Ufern sich die Hauptstämme der uralten Deutschen ausbreiteten,",
+      "language": [],
+      "musenalm_id": 46520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hohenstein / und / Wasserfall bey Langenfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hohenstein / und / Wasserfall bey Langenfeld",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "bxbo6iqof5j8nkd"
+        }
+      ],
+      "source_id": "18oto4ltktbax5j"
+    },
+    {
+      "annotation": "s. Beitrag INr 46520, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hohenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig del. Darnstedt sc.",
+      "scans": [
+        "alm_630_46521_n16nqvmgd2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hohenstein",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "1dc34u3fed3fy3h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "cmh71ygc6xd0y47"
+        }
+      ],
+      "source_id": "yd8g143yhvzwm8p"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 46523, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Der Besuch des Hohensteins spannt die Neugierde des Naturfreundes, der sich nur einigermaßen auf Physiognomie der Gegenden versteht,",
+      "language": [],
+      "musenalm_id": 46522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wasserfall bey Langenfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wasserfall bey Langenfeld",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "le1dsjrfeiructn"
+        }
+      ],
+      "source_id": "g1ab0qlf9hu5poj"
+    },
+    {
+      "annotation": "s. Beitrag INr 46522, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wasserfall bei Langenfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_630_46523_ygqrc1v9cg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Wasserfall bei Langenfeld",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "c4j7hs8l628o8i9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "jtbapb6fyanwh1c"
+        }
+      ],
+      "source_id": "jgaitphg6xo8l50"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermischte Gedichte",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "ufxc1a1eouc1iwq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "O sag mir's, Zauberin, wer wand, / Mit milder seelenvoller Hand, / Noch freundlicher wie Mondesglanz, / Um deine Stirn den Veilchenkranz?",
+      "language": [],
+      "musenalm_id": 46525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hupe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "tbu8iwtaeubl7be"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Der Ofen summt, die zischenden Kannen / Gedulden sich länger nicht mehr.",
+      "language": [],
+      "musenalm_id": 46526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Geburtstage meiner Gattin. / Den 14ten Dez. 1799, beym Frühstück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Geburtstage meiner Gattin. / Den 14ten Dez. 1799, beym Frühstück",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "fjqkiwc5gn2gkut"
+        }
+      ],
+      "source_id": "dov102hfti7cuer"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Versteht ihr mich, wenn ich von jenem / Drange / Erfüllet, der die Menschenwelt vereint, / An euch ihr Brüder und ihr Schwestern / hange,",
+      "language": [],
+      "musenalm_id": 46527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sympathie. / An Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Warmholz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sympathie. / An Aurora",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "bfjbj0fnfj81zxt"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 46529, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Berge dich traulich im wiegenden Arm, / Knabe, da liegest du sicher und warm.",
+      "language": [],
+      "musenalm_id": 46528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied für eine teutsche Mutter. / Mit Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied für eine teutsche Mutter. / Mit Musik",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "jqp862mddjin1gm"
+        }
+      ],
+      "source_id": "n8vq144fs6i0jau"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Wiegenlied für eine teutsche Mutter« INr 46528, Obj 38 durch den Verfasser (Photos 46529,01; 46529,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.416Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied für eine teutsche Mutter. / Mit Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr v. Ulmenstein",
+      "scans": [
+        "alm_630_46529_pumh8dv9pk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied für eine teutsche Mutter. / Mit Musik",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "nk89yagm1nbvfy0"
+        }
+      ],
+      "source_id": "5dmvrhiam701221"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Der Willkommen« INr 46531, Obj 41 durch den Verfasser",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Willkommen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [
+        "alm_630_46530_4g0354i7ov.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Willkommen",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "n1yzkzofkbtofe3"
+        }
+      ],
+      "source_id": "4v5cy317vppmvrn"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 46530, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Willkommen, willkommen im neuen Revier! / Wir Freunde, wir alle versammeln uns hier / Euch festlich und froh zu empfangen.",
+      "language": [],
+      "musenalm_id": 46531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Willkommen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Willkommen",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "aoimi3avvtvz1qe"
+        }
+      ],
+      "source_id": "tzjbf4ix8p6fpuq"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Feuerfarb« von Sophie INr 46533, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Feuerfarbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Chr. Fr. Bach",
+      "scans": [
+        "alm_630_46532_49ry0xhor3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Feuerfarbe",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "u5ldyb1vr0qz98f",
+          "source_id": "rxyyi636vrzuo4p"
+        }
+      ],
+      "source_id": "lpvcpbwxcu55mes"
+    },
+    {
+      "annotation": "# s. Anm am Objekt: Diese im Journal des Luxus und der Moden (August 1792) zuerst bekannt gemachte Liedchen, dessen Verfasserin, die sich Sophie unterschrieb, noch zur Zeit nicht bekannt worden ist, wurde ohngefähr im Jahre 1794 von J. C. Fr. Bach mit der angenehmen und gefälligen Melodie beschenkt, die hier zum erstenmal in Druck erscheint.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Ich weiß eine Farbe, der bin ich so hold, / Die achte ich höher, als Silber und Gold, / Die trag' ich so gerne um Stirn und Ge- / wand,",
+      "language": [],
+      "musenalm_id": 46533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Feuerfarb. / Mit Musik",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Sophie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Feuerfarb. / Mit Musik",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "t78cddvtj3pxf69"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Feinsliebchen, ach! erbarme dich! / Dein Willy härmt zu Tode sich!",
+      "language": [],
+      "musenalm_id": 46534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schäfer an sein Liebchen. / (Nach dem Altenglischen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hinze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schäfer an sein Liebchen. / (Nach dem Altenglischen.)",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "3j6vbmlqiih12dc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Es schwebet auf Rosengefieder / Mit bräutlicher lockender Pracht / Der Frühling vom Himmel, und Lieder / Erschallen und Liebe erwacht.",
+      "language": [],
+      "musenalm_id": 46535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingslied",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "s5dg7b72v7skl2b"
+        }
+      ],
+      "source_id": "588j1uqrp7cuf6o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Ein böses Laster, spricht der finstre Mann, / Das straklich zum Verderben leitet, / Die bittre Reue zubereitet,",
+      "language": [],
+      "musenalm_id": 46536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "yuorm47gb3bc7wj"
+        }
+      ],
+      "source_id": "t0r8iw354vrfkz7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Wann der Lenz im Feyerkleide wieder / Die Natur zum schönern Leben weckt,",
+      "language": [],
+      "musenalm_id": 46537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor der Trennung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hinze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor der Trennung",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "vh5jjasot7xpq9o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Willkommen dort am Horizont, / Du lieber, voller, blanker Mond,",
+      "language": [],
+      "musenalm_id": 46538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Mond",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Mond",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "wdjrfn5g95dbg7d"
+        }
+      ],
+      "source_id": "hmrefy2vuv6c4qm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Was soll ich thun, ich muß mich wohl / bequemen, / Am Ende doch noch eine Frau zu nehmen,",
+      "language": [],
+      "musenalm_id": 46539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wahl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wahl",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "q3lfhy77krbpb6c"
+        }
+      ],
+      "source_id": "orglq0mtjxv779d"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 46541, Obj 51. /) Lied der Margrethe aus: »Die Hagestolzen« 5. Aufzug, 4. Auftritt von A. W. Iffland; es handelt sich um die  1. Strophe von J. M. Millers Gedicht: »Zufriedenheit« [Was frag' ich viel nach Geld und Gut] in: Musenalmanach, Hamburger 1777, INr 5069",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Was frag ich viel nach Geld und Gut, / Wenn ich zufrieden bin!",
+      "language": [],
+      "musenalm_id": 46540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margarethens Romanze. / Aus Ifflands Hagestolzen. / Mit Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Iffland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Margarethens Romanze. / Aus Ifflands Hagestolzen. / Mit Musik",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.399Z",
+          "agent": "ygkra5epb9ywce3",
+          "source_id": "6ck5fg71aeen456"
+        }
+      ],
+      "source_id": "u491bjgq7wa0upe"
+    },
+    {
+      "annotation": "Vertonung des Lieds der Margrethe aus: »Die Hagestolzen« 5. Aufzug, 4. Auftritt von A. W. Iffland (Photos 46541,01; 46541,02); es handelt sich um die 1. Strophe von  J. M. Millers Gedicht: »Zufriedenheit« [Was frag' ich viel nach Geld und Gut] in: Musenalmanach, Hamburger 1777, INr 5069",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margretens Romanze. / aus Ifflands Hagestolzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nina",
+      "scans": [
+        "alm_630_46541_01_sh3so2son3.jpg",
+        "alm_630_46541_02_wn3zo0ddqd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Margretens Romanze. / aus Ifflands Hagestolzen",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "yil655ui32myj4r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Weg mit dem spröden Mirthenkranz! / Was sträubest du dich so?",
+      "language": [],
+      "musenalm_id": 46542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Strohkranzlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Strohkranzlied",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "libgwp6r57a5u1u"
+        }
+      ],
+      "source_id": "2dl30cuylbbf7f3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Eine schöne Seele kann / Schöner Wünsche leicht entbehren;",
+      "language": [],
+      "musenalm_id": 46543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In das Stammbuch der Fräulein / von Sch...",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In das Stammbuch der Fräulein / von Sch...",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "yv6qd36re99rwiq"
+        }
+      ],
+      "source_id": "wgazplutqr1kp5q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Wär ich der heilge Mann, der dort in / Rom sich blähet, / Und mit geweihter Hand / Bald Segen und bald Fluch auf halbe Län- / der säet,",
+      "language": [],
+      "musenalm_id": 46544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem neugebohrenen G. W. H. / auf die Wiege zu legen. / Bückeburg, den 27sten Dezember 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hinze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem neugebohrenen G. W. H. / auf die Wiege zu legen. / Bückeburg, den 27sten Dezember 1796",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "fn2xeo6mxq59cd4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "So wäre denn - wir haben's nach Ge- / wissen, / Nach Pflicht und Logik demonstrirt,",
+      "language": [],
+      "musenalm_id": 46545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlußworte zu Ramlers und / Batteux Poetik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hinze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlußworte zu Ramlers und / Batteux Poetik",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "re2xkbr9xudpqho"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Phoebus sinkt, / Und die Abendröthe blinkt. / Sieh, wie seine letzten Strahlen, / Purpurroth die Wolken mahlen,",
+      "language": [],
+      "musenalm_id": 46546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendlied eines jungen Ehepaars. / Nach der Melodie: Gute Nacht etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. v. Schleicher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendlied eines jungen Ehepaars. / Nach der Melodie: Gute Nacht etc",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "cf5qsck7hotsmf7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Trinkt, Freunde, trinkt, / Bis Hein der Ernste winkt, / Verdoppelt wird die Plage,",
+      "language": [],
+      "musenalm_id": 46547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frhr. v. Ulmenstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "cwttmuw4wau2fpy",
+          "source_id": "s6vhtprjevntrq7"
+        }
+      ],
+      "source_id": "961ztraubxqerj8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Das Paradies des Menschen ist sein Herz. / Was Lieb' in diesem Garten ziehet, / Sind Rosen und Jasmin für Kränze, Spiel / und Scherz,",
+      "language": [],
+      "musenalm_id": 46548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Denkspruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hinze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Denkspruch",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "2eaaabzyh4atccw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Zwey Silben hat mein Wort, die erste sagt / dir an, / Den Retter in der Noth, den größten Schatz / auf Erden;",
+      "language": [],
+      "musenalm_id": 46549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade in das Stammbuch einer / Freundin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. v. Schleicher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade in das Stammbuch einer / Freundin",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "0tzse5436ckjikd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46550,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung der Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung der Charaden",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "9nz3s5wu7lrzxpg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46551,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menuet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horstig",
+      "scans": [
+        "alm_630_46551_gozaboj74g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Menuet",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "o2pvd0n9c0ulrf4",
+          "source_id": "4lh8om82xweyho1"
+        }
+      ],
+      "source_id": "cl189yir61j33u9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 46552,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "v4df6wm6veo0ss9"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.443Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79467,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_630_79467_jzw3v8b8o7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-10-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1801,
+      "editor": "",
+      "agents": [],
+      "source_id": "cocyadjae80e9hy"
+    }
   ],
   "agents": [
     {

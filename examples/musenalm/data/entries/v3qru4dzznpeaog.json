@@ -48,10 +48,59 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "bjuvzmf8oxfhpzj"
+    {
+      "annotation": "Kartonierter Einband (ausgebessert)\n1811 SS V-VIII und 410 SS.\nEs erschien eine Neuauflage unter dem Titel »Das sinnreiche Buch; oder Charaden, Räthsel und Logogryphen auf alle Tage im Jahr. Zweite Auflage. Leipzig, bei Gerhard Fleischer d. Jüngern« Kl. 8°mit Titelgraphik,Titel, SS V-VIII, 410 SS, C <br> Biblio 108812",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.539Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100146",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.539Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bjuvzmf8oxfhpzj"
+    }
   ],
   "contents": [
-    "dl584utxu73txrx"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119521,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agrionien. / Ein Taschenbuch / für das / gesellige Vergnügen / von / A. Apfel, Fr. Laun, Fr. Kind. etc / und herausgegeben / von / Th. Hell. / Für das Jahr 1811. / Leipzig, bei Gerhard Fleischer dem Jüngern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Agrionien. / Ein Taschenbuch / für das / gesellige Vergnügen / von / A. Apfel, Fr. Laun, Fr. Kind. etc / und herausgegeben / von / Th. Hell. / Für das Jahr 1811. / Leipzig, bei Gerhard Fleischer dem Jüngern",
+      "updated": "2009-12-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "dl584utxu73txrx"
+    }
   ],
   "agents": [
     {

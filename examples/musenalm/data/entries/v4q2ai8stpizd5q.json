@@ -48,7 +48,26 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "iwxx0hor64539xm"
+    {
+      "annotation": "1813 (1. Teil), 1815 (2.) (2. Teil) hier zusammengebunden; 1829 (3.) (Neue Auflage: beide Teile in einem Band); Pesth (Hartleben)\n§§ einige Seiten fehlen, einige Graphiken fehlen",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.720Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407310",
+      "location": "105T09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.720Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "iwxx0hor64539xm"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,33 +48,985 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "4o4kc77lof6ass0"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit Goldschnitt.\n1839: (K: M.7 Stahlst.) Mit Port 1, Ku 6, XVI, 309 SS und Bl 7.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\n\\par Auch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101263",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4o4kc77lof6ass0"
+    }
   ],
   "contents": [
-    "afobvrkps85fwoz",
-    "eh1fub2qni7lzp1",
-    "9znowmxwlyuakqy",
-    "9yjmv0nvnigg6bf",
-    "9136lny90ecmylj",
-    "adkrlfjcjpd66e6",
-    "oavyranvvd316jq",
-    "2by0uqo87lnme7j",
-    "f5gnbxrzr1lctyy",
-    "peazz4wlv6yff3u",
-    "ei3h3m9j834oaim",
-    "zxs1qa97bhjzwwc",
-    "migw4xt1wnv7wb5",
-    "ukq1yi9gsxuegce",
-    "logymjolj5f3bym",
-    "xqyvbeudkmuj1t1",
-    "7x71jlas1eappme",
-    "kd9gfuzpuwglri6",
-    "vt9hq8oz8y3q8i1",
-    "brhfhfhs6k3dwqp",
-    "1mbdq36yrjzu6w6",
-    "oljlbitawbzpipj",
-    "izj2qp9fofvrceo",
-    "nfwpawr6zm3x0p8"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43997,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. von Sternberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Barth sc.",
+      "scans": [
+        "alm_594_43997_3x8e2k4jp0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. von Sternberg",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "ak2qa5c9tflxdbf",
+          "source_id": "09009iruqs5fr62"
+        }
+      ],
+      "source_id": "afobvrkps85fwoz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43998,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1839. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_594_43998_fgxkgjjp4x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1839. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "eh1fub2qni7lzp1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43999,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "9znowmxwlyuakqy"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu 6 Graphiken INr 44001-44012, Obj 5-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44000,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Brief aus London. / (Zur Erklärung der Stahlstiche.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Brief aus London. / (Zur Erklärung der Stahlstiche.)",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "mkav3vg3blc61q1"
+        }
+      ],
+      "source_id": "9yjmv0nvnigg6bf"
+    },
+    {
+      "annotation": "s. Textbezug INr 44002, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44001,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_594_44001_4gpjouyivx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "9136lny90ecmylj"
+    },
+    {
+      "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44001, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Hätten Sie mir doch einen andern Auftrag gegeben, als den, Ihnen Stiche für das Rheinische Taschenbuch auszusuchen.",
+      "language": [],
+      "musenalm_id": 44002,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Maria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Maria",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "adkrlfjcjpd66e6"
+    },
+    {
+      "annotation": "s. Textbezug INr 44004, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.276Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44003,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ABENDRUHE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_594_44003_gg2lhcrkmz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ABENDRUHE",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "oavyranvvd316jq"
+    },
+    {
+      "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44003, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Name schon hat etwas Erquickendes, Entzückendes! Abendruhe! Ein leiser, süßer Schauer fliegt mir über den Nacken",
+      "language": [],
+      "musenalm_id": 44004,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Abendruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Abendruhe",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.490Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "m80q43jl70huga3"
+        }
+      ],
+      "source_id": "2by0uqo87lnme7j"
+    },
+    {
+      "annotation": "# Bez s. Textbezug INr 44006, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44005,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BESTÜRZUNG",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Chalon",
+      "scans": [
+        "alm_594_44005_n2lbd4ma0g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BESTÜRZUNG",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5gnbxrzr1lctyy"
+    },
+    {
+      "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44005, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Unser Chalon, der das schöne Bild geschaffen, welches Sie vor sich sehen, ist ein trefflicher Künstler,",
+      "language": [],
+      "musenalm_id": 44006,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Bestürzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Bestürzung",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "peazz4wlv6yff3u"
+    },
+    {
+      "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44008, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Wir haben nicht Zeit, begann die Königin nach einer kleinen Pause wieder, die Entschuldigungen und Beschönigungen anzuhören,",
+      "language": [],
+      "musenalm_id": 44007,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Ueberraschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Ueberraschung",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.490Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "lp580ibgadhsbmc"
+        }
+      ],
+      "source_id": "ei3h3m9j834oaim"
+    },
+    {
+      "annotation": "s. Textbezug INr 44007, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44008,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE UEBERRASCHUNG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_594_44008_hsl8uoaod4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE UEBERRASCHUNG",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "zxs1qa97bhjzwwc"
+    },
+    {
+      "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44010, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Ohne Zweifel gehört das Blatt, welches ich hier wähle, einer Reihe von Darstellungen an, welche sich auf die Zeit Karls I. beziehen.",
+      "language": [],
+      "musenalm_id": 44009,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Wiedersehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Wiedersehen",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.394Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "fdwwmlfeyt8p3ie"
+        }
+      ],
+      "source_id": "migw4xt1wnv7wb5"
+    },
+    {
+      "annotation": "# Bez s. Textbezug INr 44009, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44010,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WIEDERSEHEN",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wright",
+      "scans": [
+        "alm_594_44010_12urp78ugd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WIEDERSEHEN",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "ukq1yi9gsxuegce"
+    },
+    {
+      "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44012, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Ich habe nun zum Schlusse die Wahl zwischen einem herrlichen Frauenkopfe und einem Blatte, das die Quelle überschrieben ist.",
+      "language": [],
+      "musenalm_id": 44011,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Quelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Quelle",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "gw6bjmb8f5ak5l2"
+        }
+      ],
+      "source_id": "logymjolj5f3bym"
+    },
+    {
+      "annotation": "# Bez s. Textbezug INr 44011, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44012,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE QUELLE",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Westall",
+      "scans": [
+        "alm_594_44012_kre9iq6uc8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE QUELLE",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "uq6rhrihzl9bx5q",
+          "source_id": "zwlrt56qimi95qc"
+        }
+      ],
+      "source_id": "xqyvbeudkmuj1t1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.244Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die freundliche Herbstsonne, welche die waldigen Gipfel des Jura mit hellerem Grün überkleidete, lichtete auch die Avenues, die durch den dunkeln Fichtenwald des großen Parks",
+      "language": [],
+      "musenalm_id": 44013,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sohn der Amme. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sohn der Amme. / Novelle",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "30451weekx1v9gq"
+        }
+      ],
+      "source_id": "7x71jlas1eappme"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 3 Märchen INr 44015-44017, Obj 19-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Wer hat in Rußland nicht von jenen sonderbaren Wesen, die im Wasser leben, im Wasser athmen und unter den rauschenden Fluthen wohnen, gehört?",
+      "language": [],
+      "musenalm_id": 44014,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Russalki. / Sagen-Ciclus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Russalki. / Sagen-Ciclus",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "689gtff6n55kspz"
+        }
+      ],
+      "source_id": "kd9gfuzpuwglri6"
+    },
+    {
+      "annotation": "Die Russalki (Sammlung INr 44014, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Iwan war der glücklichste Fischer des Dorfes; seine Netze waren immer gefüllt, sein Boot nie leck,",
+      "language": [],
+      "musenalm_id": 44015,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes Mährlein. / Der Bindering. / Kleinrussisch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstes Mährlein. / Der Bindering. / Kleinrussisch",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "3k7gwmhdodbzcyt"
+        }
+      ],
+      "source_id": "vt9hq8oz8y3q8i1"
+    },
+    {
+      "annotation": "Die Russalki (Sammlung INr 44014, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Es war unter der Regierung des strengen Kaisers, oder vielleicht schon früher, als über die beeis'te Schneedecke in ein kleines Stranddorf am Ufer der Lena zwei Kibitken auf Schlitten einfuhren.",
+      "language": [],
+      "musenalm_id": 44016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweites Mährlein. / Der Sohn der Todten. / Sibirisch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweites Mährlein. / Der Sohn der Todten. / Sibirisch",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "mkimpc0ah0jug8u"
+        }
+      ],
+      "source_id": "brhfhfhs6k3dwqp"
+    },
+    {
+      "annotation": "Die Russalki (Sammlung INr 44014, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Mehrere junge Leute saßen beisammen; es waren wohl eigentlich keine Freunde, nur die gemeinschaftliche Sünde hatte sie vereinigt.",
+      "language": [],
+      "musenalm_id": 44017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drittes Mährlein. / Imatra. / Finnisch-slavisch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drittes Mährlein. / Imatra. / Finnisch-slavisch",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.385Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.385Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "6s7r810x688ca61"
+        }
+      ],
+      "source_id": "1mbdq36yrjzu6w6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Am weinumrankten Fenster seiner Villa stand der Maler Victor und starrte hinaus in den Sommerabend, der wie ein großes kühlendes Gewitter über der Erde lag.",
+      "language": [],
+      "musenalm_id": 44018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bild des Gekreuzigten. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theobald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bild des Gekreuzigten. / Novelle",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "oljlbitawbzpipj"
+    },
+    {
+      "annotation": "# Bez. s. Goed VIII. 71",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Der District Bundelkhund wird bekanntlich in verschiedenen Richtungen von weiten, tiefen Schluchten durchschnitten,",
+      "language": [],
+      "musenalm_id": 44019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Erzählung aus dem Serai",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Erzählung aus dem Serai",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.386Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "kv9rwsjnwa8r0ma"
+        }
+      ],
+      "source_id": "izj2qp9fofvrceo"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44020,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In demselben Verlage sind folgende / empfehlenswerthe Schriften / erschienen / und um beigesetzte Preise durch alle Buchhandlungen zu / beziehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In demselben Verlage sind folgende / empfehlenswerthe Schriften / erschienen / und um beigesetzte Preise durch alle Buchhandlungen zu / beziehen",
+      "updated": "2006-06-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "nfwpawr6zm3x0p8"
+    }
   ],
   "agents": [
     {

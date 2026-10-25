@@ -48,33 +48,1087 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "cdx89cqx4t6abfx"
+    {
+      "annotation": "Jgg 1794-1803. (1797 nicht erschienen.) Jg 1804:  unvollst.  und ergänzt Nürnberg, Hrsg. anonym s. Goed. VI, 309, 13. Fortgesetzt durch: Staaatsgeschichte Europas (Cotta) 1805, 1806\nHalbledereinband; verso G, gT, 6 GG, S 1 T, SS 3-141",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.468Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100495",
+      "location": "105K01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.468Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cdx89cqx4t6abfx"
+    }
   ],
   "contents": [
-    "3wlryxm8gctuk7d",
-    "83p7kjthctxavci",
-    "8g6crc8dl3xjoi1",
-    "w47ivpchqfz790i",
-    "zsl4efsao0ebti3",
-    "kv0irxqh03cxu8p",
-    "nt4ocpy7zacas11",
-    "ggzk9s7uoen3alu",
-    "9pi2n63punizavi",
-    "i9dyki9p1zq4vvi",
-    "mbmik45hz8h496u",
-    "m1g4n2oy0uyv50x",
-    "tbbixzwjd86ajnx",
-    "m4n5qou9qooghh5",
-    "kb4gqrmnas6610c",
-    "f579e0gdpo7mtch",
-    "9z78e4506ti7avo",
-    "6goykmh8tmayknx",
-    "4jjjlejlvn80ap4",
-    "3ds9e7ygj8xvgoz",
-    "glh79uu67aczkhc",
-    "qmg2broeq8e7qnf",
-    "1dsb2ichnewj552",
-    "7t4ht9blkniw3jq"
+    {
+      "annotation": "Titelportrait. # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7989,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Robespierre",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7989_nven4n7nxj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Robespierre",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "12m4bvp7kdwtc8c"
+        }
+      ],
+      "source_id": "3wlryxm8gctuk7d"
+    },
+    {
+      "annotation": "graph. Titel # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7990,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für / die neuste Geschichte / Erster Jahrgang / 1794",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7990_l169b4zq0d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für / die neuste Geschichte / Erster Jahrgang / 1794",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "apreh1foujzz1x1"
+        }
+      ],
+      "source_id": "83p7kjthctxavci"
+    },
+    {
+      "annotation": "paginiert 1 /) s. INr 18582, Obj 12 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7991,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Robespierre unter den Jakobinern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7991_po8gyt27f8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Robespierre unter den Jakobinern",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "a47is8h8rhl6lvz"
+        }
+      ],
+      "source_id": "8g6crc8dl3xjoi1"
+    },
+    {
+      "annotation": "paginiert 2 /) s. INr 18583, Obj 13 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7992,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludwig XVI trinkt aufs Wohl seines / Volkes",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7992_1exngatclr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ludwig XVI trinkt aufs Wohl seines / Volkes",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "53a9tm0e9xv9p1h"
+        }
+      ],
+      "source_id": "w47ivpchqfz790i"
+    },
+    {
+      "annotation": "paginiert 3 /) s. INr 18584, Obj 14 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.603Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7993,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beaurepaires Römertod",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7993_qie764csq6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Beaurepaires Römertod",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "idqh2zw8lgsngxx"
+        }
+      ],
+      "source_id": "zsl4efsao0ebti3"
+    },
+    {
+      "annotation": "paginiert 4 /) s. INr 18585, Obj 15 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.605Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7994,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschenrettung. Eine September- / scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7994_ido35fgyy2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Menschenrettung. Eine September- / scene",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "s7qbujxzaykh9mg"
+        }
+      ],
+      "source_id": "kv0irxqh03cxu8p"
+    },
+    {
+      "annotation": "paginiert 5 /) s. INr 18586, Obj 16 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7995,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rükzug der Alliirten aus Cham- / pagne",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7995_bcr76slhc5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rükzug der Alliirten aus Cham- / pagne",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "4ms78l5b8d0py4j"
+        }
+      ],
+      "source_id": "nt4ocpy7zacas11"
+    },
+    {
+      "annotation": "paginiert 6 /) s. INr 18587, Obj 17 # Bezeichnung vom Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7996,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Baptiste in der Schlacht bei / Jemappe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_176_7996_abr8ad2yfp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Baptiste in der Schlacht bei / Jemappe",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "5x3wivzdgjvrazt"
+        }
+      ],
+      "source_id": "ggzk9s7uoen3alu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 16744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / die neuste Geschichte. / Herausgegeben / von / D. Ernst Ludwig Posselt. / Erster Jahrgang. / Mit Küffnerischen Kupfern. / Nürnberg, / in der Bauer- und Mannischen Buchhandlung, / 1794",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_176_16744_81d40xp53n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / die neuste Geschichte. / Herausgegeben / von / D. Ernst Ludwig Posselt. / Erster Jahrgang. / Mit Küffnerischen Kupfern. / Nürnberg, / in der Bauer- und Mannischen Buchhandlung, / 1794",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "9pi2n63punizavi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Das Taschenbuch, wovon wir hier dem Publikum den ersten Jahrgang vorlegen",
+      "language": [],
+      "musenalm_id": 7997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "87rciyh2jr9ezzy"
+        }
+      ],
+      "source_id": "i9dyki9p1zq4vvi"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 18582-18587, Obj 12-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "jqa0x23z715vcyi"
+        }
+      ],
+      "source_id": "mbmik45hz8h496u"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 7998, Obj 11), s. Graphik INr 7991, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Robespierre ist schon seit einigen Jahren das Haupt unter den Jacobinern,",
+      "language": [],
+      "musenalm_id": 18582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.) / Robespierre unter den Jacobinern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.) / Robespierre unter den Jacobinern",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.378Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "wjyb0h9ui3mu66x"
+        }
+      ],
+      "source_id": "m1g4n2oy0uyv50x"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 7998, Obj 11) s. Graphik INr 7992, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Die Geschichte dieses Tages ist vom Herausgeber kurz, aber nachdrüklich, und nach allen Hauptumrissen beschrieben,",
+      "language": [],
+      "musenalm_id": 18583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.) / Scene auf demSchlosse am 20ten Junius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.) / Scene auf demSchlosse am 20ten Junius",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.462Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "p6t270z5i2lexbk"
+        }
+      ],
+      "source_id": "tbbixzwjd86ajnx"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 7998, Obj 11) s. Graphik INr 7993, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Am dritten Tage nach der Einschließung von Verdun durch die Preussen ward ein Trompeter in die Festung gesandt,",
+      "language": [],
+      "musenalm_id": 18584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. ) / Beaurepaires Römertod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. ) / Beaurepaires Römertod",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.656Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "rosapjc3liiw6je"
+        }
+      ],
+      "source_id": "m4n5qou9qooghh5"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 7998, Obj 11) s. Graphik INr 7994, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Als die Sektion des Contrât Social hörte, daß die Gefangenen der Abtei gemordet würden, sandte sie drei verschiedene Deputationen nach dem Gefängnisse,",
+      "language": [],
+      "musenalm_id": 18585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.) / Menschenrettung. / Eine Septemberscene. / s. Archenholz Min[erva] May.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.) / Menschenrettung. / Eine Septemberscene. / s. Archenholz Min[erva] May.",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.656Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "tyb3kxpcvoonwwx"
+        }
+      ],
+      "source_id": "kb4gqrmnas6610c"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 7998, Obj 11) s. Graphik INr 77995, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.) / Rükzug der Alliirten aus Champagne. / Siehe Archenholz Minerva. Dec. 1792. Jan. und Febr. 1793. etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.) / Rükzug der Alliirten aus Champagne. / Siehe Archenholz Minerva. Dec. 1792. Jan. und Febr. 1793. etc",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.657Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.657Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "76pub9w83cgtta5"
+        }
+      ],
+      "source_id": "f579e0gdpo7mtch"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 7998, Obj 11) s. Graphik INr 7996, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Der kühne Plan, welchen Dumourier nach dem unglücklichen Rükzuge der Deutschen, für die Niederlande entworfen hatte,",
+      "language": [],
+      "musenalm_id": 18587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.) / Baptiste, Kammerdiener des Generals / Dumourier, in der Schlacht bei / Gemappe. 6 Novbr.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.) / Baptiste, Kammerdiener des Generals / Dumourier, in der Schlacht bei / Gemappe. 6 Novbr.",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.657Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.657Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "irb129jpg21dxfy"
+        }
+      ],
+      "source_id": "9z78e4506ti7avo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Seit, nach einem ElementenKampfe von Myriaden Jahren, das für uns bewohnbare feste Land aus dem Allozeane emporstieg",
+      "language": [],
+      "musenalm_id": 7999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Ideen / zur / Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige Ideen / zur / Einleitung",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.115Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.115Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "g17q30m2d72pu8w"
+        }
+      ],
+      "source_id": "6goykmh8tmayknx"
+    },
+    {
+      "annotation": "Beitrag in 4 Abschnitten INr 8001-8004, Obj 20-23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 8000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Krieg / der französischen Nation / gegen / die coalierten Mächte Europens. / Erster Jahrgang. / 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Krieg / der französischen Nation / gegen / die coalierten Mächte Europens. / Erster Jahrgang. / 1792",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "bzmoy9vasha7jel"
+        }
+      ],
+      "source_id": "4jjjlejlvn80ap4"
+    },
+    {
+      "annotation": "Krieg der französischen Nation gegen die coalierten Mächte Europens. Erster Jahrgang. 1792 (Sammlung INr 8000, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Das herrliche, 10800 Quadratmeilen grose, mit allem, was die Natur Schönes und Gutes hat, überschwenglich ausgestattete Land,",
+      "language": [],
+      "musenalm_id": 8001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Abschnitt. / Von den Veranlassungen und dem Aus- / bruche der französischen Revolution im Jahr 1789 / bis zur Kriegserklärung gegen Oestreich, / 20 April 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Abschnitt. / Von den Veranlassungen und dem Aus- / bruche der französischen Revolution im Jahr 1789 / bis zur Kriegserklärung gegen Oestreich, / 20 April 1792",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "6ugyaqzyfadv4xk"
+        }
+      ],
+      "source_id": "3ds9e7ygj8xvgoz"
+    },
+    {
+      "annotation": "Krieg der französischen Nation gegen die coalierten Mächte Europens. Erster Jahrgang. 1792 (Sammlung INr 8000, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Indeß so die Franken mit Ungestümm Krieg wollten und Krieg erhielten, starb in Wien plözlich Kaiser Leopold II.",
+      "language": [],
+      "musenalm_id": 8002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Abschnitt. / Vom Anfange des Krieges bis zur Su- / spension Königs Ludwig's XVI, 10 August / 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Abschnitt. / Vom Anfange des Krieges bis zur Su- / spension Königs Ludwig's XVI, 10 August / 1792",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.472Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "z5b7zrimptlm4vl"
+        }
+      ],
+      "source_id": "glh79uu67aczkhc"
+    },
+    {
+      "annotation": "Krieg der französischen Nation gegen die coalierten Mächte Europens. Erster Jahrgang. 1792 (Sammlung INr 8000, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Die Nachricht von der Suspension des Königs drang wie ein Elektrerschlag durch ganz Frankreich.",
+      "language": [],
+      "musenalm_id": 8003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Abschnitt. / Von der Suspension Königs Ludwig's XVI bis / zur gänzlichen Abschaffung der Königswürde / in Frankreich und dessen Umformung zur Re- / publik, 21 September 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Abschnitt. / Von der Suspension Königs Ludwig's XVI bis / zur gänzlichen Abschaffung der Königswürde / in Frankreich und dessen Umformung zur Re- / publik, 21 September 1792",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.416Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.416Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "4z3up4nssp5h9av"
+        }
+      ],
+      "source_id": "qmg2broeq8e7qnf"
+    },
+    {
+      "annotation": "Krieg der französischen Nation gegen die coalierten Mächte Europens. Erster Jahrgang. 1792 (Sammlung INr 8000, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Trunken von Entzüken nahm ganz Frankreich die Nachricht von der Umschaffung der Monarchie in eine Republik auf;",
+      "language": [],
+      "musenalm_id": 8004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Abschnitt. / Von der Umformung Frankreichs zur Republik / bis zum Schlusse des Jahres 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Abschnitt. / Von der Umformung Frankreichs zur Republik / bis zum Schlusse des Jahres 1792",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.477Z",
+          "agent": "b68wiq4xeilaqf3",
+          "source_id": "xgfo0dk6a79rqob"
+        }
+      ],
+      "source_id": "1dsb2ichnewj552"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 8005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chronologische Tafel / über die wichtigsten Begebenheiten des Jahrs / 1792, die Bezug auf den Krieg haben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chronologische Tafel / über die wichtigsten Begebenheiten des Jahrs / 1792, die Bezug auf den Krieg haben",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "7t4ht9blkniw3jq"
+    }
   ],
   "agents": [
     {

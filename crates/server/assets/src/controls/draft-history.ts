@@ -9,6 +9,7 @@ new MutationObserver(() => {
   if (next !== version) { version = next; localHistory = false; }
 }).observe(document.body, {subtree:true, childList:true, attributes:true, attributeFilter:['data-version']});
 function hasLocalInput(form: HTMLFormElement) {
+  if (form.querySelector('[data-choice-values], [data-structure-values]')) return true;
   return [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[name="record_id"], [name="raw"], [name^="value."]')].some(control => {
     if (control instanceof HTMLInputElement && control.type === 'checkbox') return control.checked !== control.defaultChecked;
     if (control instanceof HTMLSelectElement) return [...control.options].some(option => option.selected !== option.defaultSelected);
@@ -24,7 +25,8 @@ document.addEventListener('keydown', event => {
   const redo = key === 'y' || event.shiftKey;
   const target = event.target as HTMLElement;
   const inInput = !!target.closest('code-input, input:not([type="checkbox"]):not([type="radio"]), textarea, [contenteditable="true"]');
-  if (inInput && (hasLocalInput(form) || redo && localHistory)) return;
+  const emptyChoiceQuery = target.matches('[data-choice-input]') && !(target as HTMLInputElement).value;
+  if (inInput && !emptyChoiceQuery && (hasLocalInput(form) || redo && localHistory)) return;
   const button = document.querySelector<HTMLButtonElement>(`[data-history="${redo ? 'redo' : 'undo'}"]`);
   if (button && (!button.disabled || !redo && hasLocalInput(form))) {
     event.preventDefault(); event.stopImmediatePropagation();

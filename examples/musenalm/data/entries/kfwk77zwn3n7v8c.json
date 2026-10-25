@@ -48,31 +48,998 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "0o3h4s098ergu13"
+    {
+      "annotation": " 1835-1838.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.569Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106497",
+      "location": "105A06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.569Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0o3h4s098ergu13"
+    }
   ],
   "contents": [
-    "j0yfhs5cxvfn1al",
-    "pw0555zq2oop1w8",
-    "roxy8fogege4v5i",
-    "8zhakbg35po3chq",
-    "zmpo1mxrd62nbvq",
-    "ijpxc6qvwmeas0e",
-    "lhvm5kwn991kz7n",
-    "vttqjp5q6z5b8ne",
-    "6u8ovg6wisti6t9",
-    "h4h7b44fj8jzchl",
-    "r7jel37ziacksba",
-    "39c8fht9t8qt6dx",
-    "h1n7a0m8hqcsx6u",
-    "kim8ziium53b3uw",
-    "3yw91zp6gqo1gb4",
-    "gtl5jds6hat9l6m",
-    "vpvuk6y03mpyxyy",
-    "g725p80lhaypfrs",
-    "x3leyqoinuwq761",
-    "vcez4w0e3wbyimo",
-    "w6t7qd9l62c66oz",
-    "jxmwqbux3gnot6o"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.293Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113261,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenlob. / Taschenbuch / für / das Jahr / 1838",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1783_113261_q3ttqu9jfw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenlob. / Taschenbuch / für / das Jahr / 1838",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "j0yfhs5cxvfn1al"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Frauenwerth« von B. v. Guseck d.i. C. G. v. Berneck INr 123272, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113262,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KLARA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mezler delt. Leop. Beyer sc.",
+      "scans": [
+        "alm_1783_113262_esv8tdgpmy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "KLARA",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.439Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.439Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "63904er95zl7qyj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.439Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.439Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "iesxjir1p9jrfj4"
+        }
+      ],
+      "source_id": "pw0555zq2oop1w8"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113263,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenlob. / Taschenbuch / für das Jahr / 1838. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Passini del et sc.",
+      "scans": [
+        "alm_1783_113263_7a8qsby5dx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenlob. / Taschenbuch / für das Jahr / 1838. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / Wien",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.351Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "7zz8tcowt3kfpwy"
+        }
+      ],
+      "source_id": "roxy8fogege4v5i"
+    },
+    {
+      "annotation": "Illustration zu »Frauenwerth« von B. v. Guseck d.i. C. G. v. Berneck INr 123272, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.039Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113264,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRAUENWERTH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Heicke del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1783_113264_8ci0axan7t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRAUENWERTH",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.351Z",
+          "agent": "etectz7b8c64di9",
+          "source_id": "53lhtia1e22gjr7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.351Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.351Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "tz2agpjriunmueu"
+        }
+      ],
+      "source_id": "8zhakbg35po3chq"
+    },
+    {
+      "annotation": "Illustration zu »Der Freineger. Ein Nachtstück« von J. N. Vogl INr 123276, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113265,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER FREINEGER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Heicke del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1783_113265_dvj92fr1bb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER FREINEGER",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.495Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "ewxdewfdg26v9k7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.495Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.495Z",
+          "agent": "etectz7b8c64di9",
+          "source_id": "s2omfh7bfee1335"
+        }
+      ],
+      "source_id": "zmpo1mxrd62nbvq"
+    },
+    {
+      "annotation": "Illustration zu »Wahn und Liebe« von A. Schmidt INr 123278, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113266,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WAHN UND LIEBE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. v. M. Kern g. v. Leop. Beyer",
+      "scans": [
+        "alm_1783_113266_wujn64uxe7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WAHN UND LIEBE",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.451Z",
+          "agent": "zs3j9etzn201wi5",
+          "source_id": "2sja09hjugbdvvq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.451Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "vszbku4m2duyr03"
+        }
+      ],
+      "source_id": "ijpxc6qvwmeas0e"
+    },
+    {
+      "annotation": "Illustration zu »Brunhilde« von J. N. Vogl INr 123279, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113267,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BRUNHILDE VON TYROL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heicke del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1783_113267_d179lra0np.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BRUNHILDE VON TYROL",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.451Z",
+          "agent": "etectz7b8c64di9",
+          "source_id": "piequf5tfa6hm3w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.451Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "pswmlnnar7or3s5"
+        }
+      ],
+      "source_id": "lhvm5kwn991kz7n"
+    },
+    {
+      "annotation": "Illustration zu »Schwester Marguerit« von J. N. Vogl INr 113280, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.501Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113268,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCHWESTER MARGUERITE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Heicke del. Leop. Beyer sc.",
+      "scans": [
+        "alm_1783_113268_07u1d12wm7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCHWESTER MARGUERITE",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "ax4yrzxj5gx51ei"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.451Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.451Z",
+          "agent": "etectz7b8c64di9",
+          "source_id": "zm86frkd6vrukfw"
+        }
+      ],
+      "source_id": "vttqjp5q6z5b8ne"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "6u8ovg6wisti6t9"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenlob. / Taschenbuch für das Jahr / 1838. / Vierter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenlob. / Taschenbuch für das Jahr / 1838. / Vierter Jahrgang",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "h4h7b44fj8jzchl"
+    },
+    {
+      "annotation": "Motto a. d. Titelblatt verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Ich lob die Frauen früh und spat, / Ihr Lob das will ich immer mehren.",
+      "language": [],
+      "musenalm_id": 113271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich lob die Frauen früh und spat, / Ihr Lob das will ich immer mehren.…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Frauenlob",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "r7jel37ziacksba"
+    },
+    {
+      "annotation": "mit einer IIllustration s. Titelgraphik INr 113262, Obj 2 und Graphik INr 123264, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es war ungewöhnlich leer in André's Kaffeehause. Der schneidende Herbstwind, welcher unerbittlich der Lindenallee die letzten Blätter aus den Zweigen riß, mochte wohl die Spaziergänger von der Promenade gefegt haben,",
+      "language": [],
+      "musenalm_id": 113272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenwerth. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenwerth. / Novelle",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.452Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.452Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "4e7ilm5e9y36ugc"
+        }
+      ],
+      "source_id": "39c8fht9t8qt6dx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Schön Elfi sitzt auf dem moosigen Stein, / Sie harret so bang im Halbmondschein / Wohl unter den Kirchhoflinden.",
+      "language": [],
+      "musenalm_id": 113273,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jung Erich und schön Elfi. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Ritter von Leitner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jung Erich und schön Elfi. / Ballade",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.157Z",
+          "agent": "kzo5zf1o5a1ke0s",
+          "source_id": "lsqcdqyi4nt98w0"
+        }
+      ],
+      "source_id": "h1n7a0m8hqcsx6u"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Willst Rache Du für das, was ich begangen, / So still' in meinem Blute Dein Verlangen.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Zwischen Scardonia und Clisa, an Dalmatiens unwirthbarer Küste erhebt sich, in die See hineinragend, ein felsiges Vorgebirge,",
+      "language": [],
+      "musenalm_id": 113274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rocca ardente. / Novelle aus dem XIII. Jahrhundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cavilha",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rocca ardente. / Novelle aus dem XIII. Jahrhundert",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "kim8ziium53b3uw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Lebe wohl denn, traute Zelle, / Wo ich oft, geweint, gelacht,",
+      "language": [],
+      "musenalm_id": 113275,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied von der Heimath. (1825.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Ritter von Leitner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied von der Heimath. (1825.)",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.157Z",
+          "agent": "kzo5zf1o5a1ke0s",
+          "source_id": "stbcvd5ohthb4u0"
+        }
+      ],
+      "source_id": "3yw91zp6gqo1gb4"
+    },
+    {
+      "annotation": "mit einer IIllustration s. Graphik INr 123265, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Die Sonne war, wie es in der heißen Zone immer geschieht, plötzlich in das Meer gesunken und der glühende Sommertag, der nur wenig von den Seewinden gekühlt wurde, und seine Strahlen versengend auf die Häupter der armen Negersclaven sendete,",
+      "language": [],
+      "musenalm_id": 113276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Freineger. / Ein Nachtstück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Freineger. / Ein Nachtstück",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.157Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "j2rgiw1khavwwvc"
+        }
+      ],
+      "source_id": "gtl5jds6hat9l6m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Im Traum macht' ich einst ein Lied, / Noch wußt' ich's beim Erwachen:",
+      "language": [],
+      "musenalm_id": 113277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied und Blatt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied und Blatt",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.158Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "qn3smafy930j7bc"
+        }
+      ],
+      "source_id": "vpvuk6y03mpyxyy"
+    },
+    {
+      "annotation": "mit einer IIllustration s. Graphik INr 123266, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.345Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Es gibt Tage im Leben, an welchen man, ich möchte sagen, weinerlich gestimmt ist.",
+      "language": [],
+      "musenalm_id": 113278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wahn und Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wahn und Liebe",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.444Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.444Z",
+          "agent": "17xjqe49v1xcoot",
+          "source_id": "b7xc417hixif8vn"
+        }
+      ],
+      "source_id": "g725p80lhaypfrs"
+    },
+    {
+      "annotation": "mit einer IIllustration s. Graphik INr 123267, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "Graf Wilhelm zog aus seinem Schloß. / Im schönen Land Tyrol, / Zu Maxens Heer mit Mann und Roß,",
+      "language": [],
+      "musenalm_id": 113279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brunhilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Brunhilde",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "heo12641763hpni"
+        }
+      ],
+      "source_id": "x3leyqoinuwq761"
+    },
+    {
+      "annotation": "mit einer IIllustration s. Graphik INr 123268, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Es ist nun nahe an 30 Jahre, daß ich, als Beisitzer im Staatsrathe, den Auftrag erhielt, die Gefängnisse und Hospitäler mehrerer Departements zu inspiziren.",
+      "language": [],
+      "musenalm_id": 113280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwester Marguerit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwester Marguerit",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "rd9ximbvei3q0in"
+        }
+      ],
+      "source_id": "vcez4w0e3wbyimo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113281,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "w6t7qd9l62c66oz"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113282,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1783_113282_iwkuq2yaka.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "jxmwqbux3gnot6o"
+    }
   ],
   "agents": [
     {

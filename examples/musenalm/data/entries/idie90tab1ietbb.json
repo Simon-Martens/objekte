@@ -48,64 +48,2358 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "5yn8j62whoipx2i"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen.)\nKartonierter Einband.(Buchrücken leicht beschädigt.)\n\\par 1811: (K:Ku 9, Bl 3, 64 SS und 379 SS) Mit Tku 1,Ku 8, Bl 3, 64 SS und 379 SS. \n\\par",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.495Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100882",
+      "location": "105Q10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.495Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5yn8j62whoipx2i"
+    }
   ],
   "contents": [
-    "hncx71o1vbcouaz",
-    "nskfftvcko9mxvd",
-    "8oro3zb3a0h4j8r",
-    "hj47yhexgtjkiee",
-    "ve3xuulzrpvkj6b",
-    "raqe3po4t6k1ohz",
-    "z5nh9873yecu8wo",
-    "o4f9z7q4ee8i2ub",
-    "x2tfysql7j4v3bs",
-    "gpd90fgspou27fb",
-    "dv04pe7mpfc6iqh",
-    "k42njqk8md3zzmw",
-    "8kd0iao0mvvtrd4",
-    "onyievy0s4b851j",
-    "pgqr49h33mwm7vn",
-    "h9svste44k21xps",
-    "tzbqf0csf18ubkv",
-    "fo4l7jc5028pvdj",
-    "4e49asj84tz97ji",
-    "jf7uxi875p9fjt0",
-    "wks284vrk9r3416",
-    "jd54b5ffhzhi92d",
-    "51484xysk4sde32",
-    "kokgfk49gri8q59",
-    "xtzdblmuuik70ot",
-    "r3lss4d8xghk0u9",
-    "2kpz3rjb3b2toxc",
-    "hmqkfsljrziy2p4",
-    "wkz5udo9lpzxs5s",
-    "hgxbu5ufyb9d7w5",
-    "2gqkyn3ziop1qbx",
-    "leyz00fxjwngexa",
-    "jn8x8vxd95bcrzm",
-    "hugazjlid4r27mq",
-    "rr3arpdga6jzoqx",
-    "ege0vq2lj23xqn4",
-    "3l9ed5135k07rep",
-    "omy0urqfh5p3h6k",
-    "pe6u85sa0mv9nve",
-    "354p6ujpkezb4m1",
-    "9otwkikp16ustu2",
-    "soeorbl3gbpo71i",
-    "160230ulol6e9lz",
-    "3eye6mc3qxawewp",
-    "y07t7rr811bxsai",
-    "lphmsug3v7kixdh",
-    "yfl7fu14tehhlp8",
-    "2x64x4i1o6cy6at",
-    "cg6drar11pyx0cg",
-    "m3estq2yujx7jei",
-    "9tifxxvnxoxuu2n",
-    "05m7jjnnigecjbb",
-    "pc0jujsznxd4q72",
-    "sx7wag7nl929e86",
-    "le6fko8mnjt4svo"
+    {
+      "annotation": "Titelgraphik # Titel vom Textbezug INr 39237, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39234,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva bändigt durch Ueberredung den Kriegsgott #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Böhm sc.",
+      "scans": [
+        "alm_515_39234_geyfsc584u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Minerva bändigt durch Ueberredung den Kriegsgott #",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.051Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.051Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "kq1ciale3m0ns8a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.051Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "uwon5npzvrroa64"
+        }
+      ],
+      "source_id": "hncx71o1vbcouaz"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39235,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MINERVA. / für / das Jahr 1811. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg inv. Bolt sc.",
+      "scans": [
+        "alm_515_39235_hgf2zcfnn2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MINERVA. / für / das Jahr 1811. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.052Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "43lgq2cnkhr4b1d"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.052Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "u3lmqyb7qfh8830"
+        }
+      ],
+      "source_id": "nskfftvcko9mxvd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39236,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "8oro3zb3a0h4j8r"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 39234, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Minervens Namen trägt dies Buch, die gepflegte Jahresfrucht vereinter Kunstbestrebungen, an seiner Stirn.",
+      "language": [],
+      "musenalm_id": 39237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva / bändigt durch Ueberredung den Kriegsgott. / Zur / Erklärung der Allegorie des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Minerva / bändigt durch Ueberredung den Kriegsgott. / Zur / Erklärung der Allegorie des Titelkupfers",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "hj47yhexgtjkiee"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 8 Textbezügen zu 8 Graphiken INr 39239-39254, Obj 6-21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Schillers Wallenstein ist unter allen seinen dramatischen Gedichten am meisten getadelt und gemeistert worden.",
+      "language": [],
+      "musenalm_id": 39238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / zu Schillers Gedichten. / Dritte Schaustellung: / Szenen aus Wallenstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / zu Schillers Gedichten. / Dritte Schaustellung: / Szenen aus Wallenstein",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "ve3xuulzrpvkj6b"
+    },
+    {
+      "annotation": "Illustration zu »Wallensteins Lager« von Fr. Schiller s. Textbezug INr 39240, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wallensteins Lager 8r. Auftr. / - könnte nicht drein schlagen? Ist jetzt Zeit zu Saufgelagen? / zu Banketten und Feiertagen?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Hess sc.",
+      "scans": [
+        "alm_515_39239_l7s2na0pr6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wallensteins Lager 8r. Auftr. / - könnte nicht drein schlagen? Ist jetzt Zeit zu Saufgelagen? / zu Banketten und Feiertagen?",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.734Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "vh2a9plcwjswrzx"
+        }
+      ],
+      "source_id": "raqe3po4t6k1ohz"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39239, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Wer erkannte nicht, sooft er die Kapuzinerrede in Wallensteins Lager hörte, die Schule, in welcher sich Pater Abraham a Santa Clara bildete?",
+      "language": [],
+      "musenalm_id": 39240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Kapuziner-Predigt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Kapuziner-Predigt",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "z5nh9873yecu8wo"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39242, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Wer würde die Aufführung Wallensteins auf unsern Bühnen, wie sie sind, nicht wie sie seyn sollten, ohne die mildernde, sühnende, die menschlichen Empfindungen so zart ansprechenden Episoden von Max Piccolomini und Thekla aushalten.",
+      "language": [],
+      "musenalm_id": 39241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der finstere Geist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der finstere Geist",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "o4f9z7q4ee8i2ub"
+    },
+    {
+      "annotation": "# s. Bezeichnung an den übrigen Graphiken der Suite; Illustration zu »Wallenstein, Die Piccolomini« von Fr. Schiller s. Textbezug INr 39241, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Piccolomini. 3r. Aufz. 9r. Auftr. / Es geht ein finstrer Geist durch unser Haus . . .",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_515_39242_nmff22y6nz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Piccolomini. 3r. Aufz. 9r. Auftr. / Es geht ein finstrer Geist durch unser Haus . . .",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.912Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "0kugar36put55ef"
+        }
+      ],
+      "source_id": "x2tfysql7j4v3bs"
+    },
+    {
+      "annotation": "Illustration zu »Wallenstein, Die Piccolomini« von Fr. Schiller s. Textbezug INr 39244, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Piccolomini 4r. Aufz. 7r. Auftritt. / Schreib - Judas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Hess sc.",
+      "scans": [
+        "alm_515_39243_xv1824c5zq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Piccolomini 4r. Aufz. 7r. Auftritt. / Schreib - Judas",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.912Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "butzetcgrbz7jm4"
+        }
+      ],
+      "source_id": "gpd90fgspou27fb"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39243, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Alle Situatuionen dieses mehr noch den Urheber, als die Theilnehmer dem Untergang weihenden Saufgelags sind vom Dichter mit Shakespearischem Geist, aber auch der Wahrheit in der Geschichte gemäß verzeichnet worden,",
+      "language": [],
+      "musenalm_id": 39244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Das Bachanal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Das Bachanal",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "dv04pe7mpfc6iqh"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39246, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Die Behandlung des Hauptcharakters gegen den Schluß, da wo sein Haupt schon unabwendbar dem Verderben geweiht ist, flößt Bewunderung gegen den Dichter ein.",
+      "language": [],
+      "musenalm_id": 39245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Der Ungebeugte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Der Ungebeugte",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "k42njqk8md3zzmw"
+    },
+    {
+      "annotation": "Illustration zu »Wallensteins Tod« von Fr. Schiller s. Textbezug INr 39245, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wallensteins Tod. 3r. Aufz. 13r. Auftr. / Da steh' ich, ein entlaubter Stamm! / Doch innen im Marke lebt die schaffende Gewalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Schenk sc.",
+      "scans": [
+        "alm_515_39246_u3v5ztl2p7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wallensteins Tod. 3r. Aufz. 13r. Auftr. / Da steh' ich, ein entlaubter Stamm! / Doch innen im Marke lebt die schaffende Gewalt",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.912Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "t5rgowh9tr50mli"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.912Z",
+          "agent": "voq5dlml9870uhq",
+          "source_id": "uizl692hw7jgftq"
+        }
+      ],
+      "source_id": "8kd0iao0mvvtrd4"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39248, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.140Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Wallensteins Abhängigkeit von dem Glauben an die Sterne ist, wie schon andre richtig geurtheilt haben, im ganzen Drama der Lage und dem Charakter des Helden sehr verständig untergeordnet,",
+      "language": [],
+      "musenalm_id": 39247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Entzückung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Entzückung",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "onyievy0s4b851j"
+    },
+    {
+      "annotation": "Illustration zu »Wallensteins Tod« von Fr. Schiller s. Textbezug INr 39247, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wallensteins Tod. 2r. Aufz. 3r. Auftr. / Und mitten in die Schlacht ward ich geführt im Geist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del F. Bolt sc.",
+      "scans": [
+        "alm_515_39248_eppvcp0pfd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wallensteins Tod. 2r. Aufz. 3r. Auftr. / Und mitten in die Schlacht ward ich geführt im Geist",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "91ut27a7tbvp23w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "f0qil3bogb5no7t"
+        }
+      ],
+      "source_id": "pgqr49h33mwm7vn"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39250, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Ergreifender konnte Wallenstein dem gewesenen Liebling seines Herzens schwerlich selbst etwas ans Herz legen,",
+      "language": [],
+      "musenalm_id": 39249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Der erstarrte Fahnenjunker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Der erstarrte Fahnenjunker",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "h9svste44k21xps"
+    },
+    {
+      "annotation": "Illustration zu »Wallensteins Tod« von Fr. Schiller s. Textbezug INr 39249, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wallensteins Tod 3r. Aufz. 18r. Auftr. / Wallenstein und M. Piccollomini im Prag' schen Lager",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. I. C. Böhme sc.",
+      "scans": [
+        "alm_515_39250_qmvnsoa71i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wallensteins Tod 3r. Aufz. 18r. Auftr. / Wallenstein und M. Piccollomini im Prag' schen Lager",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "v74bso3ggkynck4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zfknrhsg06uuptg"
+        }
+      ],
+      "source_id": "tzbqf0csf18ubkv"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39252, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.149Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Max Piccolomini's Tod, wie er mit seinen Pappenheimern die Schweden bei Neustadt wütend anfällt und in den dichtesten Schaaren der Feinde den gesuchten Tod findet,",
+      "language": [],
+      "musenalm_id": 39251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Das ist das Loos des Schönen auf der / Erde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Das ist das Loos des Schönen auf der / Erde",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "fo4l7jc5028pvdj"
+    },
+    {
+      "annotation": "Illustration zu »Wallensteins Tod« von Fr. Schiller s. Textbezug INr 39251, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wallensteins Tod. 4r. Aufz. 12r. Auftr. / Roh und kalt / Faßt es des Freundes zärtliche Gestalt / Und wirft ihn unter den Hufschlag seiner Pferde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Hess sc.",
+      "scans": [
+        "alm_515_39252_ln0lbkysk3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wallensteins Tod. 4r. Aufz. 12r. Auftr. / Roh und kalt / Faßt es des Freundes zärtliche Gestalt / Und wirft ihn unter den Hufschlag seiner Pferde",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "23vl6pjikc22yvg"
+        }
+      ],
+      "source_id": "4e49asj84tz97ji"
+    },
+    {
+      "annotation": "Illustration zu »Wallensteins Tod« von Fr. Schiller s. Textbezug INr 39254, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wallensteins Tod. / Thekla in der Gruft des St. Katharinen Stifts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Bolt sc.",
+      "scans": [
+        "alm_515_39253_hqdn4wjtdw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wallensteins Tod. / Thekla in der Gruft des St. Katharinen Stifts",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "4omofx37tygif6e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.866Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "tpdapdythb6zcqf"
+        }
+      ],
+      "source_id": "jf7uxi875p9fjt0"
+    },
+    {
+      "annotation": "Gallerie zu Schillers Gedichten. Dritte Schaustellung: Szenen aus Wallenstein (Sammlung INr 39238, Obj 5) s. Graphik INr 39253, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "663",
+      "incipit_statement": "Dahin eilt also mit ihrem Neubrunn und dem treuen Stallmeister Rosenberg in büßende Pilgerkleidung verhüllt Thekla.",
+      "language": [],
+      "musenalm_id": 39254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / In einer Klosterkirche / bei Neustadt ist er beigesetzt, bis man / von seinem Vater Nachricht eingezogen, / Sanct Katharienstift, so heißt das Kloster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / In einer Klosterkirche / bei Neustadt ist er beigesetzt, bis man / von seinem Vater Nachricht eingezogen, / Sanct Katharienstift, so heißt das Kloster",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "wks284vrk9r3416"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 39256, 39257; Obj 23, 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39255,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Sammlung (C. A. Tiedge)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.857Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.857Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "rr0hiqrb1nf7c7l"
+        }
+      ],
+      "source_id": "jd54b5ffhzhi92d"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 39255, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Freund, die Rosenzeit ist da, / Alles steht in Lust und Fülle,",
+      "language": [],
+      "musenalm_id": 39256,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / An F.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / An F.",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.858Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "a06ypizp9fepzeq"
+        }
+      ],
+      "source_id": "51484xysk4sde32"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 39255, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Balbutius war ein verwegner Schwätzer, / Und war sein Geschwätz auch dürftig und schaal,",
+      "language": [],
+      "musenalm_id": 39257,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Balbutius. / Sit mihi fas inaudita loqui. / Virg.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Balbutius. / Sit mihi fas inaudita loqui. / Virg.",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "a1ir349qxcffzeu"
+        }
+      ],
+      "source_id": "kokgfk49gri8q59"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Es gibt Geschichten, die, wie wohlgetroffene Porträts, Physiognomie und Charakter haben, so daß Jedermann durch den Stempel der Echtheit, den sie an sich tragen, ergriffen und überzeugt wird,",
+      "language": [],
+      "musenalm_id": 39258,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Zuleima",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Pichler geb. von Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Zuleima",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.913Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "9irj50h2leanzsk"
+        }
+      ],
+      "source_id": "xtzdblmuuik70ot"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 39260-39267, Obj 27-34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39259,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Gedichte",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.913Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "xn9fvremd4owl2a"
+        }
+      ],
+      "source_id": "r3lss4d8xghk0u9"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Nicht auf den ersten Blick ergründen sollst du das / Kunstwerk, / Wo es dir dämmernd erscheint forsche mit fröh- / lichem Fleiß",
+      "language": [],
+      "musenalm_id": 39260,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Betrachtung des Kunstwerks",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Betrachtung des Kunstwerks",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.913Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "a9w5t0omdzbk0ae"
+        }
+      ],
+      "source_id": "2kpz3rjb3b2toxc"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Wer in des Busens heilgen Gründen / Ein hohes Bild mit Liebe trägt,",
+      "language": [],
+      "musenalm_id": 39261,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Warnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Warnung",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.913Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "wjdt75ura2ygdqt"
+        }
+      ],
+      "source_id": "hmqkfsljrziy2p4"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Im Glück nicht jubeln, und im Sturm nicht zagen, / Das Unvermeidliche mit Würde tragen,",
+      "language": [],
+      "musenalm_id": 39262,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Denkspruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Denkspruch",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.913Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.913Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "7k70ufr7pr62ieg"
+        }
+      ],
+      "source_id": "wkz5udo9lpzxs5s"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Wilde Sehsucht,wirst du nimmer enden? / Wirst du ewig meinen Blick verblenden,",
+      "language": [],
+      "musenalm_id": 39263,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Beruhigung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Beruhigung",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "j5da7sjiw9rbrcg"
+        }
+      ],
+      "source_id": "hgxbu5ufyb9d7w5"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Was der Schmerz dich gelehrt, es bleibe dir: / Stille des Herzens, / Ruh und gestählte Kraft, Weisheit und Tugend / und Muth.",
+      "language": [],
+      "musenalm_id": 39264,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der edlen Freundin, Catharinen / Porta in Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der edlen Freundin, Catharinen / Porta in Wien",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "sz6z1x1u5rio3bp"
+        }
+      ],
+      "source_id": "2gqkyn3ziop1qbx"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Ein Blümlein blüht - ich hab' im ganzen Reiche / Des Lenzes nie ein schöneres entdeckt.",
+      "language": [],
+      "musenalm_id": 39265,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Knospe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Knospe",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "qj1we85j460go2a"
+        }
+      ],
+      "source_id": "leyz00fxjwngexa"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Mein süßes Mädchen weint vor Lust, / Wenn sie mein Arm umstricket,",
+      "language": [],
+      "musenalm_id": 39266,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Liebeslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Liebeslied",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "txac911sw1a6t0g"
+        }
+      ],
+      "source_id": "jn8x8vxd95bcrzm"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Durch des Haines Schattengänge / Wandelt' ich mit meinem Mädchen",
+      "language": [],
+      "musenalm_id": 39267,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Wünsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Wünsche",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "un8la5yk8f230ru"
+        }
+      ],
+      "source_id": "hugazjlid4r27mq"
+    },
+    {
+      "annotation": "# lt. L/R 84 ist der Beitrag von C. A. H. Clodius; s. a.Beitrag »Noch einige Worte über Seume. Aus Gelegenheit einer ungedruckten Handschrift seiner frühen Gedichte« von C. A. H. Clodius in: Minerva 1812 INr 39340",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Endlich, lieber Tiedge, habe ich nach einigen Jahren, die ich kränkelnd hinlungerte, wieder eine Art von Ausflucht gewagt: aber welcher Abstand.",
+      "language": [],
+      "musenalm_id": 39268,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Ausflucht nach Weimar",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seume",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Ausflucht nach Weimar",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "ez181fjr8mhbxyp",
+          "source_id": "rjwyg8gtly6cl41"
+        }
+      ],
+      "source_id": "rr3arpdga6jzoqx"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 39270-39274, Obj 37-41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39269,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Gedichte",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.760Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "gdcn8glhqvdgtmi"
+        }
+      ],
+      "source_id": "ege0vq2lj23xqn4"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 39269, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "In den schwülen Sommernächten / Schlummern meine Alten lang.",
+      "language": [],
+      "musenalm_id": 39270,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Doppelkranz. / Ein Idyll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Doppelkranz. / Ein Idyll",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "xpxtqqmn3dah4p3"
+        }
+      ],
+      "source_id": "3l9ed5135k07rep"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 39269, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Ein Faun verfolgte die Dryade / Der blühenden Kastanea.",
+      "language": [],
+      "musenalm_id": 39271,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Kastanienblüthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Kastanienblüthe",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "a9myw1cmnfkhpg0"
+        }
+      ],
+      "source_id": "omy0urqfh5p3h6k"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 39269, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Setze deiner Trauer Gränze, / Freundin, länger weine nicht!",
+      "language": [],
+      "musenalm_id": 39272,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / An die um die Schwester trauernde Lydia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / An die um die Schwester trauernde Lydia",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "v2pmqiqvad6x6o9"
+        }
+      ],
+      "source_id": "pe6u85sa0mv9nve"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 39269, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Kummermüd' entschlief ich unter Schatten, / Mir erschien auf nachtumflohrten Matten / Ein Altar.",
+      "language": [],
+      "musenalm_id": 39273,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Traumgesicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Traumgesicht",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "macwoka045bm2ev"
+        }
+      ],
+      "source_id": "354p6ujpkezb4m1"
+    },
+    {
+      "annotation": "V. Gedichte (Sammlung INr 39269, Obj 36) # Anm. am Objekt: Pastor ille Hesiodus, quem poetica lauru camoenalis familia coronavit. Symmach. L. I. epist. 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Böotiens Bewohner lebten blind / Und taub für schöne Kunst und Lieder.",
+      "language": [],
+      "musenalm_id": 39274,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die Krönung des Hesiodus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die Krönung des Hesiodus #",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "7odpa4gfonp6unk"
+        }
+      ],
+      "source_id": "9otwkikp16ustu2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Ich ritt von Sir Drunkner nach Hause. Ein Drunkner hatte Energie; ein gewöhnliches philosophisches Räuschchen widerstand ihm,",
+      "language": [],
+      "musenalm_id": 39275,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die drey Schwestern,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verfasser des Herrmann von Löbeneck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die drey Schwestern,",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "rplcedkwg5rqz7n",
+          "source_id": "jadghms11z1ot4o"
+        }
+      ],
+      "source_id": "soeorbl3gbpo71i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Zu jener Zeit, als die Lombarden das Reich Napoli inne hatten, regierte zu Tarent ein Fürst, Pandolfo mit Namen,",
+      "language": [],
+      "musenalm_id": 39276,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Liebesprobe. / Novelle / nach einem altitaliänischen Manuscripte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Liebesprobe. / Novelle / nach einem altitaliänischen Manuscripte",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.761Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "co0axeo81kkryk6"
+        }
+      ],
+      "source_id": "160230ulol6e9lz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Sey mir gegrüßt, sey mir gesegnet, liebe Vaterstadt! In dir entsprang der Quell meiner ersten Freuden,",
+      "language": [],
+      "musenalm_id": 39277,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Hassan. / Eine morgenländische Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "K. Stille",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Hassan. / Eine morgenländische Erzählung",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.008Z",
+          "agent": "9hwfd8uuzzu7hv7",
+          "source_id": "056cajl0n2xlfgc"
+        }
+      ],
+      "source_id": "3eye6mc3qxawewp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Ein biederber Ritter, Osmund von Rosenberg, der vor länger als vierhundert Jahren mit dem Tode turnierte und von dem Unbezwinglichen in den Sand gestreckt ward,",
+      "language": [],
+      "musenalm_id": 39278,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Der süße Brey. / Ein Volksmährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Der süße Brey. / Ein Volksmährchen",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.008Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "5akq0rz42cma2xn"
+        }
+      ],
+      "source_id": "y07t7rr811bxsai"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen mit einem Vorwort INr 39270-39286, Obj 47-53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39279,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. Sinnbilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. Sinnbilder",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "lphmsug3v7kixdh"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Wenn die Alten nützliche Wahrheiten verbreiten, wenn sie Tugend und gute Sitten fördern wollten,",
+      "language": [],
+      "musenalm_id": 39280,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor- und Fürwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor- und Fürwort",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "yfl7fu14tehhlp8"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Ihr sehet hier einen Oelbaum im freudigsten Wuchse, mit reichlichen Früchten geschmückt.",
+      "language": [],
+      "musenalm_id": 39281,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Friedensbaum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Friedensbaum",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "2x64x4i1o6cy6at"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Da stehen sie, die lieben Blümchen! Mit ihren schönen blauen Augen blicken sie bescheiden unter dem Grase hervor,",
+      "language": [],
+      "musenalm_id": 39282,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Veilchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Veilchen",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "cg6drar11pyx0cg"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Schaut her, da sind im lieblichen Schatten der Linden große Tafeln gedeckt.",
+      "language": [],
+      "musenalm_id": 39283,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Fest im Freyen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Fest im Freyen",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "m3estq2yujx7jei"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Eine schönere Blume,als diese, habe ich nicht gesehen. Dank dem gefälligen Manne, der sie mir ungebeten zur Ansicht ins Haus schickte!",
+      "language": [],
+      "musenalm_id": 39284,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Passionsblume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Passionsblume",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "9tifxxvnxoxuu2n"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Wir finden in unsern Obstgärten nicht selten jenen Apfelbaum, welcher der Langeschläfer genannt wird.",
+      "language": [],
+      "musenalm_id": 39285,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Langschläfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Langschläfer",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "05m7jjnnigecjbb"
+    },
+    {
+      "annotation": "X. Sinnbilder (Sammlung INr 39279, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Es ist eine wunderschöne Dichtung in der Erzählung der Alten vom Herkules am Scheidewege.",
+      "language": [],
+      "musenalm_id": 39286,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Herkules am Scheidewege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schollmeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Herkules am Scheidewege",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "pc0jujsznxd4q72"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Minerva 1810; INr 39196",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Roh, widrig, ja scheußlich waren sie also, jene Moden der unkultivirten Völkerschaften von Afrika und Australien.",
+      "language": [],
+      "musenalm_id": 39287,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Moden und Klima, / unsern / modesüchtigen Herren und Damen / gewidmet. / Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. A. W. Zimmermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Moden und Klima, / unsern / modesüchtigen Herren und Damen / gewidmet. / Fortsetzung",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.923Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "aly67wrm8qop8ux"
+        }
+      ],
+      "source_id": "sx7wag7nl929e86"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Einer der kräftigsten weiblichen Charaktere, der an der Spitze einer Regierung gestanden, ist Margaretha aus dem Hause Anjou,",
+      "language": [],
+      "musenalm_id": 39288,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Margaretha von Anjou / Gemahlin Heinrichs VI. von England, / Anna Nevil, / und / Elisabeth Woodville",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Bredow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Margaretha von Anjou / Gemahlin Heinrichs VI. von England, / Anna Nevil, / und / Elisabeth Woodville",
+      "updated": "2005-07-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.923Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.923Z",
+          "agent": "dtbajicc1tr9ej0",
+          "source_id": "z7p3f2q7uz4oraq"
+        }
+      ],
+      "source_id": "le6fko8mnjt4svo"
+    }
   ],
   "agents": [
     {

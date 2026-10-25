@@ -48,40 +48,1453 @@
   "year": 1829,
   "editor": "",
   "items": [
-    "kkt5za9qmtkne65"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nim Schuber mit Rückenschild",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.460Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108650",
+      "location": "105J02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.460Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kkt5za9qmtkne65"
+    }
   ],
   "contents": [
-    "v4v8bbhifbphhqc",
-    "4ianuk3yeguk8md",
-    "vqm2jd1bhbf37r2",
-    "nb09esv8i7snfdq",
-    "npnhvobqy7qvuz5",
-    "y7fojld0pe0k7l1",
-    "3q6ntuqdgrribc1",
-    "fqngys79ji0bqdt",
-    "rmzoqdmgnhfp8ce",
-    "vhp4cxcudwrnk76",
-    "jlv6inkyjg0g5x4",
-    "nm7sec0hn3hudsh",
-    "nhlkous57hz035e",
-    "6x3ne5huwfdp4p5",
-    "3sptcc498g0i6pp",
-    "mz2ayduxonb6gd2",
-    "v8cakolupxlf8ky",
-    "ms2xl98cjqn2mj7",
-    "ul9p4bess5ccmuq",
-    "v7xocwg4ohjsl5f",
-    "ud0i49um05hidl7",
-    "5nia8mrblv2dmyc",
-    "7lma37v1bgcllop",
-    "0uaisa93o7jqy9t",
-    "obwgc7m7aq10ppx",
-    "pm6c6mawgp53bvl",
-    "xckt3me3ddipc9j",
-    "ok1ln8bnz8awd79",
-    "668igri8do19gnz",
-    "hxi05ak8z41pg7t",
-    "s7cjji9zdrxd99y"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28391,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für / 1829",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für / 1829",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "v4v8bbhifbphhqc"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73769,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ianuk3yeguk8md"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73770,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm Müller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krüger del. H. Meyer sc.",
+      "scans": [
+        "alm_136_73770_x4xpdr0jyw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm Müller",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "f5agim78k7u8l7v",
+          "source_id": "r0lxrd50v7j3jtu"
+        }
+      ],
+      "source_id": "vqm2jd1bhbf37r2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73771,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch / auf / das Jahr 1829. / Mit sieben Kupfern. / Leipzig. / F. A. Brockhaus. / 1829",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_136_73771_9rqxrh51n1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch / auf / das Jahr 1829. / Mit sieben Kupfern. / Leipzig. / F. A. Brockhaus. / 1829",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "nb09esv8i7snfdq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73772,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "npnhvobqy7qvuz5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73773,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "y7fojld0pe0k7l1"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 6 Auszügen aus Gedichten von G. A. Bürger mit 6 Illustrationen INr 73775-73786, Obj 8-19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73774,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechs Darstellungen zu Bürger's Gedichten / nach / Zeichnungen von Opitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechs Darstellungen zu Bürger's Gedichten / nach / Zeichnungen von Opitz",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [],
+      "source_id": "3q6ntuqdgrribc1"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73776, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Und außen, horch! Ging's trap trap trap, / Als wie von Rosseshufen;",
+      "language": [],
+      "musenalm_id": 73775,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Lenore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Lenore",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "8tln2ap2jylgr4n"
+        }
+      ],
+      "source_id": "fqngys79ji0bqdt"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Lenore« von G. A. Bürger s. Gedichtauszug INr 73775, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73776,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lenore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_136_73776_halul7zbtt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lenore",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "399htvqcaiagwoy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "5doc1ivy1ss3vd2"
+        }
+      ],
+      "source_id": "rmzoqdmgnhfp8ce"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73778, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Und als sie 'mal draußen in fröhlicher Schar, / Von Schranzen umlagert, am Apfelbaum war,",
+      "language": [],
+      "musenalm_id": 73777,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Lenardo und Blandine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Lenardo und Blandine",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "camq1xr8e341vyq"
+        }
+      ],
+      "source_id": "vhp4cxcudwrnk76"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Lenardo und Blandine« von G. A. Bürger s. Gedichtauszug INr 73777, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73778,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lenardo und Blandine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. J. Lips sc.",
+      "scans": [
+        "alm_136_73778_w5pkla61zl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lenardo und Blandine",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "6pxsj0wle0enxpg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "fgx8aki0yz86euj"
+        }
+      ],
+      "source_id": "jlv6inkyjg0g5x4"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73780, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Ein Pilgermädel, jung und schön, / Wallt, auf ein Kloster zu.",
+      "language": [],
+      "musenalm_id": 73779,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Der Bruder Graurock und die Pilgerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Der Bruder Graurock und die Pilgerin",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.809Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.809Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "sv1vhk60ktuy6cy"
+        }
+      ],
+      "source_id": "nm7sec0hn3hudsh"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Der Bruder Graurock und die Pilgerin« von G. A. Bürger; s. Gedichtauszug INr 73779, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73780,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bruder Graurock und die Pilgerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_136_73780_hjqj8xv7tg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Bruder Graurock und die Pilgerin",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.810Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "hpc4w503csqoocb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.810Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "ycflpqr5zx9s0h1"
+        }
+      ],
+      "source_id": "nhlkous57hz035e"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73782, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Graf Walter rief am Marstallsthor: / Knapp, schwemm' und kämm' mein Roß!",
+      "language": [],
+      "musenalm_id": 73781,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Graf Walter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Graf Walter",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.810Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "lnsyk7c6sj5usam"
+        }
+      ],
+      "source_id": "6x3ne5huwfdp4p5"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Graf Walter « von G. A. Bürger; s. Gedichtauszug INr 73781, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73782,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Graf Walter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. J. Lips sc.",
+      "scans": [
+        "alm_136_73782_yq7mtzq2kd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Graf Walter",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.810Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "lb8l559m195bysm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.810Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.810Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "z0aji3d31wei822"
+        }
+      ],
+      "source_id": "3sptcc498g0i6pp"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73784, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Veit Ehrenwort ging an den Beeten / In seinem Garten, Hand am Kinn, / betrachtend her, betrachtend hin.",
+      "language": [],
+      "musenalm_id": 73783,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Veit Ehrenwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Veit Ehrenwort",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.536Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "l19i4smed41tmub"
+        }
+      ],
+      "source_id": "mz2ayduxonb6gd2"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Veit Ehrenwort« von G. A. Bürger; s. Gedichtauszug INr 73783, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73784,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Veit Ehrenwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. G. Zumpe del.",
+      "scans": [
+        "alm_136_73784_4xzsbyrdwx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Veit Ehrenwort",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.536Z",
+          "agent": "dkcgg2l4f1px9e7",
+          "source_id": "4us1ocafmn9jsmk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.536Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "jozvs3eizx6mn9a"
+        }
+      ],
+      "source_id": "v8cakolupxlf8ky"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73786, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Alinchen setzte sich zur Wehre, / Und als sie mir entgegen rang, / Fiel ach! Ihr Topf; - die Milch floß auf die Erde.",
+      "language": [],
+      "musenalm_id": 73785,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Die Königin von Golkonda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Die Königin von Golkonda",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.536Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.536Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "3le2877sxrw09xj"
+        }
+      ],
+      "source_id": "ms2xl98cjqn2mj7"
+    },
+    {
+      "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Die Königin von Golkonda« von G. A. Bürger; s. Gedichtauszug INr 73785, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73786,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Königin von Golkonda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. G. Zumpe sc.",
+      "scans": [
+        "alm_136_73786_a11ilarmat.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Königin von Golkonda",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.537Z",
+          "agent": "dkcgg2l4f1px9e7",
+          "source_id": "4dggvkzq7nrzk6u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.537Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "cykqr9uaepx583g"
+        }
+      ],
+      "source_id": "ul9p4bess5ccmuq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "So wie der Sonnenstrahl wohl dann am schönsten ist, wenn er sich rosig herniederbeugt, um den Morgenthau von den Augen seiner Freundin zu küssen,",
+      "language": [],
+      "musenalm_id": 73787,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Falkners Braut. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Spindler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Falkners Braut. / Erzählung",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.537Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.537Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "0epvag7dpvc3xwz"
+        }
+      ],
+      "source_id": "v7xocwg4ohjsl5f"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen: Vorwort und Beitrag INr 73789, 73790; Obj 22, 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73788,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Wanderung / durch den / Markt des Ruhmes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ch. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Wanderung / durch den / Markt des Ruhmes",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.538Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.538Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "j4yls4jg0cc9yms"
+        }
+      ],
+      "source_id": "ud0i49um05hidl7"
+    },
+    {
+      "annotation": "Vorwort zu »II. Wanderung durch den Markt des Ruhmes« INr 73790, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Dem Gedicht vorangestellt: Vorwort: Das nachstehende Gedicht ist das dritte Buch eines Gedichtes unter dem Titel: »Wanderungen durch den Markt des Lebens« in vier Büchern.",
+      "language": [],
+      "musenalm_id": 73789,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ch. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort:",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.538Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.538Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "h8rzvljjko0nuhz"
+        }
+      ],
+      "source_id": "5nia8mrblv2dmyc"
+    },
+    {
+      "annotation": "mit einem Vorwort s. INr 73789, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Weisheit, dacht' ich, soll den Frieden, / Den das Herz bedarf, verleihn, / Soll auch dann noch mit uns sein;",
+      "language": [],
+      "musenalm_id": 73790,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderung durch den Markt des Ruhmes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ch. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderung durch den Markt des Ruhmes",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.538Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.538Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "xaox1gh3sce56pz"
+        }
+      ],
+      "source_id": "7lma37v1bgcllop"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen: Vorwort und Beitrag INr 73792, 73793; Obj 25, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73791,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Das Töpferhaus. / Eine Wintergeschichte / in brieflichen Mittheilungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Robert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Das Töpferhaus. / Eine Wintergeschichte / in brieflichen Mittheilungen",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.720Z",
+          "agent": "shwrrrsohbx2ih5",
+          "source_id": "5dqusiw1zcwm26e"
+        }
+      ],
+      "source_id": "0uaisa93o7jqy9t"
+    },
+    {
+      "annotation": "Vorwort zu »III. Das Töpferhaus. Eine Wintergeschichte in brieflichen Mittheilungen« INr 73793, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Bei meinem jüngsten Sommer-Aufenthalte in *** verschaffte mir ein günstiges Ungefähr die Bekanntschaft eines Mannes, der mich sehr bald für sich einnahm.",
+      "language": [],
+      "musenalm_id": 73792,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Töpferhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Töpferhaus",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.402Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.402Z",
+          "agent": "shwrrrsohbx2ih5",
+          "source_id": "b86cssemfyi1q3f"
+        }
+      ],
+      "source_id": "obwgc7m7aq10ppx"
+    },
+    {
+      "annotation": "mit einem Vorwort s. INr 73792, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Ganz im Gegentheil, nicht Ihre Strenge, wohl aber Ihre Nachsicht könnte Sie meinem Herzen entfremden. All der Zwiespalt, den Sie rügen, alles Chaotische in meinem Wesen geht aus jener weichlichen Nachsicht hervor,",
+      "language": [],
+      "musenalm_id": 73793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Töpferhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Robert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Töpferhaus",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.642Z",
+          "agent": "shwrrrsohbx2ih5",
+          "source_id": "r5bk7fbpcz9fpzb"
+        }
+      ],
+      "source_id": "pm6c6mawgp53bvl"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Prolog und Beitrag INr 73795, 73796",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 73794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Carl Stuart. / Trauerspiel / von / Andreas Gryphius, / gedichtet im Jahr 1649. / Auszug, / in reimlosen Jamben bearbeitet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andreas Gryphius; [bearb.] Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Carl Stuart. / Trauerspiel / von / Andreas Gryphius, / gedichtet im Jahr 1649. / Auszug, / in reimlosen Jamben bearbeitet",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.642Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "f9im656qjl8biur"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.642Z",
+          "agent": "wdmud7e2famppia",
+          "source_id": "stmw51zqdqtlh5j"
+        }
+      ],
+      "source_id": "xckt3me3ddipc9j"
+    },
+    {
+      "annotation": "Prolog zu »IV. Carl Stuart. Trauerspiel von Andreas Gryphius, gedichtet im Jahr 1649. Auszug, in reimlosen Jamben bearbeitet von Gustav Schwab INr 73796, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Was für einen Geist beschwörst du / Aus der Unterwelt herauf? / Und mit was für Tönen störst du / Unsrer leichten Lieder Lauf?",
+      "language": [],
+      "musenalm_id": 73795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prolog",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prolog",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.642Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.642Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "j6na3w23x05luer"
+        }
+      ],
+      "source_id": "ok1ln8bnz8awd79"
+    },
+    {
+      "annotation": "mit einem Prolog INr 73795, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "So ist die letzte Nacht, ihr Himmel, da, / Die in den Banden, doch bei Leben auch / Den König findet, und der nächste Tag / Dem Hals des frömmsten Fürsten dräuet er",
+      "language": [],
+      "musenalm_id": 73796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[IV. Carl Stuart. Trauerspiel von Andreas Gryphius, gedichtet im Jahr 1649. Auszug, in reimlosen Jamben bearbeitet von Gustav Schwab]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Andreas Gryphius; [bearb.] Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[IV. Carl Stuart. Trauerspiel von Andreas Gryphius, gedichtet im Jahr 1649. Auszug, in reimlosen Jamben bearbeitet von Gustav Schwab]",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.643Z",
+          "agent": "wdmud7e2famppia",
+          "source_id": "knaj2eyoucg2y1h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.643Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "n7645ykubks3jjf"
+        }
+      ],
+      "source_id": "668igri8do19gnz"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Lieb und Grab / Sind verwandt. / Grab spricht nicht; / Lieb spricht nicht; / Beide sind am tiefsten doch. - - - / Z……",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "Wunder über Wunder! Sehe ich denn wahrlich recht? Sie hier auf der Erde der Terrasse wie eine verlorenen Schildwache, mein lieber, freundlicher Whist-Kamerad von gestern?",
+      "language": [],
+      "musenalm_id": 73797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Hagestolz. / Skizzirte Gruppe aus einem Sittengemälde der / neuesten Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Hagestolz. / Skizzirte Gruppe aus einem Sittengemälde der / neuesten Zeit",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.643Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "i5u8hjm17smsnve"
+        }
+      ],
+      "source_id": "hxi05ak8z41pg7t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "441",
+      "incipit_statement": "Freund Richter! Ist es möglich? Seid Ihr es oder ist es Euer Geist? Rief bei meinem Eintritt in eines der elegantesten Kaffeehäuser von Edinburg eine mir nicht unbekannte Stimme,",
+      "language": [],
+      "musenalm_id": 73798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Des Adlers Horst. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Des Adlers Horst. / Erzählung",
+      "updated": "2000-11-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1829,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.643Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.643Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "y9okthfbby1q024"
+        }
+      ],
+      "source_id": "s7cjji9zdrxd99y"
+    }
   ],
   "agents": [
     {

@@ -48,30 +48,967 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "tkniw7vusus0zr2",
-    "tvqv99p0t2vit45"
+    {
+      "annotation": "Graphik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.627Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "411068",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.627Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tkniw7vusus0zr2"
+    },
+    {
+      "annotation": "1827-1837.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.627Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106726",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.627Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tvqv99p0t2vit45"
+    }
   ],
   "contents": [
-    "rhfzwlba1qd5ocm",
-    "9tomavf78wtwi5r",
-    "dchygbz1sgf1z1u",
-    "n8ddbz7z2qeh2bo",
-    "src7uwun6lk6fji",
-    "4y4ors1uhhd4nzc",
-    "i6w41m0l0b3x75v",
-    "za6zaugxc8gp53z",
-    "yuymx1rsf2gnf1q",
-    "fcocjummv9jeo39",
-    "o931fjyybjsasr4",
-    "wjkbchgdzc7g5g4",
-    "k1av3f3k0ya6po8",
-    "9yg4ssplu9cye1t",
-    "cjdw3w8gs4ga44v",
-    "hc01tqwxn7umc9u",
-    "21cylw48w58uj1u",
-    "4vt57l2p4rehfbm",
-    "euc83ifxlx3oqtn",
-    "fnl6lavewmt3gfs"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112558,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Ender gez. Fr. Stöber gest. in Stahl Wien)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_2475_112558_xxhhynv267.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.469Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.469Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "q8oi3z1ke6f7tod"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.469Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.469Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "qqgnxb1zp43jtth"
+        }
+      ],
+      "source_id": "rhfzwlba1qd5ocm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112559,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN / EIN / TASCHENBUCH / FÜR 1832 und 1833. / Leipzig, bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_2475_112559_p0o3z4dsrq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN / EIN / TASCHENBUCH / FÜR 1832 und 1833. / Leipzig, bei Friedrich August Leo",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.533Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "jz390covjq088yl"
+        }
+      ],
+      "source_id": "9tomavf78wtwi5r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112560,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WEIHGESCHENK",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf gez. Berlin Jos. u. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_2475_112560_u141olxvl2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WEIHGESCHENK",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.534Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "5r0x66ij851be3y"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.534Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "8zkwupq7j9xdqt2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.534Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "r976k8abunp1yfm"
+        }
+      ],
+      "source_id": "dchygbz1sgf1z1u"
+    },
+    {
+      "annotation": "Zueignungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Rosen bring ich' zu der Jahresspende, / Die Rosen, wie der Winter sie verleiht.",
+      "language": [],
+      "musenalm_id": 112561,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosen. / Widmung an",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosen. / Widmung an",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "n8ddbz7z2qeh2bo"
+    },
+    {
+      "annotation": "einleitendes Gedicht des Verlegers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Vor'm Jahre hielt dies Büchlein ich zurücke, / Weil Krankheit schwer auf vielen Ländern lag, / Heil uns! es glänzt nunmehr ein bess'rer Tag",
+      "language": [],
+      "musenalm_id": 112562,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Verleger an die Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich August Leo",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Verleger an die Leser",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "src7uwun6lk6fji"
+    },
+    {
+      "annotation": "s. Graphik INr 112564, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Sie saß im frohen Winzerkreis, / Die Schönste vor dem Feste,",
+      "language": [],
+      "musenalm_id": 112563,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbst-Röslein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbst-Röslein",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "7nkvx0fg9wystah"
+        }
+      ],
+      "source_id": "4y4ors1uhhd4nzc"
+    },
+    {
+      "annotation": "s. Gedicht INr 112563, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112564,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NANNY",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_2475_112564_q6g41obp3l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NANNY",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "5oexufj11qeriqo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "y16r2jcsn19cqn9"
+        }
+      ],
+      "source_id": "i6w41m0l0b3x75v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.992Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112565,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "za6zaugxc8gp53z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112566,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_2475_112566_5agpt9n9nc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "cbnwuwfo9q01mgu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "znk6gs1tmovrb53"
+        }
+      ],
+      "source_id": "yuymx1rsf2gnf1q"
+    },
+    {
+      "annotation": "Illustration zu »Valeria« von St. Nelly INr 112572, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112567,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VALERIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_2475_112567_6gp87u5b3v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VALERIA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "1cdvl8zwnrgkfgv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "iqd57nzbnewsgld"
+        }
+      ],
+      "source_id": "fcocjummv9jeo39"
+    },
+    {
+      "annotation": "Illustration zu »Benoni und Leila, oder der Sturz der Janitscharen im Jahr 1826« von Dr. Zehner INr 122574, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112568,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BENONI und LEILA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_2475_112568_7a6hxu0jy5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BENONI und LEILA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.418Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.418Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "5hvui51t0cuock4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.419Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "m4j7aqjnbg7rtvg"
+        }
+      ],
+      "source_id": "o931fjyybjsasr4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ARABELLA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Dav. Weiss gest. in Stahl Wien",
+      "scans": [
+        "alm_2475_127962_4i7issps0t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ARABELLA",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.970Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.970Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "sa3036m4gx5gico"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.969Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.969Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "whgxthf16wais7l"
+        }
+      ],
+      "source_id": "wjkbchgdzc7g5g4"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 112570, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es hat Dich früh die Muse auserkohren / Zum schönen Dienst in Tempelhallen, / Und hoher Ernst war Dir's, ihr zu gefallen,",
+      "language": [],
+      "musenalm_id": 112569,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Fräulein Julie Gley, / K.K. Hofschauspielerin in Wien",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Fräulein Julie Gley, / K.K. Hofschauspielerin in Wien",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.419Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "daka4jhwhbke32o"
+        }
+      ],
+      "source_id": "k1av3f3k0ya6po8"
+    },
+    {
+      "annotation": "s. Gedicht INr 112569, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112570,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JULIE GLEY / K.K. Hofschauspielerin in Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ender del. Passini sc. Viennae",
+      "scans": [
+        "alm_2475_112570_7gmgnvkprv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JULIE GLEY / K.K. Hofschauspielerin in Wien",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.420Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.420Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "2r17vwgiyvzrd2p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.420Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.420Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "wjhl948gcaq4z0e"
+        }
+      ],
+      "source_id": "9yg4ssplu9cye1t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Und nun, Monsieur Philippe - sprach die Wirthin zum rothen Stern in Chur zu einem zweiundzwanzjährigen jungen Manne, der in sichtbarer Verlegenheit vor ihr stand,",
+      "language": [],
+      "musenalm_id": 112571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Pfand. / Erzählung aus der neuesten Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm von Lüdemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Pfand. / Erzählung aus der neuesten Zeit",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.420Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.420Z",
+          "agent": "jqanokpcqaenxu5",
+          "source_id": "co5y7xqyz9e99mn"
+        }
+      ],
+      "source_id": "cjdw3w8gs4ga44v"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112567, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.003Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "In starren Schmerz versunken, lehnte der heldenmüthige Sohn des stolzen spanischen Heerführers am hohen Eichenstamm, welcher sein Zelt im Lager vor Grenada beschattete.",
+      "language": [],
+      "musenalm_id": 112572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Valeria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Nelly",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Valeria",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "hc01tqwxn7umc9u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Macht ein Ende, Freundchen, und foltert unsere Neubegier nicht länger! Die Novembersonne strahlet durch die Scheiben auf Eure Staffelei so klar und in so ungewöhnlicher Freundlichkeit, als wolle auch sie sich erfreuen an Eurem Meisterwerke,",
+      "language": [],
+      "musenalm_id": 112573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstlers / Rosen- und Dornenkrone. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Künstlers / Rosen- und Dornenkrone. / Historische Erzählung",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "1qtx6012rt19g04"
+        }
+      ],
+      "source_id": "21cylw48w58uj1u"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112568, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Siehe, schön bist Du, o meine Freundin; Deine Augen sind gleich Taubenaugen, rief Benoni, der reichste aller Wechsler Stambuls,",
+      "language": [],
+      "musenalm_id": 112574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Benoni und Leila, / oder / der Sturz der Janitscharen / im Jahr 1826. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Zehner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Benoni und Leila, / oder / der Sturz der Janitscharen / im Jahr 1826. / Historische Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "4vt57l2p4rehfbm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Wahrhaftig, ein eben so seltsamer, als Schauder erregender Anblick! Der Abend dunkelte noch gar nicht so tief, daß ich die weibliche Gestalt in weißen Gewändern nicht mehr hätte unterscheiden können;",
+      "language": [],
+      "musenalm_id": 112575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gespenster, / oder / die sonderbare Hochzeitsnacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Konrad Teleke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gespenster, / oder / die sonderbare Hochzeitsnacht",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "euc83ifxlx3oqtn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "397",
+      "incipit_statement": "Die Nacht hatte, so eben der ersten Morgendämmerung Platz gemacht. Allmälig stiegen die Kuppeln und Thürme des alten Kölns aus dem luftigen Nebel empor.",
+      "language": [],
+      "musenalm_id": 112576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gefühlserinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gefühlserinnerung",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "fhpq2zx46n9qjwv"
+        }
+      ],
+      "source_id": "fnl6lavewmt3gfs"
+    }
   ],
   "agents": [
     {

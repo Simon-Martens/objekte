@@ -48,21 +48,502 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "uaz4me4a0gv88ww"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\n§$§ vermutl. fehlt B: recto vT, verso VrlgM  <br> Verlagsbroschur; VBl, verso G, T, S I-Verz, SS 1-446",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.455Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101017",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.455Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "uaz4me4a0gv88ww"
+    }
   ],
   "contents": [
-    "aos9mbfnlisbvwf",
-    "t8gkb6q3p7fysc9",
-    "cceq38exu2mpwh5",
-    "98bjf8flwby8g54",
-    "vfimbhnixbkd02h",
-    "ikvvqsj9gcy1ebl",
-    "tymijleixkbikrr",
-    "cricmpcmu1wd4jt",
-    "o5mfqnqswue9fli",
-    "ivy86u7z0f2b2xp",
-    "v0u45g8zj8z2kfi",
-    "8oralcwmsgvgrj4"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62258,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_73_62258_8vkwpqkyob.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr 1847",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "aos9mbfnlisbvwf"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62270,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1847",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "t8gkb6q3p7fysc9"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62271,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "cceq38exu2mpwh5"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2077,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berthold Auerbach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jul. Hübner gem. Alb. Teichel gest.",
+      "scans": [
+        "alm_73_2077_k9uqejgsko.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berthold Auerbach",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.719Z",
+          "agent": "filrbdi16sdmhwd",
+          "source_id": "k1kulq82cl8hxx2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.719Z",
+          "agent": "b4t3w3z6pvp3b6q",
+          "source_id": "nnvjw1enbfqjm6p"
+        }
+      ],
+      "source_id": "98bjf8flwby8g54"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18624,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1847. / Neue Folge. / Neunter Jahrgang. / Mit dem Bildnisse Bertold Auerbach's / Leipzig: / F. A. Brockhaus. / 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_73_18624_er15ssivoa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1847. / Neue Folge. / Neunter Jahrgang. / Mit dem Bildnisse Bertold Auerbach's / Leipzig: / F. A. Brockhaus. / 1847",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "vfimbhnixbkd02h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18625,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "ikvvqsj9gcy1ebl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einem schönen, geräumigen Saale, der mit Gemälden und kostbaren Tapeten verziert war, saßen in der Morgenstunde zwei junge Mädchen beisammen,",
+      "language": [],
+      "musenalm_id": 2078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sibylle. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sibylle. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.932Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "1drh91ohx3rpbig"
+        }
+      ],
+      "source_id": "tymijleixkbikrr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Die vorjährige Saison in Interlaken war wenig zahlreich. Jene unseligen politisch-kirchlichen Wirren, die sich vom Berner und Luzerner Canton über die ganze Schweiz verbreiteten,",
+      "language": [],
+      "musenalm_id": 2079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Interlaken. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Therese",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Interlaken. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.932Z",
+          "agent": "un665fta9qpg6db",
+          "source_id": "togvhzywcuwx51g"
+        }
+      ],
+      "source_id": "cricmpcmu1wd4jt"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Es ist vergebens! Traumerguß / Das Säuseln einer Linde! [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Wer in Italiens gegenwärtigen Kunstzuständen heimisch ist, wird Gelegenheit gehabt haben, daselbst dem unbestrittenen Ruhm einer deutschen Malerin, der Gräfin Imagina von Wartenberg, zu begegnen.",
+      "language": [],
+      "musenalm_id": 2080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Imagina. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Gutzkow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Imagina. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.932Z",
+          "agent": "gppll7dy0seh698",
+          "source_id": "bq2an7u0nt2c3u6"
+        }
+      ],
+      "source_id": "o5mfqnqswue9fli"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Eine glühende Septembersonne schoß ihre fast senkrechten Strahlen auf die weiten Baumwollen- und Zuckerfelder und ausgedehnten Sümpfe und Prairien Louisianas herab.",
+      "language": [],
+      "musenalm_id": 2081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tochter der Riccarees / Lebensbild aus Louisiana",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Gerstäcker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tochter der Riccarees / Lebensbild aus Louisiana",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.964Z",
+          "agent": "dwrg9ycvjrih35y",
+          "source_id": "w4t05o7dp0mn17r"
+        }
+      ],
+      "source_id": "ivy86u7z0f2b2xp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.573Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Da sitzt der Wadeleswirth am Gartenfenster im Stüble, er hat den Ellbogen auf den Sims gestemmmt",
+      "language": [],
+      "musenalm_id": 2082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frau Professorin. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Berthold Auerbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Frau Professorin. / Erzählung",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.964Z",
+          "agent": "scn3nfipy9dsgv6",
+          "source_id": "i88hucoi36g61in"
+        }
+      ],
+      "source_id": "v0u45g8zj8z2kfi"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62259,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig. / F. A. Brockhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_73_62259_9l7v50qi4h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig. / F. A. Brockhaus",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "8oralcwmsgvgrj4"
+    }
   ],
   "agents": [
     {

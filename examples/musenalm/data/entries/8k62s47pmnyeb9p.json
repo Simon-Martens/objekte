@@ -48,59 +48,2152 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "ri64rlw0v17oq3c"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt.\n1804: (K:Bl 9, 252 SS, 3 SS und Ku 6.) Mit Bl 1, Tku 1, Ku 6, 252 SS und III. \n Auch unter Titel : TB der Liebe und Freundschaft gewidmet.\n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch\n\\par Bremen . seit 1803 Frankfurt am Main.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.484Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101081",
+      "location": "105F08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.484Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ri64rlw0v17oq3c"
+    }
   ],
   "contents": [
-    "1favl4nwsalz0dk",
-    "e097ojmfg0lzx1p",
-    "d7tk6q4qctjtey5",
-    "a8v8170y5msfdtn",
-    "vv0aeavcv701s05",
-    "bxn5etbtmjsqfi0",
-    "pxy3kxrs5jekwen",
-    "jtl3blr7z69ncej",
-    "xmhebymhyqef6em",
-    "fzcritk5psjrlfe",
-    "90y94ykmtigm8he",
-    "h74dpzr3f6h1q5w",
-    "fftgh6pa18omqjb",
-    "35vh3h0xg0y50ai",
-    "lkerjly6osq7993",
-    "onox45mp69flr4j",
-    "f4967fpyx9tpvaj",
-    "3keb8lq5ehihvyh",
-    "w7zqqeylba5tljc",
-    "h8quvvpplvet6el",
-    "gvsqbyy58hry59f",
-    "xe4f5dwxc6uxlom",
-    "qqwyh90wuh1h2aq",
-    "hn6uawdek7rf9ra",
-    "5dqmk85tdqtivn5",
-    "rczu538q6c2d56t",
-    "d67ra0tlhqy6ftn",
-    "r3qrk249vcuw7o0",
-    "7uftb5jtsi5gvcu",
-    "ijbllyolfrd7ob7",
-    "ktnzqw3e2tm0rzg",
-    "moile0nfaxede3i",
-    "ssk5impxclvo2c6",
-    "eca11rd0zxprzus",
-    "muh9t8gyxdywoek",
-    "cb6u96vb5vggtek",
-    "bjxx4vkre9o8dag",
-    "2xleng8j83plu6w",
-    "rh7p70ianek2clz",
-    "w2orgd5tdunhtf3",
-    "a62c2u1lu049ll0",
-    "xhx2hlu67fn4c0n",
-    "0y5v4t0p6frkt30",
-    "rcly5hjseaajg28",
-    "my1vseu3msj3i1p",
-    "zwrn1hthmo50ptn",
-    "diusp0wl5k61uyc",
-    "ixqhuwdrgybbm88",
-    "wbcamonz80j8kok",
-    "bs3uuzpjosjx1hq"
+    {
+      "annotation": "s. Graphik INr 28330, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Neues Leben der Poesie! der Kunst! Aus den Trümmersäulen ihres Tempels geht die jugendliche Pallas hervor",
+      "language": [],
+      "musenalm_id": 28329,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des Titelkupfers",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "1favl4nwsalz0dk"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 28329, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28330,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury f.",
+      "scans": [
+        "alm_367_28330_g88y45n78k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.099Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "hfpodh0kt5rtdov"
+        }
+      ],
+      "source_id": "e097ojmfg0lzx1p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28331,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1804. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn, / bey Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_367_28331_3wpvlb1540.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1804. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn, / bey Friedrich Wilmans",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7tk6q4qctjtey5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28332,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IHRER MAJESTÄT / DER KÖNIGIN BEIDER SICILIEN / DER FREUNDIN / DES GUTEN UND SCHÖNEN [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Wilmans",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IHRER MAJESTÄT / DER KÖNIGIN BEIDER SICILIEN / DER FREUNDIN / DES GUTEN UND SCHÖNEN [...]",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.099Z",
+          "agent": "q9v9seq8bme8931",
+          "source_id": "82nmv500grvlbvt"
+        }
+      ],
+      "source_id": "a8v8170y5msfdtn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28333,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "vv0aeavcv701s05"
+    },
+    {
+      "annotation": "12 Monatstabellen, 1 Jahresabschlußtabelle",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28334,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1804",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1804",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "bxn5etbtmjsqfi0"
+    },
+    {
+      "annotation": "Illustration zu »Täuschung und Wahrheit« von C. M. Wieland",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28335,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Täuschung und Wahrheit. / Eine Erzählung von Wieland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. del. et fec.",
+      "scans": [
+        "alm_367_28335_b8b7qvfr5m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Täuschung und Wahrheit. / Eine Erzählung von Wieland",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.316Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "zoachw4ru5v77ak"
+        }
+      ],
+      "source_id": "pxy3kxrs5jekwen"
+    },
+    {
+      "annotation": "Illustration zu »Die Novelle ohne Titel« von C. M. Wieland s. INr 28345, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28336,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus der Novelle ohne Titel von Wieland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. del. et fec.",
+      "scans": [
+        "alm_367_28336_fkk1qhkrvt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus der Novelle ohne Titel von Wieland",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "mnc7r91hexi0wnu"
+        }
+      ],
+      "source_id": "jtl3blr7z69ncej"
+    },
+    {
+      "annotation": "Illustration zu »Amanda und Eduard« von Sophie Mereau (Frankfurt M. 1803)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28337,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Amanda und Eduard von Sophie Mereau / 1ter. Th. pag. 243",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_367_28337_18p06qbc9s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Amanda und Eduard von Sophie Mereau / 1ter. Th. pag. 243",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "rta9rgv2y9ocdfi"
+        }
+      ],
+      "source_id": "xmhebymhyqef6em"
+    },
+    {
+      "annotation": "Illustration zu »Amanda und Eduard« von Sophie Mereau (Frankfurt M. 1803)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28338,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Amanda und Eduard von Sophie Mereau / 2ter. Th. pag. 201",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_367_28338_p03nlp8u6r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Amanda und Eduard von Sophie Mereau / 2ter. Th. pag. 201",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "6q1kx3a8zrwao9f"
+        }
+      ],
+      "source_id": "fzcritk5psjrlfe"
+    },
+    {
+      "annotation": "Illustration zu »Antoinette, oder die uneigennützige Liebe« von ungenannt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.877Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28339,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antoinette, oder: die uneigennützige Liebe. / Der Graf stellt German, Antoinetten als seinen Freund vor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et sculp.",
+      "scans": [
+        "alm_367_28339_9h8dgpnqd1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antoinette, oder: die uneigennützige Liebe. / Der Graf stellt German, Antoinetten als seinen Freund vor",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "wkf0bfe5bxmjzcj"
+        }
+      ],
+      "source_id": "90y94ykmtigm8he"
+    },
+    {
+      "annotation": "Illustration zu »Antoinette, oder die uneigennützige Liebe« von ungenannt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28340,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antoinette, oder: die uneigennützige Liebe. / Als Vater übergebe ich dir meine adoptierte Tochter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et sculp.",
+      "scans": [
+        "alm_367_28340_shb34chsz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antoinette, oder: die uneigennützige Liebe. / Als Vater übergebe ich dir meine adoptierte Tochter",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "va6j0n3kjr1qfj4"
+        }
+      ],
+      "source_id": "h74dpzr3f6h1q5w"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen mit 2 Einleitungen INr 28342-28345, Obj 14-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Rosalie und Hulderich / oder / die Entzauberung / und / Die Novelle ohne Titel. / Zwey Erzählungen / aus dem Pentameron von Rosenhain",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Rosalie und Hulderich / oder / die Entzauberung / und / Die Novelle ohne Titel. / Zwey Erzählungen / aus dem Pentameron von Rosenhain",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "yfln2odd8x0gz75"
+        }
+      ],
+      "source_id": "fftgh6pa18omqjb"
+    },
+    {
+      "annotation": "I. Rosalie und Hulderich oder die Entzauberung und Die Novelle ohne Titel. Zwey Erzählungen aus dem Pentameron von Rosenhain (Sammlung INr 28341, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Erzählung, womit die Gesellschaft zu Rosenhain am dritten Abend unterhalten werden sollte",
+      "language": [],
+      "musenalm_id": 28342,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosalie und Hulderich / oder / die Entzauberung / Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosalie und Hulderich / oder / die Entzauberung / Einleitung",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "l4uatlce2r91gdf"
+        }
+      ],
+      "source_id": "35vh3h0xg0y50ai"
+    },
+    {
+      "annotation": "I. Rosalie und Hulderich oder die Entzauberung und Die Novelle ohne Titel. Zwey Erzählungen aus dem Pentameron von Rosenhain (Sammlung INr 28341, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Rosalie von Eschenbach, ein liebenswürdiges junges Mädchen, welches seine Eltern schon in der Kindheit verloren hatte,",
+      "language": [],
+      "musenalm_id": 28343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosalie und Hulderich / oder / die Entzauberung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosalie und Hulderich / oder / die Entzauberung",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "ihzp09ne9d9iaxy"
+        }
+      ],
+      "source_id": "lkerjly6osq7993"
+    },
+    {
+      "annotation": "I. Rosalie und Hulderich oder die Entzauberung und Die Novelle ohne Titel. Zwey Erzählungen aus dem Pentameron von Rosenhain (Sammlung INr 28341, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.880Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Herr M., dem das Loos die Unterhaltung der Gesellschaft am vierten Abend aufgetragen hatte, erklärte sich in einem kleinen Prolog:",
+      "language": [],
+      "musenalm_id": 28344,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Novelle ohne Titel. / Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Novelle ohne Titel. / Einleitung",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.317Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "uou13qgk7zw4r2k"
+        }
+      ],
+      "source_id": "onox45mp69flr4j"
+    },
+    {
+      "annotation": "I. Rosalie und Hulderich oder die Entzauberung und Die Novelle ohne Titel. Zwey Erzählungen aus dem Pentameron von Rosenhain (Sammlung INr 28341, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Die Familie Moscoso von Altariva, eine der ältesten und angesehensten in Gallizien",
+      "language": [],
+      "musenalm_id": 28345,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Novelle ohne Titel.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Novelle ohne Titel.",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.216Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "hnyhl20pd877cbt"
+        }
+      ],
+      "source_id": "f4967fpyx9tpvaj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Sieh, schon winket durch Nebelflor die hehre Selene, / Und auf wogendem Meer, spiegelt ihr silberner Schein.",
+      "language": [],
+      "musenalm_id": 28346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Cäyx und Halycone",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. J. Edl. v. Collin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Cäyx und Halycone",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.216Z",
+          "agent": "o0scxlabqbxt72i",
+          "source_id": "1c06e26986nlq0x"
+        }
+      ],
+      "source_id": "3keb8lq5ehihvyh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Was kann wohl in diesem Pilgerleben, / In der Unvollkommenheiten Land",
+      "language": [],
+      "musenalm_id": 28347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonnett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arnoldine Wolff geb. Weissel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonnett",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.216Z",
+          "agent": "k4l0etwctfexyyx",
+          "source_id": "nx4ydsv8brwp0eb"
+        }
+      ],
+      "source_id": "w7zqqeylba5tljc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Nur in die Freundschaft kann das Herz des Menschen sich / theilen, / Doch die Liebe verlangt ganz und allein den Besitz.",
+      "language": [],
+      "musenalm_id": 28348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einfall",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.216Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "at0s05qa4716f2w"
+        }
+      ],
+      "source_id": "h8quvvpplvet6el"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Ehe du noch lesen kannst, schreibe ich schon an dich, liebliches Kind.",
+      "language": [],
+      "musenalm_id": 28349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Briefe an Thekla",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bouterwek",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Briefe an Thekla",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "27lkhlbux1m8s5c",
+          "source_id": "pz9golffkxy4lgj"
+        }
+      ],
+      "source_id": "gvsqbyy58hry59f"
+    },
+    {
+      "annotation": "mit einer Einleitung: Vorerinnerung: Rhytmus, Melodie und Harmonie, die Elemente der Musik, besitzt die Natur nicht [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Auf nacktem Felsen lieg' ich hier, / Und über mir, in ungemeßner Ferne,",
+      "language": [],
+      "musenalm_id": 28350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Lebenstag / des / Tonkünstlers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rochlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Lebenstag / des / Tonkünstlers",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "2wsoz27ytrsps8l",
+          "source_id": "0rejw2l4t11a55d"
+        }
+      ],
+      "source_id": "xe4f5dwxc6uxlom"
+    },
+    {
+      "annotation": "mit einer Auflösung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Vier Füße hab' ich zwar doch doppelt ist der eine / Drum werd' ich jedem auch fünffüßig nur genannt.",
+      "language": [],
+      "musenalm_id": 28351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Logogryph. / An Rosa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Logogryph. / An Rosa",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "vd3inw12z8a6gd2",
+          "source_id": "ijxylz3aaea8vwj"
+        }
+      ],
+      "source_id": "qqwyh90wuh1h2aq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Die Schriften aller Weisen / Kauft Oll, der Abderit.",
+      "language": [],
+      "musenalm_id": 36841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Oll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Oll",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.766Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "95fvy1tw2bm4iyp"
+        }
+      ],
+      "source_id": "hn6uawdek7rf9ra"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Erschöpft von dem Waffentanze, und mit Ehre bedeckt, zog sich General Graf von B. am Schlusse des siebenjährigen Krieges auf die uralte, halb verfallene Burg seiner Herrschaft zurück.",
+      "language": [],
+      "musenalm_id": 28352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Das Burgverließ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Das Burgverließ",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "wzxbumptgxjbjib"
+        }
+      ],
+      "source_id": "5dqmk85tdqtivn5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Wenn das Herz in stiller Trauer / Tief verschloßnen Kummer nährt,",
+      "language": [],
+      "musenalm_id": 28353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Blick zur Ewigkweit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arnoldine Wolff geb. Weissel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Blick zur Ewigkweit",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "k4l0etwctfexyyx",
+          "source_id": "jxt9uspbvrnj74c"
+        }
+      ],
+      "source_id": "rczu538q6c2d56t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "Länger darf ich hier nicht wohnen! / Schafft mein eisernes Gewand",
+      "language": [],
+      "musenalm_id": 28354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / An Sie. / Nach dem von Kürenberg. / I, 38",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / An Sie. / Nach dem von Kürenberg. / I, 38",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "gd9bylgozhbs6y0"
+        }
+      ],
+      "source_id": "d67ra0tlhqy6ftn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Halb noch Puppe, wiegt die Ephemere / Sich auf dieser Zeitloslilje Rand,",
+      "language": [],
+      "musenalm_id": 28355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Memento mori. / (Im Spätsommer 1802.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Memento mori. / (Im Spätsommer 1802.)",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.207Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.207Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "xgm51y6v7gvoil2"
+        }
+      ],
+      "source_id": "r3qrk249vcuw7o0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Lieb' ist süße Bethörung. O du, sanftlächelnde Freund- / schaft!",
+      "language": [],
+      "musenalm_id": 28356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Bitte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Bitte",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.420Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.420Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "i9pz42r8mcsdlcq"
+        }
+      ],
+      "source_id": "7uftb5jtsi5gvcu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Was deine Kranken tödtet, ist, / Daß du ein Arzt, und keiner bist.",
+      "language": [],
+      "musenalm_id": 28357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / An Burro",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / An Burro",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "1xzyo5fss6sln7e"
+        }
+      ],
+      "source_id": "ijbllyolfrd7ob7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Weibliche Lieb' und männliche Freundschaft - ohne die / Beyden",
+      "language": [],
+      "musenalm_id": 28358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Einfall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Einfall",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "dfp5aw0afx82pc7"
+        }
+      ],
+      "source_id": "ktnzqw3e2tm0rzg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Theodor und Therese waren die glücklichsten Eheleute von der Welt. Schon zehn Wochen waren sie verheirathet.",
+      "language": [],
+      "musenalm_id": 28359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Die Blumenlese. / Eine Bagatelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rochlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Die Blumenlese. / Eine Bagatelle",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "2wsoz27ytrsps8l",
+          "source_id": "xqeswgaiikdh0eu"
+        }
+      ],
+      "source_id": "moile0nfaxede3i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Haß und Liebe - sie grenzen im Menschen dicht einander,",
+      "language": [],
+      "musenalm_id": 28360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Einfall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Einfall",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "n8y8d6gokjv7eoi"
+        }
+      ],
+      "source_id": "ssk5impxclvo2c6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Dich, mein Gütchen, will ich malen, / Malen, was in deinen Thalen,",
+      "language": [],
+      "musenalm_id": 28361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Sorgenfrey",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Sorgenfrey",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "67sljmokqgrd3o9"
+        }
+      ],
+      "source_id": "eca11rd0zxprzus"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Müller fand die Freunde in der Laube bei Louisen. Sie erwartete ihren Geliebten, der heute wieder nach dem ehemaligen Kloster geritten war,",
+      "language": [],
+      "musenalm_id": 28362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Unterhaltungen / Alles zeigt den eingeweihten Blicken / eines Gottes Spur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Unterhaltungen / Alles zeigt den eingeweihten Blicken / eines Gottes Spur",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "muh9t8gyxdywoek"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Alles im Leben fließt an einem Punkt zusammen, / Welcher sich Liebe nennt;",
+      "language": [],
+      "musenalm_id": 28363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfälle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einfälle",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "wew36ita7txg3x1"
+        }
+      ],
+      "source_id": "cb6u96vb5vggtek"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Was dem Herzen entsproß trägt süße Früchte dem / Leben.",
+      "language": [],
+      "musenalm_id": 28364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einfälle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einfälle",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "soq1zptyxyvt9oz"
+        }
+      ],
+      "source_id": "bjxx4vkre9o8dag"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Johann Friedrich, Freiherr von Schröder, der erst vor ein paar Jahren zu Ollmütz, als K. K. FeldMarschall-Lieutenant starb ,",
+      "language": [],
+      "musenalm_id": 28365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gebrüder Schröder / Eine wahre Anekdote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Meißner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gebrüder Schröder / Eine wahre Anekdote",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.421Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.421Z",
+          "agent": "pbt3h5zr358vg6h",
+          "source_id": "xxp8etja4lmo78g"
+        }
+      ],
+      "source_id": "2xleng8j83plu6w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Schau, du Mädchen! du folgst mir so früh zu der lufti- / gen Waldhöh?",
+      "language": [],
+      "musenalm_id": 28366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Greis und die Jungfrau. / Idylle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. H. Gramberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Greis und die Jungfrau. / Idylle",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "hdhytmzu9u57ana",
+          "source_id": "5iiuqgm8cumitzl"
+        }
+      ],
+      "source_id": "rh7p70ianek2clz"
+    },
+    {
+      "annotation": "mit einer Auflösung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Dem Reiche der Liebe entreissest, du unglückseeliges Ganze / Dem Arme des Jünglings die Braut;",
+      "language": [],
+      "musenalm_id": 28367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bernh. Meister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "w2orgd5tdunhtf3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Auf ärmlichen Lager, von Binsen und Moose, ruhten Thebald und Helmion zwey Fischer, die nichts hatten, als was ihnen das Netz und die schwankende Angelruthe eintrugen.",
+      "language": [],
+      "musenalm_id": 28368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Aleth. / Hirtenbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Münchhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Aleth. / Hirtenbild",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.422Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.422Z",
+          "agent": "wfk4mi4tbts3zzx",
+          "source_id": "gwaqnf7ihwy51bt"
+        }
+      ],
+      "source_id": "a62c2u1lu049ll0"
+    },
+    {
+      "annotation": "mit einer Auflösung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.856Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Nimmst du, mich theilend, des Ganzen erstere Hälfte / Bin ich willkommen der Flur und allen empfindenden Wesen.",
+      "language": [],
+      "musenalm_id": 28392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bernh. Meister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhx2hlu67fn4c0n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Hoch auf Felsengipfel haus'te, / Wo der Sturm die Burg umsaus'te, / Ritter Kunz, verzehrt von Harm.",
+      "language": [],
+      "musenalm_id": 28393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heilwig von Dornberg. / Eine Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heilwig von Dornberg. / Eine Romanze",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.305Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "vg4uquu20av26q3"
+        }
+      ],
+      "source_id": "0y5v4t0p6frkt30"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "So! Und nun lieg' du, und wiederkäu' in Ruh' dein Futter! Wir wollen hier sehen, wo das Bärbel bleibt.",
+      "language": [],
+      "musenalm_id": 28394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Die Kuhglocke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Die Kuhglocke",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "rcly5hjseaajg28"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Still und bescheiden blühst du im friedlichen Thale hier, / Herziges Veilchen, unter dem schattigen Blätterdach;",
+      "language": [],
+      "musenalm_id": 28395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Veilchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arnoldine Wolf geb. Weissel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Veilchen",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "k4l0etwctfexyyx",
+          "source_id": "ixrx1526doufzic"
+        }
+      ],
+      "source_id": "my1vseu3msj3i1p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Der Unschuld Bild und des edlen stillen Verdienstes / Reichen verschlungen zum Kranz diese zwey Blumen dir dar:",
+      "language": [],
+      "musenalm_id": 28396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der weiße arabische Jesmin und die Reseda. / An Pr. Charlotte v... an ihrem 11ten Geburtstage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bernh. Meister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der weiße arabische Jesmin und die Reseda. / An Pr. Charlotte v... an ihrem 11ten Geburtstage",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "zwrn1hthmo50ptn"
+    },
+    {
+      "annotation": "s. a. Buris »Herbstlandschaft« Gedicht in: Taschenbuch der Liebe und Freundschaft gewidmet 1805 INr 28440",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Im Zwielicht, durch gesunkner Nebel Grauen, / Bricht sich das Auge mühsam eine Bahn.",
+      "language": [],
+      "musenalm_id": 28397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Winterlandschaft. / 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Winterlandschaft. / 1799",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "zk5z4ygqjxbtd57"
+        }
+      ],
+      "source_id": "diusp0wl5k61uyc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Mirtyll, der schönste Hirt im Hain, / Stets flink und wohlgemuth,",
+      "language": [],
+      "musenalm_id": 28398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der Vogel. / Idylle nach Gesner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arnoldine Wolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der Vogel. / Idylle nach Gesner",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "k4l0etwctfexyyx",
+          "source_id": "xdsaytee2te5nnl"
+        }
+      ],
+      "source_id": "ixqhuwdrgybbm88"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28399,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ankündigung / einer malerischen Reise, auf dem Rhein, / unter dem Titel: / Ansichten des Rheins / von A. Klebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Wilmans",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ankündigung / einer malerischen Reise, auf dem Rhein, / unter dem Titel: / Ansichten des Rheins / von A. Klebe",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.086Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.086Z",
+          "agent": "q9v9seq8bme8931",
+          "source_id": "sm9uy3gaud6fr0b"
+        }
+      ],
+      "source_id": "wbcamonz80j8kok"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28400,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachstehende Schriften, sind in meinem Verlage 1803 erschienen und in allen Buchhandlungen Deutschlands zu haben:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachstehende Schriften, sind in meinem Verlage 1803 erschienen und in allen Buchhandlungen Deutschlands zu haben:",
+      "updated": "2002-10-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "bs3uuzpjosjx1hq"
+    }
   ],
   "agents": [
     {

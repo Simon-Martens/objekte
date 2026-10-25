@@ -48,7 +48,26 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "wcaa51mxalumelv"
+    {
+      "annotation": "1817, 1819, 1821.\nKartonierter Einband mit Muster, Ku und Goldschnitt.\n1821: (K: CCXIV, 310 SS und Port 6.) Mit Tku 1, Port 2, Ku 1, Fac 1(Calvin), CCXIV und 311 SS.     ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.625Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100453",
+      "location": "105L07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.625Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wcaa51mxalumelv"
+    }
   ],
   "contents": [],
   "agents": [

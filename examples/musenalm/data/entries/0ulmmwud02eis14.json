@@ -49,7 +49,26 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "shxmc76ego1268g"
+    {
+      "annotation": "Zählung der Jahrgänge nicht identisch mit Erscheinungsweise",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.708Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406319",
+      "location": "105L08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.708Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "shxmc76ego1268g"
+    }
   ],
   "contents": [],
   "agents": [

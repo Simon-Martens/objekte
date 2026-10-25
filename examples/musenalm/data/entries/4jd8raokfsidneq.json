@@ -48,45 +48,1514 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "p336n7fss8uispb"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.502Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409496",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.502Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "p336n7fss8uispb"
+    }
   ],
   "contents": [
-    "rghdj2udacjtbqa",
-    "bbyyp73a7g0vybi",
-    "hfilw5p2urbms2u",
-    "3pnviw1859im7u0",
-    "woifwy5cys6x8y1",
-    "zjysspek12uv97y",
-    "up0vnktmllr99nl",
-    "agcywc6kd1cba2e",
-    "0oavckc9ysok0o1",
-    "5u5jy1ghktj2tkm",
-    "fvm64o4h1b8ough",
-    "070mxbab9jvzwdr",
-    "taya5aze1z4ju3t",
-    "e89l9xwi7jpmacs",
-    "5zoflauw46pbqbs",
-    "lz8vu6x8u4a5g1n",
-    "f47yktri2s7hygg",
-    "1xtkr6tfjh6r9ok",
-    "x2fdnna5f46rlx0",
-    "tikyz1qhfsfcpbh",
-    "pq3eairabd9qus8",
-    "54mnw8w0fn4gd09",
-    "6uxq4tp7zo7r2mm",
-    "v25isdpqbzjifpx",
-    "mwqtw7hheabpn2l",
-    "ge3wr5keqcyp62i",
-    "jxvcvd6bd2dg60z",
-    "pbucl82f319zmx8",
-    "ql1kg3jeq1h4npa",
-    "4dm6gcfcn844let",
-    "kzpzm6513qxd44z",
-    "l6f8c2kohrugiqi",
-    "ngpfsomxobyqaiv",
-    "tepqedqs4eekypm",
-    "egi7aevzk2yx3da",
-    "cpubk6e7jebe5st"
+    {
+      "annotation": "§$ vermutl. fehlt Titelgraphik s. Textbezug INr 127766, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "rghdj2udacjtbqa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127744,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1833. / Herausgegeben von / Dr. ADRIAN. / Frankfurt am Main, / bei Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_588_127744_9r4wess2km.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1833. / Herausgegeben von / Dr. ADRIAN. / Frankfurt am Main, / bei Johann David Sauerländer",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "bbyyp73a7g0vybi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127745,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfilw5p2urbms2u"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127746,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Fenimore Cooper's Werken. / Vierte Lieferung. / Die Wassernixe. - Der Bravo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Fenimore Cooper's Werken. / Vierte Lieferung. / Die Wassernixe. - Der Bravo",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "3pnviw1859im7u0"
+    },
+    {
+      "annotation": "Illustration zu »Die Wassernixe« von J. F. Cooper; s. Textbezug INr 127749, Obj 7 /) über der Graphik Cooper's Werke B. 58-60",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127747,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wassernixe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heidelof del. S. Langer sc.",
+      "scans": [
+        "alm_588_127747_t5wzhlmt7s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Wassernixe",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.953Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.953Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "7idv5lhfsy0uay2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.953Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.953Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "ip8s6np2sb0uiek"
+        }
+      ],
+      "source_id": "woifwy5cys6x8y1"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen als Textbezüge zu 4 Graphiken INr 127749-127755, Obj 6-12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127748,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "zjysspek12uv97y"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127748, Obj 6) s. Graphik INr 127747, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Alderman Van Beverout hatte Neu-York verlassen, um auf seinen Besitzungen sich der ländlichen Ruhe für einige Wochen zu erfreuen.",
+      "language": [],
+      "musenalm_id": 127749,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Aus Cooper's Wassernixe. / 1. / Der Eindringling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Aus Cooper's Wassernixe. / 1. / Der Eindringling",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "up0vnktmllr99nl"
+    },
+    {
+      "annotation": "Illustration zu »Die Wassernixe« von J. F. Cooper; s. Textbezug INr 127749, Obj 7 /) über der Graphik Cooper's Werke B. 61-63",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127751,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wassernixe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heidelof del. Leop. Beyer sc.",
+      "scans": [
+        "alm_588_127751_nuzjt3c4vq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Wassernixe",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.954Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.954Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "5jqq6w76vceimie"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.953Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.953Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "op7plmik7qit9gn"
+        }
+      ],
+      "source_id": "agcywc6kd1cba2e"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127748, Obj 6) s. Graphik INr 127753, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Wassernixe schwamm nicht stets so unbeachtet auf den amerikanischen Gewässern",
+      "language": [],
+      "musenalm_id": 127752,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[I. Aus Cooper's Wassernixe.] 2. / Der Succurs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[I. Aus Cooper's Wassernixe.] 2. / Der Succurs",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "0oavckc9ysok0o1"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127748, Obj 6) §$ bez. Graphik fehlt vermutlich",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Vielleicht hat Cooper nie ein holdseligeres weibliches Wesen gesehen, als die Heldin des Romans, welche unser trefflicher Künstler hier nachgebildet hat.",
+      "language": [],
+      "musenalm_id": 127753,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Cooper's Bravo. / 1. / Violetta",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Cooper's Bravo. / 1. / Violetta",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "5u5jy1ghktj2tkm"
+    },
+    {
+      "annotation": "Illustration zu »Der Bravo« von J. F. Cooper /) s. Textbezug INr 127755, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127754,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bravo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_588_127754_omwckw5e0s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Bravo",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "fvm64o4h1b8ough"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127748, Obj 6) s. Graphik INr 127754, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.606Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Die Wassernixe schwamm nicht stets so unbeachtet auf den amerikanischen Gewässern, wie sie eine Zeitlang in der Bucht des Landhauses des Alderman's Van Beverout gelegen hatte.",
+      "language": [],
+      "musenalm_id": 127755,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Cooper's Bravo. / 2. / Der Bravo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Cooper's Bravo. / 2. / Der Bravo",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "070mxbab9jvzwdr"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127756,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches Taschenbuch. / Vierunzwanzigster Jahrgang. / Neue Folge. / Zwölfter Jahrgang 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches Taschenbuch. / Vierunzwanzigster Jahrgang. / Neue Folge. / Zwölfter Jahrgang 1833",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "taya5aze1z4ju3t"
+    },
+    {
+      "annotation": "s. Textbezug INr 127759, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127757,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lord Byron",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Philipps. Esq. p. 1814",
+      "scans": [
+        "alm_588_127757_1it3typbf9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lord Byron",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "jyk77x1hxyusyrq",
+          "source_id": "hqgoefif58k7vz1"
+        }
+      ],
+      "source_id": "e89l9xwi7jpmacs"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen als Textbezüge zu den Graphiken INr 127759-127770 Obj 16-27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Skizzen / aus / Lord Byron's Leben und Schriften.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Skizzen / aus / Lord Byron's Leben und Schriften.",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "cp28806uy344gcn"
+        }
+      ],
+      "source_id": "5zoflauw46pbqbs"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Des Dichter's Aug', in schönem Wahnsinn rollend, / Blitzt auf zum Himmel, blitzt zur Erd' herab. / Sommernachtstraum /) mit einer Illustration s. Graphik INr 127757, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wie alle Portraits des berühmten Dichters, von dem in der neuesten Murray'schen Ausgabe seiner Werke an, wo er nach einem Gemälde von Sanders als neunzehnjähriger Jüngling in Matrosen-Kleidung dargestellt ist,",
+      "language": [],
+      "musenalm_id": 127759,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Lord Byron's Portrait",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Lord Byron's Portrait",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "orvcri48165i5ny"
+        }
+      ],
+      "source_id": "lz8vu6x8u4a5g1n"
+    },
+    {
+      "annotation": "Illustration zu »Der Corsar« von G. G. Byron s. Textbezug INr 127761, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Corsar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gestochen von Martin Esslinger Zürich",
+      "scans": [
+        "alm_588_127760_voxaec8fwy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Corsar",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "j49zt01iy5a9pzw"
+        }
+      ],
+      "source_id": "f47yktri2s7hygg"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Ich sinke unter schwerer Liebeslast. / Romeo und Julie /) über der Graphik: Byron's Werke B. 3 /) mit einer Illustration s. Graphik INr 127760, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Der Corsar hatte seine reizende kleine Insel verlassen, um an Sey Pascha, dem Griechenfeind, Rache zu nehmen.",
+      "language": [],
+      "musenalm_id": 127761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Gulnare besucht den Corsaren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Gulnare besucht den Corsaren",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "4rp16cfxrpl7uyy"
+        }
+      ],
+      "source_id": "1xtkr6tfjh6r9ok"
+    },
+    {
+      "annotation": "Illustration zu »Mazeppa« von G. G. Byron /) zus. Bezeichnung: Stich und Druck durch Kunst-Verlag in Carlsruhe /) s. Textbezug INr 127763, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mazeppa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hor. Vernet pinx. C. Frommel direx.",
+      "scans": [
+        "alm_588_127762_3hrjqym6vh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mazeppa",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "qsg6gjxqebsoibo",
+          "source_id": "78b5qovps61dnx9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "yxu70p4laeh97im",
+          "source_id": "cpxbzuswt95suh9"
+        }
+      ],
+      "source_id": "x2fdnna5f46rlx0"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Seltsam immer  bleibt's und wundervoll. / Sommernachtstraum /) mit einer Illustration s. Graphik INr 127762, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Der nackt auf das wilde Pferd gebundene und im Sturm fort getragene Mazeppa ward der Vorwurf eines berühmten französischen Künstlers",
+      "language": [],
+      "musenalm_id": 127763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mazeppa unter den Pferden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mazeppa unter den Pferden",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "h9847pboj10t1ed"
+        }
+      ],
+      "source_id": "tikyz1qhfsfcpbh"
+    },
+    {
+      "annotation": "Illustration zu »Manfred« von G. G. Byron; über der Graphik: Byron's Werke B. 8 /) s. Textbezug INr 127765, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manfred",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Rahn v. Zürich sculp.",
+      "scans": [
+        "alm_588_127764_60xzb3hcht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Manfred",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "2qfnp8a93m1r2da",
+          "source_id": "z9raoxtwkivr7t3"
+        }
+      ],
+      "source_id": "pq3eairabd9qus8"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: O, hier bau' ich die ew'ge Ruhstatt mir und schüttle von dem lebensmüden Leibe / Das Joch feindseliger Gestirne / Romeo und Julie /) mit einer Illustration s. Graphik INr 127764, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Lord Byron's Manfred ist eine seiner originellsten und erhabensten Dichtungen.",
+      "language": [],
+      "musenalm_id": 127765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Manfred auf den Klippen der Jungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Manfred auf den Klippen der Jungfrau",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "xriydholhw3u381"
+        }
+      ],
+      "source_id": "54mnw8w0fn4gd09"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Welch Land ist dies, ihr Freunde? / Was ihr wollt /) §$ bez. Illustration (wohl Titelgraphik) fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Wir betrachten dieses Blatt mit doppeltem Vergnügen, da es, ein wahrhaft künstlerischer Vorwurf, mit Talent und Liebe ausgeführt ist,",
+      "language": [],
+      "musenalm_id": 127766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Janina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Janina",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "zub6g46w5dyrue1"
+        }
+      ],
+      "source_id": "6uxq4tp7zo7r2mm"
+    },
+    {
+      "annotation": "s. Textbezug INr 127768, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lord Byron's Pallast zu Venedig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_588_127767_rpdzdmi28n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lord Byron's Pallast zu Venedig",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "v25isdpqbzjifpx"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Das Unglück ruht auf diesem Volke. / Kaufmann von Venedig /) mit einer Illustration s. Graphik INr 127767, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Die zahlreichen Freunde des Dichters werden es uns Dank wissen, daß wir ihnen eine Abbildung des Pallastes in die Hand geben,",
+      "language": [],
+      "musenalm_id": 127768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Lord Byron's Pallast zu Venedig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Lord Byron's Pallast zu Venedig",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.957Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "5xr3kxfybv55z42"
+        }
+      ],
+      "source_id": "mwqtw7hheabpn2l"
+    },
+    {
+      "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Eu'r Sinn ergänze, was sich euch hier zeigt. / Heinrich der Fünfte /) mit einer Illustration s. Graphik INr 127770, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Newstead-Abtei, einst das Eigenthum und die Wohnung des Dichters, liegt ungefähr sechs und zwanzig deutsche Meilen von London und anderthalb Meilen von Nottingham.",
+      "language": [],
+      "musenalm_id": 127769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Newstead-Abtei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Newstead-Abtei",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "y5tyr9wga87vuwd"
+        }
+      ],
+      "source_id": "ge3wr5keqcyp62i"
+    },
+    {
+      "annotation": "s. Textbezug INr 127769, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abtey Newstead. / Lord Byron's Stammsitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_588_127770_qjybb3vwie.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abtey Newstead. / Lord Byron's Stammsitz",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "jxvcvd6bd2dg60z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Ein gut Stück Arbeit, Meister! Bei dem heiligen Lucas! Ihr erinnert mich durch Eure schwarzen Striche da an einen lieben Mann, den ich nie vergessen werde,",
+      "language": [],
+      "musenalm_id": 127771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Convent zu Hildesheim / im Jahre 1640",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Convent zu Hildesheim / im Jahre 1640",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "lm1ch59rtxjaum7"
+        }
+      ],
+      "source_id": "pbucl82f319zmx8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "An einem heiteren Frühlingsmorgendes Jahres 1711, schwamm die Fregatte La belle Marie im Angesicht des Landes Whida unter 6° 20' N. B. an den Küsten von Rio da Volta,",
+      "language": [],
+      "musenalm_id": 127772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Welly. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. G. Zehner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Welly. / Novelle",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "ql1kg3jeq1h4npa"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 127774-127778, Obj 31-35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzählungen am Meer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzählungen am Meer",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "g05txwh2d434lwe"
+        }
+      ],
+      "source_id": "4dm6gcfcn844let"
+    },
+    {
+      "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Eine kleine Gesellschaft war im obern Salon des schönen Badhauses am Hafen zu Boulogne-su-mer versammelt.",
+      "language": [],
+      "musenalm_id": 127774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gesellschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gesellschaft",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "o51w15ti45ckah2"
+        }
+      ],
+      "source_id": "kzpzm6513qxd44z"
+    },
+    {
+      "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Unsere Fregatte, der Halbmond, kreuzte in dem mittelländischen Meere. Unser Kapitain, Der liebenswürdigste, trefflichste Mann von der Welt, hatte nur einen Fehler",
+      "language": [],
+      "musenalm_id": 127775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der sorglose Schiffskapitain",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der sorglose Schiffskapitain",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "1cstxscor8jxvgk"
+        }
+      ],
+      "source_id": "l6f8c2kohrugiqi"
+    },
+    {
+      "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Als Eduard geschlossen und den Dank der Gesellschaft mit der lobenswerthen Bescheidenheit, die alten Seemännern eigen ist, hingenommen hatte,",
+      "language": [],
+      "musenalm_id": 127776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abentheuer eines Schauspieldichters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abentheuer eines Schauspieldichters",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "jbsl6oo9s8qpbhp"
+        }
+      ],
+      "source_id": "ngpfsomxobyqaiv"
+    },
+    {
+      "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Da alle Anwesenden Elliston genauer kannten und das Erzählte ganz seinem Chrarakter gemäß war, fand Graham's Erzählung Gnade vor den Augen der Gesellschaft.",
+      "language": [],
+      "musenalm_id": 127777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen aus dem amerikanischen Kriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenen aus dem amerikanischen Kriege",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "tav7qevdqs7u2ta"
+        }
+      ],
+      "source_id": "tepqedqs4eekypm"
+    },
+    {
+      "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Eduard und ich waren die einzigen, die der Erzählung des alten Obristen bis zum Schlusse mit Aufmerksamkeit gefolgt waren.",
+      "language": [],
+      "musenalm_id": 127778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die weiße Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die weiße Frau",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.958Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.958Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "k73fs6u80khww06"
+        }
+      ],
+      "source_id": "egi7aevzk2yx3da"
+    },
+    {
+      "annotation": "2 BB Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127779,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Verlags-Bücher / von / Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Verlags-Bücher / von / Johann David Sauerländer",
+      "updated": "2006-06-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "cpubk6e7jebe5st"
+    }
   ],
   "agents": [
     {

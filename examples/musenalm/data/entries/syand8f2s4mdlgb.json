@@ -49,21 +49,515 @@
   "editor": "",
   "items": [],
   "contents": [
-    "pit1fz1ihwawzls",
-    "f9w2hg1rw82gcf8",
-    "djfqiti2lo2sxo8",
-    "65ygtmogso8ae7r",
-    "fg1movkny1ng792",
-    "qlpmtz3h99c2j5v",
-    "q4zkzh7lf1kl02j",
-    "kqw7uj58eh2g1ph",
-    "rshm1bcn6e6ah50",
-    "zx9xls4v95zqr8f",
-    "3v2wexrd5cq3w11",
-    "reoc1gsdxei9ir2",
-    "d8f6ltgmt99w2qv",
-    "3gal9zxgqg3486q",
-    "g0vkms7s7g3n7ua"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103380,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HANSWURST'S / WIEDERGEBURT. / Echtester Cölnischer / CARNEVALS-ALMANACH / auf / das Jahr 1831. / Cöln an der Tuffesbaach. / Nachgedruckt bei Franz Xaver Schlösser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103380_20khil4scf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HANSWURST'S / WIEDERGEBURT. / Echtester Cölnischer / CARNEVALS-ALMANACH / auf / das Jahr 1831. / Cöln an der Tuffesbaach. / Nachgedruckt bei Franz Xaver Schlösser",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "pit1fz1ihwawzls"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103381,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nur wer verständig, dem ist es lebendig / Was unter'm Bild des Hanswurst's sich verhüllt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103381_31ms913uyg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nur wer verständig, dem ist es lebendig / Was unter'm Bild des Hanswurst's sich verhüllt",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "f9w2hg1rw82gcf8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.724Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hanswurst's / WIEDERGEBURT /. / Echtester Cölnischer / CARNEVALS-ALMANACH / auf / das Jahr 1831. / Natruam si furca expellas / tamen usque recurret! / EILFTE, / verminderte, mit gehörigen Druckfehlern versehene und / mit einem in Holz geschnittenen Kupferstiche - / vid. gegenüberstehende Seite - verzierte Auflage. / Cöln an der Tuffesbaach. / Nachgedruckt bei bei Franz Xaver Schlösser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103382_2mukhy8a9p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hanswurst's / WIEDERGEBURT /. / Echtester Cölnischer / CARNEVALS-ALMANACH / auf / das Jahr 1831. / Natruam si furca expellas / tamen usque recurret! / EILFTE, / verminderte, mit gehörigen Druckfehlern versehene und / mit einem in Holz geschnittenen Kupferstiche - / vid. gegenüberstehende Seite - verzierte Auflage. / Cöln an der Tuffesbaach. / Nachgedruckt bei bei Franz Xaver Schlösser",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "djfqiti2lo2sxo8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.727Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem GROSSEN wie dem KLEINEN / RATH / und allen, welche durch die That / auch wacker zu beweisen streben, / dass sie dem Feste treu ergeben, / weiht, wie es sich von selbst versteht, / die Blätter gern / der / Hofpoet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Hofpoet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem GROSSEN wie dem KLEINEN / RATH / und allen, welche durch die That / auch wacker zu beweisen streben, / dass sie dem Feste treu ergeben, / weiht, wie es sich von selbst versteht, / die Blätter gern / der / Hofpoet",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "65ygtmogso8ae7r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Was tief im Volke Wurzeln gefaßt hat, keime aus demselben empor, wenn nicht äußere Kräfte es hemmen;",
+      "language": [],
+      "musenalm_id": 103384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was tief im Volke Wurzeln gefaßt hat, keime aus demselben empor, wenn nicht äußere Kräfte es hemmen;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karnevals-Almanach von 1825",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "fg1movkny1ng792"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Was gewesen, kommt auch wieder, / Zukunft ist dereinst vergangen! / L. Tieck",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Das Donnerwetter und die Frauen zu beschreiben, halten wir nicht für unmöglich, wohl aber im bloßen Worte unser Karnevalsfest zu schildern, und, seiner würdig, darzustellen.",
+      "language": [],
+      "musenalm_id": 103385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung, / als Vor- oder Nachwort / den geneigten Lesern / ad libitum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung, / als Vor- oder Nachwort / den geneigten Lesern / ad libitum",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "qlpmtz3h99c2j5v"
+    },
+    {
+      "annotation": "mit zahlreichen eingeschalteten Liedstrophen und szenischen Beiträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "In dem ungeheuren Weltensystem, wo so gut ein System, und wahrlich ein besseres herrscht, als in manchem Bunde, tanzt außer einer unzählbare Menge von rundgebackenen Kugeln eine, halb naß, halb trocken,",
+      "language": [],
+      "musenalm_id": 103386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstes Mährchen aus 11001 Nacht. / Des Hanswurstes / Morgenroth, Lehrjahre und Zenith. [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstes Mährchen aus 11001 Nacht. / Des Hanswurstes / Morgenroth, Lehrjahre und Zenith. [...]",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "q4zkzh7lf1kl02j"
+    },
+    {
+      "annotation": "mit einer Graphik s. INr 103388, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Die Vor-, Be-, und Anmerkungen so wie die Er-, Ver- und Aufklärungen halten wir im Sinne; jeder geneigte Leser, der nicht voller Langeweile den buntscheckigen Bursch, d. h. den Almanach aus der Hand gelegt hat,",
+      "language": [],
+      "musenalm_id": 103387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vor-, Be-, und Anmerkungen so wie die Er-, Ver- und Aufklärungen halten wir im Sinne; jeder geneigte Leser, der nicht voller Langeweile den buntscheckigen Bursch, d. h. den Almanach aus der Hand gelegt hat,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Hofpoet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "kqw7uj58eh2g1ph"
+    },
+    {
+      "annotation": "Graphik zum Schlußwort INr 103387, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103388_vmw04vu255.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "rshm1bcn6e6ah50"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103389_7g649w33xu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "zx9xls4v95zqr8f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103390_aw8l7g1hye.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3v2wexrd5cq3w11"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.980Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103391_r54gcxsk9p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "reoc1gsdxei9ir2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103392_mhnw4hkfxk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "d8f6ltgmt99w2qv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103393_b6a1cmohyy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3gal9zxgqg3486q"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103394,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALAAF CÖLN!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4187_103394_jal4l1afee.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALAAF CÖLN!",
+      "updated": "2015-03-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "g0vkms7s7g3n7ua"
+    }
   ],
   "agents": [
     {

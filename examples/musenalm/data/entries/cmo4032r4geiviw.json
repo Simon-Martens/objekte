@@ -48,63 +48,2127 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "9k7ymefsxd1j3lk",
-    "xn1g4rjdh5kj9uc"
+    {
+      "annotation": "§1§ B mit SS 253, 254;  §2§ Umschlaggraphik v. fehlen.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100454",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9k7ymefsxd1j3lk"
+    },
+    {
+      "annotation": "UG verso",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409258",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xn1g4rjdh5kj9uc"
+    }
   ],
   "contents": [
-    "5zxq61xt734om6w",
-    "cy50xgj7qjgxwes",
-    "dlz43th6qchk9if",
-    "e5lxmi4tj4ronlp",
-    "uf8o4gf58kspumj",
-    "0yk7lyn8e46t06m",
-    "eqkfl71ur0tz3cl",
-    "77ejmzn0guvnrqw",
-    "lqrprw029ooqvzq",
-    "k76s7t636ngsh2t",
-    "j4favtcx00x7vhi",
-    "4134ctry23njwr4",
-    "hpig63kc3f58enx",
-    "mc24lbwzov9znf2",
-    "d9pcf2aweua06hk",
-    "uopxvhfv7dalmsk",
-    "od5a0nfx13vn1cb",
-    "zl1vfd7rxko7cll",
-    "tppzr606hvy0u82",
-    "6bjti9rvljjtl0b",
-    "gfc2x7qq7vmejqy",
-    "d2dvm068ow7gdkf",
-    "5rtffibplmbko21",
-    "8r8i8qbylo4cttp",
-    "yv3p48bnm1930s4",
-    "awkkhla09qq1a62",
-    "no8rkqzc694x056",
-    "qra7syt7cj9lzvp",
-    "3c2xvo62svkx0wl",
-    "4gp8sz6q70de3o1",
-    "swk1atieysxzmx1",
-    "zebc0c1bjcfmk9l",
-    "0dxsh6gn5nse6nt",
-    "4o3mtanhixu0wm5",
-    "oykpe4anko5jo51",
-    "1gls33budxscxu7",
-    "v59ucpm8nbf4ayx",
-    "t3w1zso59a8p1lf",
-    "wdikrqxoa3ifnwe",
-    "gtkia09fmri9duc",
-    "n4hpbqid60r8ogk",
-    "qf16pt5iu1ai3tg",
-    "n7morali7l5ovwm",
-    "0j27c9q4y4iopfe",
-    "dh0k3bhsze5kwbk",
-    "u3c8h9xp0utun2a",
-    "gicc7j9eqkr7jkf",
-    "ocu1dx9r56pvxje",
-    "8ed000kgmmm0rr5",
-    "ntcld2iljq7o873",
-    "1osnxppml7frqlv",
-    "9em5ifklidgblcr",
-    "gsp8fs2nry6uwgw"
+    {
+      "annotation": "Umschlaggraphik r. s. Beitrag »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 58995, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59883,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CROMWELL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59883_58cw33gfbs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CROMWELL",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "5zxq61xt734om6w"
+    },
+    {
+      "annotation": "graph.-typograph. Titel mit zwei Medaillen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59884,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Revolutions- / Almanach / von / 1793. / Göttingen / bei Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59884_p0fqzv8usy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Revolutions- / Almanach / von / 1793. / Göttingen / bei Johann Christian Dieterich",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "cy50xgj7qjgxwes"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Dieser historische Almanach beschäftigt sich, wie schon sein Titel besagt, ausschließlich mit den gewaltsamen Veränderungen und den Erschütterungen, welche die Staaten und Länder Europens in ältern und neuern Zeiten erlitten haben.",
+      "language": [],
+      "musenalm_id": 59885,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede / des / Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede / des / Herausgebers",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.843Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.843Z",
+          "agent": "wrhrh5ct20xv6c8",
+          "source_id": "xtgiqob609d53p7"
+        }
+      ],
+      "source_id": "dlz43th6qchk9if"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59886,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "e5lxmi4tj4ronlp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich theile der erlauchten und zahlreichen Versammlung einige allgemeine Betrachtungen und Bemerkungen über das große Wort Staatenrevolution mit, das jetzt den größten Theil pro und contra beschäftigt,",
+      "language": [],
+      "musenalm_id": 59887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Vorlesung / über / die Revolutionen der Staaten / in / der Academie der Wissenschaften zu Berlin / am 6. October 1791 gehalten, von dem / königl. Preußischen Staats-Minister, / Grafen von Herzberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kön. Preußischer Staats-Minister Graf von Herzberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Vorlesung / über / die Revolutionen der Staaten / in / der Academie der Wissenschaften zu Berlin / am 6. October 1791 gehalten, von dem / königl. Preußischen Staats-Minister, / Grafen von Herzberg",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.843Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.843Z",
+          "agent": "dg41lx2496f2bu2",
+          "source_id": "us5qf0mfqsqwbsw"
+        }
+      ],
+      "source_id": "uf8o4gf58kspumj"
+    },
+    {
+      "annotation": "Anm. am Objekt: Man schlage die Dialogen des Lucians nach.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Vor Kurzem wurde ein Manuscript des Menip, der wie Jedermann weiß, der Carra-Marat des himmlischen Clubs war, in dem Wandschrank eines Bibliotheksaals gefunden,",
+      "language": [],
+      "musenalm_id": 59888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Neueste Reise / der / Freyheit auf die Erde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Neueste Reise / der / Freyheit auf die Erde",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0yk7lyn8e46t06m"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59921, Obj 39 /) mit einer Anmerkung INr 59933, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Die Sächsischen Bauern-Unruhen, so kurz und unbedeutend sie waren, so wichtig hätten doch ihre Folgen für ganz Deutschland werden können, wenn minder thätige Staatsmänner am Ruder gewesen wären,",
+      "language": [],
+      "musenalm_id": 59889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Sächsischen / Bauern-Unruhen / 1790",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Sächsischen / Bauern-Unruhen / 1790",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "eqkfl71ur0tz3cl"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 59891, 59892; Obj 9, 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Zwey Beispiele / von / Revolutionen aus Fanatismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Zwey Beispiele / von / Revolutionen aus Fanatismus",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "77ejmzn0guvnrqw"
+    },
+    {
+      "annotation": "IV. Zwey Beispiele von Revolutionen aus Fanatismus (Sammlung INr 59890, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Unter der Regierung Ludwigs des Lahmen, Königs von Frankreich 1321, versammelten sich Hirten und andere Leute ohne weitere Waffen, als Ränzel und Stab des Pilgers,",
+      "language": [],
+      "musenalm_id": 59891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Pastoureaux, oder Hirten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Pastoureaux, oder Hirten",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqrprw029ooqvzq"
+    },
+    {
+      "annotation": "IV. Zwey Beispiele von Revolutionen aus Fanatismus (Sammlung INr 59890, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Das beste Gegenstück zu den Pasteureaux sind die Wiedertäufer, und die Unruhen, welche sie ungefähr 200 Jahr darauf, sonderlich in den Niederlanden anrichteten.",
+      "language": [],
+      "musenalm_id": 59892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Wiedertäufer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Wiedertäufer",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "k76s7t636ngsh2t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Im Jahre 1382 als Richard II. regierte, entstand ein Aufruhr unter dem Volke der Grafschaft Kent, die zu ihrem Anführer einen Dachdecker aus Dartford, Nahmens Wat-Hilliard oder Tyler, wählten.",
+      "language": [],
+      "musenalm_id": 59893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Wat-Tyler: / eine / merkwürdige Begebenheit des 14ten / Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Wat-Tyler: / eine / merkwürdige Begebenheit des 14ten / Jahrhunderts",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "j4favtcx00x7vhi"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 59911, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Mehr als alle Reden und Schriften wirken große Beyspiele und große Erinnerungen auf jene Seelen, die Egoismus noch nicht verderbt hat;",
+      "language": [],
+      "musenalm_id": 59894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Gedächtnißfeyer / Arnolds von Winkelried / den 9ten Julius 1786, in Stanz in / Unterwalden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Gedächtnißfeyer / Arnolds von Winkelried / den 9ten Julius 1786, in Stanz in / Unterwalden",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "4134ctry23njwr4"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) mit einer Illustration s. Umschlaggraphik r. (Portrait Cromwell) INr 59883, Obj 1; s. Graphik »Das Bein-Haus zu Murten« INr 59925, Obj 43; s. Graphik »Cromwell in Gefahr von der Hand einer Dame zu sterben« INr 59928, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Oliver Cromwell, als er noch nicht drey Jahre alt war, kaufte von einem Bilderhändler einige Bilder, worunter sich auch das Bildniß des kleinen Prinzen Carl, des Sohnes von Jacob I. befand,",
+      "language": [],
+      "musenalm_id": 59895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Züge und Bruchstücke / aus der / Geschichte älterer und neuerer Revo- / lutionen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Züge und Bruchstücke / aus der / Geschichte älterer und neuerer Revo- / lutionen",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "hpig63kc3f58enx"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) mit 2 Illustrationen s. Umschlaggraphik (Portrait Oliver Cromwell) INr 59813, Obj 1; Graphik INr 59928, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Elisabeth hatte den Thron verlassen, und mit ihr war der Stamm des Hauses Tudor erloschen. Künste, Handlungen, Seefahrt, Wissenschaften hatten unter ihrer glänzenden Regierung geblüht,",
+      "language": [],
+      "musenalm_id": 59896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Karl I. / Bruchstücke aus der Englischen Geschichte, / sonderlich / in gegenwärtigen Zeitläuften lesenswürdig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Karl I. / Bruchstücke aus der Englischen Geschichte, / sonderlich / in gegenwärtigen Zeitläuften lesenswürdig",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "mc24lbwzov9znf2"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 6 Beiträgen mit 3 Illustrationen INr 59897- 59906, Obj 15-24 /) mit einer Graphik über dem Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Ueber verschiedene / Producte der Französischen Revolution",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59897_9pkyawozjs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Ueber verschiedene / Producte der Französischen Revolution",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "d9pcf2aweua06hk"
+    },
+    {
+      "annotation": "IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59897, Obj 15) mit einer graph. Beigabe s. INr 59899, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Claviere war der erste Urheber des Assignaten-Projects: Mirabeau lieh ihm seine Beredsamkeit; und seine blendende Suade siegte über die Gründe der Necker, Bergasse etc",
+      "language": [],
+      "musenalm_id": 59898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Von den Assignaten, Billets de Con-/ fiance, und neu geprägten Münzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Von den Assignaten, Billets de Con-/ fiance, und neu geprägten Münzen",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "uopxvhfv7dalmsk"
+    },
+    {
+      "annotation": "paginiert p. 191 /) Beigabe zu »Von den Assignaten, Billets de Confiance, und neu geprägten Münzen« INr 59898, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Assignat de 5 L. CRÉÉ LE 1 NOV. 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59899_1trudhcxzm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Assignat de 5 L. CRÉÉ LE 1 NOV. 1791",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "od5a0nfx13vn1cb"
+    },
+    {
+      "annotation": "graph. Beigabe unter dem Beitrag »Von den Assignaten, Billets de Confiance, und neu geprägten Münzen« INr 59898, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59900_80r9pizrur.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "zl1vfd7rxko7cll"
+    },
+    {
+      "annotation": "IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59897, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "Man wird sich erinnern, daß die weiland con- / stitutioniernede Nationalversammlung, in ihrem Alles umschaffenden Paroxysm, die Todesstrafen nicht besser als das Uebrige behandelte.",
+      "language": [],
+      "musenalm_id": 59901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Guillotine oder die neue Köpf-Maschine, / nebst / der Consultation des Scharfrichters und dem / Responsum der chirurgischen Academie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Guillotine oder die neue Köpf-Maschine, / nebst / der Consultation des Scharfrichters und dem / Responsum der chirurgischen Academie",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "tppzr606hvy0u82"
+    },
+    {
+      "annotation": "IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59897, Obj 15) mit einer graph. Beilage s. INr 59903, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Die Pique ist eine sehr alte Waffe, deren Erfinder bey den Griechen die Spartaner waren;",
+      "language": [],
+      "musenalm_id": 59902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Piquen und rothen Mützen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Piquen und rothen Mützen",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "6bjti9rvljjtl0b"
+    },
+    {
+      "annotation": "Beigabe zu »Die Piquen und rothen Mützen« INr 59902, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59903_wf0zevr5pz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "gfc2x7qq7vmejqy"
+    },
+    {
+      "annotation": "IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59897, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Schon lange vor dem Ausbruche der Revolution existirte zu Paris eine Zusammenkunft von einigen hellen und kühnen Köpfen,",
+      "language": [],
+      "musenalm_id": 59904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Jacobiner: / Schilderung einiger Häupter und Obern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Jacobiner: / Schilderung einiger Häupter und Obern",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "d2dvm068ow7gdkf"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /)  IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59897, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Chabot. Sein Beruf zum Gesetzgeber? Eine Capuzinerkutte. Es gehört die ganze Dreistigkeit eines Ex -Capuciners und eines Jacobiners dazu,",
+      "language": [],
+      "musenalm_id": 59905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Porträte einiger Jacobiner und De- / putirten: / größtentheils aus handschriftlichen Nachrichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Porträte einiger Jacobiner und De- / putirten: / größtentheils aus handschriftlichen Nachrichten",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "5rtffibplmbko21"
+    },
+    {
+      "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) IX. Ueber verschiedene Producte der Französischen Revolution (Sammlung INr 59897, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Aristocrat. Die Menschen sind immer dieselben, und lassen sich immer am liebsten durch Worte und Schall leiten.",
+      "language": [],
+      "musenalm_id": 59906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Ueber einige Wörter, welche durch die / Französische Revolution in Umlauf gekom- / men sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Ueber einige Wörter, welche durch die / Französische Revolution in Umlauf gekom- / men sind",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "8r8i8qbylo4cttp"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 59908, 55909; Obj 26, 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Urkunde des Anfangs der Schweizer. / Revolution; nach Tschudi. Hinblick auf / das gegenwärtige Helvetien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Urkunde des Anfangs der Schweizer. / Revolution; nach Tschudi. Hinblick auf / das gegenwärtige Helvetien",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "yv3p48bnm1930s4"
+    },
+    {
+      "annotation": "X. Urkunde des Anfangs der Schweizer. Revolution; nach Tschudi. Hinblick auf das gegenwärtige Helvetien (Sammlung INr 59907, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.298Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "In selbigen Tagen fügt sich, daß der Landtvogt Geßler (als er von Uri gen Küßnach uff sin Burg spatzieren wollt) durch das Land ze Schwitz reit,",
+      "language": [],
+      "musenalm_id": 59908,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Urkunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Urkunde",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "awkkhla09qq1a62"
+    },
+    {
+      "annotation": "X. Urkunde des Anfangs der Schweizer. Revolution; nach Tschudi. Hinblick auf das gegenwärtige Helvetien (Sammlung INr 59907, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Freyheit! Freyheit! rief der Rittersmann Göz von Berlichingen, als man ihn aus dem Kerker trug; es waren seine letzten Worte;",
+      "language": [],
+      "musenalm_id": 59909,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Hinblick auf das gegenwärtige Hel-/ vetien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Hinblick auf das gegenwärtige Hel-/ vetien",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "no8rkqzc694x056"
+    },
+    {
+      "annotation": "§1§ Titel aus dem I-Verz SS 253, 254 fehlen /) Sammlung von 12 Textbezügen zu 12 Graphiken INr 59911-5932, Obj 29-50 §1§ SS 253, 254 mit 2 Textbezügen zu den Graphiken paginiert I. und II. fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59910,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. Erläuterung der Kupfer §",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. Erläuterung der Kupfer §",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "qra7syt7cj9lzvp"
+    },
+    {
+      "annotation": "paginiert 1. /) Textbezug fehlt. Illustration zu »Gedächtnißfeyer Arnolds von Winkelried den 9ten Julius 1786, in Stanz in Unterwalden« INr 58994, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arnold von Winkelried zerstreut des Adels Ord- / nung und macht den Seinen eine Gasse 1386",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. d. R. sc.",
+      "scans": [
+        "alm_934_59911_mipkb9obch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Arnold von Winkelried zerstreut des Adels Ord- / nung und macht den Seinen eine Gasse 1386",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.062Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "9s8csv4q80dr5au"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.062Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "nni0h6r6929ufqv"
+        }
+      ],
+      "source_id": "3c2xvo62svkx0wl"
+    },
+    {
+      "annotation": "paginiert 2. /) Textbezug unvollständig",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "De Silles edle That bey Nancy 1790",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59912_ujo7ox3rnp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "De Silles edle That bey Nancy 1790",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.063Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "5qlj9m3sirshz7g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.063Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "pzka3dh5rxp1f5y"
+        }
+      ],
+      "source_id": "4gp8sz6q70de3o1"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59914, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Ein gewisser Herr von Cloots, aus Preußisch Westphalen gebürtig, der sich auf den Titeln einiger seiner ältern Schriften ancien élève de l'académie militaire de Berlin nannte,",
+      "language": [],
+      "musenalm_id": 59913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Anacharsis Cloots theilt die Rollen aus zum Possen- / spiele vom 19. Junius 1790",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Anacharsis Cloots theilt die Rollen aus zum Possen- / spiele vom 19. Junius 1790",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "swk1atieysxzmx1"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Blätten der Suite /) paginiert 3. s. Textbezug INr 59913, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anacharsis Cloots theilt die Rollen aus zum Pos- / senspiele vom 19. Junius 1790",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del Riepenhausen",
+      "scans": [
+        "alm_934_59914_ifisyjf79u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anacharsis Cloots theilt die Rollen aus zum Pos- / senspiele vom 19. Junius 1790",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.892Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "2hi5e6ir01zb298"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.892Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "9k6qr9kmw1wpk8x"
+        }
+      ],
+      "source_id": "zebc0c1bjcfmk9l"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59916, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "Der Künstler hat den Augenblick gewählt, wo Carra die ersten Piken vorzeigte.",
+      "language": [],
+      "musenalm_id": 59915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Sitzung des Jacobiner-Clubs im Februar 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Sitzung des Jacobiner-Clubs im Februar 1792",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dxsh6gn5nse6nt"
+    },
+    {
+      "annotation": "paginiert 4. /) s. Textbezug INr 59915, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59916,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sitzung des Jacobiner-Clubs im Februar 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del Riep. sc.",
+      "scans": [
+        "alm_934_59916_m9tuass3a4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sitzung des Jacobiner-Clubs im Februar 1792",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "36mg1eyl7t5t7h2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "3w5qfm4deppw9bo"
+        }
+      ],
+      "source_id": "4o3mtanhixu0wm5"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blätten der Suite /) paginiert 5. s. Textbezug INr 59918, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Preussische Cürassiers erobern eine Hol- / ländische Patrioten Festung 1787",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert Riepenhausen",
+      "scans": [
+        "alm_934_59917_rzaq7oakei.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einige Preussische Cürassiers erobern eine Hol- / ländische Patrioten Festung 1787",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "bdt0vzbl9u2mfoa"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "f5n62h01pxb315i"
+        }
+      ],
+      "source_id": "oykpe4anko5jo51"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59917, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Diese Festung war die Uitermeer-Schanze, und der Officier, der sie eroberte, der Lieutenant von Wieselizky vom Regiment Kalkreuth, jetzt Ilow, mit 40 Reutern.",
+      "language": [],
+      "musenalm_id": 59918,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Einige Preussische Cürassiers erobern eine Holländi- / sche Patrioten Festung. 1787",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Einige Preussische Cürassiers erobern eine Holländi- / sche Patrioten Festung. 1787",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gls33budxscxu7"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59920, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Die hier vorgestellte Anecdote aus dem letztern Blutbade zu Avignon ist folgende. Als Jourdan und seine Mordgesellen unter dem Vorwande, L'Ecuyers Tod zu rächen, viele reiche Einwohner umbrachten und plünderten,",
+      "language": [],
+      "musenalm_id": 59919,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Gräuel zu Avignon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Gräuel zu Avignon",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "v59ucpm8nbf4ayx"
+    },
+    {
+      "annotation": "paginiert 6. /) s. Textbezug INr 59919, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Greul zu Avignon 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhaus",
+      "scans": [
+        "alm_934_59920_un3g808hhs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Greul zu Avignon 1791",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "naueurzanlxjqmi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "odeklmnydt19gtp"
+        }
+      ],
+      "source_id": "t3w1zso59a8p1lf"
+    },
+    {
+      "annotation": "# vollst. Bez. an den übrigen Graphiken der Suite /) paginiert 7. Illustration zu »Die Sächsischen Bauern-Unruhen 1790« INr 59889, Obj 7 s.a. Textbezug INr 59922, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auftritt aus den Sächsischen Bauer-Unruhen 1796",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenhausen",
+      "scans": [
+        "alm_934_59921_mnqejfwrb3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Auftritt aus den Sächsischen Bauer-Unruhen 1796",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "ajisrgk04m5cspg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.893Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.893Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "ou6tp2holhjfnh0"
+        }
+      ],
+      "source_id": "wdikrqxoa3ifnwe"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59921, Obj 39 s. a. Beitrag »Die Sächsischen Bauern-Unruhen 1790« INr 59889, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Man findet seine Schilderung S. 73. und 74. dieses Almanachs",
+      "language": [],
+      "musenalm_id": 59922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Auftritt aus den Sächsischen Bauern-Unruhen 1796",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Auftritt aus den Sächsischen Bauern-Unruhen 1796",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "gtkia09fmri9duc"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59924, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Das kaiserliche Dragoner-Regiment von La Tour zeichnete sich vorzüglich bey den Brabanter Unruhen, und zwar zu einer Zeit aus, wo die kaiserlichen Macht in diesen Gegenden noch sehr schwach war,",
+      "language": [],
+      "musenalm_id": 59923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die braven Dragoner von La Tour und die / Brabanter Patrioten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die braven Dragoner von La Tour und die / Brabanter Patrioten",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4hpbqid60r8ogk"
+    },
+    {
+      "annotation": "paginiert 8. /) s. Textbezug INr 59923, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59924,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die braven Dragoner von la Tour und die / brabanter Patrioten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert de. Riepenh. sc.",
+      "scans": [
+        "alm_934_59924_cqnow8evbc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die braven Dragoner von la Tour und die / brabanter Patrioten",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.952Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "562l1zqlqmoam93"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.952Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "meb3izjk7c39m49"
+        }
+      ],
+      "source_id": "qf16pt5iu1ai3tg"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blätten der Suite /) paginiert 9. Illustration zu einem Teil aus »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 59893, Obj 13; s.a. Textbezug INr 59926, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bein-Haus zu Murten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert Riepenhausen",
+      "scans": [
+        "alm_934_59925_a35ycoz641.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Bein-Haus zu Murten",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.952Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "sagdqgpf0x57jnb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.952Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "vy7vwbk9i866jhi"
+        }
+      ],
+      "source_id": "n7morali7l5ovwm"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59925, Obj 43; s.a. Teil aus »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 59895, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Die Erzählung dieser wahren und rührenden Geschichte steht S. 143 und 144 dieses Almanachs",
+      "language": [],
+      "musenalm_id": 59926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Das Beinhaus bey Murten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Das Beinhaus bey Murten",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0j27c9q4y4iopfe"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59928, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Ich verweise auf S. 113 des Almanachs",
+      "language": [],
+      "musenalm_id": 59927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Cromwell in Gefahr, von der Hand einer / Dame zu sterben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Cromwell in Gefahr, von der Hand einer / Dame zu sterben",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "dh0k3bhsze5kwbk"
+    },
+    {
+      "annotation": "paginiert 10./) Illustration zu  »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 59895, Obj 13 /) s.a. Textbezug INr 59927, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cromwell in Gefahr von der Hand einer Dame zu / sterben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riep. sc.",
+      "scans": [
+        "alm_934_59928_avpsdag4e1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cromwell in Gefahr von der Hand einer Dame zu / sterben",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "2zuq44w7bfktgj0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "fy67nu5kn6g5r5a"
+        }
+      ],
+      "source_id": "u3c8h9xp0utun2a"
+    },
+    {
+      "annotation": "paginiert 11 /) s. Textbezug INr 59930, Obj 48 /) Illustration zu einem Teil aus »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 59895, Obj 13 /) s.a. Textbezug INr 59930, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwedens edler König fällt durch Meuchel- / mord",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Riepenh. sc.",
+      "scans": [
+        "alm_934_59929_e57jbz56vm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schwedens edler König fällt durch Meuchel- / mord",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "cwf842nnxbl1cxq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "nlub1y40y2eaq4o"
+        }
+      ],
+      "source_id": "gicc7j9eqkr7jkf"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59929, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Die Haupt-Umstände von des edlen Gustav III. Tod sind noch zu frisch im Andenken",
+      "language": [],
+      "musenalm_id": 59930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Schwedens edler König fällt durch Meuchelmord",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Schwedens edler König fällt durch Meuchelmord",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ocu1dx9r56pvxje"
+    },
+    {
+      "annotation": "paginiert 21 /) s. Textbezug INr 59932, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Constitutionelle Freiheit des Pouvoir exécu- / tif d. 20 Junius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S d. R. sc.",
+      "scans": [
+        "alm_934_59931_hqj525p104.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Constitutionelle Freiheit des Pouvoir exécu- / tif d. 20 Junius",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "029sz5xrb4l8b26"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "plmm6wil2wrydds"
+        }
+      ],
+      "source_id": "8ed000kgmmm0rr5"
+    },
+    {
+      "annotation": "XI. Erläuterung der Kupfer (Sammlung INr 5910, Obj 28) s. Graphik INr 59932, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Der 20ste Junius war nur der Vorbote vom 10ten August. Vielleicht wäre er eben so blutig , als dieser gewesen,",
+      "language": [],
+      "musenalm_id": 59932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Constitutionelle Freyheit des Fouvoir exécutif den / 20. Junius 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Constitutionelle Freyheit des Fouvoir exécutif den / 20. Junius 1792",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ntcld2iljq7o873"
+    },
+    {
+      "annotation": "Bezieht sich auf polemische Anm. gegen den »Revolutionsschwärmer« Trapp unter S. 68 des Beitrags »III. Die Sächsischen Bauern-Unruhen« INr 59889, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "In einem der neuesten Stücke des Schleswigschen Journals hat der Herr Professor Trapp auf das feyerlichste die Verfertigung dieses Journals in Braunschweig und allen fernern Antheil daran geläugnet.",
+      "language": [],
+      "musenalm_id": 59933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Nacherinnerung / des Herausgebers / zu / der Anmerkung S. 68 dieses Almanachs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Nacherinnerung / des Herausgebers / zu / der Anmerkung S. 68 dieses Almanachs",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "1osnxppml7frqlv"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59934,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Joh. Chr. Dieterich's neue Verlagsbücher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Joh. Chr. Dieterich's neue Verlagsbücher",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "9em5ifklidgblcr"
+    },
+    {
+      "annotation": "Umschlaggraphik v",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PETHION",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_934_59935_wnni6h5oix.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PETHION",
+      "updated": "2008-09-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "gsp8fs2nry6uwgw"
+    }
   ],
   "agents": [
     {

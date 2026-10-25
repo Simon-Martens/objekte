@@ -50,82 +50,3093 @@
   "year": 1770,
   "editor": "",
   "items": [
-    "pf09sw093ldhin9"
+    {
+      "annotation": "1770-1781.\nLedereinband.\n1770: (K: 293 SS. M. Titelvign.) Mit Titelvign. und 314 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.468Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100869",
+      "location": "105E04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.468Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pf09sw093ldhin9"
+    }
   ],
   "contents": [
-    "zuqervbypq8tjxz",
-    "2ajynbjtajjkom3",
-    "zh5fef4m9zuv53x",
-    "jplftnyb4zg4pmh",
-    "5v47ch8waxw8om0",
-    "vjx4dtn9dngdcun",
-    "t77x946wutmdiz4",
-    "wlz5ep65uglug9f",
-    "mb4m6ybqo2974d9",
-    "lxp633fcdm196ch",
-    "riai5fxhth0lrm0",
-    "bc9uzxi27i39btj",
-    "9cbfe3mbgpvn7wx",
-    "yenai25exy5mh0t",
-    "uo2h924xkefv2l5",
-    "3j9v09aq1ljk42u",
-    "o3kurvqtwqxbl4h",
-    "epazq8kufnzg4wb",
-    "9t7xh9kimxy384d",
-    "2waz63xbu38c43l",
-    "fssyrp72ilzroa5",
-    "8jjxz4x25s7f3sf",
-    "yavzwftmwxswlyo",
-    "iogckkydo642kam",
-    "0xy4q8akks7i22p",
-    "9isx5ff6ru77qo3",
-    "kwg8e1gg8iz6kjd",
-    "07fbvjrm1skille",
-    "9y5qybquchu08et",
-    "nzqkg7c83l4obz0",
-    "utlyw7w9wacxr50",
-    "3k9irbn5igytx5n",
-    "fbk5kq6tec0kop7",
-    "c3wlq0divm6cfcn",
-    "99i067ikiulvjcd",
-    "wkm24ksv3g0y84m",
-    "f8sulwphsq6cy51",
-    "cima13mlsypibge",
-    "afaey233w1yotwr",
-    "4i0pghtsy6tozjh",
-    "ffmzt559v4kcv9m",
-    "qw3t0tivoiomhnb",
-    "xge0fhkqv8r4lom",
-    "qo5dj0het6acrxn",
-    "je4qbxhoqovux8w",
-    "yn4najg9tc17y04",
-    "bq7doemntqz2of4",
-    "1udoi0o801y6ppa",
-    "gmpsajecivd6f9s",
-    "hgttk7daaadpkrn",
-    "o8cgq96z9a36x48",
-    "jguzmpxqoll9zss",
-    "fnjazvtf0wc7ber",
-    "411pqe6vs8hs56k",
-    "qp1e6soaz7z1qkj",
-    "9ffr6mz8mpbmv3d",
-    "pwg2cjnvm07deec",
-    "rmc4lvmqp849txu",
-    "i7c2i9w7h0tyxst",
-    "v6it8rxbnx5ymt4",
-    "mc373vtdn42cohd",
-    "yimssqqfkfbb6kt",
-    "2gsg2nuqr7ud79q",
-    "idbzy69ch3rkchd",
-    "ugg95zrtytp1g1p",
-    "98quaumcmuelobd",
-    "1y3wejlc6ermdxj",
-    "ukpn896kbscmgf9",
-    "e6q23pd8jn1xstn",
-    "bgohbphvfgmuhn5",
-    "z43zhxhpw30t9vn",
-    "ttuudbhvfq7n33c",
-    "i1j2ehsab9clffw"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18730,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / der deutschen Musen / auf / das Jahr 1770 / Zwote, verbeßerte und vermehrte Auflage. / Leipzig, Berlin und Frankfurt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_175_18730_2ml9477onv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / der deutschen Musen / auf / das Jahr 1770 / Zwote, verbeßerte und vermehrte Auflage. / Leipzig, Berlin und Frankfurt",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "zuqervbypq8tjxz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich kann Ihnen kein schicklicheres Neujahrsgeschenk machen, als dieses, denn ich weiß, wie sehr Sie die Litteratur lieben.",
+      "language": [],
+      "musenalm_id": 8073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Hrn. Hofrath M.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Hrn. Hofrath M.",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ajynbjtajjkom3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "zh5fef4m9zuv53x"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von Rezensionen SS 22-146",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 8072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Notiz / poetischer Neuigkeiten / vom Jahr 1769",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Notiz / poetischer Neuigkeiten / vom Jahr 1769",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "jplftnyb4zg4pmh"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 12257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte / Die Wahl der Gedichte taugt nichts So? / Sie sind gestohlen Ey! Sie waren alle / schon gedruckt Nicht doch!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte / Die Wahl der Gedichte taugt nichts So? / Sie sind gestohlen Ey! Sie waren alle / schon gedruckt Nicht doch!",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "5v47ch8waxw8om0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Freund! Freund! die Jahre fliehn- Ein Lehr- / satz, ohne Ruhm, / So alt als der: wir müssen alle sterben.",
+      "language": [],
+      "musenalm_id": 8007,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn D*** / Leipzig. d. 1. Jan. 1770",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn D*** / Leipzig. d. 1. Jan. 1770",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.208Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "y39zebsrnjeuo5f"
+        }
+      ],
+      "source_id": "vjx4dtn9dngdcun"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Ich will den Frühling noch genießen, / Der wieder auf der Erde blüht,",
+      "language": [],
+      "musenalm_id": 8008,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsgesang des Alters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Madam Karschinn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsgesang des Alters",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "acb1mm3415v67ho",
+          "source_id": "roevz768k4z5gvh"
+        }
+      ],
+      "source_id": "t77x946wutmdiz4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Jener alte Schmetterling, / Den die Mädgen Amor heißen, / Flattert durch die ganze Welt:",
+      "language": [],
+      "musenalm_id": 8009,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "se5o1g66ynfty7i"
+        }
+      ],
+      "source_id": "wlz5ep65uglug9f"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 177; Alm-177, INr 38451",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Du übertreibst, o Freundinn meiner Jugend, / Den Reitz der Scham und Sittsamkeit,",
+      "language": [],
+      "musenalm_id": 8010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bitte eines Liebhabers an seine junge Geliebte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von Thümmel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bitte eines Liebhabers an seine junge Geliebte",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "t5xduzz1g6d3iy5",
+          "source_id": "0y5htujr9ilptj2"
+        }
+      ],
+      "source_id": "mb4m6ybqo2974d9"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 17; Alm-177, INr 38318",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Was that dir, Thor, dein Vaterland? / Dein spott' ich, glüht dein Herz dir nicht / Bey seines Namens Schall?",
+      "language": [],
+      "musenalm_id": 8011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir, und Sie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir, und Sie",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "q38qq1peecbhvxh"
+        }
+      ],
+      "source_id": "lxp633fcdm196ch"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Auch hier entdecket man von Herzen noch die / Spuhr, / Doch auf Kathedern nur.",
+      "language": [],
+      "musenalm_id": 8012,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Geschichte des Theaters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Geschichte des Theaters",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "p88m7rcpb1zfvkq"
+        }
+      ],
+      "source_id": "riai5fxhth0lrm0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Auf! Rache! von der Hölle Tiefen / Empor! Vom Lager deiner Ruh!",
+      "language": [],
+      "musenalm_id": 8013,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ode. / Die Heilung Sauls, / von Brown",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eschenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ode. / Die Heilung Sauls, / von Brown",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "zjm0wp8bizr6m9i",
+          "source_id": "1qzvkq0wt1uelc2"
+        }
+      ],
+      "source_id": "bc9uzxi27i39btj"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 92; Alm-177, INr 38388",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Blau, wenn sie nichts uns zeigt, zeigt sich die / Athmosphäre;",
+      "language": [],
+      "musenalm_id": 8014,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen Dichter, der sich auf blau Pappier / drucken ließ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen Dichter, der sich auf blau Pappier / drucken ließ",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "krh6iu8npl6v6lb"
+        }
+      ],
+      "source_id": "9cbfe3mbgpvn7wx"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 9; Alm-177, INr 38311",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Kein schönrer Frühlingsabend war / Vom Meere jemals aufgestiegen!",
+      "language": [],
+      "musenalm_id": 8015,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühlingsabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerstenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühlingsabend",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.147Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.147Z",
+          "agent": "ih3y4rkhx0a1glf",
+          "source_id": "boxc5oj6zkr6qt0"
+        }
+      ],
+      "source_id": "yenai25exy5mh0t"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 65; Alm-177, INr 38359",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Mit der Mutterliebe Schwingen / Wärmt die Nachtigall ihr Ey;",
+      "language": [],
+      "musenalm_id": 8016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Daphnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gotter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Daphnen",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.147Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.147Z",
+          "agent": "hu6ba8zv7wtaxe9",
+          "source_id": "o3iptigvmjxkfl9"
+        }
+      ],
+      "source_id": "uo2h924xkefv2l5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Sie lebt, der Donner brüll, von stolzen Bastionen / Die Freudennachricht den Provinzen zu!",
+      "language": [],
+      "musenalm_id": 8017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf die Genesung der Kaiserinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sonnenfels",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf die Genesung der Kaiserinn",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.147Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.147Z",
+          "agent": "sqmquucf1ebxapv",
+          "source_id": "9xyv4r9r8117ekf"
+        }
+      ],
+      "source_id": "3j9v09aq1ljk42u"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 1; Alm-177, INr 38310",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Herauf, o Sonne! lange schon harret dir / Der Bard' entgegen, welchen der Hahnenruf",
+      "language": [],
+      "musenalm_id": 8018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf die Reise Josephs des Zweyten, / im May",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Denis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf die Reise Josephs des Zweyten, / im May",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.147Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.147Z",
+          "agent": "fon9iiilzs9ke5a",
+          "source_id": "b4n5qctlgllpjem"
+        }
+      ],
+      "source_id": "o3kurvqtwqxbl4h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Was that, o du, den Grazien / Und Musen, und die Götterchen / Der Freuden alle, nicht zu zählen,",
+      "language": [],
+      "musenalm_id": 8019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Herrn Kanonicus Jacobi. / Berlin im May",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Herrn Kanonicus Jacobi. / Berlin im May",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.147Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.147Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "gupxva4ku41n3u6"
+        }
+      ],
+      "source_id": "epazq8kufnzg4wb"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 55; Alm-177, INr 38349 # s. Anm dort",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Ein neuer Dionyß rief von der Seine Strande / Sophisten Schwärmer her, für seinen Unterricht.",
+      "language": [],
+      "musenalm_id": 8020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Feinheit der Neuern, / in einem Beyspiele",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ungenannter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Feinheit der Neuern, / in einem Beyspiele",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.429Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.429Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "inqwqfqd26u5g8g"
+        }
+      ],
+      "source_id": "9t7xh9kimxy384d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Für dieses mal nur wünschte ich mir Ruhm und das Ansehen eines Voltaire,",
+      "language": [],
+      "musenalm_id": 8021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine unbekannten Freunde in Hamburg. / Halberstadt d. 26. Jul.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine unbekannten Freunde in Hamburg. / Halberstadt d. 26. Jul.",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.429Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.429Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "exqnyi46i9e0me0"
+        }
+      ],
+      "source_id": "2waz63xbu38c43l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Wenn sich der Kandidat in vollem Putze zeigt, / Auf den Katheder tritt, und - schweigt,",
+      "language": [],
+      "musenalm_id": 8023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Specimen Eruditionis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Specimen Eruditionis",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.429Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.429Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "0wia3l7sli0pxh3"
+        }
+      ],
+      "source_id": "fssyrp72ilzroa5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Der Erdkräis lag in Nacht verhüllt, / Und jedes Laster sah Altäre / Erbaut zu seiner Ehre.",
+      "language": [],
+      "musenalm_id": 8024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Kantate",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiebeler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Kantate",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.278Z",
+          "agent": "xnvl0kz2eadysbj",
+          "source_id": "gyfwxfj72e2ph2h"
+        }
+      ],
+      "source_id": "8jjxz4x25s7f3sf"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 31; Alm-177, INr 38329",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Ein wenig blaß, doch schön wie die belohnte Liebe, / Vom süßesten der Träume kaum erwacht,",
+      "language": [],
+      "musenalm_id": 8025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laura, / am Morgen nach ihrer Brautnacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gotter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Laura, / am Morgen nach ihrer Brautnacht",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.278Z",
+          "agent": "hu6ba8zv7wtaxe9",
+          "source_id": "7ofva036o4ndxem"
+        }
+      ],
+      "source_id": "yavzwftmwxswlyo"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 36; Alm-177, INr 38336",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Hermin verstand Gunilden nicht, / Als sie von jenem Stein, der an dem Berge lag, / Nur allegorisch mit ihm sprach,",
+      "language": [],
+      "musenalm_id": 8026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Herrn Raspens Romanze, / Hermin und Gunilde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ungenannter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Herrn Raspens Romanze, / Hermin und Gunilde",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "iogckkydo642kam"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 128; Alm-177, INr 38419",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Wo, was sie selten thut, die feine Lebensart / Den Zwang zu lügen uns erspart,",
+      "language": [],
+      "musenalm_id": 8027,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Damen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Damen",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.278Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "lmq0605v534z3mv"
+        }
+      ],
+      "source_id": "0xy4q8akks7i22p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.591Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Seht da liegt der faule Thirsis / Schnarchend sorgenlos! / Und läßt seine arme Heerde / Ganz vom Schutze bloß!",
+      "language": [],
+      "musenalm_id": 8028,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied nach dem Griechischen, / (aus dem Wochenblatt ohne Titel.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied nach dem Griechischen, / (aus dem Wochenblatt ohne Titel.)",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "9isx5ff6ru77qo3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Ihre Rolle nehm ich an, / Allen Streit zu schlichten:",
+      "language": [],
+      "musenalm_id": 8029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als von einem Frauenzimmer verlangt wur- / de Verse zu machen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "**",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als von einem Frauenzimmer verlangt wur- / de Verse zu machen",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "kwg8e1gg8iz6kjd"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 81; Alm-177, INr 38377",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Bestes kleines Clavier, / Schalle, schalle / Lauter Liebe; / Lauter süße Liebe",
+      "language": [],
+      "musenalm_id": 8030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Phillis an das Clavier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerstenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Phillis an das Clavier",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "ih3y4rkhx0a1glf",
+          "source_id": "daax9dw7nsyxza0"
+        }
+      ],
+      "source_id": "07fbvjrm1skille"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Für's Korpus Akademikum / Ist dieses Zimmer viel zu klein.",
+      "language": [],
+      "musenalm_id": 8031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als sich die Professoren alle in einem kleinen / Zimmer versammeln sollten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als sich die Professoren alle in einem kleinen / Zimmer versammeln sollten",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "4l0eqq35rhrxbis"
+        }
+      ],
+      "source_id": "9y5qybquchu08et"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Aus Neigung zu der Kunst, nicht krit'schem Ei- / gensinn, / Berechnen wir genau Verspielen und Gewinn,",
+      "language": [],
+      "musenalm_id": 8032,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedanken eines Kunstrichters, / bey dem Schluß der theatralischen Vorstellungen / in der Leipziger Ostermesse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedanken eines Kunstrichters, / bey dem Schluß der theatralischen Vorstellungen / in der Leipziger Ostermesse",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzqkg7c83l4obz0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "O Freundinn, mit dem Reiz Melpomenens ge- / schmückt! / Nie hörst du auf, das Herz zu rühren.",
+      "language": [],
+      "musenalm_id": 8033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Madem. Schulz, / als sie Leipzig verließ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clodius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Madem. Schulz, / als sie Leipzig verließ",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "7qisyncyozjhj09",
+          "source_id": "s03nns9sxocuxky"
+        }
+      ],
+      "source_id": "utlyw7w9wacxr50"
+    },
+    {
+      "annotation": "Anm. am Objekt: Das Sujet dieses Drama ist aus einem der Fragmente alter celtischer Dichter genommen, welche Macpherson seiner Ausgabe des Fingal beygefügt hat. (Fingal, an ancient epic Poem etc), London 1762, 4. S. 87 […]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Die Sonne sinkt; geendigt ist die Jagd, / Und kein Geräusch hört diese Gegend mehr,",
+      "language": [],
+      "musenalm_id": 8034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Comala. / Ein dramatisches Gedicht / d. 12. Aug. / dem Geburtstagsfeste der Erbprinzeßinn von Braun- / schweig gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eschenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Comala. / Ein dramatisches Gedicht / d. 12. Aug. / dem Geburtstagsfeste der Erbprinzeßinn von Braun- / schweig gewidmet",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "zjm0wp8bizr6m9i",
+          "source_id": "umdk6ywdzpp9bsb"
+        }
+      ],
+      "source_id": "3k9irbn5igytx5n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Laß mich, o Doris! dem Gefühle, / Und dir ein Opfer weihn! / Die Muse dieser Kinderspiele",
+      "language": [],
+      "musenalm_id": 8035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Doris. / Zuschrift der dramatischen Kinderspiele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Doris. / Zuschrift der dramatischen Kinderspiele",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "fbk5kq6tec0kop7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Heil mir! weil mich Melpomene / Zum Wochenautor weiht,",
+      "language": [],
+      "musenalm_id": 8036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wochenautor, / aus dem Wochenblatte ohne Titel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wochenautor, / aus dem Wochenblatte ohne Titel",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "c3wlq0divm6cfcn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Wo, Schmuck der Tauben, eilst du hin? / Wo du hin, Favorit des Bändigers der Wetter?",
+      "language": [],
+      "musenalm_id": 8037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Adler Jupiters und die Taube der / Venus. / Nach d'Arnaud",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Adler Jupiters und die Taube der / Venus. / Nach d'Arnaud",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "cf248avpg1dztzu"
+        }
+      ],
+      "source_id": "99i067ikiulvjcd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Von wichtigen, von Wunderdingen / Will ich in neuen Tönen singen.",
+      "language": [],
+      "musenalm_id": 8038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Comet, / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Pastor Lange",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Comet, / Eine Erzählung",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "hg5vi9mp3v9d7lc",
+          "source_id": "b2c1ris41fl1sm8"
+        }
+      ],
+      "source_id": "wkm24ksv3g0y84m"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 84; Alm-177, INr 38380 # s. Anm. dort",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "In unsre Sprache mischten wir Latein / Und Gallisch auch schon ehmals ein,",
+      "language": [],
+      "musenalm_id": 8039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warnung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warnung",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "0qnomhrheoeo85t"
+        }
+      ],
+      "source_id": "f8sulwphsq6cy51"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Reiß dich hinaus aus deinen hundert Gassen, / Dein Ruhm, dein Glück, dein Kaiser naht!",
+      "language": [],
+      "musenalm_id": 8040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf die Wiederkunft des Kaisers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mastalier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf die Wiederkunft des Kaisers",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.310Z",
+          "agent": "f2jay1ec3g5rdgn",
+          "source_id": "pvqfx89wc9zk6of"
+        }
+      ],
+      "source_id": "cima13mlsypibge"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Die vierte Furie und vierte Charitinne, / An Sitten und am Reiz: Corinne, / Gab die Vergöttrung auf, und ward Mileno Frau.",
+      "language": [],
+      "musenalm_id": 8041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der fliegende Drache, / ein neues Phänomen / - - tantaene animis coelestibus irae? / VIRGIL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der fliegende Drache, / ein neues Phänomen / - - tantaene animis coelestibus irae? / VIRGIL",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.302Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.302Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "hkcqktm0pkzq6vr"
+        }
+      ],
+      "source_id": "afaey233w1yotwr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.238Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Begehre nicht ein Glück zu groß, / Und nicht ein Weib zu schön;",
+      "language": [],
+      "musenalm_id": 8042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mad. Karschinn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warnung",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.065Z",
+          "agent": "acb1mm3415v67ho",
+          "source_id": "4ws942lh4mdx9m6"
+        }
+      ],
+      "source_id": "4i0pghtsy6tozjh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Reiff denn, des zweeten Baums, verpflanzt in / Einen Garten / Von einem Stamm, für uns zu edle Frucht,",
+      "language": [],
+      "musenalm_id": 8043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift einer adelichen Dame, der zwey- / ten Schwester in einer Ehe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift einer adelichen Dame, der zwey- / ten Schwester in einer Ehe",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.146Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.146Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "24i82zg5afql4t1"
+        }
+      ],
+      "source_id": "ffmzt559v4kcv9m"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 37; Alm-177, INr 38337 # s. Anm. dort",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Was für ein eitler Wahn von Treue / Für deines Mannes Aschenrest?",
+      "language": [],
+      "musenalm_id": 8044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ode an eine Wittwe, / aus dem Roußeau, auf Verlangen eines großen / Königs, übersetzt von einem großen / deutschen Dichter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Roußeau übersetzt von einem großen deutschen Dichter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ode an eine Wittwe, / aus dem Roußeau, auf Verlangen eines großen / Königs, übersetzt von einem großen / deutschen Dichter",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "uxrssb0qlf0ghgw",
+          "source_id": "cntb6b3y7vcfymc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "l7uikiley0mm1nx",
+          "source_id": "wabgmhdu7ucwbxh"
+        }
+      ],
+      "source_id": "qw3t0tivoiomhnb"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 108; Alm-177, INr 38400",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "Wär ich Schöpfer, wie der Dichter, / Der, Eloa, dich erschuf! / Säh' ich herrliche Gesichter,",
+      "language": [],
+      "musenalm_id": 8045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Oberburgemeister Schulze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gleim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Oberburgemeister Schulze",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "33cr5ecwlcsbopd",
+          "source_id": "dptqi71rwfocmfc"
+        }
+      ],
+      "source_id": "xge0fhkqv8r4lom"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 160; Alm-177, INr 38442",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Triumph! Er kann vor Rußlands Siegern, / Der stolze Feind, er kann nicht stehn.",
+      "language": [],
+      "musenalm_id": 8046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ode auf die Eroberung / von Choczym",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Willamov",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ode auf die Eroberung / von Choczym",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "wvbgxqiz4g0b63p",
+          "source_id": "fp9klqphfrc2g1y"
+        }
+      ],
+      "source_id": "qo5dj0het6acrxn"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 55; Alm-177, INr 38350",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Den Legionen in der Hölle / Las Beelzebub Voltär's Pücelle,",
+      "language": [],
+      "musenalm_id": 8047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf den Autor der Pücelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf den Autor der Pücelle",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "2c3hnnf0w5973yk"
+        }
+      ],
+      "source_id": "je4qbxhoqovux8w"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 171; Alm-177, INr 38450",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Wo ist der Sohn Theresens? o Kaiserstadt! / Wo ist dein Herrscher? Wölke dein thürmend Haupt",
+      "language": [],
+      "musenalm_id": 8048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf die Reise Josephs des Zweiten, / im Herbst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Denis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf die Reise Josephs des Zweiten, / im Herbst",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.116Z",
+          "agent": "fon9iiilzs9ke5a",
+          "source_id": "kozvdwlnepq9b49"
+        }
+      ],
+      "source_id": "yn4najg9tc17y04"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 157; Alm-177, INr 38440",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Tochter des siebenten Carls, / Fürstinn, weiser als jene, / Die den Herrscher in Salem gegrüßt / Mit Geschenken;",
+      "language": [],
+      "musenalm_id": 8049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ode, / der verwittweten Churfürstin zu Sachsen / aus Berlin nachgesungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Madam Karschinn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ode, / der verwittweten Churfürstin zu Sachsen / aus Berlin nachgesungen",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "acb1mm3415v67ho",
+          "source_id": "nfoi2dmoe76irl3"
+        }
+      ],
+      "source_id": "bq7doemntqz2of4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Man weiß, daß Pilpai, Trismegist, / Und Plato selbst sich oft herabgelassen,",
+      "language": [],
+      "musenalm_id": 8050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fragment eines Gedichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fragment eines Gedichts",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "e0rclui2qb6piya"
+        }
+      ],
+      "source_id": "1udoi0o801y6ppa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Verfolgter Wittwen Ach, beraubter Waisen Kla- / gen, / Und unterdrückter Unschuld Harm:",
+      "language": [],
+      "musenalm_id": 8051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn -s, / Leipzig den 10. Oktober",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn -s, / Leipzig den 10. Oktober",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "cz6zb1ps1r5isbb"
+        }
+      ],
+      "source_id": "gmpsajecivd6f9s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Heute, da ich meine Chloe / Will erwarten hier, / Stürmen wilde Regengüsse,",
+      "language": [],
+      "musenalm_id": 8052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Regen, / (aus dem Wochenblatt ohne Titel)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Regen, / (aus dem Wochenblatt ohne Titel)",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "hgttk7daaadpkrn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Ganz gewiß, mein gnädiges Fräulein, hat Philaide Sie gegen mich aufgewiegelt,",
+      "language": [],
+      "musenalm_id": 8053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Legende von dem Heiligen Hyppolitus, und / dem seeliggesprochenen Gericus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jacobi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Legende von dem Heiligen Hyppolitus, und / dem seeliggesprochenen Gericus",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "uiwqqj09qcwc44l",
+          "source_id": "m9j6f8biyassgj2"
+        }
+      ],
+      "source_id": "o8cgq96z9a36x48"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Ruh unter meinen Lorbeern aus: / Und schone nicht der dir bestimmten Becher!",
+      "language": [],
+      "musenalm_id": 8054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf das Wiedersehn eines Freundes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf das Wiedersehn eines Freundes",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "5o5jbyg6lehwhd0"
+        }
+      ],
+      "source_id": "jguzmpxqoll9zss"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Der Hof und seine Pracht ist deiner Wünsche Ziel? / O Freund! der Hof ist wie der Unbestand des Meers,",
+      "language": [],
+      "musenalm_id": 79111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Selint",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Madam Karschinn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Selint",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.817Z",
+          "agent": "acb1mm3415v67ho",
+          "source_id": "u1aouoxellas5io"
+        }
+      ],
+      "source_id": "fnjazvtf0wc7ber"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Ein wichtig Stück an einer schönen Dame, / Und fast das wichtigste, ist ohne Streit der Name;",
+      "language": [],
+      "musenalm_id": 8055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friderike; an einem Namenstage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R----l",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friderike; an einem Namenstage",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "411pqe6vs8hs56k"
+    },
+    {
+      "annotation": "nicht in 1. Aufl.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Wie lange fragst du unmuthsvoll; / Was deine Hülfe mache?",
+      "language": [],
+      "musenalm_id": 8056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein geistlich Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein geistlich Lied",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "6c0yozeh0g8wwqv"
+        }
+      ],
+      "source_id": "qp1e6soaz7z1qkj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Vom ersten Garrick an, der mit geprüften Muth / Sich und Melpomenen auf flüchtge Räder lud,",
+      "language": [],
+      "musenalm_id": 36328,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prolog bey der Eröfnung der Bühne. / den 28. December",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prolog bey der Eröfnung der Bühne. / den 28. December",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.884Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.884Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "l026xdp1tqymdpv"
+        }
+      ],
+      "source_id": "9ffr6mz8mpbmv3d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Frau Orgon trägt kein Busentuch, / Vielleicht den Damen nachzuaffen;",
+      "language": [],
+      "musenalm_id": 8057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frau Orgon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mad. Karschinn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frau Orgon",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "acb1mm3415v67ho",
+          "source_id": "6gvkkfid43ykrdo"
+        }
+      ],
+      "source_id": "pwg2cjnvm07deec"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Mit deinem Schwirrn! wie du die Zeit ver- / derbst! / Wenn wir nun auch, fürs Sammlen, müßig gien- / gen?",
+      "language": [],
+      "musenalm_id": 8058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ameise und die Grille, / eine Fabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ameise und die Grille, / eine Fabel",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.117Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "lgsfgvd5fol2m34"
+        }
+      ],
+      "source_id": "rmc4lvmqp849txu"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Wird mir die Jungfernschaft ja, ja ! / Wird sie mir je geraubt, fürwahr so sterb ich, / spricht Dorinde.",
+      "language": [],
+      "musenalm_id": 8059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die keusche Dorinde, / aus dem Prior",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "von dem Verfasser des Alm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die keusche Dorinde, / aus dem Prior",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "i7c2i9w7h0tyxst"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Krieg ist die Losung unsrer Zeit, / In Paraguay ums Recht der Logolisten!",
+      "language": [],
+      "musenalm_id": 8061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hinc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hinc",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.187Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.187Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "czrzjvq4nipwqbr"
+        }
+      ],
+      "source_id": "v6it8rxbnx5ymt4"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Dies Glas bring ich dir, Venus! dar, / Seit ich nicht mehr bin, was ich war,",
+      "language": [],
+      "musenalm_id": 8062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chloe, / weihet der Venus ihren Spiegel, / aus dem Prior",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "von dem Verfasser des Alm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chloe, / weihet der Venus ihren Spiegel, / aus dem Prior",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "mc373vtdn42cohd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.920Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Hier lieget Harlekin: doch, stünds bey Har- / lekinen / Statt seiner Pierot, und er bey Columbi- / nen",
+      "language": [],
+      "musenalm_id": 8063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Harlekins Grabschrift. / Ein Impromptu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Harlekins Grabschrift. / Ein Impromptu",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.187Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.187Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "yl3tej6qlzfasv4"
+        }
+      ],
+      "source_id": "yimssqqfkfbb6kt"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Der schlechte Stein kann, was nur selten Mar- / mor kann,",
+      "language": [],
+      "musenalm_id": 8064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift eines Armen / aus dem Pope",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "von dem Verfasser des Alm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift eines Armen / aus dem Pope",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "2gsg2nuqr7ud79q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Flieh nicht den Prediger, der dich aus Gräbern / lehrt, / Freund, Staub vom Staub,",
+      "language": [],
+      "musenalm_id": 8065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn L.** / Leipzig den letzten December",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michaelis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn L.** / Leipzig den letzten December",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "s34fjwkh4uvwpky",
+          "source_id": "tecxxandi04x5ua"
+        }
+      ],
+      "source_id": "idbzy69ch3rkchd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Laßt sie ruhen die treue Gehülfinn / Der Muse von Thabor",
+      "language": [],
+      "musenalm_id": 8066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf Margareta Klopstock",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Trescho",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf Margareta Klopstock",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "ugg95zrtytp1g1p"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 8068-8070, Obj 65-67 Anm. am Objekt: Diese Oden habe ich der Gütigkeit eines Freundes zu verdanken. Für die Richtigkeit der Abschrift kann ich daher nicht stehen. [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 8067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drey Oden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drey Oden",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "lqbafyuf2s5cm7f"
+        }
+      ],
+      "source_id": "98quaumcmuelobd"
+    },
+    {
+      "annotation": "Drey Oden (Sammlung INr 8067, Obj 64)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Der Seraph stammelts, und die Unendlichkeit / Bebts durch den Umkrais ihrer Gefilde nach",
+      "language": [],
+      "musenalm_id": 8068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hofnungen der Christen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Hofnungen der Christen",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "kw1e7zsmpou3is3"
+        }
+      ],
+      "source_id": "1y3wejlc6ermdxj"
+    },
+    {
+      "annotation": "Drey Oden (Sammlung INr 8067, Obj 64)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Da Sie (Ihr Name wird im Himmel nur genennet!) / Ihr sanftes Aug im Tode schloß,",
+      "language": [],
+      "musenalm_id": 8069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den König",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den König",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "e6wg0tsa9j5po42"
+        }
+      ],
+      "source_id": "ukpn896kbscmgf9"
+    },
+    {
+      "annotation": "Drey Oden (Sammlung INr 8067, Obj 64)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Ein stiller Schauer Deiner Allgegenwart / Erschüttert, Gott! mich. Sanftgerührt bebt mein / Herz",
+      "language": [],
+      "musenalm_id": 8070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Gott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Gott",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "n6534q8apz6i2up"
+        }
+      ],
+      "source_id": "e6q23pd8jn1xstn"
+    },
+    {
+      "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 73; Alm-177, INr 38372",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "Fühlend, gelehrt für die Lust, die Flaccus und / Naso gewähren, / Sang ich doch selten ein römisches Lied;",
+      "language": [],
+      "musenalm_id": 8071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als ein Frauenzimmer die Ode aus dem / Horaz sang: / Integer vitae etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kästner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als ein Frauenzimmer die Ode aus dem / Horaz sang: / Integer vitae etc",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "6cp00jd21onlhwl",
+          "source_id": "hpii4b32dlj3cfn"
+        }
+      ],
+      "source_id": "bgohbphvfgmuhn5"
+    },
+    {
+      "annotation": "Photos 12258,01-12258,05",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 12258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kritischer Inhalt der Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_175_12258_01_xget6f5q7v.jpg",
+        "alm_175_12258_02_a081lhvygw.jpg",
+        "alm_175_12258_03_boatqotve7.jpg",
+        "alm_175_12258_04_flta9xlhlp.jpg",
+        "alm_175_12258_05_7gbafe0qd4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kritischer Inhalt der Gedichte",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "z43zhxhpw30t9vn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 8074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tabelle unserer lebenden Dichter und schönen Gei- / ster, nebst ihrem Charakter und diesjährigen Be- / schäftigungen in den schönen Wissenschaften, in / so fern sie der Kalendermacher gewußt hat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tabelle unserer lebenden Dichter und schönen Gei- / ster, nebst ihrem Charakter und diesjährigen Be- / schäftigungen in den schönen Wissenschaften, in / so fern sie der Kalendermacher gewußt hat",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "ttuudbhvfq7n33c"
+    },
+    {
+      "annotation": "Nachwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Ob ich mir nicht auch selbst die Nativität gestellt habe? Ich müßte den Shaftesbury nicht gelesen haben, wenn ich dies hätte unterlassen wollen.",
+      "language": [],
+      "musenalm_id": 18732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. M. R. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift",
+      "updated": "2000-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1770,
+      "editor": "",
+      "agents": [],
+      "source_id": "i1j2ehsab9clffw"
+    }
   ],
   "agents": [
     {

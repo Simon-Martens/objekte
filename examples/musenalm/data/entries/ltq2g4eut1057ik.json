@@ -48,7 +48,26 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "ud91f437pkmgz89"
+    {
+      "annotation": "REPRINT.facsimilepublisher.com\nREPRINT.facsimilepublisher.com",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.595Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409903",
+      "location": "105N01",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.595Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ud91f437pkmgz89"
+    }
   ],
   "contents": [],
   "agents": []

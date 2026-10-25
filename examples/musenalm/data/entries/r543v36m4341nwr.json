@@ -48,26 +48,717 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "qb1s70oqlcztgyj"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.596Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405470",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.596Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qb1s70oqlcztgyj"
+    }
   ],
   "contents": [
-    "caeb85jt7meabi2",
-    "imjbxrgj7xobj9d",
-    "gb2772z8u94kzea",
-    "q52419a037rli81",
-    "hwhly684mx6h16t",
-    "t47t46fzrle1pe3",
-    "nvyixpgbwscd3fu",
-    "50uji7mp51tx2r7",
-    "zily5o2ox4qoe02",
-    "vwhdkulepsuip5h",
-    "kx919vpzd2lly6c",
-    "uhtlkuxw8ryvjgk",
-    "u0p7xl2r732542q",
-    "j35d00socae7mt1",
-    "i086qsza91bz0yl",
-    "ke126boec8qpead",
-    "3sspxi40psabtu7"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110043,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2242_110043_6dggasrcre.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "caeb85jt7meabi2"
+    },
+    {
+      "annotation": "Titelgraphik /) unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Ein Rendezvous« von C. v. Wachsmann INr 110054, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110044,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prinzessin Caroline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2242_110044_sqwvnq7erg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Prinzessin Caroline",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "ij59d0rz25czo9z"
+        }
+      ],
+      "source_id": "imjbxrgj7xobj9d"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110045,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LILIEN. / Taschenbuch / historisch-romantischer Erzählungen / für / 1847 / von / C. v. WACHSMANN / 10ter. Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. G. Schreiber Merseburg a./S.",
+      "scans": [
+        "alm_2242_110045_umdm4at7ye.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LILIEN. / Taschenbuch / historisch-romantischer Erzählungen / für / 1847 / von / C. v. WACHSMANN / 10ter. Jahrgang",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "gb2772z8u94kzea"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »André« von C. v. Wachsmann INr 110056, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110046,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophie Arnold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2242_110046_g3zsyu78on.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sophie Arnold",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "h79gny8xpwk5zrg"
+        }
+      ],
+      "source_id": "q52419a037rli81"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Ein Rendezvous« von C. v. Wachsmann INr 110054, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110047,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amalie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2242_110047_hpe2qsixnv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Amalie",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "w0qzfsbf1vwqdlr"
+        }
+      ],
+      "source_id": "hwhly684mx6h16t"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Frauenhaß« von C. v. Wachsmann INr 110055, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110048,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilias",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2242_110048_6ifcnugx8g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilias",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.377Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "9izyu994z09unj3"
+        }
+      ],
+      "source_id": "t47t46fzrle1pe3"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Mutter Carey's Hühnchen« von C. v. Wachsmann INr 110053 Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.416Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110049,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Emmy",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2242_110049_e1pxx8r3l5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Emmy",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.377Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "mkyn35bk2e8t744"
+        }
+      ],
+      "source_id": "nvyixpgbwscd3fu"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Ein Mann aus dem Volke« von C. v. Wachsmann INr 11057, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110050,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pauline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2242_110050_pmqmbydtjn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pauline",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.377Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "ux5xafdfex5629b"
+        }
+      ],
+      "source_id": "50uji7mp51tx2r7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110051,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1847, / von / C. von Wachsmann. / Zehnter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2242_110051_6owwl4ar63.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1847, / von / C. von Wachsmann. / Zehnter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "zily5o2ox4qoe02"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110052,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "vwhdkulepsuip5h"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Wir umflattern das mächtige Wasserroß, / Von dessen Huf das Meer erschäumt, [...] / Nach W. Scott /) mit einer Illustration s. Graphik INr 110049, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Gott segne Dich, mein Kind, und seine heiligen Engel mögen Dich geleiten! sagte Mistreß Vansittart",
+      "language": [],
+      "musenalm_id": 110053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutter Carey's Hühnchen. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mutter Carey's Hühnchen. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.354Z",
+          "agent": "0erfxld46kry72g",
+          "source_id": "tu4y76zmoqfuvy4"
+        }
+      ],
+      "source_id": "kx919vpzd2lly6c"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Futter für Pulver, Heinz! Sterbliche Menschen! Gut genug zum Spießen! [...] / Shakespeare /) mit 2 Illustrationen s. Titelgraphik INr 110044, Obj 2 und Graphik INr 110047, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "In der Zeit Georgs des Ersten kluger und friedlicher Regierung, war der Kampf zwischen den Whigs und Tories viel bedeutender und heftiger als je nachher.",
+      "language": [],
+      "musenalm_id": 110054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Rendezvous. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Rendezvous. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.354Z",
+          "agent": "0erfxld46kry72g",
+          "source_id": "prjtluj3m1t0gsy"
+        }
+      ],
+      "source_id": "uhtlkuxw8ryvjgk"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Ich möchte nicht / ein solches Herz in meinem Busen tragen. / Shakespeare /) mit einer Illustration s. Graphik INr 110048, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Die ältere Geschichte Schottlands scheint wie mit Blut geschrieben, und deren Lettern wie mit dem Beil auf ihren Tafeln eingehauen.",
+      "language": [],
+      "musenalm_id": 110055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenhaß. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenhaß. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.354Z",
+          "agent": "0erfxld46kry72g",
+          "source_id": "2lhsk1y4znskwnh"
+        }
+      ],
+      "source_id": "u0p7xl2r732542q"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Laßt, laßt das Herz verwesen, / Gesundet und genesen / Hebt Psyche ihre Flügel [...] Altes Lied /) mit einer Illustration s. Graphik INr 110046, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Das Jahr 1774 war ein sehr verhängnisvolles für Nordamerika. In ihm durchbrach der Keim des Samenkornes der Freiheit die Hülle, und seit dieser Zeit ist er zu einem riesigen Waldbaume aufgeschossen,",
+      "language": [],
+      "musenalm_id": 110056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "André. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "André. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.300Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.300Z",
+          "agent": "0erfxld46kry72g",
+          "source_id": "tllbutwig7rx7zc"
+        }
+      ],
+      "source_id": "j35d00socae7mt1"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Ihr sagt: ich sein ein Mann, und als ein / Mann will ich mich  zeigen. / Erlach in Joh. Müllers Gesch. d. Schweiz /) mit einer Illustration s. Graphik INr 110050, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Ein paar Jahre vor Ausbruch der Revolution von 1789 hielt eine etwas altfränkische Staatskutsche vor der Thüre eines Hotels zu Versailles,",
+      "language": [],
+      "musenalm_id": 110057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Mann aus dem Volke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Mann aus dem Volke",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.300Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.300Z",
+          "agent": "0erfxld46kry72g",
+          "source_id": "58ubix9g56lamv3"
+        }
+      ],
+      "source_id": "i086qsza91bz0yl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "420",
+      "incipit_statement": "Druck von C.P. Melzer in Leipzig",
+      "language": [],
+      "musenalm_id": 110058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von C.P. Melzer in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "ke126boec8qpead"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110059,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "3sspxi40psabtu7"
+    }
   ],
   "agents": [
     {

@@ -48,71 +48,2422 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "794fes3k3xqvcmo"
+    {
+      "annotation": "1816, 1818 Zweiter Almanach und 1826. Hg. : M.G.G.Röller, 2.Aufl. C.F. Solbrig.  \nGrüner kartonierter Einband mit Grafik und Goldschnitt.\n1818: Mit 1 Tku und 203 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.540Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100025",
+      "location": "105C07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.540Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "794fes3k3xqvcmo"
+    }
   ],
   "contents": [
-    "ji0p1sf0nx9vm6g",
-    "dygc2qqt72wh94f",
-    "1lke21837vs4qon",
-    "h1s3mdyst1xc68k",
-    "p7auycvts3wnfbd",
-    "zzpxw92xg2ahk6j",
-    "g0oekmwlqdbi513",
-    "m0jzciegj959qbh",
-    "c4nro5vjqm3ssad",
-    "20az0sh48dufnwm",
-    "qtgj1ogo0n3ts2e",
-    "lt8p9gay6zp3s7g",
-    "rum8vnfw0081lyl",
-    "jxscttufgjpcgol",
-    "37yyhmr4jxo7lfm",
-    "dx1nwxmcw3ngrjn",
-    "svskmqpe0xtkywp",
-    "tfd7rbl1flqku9e",
-    "dcbsppd5qwmj4aa",
-    "3za7wvby7rli8fd",
-    "z90fgar1fwvmkwh",
-    "e8ztgvywm9a2764",
-    "ntdg1lzi3wyf970",
-    "dpku27mlztr6ixo",
-    "ynliow0kv8ohuyj",
-    "jnbbmf6fbaf2ckr",
-    "277adf1xr2stgyo",
-    "um1xzjwhatc4bhb",
-    "u2tg6kf1yawvgl5",
-    "jreoptmr06qnkzg",
-    "o5yfaltgv3yun2u",
-    "r7ksm1w0qz78tca",
-    "y1jffxfnai1io2i",
-    "fmiss3p72wtc1rm",
-    "bousoq096u2rmmq",
-    "e7krte131fc3o30",
-    "zzosohvkaqa2x50",
-    "ovriixcy6xrgxnn",
-    "qd1wcyr7f5ubvc2",
-    "k7uvfv0s47p69ur",
-    "jt4fyp0hpl5ca2u",
-    "7gkue49faad4crz",
-    "4hycbt900y355br",
-    "ketj0xd8c4s6aup",
-    "eud6ffij6m4c2rl",
-    "8npfmy9prwwp44v",
-    "eygzapbho0k56zd",
-    "1dtxrg8xduqj049",
-    "cycbm2vbpils5zy",
-    "0urneu0w3671qoa",
-    "kgm85ddxcrcsavj",
-    "tog7c5qu5p7haek",
-    "sqxr85a3hjitdda",
-    "qu9w2r4tjhh1j9p",
-    "vu4po4v4pdrhehz",
-    "0czc2imff9t3mgr",
-    "41f1g2rrqee7gbx",
-    "8nemj0hnedmnavb",
-    "jgb9153icck0x4c",
-    "o1mn3nkwvt6vky2",
-    "euaoqubdrkgomeq",
-    "8b940tlp8h20xqq"
+    {
+      "annotation": "UG recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130480,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1194_130480_23n6fhsfyl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "ji0p1sf0nx9vm6g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130483,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg del. Rosmäsler sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. Rosmäsler sc.",
+      "scans": [
+        "alm_1194_130483_mvugq2t9y3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "66lslr0rb6dykn8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ysegvio93on29ym"
+        }
+      ],
+      "source_id": "dygc2qqt72wh94f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130484,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / Der / Parodien / und / Travestien / Herausgegeben / von / M. Gottfr. Günth. Röller / Zweyter Almanach. / Leipzig, / bey Carl Friedrich Franz. / 1818",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1194_130484_wb95tkyjsi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / Der / Parodien / und / Travestien / Herausgegeben / von / M. Gottfr. Günth. Röller / Zweyter Almanach. / Leipzig, / bey Carl Friedrich Franz. / 1818",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "1lke21837vs4qon"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130485,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihro Hochgeboren / der Frau / Reichs- und Burggräfin / zu Dohna, / geboren / Reichsgräfin von Reichenbach / auf und zu Mallmitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Gottfried Günther Röller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihro Hochgeboren / der Frau / Reichs- und Burggräfin / zu Dohna, / geboren / Reichsgräfin von Reichenbach / auf und zu Mallmitz",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "ruqpk5pzwdjeoju",
+          "source_id": "de3ttza50t4l3hr"
+        }
+      ],
+      "source_id": "h1s3mdyst1xc68k"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 130484, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130486,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorvorrede",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Gottfried Günther Röller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorvorrede",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "ruqpk5pzwdjeoju",
+          "source_id": "kxfly54cr9dvjx0"
+        }
+      ],
+      "source_id": "p7auycvts3wnfbd"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 130484, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130510,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Röller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "ruqpk5pzwdjeoju",
+          "source_id": "sb1hhgo7i181fla"
+        }
+      ],
+      "source_id": "zzpxw92xg2ahk6j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130487,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalts-Verzeichniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalts-Verzeichniß",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "g0oekmwlqdbi513"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parodien / und / Travestien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parodien / und / Travestien",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "m0jzciegj959qbh"
+    },
+    {
+      "annotation": "Mit der Parodie »Der recensirte Almanach« (INr 130490, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Ich wand einst Veilchen  zu einem Kranz / Bei Mondenschimmer und Sternenglanz –",
+      "language": [],
+      "musenalm_id": 130489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Veilchenkranz, / von / Mahlmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mahlmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Veilchenkranz, / von / Mahlmann",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "5uss88okhpw2gvm",
+          "source_id": "zgqjrhwef33510c"
+        }
+      ],
+      "source_id": "c4nro5vjqm3ssad"
+    },
+    {
+      "annotation": "Parodie auf »Der Veilchenkranz« von Mahlmann (INr 130489, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Ich wand einst Verse zu einem Kranz / Beym hellen Kamin und bey Lichterglanz –",
+      "language": [],
+      "musenalm_id": 130490,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der recensirte Almanach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der recensirte Almanach",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "20az0sh48dufnwm"
+    },
+    {
+      "annotation": "Mit der Parodie »Die Feinde der Parodie« von Röller (INr 130492, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Wachse, wachse, blühender Baum / Mit der goldnen Früchtekrone, / Den wir aus der fremden Zone / Pflanzen in den heimischen Raum!",
+      "language": [],
+      "musenalm_id": 130491,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die Huldigung der Künste. / Ein lyrisches Spiel. / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die Huldigung der Künste. / Ein lyrisches Spiel. / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "157q3841yswhm9i"
+        }
+      ],
+      "source_id": "qtgj1ogo0n3ts2e"
+    },
+    {
+      "annotation": "Parodie auf »Die Huldigung der Künste« von Schiller (INr 130491, Obj 11); # Bezeichnung aus dem Titel (INr 130484, Obj 3), vgl. dazu die Anm. S. 7f",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Springe, springe, lustiger Vers / mit dem haarigen Bockspedale, / Daß du durch’s Hundegebell der Journale / Kommst in die Supplemente von Ersch!",
+      "language": [],
+      "musenalm_id": 130492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Feinde der Parodie. / Ein phantasirtes Parodrama",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Röller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Feinde der Parodie. / Ein phantasirtes Parodrama",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "ruqpk5pzwdjeoju",
+          "source_id": "n78o356rg8dj64y"
+        }
+      ],
+      "source_id": "lt8p9gay6zp3s7g"
+    },
+    {
+      "annotation": "Mit der Parodie »Die Gespenster der alten Zeit« von Röller (INr 130509, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Die ihr noch die schöne Welt regieret, / An der Freude leichtem Gängelband / Selige Geschlechter noch geführet, / Schöne Wesen aus dem Fabelland",
+      "language": [],
+      "musenalm_id": 130493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Götter Griechenlands, / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Götter Griechenlands, / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.072Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.072Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "h2c1dnvyyg8qaxg"
+        }
+      ],
+      "source_id": "rum8vnfw0081lyl"
+    },
+    {
+      "annotation": "Parodie auf »Die Götter Griechenlands« von Schiller (INr 130493, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Die ihr noch die alte Welt regieret, / An des Glaubens weitgeknüpftem Seil / Unsre Väter noch herumgeführet, / Irrlichtschimmer! Beßrer Zeiten Theil!",
+      "language": [],
+      "musenalm_id": 130509,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Gespenster der alten Zeit.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Gespenster der alten Zeit.",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "jxscttufgjpcgol"
+    },
+    {
+      "annotation": "Mit der Travestie »Der deutsche Knabe« (INr 130512, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Mein Arm wird stark, und groß mein Muth, / Gieb, Vater, mir ein Schwert! / Verachte nicht mein junges Blut, / Ich bin der Väter werth! –",
+      "language": [],
+      "musenalm_id": 130511,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der deutsche Knabe, / von / F. L. Gr. v. Stollberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. L. Gr. v. Stollberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der deutsche Knabe, / von / F. L. Gr. v. Stollberg",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "7gwss5mvx858qah",
+          "source_id": "gm085qypvf21v8x"
+        }
+      ],
+      "source_id": "37yyhmr4jxo7lfm"
+    },
+    {
+      "annotation": "Travestie von »Der deutsche Knabe« von Stollberg (INr 130511, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Neun Jahr schon, Vater, bin ich alt, / Gieb eine Pfeife mir! / Satt bin ich nun die Ruthe bald, / Entwachsen bin ich ihr.",
+      "language": [],
+      "musenalm_id": 130512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der deutsche Knabe / Travestie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der deutsche Knabe / Travestie",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "dx1nwxmcw3ngrjn"
+    },
+    {
+      "annotation": "Mit der Parodie »Die zwei Seiten der Dinge« (INr 130514, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Furchtbar ist das Grab! / Kalte Winde sausen, / Dumfe Schauer grausen, / Gram und Grauen hausen / Um das stumme Grab!",
+      "language": [],
+      "musenalm_id": 130513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Furchtbarkeit und Lieblichkeit / des Grabes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Furchtbarkeit und Lieblichkeit / des Grabes",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "3iz2dsll7275kpc"
+        }
+      ],
+      "source_id": "svskmqpe0xtkywp"
+    },
+    {
+      "annotation": "Parodie auf »Furchtbarkeit und Lieblichkeit des Grabes« von Kosegarten (INr 130513, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Weiß ist Elfenbein! / Mädchenhände heißen / Oft von ihrer weißen / Farbe Elfenbein.",
+      "language": [],
+      "musenalm_id": 130514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die zwei Seiten der Dinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die zwei Seiten der Dinge",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "tfd7rbl1flqku9e"
+    },
+    {
+      "annotation": "Mit der Parodie »Skizze eines gewöhnlichen Lebens« (INr 130516, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Ich habe gelacht, nun lach’ ich nicht mehr! / Was ist’s auch um all’ unsre Freuden? / Ein Augenblick ändert die Scene, / Dann ist die Berauschung dahin!",
+      "language": [],
+      "musenalm_id": 130515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Skizze meines Lebens, / von / Buri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Buri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Skizze meines Lebens, / von / Buri",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "g8prxnhm5z8oc6o",
+          "source_id": "kcj2630r7s3dz14"
+        }
+      ],
+      "source_id": "dcbsppd5qwmj4aa"
+    },
+    {
+      "annotation": "Parodie auf »Skizze meines Lebens« von Buri (INr 130515, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Ich habe gespielt, nun spiel’ ich nicht mehr! / Was ist’s auch um alles Gewinnen? / Ein augenblick ändert die Scene, / Dann ist das Gewonnene hin.",
+      "language": [],
+      "musenalm_id": 130516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Skizze eines gewöhnlichen / Lebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Skizze eines gewöhnlichen / Lebens",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "3za7wvby7rli8fd"
+    },
+    {
+      "annotation": "Mit der Parodie »Die Lebensgefährten« (INr 130518, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Haltet an der Hoffnung fest! / Flieht an ihre Schutzaltäre, / Dass sie Tröstung euch gewähre! / Denn sie trocknet jede Zähre, / Die das müde Auge näßt",
+      "language": [],
+      "musenalm_id": 130517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Lebensgefährten. / von Nostiz und Jänkendorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nostiz und Jänkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Lebensgefährten. / von Nostiz und Jänkendorf",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "4cbjbivmupkdlwy"
+        }
+      ],
+      "source_id": "z90fgar1fwvmkwh"
+    },
+    {
+      "annotation": "Parodie auf »Die Lebensgefährten« (INr 130517, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Haltet an dem Scheine fest! / Flieht zu diesem Frauengötzen, / Laßt euch ihn in Wohlstand setzen!",
+      "language": [],
+      "musenalm_id": 130518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Lebensgefährten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Lebensgefährten",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "e8ztgvywm9a2764"
+    },
+    {
+      "annotation": "Mit der Parodie »Die drei Zeichen« (INr 130520, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Drei Blümlein in meinem Garten blühn, / Das erste, das Röslein der Freude, / Soll schmücken mein Haupt; – ein froher Sinn / Verbannt den Gram, ist Lebensgewinn, / Und schafft zum Eden deie Haide. –",
+      "language": [],
+      "musenalm_id": 130519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die drei Blümlein, / von / Pfeffel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die drei Blümlein, / von / Pfeffel",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "fh80wkiarlefswj"
+        }
+      ],
+      "source_id": "ntdg1lzi3wyf970"
+    },
+    {
+      "annotation": "Parodie auf »Die drei Blümlein« von Pfeffel (INr 130519, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Drei Zeichen vor Namen gar zierlich stehn, / Das erste, das M der Magister. / Ich schrieb es vor meinen Namen gar gern, / Nur kommt man mit manchem verächtlichen Herrn, / Der Max heißt, in ein Register.",
+      "language": [],
+      "musenalm_id": 130520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die drei Zeichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die drei Zeichen",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "dpku27mlztr6ixo"
+    },
+    {
+      "annotation": "Mit der Parodie »Der sinkende Trinkbruder« (INr 130522, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Sonne, du sinkst! / Sonne, du sinkst! / Sink’ in Frieden, o Sonne! – Still und ruhig ist deines Scheidens Gang",
+      "language": [],
+      "musenalm_id": 130521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Die untergehende Sonne, / von / Kosegarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kosegarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Die untergehende Sonne, / von / Kosegarten",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "nz3ytz19v6fnz1k",
+          "source_id": "pc4maupmjsl2yik"
+        }
+      ],
+      "source_id": "ynliow0kv8ohuyj"
+    },
+    {
+      "annotation": "Parodie auf »Die untergehende Sonne« von Kosegarten (INr 130521, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Bruder, du sinkst! / Bruder, du sinkst! / Sink’ in Frieden, Bruder!",
+      "language": [],
+      "musenalm_id": 130523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Der sinkende Trinkbruder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Der sinkende Trinkbruder",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "jnbbmf6fbaf2ckr"
+    },
+    {
+      "annotation": "Mit der Parodie »Das Lachen, der Schlaf und die Hoffnung« (INr 130523, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Drei Himmlische segnen den Menschen ein, / Eh’ er tritt ins geschäftige Leben.",
+      "language": [],
+      "musenalm_id": 130524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Glaube, Liebe, Hoffnung, / von / Auernhammer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Auernhammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Glaube, Liebe, Hoffnung, / von / Auernhammer",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "tplepn0kz7myxw6",
+          "source_id": "u05lyu49x73tv5h"
+        }
+      ],
+      "source_id": "277adf1xr2stgyo"
+    },
+    {
+      "annotation": "Parodie auf »Das Lachen, der Schlaf und die Hoffnung« von Auernhammer (INr 130524, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Drei Mittel sagen dem Reichen zu, / Im Kampfe mit langer Weile.",
+      "language": [],
+      "musenalm_id": 130525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Lachen, der Schlaf und die / Hoffnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Lachen, der Schlaf und die / Hoffnung",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "um1xzjwhatc4bhb"
+    },
+    {
+      "annotation": "Mit der Parodie »An die Mißvergnügten« (INr 130527, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Lieben Freunde, es gab schön’re Zeiten, / Als die unsern, das ist nicht zu streiten; / Und ein edler Volk hat einst gelebt.",
+      "language": [],
+      "musenalm_id": 130526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freunde, / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Freunde, / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "0a2dp7vewzkhvh7"
+        }
+      ],
+      "source_id": "u2tg6kf1yawvgl5"
+    },
+    {
+      "annotation": "Parodie auf »An die Freunde« von Schiller (INr 130526, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Lieben Freunde, es gab schlecht’re Zeiten, / Als die unsern, das ist nicht zu streiten, / Und das Uebel hat einst mehr getobt.",
+      "language": [],
+      "musenalm_id": 130527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / An die Mißvergnügten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / An die Mißvergnügten",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "jreoptmr06qnkzg"
+    },
+    {
+      "annotation": "Mit der Parodie »Auch ein Blümchen Wunderhold« (INr 130529, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "es blüht ein Blümchen irgendwo / In einem stillen Thal. / Das schmeichelt Aug’ und Herz so froh, / Wie Abendsonnenstrahl",
+      "language": [],
+      "musenalm_id": 130528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Das Blümchen Wunderhold, / von / Bürger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Das Blümchen Wunderhold, / von / Bürger",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "ofgx2kmc8bbxji2",
+          "source_id": "xrhd5q8x8wumnjr"
+        }
+      ],
+      "source_id": "o5yfaltgv3yun2u"
+    },
+    {
+      "annotation": "Parodie auf »Das Blümchen Wunderhold« von Bürger (INr 130528, Obj 31)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Es blüht ein Blümchen irgendwo / In einem stillen Thal. / Das macht, so oft es blüht, uns froh, / Doch blüht’s nicht allemal.",
+      "language": [],
+      "musenalm_id": 130529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Auch ein Blümchen Wunderhold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Auch ein Blümchen Wunderhold",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "r7ksm1w0qz78tca"
+    },
+    {
+      "annotation": "Mit der Parodie »An die Heilkunst« (INr 130531, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Die du thronst in Cnidus und Paphos, Venus / Laß dein liebes Cypern einmal, das schöne / Haus Glycerens, die dich mit vielem Weihrauch / Ruft, zu besuchen.",
+      "language": [],
+      "musenalm_id": 130530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / An die Venus. / von / Horaz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Horaz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / An die Venus. / von / Horaz",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "ogosxb6kwkoek7l",
+          "source_id": "t4gwtsflh4hpdj4"
+        }
+      ],
+      "source_id": "y1jffxfnai1io2i"
+    },
+    {
+      "annotation": "Parodie auf »An die Venus« von Horaz (INr 130530, Obj 33)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Apothekerbüchsenmonarchin, Heilkunst! / Laß die andern Kranken von selber sterben / Einen armen Bräutigam, den die Hochzeit / Drängt, zu besuchen.",
+      "language": [],
+      "musenalm_id": 130531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / An die Heilkunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / An die Heilkunst",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "fmiss3p72wtc1rm"
+    },
+    {
+      "annotation": "Mit der Parodie »Gedanken eines Ehemanns« (INr 130533, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Edler Freund! Wo öffnet sich dem Frieden, / Wo der Freiheit sich ein Zufluchtsort?",
+      "language": [],
+      "musenalm_id": 130532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Der Antritt des neuen Jahr- / hunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Der Antritt des neuen Jahr- / hunderts",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.073Z",
+          "agent": "wqze1ivkmgxwz33",
+          "source_id": "8poj8idi1sdw7fb"
+        }
+      ],
+      "source_id": "bousoq096u2rmmq"
+    },
+    {
+      "annotation": "Parodie auf »Der Antritt des neuen Jahrhunderts« von Schiller (INr 130532, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Ach, ich Tropf! Wo find’ ich endlich Frieden? / Wo der Ärger eine Ruhebank?",
+      "language": [],
+      "musenalm_id": 130533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Morgengedanken eines Ehemanns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Morgengedanken eines Ehemanns",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "e7krte131fc3o30"
+    },
+    {
+      "annotation": "Mit der Parodie »Spruch des Sokrates« (INr 130533, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Dreifach ist der Schritt der Zeit, / Zögernd kommt die Zukunft hergezogen, / Pfeilschnell ist das Jetzt entflogen, / Ewig still steht die Vergangenheit",
+      "language": [],
+      "musenalm_id": 130534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Spruch des Confucius, / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Spruch des Confucius, / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "uesn8wuig1f3wjp"
+        }
+      ],
+      "source_id": "zzosohvkaqa2x50"
+    },
+    {
+      "annotation": "Parodie auf »Spruch des Confucius« von Schiller (INr 130534, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Dreifach herrscht der Frauen Mund. / Lächelnd lockt das Mädchen aus der Weite; / In dem Kuß gebieten Bräute; Ew’ger Zank macht die Gemahlin kund.",
+      "language": [],
+      "musenalm_id": 130535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Spruch des Sokrates",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Spruch des Sokrates",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "ovriixcy6xrgxnn"
+    },
+    {
+      "annotation": "Mit der Parodie »Antidithyrambe« (INr 130537, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "Nimmer, das glaubt mir, / Erscheinen die Götter, / Nimmer allein.",
+      "language": [],
+      "musenalm_id": 130536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Dithyrambe / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Dithyrambe / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "45cciz65n6cj4zv"
+        }
+      ],
+      "source_id": "qd1wcyr7f5ubvc2"
+    },
+    {
+      "annotation": "Parodie auf »Dithyrambe« von Schiller (INr 130534, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Nimmer, das glaubt mir, / Erscheinen die Gäste / Satt und allein",
+      "language": [],
+      "musenalm_id": 130537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Antidithyrambe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Antidithyrambe",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "k7uvfv0s47p69ur"
+    },
+    {
+      "annotation": "Mit der Parodie »Monolog eines abgehenden Schülers« (INr 130539, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Ich soll mich schonen? – soll den Funken Kraft, / Der in den alten Heldengliedern schlummert, / Im müß’gen Leben langsam sterben sehn? –",
+      "language": [],
+      "musenalm_id": 130538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / Monolog des Soliman in Zriny, / von / Theodor Körner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Körner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / Monolog des Soliman in Zriny, / von / Theodor Körner",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "epma680nee4q5et",
+          "source_id": "7ojaabo5bccbrtt"
+        }
+      ],
+      "source_id": "jt4fyp0hpl5ca2u"
+    },
+    {
+      "annotation": "Parodie auf »Monolog des Soliman« von Körner (INr 130538, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Ich soll mich zähmen, soll die Götterkraft, / Die in den jungen Männernerven aufwacht, / In Tintenklecksen tugendhaft verschwitzen.",
+      "language": [],
+      "musenalm_id": 130539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. Monolog eines abgehenden Schülers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. Monolog eines abgehenden Schülers",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "7gkue49faad4crz"
+    },
+    {
+      "annotation": "Mit der Parodie »An den letzten, der diese Parodien als Maculatur bekommt« (INr 130586, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Früher, später, vielleicht ach! bald, wenn kühlend / Mich umschattet die Gruft",
+      "language": [],
+      "musenalm_id": 130540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / An den letzten der mein gedenkt, / von / W i ß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W i ß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / An den letzten der mein gedenkt, / von / W i ß",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "4hycbt900y355br"
+    },
+    {
+      "annotation": "Parodie auf »An den letzten, der mein gedenkt« von Wiß (INr 130540, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Früher, später, vielleicht ach bald, wenn unter / Käs’ und Heringen hinten angekündigt, / Dieses Büchlein die Zeitungsnachbarn aufsucht, / Findet sich Einer",
+      "language": [],
+      "musenalm_id": 130586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / An den letzten, der diese Parodien als / Maculatur bekommt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / An den letzten, der diese Parodien als / Maculatur bekommt",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "ketj0xd8c4s6aup"
+    },
+    {
+      "annotation": "Mit der Parodie »Meine Wünsche an künftige Ehemänner« (INr 130588, Obj 46)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Ein gütiger Vater, / Gab der Allmächtige / Drei Engel dem Menschen / Auf seiner Reise",
+      "language": [],
+      "musenalm_id": 130587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIX. / Meine Wünsche an Euch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIX. / Meine Wünsche an Euch",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "eud6ffij6m4c2rl"
+    },
+    {
+      "annotation": "Parodie auf »Meine Wünsche an Euch« (INr 130587, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Dem gütigen Schicksal / Danket ein Ehemann / Drei Mängel, so heilsam, / Als manche Tugend.",
+      "language": [],
+      "musenalm_id": 130588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIX. / Meine Wünsche an künftige / Ehemänner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIX. / Meine Wünsche an künftige / Ehemänner",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "8npfmy9prwwp44v"
+    },
+    {
+      "annotation": "Mit der Parodie »Die Erwartung eines gedrängten Musensohns« (INr 130590, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Hör’ ich das Pförtchen nicht gehen? / Hat nicht der Riegel geklirrt? / Nein, es war des Windes Wehen, / Der durch diese Pappeln schwirrt.",
+      "language": [],
+      "musenalm_id": 130589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XX. / Die Erwartung, / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XX. / Die Erwartung, / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "n783bgiq750t9xx"
+        }
+      ],
+      "source_id": "eygzapbho0k56zd"
+    },
+    {
+      "annotation": "Parodie auf »Die Erwartung« von Schiller (INr 130589, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Klopfte nicht jetzo ein Bote? / Hat nicht die Hausthür geknarrt? / Nein, es war des Hundes Pfote, / Der nach einem Flohe scharrt.",
+      "language": [],
+      "musenalm_id": 130590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XX. / Die Erwartung eines gedräng- / ten Musensohns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XX. / Die Erwartung eines gedräng- / ten Musensohns",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "1dtxrg8xduqj049"
+    },
+    {
+      "annotation": "Mit der Parodie »Versprechen und Halten« (INr 130592, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Einst trafen Willkommen und Lebewohl / zu nah, um einander nicht anzureden;",
+      "language": [],
+      "musenalm_id": 130591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXI. / Lebewohl und Willkommen, / von / Haug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXI. / Lebewohl und Willkommen, / von / Haug",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "onmy9ra6gf0ro34"
+        }
+      ],
+      "source_id": "cycbm2vbpils5zy"
+    },
+    {
+      "annotation": "Parodie auf »Lebewohl und Willkommen« von Haug (INr 130591, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Einst trafen Versprechen und Halten zu nah’ / In der Stadt, um einander nicht anzureden;",
+      "language": [],
+      "musenalm_id": 130592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXI. / Versprechen und Halten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXI. / Versprechen und Halten",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "0urneu0w3671qoa"
+    },
+    {
+      "annotation": "Mit der Parodie »Monolog eines bedrängten Kandidaten« (INr 130594, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Es dauert mir zur lange – der Doktor will, er sey im Umkehren – das Leben eines Alten ist doch eine Ewigkeit!",
+      "language": [],
+      "musenalm_id": 130593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXII. / Monolog des Franz Moor, / von / Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXII. / Monolog des Franz Moor, / von / Schiller",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "jryrodre04t8h4s"
+        }
+      ],
+      "source_id": "kgm85ddxcrcsavj"
+    },
+    {
+      "annotation": "Parodie auf »Monolog des Franz Moor« von Schiller (INr 130593, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Es dauert mir zu lange – der Patron will, ich soll übnermorgen eine Probepredigt halten.",
+      "language": [],
+      "musenalm_id": 130594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXII. / Monolog eines bedrängten Kandidaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXII. / Monolog eines bedrängten Kandidaten",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "tog7c5qu5p7haek"
+    },
+    {
+      "annotation": "Mit der Parodie »Die sieben Gründe« (INr 130596, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Sieben Gründe giebt’s zu trinken: / Freundesankunft – Nummer Eins! –",
+      "language": [],
+      "musenalm_id": 130595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIII. / Die sieben Gründe, / von / Friedrich Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXIII. / Die sieben Gründe, / von / Friedrich Kind",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "xeiljoz9z87x2m1"
+        }
+      ],
+      "source_id": "sqxr85a3hjitdda"
+    },
+    {
+      "annotation": "Parodie auf »Die sieben Gründe« von Kind (INr 130595, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Sieben Gründe giebt’s zu dürsten: / Weil das Geld fehlt, Nummer Eins!",
+      "language": [],
+      "musenalm_id": 130596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIII. / Die sieben Gründe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXIII. / Die sieben Gründe",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "qu9w2r4tjhh1j9p"
+    },
+    {
+      "annotation": "Mit der Parodie »Lob der braunen Farbe im Munde einer Pastorsfrau« (INr 130598, Obj 56)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Vor allen Farben auf der Welt / Mir doch am meisten blau gefällt; –",
+      "language": [],
+      "musenalm_id": 130597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIV. / Lob der blauen Farbe, / von / Müchler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXIV. / Lob der blauen Farbe, / von / Müchler",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "uze9w2wisjq2xze"
+        }
+      ],
+      "source_id": "vu4po4v4pdrhehz"
+    },
+    {
+      "annotation": "Parodie auf »Lob der blauen Farbe« von Müchler (INr 130597, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Von allen Farben auf der Welt / Mir doch am meisten braun gefällt; –",
+      "language": [],
+      "musenalm_id": 130598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob der braunen Farbe im Munde einer Pastorsfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob der braunen Farbe im Munde einer Pastorsfrau",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "0czc2imff9t3mgr"
+    },
+    {
+      "annotation": "Mit der »parodirende[n] Travestie« »Die schwarze Farbe« (INr 130600, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Schwarz der Nacht, von dir umgeben, / Zittert nur der Bösewicht.",
+      "language": [],
+      "musenalm_id": 130599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXV. / Die schwarze Farbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXV. / Die schwarze Farbe",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "41f1g2rrqee7gbx"
+    },
+    {
+      "annotation": "»parodirende Travestie« auf »Die schwarze Farbe« (INr 130599, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Schwarz der Nacht, o Tag der Diebe, / Und der Leut’ am Pferdeborn, / Und der Blickesatten Liebe, / Und des Wächters mit dem Horn!",
+      "language": [],
+      "musenalm_id": 130600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schwarze Farbe, / parodirende Travestie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schwarze Farbe, / parodirende Travestie",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "8nemj0hnedmnavb"
+    },
+    {
+      "annotation": "Mit der »parodirende[n] Travestie« »Die weiße Farbe« (INr 130602, Obj 60)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Zartes Weiß, die Feier meiner Lieder / Will ich dir aus voller Seele weihn!",
+      "language": [],
+      "musenalm_id": 130601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXVI. / Die weiße Farbe, / von / Müchler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXVI. / Die weiße Farbe, / von / Müchler",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.074Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.074Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "hsghp6ft972rnf0"
+        }
+      ],
+      "source_id": "jgb9153icck0x4c"
+    },
+    {
+      "annotation": "»parodirendeTravestie« auf »Die weiße Farbe« von Müchler (INr 130601, Obj 57)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Falsches Weiß! Die schlecht’ste meiner Gaben / Will ich dir aus Großmuth hiermit weihn.",
+      "language": [],
+      "musenalm_id": 130602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXVI. / Die weiße Farbe, / parodirende Travestie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXVI. / Die weiße Farbe, / parodirende Travestie",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "o1mn3nkwvt6vky2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Errata des ersten Teils",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Errata des ersten Teils",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "euaoqubdrkgomeq"
+    },
+    {
+      "annotation": "UG verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 130604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1194_130604_uzjmh2cp40.jpg",
+        "alm_2859_130604_6fc4k9bj3f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-12-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "8b940tlp8h20xqq"
+    }
   ],
   "agents": [
     {

@@ -48,7 +48,26 @@
   "year": 1857,
   "editor": "",
   "items": [
-    "kumufs0k8sokz78"
+    {
+      "annotation": "1857-1860. Jg. 1-4.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.759Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409171",
+      "location": "108A07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.759Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kumufs0k8sokz78"
+    }
   ],
   "contents": [],
   "agents": [

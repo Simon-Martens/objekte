@@ -48,60 +48,2195 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "vm0fr7wya6k921z"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen).\nKartonierter Einband mit Goldschnitt.(Buchrücken leicht beschädigt.)\n1829: (K: Bl 1, XIV und 446 SS, Bl 2 und Ku 8.) Mit Tku 1, Bl 1, Ku 7, XIV, 446 SS und Bl 2.\nInhalt lose.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.498Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106682",
+      "location": "105R01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.498Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vm0fr7wya6k921z"
+    }
   ],
   "contents": [
-    "r7ir8hg6fsjl19u",
-    "xjbz1aqc6lk0d0g",
-    "xy8pwwdclcj9bhf",
-    "ir4yvtc4keqpn0c",
-    "3dqp61t9mgmd8fs",
-    "5dz1vuhw65dgs4v",
-    "1gbqievh5wnru5f",
-    "gwt6c3ba86egjw1",
-    "ruzq6oe2lyyxfh1",
-    "i0u7owkcebrvwdc",
-    "7u2gvzeboblww38",
-    "k6f0t5hr6ry3ex7",
-    "47by3g81tlkm22z",
-    "vor0cv8ijyov58z",
-    "1n6gw0dvbzmqebc",
-    "lqhhh3ga8vkg8oa",
-    "sav52gb2p93hour",
-    "dbo6lrc3yi9v31x",
-    "e4dvfsu2nwpozg9",
-    "99qtumnekfmimus",
-    "ua2q7zbzlordvto",
-    "2tkzw0nkps0hc9h",
-    "tv0erbfas2od6vg",
-    "g0z2y4n7qzvs2di",
-    "66kgodwh2yvswnh",
-    "9xcwiinaaqwxdep",
-    "2uu2mibg5p1e1ui",
-    "htyp4rq8hh0v9ku",
-    "yw0qnx97gycgkpy",
-    "ulw88adpbq63vnh",
-    "m6f7mupmfxt8mfb",
-    "pvulpzbjp0ydaaq",
-    "obmpem6udreneyn",
-    "xznvciu35y4a9y2",
-    "4alyc1iw0mmszah",
-    "7ca80pwzltah9ny",
-    "f3b6u54zyf2gpt3",
-    "85ftsg82k09uo8c",
-    "vx1p28cmvigh76k",
-    "cqxm029ntf7cll4",
-    "saxvbl41b27nw1u",
-    "66bun2d342giqm6",
-    "f8yuidltvrql7bx",
-    "s8musgf4yujz1cg",
-    "mudqoy883qm6b9f",
-    "icj0grsw4x5449u",
-    "bl0iudccjkst079",
-    "dryo3i4l3hkvawt",
-    "t8fc0z7y0wz8zx3",
-    "gqawhh13d9r1ckb",
-    "jnz519j1eq7plrr"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42091,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_535_42091_d81p0z81yg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "r7ir8hg6fsjl19u"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42097, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42092,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geisler del. F. Fleischmann sc.",
+      "scans": [
+        "alm_535_42092_z5ezgb2pw3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Minerva 1832",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.962Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "41ptilzvyiap918"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.963Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "jkl3mycpnojz2gp"
+        }
+      ],
+      "source_id": "xjbz1aqc6lk0d0g"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42093,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MINERVA. / TASCHENBUCH / für / das Jahr 1833. / DREI UND ZWANZIGSTER / ODER / NEUE FOLGE / Zweiter Jahrgang / MIT ACHT KUPFERN. / Leipzig bei Friedrich Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_535_42093_es3otxp7ak.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MINERVA. / TASCHENBUCH / für / das Jahr 1833. / DREI UND ZWANZIGSTER / ODER / NEUE FOLGE / Zweiter Jahrgang / MIT ACHT KUPFERN. / Leipzig bei Friedrich Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.963Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "fpr20teiwg23dx8"
+        }
+      ],
+      "source_id": "xy8pwwdclcj9bhf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42094,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva. / Taschenbuch / für / das Jahr 1833. / Drei und Zwanzigster / oder der / Neuen Folge / Zweiter Jahrgang. / Mit 8 Kupfern. / Leipzig, / bei Friedrich Fleischer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Minerva. / Taschenbuch / für / das Jahr 1833. / Drei und Zwanzigster / oder der / Neuen Folge / Zweiter Jahrgang. / Mit 8 Kupfern. / Leipzig, / bei Friedrich Fleischer",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "ir4yvtc4keqpn0c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42095,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "3dqp61t9mgmd8fs"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 8 Textbezügen [Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben] zu  8 Graphiken INr 42902 Obj 1; 42097-42111, Obj 7-21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Die Uebermenge jährlich erscheinender Taschenbücher und der äußere Anlaß, welcher sie verschuldet, bedarf allerdings, wie schon oft und richtig bemerkt worden, vor dem unbefangenen Beobachter wenigstens, einer Art von Sühne.",
+      "language": [],
+      "musenalm_id": 42096,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Kupfer zur Minerva / für 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Kupfer zur Minerva / für 1833",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "5dz1vuhw65dgs4v"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Titelgraphik INr 42092, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "[...] Tassos und der Prinzessin, wie in einem Altarbilde, darzustellen, wo Einfassung und Umgebung des Rahmens, und Sockel bedeutsam und bezugreich werden.",
+      "language": [],
+      "musenalm_id": 42097,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Die Liebeserklärung [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Die Liebeserklärung [...]",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gbqievh5wnru5f"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42105, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.094Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "[...] In einem anmuthigen Garten mit Aussicht auf ein Lustschloß von Bäumen überschattet, von einem Park umlaubt,",
+      "language": [],
+      "musenalm_id": 42098,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Die Kranzwinderinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Die Kranzwinderinnen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "gwt6c3ba86egjw1"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42106, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "[...], nachdem Tasso sein fertiges Gedicht überreicht hat, und dieser den von Virgils Büste zu nehmenden Lorbeerkranz auf Tassos Haupt zu drücken der Schwester andeutet.",
+      "language": [],
+      "musenalm_id": 42099,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die Dichterbekränzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die Dichterbekränzung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "ruzq6oe2lyyxfh1"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42107, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Zum erstenmal trat ich, noch unterstützt / Von meinen Frauen, aus dem Kranken- / zimmer",
+      "language": [],
+      "musenalm_id": 42100,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die erste Begegnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die erste Begegnung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "i0u7owkcebrvwdc"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42108, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Aufgeregt durch die zarten scheuen Andeutungen der Prinzessin, die in der treuen Erinnerung an eine leiblich und geistig neu aufgehende Periode ihres Lebens,",
+      "language": [],
+      "musenalm_id": 42101,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Die Ausforderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Die Ausforderung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "7u2gvzeboblww38"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42109, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "[...] des gefangenen Tasso durch Leonore Sanritale, wie der Fürst sie, um allen Zwist beizulegen, gewünscht hatte,",
+      "language": [],
+      "musenalm_id": 42102,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Die zarte Besänftigung [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Die zarte Besänftigung [...]",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "k6f0t5hr6ry3ex7"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42110, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Die besonnene, wohlwollende Milde und treue Besorgniß der Prinzessin",
+      "language": [],
+      "musenalm_id": 42103,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Die verletzte Scheu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Die verletzte Scheu",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "47by3g81tlkm22z"
+    },
+    {
+      "annotation": "Gallerie zu Göthe's Werken. Eilfte Lieferung. Tassos Leben (Sammlung INr 42096, Obj 6) s. Graphik INr 42111, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "[...] den in Argwohn, Schmähung, Wuth und Verzweiflung Hingerissenen bewährend,",
+      "language": [],
+      "musenalm_id": 42104,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Die männliche Fassung [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Die männliche Fassung [...]",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "vor0cv8ijyov58z"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42098, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42105,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso / Act I. Scene I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geissler del. Fleischmann sc.",
+      "scans": [
+        "alm_535_42105_vtnysjx24s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso / Act I. Scene I.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "opu701ouaxeyan2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "vqmuk3uujypz0ty"
+        }
+      ],
+      "source_id": "1n6gw0dvbzmqebc"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42099, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42106,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso / Act I. Scene 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geissler del. Schwerdgeburth sc.",
+      "scans": [
+        "alm_535_42106_4vl1q3tu2j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso / Act I. Scene 3.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "6q5zqdrphjyzqok"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "j0b3huh6ywtrwwb"
+        }
+      ],
+      "source_id": "lqhhh3ga8vkg8oa"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42100, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.262Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42107,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso. / Act II. Scene I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. V. P. C. Geissler in Nürnberg. gest. V. J. Axmann in Wien",
+      "scans": [
+        "alm_535_42107_xi9pnwabrq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso. / Act II. Scene I.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "lodwqzxsxj7h3uz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "r98w4bspb97wong"
+        }
+      ],
+      "source_id": "sav52gb2p93hour"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42101, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42108,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso / Act II. Scene 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geissler del. F. Wagner sc.",
+      "scans": [
+        "alm_535_42108_dfyqo3a2xy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso / Act II. Scene 3.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "6ulzo7zglv0usxq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "h58gv5wj4u9iyxs"
+        }
+      ],
+      "source_id": "dbo6lrc3yi9v31x"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42102, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42109,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso / Act IV. Scene 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geissler del. Buser sc.",
+      "scans": [
+        "alm_535_42109_sie7o9gjiz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso / Act IV. Scene 2.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "bzp40p6lug5ghxq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "ovroswuikdcf9jn"
+        }
+      ],
+      "source_id": "e4dvfsu2nwpozg9"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42103, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42110,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso / Act V. Scene 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geissler del.Schwerdgeburth sc.",
+      "scans": [
+        "alm_535_42110_ojoxr0kn6v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso / Act V. Scene 4.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "ln2gsj5pl2sype9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.186Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "uxnovscv4j6om82"
+        }
+      ],
+      "source_id": "99qtumnekfmimus"
+    },
+    {
+      "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42104, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42111,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torquato Tasso Act I. Scene I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geissler del. Fleischmann sc.",
+      "scans": [
+        "alm_535_42111_ce127ngn6w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torquato Tasso Act I. Scene I.",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.195Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.195Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "58vbi5p7h382fhr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.195Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.195Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "s2a3tlqlf1pq6t8"
+        }
+      ],
+      "source_id": "ua2q7zbzlordvto"
+    },
+    {
+      "annotation": "$ lt. Goed VIII, 66 vielleicht Marg. Aug. v. Griesheim",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unter den vielen Verschönerungen, welche die Hauptstadt des preußischen Staats einem seiner kräftigsten Begründer, dem großen Churfürsten Friedrich Wilhelm verdankt, befindet sich bekanntlich auch der Anbau der Dorotheen- oder Neustadt.",
+      "language": [],
+      "musenalm_id": 42112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Wunder-Arzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sartorius $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Wunder-Arzt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "2tkzw0nkps0hc9h"
+    },
+    {
+      "annotation": "Sammlung von einem Gedicht und einer Sammlung mit  9 Gedichten INr 42114-42124, Obj 24-34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Gedichte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "tv0erbfas2od6vg"
+    },
+    {
+      "annotation": "II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Schon lag über der Welt das funklende Sternengewölbe, / Und die Schatten der Nacht schwebten vom firsteren Pol,",
+      "language": [],
+      "musenalm_id": 42114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tempel des Ruhms. / Eine Vision",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tempel des Ruhms. / Eine Vision",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.908Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "r9osxpu2jwwapqy"
+        }
+      ],
+      "source_id": "g0z2y4n7qzvs2di"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten INr 42116-42124, Obj 26-34 /) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42115,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder der Liebe / (nachträgliche Blüthen aus der Jugendzeit.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder der Liebe / (nachträgliche Blüthen aus der Jugendzeit.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.908Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "br6diwtcybz7b8m"
+        }
+      ],
+      "source_id": "66kgodwh2yvswnh"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Als die Mutter dich geboren, / Hat die freundlichste der Horen / Unserm Erdenrund gelacht,",
+      "language": [],
+      "musenalm_id": 42116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Huldigung am Wiegenfeste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Huldigung am Wiegenfeste",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.908Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "w0y7ez3yh9y0xf9"
+        }
+      ],
+      "source_id": "9xcwiinaaqwxdep"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Noch grüßen mich die wonnevollen Stunden, / Als ich zuerst, o Ida, dir gesellt,",
+      "language": [],
+      "musenalm_id": 42117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerung. / Sonnett an Ida",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerung. / Sonnett an Ida",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "1c0rfosx6vewodk"
+        }
+      ],
+      "source_id": "2uu2mibg5p1e1ui"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Ida geht! Verwelke junger Hain, / Voll belaubter, schattenreicher Gänge!",
+      "language": [],
+      "musenalm_id": 42118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Idas Abschied. / Sonnett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Idas Abschied. / Sonnett",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "k5m0ajdf92d2rxv"
+        }
+      ],
+      "source_id": "htyp4rq8hh0v9ku"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Der Freude Bilder lachen / Auf neubelebter Flur / Beim freundlichen Erwachen / Der schlummernden Natur,",
+      "language": [],
+      "musenalm_id": 42119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klagen der Getrennten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klagen der Getrennten",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "nn75l4842ltbtlt"
+        }
+      ],
+      "source_id": "yw0qnx97gycgkpy"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Der Sehnsucht Fittig hebet / In meinem Busen sich,",
+      "language": [],
+      "musenalm_id": 42120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehnsucht des Getrennten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sehnsucht des Getrennten",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "dqe0d6p6mko2f4p"
+        }
+      ],
+      "source_id": "ulw88adpbq63vnh"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Von jedem Harm der Zeit entbunden, / Froh wie ein Gott umarm ich dich.",
+      "language": [],
+      "musenalm_id": 42121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesglück",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "leji7qra9g8ltg3"
+        }
+      ],
+      "source_id": "m6f7mupmfxt8mfb"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Endlich sind die Winterstürme / Auf Gebirg und Thal entfoh'n,",
+      "language": [],
+      "musenalm_id": 42122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufheiterung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufheiterung",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "vot0p395qq8uxuv"
+        }
+      ],
+      "source_id": "pvulpzbjp0ydaaq"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Freude, die in bessern Tagen / Nie aus meinem Herzen wich,",
+      "language": [],
+      "musenalm_id": 42123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reminiscenzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reminiscenzen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "jh5vbo8850oq0lg"
+        }
+      ],
+      "source_id": "obmpem6udreneyn"
+    },
+    {
+      "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Ein schweres Schicksal waltet ob uns, du bist / Nicht mehr, wie ehmals, Ida, ein trüber Flor / Umhüllt dein Aug'",
+      "language": [],
+      "musenalm_id": 42124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Besorgniß und Bitte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Besorgniß und Bitte",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "sn7xkq61owcwdwr"
+        }
+      ],
+      "source_id": "xznvciu35y4a9y2"
+    },
+    {
+      "annotation": "Vorwort zum Beitrag INr 42127, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Die vorliegende Erzählung stammt aus dem zwölften Jahrhundert, nach der Meinung der gewiegtesten Litteratoren und gehört also zu den ältesten Denkmälern nordfranzösischer Dichtkunst.",
+      "language": [],
+      "musenalm_id": 42125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Aucassin und Nicolette. / Altfranzösisches Fabliau. / Dem Originale getreu nach erzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. L. B. Wolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Aucassin und Nicolette. / Altfranzösisches Fabliau. / Dem Originale getreu nach erzählt",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.909Z",
+          "agent": "9hf3yrzfqx4aso2",
+          "source_id": "lodydouzb8hak32"
+        }
+      ],
+      "source_id": "4alyc1iw0mmszah"
+    },
+    {
+      "annotation": "Musikbeigabe zum Beitrag INr 42127, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Qui vou roit bons vers o - - ir / Del de port du viel cai tif,",
+      "language": [],
+      "musenalm_id": 42126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C'est d'Aucasin et Nicolete",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C'est d'Aucasin et Nicolete",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ca80pwzltah9ny"
+    },
+    {
+      "annotation": "mit einem Vorwort INr 42125, Obj 35 und einer Musikbeigabe INr 42126, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Der Graf Bourgars de Valence führte so großen, so gewaltigen und so tödlichen Krieg mit dem Grafen Garins de Biaucaire,",
+      "language": [],
+      "musenalm_id": 42127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aucassin und Nicolette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. L. B. Wolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aucassin und Nicolette",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.880Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.880Z",
+          "agent": "9hf3yrzfqx4aso2",
+          "source_id": "phetslv1qo4nq5u"
+        }
+      ],
+      "source_id": "f3b6u54zyf2gpt3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Drei schreckensvolle Tage hindurch hatte die bewaffnete Masse der Lazzaroni Neapel gegen das eindringende Heer der Neufranken von Straße zu Straße mit verzweiflungsvoller Wuth verteidigt.",
+      "language": [],
+      "musenalm_id": 42128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Isabella San Felice. / Aus dem Revolutions-Kriege Neapels im Jahr / 1799. / (Nach Familien-Papieren.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Isabella San Felice. / Aus dem Revolutions-Kriege Neapels im Jahr / 1799. / (Nach Familien-Papieren.)",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "85ftsg82k09uo8c"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 42130-42137, Obj 40-47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Romanzen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.957Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "9ktse8mzmzo9ecm"
+        }
+      ],
+      "source_id": "vx1p28cmvigh76k"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Der Kaiser Friedrich mit rothem Bart / Zu Naumburg im Schlosse verweilte",
+      "language": [],
+      "musenalm_id": 42130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mauern des Landgrafen Ludwig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mauern des Landgrafen Ludwig",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "xt32phe9z98notb"
+        }
+      ],
+      "source_id": "cqxm029ntf7cll4"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Was girren die Täubchen so wehmuthsvoll / Dort über den einsamen Hügeln?",
+      "language": [],
+      "musenalm_id": 42131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm und Klärchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm und Klärchen",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "7vo67aeg9uwolt4"
+        }
+      ],
+      "source_id": "saxvbl41b27nw1u"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.047Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Zu einem großen Reichen / Kam einst ein armer Mann,",
+      "language": [],
+      "musenalm_id": 42132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Reiche und der Bettler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Reiche und der Bettler",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.276Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "nug6cr6wzh3z3us"
+        }
+      ],
+      "source_id": "66bun2d342giqm6"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Was tönet auf dem Kirchhof in tiefer Mitternacht? / Ist einer von den Todten aus seinem Schlaf erwacht?",
+      "language": [],
+      "musenalm_id": 42133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der greise Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der greise Sänger",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.001Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "yadq81dlg1nd10u"
+        }
+      ],
+      "source_id": "f8yuidltvrql7bx"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Der Kaiser Karl der Große / Was geht er so allein?",
+      "language": [],
+      "musenalm_id": 42134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebeszauber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebeszauber",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.001Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "yzt07a0dmh0gni0"
+        }
+      ],
+      "source_id": "s8musgf4yujz1cg"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Was schimmert dort auf dem Berge so grau? / Es ist ein verfallenes Schloß?",
+      "language": [],
+      "musenalm_id": 42135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Moor und sein Schäfer. / Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Moor und sein Schäfer. / Volkssage",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "t33las0be1s783m"
+        }
+      ],
+      "source_id": "mudqoy883qm6b9f"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Einst lebt' in dem Schweizerlande / Ein Hirt von feurigem Blut;",
+      "language": [],
+      "musenalm_id": 42136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Teufelskontrakt. / Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Teufelskontrakt. / Volkssage",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "e5bdldujvb9yjdl"
+        }
+      ],
+      "source_id": "icj0grsw4x5449u"
+    },
+    {
+      "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "In Italiens schönen Landen / Schaute Theobalds Amanden,",
+      "language": [],
+      "musenalm_id": 42137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Scheintod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Scheintod",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "oqyzwg1lndws2d3"
+        }
+      ],
+      "source_id": "bl0iudccjkst079"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Der Windsbraut ähnlich, rauscht die Gegenwart, Altes und Neues durcheinander werfend, an uns vorüber, und ergreift uns selbst so gewaltsam, daß wir Sinn, Athem und Gleichgewicht darüber verlieren möchten,",
+      "language": [],
+      "musenalm_id": 42138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Reise-Erinnerungen. / Aus früherer Zeit",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Reise-Erinnerungen. / Aus früherer Zeit",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "ewb33wnr0inhkml"
+        }
+      ],
+      "source_id": "dryo3i4l3hkvawt"
+    },
+    {
+      "annotation": "$ lt Goed VIII 67: Auguste Kühn ?",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Die trübe Herbstsonne des ersten Novembers war gesunken. Durch die dämmernde Abendstille hallten in schwermüthigen Klängen die Trauerglocken,",
+      "language": [],
+      "musenalm_id": 42139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Schuld und Buße. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Novis $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Schuld und Buße. / Novelle",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "t8fc0z7y0wz8zx3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Wer einmal den herrlichen Malchenberg bei Darmstadt besuchte, und auf der Spitze des oben befindlichen Thurmes gestanden hat,",
+      "language": [],
+      "musenalm_id": 42140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Theodor und Adelheid. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Ortlepp",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Theodor und Adelheid. / Eine Novelle",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "8jy8jxpsgv6f24z",
+          "source_id": "xjsf0wd3ien54hq"
+        }
+      ],
+      "source_id": "gqawhh13d9r1ckb"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42141,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_535_42141_y05m6fkzd8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "jnz519j1eq7plrr"
+    }
   ],
   "agents": [
     {

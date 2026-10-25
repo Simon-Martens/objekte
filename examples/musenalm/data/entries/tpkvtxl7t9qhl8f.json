@@ -48,46 +48,1548 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "5cpjg36z9f387im",
-    "tq7nddgvfx9gwkd"
+    {
+      "annotation": "§1§ Titelportrait fehlt; §2§ -§4§ 2 Graphiken und Blatt SS XV-XVI fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.617Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101183",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.617Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5cpjg36z9f387im"
+    },
+    {
+      "annotation": "Titelportrait, 2 Graphiken und Blatt SS XV-XVI",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.617Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "407000",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.617Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tq7nddgvfx9gwkd"
+    }
   ],
   "contents": [
-    "h0c6fn0uca0zlat",
-    "lff8lqcryocv2kv",
-    "0ytzgwy7tnq6euc",
-    "eb8tadij29s1rw5",
-    "o9wyw66qq9cmp1k",
-    "pj90mudc6f0hgd2",
-    "f1qifrrh7eerggs",
-    "ipi50illdx1qzpj",
-    "9s3mci0abjmavem",
-    "4m9j1ztu1qivuq1",
-    "mxkveyxr5sz85yy",
-    "pxpzocqoaaycqet",
-    "uiswhdkl60bu1ne",
-    "l9vp38rf4j3cq0h",
-    "i8pc2ky9ekbwh22",
-    "4of1ec5vcg3cvqw",
-    "0x4ghjx1r3vv7bi",
-    "d4vl8vhaf0e2yi0",
-    "hblx5k8136alhoq",
-    "if3jr76bgplkdtb",
-    "tsch32x4kx3m61x",
-    "eyiag3294wnnifg",
-    "v1skn797ji1lay0",
-    "1ui98ayd2110t9f",
-    "jkkef74dqcylne2",
-    "t8bg5iaxf0yln8h",
-    "niiffr632p74hne",
-    "7hqzm77ewnlli0c",
-    "zeb8wgilmwb7wno",
-    "6w703aozeqjm77i",
-    "vk7g6k62vfldtav",
-    "ipyny98plf5cya5",
-    "jza3qxo5ywta9rv",
-    "eza3n8957may5ox",
-    "gznjvxrzddc94or",
-    "rbl8x9oh8udcduj"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77687,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77687_48xkret6bc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "h0c6fn0uca0zlat"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 77691, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77688,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Victoria, Königin von Großbrittanien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77688_qi8k9961ak.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Victoria, Königin von Großbrittanien",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "lff8lqcryocv2kv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77689,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE. / Taschenbuch / für das Jahr 1839. / Herausgegeben / von / Theodor Hell. / Achtundzwanzigster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77689_14t2js5i7q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE. / Taschenbuch / für das Jahr 1839. / Herausgegeben / von / Theodor Hell. / Achtundzwanzigster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ytzgwy7tnq6euc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77690,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "eb8tadij29s1rw5"
+    },
+    {
+      "annotation": "s. Titelportrait INr 77688, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wenn heut die Krone Deine Stirn umschließet, / Der Königspurpur Deinen Wuchs umwallt,",
+      "language": [],
+      "musenalm_id": 77691,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Victoria, / Königin von Großbrittanien. / Am 28. Juni 1838",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Victoria, / Königin von Großbrittanien. / Am 28. Juni 1838",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.821Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.821Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "mqc2cz5xb0cihg8"
+        }
+      ],
+      "source_id": "o9wyw66qq9cmp1k"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77693, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Nicht kennt die Mythe Frauen-Dioskuren, / Das Leben bietet sie als reine Sterne / Am Thronen-Himmel, glänzend in die Ferne,",
+      "language": [],
+      "musenalm_id": 77692,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophia, / Erzherzogin von Oestreich",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sophia, / Erzherzogin von Oestreich",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "c1ezh4kkgebg7gm"
+        }
+      ],
+      "source_id": "pj90mudc6f0hgd2"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77692, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77693,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SOPHIA, / Erzherzogin von Oesterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach der Natur gemalt v. Kriehuber. In Stahl gest. v. Fr. Xa. Eissner in Wien",
+      "scans": [
+        "alm_2410_77693_ec7ywfcck8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SOPHIA, / Erzherzogin von Oesterreich",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "85voz4onher3lz8",
+          "source_id": "08pr90bwemdyb5v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "z64ev7tzpav4ds5",
+          "source_id": "74d0v6f2rcd5klk"
+        }
+      ],
+      "source_id": "f1qifrrh7eerggs"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77695, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Nicht im Kostüm von einer Deiner Rollen / Zeigt Dir der Künstler. Welche sollt er wählen?",
+      "language": [],
+      "musenalm_id": 77694,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amalie Haitzinger-Neumann. / Großherzogliche Hofschauspielerin in Karlsruhe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amalie Haitzinger-Neumann. / Großherzogliche Hofschauspielerin in Karlsruhe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "jc5q8dzfrl8kruc"
+        }
+      ],
+      "source_id": "ipi50illdx1qzpj"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77694, Obj 8 /) Unter der Graphik: Carlsruhe im Kunst-Verlag",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ME. HAITZINGER.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Nehrlich pinx. A. Schuler sc.",
+      "scans": [
+        "alm_2410_77695_38pstmtltd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ME. HAITZINGER.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "af2coslmz6zf95x",
+          "source_id": "mpqetotvf62sdv6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "v51vo0pn5wj1lc4",
+          "source_id": "oijb1fa4xbtgrp6"
+        }
+      ],
+      "source_id": "9s3mci0abjmavem"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77697, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ihr Haupt hat sie gesenkt in's sammten Kissen, / Noch hält das Buch des Dichters ihre Hand,",
+      "language": [],
+      "musenalm_id": 77696,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelmine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Mosen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelmine",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "ya686aytqngnsyo",
+          "source_id": "rxoed4qtqn09mso"
+        }
+      ],
+      "source_id": "4m9j1ztu1qivuq1"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77696, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77697,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WILHELMINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77697_8k6ngifiny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WILHELMINE",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "mxkveyxr5sz85yy"
+    },
+    {
+      "annotation": "Fünfte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Graphik INr 77699, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Tagesarbeit ist gethan, / Und das Herz ist mir so froh,",
+      "language": [],
+      "musenalm_id": 77698,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taubenfütterung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taubenfütterung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "w83s10l7vhhcdms"
+        }
+      ],
+      "source_id": "pxpzocqoaaycqet"
+    },
+    {
+      "annotation": "Fünfte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 77698, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77699,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TAUBENFÜTTERUNG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77699_7uo13aiob7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TAUBENFÜTTERUNG",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "uiswhdkl60bu1ne"
+    },
+    {
+      "annotation": "Fünfte Aufstellung von Volksscenen (Titel aus dem I-Verz) /) s. Graphik INr 77701, Obj 15 /) Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Heitre Jäger, frohe Zecher, / Sitzen um den vollen Becher/ Mittags unterm Rebengrün,",
+      "language": [],
+      "musenalm_id": 77700,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Locanda in der römischen Campagna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Locanda in der römischen Campagna",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "l9vp38rf4j3cq0h"
+    },
+    {
+      "annotation": "Fünfte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 77700, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77701,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Locanda in der römischen Campagna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77701_5b8dwlvvpg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Locanda in der römischen Campagna",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "i8pc2ky9ekbwh22"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war eine stürmische unheimliche Nacht. Die Sichel des abnehmenden Mondes blickte nur selten durch die raschtreibenden Wolken,",
+      "language": [],
+      "musenalm_id": 77702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gefesselte. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gefesselte. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "6e7xvrqvy7oslez"
+        }
+      ],
+      "source_id": "4of1ec5vcg3cvqw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Eine ungewöhnliche Bewegung im Hotel des Grafen Strombeck zeigte der kleinen norddeutschen Residenz an, daß das große Familienfest, von dem man sich schon lange im Stillen unterhalten hatte, herannahe,",
+      "language": [],
+      "musenalm_id": 77703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Buße der Sehnsucht. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. vom Lüdemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Buße der Sehnsucht. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.822Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.822Z",
+          "agent": "jqanokpcqaenxu5",
+          "source_id": "iko9xj7jzaw4ojs"
+        }
+      ],
+      "source_id": "0x4ghjx1r3vv7bi"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 77705-77707, Obj 19-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "In der Weinstube des Gasthofes zum Hohen im Korbe saßen schon der Violoncellist Klapstein und der Fagottist Mandelschaf, hinter einer Flasche Medoc,",
+      "language": [],
+      "musenalm_id": 77704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geige. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Voigts",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geige. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.827Z",
+          "agent": "ag0rfbhhvlvrwq7",
+          "source_id": "ayto7dyxgkr0snz"
+        }
+      ],
+      "source_id": "d4vl8vhaf0e2yi0"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 77705-77707, Obj 20-22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77705,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei Blätter aus meinen / Erinnerungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Häring (W. Alexis)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei Blätter aus meinen / Erinnerungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.827Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "6erw9nw3kua7gu8"
+        }
+      ],
+      "source_id": "hblx5k8136alhoq"
+    },
+    {
+      "annotation": "Drei Blätter aus meinen Erinnerungen (Sammlung INr 77705, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Wenn ich mich der Zeit erinnere, wo der Roman Walladmor entstand, erschien und wirkte, möchte ich glauben, daß in jedes Schriftstellers Leben etwas von dem Dämonischen spukt, von dem Goethe spricht,",
+      "language": [],
+      "musenalm_id": 77706,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Walladmor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Häring (W. Alexis)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Walladmor",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.827Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "0rsppmplfgbz5zj"
+        }
+      ],
+      "source_id": "if3jr76bgplkdtb"
+    },
+    {
+      "annotation": "Drei Blätter aus meinen Erinnerungen (Sammlung INr 77705, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Es war als Student, im Jahre 1819, als ich zum ersten Male Weimar sah. Von einer großen Reise, voll frischer wunderbarer Eindrücke heimkehrend, betrat ich, mit heiliger Scheu erfüllt, die heilige Stadt,",
+      "language": [],
+      "musenalm_id": 77707,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Dreimal in Weimar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Häring (W. Alexis)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Dreimal in Weimar",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "pyear05v9p2hhhd"
+        }
+      ],
+      "source_id": "tsch32x4kx3m61x"
+    },
+    {
+      "annotation": "Drei Blätter aus meinen Erinnerungen (Sammlung INr 77705, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "343",
+      "incipit_statement": "In unserer neuesten Literatur scheint der Beweis geführt, wie der Einzelne nur etwas wird als tragendes und getragenes Glied einer Verbrüderung.",
+      "language": [],
+      "musenalm_id": 77708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Zeitgenossen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Häring (W. Alexis)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Zeitgenossen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "9ldyj2t3s3j8t7j"
+        }
+      ],
+      "source_id": "eyiag3294wnnifg"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "v1skn797ji1lay0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "In der Laube höchster Krone / Sizt ein munter Vögelein",
+      "language": [],
+      "musenalm_id": 77710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Hochzeitslied. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rudolf Hirsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Hochzeitslied. / Romanze",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ui98ayd2110t9f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Matt von des Tages Strahle / Schlief unter einem Baum / Ein Landmann dort im Thale,",
+      "language": [],
+      "musenalm_id": 77711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mauerbild zu Engelsbach. / Thüringische Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Bube",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mauerbild zu Engelsbach. / Thüringische Volkssage",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "e0feijwjpugv8vg",
+          "source_id": "h7q9rtl3z48p11z"
+        }
+      ],
+      "source_id": "jkkef74dqcylne2"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 77713-77718, Obj 27-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "il0gv3jwlh8mgtu"
+        }
+      ],
+      "source_id": "t8bg5iaxf0yln8h"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Welch stilles Weben, welch geheimes Walten, / Natur, in Dir! Welch seliges Gestalten!",
+      "language": [],
+      "musenalm_id": 77713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Natur- und Menschenlehre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Natur- und Menschenlehre",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "fxdzq0xpp3egj4h"
+        }
+      ],
+      "source_id": "niiffr632p74hne"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "Sieh' dort, ein Adler sinkt! Getroffen / Den Flügel hat des Jägers Pfeil,",
+      "language": [],
+      "musenalm_id": 77714,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Adler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Adler",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "n7qmndn7cxr2viw"
+        }
+      ],
+      "source_id": "7hqzm77ewnlli0c"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Liebste, ich möchte so gerne Dir schreiben! / Mit Dir zu reden, welch' heftiger Drang;",
+      "language": [],
+      "musenalm_id": 77715,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Entfernten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Entfernten",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "m7np6gewmlp949f"
+        }
+      ],
+      "source_id": "zeb8wgilmwb7wno"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Laßt mir den Schlummer, / Laßt mir den Traum! / Laßt mir der Fernsicht / Rosigen Saum!",
+      "language": [],
+      "musenalm_id": 77716,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laßt mir den Schlummer!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Laßt mir den Schlummer!",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "bm4zxx249hqub3l"
+        }
+      ],
+      "source_id": "6w703aozeqjm77i"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "381",
+      "incipit_statement": "Am Krankenbett des Kindes steht / Die Mutter still im Schmerz.",
+      "language": [],
+      "musenalm_id": 77717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das kranke Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das kranke Kind",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "n115645nzd0cbrn"
+        }
+      ],
+      "source_id": "vk7g6k62vfldtav"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "Ei, Mädel, Du schneidest / So tief in die Frucht!",
+      "language": [],
+      "musenalm_id": 77718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schnitteridylle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schnitteridylle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "aosnx43jmi89iry"
+        }
+      ],
+      "source_id": "ipyny98plf5cya5"
+    },
+    {
+      "annotation": "Anm. am Objekt: Die dem Gedichte zum Grunde liegenden Thatsachen finden sich in Bunting Braunschweigische Chronik. Bl. 157, in Spangenbergs Chronik VBl. 275b. und in Spener de Arte Heraldica /) mit weiteren Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Zu Würzburg der alten Bischofsstadt, / Da saß im dämmernden Saal,",
+      "language": [],
+      "musenalm_id": 77719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Rautenkranz. / (Vaterländische Sage.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Matthäi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Rautenkranz. / (Vaterländische Sage.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "jza3qxo5ywta9rv"
+    },
+    {
+      "annotation": "Anm.am Objekt: Nach der ungarischen Aussprache für: Benedict",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Bei Trentschin in einer Höhle / Lebte Benedeck, der Fromme,",
+      "language": [],
+      "musenalm_id": 77720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sanckt Benedeck mit dem Säckel. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sanckt Benedeck mit dem Säckel. / Legende",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.729Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.729Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "cbsyd9i5qd8vmva"
+        }
+      ],
+      "source_id": "eza3n8957may5ox"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77721,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der J. C. Hinrichschen Buchhandlung in Leipzig / Ist auch erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der J. C. Hinrichschen Buchhandlung in Leipzig / Ist auch erschienen:",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "gznjvxrzddc94or"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77722,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der J. C. Hinrichschen Buchhandlung in Leipzig / Ist auch erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2410_77722_h0uiv7vcz0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "In der J. C. Hinrichschen Buchhandlung in Leipzig / Ist auch erschienen:",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "rbl8x9oh8udcduj"
+    }
   ],
   "agents": [
     {

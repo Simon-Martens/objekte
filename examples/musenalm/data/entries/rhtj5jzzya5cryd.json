@@ -48,23 +48,608 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "s70bmtidxrncw2y"
+    {
+      "annotation": "Jgg 1838-1848, 1850",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.596Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200648",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.596Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "s70bmtidxrncw2y"
+    }
   ],
   "contents": [
-    "fhj33s12odk1odr",
-    "dcivlut2o9s7uy0",
-    "ke1va17ubk0r8o2",
-    "8c7mdp086924uo3",
-    "053xn7ngcfbv6x2",
-    "zvwb39n8h6g0dus",
-    "gh4h8tsh26hxv7l",
-    "be7ppu0ornb3aum",
-    "ihp5tll6ip4kgqe",
-    "tp3p1y46smbkuiq",
-    "ljwo66vovmy9jlz",
-    "i04teli6trfynl3",
-    "ph22kdgk1ghhuvs",
-    "vvbi1so9cyyzw91"
+    {
+      "annotation": "# Bez. am 2. Blatt /) Titelgraphik /) Illustration zu »Der Leuchtthurm« von K. v. Wachsmann INr 109900, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109891,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Schuler sculpsit",
+      "scans": [
+        "alm_2233_109891_06audjsnu5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Julie",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "z1htqztjsv6tmte"
+        }
+      ],
+      "source_id": "fhj33s12odk1odr"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109892,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilien. / Taschenbuch / historisch-romantischer Erzählungen / für / 1838 / von / C. v. Wachsmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2233_109892_8e6uvxeqy6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilien. / Taschenbuch / historisch-romantischer Erzählungen / für / 1838 / von / C. v. Wachsmann",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "dcivlut2o9s7uy0"
+    },
+    {
+      "annotation": "Illustration zu »Der Cretin« von K. v. Wachsmann INr 109901, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109893,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arnold's Witwe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Schuler sculpsit",
+      "scans": [
+        "alm_2233_109893_nqvcfdf9wc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Arnold's Witwe",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "tnejhiik8bpeqse"
+        }
+      ],
+      "source_id": "ke1va17ubk0r8o2"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Illustration zu »Der Cretin« von K. v. Wachsmann INr 109901, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109894,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Schuler sculpsit",
+      "scans": [
+        "alm_2233_109894_2b2c0f1df6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "kbnnywpdnozk5pk"
+        }
+      ],
+      "source_id": "8c7mdp086924uo3"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Illustration zu »Die Konquistadoren« von K. v. Wachsmann INr 109902, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109895,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marina",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Schuler sculpsit",
+      "scans": [
+        "alm_2233_109895_tcpdv1v0b7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marina",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "bh9c6cfoqguw01y"
+        }
+      ],
+      "source_id": "053xn7ngcfbv6x2"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Illustration zu »Die Konquistadoren« von K. v. Wachsmann INr 109902, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109896,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nadina",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Schuler sculpsit",
+      "scans": [
+        "alm_2233_109896_hars2dlp6z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nadina",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "rbpi5xtwhy26zzp"
+        }
+      ],
+      "source_id": "zvwb39n8h6g0dus"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Illustration zu »Der Besessene« von K. v. Maxmann INr 109903, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109897,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Schuler sculpsit",
+      "scans": [
+        "alm_2233_109897_iaewzfe1rp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sophie",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "0g6lrixolyzv1ue"
+        }
+      ],
+      "source_id": "gh4h8tsh26hxv7l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109898,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilien. / Taschenbuch / historisch-romantischer Erzählungen / für 1838 / von / C. v. Wachsmann. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2233_109898_j0gnqjh3xm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilien. / Taschenbuch / historisch-romantischer Erzählungen / für 1838 / von / C. v. Wachsmann. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "be7ppu0ornb3aum"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109899,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "ihp5tll6ip4kgqe"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Es glänzt ein Licht in dunkler Nacht, von hohem Fels herab, [...] /) mit einer Illustration s. Graphik INr 109891, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war eine der dunklesten Nächte, zur Zeit des Herbstäquinoctiums im Jahr 1787, als die Kriegsbrigg der Staaten von Holland das Seepferd nach noch nicht völlig ausgetobtem Sturm, gegen die Wogen der Nordsee kämpfte.",
+      "language": [],
+      "musenalm_id": 109900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leuchtthurm. / Erzählung in zwei Abtheilungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Leuchtthurm. / Erzählung in zwei Abtheilungen",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "lv2lfafds46lvct"
+        }
+      ],
+      "source_id": "tp3p1y46smbkuiq"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Sei mir nicht abhold weil ich mißgestaltet; / Das was Dich stört, ist nur mein Reisekleid. /) mit 2 Illustrationen s. Graphiken INr 109893, 109894; Obj 3,4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Wer unter allen Denen, die die Schweiz jemals durchreisten, hätte nicht mit einer Mischung von Neugier, Verwunderung, Mitleiden oder Abscheu, jene unglücklichen Geschöpfe gesehen, die wir Kretins, die schweizerischen Landleute aber,",
+      "language": [],
+      "musenalm_id": 109901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kretin. / Eine Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kretin. / Eine Sage",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "a651uflwbz0llp9"
+        }
+      ],
+      "source_id": "ljwo66vovmy9jlz"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Fort, fort nach fernem Westen, / Wo Gold und Goldeswerth! [...] /) mit 2 Illustrationen s. Graphiken INr 109895, 109896; Obj 5, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Kaum hatte der große Kolon Spanien eine neu Welt gegeben, so war es, als ob eine ganze Hölle auf diese losgelassen sei.",
+      "language": [],
+      "musenalm_id": 109902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Konquistadoren. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Konquistadoren. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.259Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "kqa7mf4mquw0prq"
+        }
+      ],
+      "source_id": "i04teli6trfynl3"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Don Oscuro / Brühsiedenheiß ist's in der Höll! / Don Tacano / Wie er sich fürchtet, der dumme Gesell / Altes geistl. Schauspiel [...] /) mit einer Illustration s. Graphiken INr 109897, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "In dem glücklichen Fürstenthum N. - welches indeß der Leser nur auf Charten suchen muß, wo mindestens ein Zoll auf die Meile gerechnet ist -",
+      "language": [],
+      "musenalm_id": 109903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Besessene. / Ein Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Besessene. / Ein Schwank",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.260Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.260Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "vzi7oimss5p0l40"
+        }
+      ],
+      "source_id": "ph22kdgk1ghhuvs"
+    },
+    {
+      "annotation": "S. 498 unten: Druck von C. P. Melzer in Leipzig",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "498",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 109904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "vvbi1so9cyyzw91"
+    }
   ],
   "agents": [
     {

@@ -49,23 +49,526 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "cfqyvgz0z6ovqke"
+    {
+      "annotation": "# Goed V. 296; 20 gibt an ein: Taschenbuch zur Unterhaltung auf dem Lande, für das Jahr 1811. Wien 1811; sowie das (im vorliegenden Almanach gedruckte) Lustspiel »Die Zeichen der Ehe« Wien und Triest 1808",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.509Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200825",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.509Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cfqyvgz0z6ovqke"
+    }
   ],
   "contents": [
-    "ita4tzd1azq6pqi",
-    "ep7fnqqp3j7bjxq",
-    "62kdq2f97lhzvgh",
-    "wb1kepdmmm1n6ab",
-    "7xux3qfdiw3x5m2",
-    "ipc9hgyps0el5zr",
-    "a1xnkwgxlvk6mhm",
-    "zms07i3zmimfms0",
-    "6azis9luhdxmimu",
-    "13k3gni38rv5cig",
-    "rkfn2z7j7fe31sc",
-    "38ijwk9kacyldd1",
-    "3yzvfsy7swabl7p",
-    "4qqanga0usot23l"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48961,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / AUF / DAS JAHR 1811. / VON / AUG. FREYH. v. STEIGENTESCH. / Wien und Triest, / bey Geistinger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_671_48961_6wpodiwv1v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / AUF / DAS JAHR 1811. / VON / AUG. FREYH. v. STEIGENTESCH. / Wien und Triest, / bey Geistinger",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "ita4tzd1azq6pqi"
+    },
+    {
+      "annotation": "Illustration zu »Die Zeichen der Ehe. Lustpiel in drey Aufzügen« von A. v. Steigentesch INr 48965, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48962,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (V. Grüner inv. et sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner inv. et sculps.",
+      "scans": [
+        "alm_671_48962_c7pp72r04l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.690Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "wc1up3ibh71lsf1"
+        }
+      ],
+      "source_id": "ep7fnqqp3j7bjxq"
+    },
+    {
+      "annotation": "kleine Graphik unter dem Titel des Beitrags INr 56610, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der erste Kuß / in / Uri",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_671_48963_3ct6bd1yqi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der erste Kuß / in / Uri",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "62kdq2f97lhzvgh"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) mit kleiner Graphik unter dem Titel INr 48963, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Am Felsen hing der Morgenstrahl / Im Reich der Wolken und der Winde",
+      "language": [],
+      "musenalm_id": 56610,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der erste Kuß / in / Uri]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der erste Kuß / in / Uri]",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "wb1kepdmmm1n6ab"
+    },
+    {
+      "annotation": "kleine Graphik unter dem Titel des Beitrags INr 56609, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "STUFENFOLGE / der / Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_671_48964_siz9egg5u2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "STUFENFOLGE / der / Liebe",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "7xux3qfdiw3x5m2"
+    },
+    {
+      "annotation": "# s. Goed V. 296; 20, 12 /) mit kleiner Graphik unter dem Titel s. Graphik INr 48964, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zwischen dem Rhein und dem Main, in einem kleinen Thale, das einem kleinen Herrn gehört, liegt ein kleines Städtchen, das der Kunstfleiss bereichert.",
+      "language": [],
+      "musenalm_id": 56609,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[STUFENFOLGE / der / Liebe]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Steigentesch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[STUFENFOLGE / der / Liebe]",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.631Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.631Z",
+          "agent": "hbndpd23j3pyj28",
+          "source_id": "i3vxw51s4uszcpq"
+        }
+      ],
+      "source_id": "ipc9hgyps0el5zr"
+    },
+    {
+      "annotation": "# s. Goed V. 296; 20 /) mit einer Illustration s. Graphik INr 48962, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Sie mir, man hat uns zum Besten gehabt. / Welche Beweise fordern Sie denn noch?",
+      "language": [],
+      "musenalm_id": 48965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Zeichen der Ehe. / Lustpiel / in drey Aufzügen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Zeichen der Ehe. / Lustpiel / in drey Aufzügen",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.690Z",
+          "agent": "hbndpd23j3pyj28",
+          "source_id": "fplz016x4bwsktk"
+        }
+      ],
+      "source_id": "a1xnkwgxlvk6mhm"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 48967-48972, Obj 9-14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "zms07i3zmimfms0"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) Gedichte (Sammlung) INr 48967, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Dem flüchtigen Träume der Sterblichen sind / gebrechliche Führer gegeben:",
+      "language": [],
+      "musenalm_id": 48967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte des Lebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte des Lebens",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "6azis9luhdxmimu"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) Gedichte (Sammlung) INr 48967, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Das Feuer, das die Traube gibt, / scheucht, Wölfen gleich, die Sorgen.",
+      "language": [],
+      "musenalm_id": 48968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heute und Morgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heute und Morgen",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "13k3gni38rv5cig"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) Gedichte (Sammlung) INr 48967, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Ermüdet dich das Schicksal unter Stürmen, / so ruhe hier auf grünen Höhen aus;",
+      "language": [],
+      "musenalm_id": 48969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pirkfeld / in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pirkfeld / in Steyermark",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "rkfn2z7j7fe31sc"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) Gedichte (Sammlung) INr 48967, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Am Sonntag Morgen für mich und für Sie / war Platz in der Kirche geblieben;",
+      "language": [],
+      "musenalm_id": 48970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Woche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Woche",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "38ijwk9kacyldd1"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) Gedichte (Sammlung) INr 48967, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Ein wenig Raum auf grüner Flur / umhüllt vom Schleyer dunkler Lauben / Hygaea's Quell', das Gold der Trauben / und Kuss um Kuss bedarf ich nur.",
+      "language": [],
+      "musenalm_id": 48971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Wünsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Wünsche",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "3yzvfsy7swabl7p"
+    },
+    {
+      "annotation": "$ vermutl. Steigentesch /) Gedichte (Sammlung) INr 48967, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Im Arme der Vergangenheit / liegt, was der Lenz gebar;",
+      "language": [],
+      "musenalm_id": 48972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was blieb und war",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was blieb und war",
+      "updated": "2007-04-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "4qqanga0usot23l"
+    }
   ],
   "agents": [
     {

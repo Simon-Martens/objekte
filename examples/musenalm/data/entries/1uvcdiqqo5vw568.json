@@ -48,58 +48,2094 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "1lzx1cjyqna2bko",
-    "laonlhnyq7n05c5"
+    {
+      "annotation": "1798-1831.\nKartonierter Einband.( Buchrücken fehlt ganz.) \n1799: (K: Bl 10, 196 SS u. Ku 12.) Mit Tku 1, Bl 10. Ku 10 und 196 SS.\n\\par Jg 1798-1799 a.u.d. Tit.: Taschenkalender f. Damen.\n\\par Jg 1800-1831 a.u.d. Tit.: Taschenbuch f. Damen a.d.J.\n$§ vermutl. fehlt G",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.491Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100933",
+      "location": "105F01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.491Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1lzx1cjyqna2bko"
+    },
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.491Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "406031",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.491Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "laonlhnyq7n05c5"
+    }
   ],
   "contents": [
-    "o2537vd7jvnssvh",
-    "sml2mubhi8oklqw",
-    "m6obrr0vh0xegj7",
-    "ce6sjk20or456xu",
-    "uhs8uxhru5cuq69",
-    "lly9mlqn456rfxe",
-    "9dumizxwuusl1ge",
-    "j2l2t0kgyorlivl",
-    "r7rxr67l8eohz21",
-    "518ck3zn2rujrqz",
-    "f4kmbxy57oyiklk",
-    "ms2at3yv2wbsjhn",
-    "dxqjvuoiq0103kd",
-    "q84za6b7sr8ochp",
-    "b3a1pbwxrtx6zwi",
-    "tk49y5nigyd11fk",
-    "qhyknl7d8ottdk2",
-    "tpxmrxwaf9cpjv4",
-    "bivhd0s0f101m59",
-    "0i6p1icxhd5yfx2",
-    "iafbv1nc5rmd2bf",
-    "dltywpibo7f2dkc",
-    "z2gr6hx2xjmfg27",
-    "3c2y95x041sn0ba",
-    "2e0yj63z94gngw5",
-    "wgryuvgrcvq085x",
-    "pexbvixqa3artxa",
-    "q8am0icxoygh17m",
-    "nek38ldxvy7b8w2",
-    "u40e1e70hky83oa",
-    "xm937qqym2bn7af",
-    "0mudpnx18y8hi55",
-    "jhgieedfdrk9icg",
-    "9h7d6mln9jkslqy",
-    "g5h5h2w4imwnb9r",
-    "5ns3dyetwzo9axj",
-    "mzre8saj124ml90",
-    "0m34tfztv6xuao9",
-    "fam2zkf104d8361",
-    "c61v2tdl7bvyps6",
-    "yeuno3mwv4mdjk3",
-    "naxdi63bwe1gf91",
-    "obssajlc2apmgus",
-    "cuyynjcrceskp6q",
-    "mecyk9bdlwsftw4",
-    "mim0nk08a5m80rx",
-    "oela4cdon3vkq2o",
-    "5d2g32nwjh2zr9l"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.881Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69579,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER / FREUNDSCHAFT / DER / LIEBE / DEN / GRAZIEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_454_69579_pdzrojkrso.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER / FREUNDSCHAFT / DER / LIEBE / DEN / GRAZIEN",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "o2537vd7jvnssvh"
+    },
+    {
+      "annotation": "Titelgraphik nach einer Gruppe von Dannecker: »Württemberg und England« (auf die Genesung der Herzogin Charlotte Auguste Mathilde von Württemberg 1798) s. Textbezüge INr 32772, 32773; Obj 30, 31 sowie Widmungen INr 32746, 32748; Obj 5, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32742,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BENIGNO NUMINI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_454_32742_4owm4kpmt0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BENIGNO NUMINI",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "sml2mubhi8oklqw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenkalender / für / Damen. / auf das Jahr 1799. / Herausgegeben / von / Huber, Lafontaine, Pfeffel / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_454_32743_nayo5kpu9p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenkalender / für / Damen. / auf das Jahr 1799. / Herausgegeben / von / Huber, Lafontaine, Pfeffel / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "m6obrr0vh0xegj7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32744,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "ce6sjk20or456xu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32745,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Damen. / auf das Jahr 1799 / Herausgegeben / von / Huber, Lafontaine, Pfeffel, / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Damen. / auf das Jahr 1799 / Herausgegeben / von / Huber, Lafontaine, Pfeffel, / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "uhs8uxhru5cuq69"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32746,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihro Königlichen Hoheit / Frau / Charlotte Auguste Mathilde / Regierenden Herzogin von Wirtem- / berg und Teck, gebornen Kron- / prinzessin von England etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihro Königlichen Hoheit / Frau / Charlotte Auguste Mathilde / Regierenden Herzogin von Wirtem- / berg und Teck, gebornen Kron- / prinzessin von England etc",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "lly9mlqn456rfxe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32748,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der besten Fürstin, / Die von ihrer Königlichen Mutter / lernte Weib zu seyn / Und ihrem Geschlecht ein Vorbild / Der auf dem Throne / Der Glanz weiblicher Würde gnügt / Bringet als Opfer / der Ehrfurcht und der Bewunderung / Diese Blätter / Den Fortschritten weiblicher Bildung / geweyht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "der Verleger Cotta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der besten Fürstin, / Die von ihrer Königlichen Mutter / lernte Weib zu seyn / Und ihrem Geschlecht ein Vorbild / Der auf dem Throne / Der Glanz weiblicher Würde gnügt / Bringet als Opfer / der Ehrfurcht und der Bewunderung / Diese Blätter / Den Fortschritten weiblicher Bildung / geweyht",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.776Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.776Z",
+          "agent": "0rnyqiybfu5n3e2",
+          "source_id": "lsgnyhful9jr0xj"
+        }
+      ],
+      "source_id": "9dumizxwuusl1ge"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 32750, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32749,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Où peut on être mieux / q'au sein de sa famille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Rapp del. d'Argent sc",
+      "scans": [
+        "alm_454_32749_ixo4k2hzgp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Où peut on être mieux / q'au sein de sa famille",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.692Z",
+          "agent": "0qzneijgjsm86gl",
+          "source_id": "htxnbdq4kjpywhb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.692Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "y3o8nr6p6t7mloe"
+        }
+      ],
+      "source_id": "j2l2t0kgyorlivl"
+    },
+    {
+      "annotation": "s. Graphik INr 32749, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie schön ist es nach Ahnensitte / Im Kreis der Seinen sich zu freun!",
+      "language": [],
+      "musenalm_id": 32750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Familienlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Familienlied",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.692Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "e9lx9bfyhnwjjs7"
+        }
+      ],
+      "source_id": "r7rxr67l8eohz21"
+    },
+    {
+      "annotation": "paginiert 1. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So will ich mich näher erklären liebes Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1798",
+      "scans": [
+        "alm_454_32751_2y31lk436l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "So will ich mich näher erklären liebes Kind",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.692Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "7ymvyrmrh02z6op"
+        }
+      ],
+      "source_id": "518ck3zn2rujrqz"
+    },
+    {
+      "annotation": "mit 6 Illustrationen s. Graphiken INr 32751, 32753-32757; Obj 9, 11-15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Setze dich, mein liebes Kind, sagte der Herr von Dresch mit einem kleinen Kopfneigen und einem höflichen Lächeln zu seiner Tochter.",
+      "language": [],
+      "musenalm_id": 32752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Intrigue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Intrigue",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.692Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "pxfd4b5yc67bnzn"
+        }
+      ],
+      "source_id": "f4kmbxy57oyiklk"
+    },
+    {
+      "annotation": "paginiert 2. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O wie will ich dich lieben Henriette! / und sie warf sich an die Brust Henriettens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1798",
+      "scans": [
+        "alm_454_32753_zfbd1neseq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "O wie will ich dich lieben Henriette! / und sie warf sich an die Brust Henriettens",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.692Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.692Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "mz68swv9wb3nrnm"
+        }
+      ],
+      "source_id": "ms2at3yv2wbsjhn"
+    },
+    {
+      "annotation": "paginiert 3. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32754,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Man enpfieng ihn im großen Saal, man hätte den / Liebling des Fürsten nicht bedeutendender empfangen können",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1798",
+      "scans": [
+        "alm_454_32754_shogsecx6q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Man enpfieng ihn im großen Saal, man hätte den / Liebling des Fürsten nicht bedeutendender empfangen können",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.699Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "241z04dv3scwuso"
+        }
+      ],
+      "source_id": "dxqjvuoiq0103kd"
+    },
+    {
+      "annotation": "paginiert 4. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32755,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Du wirst dich besinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1798",
+      "scans": [
+        "alm_454_32755_9jzk7t9zzy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Du wirst dich besinnen",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.699Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "isurfjtjkorh39s"
+        }
+      ],
+      "source_id": "q84za6b7sr8ochp"
+    },
+    {
+      "annotation": "paginiert 5. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32756,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Also Braut? ich bitte sehr um Vergebung / dass ich mich aufdrang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1798",
+      "scans": [
+        "alm_454_32756_1lr897wtxs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Also Braut? ich bitte sehr um Vergebung / dass ich mich aufdrang",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.699Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "u0s9xyiioa1lma3"
+        }
+      ],
+      "source_id": "b3a1pbwxrtx6zwi"
+    },
+    {
+      "annotation": "paginiert 6. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32757,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihres Vaters Hand zog sie an ihre Lippen, / sie giengen beyde von der unfruchtbaren Reue zerfressen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1798",
+      "scans": [
+        "alm_454_32757_t2x9m1g3tf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ihres Vaters Hand zog sie an ihre Lippen, / sie giengen beyde von der unfruchtbaren Reue zerfressen",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.699Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "hnnid10ksd93vlm"
+        }
+      ],
+      "source_id": "tk49y5nigyd11fk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Wahrhaft schildert der Dichter den Werth / des edleren Weibes, / Aber er lehrt uns nicht, was ihm den / Vorzug ertheilt.",
+      "language": [],
+      "musenalm_id": 32758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu Schillers Würde der Frauen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Schweighäuser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu Schillers Würde der Frauen",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.699Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.699Z",
+          "agent": "07qu7qawpxno6h3",
+          "source_id": "8dresrgcjp35kgs"
+        }
+      ],
+      "source_id": "qhyknl7d8ottdk2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Laßt, Beste! euch das Ideal / von einem edlen Weibe schildern,",
+      "language": [],
+      "musenalm_id": 32759,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das weibliche Leben / An Elise von Türkheim / und / Maria von Montbrison",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Schweighäuser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das weibliche Leben / An Elise von Türkheim / und / Maria von Montbrison",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.700Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.700Z",
+          "agent": "07qu7qawpxno6h3",
+          "source_id": "gnunlwqa1y2b6ed"
+        }
+      ],
+      "source_id": "tpxmrxwaf9cpjv4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Mongo Park, dieser Mann, der sich um näherer Kenntniß von Afrika durch seine abentheuerliche und gefahrvolle Reise dahin so verdient machte,",
+      "language": [],
+      "musenalm_id": 32760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Negerin, eine Anekdote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Negerin, eine Anekdote",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "bivhd0s0f101m59"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Freund meiner Jugend, den der Spruch / Des Schicksals, das immer dir lachte",
+      "language": [],
+      "musenalm_id": 32761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Apoll an Minerva. / An Herrn Staatsrath von Nicolai / in Petersburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Apoll an Minerva. / An Herrn Staatsrath von Nicolai / in Petersburg",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.669Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "2vcxf2g0o2aqjdg"
+        }
+      ],
+      "source_id": "0i6p1icxhd5yfx2"
+    },
+    {
+      "annotation": "# s. Taschenbuch für Damen 1798 INr 32713 /) Sammlung von 4 Textbezügen und 3 Graphiken INr 32763-32769, Obj 21-27; §$ vermutlich fehlt eine Graphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fragmente eines Briefwechsels, / zur Fortsetzung des im vorjährigen Taschen- / buch S. 159 abgebrochenen. / (Als Beilage zu den Kupfern) #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fragmente eines Briefwechsels, / zur Fortsetzung des im vorjährigen Taschen- / buch S. 159 abgebrochenen. / (Als Beilage zu den Kupfern) #",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.669Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "a9kglv1xglx8oze"
+        }
+      ],
+      "source_id": "iafbv1nc5rmd2bf"
+    },
+    {
+      "annotation": "# s. Anm. INr 32762. Fragmente eines Briefwechsels (Sammlung INr 32762, Obj 20) s. Graphik INr 32764, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.575Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "So zwischen Freude und Schmerz getheilt, wie bei'm Abschied von Ihnen, würdige, theure Frau,",
+      "language": [],
+      "musenalm_id": 32763,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Emiliens Mutter an Charlotten #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Emiliens Mutter an Charlotten #",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.669Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.669Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "h4zh329lfeeroys"
+        }
+      ],
+      "source_id": "dltywpibo7f2dkc"
+    },
+    {
+      "annotation": "s. Textbezug INr 32763, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Boettger Dresdens sc. Lipsiae)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Boettger Dresdens sc. Lipsiae",
+      "scans": [
+        "alm_454_32764_gbxhsa6egh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "iypyb8g8bxed1eq",
+          "source_id": "ovbi6gf1z2b8bdj"
+        }
+      ],
+      "source_id": "z2gr6hx2xjmfg27"
+    },
+    {
+      "annotation": "# s. Anm. INr 32762. Fragmente eines Briefwechsels (Sammlung INr 32762, Obj 20) s. Graphik INr 32766, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Ich habe Ihren Brief, liebe theilnehmende Frau meiner Charlotte an ihrem Wochenbett vorgelesen - Ach an ihrem fruchtlosen Wochenbett!",
+      "language": [],
+      "musenalm_id": 32765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Adele an Emiliens Mutter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Adele an Emiliens Mutter",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "yq5mjn8r3zo8imx"
+        }
+      ],
+      "source_id": "3c2y95x041sn0ba"
+    },
+    {
+      "annotation": "s. Textbezug INr 32765, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Boettger Dresdens sc. Lipsiae 1798)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Boettger Dresdens sc. Lipsiae 1798",
+      "scans": [
+        "alm_454_32766_2x1q4ma3b6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "iypyb8g8bxed1eq",
+          "source_id": "znr6b35lp22zo8z"
+        }
+      ],
+      "source_id": "2e0yj63z94gngw5"
+    },
+    {
+      "annotation": "# s. Anm. INr 32762. Fragmente eines Briefwechsels (Sammlung INr 32762, Obj 20) s. Graphik INr 32768, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Meine Schwester hat Ihnen, glaube ich, auf Ihren langen Brief, den sie einige Tage nach ihrer Niederkunft erhielt, endlich geantwortet.",
+      "language": [],
+      "musenalm_id": 32767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Dieselbe an Dieselbe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Dieselbe an Dieselbe",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "fpxepqj0elgao35"
+        }
+      ],
+      "source_id": "wgryuvgrcvq085x"
+    },
+    {
+      "annotation": "s. Textbezug INr 32767, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gest. von Anton Karcher Mannh. 1799)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gest. von Anton Karcher Mannh. 1799",
+      "scans": [
+        "alm_454_32768_z2hp2mgyjv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "b334ivfypj3aic9",
+          "source_id": "fy6lzeqltutyib6"
+        }
+      ],
+      "source_id": "pexbvixqa3artxa"
+    },
+    {
+      "annotation": "# s. Anm. INr 32762. Fragmente eines Briefwechsels (Sammlung INr 32762, Obj 20) s. Graphik INr 32770, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Meine trostlosen Geliebten um mich her haben mir die Pflicht streitig gemacht, Ihnen, geehrte Frau, zu sagen, daß mein Weib neben ihrem entschlafenen Liebling ruht",
+      "language": [],
+      "musenalm_id": 32769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Von Charlottens Gemahl $",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Huber $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Von Charlottens Gemahl $",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "m7srei47uc1i74x"
+        }
+      ],
+      "source_id": "q8am0icxoygh17m"
+    },
+    {
+      "annotation": "s. Textbezug INr 32769, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gest. von Anton Karcher Mannh. 1799)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gest. von Anton Karcher Mannh. 1799",
+      "scans": [
+        "alm_454_32770_9pq16g0oz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "b334ivfypj3aic9",
+          "source_id": "m2vt0gas2jvi2pe"
+        }
+      ],
+      "source_id": "nek38ldxvy7b8w2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Liebes Blümchen, ach! schon welkest du / Bei dem ersten Strahl der Morgenröthe,",
+      "language": [],
+      "musenalm_id": 69581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Blümchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel (Am Grabe seines Pflegekindes)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Blümchen",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.267Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "6re9pny8o5jzddl"
+        }
+      ],
+      "source_id": "u40e1e70hky83oa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "O lebt' ich doch in jenem stillen Lande, / Wo ungetrübt die frohen Tage fliehn!",
+      "language": [],
+      "musenalm_id": 32771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehnsucht nach Elysium",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Schweighäuser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sehnsucht nach Elysium",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "07qu7qawpxno6h3",
+          "source_id": "i1fh0l9n5btw1jv"
+        }
+      ],
+      "source_id": "xm937qqym2bn7af"
+    },
+    {
+      "annotation": "s. Beitrag INr 32773, Obj 31 als Textbezug zur Titelgraphik 32742, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Ach, die wir lieben, Vater, sie lebet! und / auch wir leben! / Denn in der Stunde deiner reichen Gnade, / Da du sie erhieltest,",
+      "language": [],
+      "musenalm_id": 32772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wiedergenesung einer / edlen Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klopstock",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wiedergenesung einer / edlen Frau",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "ckd4l48jtgsgmor",
+          "source_id": "1xfokftj499clkr"
+        }
+      ],
+      "source_id": "0mudpnx18y8hi55"
+    },
+    {
+      "annotation": "s. vorstehendes Gedicht INr 32772, Obj 30; Titelgraphik 32742, Obj 1; Widmungen INr 72746, 72748; Obj 5, 6 (auf die Genesung der Herzogin Charlotte Auguste Mathilde von Württemberg 1798)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Es ist ein grosses Bild: Ein ganzes Volk beten zu sehen -, die Wünsche und die Besorgnisse eines ganzen Volkes auf Einem Punkt vereinigt zu finden!",
+      "language": [],
+      "musenalm_id": 32773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es ist ein grosses Bild: Ein ganzes Volk beten zu sehen -, die Wünsche und die Besorgnisse eines ganzen Volkes auf Einem Punkt vereinigt zu finden!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "jhgieedfdrk9icg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Erinnert ihr euch jener holden Insel, / Die oft der Dichter schwärmerischer Pinsel / Im Lande der Ideen ausgemahlt,",
+      "language": [],
+      "musenalm_id": 32774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Insel der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Schweighäuser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Insel der Liebe",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "07qu7qawpxno6h3",
+          "source_id": "ywtqed4wag2eiei"
+        }
+      ],
+      "source_id": "9h7d6mln9jkslqy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Das Land, das Washington gebahr, / Erzeugt auf seinen reichen Küsten",
+      "language": [],
+      "musenalm_id": 32775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Spottvogel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Spottvogel",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "xeuc7wdknyk6ydx"
+        }
+      ],
+      "source_id": "g5h5h2w4imwnb9r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Ein König hinterließ drei Prinzen, / Zum Unglück war in jenem rohen Land",
+      "language": [],
+      "musenalm_id": 32786,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Thronwerber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Thronwerber",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.609Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.609Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "lcybpro04mpohok"
+        }
+      ],
+      "source_id": "5ns3dyetwzo9axj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Auf seiner langen Wanderschaft / Durch halb Europa sah und hörte / Ein Löwe viel von Wissenschaft",
+      "language": [],
+      "musenalm_id": 32776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Aufklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Aufklärung",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "xgfgnp5gv24odvi"
+        }
+      ],
+      "source_id": "mzre8saj124ml90"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Alfons war König von Leon / Und zu Toled: er hieß der Gute, / Und herrschte mit Achillens Muthe",
+      "language": [],
+      "musenalm_id": 32777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alfons und Rahel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alfons und Rahel",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.762Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.762Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "m864y7a9pvcxz16"
+        }
+      ],
+      "source_id": "0m34tfztv6xuao9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Charite hatte ihren fünfzehnten Frühling erreicht, ohne ihr Herz zu fühlen.",
+      "language": [],
+      "musenalm_id": 32778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vergoltene Wohlthat. / Eine Idylle. / Aus dem Französischen eines jungen Frauenzimmers frei übersezt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pf.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die vergoltene Wohlthat. / Eine Idylle. / Aus dem Französischen eines jungen Frauenzimmers frei übersezt",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "fam2zkf104d8361"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Ein Mops, der sich zum erstenmal / Aus Vorwitz von dem Schlosse stahl,",
+      "language": [],
+      "musenalm_id": 37192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Möpschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Möpschen",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.251Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.251Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "hc108podsy7kmon"
+        }
+      ],
+      "source_id": "c61v2tdl7bvyps6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Der Löwe hatte Langeweile; / Die grossen Herren, wie man sagt, / Sind oft mit diesem Wurm geplagt.",
+      "language": [],
+      "musenalm_id": 32779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Langeweile",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Langeweile",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.215Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "z1ag6ndcuqtwms9"
+        }
+      ],
+      "source_id": "yeuno3mwv4mdjk3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Nach abgelegtem Meisterstücke / Kam Thoms, ein junger Philosoph / Auf seines Vaters Meyerhof.",
+      "language": [],
+      "musenalm_id": 32780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Meise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Meise",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.215Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "fo8xvqh7blekbla"
+        }
+      ],
+      "source_id": "naxdi63bwe1gf91"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Ein Waller zog durch dürren Sand / Vor kurzem ins gelobte Land,",
+      "language": [],
+      "musenalm_id": 32781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Zauberschloß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Zauberschloß",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.215Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "7ki3ruzxnolb9yg"
+        }
+      ],
+      "source_id": "obssajlc2apmgus"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Ein Sperber hörte den Gesang / Der holden Philomele;",
+      "language": [],
+      "musenalm_id": 32782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sperber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sperber",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.215Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "qt80c3yw75lrua6"
+        }
+      ],
+      "source_id": "cuyynjcrceskp6q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Wie lange willst du noch, Barbar! / Die ganze Flur veröden, / Und, als ein wüthender Corsar",
+      "language": [],
+      "musenalm_id": 32783,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Reiher, der Habicht / und der Schöps",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Reiher, der Habicht / und der Schöps",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.215Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "mj1bkpmljgipvsf"
+        }
+      ],
+      "source_id": "mecyk9bdlwsftw4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32784,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "mim0nk08a5m80rx"
+    },
+    {
+      "annotation": "# Verlagsmitteilung: Als Probe aus dem Augustheft der Flora 1796",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zwo Waisen, Eucharis und Psyche war ihr / Name / Ihr Schicksal gut und arm zu seyn,",
+      "language": [],
+      "musenalm_id": 32785,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zwo Waisen. / An meine Töchter #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die zwo Waisen. / An meine Töchter #",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.609Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.609Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "qqpzva66pjib11f"
+        }
+      ],
+      "source_id": "oela4cdon3vkq2o"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69580,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DEM SCHÖNEN / UND DEM GUTEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_454_69580_toklbsaqfb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DEM SCHÖNEN / UND DEM GUTEN",
+      "updated": "2003-04-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "5d2g32nwjh2zr9l"
+    }
   ],
   "agents": [
     {

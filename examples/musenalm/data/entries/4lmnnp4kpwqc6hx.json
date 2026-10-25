@@ -48,7 +48,26 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "59x3ell79pdw884"
+    {
+      "annotation": "Französische Ausgabe von: Taschenkalender, Göttinger, mit dem sie inhaltlich übereinstimmt.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.741Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408253",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.741Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "59x3ell79pdw884"
+    }
   ],
   "contents": [],
   "agents": [

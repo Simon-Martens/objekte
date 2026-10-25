@@ -48,59 +48,2204 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "z0qoewpmti3g0cw"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.537Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404911",
+      "location": "105P04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.537Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "z0qoewpmti3g0cw"
+    }
   ],
   "contents": [
-    "kfna4mqkc4dypy2",
-    "ptceqzgkh11y5c4",
-    "cdomc56tsja7q0n",
-    "q2vst1jwxqt4ipw",
-    "76qhl02oer5ntsr",
-    "skkmqw38ht3dhl7",
-    "lnuacdp34x2xhoz",
-    "am4d5avaa74r2o1",
-    "t25iaizc7lorwu7",
-    "mcewr8ty4e0e223",
-    "a5szq41bmsgcm4w",
-    "0pdq6nkuawa0qrl",
-    "qqbsfgm95p0rotl",
-    "s6u5nm9wd94ldva",
-    "b8el6259iu504rb",
-    "poos7keil4xxkcv",
-    "g8j9o3llv3neh7r",
-    "xy0p1pml6un6848",
-    "egbo17z6tmek7rt",
-    "jpn3vqp1zbq1gpr",
-    "altpdxi0nfjszm7",
-    "p4vmrsoze0y8qw9",
-    "t06h9qv1tip14bl",
-    "i3ijng9i0xzzjjr",
-    "xhe5exnb35b3kqu",
-    "arf1by45wzfg0z7",
-    "2j7pvtaddoj6y53",
-    "lvwhjwj9sirad3y",
-    "eozz9zzbtj7f1fo",
-    "tpbn8ngr279zzhc",
-    "2ow13vhaaabvq4v",
-    "ehcq14ctydszpyq",
-    "5qzn7ttutoexqqp",
-    "5gsgxo75hlyvwgz",
-    "fzd81b3pxg7fr9l",
-    "dr6ek04hzhx8qsh",
-    "vn05yukkmva8xrm",
-    "xorqmlds8g1d018",
-    "h5qzp37dnesilma",
-    "2ifr8i47s4di46f",
-    "fk4qeofiayjvvll",
-    "v2c6l2lenahjaxx",
-    "yzifut49ihdtan7",
-    "2v1g8e8tj1pkyk7",
-    "tj5hzz6vc1ko5ap",
-    "8yzea05xktk26qx",
-    "758fgrwzpv7ttco",
-    "chpfq1pe8gpxap7",
-    "6as7occ68neshcy",
-    "xhvhygduuzn3dau"
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 69627, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.535Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69623,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Pforr del. G. Boettger sen. sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. G. Boettger sen. sc.",
+      "scans": [
+        "alm_1133_69623_9dnipp7kb1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.234Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.234Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "a9ptr0n1g4pc3h1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.234Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.234Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "q287hlwoajuq7os"
+        }
+      ],
+      "source_id": "kfna4mqkc4dypy2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69624,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neujahrs- / GESCHENCK / für / Forst- und Jagdliebhaber / auf das Jahr / 1798 / herausgegeben / von /  L. C. E. H. F. von Wildungen / Fürstl. Hess. Regierungsrath. / Marburg, / in der neuen akademischen / Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1133_69624_cs25ohvwjn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neujahrs- / GESCHENCK / für / Forst- und Jagdliebhaber / auf das Jahr / 1798 / herausgegeben / von /  L. C. E. H. F. von Wildungen / Fürstl. Hess. Regierungsrath. / Marburg, / in der neuen akademischen / Buchhandlung",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ptceqzgkh11y5c4"
+    },
+    {
+      "annotation": "mit Anmerkung und Verweis auf die Zeitschrift: Unechter Acacienbaum 13. B. 2tes Stück",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Bei der Vorrede pflegen rasche Jäger sich eben nicht lange aufzuhalten und von stachlichten Vorreden, woran ein gewisser Ritter vom stachlichten Holze so viel Behagen findet, sind sie folgends gar keine Freunde.",
+      "language": [],
+      "musenalm_id": 69625,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei der Vorrede pflegen rasche Jäger sich eben nicht lange aufzuhalten und von stachlichten Vorreden, woran ein gewisser Ritter vom stachlichten Holze so viel Behagen findet, sind sie folgends gar keine Freunde.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.263Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "kkopgleco0s5hkq"
+        }
+      ],
+      "source_id": "cdomc56tsja7q0n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69626,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "q2vst1jwxqt4ipw"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 69623, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.119Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein Hirsch von 26 Enden, dessen prächtiges, 5 3/4 Schuh hohes und 3 1/2 Schuh weit auseinander stehendes, Geweih in der fürtreflichen Sammlung des regierenden Herrn Reichsgrafen von Erbach-Erbach sich befindet.",
+      "language": [],
+      "musenalm_id": 69627,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des Titelkupfers",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "76qhl02oer5ntsr"
+    },
+    {
+      "annotation": "paginiert I /) kol. Illustration zu »Der Hase« von v. Wildungen INr 69630, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69628,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seltne Hasen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1133_69628_ei9vfsvdxg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seltne Hasen",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.241Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "f2mm1xxxllra24g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.241Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "ptd71742jkqwk0g"
+        }
+      ],
+      "source_id": "skkmqw38ht3dhl7"
+    },
+    {
+      "annotation": "Einleitendes Gedicht zum folgenden Beitrag INr 69630, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Jäger Haro! da kommt er nun auch, der flüchtige / Rammler! / Einmal noch soll er uns hier durch ächt poßierliche / Sprünge / Weidlich ergötzen,",
+      "language": [],
+      "musenalm_id": 69629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Der Hase",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Der Hase",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.241Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "f68m1z7muwtvev7"
+        }
+      ],
+      "source_id": "lnuacdp34x2xhoz"
+    },
+    {
+      "annotation": "mit einem einleitenden Gedicht s. INr 69629, Obj 7 /) mit einer Illustration s. Graphik INr 69628, Obj 6 /) mit zahlreichen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Pfuy Hase! müßte man dem billig zurufen, der Jägern und Jagdliebhabern des Hasen äusserliche Figur weitläufig noch beschreiben wollte.",
+      "language": [],
+      "musenalm_id": 69630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[I. Der Hase]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[I. Der Hase]",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.241Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "fjtm0sq7zdpgq1u"
+        }
+      ],
+      "source_id": "am4d5avaa74r2o1"
+    },
+    {
+      "annotation": "$ vermutl.: Pforr del.: Für sämtlichen Graphiken gilt: G. Boettger sc. /) paginiert II. /) kol. Illustration zu »Der Fischotter« von v. Wildungen INr 69632, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fischotter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_1133_69631_d1o33ywd1v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fischotter",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.241Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "4l1qyv9an4hhn6k"
+        }
+      ],
+      "source_id": "t25iaizc7lorwu7"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 69631, Obj 9 /) mit zahlreichen Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Zum Wieselgeschlechte zählte Linne, der Unsterbliche, den wunderlich gestalteten Fischotter. Andere Naturforscher haben mit Recht in der Rangordnung der Thiere eine eigene Klasse ihm angewiesen.",
+      "language": [],
+      "musenalm_id": 69632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischotter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischotter",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.242Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.242Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "0ydm909to3q4rv1"
+        }
+      ],
+      "source_id": "mcewr8ty4e0e223"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Die Naturgeschichte der auf der 3ten und 4ten Platte abgebildeten Thiere folgt erst im künftigen Jahrgange.",
+      "language": [],
+      "musenalm_id": 69633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Naturgeschichte der auf der 3ten und 4ten Platte abgebildeten Thiere folgt erst im künftigen Jahrgange.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "a5szq41bmsgcm4w"
+    },
+    {
+      "annotation": "s. Graphik INr 69637, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Auf der 5ten Platte habe ich eine sehr schöne Spielart der gemeinen Weihe oder des Bussards (Falco Buteo Linn.) aus meiner Sammlung abgebildet",
+      "language": [],
+      "musenalm_id": 69634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Weiße Weihe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Weiße Weihe",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "5s4rtza7jby594y"
+        }
+      ],
+      "source_id": "0pdq6nkuawa0qrl"
+    },
+    {
+      "annotation": "kol. Graphik; paginiert III. s. Textbezug in: Neujahrsgeschenk für Forst- und Jagdliebhaber 1799: Alm-1134, INr 69691",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilder Kater",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pforr del. G. Boettger sen. sc. Lips.",
+      "scans": [
+        "alm_1133_69635_v4hvwun0py.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilder Kater",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "654oy4qu1m78di5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "ere2ck7piw4n43b",
+          "source_id": "7b6oenmh9dsq5o2"
+        }
+      ],
+      "source_id": "qqbsfgm95p0rotl"
+    },
+    {
+      "annotation": "kol. Graphik; paginiert IV. s. Textbezug in: Neujahrsgeschenk für Forst- und Jagdliebhaber 1799: Alm-1134, INr 69692",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gemeines und weisses Feldhuhn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. de Wildungen ad. viv. del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1133_69636_sjdej76ioy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gemeines und weisses Feldhuhn",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "bh5cpsvmin5mr89"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "cn1321n3r25ydeq"
+        }
+      ],
+      "source_id": "s6u5nm9wd94ldva"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an vorstehender Graphik /) kol. Graphik paginiert V. /) s. Textbezug INr 69634, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69637,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weisse Weihe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. de Wildungen ad. viv. del.",
+      "scans": [
+        "alm_1133_69637_42x39swbpx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Weisse Weihe",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "u5vmpaay14cilcg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.090Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.090Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "ysjhm24nkw7socg"
+        }
+      ],
+      "source_id": "b8el6259iu504rb"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an Graphik INr 69636, Obj 14 /) kol. Graphik paginiert VI. /) s. Textbezug INr 69639, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69638,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seltne Ente",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. de Wildungen ad. viv. del.",
+      "scans": [
+        "alm_1133_69638_nc225qrlug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seltne Ente",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.424Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.424Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "2377mb6ho7zui75"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.424Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.424Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "n3vn1oaut1judet"
+        }
+      ],
+      "source_id": "poos7keil4xxkcv"
+    },
+    {
+      "annotation": "s. Graphik INr 69638, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Das niedliche Endtchen, weches auf der 6ten Platte erscheint, ist meines Wissens sonst noch nirgends abgebildet worden.",
+      "language": [],
+      "musenalm_id": 69639,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Seltene Endte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Seltene Endte",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "g8j9o3llv3neh7r"
+    },
+    {
+      "annotation": "mit 2 Kapiteln und 3 Tabellen 69641-69645, Obj 19- 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Noch etwas ad Acta den bewußten / Acacien-Unfug betreffend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Noch etwas ad Acta den bewußten / Acacien-Unfug betreffend",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "xy0p1pml6un6848"
+    },
+    {
+      "annotation": "V.  Noch etwas ad Acta den bewußten Acacien-Unfug betreffend (Sammlung INr 69640, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Vorauszusehen war's, daß der in das Wildungische Neujahrsgeschenk für 1797 eingerückte Aufsatz über Holzkultur, in welchem ich den von vom Hrn. R. Rath. Medicus der Eiche und der Rotbuche gemachten Vorwurf einer allzugroßen Empfindlichkeit",
+      "language": [],
+      "musenalm_id": 69641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antikritik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Witzleben Fürstl. Hessen-Casselischer Oberforstmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Antikritik",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.412Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.412Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "lyqjzolp8nnc63w"
+        }
+      ],
+      "source_id": "egbo17z6tmek7rt"
+    },
+    {
+      "annotation": "V.  Noch etwas ad Acta den bewußten Acacien-Unfug betreffend (Sammlung INr 69640, Obj 18) ausführlicher Beitrag in  Kapiteln",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Die Anzucht ausländischer Holzarten ist seit einigen Jahren ein so allgemein beliebter Modegedanke, daß man Gefahr läuft, für einen nicht aufgeklärten Forstmann gehalten zu werden,",
+      "language": [],
+      "musenalm_id": 69642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Beweiß, / daß durch die allgemeine Anzucht der unächten Aca- / cie schon würklich entstandenen oder nahe be- / vorstehenden Brennholzmangel nicht abgeholfen werden könne, nebst einem Vorschlag, / auf welche Art dieser große Zweck weit sicherer zu erreichen seyn möchte.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Beweiß, / daß durch die allgemeine Anzucht der unächten Aca- / cie schon würklich entstandenen oder nahe be- / vorstehenden Brennholzmangel nicht abgeholfen werden könne, nebst einem Vorschlag, / auf welche Art dieser große Zweck weit sicherer zu erreichen seyn möchte.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "jpn3vqp1zbq1gpr"
+    },
+    {
+      "annotation": "Beigabe zu »Beweiß, daß durch die allgemeine Anzucht der unächten Acacie schon würklich entstandenen oder nahe bevorstehenden Brennholzmangel nicht abgeholfen werden könne« INr 69642, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A /) Tabelle / woraus man ersehen kann, zu welcher Zeit und wie stark die Nutzung aus 10000 Morgen Acacien Niederwald wahrscheinlich erfolgen könnte [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "A /) Tabelle / woraus man ersehen kann, zu welcher Zeit und wie stark die Nutzung aus 10000 Morgen Acacien Niederwald wahrscheinlich erfolgen könnte [...]",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "altpdxi0nfjszm7"
+    },
+    {
+      "annotation": "Beigabe zu »Beweiß, daß durch die allgemeine Anzucht der unächten Acacie schon würklich entstandenen oder nahe bevorstehenden Brennholzmangel nicht abgeholfen werden könne« INr 69642, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tabelle / woraus man ersehen kann, zu welcher Zeit und wie stark die Nutzung aus 10000 Morgen vollkommen bestandenen und nach meiner Vorschrift bewirthschafteten / Nadelholzalldes ganz zuverläßig erfolgen würde [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tabelle / woraus man ersehen kann, zu welcher Zeit und wie stark die Nutzung aus 10000 Morgen vollkommen bestandenen und nach meiner Vorschrift bewirthschafteten / Nadelholzalldes ganz zuverläßig erfolgen würde [...]",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "p4vmrsoze0y8qw9"
+    },
+    {
+      "annotation": "Beigabe zu »Beweiß, daß durch die allgemeine Anzucht der unächten Acacie schon würklich entstandenen oder nahe bevorstehenden Brennholzmangel nicht abgeholfen werden könne« INr 69642, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C / Tabelle / woraus ersichtlich wird, wie viel Holz man von 10000 Morgen / Wald periodisch jährlich sowohl im Ganzen, als auch für jede Haushaltung zu erwarten hat, wenn der Bestand Acacien, und wenn er Nadelholz ist [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C / Tabelle / woraus ersichtlich wird, wie viel Holz man von 10000 Morgen / Wald periodisch jährlich sowohl im Ganzen, als auch für jede Haushaltung zu erwarten hat, wenn der Bestand Acacien, und wenn er Nadelholz ist [...]",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "t06h9qv1tip14bl"
+    },
+    {
+      "annotation": "mit einem Plan s. Tafel INr 69672, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Dieser Ofen ist im Lichten ein Parallelepipedum, welches 36 Zoll Pariser Maas lang - 26 Zoll hoch, und 12 Zoll breit ist.",
+      "language": [],
+      "musenalm_id": 69646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung / eines holzsparenden und zugleich Kochofens, / welcher sehr dauerhaft, bequem, einfach und / möglichst wohlfeil ist",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Forstmeister Hartig zu Hungen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung / eines holzsparenden und zugleich Kochofens, / welcher sehr dauerhaft, bequem, einfach und / möglichst wohlfeil ist",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.481Z",
+          "agent": "hgrjbmc4usfwpzd",
+          "source_id": "drmcizqzua7p5eg"
+        }
+      ],
+      "source_id": "i3ijng9i0xzzjjr"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 69648-69652, Obj 26-30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Seltene Jagdbegebenheiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Seltene Jagdbegebenheiten",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhe5exnb35b3kqu"
+    },
+    {
+      "annotation": "VI. Seltene Jagdbegebenheiten (Sammlung INr 69647, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Zu den seltsamsten Jagdabentheuern, die wohl je sich ereignet haben mögen, gehört ohne Zweifel dasjenige, welches auf ausdrücklichem Befehl des regier. Herzogs von Sachsen-Meiningen der dasige berühmte Forstrath Cramer folgendermassen mir beschrieben hat:",
+      "language": [],
+      "musenalm_id": 69648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Hirschjagd ohne Gleichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Gottlob Cramer, Herzogl. Coburg Meiningischer Forstrath",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Hirschjagd ohne Gleichen",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.482Z",
+          "agent": "amqten9820medl4",
+          "source_id": "0d1p7h6e5ub5om9"
+        }
+      ],
+      "source_id": "arf1by45wzfg0z7"
+    },
+    {
+      "annotation": "VI. Seltene Jagdbegebenheiten (Sammlung INr 69647, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Am 7ten Merz 1796 wurde im Sachsen-Gothaischen Gebiete, am Sattelbach im Dörnberger Forst, ein Luchs, männlichen Geschlechts, vom Spürer Simon Kellner,",
+      "language": [],
+      "musenalm_id": 69649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Luchsjagd im Sachsen-Gothaischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Luchsjagd im Sachsen-Gothaischen",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.482Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "96sv60t82npa7zd"
+        }
+      ],
+      "source_id": "2j7pvtaddoj6y53"
+    },
+    {
+      "annotation": "VI. Seltene Jagdbegebenheiten (Sammlung INr 69647, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Auch im letzten Winter ist abermals ein starker Wolf in den gebürgigten Witgenstein-Berlenburgischen Forsten gespürt und gesehen, aber leider! - einigemal gefehlt worden.",
+      "language": [],
+      "musenalm_id": 69650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Neuere Wolfsjagden im Berleburgischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Neuere Wolfsjagden im Berleburgischen",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.482Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "lphv9rl1ocmjk55"
+        }
+      ],
+      "source_id": "lvwhjwj9sirad3y"
+    },
+    {
+      "annotation": "VI. Seltene Jagdbegebenheiten (Sammlung INr 69647, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Im letztern Frühling erscholl das Gerüchte, daß ein Bär seinen umherstreichenden Führern entronnen sey, und nun in den nachbarlichen Forsten allerhand Unfug ausübe.",
+      "language": [],
+      "musenalm_id": 69651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Bärenjagd bey H** / Homo sum, humani nihil a me alienum puto. / Terent",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Bärenjagd bey H** / Homo sum, humani nihil a me alienum puto. / Terent",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.482Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "6c5lanjq365aiu2"
+        }
+      ],
+      "source_id": "eozz9zzbtj7f1fo"
+    },
+    {
+      "annotation": "VI. Seltene Jagdbegebenheiten (Sammlung INr 69647, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Im vorigen Jahre war in den Gräfl. Lindauischen Waldungen in Sachsen eine alte Geiß mit einem schneeweißen und einem gewöhnlichen Kälbchen gesehen,",
+      "language": [],
+      "musenalm_id": 69652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Weißes Reh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Weißes Reh",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.482Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.482Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "vht20rqrsdu8inn"
+        }
+      ],
+      "source_id": "tpbn8ngr279zzhc"
+    },
+    {
+      "annotation": "mit einer Anmerkung des Herausgebers INr 69654, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.852Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Daß man nicht immer findet, wo man sucht, oft aber am meisten da, wo man am wenigsten erwartet hat, das weiß, glaube ich, ausser den Herren Gelehrten, niemand so gut, als der Jäger.",
+      "language": [],
+      "musenalm_id": 69653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Schreiben an den Herausgeber, / die Justiz-Spürhunde betreffend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Reg. Rath Bunsen zu Arolsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Schreiben an den Herausgeber, / die Justiz-Spürhunde betreffend",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.417Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "rascnsja7bxv9ts"
+        }
+      ],
+      "source_id": "2ow13vhaaabvq4v"
+    },
+    {
+      "annotation": "Anmerkung des Herausgebers zum vorstehenden Beitrag INr 69653, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Allerdings gehört die vom berühmten Hrn. Prof. Reichard mit dem reichhaltigsten gelehrten Scharfsinn angestellte Untersuchung: Ob es nicht thunlich sey, sich zur Aufsuchung entflohener oder auch wohl noch ganz unbekannter Verbrecher",
+      "language": [],
+      "musenalm_id": 69654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine Leser",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.417Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.417Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "ctysya6meho6u2r"
+        }
+      ],
+      "source_id": "ehcq14ctydszpyq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Mit Recht hat der verdienstvolle Nicolai die Greuel der Wiener Thierhatze dem öffentlichen Abscheu schon ausgestellt,",
+      "language": [],
+      "musenalm_id": 69655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Thierhatze zu Regensburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Thierhatze zu Regensburg",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.372Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "nls35t86x5da00v"
+        }
+      ],
+      "source_id": "5qzn7ttutoexqqp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Daß auch wilde Thiere toll werden können, beweisen unter andern die hier und da bemerkten Beispeile von wütenden Füchsen.",
+      "language": [],
+      "musenalm_id": 69656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Von tollen und blödsinnigen wilden / Thieren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Von tollen und blödsinnigen wilden / Thieren",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.372Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "nwx6bylna1qbnqp"
+        }
+      ],
+      "source_id": "5gsgxo75hlyvwgz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Daß das Fleisch dieses in manchen Gegenden Deutschlands unbekannten Vogels von den Schmeisfliegen, die doch sonst bekanntlich keine Kostverächter sind, ihres emsigen Umhersummens ohngeachtet, doch unangetastet geblieben sey, habe ich schon bemerkt.",
+      "language": [],
+      "musenalm_id": 69657,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Noch eine sonderbare Bemerkung den im / Jahrgang 1796 beschriebenen schwarzen / Storch betreffend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Noch eine sonderbare Bemerkung den im / Jahrgang 1796 beschriebenen schwarzen / Storch betreffend",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.372Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "hkzeiaqie7eopav"
+        }
+      ],
+      "source_id": "fzd81b3pxg7fr9l"
+    },
+    {
+      "annotation": "Sammlung von 6 Anekdoten INr 69659-69664, Obj 37-42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69658,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Anecdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Anecdoten",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.372Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "al7d2w65xdcx6bb"
+        }
+      ],
+      "source_id": "dr6ek04hzhx8qsh"
+    },
+    {
+      "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36) mit Anmerkung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Zu Berlenburg, dem wahren Paradiese für ächte Weydmänner, lag ich einst nach einer Tags vorher gehaltenen sehr reizenden Sommerjagd bey anbrechendem Morgen noch in süßestem Schlummer,",
+      "language": [],
+      "musenalm_id": 69659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.058Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.058Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "glpvn1zzsuw5wtg"
+        }
+      ],
+      "source_id": "vn05yukkmva8xrm"
+    },
+    {
+      "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Zum Spaß, Herr Gevatter, laßt uns einmal Verse machen, sagte der Förster zum Müller, mit dem er fröhlicher Laune beym Wein saß.",
+      "language": [],
+      "musenalm_id": 69660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Unsichtbare Reime",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Unsichtbare Reime",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.058Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.058Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "5ofv5crbldjosre"
+        }
+      ],
+      "source_id": "xorqmlds8g1d018"
+    },
+    {
+      "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Eine gewisse Rentkammer soll einst dem ihr untergeordneten Forstmann rescribirt haben: Nachdem wir misfällig wahrgenommen, daß bisher in den hiesigen Landen eine nicht unbeträchtliche Anzahl von Rehböcken geschossen und zur Rechnung gebracht worden;",
+      "language": [],
+      "musenalm_id": 69661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.321Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "02eq54a43trug4f"
+        }
+      ],
+      "source_id": "h5qzp37dnesilma"
+    },
+    {
+      "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Herr v. ** war einstmals zur Zeit der Auerhahnbalz zu Besuch in E**ch, und wünschte auch einen Auerhahn zu erlegen.",
+      "language": [],
+      "musenalm_id": 69662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.321Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "prrgib9s9gez71d"
+        }
+      ],
+      "source_id": "2ifr8i47s4di46f"
+    },
+    {
+      "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Ein gewisser vornehmer Rechtsgelehrter, klein von Statur, wie weiland Zachäus, winzigen Angedenkens, fühlte ebenfalls Beruf, den stolzen Auerhahnen den Krieg anzukündigen.",
+      "language": [],
+      "musenalm_id": 69663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.321Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "k1jpm0ovkjgycd1"
+        }
+      ],
+      "source_id": "fk4qeofiayjvvll"
+    },
+    {
+      "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Der Prälat der Benedictiner-Abtey zu **, ein zwar leidenschaftlicher, aber noch sehr ungeübter Jagdliebhaber war einst am obenerwähnten Hofe zu E** zu Besuch,",
+      "language": [],
+      "musenalm_id": 69664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI.",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.321Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "d6pf18b8mm847s1"
+        }
+      ],
+      "source_id": "v2c6l2lenahjaxx"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 69666-69668, Obj 44-46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Neue Jagdlieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Neue Jagdlieder",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "yzifut49ihdtan7"
+    },
+    {
+      "annotation": "XII. Neue Jagdlieder (Sammlung INr 69665, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Auf Brüder! singt mit mir das Lob / Der edlen Jägerey!",
+      "language": [],
+      "musenalm_id": 69666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Lob der edlen Jägerey. / Melod. Auf auf! ihr Brüder; und sey stark etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hr. Regier. Rath Bunsen zu Arolsen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Lob der edlen Jägerey. / Melod. Auf auf! ihr Brüder; und sey stark etc",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.321Z",
+          "agent": "d1cx5vxdeeve5kc",
+          "source_id": "ukir8kmoknij8g6"
+        }
+      ],
+      "source_id": "2v1g8e8tj1pkyk7"
+    },
+    {
+      "annotation": "XII. Neue Jagdlieder (Sammlung INr 69665, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Holdes Grün, wie lieb ich dich! / Augenlust bist du für mich!",
+      "language": [],
+      "musenalm_id": 69667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lob der grünen Farbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lob der grünen Farbe",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.420Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.420Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "wnofnzephympxd1"
+        }
+      ],
+      "source_id": "tj5hzz6vc1ko5ap"
+    },
+    {
+      "annotation": "XII. Neue Jagdlieder (Sammlung INr 69665, Obj 43) mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Frisch auf, ihr Waideleute! / Stürmt Jägerharmonie / Im Flintendonner heute / Dem Sonntag Okuli.",
+      "language": [],
+      "musenalm_id": 69668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Aufruf zum Schnepfenanstand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Münchhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Aufruf zum Schnepfenanstand",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.481Z",
+          "agent": "wfk4mi4tbts3zzx",
+          "source_id": "s5gaoymi0q69ca3"
+        }
+      ],
+      "source_id": "8yzea05xktk26qx"
+    },
+    {
+      "annotation": "Anm. am Objekt: Was ist das für Wildpret? werden viele unter euch fragen. Nur poetisches? Ganz kleine, aber erzbissige Gedichte sind es, die zur niedern Verse-Jagd gehören, und womit, wenn eines erjagt ist, manchem ein unverdauliches Küchengeschenk gemacht wird. Siehe Schillers berühmten Musenalmanach für 1797",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Zur Hülfe, zur Hülfe, traute Mitbrüder in Dianen! Unter jenem Rudel von Xenien, das im leztern Winter durchgebrochen ist, und mehr Unfug, als das stärkste Rudel wilder Schweine schon verübt, manchen Ehrenmann umgerennet, verwundet, oder doch wenigstens",
+      "language": [],
+      "musenalm_id": 69669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Nothschuß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Nothschuß",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.481Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "d380ev67qahp14x"
+        }
+      ],
+      "source_id": "758fgrwzpv7ttco"
+    },
+    {
+      "annotation": "# Aus:  Musenalmanach (Schiller) 1797 S. 249; s. Alm-511, INr 38588 /) Beigabe zu »Nothschuß« INr 69669, Obj 47/) mit einer Entgegnung s. INr 69671, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Regt sich was, gleich schießt der Jäger; ihm / scheinet die Schöpfung, / Wie lebendig sie ist, nur für den Schnappsack gemacht.",
+      "language": [],
+      "musenalm_id": 69670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Weidtasche",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Weidtasche",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.481Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "1k408sly2avpikn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.481Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "zfu89944qwmr1sq"
+        }
+      ],
+      "source_id": "chpfq1pe8gpxap7"
+    },
+    {
+      "annotation": "Beigabe zu »Nothschuß« INr 69669, Obj 47 /) Entgegnung auf »Die Waidtasche« [Reget sich was, gleich schiesst der Jäger] in: Musenalmanach (Schiller) 1797; Alm-511, INr 38588",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Uns entzückt die Natur - Euch Stolzen scheinet die / Schöpfung, / Wie lebendig sie ist, Euch nur zum Rauch- / faß gemacht.",
+      "language": [],
+      "musenalm_id": 69671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Xeniendichter, gewisse Journalfabrikanten / und dergleichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Xeniendichter, gewisse Journalfabrikanten / und dergleichen",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.481Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.481Z",
+          "agent": "vb68kmtb3e9gd34",
+          "source_id": "l609sgbuef0momt"
+        }
+      ],
+      "source_id": "6as7occ68neshcy"
+    },
+    {
+      "annotation": "Plan zu »Beschreibung eines holzsparenden und zugleich Kochofens, welcher sehr dauerhaft, bequem, einfach und möglichst wohlfeil ist« von G. L. Hartig INr 69646, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69672,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tafel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Forst K. 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1133_69672_6e8ixa7nas.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zum Forst K. 1798",
+      "updated": "2009-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhvhygduuzn3dau"
+    }
   ],
   "agents": [
     {

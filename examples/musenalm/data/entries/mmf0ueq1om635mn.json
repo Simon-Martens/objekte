@@ -48,37 +48,1185 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "pehhlr084ob6qdb"
+    {
+      "annotation": "1837-1838.\nKartonierter Einband mit Goldschnitt.(Buchrücken leicht beschädigt.)\n1837: (K: M. Ku 3.) Mit Port 1, X, Ku 2 und 403 SS.",
+      "condition": "5b",
+      "created": "2026-06-11 10:17:37.677Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100652",
+      "location": "105D10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.677Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pehhlr084ob6qdb"
+    }
   ],
   "contents": [
-    "3znbu4e40jpwdx8",
-    "l02tpukxn30sxl0",
-    "0rxvi3c381mdr0j",
-    "9aa8qwgz90y02ug",
-    "zrf2ik6ue0tvntf",
-    "468ctt5yvlw53aj",
-    "o2aaamq9bo217cq",
-    "azhe8elmifba5ku",
-    "tj6bnsrer4jmmq5",
-    "itqy7txxmpw3ezn",
-    "2nifrjo1yszqbpc",
-    "1sbjopp6c3098oa",
-    "pahewm47vxduabk",
-    "31l1m46gf181l8t",
-    "5xjluzckr1vxdnp",
-    "6jtpkkwv3noqmgd",
-    "bigf2pqsw9sb61l",
-    "blffjtltbcdcl8j",
-    "i3a87cbx3chd03o",
-    "eluyqvsdw8y840e",
-    "ycyfqqc6boyqk3f",
-    "vi2j79ywte70bdm",
-    "q9ollhxbovpnjeb",
-    "sod9wsb0cacops9",
-    "kyy6rgscyl6b8fl",
-    "0ywitaly3c2gpmo",
-    "x8yobwi71yum0il",
-    "4zpjr0765far1gs"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 78066, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78061,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fürst Pückler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Augusta Hüssener sc. Berlin",
+      "scans": [
+        "alm_2929_78061_m8byxzzvpg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fürst Pückler",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.665Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.665Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "m7orme92bjqmy3w"
+        }
+      ],
+      "source_id": "3znbu4e40jpwdx8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78062,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutsches Taschenbuch / auf das Jahr 1837. / Mit Beiträgen / von / Willibald Alexis, Adelbert v. Chamisso, Jos. Frhrn. v. / Eichendorff, E. Ferrand, Franz Frhrn. Gaudy, Em. / Geibel, O. F. Gruppe, Aug. Kopisch, H. Marggraff, / Th. Mundt, L. Rellstab und H. Stieglitz. / Herausgegeben / von / Karl Büchner. / Mit 3 Kupfern. / Berlin. / Verlegt von Duncker und Humblot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2929_78062_8m25r99rp2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Deutsches Taschenbuch / auf das Jahr 1837. / Mit Beiträgen / von / Willibald Alexis, Adelbert v. Chamisso, Jos. Frhrn. v. / Eichendorff, E. Ferrand, Franz Frhrn. Gaudy, Em. / Geibel, O. F. Gruppe, Aug. Kopisch, H. Marggraff, / Th. Mundt, L. Rellstab und H. Stieglitz. / Herausgegeben / von / Karl Büchner. / Mit 3 Kupfern. / Berlin. / Verlegt von Duncker und Humblot",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "l02tpukxn30sxl0"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Man wird es für ein kühnes Beginnen halten, daß ich, nachdem so manches viele Jahre bestandene Taschenbuch zu Grabe gegangen ist, mit einem neuen Unternehmen der Art auftrete.",
+      "language": [],
+      "musenalm_id": 78063,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Büchner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "0rxvi3c381mdr0j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78064,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "9aa8qwgz90y02ug"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 78066-78068, Obj 6-8 als Textbezüge zu den Graphiken des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78065,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht der Kupfer",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "zrf2ik6ue0tvntf"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer (Sammlung INr 78065, Obj 5) s. Titelportrait INr 78061, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Portrait des Herrn Fürsten Pückler-Muskau, nach einem Bilde im Besitze Ihrer Durchlaucht der Frau Fürstin Pückler-Muskau zu Berlin.",
+      "language": [],
+      "musenalm_id": 78066,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Titelkupfer",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "468ctt5yvlw53aj"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer (Sammlung INr 78065, Obj 5) s. Graphik INr 78069, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Es wurde dem Andenken des Königs Maximilian Joseph von Bayern durch die Bürger von München in Liebe gewidmet,",
+      "language": [],
+      "musenalm_id": 78067,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Das Königsmonument zu München",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Das Königsmonument zu München",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "o2aaamq9bo217cq"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer (Sammlung INr 78065, Obj 5) s. Graphik INr 78070, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die hier gegebene Ansicht ist eine Perspective des Gartenhauses in dieser reizenden, Sr. Königl. Hoheit dem Kronprinzen von Preußen angehörigen Besitzung.",
+      "language": [],
+      "musenalm_id": 78068,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Charlottenhof bei Potsdam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Charlottenhof bei Potsdam",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "azhe8elmifba5ku"
+    },
+    {
+      "annotation": "s. Textbezug INr 78067, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78069,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Königsmonument in München",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Berger sc.",
+      "scans": [
+        "alm_2929_78069_gtm3lpkmzp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Königsmonument in München",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.944Z",
+          "agent": "sm92um6sdwljy4m",
+          "source_id": "mjd9xy5s2ly83wn"
+        }
+      ],
+      "source_id": "tj6bnsrer4jmmq5"
+    },
+    {
+      "annotation": "s. Textbezug INr 78068, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78070,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charlottenhof bei Potsdam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Berger sc.",
+      "scans": [
+        "alm_2929_78070_dxc8jqsveq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Charlottenhof bei Potsdam",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.944Z",
+          "agent": "sm92um6sdwljy4m",
+          "source_id": "1sdn89as6ig2nf9"
+        }
+      ],
+      "source_id": "itqy7txxmpw3ezn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In Deutschland hat es zu verschiedenen Zeiten besondere Charaktertypen gegeben, die man vorzugsweise als Originale ansah, ihnen im Leben nachlief und sie in Romanen abzeichnete.",
+      "language": [],
+      "musenalm_id": 78071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fürst Pückler. / Ein Lebensbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mundt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fürst Pückler. / Ein Lebensbild",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.725Z",
+          "agent": "0p6rs0a44i6giuz",
+          "source_id": "vxannmxk223e43n"
+        }
+      ],
+      "source_id": "2nifrjo1yszqbpc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Die Künste entwickeln gegenwärtig eine lebendigere Regsamkeit als in den beiden letzten Jahrhunderten; dies wird namentlich in Deutschland gefühlt.",
+      "language": [],
+      "musenalm_id": 78072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / die Entwicklung / der neueren deutschen Kunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. F. Gruppe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / die Entwicklung / der neueren deutschen Kunst",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.725Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.725Z",
+          "agent": "9kqncyvdpl96r3o",
+          "source_id": "bxu4xikbtinj8vw"
+        }
+      ],
+      "source_id": "1sbjopp6c3098oa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Die deutsche Literatur erschient in ihrem vor- und diesjährigen Verlauf so gehäuft, gedrängt, und, im scheinbaren Widerspruch damit, dennoch so auseinandergefallen, so einheitslos, so in die feindseligsten Gegensätze sich auflösend,",
+      "language": [],
+      "musenalm_id": 78073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Physiognomie / der deutschen Literaur / in den Jahren 1835 und 1836.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Marggraff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Physiognomie / der deutschen Literaur / in den Jahren 1835 und 1836.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.562Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.562Z",
+          "agent": "xpfslvhm6lhhpgp",
+          "source_id": "dskx3j8cyiqiw1y"
+        }
+      ],
+      "source_id": "pahewm47vxduabk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Die Sarmaten feierten den Abgang ihres Seniors von der Akademie. Halb Königsberg war auf den Straßen und an den Fenster, als Zuschauer eines reichen Komitates, welches die Landsmannschaften dem jungen Prinzen gaben.",
+      "language": [],
+      "musenalm_id": 78074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr von Sacken. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herr von Sacken. / Novelle",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.562Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.562Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "zqve8s9tpred1ue"
+        }
+      ],
+      "source_id": "31l1m46gf181l8t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Von dem Strande, welcher nun Stabiä, die fast zweitausend Jahr im Aschenregen begrabene Stadt, lieblich überblüht, gelagert zwischen dem Golf von Neapel und dem von Salern, erhebt sich über den Spiegel des anmuthigen Meeres,",
+      "language": [],
+      "musenalm_id": 78075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Träumer. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Kopisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Träumer. / Novelle",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.562Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.562Z",
+          "agent": "aq3u8k3couckqq1",
+          "source_id": "h00mgeqqd8v5pon"
+        }
+      ],
+      "source_id": "5xjluzckr1vxdnp"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "6jtpkkwv3noqmgd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Die Wahrheit, sie besteht in Ewigkeit, / Wenn erst die blöde Welt ihr Licht erkannt;",
+      "language": [],
+      "musenalm_id": 78077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vom Pythagoräischen Lehrsatze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adelbert v. Chamisso",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vom Pythagoräischen Lehrsatze",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.562Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.562Z",
+          "agent": "3emdj29jey7pglq",
+          "source_id": "t8zohqiptk6ub36"
+        }
+      ],
+      "source_id": "bigf2pqsw9sb61l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Leben kann man nicht von Tönen, / Posie geht ohne Schuh, / Und so wandt' ich denn der Schönen / Endlich auch den Rücken zu.",
+      "language": [],
+      "musenalm_id": 78078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Umkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von Eichendorff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Umkehr",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.563Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.563Z",
+          "agent": "h99uxdryiugeh6h",
+          "source_id": "fqsmqih40x1ey8b"
+        }
+      ],
+      "source_id": "blffjtltbcdcl8j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "381",
+      "incipit_statement": "Viele Lerchen hell erwacht, / Die zum Himmel steigen, / Viele Sterne in der Nacht, / Vieler Wipfel Neigen,",
+      "language": [],
+      "musenalm_id": 78079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tafellied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von Eichendorff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tafellied",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.650Z",
+          "agent": "h99uxdryiugeh6h",
+          "source_id": "aeifqzs9bhyajy8"
+        }
+      ],
+      "source_id": "i3a87cbx3chd03o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "Sei antik doch, sei teutonisch, / Lern', skandire unverdrossen, / Freundchen, aber nur ironisch!",
+      "language": [],
+      "musenalm_id": 78080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entgegnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von Eichendorff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entgegnung",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.650Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.650Z",
+          "agent": "h99uxdryiugeh6h",
+          "source_id": "v1olmoc7l9xledk"
+        }
+      ],
+      "source_id": "eluyqvsdw8y840e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "383",
+      "incipit_statement": "Er saß in wüster Gesellen Kreis, / Vom Weine glühend, von Liebe heiß.",
+      "language": [],
+      "musenalm_id": 78081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Seilers Tochter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Seilers Tochter",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.651Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.651Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "93po7tdwabdjmsf"
+        }
+      ],
+      "source_id": "ycyfqqc6boyqk3f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Die Linden blühen wieder - / Ich steh' unter'm Lindenbaum, / Im Herzen quellende Lieder / Und Lieb' und Jugendtraum.",
+      "language": [],
+      "musenalm_id": 78082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Linden blühen wieder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Linden blühen wieder",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.651Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.651Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "euf9c5ks6ycd8rd"
+        }
+      ],
+      "source_id": "vi2j79ywte70bdm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "387",
+      "incipit_statement": "Nach Orthez reit' ich, wie's der Graf geboten. / Denk' an der Väter Spruch: des Mannes Wort / Ist schnell geschürzter, nie gelöster Knoten.",
+      "language": [],
+      "musenalm_id": 78083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Armand von Béarn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Freiherr Gaudy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Armand von Béarn",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.533Z",
+          "agent": "snnpz92vgxnioxl",
+          "source_id": "9l0y2ql76nde1mp"
+        }
+      ],
+      "source_id": "q9ollhxbovpnjeb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Beim Heil'gen auf der Brücken / Sitz ich auf steinerner Bank,",
+      "language": [],
+      "musenalm_id": 78084,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Handwerksbursch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Freiherr Gaudy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Handwerksbursch",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.533Z",
+          "agent": "snnpz92vgxnioxl",
+          "source_id": "d0kmsmbe70j7vl9"
+        }
+      ],
+      "source_id": "sod9wsb0cacops9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "394",
+      "incipit_statement": "Fern im Süd das schöne Spanien, / Spanien ist mein Heimathland,",
+      "language": [],
+      "musenalm_id": 78085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Zigeunerbube im Norden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Em. Geibel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Zigeunerbube im Norden",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.800Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.800Z",
+          "agent": "h8j0pzrwje92vvq",
+          "source_id": "9jnhykvd5vcmpfv"
+        }
+      ],
+      "source_id": "kyy6rgscyl6b8fl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "396",
+      "incipit_statement": "Zwillinge, nicht durch Geburt, durch des Geistes erhabene / Einheit, / Trug seiner Fittige Kraft Euch zu den Sternen des / Ruhms.",
+      "language": [],
+      "musenalm_id": 78086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Preussen's Dioskuren. / (Auf Wilh. von Humboldt's Tod, 8. April 1835.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rellstab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Preussen's Dioskuren. / (Auf Wilh. von Humboldt's Tod, 8. April 1835.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.800Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.800Z",
+          "agent": "zi8zh5xhvi7k26j",
+          "source_id": "5avise32s4fjg2o"
+        }
+      ],
+      "source_id": "0ywitaly3c2gpmo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "Es ras't der Sturm durchs duft'ge Lenzgefilde, / Der Sturm ras't durch des Herbstes welke Flur,",
+      "language": [],
+      "musenalm_id": 78087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Muth!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Stieglitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Muth!",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.800Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.800Z",
+          "agent": "1obisuoppirekjz",
+          "source_id": "6jqduv8v29nnvdq"
+        }
+      ],
+      "source_id": "x8yobwi71yum0il"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige. / Im selben Verlage erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige. / Im selben Verlage erschienen:",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "4zpjr0765far1gs"
+    }
   ],
   "agents": [
     {

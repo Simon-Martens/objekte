@@ -48,78 +48,3031 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "0u4in2fm5nubm40",
-    "znt3z2dtlbwrk87"
+    {
+      "annotation": "div. SS, G",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.517Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409702",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.517Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0u4in2fm5nubm40"
+    },
+    {
+      "annotation": "§1§ es fehlt SS 227, §3§ G fehlt, §2-5§ es fehlen SS 228-230 mit 3 Beiträgen <br> Apparat Wien/Pesth 1840-1845\n§1§ es fehlt SS 227, §3§ G fehlt, §2-5§ es fehlen SS 228-230 mit 3 Beiträgen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.517Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100274",
+      "location": "105T09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.517Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "znt3z2dtlbwrk87"
+    }
   ],
   "contents": [
-    "d51787z9n92hdvj",
-    "wbrmen9wfv5w7gb",
-    "2xnpq6a60e2om8r",
-    "sk5mkd559245xg2",
-    "lem74nfa9au72l6",
-    "ibklqwfyhdulu54",
-    "l2x0vtjiropei2v",
-    "bbdkul1hnybs6nj",
-    "vikit6akjx01lej",
-    "azupj9wbgzme9jo",
-    "mruiv84d5fsg447",
-    "whe2nkw3jmiqfsd",
-    "l287ilxjpaon1of",
-    "9imncnm3t58hzub",
-    "ed6s4oaasjl0b0x",
-    "rpt5paaa3yixlhb",
-    "60e1z0cv74z089a",
-    "n1lkyz38mpm6jbx",
-    "x071eszcy9u0vkt",
-    "nb16uujwpzehask",
-    "px5418qe9oo5j1t",
-    "nar81idgx7sqgeh",
-    "1cxa65xpp3hd3lg",
-    "8nvzkgixgmlagjw",
-    "xyh7050txubnuzb",
-    "f5e2s75gtnmj663",
-    "631gg6ngvvylp9k",
-    "bd76pykyygahize",
-    "hn8sscbirk8u01d",
-    "wpdlk3n7a5xsrnk",
-    "q142gnvzhryoghx",
-    "rgmwbzq49sqeg9u",
-    "k2ndptbf8wi5yl8",
-    "4vmcrhqcor02745",
-    "zjq1yr0je2diwsy",
-    "nx8yhraiwgbwcxl",
-    "ltmnuqreouat5kh",
-    "df0xcyrxubb9utq",
-    "qvni7e949kittn6",
-    "s2mut2n8h7cc01v",
-    "e4vwq8mr8a73e5l",
-    "bv7ir47ypasku4r",
-    "yz59zqamzdx9dmh",
-    "jnbwtdkqkmfh2zp",
-    "pbpf542yo2bzgi4",
-    "81cwhp0d7h5r334",
-    "2rai6naax0kqq8z",
-    "lnjkk6tmzngftep",
-    "q5crxzc1107s0dv",
-    "ysfv1y37myt0xw9",
-    "riarogmo5wnjxi1",
-    "t6bk9514t8l8zz1",
-    "dz4at42c86za1q6",
-    "cukatlhz5u1lwiu",
-    "yrrc7fwccv8wsta",
-    "r08o961xu6g4v0k",
-    "xc91t2sl5hfu4zi",
-    "xk2anyedj57vwuy",
-    "5lt0wr9d62myerb",
-    "j6gawk3rd20tl3m",
-    "7yn2fw9j86bwyx1",
-    "bj0q98vhgmqgpwm",
-    "yn3949ir76rrmfl",
-    "6vgamfd7dx4nhym",
-    "j9ezw3fwcanjyfw",
-    "yf0cv2a8cvftt0o",
-    "gtx5bed23uzncqr",
-    "oqccm0zt8255nav"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57850,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GRÄFIN ROSA SZAPÁRY",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás gez. Stahlst. v. C. Mahlknecht in Wien",
+      "scans": [
+        "alm_770_57850_cd1unashw1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GRÄFIN ROSA SZAPÁRY",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.936Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "pq54anplnie4fsx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.936Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "x15rz1bjonhbkb1"
+        }
+      ],
+      "source_id": "d51787z9n92hdvj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57851,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iris / Taschenbuch / für das Jahr 1843. / Herausgegeben / von / Johann Graf Mailáth / Vierter Jahrgang. / Mit sechs Stahlstichen / Pesth. / Verlag von Gustav Heckenast",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_770_57851_gaxemucyqk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iris / Taschenbuch / für das Jahr 1843. / Herausgegeben / von / Johann Graf Mailáth / Vierter Jahrgang. / Mit sechs Stahlstichen / Pesth. / Verlag von Gustav Heckenast",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "wbrmen9wfv5w7gb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57852,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "2xnpq6a60e2om8r"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: En amour tout est vrai et tout est faux; c'est la seule chose, sur laquelle on ne puisse pas dire des bêtises. / Chamfort",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Zwei junge Frauen, die verwitwete Gräfin Benna von T. und ihre Freundin Auguste, saßen eines Abends stickend und plaudernd beisammen.",
+      "language": [],
+      "musenalm_id": 57853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bekenntnisse. / Humoreske",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Betty Paoli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bekenntnisse. / Humoreske",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.791Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.791Z",
+          "agent": "rpx0m3s76l0s5s5",
+          "source_id": "pufrj2e8iqacd8o"
+        }
+      ],
+      "source_id": "sk5mkd559245xg2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Der Morgen graut. Am blauen Himmelsbogen / In Osten glänzt ein Punkt, ein Streifen Licht;",
+      "language": [],
+      "musenalm_id": 57854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Nil. / Ein Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ritter v. Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Nil. / Ein Gedicht",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.791Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.791Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "9838x35cdti14si"
+        }
+      ],
+      "source_id": "lem74nfa9au72l6"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 57856, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Das Leben dieser schönen Fürstin ist in die traurigste Zeit der ungrischen Geschichte mitverflochten.",
+      "language": [],
+      "musenalm_id": 57855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Isabella Zápolya",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Graf Mailáth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Isabella Zápolya",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "ynz1wrh0mfk3t8y",
+          "source_id": "v291nkh1d3jrvak"
+        }
+      ],
+      "source_id": "ibklqwfyhdulu54"
+    },
+    {
+      "annotation": "Illustration zu »Isabella Zápolya« von J. v. Mailáth INr 57855, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ISABELLA ZÁPOLYA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás gez. Stahlstich v. Mahlknecht in Wien",
+      "scans": [
+        "alm_770_57856_z4y8078sru.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ISABELLA ZÁPOLYA",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "nfbz0ug494shirp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "pfdm0kkiws74vri"
+        }
+      ],
+      "source_id": "l2x0vtjiropei2v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Der Ruhe müd, in die er lang versunken, / Von Muth geschwellt, von Lust nach Thaten trunken,",
+      "language": [],
+      "musenalm_id": 57857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Zauberschwert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Landesmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Zauberschwert",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "bbdkul1hnybs6nj"
+    },
+    {
+      "annotation": "Illustration zu »Der Dudelsackpfeifer« von J. G. Seidl INr 57859, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dudelsackpfeifer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. H. Payne sculp.",
+      "scans": [
+        "alm_770_57858_o2teh8ht2v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Dudelsackpfeifer",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "vns4sg0j1neru7c",
+          "source_id": "1nd5sn39tnus62e"
+        }
+      ],
+      "source_id": "vikit6akjx01lej"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 57858, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Einsam zwischen falben Garben / Blickt die Heideschenk' hervor,",
+      "language": [],
+      "musenalm_id": 57859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dudelsackpfeifer.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dudelsackpfeifer.",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "1gxzzgqj8pu7pxg"
+        }
+      ],
+      "source_id": "azupj9wbgzme9jo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Haben Sie über meine Vormundschaftsrechnungen zu quittiren? fragte der dictirende Majoratsherr von Firmenstein, in seinem Arbeitskabinet auf- und niederschreitend.",
+      "language": [],
+      "musenalm_id": 57860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor im Tricot. / Novellette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Walter Tesche",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor im Tricot. / Novellette",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "mruiv84d5fsg447"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten mit einer Illustration INr 57862-57867, Obj 13-18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahnn Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "v3xi4j04395sca4"
+        }
+      ],
+      "source_id": "whe2nkw3jmiqfsd"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57861, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Ein selt'nes Blümchen ist die Ruhe, / Ein Blümchen unsers Suchens werth,",
+      "language": [],
+      "musenalm_id": 57862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jericho-Rose. / (Anastatica.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahnn Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Jericho-Rose. / (Anastatica.)",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.672Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.672Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "mlll2i34aiv0hsa"
+        }
+      ],
+      "source_id": "l287ilxjpaon1of"
+    },
+    {
+      "annotation": "Illustration zu »Die Brieftaube« von J. G. Seidl INr 57864, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE BRIEFTAUBE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás. Stahlst. v. C. Mahlknecht in Wien",
+      "scans": [
+        "alm_770_57863_95jsyz7agr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE BRIEFTAUBE",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "c5hdv97ipmp0ikq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "ll4fdezla8hap1o"
+        }
+      ],
+      "source_id": "9imncnm3t58hzub"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57861, Obj 12) mit einer Illustration s. Graphik INr 57863, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Holde Botin treuer Liebe, / Sei willkommen tausendmal!",
+      "language": [],
+      "musenalm_id": 57864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Brieftaube.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahnn Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Brieftaube.",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "o4cuap57lj5hqq4"
+        }
+      ],
+      "source_id": "ed6s4oaasjl0b0x"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57861, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Nacht war's, geöffnet sah'n die Augen / Des Himmels all' auf uns herab.",
+      "language": [],
+      "musenalm_id": 57865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meineid. / Nox erat et coelo fulgebat luna sereno etc. etc. / Horat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahnn Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meineid. / Nox erat et coelo fulgebat luna sereno etc. etc. / Horat",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "xitbgxjg7zdaumb"
+        }
+      ],
+      "source_id": "rpt5paaa3yixlhb"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57861, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Glücklich, die sich freuen können / Auf die liebe, stille Nacht,",
+      "language": [],
+      "musenalm_id": 57866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlaflosigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahnn Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlaflosigkeit",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9unb7yrqly6z8sg"
+        }
+      ],
+      "source_id": "60e1z0cv74z089a"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57861, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Es kann sich nimmer länger halten, / Der Angriff ist zu allgemein;",
+      "language": [],
+      "musenalm_id": 57867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Winters Abzug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joahnn Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Winters Abzug",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "4byqoozbsnpagm2"
+        }
+      ],
+      "source_id": "n1lkyz38mpm6jbx"
+    },
+    {
+      "annotation": "Sammlung von 24 Beiträgen INr 57869-57892 , Obj 20-43",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gnomen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gnomen",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "umfxsxmomkunvqf"
+        }
+      ],
+      "source_id": "x071eszcy9u0vkt"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "In jede Harmonie des Lebens, klagst Du, drängt / Zerreißen sich ein Mißton ein",
+      "language": [],
+      "musenalm_id": 57869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In jede Harmonie des Lebens, klagst Du, drängt / Zerreißen sich ein Mißton ein…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "ktwxwakvzwugi9n"
+        }
+      ],
+      "source_id": "nb16uujwpzehask"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Was immer Dir die Hore bringe, Lust, wie Schmerz, / Ergreif' es mit der Seele ganzer Kraft:",
+      "language": [],
+      "musenalm_id": 57870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was immer Dir die Hore bringe, Lust, wie Schmerz, / Ergreif' es mit der Seele ganzer Kraft:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "n7ywrq0owzxbfh1"
+        }
+      ],
+      "source_id": "px5418qe9oo5j1t"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Sei stets Du selbst! es ist des Lebens höchster Preis: / Der Beste nur vermag sich selbst stets gleich zu sein.",
+      "language": [],
+      "musenalm_id": 57871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sei stets Du selbst! es ist des Lebens höchster Preis: / Der Beste nur vermag sich selbst stets gleich zu sein.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "0zlze6mzo82s2zj"
+        }
+      ],
+      "source_id": "nar81idgx7sqgeh"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Gesetze sind für Schwache nur und Schlechte da; / Der Gute kennt nur ein Gesetz; das: gut zu sein.",
+      "language": [],
+      "musenalm_id": 57872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gesetze sind für Schwache nur und Schlechte da; / Der Gute kennt nur ein Gesetz; das: gut zu sein.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "6yi94kjmzxpqt0w"
+        }
+      ],
+      "source_id": "1cxa65xpp3hd3lg"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Um keinen Gran verringert sich des Unglücks Wucht, / Wenn eines Trösters mildem Wort Dein Ohr Du leihst;",
+      "language": [],
+      "musenalm_id": 57873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Um keinen Gran verringert sich des Unglücks Wucht, / Wenn eines Trösters mildem Wort Dein Ohr Du leihst;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "2pxfksvh41dhrwq"
+        }
+      ],
+      "source_id": "8nvzkgixgmlagjw"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Des Lebens allgemeinster Lehrer ist der Schmerz: / Ein unentbehrlicher, den Guten wie den Bösen:",
+      "language": [],
+      "musenalm_id": 57874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Lebens allgemeinster Lehrer ist der Schmerz: / Ein unentbehrlicher, den Guten wie den Bösen:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.736Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.736Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "9yy3ktvrgivbz2t"
+        }
+      ],
+      "source_id": "xyh7050txubnuzb"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Was bebest Du, weil Du einen Pfeil nach Deiner Brust / Gerichtet weißt?",
+      "language": [],
+      "musenalm_id": 57875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was bebest Du, weil Du einen Pfeil nach Deiner Brust / Gerichtet weißt?…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "o6hr4elnq1uenpu"
+        }
+      ],
+      "source_id": "f5e2s75gtnmj663"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Daß unermeßlich unser Schmerz uns stets erscheint, / Das ist es, was ihm seine Macht gibt.",
+      "language": [],
+      "musenalm_id": 57876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Daß unermeßlich unser Schmerz uns stets erscheint, / Das ist es, was ihm seine Macht gibt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "8k5vjigomtjzvgb"
+        }
+      ],
+      "source_id": "631gg6ngvvylp9k"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Das Schicksal schlug noch keinen Mann in Fesseln, der / Nicht feigen Sinnes selbst die Hand der Fessel bot.",
+      "language": [],
+      "musenalm_id": 57877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schicksal schlug noch keinen Mann in Fesseln, der / Nicht feigen Sinnes selbst die Hand der Fessel bot.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "g1ber783sqzq74c"
+        }
+      ],
+      "source_id": "bd76pykyygahize"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Ein liebliches Ermatten vor dem Schlaf, beschleicht Geduld / Das kranke Herz;",
+      "language": [],
+      "musenalm_id": 57878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein liebliches Ermatten vor dem Schlaf, beschleicht Geduld / Das kranke Herz;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "63504z4y2r5xzur"
+        }
+      ],
+      "source_id": "hn8sscbirk8u01d"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Ungern und nur vom Schrecken ausgetrieben läßt / Der Vogel seinen Käfig, den er lang bewohnt.",
+      "language": [],
+      "musenalm_id": 57879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach dem Griechischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach dem Griechischen",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "fux8rllvb18603o"
+        }
+      ],
+      "source_id": "wpdlk3n7a5xsrnk"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Wenn auf zum Sternenhimmel Du den Blick erhebst, / So scheinen all' die Millionen Welten dort / Dir hingestreut ohn' Ordnung und Gesetz,",
+      "language": [],
+      "musenalm_id": 57880,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn auf zum Sternenhimmel Du den Blick erhebst, / So scheinen all' die Millionen Welten dort / Dir hingestreut ohn' Ordnung und Gesetz,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "hbf7oqezlzdp6nr"
+        }
+      ],
+      "source_id": "q142gnvzhryoghx"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Ganz unerträglich scheinet Dir im Widerspruch / Mit deiner Neigung dein Beruf.",
+      "language": [],
+      "musenalm_id": 57881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ganz unerträglich scheinet Dir im Widerspruch / Mit deiner Neigung dein Beruf.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "yfov3n5kr50ukik"
+        }
+      ],
+      "source_id": "rgmwbzq49sqeg9u"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Herrschsüchtigen Eroberern gleicht Liebe; stets, / Des Friedens Preis im Bunde, spinnt sie Streit aus Streit.",
+      "language": [],
+      "musenalm_id": 57882,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herrschsüchtigen Eroberern gleicht Liebe; stets, / Des Friedens Preis im Bunde, spinnt sie Streit aus Streit.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "84rggzn5pkserqt"
+        }
+      ],
+      "source_id": "k2ndptbf8wi5yl8"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Dem Frühling gleich wacht Liebe unter Blumen auf; / Des Sommers Hitze zeugt Gewitterstürme:",
+      "language": [],
+      "musenalm_id": 57883,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Frühling gleich wacht Liebe unter Blumen auf; / Des Sommers Hitze zeugt Gewitterstürme:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "g7d9x412ubltplx"
+        }
+      ],
+      "source_id": "4vmcrhqcor02745"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Frech klagen die Natur wir an als unbeständig, / Die treu stets ihren ewigen Gesetzen ist.",
+      "language": [],
+      "musenalm_id": 57884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frech klagen die Natur wir an als unbeständig, / Die treu stets ihren ewigen Gesetzen ist.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.737Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "p0hlxj6vtvee3fr"
+        }
+      ],
+      "source_id": "zjq1yr0je2diwsy"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Vergänglich scheint Dir Alles,was das Meer versiegt, / Der Berg zersplittert, Tempel und Pallast in Staub",
+      "language": [],
+      "musenalm_id": 57885,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergänglich scheint Dir Alles,was das Meer versiegt, / Der Berg zersplittert, Tempel und Pallast in Staub…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.633Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "181jbqt7i1s4rh2"
+        }
+      ],
+      "source_id": "nx8yhraiwgbwcxl"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Schwach ist der Mensch; am schwächsten darin, daß er Alles / Den Lebensgöttern trotzig abzuringen meint.",
+      "language": [],
+      "musenalm_id": 57886,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwach ist der Mensch; am schwächsten darin, daß er Alles / Den Lebensgöttern trotzig abzuringen meint.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.633Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.633Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "or6whtal9xgkzzx"
+        }
+      ],
+      "source_id": "ltmnuqreouat5kh"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Der Liebe zahl' als Schuld die Liebe, und dem Haß, / Nicht bangend um die Zinsen, biet als Darlehn sie.",
+      "language": [],
+      "musenalm_id": 57887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebe zahl' als Schuld die Liebe, und dem Haß, / Nicht bangend um die Zinsen, biet als Darlehn sie.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "tyn86oyxdahga5g"
+        }
+      ],
+      "source_id": "df0xcyrxubb9utq"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Still trag den Haß; erträgst Du still ihn und gefaßt: / So sprüht sein Gift auf deinen Feind von Dir zurück.",
+      "language": [],
+      "musenalm_id": 57888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Still trag den Haß; erträgst Du still ihn und gefaßt: / So sprüht sein Gift auf deinen Feind von Dir zurück.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "oycvt6y9nrls33j"
+        }
+      ],
+      "source_id": "qvni7e949kittn6"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Wie Felsensäulen auf dem Grund des Meeres steh'n, / Im Kern der Erde wurzelnd;",
+      "language": [],
+      "musenalm_id": 57889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie Felsensäulen auf dem Grund des Meeres steh'n, / Im Kern der Erde wurzelnd;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "cllnx76whcpaz31"
+        }
+      ],
+      "source_id": "s2mut2n8h7cc01v"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Das Gute üben ist nicht schwer; weit schwerer ist's / Mit Demuth und mit stillem Sinn das Gute üben.",
+      "language": [],
+      "musenalm_id": 57890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gute üben ist nicht schwer; weit schwerer ist's / Mit Demuth und mit stillem Sinn das Gute üben.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "l9gonnly5f58mfs"
+        }
+      ],
+      "source_id": "e4vwq8mr8a73e5l"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Was klagst Du, daß sie hingestorben, die so treu / Dich liebten, die so treu Du selbst geliebt;",
+      "language": [],
+      "musenalm_id": 57891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was klagst Du, daß sie hingestorben, die so treu / Dich liebten, die so treu Du selbst geliebt;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "kcyc7txkhp45dbt"
+        }
+      ],
+      "source_id": "bv7ir47ypasku4r"
+    },
+    {
+      "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Was war, das ist; ist, weil es war. Vereinzelt nicht, / Als Glied des All's bestand es,",
+      "language": [],
+      "musenalm_id": 57892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was war, das ist; ist, weil es war. Vereinzelt nicht, / Als Glied des All's bestand es,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Enk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "564ow3ktop2urqv",
+          "source_id": "mo3zhxsi7vhw3fc"
+        }
+      ],
+      "source_id": "yz59zqamzdx9dmh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Willkommen hehre Frühlingsnacht / Mit deiner gold'nen Sternenpracht!",
+      "language": [],
+      "musenalm_id": 57893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichters Freundin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Phil v. Körber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichters Freundin",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "jnbwtdkqkmfh2zp"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 57895, 57896; Obj 46, 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Edmund Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "emg65x4ze46kant",
+          "source_id": "pixlx1y9pjzi6op"
+        }
+      ],
+      "source_id": "pbpf542yo2bzgi4"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57894, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Seht hin! der Gladiator, kampfbewehrt, / In seinen Blicken kühnes Selbstvertrauen,",
+      "language": [],
+      "musenalm_id": 57895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gladiator",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Edmund Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gladiator",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "emg65x4ze46kant",
+          "source_id": "92mpwf5gs920whj"
+        }
+      ],
+      "source_id": "81cwhp0d7h5r334"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 57894, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Gebietrisch theilt mein Stab die finstern Wetter / Und zeichnet Kreise in die schwüle Luft,",
+      "language": [],
+      "musenalm_id": 57896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Haruspex",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Edmund Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Haruspex",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.625Z",
+          "agent": "emg65x4ze46kant",
+          "source_id": "t835euieq2w7w2t"
+        }
+      ],
+      "source_id": "2rai6naax0kqq8z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Du liebtest mich / Und freundlich lacht' / Mir die Natur in Frühlingspracht.",
+      "language": [],
+      "musenalm_id": 57897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einst und Jetzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einst und Jetzt",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "lnjkk6tmzngftep"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Ja, gute Nacht! schon fängt es an zu dunkeln; / Des Lebenstag neigt leise sich herab.",
+      "language": [],
+      "musenalm_id": 57898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den letzten December 1841",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den letzten December 1841",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "q5crxzc1107s0dv"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 57900, 57901; Obj 51,52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Quelle. / Aus den Papieren / eines verabschiedeten Lanzenknechtes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwei Quelle. / Aus den Papieren / eines verabschiedeten Lanzenknechtes",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "ysfv1y37myt0xw9"
+    },
+    {
+      "annotation": "Zwei Quelle. Aus den Papieren eines verabschiedeten Lanzenknechtes (Sammlung INr 57899, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Es war gerade im Winter des Jahres 1831, die Revolution tobte noch um die Pforten des Luxemburgs und die Hallen des Erzbisthums,",
+      "language": [],
+      "musenalm_id": 57900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Adeline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Adeline",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "riarogmo5wnjxi1"
+    },
+    {
+      "annotation": "Zwei Quelle. Aus den Papieren eines verabschiedeten Lanzenknechtes (Sammlung INr 57899, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Ich war mit der Messagerie nach Marseille gekommen. Drei junge Männer, es schienen mir Handesleute oder Comis voyageurs, waren meine Reisegefährten.",
+      "language": [],
+      "musenalm_id": 57901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Duell in Marseille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Duell in Marseille",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "t6bk9514t8l8zz1"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 57903, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Der Sohn der Haide, wie gefällt er euch? / Sein Antlitz ist dem klaren Himmel gleich",
+      "language": [],
+      "musenalm_id": 57902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sohn der Haide. / Der Sohn der Haide. / (Mit einem Stahlstich.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Köffinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sohn der Haide. / Der Sohn der Haide. / (Mit einem Stahlstich.)",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.843Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.843Z",
+          "agent": "6nwmu2j1m8xu6n4",
+          "source_id": "b95dq17prcirniw"
+        }
+      ],
+      "source_id": "dz4at42c86za1q6"
+    },
+    {
+      "annotation": "Illustration zu »Der Sohn der Haide« von Köffinger INr 57902, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER SOHN DER HAIDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás gez. Stahlstich v. Mahlknecht in wien",
+      "scans": [
+        "alm_770_57903_xurn86wy1k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER SOHN DER HAIDE",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.843Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.843Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "3l2k1srxajrwici"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.843Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.843Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "8z6o7s75xkd4n2x"
+        }
+      ],
+      "source_id": "cukatlhz5u1lwiu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.877Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Ich  pflückt' im Garten einen Strauß / Von Blumen auserlesen; / Ich trug ihn so vergnügt nach Haus, / Als wär's ein Schatz gewesen.",
+      "language": [],
+      "musenalm_id": 57904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Blumenstrauß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Köffinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Blumenstrauß",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.843Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.843Z",
+          "agent": "6nwmu2j1m8xu6n4",
+          "source_id": "w49c2c1hx7wjjcd"
+        }
+      ],
+      "source_id": "yrrc7fwccv8wsta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.830Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Wele Rosen, arme Blumen, / Neu erblühen könnt ihr nie;",
+      "language": [],
+      "musenalm_id": 57905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Welke Rosen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Josephine v. Remekhási",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Welke Rosen",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.671Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.671Z",
+          "agent": "jc0gro9nxm9tpb1",
+          "source_id": "s0mel1vc4gg9fdh"
+        }
+      ],
+      "source_id": "r08o961xu6g4v0k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Hans von Scharnast hatte ein lächerliches Fideicommiß gestiftet. Seine Burg Rothenstein sammt Zugehör an Unterthanen, Jagd- und Fischgerechtigkeit solle sich in gerader Linie immer auf den ältesten Sohn forterben,",
+      "language": [],
+      "musenalm_id": 57906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Narrenburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adalbert Stifter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Narrenburg",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.644Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.644Z",
+          "agent": "gqt48yh8xk0p2zo",
+          "source_id": "s8hkblbb49ktl0e"
+        }
+      ],
+      "source_id": "xc91t2sl5hfu4zi"
+    },
+    {
+      "annotation": "Illustration zu »Die Todesbotschaft« von C. E. Langer INr 57908, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE TODESBOTSCHAFT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Mayer gez. Stahlst. v. A. Bogner in Wien",
+      "scans": [
+        "alm_770_57907_xom46xzxr8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE TODESBOTSCHAFT",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.644Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.644Z",
+          "agent": "p0di0vtr4p5pck5",
+          "source_id": "6z99x9knx079t6i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.644Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.644Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "a4qs90uo53lolpu"
+        }
+      ],
+      "source_id": "xk2anyedj57vwuy"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 57907, Obj 58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Wir haben ihn am Schlachtgefild bestattet, / Wo er gefallen, senkten wir ihn ein",
+      "language": [],
+      "musenalm_id": 57908,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Todesbotschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Edmund Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Todesbotschaft",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.732Z",
+          "agent": "emg65x4ze46kant",
+          "source_id": "jpohc8lyc2q5y3f"
+        }
+      ],
+      "source_id": "5lt0wr9d62myerb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Seht dort der Feinde starke Flotte nahen, / Frisch rüstet Euch zum Kampf auf Sieg und Tod!",
+      "language": [],
+      "musenalm_id": 57909,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lambas von Auria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Bube",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lambas von Auria",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.657Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.657Z",
+          "agent": "e0feijwjpugv8vg",
+          "source_id": "6l1tgl21l4pwm9l"
+        }
+      ],
+      "source_id": "j6gawk3rd20tl3m"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 57911, 57912; Obj 62, 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 57910,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klänge aus Ungarn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klänge aus Ungarn",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.657Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.657Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "37uoeuvgbtlv9qi"
+        }
+      ],
+      "source_id": "7yn2fw9j86bwyx1"
+    },
+    {
+      "annotation": "Klänge aus Ungarn (Sammlung INr 57910, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Unabsehbar ist die Fläche, / Nicht ein Bäumchen, nicht ein Strauch.",
+      "language": [],
+      "musenalm_id": 57911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf eine Ungarhaide",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf eine Ungarhaide",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.658Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "707hom3iry1ucm3"
+        }
+      ],
+      "source_id": "bj0q98vhgmqgpwm"
+    },
+    {
+      "annotation": "Klänge aus Ungarn (Sammlung INr 57910, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Sieh ein Grab hier auf der Haide, / Ohne Kreuz und ohne Kranz,",
+      "language": [],
+      "musenalm_id": 57912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Grab auf der Haide",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Grab auf der Haide",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "yn3949ir76rrmfl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "373",
+      "incipit_statement": "Es steht vor meinem Blick ein Bild / Ich seh darin dein künftig Sein:",
+      "language": [],
+      "musenalm_id": 57913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erscheinung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludw. Gottfr. Neumann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erscheinung",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.658Z",
+          "agent": "u56d09jffk0z5ur",
+          "source_id": "8znktjtdh9dlxi4"
+        }
+      ],
+      "source_id": "6vgamfd7dx4nhym"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Als ich noch in dem Lenz der Jugend lebte, / Als mich der Glanz der Lebenslust umschwebte, / Da war mein Dasein ein harmonisch Bild;",
+      "language": [],
+      "musenalm_id": 57914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Greis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludw. Gottfr. Neumann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Greis",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.658Z",
+          "agent": "u56d09jffk0z5ur",
+          "source_id": "juvsbb3majqvfjx"
+        }
+      ],
+      "source_id": "j9ezw3fwcanjyfw"
+    },
+    {
+      "annotation": "s. Beitrag »Sebba« INr 57833 in: Iris (Mailath, Saphir) 1842. /) Anm. am Objekt: Baptiste Poujoulat sagt in seiner  »Voyage dans l'Asie mineure« II. p. 185 sehr mit Unrecht: On peut croire, que les auteurs arabes ont confondu Zabba et Zénobie; die arabischen Geschichtschreiber unterscheiden beide Königinnen eben so genau, als Vopiscus, und es ist Schade, daß H. P., welcher in der Gegend von Raka vorbeikam, sich nicht nach den von andern Reisenden erwähnten Ruinen umgesehen, welche die Reste von Sebba's Pallast mit unterirdischen Gängen sind.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Das im vorigen Jahrgange der Iris ausgesprochene Vielleicht: vielleicht sprechen wir ein andernmal von dem frühern Leben Dschodeime's und seiner Schwester Rakasch, sei durch dieses Seitenstück zu Sebba (Zenobia's Schwester) hiemit verwirklicht.",
+      "language": [],
+      "musenalm_id": 57915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rakasch und ihr Sohn Amru",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hammer-Purgstall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rakasch und ihr Sohn Amru",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.814Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "ujakswa4zer9s69"
+        }
+      ],
+      "source_id": "yf0cv2a8cvftt0o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Sinnend in der leichten Barke / Lehnt der junge Gondolier;",
+      "language": [],
+      "musenalm_id": 57916,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Schiffers Liebchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Camillo Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Schiffers Liebchen",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.814Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.814Z",
+          "agent": "xz436m6xv67mixf",
+          "source_id": "qeorhedcvm4yq2q"
+        }
+      ],
+      "source_id": "gtx5bed23uzncqr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Aus Arcadien gezogen / Kam ein edles Sängerpaar, / Des Gesanges reiche Wogen / Floßen ihren Lippen dar,",
+      "language": [],
+      "musenalm_id": 57917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. N. Preyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Sänger",
+      "updated": "2008-06-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "oqccm0zt8255nav"
+    }
   ],
   "agents": [
     {

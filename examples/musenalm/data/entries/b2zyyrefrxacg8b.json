@@ -48,43 +48,1465 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "0vy9jsf0b6khwtv",
-    "pibqxx5lhgm4n68"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.501Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "100782",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.501Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0vy9jsf0b6khwtv"
+    },
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit Goldschnitt.(Buchrücken fehlt, Inhalt lose.)\n1825: (K: M.Ku 8.) Mit Port 1, Bl 2, Ku 6, XXII, 292 SS, 48 SS und Bl 1.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.501Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100588",
+      "location": "105J08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.501Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pibqxx5lhgm4n68"
+    }
   ],
   "contents": [
-    "njla0sejzs57nq8",
-    "n23lwzma5etjcmy",
-    "5nvwf9d8zntbwo6",
-    "636ufrvkokfre9k",
-    "dtlxwfw3xecq1lf",
-    "e8j04xcqha6pq3x",
-    "pen946bkmphr7ce",
-    "nwn28mek4wn11nj",
-    "txr36dbh0ky2541",
-    "o3my6knhhc97gww",
-    "jhps3ui36eq2nbo",
-    "ami9q9qyov85a48",
-    "5pswra1flkjyr1v",
-    "j8g2hqv69u1alg5",
-    "xzhlml4uh5r2izl",
-    "sai11ndghcxpbpk",
-    "x495mkxl3sg20mk",
-    "ncogqsx8a91i2hn",
-    "vq262tlk90t8eyg",
-    "qxf7kq47tiksexz",
-    "ek0g56fseady7qi",
-    "ny456hsia63kkb0",
-    "vv9g1vnrui5oagc",
-    "4mcdrz25jk1bt2z",
-    "1j0thndlwe8wgmw",
-    "1uo2kmfrh9ea8wk",
-    "htfxi2u50zqw64a",
-    "cs36sg2c7m0hxhp",
-    "9lgxkm60ufil451",
-    "kn7fv9oij0d5acc",
-    "zm63shrvj2vag90",
-    "hxi62t0z86zpyyp",
-    "e4l0bp8xkk1qlgk"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43623,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lady Beatrice",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rémon del. et sculp.",
+      "scans": [
+        "alm_580_43623_n16lllj9dy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lady Beatrice",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "njla0sejzs57nq8"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43624,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / Taschenbuch / auf das Jahr 1825. / Herausgegeben / von / Dr. ADRIAN. / Sechzehenter Jahrgang. / Frankfurt a/M / bei Joh. David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geiler sc.",
+      "scans": [
+        "alm_580_43624_cnczvasts3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / Taschenbuch / auf das Jahr 1825. / Herausgegeben / von / Dr. ADRIAN. / Sechzehenter Jahrgang. / Frankfurt a/M / bei Joh. David Sauerländer",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "n23lwzma5etjcmy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43625,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "5nvwf9d8zntbwo6"
+    },
+    {
+      "annotation": "Sammlung von 7 Textbezügen zu 7 Graphiken INr 43627-43640, Obj 5-18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43626,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Walter Scott's Werken. / Zweite Lieferung. / Kenilworth",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Walter Scott's Werken. / Zweite Lieferung. / Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.241Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.241Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ftrmg6116zxs5un"
+        }
+      ],
+      "source_id": "636ufrvkokfre9k"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43628, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Bei dem guten Wirthe zu Cumnor hatte sich eine fröhliche Gesellschaft zusammengefunden, welche der Wein, den des Wirtthes Neffe, Michael Lambourne spendete nicht wenig begeisterte,",
+      "language": [],
+      "musenalm_id": 43627,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth. / 1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth. / 1.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.065Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.065Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "szafgzqsvkc9zpb"
+        }
+      ],
+      "source_id": "dtlxwfw3xecq1lf"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43627, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43628,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Wiessner sc. Nbg.1824",
+      "scans": [
+        "alm_580_43628_qakiglxx3l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.043Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.043Z",
+          "agent": "v6whpg6896rh6jd",
+          "source_id": "cqyn7zmb0kibrtf"
+        }
+      ],
+      "source_id": "e8j04xcqha6pq3x"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43630, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Barney's Ankunft zu Cumnor-Place war für die reizende Gräfin von guter Vorbedeutung: denn er kündigte den Besuch seines Gebieters an;",
+      "language": [],
+      "musenalm_id": 43629,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kenilworth] 2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Kenilworth] 2.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.043Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.043Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "iwf0cogjcpqbh2v"
+        }
+      ],
+      "source_id": "pen946bkmphr7ce"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43629, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43630,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_580_43630_pusv67siob.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "nwn28mek4wn11nj"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43632, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Tressilian war, nachdem er den Park von Cumnor-Place verlassen hatte, in sein Gasthaus im Dorfe Cumnor zurückgekehrt und machte sich, auf des dortigen Wirthes Rath, um Mitternacht auf den Weg nach Devonshire,",
+      "language": [],
+      "musenalm_id": 43631,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kenilworth] 3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Kenilworth] 3.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.043Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.043Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "xoee5r8wa3trswg"
+        }
+      ],
+      "source_id": "txr36dbh0ky2541"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43631, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43632,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. R. Leslie del. A. Brückner sc. Leipzig",
+      "scans": [
+        "alm_580_43632_o0zne246vq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.162Z",
+          "agent": "i4ngciqyls3qwnk",
+          "source_id": "4cwjnpuv6b3uory"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.162Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "4qo23ldocazj3jz"
+        }
+      ],
+      "source_id": "o3my6knhhc97gww"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43634, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Tressilian fand seinen Freund und Gönner, den Grafen Sussex auf seinem Rittersitze von Say's Court krank:",
+      "language": [],
+      "musenalm_id": 43633,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kenilworth] 4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Kenilworth] 4.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.050Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "gogr1eazdw8ga9j"
+        }
+      ],
+      "source_id": "jhps3ui36eq2nbo"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43633, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. R. Leslie. Rossmäsler Dresd. 1824",
+      "scans": [
+        "alm_580_43634_5ofhw9czwy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "pytgqwc0c12jj1x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "i4ngciqyls3qwnk",
+          "source_id": "r7g3nyycbywrrf1"
+        }
+      ],
+      "source_id": "ami9q9qyov85a48"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43636, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Tressilian hat seine Anklage gegen Varney vor die Königin gebracht und Leicester erniedrigte sich, seine liebenswürdige Gattin zu verläugnen und sie für Barney's Angetraute auszugeben.",
+      "language": [],
+      "musenalm_id": 43635,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kenilworth] 5.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Kenilworth] 5.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "v14ndeu6kzi6dvh"
+        }
+      ],
+      "source_id": "5pswra1flkjyr1v"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43635, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43636,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. R. Leslie del. A. Brückner sc. Leipzig",
+      "scans": [
+        "alm_580_43636_7k48ixjh1c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "i4ngciqyls3qwnk",
+          "source_id": "m4o7ng0phjzuidp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "ordnangcq3q3mi3"
+        }
+      ],
+      "source_id": "j8g2hqv69u1alg5"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43638, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Die arme Gräfin entschloß sich, nachdem sie die Ruchlosigkeit Varney's durchschaut hatte, zu ihrem Gemahl nach Kenilworth zu fliehen",
+      "language": [],
+      "musenalm_id": 43637,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kenilworth] 6.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Kenilworth] 6.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "oj12sraggtkkjor"
+        }
+      ],
+      "source_id": "xzhlml4uh5r2izl"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43637, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43638,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leslie. Rosmäsler Dresd. 1821",
+      "scans": [
+        "alm_580_43638_ob09sfpxqd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "bstzr501j4377oj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "i4ngciqyls3qwnk",
+          "source_id": "n87jlo3lppo0ecf"
+        }
+      ],
+      "source_id": "sai11ndghcxpbpk"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43640, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Der Zufall hatte in dem Park des Schlosses Kenilworth die unglückliche Gräfin Amy vor die Königin geführt,",
+      "language": [],
+      "musenalm_id": 43639,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kenilworth] 7.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Kenilworth] 7.",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "pte3ev33d738d4o"
+        }
+      ],
+      "source_id": "x495mkxl3sg20mk"
+    },
+    {
+      "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43639, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43640,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kenilworth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_580_43640_utf1r9f0yn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kenilworth",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "ncogqsx8a91i2hn"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43641,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches Taschenbuch. / Sechszehnter Jahrgang. / Neue Folge. / Vierter Jahrgang. 1825",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches Taschenbuch. / Sechszehnter Jahrgang. / Neue Folge. / Vierter Jahrgang. 1825",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "vq262tlk90t8eyg"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen INr 43643-43649, Obj 21-27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilder aus England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilder aus England",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "hdcm1ew0cdlnsi2"
+        }
+      ],
+      "source_id": "qxf7kq47tiksexz"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: Für Trauern und für Ungemüthe ist nichts so gut, / Als anzusehn ein' schöne Fraue wohlgemuth. / Walter von der Vogelweide",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es wird nicht in Abrede gestellt werden, daß, unter den Bewohnerinnen von Westeuropa, die Engländerinnen am schönsten gebaut sind.",
+      "language": [],
+      "musenalm_id": 43643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Londoner Schönen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Londoner Schönen",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ednsfwcpogbj8go"
+        }
+      ],
+      "source_id": "ek0g56fseady7qi"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: Die Jahr' entstürmen, / Morgen Schatten und Asche, kränzt mit Myrthen / Heute den Becher. / Matthisson",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Es bedarf einer Entschuldigung, daß ich zwei so disparate Gegenstaände, wie Londner Schöne und Matrosen sind, neben einander stelle.",
+      "language": [],
+      "musenalm_id": 43644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Matrosen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Matrosen",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.939Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "2blh6iua6ba8i5p"
+        }
+      ],
+      "source_id": "ny456hsia63kkb0"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: Kauft allerhand, kauft allerhand, / Kauft lang' und kurz Waar'. / Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Wer die Märchen von Tausend und Einer Nacht gelesen hat - und wer hätte diese lieblichen Morgenträume südlicher Phantasie nicht gelesen?",
+      "language": [],
+      "musenalm_id": 43645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Kaufläden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Kaufläden",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.109Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.109Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "unbw43hroava1q2"
+        }
+      ],
+      "source_id": "vv9g1vnrui5oagc"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: In die Traum- und Zaubersphäre / Sind wir, scheint es, eingegangen. / Führ' uns gut und mach' dir Ehre. / Goethe's Faust",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Der Sommernachts-Vergnügungsort der eleganten Welt von London, Vauxhall-Gärten genannt, liegt ungefähr drei englische Meilen von den großen Theatern,",
+      "language": [],
+      "musenalm_id": 43646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Vauxhall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Vauxhall",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.109Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.109Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "04zfn8018w66e7d"
+        }
+      ],
+      "source_id": "4mcdrz25jk1bt2z"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: Wild Wetter und schön - schön Wetter und wild. / Shakespeare",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Das frühe, frische und üppige der Vegetation in und um London zeichnet den dortigen Frühling aus,",
+      "language": [],
+      "musenalm_id": 43647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / London im Frühling und im Herbste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / London im Frühling und im Herbste",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.109Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.109Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "11ss3mjd83qdv1c"
+        }
+      ],
+      "source_id": "1j0thndlwe8wgmw"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: Was haben wir für Spiele, um nach Tisch / Bis Schlafengehn die Zeit uns zu vertreiben? / Shakespeare's Sommernachtstraum",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Wie diese Frage des Theseus acht Jahrhunderte später zu Athen überflüssig gewesen wäre, so ist sie es auch jetzt in London,",
+      "language": [],
+      "musenalm_id": 43648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Theater in London",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Theater in London",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.109Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.109Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "e8gatig9d5hyqkl"
+        }
+      ],
+      "source_id": "1uo2kmfrh9ea8wk"
+    },
+    {
+      "annotation": "Bilder aus England (Sammlung INr 43642, Obj 20) Dem Text vorangestellt: Nur ein Traum ist unser Leben, / Und der Mensch, das seh' ich nun, / Träumt sein ganzes Sein und Thun, / Bis zuletzt die Träum' entschweben. / Chalderon",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "What a scrall! rief das Kammermädchen meiner Hausfrau, als ich eines Tages an ihrer Thüre vorbeiging.",
+      "language": [],
+      "musenalm_id": 43649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der geheimnißvolle Wagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der geheimnißvolle Wagen",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.109Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.109Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "i2lftaa6f80024s"
+        }
+      ],
+      "source_id": "htfxi2u50zqw64a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Nun Fräulein? In Gedanken verloren, das Köpchen seitwärts gesenkt gleich einer schmachtenden Schäferin?!",
+      "language": [],
+      "musenalm_id": 43650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Reise nach Flandern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Reise nach Flandern",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.245Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.245Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "dc6zpj5ksd7kuar"
+        }
+      ],
+      "source_id": "cs36sg2c7m0hxhp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Die Güter des Herrn von Starrnang liegen in der Nähe des Harzes. Der Vater des jetzigen Besitzers von Starnang war ein guter, alter Herr;",
+      "language": [],
+      "musenalm_id": 43651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schleier. / erzählun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Linde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schleier. / erzählun",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "9lgxkm60ufil451"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Als ich so glücklich war, das Versprechen Ihrer Hand zu empfangen, sagten Sie in jener, mir unvergeßlichen Stunde gerührt zu mir:",
+      "language": [],
+      "musenalm_id": 43652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweifel und Glaube in Liebe vereinigt. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Gerstenbergk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweifel und Glaube in Liebe vereinigt. / Erzählung",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.159Z",
+          "agent": "h167uzfduv8nbnr",
+          "source_id": "013284mxjxhv31y"
+        }
+      ],
+      "source_id": "kn7fv9oij0d5acc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43653,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der / regierenden Häuser in Europa. / Deutscher Bund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der / regierenden Häuser in Europa. / Deutscher Bund",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "zm63shrvj2vag90"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regierende Häuser in Europa außerhalb / Deutschlands",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regierende Häuser in Europa außerhalb / Deutschlands",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "hxi62t0z86zpyyp"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43655,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Verlag von J. D. Sauerländer in Frankfurt / am Main ist erschienen und in allen Buchhandlungen / zu haben:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Verlag von J. D. Sauerländer in Frankfurt / am Main ist erschienen und in allen Buchhandlungen / zu haben:",
+      "updated": "2006-05-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "e4l0bp8xkk1qlgk"
+    }
   ],
   "agents": [
     {

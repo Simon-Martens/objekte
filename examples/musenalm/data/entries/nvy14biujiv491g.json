@@ -48,26 +48,727 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "78nvuw3yown2e92"
+    {
+      "annotation": "K gibt Jg 1843 an; Radtke 13, 12, 15, 16: Jgg 1843, 1844",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.535Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404374",
+      "location": "105A03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.535Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "78nvuw3yown2e92"
+    }
   ],
   "contents": [
-    "awl4rszn2wwftjd",
-    "0jb6onwnr1gyk2p",
-    "ohhulkigqjuxkdj",
-    "60n7lzjvxwhv06l",
-    "kcm9fx6r8z0cjed",
-    "wwb4vle9t4n3zfk",
-    "8pvqdg450aj8gt7",
-    "g590dgeecxyao2d",
-    "pgn1zckvr77w0tc",
-    "csgy7ffr3y3goe5",
-    "behffqikioo1hey",
-    "72cx0vh1q80dj1t",
-    "ilfzyb5suxnztws",
-    "8rtsxtq6xty6za7",
-    "bwht7zw6vyfwwkn",
-    "8ys71kwgztqghjn",
-    "ixqsnh0vm0flaan"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65324,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_1093_65324_bf67orcebl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "awl4rszn2wwftjd"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65325,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agnes von Ebersdorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Hasslwander del. G. Leybold sc.",
+      "scans": [
+        "alm_1093_65325_ah4dkhsm3i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Agnes von Ebersdorf",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "mpbefrf5azbmpyk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "rb0is2za5c4lggc",
+          "source_id": "zztm7babo9hme75"
+        }
+      ],
+      "source_id": "0jb6onwnr1gyk2p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65326,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oesterreichischer / Novellen-Almanach. / Herausgegeben / von / Andreas Schumacher. / Wien, 1843. / Verlag von Tauer & Sohn, / Schulhof No. 413",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1093_65326_zsnp1hiarc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Oesterreichischer / Novellen-Almanach. / Herausgegeben / von / Andreas Schumacher. / Wien, 1843. / Verlag von Tauer & Sohn, / Schulhof No. 413",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "ohhulkigqjuxkdj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65327,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der hochgebornen Frau / Marie Gräfin von Khevenhüller, / gebornen Gräfin Seldern, / Obersthofmeisterin Ihrer kais. Hoheit der Frau Erzherzogin / Marianna, / Devotionsdame des souverainen Johanniter-Ordens, / dann Sternkreuz-Ordens-Dame und Palast-Dame / Ihrer Majestät der Kaiserin / mit den / Gefühlen der tiefsten Ehrfurcht gewidmet / von den Verlegern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von den Verlegern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der hochgebornen Frau / Marie Gräfin von Khevenhüller, / gebornen Gräfin Seldern, / Obersthofmeisterin Ihrer kais. Hoheit der Frau Erzherzogin / Marianna, / Devotionsdame des souverainen Johanniter-Ordens, / dann Sternkreuz-Ordens-Dame und Palast-Dame / Ihrer Majestät der Kaiserin / mit den / Gefühlen der tiefsten Ehrfurcht gewidmet / von den Verlegern",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "60n7lzjvxwhv06l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65328,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "kcm9fx6r8z0cjed"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65329,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oesterreichischer / Novellen-Almanach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Oesterreichischer / Novellen-Almanach",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "wwb4vle9t4n3zfk"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Am Abgrund leitet der schwindliche Steg, / Er führt zwischen Leben und Sterben; [...] Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Hat man sich um den Fuß der serpentinsteinreichen Ingelsbergwand gewendet, so steht man dann wohl, und staunt, und schwelgt in dem Anblicke des sich hier öffnenden schönen und herrlichen Gebirgsthals.",
+      "language": [],
+      "musenalm_id": 65330,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schlacht auf der Erzwiese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Wilhelm Arming",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schlacht auf der Erzwiese",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "cml7459qmsayuse",
+          "source_id": "h82dt51an1vqb5z"
+        }
+      ],
+      "source_id": "8pvqdg450aj8gt7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Ueber die Gräber des Friedhofs von Mailand, über die Gräber, wo Menschen und ihre Hoffnungen, Wünsche und Träume, ihre Freuden und Schmerzen, Leidenschaften und Begierden, Haß und Liebe, Zagen und Vertrauen als Leichen begraben liegen,",
+      "language": [],
+      "musenalm_id": 65331,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Thronerbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. Kolisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Thronerbe",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "r7n2yng5lnew7fm",
+          "source_id": "gtas7x16q9egq8e"
+        }
+      ],
+      "source_id": "g590dgeecxyao2d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Langsam rückt eine dichte Herbstnebelmasse im südlicheren Böhmerwalde hin und her; Dörfer, Höhen und Wälder sind davon umhüllt,",
+      "language": [],
+      "musenalm_id": 65332,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kirchweihfest. / Novelle aus dem Volksleben der süd-westlichen Deutsch- / böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Rank",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Kirchweihfest. / Novelle aus dem Volksleben der süd-westlichen Deutsch- / böhmen",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "h1rm6ctjxvxk0m6",
+          "source_id": "heo4mfy5hhcplw4"
+        }
+      ],
+      "source_id": "pgn1zckvr77w0tc"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Und würdig traun! ist Deutschland des / seligen Geschicks / Und wert bist du vor Allen, o Östreich! [...] Anastasius Grün im »Letzten Ritter«. /) Mit Anm. zu: Margaretha von Österreich",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Es war eine laue Sommernacht, Fräulein Jutha von Rzican, das schöne Hoffräulein der kranken Margaretha von Östreich, saß an einem geöffneten Erkerfenster der Burg zu Krems,",
+      "language": [],
+      "musenalm_id": 65333,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walter Wenzel Wid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mathilde Feldern-Rolf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Walter Wenzel Wid",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "5fgsfkvvla04u8e",
+          "source_id": "0o1nlbbxcdtaixv"
+        }
+      ],
+      "source_id": "csgy7ffr3y3goe5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Es war im Früsommer des Jahres 1481, als zwei Reiter durch das Stubenthor in das vielthürmige Wien einritten, und jetzt, die Rosse zusammen nehmend, die Wollzeile dahin sprengten.",
+      "language": [],
+      "musenalm_id": 65334,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jaroslaw Boskowitz / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Pfundheller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jaroslaw Boskowitz / Historische Novelle",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.530Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.530Z",
+          "agent": "t3dzgpy5a5tgvbo",
+          "source_id": "u6fq6ke5n5498w5"
+        }
+      ],
+      "source_id": "behffqikioo1hey"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: S'ist Simon und Judä, / Da ras't der See und will sein Opfer haben. / Schiller im Tell /) mit beigegebenem Gedicht INr 65336, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Es war einer jener schönen Sommerabende, wo das Glück, allein zu sein, Herz und Gedanken aus dem wüsten Treiben der Erwerbshaftigkeit gerettet zu haben, die Seligkeit wieder einmal mir selbst anzugehören und als Wesen meiner Art athmen und sinnen",
+      "language": [],
+      "musenalm_id": 65335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Leiden eines Modernen. / Skizze aus dem Leben.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "And. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Leiden eines Modernen. / Skizze aus dem Leben.",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.530Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.530Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "b5ggxei7g9j4049"
+        }
+      ],
+      "source_id": "72cx0vh1q80dj1t"
+    },
+    {
+      "annotation": "Beigabe zu »Die Leiden eines Modernen. Skizze aus dem Leben.« von And. Schumacher",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Verklungen war der Klang der Becher, / Verbraucht der laute Lärm der Zecher;",
+      "language": [],
+      "musenalm_id": 65336,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dichter. / Ein Fragment",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "And. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dichter. / Ein Fragment",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.530Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.530Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "c09zt6l58kp3b63"
+        }
+      ],
+      "source_id": "ilfzyb5suxnztws"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Es gibt Menschen, deren Leben eine solche Kette von Ungemach ist, das aus wolkenlosem Himmel auf sie fällt, daß sie endlich betäubt werden, und dastehen, und den Hagel auf sich ergehen lassen,",
+      "language": [],
+      "musenalm_id": 65337,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Addias",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adalbert Stifter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Addias",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.014Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.014Z",
+          "agent": "gqt48yh8xk0p2zo",
+          "source_id": "thanms0rz8a7nkz"
+        }
+      ],
+      "source_id": "8rtsxtq6xty6za7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "Ich will meine lieben Leser und Leserinnen durch einen stundenweise Regenbogen, der sich von dem kahlen Rande des Traunsteines bis hinter die Thürme des längst aufgehobenen Nonnenklosters Traunkirchen ausspannt,",
+      "language": [],
+      "musenalm_id": 65338,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Heimkehrenden. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alex. Julius Schindler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Heimkehrenden. / Novelle",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.014Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.014Z",
+          "agent": "c5g4qkh29vufd7a",
+          "source_id": "7xctoo58hgtqgox"
+        }
+      ],
+      "source_id": "bwht7zw6vyfwwkn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "396",
+      "incipit_statement": "Hart an der Grenze jenes Theils von Österreich, den die Natur, wie ein echtes Glückskind mit Schönheit und Anmuth überhäufte,",
+      "language": [],
+      "musenalm_id": 65339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die übergossene Alpe. / Eine österreichische Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Baumann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die übergossene Alpe. / Eine österreichische Volkssage",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.014Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.014Z",
+          "agent": "5m3vvkycm2xug28",
+          "source_id": "a04bk1kojlv4xwa"
+        }
+      ],
+      "source_id": "8ys71kwgztqghjn"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65340,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1093_65340_8urcburxf2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1843",
+      "updated": "2009-07-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "ixqsnh0vm0flaan"
+    }
   ],
   "agents": [
     {

@@ -48,7 +48,26 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "wcd2qwtzozb97sl"
+    {
+      "annotation": "Nachtitel lautet: Geschichte / der / Europäischen Staaten / seit dem Frieden von Wien. / Von / Fr. Buchholz. / Sechzehnter Band. / Begebenheiten des Jahres 1827. / Berlin 1830. / Verlag von Theod. Chr. Friedr. Enslin",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.678Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405713",
+      "location": "105L02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.678Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wcd2qwtzozb97sl"
+    }
   ],
   "contents": [],
   "agents": [

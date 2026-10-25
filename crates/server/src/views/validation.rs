@@ -65,7 +65,7 @@ pub fn fragments(session: &EditSession, issues: &[ValidationIssue]) -> Vec<Strin
         "<div id=\"validation-summary\" class=\"validation-summary\" role=\"status\" aria-live=\"polite\">",
     );
     if issues.is_empty() {
-        summary += "<p class=\"valid\"><i class=\"ri-checkbox-circle-line\" aria-hidden=\"true\"></i>All fields are valid</p><p class=\"help\">Changes have not been saved.</p>";
+        summary += &format!("<p class=\"valid\"><i class=\"ri-checkbox-circle-line\" aria-hidden=\"true\"></i>{}</p><p class=\"help\">{}</p>", escape(&crate::i18n::t("All fields are valid")), escape(&crate::i18n::t("Changes have not been saved.")));
     } else {
         summary += &format!(
             "<p class=\"invalid-text\">{} issue(s) to resolve</p><ul>",

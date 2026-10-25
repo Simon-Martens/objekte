@@ -48,21 +48,491 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "5g4zd0ob54f7har"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nVerlagsbroschur; VB, recto vT, verso VrlgM, verso G, T, S I- Verz, SS 1-421",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.455Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101015",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.455Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5g4zd0ob54f7har"
+    }
   ],
   "contents": [
-    "bu4a1009znjie5w",
-    "f51btqjajopkrde",
-    "bx4u9k3uj7hbllg",
-    "uneikv1she87t82",
-    "qq619ihu7vz099d",
-    "tkopj72uwlbwjuh",
-    "5a413ndog9ne4lc",
-    "qubxaiso1uu33yq",
-    "zeoqwsjsi1l8xef",
-    "dvb8lmdcqsssb38",
-    "8c4e2jholruuk9i",
-    "aaev1q5j9so4xnt"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62268,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_72_62268_pkik8qu5x6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "bu4a1009znjie5w"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18767,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1846",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "f51btqjajopkrde"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18768,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "bx4u9k3uj7hbllg"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2071,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jacob Grimm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Schmidt pinx. M. Voigt sc. Berlin",
+      "scans": [
+        "alm_72_2071_xyk6r5s6q7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jacob Grimm",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "lfqptru9sqcwlyl",
+          "source_id": "dugzvjgbvw8exwm"
+        }
+      ],
+      "source_id": "uneikv1she87t82"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18769,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1846. / Neue Folge. / Achter Jahrgang. / Mit dem Bildnisse Jacob Grimm's. / Leipzig: / F. A. Brockhaus. / 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_72_18769_qivzm4i5g3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1846. / Neue Folge. / Achter Jahrgang. / Mit dem Bildnisse Jacob Grimm's. / Leipzig: / F. A. Brockhaus. / 1846",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "qq619ihu7vz099d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.523Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18770,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "tkopj72uwlbwjuh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Von den drei Töchtern des Grafen St. Loraine-Dosson nahm die älteste, Madelaine, den Schleier und wurde Aebtissin im Kloster der barmherzigen Schwestern zu Arles;",
+      "language": [],
+      "musenalm_id": 2072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uranie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uranie",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "kl894oxh1nalqyo"
+        }
+      ],
+      "source_id": "5a413ndog9ne4lc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Der Schein trügt! So rief der Graf verdrüßlich aus, indem er sich aus dem Wagen weit herausbog",
+      "language": [],
+      "musenalm_id": 2073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schein trügt. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Dingelstedt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schein trügt. / Erzählung",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "8xc9vhdufjuetwe",
+          "source_id": "06ue21f5ha1dfur"
+        }
+      ],
+      "source_id": "qubxaiso1uu33yq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Es ist nicht lange her, daß ich mit einem geistreichen Arzte, Doctor G..., über die eigenthümlichen Verwickelungen sprach,",
+      "language": [],
+      "musenalm_id": 2074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein armes Mädchen. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Verfasserin der Jenny und Clementine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein armes Mädchen. / Erzählung",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.719Z",
+          "agent": "uaueu8rvrrzr5ud",
+          "source_id": "0srzfkmsq97decs"
+        }
+      ],
+      "source_id": "zeoqwsjsi1l8xef"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Herr Andreas Knöspel, des von Bergfeld'schen Hauses bejahrter Kammerdiener, hielt auf der Terasse des Schloßgartens seinen gewohnten Abendspaziergang.",
+      "language": [],
+      "musenalm_id": 2075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sängerin. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Martell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sängerin. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.719Z",
+          "agent": "zrsi43h33yxojuh",
+          "source_id": "or9keo2t6hweij2"
+        }
+      ],
+      "source_id": "dvb8lmdcqsssb38"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "339",
+      "incipit_statement": "Wir sind im Dorfe. Alles ist still auf der Straße, die Häuser sind verschlossen,",
+      "language": [],
+      "musenalm_id": 2076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sträflinge. / Dorfgeschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Berthold Auerbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sträflinge. / Dorfgeschichte",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.719Z",
+          "agent": "scn3nfipy9dsgv6",
+          "source_id": "4pq7oowjv1p7trl"
+        }
+      ],
+      "source_id": "8c4e2jholruuk9i"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62269,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_72_62269_x68k3hisjz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "aaev1q5j9so4xnt"
+    }
   ],
   "agents": [
     {

@@ -48,87 +48,3190 @@
   "year": 1790,
   "editor": "",
   "items": [
-    "qpvm71kcsum7unt"
+    {
+      "annotation": "1776-1813.\nKartonierter Einband mit Grafik, Muster, Goldschnitt und Schuber.\n1790: (K: Tku, gest. Titel, Modeku 14,  Monatsku 12 und Ku 12 ) Mit Tku 1, gest Titel, Modeku 14, Monatsku 12, Bl 52,  Ku 12 und 227 SS. \n\\par Forts. u.d.Tit.:Taschenkalender, Göttingischer oder Taschenbuch Göttingisches.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.466Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100485",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.466Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qpvm71kcsum7unt"
+    }
   ],
   "contents": [
-    "nn1lzy0abu2yb1i",
-    "lk59f7eqbe648av",
-    "lbqwdgz76hiogy1",
-    "yvl3qp1302zyl3j",
-    "z79n93mvwrokyz4",
-    "yt1mxyo5shzzfte",
-    "yldclryff5ky7g1",
-    "hekrvfyu97w1628",
-    "5j4dbm8k3sfymne",
-    "51lb971wrd5ns6t",
-    "bd4pu6zbajrzdyq",
-    "q95e3a2kgbqfrhw",
-    "2o5wl43s4rx9xxa",
-    "msckxuia63z44h4",
-    "w1bfwlr4j2jljsw",
-    "06kk4zcyhw9zmpq",
-    "h2jzza7ygmo9pot",
-    "dfowcmuj3aw8bfl",
-    "jxqxa3bouf79a6n",
-    "wlru4rpk0cx04u4",
-    "sjms9mr1phrow0c",
-    "uqv2ltlbim6z6zn",
-    "ji5urxiwc5eblch",
-    "ur50updr078mg5x",
-    "y6qyu0pe8nybrjd",
-    "w82wz3m17hosfq4",
-    "8nbu0cctfwbx9qm",
-    "pqrnlag1c2of5xy",
-    "tkq9na9dafgg4aw",
-    "hscj0w6z3t5u8io",
-    "lit56blnt9q8bhb",
-    "eytvagtmr76ng67",
-    "ykg0697pb5ioska",
-    "1nk6fbnhm1urom9",
-    "3kdmywkyhkxfs4t",
-    "ln3ebl5q7k7elje",
-    "le9ndq33m2lec1e",
-    "ptxlc7vceqn03zc",
-    "xy81wxm76rznxdl",
-    "mh4fejlo4efy3bd",
-    "ztghhkd1db447kc",
-    "eubg2m3zbpzd0uo",
-    "yhwdsj2uvh7zcb8",
-    "cocncadjtyruyq8",
-    "wyaa3u9k6kt97jy",
-    "khdn7dcts0uo009",
-    "9ieeahculk1nd8s",
-    "tjl4onypoxbvil3",
-    "6k92yrpcxhuqf2x",
-    "5jh1ysryve7vqrd",
-    "b31g3308a9m0hxs",
-    "ro74g7o73vtpy3v",
-    "8nlw3m26bzgg010",
-    "j2qyt52qlkwvfv2",
-    "u2hh8fgz33ra51p",
-    "joykzmyzs10cmud",
-    "7upkc0huph8199k",
-    "fxpzhaxpo2k1ulr",
-    "ixg7uebgmj9dnhl",
-    "1gtbc6bmng3qowu",
-    "n2rjlio56j0dzrl",
-    "s6d7myzk0knahm9",
-    "bkezby4ce6wh2p1",
-    "0c3t2uqaa22koug",
-    "gwt8yju1h98xqh4",
-    "yd0wlxapb1d5j6f",
-    "rloau886ie5xzqf",
-    "d4nqzyw0kn5fgnv",
-    "dvzdel1ogmrz4za",
-    "pfuxp000ydkoheu",
-    "oerg0ono5pnorb9",
-    "9k3y8q7q9t1uupg",
-    "hjidqi13n5k9eso",
-    "sumhra3dpwr5ho2",
-    "vmfxy9pbsko6pyd",
-    "1olajsyanrl1fgf",
-    "ea53xh3ay9vivu4",
-    "0l7oz17k33z449m"
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7214,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Goettinger Taschen / CALENDER / vom Jahr / 1790. / bei Joh. Chr. Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. Riepenh. sculps.",
+      "scans": [
+        "alm_146_7214_yuwom3kych.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1790. / bei Joh. Chr. Dieterich",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.204Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.204Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "47p9htccb44te7v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.204Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.204Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ncbm1lbvca9uvn4"
+        }
+      ],
+      "source_id": "nn1lzy0abu2yb1i"
+    },
+    {
+      "annotation": "Modekupfer paginiert 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7926,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures à la Mode",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen f.",
+      "scans": [
+        "alm_146_7926_4b3kgut4lx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures à la Mode",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.304Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "bn2aecokztajvr1"
+        }
+      ],
+      "source_id": "lk59f7eqbe648av"
+    },
+    {
+      "annotation": "Modekupfer paginiert 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7927,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Habillemens de Goettingue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ri",
+      "scans": [
+        "alm_146_7927_fy7h5j671a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Habillemens de Goettingue",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.304Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "yzbfy6qteplq714"
+        }
+      ],
+      "source_id": "lbqwdgz76hiogy1"
+    },
+    {
+      "annotation": "Modekupfer paginiert 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures à la Mode",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenh. sculp",
+      "scans": [
+        "alm_146_7928_qouqa8882p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures à la Mode",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.304Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "xih6twim1z59pfb"
+        }
+      ],
+      "source_id": "yvl3qp1302zyl3j"
+    },
+    {
+      "annotation": "Modekupfer paginiert 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7929,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures à la Mode",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenh. sc.",
+      "scans": [
+        "alm_146_7929_tq0rdkaje5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures à la Mode",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.304Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.304Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "3f2jmn48t3t1kz2"
+        }
+      ],
+      "source_id": "z79n93mvwrokyz4"
+    },
+    {
+      "annotation": "Modekupfer paginiert 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7930,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Divers Habillemens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep. f.",
+      "scans": [
+        "alm_146_7930_azx151n6vt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Divers Habillemens",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "rijbo4xfd1eduz2"
+        }
+      ],
+      "source_id": "yt1mxyo5shzzfte"
+    },
+    {
+      "annotation": "Modekupfer paginiert 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7931,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Divers Habillemens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep. f.",
+      "scans": [
+        "alm_146_7931_6cvc60h3rf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Divers Habillemens",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "jg6d2o67fnlvrlf"
+        }
+      ],
+      "source_id": "yldclryff5ky7g1"
+    },
+    {
+      "annotation": "Modekupfer paginiert 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7932,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_146_7932_1fq51q5ggg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "hekrvfyu97w1628"
+    },
+    {
+      "annotation": "Modekupfer paginiert 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7933,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rieph.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieph.",
+      "scans": [
+        "alm_146_7933_egv1m9bx5v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "zacb0y0znga1s7k"
+        }
+      ],
+      "source_id": "5j4dbm8k3sfymne"
+    },
+    {
+      "annotation": "$ vermutl. Riepenhausen. Modekupfer paginiert 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.317Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7934,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_146_7934_otwsnhn2ra.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "51lb971wrd5ns6t"
+    },
+    {
+      "annotation": "Modekupfer paginiert 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (R)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R",
+      "scans": [
+        "alm_146_7935_9dxl0yrnc4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "hqcsuxdu13jcfqf"
+        }
+      ],
+      "source_id": "bd4pu6zbajrzdyq"
+    },
+    {
+      "annotation": "Modekupfer paginiert 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.324Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (R)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R",
+      "scans": [
+        "alm_146_7936_mnkludqjc4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "a57tjqu2jai03r8"
+        }
+      ],
+      "source_id": "q95e3a2kgbqfrhw"
+    },
+    {
+      "annotation": "Modekupfer paginiert 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7937,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep",
+      "scans": [
+        "alm_146_7937_qjazs3s2bk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "g1s1fknwqqp2fld"
+        }
+      ],
+      "source_id": "2o5wl43s4rx9xxa"
+    },
+    {
+      "annotation": "Modekupfer paginiert 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7938,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (R.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [
+        "alm_146_7938_45j4h8ewaq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.255Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "qsfwoz4krkqaj4e"
+        }
+      ],
+      "source_id": "msckxuia63z44h4"
+    },
+    {
+      "annotation": "Modekupfer paginiert 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7939,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_146_7939_gb6ygxorsn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "w1bfwlr4j2jljsw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28093,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "06kk4zcyhw9zmpq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 1 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7215,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ANECDOTEN / Peter des Großen / CXVI Anecd.: einer Weissagung seiner Geburth. / p. 31",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7215_qnmlnun9g7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ANECDOTEN / Peter des Großen / CXVI Anecd.: einer Weissagung seiner Geburth. / p. 31",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.204Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.204Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "evq1qw4z7cwl6ik"
+        }
+      ],
+      "source_id": "h2jzza7ygmo9pot"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 2 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7216,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Anecdote / Peter des Großen Beherztheit in Augenschein- / licher Gefahr bey Verschwörung der Areditzen / p. 22",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7216_r8e93vptd3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. Anecdote / Peter des Großen Beherztheit in Augenschein- / licher Gefahr bey Verschwörung der Areditzen / p. 22",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.205Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "np6de30bvq1fjmx"
+        }
+      ],
+      "source_id": "dfowcmuj3aw8bfl"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 3 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7217,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXXIII. Anecdote / Peter des Großen Aufmunterung zur / Beobachtung der Polizeyordnung / p. 96",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7217_owmeq55qtw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XXXIII. Anecdote / Peter des Großen Aufmunterung zur / Beobachtung der Polizeyordnung / p. 96",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.148Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.148Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "kekwfa70fpet2dv"
+        }
+      ],
+      "source_id": "jxqxa3bouf79a6n"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 4 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7218,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XLI. Anecdote / Peter der Große zu Wittenberg im / Hause wo Dr. Luther gelebt und gestorben / p. 121",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7218_kiq4ghgkd8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XLI. Anecdote / Peter der Große zu Wittenberg im / Hause wo Dr. Luther gelebt und gestorben / p. 121",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.148Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.148Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "tvomek4dhwg8wen"
+        }
+      ],
+      "source_id": "wlru4rpk0cx04u4"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 5 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7219,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LXXI. Anecdote / Peter des Grossen chirurgische Operationen / p. 208",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7219_u6telxgxwq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LXXI. Anecdote / Peter des Grossen chirurgische Operationen / p. 208",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.149Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "h1g63unmvoja1ab"
+        }
+      ],
+      "source_id": "sjms9mr1phrow0c"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 6 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7220,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LXXV. Anecdote / Peter des Großen Thränen über Karl / XII. Tod / p. 220",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7220_2e3meqqj2z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LXXV. Anecdote / Peter des Großen Thränen über Karl / XII. Tod / p. 220",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.149Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "zhptmzc9krcro84"
+        }
+      ],
+      "source_id": "uqv2ltlbim6z6zn"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 7 s. Textbezug 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7221,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LXXXVIII. Anecdote / Peter des Großen Strenge in Criminal- / gesetzen / p. 250",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7221_y7glpotgp5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LXXXVIII. Anecdote / Peter des Großen Strenge in Criminal- / gesetzen / p. 250",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.149Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "kjatg9yhs49y65u"
+        }
+      ],
+      "source_id": "ji5urxiwc5eblch"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 8 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7222,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XC. Anecdote / Peter der Große erklährt sich zum Haupt / der Kirche in seinem Reiche. / p. 255",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7222_kjp46ns4ly.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XC. Anecdote / Peter der Große erklährt sich zum Haupt / der Kirche in seinem Reiche. / p. 255",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.149Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "ecv2vglhrg3lan2"
+        }
+      ],
+      "source_id": "ur50updr078mg5x"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 9 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7224,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XCIV. Anecdote / Peter des Großen Aufmunterung seiner / Prinzessinnen Töchter zum Lernen / p. 269",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7224_auzgehbt9t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XCIV. Anecdote / Peter des Großen Aufmunterung seiner / Prinzessinnen Töchter zum Lernen / p. 269",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.218Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "e4jmjnc5pnwlysj"
+        }
+      ],
+      "source_id": "y6qyu0pe8nybrjd"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 10 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7225,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XCLX Anecdote / Peter des Großen Favoriten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7225_mi2bupn92f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XCLX Anecdote / Peter des Großen Favoriten",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.218Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "2tpezqowo6e1jf9"
+        }
+      ],
+      "source_id": "w82wz3m17hosfq4"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 11 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7226,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CVI. Anecdote / Peter des Großen mittleidige Gesinnung / über leichte fleischliche Sünden / p. 207",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7226_mtwfg7bga5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CVI. Anecdote / Peter des Großen mittleidige Gesinnung / über leichte fleischliche Sünden / p. 207",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.299Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "wbzex3aj45dfsgn"
+        }
+      ],
+      "source_id": "8nbu0cctfwbx9qm"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 12 s. Textbezug INr 7267, Obj 71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7227,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CXII. Anecdote / Peter des Großen Lebens Ende oder / Veranlaßung dazu / p. 333",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki inv.",
+      "scans": [
+        "alm_146_7227_1a7fw0q5il.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CXII. Anecdote / Peter des Großen Lebens Ende oder / Veranlaßung dazu / p. 333",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.299Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "wdxm0y33zaad4co"
+        }
+      ],
+      "source_id": "pqrnlag1c2of5xy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1790. / Mit / Kupfern von Chodowiecky, / nebst den / neuesten Frauenzimmer- und / Manns-Kleidungen in Kupfer. / Göttingen, / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1790. / Mit / Kupfern von Chodowiecky, / nebst den / neuesten Frauenzimmer- und / Manns-Kleidungen in Kupfer. / Göttingen, / bey Johann Christian Dieterich",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "tkq9na9dafgg4aw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geburtstage / des Kön. Großbritannisch. Chur-Braun- / schweig-Lüneburgischen Hauses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geburtstage / des Kön. Großbritannisch. Chur-Braun- / schweig-Lüneburgischen Hauses",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "hscj0w6z3t5u8io"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches / Verzeichniß / der / jetzt lebenden hohen / Personen in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches / Verzeichniß / der / jetzt lebenden hohen / Personen in Europa",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "lit56blnt9q8bhb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Durch Aerzte und Philosophen ist in neuern Zeiten die Schädlichkeit des Gebrauchs, Kirchen und Kirchhöfe zu Leichenbehältern zu machen,",
+      "language": [],
+      "musenalm_id": 7231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie / Gottesäcker auf Kirchhöfen / und / Begräbnisse in den Kirchen / entstanden sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wie / Gottesäcker auf Kirchhöfen / und / Begräbnisse in den Kirchen / entstanden sind",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "eytvagtmr76ng67"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "In den meisten Gegenden Teutschlands ist es unter Verlobten Sitte, daß die Braut ihren Geliebten mit einem oder mehreren Hemden beschenkt,",
+      "language": [],
+      "musenalm_id": 7232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was es / eigentlich mit dem Geschenke / der / Bräutigamshemden / und / des Schlafrocks / bey Hochzeiten / für eine Bewandniß habe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was es / eigentlich mit dem Geschenke / der / Bräutigamshemden / und / des Schlafrocks / bey Hochzeiten / für eine Bewandniß habe",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "ykg0697pb5ioska"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Dem K. Rudolph von Habsburg wird bekanntlich nachgesagt, daß er gern geschimpft,",
+      "language": [],
+      "musenalm_id": 7233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie / zwey Reichsstädtische Gesandte / ein Räthsel / gelöset",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wie / zwey Reichsstädtische Gesandte / ein Räthsel / gelöset",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "1nk6fbnhm1urom9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Die Worte des Gesetzes in einem alten sächsischen Weichbild-Recht lauten in neues Deutsch übersetzt so:",
+      "language": [],
+      "musenalm_id": 7234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gelinde Strafe / im Ehebruch ertappter Perso- / nen, bey unsern Vorfahren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gelinde Strafe / im Ehebruch ertappter Perso- / nen, bey unsern Vorfahren",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "3kdmywkyhkxfs4t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Ehe ich mich zu demjenigen wende, was die Aufschrift dieses Artikels eigentlich verspricht,",
+      "language": [],
+      "musenalm_id": 7235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Etwas / von Hrn. D. Herschels neue- / sten Bemühungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Etwas / von Hrn. D. Herschels neue- / sten Bemühungen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "ln3ebl5q7k7elje"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Tschercassien ein ansehnliches Land am Fuße des Caucasus in der Erdenge zwischen dem Caspischen und dem schwarzen Meere,",
+      "language": [],
+      "musenalm_id": 7236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tschercassische / Mädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tschercassische / Mädchen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "le9ndq33m2lec1e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Die Schnelligkeit womit Haustauben große Reisen in einem Fluge zurücklegen können,",
+      "language": [],
+      "musenalm_id": 7237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Brieftauben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Brieftauben",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "ptxlc7vceqn03zc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Da die Kunst Leinewand in wenigen Minuten zu bleichen, und zwar besser und mit geringerem Verlust an Festigkeit,",
+      "language": [],
+      "musenalm_id": 7238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anweisung / Leinewand in wenigen Minu- / ten zu bleichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anweisung / Leinewand in wenigen Minu- / ten zu bleichen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "xy81wxm76rznxdl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Eine sehr wichtige Neuigkeit, letzteres wenigstens jetzt, da ich diese schreibe, im Julius 1789",
+      "language": [],
+      "musenalm_id": 7239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Entdeckungen, physikalische / und andere Merkwürdigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Entdeckungen, physikalische / und andere Merkwürdigkeiten",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "mh4fejlo4efy3bd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Man will bemerkt haben, daß die gewöhnliche Art Dintenflecke aus der Leinewand",
+      "language": [],
+      "musenalm_id": 7240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sicheres Recept / Dintenflecke ohne Säure aus Leinewand wegzuschaffen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sicheres Recept / Dintenflecke ohne Säure aus Leinewand wegzuschaffen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "ztghhkd1db447kc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Vieles was dieser und der folgende Artikel enthält, mag manchen unserer Leser bekannt seyn.",
+      "language": [],
+      "musenalm_id": 7241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieutenant / Greatraks",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieutenant / Greatraks",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "eubg2m3zbpzd0uo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Die Geschichte von den elektrischen Röhren des Jahrs 1747 und 48 hat so viele Aehnlichkeit mit dem animalischen Magnetismus der jetzigen Zeit,",
+      "language": [],
+      "musenalm_id": 7242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auffrischung / eines veralteten Gemähldes. / Ein Gegenstück / zum animalischen Magnetismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auffrischung / eines veralteten Gemähldes. / Ein Gegenstück / zum animalischen Magnetismus",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "yhwdsj2uvh7zcb8"
+    },
+    {
+      "annotation": "Es folgen: Textbezüge und Graphiken INr 7243-7259, Obj 46-61",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28094,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / Hogarthischer Kupferstiche / Die Tageszeiten in vier Blättern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / Hogarthischer Kupferstiche / Die Tageszeiten in vier Blättern",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "cocncadjtyruyq8"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth s. Graphik INr 7244, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Hogarth, der wohl fühlte, was so mancher Schriftsteller und Künstler nicht fühlen will,",
+      "language": [],
+      "musenalm_id": 7243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. Der Morgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "A. Der Morgen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "wyaa3u9k6kt97jy"
+    },
+    {
+      "annotation": "Détail aus »Die Tageszeiten in vier Blättern. Der Morgen« paginiert A. s. Textbezug INr 7243, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7244_w7ahduec1u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.217Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.217Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "e08p0mddu04n0dw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.218Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "z0qshzp6wj39sqv"
+        }
+      ],
+      "source_id": "khdn7dcts0uo009"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Morgen« paginiert B. s. Textbezug INr 7245, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7248_k3s7obakny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "73agtgahouwtsx8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "xmxm00ps9839lha"
+        }
+      ],
+      "source_id": "9ieeahculk1nd8s"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Mittag« paginiert C. s. Textbezug INr 7246, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7247_kocidjz5rf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.196Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.196Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "135faumzkhnb3l3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.196Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.196Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "gcih93i8y3cz03t"
+        }
+      ],
+      "source_id": "tjl4onypoxbvil3"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth s. Graphik INr 7248, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Unten wieder eine Scene wie die vorhergehende auf A, aber selbst ohne den Contrast",
+      "language": [],
+      "musenalm_id": 7245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "B.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "6k92yrpcxhuqf2x"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth s. Graphik INr 7247, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Dieses Blatt stellt, wie die Ausleger sagen, die französische Kirche in Hoglane St. Giles vor.",
+      "language": [],
+      "musenalm_id": 7246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C. Mittag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "C. Mittag",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "5jh1ysryve7vqrd"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth s. Graphiken INr 7250, 7253; Obj 53, 54",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Lauter Gesichter, die so eben aus der Kirche kommen, sieben an der Zahl,",
+      "language": [],
+      "musenalm_id": 7249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "D.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "b31g3308a9m0hxs"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Mittag« paginiert D. s. Textbezug INr 7245, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7250_pjznsa4101.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "lh9qrpgwwbg3fzr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "wtzxcj4mco81nsw"
+        }
+      ],
+      "source_id": "ro74g7o73vtpy3v"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Mittag« paginiert E. s. Textbezug INr 7245, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7253_scme04m423.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "8vo22v5edq4caiv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "vh56qziimds0dgg"
+        }
+      ],
+      "source_id": "8nlw3m26bzgg010"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Abend« paginiert F. s. Textbezug INr 7252, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7254_ojjootihyx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.198Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "39lfqshk0vvg8bf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.198Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "r05cmmq3tmhuh3i"
+        }
+      ],
+      "source_id": "j2qyt52qlkwvfv2"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth s. Graphik INr 7254, Obj 55",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Ein schwüler Septemberabend, an einem Ort außerhalb der Stadt, bey Saddlers Wells,",
+      "language": [],
+      "musenalm_id": 7252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "F. / Der Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "F. / Der Abend",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "u2hh8fgz33ra51p"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Hogarth hat für gut befunden, hier eine Nacht bloß dem Stand der Sonne nach, vorzustellen,",
+      "language": [],
+      "musenalm_id": 7255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nacht",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "joykzmyzs10cmud"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern« von W. Hogarth s. Graphik INr 7257, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "3 ist ein betrunkner, am Kopf schwer verwundeter Freymäurer noch in vollem Anzug",
+      "language": [],
+      "musenalm_id": 7256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "G.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "G.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "7upkc0huph8199k"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Die Nacht« paginiert G. s. Textbezug INr 7256, Obj 58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7257,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7257_qm5m8qgsrs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.198Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "2xfejxa1jin5n7n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.198Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "rf12q225bap530v"
+        }
+      ],
+      "source_id": "fxpzhaxpo2k1ulr"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Die Nacht« paginiert H. s. Textbezug INr 7258, Obj 61",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7259,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7259_d7fsomzm5z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.198Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "3axlqcztdyekseb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.198Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.198Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "tqmadtlshqpxiym"
+        }
+      ],
+      "source_id": "ixg7uebgmj9dnhl"
+    },
+    {
+      "annotation": "Erläuterungen zu »Die Tageszeiten in vier Blättern. Die Nacht.« von W. Hogarth s. Graphik INr 7259, Obj 60",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Enthält oben bey 1 und 2 eine kleine Aussicht unter dem Schilde weg in die illuminirte Barbierstube",
+      "language": [],
+      "musenalm_id": 7258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "H.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "H.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gtbc6bmng3qowu"
+    },
+    {
+      "annotation": "Es folgen: Textbezüge und Graphiken INr 7260-7262, Obj 63-65",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28095,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / Hogarthischer Kupferstiche / The sleeping Congregation. / Die schlafende Versammlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / Hogarthischer Kupferstiche / The sleeping Congregation. / Die schlafende Versammlung",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "n2rjlio56j0dzrl"
+    },
+    {
+      "annotation": "Erläuterungen zu »The sleeping Congregation. Die schlafende Versammlung.« von W. Hogarth s. Graphiken INr 7261, 7262 Obj 64, 65",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Das Dormitiorium ist eine Dorfkirche, worin ein Theil der Gemeinde duch den Prediger 1 eingewiegt, schläft.",
+      "language": [],
+      "musenalm_id": 7260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "s6d7myzk0knahm9"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »The sleeping Congregation. Die schlafende Versammlung« paginiert I. s. Textbezug INr 7260, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.733Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7261_xi7k2rvqwn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.438Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "cfjw3hm2p9zz2x3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.438Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "qv8wmrhb7hki083"
+        }
+      ],
+      "source_id": "bkezby4ce6wh2p1"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »The sleeping Congregation. Die schlafende Versammlung« paginiert K. s. Textbezug INr 7260, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7262_iv6fqzwkix.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.438Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "2a1cy39hc1yu6bm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.438Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "wqygdocvwal6qbv"
+        }
+      ],
+      "source_id": "0c3t2uqaa22koug"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »The distress'd Poet. Der Dichter in der Noth.« paginiert L. s. Textbezug INr 7264, Obj 68",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.056Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7265_bpupiv3e4t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.218Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "054p21173d9symj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.218Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "sp24i7yi5accmqa"
+        }
+      ],
+      "source_id": "gwt8yju1h98xqh4"
+    },
+    {
+      "annotation": "Erläuterungen zu »The distress'd Poet. Der Dichter in der Noth« von W. Hogarth s. Graphik INr 7265, Obj 66",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Sollte eigentlich heißen: Der Reimschmidt in der Klemme.",
+      "language": [],
+      "musenalm_id": 7263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "The distress'd Poet. / Der Dichter in Noth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "The distress'd Poet. / Der Dichter in Noth",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "yd0wlxapb1d5j6f"
+    },
+    {
+      "annotation": "Erläuterungen zu »The distress'd Poet. Der Dichter in der Noth« von W. Hogarth s. Graphik INr 7265, Obj 66",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "1 statt der Feder den Grabstichel in der Hand, so wäre es der Kupferstecher in der Klemme",
+      "language": [],
+      "musenalm_id": 7264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "L.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "L.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "rloau886ie5xzqf"
+    },
+    {
+      "annotation": "Erläuterungen zu »The distress'd Poet. Der Dichter in der Noth« von W. Hogarth s. Graphik INr 7251, Obj 70",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "1 ein junges, nicht häßliches und dem Anscheine nach unschuldiges Weib, die nicht etwa auch Oden recitirt,",
+      "language": [],
+      "musenalm_id": 7266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "M.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "M.",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "d4nqzyw0kn5fgnv"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »The distress'd Poet. Der Dichter in der Noth.« paginiert M. s. Textbezug INr 7266, Obj 69",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+      "scans": [
+        "alm_146_7251_80t619rluu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "j0ikrapdddftacp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.197Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "q09ctixwhepkpby"
+        }
+      ],
+      "source_id": "dvzdel1ogmrz4za"
+    },
+    {
+      "annotation": "G-Verz. s. Graphiken im Kalendarium INr 7215-7227, Obj 16-28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Das Thema zu diesen Monats-Kupfern ist ganz meine eigene Wahl: Züge aus dem Charakter Peter des Großen",
+      "language": [],
+      "musenalm_id": 7267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der Monats-Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der Monats-Kupfer",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "pfuxp000ydkoheu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vegleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländischen / Troygewichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vegleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländischen / Troygewichts",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "oerg0ono5pnorb9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meilenmaaß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meilenmaaß",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "9k3y8q7q9t1uupg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Getraidemaaß / in Pariser Cubikzoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Getraidemaaß / in Pariser Cubikzoll",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "hjidqi13n5k9eso"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Münzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Münzen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "sumhra3dpwr5ho2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geographische Länge und Breite / einiger Oerter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geographische Länge und Breite / einiger Oerter",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "vmfxy9pbsko6pyd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28096,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "1olajsyanrl1fgf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.307Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28097,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Veränderungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Veränderungen",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "ea53xh3ay9vivu4"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.307Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28098,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-11-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1790,
+      "editor": "",
+      "agents": [],
+      "source_id": "0l7oz17k33z449m"
+    }
   ],
   "agents": [
     {

@@ -48,48 +48,1710 @@
   "year": 1836,
   "editor": "",
   "items": [
-    "35434wqabcc3yqh",
-    "h4vwwa53kxbuffe"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.483Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "405019",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.483Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "35434wqabcc3yqh"
+    },
+    {
+      "annotation": "1831-1836.\nKartonierter Einband mit Goldschnitt.\n1836: (K: Bl 2, 315 SS. M. 1 Vign. u. Stahlst 7. ) Mit  Port 1, Tku 1, Ku 3 und 315 SS.\n§1-3§ GG fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.483Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100956",
+      "location": "105A08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.483Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "h4vwwa53kxbuffe"
+    }
   ],
   "contents": [
-    "31a0e7ga1uqx0zb",
-    "5suwn9rj82b750j",
-    "ppym2a0pcdk0fxi",
-    "vrrteo2bfrc1jg3",
-    "v0dp0c983k5rwtf",
-    "drdzy0r7zvo5mld",
-    "8ns946jlrrjtq42",
-    "gz5owwv6i1zpa9c",
-    "anadjn2xfqowyf7",
-    "qh3d745tzzlxa1t",
-    "ufvqbpklnkfxh5m",
-    "algrvhrr255njys",
-    "ji28k9jari1rmp1",
-    "xocpxsgwxi602zo",
-    "ccue8yhbb9phch3",
-    "56wruv3u5x6jtw6",
-    "ea7ry4v6bv773yg",
-    "8b29u3hiqr12edj",
-    "xzlxqm2bs9vyeea",
-    "ekka6s87ngv3cu4",
-    "gdmkq7t1vkiw9n1",
-    "zccx5k4gfn4swxh",
-    "99bljx6xyjus62s",
-    "msgiqbjs73tsfxf",
-    "b7g4sxpf29o31jh",
-    "x54470h5at2reqm",
-    "77naenf8h7gh58o",
-    "4z3cag4a4j5jn51",
-    "rvu6xlc64lh1llh",
-    "l2627c2b7ev2ode",
-    "s2rbghpdmwuhwfl",
-    "9zuulfye0q4z0v9",
-    "32lacvg9y5o2se2",
-    "pwz76i96u6mrurq",
-    "mnjxcs6lg3gwubi",
-    "fy4s2eakjemqr1c",
-    "mcyf21q0ykr8x78",
-    "92iksyzg61ys3my"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26166,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "31a0e7ga1uqx0zb"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26167,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KARL DER IX.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Rieder del. J. Passini sculps",
+      "scans": [
+        "alm_345_26167_wetjbl8i0t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "KARL DER IX.",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.177Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "3s03svpurqi7vte"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.177Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.177Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "oq0orbqki9eyorf"
+        }
+      ],
+      "source_id": "5suwn9rj82b750j"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26168,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VESTA / Taschenbuch für das Jahr 1836. / Auf Kosten des Herausgebers. / VI. Jahrgang. / Gedruckt von Franz Ludwig / WIEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Burkhart sc.",
+      "scans": [
+        "alm_345_26168_gcww4d5b7o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VESTA / Taschenbuch für das Jahr 1836. / Auf Kosten des Herausgebers. / VI. Jahrgang. / Gedruckt von Franz Ludwig / WIEN",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.188Z",
+          "agent": "327xfzdoy71t9fl",
+          "source_id": "ydkl3fijflu5tft"
+        }
+      ],
+      "source_id": "ppym2a0pcdk0fxi"
+    },
+    {
+      "annotation": "Illustration zu »Das Spiegelbild« von J. N. Vogl INr 26190, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26169,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Spiegelbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Steinrucker. J. Passini",
+      "scans": [
+        "alm_345_26169_svdg1a6i8w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Spiegelbild",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.188Z",
+          "agent": "cewh4sz4est07ap",
+          "source_id": "8e1hd57u5iur2n9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.188Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "fa65yvjzo568qlk"
+        }
+      ],
+      "source_id": "vrrteo2bfrc1jg3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26173,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Neugierige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Fendi J. Passini",
+      "scans": [
+        "alm_345_26173_akfwo7s472.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Neugierige",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "5hgfakauknh20dt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "aj12jgcexyaf6b2",
+          "source_id": "ztcddegv4mjqi3l"
+        }
+      ],
+      "source_id": "v0dp0c983k5rwtf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26174,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Morgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Ranftl. J. Axmann",
+      "scans": [
+        "alm_345_26174_3q5up9fgq6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Morgen",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "vyuxy9kfo54vvq8",
+          "source_id": "4j7h5qa9vhmfdpd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.047Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "rrhpyyxnlpbiuxw"
+        }
+      ],
+      "source_id": "drdzy0r7zvo5mld"
+    },
+    {
+      "annotation": "s. Textbezug INr 26179, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26170,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "STARHEMBERG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Höger pinx. J. Axmann scoulp.",
+      "scans": [
+        "alm_345_26170_hb4qws28bh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "STARHEMBERG",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.189Z",
+          "agent": "ocbzbkjsfndv90f",
+          "source_id": "gdt1lg7bgmcrhrg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.189Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "iu75qvehpdhtii0"
+        }
+      ],
+      "source_id": "8ns946jlrrjtq42"
+    },
+    {
+      "annotation": "s. Textbezug INr 26178, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26171,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SEBENSTEIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Höger pinx. J. Axmann sculp.",
+      "scans": [
+        "alm_345_26171_xvxf7zjui9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SEBENSTEIN",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.189Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "rbsfer3ra0legri"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.189Z",
+          "agent": "ocbzbkjsfndv90f",
+          "source_id": "zenzqnfihgn5c0r"
+        }
+      ],
+      "source_id": "gz5owwv6i1zpa9c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26172,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER LUCHS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gauermann pinx. J. Passini sculp.",
+      "scans": [
+        "alm_345_26172_p67l1gs73s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER LUCHS",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.189Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "1100qk5psg0ahrl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.189Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.189Z",
+          "agent": "39mc6151u0cpcgt",
+          "source_id": "r81hqqqmb7vv8yd"
+        }
+      ],
+      "source_id": "anadjn2xfqowyf7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26175,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "qh3d745tzzlxa1t"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vesta. / Kleine Halle / für / deutsche Kunst und Lieteratur. / Sechster Jahrgang. / 1836",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vesta. / Kleine Halle / für / deutsche Kunst und Lieteratur. / Sechster Jahrgang. / 1836",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "ufvqbpklnkfxh5m"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 2 Beiträge INr 26178, 26179; Obj 13, 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloß Seebenstein / und / die Burg Starhemberg / (Als Erklärung der beiden Stahlstiche.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloß Seebenstein / und / die Burg Starhemberg / (Als Erklärung der beiden Stahlstiche.)",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "algrvhrr255njys"
+    },
+    {
+      "annotation": "Das Schloß Seebenstein und die Burg Starhemberg (Sammlung INr 26177, Obj 12) s. Graphik INr 26171, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wenn man die wenig reizvolle Fläche verläßt, welche man von der Veste Pitten, 2½ Stunde von Wiener-Neustadt, aus übersieht,",
+      "language": [],
+      "musenalm_id": 26178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloß Seebenstein. / Luget kein Thorwardein mehr von den Zinnen ins Land? [...] Alois Weißenbach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloß Seebenstein. / Luget kein Thorwardein mehr von den Zinnen ins Land? [...] Alois Weißenbach",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "ji28k9jari1rmp1"
+    },
+    {
+      "annotation": "Das Schloß Seebenstein und die Burg Starhemberg (Sammlung INr 26177, Obj 12) s. Graphik INr 26170, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Starhemberg, oder Starchemberg auch Starkenberg genannt, ist nordwestlich von Wiener Neustadt",
+      "language": [],
+      "musenalm_id": 26179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Burg Starhemberg. / In Österreich. / Seht ihr dort oben am Hügel / Den alten einsamen Thurm [...] C. G. von Leitner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Burg Starhemberg. / In Österreich. / Seht ihr dort oben am Hügel / Den alten einsamen Thurm [...] C. G. von Leitner",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "xocpxsgwxi602zo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Während es draußen tobte und jubelte - die Herrschaft war in Erwartung des rückkehrenden Erben",
+      "language": [],
+      "musenalm_id": 26180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosamunde. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Willibald Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosamunde. / Novelle",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.952Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "ffzuj4hj8hx8ltb"
+        }
+      ],
+      "source_id": "ccue8yhbb9phch3"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 7 Gedichten INr 26182-26188, Obj 17-23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.952Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "gnht6vydqirvqcm"
+        }
+      ],
+      "source_id": "56wruv3u5x6jtw6"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Willst du denn nicht kälter werden / Herz, das schon so viel verlor?",
+      "language": [],
+      "musenalm_id": 26182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / An mein Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / An mein Herz",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.952Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "izm1amkatpuc0o7"
+        }
+      ],
+      "source_id": "ea7ry4v6bv773yg"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Ich grüße dich mit freudigem Erbeben / Du stolzer Fels umglänzt von Morgenglut,",
+      "language": [],
+      "musenalm_id": 26183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Am Traunstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Am Traunstein",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "58fgg89ctp75rrk"
+        }
+      ],
+      "source_id": "8b29u3hiqr12edj"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Das Schiff durchfurcht die Wogen / Die Brandung schäumt wie Schnee,",
+      "language": [],
+      "musenalm_id": 26184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Auf der See",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Auf der See",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "1z6j96ulsvr8n9g"
+        }
+      ],
+      "source_id": "xzlxqm2bs9vyeea"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Seh' ich so vorüberschweben / Welt, dein wirres Bunterlei,",
+      "language": [],
+      "musenalm_id": 26185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / In der Postkutsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / In der Postkutsche",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "6k672iqx8ts7a3s"
+        }
+      ],
+      "source_id": "ekka6s87ngv3cu4"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Es feget die Haide der heulende Wind / Verschwunden die Sterne die schimmernden sind,",
+      "language": [],
+      "musenalm_id": 26186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Zigeunerlieder. / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Zigeunerlieder. / 1.",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "f16jo2ortqx2aam"
+        }
+      ],
+      "source_id": "gdmkq7t1vkiw9n1"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Schlaf wohl nun Kammerad, schlaf wohl im fremden Land, / Wir scharrten hier dich ein, gleich wo du starbst, im Sand,",
+      "language": [],
+      "musenalm_id": 26187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Zigeunerlieder / 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Zigeunerlieder / 2.",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "3buio76w0h4vbox"
+        }
+      ],
+      "source_id": "zccx5k4gfn4swxh"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Tief d'runten im Meere verhüllt von den Fluten / Entragt die Koralle in schimmernden Gluten,",
+      "language": [],
+      "musenalm_id": 26188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tief d'runten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johnn N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tief d'runten",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "ttr179aj628otbo"
+        }
+      ],
+      "source_id": "99bljx6xyjus62s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Gestern habe ich meinen Wegweiser verabschiedet, so zuverläßig und unterrichtet er war.",
+      "language": [],
+      "musenalm_id": 26189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die steinernen Bräute. / Ein Capriccio",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die steinernen Bräute. / Ein Capriccio",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "qs71nauflowblpc"
+        }
+      ],
+      "source_id": "msgiqbjs73tsfxf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 26169, Obj 4. §1§ bez. Graphik fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Stumm liegt die Nacht auf Schloß und Hain, / Der Wind nur trillt mit dem Wetterhahn",
+      "language": [],
+      "musenalm_id": 26190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Spiegelbild. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Spiegelbild. / Ballade",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "v6np7z5f11d4ij1"
+        }
+      ],
+      "source_id": "b7g4sxpf29o31jh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Es war ein herrlicher Sommerabend. Die sinkende Sonne warf einen langen rothen Glutblick über die braune Haide",
+      "language": [],
+      "musenalm_id": 26191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dunkle Wege. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Gusek",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dunkle Wege. / Novelle",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "x54470h5at2reqm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Was singt ihr doch,es geht euch nicht vom Herzen, / Wozu das Streben nach dem eitlen Schein?",
+      "language": [],
+      "musenalm_id": 26192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Unberufenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Unberufenen",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "hphg0xbuu7jmlts"
+        }
+      ],
+      "source_id": "77naenf8h7gh58o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Wo soll ich denn das hinschreiben, daß du dich hierher gewagt hast, grüßte Moritz seinen Freund Theodor,",
+      "language": [],
+      "musenalm_id": 26193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Novelle. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. C. von Jannach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Novelle. / Novelle",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "eu2eboe6793wtwx",
+          "source_id": "57b4f1v0795k5ow"
+        }
+      ],
+      "source_id": "4z3cag4a4j5jn51"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 26195-26200, Obj 30-35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gaselen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gaselen",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "opag1njpny5i8c5"
+        }
+      ],
+      "source_id": "rvu6xlc64lh1llh"
+    },
+    {
+      "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Sang ich einst in deutschen Landen, / Ward ich selten recht verstanden,",
+      "language": [],
+      "musenalm_id": 26195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sang ich einst in deutschen Landen, / Ward ich selten recht verstanden,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "vrfs614d29can0b"
+        }
+      ],
+      "source_id": "l2627c2b7ev2ode"
+    },
+    {
+      "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Im Kastanienwäldchen saß ich, / Alle Welt umher vergaß ich;",
+      "language": [],
+      "musenalm_id": 26196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Kastanienwäldchen saß ich, / Alle Welt umher vergaß ich;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.190Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.190Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "qx25tlfjby28lvn"
+        }
+      ],
+      "source_id": "s2rbghpdmwuhwfl"
+    },
+    {
+      "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Was ich denke, was ich sinne, / Ohne Worte wirst du's inne,",
+      "language": [],
+      "musenalm_id": 26197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was ich denke, was ich sinne, / Ohne Worte wirst du's inne,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.261Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.261Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "cl8abi5n28gi4jk"
+        }
+      ],
+      "source_id": "9zuulfye0q4z0v9"
+    },
+    {
+      "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Wo Platanen stehn im Rasen, / Ruhten sanft wir aus und lasen,",
+      "language": [],
+      "musenalm_id": 26198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wo Platanen stehn im Rasen, / Ruhten sanft wir aus und lasen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.262Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "o95weio2bs6lqnz"
+        }
+      ],
+      "source_id": "32lacvg9y5o2se2"
+    },
+    {
+      "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Diese Bäume, diese Blüten / Mögen unsre Liebe hüten,",
+      "language": [],
+      "musenalm_id": 26199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diese Bäume, diese Blüten / Mögen unsre Liebe hüten,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.262Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "wwo0gsgme91jswk"
+        }
+      ],
+      "source_id": "pwz76i96u6mrurq"
+    },
+    {
+      "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Wo sich Mädchen rings und Knaben / Festlich schmücken und begaben,",
+      "language": [],
+      "musenalm_id": 26200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wo sich Mädchen rings und Knaben / Festlich schmücken und begaben,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Graf von Platen Hallermünde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.262Z",
+          "agent": "on0a0wityl8730t",
+          "source_id": "lu8y05sszi6h82t"
+        }
+      ],
+      "source_id": "mnjxcs6lg3gwubi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "fy4s2eakjemqr1c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 26202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "mcyf21q0ykr8x78"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.079Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37222,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-07-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1836,
+      "editor": "",
+      "agents": [],
+      "source_id": "92iksyzg61ys3my"
+    }
   ],
   "agents": [
     {

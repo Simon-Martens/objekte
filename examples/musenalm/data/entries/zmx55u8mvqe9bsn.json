@@ -48,44 +48,1346 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "4frdw5xk2p35wg8"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.721Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407401",
+      "location": "105D03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.721Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4frdw5xk2p35wg8"
+    }
   ],
   "contents": [
-    "zv82fbo4cnk8cqw",
-    "ui5ion43uf2p65h",
-    "x12zxkr4i7q3kdr",
-    "gd760dsyj0y2bcg",
-    "4qy0rhhwjqr02xr",
-    "kqx9dedicis4fd0",
-    "umo4dtk8ihefonz",
-    "hghuqvsbm2o9mjj",
-    "idfjvz36pja4jlb",
-    "5gue3oez3jnctdp",
-    "rgg57scz4vr5gnd",
-    "gskviph84viqu5u",
-    "emehes4zj3celr5",
-    "fpdnqenfqoqyvsk",
-    "o9dk3ofazv0tec3",
-    "x2a7yi8jf51xjce",
-    "xgukd8cevmxqfu8",
-    "eix0sq6qmvnb3go",
-    "z3rhw7x0xi05i7j",
-    "qj3py1502wgo9xk",
-    "b9ak8wdu031hk63",
-    "h4xi90i30vazy21",
-    "ilcdcznznw4f4uc",
-    "lxwfsl85a3chhvg",
-    "v2x6cthwzm80agj",
-    "bvruh1daa7gq8ha",
-    "x5coc06738b2d5a",
-    "dnf8vooh68d2db5",
-    "tpo3uek848trl9s",
-    "k5jk21fxzcxocce",
-    "c5nmuuqqowlua4c",
-    "pbayyy6o5p05c54",
-    "6y387pj53vti532",
-    "462ji5ug0wjrzq1",
-    "a9k66a0918x2xz2"
+    {
+      "annotation": "Unmschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82170,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3855_82170_ng4trtoisw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "zv82fbo4cnk8cqw"
+    },
+    {
+      "annotation": "Titelportrait /) s. Textbezug INr 82193, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82171,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Wollstonecraft Bodwin / Vertheidigerin der Rechte des Weibes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. W. Schwarz. Nbg. 1799",
+      "scans": [
+        "alm_3855_82171_mtmii09tf7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Wollstonecraft Bodwin / Vertheidigerin der Rechte des Weibes",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.804Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.804Z",
+          "agent": "cbu5qgqlakgyc6u",
+          "source_id": "wtahi620fr66wvj"
+        }
+      ],
+      "source_id": "ui5ion43uf2p65h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82172,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BRITTISCHER / DAMENKALENDER / und / TASCHENBUCH / für das Jahr / Achtzehnhundert / Mit Kupfern / Frankfurt am Main / in der Jaegerschen Buchhandlung / 1800",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3855_82172_swwxyjyzu2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BRITTISCHER / DAMENKALENDER / und / TASCHENBUCH / für das Jahr / Achtzehnhundert / Mit Kupfern / Frankfurt am Main / in der Jaegerschen Buchhandlung / 1800",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "x12zxkr4i7q3kdr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Seit mehreren Jahren zeigten Deutschlands gebildete Frauenzimmer für die sogenannten Taschenkalender eine ausgezeichnete Vorliebe, welche übrigens durch die Natur und Bestimmmung der literarischen Produkte hinlänglich gerechtfertigt wird.",
+      "language": [],
+      "musenalm_id": 82204,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jägersche Buchhandlung",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "gd760dsyj0y2bcg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82173,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ausführliche Anzeige neuer interessanter / Werke, welche die Aufmerksamkeit des / Publikums verdienen und in dieser / Hinsicht in Bekanntmachung und / Empfehlung würdig sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ausführliche Anzeige neuer interessanter / Werke, welche die Aufmerksamkeit des / Publikums verdienen und in dieser / Hinsicht in Bekanntmachung und / Empfehlung würdig sind",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "4qy0rhhwjqr02xr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82174,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "kqx9dedicis4fd0"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Des Morgens« von Fr. Hölderlin INr 82197, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82175,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MORGEN MORNING",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Taylor inv. Duttenhofer sc.",
+      "scans": [
+        "alm_3855_82175_1bcpclud6o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MORGEN MORNING",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "n6gy5dn9ed5g96z",
+          "source_id": "7vd5yi3myq2m9jk"
+        }
+      ],
+      "source_id": "umo4dtk8ihefonz"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81278, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.275Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82176,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Triumph des Titus Quinctius Flaminus. Flaming Th. 1. S. 24",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82176_yydhczwhmt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Triumph des Titus Quinctius Flaminus. Flaming Th. 1. S. 24",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "g79bvh979w0pspn"
+        }
+      ],
+      "source_id": "hghuqvsbm2o9mjj"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen als Textbezüge zu 8 Graphiken des Taschenbuchs INr 82178-82192, Obj 9-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "idfjvz36pja4jlb"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik im Kalendarium INr 82176, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Zur Feier des 50sten Geburtstages des Freiherrn, bat die Frau von Flamming eine große Gesellschaf zu sich,",
+      "language": [],
+      "musenalm_id": 82178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 1",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 1",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "5gue3oez3jnctdp"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82180, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Als Qunctius von ohngefehr die Stelle im Plato las: wo ist ein grosser Mann, der nicht schon als Jüngling ein liebevolles Herz gegen einen geliebten, schönen Gegenstand gehabt hätte?",
+      "language": [],
+      "musenalm_id": 82179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 2",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 2",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "rgg57scz4vr5gnd"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81278, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zitternd hob er eine der schönen blonden Locken / Flaming Th. I. S. 123",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82180_308502o80x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zitternd hob er eine der schönen blonden Locken / Flaming Th. I. S. 123",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.047Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "4keasfeynzwesqw"
+        }
+      ],
+      "source_id": "gskviph84viqu5u"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82182, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Lissows Liebe zu Käthe wurde immer heftiger und durch die öftern gesuchten Zusammenkünfte konnte sie Beyers und der Tante aufmerksamen Augen nicht länger verborgen bleiben.",
+      "language": [],
+      "musenalm_id": 82181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 3",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 3",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "emehes4zj3celr5"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81281, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Junge! Wenn das Seine Kaiserliche Majestät erführe! / Flaming Th. I. S. 229",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82182_l1a8nsza18.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Junge! Wenn das Seine Kaiserliche Majestät erführe! / Flaming Th. I. S. 229",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.019Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "1didezo9ulb418o"
+        }
+      ],
+      "source_id": "fpdnqenfqoqyvsk"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82184, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Wir finden jetzt unsern Quinctius, der nun nach dem Tode seines Vaters Besitzer seiner Güter geworden und folglich den Titel: Baron hatte, auf der Universität",
+      "language": [],
+      "musenalm_id": 82183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 4.",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "o9dk3ofazv0tec3"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81283, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "bitten kann ich Sie doch wohl, dass Sie erklären, ob Sie mich / für einen ehrlichen Mann halten. / Flaming. Th. II. S. 200",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82184_aix1kxrpmv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "bitten kann ich Sie doch wohl, dass Sie erklären, ob Sie mich / für einen ehrlichen Mann halten. / Flaming. Th. II. S. 200",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.019Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "vq9g3rsuqceggkh"
+        }
+      ],
+      "source_id": "x2a7yi8jf51xjce"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82186, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Auf einer Reise, welche der Baron von Fl. nach den Rheingegenden machte, um die wahren Celten, die er dort in Mengen glaubte, aufzusuchen und glücklich zu machen",
+      "language": [],
+      "musenalm_id": 82185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 5.",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "xgukd8cevmxqfu8"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81285, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Edle Seele, nicht meine Sclavin, meine Freundin. / Flaming Th. III. S. 162",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82186_qflvcbesl2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Edle Seele, nicht meine Sclavin, meine Freundin. / Flaming Th. III. S. 162",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.019Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "sjvtem25lauyt6v"
+        }
+      ],
+      "source_id": "eix0sq6qmvnb3go"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82188, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "In dem Walde, der nahe an dem Gute der Frau von Koch lag, lebte ein unbekannter Mann, der nur unter den Namen der Wilde bekannt war.",
+      "language": [],
+      "musenalm_id": 82187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 6.",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "z3rhw7x0xi05i7j"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 82187, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Engel des Gerichts, ich folge. / Flaming Th. IV. S. 57",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82188_ophhdbiyjk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Engel des Gerichts, ich folge. / Flaming Th. IV. S. 57",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.019Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "nhvad9citrnei5v"
+        }
+      ],
+      "source_id": "qj3py1502wgo9xk"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82189, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.799Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Der Baron von Flamming lebte Lange Zeit zufrieden und glüklich, als auf einmal (es war im 7jährigen Krieg.) die russische Armee die ganze Gegend überzog,",
+      "language": [],
+      "musenalm_id": 82189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 7.",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "b9ak8wdu031hk63"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 82189, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iglou, meine gute Iglou! / Flaming Th. IV. S. 116",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Henne fec.",
+      "scans": [
+        "alm_3855_82190_x4eu9t9wff.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iglou, meine gute Iglou! / Flaming Th. IV. S. 116",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.840Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "lm18ra2czpzaau1"
+        }
+      ],
+      "source_id": "h4xi90i30vazy21"
+    },
+    {
+      "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 82192, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Du sollst noch glücklich werden. / Fleming Th. IV. S. 277",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E.Henne fec.",
+      "scans": [
+        "alm_3855_82191_kiu6ww8dw6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Du sollst noch glücklich werden. / Fleming Th. IV. S. 277",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.840Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "1xshv9pxc2v8a03"
+        }
+      ],
+      "source_id": "ilcdcznznw4f4uc"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 82177, Obj 8) s. Graphik INr 82191, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Julie Hedler lebte nur noch kurze Zeit mit dem russischen General. Sie lernte einen jungen Deutschen namens Frik kennen, der als Husar im Regiment des Generals diente",
+      "language": [],
+      "musenalm_id": 82192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 8.",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxwfsl85a3chhvg"
+    },
+    {
+      "annotation": "s. Titelportrait INr 82171, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unter den merkwürdigen und edlen Frauen, womit uns die Geschichte unsers Zeitalters bekannt gemacht hat, verdient es diejenige, deren Bildniss diesem Taschenbuche vorgesetzt ist, in einem vorzüglichen Grade, von unsern Leserinnen näher gekannt zu seyn.",
+      "language": [],
+      "musenalm_id": 82193,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Wolstonekraft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria Wolstonekraft",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "v2x6cthwzm80agj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Fust von Geroldingen lebte zu Ende des vierzehnten Jahrhunderts auf seiner Burg im Aarthal; stark wie ein Eiche und schlank wie die Tanne,",
+      "language": [],
+      "musenalm_id": 82194,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Einsiedler / auf den Alpen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Einsiedler / auf den Alpen",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "bvruh1daa7gq8ha"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Wo heute zu Tage sich Hochheims Hügel erheben, und der Winzer sich des Herbstes goldener Früchte freuet, da hauseten ehemals, von dunkeln Fichtenwäldern umgeben, ihre Vorfahren,",
+      "language": [],
+      "musenalm_id": 82195,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Edelwita die Heilige / eine Legende / des zwölften Jahhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Edelwita die Heilige / eine Legende / des zwölften Jahhunderts",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "x5coc06738b2d5a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Eine lieblich duftende Blume des Orients, verpflanzt unter unsern rauhern Himmel! Auch hier erfreuten ihre sanften Reize die Menschen um sie her, und als sie so früh verblühte, wurden ihr schmerzliche Thränen geweint.",
+      "language": [],
+      "musenalm_id": 82196,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leben / einer gebornen Ostindierin / die / mit dem Professor Klüber in Erlangen verhey- / rathet war; eine schöne weibliche Seele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leben / einer gebornen Ostindierin / die / mit dem Professor Klüber in Erlangen verhey- / rathet war; eine schöne weibliche Seele",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "dnf8vooh68d2db5"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 82175, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Vom Thaue glänzt der Rasen; beweglicher / Eilt schon die wache Quelle;",
+      "language": [],
+      "musenalm_id": 82197,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Morgens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hölderlin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Morgens",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.834Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.834Z",
+          "agent": "0lnasue8ibiowgx",
+          "source_id": "hjot0qwunjb49kz"
+        }
+      ],
+      "source_id": "tpo3uek848trl9s"
+    },
+    {
+      "annotation": "lt. I-Verz mit einer Illustration §1§ bez. Graphik im Kalendarium fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Vor seiner Hütte ruhig im Schatten sizt / Der Pilger, dem Genügsamen raucht sein Herd.",
+      "language": [],
+      "musenalm_id": 82198,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendphantasie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hölderlin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendphantasie",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.835Z",
+          "agent": "0lnasue8ibiowgx",
+          "source_id": "yl9d9kvy4foenra"
+        }
+      ],
+      "source_id": "k5jk21fxzcxocce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Wohl manches Land der lebendigen Erde möcht' / Ich sehn und öfters über die Berg' enteilt / Das Herz mir",
+      "language": [],
+      "musenalm_id": 82199,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mayn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hölderlin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mayn",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.835Z",
+          "agent": "0lnasue8ibiowgx",
+          "source_id": "ycfxyghu0ybtk78"
+        }
+      ],
+      "source_id": "c5nmuuqqowlua4c"
+    },
+    {
+      "annotation": "mit einem Nachtrag s. INr 82201, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82200,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der / Regenten / aller europäischen Staaten / mit historisch-statistischen Nachrichten von diesen Staaten. / Desgleichen / Geschlechterverzeichnisse der lebenden Fürstl. Familien / besonders von Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der / Regenten / aller europäischen Staaten / mit historisch-statistischen Nachrichten von diesen Staaten. / Desgleichen / Geschlechterverzeichnisse der lebenden Fürstl. Familien / besonders von Deutschland",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "pbayyy6o5p05c54"
+    },
+    {
+      "annotation": "Nachtrag zu vorstehender Genalogie INr 82200, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82201,
+      "musenalm_pagination": [
+        "4. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachträge / zur Berichtigung des vorstehenden Regenten- / verzeichnisses, sowohl in histor. statistischer / als genealogischer Hinsicht, bis zu Ende / Juli 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachträge / zur Berichtigung des vorstehenden Regenten- / verzeichnisses, sowohl in histor. statistischer / als genealogischer Hinsicht, bis zu Ende / Juli 1799",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "6y387pj53vti532"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82202,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "462ji5ug0wjrzq1"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82203,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3855_82203_5uvx32ffz8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-07-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "a9k66a0918x2xz2"
+    }
   ],
   "agents": [
     {

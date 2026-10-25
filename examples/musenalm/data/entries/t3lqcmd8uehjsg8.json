@@ -48,39 +48,1433 @@
   "year": 1819,
   "editor": "",
   "items": [
-    "72sy93w6vj82rl8"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.463Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404545",
+      "location": "105G04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.463Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "72sy93w6vj82rl8"
+    }
   ],
   "contents": [
-    "w57afyzwtwb7erg",
-    "v470bpshyt01onl",
-    "0yno5aw8yjriv74",
-    "y9917blzngna0mz",
-    "5203k0pv1c31pq6",
-    "ifyehbo02p1hdsb",
-    "z5ewkxkzbop924p",
-    "nh6xp6j20c24mz0",
-    "h1qu1nal3av85gt",
-    "bha5kpxybpv5h8y",
-    "6y0iveqzzq7bq1f",
-    "kd4gtlx32txgee9",
-    "d3l2u0qx00n1inz",
-    "ks16tj6kg79mfpq",
-    "oaflzk9rf1iu0rt",
-    "c56d2wawgdfxufj",
-    "lbymsobvd9woaml",
-    "yvo1l35dbz2pfzm",
-    "jx3tw5n43wgzcn8",
-    "ri7qv9tk1jkk8v1",
-    "2ms82u7n2ktk6io",
-    "y95oszistuu5r40",
-    "7dz23uvoy2dsgjh",
-    "8t2p0ukigb6434q",
-    "rqibfnz1d5uekx7",
-    "ocnh70fivy396po",
-    "fvvlor87lnyxjg5",
-    "hfp1dkn93g0dr70",
-    "pz874ccvzyrpo3h",
-    "r6ievpev502hbor"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.369Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82065,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALBERT DÜRER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. Christian Geisler sculp.",
+      "scans": [
+        "alm_3069_82065_gki1ohgvzp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALBERT DÜRER",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "iojwntogak3m4db",
+          "source_id": "nhpht0whwdsov2e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "tb5t2tcwqi26thr"
+        }
+      ],
+      "source_id": "w57afyzwtwb7erg"
+    },
+    {
+      "annotation": "Titelgraphik: oberes von 2 Portraitmedaillons",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82066,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Sachs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von Hans Hoffmann. Gestochen von F. Fleischmann",
+      "scans": [
+        "alm_3069_82066_zhhehdxu25.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hans Sachs",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "212lxbgixqi4v2p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "e5h9sdnpwosugx2",
+          "source_id": "mq561d3xjec3c5s"
+        }
+      ],
+      "source_id": "v470bpshyt01onl"
+    },
+    {
+      "annotation": "Titelgraphik: unteres von 2 Portraitmedaillons",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82067,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "J. C. Brübel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von Bährenstecher Gestochen von F. Fleischmann",
+      "scans": [
+        "alm_3069_82067_ldkfr31h3r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "J. C. Brübel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "e0qjw00r6mha9kc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "o9xw92sdiade0lv",
+          "source_id": "zdo8nyraplavgil"
+        }
+      ],
+      "source_id": "0yno5aw8yjriv74"
+    },
+    {
+      "annotation": "gest. Titel mit bezeichneter Vignette s. INr 82069, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82068,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues / Taschenbuch / von / Nürnberg. / Nürnberg, 1819. / bei Riegel / und Wiessner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dreykorn sc.",
+      "scans": [
+        "alm_3069_82068_z1mlz5pa3t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neues / Taschenbuch / von / Nürnberg. / Nürnberg, 1819. / bei Riegel / und Wiessner",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "5mt26fmhmhl7kzc",
+          "source_id": "hetlrirkr9724mn"
+        }
+      ],
+      "source_id": "y9917blzngna0mz"
+    },
+    {
+      "annotation": "Vignette des graph. Titels INr 82068, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.380Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82069,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alte Stadt Wappen von Nürnberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ch. Heideloff inv. Christian Geisler sculp.",
+      "scans": [
+        "alm_3069_82069_5fhh3xlwxx.jpg",
+        "alm_3070_82069_9wzz3aqz48.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alte Stadt Wappen von Nürnberg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "5a3zxlujysarnes"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.057Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "ucxas2qa27lwnbz"
+        }
+      ],
+      "source_id": "5203k0pv1c31pq6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82070,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues / Taschenbuch / von / Nürnberg. / Enthaltend / eine topographisch-statistische Beschreibung / der Stadt / nebst / einer geschichtlichen Einleitung und einem voll- / ständigen Sach- und Namenregister. / Mit 9 Kupfern und 3 Vignetten von Geißler, Fleisch- / mann, Duttenhofer, Haldenwang und einem / Grundrisse. / Nürnberg / bey Riegler und Wießner / 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3069_82070_wlshd34cbd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neues / Taschenbuch / von / Nürnberg. / Enthaltend / eine topographisch-statistische Beschreibung / der Stadt / nebst / einer geschichtlichen Einleitung und einem voll- / ständigen Sach- und Namenregister. / Mit 9 Kupfern und 3 Vignetten von Geißler, Fleisch- / mann, Duttenhofer, Haldenwang und einem / Grundrisse. / Nürnberg / bey Riegler und Wießner / 1819",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "ifyehbo02p1hdsb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82071,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seiner / Königlichen Hoheit / dem / Kronprinzen / Ludwig Carl August / von / Bayern / in tieffster Ehrfurcht geweiht / vom / Verleger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seiner / Königlichen Hoheit / dem / Kronprinzen / Ludwig Carl August / von / Bayern / in tieffster Ehrfurcht geweiht / vom / Verleger",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "z5ewkxkzbop924p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Mit den Gefühlen der tiefsten Ehrfurcht wage ich es, den erlauchten Namen Euer Königlichen Hoheit einem Werke vorzusezen, das ich vor andern Unternehmungen in meiner Geschäftslaufbahn mit der größten Liebe und Sorgfalt umfaßte.",
+      "language": [],
+      "musenalm_id": 82072,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Durchlauchtigster Kronprinz! / Gnädigster Herr!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Mainberger, Besizer der Buchhandlung Riegel und Wießner in Nürnberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Durchlauchtigster Kronprinz! / Gnädigster Herr!",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "nh6xp6j20c24mz0"
+    },
+    {
+      "annotation": "Photos 82073,01-82073,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82073,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3069_82073_01_wd0bv5oua3.jpg",
+        "alm_3069_82073_02_rg8sc542y6.jpg",
+        "alm_3069_82073_03_16vi4tp4v7.jpg",
+        "alm_3069_82073_04_igniyfmkz3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "h1qu1nal3av85gt"
+    },
+    {
+      "annotation": "Vorwort",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Eine Beschreibung von Nürnberg, welche dem Einheimischen, wie dem Fremden, in bündiger Kürze einen befriedigenden Überblick von dem gegenwärtigen Zustande dieser alten, ehrwürdigen Stadt gewähren könnte, war ein Bedürfniß,",
+      "language": [],
+      "musenalm_id": 82074,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Osterhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "bha5kpxybpv5h8y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82075,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die, diesem Taschenbuche beygefügten / Kunstblätter / sind an folgende Stelle zu binden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die, diesem Taschenbuche beygefügten / Kunstblätter / sind an folgende Stelle zu binden",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "6y0iveqzzq7bq1f"
+    },
+    {
+      "annotation": "oberes von 2 Potraitmedaillons",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82077,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilibald Pirckheimer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach Albrecht Dürer gestochen von Fleischmann",
+      "scans": [
+        "alm_3069_82077_yaxcmf5766.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilibald Pirckheimer",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.057Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "4tu1b6qhyr5h49n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.057Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.057Z",
+          "agent": "o55olxrgmwwwrft",
+          "source_id": "m0xn43ptaqsznnt"
+        }
+      ],
+      "source_id": "kd4gtlx32txgee9"
+    },
+    {
+      "annotation": "unteres von 2 Potraitmedaillons",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82078,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Martin Beihaim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gestochen von Fleischmann",
+      "scans": [
+        "alm_3069_82078_7vhnmkxdl5.jpg",
+        "alm_3074_82078_ods94iacxq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Martin Beihaim",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "y6hn0irti11mszs"
+        }
+      ],
+      "source_id": "d3l2u0qx00n1inz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Wenn der Mensch in dem Kreise seines Wirkens sich, mit Freyheit bewegen kann, gelingt ihm jedes Beginnen.",
+      "language": [],
+      "musenalm_id": 82079,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung. / Kurzer / Umriß der Geschichte Nürnbergs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung. / Kurzer / Umriß der Geschichte Nürnbergs",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "ks16tj6kg79mfpq"
+    },
+    {
+      "annotation": "mit mehreren Unterkapiteln /) mit 9 Illustrationen s. Graphiken INr 82081-82089, Obj 16-24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nürnberg liegt, nach den schon früher angestellten Berechnungen, unter dem, 49ten Grade, 27', 8'' nördlicher Breite und unter dem 28ten Grade, 45 Minuten geographischer Länge",
+      "language": [],
+      "musenalm_id": 82080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Abschnitt. / Ortsbeschreibung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Abschnitt. / Ortsbeschreibung",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "oaflzk9rf1iu0rt"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. Sebalds Kirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+      "scans": [
+        "alm_3069_82081_hzrpha2ucz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. Sebalds Kirche",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "4xla4m0ebpza8zq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "dfisv9aqqhnu9mh"
+        }
+      ],
+      "source_id": "c56d2wawgdfxufj"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Taufstein in der Kirche zu S. Sebald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Fr. Geissler",
+      "scans": [
+        "alm_3069_82082_yf5elvhgca.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Taufstein in der Kirche zu S. Sebald",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "kvnk1s0f2jplzml"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "u7o7o5nf13deqe3"
+        }
+      ],
+      "source_id": "lbymsobvd9woaml"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. Sebalds Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Erfunden und in Erz gegossen von Peter Vischer. Gezeichnet von Albt. Reindel. Gestochen von Friedr. Geisler",
+      "scans": [
+        "alm_3069_82083_jup2wsjv14.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. Sebalds Grab",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "2j4fmhpjuaqhaao",
+          "source_id": "2c157yzpi6q9jj2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "gmk3ivshizvtvvl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.073Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.073Z",
+          "agent": "suh3wpuo01wl4gq",
+          "source_id": "vlptdwn65w9xxv1"
+        }
+      ],
+      "source_id": "yvo1l35dbz2pfzm"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82084,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. Lorenz Kirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+      "scans": [
+        "alm_3069_82084_8d733o0l52.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "S. Lorenz Kirche",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "ir9nz4coy3988hz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "u38h0gq6de974uz"
+        }
+      ],
+      "source_id": "jx3tw5n43wgzcn8"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenkirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+      "scans": [
+        "alm_3069_82085_gtkvd17mfc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenkirche",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "2wfa45xu4b0q4dp",
+          "source_id": "yk9uyf1w1p802wx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.838Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "zrk0qr8tdclnxcq"
+        }
+      ],
+      "source_id": "ri7qv9tk1jkk8v1"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Burg / von der Abendseite",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Fr. Geissler",
+      "scans": [
+        "alm_3069_82086_b4lvg7gfap.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Burg / von der Abendseite",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "qhkxcafa9eiuxlm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "qr47d3r3bsr957u"
+        }
+      ],
+      "source_id": "2ms82u7n2ktk6io"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Hospital zum heiligen Geist. / von der Königsbrücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Haldenwang",
+      "scans": [
+        "alm_3069_82087_lv71h46ixu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Hospital zum heiligen Geist. / von der Königsbrücke",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "j9y4shaxgpzcgnc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "yos6i167q0dzqb7",
+          "source_id": "ksxlr41o9t82mhw"
+        }
+      ],
+      "source_id": "y95oszistuu5r40"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82088,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Pfarrhof zu S. Sebald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Fr. Geissler",
+      "scans": [
+        "alm_3069_82088_exabwleo72.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Am Pfarrhof zu S. Sebald",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "3p75ftjma6adja6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "ff3d1ntnp7eblg2"
+        }
+      ],
+      "source_id": "7dz23uvoy2dsgjh"
+    },
+    {
+      "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.008Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schöne Brunnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Fr. Geisler",
+      "scans": [
+        "alm_3069_82089_3knyn0gk7m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der schöne Brunnen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "xo0woto4ruw1tjl",
+          "source_id": "rzgkf2gih2qxw63"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "tpxxvyutiemor3h"
+        }
+      ],
+      "source_id": "8t2p0ukigb6434q"
+    },
+    {
+      "annotation": "mit mehreren Unterkapiteln",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "In den früherern Zeiten, damals, als das Blüthenalter des Nürnberger Handels alle Hände in Regsamkeit brachte und erhielt, war die Zahl der Einwohner von Nürnberg um ein Beträchtliches größer, als sie gegenwärtig ist.",
+      "language": [],
+      "musenalm_id": 82090,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweyter Abschnitt. / Statistik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweyter Abschnitt. / Statistik",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "rqibfnz1d5uekx7"
+    },
+    {
+      "annotation": "mit mehreren Unterkapiteln",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Die Einwohner Nürnbergs bestehen, wie schon oben bemerkt worden ist, aus Bekennern der drey christlichen Religionspartheyen, wovon jedoch die Mehrzahl der Evangelisch-Lutherischen Confession zugethan ist.",
+      "language": [],
+      "musenalm_id": 82091,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Abschnitt. / Cultus, Wissenschaft und Kunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Abschnitt. / Cultus, Wissenschaft und Kunst",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "ocnh70fivy396po"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82092,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Register",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Register",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "fvvlor87lnyxjg5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82093,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bey J. G. Milbradt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedruckt bey J. G. Milbradt",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfp1dkn93g0dr70"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.012Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82094,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nürnberg im Jahre 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Geisler sculp. A Nürnb.",
+      "scans": [
+        "alm_3069_82094_o9f448qqoo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nürnberg im Jahre 1819",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "iojwntogak3m4db",
+          "source_id": "2im6gqqxfos1j8i"
+        }
+      ],
+      "source_id": "pz874ccvzyrpo3h"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 82095,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PETER VISCHER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. Christian Geisler sculp.",
+      "scans": [
+        "alm_3069_82095_vgsp4rc85l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PETER VISCHER",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "iojwntogak3m4db",
+          "source_id": "4t7agmem8ehmi43"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.839Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "vdrpu9lvwhk9g8c"
+        }
+      ],
+      "source_id": "r6ievpev502hbor"
+    }
   ],
   "agents": [
     {

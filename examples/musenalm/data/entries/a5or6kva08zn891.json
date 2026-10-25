@@ -48,24 +48,709 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "v8uc41y43mwp8x0"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit Goldschnitt und Schuber.\n1826: (K: M. Ku 9.) Mit  Port1, Bl 3, Ku 8 und 480 SS .\nim Schuber",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.695Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100963",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.695Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "v8uc41y43mwp8x0"
+    }
   ],
   "contents": [
-    "2rohipp1oprv9zd",
-    "lcqi9aft1buxs6q",
-    "ia6dohbxigsqo9w",
-    "8vdojutetyse877",
-    "j1etojlchcizbg1",
-    "1ett4ard1va8cfx",
-    "0xgo7hdt183ev8c",
-    "eacyezmlgnmx2bu",
-    "279gm6t6s204whz",
-    "ckz91zlgupgvdeo",
-    "wbjhtqmd4a2k9if",
-    "ro693vx0tzxjacx",
-    "632ctiij2w4litg",
-    "h6txd7m31ptqg12",
-    "ffcj93sd6ujoyr9"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102801,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HELENA / Grossfürstin von Russland, / geb. Prinzessin von Würtemberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dav. Weiss sc. Vieannae",
+      "scans": [
+        "alm_3371_102801_rbjp8j3xlw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HELENA / Grossfürstin von Russland, / geb. Prinzessin von Würtemberg",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "jvu43lw4rzpfrij"
+        }
+      ],
+      "source_id": "2rohipp1oprv9zd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102802,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / Taschenbuch / für / 1826. / von / H. CLAUREN. / LEIPZIG, / bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_3371_102802_lj19vdjw3a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / Taschenbuch / für / 1826. / von / H. CLAUREN. / LEIPZIG, / bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "1s660wqh6ttxs9i"
+        }
+      ],
+      "source_id": "lcqi9aft1buxs6q"
+    },
+    {
+      "annotation": "graph. Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102803,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / An / von",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. W. f.",
+      "scans": [
+        "alm_3371_102803_pzf3r57cpi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / An / von",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "bcpxixy6nguyoyr"
+        }
+      ],
+      "source_id": "ia6dohbxigsqo9w"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Sprache Heil hat allem Gott gegeben / Was er geschaffen in der Wesen Chor.",
+      "language": [],
+      "musenalm_id": 102804,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "5fpfsh080waon73"
+        }
+      ],
+      "source_id": "8vdojutetyse877"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 102806-102808, Obj 6-8 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "So einsylbig als heute war es bei Tische lange nicht hergegangen. Der Vater war gleich verdrießlich, oder vielmehr niedergeschlagen nach Hause gekommen,",
+      "language": [],
+      "musenalm_id": 102805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tornister-Lieschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tornister-Lieschen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "j1etojlchcizbg1"
+    },
+    {
+      "annotation": "Illustration zu »Tornister-Lieschen« INr 102805, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ach du lieber Gott, was ist das für ein / niedliches Mädchen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Rieder del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3371_102806_1v8ov20nug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ach du lieber Gott, was ist das für ein / niedliches Mädchen!",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "1ep6t3qm4lwi5xu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "sjdaxil8h7lbhdg"
+        }
+      ],
+      "source_id": "1ett4ard1va8cfx"
+    },
+    {
+      "annotation": "Illustration zu »Tornister-Lieschen« INr 102805, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihre Exzellenz erlauben gnädigst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Rieder del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3371_102807_fd1swn86jn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ihre Exzellenz erlauben gnädigst",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "1f89og1exohkzxt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.938Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "s6gpbludq87glg2"
+        }
+      ],
+      "source_id": "0xgo7hdt183ev8c"
+    },
+    {
+      "annotation": "Illustration zu »Tornister-Lieschen« INr 102805, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich kenne ja mein Herzens-Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Erhard del. M. Hofmann sc. Viennae",
+      "scans": [
+        "alm_3371_102808_rrkztup76v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich kenne ja mein Herzens-Kind",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.939Z",
+          "agent": "w6yfntk8bepiira",
+          "source_id": "e41w6w4oqh327bd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.939Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "mv79oz119ptrmup"
+        }
+      ],
+      "source_id": "eacyezmlgnmx2bu"
+    },
+    {
+      "annotation": "Verlagsmitteilung; s. folgende Graphik INr 102810, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Vorstehendes Kupfer gehört zum zweiten Theil der im vorigen Jahrgange enthaltenen Jahrgange der Erzählung: Vielliebchen",
+      "language": [],
+      "musenalm_id": 102809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorstehendes Kupfer gehört zum zweiten Theil der im vorigen Jahrgange enthaltenen Jahrgange der Erzählung: Vielliebchen…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "279gm6t6s204whz"
+    },
+    {
+      "annotation": "Illustration zu »Vielliebchen«; s. vorstehende Mitteilung INr 102809, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102810,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ZEPHYRINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_3371_102810_9goea06xxo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ZEPHYRINE",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.716Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "ewu5aymsgvt8367"
+        }
+      ],
+      "source_id": "ckz91zlgupgvdeo"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 102812-102814, Obj 12-14 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Punktum, und nun setzt es nichts weiter, und wenn Du Dich noch einmal unterfängst, mich mit Deiner Korrespondirerei zu behelligen;",
+      "language": [],
+      "musenalm_id": 102811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Vater-Erbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Vater-Erbe",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "wbjhtqmd4a2k9if"
+    },
+    {
+      "annotation": "Illustration zu »Das Vater-Erbe« INr 102811, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ist Männer-Schwüren denn zu trauen?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weiß sc.",
+      "scans": [
+        "alm_3371_102812_u7ylx3gumg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ist Männer-Schwüren denn zu trauen?",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.716Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "1z1ll2garhts8i3"
+        }
+      ],
+      "source_id": "ro693vx0tzxjacx"
+    },
+    {
+      "annotation": "Illustration zu »Das Vater-Erbe« INr 102811, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein mir ewig treuer Ambrosius",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3371_102813_5tkswrisjs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mein mir ewig treuer Ambrosius",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.769Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "57ybm74y5jsus7p"
+        }
+      ],
+      "source_id": "632ctiij2w4litg"
+    },
+    {
+      "annotation": "Illustration zu »Das Vater-Erbe« INr 102811, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "478",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LEOPOLDINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Loder del. Jos Stöber sc. Viennae",
+      "scans": [
+        "alm_3371_102814_zaq9zw5nk0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LEOPOLDINE",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.769Z",
+          "agent": "5m3k81xtringcag",
+          "source_id": "a4ku1zknl14xs86"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.769Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "r36ds5mwhsnhd3r"
+        }
+      ],
+      "source_id": "h6txd7m31ptqg12"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "480",
+      "incipit_statement": "Druck und Papier von C. L. Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 102815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von C. L. Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1826,
+      "editor": "",
+      "agents": [],
+      "source_id": "ffcj93sd6ujoyr9"
+    }
   ],
   "agents": [
     {

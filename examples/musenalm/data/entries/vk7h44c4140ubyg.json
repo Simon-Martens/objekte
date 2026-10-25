@@ -48,31 +48,886 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "xsqdxw830q5p9nz"
+    {
+      "annotation": "1827-1837.\nKartonierter Einband (Vorder Buchdeckel lose, Buchrücken beschädigt).\n1827: (K: Bl 6, 521 SS und Ku ) Mit Ku 9, Bl 6 und 521 SS.\nInhalt teilweise lose.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.626Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100473",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.626Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xsqdxw830q5p9nz"
+    }
   ],
   "contents": [
-    "9bpvwxa8aaytyua",
-    "9sn9saof3sxrs1p",
-    "kkwravtg2xx1kao",
-    "piby7jtod3sa7zg",
-    "9xv737pry0ln651",
-    "oo3n3p0hyjidtby",
-    "saixh5s1qzsvd42",
-    "chvkcour3nj8qbt",
-    "y87xf8tgormex59",
-    "k9xnqz6k9zc6adh",
-    "ndxx2k56rgz32ka",
-    "q27v7ji7phkfa0y",
-    "qwe7gkxrceg3iuj",
-    "o5trg3plvxjdj8a",
-    "k8gs5j79eweiur2",
-    "zgyeikrear9g980",
-    "496f8pbtrgnid1w",
-    "06khe5q7hdukzsk",
-    "btw418gl3pdr714",
-    "fr0dozypmuumpfj",
-    "a5sh5ffndufx8vi",
-    "sjaqxedusks2ynu"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112464,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2470_112464_hi7uee6w3b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "9bpvwxa8aaytyua"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.867Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112466,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN / EIN / Taschenbuch / für 1827. / Leipzig, bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2470_112466_g3y1a9sd9e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN / EIN / Taschenbuch / für 1827. / Leipzig, bei Friedrich August Leo",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "9sn9saof3sxrs1p"
+    },
+    {
+      "annotation": "s. Gedicht INr 112467, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112465,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titelgraphik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber sc.",
+      "scans": [
+        "alm_2470_112465_70051lrzy5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Titelgraphik",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.344Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "2szvcenrgtt9s11"
+        }
+      ],
+      "source_id": "kkwravtg2xx1kao"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 112465, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wie verschwenderisch verstreute / Ihrer Rosen reiche Fülle / Die Natur zur schönen Beute,",
+      "language": [],
+      "musenalm_id": 112467,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosen. / Rosa centifolia",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosen. / Rosa centifolia",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.344Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "zx9y5sg2rt6ub3c"
+        }
+      ],
+      "source_id": "piby7jtod3sa7zg"
+    },
+    {
+      "annotation": "Rosenmotiv",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ponheimer sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ponheimer sc.",
+      "scans": [
+        "alm_2470_112468_z0dre1xni9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "9xv737pry0ln651"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "oo3n3p0hyjidtby"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Rosen, Rosen habe ich aufgefunden / Zu dem Schmucke für das neue Jahr,",
+      "language": [],
+      "musenalm_id": 112470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "saixh5s1qzsvd42"
+    },
+    {
+      "annotation": "graph. Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "chvkcour3nj8qbt"
+    },
+    {
+      "annotation": "Vorwort zum Beitrag INr 112473, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mild, wie ein Abendhauch sitzt die griechische Muse an der Hyppokrene, sanft kräuselt sich die Welle unter dem Schatten des Lorbeers,",
+      "language": [],
+      "musenalm_id": 112472,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Das Ende der Ynka's / oder / die Eroberung Peru's. / Ein historisch romantisches Gemählde. / Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Plenken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Das Ende der Ynka's / oder / die Eroberung Peru's. / Ein historisch romantisches Gemählde. / Vorwort",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "y87xf8tgormex59"
+    },
+    {
+      "annotation": "s. Vorwort INr 112472, Obj 9 mit 2 Illustrationen s. Graphiken INr 112474, 112475; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Ein heitrer Sommertag breitete seine gold'nen Fittige über Cuzko, die Sonne sank hinter die Paromas und ein bunter Schwarm Indianer verließ die Häuser,",
+      "language": [],
+      "musenalm_id": 112473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[I. / Das Ende der Ynka's / oder / die Eroberung Peru's. / Ein historisch romantisches Gemählde]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Plenken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[I. / Das Ende der Ynka's / oder / die Eroberung Peru's. / Ein historisch romantisches Gemählde]",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9xnqz6k9zc6adh"
+    },
+    {
+      "annotation": "Illustration zu »Das Ende der Ynka's oder die Eroberung Peru's.« von Eduard Plenken INr 112473, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Er ist es",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr von K. del. F. W. Meyer sc.",
+      "scans": [
+        "alm_2470_112474_tyw6rag7vr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Er ist es",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.361Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "vy5jld9ui2wixpy"
+        }
+      ],
+      "source_id": "ndxx2k56rgz32ka"
+    },
+    {
+      "annotation": "Illustration zu »Das Ende der Ynka's oder die Eroberung Peru's.« von Eduard Plenken INr 112473, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rava Nuska",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr von K. del. F. W. Meyer sc.",
+      "scans": [
+        "alm_2470_112475_4w1eqzhfxo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rava Nuska",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.361Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "dp5u905vacjicl6"
+        }
+      ],
+      "source_id": "q27v7ji7phkfa0y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Emmerich saß, auf den Ellenbogen gestützt, im Winkel der hütte und schaute durch das Fenster sehnsüchtig hinaus.",
+      "language": [],
+      "musenalm_id": 112476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Emmerich. / Mährchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Willibald Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Emmerich. / Mährchen",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.361Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "6jxnnvc5fj8s10j"
+        }
+      ],
+      "source_id": "qwe7gkxrceg3iuj"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Wie die Alten / Es gehalten; / Wie im Lieben / Sie's getrieben: / Davon spricht / Dies Gedicht /) Mit 2 Illustrationen s. Graphiken INr 112478, 112479; Obj 15, 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Es war im Juni des Jahres 1613, daß, gegen den Abend eines schwülen Tages hin, sich ein mächtiges Gewitter über der reichen und berühmten Handelsstadt Basel zusammenzog.",
+      "language": [],
+      "musenalm_id": 112477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Ital's Brunnenfahrt. / Altdeutsche Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Ital's Brunnenfahrt. / Altdeutsche Novelle",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.361Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "szqhh85uoxmkick"
+        }
+      ],
+      "source_id": "o5trg3plvxjdj8a"
+    },
+    {
+      "annotation": "Illustration zu »Ital's Brunnenfahrt. Altdeutsche Novelle« von G. Döring INr 112477, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lasst uns Kosend die Anmuth des Morgens / geniessen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_2470_112478_yhcgjcvssc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lasst uns Kosend die Anmuth des Morgens / geniessen",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.361Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.361Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "6r5e3y5495s8qtl"
+        }
+      ],
+      "source_id": "k8gs5j79eweiur2"
+    },
+    {
+      "annotation": "Illustration zu »Ital's Brunnenfahrt. Altdeutsche Novelle« von G. Döring INr 112477, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.749Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "APPOLLONIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_2470_112479_syuexrpgdg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "APPOLLONIA",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.339Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "f4yz8cqinwwh70l"
+        }
+      ],
+      "source_id": "zgyeikrear9g980"
+    },
+    {
+      "annotation": "s. Graphik INr 112481, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ob als Agathe sie in süßen Tönen / Um des Geliebten frühe Rückkehr zagt,",
+      "language": [],
+      "musenalm_id": 112480,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friederike Funk, / Königl. Sächsische Hofsängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friederike Funk, / Königl. Sächsische Hofsängerin",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "496f8pbtrgnid1w"
+    },
+    {
+      "annotation": "s. Gedicht INr 112480, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.751Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112481,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRIEDERIKE FUNK / Königl. Sächs. Hofsängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_2470_112481_hdb0inx4a1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRIEDERIKE FUNK / Königl. Sächs. Hofsängerin",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.339Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "8hj0o36oppf03ts"
+        }
+      ],
+      "source_id": "06khe5q7hdukzsk"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112483, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "469",
+      "incipit_statement": "Es waren drei herrliche Tage, die ich in Rautenthal verebt hatte. Endlich war mit dem Schlusse des dritten der größte Theil der geladenen Gäste wieder auf der Heimreise,",
+      "language": [],
+      "musenalm_id": 112482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Goldfischchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Goldfischchen",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.339Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "fgtpos4svmilgo4"
+        }
+      ],
+      "source_id": "btw418gl3pdr714"
+    },
+    {
+      "annotation": "Illustration zu »Die Goldfischchen« von Th. Hell d.i. K. G. Th. Winkler INr 112482, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.754Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "480",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JULIE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Meyer senior Basel",
+      "scans": [
+        "alm_2470_112483_57n2zk616y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JULIE",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.339Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.339Z",
+          "agent": "u1e1ebqdfclrxya",
+          "source_id": "9uqwa0n34ogwx45"
+        }
+      ],
+      "source_id": "fr0dozypmuumpfj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.149Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck und Papier von Fr. Vieweg und Sohn in Braunschweig",
+      "language": [],
+      "musenalm_id": 112484,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von Fr. Vieweg und Sohn in Braunschweig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "a5sh5ffndufx8vi"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112485,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2470_112485_zbb4y23qzr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "sjaqxedusks2ynu"
+    }
   ],
   "agents": [
     {

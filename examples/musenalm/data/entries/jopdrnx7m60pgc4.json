@@ -48,89 +48,3368 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "lffm6akwgcft9r5"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt und Schuber.\n1810:(K:Bl 2, 304 SS,  Ku 6 und Monatsku 12.) Mit  Tku 1, Monatsku 12, Bl 2, Ku 5 und 302 SS.\n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.485Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101086",
+      "location": "105F08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.485Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lffm6akwgcft9r5"
+    }
   ],
   "contents": [
-    "3sciuydmo575o1c",
-    "u35q13l00tqbptr",
-    "9d62v47wt94i2rz",
-    "use3bzirzxuci2t",
-    "1mt9sns2o0divhw",
-    "ib0sic09ypwvm6x",
-    "19cxq5m4qcax9m6",
-    "66j5fmuvw6rgdnk",
-    "qoiu6i2h6qltu4t",
-    "u4jzhdjjmvg3rr8",
-    "4wj9j5cvzs2culc",
-    "6hcks0irj03xqzd",
-    "yc47aud0a6qbg76",
-    "xbtqsetvzl91oe0",
-    "ub36wpxb8vmieha",
-    "gv98cm4h8oq3mbx",
-    "n1sczder4yg9xj9",
-    "n95ya95lqa4vb9a",
-    "amjvxy4kypnq3kj",
-    "q9zv0ie5khd6pm5",
-    "clswowxwaafn6q1",
-    "5kebv2f2jpc0akg",
-    "855zdofzzsuem6q",
-    "n2bjup22x6pn80j",
-    "1ja78ejkj9g8561",
-    "fhqy1n7n7gt7wiz",
-    "281lcg78akgqa7l",
-    "i8wgpouyyjpgexl",
-    "olxxrayx11ug8yc",
-    "4h29102x0bm4plj",
-    "mh2sl0zgf4pyq9q",
-    "b5pyg0botl449gf",
-    "lwj617xymniw9m7",
-    "d0oll3t6d6bcjlv",
-    "y4tvfj0vwqsstj7",
-    "mnom2vv9skm63p7",
-    "gjtwe2h0v1chzzv",
-    "ri2f4kl3q162tbr",
-    "al5u47gxmmdnurt",
-    "j02kr6pfi1g5ayc",
-    "xjjzgr3t5kkzmid",
-    "x9i9cp7y9wibftf",
-    "i70s56q5rq83let",
-    "h38751p1timyxj7",
-    "97kf9bw6cqw68x7",
-    "090hcqoa75fb9ig",
-    "tpsb7wu5xvh2sg6",
-    "oceey47ymqk5tbb",
-    "r4qtfakmxpyxqjo",
-    "za43dsqsmsvh4b3",
-    "gk65rzqt7x0qo3o",
-    "9bcug1irt7fj4et",
-    "qfzt9u5u72az34x",
-    "rwvh7by4grwyqje",
-    "5s5i1kmo4s8yckf",
-    "1xqbjrj6snivcg9",
-    "ay880rs3n2kutnm",
-    "ts6k4vzx4lzn8wu",
-    "m2u3hslyoy5md4u",
-    "xtmo1pamwwt8b1z",
-    "4pcrfndnisysav5",
-    "o2y3s1vwyjffajc",
-    "coerok9uvibtqzy",
-    "ex7ij181mmrhflc",
-    "cw0mem07pmmayt8",
-    "y5oee38ofx1ddey",
-    "ks5qfngvzqycm1g",
-    "n4id1bm9k6h975y",
-    "bf7sx5y05lx0dc4",
-    "tyn7ck81z7sf40t",
-    "04ggx1pcw2d5jn4",
-    "14ck8kqshmqr15m",
-    "hptsagxv45zg97p",
-    "a8a1io2y3j6z0un",
-    "ygbz04qbjacw9l5",
-    "m7p6l70d8cup8c3",
-    "y5gdvgsezam2v60",
-    "vtpn65t7g5abzxe",
-    "exbt5vhvfmivk0e",
-    "9dgcm0xjmacpy57"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28835,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_373_28835_gtq51whtr8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "3sciuydmo575o1c"
+    },
+    {
+      "annotation": "Titelgraphik. $ vermutl. Ramberg u. Juri",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28836,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_373_28836_1xny46jwa7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "u35q13l00tqbptr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28837,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1810. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn / bei Friedrich Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_373_28837_2pnd8da7n6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1810. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn / bei Friedrich Wilmans",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "9d62v47wt94i2rz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28838,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus die Hussiten vor Naumburg von Kotzebue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Arndt fec.",
+      "scans": [
+        "alm_373_28838_wge1ovyy7c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus die Hussiten vor Naumburg von Kotzebue",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.489Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "fok0jdbna9pdevx"
+        }
+      ],
+      "source_id": "use3bzirzxuci2t"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28839,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus die Kleinstädter von Kotzebue",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28839_u0g4iz59qc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus die Kleinstädter von Kotzebue",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.489Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "dy7vxu0j48zknkf"
+        }
+      ],
+      "source_id": "1mt9sns2o0divhw"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28840,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus die Pagenstreiche von Kotzebue",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28840_7wg59rh4qp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus die Pagenstreiche von Kotzebue",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.489Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "naw6fwbkzo627gc"
+        }
+      ],
+      "source_id": "ib0sic09ypwvm6x"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite; Illustration zu »Don Carlos« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28841,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc: Aus Don Carlos von Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28841_hg31cif7f9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc: Aus Don Carlos von Schiller",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.489Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.489Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "1420v1atawqr5en"
+        }
+      ],
+      "source_id": "19cxq5m4qcax9m6"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite; Illustration zu »Die Jungfrau von Orleans von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28842,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc: Aus die Jungfrau von Orleans von Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28842_uubz2i6qxi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc: Aus die Jungfrau von Orleans von Schiller",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.490Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "6i8h1i5d0bapu0s"
+        }
+      ],
+      "source_id": "66j5fmuvw6rgdnk"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28843,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus Benjonskÿ von Kotzebue",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28843_wc046nurcq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus Benjonskÿ von Kotzebue",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.490Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "bop47337donhl0b"
+        }
+      ],
+      "source_id": "qoiu6i2h6qltu4t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28844,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus Fridolin von Fr. Walther",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Arndt fec.",
+      "scans": [
+        "alm_373_28844_h7444w89j4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus Fridolin von Fr. Walther",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.490Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "lif5jda6klxfcol"
+        }
+      ],
+      "source_id": "u4jzhdjjmvg3rr8"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite Illustration zu »Maria Stuart« von Fr. Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.368Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28845,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc: Aus Maria Stuart von Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28845_ltxhfkhuzr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc: Aus Maria Stuart von Schiller",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.490Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "ea55l203rqq0inh"
+        }
+      ],
+      "source_id": "4wj9j5cvzs2culc"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.369Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28846,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus dem Herbsttag von Iffland",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28846_23ds9f4sw7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus dem Herbsttag von Iffland",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.490Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.490Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "i9nuzi70w6qd9w3"
+        }
+      ],
+      "source_id": "6hcks0irj03xqzd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28847,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus Liebe um Liebe von Iffland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Arndt",
+      "scans": [
+        "alm_373_28847_htfrf1l6ys.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus Liebe um Liebe von Iffland",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.567Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.567Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "xdencrds6huo8lt"
+        }
+      ],
+      "source_id": "yc47aud0a6qbg76"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28849,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc: Aus der Mann von Wort von Iffland",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28849_3cr2hapw5i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc: Aus der Mann von Wort von Iffland",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.567Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.567Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "6a7m8elg8yawpyp"
+        }
+      ],
+      "source_id": "xbtqsetvzl91oe0"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28848,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. Aus Elise von Nalberg von Iffland",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. A.",
+      "scans": [
+        "alm_373_28848_2m8hs76uh5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. Aus Elise von Nalberg von Iffland",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.567Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.567Z",
+          "agent": "72r3qe0psneye9d",
+          "source_id": "ytsg4dq8ckgzuwp"
+        }
+      ],
+      "source_id": "ub36wpxb8vmieha"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28850,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "gv98cm4h8oq3mbx"
+    },
+    {
+      "annotation": "Sammlung von 16 Beiträgen INr 36858-36873, Obj 18-32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Ehe-Spiegel-Scherben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige Ehe-Spiegel-Scherben",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.567Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.567Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "4qp6jhu1deznio2"
+        }
+      ],
+      "source_id": "n1sczder4yg9xj9"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich häufe schon seit Jahren Thatsachen und Urkunden zu einer Darstellung Siebenkäsens zweiter Ehe - mit Natalien nämlich - zusammen.",
+      "language": [],
+      "musenalm_id": 36872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich häufe schon seit Jahren Thatsachen und Urkunden zu einer Darstellung Siebenkäsens zweiter Ehe - mit Natalien nämlich - zusammen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "5h11q8hjofkc1cl"
+        }
+      ],
+      "source_id": "n95ya95lqa4vb9a"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Was so manche Ehe zu einer Mißtonleiter macht, ist, daß erstlich der Mann sich nicht entschließen kann,",
+      "language": [],
+      "musenalm_id": 36858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was so manche Ehe zu einer Mißtonleiter macht, ist, daß erstlich der Mann sich nicht entschließen kann,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.766Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "vzu6073fb1ut15w"
+        }
+      ],
+      "source_id": "amjvxy4kypnq3kj"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Als der schöne Isidas gegen das Gesetz ohne Waffen und nackt aus dem Bade ins Treffen lief,",
+      "language": [],
+      "musenalm_id": 36859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als der schöne Isidas gegen das Gesetz ohne Waffen und nackt aus dem Bade ins Treffen lief,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.766Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "uhwq908fripvaea"
+        }
+      ],
+      "source_id": "q9zv0ie5khd6pm5"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Eingeständnis eines Fehlers wirkt allmächtiger, als jedes aussöhnende Handeln;",
+      "language": [],
+      "musenalm_id": 36860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eingeständnis eines Fehlers wirkt allmächtiger, als jedes aussöhnende Handeln;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.766Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.766Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "bksnakkjcx7c1r3"
+        }
+      ],
+      "source_id": "clswowxwaafn6q1"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Der Mann ist nie mehr als bei großen Kraft-Anspannungen, z. B. durch Geistesarbeit,",
+      "language": [],
+      "musenalm_id": 36861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mann ist nie mehr als bei großen Kraft-Anspannungen, z. B. durch Geistesarbeit,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "p87kgzl7q8dn3vi"
+        }
+      ],
+      "source_id": "5kebv2f2jpc0akg"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Zwei verschieden Eheklassen und folglich Ehegeschicke sind vorhanden;",
+      "language": [],
+      "musenalm_id": 36862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei verschieden Eheklassen und folglich Ehegeschicke sind vorhanden;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.735Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "c3kvai2z2krec7l"
+        }
+      ],
+      "source_id": "855zdofzzsuem6q"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Da sich die zärtern Ehen mehr durch Launen als Sünden, mehr durch Irrthümer als Vorsätze zerrütten:",
+      "language": [],
+      "musenalm_id": 36863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Da sich die zärtern Ehen mehr durch Launen als Sünden, mehr durch Irrthümer als Vorsätze zerrütten:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "fc8b3wacshhbm6y"
+        }
+      ],
+      "source_id": "n2bjup22x6pn80j"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Je zarter und inniger die Verbnindung ist, desto mehr glauben wir Männer, auch über das Kleinste, rechten zu müssen,",
+      "language": [],
+      "musenalm_id": 36864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Je zarter und inniger die Verbnindung ist, desto mehr glauben wir Männer, auch über das Kleinste, rechten zu müssen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "33wq0g7cdwbp4gt"
+        }
+      ],
+      "source_id": "1ja78ejkj9g8561"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wer zu einem Manne, vollends zu einer Frau, sagt: Du bist gewiß verdrüßlich oder erzürnt,",
+      "language": [],
+      "musenalm_id": 36865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer zu einem Manne, vollends zu einer Frau, sagt: Du bist gewiß verdrüßlich oder erzürnt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "b7wqex0p3r9okey"
+        }
+      ],
+      "source_id": "fhqy1n7n7gt7wiz"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Der Ehezepter erscheint der Braut als ein Krummstab, unter welchem sich gut wohnen läßt;",
+      "language": [],
+      "musenalm_id": 36866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ehezepter erscheint der Braut als ein Krummstab, unter welchem sich gut wohnen läßt;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "jb8ngedcdav6dso"
+        }
+      ],
+      "source_id": "281lcg78akgqa7l"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Je später die Ehe, desto schwieriger. Einen Hagestolzen zu ehlichen, ist fast gefährlicher als eine Witwe.",
+      "language": [],
+      "musenalm_id": 36873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Je später die Ehe, desto schwieriger. Einen Hagestolzen zu ehlichen, ist fast gefährlicher als eine Witwe.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ef83k5nttsxs165"
+        }
+      ],
+      "source_id": "i8wgpouyyjpgexl"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Eltern und Erziehern wird es schwer, ihr Loben und Lieben gegen ihre Kinder auszusprechen,",
+      "language": [],
+      "musenalm_id": 36867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eltern und Erziehern wird es schwer, ihr Loben und Lieben gegen ihre Kinder auszusprechen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "7g5mx7epy484cwb"
+        }
+      ],
+      "source_id": "olxxrayx11ug8yc"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Jeder Ehemann sollte bedenken, daß sein Versagen und Widersprechen für die Frau,",
+      "language": [],
+      "musenalm_id": 36868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jeder Ehemann sollte bedenken, daß sein Versagen und Widersprechen für die Frau,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "gs9dvzfbt3evqyn"
+        }
+      ],
+      "source_id": "4h29102x0bm4plj"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Die Liebe fühlt sich zu allen Opfern stark; auch bringt sie leicht die größten,",
+      "language": [],
+      "musenalm_id": 36869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Liebe fühlt sich zu allen Opfern stark; auch bringt sie leicht die größten,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "kxs7lu39gywalba"
+        }
+      ],
+      "source_id": "mh2sl0zgf4pyq9q"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Ein sanftes Nachgeben besiegt, besonders den Mann, sogar die Frau weit mehr als starres Widerstreben;",
+      "language": [],
+      "musenalm_id": 36870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein sanftes Nachgeben besiegt, besonders den Mann, sogar die Frau weit mehr als starres Widerstreben;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "tpssu42r1j0ksji"
+        }
+      ],
+      "source_id": "b5pyg0botl449gf"
+    },
+    {
+      "annotation": "I. Einige Ehe-Spiegel-Scherben (Sammlung INr 28851, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "An und für sich ist der bekannte Tadel, daß die Weiber immer zu spät fertig werden,",
+      "language": [],
+      "musenalm_id": 36871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An und für sich ist der bekannte Tadel, daß die Weiber immer zu spät fertig werden,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "7107digwqttg0d3"
+        }
+      ],
+      "source_id": "lwj617xymniw9m7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Ein Trauerbild am schwarzen Sarkofage, / Feind jedes Lebens, Tod der süßen Lust",
+      "language": [],
+      "musenalm_id": 28852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Buchstabenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Buchstabenräthsel",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "d0oll3t6d6bcjlv"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 28854, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Nachdem der junge Graf Rosenthal die reiche Erbschaft eines Großonkels übernommen hatte,",
+      "language": [],
+      "musenalm_id": 28853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der irregeführte Liebhaber. / Eine Novelle / aus den / Manuscripten der Frau von Genlis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frau von Genlis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der irregeführte Liebhaber. / Eine Novelle / aus den / Manuscripten der Frau von Genlis",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.567Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.567Z",
+          "agent": "pbwh06s3o16djua",
+          "source_id": "dijucqi7v4g13eg"
+        }
+      ],
+      "source_id": "y4tvfj0vwqsstj7"
+    },
+    {
+      "annotation": "$ vermutl. Ramberg u. Juri /) Illustration zu »Der irregeführte Liebhaber« von F. St. von Genlis 28853, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sz. aus der Erzählung: der irre geführte Liebhaber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_373_28854_zl5o4470o2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sz. aus der Erzählung: der irre geführte Liebhaber",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "mnom2vv9skm63p7"
+    },
+    {
+      "annotation": "Sammlung von 21 Gedichten INr 28856-28878, Obj 22-44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Gedichte",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.567Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.567Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "bekt2ap70x3aedr"
+        }
+      ],
+      "source_id": "gjtwe2h0v1chzzv"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 28857-28859, Obj 23-25 /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28856,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Romanzen",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.568Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.568Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "7k93n47yme41cow"
+        }
+      ],
+      "source_id": "ri2f4kl3q162tbr"
+    },
+    {
+      "annotation": "1. Romanzen (Sammlung INr 28856, Obj 22) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Seidene Gardinen wallen / Oft an hellen Fensterscheiben,",
+      "language": [],
+      "musenalm_id": 28857,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.568Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.568Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "jr3iqk4eci0gjo0"
+        }
+      ],
+      "source_id": "al5u47gxmmdnurt"
+    },
+    {
+      "annotation": "1. Romanzen (Sammlung INr 28856, Obj 22) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Sieh! da nickt herab die Klinke, Wie vom Drucke zarter Hand,",
+      "language": [],
+      "musenalm_id": 28858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.568Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.568Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "z2e7xbat0x5xyiq"
+        }
+      ],
+      "source_id": "j02kr6pfi1g5ayc"
+    },
+    {
+      "annotation": "1. Romanzen (Sammlung INr 28856, Obj 22) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.730Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Wie so still der Nachmittag / Wallt im goldnen Schein der Sonne,",
+      "language": [],
+      "musenalm_id": 28859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.306Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "pjlvb1j55z5phik"
+        }
+      ],
+      "source_id": "xjjzgr3t5kkzmid"
+    },
+    {
+      "annotation": "III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.730Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "O das sind mir schöne Dinge! / Gute Freunde, das ist wahr,",
+      "language": [],
+      "musenalm_id": 28860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Mit einem ausgeschnittenen Blumenkorbe. / Espinelen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Mit einem ausgeschnittenen Blumenkorbe. / Espinelen",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.306Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "pdl615zly5sxknj"
+        }
+      ],
+      "source_id": "x9i9cp7y9wibftf"
+    },
+    {
+      "annotation": "Sammlung von 17 Gedichten INr 28862-28878, Obj 28-44 /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Epigramme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Epigramme",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.306Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "zm2s60j5n0hs6ru"
+        }
+      ],
+      "source_id": "i70s56q5rq83let"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Bald war untergegangen das Licht; in den Abendgewölken / Zitterte leis' abwärts goldner Strahlen Gewühl.",
+      "language": [],
+      "musenalm_id": 28862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.306Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "lrg4su17wm0y9mt"
+        }
+      ],
+      "source_id": "h38751p1timyxj7"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Heimlich wollt' ich, dem Winke getreu, mein Liebchen be- / suchen,",
+      "language": [],
+      "musenalm_id": 28863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.306Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "u6fg1gw28nakbpl"
+        }
+      ],
+      "source_id": "97kf9bw6cqw68x7"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Stilles rührendes Bild! schuldlos auf schlummerentblößten / Gliedern der Jungfrau",
+      "language": [],
+      "musenalm_id": 28864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.307Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.307Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "llvuu0nib9jf9vb"
+        }
+      ],
+      "source_id": "090hcqoa75fb9ig"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Einsam fließen herab die Thränen von dem brennenden Auge;",
+      "language": [],
+      "musenalm_id": 28865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.307Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.307Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "1jbqqvf2qtupt57"
+        }
+      ],
+      "source_id": "tpsb7wu5xvh2sg6"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Rasch euch, Freunde, gestellt! es beginnt frohherziges Ball- / spiel;",
+      "language": [],
+      "musenalm_id": 28866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.307Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.307Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "suudy1e0y72qad3"
+        }
+      ],
+      "source_id": "oceey47ymqk5tbb"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Tief in des Frevels That schläft eingekerkert ein Dämon,",
+      "language": [],
+      "musenalm_id": 28867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "f5daaafl6kwn3l7"
+        }
+      ],
+      "source_id": "r4qtfakmxpyxqjo"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Auch in der schönen That liegt eingeschlossen ein Dämon,",
+      "language": [],
+      "musenalm_id": 28868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "u587p5argj01lnj"
+        }
+      ],
+      "source_id": "za43dsqsmsvh4b3"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Schön! das wäre der Muth, mein Freund, wenn entsetz- / licher Unmuth",
+      "language": [],
+      "musenalm_id": 28869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "zzljjzw1v1uouva"
+        }
+      ],
+      "source_id": "gk65rzqt7x0qo3o"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Zierlicher Werke Gewinn durch fein ausbildende Führung",
+      "language": [],
+      "musenalm_id": 28870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "p4awjo34kpobxz5"
+        }
+      ],
+      "source_id": "9bcug1irt7fj4et"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Nächtliche Schatten umfließen die waldigen Höhen und / Thäler,",
+      "language": [],
+      "musenalm_id": 28871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Romantische Wälder von Schütz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Romantische Wälder von Schütz",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "5pyn3r84r505ka4"
+        }
+      ],
+      "source_id": "qfzt9u5u72az34x"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Als ich erglüht, o du Falsche, zu dir in brennender / Sehnsucht",
+      "language": [],
+      "musenalm_id": 28872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "h8vl5tv6nko9jiq"
+        }
+      ],
+      "source_id": "rwvh7by4grwyqje"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Ja, wir hätten getaugt für einander; wir konnten uns / lieben",
+      "language": [],
+      "musenalm_id": 28873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.208Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.208Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "zl7amw7b48xnzqk"
+        }
+      ],
+      "source_id": "5s5i1kmo4s8yckf"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Westlich erglüht rothstrahlend in scheidender Sonne Be- / trachtung",
+      "language": [],
+      "musenalm_id": 28874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / An Wilhelmine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / An Wilhelmine",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "r3c1qj6yv1h3jhd"
+        }
+      ],
+      "source_id": "1xqbjrj6snivcg9"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Wie! das thatest du mir zu LIeb'? unselige Blindheit! / Nichts ja hab' ich gemerkt, sah nur das eigene Thun,",
+      "language": [],
+      "musenalm_id": 28875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "mmtw3hih6y5i2vu"
+        }
+      ],
+      "source_id": "ay880rs3n2kutnm"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Aus der geheiligten Flut aufblühend altgriechischer / Kunstwelt",
+      "language": [],
+      "musenalm_id": 28876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "fkfvmq6d58r58sk"
+        }
+      ],
+      "source_id": "ts6k4vzx4lzn8wu"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Wehe die Neugier führte hinweg durch nächtliches Dunkel",
+      "language": [],
+      "musenalm_id": 28877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / In einen seidenen Schuh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / In einen seidenen Schuh",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.288Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "uslydr8jucl96z1"
+        }
+      ],
+      "source_id": "m2u3hslyoy5md4u"
+    },
+    {
+      "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Heißt ein bewohnter Garten die Welt, wenn Freunde zer- / streut rings",
+      "language": [],
+      "musenalm_id": 28878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17. / Donnerstags, den 18ten Februar",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Varnhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17. / Donnerstags, den 18ten Februar",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.511Z",
+          "agent": "ep8tm0egvn3ld0y",
+          "source_id": "ko9cqbs1p3oihk9"
+        }
+      ],
+      "source_id": "xtmo1pamwwt8b1z"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 28890, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Ich hatte mich im Karlsbade gelangweilt. Eine zahllose Menge verwundeter Offiziere, die in diesem Jahre kamen",
+      "language": [],
+      "musenalm_id": 28879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Auch ein Reiseabenteuer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Minna S***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Auch ein Reiseabenteuer",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.511Z",
+          "agent": "6bba95qi5qffiw1",
+          "source_id": "z9maks4ktz4hdb8"
+        }
+      ],
+      "source_id": "4pcrfndnisysav5"
+    },
+    {
+      "annotation": "$ vermutl. Ramberg u. Juri /) Illustration zu »Auch ein Reiseabenteuer« von Minna S*** d. i. J. K. W. Spazier INr 28879, Obj 45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28880,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Erzählung: auch ein Reiseabentheuer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_373_28880_pg1v6cvfk7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Erzählung: auch ein Reiseabentheuer",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "o2y3s1vwyjffajc"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten INr 28882-28890, Obj 48-56",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Elegieen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Elegieen",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "coerok9uvibtqzy"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Herbstluft weht, schon naht von dem Nord der umeisete / Winter;",
+      "language": [],
+      "musenalm_id": 28882,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "ex7ij181mmrhflc"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Früheste Liebe, du blühst in des Lebens erwachendem Frühling",
+      "language": [],
+      "musenalm_id": 28883,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "cw0mem07pmmayt8"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Ach, wie ertrag ich es nur! schon sank zu des dämmern- / den Abends",
+      "language": [],
+      "musenalm_id": 28884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "y5oee38ofx1ddey"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Laut aufwirbelte Trommelgetön zu des Heers General- / marsch,",
+      "language": [],
+      "musenalm_id": 28885,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "ks5qfngvzqycm1g"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Was ich beginn' im Gesellschaftssaal, wo jeglicher Abend",
+      "language": [],
+      "musenalm_id": 28886,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4id1bm9k6h975y"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Weigre dem Bittenden nicht die erblühenden Lippen, / Miranda,",
+      "language": [],
+      "musenalm_id": 28887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "bf7sx5y05lx0dc4"
+    },
+    {
+      "annotation": "# lies 7. Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Nahe dem Thor steht künstlich erbaut ein niedliches Hütt- / chen,",
+      "language": [],
+      "musenalm_id": 28888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. #",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "tyn7ck81z7sf40t"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Unter Kastanienbäumen, am kühlumschatteten Theetisch / Saß ich, ersinnend im Schach künstlich entscheidenden / Zug.",
+      "language": [],
+      "musenalm_id": 28889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "04ggx1pcw2d5jn4"
+    },
+    {
+      "annotation": "Elegieen (Sammlung INr 28881, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Kinder des Herbstes, genug! ihr sprosset heran, und er- / füllet / jeglichen Raum,",
+      "language": [],
+      "musenalm_id": 28890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Z***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "14ck8kqshmqr15m"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 28892, Obj 58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.537Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Ich hatte mein drei und zwanzigstes Jahr zurückgelegt, als ich zum ersten Male in der Residenz anlangte.",
+      "language": [],
+      "musenalm_id": 28891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Maske. / Fragment aus Alfreds Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Carl August Buchholz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Maske. / Fragment aus Alfreds Leben",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "n0yt5hap5xk7ygu",
+          "source_id": "hfanifq18r6dxx9"
+        }
+      ],
+      "source_id": "hptsagxv45zg97p"
+    },
+    {
+      "annotation": "$ vermutl. Ramberg u. Juri /) Illustration zu »Die Maske. Fragment aus Alfreds Leben« von K. A. Buchholz INr 28893, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sz. aus: die Maske. Fragment aus Alfreds Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_373_28892_hwgnciu86t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sz. aus: die Maske. Fragment aus Alfreds Leben",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "a8a1io2y3j6z0un"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Ein Flüsterm, Rauschen, Klingen / Geht durch den Frühlingshain,",
+      "language": [],
+      "musenalm_id": 28893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldessprache",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Pellegrin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldessprache",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.063Z",
+          "agent": "vwa4f73bcjeod59",
+          "source_id": "kt8nu4ss9dcojmk"
+        }
+      ],
+      "source_id": "ygbz04qbjacw9l5"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 28895, Obj 61",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "In einem kleinen Dorfe, an der äußersten Grenze von Sachsen, hart an den rauhen Fichtenwäldern der Böhmischen Gebirgskette,",
+      "language": [],
+      "musenalm_id": 28894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Kantor-Probe. / Eine Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Minna S****",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Kantor-Probe. / Eine Erzählung",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.063Z",
+          "agent": "6bba95qi5qffiw1",
+          "source_id": "rand7ichyfbtr5m"
+        }
+      ],
+      "source_id": "m7p6l70d8cup8c3"
+    },
+    {
+      "annotation": "$ vermutl. Ramberg u. Juri /) Illustration zu »Die Kantor-Probe« von Minna S**** d. i. J. K. W. Spazier INr 28894, Obj 60",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Erzählung: die Kantor-Probe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_373_28895_vkthehzn9o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Erzählung: die Kantor-Probe",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "y5gdvgsezam2v60"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 28897, Obj 63",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Der Wagen war vorgefahren, und die vier Braunen schienen den Augenblick nicht erwarten zu können,",
+      "language": [],
+      "musenalm_id": 28896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Das Abenteuer im Bade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Niemeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Das Abenteuer im Bade",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "vtpn65t7g5abzxe"
+    },
+    {
+      "annotation": "$ vermutl. Ramberg u. Juri /) Illustration zu »Das Abenteuer im Bade» von Anton Niemeyer INr 28896, Obj 62",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glauben Sie mir nun meine Gabe der Weissagung? / Sc. aus der Erzählung: das Abentheuer im Bade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_373_28897_8s3livdhm8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Glauben Sie mir nun meine Gabe der Weissagung? / Sc. aus der Erzählung: das Abentheuer im Bade",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "exbt5vhvfmivk0e"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32480,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_373_32480_rwr5rtgl3c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "9dgcm0xjmacpy57"
+    }
   ],
   "agents": [
     {

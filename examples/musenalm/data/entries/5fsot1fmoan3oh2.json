@@ -48,39 +48,1380 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "zrh48vcgd7fe3bc"
+    {
+      "annotation": "",
+      "condition": "40",
+      "created": "2026-06-11 10:17:37.531Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106069",
+      "location": "105N02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.531Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zrh48vcgd7fe3bc"
+    }
   ],
   "contents": [
-    "uvyh0m2018uj7p4",
-    "x6yuz9c8e0idfx4",
-    "2zrc6yx55r1wauf",
-    "lq78962ysbqv6ud",
-    "a0i7sp1zacf2bi7",
-    "xsnmlympwcj9c4w",
-    "nh05i9l0175xfa9",
-    "fvnf0vjhefk7ppl",
-    "67wji24iw3lurk3",
-    "qvow95wnekwz3qa",
-    "jwudfuj91zit124",
-    "axi9j867vqfy3ch",
-    "21j1gx2xtjuiew1",
-    "rqw6i7ubexxb27s",
-    "3tbk899odlb2tor",
-    "cfg4bunlfqxgcfm",
-    "2jgw6asvsercim5",
-    "g4w18yxft19r28k",
-    "leineqe2lcljq7g",
-    "3vhnvsg3l2nphiy",
-    "3utmsjd0y8lfatw",
-    "f3by0ebtqpbs2ed",
-    "9c6xfy62dsbpz9y",
-    "pt5ytuuv4lj47cj",
-    "spfdensftl3laem",
-    "z6o8bxguzt7bzrd",
-    "7k3po9qn50fd35k",
-    "1odvmfo1ssssbfv",
-    "ml8dkwfipz8lmij",
-    "5a4cipy742rxzfj"
+    {
+      "annotation": "Umschlagprägung r. mit Vignette s. Gedicht INr 62939, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ZUM LOBE EDLER FRAUEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1032_62936_vpxvmqqcup.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ZUM LOBE EDLER FRAUEN",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "uvyh0m2018uj7p4"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62937,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Madonna mit dem Kinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jul. Romano pinx. Keller del. M. Esslinger sculps.",
+      "scans": [
+        "alm_1032_62937_wr5npxqvhr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Madonna mit dem Kinde",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "qdfxaqgn9k3dftb"
+        }
+      ],
+      "source_id": "x6yuz9c8e0idfx4"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62938,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA. / Taschenbuch / für / Deutsche Frauen / auf das Jahr 1824. / Herausgegeben / von / ALOYS SCHREIBER. / Neunter Jahrgang. Neue Folge. Erster Jahrgang. / Mit Kupfern. / HEIDELBERG, / im Verlag von J. Engelmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Siedentopf sc.",
+      "scans": [
+        "alm_1032_62938_bmf8psk660.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA. / Taschenbuch / für / Deutsche Frauen / auf das Jahr 1824. / Herausgegeben / von / ALOYS SCHREIBER. / Neunter Jahrgang. Neue Folge. Erster Jahrgang. / Mit Kupfern. / HEIDELBERG, / im Verlag von J. Engelmann",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "2zrc6yx55r1wauf"
+    },
+    {
+      "annotation": "s. Umschlaggraphik r. INr 62936, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Sänger will zum trauten Hain entweichen, / Wo sinnend ihren Kranz die Muse flicht;",
+      "language": [],
+      "musenalm_id": 62939,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Umschlagvignette. / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Umschlagvignette. / 1.",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "enhh0rysi2ha22v"
+        }
+      ],
+      "source_id": "lq78962ysbqv6ud"
+    },
+    {
+      "annotation": "s. Umschlaggraphik v. INr 62965, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Und ruft die Pflicht zu ritterlichem Ruhme, / Dann trägt er gern gewappnet Schild und Schwert;",
+      "language": [],
+      "musenalm_id": 62940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Zur Umschlagvignette] 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Zur Umschlagvignette] 2.",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "q0syt54tw6betmg"
+        }
+      ],
+      "source_id": "a0i7sp1zacf2bi7"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 62942-62945, Obj 7-10 als Textbezüge zu den Graphiken INr 62946-62949, Obj 11-14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62941,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinische Sagen. / (Dichtungen von Karl Geib)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinische Sagen. / (Dichtungen von Karl Geib)",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "u2wuu4wbueq5pwn"
+        }
+      ],
+      "source_id": "xsnmlympwcj9c4w"
+    },
+    {
+      "annotation": "Rheinische Sagen (Sammlung INr 62941, Obj 6) mit einer Illustration s. Graphik INr 62946, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wie Flötenklang im Abendgold / Durch Auen und den Hain, / Tönt eine Stimme wunderhold",
+      "language": [],
+      "musenalm_id": 62942,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Die Jungfrau vom Lurley",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Die Jungfrau vom Lurley",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "00hkks9mfx8ijcl"
+        }
+      ],
+      "source_id": "nh05i9l0175xfa9"
+    },
+    {
+      "annotation": "Rheinische Sagen (Sammlung INr 62941, Obj 6) mit einer Illustration s. Graphik INr 62947, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Auf seiner Felsenburg am Rhein / Ruht endlich von des Lebens Mühen / Der Ritter Hans vom Liebenstein;",
+      "language": [],
+      "musenalm_id": 62943,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Die beyden Brüder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Die beyden Brüder",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "tthxdf8kbfvo1rp"
+        }
+      ],
+      "source_id": "fvnf0vjhefk7ppl"
+    },
+    {
+      "annotation": "Rheinische Sagen (Sammlung INr 62941, Obj 6) mit einer Illustration s. Graphik INr 62948, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Schön und hold vor allen Frau'n / Ist Beatrix anzuschau'n,",
+      "language": [],
+      "musenalm_id": 62944,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die Gräfin von Cleve",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die Gräfin von Cleve",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.231Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "sr7rt0r18txvyof"
+        }
+      ],
+      "source_id": "67wji24iw3lurk3"
+    },
+    {
+      "annotation": "Rheinische Sagen (Sammlung INr 62941, Obj 6) mit einer Illustration s. Graphik INr 62949, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Friedrich Barbarossa nennet / Jeder gern, den Biedermann, / Ihn, der Minnelieder tönte,",
+      "language": [],
+      "musenalm_id": 62945,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Kaiser Friedrich und Gela",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Kaiser Friedrich und Gela",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.143Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "96pl05j39q3mhv2"
+        }
+      ],
+      "source_id": "qvow95wnekwz3qa"
+    },
+    {
+      "annotation": "Illustration zu »Die Jungfrau vom Lurley« von K. Geib INr 62942, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. Fleischmann sculp.",
+      "scans": [
+        "alm_1032_62946_zfp5hcrcjm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.143Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "3pu1do31pi5xkz6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.143Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "e572sw7cmrev27e"
+        }
+      ],
+      "source_id": "jwudfuj91zit124"
+    },
+    {
+      "annotation": "Illustration zu »Die beyden Brüder« von K. Geib INr 62943, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. Fleischmann sculp.",
+      "scans": [
+        "alm_1032_62947_4431to4qa7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.143Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "k31qpedcyza61co"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.143Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "mdlc2iqxesi4dl3"
+        }
+      ],
+      "source_id": "axi9j867vqfy3ch"
+    },
+    {
+      "annotation": "Illustration zu »Die Gräfin von Cleve« von K. Geib INr 62944, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Lips gest. G. Opiz gez.",
+      "scans": [
+        "alm_1032_62948_npe2b8z2zs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "56jgwg6lrnmayju"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "lkjcmqhxr2kivia"
+        }
+      ],
+      "source_id": "21j1gx2xtjuiew1"
+    },
+    {
+      "annotation": "Illustration zu »Kaiser Friedrich und Gela« von K. Geib INr 62945, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz gez. J. Lips gest.",
+      "scans": [
+        "alm_1032_62949_y5xwbd84qp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "i6kdzpo67vsbx6h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "nvs0znktv369kjg"
+        }
+      ],
+      "source_id": "rqw6i7ubexxb27s"
+    },
+    {
+      "annotation": "Illustration zu »Albert und Helena« von C. L. Neuffer  62953, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62950,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albert und Helena / von Neuffer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Loder del. Benedetti sc.",
+      "scans": [
+        "alm_1032_62950_hehtkk7z4d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Albert und Helena / von Neuffer",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.945Z",
+          "agent": "c6rsfvf49nz2v5w",
+          "source_id": "q9th1ebgpn3r0dl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "5m3k81xtringcag",
+          "source_id": "tfwqu6tklbvz5cy"
+        }
+      ],
+      "source_id": "3tbk899odlb2tor"
+    },
+    {
+      "annotation": "Illustration zu »Albert und Helena« von C. L. Neuffer  62953, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albert und Helena / von Neuffer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Loder del. M. Hoffmann sc. Vienne",
+      "scans": [
+        "alm_1032_62951_ihtqtxco0w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Albert und Helena / von Neuffer",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.945Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "uhycseqpni30u3l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.945Z",
+          "agent": "5m3k81xtringcag",
+          "source_id": "uzdhkvbfwr2dprw"
+        }
+      ],
+      "source_id": "cfg4bunlfqxgcfm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Klang der Tuba erschallte an dem grünen Ufer der Weser, als das Morgenroth über die blauen Gebirge hervorbrach und den Schleier der Nacht vom Sommerlager des Quintilius Varus und seiner drey Legionen zog,",
+      "language": [],
+      "musenalm_id": 62952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Germaniens Lucretia. / Romantisch-historisches Gemälde der Vorzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise von Hohenhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Germaniens Lucretia. / Romantisch-historisches Gemälde der Vorzeit",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.069Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.069Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "w6rhxsw3wtovxfd"
+        }
+      ],
+      "source_id": "2jgw6asvsercim5"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 62950, 62951; 15, 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Wenn mächtig die Lieb' im Herzen erwacht, / Dann tritt der Mensch in fremde Macht,",
+      "language": [],
+      "musenalm_id": 62953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albert und Helena. / Eine Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Albert und Helena. / Eine Romanze",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.959Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.959Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "9u22yw0sm2cpj1f"
+        }
+      ],
+      "source_id": "g4w18yxft19r28k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Unter der alten Linde vor dem Schlosse zu Heimburg saß, an einem schönen Frühlingsabend, der Burgverwalter Reinold mit seiner Hausfrau.",
+      "language": [],
+      "musenalm_id": 62954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thekla",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aloys Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thekla",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.906Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.906Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "m1b13gz8e1f265y"
+        }
+      ],
+      "source_id": "leineqe2lcljq7g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Die Nacht umfängt mit feyerlichem Schweigen, / Gebirge, Hayne, Thal und Frühlingshügel;",
+      "language": [],
+      "musenalm_id": 62955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Leben der Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rese",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Leben der Nacht",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.907Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.906Z",
+          "agent": "ckm5lh2oeabz6sp",
+          "source_id": "zctxxnsz6r1ikhl"
+        }
+      ],
+      "source_id": "3vhnvsg3l2nphiy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Schon naht der Lenz aus Ostens Höhen, / Des Winters dunkle Schauer flieh'n,",
+      "language": [],
+      "musenalm_id": 62956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied des Entfernten. / (Mel. Wenn in des Abends letztem Scheine etc)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied des Entfernten. / (Mel. Wenn in des Abends letztem Scheine etc)",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.165Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.165Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "drncx1uehn8epot"
+        }
+      ],
+      "source_id": "3utmsjd0y8lfatw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Zur Freundschaft und zur süßen Liebe ward / Der edle Mensch, der glückliche, geboren;",
+      "language": [],
+      "musenalm_id": 62957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freundschaft und Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. J. Ch. H. Gittermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freundschaft und Liebe",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.165Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.165Z",
+          "agent": "csr350ne0svibrz",
+          "source_id": "jfyxr9zl5c60ecf"
+        }
+      ],
+      "source_id": "f3by0ebtqpbs2ed"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Wiederum blickst du herab in hold anlächelnder Milde, / Sanftes freundliches Licht, stille Gefährtin der Nacht.",
+      "language": [],
+      "musenalm_id": 62958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selma. / Elegie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rese",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Selma. / Elegie",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.165Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.165Z",
+          "agent": "ckm5lh2oeabz6sp",
+          "source_id": "cwm0bgu6zq75p4u"
+        }
+      ],
+      "source_id": "9c6xfy62dsbpz9y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.689Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Kränzet mit der Blumen Roth, / Liebende, am düstern Orte,",
+      "language": [],
+      "musenalm_id": 62959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Troubadour am Grabe der Liebenden. / (Nach Duwicquet d'Ordre)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Troubadour am Grabe der Liebenden. / (Nach Duwicquet d'Ordre)",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.166Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.166Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "tevrplz1jjjn2sg"
+        }
+      ],
+      "source_id": "pt5ytuuv4lj47cj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Es sind im Wintermonat zwanzig Jahre, daß ich eines Abends, als es schon dunkel war, schwerbeladen in dem Marktflecken R. eintraf,",
+      "language": [],
+      "musenalm_id": 62960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus dem Leben eines Geringen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ulrich Hegner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus dem Leben eines Geringen",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "5xr1i06rwmguu38",
+          "source_id": "40lmdj845et95ou"
+        }
+      ],
+      "source_id": "spfdensftl3laem"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "In der anmuthigen Stille eines heitern Landsitzes lebte vor Jahren in Deutschen Gauen ein Ehepaar von Stand und Vermögen, dessen schönste Hoffnung und Lust ein aufblühendes Mädchen war, Minnelind geheißen,",
+      "language": [],
+      "musenalm_id": 62961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Treue Leid und Sieg. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina v. Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Treue Leid und Sieg. / Novelle",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "5e31niayfhjn52b"
+        }
+      ],
+      "source_id": "z6o8bxguzt7bzrd"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Das Leben ist der Güter größtes nicht, / Der Uebel größtes aber ist die Schuld. / Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Der Freyherr von W. mußte auf einer Geschäftsreise, des beschädigten Fuhrwerks wegen, in einem kleinen, abgelegenen Dorfe einkehren.",
+      "language": [],
+      "musenalm_id": 62962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Edmund und Therese, / oder / menschliche und göttliche Vermittlung.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise Ehrhardt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Edmund und Therese, / oder / menschliche und göttliche Vermittlung.",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "7k3po9qn50fd35k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Den ganzen Tag über hatte der fröhlichste Tumult in dem kleinen Städtchen geherrscht, das wir Neustadt nennen wollen,",
+      "language": [],
+      "musenalm_id": 62963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leontine. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johanna Schopenhauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leontine. / Eine Erzählung",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.967Z",
+          "agent": "ms9iodhebw7wz0l",
+          "source_id": "nrnz575gq0jlegn"
+        }
+      ],
+      "source_id": "1odvmfo1ssssbfv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62964,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "ml8dkwfipz8lmij"
+    },
+    {
+      "annotation": "Umschlagprägung v.mit Vignette s. Gedicht INr 62940, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62965,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "5a4cipy742rxzfj"
+    }
   ],
   "agents": [
     {

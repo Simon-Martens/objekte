@@ -49,84 +49,3146 @@
   "year": 1851,
   "editor": "",
   "items": [
-    "u3wz5wc09kfhhb0"
+    {
+      "annotation": "1824-1827, Hg Fr. Gräffer und 1828-1858, Hg J.G.Seidel (1832 nicht ersch.).",
+      "condition": "1b",
+      "created": "2026-06-11 10:17:37.563Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106437",
+      "location": "105B10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.563Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "u3wz5wc09kfhhb0"
+    }
   ],
   "contents": [
-    "b7b18ydz8va5823",
-    "a1tyqgbcgq2rn9s",
-    "rwjfr4hprqiz7eb",
-    "50zcc9xdwjz7jqn",
-    "2vkdjakzmxxng0n",
-    "li0ov3xhewr9sks",
-    "ss3unsnctx6rafp",
-    "q9m7gi4v1mhhhxw",
-    "ipdo3gvlgl3m2yp",
-    "0ukc7flhkbu6rgy",
-    "4orlrcdz64ukq5u",
-    "1rha1gg37zps6me",
-    "jzqxb9ha9l29llg",
-    "xzbfumo75jojlpf",
-    "98557ril5trmkr8",
-    "hgz8mcp0en6pdx0",
-    "2jx1mdjs7leqpwd",
-    "slc4xns4yzl3cml",
-    "afcq1ik7gm47t9d",
-    "70ba1fjqvl5a819",
-    "1u7i42786rags99",
-    "vjtxpn6blvquhx1",
-    "ae5ukvhgrmr2wd3",
-    "6w6ja8j13megg7d",
-    "2jdpelrnbj8rs8t",
-    "syuq0zrmf3or0vd",
-    "2rdzw6k1f81mqk5",
-    "p2msvseottuiprq",
-    "p59qsv1rqji3zbw",
-    "f9uz914qtseey4v",
-    "3p0g6u6v7if6jal",
-    "45k1wvbaajgpk7o",
-    "wu61gh1ibkpa0nf",
-    "eih7sj303m7c077",
-    "fh6t13v775slkqf",
-    "bntz5suruugqvxh",
-    "pgey6ys6z1rjitz",
-    "wezqkqgqznfdsqf",
-    "we0q2izraznrz5m",
-    "zt32uuc5v6rk9ai",
-    "66ug33gcebent38",
-    "efxlbz6xkeu5x43",
-    "xfgmynj3b7sdidt",
-    "ysord4mcrkteyyc",
-    "ajf6smf7h4zlzfm",
-    "von7azx1bu0iht2",
-    "9i7ny83q0tptddz",
-    "oz0ssw4xggwkg3g",
-    "mrdery38tupvtvv",
-    "0r26rlaqc5r84yf",
-    "93vtptrz8yashxp",
-    "x7jb2sl3akskfgc",
-    "73fzih0e2eff7f2",
-    "h7kk2ijy3qadbjl",
-    "ls1cdklw825g5dr",
-    "m2nxadjm08secwv",
-    "f2k1o0khoxr40xa",
-    "rd7nc5txrw3q8x2",
-    "ejgf4s744yxuvwa",
-    "4kjco7ultvw4h30",
-    "1sv1kf1gaibnaau",
-    "un4oirv2cvbblzo",
-    "0eiienrb3gov17u",
-    "8lw8954zequmsvr",
-    "jrf3vs3uztk7u9g",
-    "3h5z2h8borzxjma",
-    "ega70fuih3w6kj7",
-    "ygqmtn5bsbrnlob",
-    "2x5cpigf2e1ox3j",
-    "hw18hd5hj0tmzpo",
-    "cqa048muabgvj83",
-    "wze32770f06nyx9",
-    "yj1fpjjplp7egkp",
-    "m29j7fanyu3at1f",
-    "7ly4yiws0itmuk7"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86772,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1606_86772_278ysejhos.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "b7b18ydz8va5823"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 86777, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86773,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ad. Theer del. Stich und Druk d. Kunst-Anst. d. Oestr. Lloyd",
+      "scans": [
+        "alm_1606_86773_j5lqdhicxx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Selinde",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.268Z",
+          "agent": "512hnx3l2hp6y3r",
+          "source_id": "z682a4v10uvwwaw"
+        }
+      ],
+      "source_id": "a1tyqgbcgq2rn9s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86774,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA / Taschenbuch für das Jahr 1851. / Herausgegeben / von / JOHANN GABRIEL SEIDL. / Siebenundzwanzigster Jahrgang. / WIEN. / Bei Fr. Riedl's sel. Witwe und Sohn. / Leipzig, bei A. G. Liebeskind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1606_86774_gza9yrv4dw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA / Taschenbuch für das Jahr 1851. / Herausgegeben / von / JOHANN GABRIEL SEIDL. / Siebenundzwanzigster Jahrgang. / WIEN. / Bei Fr. Riedl's sel. Witwe und Sohn. / Leipzig, bei A. G. Liebeskind",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "rwjfr4hprqiz7eb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck von J. P. Sollinger's Witwe in Wien",
+      "language": [],
+      "musenalm_id": 86775,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von J. P. Sollinger's Witwe in Wien…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "50zcc9xdwjz7jqn"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten als Textbezüge zu 4 Graphiken INr 86777-86785, Obj 6-14 und zur Titelgraphik INr 86773, Obj 2; s.a. Anm. an den Objekten",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86776,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Stahlstiche",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "2vkdjakzmxxng0n"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86776, Obj 5) s. Titelgraphik INr 86773, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein Kind des Ostens, schmachtend, lässig, lüstern, / Selbst Perl' und Rose, wie damit geschmückt;",
+      "language": [],
+      "musenalm_id": 86777,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Selinde. / (Gemalt von Adolph Theer; gestochen in der Kunstanstalt des österr. Lloyd.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Selinde. / (Gemalt von Adolph Theer; gestochen in der Kunstanstalt des österr. Lloyd.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "li0ov3xhewr9sks"
+    },
+    {
+      "annotation": "s. Textbezug INr 86779, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86778,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Toni",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cl. Mahlknecht del. et sc.",
+      "scans": [
+        "alm_1606_86778_wtn94cfkck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Toni",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.210Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "df50mut3gy9wwv6"
+        }
+      ],
+      "source_id": "ss3unsnctx6rafp"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86776, Obj 5) s. Graphik INr 86778, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "D' sanctwolfgangi Toni / Is niemahls nöt ohni, / Im Haus, auf da Hald,",
+      "language": [],
+      "musenalm_id": 86779,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Toni. (Gezeichnet und gestochen von Carl Mahlknecht.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Toni. (Gezeichnet und gestochen von Carl Mahlknecht.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "q9m7gi4v1mhhhxw"
+    },
+    {
+      "annotation": "s. Textbezug INr 86781, Obj 10 /) Illustration zu »Die Tochter der Dora« von J. G. Seidl INr 86787, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86780,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tochter der Dora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. N. Geiger del. C. Defet sc.",
+      "scans": [
+        "alm_1606_86780_xdogpm14x6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Tochter der Dora",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.210Z",
+          "agent": "3lqsa16o80o69t8",
+          "source_id": "ewi0w55r01ab8un"
+        }
+      ],
+      "source_id": "ipdo3gvlgl3m2yp"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86776, Obj 5) s. Graphik INr 86780, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es wählt der Herr zu großen Dingen / Sich oft ein schwaches Werkzeug aus;",
+      "language": [],
+      "musenalm_id": 86781,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Tochter der Dora. / (Gezeichnet von Professor Peter Nepomuk Geiger; gestochen von C. Defet.) / (Zur Sage: Die Tochter der Dora. S. 59-133.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Tochter der Dora. / (Gezeichnet von Professor Peter Nepomuk Geiger; gestochen von C. Defet.) / (Zur Sage: Die Tochter der Dora. S. 59-133.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ukc7flhkbu6rgy"
+    },
+    {
+      "annotation": "s. Textbezug INr 86783, Obj 12 /) zus. Bezeichung: Stich und Druck d. Kunst Anst. d. Oestr. Lloyd",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86782,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anna Boleyn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Theer del. nach Originalbild",
+      "scans": [
+        "alm_1606_86782_txrizzodvr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anna Boleyn",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.210Z",
+          "agent": "512hnx3l2hp6y3r",
+          "source_id": "0btycovho49wje6"
+        }
+      ],
+      "source_id": "4orlrcdz64ukq5u"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86776, Obj 5) s. Graphik INr 86782, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.115Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Jung, schön und geistreich, für den Thron geschaffen, / Ward sie vom Schicksal auf den Thron geführt;",
+      "language": [],
+      "musenalm_id": 86783,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Anna Boleyn. / (Nach dem Origianlgemälde gemalt von Adolph Theer; gestochen in der Kunstanstalt des österr, Lloyd.) / (Anna Boleyn, Tochter des Sir Thomas Boleyn. geb. 2507; vermält mit Hein- / rich VIII., Könige von England; starb nach kurzer Ehe auf dem Blutgerüst.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Anna Boleyn. / (Nach dem Origianlgemälde gemalt von Adolph Theer; gestochen in der Kunstanstalt des österr, Lloyd.) / (Anna Boleyn, Tochter des Sir Thomas Boleyn. geb. 2507; vermält mit Hein- / rich VIII., Könige von England; starb nach kurzer Ehe auf dem Blutgerüst.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "1rha1gg37zps6me"
+    },
+    {
+      "annotation": "s. Textbezug INr 86785, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86784,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der junge Bandit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Latilla pinx. A. Dworzack sc.",
+      "scans": [
+        "alm_1606_86784_3tgla02usa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der junge Bandit",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.967Z",
+          "agent": "masan4fv3ew8l5z",
+          "source_id": "2rm9jcp6jlzoi5t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.966Z",
+          "agent": "tfj61td88nejpgf",
+          "source_id": "arj1y52o87911x6"
+        }
+      ],
+      "source_id": "jzqxb9ha9l29llg"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 86776, Obj 5) s. Graphik INr 86784, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Bei Zeiten brennt, was Nessel werden soll' / Und sollst du Nessel werden, schmucker Junge?",
+      "language": [],
+      "musenalm_id": 86785,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der junge Bandit. / (Gemalt von E. Latilla; gestochen von A. Dworzack.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der junge Bandit. / (Gemalt von E. Latilla; gestochen von A. Dworzack.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "xzbfumo75jojlpf"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Und einen Liebestraum / Will ich euch nun erzählen, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Am frühesten Morgen nach einer wunderbaren Nacht - noch flirrt es mir unerträglich vor den Augen, noch bebet mir das Herz vor Wehmuth und Wonne,",
+      "language": [],
+      "musenalm_id": 86786,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Traum - ein Lieben. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Stelzhammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Traum - ein Lieben. / Novelle",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.967Z",
+          "agent": "a014bqncl68cjih",
+          "source_id": "a4wr3xj1rdn4rbw"
+        }
+      ],
+      "source_id": "98557ril5trmkr8"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Poveretta!\" ai casti talami / Lo aspettava . . .e fu sepolta. / Oh speranze della terra / Voi finite in un avel. / Prati. /) Anm. am Objekt: Aus den »Tradizioni Italiane. Torino, 1846. Stabilimento Tip. Fortuna. Vol. I. p. 1-68. von Angelo Brofferio /) mit einer Illustration s. Graphik INr 86780, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Unter die ältesten Ortschaften des Fürstenthums Piemont gehört das Städtchen Ivrea, auf der Stelle der alten Eporedia., eines von den Römern im Lande der Salasser zum Schutze gegen die kriegerischen Bergvölker angelegten und wohlbefestigten Municipiums.",
+      "language": [],
+      "musenalm_id": 86787,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tochter der Dora. / Piemontesische Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tochter der Dora. / Piemontesische Sage",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.967Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "s634ncg55kdplrh"
+        }
+      ],
+      "source_id": "hgz8mcp0en6pdx0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Wenn deine Lust und du sich in den Haaren liegen, / So strafe im Gespräch sie also gleich zu Lügen.",
+      "language": [],
+      "musenalm_id": 86788,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arabisches Sprichwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hammer-Purgstall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Arabisches Sprichwort",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.967Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "9oh9raeo105kvmh"
+        }
+      ],
+      "source_id": "2jx1mdjs7leqpwd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Die Seel', o Mensch! ist des Allew'gen Hauch, / Nur Er ist Licht und Feuer ohne Rauch.",
+      "language": [],
+      "musenalm_id": 86789,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Persische Lehre der Sofi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hammer-Purgstall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Persische Lehre der Sofi",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.967Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "kon0eup1c59oy15"
+        }
+      ],
+      "source_id": "slc4xns4yzl3cml"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Den Funken, den der Stahl entlocket erst dem Kiesel, / Kann löschen drinnen nicht der Staub, nicht Fluthge- / riesel.",
+      "language": [],
+      "musenalm_id": 86790,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Türkischer Spruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hammer-Purgstall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Türkischer Spruch",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.967Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "niqkp7hrc1s3fts"
+        }
+      ],
+      "source_id": "afcq1ik7gm47t9d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Der Weiringer Martin war ein bildhübscher Bursche. Nicht daß er eben so riesenhaft groß gewesen wäre, aber fest war sein Gestelle,",
+      "language": [],
+      "musenalm_id": 86791,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Heirathsstiftung. / Ländliche Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Ritter von Perger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Heirathsstiftung. / Ländliche Geschichte",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.272Z",
+          "agent": "k1vb2ltzit1pkxn",
+          "source_id": "usj9n4qosyfnoat"
+        }
+      ],
+      "source_id": "70ba1fjqvl5a819"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "So stehst du still, du unruhvolles Herz, / Und bist gegangen zu der stillen Erde?",
+      "language": [],
+      "musenalm_id": 86792,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Napoleon. / (Geschrieben im Jahre 1821.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Napoleon. / (Geschrieben im Jahre 1821.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.272Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "3fp32rrqm33vq18"
+        }
+      ],
+      "source_id": "1u7i42786rags99"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Der Wandrer grüßt in Finsternissen / Den Irrwisch selbst als tröstend Licht:",
+      "language": [],
+      "musenalm_id": 86793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zusammenhang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zusammenhang",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.272Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "vaqu7bi3my4cig2"
+        }
+      ],
+      "source_id": "vjtxpn6blvquhx1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Ich möchte gern ein Häuschen bauen / Für Dich und mich allein;",
+      "language": [],
+      "musenalm_id": 86794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unser Häuschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Vincenz Zusner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unser Häuschen",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.272Z",
+          "agent": "bl67sc1w31pzw0u",
+          "source_id": "v1hba1p5q9iugtw"
+        }
+      ],
+      "source_id": "ae5ukvhgrmr2wd3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "So frühe schon vollendet? / Verwelkt im ersten Keim?",
+      "language": [],
+      "musenalm_id": 86795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das todte Kind",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Betty Paoli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das todte Kind",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.272Z",
+          "agent": "rpx0m3s76l0s5s5",
+          "source_id": "qtlkvk4x6nl6xq9"
+        }
+      ],
+      "source_id": "6w6ja8j13megg7d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Wie wir es halten bei dem Treiben, / Das viele beugte, manchen brach?",
+      "language": [],
+      "musenalm_id": 86796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albumblatt. / (1848.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Albumblatt. / (1848.)",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.287Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "1c77ot0z0q2cumo"
+        }
+      ],
+      "source_id": "2jdpelrnbj8rs8t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Wenn der Blume Blüten fallen / Und ihr süßer Duft verflogen, / Hört ihr auch das Lob verhallen, / Das die Menge ihr gelogen.",
+      "language": [],
+      "musenalm_id": 86797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichter",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.287Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "z7xjq9dzmuozfti"
+        }
+      ],
+      "source_id": "syuq0zrmf3or0vd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Nur einmahl vor dem Todesgrauen, / O du mein süßes Frühlingslicht, / Nur einmal möcht' ich dich noch schauen,",
+      "language": [],
+      "musenalm_id": 86798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nur einmahl!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emma Niendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nur einmahl!",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.287Z",
+          "agent": "3zbwz871k6v40en",
+          "source_id": "bhedmcocwdipafn"
+        }
+      ],
+      "source_id": "2rdzw6k1f81mqk5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Wann dich verwirrt des Zweifels Grauen / Und guter Rath dir nicht bewußt,",
+      "language": [],
+      "musenalm_id": 86799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es spricht das Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Carneri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Es spricht das Herz",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "p2msvseottuiprq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Spät abends gieng ich noch vorüber, / Da war ihr Fenster matt erhellt;",
+      "language": [],
+      "musenalm_id": 86800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schattenriß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schattenriß",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "p59qsv1rqji3zbw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Andreas Weißmann, Schulmeister zu Pellenberg, bewohnte das angenehmste Häuschen des Dorfes.",
+      "language": [],
+      "musenalm_id": 86801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwärmerei und Natur. / Lebensbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwärmerei und Natur. / Lebensbild",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.412Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.412Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "699ojnl307n31bv"
+        }
+      ],
+      "source_id": "f9uz914qtseey4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Jede Zeit ist schon gewesen, jede Zeit wird wieder sein, / Jede Zeit braucht, um zu werden, ihre Zeit, wie Korn und Wein;",
+      "language": [],
+      "musenalm_id": 86802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.218Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "f7nywcyj3az0kq3"
+        }
+      ],
+      "source_id": "3p0g6u6v7if6jal"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 86804-86807, Obj 33-36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laienbrevier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cajetan Cerri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Laienbrevier",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.218Z",
+          "agent": "ett5544anganpff",
+          "source_id": "7m7uoiny2x1oc1y"
+        }
+      ],
+      "source_id": "45k1wvbaajgpk7o"
+    },
+    {
+      "annotation": "Laienbrevier (Sammlung INr 86803, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Ihr seid gerührt, wenn eine falsche Thräne / Auf kunstgebleichten Wangen leise bebt.",
+      "language": [],
+      "musenalm_id": 86804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cajetan Cerri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.218Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.218Z",
+          "agent": "ett5544anganpff",
+          "source_id": "vvjxvb5gc71aegu"
+        }
+      ],
+      "source_id": "wu61gh1ibkpa0nf"
+    },
+    {
+      "annotation": "Laienbrevier (Sammlung INr 86803, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Gebeugt vom Druck der heißen Sonnenstrahlen / Die Blume einstens eine Wolke bat:",
+      "language": [],
+      "musenalm_id": 86805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cajetan Cerri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.205Z",
+          "agent": "ett5544anganpff",
+          "source_id": "tywpasull2iqtwp"
+        }
+      ],
+      "source_id": "eih7sj303m7c077"
+    },
+    {
+      "annotation": "Laienbrevier (Sammlung INr 86803, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "Ein bunter, leichter Schmetterling, der spielend / Empor zum Lichtazur des Himmels fleigt,",
+      "language": [],
+      "musenalm_id": 86806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cajetan Cerri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.205Z",
+          "agent": "ett5544anganpff",
+          "source_id": "aih49i2775io1wy"
+        }
+      ],
+      "source_id": "fh6t13v775slkqf"
+    },
+    {
+      "annotation": "Laienbrevier (Sammlung INr 86803, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Ja nur der Schmerz ist ewig! Saget nimmer, / Es gab' im Dasein dennoch süße Stunden,",
+      "language": [],
+      "musenalm_id": 86807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cajetan Cerri",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.205Z",
+          "agent": "ett5544anganpff",
+          "source_id": "2qlje6glfmalosz"
+        }
+      ],
+      "source_id": "bntz5suruugqvxh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Neide nicht sein Gold dem Wucherer, / Wenn dein Herz von Vorwurf rein:",
+      "language": [],
+      "musenalm_id": 86808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reich und arm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reich und arm",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.205Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "6dob83191wz9va4"
+        }
+      ],
+      "source_id": "pgey6ys6z1rjitz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Am grünen Donauufer / Da steht ein Herd, / Dem hat meine rasche Jugend / Den Rücken gekehrt.",
+      "language": [],
+      "musenalm_id": 86809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Heimatlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Hall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Heimatlied",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "wezqkqgqznfdsqf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Liederblume, steig' zur Höh', / Winter geht zu Ende,",
+      "language": [],
+      "musenalm_id": 86810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Liederblume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Hall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Liederblume",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "we0q2izraznrz5m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Habe jüngst eine Thräne geweint, / Niemand konnt' es sehen",
+      "language": [],
+      "musenalm_id": 86811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Hirtenknabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Hall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Hirtenknabe",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "zt32uuc5v6rk9ai"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Die Wipfel der Bäume sonnen sich, / Indeß ihr Stamm im Dunkel lebt,",
+      "language": [],
+      "musenalm_id": 86812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Am Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlieb Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Am Abend",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "66ug33gcebent38"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Wie eine Rosenknospe / Entfaltet sich Natur,",
+      "language": [],
+      "musenalm_id": 86813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Frühlingslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlieb Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Frühlingslied",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "efxlbz6xkeu5x43"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Blauer Himmel, Wachtelschlag, / Frühlingswehen, grüner Haag,",
+      "language": [],
+      "musenalm_id": 86814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Einsiedlers Wintertraum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gottlieb Friedrich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Einsiedlers Wintertraum",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "xfgmynj3b7sdidt"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Tobias Gottfried Schröer, als Professor der Geschichte, Aesthetik und deutschen Literatur am evang. Lyceum zu Preßburg, gestorben am 2. Mai 1850",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Es ist so kalt, kein warmes Wort / Will sich der Brust entwinden,",
+      "language": [],
+      "musenalm_id": 86815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kalt! / Aus der noch ungedruckten Dorfgeschichte: Magister Ringewaldt.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Chr. Oeser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kalt! / Aus der noch ungedruckten Dorfgeschichte: Magister Ringewaldt.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.205Z",
+          "agent": "i0ohowdp37rcgpc",
+          "source_id": "4zbmg150k5vxjkt"
+        }
+      ],
+      "source_id": "ysord4mcrkteyyc"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Sohn des vorigen, Professor der deutschen Literatur an der Universität zu Pesth. A. d. R.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Mitten in dem Blütenschnee / Saß ich unter'm Baume",
+      "language": [],
+      "musenalm_id": 86816,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Blütenschnee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Julius (Schröer)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Blütenschnee",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.205Z",
+          "agent": "rnyshjgnp0fma3o",
+          "source_id": "spid8go7kl0twwi"
+        }
+      ],
+      "source_id": "ajf6smf7h4zlzfm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Wenn ich der Erdenwonnen all gedenke, / Mich in den Anblick all der Welt versenke,",
+      "language": [],
+      "musenalm_id": 86817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Julius (Schröer)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Leben",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.206Z",
+          "agent": "rnyshjgnp0fma3o",
+          "source_id": "82ddo3y5hg83mfb"
+        }
+      ],
+      "source_id": "von7azx1bu0iht2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Es war im schönen Maien, grün waren Thal' und Höh', / Vom Berge lachte nieder der Bäume Blütenschnee,",
+      "language": [],
+      "musenalm_id": 86818,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schützensage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ignaz Zwingerle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schützensage",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "9i7ny83q0tptddz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Viel melden alte Sagen / Von Thule im Ocean,",
+      "language": [],
+      "musenalm_id": 86819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Krone von Chule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Meynert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Krone von Chule",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "oz0ssw4xggwkg3g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Im Bukke-Fiörd am Norwegerstrand, / Vor ärmlichem Haus im lockeren Sand, / Da rudert im Kahn ein alterndes Weib,",
+      "language": [],
+      "musenalm_id": 86820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fischerin von Bukke-Fiörd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Bube",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fischerin von Bukke-Fiörd",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.008Z",
+          "agent": "e0feijwjpugv8vg",
+          "source_id": "9wj8yboljnqsvne"
+        }
+      ],
+      "source_id": "mrdery38tupvtvv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Wie steht das Haus so einsam da, / Wo ich mein treues Liebchen sah,",
+      "language": [],
+      "musenalm_id": 86821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das öde Haus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das öde Haus",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.008Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "24le4l1hrnmb7cq"
+        }
+      ],
+      "source_id": "0r26rlaqc5r84yf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Im Vorübergehen war mein Blick einige Mahle auf einige Mädchen gefallen, welche unter tausend anderen schönen Mädchen, die Wien hat, auf der Freiung unter einer Eiche standen.",
+      "language": [],
+      "musenalm_id": 86822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Abenteuer in Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Fernand Stamm",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Abenteuer in Wien",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.008Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.008Z",
+          "agent": "big4tm69ocucym5",
+          "source_id": "kysftso65femrto"
+        }
+      ],
+      "source_id": "93vtptrz8yashxp"
+    },
+    {
+      "annotation": "Sammlung von 21 Gedichten INr 86824-86844, Obj 53-73",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dalmatinische Volksweisen. / Nachgebildet / von / Johann Gabriel Seidl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dalmatinische Volksweisen. / Nachgebildet / von / Johann Gabriel Seidl",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.009Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "h2rmi30alxnlweu"
+        }
+      ],
+      "source_id": "x7jb2sl3akskfgc"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "Goldschmied Janko schrieb ein Briefchen, / Sendet es an Magdalena, / An das schöne Webermädchen.",
+      "language": [],
+      "musenalm_id": 86824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.009Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.009Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "u4ysas7caabzbh4"
+        }
+      ],
+      "source_id": "73fzih0e2eff7f2"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Sprich, warum so traurig, schöne Jela, / Wärmst mit Seufzern du sie Luft beständig,",
+      "language": [],
+      "musenalm_id": 86825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.337Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.337Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "wu9h4j0ug2dfktq"
+        }
+      ],
+      "source_id": "h7kk2ijy3qadbjl"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Kreis't ein Hirsch umher auf grüner Fläche, / Weidet heute, liegt darnieder morgen,",
+      "language": [],
+      "musenalm_id": 86826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.337Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.337Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "eldi61g1a6g3951"
+        }
+      ],
+      "source_id": "ls1cdklw825g5dr"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.500Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Die ärmste, sie war so lieblich, / Wie dort am Himmel fern, / Der Bote süßer Ruhe, / Der silberne Abendstern.",
+      "language": [],
+      "musenalm_id": 86827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.062Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "vueejqu6e59e6qz"
+        }
+      ],
+      "source_id": "m2nxadjm08secwv"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.500Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "An dem Fenster saß das Wundermädchen, / Heftet' auf die hohe See die Augen,",
+      "language": [],
+      "musenalm_id": 86828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.062Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "vfwfuytgocf9js5"
+        }
+      ],
+      "source_id": "f2k1o0khoxr40xa"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.501Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Janko höre, heute morgens, / Als ich Blumen pflückt' im Garten, / Fand ich eine allerliebste,",
+      "language": [],
+      "musenalm_id": 86829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.062Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.062Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "583qa1f85kzaeld"
+        }
+      ],
+      "source_id": "rd7nc5txrw3q8x2"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Hört' ich recht? Du gehst von hier? / Darf ich mit dir eilen?",
+      "language": [],
+      "musenalm_id": 86830,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.214Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "8ui1zoe4zksak7q"
+        }
+      ],
+      "source_id": "ejgf4s744yxuvwa"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Fragt die Mutter ihre Mariettina: / Bist du schon mit deiner Wäsche fertig?",
+      "language": [],
+      "musenalm_id": 86831,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.214Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "kbqt4qng2qqcd2b"
+        }
+      ],
+      "source_id": "4kjco7ultvw4h30"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Nun du todt bist, mein süße Liebe, / Wohin leg' ich dich zur Ruhestatt?",
+      "language": [],
+      "musenalm_id": 86832,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.214Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "wyh0283vxdbkik9"
+        }
+      ],
+      "source_id": "1sv1kf1gaibnaau"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Also prahlet eine stolze Jungfrau: / Spinnen will ich nicht, ich will nicht sticken,",
+      "language": [],
+      "musenalm_id": 86833,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.214Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "95484megtqofatl"
+        }
+      ],
+      "source_id": "un4oirv2cvbblzo"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Sprach der Mond zum Morgensterne schmollend: / Sprich, was säumest du so lang im Meere,",
+      "language": [],
+      "musenalm_id": 86834,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.214Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "6lf93zkozanxo09"
+        }
+      ],
+      "source_id": "0eiienrb3gov17u"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Lärmend krachen goldene Geschütze, / Festlich schmückt der Brautzug sich für Jela.",
+      "language": [],
+      "musenalm_id": 86835,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.214Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.214Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "wwz7qsai7ijsdgo"
+        }
+      ],
+      "source_id": "8lw8954zequmsvr"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Hat der Tod den Gatten dir entrissen, / Und den Herzensfreund und ihren Bruder.",
+      "language": [],
+      "musenalm_id": 86836,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.215Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "er8xhdhmqp1o6gd"
+        }
+      ],
+      "source_id": "jrf3vs3uztk7u9g"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Herzliebes, liebstes Mägdelein, / Sag', willst du nicht die meine sein?",
+      "language": [],
+      "musenalm_id": 86837,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.215Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "arluc8fp4af6kq2"
+        }
+      ],
+      "source_id": "3h5z2h8borzxjma"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Wie kommt's, du herzig Mädchen, / Daß sich dein holdes Gesicht / Nicht färbt mit leisem Purpurroth, / Und bist doch gar so zart?",
+      "language": [],
+      "musenalm_id": 86838,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.060Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "3gxjz489a448045"
+        }
+      ],
+      "source_id": "ega70fuih3w6kj7"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Zwei Schwesterchen, die ärmsten, / Sie hatten keinen Liebsten;",
+      "language": [],
+      "musenalm_id": 86839,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.060Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "l3o6ppzpbphfj1c"
+        }
+      ],
+      "source_id": "ygqmtn5bsbrnlob"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Böse Nacht, durchschauert und durchheult vom Wind, / Finstre Nacht, von Wolken grauenhaft umhüllt,",
+      "language": [],
+      "musenalm_id": 86840,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.060Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "29415y5h8xzzsvi"
+        }
+      ],
+      "source_id": "2x5cpigf2e1ox3j"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Ein frisches Wässerlein / Ei - das möcht' ich sein!",
+      "language": [],
+      "musenalm_id": 86841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.060Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "622dfvqwkg8gopp"
+        }
+      ],
+      "source_id": "hw18hd5hj0tmzpo"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "O Mädchen, meine Liebste! / Antwortet ihm das Mädchen: / Wie bin ich deine Liebste?",
+      "language": [],
+      "musenalm_id": 86842,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.060Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.060Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "4xycbcedx7msnaf"
+        }
+      ],
+      "source_id": "cqa048muabgvj83"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.367Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Das Mädchen mähte Heu ab mit der Sense, / Um seinen guten Rößlein es zu geben.",
+      "language": [],
+      "musenalm_id": 86843,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.282Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "rne62f1asenm4w6"
+        }
+      ],
+      "source_id": "wze32770f06nyx9"
+    },
+    {
+      "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.367Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Wandelt ein Mägdlein / An's Meergestade, / Badet in grünlicher / Welle den Fuß.",
+      "language": [],
+      "musenalm_id": 86844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21.",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.282Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "cj3tfd1xcd31bxz"
+        }
+      ],
+      "source_id": "yj1fpjjplp7egkp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.367Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86845,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "m29j7fanyu3at1f"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.368Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 86846,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1606_86846_iolvsbm1z9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-14 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1851,
+      "editor": "",
+      "agents": [],
+      "source_id": "7ly4yiws0itmuk7"
+    }
   ],
   "agents": [
     {

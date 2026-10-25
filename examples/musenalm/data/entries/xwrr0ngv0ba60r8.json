@@ -48,22 +48,648 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "azwj4t6ur3n161b"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit Goldschnitt.(Vorderbuchdeckel fehlt, Buchrücken beschädigt und Inhalt lose(2 Teile.)\n1831: (K: M. Ku 8.) Mit Port 1, Bl 2, Ku 7  und 420 SS.\n\\par\n§ vorderer Deckel fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.696Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101218",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.696Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "azwj4t6ur3n161b"
+    }
   ],
   "contents": [
-    "fmz2xdtbu04zota",
-    "qg0hpn276rc6yft",
-    "ezbk2qvq8ov28q7",
-    "mwvfr6zag7vhvue",
-    "bpigifvrxveaxy3",
-    "l14h1zggdo40x15",
-    "hmod9dvomn7h2cd",
-    "7j9l48wa1v6ulrc",
-    "3hpfyo4e8i2flam",
-    "n67j912912ewo5q",
-    "7heqz0e81zb691w",
-    "is55uakevuka9rf",
-    "vg46l72nkggd3s4"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102880,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AMALIE, / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Wien Fr. Stöber gest. in Stahl",
+      "scans": [
+        "alm_3376_102880_xita14zfbs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AMALIE, / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "sho4c8hsplxbnac"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "x39wkgzanwz700l"
+        }
+      ],
+      "source_id": "fmz2xdtbu04zota"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102881,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR / 1831. / von / H. CLAUREN. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3376_102881_wxa8avlftc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR / 1831. / von / H. CLAUREN. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "qg0hpn276rc6yft"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102882,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1831. / WEIHGESCHENK",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf gez. Berlin Jos. u. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_3376_102882_w4v3n7gixi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1831. / WEIHGESCHENK",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "49igrwgc00aw9mm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "68di0wxr4p9ckv7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "aqs1d3r1ulyy27f"
+        }
+      ],
+      "source_id": "ezbk2qvq8ov28q7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102883,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "mwvfr6zag7vhvue"
+    },
+    {
+      "annotation": "mit 3  Illustration s. Graphiken INr 102885-102887, Obj 6-8 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Aus allen Thoren der Residenz sprengten Estafetten und Kouriere in gestreckter Karriere nach allen vier Himmelsrichtungen zu. Der Generalmarsch wirbelte durch die schreckerfüllten Straßen.",
+      "language": [],
+      "musenalm_id": 102884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angelika Lindholm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Angelika Lindholm",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "bpigifvrxveaxy3"
+    },
+    {
+      "annotation": "Illustration zu »Angelika Lindholm« INr 102884, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102885,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Ender del. Jos. Stöber sc.Viennae)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber sc.Viennae",
+      "scans": [
+        "alm_3376_102885_utdzies6tb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "dual28v937x9l1g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.936Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "l83kkui6tq45l1q"
+        }
+      ],
+      "source_id": "l14h1zggdo40x15"
+    },
+    {
+      "annotation": "Illustration zu »Angelika Lindholm« INr 102884, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102886,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PIUS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Führich del. M. Hofmann u. Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_3376_102886_aczqv4cqt2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PIUS",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "m8y5g9ap5pw6fd8",
+          "source_id": "01qbrekoishwew9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "cgap5qjrmovp1ok"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "jctugidpeb85pvd"
+        }
+      ],
+      "source_id": "hmod9dvomn7h2cd"
+    },
+    {
+      "annotation": "Illustration zu »Angelika Lindholm« INr 102884, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.911Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott deinem Schutz empfehle ich meine Tochter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geisler del. Carl Meyer sc. Nbg",
+      "scans": [
+        "alm_3376_102887_khqcba9ue6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott deinem Schutz empfehle ich meine Tochter",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "647jc2nsayjw9kj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "jxnnd8iusiskada"
+        }
+      ],
+      "source_id": "7j9l48wa1v6ulrc"
+    },
+    {
+      "annotation": "s. folgende Graphik (Portrait) INr 102889, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "am 27. August 1812 geboren, ist die Enkelin der i. J. 1809 in Berlin verstorbenen, in der musikalischen Theater-Welt rühmlichst bekannten Königl. Preuss. Kammersängerin Madame Schick,",
+      "language": [],
+      "musenalm_id": 102888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BIOGRAPHISCHE NOTIZ. / FRÄULEIN PAULINE / VON SCHÄTZEL,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "BIOGRAPHISCHE NOTIZ. / FRÄULEIN PAULINE / VON SCHÄTZEL,",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3hpfyo4e8i2flam"
+    },
+    {
+      "annotation": "s. vorstehenden Textbezug INr 102888, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRÄULEIN PAULINE VON SCHAETZEL, / Sängerin der Königl. Oper zu Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos Kowatsch u. Fr. Stöber in Stahl",
+      "scans": [
+        "alm_3376_102889_mel7jw5wb7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRÄULEIN PAULINE VON SCHAETZEL, / Sängerin der Königl. Oper zu Berlin",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "pxt4hues7p1bg28"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.937Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "yzqds2aggfz4ygi"
+        }
+      ],
+      "source_id": "n67j912912ewo5q"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 102891, Obj 12 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Maria rang die Hände, und weinte heiße Thränen der bittersten Verzweiflung. Der Bruder lachte, und rief unter Scherz und boshaftem Hohne: Spiele keine Komödie, Maria!",
+      "language": [],
+      "musenalm_id": 102890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria von England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria von England",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "7heqz0e81zb691w"
+    },
+    {
+      "annotation": "Illustration zu »Maria von England« INr 102890, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria von England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_3376_102891_uy9z8sxi5v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria von England",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.079Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "cx85s2lsk1vwtas"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.079Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "mz9ozuz1rcxfs12"
+        }
+      ],
+      "source_id": "is55uakevuka9rf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "420",
+      "incipit_statement": "Aus der Druckerei von C. L. Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 102892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus der Druckerei von C. L. Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "vg46l72nkggd3s4"
+    }
   ],
   "agents": [
     {

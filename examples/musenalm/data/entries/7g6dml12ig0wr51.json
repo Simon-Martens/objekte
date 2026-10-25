@@ -46,13 +46,160 @@
   "year": 1817,
   "editor": "gpj6tpa1lmk3vpy",
   "items": [
-    "odj2vu4yskreae5"
+    {
+      "annotation": "KVK, swissbib: Jgg 1882-1894",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.824Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409940",
+      "location": "003Tresor1",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-07-10 09:48:56.776Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "odj2vu4yskreae5"
+    }
   ],
   "contents": [
-    "12o6fucul9gg9hs",
-    "li7qs6hwgzm2b4h",
-    "0a1b1wkpsrpmnjl",
-    "0wkwaz7lq5fuow8"
+    {
+      "annotation": "<div>Umschlag und Schuber r.</div>",
+      "content_type": [],
+      "created": "2026-07-09 09:58:19.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 140178,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mignon / Aalmanach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "",
+      "scans": [
+        "alm_4689_140178_7gkiivs4k5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mignon / Aalmanach",
+      "updated": "2026-07-09 10:32:07.890Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "12o6fucul9gg9hs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-07-09 09:58:52.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 140179,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mignon / ALMANACH / auf das Jahr / 1817 / Wien / bey Jos. Riedl / bürgerl. Buchb. / im Schottenhof",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "",
+      "scans": [
+        "alm_4869_140179_87qcni93hv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mignon / ALMANACH / auf das Jahr / 1817 / Wien / bey Jos. Riedl / bürgerl. Buchb. / im Schottenhof",
+      "updated": "2026-07-09 10:30:08.288Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "li7qs6hwgzm2b4h"
+    },
+    {
+      "annotation": "<div>Erstes Blatt des Kalendariums</div>",
+      "content_type": [],
+      "created": "2026-07-09 10:02:23.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 140180,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JENNER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "",
+      "scans": [
+        "alm_4689_140180_08lqxkw4hu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JENNER",
+      "updated": "2026-07-09 10:30:29.284Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "0a1b1wkpsrpmnjl"
+    },
+    {
+      "annotation": "<div>Umschlag und Schuber v.</div>",
+      "content_type": [],
+      "created": "2026-07-09 10:03:21.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 140181,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "",
+      "scans": [
+        "alm_4689_140181_zh2kcy4oi9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-07-09 10:32:47.804Z",
+      "variant_title": "",
+      "year": 1817,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "0wkwaz7lq5fuow8"
+    }
   ],
   "agents": [
     {

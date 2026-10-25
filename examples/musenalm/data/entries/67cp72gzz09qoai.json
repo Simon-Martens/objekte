@@ -49,38 +49,1168 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "ao2i95oxhe6jjxs"
+    {
+      "annotation": "1795-1802.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.579Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106638",
+      "location": "105G04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.579Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ao2i95oxhe6jjxs"
+    }
   ],
   "contents": [
-    "5p8gls98giq7q9b",
-    "rk1mqrwffm69p4k",
-    "m7p4m1mcceari84",
-    "v6xeenb4qgofoc3",
-    "22nfoj0680l8hh5",
-    "wujs7vwnpeappwl",
-    "xrhsjna0lusgs42",
-    "ho34deefnq2r420",
-    "6zfkydp679oqyet",
-    "i65xmliqtnbq68q",
-    "vlc75enclj9tayz",
-    "s1wjxmcxiwr17df",
-    "8ufodmp15q12w8g",
-    "n6uab9e6dall2g1",
-    "emuecfhjri21sim",
-    "d9v805eyx0pvzj6",
-    "w1d3lwv8miudnjj",
-    "61nu1r62pe2k6s4",
-    "10zmijdji3mlnwv",
-    "ad42coc1tooxi55",
-    "76m8gkawe9w5etp",
-    "m5z7qixcw9kovzr",
-    "o526gwd1uaat3rq",
-    "nstwa2x22gwbiv8",
-    "6kc4clh6oecy8yg",
-    "v4nezfa15wgpokz",
-    "5v2t9gcoc9mwynl",
-    "fes4y2az1b9qp3i",
-    "53qtr4j9ns8kq0m"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 122269,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jahrbuch für Damen / 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1949_122269_mjs76u66sv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jahrbuch für Damen / 1798",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "5p8gls98giq7q9b"
+    },
+    {
+      "annotation": "kol. Titelgraphik /) Illustration zu »Unterricht für Damen, in der Kunst zu reiten« von C. E. S. von Tennecker INr 123904, Obj 9; s. a. Textbezug INr 123939, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123897,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. G. Boettger senior sc. Lips. 1797)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. G. Boettger senior sc. Lips. 1797",
+      "scans": [
+        "alm_1949_123897_x2hbadtzcp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "qs7wpv1rfzhz75p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "s1ef7asvi5ngskb"
+        }
+      ],
+      "source_id": "rk1mqrwffm69p4k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.868Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123898,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jahrbuch / zur / belehrenden Unterhaltung / für / DAMEN / von / J. J. Ebert / Professor zu Wittenberg. / Für / das Jahr 1798. / Mit schwarz. und illum. Kupfern. / Mannheim und Leipzig / bei Theodor Seeger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1949_123898_5og4awg9g9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jahrbuch / zur / belehrenden Unterhaltung / für / DAMEN / von / J. J. Ebert / Professor zu Wittenberg. / Für / das Jahr 1798. / Mit schwarz. und illum. Kupfern. / Mannheim und Leipzig / bei Theodor Seeger",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "m7p4m1mcceari84"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123906,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Calender / für / das Jahr / 1798",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Calender / für / das Jahr / 1798",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "v6xeenb4qgofoc3"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) über der Graphik: S. 37. /) Illustration zu »Der Gerettete. Kein Wunder, aber Vorsehung« von M. Voigt Obj 123905, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123899,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehen Sie doch, wir bekommen Gäste!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior del & sculp",
+      "scans": [
+        "alm_1949_123899_p09yyjn846.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sehen Sie doch, wir bekommen Gäste!",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "kr4vzhs603jaqs2"
+        }
+      ],
+      "source_id": "22nfoj0680l8hh5"
+    },
+    {
+      "annotation": "kol. Graphik im Kalendarium Februar /) Illustration zu »Unterricht für Damen, in der Kunst zu reiten« von C. E. S. von Tennecker INr 123904, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123900,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein ungarischer Sattel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1949_123900_xvc78w31xw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein ungarischer Sattel",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "wujs7vwnpeappwl"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April /) über der Graphik S. 69. /) Illustration zu »Der Gerettete. Kein Wunder, aber Vorsehung« von M. Voigt Obj 123905, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123901,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ja, ihr seyds wirklich. / Gott sey gelobt - -",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger del. & sc.Lips.",
+      "scans": [
+        "alm_1949_123901_9eun71n9yj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ja, ihr seyds wirklich. / Gott sey gelobt - -",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "1z1cbbydfudhvub"
+        }
+      ],
+      "source_id": "xrhsjna0lusgs42"
+    },
+    {
+      "annotation": "kol. Graphik im Kalendarium Juni /) Illustrationen zu den Beiträgen »Merkwürdigkeiten aus der Naturgeschichte der Tauben« von J. J. Ebert  123937, Obj 24, und »Beschreibung der merkwürdigsten Arten der Colibritchen« von J. J. Ebert INr 123938, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123902,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1949_123902_4l1kn9ddok.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ho34deefnq2r420"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August /) über der Graphik S. 210 /) Illustration zu: »Die Wittwe« von M. Voigt INr 123933, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.881Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123903,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Boettger sen. fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger sen. fec.",
+      "scans": [
+        "alm_1949_123903_wgiubvteqy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "ez8pbxb4itpwrgy"
+        }
+      ],
+      "source_id": "6zfkydp679oqyet"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Titelgraphik INr 123897, Obj 2 und Graphik im Kalendarium INr 123900, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "So viel und so eifrig man von jeher über Reitkunst, ihre Verfeinerung, Modifikation und Vervollkommnung geschrieben hat, so nachläßig hat man Anwendungen derselben für das andere Geschlecht bekannt gemacht,",
+      "language": [],
+      "musenalm_id": 123904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unterricht / für / Damen, / in der / Kunst zu reiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. von Tennecker",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unterricht / für / Damen, / in der / Kunst zu reiten",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "ngfhgg967qz5l80",
+          "source_id": "66310l7wwp4ec28"
+        }
+      ],
+      "source_id": "i65xmliqtnbq68q"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik im Kalendarium INr 123899, 123901; Obj 5, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "In einer reizenden Gegend an der Saale, auf einem Landgute, das für die Genügsamkeit einträglich genug war, lebte der verabschiedete Wachtmeister Treuberg mit seiner Familie in stiller Eingezogenheit.",
+      "language": [],
+      "musenalm_id": 123905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gerettete. / Kein Wunder, aber Vorsehung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gerettete. / Kein Wunder, aber Vorsehung",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "vlc75enclj9tayz"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) Beitrag in sechs Briefen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Sie geben mir die Erlaubniß, ja, was doch mehr sagen will, Sie bitten mich, meine theure Julie, Ihnen meine Gedanken sowohl über die Mode im Allgemeinen, als auch besonders über die jetzige Mode in der weiblichen Kleidung mitzutheilen.",
+      "language": [],
+      "musenalm_id": 123907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Briefe von Julien über die Mode",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Briefe von Julien über die Mode",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "s1wjxmcxiwr17df"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Abendlied der Hirtenmärchen im Thale« von M. Voigt INr 123927, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendlied der Hirtenmärchen im Thale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Müller",
+      "scans": [
+        "alm_1949_123926_lz9132vu4o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abendlied der Hirtenmärchen im Thale",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.774Z",
+          "agent": "gsmgkc8acx85e65",
+          "source_id": "nqytdes6whg9a5x"
+        }
+      ],
+      "source_id": "8ufodmp15q12w8g"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Musikbeigabe s. INr 123926, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Kühl und labend sinkt der Thau / Auf die Fluren nieder; / Rings auf blumenreicher Au / Tönen Hirtenlieder;",
+      "language": [],
+      "musenalm_id": 123927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendlied der Hirtenmärchen im Thale",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendlied der Hirtenmärchen im Thale",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "n6uab9e6dall2g1"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Musikbeigabe s. INr 123929, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Schön verjüngt sich Hain und Wiese / Blumen duften auf der Flur,",
+      "language": [],
+      "musenalm_id": 123928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingslied, / für die Einzige gesungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingslied, / für die Einzige gesungen",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "emuecfhjri21sim"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Frühlingslied, für die Einzige gesungen« von M. Voigt INr 123928, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingslied, für die Einzige gesungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Müller",
+      "scans": [
+        "alm_1949_123929_m28jcyyvvo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingslied, für die Einzige gesungen",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.774Z",
+          "agent": "gsmgkc8acx85e65",
+          "source_id": "caqn40znnaqozta"
+        }
+      ],
+      "source_id": "d9v805eyx0pvzj6"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Unter die schädlichsten Vorurtheile, welche die große Welt noch immer beherrschen, gehört wohl ohne Zweifel auch die thörichte Meynung, daß nur der gemeine Mann und der dürftige Theil des Volkes,",
+      "language": [],
+      "musenalm_id": 123930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auch die reichsten und vornehmsten / Damen müßen in ihrer Jugend / arbeiten lernen. / (Eine Erzählung.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auch die reichsten und vornehmsten / Damen müßen in ihrer Jugend / arbeiten lernen. / (Eine Erzählung.)",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.713Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.713Z",
+          "agent": "pt1hiqrxpeom0l4",
+          "source_id": "zpa4mtosr776qss"
+        }
+      ],
+      "source_id": "w1d3lwv8miudnjj"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die Blümchen« von M. Voigt INr 123932, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blümchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Müller",
+      "scans": [
+        "alm_1949_123931_we9w5vlbmh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Blümchen",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "gsmgkc8acx85e65",
+          "source_id": "igealphtoj71m91"
+        }
+      ],
+      "source_id": "61nu1r62pe2k6s4"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Musikbeigabe s. INr 123931, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Ein Blümchen lacht im Frühlingsthal, / Umglänzt vom Morgensonnenstral, / Ein Kind der Blütenzeit;",
+      "language": [],
+      "musenalm_id": 123932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blümchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Blümchen",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "10zmijdji3mlnwv"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik im Kalendarium INr 123903, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Luise Werner ward in ihrem sechs und zwanzigsten Jahre zur Wittwe. Ein Knabe von sechs und ein Mädchen von fünf Jahren war die ganze Verlassenschaft ihres Gatten.",
+      "language": [],
+      "musenalm_id": 123933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wittwe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "M. Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wittwe",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ad42coc1tooxi55"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "In der ersten Hälfte des vorigen Jahrhunderts - diese chronologische Bestimmung beliebe man ja nicht aus der Acht zu lassen, weil man sonst meine Erzählung nicht nur für unwahr, sondern auch wohl gar für unwahrscheinlich halten könnte,",
+      "language": [],
+      "musenalm_id": 123934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Concordia, / die erste und letzte. / Eine wahre Geschichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Concordia, / die erste und letzte. / Eine wahre Geschichte",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "pt1hiqrxpeom0l4",
+          "source_id": "jdis11vhspm3gp9"
+        }
+      ],
+      "source_id": "76m8gkawe9w5etp"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Ein Engländer, der ein großer Liebhaber von ausländischen Thieren und andern Seltenheiten war erhielt einmal durch einen seiner Freunde, der vom Vorgebirge der guten Hoffnung zurück kam, ein lebendiges Zebra weiblichen Geschlechts.",
+      "language": [],
+      "musenalm_id": 123935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleider machen Leute / auch im Thierreiche",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleider machen Leute / auch im Thierreiche",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "pt1hiqrxpeom0l4",
+          "source_id": "8ak2as6yj77fsdt"
+        }
+      ],
+      "source_id": "m5z7qixcw9kovzr"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Außer den gemeinen Honigbienen, welche, wie bekannt; allezeit in Gesellschaften bey einander leben, giebt es noch verschiedne andere Arten von diesen Insecten, die ein einsiedlerisches Leben führen,",
+      "language": [],
+      "musenalm_id": 123936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung / des merkürdigen Netzes / der sogenannten / Tapeziererbiene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung / des merkürdigen Netzes / der sogenannten / Tapeziererbiene",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "pt1hiqrxpeom0l4",
+          "source_id": "2vg18y84hiwr8pq"
+        }
+      ],
+      "source_id": "o526gwd1uaat3rq"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. kol. Graphik in Kalendarium INr 123902, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Die Tauben gehören zwar unter die bekanntesten Vögel, und zwar unter diejenigen, welche man in allen Welttheilen antrifft,",
+      "language": [],
+      "musenalm_id": 123937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Merkwürdigkeiten / aus der / Naturgeschichte der Tauben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Merkwürdigkeiten / aus der / Naturgeschichte der Tauben",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "pt1hiqrxpeom0l4",
+          "source_id": "dytvl39coh44rvi"
+        }
+      ],
+      "source_id": "nstwa2x22gwbiv8"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. kol. Graphik in Kalendarium INr 123902, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Die Colibri oder Colibritchen, deren Namen die Europäer von den Indianern entlehnt haben, sind zwar außerordentlich kleine,",
+      "language": [],
+      "musenalm_id": 123938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beschreibung / der merkwürdigsten Arten / der / Colibritchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beschreibung / der merkwürdigsten Arten / der / Colibritchen",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.855Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.855Z",
+          "agent": "pt1hiqrxpeom0l4",
+          "source_id": "huvjycjwotimnxn"
+        }
+      ],
+      "source_id": "6kc4clh6oecy8yg"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 123897, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "340",
+      "incipit_statement": "Es stellt eine Dame in einer neuen Reitverkleidung vor. Der Kopfputz ist ein Turban von Atlas, mit gestreiften Musselin umwunden, und mit zwey Strausfedern gezieret.",
+      "language": [],
+      "musenalm_id": 123939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des Titelkupfers",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "v4nezfa15wgpokz"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "342",
+      "incipit_statement": "Die ersten drey Bändchen oder Jahrgänge dieses Taschenbuchs sind von nun an einzig und allein auch bey mir zu haben.",
+      "language": [],
+      "musenalm_id": 123940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die ersten drey Bändchen oder Jahrgänge dieses Taschenbuchs sind von nun an einzig und allein auch bey mir zu haben.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Seeger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "5v2t9gcoc9mwynl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "342",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123941,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "fes4y2az1b9qp3i"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.890Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1949_123942_llha7jgfeu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "53qtr4j9ns8kq0m"
+    }
   ],
   "agents": [
     {

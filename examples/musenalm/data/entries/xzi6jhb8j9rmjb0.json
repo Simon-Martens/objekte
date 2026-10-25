@@ -48,20 +48,452 @@
   "year": 1797,
   "editor": "gpj6tpa1lmk3vpy",
   "items": [
-    "aoowg0arj0gbpgp"
+    {
+      "annotation": "K gibt Jg 1802 an;  <br> KVK-Hebis: Berlin (Oehmigke) 1797, 1802, 1830 nachgewiesen vorh. 1797, 1798 TA, 1803<br> Autor des Beitrags: C. G. Flittner",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.724Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200004",
+      "location": "105H09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-10-15 09:16:29.141Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "aoowg0arj0gbpgp"
+    }
   ],
   "contents": [
-    "zltelgzwpj6xw0n",
-    "ez64gtg2dwsypi0",
-    "c9wc2hog9b63dg7",
-    "mmkg2mk3w6vm2mr",
-    "5bz5o7iemjddh4x",
-    "mje47v8s1iary6j",
-    "izztma4cglinivn",
-    "600wz6m32nkp78q",
-    "qtolzrypxn67hvc",
-    "9gvte7x6midcy5q",
-    "98u8r6ktda8qy47"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.119Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84169,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1797. / Berlin. / bey Oehmigke dem Jüngern / an der Schleusenbrücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3890_84169_medtl3c09c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1797. / Berlin. / bey Oehmigke dem Jüngern / an der Schleusenbrücke",
+      "updated": "2012-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "zltelgzwpj6xw0n"
+    },
+    {
+      "annotation": "<div>Titelgraphik /) paginiert S. 47 /) Illustration zu »Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer« von C. G. Flittner INr 84175, Obj 7</div>",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84170,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik] Unterzeichnet: F. Jügel sc.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Jügel sc.",
+      "scans": [
+        "alm_3890_84170_pqc4pivfv5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-10-14 09:51:01.975Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.776Z",
+          "edit_comment": "",
+          "type": "Kupferstecher:in",
+          "uncertain": false,
+          "updated": "2026-10-14 09:51:01.974Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "a9sz9h4g0r6pvcn"
+        }
+      ],
+      "source_id": "ez64gtg2dwsypi0"
+    },
+    {
+      "annotation": "mit Vignette; vermutl. (wie die übrigen Graphiken) von F. Jügel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84171,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmuth und Schönheit / aus / den Misterien der Natur und Kunst / für ledige und verheirathete Frauenzimmer. / mit Kupfern. / Berlin, 1797. / bey Oehmigke dem Jüngern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3890_84171_iig7q62735.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anmuth und Schönheit / aus / den Misterien der Natur und Kunst / für ledige und verheirathete Frauenzimmer. / mit Kupfern. / Berlin, 1797. / bey Oehmigke dem Jüngern",
+      "updated": "2012-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "c9wc2hog9b63dg7"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.125Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84172,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmuth und Schönheit / aus / den Misterien der Natur und Kunst. / Ein Almanach aufs Jahr 1797 / für / ledige und verheirathete Frauenzimmer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3890_84172_gpaupxpsby.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anmuth und Schönheit / aus / den Misterien der Natur und Kunst. / Ein Almanach aufs Jahr 1797 / für / ledige und verheirathete Frauenzimmer",
+      "updated": "2012-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "mmkg2mk3w6vm2mr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Man sagte ihnen nach, mein Damen, daß Sie sehr geneigt sind, Ihren Geschmack für Schönheit zu überfeinern, daß sich besonders Ihre Phantasie Ideale von männlicher Schönheit schafft, die die Natur nie oder äußerst selten hervorbringt,",
+      "language": [],
+      "musenalm_id": 84173,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur / Apologie / der / weiblichen Geschmacksbildung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur / Apologie / der / weiblichen Geschmacksbildung",
+      "updated": "2012-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "5bz5o7iemjddh4x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis 11]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3890_84174_001_3dymm60jbp.jpg",
+        "alm_3890_84174_002_74xvgdssmo.jpg",
+        "alm_3890_84174_003_42tbkle0o8.jpg",
+        "alm_3890_84174_004_pk5rv658qz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-10-15 09:11:20.603Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "mje47v8s1iary6j"
+    },
+    {
+      "annotation": "<div>mit einem Vorwort INr 84173, Obj 5; mit 4 Illustrationen s. Titelgraphik INr 84170, Obj 2 und Graphiken INr 84176-84178, Obj 8-10</div>",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Als die bildende Natur ihr Werke vollbracht und alle Formen erschöpft hatte, die auf dieser Erde möglich waren, stand sie still und übersann ihre Schöpfung;",
+      "language": [],
+      "musenalm_id": 84175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer]",
+      "updated": "2026-10-14 09:43:18.415Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [],
+      "source_id": "izztma4cglinivn"
+    },
+    {
+      "annotation": "<div># Bez. an der Titelgraphik /) paginiert S. 22 /) Illustration zu »Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer« von C. G. Flittner INr 84175, Obj 7</div>",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik] Unterzeichnet: F. Jügel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Jügel",
+      "scans": [
+        "alm_3890_84176_st6919y6tt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-10-14 09:51:25.357Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.059Z",
+          "edit_comment": "",
+          "type": "Kupferstecher:in",
+          "uncertain": false,
+          "updated": "2026-10-14 09:51:25.357Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "unmr744b1crnubx"
+        }
+      ],
+      "source_id": "600wz6m32nkp78q"
+    },
+    {
+      "annotation": "<div># Bez. an der Titelgraphik /) paginiert S. 61 /) Illustration zu »Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer« von C. G. Flittner INr 84175, Obj 7</div>",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik] Unterzeichnet: F. Jügel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Jügel",
+      "scans": [
+        "alm_3890_84177_rrul72dnlj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-10-14 09:51:17.150Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.059Z",
+          "edit_comment": "",
+          "type": "Kupferstecher:in",
+          "uncertain": false,
+          "updated": "2026-10-14 09:51:17.149Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "mwb50dmm6ahibt8"
+        }
+      ],
+      "source_id": "qtolzrypxn67hvc"
+    },
+    {
+      "annotation": "<div># Bez. an der Titelgraphik /) paginiert S. 75 /) Illustration zu »Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer« von C. G. Flittner INr 84175, Obj 7</div>",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik] Unterzeichnet: F. Jügel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Jügel",
+      "scans": [
+        "alm_3890_84178_2j6oj5o4dc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2026-10-14 09:51:32.207Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "gpj6tpa1lmk3vpy",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.059Z",
+          "edit_comment": "",
+          "type": "Kupferstecher:in",
+          "uncertain": false,
+          "updated": "2026-10-14 09:51:32.205Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "adk4hvim4bu2fii"
+        }
+      ],
+      "source_id": "9gvte7x6midcy5q"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84179,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3890_84179_txd3b7qe35.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1797,
+      "editor": "",
+      "agents": [],
+      "source_id": "98u8r6ktda8qy47"
+    }
   ],
   "agents": [
     {

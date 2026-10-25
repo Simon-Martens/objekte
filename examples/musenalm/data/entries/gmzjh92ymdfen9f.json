@@ -48,29 +48,971 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "2m1ft58z2dc24lf"
+    {
+      "annotation": "1790-1826",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.522Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404019",
+      "location": "105H05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.522Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2m1ft58z2dc24lf"
+    }
   ],
   "contents": [
-    "83s4pocuvph9ekn",
-    "n9ewk0g56dwwie0",
-    "hyb4sn1rmimz25m",
-    "aq3aksxkazi1doe",
-    "dnfk3q51b66kjxo",
-    "fjgasb4t162a73x",
-    "64nihfy0zsx2q4w",
-    "mgx4wy4q1m5nvhu",
-    "xs3llajbfio4av5",
-    "266znmcgkemwo8h",
-    "rtkldn2xxriok2i",
-    "f8grmx8yjqreola",
-    "tdwu0y3lunytk64",
-    "a0i27fzq7utqh5u",
-    "qmvvoo7gvj50pys",
-    "zqv9rc8oc6ocmz4",
-    "utxv0knne5mjabx",
-    "dos2kcffu7xmgii",
-    "syc1mxdrjdxlr95",
-    "0lf6dgdn8qu7fbs"
+    {
+      "annotation": "Titelportrait. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58505,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrich Wilhelm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. Halle sc.",
+      "scans": [
+        "alm_856_58505_fzy9ho93dk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Friedrich Wilhelm",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.751Z",
+          "agent": "u12nsjc3k4ttgv1",
+          "source_id": "2jg6i0bsc430r0p"
+        }
+      ],
+      "source_id": "83s4pocuvph9ekn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.576Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1821 / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_856_58506_9yq731fouq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1821 / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9ewk0g56dwwie0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58507,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "hyb4sn1rmimz25m"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz. /) Graphik im Kalendarium Januar; paginiert 1. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.578Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58508,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Churfürstliche Lustgarten u. die Schlossfreyheit im J. 1690",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stridbeck. # L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58508_w4acu4phfw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Churfürstliche Lustgarten u. die Schlossfreyheit im J. 1690",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.751Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "9ipg6yj2i8emcma"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.751Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "bi5ao20wg5oxos5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.751Z",
+          "agent": "hme5av0o5bms2s7",
+          "source_id": "s851fmp9ps68nf9"
+        }
+      ],
+      "source_id": "aq3aksxkazi1doe"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz u. am 1. Blatt der Suite /) Graphik im Kalendarium Februar; paginiert 2. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58509,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vorhof des Churfürstlichen Schlosses im J. 1690",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stridbeck. L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58509_y804fzq9ds.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Vorhof des Churfürstlichen Schlosses im J. 1690",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.628Z",
+          "agent": "hme5av0o5bms2s7",
+          "source_id": "2vzbvge6mow4g98"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.628Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "8c81kd38sxdar0x"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.628Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "a1s3qkt8lredzjl"
+        }
+      ],
+      "source_id": "dnfk3q51b66kjxo"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz u. am 1. Blatt der Suite /) Graphik im Kalendarium März; paginiert 3. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58510,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Petri- Kirche im J. 1690",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stridbeck. L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58510_wh7pj5koaq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Petri- Kirche im J. 1690",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.628Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "0wyn7y0po9zlfz3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.628Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "f9pzu4h3xshx8j3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.628Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.628Z",
+          "agent": "hme5av0o5bms2s7",
+          "source_id": "loon200jamiewu4"
+        }
+      ],
+      "source_id": "fjgasb4t162a73x"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz u. am 1. Blatt der Suite /) Graphik im Kalendarium April; paginiert 4. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58511,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Brüder Strasse im J. 1690",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stridbeck. L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58511_37i9tj45i3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Brüder Strasse im J. 1690",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "52jecn0hu3gvqh5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "6m8zhk6u6u903d2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "hme5av0o5bms2s7",
+          "source_id": "llowwlz505ue3qj"
+        }
+      ],
+      "source_id": "64nihfy0zsx2q4w"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz u. am 1. Blatt der Suite /) Graphik im Kalendarium Mai; paginiert 5. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58512,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Spandauer Strasse im J. 1690",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stridbeck. L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58512_ed63jlg8qz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Spandauer Strasse im J. 1690",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "1s8u4ta4rpmtzlx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "hme5av0o5bms2s7",
+          "source_id": "9lfvljdg31z2kwb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "feqklz2dlbcifo6"
+        }
+      ],
+      "source_id": "mgx4wy4q1m5nvhu"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz u. am 1. Blatt der Suite /) Graphik im Kalendarium Juni; paginiert 6. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58513,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gertrauden Kirche im J. 1690",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stridbeck. L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58513_4zj9ep6j74.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Gertrauden Kirche im J. 1690",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "706dj34822s0rc0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "hme5av0o5bms2s7",
+          "source_id": "g21nver542cv52d"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "qhr7evth8hk0qzv"
+        }
+      ],
+      "source_id": "xs3llajbfio4av5"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli; paginiert 7. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Simon Ulrich Pistoris- / Churbrandenburgischer Geh. Rath. / gest. 1615",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58514_3ccaglfwqv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Simon Ulrich Pistoris- / Churbrandenburgischer Geh. Rath. / gest. 1615",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "dzr66bbn6i0iq0d"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "h1q230mac25hwgr"
+        }
+      ],
+      "source_id": "266znmcgkemwo8h"
+    },
+    {
+      "annotation": "# Bezeichnung an Blatt 7. /) Graphik im Kalendarium August; paginiert 8. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58515,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johann Schönbrunn / Ratsherr zu Berlin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L. Wolf del. Jügel sc.",
+      "scans": [
+        "alm_856_58515_aopftu8e7f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Johann Schönbrunn / Ratsherr zu Berlin",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.670Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.670Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "doto25248m7b7ij"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.671Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.671Z",
+          "agent": "flivu8hnh9tq1va",
+          "source_id": "l113twvdvmmngvm"
+        }
+      ],
+      "source_id": "rtkldn2xxriok2i"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) Graphik im Kalendarium September; paginiert 9. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58516,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Louise de Nassau Orange / erste Gemahlin des großen Churfürsten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Rombout van den Hoeye",
+      "scans": [
+        "alm_856_58516_bpb9vu3t97.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Louise de Nassau Orange / erste Gemahlin des großen Churfürsten",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.689Z",
+          "agent": "mr0otzh8y4swj2h",
+          "source_id": "dtxzd348wmh1qrt"
+        }
+      ],
+      "source_id": "f8grmx8yjqreola"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober; paginiert 10. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58517,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dorothea / zweite Gemahlin / des großen Churfürsten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_856_58517_ius7l8r314.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dorothea / zweite Gemahlin / des großen Churfürsten",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "tdwu0y3lunytk64"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November; paginiert 11. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58518,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Otto Christoph Freyherr v. Sparr / Churbrandenburgsicher General-Feldmarschall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_856_58518_4046iett3o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Otto Christoph Freyherr v. Sparr / Churbrandenburgsicher General-Feldmarschall",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0i27fzq7utqh5u"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember; paginiert 12. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58519,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Georg Freyherr von Derfflinger / Churbrandenburgischer General-Feldmarschall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_856_58519_qz4yesy4ss.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Georg Freyherr von Derfflinger / Churbrandenburgischer General-Feldmarschall",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "qmvvoo7gvj50pys"
+    },
+    {
+      "annotation": "mit 13 Illustrationen s. Titelportrait INr 58505, Obj 1; Graphiken INr 58508-58519, Obj 4-15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Churfürst Johann Sigismund hatte kaum die Regierung der Churländer angetreten, als die Nachricht von dem am 23. März erfogten Tode des Herzogs Johann Wilhelm von Jülich, Cleve und Berg die Bewohner der Mark mit bangen Ahnungen erfüllte.",
+      "language": [],
+      "musenalm_id": 58520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Geschichte / von / Berlin und seinen Bewohnern / bis / zum Ende der Regierung des großen Churfürsten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wilken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Geschichte / von / Berlin und seinen Bewohnern / bis / zum Ende der Regierung des großen Churfürsten",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.689Z",
+          "agent": "du7c0gijdnu6wop",
+          "source_id": "cwpehi9xdmek2hl"
+        }
+      ],
+      "source_id": "zqv9rc8oc6ocmz4"
+    },
+    {
+      "annotation": "mit Erläuterungen zu den Graphiken s. Anmerkungen dort",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "utxv0knne5mjabx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58522,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist im Anfang des Monats Julius geschlos- / sen, und darnach sogleich der Druck angefangen wor- / den, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist im Anfang des Monats Julius geschlos- / sen, und darnach sogleich der Druck angefangen wor- / den, so daß die spätern Veränderungen nicht mehr / haben eingetragen werden können.)",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "dos2kcffu7xmgii"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58523,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "syc1mxdrjdxlr95"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Gedruckt in der Joh. Fr. Ungerschen Buchdruckerei",
+      "language": [],
+      "musenalm_id": 58588,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt in der Joh. Fr. Ungerschen Buchdruckerei…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "0lf6dgdn8qu7fbs"
+    }
   ],
   "agents": [
     {

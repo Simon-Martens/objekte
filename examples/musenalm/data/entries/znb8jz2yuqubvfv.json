@@ -48,49 +48,1724 @@
   "year": 1819,
   "editor": "",
   "items": [
-    "0penqwwbfi4rs3c"
+    {
+      "annotation": "# K gibt als letzten Jg 1818 an, der Titel weist als 14. Jg allerdings 1819 aus",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200628",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0penqwwbfi4rs3c"
+    }
   ],
   "contents": [
-    "pf2mrpznv7iufr8",
-    "pe1b9zzcqko76bp",
-    "digiwbhqi5a63ss",
-    "lfgpt98qdh20qw6",
-    "gaznt6ot429nkd2",
-    "aldgrn8giic4jjq",
-    "6mho2dfuzr0p6vp",
-    "m09ahp87lsq2nii",
-    "m9ncvj51ezztg4b",
-    "mpcjnznaeyqul6h",
-    "1ub41hx780pr6ii",
-    "e07he4s01vx0oml",
-    "yasty0rxy0i1c6w",
-    "qy2x5gpwfmsgrfx",
-    "ymzdelom7ycyjm9",
-    "hgnww8kfp4z22pg",
-    "h2hk0lagxfff9ho",
-    "h6rtge26b0xneq9",
-    "q66io8rtmfbcf1c",
-    "ghve22i9d12r51b",
-    "lrfd4m2yankqazw",
-    "0880x7p362rr4gr",
-    "x4chqrkbwm0n0la",
-    "89ieot1x384n7p3",
-    "fkcr4y9o6edo7ti",
-    "ykwzsl56fbw74xn",
-    "ob04k8ik8xktd14",
-    "e8br51uq2e81rgb",
-    "8o6wuz7y73j6mt2",
-    "uj31hj1rf3wop4z",
-    "v81kji49yqg6jvw",
-    "gyqanq443tm3tys",
-    "rtlriua6b810mvr",
-    "mlwvdd3ilefq111",
-    "vfxjelaed7bxhu4",
-    "ux6y4budjgldq04",
-    "ndwc9spt891iewr",
-    "8pk1c7v6u7vkdqk",
-    "qz59jxf5tatynvr",
-    "vy2l71ik7177638"
+    {
+      "annotation": "Titelgraphik; lt. G-Verz: aus Perons Reisen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.503Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42339,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "NABA LEBA. / König von Solor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Bolt fc.",
+      "scans": [
+        "alm_559_42339_c41e5qt4mn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "NABA LEBA. / König von Solor",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "30gpl8lwawz6mnv"
+        }
+      ],
+      "source_id": "pf2mrpznv7iufr8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42340,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "E. A. W. von ZIMMERMANNS / TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht / auf Länder- Völker- und Productenkunde. / Fortgesetzt / von / F. RÜHS und H. LICHTENSTEIN, / Professoren an der Universität zu Berlin. / Vierzehnter Jahrgang / oder / achtzehntes Bändchen. / Mit 11 Kupfern und 1 Karte. / Leipzig, bei Gerhard Fleischer d. Jüng. / 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42340_m6si3sfa4l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "E. A. W. von ZIMMERMANNS / TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht / auf Länder- Völker- und Productenkunde. / Fortgesetzt / von / F. RÜHS und H. LICHTENSTEIN, / Professoren an der Universität zu Berlin. / Vierzehnter Jahrgang / oder / achtzehntes Bändchen. / Mit 11 Kupfern und 1 Karte. / Leipzig, bei Gerhard Fleischer d. Jüng. / 1819",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "pe1b9zzcqko76bp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Indem wir dem Publikum in gegenwärtigem Bändchen die Fortsetzung unsrer Beschreibung der ostindischen Inseln übergeben,",
+      "language": [],
+      "musenalm_id": 42341,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "digiwbhqi5a63ss"
+    },
+    {
+      "annotation": "Photos 42342,01-42342,05",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.508Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42342,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42342_01_a4e9eene12.jpg",
+        "alm_559_42342_02_74dkdrog16.jpg",
+        "alm_559_42342_03_cr3mla2hbl.jpg",
+        "alm_559_42342_04_qmum156rn2.jpg",
+        "alm_559_42342_05_5to0pgmt4z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "lfgpt98qdh20qw6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "gaznt6ot429nkd2"
+    },
+    {
+      "annotation": "# Bez. Aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Klage über den Mangel an neuen, einigermaßen genügenden Nahrichten, die wir bei Borneo führten, müssen wir bei Celebes wiederholen: wir sind fast ganz auf die ältern Berichte der Holländer eingeschränkt,",
+      "language": [],
+      "musenalm_id": 42344,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Celebes",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Celebes",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.264Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "05tccfwgzno8qth"
+        }
+      ],
+      "source_id": "aldgrn8giic4jjq"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Von einheimischen wilden Gewächsen wird uns keines von einigem Belang namhaft gemacht, das nicht auch den übrigen Inseln angehörte,",
+      "language": [],
+      "musenalm_id": 42345,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Celebes]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Celebes]",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.264Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "edqv2e7nxd5ihge"
+        }
+      ],
+      "source_id": "6mho2dfuzr0p6vp"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Nieuhofs Reisen d.i.: Nieuhof, Johan f: Zee- en Lant-Reise door verscheide Gewesten van Oostindien, behelzende veele zeldzaame en wonderlijke voorvallen en geschiedenissen. Beneffens een beschrijving van lantschappen, dieren, gewassen, draghten, zeden en godsdienst der inwoonders: E inzonderheit een wijtloopig verhael der Stad Batavia. Amsterdam: de Weduwe van Jacob van Meurs, 1682",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Makassaren, / Giftpfeile aus dem Blaserohr schiessend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42346_uwj1dan4sy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Makassaren, / Giftpfeile aus dem Blaserohr schiessend",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "m09ahp87lsq2nii"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Boan-Upas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tilesius del.",
+      "scans": [
+        "alm_559_42347_yono15ppw5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Boan-Upas",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.264Z",
+          "agent": "pyk1nqor2ru8j94",
+          "source_id": "vk3oc426f9y35id"
+        }
+      ],
+      "source_id": "m9ncvj51ezztg4b"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Die Insel zerfällt in eine Menge kleiner Staaten unter eigenen Oberhäuptern, die man Königreiche zu nennen pflegt,",
+      "language": [],
+      "musenalm_id": 42348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Celebes] Politische Eintheilung und Verfassung #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Celebes] Politische Eintheilung und Verfassung #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "k20m8c26592mjew"
+        }
+      ],
+      "source_id": "mpcjnznaeyqul6h"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Offenbar wird Celebes von einem Hauptstamme bewohnt, der in zwei Zweige, Bugginesen und Makassaren vertheilt,",
+      "language": [],
+      "musenalm_id": 42349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Celebes] Die Völkerschaften",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Celebes] Die Völkerschaften",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "8yo9t9cqw9hdbwc"
+        }
+      ],
+      "source_id": "1ub41hx780pr6ii"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Schon seit dem J. 1538 handelten die Portugiesen mit den Bewohnern von Celebes,",
+      "language": [],
+      "musenalm_id": 42350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Celebes] Ankunft der Europäer #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Celebes] Ankunft der Europäer #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "voefyhlejc24y9k"
+        }
+      ],
+      "source_id": "e07he4s01vx0oml"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Nachdem wir die größern Massen in dem indischen Ozean kennen gelernt haben, werfen wir einen Blick auf die unzähligen größern und kleinern Eilande,",
+      "language": [],
+      "musenalm_id": 42351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kleinen Sundinseln",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die kleinen Sundinseln",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "btcmym2wnh71u62"
+        }
+      ],
+      "source_id": "yasty0rxy0i1c6w"
+    },
+    {
+      "annotation": "lt. G-Verz: aus den Verhandlungen der batavischen Gesellschaft",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albino von der Insel Baly",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42352_6ev5n6l3or.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Albino von der Insel Baly",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "qy2x5gpwfmsgrfx"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.939Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Wir nahen uns jetzt den Eilanden, die besonders durch die Erzeugung der köstlichsten Gewürze so wichtig für den Handel geworden sind,",
+      "language": [],
+      "musenalm_id": 42353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gruppe von Banda und die / Südwestinseln",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gruppe von Banda und die / Südwestinseln",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "cqgdhe2tsxezppu"
+        }
+      ],
+      "source_id": "ymzdelom7ycyjm9"
+    },
+    {
+      "annotation": "lt. G-Verz: aus [Francois] Valentyns Werk",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht des Vulkans Gunong-Api und der Insel- Aeira / mit dem Kastel Nassau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. P. Veith sc.",
+      "scans": [
+        "alm_559_42354_jsl5pj9yva.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht des Vulkans Gunong-Api und der Insel- Aeira / mit dem Kastel Nassau",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "xky2fhs1i1lsqdb"
+        }
+      ],
+      "source_id": "hgnww8kfp4z22pg"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Audeberts Naturgeschichte der Affen; d.i.:Audebert, Jean Baptiste: Histoire naturelle des singes, des makis et des galéopithéques, Paris 1800",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tarsier / (Tarsius Daubentonii, Geoffr.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42355_mfahdtsb3m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Tarsier / (Tarsius Daubentonii, Geoffr.)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "dt7ywicjlyhytmd",
+          "source_id": "ozanfy6zevnkges"
+        }
+      ],
+      "source_id": "h2hk0lagxfff9ho"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Audeberts Naturgeschichte der Affen; d.i.:Audebert, Jean Baptiste: Histoire naturelle des singes, des makis et des galéopithéques, Paris 1800",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Colugo / (Galeopithecus rufus, Geoffr.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42356_cldndgflsy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Colugo / (Galeopithecus rufus, Geoffr.)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "dt7ywicjlyhytmd",
+          "source_id": "5lafeiu60xdao0x"
+        }
+      ],
+      "source_id": "h6rtge26b0xneq9"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Zu dieser Gruppe gehören 11 Eilande, unter denen Amboina als der Sitz der Regierung das vornehmste ist;",
+      "language": [],
+      "musenalm_id": 42357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amboina-Gruppe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amboina-Gruppe",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "5nuu7n6vz1g8rwk"
+        }
+      ],
+      "source_id": "q66io8rtmfbcf1c"
+    },
+    {
+      "annotation": "lt. G-Verz: aus [Jacques Julien Houtou de] Labillardiere's Reisen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Indische Landschaft auf der Insel Buro",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. P. Veith sc.",
+      "scans": [
+        "alm_559_42358_tnyuussgw2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Indische Landschaft auf der Insel Buro",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "ez4qbekvadahsk2"
+        }
+      ],
+      "source_id": "ghve22i9d12r51b"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Die Bevölkerung ist sehr gemischt: sie besteht aus mancherlei Völkern, aus Ankömmlingen, Blendlingen, Freigelassenen und Sklaven,",
+      "language": [],
+      "musenalm_id": 42359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Amboina-Gruppe] Die Bewohner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Amboina-Gruppe] Die Bewohner",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "9d88cn5x0qxv2e6"
+        }
+      ],
+      "source_id": "lrfd4m2yankqazw"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Nieuhof; d.i.: Nieuhof, Johan f: Zee- en Lant-Reise door verscheide Gewesten van Oostindien, behelzende veele zeldzaame en wonderlijke voorvallen en geschiedenissen. Beneffens een beschrijving van lantschappen, dieren, gewassen, draghten, zeden en godsdienst der inwoonders: E inzonderheit een wijtloopig verhael der Stad Batavia. Amsterdam: de Weduwe van Jacob van Meurs, 1682",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Buginese und Amboinese in Kriegsrüstung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. G. Krüger del. et sculp.",
+      "scans": [
+        "alm_559_42360_q86h463oug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Buginese und Amboinese in Kriegsrüstung",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.265Z",
+          "agent": "mi3sfg9f1oc68es",
+          "source_id": "snplak6tdu5xmi6"
+        }
+      ],
+      "source_id": "0880x7p362rr4gr"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Von allen Inseln des indischen Archipels ist keine ihren natürlichen Erzeugnissen nach, vollständiger beschrieben, als Amboina,",
+      "language": [],
+      "musenalm_id": 42361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Amboina-Gruppe] Naturgeschichte #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Amboina-Gruppe] Naturgeschichte #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.287Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "dtufsvudd48ys1w"
+        }
+      ],
+      "source_id": "x4chqrkbwm0n0la"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kuskus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42362_mgep90d08g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Kuskus",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "89ieot1x384n7p3"
+    },
+    {
+      "annotation": "lt: g-Verz. aus Seba's Thesaurus; d.i.: Seba, Albert : Locupletissimi rerum naturalium thesauri accurata descriptio, et iconibus artificiosissimis expressio, per universam physices historiam. Opus, cui, in hoc rerum genere, nullum par exstitit, ex toto terrarum orbe collegit, digessit, descripsit, et depingendum curavit Albertus Seba. 4 Vol. Amsterdam 1734-65",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.192Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Börsen-Krabbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_559_42363_racj2zdtkm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Börsen-Krabbe",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "fkcr4y9o6edo7ti"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Der Name der Molucken wird oft sehr unbestimmt und in einem weiten Sinn gebraucht,",
+      "language": [],
+      "musenalm_id": 42364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Molucken",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Molucken",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.287Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "yyb70mjz9l3b3kj"
+        }
+      ],
+      "source_id": "ykwzsl56fbw74xn"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Auch auf den Molucken sind ursprünglich mehrere Stämme ansässig gewesen, und noch gegenwärtig finden sich Überbleibsel von den Papua's;",
+      "language": [],
+      "musenalm_id": 42365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Molucken] Einwohner, Verfassung, Regierung / der Holländer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Molucken] Einwohner, Verfassung, Regierung / der Holländer",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.287Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "d9ptvohv3iv1ru4"
+        }
+      ],
+      "source_id": "ob04k8ik8xktd14"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Die Suluinseln bilden eine große, sehr zahlreiche Kette von dem nordöstlichen Ende Borneo's bis nach der Westseite von Magindany;",
+      "language": [],
+      "musenalm_id": 42366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Suluinseln",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Suluinseln",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.287Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "bar7m6ag0l3kev6"
+        }
+      ],
+      "source_id": "e8br51uq2e81rgb"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Die Einwohner scheinen mit den Bissaja's auf den Philippinen zu einem Stamme zu gehören,",
+      "language": [],
+      "musenalm_id": 42367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Suluinseln] Einwohner #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Suluinseln] Einwohner #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.287Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "l9l49n9iy02xyee"
+        }
+      ],
+      "source_id": "8o6wuz7y73j6mt2"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Eine der größten Eilande des indischen Archipelagus, die man oft mit Unrecht zu den Philippinen zählt,",
+      "language": [],
+      "musenalm_id": 42368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Insel Magindano. ( Melindeno)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Insel Magindano. ( Melindeno)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.287Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "8k6hxsgjj0jsprv"
+        }
+      ],
+      "source_id": "uj31hj1rf3wop4z"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Die philippinischen Inseln, die gleich oberhalb Magindano anfangen und vom 12ten bis zum 21ten Grad nördl. Br. Hinaufreichen,",
+      "language": [],
+      "musenalm_id": 42369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Philippinen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Philippinen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.378Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "yum4m8vmtmzippe"
+        }
+      ],
+      "source_id": "v81kji49yqg6jvw"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Die Regenzeit dauert auf den Philippinen vom May bis zum September, bisweilen bis zum Anfang Decembers;",
+      "language": [],
+      "musenalm_id": 42370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Philippinen] Clima #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Philippinen] Clima #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.379Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.379Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "44xfqkvc83yar79"
+        }
+      ],
+      "source_id": "gyqanq443tm3tys"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Der Völkerkunde würde eine genaue Betrachtung der auf den Philippinen vorhandenen Menschenarten, die sich zum Theil in ihrer Reinheit erhalten, die lehrreichsten Aufschlüsse gewähren,",
+      "language": [],
+      "musenalm_id": 42371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Philippinen] Die einheimischen Völkerschaften",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Philippinen] Die einheimischen Völkerschaften",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.379Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.379Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "bxbb1insemzsv9w"
+        }
+      ],
+      "source_id": "rtlriua6b810mvr"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Andre Völker haben ihre Niederlassungen zunächst um des Handels willen gegründet, und die Begierden nach Schätzen vermochte sie, allen Gefahren Trotz zu bieten,",
+      "language": [],
+      "musenalm_id": 42372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Philippinen] Die Spanier. - Verwaltung der Colonie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Philippinen] Die Spanier. - Verwaltung der Colonie",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.379Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.379Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "fkg4tvf6tvss1c7"
+        }
+      ],
+      "source_id": "mlwvdd3ilefq111"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Wir haben jetzt ein gedrängtes aber vollständiges Gemälde von dem merkwürdigen Archipelagus zu geben versucht,",
+      "language": [],
+      "musenalm_id": 42373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Philippinen] Allgemeine Betrachtungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "R.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Philippinen] Allgemeine Betrachtungen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.387Z",
+          "agent": "q5rzjlx40lnqx6r",
+          "source_id": "kkdvhlhy5mnr6wq"
+        }
+      ],
+      "source_id": "vfxjelaed7bxhu4"
+    },
+    {
+      "annotation": "mit einer Tabelle INr 42375, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Wir haben in den hier gelieferten Darstellungen absichtlich nur selten und gleichsam nur im Vorbeigehen der natürlichen Erzeugnisse jedes einzelnen Insel-Gebietes erwähnt,",
+      "language": [],
+      "musenalm_id": 42374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naturhistorische Bemerkungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Naturhistorische Bemerkungen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.388Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "owv11092ixdce69"
+        }
+      ],
+      "source_id": "ux6y4budjgldq04"
+    },
+    {
+      "annotation": "Beigabe zu »Naturhistorische Bemerkungen« INr 42374, Obj 36 Photos 42375,01; 42375,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Folgende Tabelle wirft hoffentlich noch mehr Licht auf den ver- / hältnißmäßigen Reihthum dieser Gegend an Vögeln",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [
+        "alm_559_42375_01_4xp18jewsc.jpg",
+        "alm_559_42375_02_hbiw4x4ynx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Folgende Tabelle wirft hoffentlich noch mehr Licht auf den ver- / hältnißmäßigen Reihthum dieser Gegend an Vögeln",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.388Z",
+          "agent": "wa9sa5vspt41k6t",
+          "source_id": "o1r5lq4s49j83ri"
+        }
+      ],
+      "source_id": "ndwc9spt891iewr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "8pk1c7v6u7vkdqk"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42377,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "qz59jxf5tatynvr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42378,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE / OSTINDISCHEN INSELN / nach den neuesten / Berichtigungen / dargestellt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leutemann sc. Leipz.",
+      "scans": [
+        "alm_559_42378_cyafuztvrl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE / OSTINDISCHEN INSELN / nach den neuesten / Berichtigungen / dargestellt",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "vy2l71ik7177638"
+    }
   ],
   "agents": [
     {

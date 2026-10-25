@@ -48,28 +48,860 @@
   "year": 1815,
   "editor": "",
   "items": [
-    "75mci8qrb6x86n4",
-    "9lmolol01yx3s01",
-    "b5mv389spe5b7eh",
-    "o42eso22nu4avgw"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1815: Mit Ku 6(coloriert) und 240 SS.\nAuswahl Fr. Kaminski 10.2023zurück",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100045",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "75mci8qrb6x86n4"
+    },
+    {
+      "annotation": "UG recto u verso, INr",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.462Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "410768",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.462Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9lmolol01yx3s01"
+    },
+    {
+      "annotation": ",",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.462Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "125391",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.462Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "b5mv389spe5b7eh"
+    },
+    {
+      "annotation": ", Obj 1, 16",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.462Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "125392",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.462Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "o42eso22nu4avgw"
+    }
   ],
   "contents": [
-    "t3mwp3ntnmic9io",
-    "oxk8so4np6akl48",
-    "mdjsfp55pateso5",
-    "w09ygiyne769rs5",
-    "cyegvaqym6ucayo",
-    "mbfd7mo935jug5h",
-    "a7qp4h6ei3rmr9s",
-    "yk8g24mmb2bkqg2",
-    "i22c2wnmu4q0638",
-    "x6fq71pq8dtpc3n",
-    "az4vfpuyfm4gy8l",
-    "oyk1hgg1kewbqwv",
-    "7thvwhkpbone86l",
-    "qyccgc4mntml7m0",
-    "4b6pk6p3jpleie5",
-    "77q2u2eiuwrse2u"
+    {
+      "annotation": "Umschlaggraphik recto; aus 410768",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125391,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1283_125391_7ms36p8auq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "t3mwp3ntnmic9io"
+    },
+    {
+      "annotation": "Illustration zu »Der Kosak und der Freiwillige« von Kotzebue (INr 123766, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123764,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Vor dem Feinde sind wir verwegen, bei hübschen / Mädgen aber blöde. / Der Kosak u. d. Freiwillige. Scene 2",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+      "scans": [
+        "alm_1283_123764_c0t63hya6y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. Vor dem Feinde sind wir verwegen, bei hübschen / Mädgen aber blöde. / Der Kosak u. d. Freiwillige. Scene 2",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.674Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "1yq2zyyjcvmdv2f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.674Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "gowriompw37ps8y"
+        }
+      ],
+      "source_id": "oxk8so4np6akl48"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123765,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Dreizehnter Jahrgang / Leipzig. / bei C. J. G. Hartmann 1815. Martin sc.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_1283_123765_606shmq3cw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Dreizehnter Jahrgang / Leipzig. / bei C. J. G. Hartmann 1815. Martin sc.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.674Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "givdq7f3hr1lve6"
+        }
+      ],
+      "source_id": "mdjsfp55pateso5"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123764, Obj 1; # Bezeichnung aus den Vrwt. bis Jg. 1806 /) mit einem Schlussgesang »von Müchler« (INr 123767, Obj 4) /) § im Titel angekündigte Melodien fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Nun, der Transport wäre glücklich abgeliefert; und wie gut trifft es sich, daß wir gerade hier in meinem Geburtsorte unsere Regimenter erwarten sollen.",
+      "language": [],
+      "musenalm_id": 123766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kosak und der Freywillige / Ein Liederspiel in einem Akt. / Mit Melodien / vom königl. preußischen Capellmeister Herrn Bernhard / Anselm Weber §",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kosak und der Freywillige / Ein Liederspiel in einem Akt. / Mit Melodien / vom königl. preußischen Capellmeister Herrn Bernhard / Anselm Weber §",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.674Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.674Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "9hwwcdwj73o3qnu"
+        }
+      ],
+      "source_id": "w09ygiyne769rs5"
+    },
+    {
+      "annotation": "enthalten in »Der Kosak und der Freywillige« von Kotzebue (INr 123766, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Die Hörner und die Trommeln erschallen, / Die Fahnen, die flatternden, wallen, / Die Waffen, die Waffen zur Hand!",
+      "language": [],
+      "musenalm_id": 123767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlussgesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlussgesang",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "cls4lix1x0fduxz"
+        }
+      ],
+      "source_id": "cyegvaqym6ucayo"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123769, Obj 6; # Bezeichnung aus den Vrwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Das war eine stürmische Nacht! – Die Wellen brachen sich mit furchtbarem Getös an meinem Felsen, als ob im Theater eine Bank zerbricht, auf der zu viele Zuschauer gesessen.",
+      "language": [],
+      "musenalm_id": 123768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bäbbel, / oder / aus zwyen Uebeln das kleinste. / Eine historische Posse in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bäbbel, / oder / aus zwyen Uebeln das kleinste. / Eine historische Posse in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "j1t1l1xrpr5rmrw"
+        }
+      ],
+      "source_id": "mbfd7mo935jug5h"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); Illustration zu »Bäbbel« von Kotzebue (INr 123768, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.742Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich bin der berühmte Baebbel – ein tüchtiger Zollvisitator. / Baebbel. Scene 11",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+      "scans": [
+        "alm_1283_123769_r24ew4rxto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich bin der berühmte Baebbel – ein tüchtiger Zollvisitator. / Baebbel. Scene 11",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "e3nfhw8n0apu1rt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "tx97j8tejacyfwx"
+        }
+      ],
+      "source_id": "a7qp4h6ei3rmr9s"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123771, Obj 8; # Bezeichnung aus den Vrwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Nein, diese Locke, Kind, ist gar nicht steif und zierlich. / Soll’s auch nicht sein, man trägt die Locken jetzt na- / türlich.",
+      "language": [],
+      "musenalm_id": 123770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schelmische Freyer / Ein Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der schelmische Freyer / Ein Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "9uid4e6c89l14mg"
+        }
+      ],
+      "source_id": "yk8g24mmb2bkqg2"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); Illustration zu »Der schelmische Freyer« von Kotzebue (INr 123770, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Zum erstenmale fühl ich Amors Allgewalt; / Ein Herz, das fünfzig zählt, wird darum / doch nicht alt. / Der schelmische Freyer. Scene 5",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+      "scans": [
+        "alm_1283_123771_o1b6r2syg9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Zum erstenmale fühl ich Amors Allgewalt; / Ein Herz, das fünfzig zählt, wird darum / doch nicht alt. / Der schelmische Freyer. Scene 5",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "o25hwaegvk6lhg0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "t8e1snnuu463yve"
+        }
+      ],
+      "source_id": "i22c2wnmu4q0638"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123773, Obj 10; # Bezeichnung aus den Vrwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Ihr guten Vöglein! wer wird euch füttern, wenn das Schicksal mich, eure Versorgerin, euch entreißt!",
+      "language": [],
+      "musenalm_id": 123772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rückkehr der Freywilligen, / oder / das patriotische Gelübde. / Ein Lustspiel in einem Akt.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rückkehr der Freywilligen, / oder / das patriotische Gelübde. / Ein Lustspiel in einem Akt.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "1j6cawgw8go0amh"
+        }
+      ],
+      "source_id": "x6fq71pq8dtpc3n"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); Illustration zu »Die Rückkehr d. Freywilligen« von Kotzebue (INr 123772, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Das Bein ist fort aber das Herz ist ganz. / Die Rückkehr d. Freywilligen. Scene 13 #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+      "scans": [
+        "alm_1283_123773_h2diarjgzt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. Das Bein ist fort aber das Herz ist ganz. / Die Rückkehr d. Freywilligen. Scene 13 #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "07klo4k2e7b7lq5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "5mbbfs5f08mgdvm"
+        }
+      ],
+      "source_id": "az4vfpuyfm4gy8l"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123775, Obj 12; # Bezeichnung aus den Vrwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Nicht einmal ruhig in die Kirche gehn kann ein Vater am lieben Sonntage, wenn er eine mannbare Tochter im Hause hat.",
+      "language": [],
+      "musenalm_id": 123774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer weiß wozu das gut ist. / Ein Schwank in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wer weiß wozu das gut ist. / Ein Schwank in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "1ua80pli3avxust"
+        }
+      ],
+      "source_id": "oyk1hgg1kewbqwv"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); # Illustration zu »Wer weiß wozu das gut ist« von Kotzebue (INr 123774, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Wenn man so einen Rock auf dem Leib trägt, / so fährt Einem der Feufel in den Leib. / Wer weiß wozu das gut ist. Scene 10",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+      "scans": [
+        "alm_1283_123775_0btl8y4qj8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Wenn man so einen Rock auf dem Leib trägt, / so fährt Einem der Feufel in den Leib. / Wer weiß wozu das gut ist. Scene 10",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "395aeden7vklekg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "hv5i803ar7vm0lz"
+        }
+      ],
+      "source_id": "7thvwhkpbone86l"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123777, Obj 14; # Bezeichnung aus den Vrwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Ich bin recht früh heut’ aufgestanden, / Die Arbei geht mir flink von der Hand; / Kaum wüßt’ ich, wie schnell die Minuten verschwanden, / Hing’ nicht die Uhr dort an der Wand.",
+      "language": [],
+      "musenalm_id": 123776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Shawl. / ein Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Shawl. / ein Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "gq19g40ohlxmxaw"
+        }
+      ],
+      "source_id": "qyccgc4mntml7m0"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); Illustration zu »Der Shawl« von Kotzebue (INr 123776, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Man bleibt ohne Shawl jetzt nicht bei Ehre. / Der Shawl. / Scene 8",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+      "scans": [
+        "alm_1283_123777_mbcgkq1mnr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Man bleibt ohne Shawl jetzt nicht bei Ehre. / Der Shawl. / Scene 8",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "hwq7f8rrdddwbw8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.847Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.847Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "r6rx1itvs4oqaug"
+        }
+      ],
+      "source_id": "4b6pk6p3jpleie5"
+    },
+    {
+      "annotation": "Umschlaggraphik verso; aus 410768",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125392,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1281_125392_i13eebvd9o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1815,
+      "editor": "",
+      "agents": [],
+      "source_id": "77q2u2eiuwrse2u"
+    }
   ],
   "agents": [
     {

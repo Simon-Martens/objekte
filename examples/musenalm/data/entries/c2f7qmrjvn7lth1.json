@@ -48,43 +48,1315 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "gke9tjtpm7rc7qh"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.511Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200413",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.511Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gke9tjtpm7rc7qh"
+    }
   ],
   "contents": [
-    "myu4yt8kmcc8cn7",
-    "y01jgaav1nazu74",
-    "qjp7jauzrpgju9m",
-    "ao41iksbavvmg4g",
-    "g16ktq9b03xz4o2",
-    "6cf3ib9baoni8v6",
-    "n91sdwub9fcysmj",
-    "lq9xt9aff94oj4k",
-    "6ffyta7l3fts80y",
-    "t3dfiogbnxq68an",
-    "glap0h5cjmiwb5i",
-    "6sgyecsoturdn2r",
-    "z2qmmeyrf9xzqgd",
-    "3grealdyt8qnvjt",
-    "9aghwzw272ru6pp",
-    "4d6b99jxfx90ejw",
-    "vcgu99o6loim5s9",
-    "jgoj52ra82zbv9z",
-    "wtc3k8369xywvrf",
-    "ozatozct9vjcvb7",
-    "xygeyj4zae32h3n",
-    "26x3q55d8jk3vf0",
-    "6x11rtgrle4hwj6",
-    "lon0ti07kphz0y7",
-    "ldmqk3nrc755dxe",
-    "ul9gjjfnxs5h1tz",
-    "je521seipfu03ie",
-    "mdmo2m7ez3dsjxj",
-    "ggnd2efct9d7xxp",
-    "617h35mukmxafzr",
-    "bqka0p1aj240ph9",
-    "wclajjj0fosh6cx",
-    "lp2isf6kfsjc8gd",
-    "hfl90qqkhv1oc03"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.557Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51638,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_703_51638_jnkx87wspr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "myu4yt8kmcc8cn7"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 51658, Obj 21 sowio das Gedicht »Das Zürchersche Traubenfest« INr 51641, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51639,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Weinlese am Zürcher See",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König st.",
+      "scans": [
+        "alm_703_51639_bdpoczt0s6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Weinlese am Zürcher See",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.583Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.583Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "7gfu7i9xo18psu8"
+        }
+      ],
+      "source_id": "y01jgaav1nazu74"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / für das Jahr / 1803 / Zürich / bey Orell Füssli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_703_51640_74tty92nxz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / für das Jahr / 1803 / Zürich / bey Orell Füssli & Comp.",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "qjp7jauzrpgju9m"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Cette Fète n'en devient que plus belle / par la réflexion, quand on songe qu'elle / est la seule [...] Rousseau. / Nouv. Héloise, V. Partie, Lettre 7. /) Ebenso: Erklärung einiger schweizerischer Worte u. Redensarten /) s. hierzu: Titelgraphik INr 51639, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Festliche Feyer schwebt hehr auf den Schwingen / des dämmernden Morgens. / Aus dem Nebel, der weiß im schlummernden Thale / noch ruhet,",
+      "language": [],
+      "musenalm_id": 51641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Zürichersche Traubenfest. / Ein Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. H.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Zürichersche Traubenfest. / Ein Gedicht",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ao41iksbavvmg4g"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz /) kol. Trachtenkupfer. Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 /) s.a. Textbezug INr 51659, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winzer / aus der Gegend von Weiningen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [
+        "alm_703_51642_jo7if6hkov.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Winzer / aus der Gegend von Weiningen",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.579Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.579Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "gwppocugfpm208l"
+        }
+      ],
+      "source_id": "g16ktq9b03xz4o2"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz /) kol. Trachtenkupfer. Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51660, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauer von Schöfflistorf",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [
+        "alm_703_51643_v94pxggwj9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauer von Schöfflistorf",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.686Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "dg1opj4ku91zau0"
+        }
+      ],
+      "source_id": "6cf3ib9baoni8v6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze / geographische Darstellung / des / Kantons Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze / geographische Darstellung / des / Kantons Zürich",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "n91sdwub9fcysmj"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51661, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Waisenhaus in Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_703_51645_y88klzkjhf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Waisenhaus in Zürich",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.686Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "i0fn3zcsdes4vo1"
+        }
+      ],
+      "source_id": "lq9xt9aff94oj4k"
+    },
+    {
+      "annotation": "# vollst. Bez. aus dem G-Verz /) kol. Trachtenkupfer. Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 /) s.a. Textbezug INr 51662, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Zürich / Bauernmädchen aus dem Wenthal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [
+        "alm_703_51646_h0q57rlpwu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Zürich / Bauernmädchen aus dem Wenthal",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.686Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "xwse55uxs1vmeg1"
+        }
+      ],
+      "source_id": "6ffyta7l3fts80y"
+    },
+    {
+      "annotation": "# vollst. Bez. aus dem G-Verz /) kol. Trachtenkupfer. Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 /) s.a. Textbezug INr 51663, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Zürich / Bauernmädchen von Kyburg",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [
+        "alm_703_51647_jg7kddcmfu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Zürich / Bauernmädchen von Kyburg",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.686Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "5piksdd3blvydif"
+        }
+      ],
+      "source_id": "t3dfiogbnxq68an"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51664, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.090Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zürich / von der Nordseite gezeichnet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König st.",
+      "scans": [
+        "alm_703_51648_f9pgq0s4sy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zürich / von der Nordseite gezeichnet",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.686Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.686Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "3vzu0uqv2n584y9"
+        }
+      ],
+      "source_id": "glap0h5cjmiwb5i"
+    },
+    {
+      "annotation": "September 1801-September 1802",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.092Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetische / Chronik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helvetische / Chronik",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "6sgyecsoturdn2r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Zur Entwerfung der Zeichnungen zu diesem Almanach, nach der Natur, reiste ich letzten Herbst nach Zürich.",
+      "language": [],
+      "musenalm_id": 51650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reise / von Interlacken nach Zürich, / und von da durch die kleinen Cantone / wieder zurück, im Oktober 1801",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. K. **",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reise / von Interlacken nach Zürich, / und von da durch die kleinen Cantone / wieder zurück, im Oktober 1801",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.573Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "femiv0nd4s5vh5m"
+        }
+      ],
+      "source_id": "z2qmmeyrf9xzqgd"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51665, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Promenade auf den Schützenplatz bey Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König",
+      "scans": [
+        "alm_703_51651_f28p5os7fs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Promenade auf den Schützenplatz bey Zürich",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.573Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "npvsdgaxuxqqdzy"
+        }
+      ],
+      "source_id": "3grealdyt8qnvjt"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51666, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gessners Denkmal / auf dem Schützenplatz bey Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König sc.",
+      "scans": [
+        "alm_703_51652_9u23rux596.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gessners Denkmal / auf dem Schützenplatz bey Zürich",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.573Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "vhpjozxo1ce23w8"
+        }
+      ],
+      "source_id": "9aghwzw272ru6pp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Litteratur-und Kunstanzeigen von 1802",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Litteratur-und Kunstanzeigen von 1802",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "4d6b99jxfx90ejw"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51656, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus der Gegend von Meilen, / am Zürichsee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft. 1802",
+      "scans": [
+        "alm_703_51654_92sri39po0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus der Gegend von Meilen, / am Zürichsee",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.573Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "7ny6rw615ty9at3"
+        }
+      ],
+      "source_id": "vcgu99o6loim5s9"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51656, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.416Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus am Zürcher See",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. N. König ft. 1802",
+      "scans": [
+        "alm_703_51655_p5wx3gsmsz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus am Zürcher See",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.573Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "4jvs75jxfzzq9xz"
+        }
+      ],
+      "source_id": "jgoj52ra82zbv9z"
+    },
+    {
+      "annotation": "s. Graphiken INr 51654, 51655; Obj 17, 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.586Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Theils von Mauerwerk, theils von Holz erbaut und mit Ziegeln bedeckt, sind die Wohnungen der Landleute in dieser Gegend des Cantons.",
+      "language": [],
+      "musenalm_id": 51656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetische Bauarten. / Zwey Bauernhäuser am Zürichsee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helvetische Bauarten. / Zwey Bauernhäuser am Zürichsee",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "wtc3k8369xywvrf"
+    },
+    {
+      "annotation": "Sammlung von 10 Textbezügen INr 51658-51667, Obj 21-30 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51657,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ozatozct9vjcvb7"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Titelgraphik INr 51639, Obj 2 sowie Gedicht »Das Zürichersche Traubenfest« INr 51641, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Die beste Auslegung dieses niedlichen Blättchens, welches den Theil eines Hauses am Zürichsee nahe bey Küßnacht vorstellt, giebt das Gedicht, welches S. 4. des Almanachs steht.",
+      "language": [],
+      "musenalm_id": 51658,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Dem Titelblatt gegenüber.) / Die Weinlese am Zürichsee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Dem Titelblatt gegenüber.) / Die Weinlese am Zürichsee",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "xygeyj4zae32h3n"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51642, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Oft schlüpft der lose Winzer zwischen den Armen der Traubenleserin in die Höhe.",
+      "language": [],
+      "musenalm_id": 51659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winzer. / (S. 6.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winzer. / (S. 6.)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "26x3q55d8jk3vf0"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51643, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Der kernhafte Landmann kommt am Sommer-Abend von dem Wochenmarkt von Zürich zurück.",
+      "language": [],
+      "musenalm_id": 51660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Bauer von Schöffistorf. / (S. 24.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Bauer von Schöffistorf. / (S. 24.)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "6x11rtgrle4hwj6"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51645, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Dieses schöne und einem so wohlthätigen Zweck gewiedmete Gebäude steht auf einer erhabenen Stelle, unweit dem berühmten Lindenhof, am Ufer der Limmat,",
+      "language": [],
+      "musenalm_id": 51661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Waisenhaus in Zürich. / (S. 27.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Waisenhaus in Zürich. / (S. 27.)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lon0ti07kphz0y7"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51646, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Das freundliche Kind trägt Eyer in die Stadt, welche es auf der Marktbrücke den Stadt-Einwohnern feil bietet.",
+      "language": [],
+      "musenalm_id": 51662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernmädchen aus dem Wenthal. / (S. 33)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bauernmädchen aus dem Wenthal. / (S. 33)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ldmqk3nrc755dxe"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51647, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Es geht zur frohen Heuernte. Munter singt es dabey, hascht oft schalkhaft seinem Neben-Mann das Heu unter der Gabel weg,",
+      "language": [],
+      "musenalm_id": 51663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernmädchen von Kyburg. / (S. 50.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bauernmädchen von Kyburg. / (S. 50.)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ul9gjjfnxs5h1tz"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51648, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Neben der alten Straße nach Baden und der neuen nach Schafhausen liegt, auf der Nordseite von Zürich, ungefähr eine halbe Stunde von der Stadt, eine mäßige Anhöhe,",
+      "language": [],
+      "musenalm_id": 51664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zürich. / Von der Nordseite gezeichnet. / (S. 86)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zürich. / Von der Nordseite gezeichnet. / (S. 86)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "je521seipfu03ie"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51651, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Man sehe daselbst",
+      "language": [],
+      "musenalm_id": 51665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schützen-Platz. / Die öffentliche Promenade von Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schützen-Platz. / Die öffentliche Promenade von Zürich",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "mdmo2m7ez3dsjxj"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Graphik INr 51652, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Man sehe ebendaselbst",
+      "language": [],
+      "musenalm_id": 51666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geßners Denkmal. / (S. 150.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geßners Denkmal. / (S. 150.)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ggnd2efct9d7xxp"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 51657, Obj 20) s. Karte INr 51668, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Eine sehr genaue nach Herrn Professor Körners Zeichnung von Senn geäzte Landkarte des Cantons Zürich, nach der dermaligen Eintheilung in XV Distrikte.",
+      "language": [],
+      "musenalm_id": 51667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Zürichgebiet. / Nach Murdochs Entwerfungsart. / (S. 170.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Zürichgebiet. / Nach Murdochs Entwerfungsart. / (S. 170.)",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "617h35mukmxafzr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51668,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Zürichgebiet / nach Murdochs Entwerfungsart / 1803",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kerner Senn",
+      "scans": [
+        "alm_703_51668_z05iqgi1si.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Zürichgebiet / nach Murdochs Entwerfungsart / 1803",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "bqka0p1aj240ph9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51669,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "wclajjj0fosh6cx"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51670,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lp2isf6kfsjc8gd"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.907Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51671,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_703_51671_j7urrxj3hj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-09-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfl90qqkhv1oc03"
+    }
   ],
   "agents": [
     {

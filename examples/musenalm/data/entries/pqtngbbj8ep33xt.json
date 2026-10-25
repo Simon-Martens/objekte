@@ -49,7 +49,26 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "vrq8u5yfyma7io1"
+    {
+      "annotation": "nicht bei K 1; Fortsetzung der Reihe 1786-1793",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.601Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405399",
+      "location": "105D06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.601Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vrq8u5yfyma7io1"
+    }
   ],
   "contents": [],
   "agents": [

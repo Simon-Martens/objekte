@@ -48,42 +48,1402 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "a0qg0n5o07kz62n"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200625",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "a0qg0n5o07kz62n"
+    }
   ],
   "contents": [
-    "9668jjxqiyxv05z",
-    "pcx3b0n5d4xj3lz",
-    "w3kxmt0k471ct7i",
-    "i365wyc0quolwh5",
-    "zn9mlf7h9mgcptx",
-    "k9o1140c9oykl23",
-    "lja5jtow0r0nf31",
-    "7wrj8mazrgd8fvb",
-    "rc95buo433n4hie",
-    "ayp5ta2pkcfowmg",
-    "ry8pch2n8mldgc1",
-    "yxrckg4op6y6bdh",
-    "cbbsgag80wwo11d",
-    "vr65g78jkjl2hzj",
-    "wcbjht94sn6aspj",
-    "nu2ir5tyg9gv0fq",
-    "hhib30i5t4tnnyf",
-    "gmlvurf14ywtn6c",
-    "cggxug896g9yn5l",
-    "542xgqn2ypxwab6",
-    "eocshzv42zgq5fj",
-    "omc3tyqapa60431",
-    "xxrv77pneqg8p4g",
-    "p1oo2zi9axbouc6",
-    "61rfgovx336ba0f",
-    "zy829md0h75u1db",
-    "2fyxix9u74vjny0",
-    "1rantqp05fjl526",
-    "wg1e0mjx21nspgr",
-    "z3fp0z65x20amc8",
-    "eb1emk4b1skdlqo",
-    "e2sktqkqiohpqi9",
-    "k9pn70hd7p3nadb"
+    {
+      "annotation": "Titelgraphik lt. G-Verz: aus dem Mus. Borgiano",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42239,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brahma",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42239_ru7hw1fh63.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Brahma",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "9668jjxqiyxv05z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42240,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN / Zwölfter Jahrgang / Erste Abtheilung / für das Jahr / 1813 / Mit 12 Kupfern und 1 Karte / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42240_nflsbfhfjg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN / Zwölfter Jahrgang / Erste Abtheilung / für das Jahr / 1813 / Mit 12 Kupfern und 1 Karte / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "pcx3b0n5d4xj3lz"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Durch die Beendigung dieses zweiten Bandes über Hindostan glaube ich das wichtigste dargestellt zu haben, wodurch dieser merkwürdigste Theil Asiens vor Andern sich auszeichnet.",
+      "language": [],
+      "musenalm_id": 42241,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.130Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.130Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "pq3pwnb3hq91wil"
+        }
+      ],
+      "source_id": "w3kxmt0k471ct7i"
+    },
+    {
+      "annotation": "Photos 42242,01-42242,05",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42242,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42242_01_p11egwlhvi.jpg",
+        "alm_556_42242_02_hwextfxenb.jpg",
+        "alm_556_42242_03_2i76s02dl6.jpg",
+        "alm_556_42242_04_g8wp63stxl.jpg",
+        "alm_556_42242_05_pt9g231c8r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "i365wyc0quolwh5"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42243,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herabgesetzter Preis von acht Thalern auf / drei Thaler, des Taschenbuchs / Minerva / 1ter bis 4ter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herabgesetzter Preis von acht Thalern auf / drei Thaler, des Taschenbuchs / Minerva / 1ter bis 4ter Jahrgang",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "zn9mlf7h9mgcptx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einem Lande wie wir nun Hindostan kennen lernten, woselbst Himmel und Erde mit einander um Vorzüglichkeit wetteifern,",
+      "language": [],
+      "musenalm_id": 42244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.130Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.130Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "e0o64diukd10ra6"
+        }
+      ],
+      "source_id": "k9o1140c9oykl23"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.823Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "So viel ergab sich bereits aus dem eben Gesagten, daß Hindostan anjetzt von einer bedeutenden Zahl unter sich gänzlich verschiedener Nationen bewohnt wird.",
+      "language": [],
+      "musenalm_id": 42245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mensch, der Bewohner / Hindostans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mensch, der Bewohner / Hindostans",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.130Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.130Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "g6rc7jlc3m5i4i8"
+        }
+      ],
+      "source_id": "lja5jtow0r0nf31"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Schon das Aeußere dieses indischen Stammes ist von den übrigen Asiaten hinreichend ausgezeichnet, und wie bereits zuvor erwähnt ist, so war es seit mehr als Tausend Jahren.",
+      "language": [],
+      "musenalm_id": 42246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans] A. Der Hindus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans] A. Der Hindus",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.288Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "m52wz6fn06qrmj9"
+        }
+      ],
+      "source_id": "7wrj8mazrgd8fvb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Höchstwahrscheinlich trägt die Ernährungsart des Hindus zur Richtung und Bildung des Charakters sehr viel bei.",
+      "language": [],
+      "musenalm_id": 42247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Ernährungsart",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Ernährungsart",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "rc95buo433n4hie"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Hodges",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agrah",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hodges pinx. J. G. A. Frenzel sc. Dresd.",
+      "scans": [
+        "alm_556_42248_panh1cczw2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Agrah",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "xqoghpkng47rofa",
+          "source_id": "2orvt4ofy296s1l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "q3if84iitk8cah4"
+        }
+      ],
+      "source_id": "ayp5ta2pkcfowmg"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Hodges",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.065Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hindostanische Bauern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hodges",
+      "scans": [
+        "alm_556_42249_ityoy23635.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hindostanische Bauern",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.277Z",
+          "agent": "xqoghpkng47rofa",
+          "source_id": "t3gtl9iuxl48cuy"
+        }
+      ],
+      "source_id": "ry8pch2n8mldgc1"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Wir gehen jetzt zu dem auf den Landbauer zunächst folgenden Handwerker, zu dem Gewerbe und dem Handel. In alle diese Geschäfte greift aber die merkwürdige Eintheilung der Hindus in Volksklassen, Casten bei uns genannt,",
+      "language": [],
+      "musenalm_id": 42313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Gewerbe und Handel #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Gewerbe und Handel #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "wl1pq4e1qjjfx4k"
+        }
+      ],
+      "source_id": "yxrckg4op6y6bdh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Das, wodurch Hindostan sich seit Jahrtausenden vorzüglich auszeichnete, und ihm eine der Hauptquellen seines kaum begreiflichen Reichthums war, sind die Produkte ihrer Webereien.",
+      "language": [],
+      "musenalm_id": 42314,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Handelsprodukte und Handel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Handelsprodukte und Handel",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "mcdsb31smzzqwvu"
+        }
+      ],
+      "source_id": "cbbsgag80wwo11d"
+    },
+    {
+      "annotation": "mit einer Tabelle s. INr 42316, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "Jedes Thier der höhern Klassen nämlich der Quadrupeden und Vögel, so wie wir es bis jetzt etwas genauer zu beobachten Gelegenheit hatten, führt eine ihm eigene Sprache;",
+      "language": [],
+      "musenalm_id": 42315,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Sprache und Wissenschaften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Sprache und Wissenschaften",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.904Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "0vm4qbjlwpg7m9f"
+        }
+      ],
+      "source_id": "vr65g78jkjl2hzj"
+    },
+    {
+      "annotation": "Beigabe zum Beitrag: [Der Mensch, der Bewohner Hindostans A. Der Hindus] Sprache und Wissenschaften INr 42318, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42319,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lateinisch / Sanskrit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lateinisch / Sanskrit",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "wcbjht94sn6aspj"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Archibald Campbells Zeichnung aus den Philos. Transact. Vol. 67",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42320,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Observatorium der Brahminen in Benares",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hüllmann fec.",
+      "scans": [
+        "alm_556_42320_s54cfw5xo6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Observatorium der Brahminen in Benares",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.321Z",
+          "agent": "wk80t3g5pe5ec3p",
+          "source_id": "7p5j4kmwdi0fpj8"
+        }
+      ],
+      "source_id": "nu2ir5tyg9gv0fq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Schwerlich wird sich ein Volk auffinden lassen, bei welchem Weisheit und Thorheit, das Ehrwürdigste und das Gaukelhafteste, in so enger Verwandtschaft mit einander aufzutreten scheinen, als bei den Hindus.",
+      "language": [],
+      "musenalm_id": 42321,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Religion und Kultus der Hindus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Religion und Kultus der Hindus",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "hhib30i5t4tnnyf"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Sonnerat Voy. Atlas T.; d.i.: Sonnerat, Pierre: Voyage aux Indes orientales et a la Chine, fait par ordre du Roi, depuis 1774 jusqu'en 1781. 3 tomes Paris, chez l'Auteur, 1782",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42322,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pagode auf der Küste von Koromandel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42322_ck1or2zfu9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pagode auf der Küste von Koromandel",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "gmlvurf14ywtn6c"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Sonnerat Voy. Atlas T.d.i.: Sonnerat, Pierre: Voyage aux Indes orientales et a la Chine, fait par ordre du Roi, depuis 1774 jusqu'en 1781. 3 tomes Paris, chez l'Auteur, 1782",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42323,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fest der Göttin Mariatale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42323_5pwz568vzx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fest der Göttin Mariatale",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "cggxug896g9yn5l"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Solvyns; d.i.: Solvyns, Balthazar: A Collection of Two Hundred and Fifty Coloured Etchings of the Manners, Customs, and Dress of the Hindous, Calcutta 1799; oder: Les Hindous, ou description de leurs moeurs, côtumes, cérémonies etc, dessinés d'après nature dans le Bengale et représentés en 292 planches, 4 Bde, Paris 1808-1812",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42324,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schwingen des Kistnah, ein Fest",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. Böhme sc.",
+      "scans": [
+        "alm_556_42324_wob9mtmm0q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Schwingen des Kistnah, ein Fest",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.321Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "w87dxa1v68m78a7"
+        }
+      ],
+      "source_id": "542xgqn2ypxwab6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Wenn die Religion der Hindus, ihren Grundlagen nach, sich sehr vortheilhaft von der fast aller übrigen Asiaten auszeichnete,",
+      "language": [],
+      "musenalm_id": 42325,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Verschiedenes über die Sitten und Ge- / bräuche der Hindus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Verschiedenes über die Sitten und Ge- / bräuche der Hindus",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.321Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "u00k8a89bogw1b3"
+        }
+      ],
+      "source_id": "eocshzv42zgq5fj"
+    },
+    {
+      "annotation": "lt. G-Verz. nach Sonnerat; d.i.: Sonnerat, Pierre: Voyage aux Indes orientales et a la Chine, fait par ordre du Roi, depuis 1774 jusqu'en 1781. 3 tomes\nParis, chez l'Auteur, 1782",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42326,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufzug bei einer Hochzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42326_kdfwo39b4a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aufzug bei einer Hochzeit",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "omc3tyqapa60431"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42327,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Innere eines Zenana (Serail)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hodges pinx. J. G. A. Frenzel sc. Dresd.",
+      "scans": [
+        "alm_556_42327_0ahwi3slcl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Innere eines Zenana (Serail)",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "c2u8751l61uowm7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "xqoghpkng47rofa",
+          "source_id": "kjps42je0rvy3bo"
+        }
+      ],
+      "source_id": "xxrv77pneqg8p4g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42328,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selbstaufopferung einer Witwe mit der Leiche des Mannes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hodges pinx. J. G. A. Frenzel sc. Dresd.",
+      "scans": [
+        "alm_556_42328_2m1a3koqe7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Selbstaufopferung einer Witwe mit der Leiche des Mannes",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "xqoghpkng47rofa",
+          "source_id": "siyhfnrybbh4uni"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "xurv6sfxtewqqr0"
+        }
+      ],
+      "source_id": "p1oo2zi9axbouc6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Hier findet sich eine schickliche Gelegenheit einige Auskunft über den Krieg der Hindus zu geben.",
+      "language": [],
+      "musenalm_id": 42329,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Kriegswesen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Kriegswesen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "opymf6iqrcvx8zh"
+        }
+      ],
+      "source_id": "61rfgovx336ba0f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Schon im vorhergehenden Theile ist das Vergnügen der Jagd hierunter aufgeführt worden",
+      "language": [],
+      "musenalm_id": 42330,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Vergnügungen und Zeitvertreib",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Vergnügungen und Zeitvertreib",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "vl3zwfc4bbdykii"
+        }
+      ],
+      "source_id": "zy829md0h75u1db"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Dieß scheint hinreichend, den Hindus dem Körper und Geist nach zu beurtheilen",
+      "language": [],
+      "musenalm_id": 42331,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Die Gesammt Bewohner Hindostans a) Besondere Völkerstämme der Hindus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans A. Der Hindus] Die Gesammt Bewohner Hindostans a) Besondere Völkerstämme der Hindus #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.308Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.308Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "z4x3e6238ktnfch"
+        }
+      ],
+      "source_id": "2fyxix9u74vjny0"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Nach dieser Darlegung dessen was sich etwa von der Population der Hindus vermuthen ließe, verlassen wir dieses wichtige Volk, und wenden uns zu den fremden in Hindostan angesiedelten Nationen, wovon die meisten sich dem Lande aufgedrängt haben.",
+      "language": [],
+      "musenalm_id": 42332,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Mensch, der Bewohner Hindostans] B Die fremden dort angesiedelten Nationen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Der Mensch, der Bewohner Hindostans] B Die fremden dort angesiedelten Nationen #",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "g3ye5q5ares6zgb"
+        }
+      ],
+      "source_id": "1rantqp05fjl526"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Dalrymple",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42333,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "West Seite von dem Pallast des Nabobs in Seringapatam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42333_b25dxfr8bh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "West Seite von dem Pallast des Nabobs in Seringapatam",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "wg1e0mjx21nspgr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "338",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42334,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tobacksrauchen durch die Huhka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_556_42334_ibzkr10clg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tobacksrauchen durch die Huhka",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.309Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "gj2rvj482axgfc2"
+        }
+      ],
+      "source_id": "z3fp0z65x20amc8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tabelle / Ueber den Flächeninhalt Ostindiens dießseits / des Ganges (westlich bis zum Indus) in / geograph. Quadratmeilen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tabelle / Ueber den Flächeninhalt Ostindiens dießseits / des Ganges (westlich bis zum Indus) in / geograph. Quadratmeilen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "eb1emk4b1skdlqo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42336,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "e2sktqkqiohpqi9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42338,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CHARTE VON OSTINDIEN / DIESSEITS DES GANGES / im gegenwärtigen Zustande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_556_42338_yx5jys8x6v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CHARTE VON OSTINDIEN / DIESSEITS DES GANGES / im gegenwärtigen Zustande",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9pn70hd7p3nadb"
+    }
   ],
   "agents": [
     {

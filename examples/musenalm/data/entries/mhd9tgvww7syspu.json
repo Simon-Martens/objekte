@@ -48,27 +48,738 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "svnubttiby3t768"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.578Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404608",
+      "location": "105P08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.578Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "svnubttiby3t768"
+    }
   ],
   "contents": [
-    "c9ghhgogsfnshyz",
-    "yngffpy6glbh75x",
-    "wsbcmhh5qxmq2zy",
-    "u3d62tr18gdl749",
-    "4np7ytav34g9x1q",
-    "1sdo9c2kodsdvj3",
-    "imquteomyj5inas",
-    "hssk61wdtpftlr2",
-    "iakn4c4lanh8evb",
-    "0zg7a5sxk83quph",
-    "cvbbotq6e1m6vbg",
-    "xl9ivs24hqcbhox",
-    "asfkzp1cv6ifs6z",
-    "8jfgzlhhvzovotm",
-    "y0ps18q4jtwzlli",
-    "2armye8nje47qxy",
-    "pgcbq0u272puguh",
-    "eic1oi1mi85exhj"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96810,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ITALIA. / Zweiter Jahrgang. 1840",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1937_96810_693gn167be.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ITALIA. / Zweiter Jahrgang. 1840",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "c9ghhgogsfnshyz"
+    },
+    {
+      "annotation": "graphischer Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96811,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ITALIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1937_96811_bcypgdi6wp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ITALIA",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "yngffpy6glbh75x"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Lehr und Wanderjahre des Raphael Santi von Urbino. Maler-Novelle« von C. F. von Rumohr INr 97818, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96812,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RAPHAEL UND MEISTER ANDREA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. A. Hopfgarten. gest. von Eduard Eichens",
+      "scans": [
+        "alm_1937_96812_bhit5mbgzf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RAPHAEL UND MEISTER ANDREA",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.653Z",
+          "agent": "08mp0at2gr8kp3n",
+          "source_id": "2h6lpkxkle5cajy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.653Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.653Z",
+          "agent": "snstgslgupsn9i7",
+          "source_id": "iwvlb8w5kjazcvj"
+        }
+      ],
+      "source_id": "wsbcmhh5qxmq2zy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96813,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Italia. / Mit Beiträgen / von / Ida Gräfin Hahn-Hahn, F. W. Barthold, Franz / Freiherrn v. Gaudy, Gaye, C. Fr. v. Rumohr, / H. W. Schulz. / Herausgegeben / von / ALFRED REUMONT. / Zweiter Jahrgang. / Mit  einem Titelkupfer. / Berlin, 1840. / Verlag von Alexander Duncker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1937_96813_dgwcqik0jm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Italia. / Mit Beiträgen / von / Ida Gräfin Hahn-Hahn, F. W. Barthold, Franz / Freiherrn v. Gaudy, Gaye, C. Fr. v. Rumohr, / H. W. Schulz. / Herausgegeben / von / ALFRED REUMONT. / Zweiter Jahrgang. / Mit  einem Titelkupfer. / Berlin, 1840. / Verlag von Alexander Duncker",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "u3d62tr18gdl749"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Indem ich einen neuen Band der Italia ans Licht treten lasse, kann ich nicht umhin, für die freundliche Unterstützung und geneigte Aufnahme, die dem ersten zu Theil wurde, aufrichtigen Dank zu sagen,",
+      "language": [],
+      "musenalm_id": 96814,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfr. Reumont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "0hcgjjmwztmfswt"
+        }
+      ],
+      "source_id": "4np7ytav34g9x1q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96815,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "1sdo9c2kodsdvj3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96816,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt des ersten Jahrgangs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt des ersten Jahrgangs",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "imquteomyj5inas"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Kommt her zu mir, Ihr Kronenträgerinnen, / Auf meine Frage gebt ihr mir Antwort treu: / Warum könnt ihr die Freiheit nicht gewinnen? / Warum liegt bei der Krone Sclaverei?",
+      "language": [],
+      "musenalm_id": 96817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sclavin und Königin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ida Gräfin Hahn-Hahn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sclavin und Königin",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "yvebgl4l22lqzvl",
+          "source_id": "hiitspl0ckod71h"
+        }
+      ],
+      "source_id": "hssk61wdtpftlr2"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 96812, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Unter jenem luftigen Bogen am nördlichsten Seitenthore der Hügelstadt Assisi, malte der Meister Andrea, den man auch den Ingegno nennt, auf dem nassen Mauerberufe.",
+      "language": [],
+      "musenalm_id": 96818,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lehr und Wanderjahre / des / Raphael Santi von Urbino. / Maler-Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Fr. v. Rumohr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lehr und Wanderjahre / des / Raphael Santi von Urbino. / Maler-Novelle",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.467Z",
+          "agent": "t3pl2h42coo65p3",
+          "source_id": "3n8cntfxdshig5l"
+        }
+      ],
+      "source_id": "iakn4c4lanh8evb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Eine der ältesten Weinstuben Berlins befindet sich in einem weitläufigen, verräucherten Eckhause der Königsstraße. Die innere Einrichtung stammt noch aus den guten, alten Zeiten, wo das Wesen mehr galt als der Schein,",
+      "language": [],
+      "musenalm_id": 96819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stumme. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Freiherr von Gaudy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stumme. / Novelle",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.374Z",
+          "agent": "snnpz92vgxnioxl",
+          "source_id": "7s4k6km8k9pkdt3"
+        }
+      ],
+      "source_id": "0zg7a5sxk83quph"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Es ist eine entsetzliche Geschichte, die ich Euch erzähle und die ihren Anfang nimmt in der Villa Salviati, auf einem der freundlichsten Hügel gelegen, welche Florenz umringen.",
+      "language": [],
+      "musenalm_id": 96820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Herzogin von San Giuliano",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfr. Reumonmt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Herzogin von San Giuliano",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.374Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "0gd9f74r8natqha"
+        }
+      ],
+      "source_id": "cvbbotq6e1m6vbg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Der alte griechische Dichter, welcher einst den Sieg des Alkibiades im olmypischen Wettrennen pries, behauptet, daß ein glücklicher Mensch vor Allem eine berühmte Heimath haben müsse.",
+      "language": [],
+      "musenalm_id": 96821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschichte / des Templers von Brindisi, / Rogers von Flor, / letzten Cäsaren der Romäer in Anatolien,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Barthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschichte / des Templers von Brindisi, / Rogers von Flor, / letzten Cäsaren der Romäer in Anatolien,",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.378Z",
+          "agent": "kmfsn447xevj97l",
+          "source_id": "73zdohavrh7mga8"
+        }
+      ],
+      "source_id": "xl9ivs24hqcbhox"
+    },
+    {
+      "annotation": "mit einem Beispielgedicht s. INr 96823, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Wenn auch die Geschichte Italiens seit Jahrhunderten kein Beispiel mehr darbietet von großer, politischer Kraftäußerung, so war doch die Litteratur dieses geistreichen Volkes stets von tiefen, nationalen Gefühlen geleitet.",
+      "language": [],
+      "musenalm_id": 96822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Giacomo Leopardi. / Sein Leben und seine Schriften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Schulz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Giacomo Leopardi. / Sein Leben und seine Schriften",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "asfkzp1cv6ifs6z"
+    },
+    {
+      "annotation": "Beigabe zu »Giacomo Leopardi. Sein Leben und seine Schriften« von H. W. Schulz INr 976824, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Intanto a studio là nel Trasimeno / Estraneo peregrin lava le membra",
+      "language": [],
+      "musenalm_id": 96823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruchstücke aus dem Gedicht: / I paralipomeni della Batracomiomachia di Omero",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Giacomo Leopardi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruchstücke aus dem Gedicht: / I paralipomeni della Batracomiomachia di Omero",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "8jfgzlhhvzovotm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Gewiß ist die außerordentliche Höhe, zu welcher die bildenden Künste im Italien in dem kurzen Zeitraum von kaum hundert Jahren, von der zweiten Hälfte des dreizehnten bis um die Mitte des vierzehnten Jahrhunderts gelangten, weniger auffallend,",
+      "language": [],
+      "musenalm_id": 96824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Bronzethüren des Lorenzo Giberto",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Gaye",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Bronzethüren des Lorenzo Giberto",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.472Z",
+          "agent": "jptceetnyv5sloo",
+          "source_id": "dewm16dwgp2zacc"
+        }
+      ],
+      "source_id": "y0ps18q4jtwzlli"
+    },
+    {
+      "annotation": "mit einigen poetischen Beispielen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Die toscanische Volksposie ist arm an Dichtungen, in welchen, wie es bei den nordischen Völkern der Fall ist und sich in den servischen und griechischen Gesängen wiederholt findet, das epische Moment voherrscht.",
+      "language": [],
+      "musenalm_id": 96825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Toscanische Volkslieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfr. Reumont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Toscanische Volkslieder",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.472Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "h23u46sqler9amq"
+        }
+      ],
+      "source_id": "2armye8nje47qxy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.187Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei F. Weidle, Kaiserstraße Nr. 30",
+      "language": [],
+      "musenalm_id": 96826,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei F. Weidle, Kaiserstraße Nr. 30…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "pgcbq0u272puguh"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96827,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berlin, / Alexander Duncker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1937_96827_kftrlhjr3d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berlin, / Alexander Duncker",
+      "updated": "2010-01-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "eic1oi1mi85exhj"
+    }
   ],
   "agents": [
     {

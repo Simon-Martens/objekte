@@ -49,13 +49,196 @@
   "year": 1849,
   "editor": "",
   "items": [
-    "01pg8nevnixtmbq"
+    {
+      "annotation": "Jgg 1824-1849",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.698Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200870",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.698Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "01pg8nevnixtmbq"
+    }
   ],
   "contents": [
-    "4ln2umfgm55pnzy",
-    "lt7u9eg289ghsxg",
-    "imrjjf8jnmv8om6",
-    "a6qvpnf0i70qy23"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119503,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatisches / Vergißmeinnicht / auf das Jahr 1849 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Sechsundzwanzigstes Bändchen. / Enthält: / Bekommen oder Geben. / Lustspiel in 1 Aufzuge. / Eine Laune. / Häusliche Scene in 1 Aufzug. / Nach siebenundzwanzig Jahren. / Lustspiel in 4 Aufzügen, nebst einem Vorspiel. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1849",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dramatisches / Vergißmeinnicht / auf das Jahr 1849 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Sechsundzwanzigstes Bändchen. / Enthält: / Bekommen oder Geben. / Lustspiel in 1 Aufzuge. / Eine Laune. / Häusliche Scene in 1 Aufzug. / Nach siebenundzwanzig Jahren. / Lustspiel in 4 Aufzügen, nebst einem Vorspiel. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1849",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ln2umfgm55pnzy"
+    },
+    {
+      "annotation": "# vermutl. Philippe Dumanoir (Vgl. Nouvelle biographie générale XV, Sp. 148)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Also, lieber Vetter, genire Dich nicht ... setze Dich da auch in einen Sessel.",
+      "language": [],
+      "musenalm_id": 128118,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bekommen oder geben? / Lustspiel in einem Aufzuge. / Nach dem Französischen des Dumanoir / von / Theodor Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dumanoir # [bearb.] Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bekommen oder geben? / Lustspiel in einem Aufzuge. / Nach dem Französischen des Dumanoir / von / Theodor Hell",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.978Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "ldliyysj6jz5vh8"
+        }
+      ],
+      "source_id": "lt7u9eg289ghsxg"
+    },
+    {
+      "annotation": "# Louis-Charles-Afred de Musset (Vgl. Nouvelle biographie générale, XXXVII, Sp. 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Noch eine Masche, und ich bin fertig. Hat der Goldschmidt geschickt?",
+      "language": [],
+      "musenalm_id": 128119,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Laune. / Häusliche Scene in einem Aufzuge, nach dem / Französischen des Alfred de Musset / von / Theodor Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfred de Musset # [bearb.] Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Laune. / Häusliche Scene in einem Aufzuge, nach dem / Französischen des Alfred de Musset / von / Theodor Hell",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.978Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "hkyq6l0jahp8sfi"
+        }
+      ],
+      "source_id": "imrjjf8jnmv8om6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vorwärts, Kinder, sputet euch! Es wird gleich 2 Uhr sein und die Reisenden können jeden Augenblick ankommen.",
+      "language": [],
+      "musenalm_id": 128120,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach siebenundzwanzig Jahren. / Lustspiel in vier Aufzügen. / Nebst einem Vorspiel. / Nach dem Italienischen des Duca di Bentignano / von / Theodor Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Duca di Bentignano [bearb.] Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nach siebenundzwanzig Jahren. / Lustspiel in vier Aufzügen. / Nebst einem Vorspiel. / Nach dem Italienischen des Duca di Bentignano / von / Theodor Hell",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.978Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "whqztjbf87xcdix"
+        }
+      ],
+      "source_id": "a6qvpnf0i70qy23"
+    }
   ],
   "agents": [
     {

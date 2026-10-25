@@ -48,7 +48,26 @@
   "year": 1854,
   "editor": "",
   "items": [
-    "5tm7xwwhp9c1x5d"
+    {
+      "annotation": "2 Jgg in einem Bd\nvorhanden",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.693Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101212",
+      "location": "105O01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.693Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5tm7xwwhp9c1x5d"
+    }
   ],
   "contents": [],
   "agents": [

@@ -48,27 +48,896 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "m2v3g4xg1pknv7x"
+    {
+      "annotation": "Paginierung der 12 Graphiken im Kalendarium 1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11. 12; ohne Titelkupfer, ohne Modekupfer  <br> eine bislang bibliogr. nicht erfasste Erscheinungsform des Taschenbuchs\nAuswahl Fr. Kaminski 10.2023zurück",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.752Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408606",
+      "location": "105D04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.752Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "m2v3g4xg1pknv7x"
+    }
   ],
   "contents": [
-    "ujw0czoauc4t5si",
-    "y1889dkhioo2t05",
-    "dvlzbh9t9uubyb1",
-    "zf6rog9co6t7lj2",
-    "rv91ieb6pxpu49g",
-    "b5rowrfad16t0gf",
-    "128ipb935959yoh",
-    "hq290mkb4iff67b",
-    "5teg2afz34zfbwk",
-    "4rypyli30lk1c7c",
-    "qowibem20op9836",
-    "m7hcxagob4szpk7",
-    "4wg9lnhjjysn2qk",
-    "eaea3ygt1wql6ah",
-    "lx4qwcar4tm6r40",
-    "18rc612ugrk4896",
-    "2k5hy8y5rcvelye",
-    "aiu81lps4r2vt5b"
+    {
+      "annotation": "Umschlag r. (rote Maroquin-Brieftasche)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98351,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4154_98351_7acdpflnv5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "ujw0czoauc4t5si"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.510Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98352,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / 1798. / Herrmann und Dorothea / von / J. W. von Göthe. / Berlin / bey Friedrich Vieweg dem älteren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4154_98352_4l8jwlfmwy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / 1798. / Herrmann und Dorothea / von / J. W. von Göthe. / Berlin / bey Friedrich Vieweg dem älteren",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "y1889dkhioo2t05"
+    },
+    {
+      "annotation": "Graphik zum Kalendarium Januar paginiert 1.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98353,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98353_752r12pxno.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.745Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.745Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "ezjc037idfp5n10"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.745Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.745Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "sr9lz1nsdt15ucg"
+        }
+      ],
+      "source_id": "dvlzbh9t9uubyb1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98367,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zf6rog9co6t7lj2"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar paginiert 2.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98354,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98354_9f7hmktpfv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "4bc9bjexd4jrzr6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "7f7mkmyzoc3qqz3"
+        }
+      ],
+      "source_id": "rv91ieb6pxpu49g"
+    },
+    {
+      "annotation": "Graphik im Kalendarium März paginiert 3.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.115Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98355,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc. 97)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc. 97",
+      "scans": [
+        "alm_4154_98355_8ibit749ir.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "2aeop8twtp3rrld"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "878zj39s2jqix5c"
+        }
+      ],
+      "source_id": "b5rowrfad16t0gf"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April paginiert 4.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98356,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98356_4ccwhhfhhj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "1zkpi6hia5gvoag"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "bnhf32c07mr29hn"
+        }
+      ],
+      "source_id": "128ipb935959yoh"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai paginiert 5.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.119Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98357,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98357_f3fg7gpddt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "ju5d688o0uzv19c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "o1ey929qm5aj2gx"
+        }
+      ],
+      "source_id": "hq290mkb4iff67b"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni paginiert 6.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98358,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98358_zv3l3zvigr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "10ou6mxfa3xu7t1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "m7pcwn9ay2gzkvz"
+        }
+      ],
+      "source_id": "5teg2afz34zfbwk"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli paginiert 7.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98359,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98359_hybbh6d6hp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.746Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.746Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "9mb3sqt1yr12ric"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "pgwtx74rw9qrd8q"
+        }
+      ],
+      "source_id": "4rypyli30lk1c7c"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August paginiert 8.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.125Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98360,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98360_9rd497kizh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "0k8c5d3xtx6rs0j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "8ywlx80nhfqni2x"
+        }
+      ],
+      "source_id": "qowibem20op9836"
+    },
+    {
+      "annotation": "Graphik im Kalendarium September paginiert 9.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.127Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98361,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98361_rz8wzgcc18.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "1xhzxdp5gks9hs7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "c2yp6vmc0cr9oa9"
+        }
+      ],
+      "source_id": "m7hcxagob4szpk7"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober paginiert 10.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98362,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98362_84geksl83e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "jzh1vvgnde1qbhb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.747Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "tdmuk4xshoo2mgo"
+        }
+      ],
+      "source_id": "4wg9lnhjjysn2qk"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November paginiert 11.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98363,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98363_xl6bcnlezm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.748Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "452a1298k0x335w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.748Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "rq8n9ctab948aq7"
+        }
+      ],
+      "source_id": "eaea3ygt1wql6ah"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember paginiert 12.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98364,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+      "scans": [
+        "alm_4154_98364_x35fgy6ux4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.748Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "m842osf0wl67tko"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.748Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.748Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "td635b6b8rqcu1a"
+        }
+      ],
+      "source_id": "lx4qwcar4tm6r40"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98365,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hermann und Dorothea",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. W. von Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hermann und Dorothea",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "18rc612ugrk4896"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hab' ich den Markt und die Straßen doch / nie so einsam gesehen! / Ist doch die Stadt wie gekehrt! wie ausge- / storben!",
+      "language": [],
+      "musenalm_id": 98366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Hermann und Dorothea]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. W. von Göthe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Hermann und Dorothea]",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "2k5hy8y5rcvelye"
+    },
+    {
+      "annotation": "Umschlag v. (rote Maroquin-Brieftasche)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4154_98368_ttkl75xdje.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "aiu81lps4r2vt5b"
+    }
   ],
   "agents": [
     {

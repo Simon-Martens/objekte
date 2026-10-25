@@ -49,16 +49,356 @@
   "editor": "",
   "items": [],
   "contents": [
-    "arc6dsg1znfsmga",
-    "99606xmzoi2ore7",
-    "1k5086bwl2ucnve",
-    "z76g03fh0v0v49h",
-    "m9uc6cv14nv5va9",
-    "k9b28qjwkedt3rm",
-    "sobc9i1q6yz4itk",
-    "86ur6vphdvhytu5",
-    "93ygzti9jwkxdpv",
-    "a0gyns351dhfp8n"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66099,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische Blumenlese / aus der Pfalz. / Eine Sammlung / pfälzischer Dichtung aus neuerer Zeit / für das Jahr 1886 / herausgegeben von / J. Schreyer.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66099_zeisb2hlce.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Poetische Blumenlese / aus der Pfalz. / Eine Sammlung / pfälzischer Dichtung aus neuerer Zeit / für das Jahr 1886 / herausgegeben von / J. Schreyer.",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "arc6dsg1znfsmga"
+    },
+    {
+      "annotation": "mit handschriftlicher Widmung J. Schreyers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66100,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmungsblatt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66100_7mw8mwl9wc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Widmungsblatt",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "99606xmzoi2ore7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.808Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66101,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische Blumenlese / aus der Pfalz. / Eine Sammlung / pfälzischer Dichtung aus neuerer Zeit / für das Jahr 1886 / herausgegeben von / J. Schreyer. / Zweibrücken. / Buchdruckerei von Aug. Kranzbühler. / 1885",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66101_faox084r8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Poetische Blumenlese / aus der Pfalz. / Eine Sammlung / pfälzischer Dichtung aus neuerer Zeit / für das Jahr 1886 / herausgegeben von / J. Schreyer. / Zweibrücken. / Buchdruckerei von Aug. Kranzbühler. / 1885",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "1k5086bwl2ucnve"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66102,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66102_5cnkiuu6et.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "z76g03fh0v0v49h"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66103,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "B. / Poetische Blumenlese. / a) Größere Dichtungen. / b) Gedichte von - in der Pfalz lebenden - / Autoren. / c) Humoristischer Teil: Gedichte in Pfälzer / Mundart",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66103_kfb8gdvp56.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "B. / Poetische Blumenlese. / a) Größere Dichtungen. / b) Gedichte von - in der Pfalz lebenden - / Autoren. / c) Humoristischer Teil: Gedichte in Pfälzer / Mundart",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "m9uc6cv14nv5va9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66104,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "a. / Dichtungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66104_iruyxpxfkf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "a. / Dichtungen",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9b28qjwkedt3rm"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "b. / Gedichte von in der Pfalz lebenden Autoren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66105_568ocbibin.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "b. / Gedichte von in der Pfalz lebenden Autoren",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "sobc9i1q6yz4itk"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "c. / Humoristischer Teil: / Land und Leute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66106_5wktid8vyh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "c. / Humoristischer Teil: / Land und Leute",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "86ur6vphdvhytu5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66107_kpr47d0er1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "93ygzti9jwkxdpv"
+    },
+    {
+      "annotation": "Photos 66108,01-66108,08",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "469",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spezielles Inhalts-Verzeichniß / (Alphabetisch geordnet.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1118_66108_a626c84yqw.jpg",
+        "alm_1118_66108_01_s8uzx26tfl.jpg",
+        "alm_1118_66108_02_4tih7kvi0r.jpg",
+        "alm_1118_66108_03_dqwgoelstu.jpg",
+        "alm_1118_66108_04_facdka8kw1.jpg",
+        "alm_1118_66108_05_mslqy0cnxc.jpg",
+        "alm_1118_66108_06_m44kauztl7.jpg",
+        "alm_1118_66108_07_tge3fvt966.jpg",
+        "alm_1118_66108_08_7evy7y4sf3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spezielles Inhalts-Verzeichniß / (Alphabetisch geordnet.)",
+      "updated": "2009-08-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1886,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0gyns351dhfp8n"
+    }
   ],
   "agents": [
     {

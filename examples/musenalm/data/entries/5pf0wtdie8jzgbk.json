@@ -48,12 +48,129 @@
   "year": 1794,
   "editor": "",
   "items": [
-    "eg230menc1u147x"
+    {
+      "annotation": "1765-1806-?.\nLedereinband .\n1794: Mit 240 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.494Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100293",
+      "location": "105C01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.494Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "eg230menc1u147x"
+    }
   ],
   "contents": [
-    "kxn41x5c0jrns19",
-    "y825zsok89yy28c",
-    "f8b0i3rzwejdg3k"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36698,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / DES MUSES / 2e. Année / De la République Française, une et indivisible. / 1794 (vieux style.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_498_36698_6abv2qklzb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / DES MUSES / 2e. Année / De la République Française, une et indivisible. / 1794 (vieux style.)",
+      "updated": "2004-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "kxn41x5c0jrns19"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36699,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / DES MUSES / 1794 vieux stile / A PARIS / Chez DELALAIN l'ainé / Rue Jacque N. 140",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich]",
+      "scans": [
+        "alm_498_36699_fswqjpditr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / DES MUSES / 1794 vieux stile / A PARIS / Chez DELALAIN l'ainé / Rue Jacque N. 140",
+      "updated": "2004-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "y825zsok89yy28c"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / DES MUSES / OU / Choix des Poésies fugitives de 1793",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_498_36700_kg3tla1g5s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / DES MUSES / OU / Choix des Poésies fugitives de 1793",
+      "updated": "2004-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1794,
+      "editor": "",
+      "agents": [],
+      "source_id": "f8b0i3rzwejdg3k"
+    }
   ],
   "agents": [
     {

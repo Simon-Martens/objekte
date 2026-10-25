@@ -48,32 +48,1065 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "68colckclpengid"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.498Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200618",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.498Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "68colckclpengid"
+    }
   ],
   "contents": [
-    "a5bg7nrte9mfyz1",
-    "wgw2qea1qg5wjc6",
-    "0bw971erqhtob1b",
-    "axb2twy48mwgkil",
-    "nd2f3fu6sjalml8",
-    "3doqn3lyizf8jrt",
-    "pc2odicnpkhknev",
-    "jbehxyikehjnnsl",
-    "q9ag2mtq0ixakn7",
-    "veqby858y2qrh5l",
-    "u4phw8on7miekpn",
-    "s0beuki8e3n3mi8",
-    "lyv2v54a7931gjr",
-    "lj5d6jh1mqdujcr",
-    "jxx4a2o97mbx4n7",
-    "cquhml8modxswkn",
-    "6e442rdcwy7uwqo",
-    "o6wdusp0h1rk6r3",
-    "zzitfroywjkkvlj",
-    "l62ddlwca3kj2om",
-    "xx5gpm4u6a9ie47",
-    "x73izdicpdoxqi6",
-    "nd3wn0fstyabct3"
+    {
+      "annotation": "# Titelgraphik; lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41543,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Mann von Unalaschka",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41543_a9621hnz6u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Mann von Unalaschka",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.206Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "6hzt7yd7gjw5bt5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.206Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "tmkgjf9m9090p82"
+        }
+      ],
+      "source_id": "a5bg7nrte9mfyz1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41544,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Achter Jahrgang / für das Jahr / 1809. / Mit 11 Kupfern  und 1r Karte / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_545_41544_zqfz5u63vg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Achter Jahrgang / für das Jahr / 1809. / Mit 11 Kupfern  und 1r Karte / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "wgw2qea1qg5wjc6"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Untersuchung über den Werth der Entdeckung von Amerika, welche die ersten Bogen dieses Jahrgangs des Taschenbuchs einnimmt, hat seit Raynal's Preißfrage (1782), die Schriftsteller beschäftigt.",
+      "language": [],
+      "musenalm_id": 41545,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.206Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "yez60w7iydgpkbt"
+        }
+      ],
+      "source_id": "0bw971erqhtob1b"
+    },
+    {
+      "annotation": "Photos 41546,01-42546,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41546,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_545_41546_01_sezqslvmaz.jpg",
+        "alm_545_41546_02_fuuojh0l6h.jpg",
+        "alm_545_41546_03_sxkqdggv1o.jpg",
+        "alm_545_41546_04_u7s1jw7taf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "axb2twy48mwgkil"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41547,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "nd2f3fu6sjalml8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41548,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erläuterung der Kupfer und der Karte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erläuterung der Kupfer und der Karte",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.206Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "c279cmp0c7t5bb0"
+        }
+      ],
+      "source_id": "3doqn3lyizf8jrt"
+    },
+    {
+      "annotation": "Beitrag mit 2 Kapiteln INr 41560, 41561; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rückblick / auf / die neue Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rückblick / auf / die neue Welt",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.206Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "kiyvzq6i5qz8zdm"
+        }
+      ],
+      "source_id": "pc2odicnpkhknev"
+    },
+    {
+      "annotation": "Rückblick auf die neue Welt (INr 41549, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wir nehmen jetzt Abschied von der westlichen Erde. Vielfach waren die Merkwürdigkeiten, die großen Naturscenen, mannigfaltig die neuen Menschen und Völkerstämme, wodurch sie unsere Geographie erweiterte,",
+      "language": [],
+      "musenalm_id": 41550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Abschnitt / Allgemeine Schätzung des Werths der Entdek- / kung von Amerika und der seit dem letzten / Jahrhundert dort gemachten geographischen / Fortschritte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Abschnitt / Allgemeine Schätzung des Werths der Entdek- / kung von Amerika und der seit dem letzten / Jahrhundert dort gemachten geographischen / Fortschritte",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.941Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.941Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "tnpoz9q9ldirpmj"
+        }
+      ],
+      "source_id": "jbehxyikehjnnsl"
+    },
+    {
+      "annotation": "Rückblick auf die neue Welt (INr 41549, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "War dieser Welttheil uns von so hohem und mannigfaltigem Werth, dann lohnt es sich sicher der Mühe und ist unserer Absicht zugleich gemäß, im Ganzen zu fragen,",
+      "language": [],
+      "musenalm_id": 41551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Abschnitt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Abschnitt",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "q9ag2mtq0ixakn7"
+    },
+    {
+      "annotation": "Beitrag mit 2 Kapiteln INr 41553, 41557; Obj 11, 15; s. a. die Graphiken und Karte des Taschenbuchs INr 41543, Obj 1; INr 41554-41556; Obj 12-14; INr 41558-41565; Obj 16-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kürzester Uebergang / von / der neuen zu der alten Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kürzester Uebergang / von / der neuen zu der alten Welt",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "veqby858y2qrh5l"
+    },
+    {
+      "annotation": "Kürzester Uebergang von der neuen zu der alten Welt (INr 41552, Obj 10) ; s. a. die Graphiken und Karte des Taschenbuchs INr 41543, Obj 1; INr 41554-41556; Obj 12-14; INr 41558-41565; Obj 16-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.639Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Im hohen Norden, unfern des Polarkreises, unter 65° 45' breite, trifft die Westküste von Amerika bis zum Cap des Prinzen von Wallis (191° 45' Länge von Greenwich) hervor und nähert sich der alten Welt,",
+      "language": [],
+      "musenalm_id": 41553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Abschnitt. / Die Behring-Straße, nebst den daran gren- / zenden Ländern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Abschnitt. / Die Behring-Straße, nebst den daran gren- / zenden Ländern",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "u4phw8on7miekpn"
+    },
+    {
+      "annotation": "# lt. G-Verz:nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.640Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Meer-Otter. Lutris Linn.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41554_wys1p0dn86.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Meer-Otter. Lutris Linn.",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "37yh8p4xx95nd6v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "d4kskh30n4yb1dk"
+        }
+      ],
+      "source_id": "s0beuki8e3n3mi8"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.641Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Frau von Unalaschka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_545_41555_yvwd2gtzov.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Frau von Unalaschka",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "kdyt1ymyw1xpj5z"
+        }
+      ],
+      "source_id": "lyv2v54a7931gjr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Innere einer Winterwohnung auf Unalaska",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41556_dwfykuf6mm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Innere einer Winterwohnung auf Unalaska",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "t5sq534zd3wya3o"
+        }
+      ],
+      "source_id": "lj5d6jh1mqdujcr"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz. Kürzester Uebergang von der neuen zu der alten Welt (INr 41552, Obj 10); s. a. die Graphiken und Karte des Taschenbuchs INr 41543, Obj 1; INr 41554-41556; Obj 12-14; INr 41558-41565; Obj 16-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.645Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Es ist aber sehr merkwürdig, daß auch in diesen Gegenden, wie im Südmeer selbst, oft Nationen, welche einander sehr nahe wohnen, unter einander stark abweichen,",
+      "language": [],
+      "musenalm_id": 41557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Theil. Das östliche Asien #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Theil. Das östliche Asien #",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "jxx4a2o97mbx4n7"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.646Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jagd des Walrosses (Trichechus Rosmarus L.) S. 183",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41558_bqxxzg4sne.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jagd des Walrosses (Trichechus Rosmarus L.) S. 183",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "e6f0qufo24rkfnm"
+        }
+      ],
+      "source_id": "cquhml8modxswkn"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tschuckschis, und ihre Wohnungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc. 1808",
+      "scans": [
+        "alm_545_41559_20ovfu6atb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Tschuckschis, und ihre Wohnungen",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "i7a9gbiturpcg9s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "rpnodfgsk4v1vcz"
+        }
+      ],
+      "source_id": "6e442rdcwy7uwqo"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlittenfahrt auf Kamtschatka",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41560_04xnij5rhm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schlittenfahrt auf Kamtschatka",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "o1qk7rfkga79tjq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "va6o6eagm1xvz8z"
+        }
+      ],
+      "source_id": "o6wdusp0h1rk6r3"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Kamtschadale",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41561_db4ci781mf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Kamtschadale",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "4ajin9gf9hdc18v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "vsv2e6jba2xoevb"
+        }
+      ],
+      "source_id": "zzitfroywjkkvlj"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Kamtschadalinn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41562_7i9d9i69wx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Kamtschadalinn",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.230Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "aa6p6y0pp2crweo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.231Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "q9b350l5y4ej23r"
+        }
+      ],
+      "source_id": "l62ddlwca3kj2om"
+    },
+    {
+      "annotation": "$ vermutl. C. Frosch ; lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommer und Winterwohnungen der Kamtschadalen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_545_41563_jtbhzzpurh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sommer und Winterwohnungen der Kamtschadalen",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.231Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "4p8432k0922r11a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.231Z",
+          "agent": "c9lbuy81jn5wuz9",
+          "source_id": "msxla0vowlrvuzr"
+        }
+      ],
+      "source_id": "xx5gpm4u6a9ie47"
+    },
+    {
+      "annotation": "lt. G-Verz: aus: Georgi: Beschreibung aller Nationen des Russischen Reichs. Petersb. 177. 3ter Theil d.i.: Georgi, Johann Gottlieb: Beschreibung aller Nationen des Russischen Reichs, ihrer Lebensart, Religion, Gebräuche, Wohnungen, Kleidung und übrigen Merckwürdigkeiten, St. Petersburg 1779",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schaman von Kamtschatka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_545_41564_2j58zpcq5p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schaman von Kamtschatka",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.284Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "zbdattvuitf46d8"
+        }
+      ],
+      "source_id": "x73izdicpdoxqi6"
+    },
+    {
+      "annotation": "lt. G-verz: nach Sarytschefs Reisen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41565,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CHARTE / des Nord-Oestlichen Theils / von / SIBIRIEN / des / EIS MEERS / und des / OST OCEANS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_545_41565_23x7h9aaq8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CHARTE / des Nord-Oestlichen Theils / von / SIBIRIEN / des / EIS MEERS / und des / OST OCEANS",
+      "updated": "2005-12-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "nd3wn0fstyabct3"
+    }
   ],
   "agents": [
     {

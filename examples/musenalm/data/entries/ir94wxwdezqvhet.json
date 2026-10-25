@@ -48,69 +48,2582 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "lzij0kvz9ycjkx1"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.494Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406075",
+      "location": "105D07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.494Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lzij0kvz9ycjkx1"
+    }
   ],
   "contents": [
-    "i3th8r6jw790zkx",
-    "o69lzse0pxm9cjb",
-    "udvnp42yp82gt4v",
-    "yf78fhgxwlmsjdo",
-    "kag666yg6nimzr9",
-    "9nom5y76telso9d",
-    "0zml4he7ll26vyq",
-    "s8251g2qyg239nj",
-    "2kb40dv4uzlixch",
-    "yor8wrpx1o04lsc",
-    "rsxw1elzd8uca91",
-    "vbwu3amuka7vfsu",
-    "ypduzhd6j6a41r0",
-    "4r7jhmhvp6rwxtq",
-    "xx4fnmxac53b5zn",
-    "1akjildimk7buai",
-    "qdnmc63q8ent985",
-    "nr0tijpf86hr76d",
-    "v05m5ve1s2r7gy3",
-    "rj54vk4t8wfmjmx",
-    "7gbcl3blzs11df0",
-    "58qxpd3byn09z12",
-    "xn9f90jumsklagm",
-    "qcyccqy7m3wwrul",
-    "s7b42cal93wj63a",
-    "axwzgoh856hpxea",
-    "rmwqkavo8i3bs3f",
-    "53p6bh721vcarhh",
-    "s92u2ju9o03il41",
-    "z4vru2v9urqbg2n",
-    "50np3s5z1m0p1mk",
-    "a0wr1tfb0ljmaah",
-    "ksjzb06g89xq5vq",
-    "6tjvqkpflqd2srz",
-    "6pzjroyq3mmh00v",
-    "ad9d8z1vkeiqqj6",
-    "gtnygzn7n2ttb2p",
-    "hsy8u7va71y86ez",
-    "xkeackew25lx983",
-    "nd7apqzgmrc8qez",
-    "nrty3gmt3pfk1wr",
-    "1ou34943lukt0hf",
-    "hyyx516zdpq6xk8",
-    "ihersyhpq1aufel",
-    "s5ezrx93kdexdv0",
-    "4j0wo8uck818x7m",
-    "0n1v2dmyb72qara",
-    "bgx9qojdr04ske1",
-    "u23zxnmkyfmmo2d",
-    "ovg4yn4n9pey8sm",
-    "se60e75wgmy3ayc",
-    "f69ybj41zls7nv2",
-    "ygvg96i943hl9aq",
-    "tf74w03b54fn1i4",
-    "i0jz4rilpb02gm3",
-    "vqkzox3absmcpwx",
-    "wusor3o45m5yq7n",
-    "530wgfzei5vjlcs",
-    "016507jzh4pbpgl",
-    "7uitduzu255yynk"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_505_70924_ozxqk5vtnt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "i3th8r6jw790zkx"
+    },
+    {
+      "annotation": "Titelgraphik. lt. G-Verz: Illustration zu »Die Nacht im Prado« von Amalie von Helvig geb v. Imhof in: Aglaia (Frankfurt) 1802 INr 37507",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37508,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_505_37508_dhl7vj4rge.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "4k085b6mldolar0"
+        }
+      ],
+      "source_id": "o69lzse0pxm9cjb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37509,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGLAIA / Jahrbuch / für / Frauenzimmer / auf / 1803. / Herausgegeben / von / N. P. Stampeel. / Mit 7 Kupfern von W. Jury. / Frankfurt a. M. / bei August Hermann.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_505_37509_s9dg2g6e38.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGLAIA / Jahrbuch / für / Frauenzimmer / auf / 1803. / Herausgegeben / von / N. P. Stampeel. / Mit 7 Kupfern von W. Jury. / Frankfurt a. M. / bei August Hermann.",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "udvnp42yp82gt4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70926,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "yf78fhgxwlmsjdo"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37511, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37512,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury del. et fec.",
+      "scans": [
+        "alm_505_37512_0q72b7pvrl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "tam8lrzwq8f5pal"
+        }
+      ],
+      "source_id": "kag666yg6nimzr9"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37513, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_505_37514_784os41cvu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "0o0t46v5tjmy763"
+        }
+      ],
+      "source_id": "9nom5y76telso9d"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37515, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37516,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_505_37516_f9xvfzoihj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "89bejjcac8xufmm"
+        }
+      ],
+      "source_id": "0zml4he7ll26vyq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37519, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37517,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_505_37517_pm11ghk4lu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ezml55i0o4u06o2"
+        }
+      ],
+      "source_id": "s8251g2qyg239nj"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37520, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37518,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_505_37518_23tydak8x8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "xnt2e3yxbxql97q"
+        }
+      ],
+      "source_id": "2kb40dv4uzlixch"
+    },
+    {
+      "annotation": "Graphik im Kalendarium /) Illustration zu »Die Neue Heloise« von J. J. Rousseau s. Textbezug INr 37522, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37521,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_505_37521_m29jrvllnr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.926Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.926Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "7tjmkkjurbmydfg"
+        }
+      ],
+      "source_id": "yor8wrpx1o04lsc"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen INr 37511, 37513, 35715, 37519, 37520, 37522, Obj 12-17 zu 6 Graphiken. Fortsetzung der Graphiken und Textbezüge nach Motiven aus »Die Neue Heloise« von J. J. Rousseau: Aglaia (Frankfurt) 1802, INr 37482-37495",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37510,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer. / (Beschluß der Darstellungen aus der neuen Heloise im / vorigen Jahrgange.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer. / (Beschluß der Darstellungen aus der neuen Heloise im / vorigen Jahrgange.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "0kubwp8xky6mn2d"
+        }
+      ],
+      "source_id": "rsxw1elzd8uca91"
+    },
+    {
+      "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37512, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie mögen St. Preux und Julie diesenTag begrüßt haben!",
+      "language": [],
+      "musenalm_id": 37511,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / (N. H. IV. Th. 6ter Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / (N. H. IV. Th. 6ter Brief.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "oc82mqy2r12sp89"
+        }
+      ],
+      "source_id": "vbwu3amuka7vfsu"
+    },
+    {
+      "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37514, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Ist aber sein Stern feindselig genug, den armen Ausgestoßenen wieder an die verbotene Schwelle zu ziehn",
+      "language": [],
+      "musenalm_id": 37513,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / (N. H. IV. Th. 17ter Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / (N. H. IV. Th. 17ter Brief.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "36s6d9hzt7m4420"
+        }
+      ],
+      "source_id": "ypduzhd6j6a41r0"
+    },
+    {
+      "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37516, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Wolmar hatte das Unglück, daß diese Welt mit ihren dunkeln, oft bangen und ängstigenden Räthseln die einzige ist, die er kennt,",
+      "language": [],
+      "musenalm_id": 37515,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / (N. H. V. Th. 5ter Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / (N. H. V. Th. 5ter Brief.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "msnyxr50ci633cp"
+        }
+      ],
+      "source_id": "4r7jhmhvp6rwxtq"
+    },
+    {
+      "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37517, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Ein sehr angenehmer Blick in Juliens häusliche Loge.",
+      "language": [],
+      "musenalm_id": 37519,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / (N. H. V. Th. 6ter Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / (N. H. V. Th. 6ter Brief.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.752Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "9iafb21aa8u0j9n"
+        }
+      ],
+      "source_id": "xx4fnmxac53b5zn"
+    },
+    {
+      "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37518, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.615Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Sehr schön sagt Antonia in Stylpo: Nur Muth gehört dazu, mein Kind zu retten? Wie konntest du mich so ängstigen? Und sehr wahr!",
+      "language": [],
+      "musenalm_id": 37520,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / (N. H. VI. Th. 9ter Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / (N. H. VI. Th. 9ter Brief.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.926Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.926Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "fmdzipd3wj5imfc"
+        }
+      ],
+      "source_id": "1akjildimk7buai"
+    },
+    {
+      "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37521, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Wir sahen Julien schon einmal auf dem Sterbelager;",
+      "language": [],
+      "musenalm_id": 37522,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / (N. H. VI. Th. 11ter Brief.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / (N. H. VI. Th. 11ter Brief.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.926Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.926Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "nkukb32fwtclnnf"
+        }
+      ],
+      "source_id": "qdnmc63q8ent985"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37523,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "nr0tijpf86hr76d"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37524,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prosaische Aufsätze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prosaische Aufsätze",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "v05m5ve1s2r7gy3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wo bist du wieder umhergeschweift, Kind? fragte die Baronesse, und versuchte vergebens ihren freundlichen Ton in einen strafenden umzustimmen.",
+      "language": [],
+      "musenalm_id": 37525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Lucie. / Eine Bagatelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rochlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Lucie. / Eine Bagatelle",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.926Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.926Z",
+          "agent": "2wsoz27ytrsps8l",
+          "source_id": "11hielb5uv5i1d5"
+        }
+      ],
+      "source_id": "rj54vk4t8wfmjmx"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Aglaia (Frankfurt) 1802 INr 37500",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Christinens Talente, die wahre Gestalt ihres Charakters und die Umstände, durch welche dieser seine unglückliche Mißbildung erhielt,",
+      "language": [],
+      "musenalm_id": 37526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Christina Alexandra, / Königin der Schweden. / Ein / psychologisches Gemälde. / (Beschluß.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Merkel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Christina Alexandra, / Königin der Schweden. / Ein / psychologisches Gemälde. / (Beschluß.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "a462y7qroof9yxu",
+          "source_id": "azbyvomxjqzx8te"
+        }
+      ],
+      "source_id": "7gbcl3blzs11df0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Die der Sicilianer Scrofani in seiner interessanten Reise durch Griechenland mit kaum zwei flüchtigen Strichen andeutet,",
+      "language": [],
+      "musenalm_id": 37527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Helena Materanga. / Eine neugriechische Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Oertel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Helena Materanga. / Eine neugriechische Geschichte",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "u657j3m1foor2a9",
+          "source_id": "fsd8blg83vncy5s"
+        }
+      ],
+      "source_id": "58qxpd3byn09z12"
+    },
+    {
+      "annotation": "# Anm. am Objekt: Veranlaßt durch Jean Pauls Klage ohne Trost im Kampanerthal",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.528Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Was ist dieß Gewölk, das, wie von PassatWinden getrieben, stets von Morgen gegen Abend hinzieht, gewitterschwanger, beladen mit Seufzern,",
+      "language": [],
+      "musenalm_id": 37528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Klage und Trost #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Bommer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Klage und Trost #",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.911Z",
+          "agent": "s5myzcuzsygfm34",
+          "source_id": "zpobo1pb9ojqu0f"
+        }
+      ],
+      "source_id": "xn9f90jumsklagm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Ein sehr einfacher, sehr anspruchloser Mann! endigte Julietta ihr Selbstgespräch, und drückte das müde Köpfchen,",
+      "language": [],
+      "musenalm_id": 37529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Graf Montenegro",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Graf Montenegro",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.437Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "vj1ibp0922bjaro"
+        }
+      ],
+      "source_id": "qcyccqy7m3wwrul"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37530,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "s7b42cal93wj63a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Mir war vom Schlaf das Augenlied geschlossen; / Doch reger wachte nur mein innrer Sinn,",
+      "language": [],
+      "musenalm_id": 37531,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Lieb' und Glaube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von Oertel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Lieb' und Glaube",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.638Z",
+          "agent": "u657j3m1foor2a9",
+          "source_id": "63eu4ju4mqesjdb"
+        }
+      ],
+      "source_id": "axwzgoh856hpxea"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Hoffnung spannt den Zauberbogen, / Der durch Regenwolken schaut.",
+      "language": [],
+      "musenalm_id": 37532,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Hoffnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. P. Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Hoffnung",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.734Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "4pvahfhsuykvpei"
+        }
+      ],
+      "source_id": "rmwqkavo8i3bs3f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Von tausend Stimmen schon besungen, / In jeder Zone froh genannt,",
+      "language": [],
+      "musenalm_id": 37533,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Hymnus an die Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Bommer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Hymnus an die Liebe",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.734Z",
+          "agent": "s5myzcuzsygfm34",
+          "source_id": "bff5y9wm1gxe384"
+        }
+      ],
+      "source_id": "53p6bh721vcarhh"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Minneglück« von E. C. Eccard INr 37535, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37534,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minneglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Müller",
+      "scans": [
+        "alm_505_37534_k04bxd9nz0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Minneglück",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.734Z",
+          "agent": "gsmgkc8acx85e65",
+          "source_id": "t0f6zgfni77oajb"
+        }
+      ],
+      "source_id": "s92u2ju9o03il41"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 37534, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Heil dem, der ein treues Herzliebchen erkiest! / Kein höher Glück kann er erringen.",
+      "language": [],
+      "musenalm_id": 37535,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Minneglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. C. Eccard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Minneglück",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4vru2v9urqbg2n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Immer noch in trüber Schwermuth Schleier / Eingehüllt dein Aug' und thränennaß?",
+      "language": [],
+      "musenalm_id": 37536,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / An Emma",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. M. Dambeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / An Emma",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.734Z",
+          "agent": "ipn2nvswkmowzx4",
+          "source_id": "zc7k1w72lh29f1q"
+        }
+      ],
+      "source_id": "50np3s5z1m0p1mk"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 37538, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Wo weilst du, süsse Feye? / Wo rauscht dein Flügelschwung?",
+      "language": [],
+      "musenalm_id": 37537,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / An die Ruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Schneider",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / An die Ruhe",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0wr1tfb0ljmaah"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »An die Ruhe« von Karl Schneider INr 37537, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37538,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / An die Ruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Müller",
+      "scans": [
+        "alm_505_37538_u6mt9jtney.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. / An die Ruhe",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.149Z",
+          "agent": "gsmgkc8acx85e65",
+          "source_id": "sez0bcktzdq1dc4"
+        }
+      ],
+      "source_id": "ksjzb06g89xq5vq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Wir kommen gezogen / Auf spielenden Wogen / Balsamische Lüfte / Wie Blumengedüfte,",
+      "language": [],
+      "musenalm_id": 37539,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Der Frühling. / Eine Phantasie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Mahlmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Der Frühling. / Eine Phantasie",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.787Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.787Z",
+          "agent": "5uss88okhpw2gvm",
+          "source_id": "covg7lpm4j0oow2"
+        }
+      ],
+      "source_id": "6tjvqkpflqd2srz"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Forse sia, che'l mio core infra quets' ombre / Del suo peso mortal parte disgombre. / TASSO",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Umfange mich in ahnungsvoller Stille, / Geliebter Ort, der sanfte Trauer weckt!",
+      "language": [],
+      "musenalm_id": 37540,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die Karthause",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Imhof",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die Karthause",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.787Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.787Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "19z3qi6a7kzdev6"
+        }
+      ],
+      "source_id": "6pzjroyq3mmh00v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Willst du glücklich und leicht die Lebensfluren / durchwallen, / Und mit Freuden umkränzt, weilen im Schat- / ten der Ruh,",
+      "language": [],
+      "musenalm_id": 37541,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Rath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Rath",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.787Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.787Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "hohcxkrppi7g3t3"
+        }
+      ],
+      "source_id": "ad9d8z1vkeiqqj6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Der AbendHimmel warf sich in die Fluten, / Es schwamm der Liebe Stern auf stil- / len Wogen,",
+      "language": [],
+      "musenalm_id": 37542,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Meine Sterne",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Meine Sterne",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.435Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "azsswp5owgxspqq"
+        }
+      ],
+      "source_id": "gtnygzn7n2ttb2p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Göttin, die des Sonnenglanzes / Ewig reine Stralen borgt,",
+      "language": [],
+      "musenalm_id": 37543,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / An die Phantasie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. I. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / An die Phantasie",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "hsy8u7va71y86ez"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 37545-37549, Obj 38-42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37544,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Einfälle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Einfälle",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.435Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.435Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "y8qzh2pczi7gk3o"
+        }
+      ],
+      "source_id": "xkeackew25lx983"
+    },
+    {
+      "annotation": "XII. Einfälle (Sammlung INr 37544, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Der ist ein halber Mensch, der nie von Herzen / sich zeiget;",
+      "language": [],
+      "musenalm_id": 37545,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der ist ein halber Mensch, der nie von Herzen / sich zeiget;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "m0k4lcojdv97u38"
+        }
+      ],
+      "source_id": "nd7apqzgmrc8qez"
+    },
+    {
+      "annotation": "XII. Einfälle (Sammlung INr 37544, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Wer dich liebet, Natur, pflanzt auch die seine ins / Leben,",
+      "language": [],
+      "musenalm_id": 37546,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer dich liebet, Natur, pflanzt auch die seine ins / Leben,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "kxqmwco06f2az2c"
+        }
+      ],
+      "source_id": "nrty3gmt3pfk1wr"
+    },
+    {
+      "annotation": "XII. Einfälle (Sammlung INr 37544, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Suche mit dem Genuß dir auf die Freude des / Lebens,",
+      "language": [],
+      "musenalm_id": 37547,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Suche mit dem Genuß dir auf die Freude des / Lebens,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "jnj485tgygp9giy"
+        }
+      ],
+      "source_id": "1ou34943lukt0hf"
+    },
+    {
+      "annotation": "XII. Einfälle (Sammlung INr 37544, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Hat dir ein Mißgeschick des Lebens Freuden ver- / bittert,",
+      "language": [],
+      "musenalm_id": 37548,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hat dir ein Mißgeschick des Lebens Freuden ver- / bittert,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "ibn8ela40q86nc1"
+        }
+      ],
+      "source_id": "hyyx516zdpq6xk8"
+    },
+    {
+      "annotation": "XII. Einfälle (Sammlung INr 37544, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Was die Natur dich lehrt und was dich glücklich / und froh macht,",
+      "language": [],
+      "musenalm_id": 37549,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was die Natur dich lehrt und was dich glücklich / und froh macht,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "2bzr5xsv0nljhkt"
+        }
+      ],
+      "source_id": "ihersyhpq1aufel"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: 'Tis the divinity, that stirs within us; / 'Tis heaven itself, that points out an hereafter, [...] Addison",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Ein Wolkenheer! Es steigt im Morgen, / Und senkt im Abend sich hinab.",
+      "language": [],
+      "musenalm_id": 37550,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / Unsterblichkeit.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Bommer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / Unsterblichkeit.",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.436Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.436Z",
+          "agent": "s5myzcuzsygfm34",
+          "source_id": "a3ff065m1evps6n"
+        }
+      ],
+      "source_id": "s5ezrx93kdexdv0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Träufle sanft auf ZephyrSchwingen nieder, / Sohn des Meers, dich kündet der Blätter / Rauschen,",
+      "language": [],
+      "musenalm_id": 37551,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Der Mairegen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Der Mairegen",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.743Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "ps2chnryuvo2u9l"
+        }
+      ],
+      "source_id": "4j0wo8uck818x7m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Wenn ich mit stiller Sehnsucht dich umschwebe, / Wenn ich für Einen süßen Kuß von dir",
+      "language": [],
+      "musenalm_id": 37552,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Sie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Bommer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Sie",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.743Z",
+          "agent": "s5myzcuzsygfm34",
+          "source_id": "0nyydckc80d87i3"
+        }
+      ],
+      "source_id": "0n1v2dmyb72qara"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Götter verleihen Gewinn. / Ueber dem Erdengeschlechte / Walten erhabene Mächte,",
+      "language": [],
+      "musenalm_id": 37553,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Lied / auf die Geburt eines Prinzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. v. Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Lied / auf die Geburt eines Prinzen",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.743Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.743Z",
+          "agent": "80b27bgjy2gbn1m",
+          "source_id": "qt2241ouw4il02p"
+        }
+      ],
+      "source_id": "bgx9qojdr04ske1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Sind die Seladons gleich aus der Mode, / Ist die Treue nicht mehr guter Ton,",
+      "language": [],
+      "musenalm_id": 37554,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / An Lora. / (Nach Boufflers.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / An Lora. / (Nach Boufflers.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.636Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "uvrlhe28cqnqskh"
+        }
+      ],
+      "source_id": "u23zxnmkyfmmo2d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Komm herab zum schattenden Eichenhaine, / Freund der Menschheit! höre die Stimmen / Deutschlands,",
+      "language": [],
+      "musenalm_id": 37555,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVIII. / Hymnus an den Frieden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gerning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVIII. / Hymnus an den Frieden",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.636Z",
+          "agent": "ka1wm9mc4kl7y0b",
+          "source_id": "kz3h2s89hj128r7"
+        }
+      ],
+      "source_id": "ovg4yn4n9pey8sm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "O fliehe, rette dich, der Mutter Stütze, / Des Feldherrn zarter Liebling! Guten Göttern / Vertrau' dein Heil!",
+      "language": [],
+      "musenalm_id": 37556,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIX. / Jokondo Kasabianka",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Bommer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIX. / Jokondo Kasabianka",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.636Z",
+          "agent": "s5myzcuzsygfm34",
+          "source_id": "0axjwloddvflnoi"
+        }
+      ],
+      "source_id": "se60e75wgmy3ayc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Sturm und Ungewitter mähen / Uns die Saaten, die wir säen, / Noch bevor sie reifen, ab.",
+      "language": [],
+      "musenalm_id": 37557,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XX. / An S***",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XX. / An S***",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.636Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "bwndgp282exg0os"
+        }
+      ],
+      "source_id": "f69ybj41zls7nv2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Seit du der Andern dich ergeben, / Welk' ich in trüber Schwermuth hin:",
+      "language": [],
+      "musenalm_id": 37558,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXI. / Malwina's letzte Klage. / (Nach dem Französischen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zange",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXI. / Malwina's letzte Klage. / (Nach dem Französischen.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ygvg96i943hl9aq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Wie mag ich gerne mit dir, du Liebling der älte- / ren Muse / Hesperiens, durchs Meer die weite Reise thun!",
+      "language": [],
+      "musenalm_id": 37559,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXII. / Riedesels Reise. / (1773.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Knebel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXII. / Riedesels Reise. / (1773.)",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.636Z",
+          "agent": "ymo6fj9vzc9ufg1",
+          "source_id": "77zt6w0ypv901qn"
+        }
+      ],
+      "source_id": "tf74w03b54fn1i4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "O du mein kleines, zartes, süßes Leben, / Wie blickst du froh und frei ins heil'ge Licht!",
+      "language": [],
+      "musenalm_id": 37560,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIII. / Mein Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Bommer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXIII. / Mein Kind",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.120Z",
+          "agent": "s5myzcuzsygfm34",
+          "source_id": "b0ov03udl0s6oc1"
+        }
+      ],
+      "source_id": "i0jz4rilpb02gm3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "O Geist, den auf so hundertfache Weise / Der Priester nennt, der Mensch verehrt,",
+      "language": [],
+      "musenalm_id": 37561,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXIV. / Gebet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stampeel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXIV. / Gebet",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.120Z",
+          "agent": "s96imdco8knk8xx",
+          "source_id": "abwps6y8kyj783k"
+        }
+      ],
+      "source_id": "vqkzox3absmcpwx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Es naht der Lenz mit seinen Feuerblicken, / Er küßt die Erd', und die in engen Schalen / Ihr Nichts verschliefen",
+      "language": [],
+      "musenalm_id": 37562,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXV. / Die Blumen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXV. / Die Blumen",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.120Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "h7i227uc1ucygrg"
+        }
+      ],
+      "source_id": "wusor3o45m5yq7n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Aus goldnen Saiten schwebten hohe Lieder / Um Rosa's Ohr im leisen Klang der Wellen,",
+      "language": [],
+      "musenalm_id": 37563,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XXVI. / Rosa's Tod",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XXVI. / Rosa's Tod",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.120Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "t45400xkqzx3c8s"
+        }
+      ],
+      "source_id": "530wgfzei5vjlcs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37564,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "016507jzh4pbpgl"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_505_70925_vp1kggnod2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-08-17 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "7uitduzu255yynk"
+    }
   ],
   "agents": [
     {

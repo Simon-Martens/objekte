@@ -48,7 +48,26 @@
   "year": 1815,
   "editor": "",
   "items": [
-    "t2bkxwhz4att3wp"
+    {
+      "annotation": "Kartonierter Einband.\n1815:(K: M. 180 SS.)  Mit XII und 180 SS.\n2. Auflage 1822.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.684Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100710",
+      "location": "105P08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.684Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "t2bkxwhz4att3wp"
+    }
   ],
   "contents": [],
   "agents": [

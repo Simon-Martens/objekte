@@ -48,31 +48,920 @@
   "year": 1872,
   "editor": "",
   "items": [
-    "myl86v0hsgb8y0x"
+    {
+      "annotation": "",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.534Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106450",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.534Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "myl86v0hsgb8y0x"
+    }
   ],
   "contents": [
-    "lbs2aprnt1g3472",
-    "b6drskwb730bhbi",
-    "q7p93rhn8c3a9kh",
-    "tkcsw50xv6lzkv8",
-    "xgjk35me0ua8ijr",
-    "is8dgid7mrjerti",
-    "n3aqvc2yk7r80l0",
-    "38hoxugvu2wedmz",
-    "qwnlzsifbxxjndi",
-    "x45mnc783ownut1",
-    "6y2un5k7glu1lqy",
-    "y7dmzosmwelcs8n",
-    "7rr3iliscf2kiei",
-    "vlr0g5rc0bqrq1m",
-    "7h9wi5ho5zofglk",
-    "64c9n125r4wwlb6",
-    "o4v1daekcqqnloh",
-    "91wevm8ka6hkh5w",
-    "0kt5s9lvzlxqftt",
-    "awb5zyegekc7ml9",
-    "b82aqs9lugb6va9",
-    "7sipp8i2ztdvrq8"
+    {
+      "annotation": "Titelgraphik # Titel s. Textbezug (Gedicht) INr 64707, Obj 7 /) $ die Bezeichnung H. W. Couwenberg wohl falsch: Couwenberg starb 1848",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64701,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen mit der Blume #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Couwenberg sculps. $",
+      "scans": [
+        "alm_1083_64701_fks0g55zgq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen mit der Blume #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.288Z",
+          "agent": "7ee955xv6ru4224",
+          "source_id": "9x0t2513anahxmt"
+        }
+      ],
+      "source_id": "lbs2aprnt1g3472"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64702,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1872 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 57r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson sc. A. Schad sc.",
+      "scans": [
+        "alm_1083_64702_o0ikphnzcf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1872 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 57r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.288Z",
+          "agent": "3gnzs7actzcxdwq",
+          "source_id": "gkp4zq4wp7wgqpn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.288Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "vewtuqsscsy1t78"
+        }
+      ],
+      "source_id": "b6drskwb730bhbi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64703,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1872. / Herausgegeben von / Frater Hilarius / (E. Fentsch.) / 57r. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1083_64703_jeb35mrcx8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1872. / Herausgegeben von / Frater Hilarius / (E. Fentsch.) / 57r. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "q7p93rhn8c3a9kh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64704,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "tkcsw50xv6lzkv8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Da denk ich Deiner Verse wieder / An meinem Hochzeitstag;",
+      "language": [],
+      "musenalm_id": 64705,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zueignung. / An Caroline Th ...",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zueignung. / An Caroline Th ...",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "xgjk35me0ua8ijr"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 64707-6471 als Textbezüge zud en Graphiken des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64706,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Stahlstiche in sieben Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Stahlstiche in sieben Gedichten",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "is8dgid7mrjerti"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Titelgraphik INr 64701, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ein halbes Lächeln um den Mund, / Im Blicke eine halbe Frage,",
+      "language": [],
+      "musenalm_id": 64707,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Das Mädchen mit der Blume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Das Mädchen mit der Blume",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "n3aqvc2yk7r80l0"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Graphik INr 64714, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Mit einem Heil'genbilde / Hast Du den Hut geschmückt, / Und in die kleinen Hände / Den Rosenkranz gedrückt.",
+      "language": [],
+      "musenalm_id": 64708,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Das betende Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Das betende Kind",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "38hoxugvu2wedmz"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Graphik INr 64715, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Wie ich so aus langer Weile / Wand're längs der ganzen Zeile, / Und beschau' mir Haus für Haus:",
+      "language": [],
+      "musenalm_id": 64709,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Das Mädchen am Fenster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Das Mädchen am Fenster",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "qwnlzsifbxxjndi"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Graphik INr 64716, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Draußen in dem grünen Walde / Knospet jeder Ast, / Mit den Blumen auf der Halde / Spielt der Sonnenglast.",
+      "language": [],
+      "musenalm_id": 64710,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Vor der Schule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Vor der Schule",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "x45mnc783ownut1"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Graphik INr 64717, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "In der Jungfrau Gaden waltet / Dämmrung und Stille. / Schweigsam sitztet sie, und lauschet / Sinnend der Sibylle.",
+      "language": [],
+      "musenalm_id": 64711,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Die Wahrsagerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Die Wahrsagerin",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "6y2un5k7glu1lqy"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Graphik INr 64718, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "O lichte, gold'ne Frühlingspracht! / Die Morgenwinde wehen sacht,",
+      "language": [],
+      "musenalm_id": 64712,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Genesung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Genesung",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "y7dmzosmwelcs8n"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64706, Obj 6) s. Graphik INr 64719, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Der du nur vom Lenz - vom Zauber / Duft'ger, lauer Sommernächte / Und von den Blüthen schwärmst,",
+      "language": [],
+      "musenalm_id": 64713,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Winterlandschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Winterlandschaft",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "7rr3iliscf2kiei"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64708, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64714,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das betende Kind #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "T. Ulwins pinx. L. Sichling sc.",
+      "scans": [
+        "alm_1083_64714_h0i0msu9gg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das betende Kind #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.028Z",
+          "agent": "4h5l66xotmujbik",
+          "source_id": "c6197cm15lt4lmm"
+        }
+      ],
+      "source_id": "vlr0g5rc0bqrq1m"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64709, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64715,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen am Fenster #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. S. Vodigel del. F. Molenaar sculps.",
+      "scans": [
+        "alm_1083_64715_1i0b4y5k4e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen am Fenster #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.028Z",
+          "agent": "qijadzj1tmqi5h0",
+          "source_id": "mbf365akum3n23u"
+        }
+      ],
+      "source_id": "7h9wi5ho5zofglk"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64710, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64716,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor der Schule #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. de Vletter del. J. B. Tétar van Elven sc.",
+      "scans": [
+        "alm_1083_64716_otnzajel6i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vor der Schule #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.028Z",
+          "agent": "4w3yxor1j78jvd9",
+          "source_id": "9agi7ar3i0mh84i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.028Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.028Z",
+          "agent": "7l66ckmup6wdhiw",
+          "source_id": "ohw1upltqz07r11"
+        }
+      ],
+      "source_id": "64c9n125r4wwlb6"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64711, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64717,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wahrsagerin #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. van Mieris pinx. D. J. Slyuter sculps.",
+      "scans": [
+        "alm_1083_64717_y1lp41g7kk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Wahrsagerin #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.096Z",
+          "agent": "r7w9sdck3ktf0df",
+          "source_id": "3n3v3vfnz3vwkya"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.096Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "jnjuovfkvmhsbxv"
+        }
+      ],
+      "source_id": "o4v1daekcqqnloh"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64712, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64718,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genesung #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Callcott Horsley pinx. D. J. Sluyter sculps.",
+      "scans": [
+        "alm_1083_64718_gp7izmjfse.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Genesung #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.097Z",
+          "agent": "08c25dedm300lad",
+          "source_id": "bprumlivr3lywdu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.097Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "vhpu2glopwjnbhl"
+        }
+      ],
+      "source_id": "91wevm8ka6hkh5w"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64713, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64719,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winterlandschaft #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schelfhout del. J. B. Tétarv. Elven sculps.",
+      "scans": [
+        "alm_1083_64719_yeolgx95v3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Winterlandschaft #",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.928Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.928Z",
+          "agent": "7l66ckmup6wdhiw",
+          "source_id": "conh89jb40e21lq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.928Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.928Z",
+          "agent": "715ejev12w0hnth",
+          "source_id": "pqyoyyqo2f815cn"
+        }
+      ],
+      "source_id": "0kt5s9lvzlxqftt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es war im Januar 1778. Der Himmel hatte sich aufgeklärt und die Nachmittagssonne warf ihre freundlichen Strahlen durch die hohen Fenster des Gewächshauses im Herzogsgarten zu München.",
+      "language": [],
+      "musenalm_id": 64720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Anna von Bayern. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie von Zerzog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria Anna von Bayern. / Historische Novelle",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "awb5zyegekc7ml9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Ein duftiger Sommermorgen liegt über der Flur. Drinnen in der Stadt werfen die hohen Häuser in die Straßen schon die Sonnengluth zurück",
+      "language": [],
+      "musenalm_id": 64721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lorelei. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Dempwolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lorelei. / Novelle",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [],
+      "source_id": "b82aqs9lugb6va9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Es war eine grimmige Kälte.Wie Stränge hingen die Eiszapfen an den Dachrinnen, und vor den Hausthüren häufte sich der Schnee, der die Nacht über gefallen war.",
+      "language": [],
+      "musenalm_id": 64722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schule des Lebens. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Hilarius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schule des Lebens. / Novelle",
+      "updated": "2009-06-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1872,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.929Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.929Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "kqfqx0n16hjta4p"
+        }
+      ],
+      "source_id": "7sipp8i2ztdvrq8"
+    }
   ],
   "agents": [
     {

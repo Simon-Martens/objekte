@@ -48,59 +48,1967 @@
   "year": 1792,
   "editor": "",
   "items": [
-    "92rtzczachtk5fv"
+    {
+      "annotation": "1",
+      "condition": "80",
+      "created": "2026-06-11 10:17:37.506Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100223",
+      "location": "105D01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.506Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "92rtzczachtk5fv"
+    }
   ],
   "contents": [
-    "afuf6bmf2lyhqvq",
-    "76b6xdd53bq73zx",
-    "nvr7jgit2apuf4d",
-    "a8y6aq3ue6xdqmw",
-    "1bjmps0gko29v3c",
-    "psqraguos6q7c2z",
-    "pi0ekig3x9jxfc3",
-    "x8rfw6zc9m0hpxt",
-    "79yglqxjpf6pzsc",
-    "vhyexy5fuhsbco4",
-    "6dbkyof8eb0ex4f",
-    "9oglihexzx860x5",
-    "dahuxffpeqinc9x",
-    "56qhh6n6j7tvddg",
-    "hdmvsfjz5xhl00w",
-    "lm7t4buqechxpjp",
-    "pz66mns0gfblzs1",
-    "717f8fq3rexnfsi",
-    "wag9uu5cdd8uigj",
-    "u2ysxx96hekhjd6",
-    "ph19btxj7yw8jbz",
-    "bxoi8h51yqb484e",
-    "c8j2zjz4bde7z4y",
-    "sm472zmwf26ipls",
-    "him3klsanm9y030",
-    "8usmpn8xet07kbq",
-    "36hu66qlmvf7jjc",
-    "wz77mrtf9knf8q4",
-    "t68679eu9b7rivs",
-    "frcpax94iksaxym",
-    "kpc8v3177khz7fq",
-    "4ik7mlu157fxzkr",
-    "7hquv390x6ld9eu",
-    "lv1xp2edhjo851x",
-    "y1fkp0cefi0nvgy",
-    "ju9citxzmep62o1",
-    "le64uou6i6omf12",
-    "vhwnihttg3gelh8",
-    "nt1bw4pcdcw3p7a",
-    "08y872hfsufy5gf",
-    "emed0ktsmdpjqkf",
-    "dtwqo13mo9dlp09",
-    "t0url2ylz20r93p",
-    "31h5etx5t9ltgrp",
-    "dmav9t424zrrwms",
-    "95r6gfxthy6fmuf",
-    "y3zc8qyf8r5a0gs",
-    "bctx23hegwe1tio",
-    "vvqutdj47u7dkl6",
-    "zsngrmsuhixf4qd"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47040,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Malvieux inv. & fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Malvieux inv. & fec.",
+      "scans": [
+        "alm_637_47040_i4xbx0clsp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.498Z",
+          "agent": "rpm3jfs7o8do52j",
+          "source_id": "xhoyaiwoh7kgawt"
+        }
+      ],
+      "source_id": "afuf6bmf2lyhqvq"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47041,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenzimmer / ALLMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1792. / Leipzig / bey A. Fr. Böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_637_47041_cdc4te9qjs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenzimmer / ALLMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1792. / Leipzig / bey A. Fr. Böhmen",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "76b6xdd53bq73zx"
+    },
+    {
+      "annotation": "Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47042,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hoppe fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hoppe fec.",
+      "scans": [
+        "alm_637_47042_5tshotr872.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "nvr7jgit2apuf4d"
+    },
+    {
+      "annotation": "Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47043,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hpe f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hpe f.",
+      "scans": [
+        "alm_637_47043_s6grocyrzg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "a8y6aq3ue6xdqmw"
+    },
+    {
+      "annotation": "kol. Graphik s. Textbezüge INr 47076, 47077; Obj 37, 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47044,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hein. Müller scul.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hein. Müller scul.",
+      "scans": [
+        "alm_637_47044_z3wmegmu0k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "1bjmps0gko29v3c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47045,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_637_47045_kqfcyj9pvw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "psqraguos6q7c2z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47046,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1792. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1792. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "pi0ekig3x9jxfc3"
+    },
+    {
+      "annotation": "Dem Almanach als einleitendes Gedicht vorangestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Geweyht zur Freude der Natur, / Bestimmt dem Edlern zu gefallen, / Sey, Freundin, Deines Daseyns Wallen.",
+      "language": [],
+      "musenalm_id": 47047,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jeder / seiner Leserinnen / bey Anfange des 1792. Jahres / von / Franz Ehrenberg",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jeder / seiner Leserinnen / bey Anfange des 1792. Jahres / von / Franz Ehrenberg",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.604Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.604Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "5pz0pvdvz4r244p"
+        }
+      ],
+      "source_id": "x8rfw6zc9m0hpxt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47048,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "79yglqxjpf6pzsc"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auswahl von Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auswahl von Gedichten",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "vhyexy5fuhsbco4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Freund, kein Erdenbürger handelt frey! / Alle fesselt Modetyranney;",
+      "language": [],
+      "musenalm_id": 47050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mode",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mode",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "6dbkyof8eb0ex4f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wenn der alte Klausner aus dem Grabe / Seiner Zelle schlich, und hier - am Stabe",
+      "language": [],
+      "musenalm_id": 47051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Klausner auf der Redoute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Klausner auf der Redoute",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "9oglihexzx860x5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Hoher Einklang seliger Gefühle, / Heilge Tröstung harter Tyranney,",
+      "language": [],
+      "musenalm_id": 47052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Freundschaft",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "dahuxffpeqinc9x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Unbegeiflich Wesen! das der Weise / Kette unsichtbarer Dinge nennt,",
+      "language": [],
+      "musenalm_id": 47053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An den Zufall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An den Zufall",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "56qhh6n6j7tvddg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Wo lebt der Mensch der nie vom Becher / schlürfte / In dem die Thorheit ihren Gift verhehlt,",
+      "language": [],
+      "musenalm_id": 47054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschenwürde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Menschenwürde",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "hdmvsfjz5xhl00w"
+    },
+    {
+      "annotation": "mit einer Vertonung s. Musikbeigabe INr 47056, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Es blühen Rosen hier auf Erden; / Doch ohne Dornen keine nicht!",
+      "language": [],
+      "musenalm_id": 47055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschenglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Menschenglück",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "lm7t4buqechxpjp"
+    },
+    {
+      "annotation": "paginiert S. 28. /) Vertonung des Gedichts »Menschenglück« INr 47055, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschenglück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. C. Claudius",
+      "scans": [
+        "alm_637_47056_xtch8le9jf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Menschenglück",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "uq418cjb7cd2nvf"
+        }
+      ],
+      "source_id": "pz66mns0gfblzs1"
+    },
+    {
+      "annotation": "paginiert S. 19. /) Vertonung des Gedichts »Wiegenlied an mein Herz« INr 47058, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied an mein Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. C. Claudius",
+      "scans": [
+        "alm_637_47057_u7l1i5bihh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied an mein Herz",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.400Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.400Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "rm5q7be47nvr20u"
+        }
+      ],
+      "source_id": "717f8fq3rexnfsi"
+    },
+    {
+      "annotation": "mit einer Vertonung s. Musikbeigabe INr 47057, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Schlafe, süßes Herzchen, schlaf / Denke nicht des Unglücksfalles,",
+      "language": [],
+      "musenalm_id": 47058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied an mein Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied an mein Herz",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "wag9uu5cdd8uigj"
+    },
+    {
+      "annotation": "mit einer Vertonung s. Musikbeigabe INr 47060, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Ruhe sanft, du lieber Knabe! / Jetzt ist deine beste Zeit;",
+      "language": [],
+      "musenalm_id": 47059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied / von einer Mutter gesungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied / von einer Mutter gesungen",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "u2ysxx96hekhjd6"
+    },
+    {
+      "annotation": "paginiert 20. /) Vertonung des Gedichts »Wiegenlied von einer Mutter gesungen INr 47059, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.058Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiegenlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. C. Claudius",
+      "scans": [
+        "alm_637_47060_vfn4gijhnb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wiegenlied",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "j68cvpff81ats16"
+        }
+      ],
+      "source_id": "ph19btxj7yw8jbz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.059Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Wie herrlich naht sie ihrem Ziele, / Des Lichtes Schöpferin!",
+      "language": [],
+      "musenalm_id": 47061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied einer Mutter beym Untergang / der Sonne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied einer Mutter beym Untergang / der Sonne",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "bxoi8h51yqb484e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.059Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Voll Entzücken hingesunken / In melodisches Gefühl,",
+      "language": [],
+      "musenalm_id": 47062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Ruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Ruhe",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "c8j2zjz4bde7z4y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Kommt, Freunde, laßt uns, dankerfüllt / Des holden Schlummergottesbild, / Im frohen Kreis umringen,",
+      "language": [],
+      "musenalm_id": 47063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Loblied auf den Schlummergott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Loblied auf den Schlummergott",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "sm472zmwf26ipls"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Will man sein Leben recht genießen / So muß man, sorgenfrey und rein / Von Lastern, selbst es sich versüßen.",
+      "language": [],
+      "musenalm_id": 47064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebensgenuß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebensgenuß",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "him3klsanm9y030"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Roth und gülden fährt die Sonne / Schon die blaue Bahn herauf,",
+      "language": [],
+      "musenalm_id": 47065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Ida. / Am Neujahrs-Morgen auf ihre / Toilette gelegt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Ida. / Am Neujahrs-Morgen auf ihre / Toilette gelegt",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "8usmpn8xet07kbq"
+    },
+    {
+      "annotation": "Es folgen die Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine Erzählungen und Ge- / mählde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine Erzählungen und Ge- / mählde",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "36hu66qlmvf7jjc"
+    },
+    {
+      "annotation": "mit 3  Illustrationen s. Graphiken INr 47068-47070, Obj 29-31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Schön war Liddy wie die Rose, die den ersten Morgen erwartet, um ihre Knospe in ihrem ganzen Liebreitz entfalten zu können;",
+      "language": [],
+      "musenalm_id": 47067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liddy Waller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liddy Waller",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "wz77mrtf9knf8q4"
+    },
+    {
+      "annotation": "paginiert S. 89. /) Illustration zu »Liddy Waller« INr 47067, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erbarmen! Erbarmen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1791",
+      "scans": [
+        "alm_637_47068_tz44g1prkg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erbarmen! Erbarmen!",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.596Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "f27ebd8xujktptj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.596Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "sb03zr12gbybvu1"
+        }
+      ],
+      "source_id": "t68679eu9b7rivs"
+    },
+    {
+      "annotation": "paginiert S. 108. /) Illustration zu »Liddy Waller« INr 47067, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.740Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Noch einmahl, sprachen Sie wahr?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1791",
+      "scans": [
+        "alm_637_47069_1nmwhmtykq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Noch einmahl, sprachen Sie wahr?",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.596Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "dbz8j8k5xluxpfm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.596Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "mwmzcktqm9pxnn6"
+        }
+      ],
+      "source_id": "frcpax94iksaxym"
+    },
+    {
+      "annotation": "paginiert p. 120. /) Illustration zu »Liddy Waller« INr 47067, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liddy, wer wird deinen Mörder trösten!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1791",
+      "scans": [
+        "alm_637_47070_pb9vw5k47e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Liddy, wer wird deinen Mörder trösten!",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "nmm3shbmfph6z8t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.233Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "qt27freu9uobp8u"
+        }
+      ],
+      "source_id": "kpc8v3177khz7fq"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 47072, 47073; Obj 33, 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Graf Ulrich von Buchorn war nicht minder brav, wie sein Vetter Burkard, Markgraf von Buchorn, der dem Kaiser Conrad dem Ersten männlich viel Dienste leistete, und ein streitbarer Herr war.",
+      "language": [],
+      "musenalm_id": 47071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wendelgardis von Buchorn. / Eine deutsche Geschichte aus dem zehn- / ten Jahrhundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wendelgardis von Buchorn. / Eine deutsche Geschichte aus dem zehn- / ten Jahrhundert",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ik7mlu157fxzkr"
+    },
+    {
+      "annotation": "paginiert p. 134. /) Illustration zu »Wendelgardis von Buchorn. Eine deutsche Geschichte aus dem zehnten Jahrhundert« INr 47071, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutter weinet nicht, mit diesem Schwerdt will ich / meinen Vater rächen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1791",
+      "scans": [
+        "alm_637_47072_oc8j7mhqd0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mutter weinet nicht, mit diesem Schwerdt will ich / meinen Vater rächen",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.233Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "ta2ckzhw8opjplw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.233Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "tlzesh103vthd6o"
+        }
+      ],
+      "source_id": "7hquv390x6ld9eu"
+    },
+    {
+      "annotation": "paginiert p. 156. /) Illustration zu »Wendelgardis von Buchorn. Eine deutsche Geschichte aus dem zehnten Jahrhundert« INr 47071, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Graefin Euer Gemahl lebt, ob Ihr ihn gleich / für tod haltet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc. 1791",
+      "scans": [
+        "alm_637_47073_nvvyhybqjt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Graefin Euer Gemahl lebt, ob Ihr ihn gleich / für tod haltet",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.233Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "3oh06gqk4jmgpot"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.233Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.233Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "jm68xhmx1an7u0z"
+        }
+      ],
+      "source_id": "lv1xp2edhjo851x"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Um meinen Leserinnen ein Ganzes aufzustellen, schließe ich diesen Aufsatz sogleich an den des vorhergehenden Taschenbuchs an. Dort unterhielt ich sie von den österreichischen Niederlanden;",
+      "language": [],
+      "musenalm_id": 47074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Staaten- und Völkergeschichte. / Die vereinigten Niederlande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Staaten- und Völkergeschichte. / Die vereinigten Niederlande",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "y1fkp0cefi0nvgy"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 47076, 47077; Obj 37, 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naturgeschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Naturgeschichte",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "ju9citxzmep62o1"
+    },
+    {
+      "annotation": "Naturgeschichte (Sammlung INr 47075, Obj 36) mit einer Illustration s. Graphik INr 47044, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Gegenwärtiger Aufsatz soll unsre Leserinnen mit zwey Geschöpfen aus dem Thierreiche unterhalten, die sich durch die Schärfe ihres Gesichts auszeichnen,",
+      "language": [],
+      "musenalm_id": 47076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Falk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Falk",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "le64uou6i6omf12"
+    },
+    {
+      "annotation": "Naturgeschichte (Sammlung INr 47075, Obj 36) mit einer Illustration s. Graphik INr 47044, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Die Alten waren bey Erforschung der Natur nicht selten an die Fesseln des Aberglaubens geschmiedet, und träumten bald durch dichterische Uebertreibungen getäuscht, bald durch ungeprüftes Nachsagen von seichten Köpfen geleitet,",
+      "language": [],
+      "musenalm_id": 47077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Luchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Luchs",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "vhwnihttg3gelh8"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Mein letzterer Brief versprach dir, dich in diesem Aufsatze von der Erzeugung der Gartengewächse im Einzelnen zu unterhalten.",
+      "language": [],
+      "musenalm_id": 47078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Oekonomischen Hefte Siebentes. / Fortsetzung von dem ländlichen Gar- / tenbau. / An Emilien von Charlotte Ehrenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Charlotte Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Oekonomischen Hefte Siebentes. / Fortsetzung von dem ländlichen Gar- / tenbau. / An Emilien von Charlotte Ehrenberg",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "nt1bw4pcdcw3p7a"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791. mit 2 Illustrationen s. Graphiken INr 47080, 47081; Obj 41, 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Mit wahrem Vergnügen habe ich ihren letztern Brief gelesen, und bey ihrem braven Benehmen ihnen meine wahreste Hochachtung gewidmet.",
+      "language": [],
+      "musenalm_id": 47079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ländlicher Briefwechsel. / Fortsetzung des vorhergehenden Taschen- / buchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ländlicher Briefwechsel. / Fortsetzung des vorhergehenden Taschen- / buchs",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "08y872hfsufy5gf"
+    },
+    {
+      "annotation": "Illustration zu »Ländlicher Briefwechsel.« INr 47079, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Malvieux inv. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Malvieux inv. et sc.",
+      "scans": [
+        "alm_637_47080_8yl9q6mz94.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.625Z",
+          "agent": "rpm3jfs7o8do52j",
+          "source_id": "h88u4oqs501u71k"
+        }
+      ],
+      "source_id": "emed0ktsmdpjqkf"
+    },
+    {
+      "annotation": "Illustration zu »Ländlicher Briefwechsel.« INr 47079, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Malvieux sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Malvieux sc.",
+      "scans": [
+        "alm_637_47081_lrkj33tkej.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.625Z",
+          "agent": "rpm3jfs7o8do52j",
+          "source_id": "jy4815m5vl39fwc"
+        }
+      ],
+      "source_id": "dtwqo13mo9dlp09"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791. mit einer Illustration s. Graphik INr 47083, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Der kleine Wilhelm war es wirklich vermögend, die trauernde Mutter zu zerstreuen. Er wendete alles an, ihren Beyfall fortzuerhalten,",
+      "language": [],
+      "musenalm_id": 47082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen / aus der Familie Ehrenberg. / Fortsetzung des vorherg. Taschenb.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenen / aus der Familie Ehrenberg. / Fortsetzung des vorherg. Taschenb.",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "t0url2ylz20r93p"
+    },
+    {
+      "annotation": "paginiert p. 248. /) Illustration zu »Scenen aus der Familie Ehrenberg« INr 47082, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.225Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flattre hin kleiner Liebling und verzeih / daß Mutterliebe dich zum Sclaven machte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1791",
+      "scans": [
+        "alm_637_47083_8xxttaa5hu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Flattre hin kleiner Liebling und verzeih / daß Mutterliebe dich zum Sclaven machte",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.625Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "6dndrrg332frmd5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.625Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "e7wfqjkjvaydba9"
+        }
+      ],
+      "source_id": "31h5etx5t9ltgrp"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "In meiner letzten Unterhaltung mit ihnen, versprach ich ihnen die nöthigsten Vorsichtsregeln bey der Wahl einer Amme zu geben.",
+      "language": [],
+      "musenalm_id": 47084,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz Ehrenbergs Reden / über / die körperliche Erziehung./ Neunte Rede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Franz Ehrenbergs Reden / über / die körperliche Erziehung./ Neunte Rede",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.626Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "lk3ffsrfiromaiy"
+        }
+      ],
+      "source_id": "dmav9t424zrrwms"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791. mit einer Illustration s. Graphik INr 47086, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Wie der Rausch des Wiederfindens vorüber war, so standen Wilhelm und Louise mit niedergesenkten Köpfchen da.",
+      "language": [],
+      "musenalm_id": 47085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schöne Abend. / Fortsetzung des vorherg. Taschenb. v. S. 249",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der schöne Abend. / Fortsetzung des vorherg. Taschenb. v. S. 249",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "95r6gfxthy6fmuf"
+    },
+    {
+      "annotation": "paginiert S. 272. /) Illustration zu »Der schöne Abend« INr 47085, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.227Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohl euch! Wer mit ruhiger Freude die Sonne / unter gehen sehen kann, der hat nie seinen Tag / verlohren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1791",
+      "scans": [
+        "alm_637_47086_r3b5d3dyjc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wohl euch! Wer mit ruhiger Freude die Sonne / unter gehen sehen kann, der hat nie seinen Tag / verlohren",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.626Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "3zirkonnzqb0wnv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.626Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "cri15r4d9c5gsf3"
+        }
+      ],
+      "source_id": "y3zc8qyf8r5a0gs"
+    },
+    {
+      "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1791",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Jede Jahrszeit verlangt eine eigene Lebensordnung. Es ist wie mit dem Alter: anders muß der Jüngling seine Kräfte, anders sie der Mann, und wieder anders der Greiß sie behandeln lernen.",
+      "language": [],
+      "musenalm_id": 47087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diätetick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Diätetick",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "bctx23hegwe1tio"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 47089, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.228Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "ist eine Frage, die ziemlich herrschend geworden ist, seitdem der Bruder Moritz des Herrn von Kotzebue auf den deutschen Theatern sein Wesen treibt.",
+      "language": [],
+      "musenalm_id": 47088,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wollen wir auch mit nach den Pelew / Inseln?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wollen wir auch mit nach den Pelew / Inseln?",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "vvqutdj47u7dkl6"
+    },
+    {
+      "annotation": "Illustration zu »Wollen wir auch mit nach den Pelew Inseln?« INr 47088, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.229Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47089,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludee (Ludi) Gemahlin / des Königs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clar. sc.",
+      "scans": [
+        "alm_637_47089_rwmgf1vt5o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ludee (Ludi) Gemahlin / des Königs",
+      "updated": "2006-12-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.626Z",
+          "agent": "cj6pzq84zp925pc",
+          "source_id": "wjhvucnt42zdj6h"
+        }
+      ],
+      "source_id": "zsngrmsuhixf4qd"
+    }
   ],
   "agents": [
     {

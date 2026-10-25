@@ -48,32 +48,936 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "1n15mu9j7gjxitf"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.576Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405431",
+      "location": "105A06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.576Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1n15mu9j7gjxitf"
+    }
   ],
   "contents": [
-    "yzfgcle6e2ty3mi",
-    "yqqthml13t92q0l",
-    "rfe9nxvfy94rvyp",
-    "3k607xhqkx4ljtb",
-    "264rpdehxlq6apy",
-    "zy9wphouknajjgk",
-    "iyn4yknpmhbrbhg",
-    "223396jp4fy6u7l",
-    "wpd16f84sraf2ik",
-    "rz7q4nur5yfc364",
-    "varob6c31pz9u4a",
-    "rw5hrlnkye9kuyl",
-    "a4aajjnjxghut30",
-    "z4kn1y50h8pp3jg",
-    "uj9nzwty5xtd63i",
-    "d1uwlraae566fi9",
-    "ubq7bml1fg7pc99",
-    "mfjel388cu0kycq",
-    "bwzal1eu908ipsa",
-    "lahffcrnz7f13rr",
-    "9kkr7n2nmj5uk8n",
-    "fpq3kuseq40yxls",
-    "8s1fajjbmytco3k"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120906,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1910_120906_j2cfmvvru6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "yzfgcle6e2ty3mi"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Das Mädchen von Aegina« von H. Welling INr 120916, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120907,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen von Aegina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Weigl del. I. Krepp sc.",
+      "scans": [
+        "alm_1910_120907_glkwhrp9a4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen von Aegina",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "0zorsfaxmtewcyr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "m8vasnk2zyojbd4"
+        }
+      ],
+      "source_id": "yqqthml13t92q0l"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120908,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IDUNA. / Taschenbuch für das Jahr 1844. / Vier und zwanzigster Jahrgang. / Edlen Frauen und Mädchen gewidmet / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1910_120908_dqwx2p5ujm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IDUNA. / Taschenbuch für das Jahr 1844. / Vier und zwanzigster Jahrgang. / Edlen Frauen und Mädchen gewidmet / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "rfe9nxvfy94rvyp"
+    },
+    {
+      "annotation": "Illustration zu »Der Leibeigene« von J. P. Weiner  INr 120917, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120909,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leibeigene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1910_120909_y5vstqljoe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Leibeigene",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "870rdn9cubi7crw"
+        }
+      ],
+      "source_id": "3k607xhqkx4ljtb"
+    },
+    {
+      "annotation": "Illustration zu »Der Leibeigene« von J. P. Weiner  INr 120917, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leibeigene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1910_120910_653fir3qcm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Leibeigene",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "n5zd4y33curiwzt"
+        }
+      ],
+      "source_id": "264rpdehxlq6apy"
+    },
+    {
+      "annotation": "Illustration zu »Frau Hütt« von J. G. Seidl INr 120918, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.149Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120911,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frau Hütt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1910_120911_zzf6hyyc65.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frau Hütt",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "clnxyaj32rdz82k"
+        }
+      ],
+      "source_id": "zy9wphouknajjgk"
+    },
+    {
+      "annotation": "Illustration zu »Der Traummaler« von  R. Puff INr 120919, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120912,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traum Maler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1910_120912_gg4cs0nj8r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Traum Maler",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "05wncn4vzzug0s3"
+        }
+      ],
+      "source_id": "iyn4yknpmhbrbhg"
+    },
+    {
+      "annotation": "Illustration zu »Der Pirat« von Fridolin Freiherr von Wend INr 120920, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120913,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pirat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1910_120913_tl60q551uj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Pirat",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "02uek2rojsm694r"
+        }
+      ],
+      "source_id": "223396jp4fy6u7l"
+    },
+    {
+      "annotation": "Illustration zu »Die graue Schwester« von J. G. Seidl INr 120922, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120914,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die graue Schwester",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weigl del. Jung sc.",
+      "scans": [
+        "alm_1910_120914_lj9xejxumr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die graue Schwester",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "0ygqbogww13lys8",
+          "source_id": "2s9ccxadtqyw7dx"
+        }
+      ],
+      "source_id": "wpd16f84sraf2ik"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120915,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iduna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Iduna",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "rz7q4nur5yfc364"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 120907, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Mädchen von Aegina, / Sprich, was macht dich gar so hold? / Daß in deinem Vaterlande / Mandelbäume blüh'n am Strande,",
+      "language": [],
+      "musenalm_id": 120916,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen aus Aegina. / (Zum Titelkupfer)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Welling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen aus Aegina. / (Zum Titelkupfer)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "varob6c31pz9u4a"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit 2 Illustrationen s. Graphiken 120909, 120910; Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Unter den zahlreichen Badegästen, welche im Jahre 17.. das freundliche P. besuchten, erregte ein ältlicher Franzose wegen seines ungewöhnlichen Äußeren,",
+      "language": [],
+      "musenalm_id": 120917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leibeigene. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Weiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Leibeigene. / Novelle",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "rw5hrlnkye9kuyl"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120911, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Aus fernen Landen kam ein Weib / Mit einem Riesentroß, / Das baute sich zum Zeitvertreib / Am Inn ein stolzes Schloß,",
+      "language": [],
+      "musenalm_id": 120918,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frau Hütt / (Tiroler Sage)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frau Hütt / (Tiroler Sage)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "f3k52bd9qnjewsc"
+        }
+      ],
+      "source_id": "a4aajjnjxghut30"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 120912, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Ich versuchere Euch, Meister Angelo, die Nothschüsse kommen aus der Gegend von Capo d'Istria, der Zug des Windes geht von daher, und die Blitze kreuzen dort furchtbarer als zur Rechten,",
+      "language": [],
+      "musenalm_id": 120919,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traummaler. / Phantasiestück",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Puff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Traummaler. / Phantasiestück",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "z276kpo6m8d5nvd",
+          "source_id": "hlmkj80ojija79m"
+        }
+      ],
+      "source_id": "z4kn1y50h8pp3jg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120913, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Auf dem Schiffe des Piraten, / Hoch im Schaum der Wogen fliegend, / Weint des Herzogs schöne Tochter,",
+      "language": [],
+      "musenalm_id": 120920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pirat. / In zwei Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fridolin Freiherr von Wend",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pirat. / In zwei Romanzen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "9hjrqh1l94hv21m",
+          "source_id": "rvqo0w54zws7pst"
+        }
+      ],
+      "source_id": "uj9nzwty5xtd63i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Trauertag! Du reichst die Thränenschale / Heut dem Sohne schon zum zwölften Male.",
+      "language": [],
+      "musenalm_id": 120921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Grabeskranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Proben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Grabeskranz",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "d1uwlraae566fi9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120914, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "In dem Wagen, welchen ich auf meiner Reise von Grenada (erzählt Baron Karl Demboski in seinen deux ans en Espagne et en Portugal pendant la guerre civile 1838-1840) statt des widerspenstigen Kleppers, der mich abwarf, erwählt hatte,",
+      "language": [],
+      "musenalm_id": 120922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die graue Schwester",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die graue Schwester",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "57g1xam7tehgtt9"
+        }
+      ],
+      "source_id": "ubq7bml1fg7pc99"
+    },
+    {
+      "annotation": "dem Text vorangestellt: Was denkst du von den stolzen Geistern, / Die Alles bemängeln und Alles bemeistern? [...] /) Bindefehler: S 113-128 sind zwischen S 96 und 97 eingebunden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Da liegt sie, die schlanke Wespe, kalt, starr und todt! Unerbittliches Schicksal, mußtest du auch dieses Herz brechen?",
+      "language": [],
+      "musenalm_id": 120923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Simm-Simm. / Stegreifrede / auf den Tod einer Wespe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Berger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Simm-Simm. / Stegreifrede / auf den Tod einer Wespe",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "mfjel388cu0kycq"
+    },
+    {
+      "annotation": "mit einer Beigabe s. INr 120925, Obj 20 /) Bindefehler: S 113-128 sind zwischen S 96 und 97 eingebunden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Fast jedes Land hat seine gewissen Gebräuche und Gewohnheiten, die, ihrer stereotypen, unter den mannigfaltigen Schwankungen der Zeit, und der Mode sich gleichbleibenden Eigenthümlichkeit willen,",
+      "language": [],
+      "musenalm_id": 120924,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine / obersteierische Hochzeit. / Genrebild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine / obersteierische Hochzeit. / Genrebild",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.753Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.753Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "f2ewm8av8ux2moo"
+        }
+      ],
+      "source_id": "bwzal1eu908ipsa"
+    },
+    {
+      "annotation": "Beigabe zu »Eine obersteierische Hochzeit. Genrebild« von J. G. Seidl: Erstes von insgesammt 12 vierzeiligen Liedern /) Bindefehler: S 113-128 sind zwischen S 96 und 97 eingebunden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Bind dir weiter nit hold, / Bin dir weiter nit feind, / Zu'n an Schatten bist gut, / Wann d'Sonn schön warm scheint",
+      "language": [],
+      "musenalm_id": 120925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "lahffcrnz7f13rr"
+    },
+    {
+      "annotation": "Bindefehler: S 113-128 sind zwischen S 96 und 97 eingebunden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Eine heilige Stille, eine Ruhe, wie sie nur in einem Gotteshause zu finden ist, wenn in Betrachtungen und Andacht der Geist versunken,",
+      "language": [],
+      "musenalm_id": 120926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maja. / Seenovelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Uyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maja. / Seenovelle",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "9kkr7n2nmj5uk8n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120927,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "fpq3kuseq40yxls"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1910_120928_ist9yp3tt3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "8s1fajjbmytco3k"
+    }
   ],
   "agents": [
     {

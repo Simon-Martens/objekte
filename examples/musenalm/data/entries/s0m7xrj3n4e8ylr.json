@@ -48,27 +48,879 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "y78wjv4hdbb98z6"
+    {
+      "annotation": "1827-1837.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.626Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106723",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.626Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "y78wjv4hdbb98z6"
+    }
   ],
   "contents": [
-    "ejgjidzr66nwam9",
-    "kcyzzc1vaj7wg81",
-    "5zzvkdyrzey826u",
-    "skxtwu0lic25fbk",
-    "uqdxogf5u7bzzp7",
-    "18gkjx8wmwxjvtk",
-    "tf6od114zukuhar",
-    "ylkgujffk87mznq",
-    "ry89wn3rq3cnhp2",
-    "v0t2rwbeqypufqe",
-    "w2cxk7duw2gb79o",
-    "fsoc9yt1fp7dk8j",
-    "1fyy2vpwbjyas7n",
-    "zre7ftvin7aorme",
-    "m8t6b02bmoh57mw",
-    "hlbbcjls1fgtlw0",
-    "z0ucbe9uhhlpyho",
-    "edrm68sbtkal5m1"
+    {
+      "annotation": "Titelgraphik /) s. Gedicht INr 112488, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.153Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112486,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Johann Ender del. Fr. Stöber sc. Vien.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Ender del. Fr. Stöber sc. Vien.",
+      "scans": [
+        "alm_2471_112486_s07crmej28.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "islwhid5jygq4ti"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "z3ee210z161hbgc"
+        }
+      ],
+      "source_id": "ejgjidzr66nwam9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN / EIN / TASCHENBUCH / FÜR 1828. / Leipzig, bei Fridrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_2471_112487_qqihx7xnas.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN / EIN / TASCHENBUCH / FÜR 1828. / Leipzig, bei Fridrich August Leo",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "5l3r5dtgioro40t"
+        }
+      ],
+      "source_id": "kcyzzc1vaj7wg81"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 112486, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Neigst Dein Köpfchen, zarte Rose! / Komm! und laß Dich neu erfrischen!",
+      "language": [],
+      "musenalm_id": 112488,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moosrose",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Moosrose",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "6gyubfxy40d5kgi"
+        }
+      ],
+      "source_id": "5zzvkdyrzey826u"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die süße Liebe lacht aus Rosenhainen / Dem Jüngling und dem Mädchen hold entgegen",
+      "language": [],
+      "musenalm_id": 112489,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "3jfo8621nf4cg8j"
+        }
+      ],
+      "source_id": "skxtwu0lic25fbk"
+    },
+    {
+      "annotation": "graph. Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "An / von",
+      "language": [],
+      "musenalm_id": 112490,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2471_112490_sv7br1vbxf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "uqdxogf5u7bzzp7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112491,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "18gkjx8wmwxjvtk"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 112493, 112494; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Dunkle vom Sturm getriebene Wolken jagten am Monde vorüber. An den Ufern des Aspropotamos, der sich schäumend über herabgerollte Felsstücke unter dem grauen Bogen einer alten Brücke fortwälzte, rauschten die hohen Platanen.",
+      "language": [],
+      "musenalm_id": 112492,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fall von Missolunghi. / Historische Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fall von Missolunghi. / Historische Novelle",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "eg8ouicpa0crkm8"
+        }
+      ],
+      "source_id": "tf6od114zukuhar"
+    },
+    {
+      "annotation": "Illustration zu »Der Fall von Missolunghi. Historische Novelle« von A. von Tromlitz d.i. K. A. Fr. von Witzleben INr 112492, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112493,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ZULEIMA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_2471_112493_pgsy94ddni.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ZULEIMA",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "6mn2bhyvqktyi3g"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "vknkh7l7ndtxcev"
+        }
+      ],
+      "source_id": "ylkgujffk87mznq"
+    },
+    {
+      "annotation": "Illustration zu »Der Fall von Missolunghi. Historische Novelle« von A. von Tromlitz d.i. K. A. Fr. von Witzleben INr 112492, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112494,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zulima's Weihe zur Christin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Ender del. Jos. Kovatsch. sc. Viennae",
+      "scans": [
+        "alm_2471_112494_73npw45ikl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zulima's Weihe zur Christin",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "bpnp5vrd89ylyhi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "xzarfaup96sfaaw"
+        }
+      ],
+      "source_id": "ry89wn3rq3cnhp2"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112496, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "An der Spitze einers ansehnlichen Dorfes im nördlichen Theile von Niedersachsen liegt ein Häuschen, das die Aufmerksamkeit des Reisenden bei dem ersten Blicke auf sich zieht.",
+      "language": [],
+      "musenalm_id": 112495,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Musensohn. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Musensohn. / Eine Novelle",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.249Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.249Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "q46ar2yjig3vqqg"
+        }
+      ],
+      "source_id": "v0t2rwbeqypufqe"
+    },
+    {
+      "annotation": "Illustration zu »Der Musensohn« von W. Blumenhagen INr 112495, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112496,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Edmund und Holdine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Jos. Stöber Viennae",
+      "scans": [
+        "alm_2471_112496_ph65q6yfw5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Edmund und Holdine",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.249Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.249Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "5sce34otor3t7gs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.249Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.249Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "w92xp6wxjf99n7v"
+        }
+      ],
+      "source_id": "w2cxk7duw2gb79o"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112498, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Eine ungeheure Menge Menschen strömte durch die Straßen von Petersburg, und wählte die Nähe des Kaiser-Palastes zum Versammlungspunkte,",
+      "language": [],
+      "musenalm_id": 112497,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexandrina. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. Satori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alexandrina. / Erzählung",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.249Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.249Z",
+          "agent": "2egg2jsoqsham3c",
+          "source_id": "2qxbigkbe86i5s1"
+        }
+      ],
+      "source_id": "fsoc9yt1fp7dk8j"
+    },
+    {
+      "annotation": "Illustration zu »Alexandrina« von J. Satori INr 112497, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.219Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112498,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALEXANDRINA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Dav. Weiß sc. Viennae",
+      "scans": [
+        "alm_2471_112498_6egn8geoyz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALEXANDRINA",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.249Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.249Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "116pjk3wf7dmgde"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.249Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.249Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "tesyxzqgtw6ih7p"
+        }
+      ],
+      "source_id": "1fyy2vpwbjyas7n"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 112500, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dies Seelenauge hab' ich verliehen, / Des edlen Wuchses Graziengestaltung,",
+      "language": [],
+      "musenalm_id": 112499,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophie Müller. / K.K. Hofschauspielerin zu Wien",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sophie Müller. / K.K. Hofschauspielerin zu Wien",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.250Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.250Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "d5rahek3sqwcpil"
+        }
+      ],
+      "source_id": "zre7ftvin7aorme"
+    },
+    {
+      "annotation": "s. Gedicht INr 112499, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.222Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112500,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SOPHIE MÜLLER / K.K. Hofschauspielerin in Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_2471_112500_kgdv7nqsld.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SOPHIE MÜLLER / K.K. Hofschauspielerin in Wien",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.250Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.250Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "5zxafo6gl5hutuf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.250Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.250Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "q8i6hryjvfiy83t"
+        }
+      ],
+      "source_id": "m8t6b02bmoh57mw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 112502, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Der grüne Donnerstag verging in Nacht; mein Haus war schon verschlossen. Die Lampe schien vom Gewölbe meines Zimmers zu ebener Erde.",
+      "language": [],
+      "musenalm_id": 112501,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstlerehe. / Ein Stillleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Künstlerehe. / Ein Stillleben",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.250Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.250Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "c5ndjlxhyutjfin"
+        }
+      ],
+      "source_id": "hlbbcjls1fgtlw0"
+    },
+    {
+      "annotation": "Illustration zu »Künstlerehe. Ein Stillleben« von L. Schefer INr 112501, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112502,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AGNES / Albrecht Dürers Frau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Vien.",
+      "scans": [
+        "alm_2471_112502_mkafeea8jg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AGNES / Albrecht Dürers Frau",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.250Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.250Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "01x7pmnf6o8s8mc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.250Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.250Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "mo5ov7kw664u4z7"
+        }
+      ],
+      "source_id": "z0ucbe9uhhlpyho"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.226Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei Fr. Vieweg und Sohn in Braunschweig",
+      "language": [],
+      "musenalm_id": 112503,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei Fr. Vieweg und Sohn in Braunschweig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "edrm68sbtkal5m1"
+    }
   ],
   "agents": [
     {

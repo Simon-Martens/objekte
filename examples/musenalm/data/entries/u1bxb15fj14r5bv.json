@@ -46,7 +46,26 @@
   "year": 0,
   "editor": "",
   "items": [
-    "j9gr67du9jnqq86"
+    {
+      "annotation": "TA von: Bardenalmanach (Gräter, v. Münchhausen) 1802. Biblio: 11320. Ohne Ortsangabe. Kartonierter Einband. Mit 248 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.676Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100642",
+      "location": "105D08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.676Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "j9gr67du9jnqq86"
+    }
   ],
   "contents": [],
   "agents": []

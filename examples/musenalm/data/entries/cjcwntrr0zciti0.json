@@ -48,35 +48,1150 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "04k7tgoe3olbnz9"
+    {
+      "annotation": "Petit / ALMANACH / pour l'an 1803, / avec / six fables de Mr. Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec l'approbation de l' Académie / royale des sciences. / Berlin, / chez J. F. Unger\nFormat 4,2x7: Verlagsbroschur",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.745Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406846",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.745Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "04k7tgoe3olbnz9"
+    }
   ],
   "contents": [
-    "rtj8i7tyf5rll57",
-    "yiw0y6p25gh671i",
-    "f3lipfcgeym30g9",
-    "ixibrzyrq77fde3",
-    "6076669vwxa8k05",
-    "6f8o4vhzdyaafiu",
-    "dvn6rzj9kvcc963",
-    "i4msby0ydyblev9",
-    "c35uh377comllwa",
-    "vjg8wc3rq3m7rf2",
-    "shpzl7t4nt5042a",
-    "g40myvgi6d50odi",
-    "jfp725lujhlaafj",
-    "sgvhmhskqcabp06",
-    "mhix4658nlflxay",
-    "igp6ey9fa73kh26",
-    "mutt3s919c0hx4t",
-    "b5hm30qth0blkfd",
-    "azgmmshdfrgwudv",
-    "66mowcbxsnccg3l",
-    "2bloebe6zhz9i6n",
-    "pm5f553yzlt4g4m",
-    "mw713l6cyz2mvld",
-    "1tl3m90ai8r58ji",
-    "0135jx8utpf040t",
-    "210uxk61q2e9j1i"
+    {
+      "annotation": "Titel verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.989Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96676,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschen-Kalender / auf das Jahr 1803, / mit / sechs Fabeln von Lafontaine, / deutsch und französisch / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der Königl. / Akademie der Wissenschaften. / Berlin bei J. F. Unger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4101_96676_5od2gtjoqi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschen-Kalender / auf das Jahr 1803, / mit / sechs Fabeln von Lafontaine, / deutsch und französisch / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der Königl. / Akademie der Wissenschaften. / Berlin bei J. F. Unger",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "rtj8i7tyf5rll57"
+    },
+    {
+      "annotation": "Titel recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96677,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Petit / ALMANACH / pour l'an 1803, / avec / six fables de Mr. Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec l'approbation de l' Académie / royale des sciences. / Berlin, / chez J. F. Unger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4101_96677_2qwg2wudx4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Petit / ALMANACH / pour l'an 1803, / avec / six fables de Mr. Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec l'approbation de l' Académie / royale des sciences. / Berlin, / chez J. F. Unger",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "yiw0y6p25gh671i"
+    },
+    {
+      "annotation": "Kalendarium deutsch u. französisch",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "f3lipfcgeym30g9"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar; nummeriert 1. /) Illustration zu »Die Auster und die Reisenden« von J. La Fontaine INr 96692, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96679,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96679_k1n0p6dcqc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 2.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "kaj3vjn26wdv41d"
+        }
+      ],
+      "source_id": "ixibrzyrq77fde3"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar; nummeriert 2. /) Illustration zu »Die Auster und die Reisenden« von J. La Fontaine INr 96692, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96680,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96680_2jpnxrcmnk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 4.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.732Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "xxyhddr39olqwrs"
+        }
+      ],
+      "source_id": "6076669vwxa8k05"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium März; nummeriert 3. /) Illustration zu »Die Schildkröte und die beiden Enten« von J. La Fontaine INr 96694, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96681,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 8.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96681_zp90sbi2ln.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 8.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.732Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "oni660jaomi6w2o"
+        }
+      ],
+      "source_id": "6f8o4vhzdyaafiu"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium April; nummeriert 4. /) Illustration zu »Die Schildkröte und die beiden Enten« von J. La Fontaine INr 96694, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96682,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 12.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96682_gt90p6ndvh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 12.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.732Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gbgd98kgwqvd8gv"
+        }
+      ],
+      "source_id": "dvn6rzj9kvcc963"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Mai; nummeriert 5. /) Illustration zu »Der Greis und die drey Jünglinge« von J. La Fontaine INr 96696, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96683,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 14.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96683_kwyx02dpxy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 14.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.732Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ga15zfko2307oa8"
+        }
+      ],
+      "source_id": "i4msby0ydyblev9"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juni; nummeriert 6. /) Illustration zu »Der Greis und die drey Jünglinge« von J. La Fontaine INr 96696, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.929Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96684,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 20.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96684_5hke61xfvo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 20.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.732Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3zuj9qggts6ci13"
+        }
+      ],
+      "source_id": "c35uh377comllwa"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juli; nummeriert 7. /) Illustration zu »Der Greis und die drey Jünglinge« von J. La Fontaine INr 96696, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96685,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 20.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96685_nxz0yqodb1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 20.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.732Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "wfacvjt9fanp5oa"
+        }
+      ],
+      "source_id": "vjg8wc3rq3m7rf2"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium August; nummeriert 8. /) Illustration zu »Der Greis und die drey Jünglinge« von J. La Fontaine INr 96696, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96686,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 20.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96686_brawmphgo6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 20.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.733Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "s3um0j3r8yvphdl"
+        }
+      ],
+      "source_id": "shpzl7t4nt5042a"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium September nummeriert 9. /) Illustration zu »Die Sonne und die Frösche« von J. La Fontaine INr 96698, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96687,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 24",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96687_pudk55rgm9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 24",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.733Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "hun5eim2fsho7yp"
+        }
+      ],
+      "source_id": "g40myvgi6d50odi"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Oktober nummeriert 10. /) Illustration zu »Der Weise und der Narr« von J. La Fontaine INr 96700, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.934Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96688,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 28.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96688_0v5w3iwplw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 28.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.733Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "s317ewi53t78zi7"
+        }
+      ],
+      "source_id": "jfp725lujhlaafj"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium November nummeriert 11. /) Illustration zu »Der Weise und der Narr« von J. La Fontaine INr 96700, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 30.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96689_fdrgomrikj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 30.",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.733Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "h3d7dgncqvuogxk"
+        }
+      ],
+      "source_id": "sgvhmhskqcabp06"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Dezember nummeriert 12. /) Illustration zu »Der Weise und der Narr« von J. La Fontaine INr 96700, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96690,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seite 30",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "1803 W. Jury fec.",
+      "scans": [
+        "alm_4101_96690_fplug22688.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seite 30",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.733Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "miypd5v1z8g50o5"
+        }
+      ],
+      "source_id": "mhix4658nlflxay"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 5 Fabeln von La Fontaine mit 5 Übersetzungen INr 96692-96701, Obj 17-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 96691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fabeln / von / Lafontaine. / FABLES / DE / LAFONTAINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fabeln / von / Lafontaine. / FABLES / DE / LAFONTAINE",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "igp6ey9fa73kh26"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des folgenden franz. Gedichts s. INr 96693, Obj 18 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96679, 96680; Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Zwey Pilger gingen längs dem / Strande, / Und fanden, von der Fluth bespühlt, / Die schönste Auster in dem San- / de.",
+      "language": [],
+      "musenalm_id": 96692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Auster und die Rei- / senden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Auster und die Rei- / senden",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.733Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "6y55tx5brfpm3xk"
+        }
+      ],
+      "source_id": "mutt3s919c0hx4t"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) mit einer Übersetzung s. Gedicht INr 96692, Obj 17 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96679, 96680; Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Un jour deux Pélerins sur le sable rencontrent / Une Huître que le flot y venoît / d'apporter;",
+      "language": [],
+      "musenalm_id": 96693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / L'huitre et les Plaideurs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / L'huitre et les Plaideurs",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "j97lypospgwt9x3"
+        }
+      ],
+      "source_id": "b5hm30qth0blkfd"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr INr 96695, Obj 20 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96681, 96682; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Schildkröten pflegen sonst ge- / setzt und klug zu seyn. / Doch einmal fiel es einer ein,",
+      "language": [],
+      "musenalm_id": 96694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Schildkröte und die beiden Enten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Schildkröte und die beiden Enten",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "ewv8l26ex26g0yv"
+        }
+      ],
+      "source_id": "azgmmshdfrgwudv"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) mit einer Übersetzung s. Gedicht INr 96694, Obj 19 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96681, 96682; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Une Tortue étroit, à la tête légère, / Qui, lasse de son trou, voulut voir / le pays",
+      "language": [],
+      "musenalm_id": 96695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / La Tortue et le deux / Canards",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / La Tortue et le deux / Canards",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "9kft7lzn8eq0r2k"
+        }
+      ],
+      "source_id": "66mowcbxsnccg3l"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96697, Obj 22 /) mit 4 Illustrationen s. Graphiken im Kalendarium INr 96683-96686; Obj 8-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Ein achtzigjährige Greis pflanzt / einen Lindenbaum. / Der Mann ist kindisch; noch am / Rande des Grabes, pflanzen?",
+      "language": [],
+      "musenalm_id": 96696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Greis und die drey / Jünglinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Greis und die drey / Jünglinge",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "sbk8w000ibqq9mc"
+        }
+      ],
+      "source_id": "2bloebe6zhz9i6n"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) mit einer Übersetzung s. Gedicht INr 96696, Obj 21 /) mit 4 Illustrationen s. Graphiken im Kalendarium INr 96683-96686; Obj 8-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Un octogénaire plantoit / Passe encore de bâtir, mais planter àcet âge!",
+      "language": [],
+      "musenalm_id": 96697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Le Vieillard et les trois / jeunes Hommes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Le Vieillard et les trois / jeunes Hommes",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "ebm29ny6iqo6khu"
+        }
+      ],
+      "source_id": "pm5f553yzlt4g4m"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96699, Obj 24 /) mit einer Illustration s. Graphik im Kalendarium INr 96687, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Das Land der Frösche sollte / nie, / Was ihm die Sonne war, / vergessen",
+      "language": [],
+      "musenalm_id": 96698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Sonne und die Frösche. / Nach einer lateinischen Fabel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Sonne und die Frösche. / Nach einer lateinischen Fabel",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.832Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "1pnruzp5isb7o8l"
+        }
+      ],
+      "source_id": "mw713l6cyz2mvld"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) mit einer Übersetzung s. Gedicht INr 96698, Obj 23 /) mit einer Illustration s. Graphik im Kalendarium INr 96687, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Les filles du limon tiroient du roi / des astres / Assistance et protection.",
+      "language": [],
+      "musenalm_id": 96699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Le Soleil et les Grenouilles. / IMITATION D'UNE FABLE LATINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Le Soleil et les Grenouilles. / IMITATION D'UNE FABLE LATINE",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.838Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.838Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "7ur9nj2mvcusobp"
+        }
+      ],
+      "source_id": "1tl3m90ai8r58ji"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96701, Obj 25 /) mit 3 Illustrationen s. Graphiken im Kalendarium INr 96688-96690, Obj 13-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Aesop bewies zu seiner Zeit / Die schwerste Kunst in unsern / Tagen / Die Kunst, die Narren zu er- / tragen,",
+      "language": [],
+      "musenalm_id": 96700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Weise und der Narr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Weise und der Narr",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.839Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "goqqj6tbsiq8w3p"
+        }
+      ],
+      "source_id": "0135jx8utpf040t"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) mit einer Übersetzung s. Gedicht INr 96700, Obj 25 /) mit 3 Illustrationen s. Graphiken im Kalendarium INr 96688-96690, Obj 13-15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Certain Fou poursuivoit à coups / de pierre un Sage. / Le Sage se retourne, et lui dit: / Mon ami, c'est fort bien fait à toi, reçois cet / ècu-ci:",
+      "language": [],
+      "musenalm_id": 96701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Un Fou et un Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Un Fou et un Sage",
+      "updated": "2014-05-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.839Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.839Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "j5ngx1k5lr6y6b3"
+        }
+      ],
+      "source_id": "210uxk61q2e9j1i"
+    }
   ],
   "agents": [
     {

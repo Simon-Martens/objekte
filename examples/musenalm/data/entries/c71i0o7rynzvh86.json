@@ -48,45 +48,1536 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "s7m19k3edlhfa28"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nVerlagsbroschur; VB, recto vT, verso M, verso G, T, S I-Verz, SS 1-404",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101008",
+      "location": "105J02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "s7m19k3edlhfa28"
+    }
   ],
   "contents": [
-    "cpn0kt8na8z6ug4",
-    "tib4r84f24f5g82",
-    "4525ga70humnuno",
-    "1okkk34zi5317fa",
-    "osq1oqx8t2atbyt",
-    "6dsxme37jkbllix",
-    "2bbljy3hv84kbzn",
-    "ndblpm1c0ml5tfq",
-    "50a6zydy9keer8e",
-    "jcv91xevr7auwk1",
-    "0i199j2nqsjo6u4",
-    "0od3tdafb86hr19",
-    "63h177ijcsrs1gw",
-    "0hhnwgotfs3tsf1",
-    "zcns4pmhjgf349v",
-    "9mzt4nh363m3eoo",
-    "q32vbcgk7hjprm8",
-    "1aj7rkdcjby9nxx",
-    "vrvqeb0c7o2v5pe",
-    "2kssiysodcdxy9v",
-    "auryct8mpl5cas1",
-    "qtecpw420ia4l00",
-    "5kwiu0190k8vcny",
-    "dx70nnds5ip2tl1",
-    "s71yc2bhx31fai9",
-    "tse3vdwbyb21unk",
-    "nkggn4u8lbq9jyi",
-    "b6645hn7yvmgd4d",
-    "ayuitvwbkcz8ozo",
-    "vptns6k0nh93ig5",
-    "50pl54e3gk9zwre",
-    "t3axzzskl9vwdic",
-    "tq6t3jpd3rpn0na",
-    "lz59hg2n5rb65im",
-    "6m00hlw0hitgdce",
-    "7pbvjl4r32j289h"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.846Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62262,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1839",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_65_62262_zsqea3z7w6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1839",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "cpn0kt8na8z6ug4"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.671Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18803,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1839",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1839",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "tib4r84f24f5g82"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18805,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "4525ga70humnuno"
+    },
+    {
+      "annotation": "Titelportrait (Carlsruhe im Kunst-Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2038,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alphonse de Lamartine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ed. Schuler",
+      "scans": [
+        "alm_65_2038_9d2shfjlzw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alphonse de Lamartine",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "51kae3sjwoa0nuw"
+        }
+      ],
+      "source_id": "1okkk34zi5317fa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18801,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1839 / Neue Folge. / erster Jahrgang. / Mit dem Bildnisse Lamartine's. / Leipzig: / F. A. Brockhaus. / 1839",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_65_18801_dnf4iihqwr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1839 / Neue Folge. / erster Jahrgang. / Mit dem Bildnisse Lamartine's. / Leipzig: / F. A. Brockhaus. / 1839",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "osq1oqx8t2atbyt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.670Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18802,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "6dsxme37jkbllix"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.882Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einem der härtesten Winter war gegen Ende des Februar ein sonderbarer Tumult gewesen,",
+      "language": [],
+      "musenalm_id": 2033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Des Lebens Überfluß. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Des Lebens Überfluß. / Eine Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.998Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "54kb224yisg5nl8"
+        }
+      ],
+      "source_id": "2bbljy3hv84kbzn"
+    },
+    {
+      "annotation": "Sammlung von 21 Briefen mit Einleitung, Anmerkungen und Anhang von A. von Binzer INr 9375, 18806-18828, Obj 8-31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.882Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Goethe's Briefe / an die / Gräfin Auguste zu Stolberg, verwitwete / Gräfin von Bernstorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Goethe's Briefe / an die / Gräfin Auguste zu Stolberg, verwitwete / Gräfin von Bernstorf",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "ndblpm1c0ml5tfq"
+    },
+    {
+      "annotation": "Einleitung zu Goethes Briefen (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.919Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Die Gräfin Auguste Stolberg starb in Kiel den 30. Juni 1835; zweiundachtzigjährig,",
+      "language": [],
+      "musenalm_id": 9375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Goethe's Briefe / an die / Gräfin Auguste zu Stolberg, verwitwete / Gräfin Bernstorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Binzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Goethe's Briefe / an die / Gräfin Auguste zu Stolberg, verwitwete / Gräfin Bernstorf",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.187Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.187Z",
+          "agent": "43tm148c4xp4c0d",
+          "source_id": "vaewbp0cv29m30k"
+        }
+      ],
+      "source_id": "50a6zydy9keer8e"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Meine Theure - ich will Ihnen keinen Namen geben, denn was sind die Nahmen Freundinn, Schwester, Geliebte, Braut, Gattin,",
+      "language": [],
+      "musenalm_id": 18806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Brief. / Der theuern Ungenandten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Brief. / Der theuern Ungenandten",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.025Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.025Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "btohljrg1098vp5"
+        }
+      ],
+      "source_id": "jcv91xevr7auwk1"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Wenn Sie sich, meine Liebe, einen Goethe vorstellen können,",
+      "language": [],
+      "musenalm_id": 18807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Brief. / Der teuern Ungenannten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Brief. / Der teuern Ungenannten",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.025Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.025Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "3ofabh0akym58ed"
+        }
+      ],
+      "source_id": "0i199j2nqsjo6u4"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Warum soll ich Ihnen nicht schreiben, warum wieder die Feder liegen lassen,",
+      "language": [],
+      "musenalm_id": 18808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.025Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.025Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "icfk6ym94ptqgh5"
+        }
+      ],
+      "source_id": "0od3tdafb86hr19"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Mir ist's wieder eine Zeit her für Wohl und Weh, dass ich nicht weis ob ich auf der Welt bin,",
+      "language": [],
+      "musenalm_id": 18809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Brief. / Augusten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Brief. / Augusten",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.026Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "yw1y9bcod1itefm"
+        }
+      ],
+      "source_id": "63h177ijcsrs1gw"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.870Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Hier Beste, ein Liedgen von mir darauf ich hab eine Melodie von Gretri umbilden lassen!",
+      "language": [],
+      "musenalm_id": 18810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.026Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.026Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "bjfl35o601pmiwy"
+        }
+      ],
+      "source_id": "0hhnwgotfs3tsf1"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Ich will Ihnen schreiben Gustgen liebe Schwester, ob ich gleich, wäre ich iezt bey Ihnen schwerlich reden würde.",
+      "language": [],
+      "musenalm_id": 18811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechster Brief. / Den 25. Jul. 75.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechster Brief. / Den 25. Jul. 75.",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.981Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.981Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "u12f5k7ybuh7ok6"
+        }
+      ],
+      "source_id": "zcns4pmhjgf349v"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Gustgen! Gustgen! Ein Wort dass mir das Herz frey werde, nur einen Händedruck.",
+      "language": [],
+      "musenalm_id": 18812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebenter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Unruhige",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebenter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.982Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.982Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "cby8xivbi29aihm"
+        }
+      ],
+      "source_id": "9mzt4nh363m3eoo"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Ja lieb Gustgen gleich fang ich an den 14. Sept. im Moment da ich ihren Brief endige,",
+      "language": [],
+      "musenalm_id": 18813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.950Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "hbhhkpk2p60n50o"
+        }
+      ],
+      "source_id": "q32vbcgk7hjprm8"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Wieder angefangen Mittwoch den 20. ob zum Zerreissen oder wie!",
+      "language": [],
+      "musenalm_id": 18814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.956Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.956Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "yip7wre5a3pq5ta"
+        }
+      ],
+      "source_id": "1aj7rkdcjby9nxx"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Da ist ein Briefgen von Goethgen, und zwei Zeilen von mir, mein Gustchen, wie lieb ich Dich,",
+      "language": [],
+      "musenalm_id": 18815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Stolberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "gtq8zou6jpsfpy4",
+          "source_id": "te6p6vv7r0chijq"
+        }
+      ],
+      "source_id": "vrvqeb0c7o2v5pe"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Könntest du mein Schweigen verstehen! Liebstes Gustgen!",
+      "language": [],
+      "musenalm_id": 18816,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elfter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elfter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "iczzlmj7iivfhbq"
+        }
+      ],
+      "source_id": "2kssiysodcdxy9v"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Krank Gustgen! dem Todte nah! Gerettet liebster Engel, und das alles auf einmal",
+      "language": [],
+      "musenalm_id": 18817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwölfter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwölfter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "z8y3wtj1nidwtvl"
+        }
+      ],
+      "source_id": "auryct8mpl5cas1"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Ach Gustgen! Welcher Anblick! so viel von deiner Hand! der ersehnten erflehten",
+      "language": [],
+      "musenalm_id": 18818,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dreizehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dreizehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "n70svdeqaah5ip0"
+        }
+      ],
+      "source_id": "qtecpw420ia4l00"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Den 17. May. Morgens 8. Guten Morgen Gustgen. Nichts als dies zur Grundlage eines Tagebuchs für dich.",
+      "language": [],
+      "musenalm_id": 18819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierzehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierzehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "o3kpolr3qmdhxr9"
+        }
+      ],
+      "source_id": "5kwiu0190k8vcny"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Den 28. Aug. 1776. Guten Morgen Gustgen! Wie ich aus dem Bette steige guten Morgen.",
+      "language": [],
+      "musenalm_id": 18820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Funfzehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Funfzehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "kg63jw47hqb3m7x"
+        }
+      ],
+      "source_id": "dx70nnds5ip2tl1"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Danck Gustgen dass du aus deiner Ruhe mir in die Unruhe des Lebens einen Laut herüber gegeben hast.",
+      "language": [],
+      "musenalm_id": 18821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechzehnter Brief. / An Augusten Gräfinn Stollberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechzehnter Brief. / An Augusten Gräfinn Stollberg",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "qij7pz9r8pkkx3b"
+        }
+      ],
+      "source_id": "s71yc2bhx31fai9"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Beste! heute nur ein Wort, und ein paar Lieder von mir,",
+      "language": [],
+      "musenalm_id": 18822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebzehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebzehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.957Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.957Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "go1alb69w6n8wyk"
+        }
+      ],
+      "source_id": "tse3vdwbyb21unk"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Für Ihr Andencken liebes Gustgen danck ich Ihnen recht herzlich.",
+      "language": [],
+      "musenalm_id": 18823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achtzehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achtzehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.904Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.904Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "e2zl0oozevnq7ox"
+        }
+      ],
+      "source_id": "nkggn4u8lbq9jyi"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Ihr Brief meine Beste hat mich beschämt, und mich meine Nachlässigkeit verwünschen gemacht.",
+      "language": [],
+      "musenalm_id": 18824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunzehnter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunzehnter Brief",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.525Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.525Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "mirdx2x39hrmqoa"
+        }
+      ],
+      "source_id": "b6645hn7yvmgd4d"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7) mit einer Antwort Goethes INr 18826, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Würden Sie, wenn ich mich nicht nennte, die Züge der Vorzeit, die Stimme, die Ihnen sonst willkommen war, wieder erkennen?",
+      "language": [],
+      "musenalm_id": 18825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwanzigster Brief. / Die Gräfin Bernstorff an Goethe. / Bordesholm, den 15. Octbr. 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gräfin Bernstorff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwanzigster Brief. / Die Gräfin Bernstorff an Goethe. / Bordesholm, den 15. Octbr. 1822",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "ayuitvwbkcz8ozo"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7) s. INr 18825, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Von der frühsten, im Herzen wohlbekannten, mit Augen nie gesehenen theuren Freundin endlich wieder einmal Schriftzüge",
+      "language": [],
+      "musenalm_id": 18826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einundzwanzigster Brief. / Antwort. / Goethe's letzter Brief an Auguste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einundzwanzigster Brief. / Antwort. / Goethe's letzter Brief an Auguste",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.486Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "ml1gtacw64sk2v6"
+        }
+      ],
+      "source_id": "vptns6k0nh93ig5"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Neben den hier abgedruckten Briefen an die Gräfin Bernstorff lag noch ein kleiner Brief von Goethe' s Hand,",
+      "language": [],
+      "musenalm_id": 18827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anhang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Binzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anhang",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.486Z",
+          "agent": "43tm148c4xp4c0d",
+          "source_id": "s6nk6px86de6o6p"
+        }
+      ],
+      "source_id": "50pl54e3gk9zwre"
+    },
+    {
+      "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7) Anhang INr 18827, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Mir ist wie mir's seyn kann. Dank euch Ungeheuern für eure Briefe, und so das Meerweib nicht schreibt,",
+      "language": [],
+      "musenalm_id": 18828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Goethe an die Brüder Stolberg. / (Wahrscheinlich Anfang Oktober 1775)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Goethe an die Brüder Stolberg. / (Wahrscheinlich Anfang Oktober 1775)",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.378Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "sxivxl5lfner8a4"
+        }
+      ],
+      "source_id": "t3axzzskl9vwdic"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Der Abend senkte sich schon über der fruchtbaren Landschaft, welche die Loire durchströmt,",
+      "language": [],
+      "musenalm_id": 2035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Die Entführung. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Freiherr v. Eichendorff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Die Entführung. / Eine Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.983Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.983Z",
+          "agent": "h99uxdryiugeh6h",
+          "source_id": "zhb860kl3cmrlzu"
+        }
+      ],
+      "source_id": "tq6t3jpd3rpn0na"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Der größte fast einzige furchtbare Aufstand des Volkes im türkischen Reiche fand 1420 statt.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Männer gibt es, welche die Menschheit heilig spricht, nicht eine auf Zeit privilegirte Rotte hie und da.",
+      "language": [],
+      "musenalm_id": 2036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der Gekreuzigte / oder / Nichts Altes unter der Sonne. / Novelle. / Die Welt ist schaffbar, ein Kind mit großen, / Anlagen, eine große Anlage in Kinderhänden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der Gekreuzigte / oder / Nichts Altes unter der Sonne. / Novelle. / Die Welt ist schaffbar, ein Kind mit großen, / Anlagen, eine große Anlage in Kinderhänden",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.984Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.984Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "rz708fc1uhv4bmm"
+        }
+      ],
+      "source_id": "lz59hg2n5rb65im"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Es war an einem schönen Junitage, das Gras lag in langen Reihen und began unter dem Strahl der Sonne zu welken und zu duften.",
+      "language": [],
+      "musenalm_id": 2037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Irrwisch-Fritze. / Idyll-Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Berthold",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Irrwisch-Fritze. / Idyll-Novelle",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "6m00hlw0hitgdce"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62263,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig. / F. A. Brockhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_65_62263_04058p1nyn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig. / F. A. Brockhaus",
+      "updated": "2000-08-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "7pbvjl4r32j289h"
+    }
   ],
   "agents": [
     {

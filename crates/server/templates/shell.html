@@ -1,27 +1,16 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Objekte</title>
+<html lang="{{ ui_language() }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Objekte</title>
 {% include "theme-init.html" %}{{ assets|safe }}</head>
 <body data-indicator:_pending data-signals="{_pending:false}" data-on:navigate__window="@get(evt.detail.url, {filterSignals:{include:/^$/}})">
-<div id="loading-region" data-show="$_pending" role="status" hidden data-attr:hidden="!$_pending">Working…</div>
-<a class="skip-link" href="#workspace">Skip to content</a>
+<div id="loading-region" data-show="$_pending" role="status" hidden data-attr:hidden="!$_pending">{{ "Working\u2026"|t }}</div>
+<a class="skip-link" href="#workspace">{{ "Skip to content"|t }}</a>
 {{ preferences|safe }}
 <div id="admin-shell">
-  <header id="admin-header">
-    <div class="header-brand">
-      <a href="/" data-nav class="brand"><span class="brand-mark"><i class="ri-stack-line" aria-hidden="true"></i></span>objekte</a>
-      <button type="button" class="icon-button" aria-label="Hide sidebar" aria-controls="project-navigation" aria-expanded="true" data-sidebar-toggle><i class="ri-side-bar-line" aria-hidden="true"></i></button>
-    </div>
-    <div class="header-tools">
-      {% include "theme-switch.html" %}
-      {% if actor.role == "administrator" %}<a data-nav href="/admin" class="icon-button" data-tooltip="Administration" aria-label="Administration"><i class="ri-shield-user-line" aria-hidden="true"></i></a>{% endif %}
-      <a data-nav href="/account" class="account-link" aria-label="Your account: {{ actor.name }}"><i class="ri-user-3-line" aria-hidden="true"></i><span>{{ actor.name }}</span></a>
-      <form method="post" action="/auth/logout"><input type="hidden" name="csrf" value="{{ actor.csrf }}"><button class="icon-button" data-tooltip="Sign out" aria-label="Sign out"><i class="ri-logout-box-r-line" aria-hidden="true"></i></button></form>
-    </div>
-  </header>
+  {% include "header.html" %}
   {{ navigation|safe }}
-  <div class="sidebar-resizer" role="separator" aria-label="Sidebar width" aria-orientation="vertical" aria-controls="project-navigation" aria-valuemin="180" aria-valuemax="520" aria-valuenow="232" tabindex="0" data-sidebar-resizer></div>
+  <div class="sidebar-resizer" role="separator" aria-label="{{ "Sidebar width"|t }}" aria-orientation="vertical" aria-controls="project-navigation" aria-valuemin="180" aria-valuemax="520" aria-valuenow="232" tabindex="0" data-sidebar-resizer></div>
   {{ content|safe }}
-  <dialog id="navigation-dialog" class="confirm-dialog" aria-labelledby="navigation-title"><form method="dialog"><h2 id="navigation-title">Leave this view?</h2><p>Your changes are not saved. You can return to this draft in this tab until it expires.</p><div class="actions"><button value="stay" autofocus>Keep editing</button><button value="leave" class="warning">Leave view</button></div></form></dialog>
+  <dialog id="navigation-dialog" class="confirm-dialog" aria-labelledby="navigation-title"><form method="dialog"><h2 id="navigation-title">{{ "Leave this view?"|t }}</h2><p>{{ "Your changes are not saved. You can return to this draft in this tab until it expires."|t }}</p><div class="actions"><button value="stay" autofocus>{{ "Keep editing"|t }}</button><button value="leave" class="warning">{{ "Leave view"|t }}</button></div></form></dialog>
   <div id="notification-region" role="status" aria-live="polite"></div><div id="overlay-region"></div>
 </div>
 </body></html>

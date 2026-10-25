@@ -49,30 +49,866 @@
   "year": 1792,
   "editor": "",
   "items": [
-    "sv1vtr9a9ykmvex"
+    {
+      "annotation": "Übersetzung nach »ALMANACH HISTORIQUE DE LA RÉVOLUTION FRANÇOISE, POUR L'ANNÉE 1792, RÉDIGÉ Par M. J. P. RABAUT. On y a joint l'Acte constitutionnel des Francois avec le Discours d'acceptation du Roi. Ouvrage orné de gravures d'après les dessins de Moreau. A PARIS, Chez ONFROY, Libraire, rue S.-Victor, No. 11. A STRASSBOURG, Chez J. C. TREUTTEL, Libraire. De l'Imprimerie de DIDOT L'AÎNÉ; alm-3776 <br> hier: zusätzliche chronol. Tabelle und Neustich der Graphiken; s.a. Taschenbuch der Franken enth. die Geschichte der franz. Revolution  1792 (Übers. von: Almanach historique de la Revolution Francoise 1792)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.718Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407172",
+      "location": "105K08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.718Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "sv1vtr9a9ykmvex"
+    }
   ],
   "contents": [
-    "f71a1swbzbq34ld",
-    "wu8ngz2fqcsp696",
-    "uirm19cuomb3n3f",
-    "c8zcr8ak2gi1vne",
-    "76stbcp9tajk8hf",
-    "2jqe860s9klyzh0",
-    "iywobn4prtvhuwh",
-    "ysya38k9taxu6gf",
-    "ka91u4jclcnxbcz",
-    "auszjrkobdoj655",
-    "bdd3jvt0ylk3hc7",
-    "6kznfnvfw9b0njn",
-    "trxzovh982mzr2t",
-    "volk3ikt7lftrfb",
-    "7wuva7qhyl5rj9y",
-    "1xymz2n21pq2bn8",
-    "bngmoxjtcfd2uoj",
-    "fiwne4sv6ux62g2",
-    "lwlm87o72viyluv",
-    "0wtg4i56hqh3646",
-    "mar53unfu3rrv0g"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chronologische Tafel / der / vornehmsten Decrete und merkwür- / digsten Begebenheiten während / der Zeit der constituirenden Natio- / nal-Versammlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chronologische Tafel / der / vornehmsten Decrete und merkwür- / digsten Begebenheiten während / der Zeit der constituirenden Natio- / nal-Versammlung",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "f71a1swbzbq34ld"
+    },
+    {
+      "annotation": "chronologische Tabelle von Mai 1789 - Sept 1791 /) Diese Tabelle nicht in: Almanach historique de la révolution francoise",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chronologische Tafel / der / vornehmsten Decrete und merkwür- / digsten Begebenheiten während / der Zeit der constituirenden Na- / tional-Versammlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chronologische Tafel / der / vornehmsten Decrete und merkwür- / digsten Begebenheiten während / der Zeit der constituirenden Na- / tional-Versammlung",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "wu8ngz2fqcsp696"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79986,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / der / Franken, / enthaltend / die Geschichte / der / französischen Revolution, / von / Hrn. Rabaut de St. Etienne / Mitglied der constituirenden / Nationalversammlung, / nebst der / Constitutions-Akte. / Aus dem Französischen übersezt. / Mit Kupfern. / Straßburg 1792. / bey Johann Georg Treuttel, / zu Paris, bey Onfroi und Denne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3775_79986_6j0t6ljk5a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / der / Franken, / enthaltend / die Geschichte / der / französischen Revolution, / von / Hrn. Rabaut de St. Etienne / Mitglied der constituirenden / Nationalversammlung, / nebst der / Constitutions-Akte. / Aus dem Französischen übersezt. / Mit Kupfern. / Straßburg 1792. / bey Johann Georg Treuttel, / zu Paris, bey Onfroi und Denne",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "uirm19cuomb3n3f"
+    },
+    {
+      "annotation": "Titelgraphik. paginiert Pl. 1.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.532Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79987,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach Jahrtausenden kömmt er / unsere rohen Gesetze zu beßern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau del. d'Argent sc.",
+      "scans": [
+        "alm_3775_79987_dj2mq2ylog.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nach Jahrtausenden kömmt er / unsere rohen Gesetze zu beßern",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.806Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "95y3xflqej5sjn4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.806Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "xvpnzn3u1ru1c6s"
+        }
+      ],
+      "source_id": "c8zcr8ak2gi1vne"
+    },
+    {
+      "annotation": "mit 5 Illustrationen s. Graphiken INr 79989-79993, Obj 6-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.533Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ich habe mir vorgenommen, die Geschichte der französischen Revolution in einen engen Raum zusammen zu drängen, so daß dieselbe allen Lesern faßlich, desto leichter im rechten Licht bekannt, und der widrige Eindruck, den die Freiheitsfeinde,",
+      "language": [],
+      "musenalm_id": 79988,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurzgefaßte / Geschichte / der / französischen Revolution",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Rabaut",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurzgefaßte / Geschichte / der / französischen Revolution",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "w8exdxoc346p0be",
+          "source_id": "6giw51uolez8x3j"
+        }
+      ],
+      "source_id": "76stbcp9tajk8hf"
+    },
+    {
+      "annotation": "paginiert Pl. 2. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79989,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eid der Volksrepraesententen im Ballhause / Den 20ten Junius 1789",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inv. Guerin sculp.",
+      "scans": [
+        "alm_3775_79989_bkws3db6bt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eid der Volksrepraesententen im Ballhause / Den 20ten Junius 1789",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "qbg27dxfg1bifoz"
+        }
+      ],
+      "source_id": "2jqe860s9klyzh0"
+    },
+    {
+      "annotation": "paginiert Pl. 3. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79990,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eroberung der Bastille. / Den 14ten Julius 1789",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inv. Guerin sculp.",
+      "scans": [
+        "alm_3775_79990_tlzcs1r3wy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eroberung der Bastille. / Den 14ten Julius 1789",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "1ostubzaj2ccgz5"
+        }
+      ],
+      "source_id": "iywobn4prtvhuwh"
+    },
+    {
+      "annotation": "paginiert Pl. 4. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79991,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einzug des Königs in Paris. / Den 17ten Julius 1789",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inv. le Roy sc",
+      "scans": [
+        "alm_3775_79991_aapx2t6i8y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einzug des Königs in Paris. / Den 17ten Julius 1789",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "q22dllesvzbyli1",
+          "source_id": "fbkxkgaukjwatqp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "t2uqd19f3wmlw2m"
+        }
+      ],
+      "source_id": "ysya38k9taxu6gf"
+    },
+    {
+      "annotation": "paginiert Pl. 5. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79992,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bundesfeyer der Franken. / den 14ten Julius 1790",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau del. d'Argent sc.",
+      "scans": [
+        "alm_3775_79992_k1lar7exkk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bundesfeyer der Franken. / den 14ten Julius 1790",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "4bz12ypvomthsvn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.807Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "v2okc5q12v2eztg"
+        }
+      ],
+      "source_id": "ka91u4jclcnxbcz"
+    },
+    {
+      "annotation": "paginiert Pl. 6. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79993,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der König unterschreibt der Nat. Vers. / die neue Constitution der Franken. / Den 14ten Sept. 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. Moreau inventit 1792 J. B. M. Dupreel sculp.",
+      "scans": [
+        "alm_3775_79993_6o2gzcr7yn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der König unterschreibt der Nat. Vers. / die neue Constitution der Franken. / Den 14ten Sept. 1791",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "e31tdrv7ukpd3de",
+          "source_id": "tizqhbtgppjxlda"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "6v2mea0laepybs2",
+          "source_id": "zhezidnaukdglc3"
+        }
+      ],
+      "source_id": "auszjrkobdoj655"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79994,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "bdd3jvt0ylk3hc7"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79995,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Politische Betrachtungen / über / die gegenwärtigen Zeitläufte / von / J. P. Rabaut, / als / ein Anhang zu seinem Entwurfe / der / Geschichte / der / französischen Revolution. / Straßburg 1792. / bey Johann Georg Treuttel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Politische Betrachtungen / über / die gegenwärtigen Zeitläufte / von / J. P. Rabaut, / als / ein Anhang zu seinem Entwurfe / der / Geschichte / der / französischen Revolution. / Straßburg 1792. / bey Johann Georg Treuttel",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "6kznfnvfw9b0njn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Als ich die Geschichte der französischen Revolution niederschrieb, boten sich mir mancherlei Betrachtungen dar, von denen ich aber um den Gang der Erzehlung nicht zu unterbrechen, und dieselbe nicht zu weit auszudehnen, keinen Gebrauch machen durfte.",
+      "language": [],
+      "musenalm_id": 79996,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Politische Betrachtungen / über / die gegenwärtigen Zeitläufte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. Rabaut [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Politische Betrachtungen / über / die gegenwärtigen Zeitläufte",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.922Z",
+          "agent": "w8exdxoc346p0be",
+          "source_id": "ll6djgxakqjimuk"
+        }
+      ],
+      "source_id": "trxzovh982mzr2t"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79997,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urkunde der / französischen Reichsverfassung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urkunde der / französischen Reichsverfassung",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "volk3ikt7lftrfb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Stellvertreter der französischen Nation, zu einer Nationalversammlung constituirt, haben, in Erwägung, daß Unwissenheit, Hintansetzung oder Verachtung der Rechte des Menschen die einzige Ursache des allgemeinen Unglücks,",
+      "language": [],
+      "musenalm_id": 79998,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deklaration / der / Rechte des Menschen und des / Bürgers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deklaration / der / Rechte des Menschen und des / Bürgers",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "7wuva7qhyl5rj9y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "In der Absicht, die französische Constitution nach den eben anerkannten und deklarirten Grundsäzen vestzusezen, hebt die Nationalversammlung alle jene Einrichtungen, welche die Freiheit und die Gleichheit der Rechte verlezen, unwiderruflich auf.",
+      "language": [],
+      "musenalm_id": 79999,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Französische Reichsverfassung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Französische Reichsverfassung",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "1xymz2n21pq2bn8"
+    },
+    {
+      "annotation": "Es folgen: Brief des Königs, Eid des Königs und Antwort Thourets INr 80001-80003, Obj 18-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Den dreizehnten September sandte der König durch den Groß-Siegelbewahrer der Nationalversammlung nachstehenden von ihm durchaus eigenhändig geschriebenen Brief.",
+      "language": [],
+      "musenalm_id": 80000,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzählung dessen, was bei der / Uebergebung der Constitution / an Ludwig XVI. und dessen / feierlicher Annehmung und Be- / schwörung derselben sich zugetragen hat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzählung dessen, was bei der / Uebergebung der Constitution / an Ludwig XVI. und dessen / feierlicher Annehmung und Be- / schwörung derselben sich zugetragen hat",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "bngmoxjtcfd2uoj"
+    },
+    {
+      "annotation": "Erzählung dessen, was bei der Uebergebung der Constitution an Ludwig XVI. und dessen feierlicher Annehmung und Beschwörung derselben sich zugetragen hat (Sammlung INr 80000, Obj 17) [Brief des Königs an die Nationalversammlung]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.257Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Meine Herren, ich habe die von Ihnen mir zur Annehmung überreichte Constitutions-Urkunde mit aller Aufmerksamkeit untersucht",
+      "language": [],
+      "musenalm_id": 80001,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Herren, ich habe die von Ihnen mir zur Annehmung überreichte Constitutions-Urkunde mit aller Aufmerksamkeit untersucht…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "fiwne4sv6ux62g2"
+    },
+    {
+      "annotation": "Erzählung dessen, was bei der Uebergebung der Constitution an Ludwig XVI. und dessen feierlicher Annehmung und Beschwörung derselben sich zugetragen hat (Sammlung INr 80000, Obj 17) [Eid des Königs vor der Nationalversammlung]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Meine Herren! Ich komme, um die gestern geschehene Annehmung der Constitution hier feierlich zu bestätigen.",
+      "language": [],
+      "musenalm_id": 80002,
+      "musenalm_pagination": [
+        "3. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Herren! Ich komme, um die gestern geschehene Annehmung der Constitution hier feierlich zu bestätigen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "lwlm87o72viyluv"
+    },
+    {
+      "annotation": "Erzählung dessen, was bei der Uebergebung der Constitution an Ludwig XVI. und dessen feierlicher Annehmung und Beschwörung derselben sich zugetragen hat (Sammlung INr 80000, Obj 17) [Entgegnung des Präsidenten der Nationalversammlung Thouret]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Sire! Von alten Mißbräuchen, die bisher über die guten Absichten der Könige siegten, und dem Ansehen des Thrones unaufhörlich würden getrozt haben, war Frankreich niedergedrückt.",
+      "language": [],
+      "musenalm_id": 80003,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sire! Von alten Mißbräuchen, die bisher über die guten Absichten der Könige siegten, und dem Ansehen des Thrones unaufhörlich würden getrozt haben, war Frankreich niedergedrückt.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "0wtg4i56hqh3646"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 80004,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-02-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "mar53unfu3rrv0g"
+    }
   ],
   "agents": [
     {

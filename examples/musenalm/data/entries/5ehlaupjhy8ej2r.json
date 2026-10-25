@@ -49,33 +49,995 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "16vh54sd7nloumh"
+    {
+      "annotation": "1820 - 1828 u. 1838.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.701Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108677",
+      "location": "105L07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.701Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "16vh54sd7nloumh"
+    }
   ],
   "contents": [
-    "bok9r2bs50o6a3a",
-    "0xlitgx0a1yf97y",
-    "w4b70ioq0k7hc7c",
-    "1z5uzzxu9bqqdks",
-    "dg8vqaofljegne3",
-    "ori2al0fd7a13sn",
-    "m7e4g25bwsq4kf0",
-    "pm9k6wuc80rnpqv",
-    "zwaj2d9llspgabt",
-    "373cm4r59f99nji",
-    "uf2kz79weeqyopg",
-    "876mqe8fwy9spld",
-    "p6ciywubqdg4ly3",
-    "ndfamjslv8xtblo",
-    "w87lem3jez0ccc5",
-    "6f7abdd81nrf6gd",
-    "n6oj62psmn966bd",
-    "l3lndz85bdyva9m",
-    "ufgd8vwt0ucewin",
-    "rkimz2qqb7vwmzs",
-    "cp7wqyd2gh3km2e",
-    "ty171jercwvychs",
-    "n328twnegwe7tln",
-    "60xwat4d9sqp9tk"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97682,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lithographie von C. F. Müller in Carlsruhe)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithographie von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3495_97682_okcupf4j5g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "bok9r2bs50o6a3a"
+    },
+    {
+      "annotation": "Titelportrait /)  Illustration zu »Heinrich I. / Landgraf zu Hessen und Herzog von Brabant« 97688, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97683,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heinrich I. / oder / Das Kind von Brabant",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Boettger senior sc.",
+      "scans": [
+        "alm_3495_97683_rdldgr26yh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Heinrich I. / oder / Das Kind von Brabant",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.806Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "e6ok4pi6c0f8i0c"
+        }
+      ],
+      "source_id": "0xlitgx0a1yf97y"
+    },
+    {
+      "annotation": "graph. Titel /) s. Textbezug INr 97702, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97684,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE / VORZEIT / Ein Taschenbuch / für das Jahr / 1821 / Marburg und Cassel / bei Krieger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach der Natur gezeichnet v. J. M. B. Kessler gest. v. Böttger sen.",
+      "scans": [
+        "alm_3495_97684_t0loajn86e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE / VORZEIT / Ein Taschenbuch / für das Jahr / 1821 / Marburg und Cassel / bei Krieger",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.806Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "3dk3y7oq77ssnv7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.806Z",
+          "agent": "2e0zj08qq2qshay",
+          "source_id": "jujzt8qwfgmw80d"
+        }
+      ],
+      "source_id": "w4b70ioq0k7hc7c"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die freundliche Aufnahme, welche der erste Jahrgang dieses, der Vorzeit geweihten, Taschenbuches bei Lesern und Kunstrichtern zu finden, so glücklich war, hat es dem Herausgeber und den Mitarbeitern zur angenehmen Pflicht gemacht,",
+      "language": [],
+      "musenalm_id": 97685,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. K. W. Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.806Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "6ztioftijfk7udn"
+        }
+      ],
+      "source_id": "1z5uzzxu9bqqdks"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97686,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "dg8vqaofljegne3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97687,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Erklärung der Kupfer",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "ori2al0fd7a13sn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelportrait INr 97683, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Erlöschen, wie das Aufkommen mächtiger Fürstenstämme, gehört, weil das Schicksal der, ihnen unterworfenenen, Völker genau mit dem ihren verknüpft ist, zu den merkwürdigsten Ereignissen, welche die Geschichte zu erzählen hat.",
+      "language": [],
+      "musenalm_id": 97688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heinrich I. / Landgraf zu Hessen und Herzog von Brabant. / (Hierzu das Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usener",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heinrich I. / Landgraf zu Hessen und Herzog von Brabant. / (Hierzu das Titelkupfer.)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "m7e4g25bwsq4kf0"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 97690, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Unter den Sehenswürdigkeiten der St. Elisabeth-Kirche zu Marburg zeichnet sich die Reihe von fürstlichen Grabdenkmälern aus,",
+      "language": [],
+      "musenalm_id": 97689,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Begräbniß-Denkmal / Landgraf Wilhelm's III, des jüngern, / in der / St. Elisabeth-Kirche zu Marburg. / (Hierzu ein Kupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Begräbniß-Denkmal / Landgraf Wilhelm's III, des jüngern, / in der / St. Elisabeth-Kirche zu Marburg. / (Hierzu ein Kupfer.)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.806Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "rmzm3yiuesi6wj8"
+        }
+      ],
+      "source_id": "pm9k6wuc80rnpqv"
+    },
+    {
+      "annotation": "Illustration zu »Das Begräbniß-Denkmal Landgraf Wilhelm's III, des jüngern, in der St. Elisabeth-Kirche zu Marburg«  von K. W. Justi INr 97689, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Begräbnis-Denkmal / Landgraf Wilhelm's des jüngern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. M. B. Kessler del.",
+      "scans": [
+        "alm_3495_97690_de329l0kcb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Begräbnis-Denkmal / Landgraf Wilhelm's des jüngern",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.798Z",
+          "agent": "2e0zj08qq2qshay",
+          "source_id": "xwfggcpzkvvcp2j"
+        }
+      ],
+      "source_id": "zwaj2d9llspgabt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Wenk in seiner trefflichen Katzenelenbogenschen oder dem I. Bande seiner hessischen Landesgeschichte S. 525 erwähnt im Vorbeigehen der abentheuerlichen Reise des von ihm mit Recht gerühmten Grafen Philipp's, nach dem Gelobtenlande,",
+      "language": [],
+      "musenalm_id": 97691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Philipp's, / des letzten Grafen zu Katzenelenbogen, / Pilgerreise nach Aegypten und Palästina; / im Jahr 1433 und 34",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Philipp's, / des letzten Grafen zu Katzenelenbogen, / Pilgerreise nach Aegypten und Palästina; / im Jahr 1433 und 34",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "373cm4r59f99nji"
+    },
+    {
+      "annotation": "auszufaltende Illustration zu »Das ehemalige Cisterzienser-Kloster, und nachherige Hospital zu Haina, in Oberhessen« von W. Justi INr 97693, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.600Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heinz von Lüder, Vorsteher des Hospitals zu Haina, vor den Abgeordneten Karls des V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. von Schmerfeld del. G. Boettger senior sc.1820",
+      "scans": [
+        "alm_3495_97692_3irvf1jcyx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Heinz von Lüder, Vorsteher des Hospitals zu Haina, vor den Abgeordneten Karls des V.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.798Z",
+          "agent": "eoaq53mf3tatgl8",
+          "source_id": "1rj50mqmnjbdmab"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.798Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "9l4x578ptxsx28t"
+        }
+      ],
+      "source_id": "uf2kz79weeqyopg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 97692, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Landgraf Philipp der Großmüthige von Hessen, hat sich nicht nur durch edelthätige Beförderung und Eingführung der Kirchenreformation in seinen Staaten, so wie durch kräftige Pflege der Wissenschaften und Künste,",
+      "language": [],
+      "musenalm_id": 97693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das ehemalige / Cisterzienser-Kloster, / und nachherige / Hospital zu Haina, / in Oberhessen. / (Mit einem Kupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das ehemalige / Cisterzienser-Kloster, / und nachherige / Hospital zu Haina, / in Oberhessen. / (Mit einem Kupfer.)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.798Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.798Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "p8wrenxv6ax0kgl"
+        }
+      ],
+      "source_id": "876mqe8fwy9spld"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "Merkwürdig ist folgende, mir von dem Hrn. Regierungsrathe Bachen mitgetheilte Nachricht von der Entlassung des Hoch- und Deutschmeisters Maximilian, Erzherzogs von Oesterreich, aus der polnischen Gefangenschaft.",
+      "language": [],
+      "musenalm_id": 97694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rettung des Hoch- und Deutschmeisters / Maximilian / aus der polnischen Gefangenschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rettung des Hoch- und Deutschmeisters / Maximilian / aus der polnischen Gefangenschaft",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.818Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "zacd6bj8htdfd1k"
+        }
+      ],
+      "source_id": "p6ciywubqdg4ly3"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 97696-97698, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine historische Merkwürdigkeiten / und / Anekdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine historische Merkwürdigkeiten / und / Anekdoten",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "ndfamjslv8xtblo"
+    },
+    {
+      "annotation": "Kleine historische Merkwürdigkeiten und Anekdoten (Sammlung INr 97695, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "König Wladislav IV. von Polen sandte im Jahre 1633 den Grafen Georg Ossolinski als Großbotschafter nach Rom, der den 14sten November daselbst seinen feierlichen Einzug hielt.",
+      "language": [],
+      "musenalm_id": 97696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Glänzende Polnische Ambassade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rk.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Glänzende Polnische Ambassade",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "w87lem3jez0ccc5"
+    },
+    {
+      "annotation": "Kleine historische Merkwürdigkeiten und Anekdoten (Sammlung INr 97695, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "Der deutsche Orden war durch den Frieden zu Thorn (1466) um die Hälfte seines Gebiets und um Macht und Ansehen gekommen; mit seinem unermeßlichen Verluste war auch der hochherzige Muth, der ihn früher auch in den verwickelsten Lagen nicht verließ,",
+      "language": [],
+      "musenalm_id": 97697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Ehrgeiz und dessen Folgen, ein Beispiel / von der Politik der Vorzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rk.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Ehrgeiz und dessen Folgen, ein Beispiel / von der Politik der Vorzeit",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "6f7abdd81nrf6gd"
+    },
+    {
+      "annotation": "Kleine historische Merkwürdigkeiten und Anekdoten (Sammlung INr 97695, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Kaiser Heinrich der Zweite, auch der Lahme, oder der Heilige genannt, war bekanntlich ein großer Gönner der Geistlichkeit,",
+      "language": [],
+      "musenalm_id": 97698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Fürstenscherz und Priesterzorn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rk.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Fürstenscherz und Priesterzorn",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "n6oj62psmn966bd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Der deutsche Orden, wozu die Belagerung von Akra (Ptolemais) in Palästina die erste Veranlassung gab, und der durch die Ritter dieses Ordens in Preußen gegründete mächtige Staat,",
+      "language": [],
+      "musenalm_id": 97699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vollständige Reihenfolge / aller Hochmeister des deutschen Ordens, / vom Jahre 1190 bis 1525, / und / aller Hoch- und Deutschmeister / vom Jahre 1526 bis auf die neueste Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vollständige Reihenfolge / aller Hochmeister des deutschen Ordens, / vom Jahre 1190 bis 1525, / und / aller Hoch- und Deutschmeister / vom Jahre 1526 bis auf die neueste Zeit",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.818Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "jkku1i8evybjret"
+        }
+      ],
+      "source_id": "l3lndz85bdyva9m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Die Geschichte der Menschheit stellt sich dem strengen Forscher, der zu ihrer Beurtheilung allein den kalt prüfenden Verstand anwendet, oft nur als ein unermeßlich langes Verzeichniß von Widersprüchen Thorheiten, Schwächen und Lastern,",
+      "language": [],
+      "musenalm_id": 97700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Darstellung des / ritterlichen Ordens der Tempelherrn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rauschnick",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Darstellung des / ritterlichen Ordens der Tempelherrn",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "ufgd8vwt0ucewin"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 97702-97704, Obj 21-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miszellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miszellen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "rkimz2qqb7vwmzs"
+    },
+    {
+      "annotation": "Miszellen (Sammlung INr 97701, Obj 20) mit einer Einleitung /) mit einer Illustration s. graph. Titel INr 97684, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Wollt ihr, deutscher Art und deutschen Sinnes herrlichstens Abbild, das Gott zwischen Himmel und Erde aufgestellt hat, sehen, - so geht gen Dabgobersthausen, eine Stunde weit von Marburg,",
+      "language": [],
+      "musenalm_id": 97702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die tausendjährige Eiche bei Dagoberts- / hausen in Oberhessen. / (Titelblatt.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die tausendjährige Eiche bei Dagoberts- / hausen in Oberhessen. / (Titelblatt.)",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.818Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "2suneaj1kagevz8"
+        }
+      ],
+      "source_id": "cp7wqyd2gh3km2e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Landgraf Philipp trug bekanntlich einen großen goldenen Schlüssel vor der Brust, den man an allen späteren Porträten von ihm abgebildet findet,",
+      "language": [],
+      "musenalm_id": 97703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Noch Etwas / über den goldenen Schlüssel des hessischen / Landgrafen Philipp's des Groß- / müthigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Noch Etwas / über den goldenen Schlüssel des hessischen / Landgrafen Philipp's des Groß- / müthigen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.818Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "4sqs1ywplx3mjx2"
+        }
+      ],
+      "source_id": "ty171jercwvychs"
+    },
+    {
+      "annotation": "Nachträge und Korrekturen zum ersten Jahrgang der »Vorzeit«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:32.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "321",
+      "incipit_statement": "Der Hoch- und Deutschmeisterische Hof- und Regierungsrath, Hr. Konr. Joseph Bachem, zu Neuwied",
+      "language": [],
+      "musenalm_id": 97704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Bemerkungen und Zusätze zum ersten Jahrgange der Vorzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Bemerkungen und Zusätze zum ersten Jahrgange der Vorzeit",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.818Z",
+          "agent": "8v1rr9tn9rr7ndn",
+          "source_id": "rvt91ui2jt8qlcz"
+        }
+      ],
+      "source_id": "n328twnegwe7tln"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 97705,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lithographie von C. F. Müller in Carlsruhe)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithographie von C. F. Müller in Carlsruhe",
+      "scans": [
+        "alm_3495_97705_3njao5ce29.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "60xwat4d9sqp9tk"
+    }
   ],
   "agents": [
     {

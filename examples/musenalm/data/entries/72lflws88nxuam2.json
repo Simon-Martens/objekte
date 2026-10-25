@@ -48,22 +48,578 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "ttsgia1pnmuef6m"
+    {
+      "annotation": "1837-1842.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.650Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106784",
+      "location": "105C06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.650Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ttsgia1pnmuef6m"
+    }
   ],
   "contents": [
-    "mokubxasdm86ywc",
-    "x02j6msvad6cjvg",
-    "2oi05my46k5cy39",
-    "ofor58dvj5rmeaa",
-    "vwlxe3acbyzx1y8",
-    "o7px9c4445ufsly",
-    "bfm8c4elqo6lrel",
-    "j2np0kyxhdobc8t",
-    "ynbtci5magym2x2",
-    "hvgn17ffldiqd9x",
-    "snke6zy3y8aqnth",
-    "r2rcy7fbrhr3uwf",
-    "j0k3m9ib0gzfifs"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125673,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / dramatischer Originalien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / dramatischer Originalien",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "mokubxasdm86ywc"
+    },
+    {
+      "annotation": "Titelkupfer; Portrait von Eduard von Bauernfeld (vgl. INr 125676, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125674,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Daffinger pinx. Fr. Stöber sc.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bauernfeld",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.907Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.907Z",
+          "agent": "ntned9c7jfjudhu",
+          "source_id": "7dfglz0pxma2w0m"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.908Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "px8wfw1lhzmy4z3"
+        }
+      ],
+      "source_id": "x02j6msvad6cjvg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125675,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Erster Jahrgang. / Mit fünf Kupfern. / Leipzig: / F. A. Brockhaus. / 1837",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2730_125675_axoslfxylf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Erster Jahrgang. / Mit fünf Kupfern. / Leipzig: / F. A. Brockhaus. / 1837",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "2oi05my46k5cy39"
+    },
+    {
+      "annotation": "Inhaltsverzeichnis",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125676,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ofor58dvj5rmeaa"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125678, Obj 6) u. einem Autorportrait (Titelkupfer, INr 125674, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Musicus von Augsburg / Lustspiel in drei Aufzügen / von / Bauernfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Musicus von Augsburg / Lustspiel in drei Aufzügen / von / Bauernfeld",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.908Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "d8ndyi6up1v10tz"
+        }
+      ],
+      "source_id": "vwlxe3acbyzx1y8"
+    },
+    {
+      "annotation": "Illustration zu »Der Sänger von Augsburg« von Bauernfeld (INr 125677, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich rath’ Euch, bleibt geheim, mein tapfrer Hauptmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Schmutzer del. Dav. Burkhart sc.",
+      "scans": [
+        "alm_2730_125678_m8xoglh452.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich rath’ Euch, bleibt geheim, mein tapfrer Hauptmann",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.909Z",
+          "agent": "327xfzdoy71t9fl",
+          "source_id": "6tdmhwc1xpl19jn"
+        }
+      ],
+      "source_id": "o7px9c4445ufsly"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125686, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.715Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Aus der Empörung Fluth ist aufgetaucht / Das theure England; freundlicheren Gruß / Weht jetzt der Frühling seinen Fluren zu / Da er, der lieblich schaffende, nicht mehr / Hier der Zerstörung finstre Werke schaut.",
+      "language": [],
+      "musenalm_id": 125685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miltons Muse / Dramatisches Gedicht in einem Aufzuge / von / G. H. Liebenau. / Nescio cur, miser est suaviter omnis amans / Milton. Elegia VIIma",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. H. Liebenau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miltons Muse / Dramatisches Gedicht in einem Aufzuge / von / G. H. Liebenau. / Nescio cur, miser est suaviter omnis amans / Milton. Elegia VIIma",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "bfm8c4elqo6lrel"
+    },
+    {
+      "annotation": "Illustration zu »Miltons Muse« von Liebenau (INr 125702, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Muse danket, sie hat Euch gerettet.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Schmutzer del. M. Hofmann sc.",
+      "scans": [
+        "alm_2730_125703_03a0v2nsb1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Muse danket, sie hat Euch gerettet.",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.911Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "chrvn17cyi5zrsx"
+        }
+      ],
+      "source_id": "j2np0kyxhdobc8t"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125706, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Wieder eine schlechte Woche! Fünf Gulden acht Groschen die ganze liebe lange Woche!",
+      "language": [],
+      "musenalm_id": 125705,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Autorsqualen. / Lustspiel in einem Aufzuge / von / Dr. Franck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Autorsqualen. / Lustspiel in einem Aufzuge / von / Dr. Franck",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.911Z",
+          "agent": "q3vezx66ehdwkf0",
+          "source_id": "gaaruygwgjk7yua"
+        }
+      ],
+      "source_id": "ynbtci5magym2x2"
+    },
+    {
+      "annotation": "Illustration zu »Autorsqualen« von Franck (INr 125709, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.718Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kein Autor der Welt soll mich mehr verführen, ihm während / der ersten Darstellung seines Stückes Gesellschaft zu leisten!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schmutzer del. M. Hofmann sc.",
+      "scans": [
+        "alm_2730_125710_ldtaegjp3m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kein Autor der Welt soll mich mehr verführen, ihm während / der ersten Darstellung seines Stückes Gesellschaft zu leisten!",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.912Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "zdlh6h0kesetxtu"
+        }
+      ],
+      "source_id": "hvgn17ffldiqd9x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Mein Gott, es raucht! Ach, Lise, sieh’ zum Feuer! / Ich thu’ es ja, Frau Försterin, doch schlägt / der Wind herein, und läßt’s nicht brennen",
+      "language": [],
+      "musenalm_id": 125711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Christnacht. / Schauspiel in einem Akt. / von / Pannasch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pannasch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Christnacht. / Schauspiel in einem Akt. / von / Pannasch",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.912Z",
+          "agent": "u92msauqqtde2q3",
+          "source_id": "pmymxl7odyj8xbr"
+        }
+      ],
+      "source_id": "snke6zy3y8aqnth"
+    },
+    {
+      "annotation": "Illustration zu »Die Christnacht« von Pannasch (INr 125711, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bist Du nicht wirklich Geist, so sollst Du’s werden.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Schmutzer del. Dav. Burkhart sc.",
+      "scans": [
+        "alm_2730_125712_751824nmbo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bist Du nicht wirklich Geist, so sollst Du’s werden.",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.912Z",
+          "agent": "327xfzdoy71t9fl",
+          "source_id": "b1sbs9c4js67c46"
+        }
+      ],
+      "source_id": "r2rcy7fbrhr3uwf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.723Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Aber ich bin nun einmal der Herr im Hause, lieber Adam, und kann mit Recht begehren, daß meine Befehle auf das Strengste vollzogen werden",
+      "language": [],
+      "musenalm_id": 125713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Herr im Hause. / Lustspiel in einem Akt / von / Dr. Franck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Herr im Hause. / Lustspiel in einem Akt / von / Dr. Franck",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.912Z",
+          "agent": "q3vezx66ehdwkf0",
+          "source_id": "m3l9de2lxvwhx0w"
+        }
+      ],
+      "source_id": "j0k3m9ib0gzfifs"
+    }
   ],
   "agents": [
     {

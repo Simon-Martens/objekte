@@ -48,12 +48,127 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "znbk92aalxlcx0p"
+    {
+      "annotation": "1803; 1805-1808 und 1820. Der Jg 1820 ist Titelauflage des Jahrgangs 1808. Der Titel ist an der Jahrgangszahl durch Abrieb mutwillig beschädigt , eine 1 für 1821 anstatt 1820 ist erkennbar; ebenso ist die Verlagsangabe entfernt. Vielleicht ist die Angabe bei K und Goed: 1820 falsch oder handelt es sich um eine weiter Titelauflage des Jg 1808 für 1821?\n#§ Der Titel ist an der Jahrgangszahl durch Abrieb mutwillig beschädigt , eine 1 für 1821 anstatt 1820 ist erkennbar; ebenso ist die Verlagsangabe entfernt. Vielleicht ist die Angabe bei K und Goed: 1820 falsch oder handelt es sich um eine weiter Titelauflage des Jg 1808 für 1821?",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.642Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106774",
+      "location": "105F02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.642Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "znbk92aalxlcx0p"
+    }
   ],
   "contents": [
-    "t00yq3z6vq9w40j",
-    "idqtcij7sx1bfkh",
-    "1j2xmrhuk646uq6"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72073,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2673_72073_4czzb8tu1x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "t00yq3z6vq9w40j"
+    },
+    {
+      "annotation": "§ Manipulationen am Titelblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72074,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / der / GRAZIEN / 182 . / mit Kupfern / Mannheim / [... ] §",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2673_72074_9en7gbjjhu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / der / GRAZIEN / 182 . / mit Kupfern / Mannheim / [... ] §",
+      "updated": "2010-02-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "idqtcij7sx1bfkh"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72075,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2673_72075_xwhzg2up8b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "1j2xmrhuk646uq6"
+    }
   ],
   "agents": []
 }

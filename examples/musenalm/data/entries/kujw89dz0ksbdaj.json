@@ -48,32 +48,1058 @@
   "year": 1869,
   "editor": "",
   "items": [
-    "sggli3qx4sjt95o"
+    {
+      "annotation": "s. a. »Thalia. Taschenbuch für Frauen. Ausgabe der Cornelia für Oesterreich« Biblio Nr 200441 s. Goed VIII, 92",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.534Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106372",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.534Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "sggli3qx4sjt95o"
+    }
   ],
   "contents": [
-    "mokebcsh575vf32",
-    "gxwn47rblasegd5",
-    "2af0flqwwdvm103",
-    "x1sn1x9ku0k5gvz",
-    "yuaycifjrehaqdj",
-    "3idh0tl02d2zvwt",
-    "d4aa3fjsmifvs0l",
-    "tf1gaovvz8dkghw",
-    "ata1xdpwxu4onxs",
-    "ji17zw8vw04xjn9",
-    "qvkrth7p1co7wkq",
-    "9eg8bfxcnncf4py",
-    "6600a5cjw4bi21r",
-    "0v2uuqfcg3kbf2d",
-    "gxc1thlhnbn2w1r",
-    "ul1ocixsu38e5wv",
-    "oynqo9ijk907yyl",
-    "5h8i9gnt2myudt0",
-    "9qsbbzvmkp5ipja",
-    "9ipuizgzu40qemx",
-    "x8upaipk3xybmko",
-    "ce57ka9lddwdzv2",
-    "pufjmrl6xmkce65"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64613,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1869 / DARMSTADT / im Verlag / VON G. G. LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1077_64613_fxe4pvgqgi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1869 / DARMSTADT / im Verlag / VON G. G. LANGE",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "mokebcsh575vf32"
+    },
+    {
+      "annotation": "Titelgraphik # Titel s. Textbezug (Gedicht) INt 64619, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64614,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Posten #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Israëls pinxt. J. W. Kaiser sculps.",
+      "scans": [
+        "alm_1077_64614_5yoky0120v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Am Posten #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.987Z",
+          "agent": "ke4j6uj44tz04rd",
+          "source_id": "shgjuk255qwxm0t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.987Z",
+          "agent": "p3hijooo9pslzw2",
+          "source_id": "wrsqivs2qy70fbb"
+        }
+      ],
+      "source_id": "gxwn47rblasegd5"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64615,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1869 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 54r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Schad sc.",
+      "scans": [
+        "alm_1077_64615_mvbu75ymc4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1869 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 54r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.987Z",
+          "agent": "3gnzs7actzcxdwq",
+          "source_id": "u1ux6ia9x2h66pm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.987Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "w6pv4xopqpfq0ws"
+        }
+      ],
+      "source_id": "2af0flqwwdvm103"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64616,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1869. / Herausgegeben von / Frater Hilarius / 54r. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1077_64616_85w9nuu6pn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1869. / Herausgegeben von / Frater Hilarius / 54r. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1sn1x9ku0k5gvz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64617,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "yuaycifjrehaqdj"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 64619-64625, Obj 7-13 als Textbezüge zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64618,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Stahlstiche in sieben Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Stahlstiche in sieben Gedichten",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "3idh0tl02d2zvwt"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Titelgraphik INr 64614, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Wie am Schilderhaus der Posten / Lehnst Du an der Thüre Pfosten,",
+      "language": [],
+      "musenalm_id": 64619,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Am Posten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Am Posten",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.943Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "b0rzltjvcfmtdr4"
+        }
+      ],
+      "source_id": "d4aa3fjsmifvs0l"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Graphik INr 64627, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Am Spinnrad vor der Thüre / Da sitzt das Mütterlein,",
+      "language": [],
+      "musenalm_id": 64620,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Am Spinnrad vor der Thüre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Am Spinnrad vor der Thüre",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.943Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "hu0k1hyrlclmdmk"
+        }
+      ],
+      "source_id": "tf1gaovvz8dkghw"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Graphik INr 64628, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Nacht ist längst zu Ende; / Schon guckt mit seinem rostigen Schein / Der junge Tag zum Fenster herein:",
+      "language": [],
+      "musenalm_id": 64621,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Morgengebet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Morgengebet",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.943Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "sde4mggnn0839jc"
+        }
+      ],
+      "source_id": "ata1xdpwxu4onxs"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Graphik INr 64629, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Dein kühner Forscherblick durchdrang die Wüsten / Des weiten, nie gemessnen Ocean's,",
+      "language": [],
+      "musenalm_id": 64622,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Columbus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Columbus",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "2licpd885o6z0a0"
+        }
+      ],
+      "source_id": "ji17zw8vw04xjn9"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Graphik INr 64630, Obj 17 /) Anm. am Objekt: Der Kupferstich stellt die Scene dar, als Jan de Witt's Verwandte die schreckliche Nachricht seiner Ermordung erhielten.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Du hast gekämpft für Deines Landes Heil / Mit scharfem Worte und mit kühnen Thaten!",
+      "language": [],
+      "musenalm_id": 64623,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Jan de Witt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Jan de Witt",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "9e67abnnnc0sa4k"
+        }
+      ],
+      "source_id": "qvkrth7p1co7wkq"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Graphik INr 64631, Obj 18 /) Anm. am Objekt: Das Bild stellt den Garten des Schlosses zu Muyden im Momente vor, da Joost van den Vondel, Hollands größter Dramatiker, den um sich versammelten Freunden seine Poësien vorliest",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Aus klaren Fluthen siehst Du ragen / Schloß Muydens Mauern wohlbekannt,;",
+      "language": [],
+      "musenalm_id": 64624,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Das hohe Haus zu Muyden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Schwarz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Das hohe Haus zu Muyden",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "9eg8bfxcnncf4py"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64618, Obj 6) s. Graphik INr 64632, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Der Strom durchzieht - ein Silberband - / Die weite Eb'ne, klar und helle;",
+      "language": [],
+      "musenalm_id": 64625,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Landschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. F.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Landschaft",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.944Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "opx1yhonn0cgr1z"
+        }
+      ],
+      "source_id": "6600a5cjw4bi21r"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64620, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.979Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64627,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Spinnrad vor der Thüre #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Willems pinx. D. J. Sluyter sculps.",
+      "scans": [
+        "alm_1077_64627_6iysq6ix8g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Am Spinnrad vor der Thüre #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "5rkd661rbg3bign"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "ivzyb3dbnvrohzn",
+          "source_id": "69s6szuo693wfzk"
+        }
+      ],
+      "source_id": "0v2uuqfcg3kbf2d"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64621, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.982Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64628,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Morgengebet #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. F. Jamin pinx. C. L. van Kesteren sculps.",
+      "scans": [
+        "alm_1077_64628_1iwesb3hse.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Morgengebet #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "9pvz8xtlfodlxef",
+          "source_id": "olyiis1r7xrdc27"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "kkn6bicwhxosiua",
+          "source_id": "znixqfiibp42gs6"
+        }
+      ],
+      "source_id": "gxc1thlhnbn2w1r"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64622, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64629,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Columbus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. de Keyser pinx. J. W. Kaiser schulps.",
+      "scans": [
+        "alm_1077_64629_wxe68t6aif.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Columbus #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "xnz60ozopg5qaed",
+          "source_id": "gw35ua7jc3efgwi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "p3hijooo9pslzw2",
+          "source_id": "sx4d2bzzowdu8kt"
+        }
+      ],
+      "source_id": "ul1ocixsu38e5wv"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64623, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64630,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jan de Witt #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Israëls pinx. D. J. Sluyter sculps.",
+      "scans": [
+        "alm_1077_64630_jaiyqmikku.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jan de Witt #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "dhf4xtj8hqz0w3v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.110Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.110Z",
+          "agent": "ke4j6uj44tz04rd",
+          "source_id": "tvus5gsvik5od61"
+        }
+      ],
+      "source_id": "oynqo9ijk907yyl"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64624, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.990Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64631,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das hohe Haus zu Muyden #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Calisch pinx. D. J. Syluyter sculps.",
+      "scans": [
+        "alm_1077_64631_622600pm8t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das hohe Haus zu Muyden #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.111Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "6xydp1fgoptyxaa"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.111Z",
+          "agent": "q03fax89m2beyit",
+          "source_id": "ccqo5swaq1onavo"
+        }
+      ],
+      "source_id": "5h8i9gnt2myudt0"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64625, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.993Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64632,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Landschaft #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. C. Nakken pinx. W. Steelink sculps.",
+      "scans": [
+        "alm_1077_64632_ju1ppafql8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Landschaft #",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.111Z",
+          "agent": "lwzw1g7isc1pjy6",
+          "source_id": "69mnk7wha3s28mh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.111Z",
+          "agent": "yl986oje8pm1hj7",
+          "source_id": "qhbbt1kny21d4z1"
+        }
+      ],
+      "source_id": "9qsbbzvmkp5ipja"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Und so bin ich denn auch in Schleißheim gewesen, werthester Dr. Franziskus. Es ist Unrecht, daß Ihr ohne mich hingegangen, antwortete mir der Gute.",
+      "language": [],
+      "musenalm_id": 64626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Isabeau, die Schöne. / Eine Erzählung aus den Tagen Ferdinand Maria's",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Dempwolff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Isabeau, die Schöne. / Eine Erzählung aus den Tagen Ferdinand Maria's",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ipuizgzu40qemx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Ein gesunder Platzregen hatte sich just über die reichsfreie Stadt Rothenburg ob der Tauber ergossen.",
+      "language": [],
+      "musenalm_id": 64633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Burgermeister von Rothenburg. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Frater Hilarius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Burgermeister von Rothenburg. / Erzählung",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.111Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.111Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "x01638kk7n3ubi3"
+        }
+      ],
+      "source_id": "x8upaipk3xybmko"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.994Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Wer je den Schienenweg zwischen München und Salzburg benützt hat, erinnert sich gewiß der weit über die Hochebene auslugenden Zackenkrone südlich des Chiemsees - der rauhen Kampe.",
+      "language": [],
+      "musenalm_id": 64634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hohnenaschau, / ein Zeitbild aus dem Chiemgau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hartung Tranner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hohnenaschau, / ein Zeitbild aus dem Chiemgau",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "ce57ka9lddwdzv2"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.292Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64635,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1077_64635_0s0b0jeiwm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1869,
+      "editor": "",
+      "agents": [],
+      "source_id": "pufjmrl6xmkce65"
+    }
   ],
   "agents": [
     {

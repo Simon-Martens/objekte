@@ -48,63 +48,2158 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "uii3gcfbar7n71i"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.711Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406644",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.711Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "uii3gcfbar7n71i"
+    }
   ],
   "contents": [
-    "gxqc819ahgna5cv",
-    "eqc6gvxj36avkxr",
-    "jo5o96vceb6o7p4",
-    "too838d1ns7mb2e",
-    "tp28m9zy1ql1enk",
-    "v2osmzx8hebure5",
-    "uv3acu0gmqazoqa",
-    "98gda5zhn36writ",
-    "9gg9dnj6kwkmicu",
-    "a8mtf6wefdnth0f",
-    "bp0bvt4ehen5eym",
-    "rvhd7dibnp39ofv",
-    "gzx2rrr717dcojx",
-    "3falt9bpf53wrtl",
-    "040r6rx07gtqx79",
-    "it3mjv6pie6hi7q",
-    "tqe1pt6krypag6i",
-    "3iqfj99mrjq3m1y",
-    "im7z1qy5tqeljno",
-    "avxjhob1zp2ntj9",
-    "s6inrgzw2qd9d0b",
-    "w6w8m4hgovao9ts",
-    "tc3z4792yz21hx8",
-    "391umgm1n4q1zsw",
-    "0bls279zm2q61fm",
-    "gbokktlze6b70mu",
-    "unfmfiztzn8b89h",
-    "7b3kojiubgomoy1",
-    "a260m1jiyshigk6",
-    "jhxf6rz538qx2i8",
-    "t62lid2ldytb0nv",
-    "y6eg4dpbj0axnyg",
-    "8mai8dj6kknblir",
-    "dabg3yslrp3lcfv",
-    "zzf9i2ms7bixkzr",
-    "qbiuha6ta4gnvmo",
-    "iz8ag1vg0zxoogb",
-    "fkleakimcg9xqfv",
-    "i19hjuixsejf3iv",
-    "amxu7o087zd0wtz",
-    "9ehjipwltdmek3z",
-    "t6v2yiyifhvumdv",
-    "f5m8s68gwp9njeu",
-    "bcxaqz9m96c1349",
-    "9zjstpt7rj1ki06",
-    "bo3d629863fynl7",
-    "sfkgo4djnpgbvf5",
-    "l9i9h7u49a1zjuk",
-    "imxk5efer0pw9da",
-    "nbaeev9kqqbdp3l",
-    "3nyd6m43mchyjws",
-    "742bhtgytoepnlc",
-    "gxtgptxfshh1mrj",
-    "1fkhlvahos26bp1"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.347Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3666_75935_f8vkmexcvr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "gxqc819ahgna5cv"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.652Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschenliebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. u. gest. v. Rosmaesler",
+      "scans": [
+        "alm_3666_75936_kevqtks3ny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Menschenliebe",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "sryi3n20cdr2r8v"
+        }
+      ],
+      "source_id": "eqc6gvxj36avkxr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75937,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titania. / Taschenbuch für 1807. / Deutschlands Schönen / gewidmet. / Von / Carl Lang. / Mit Kupfern und Musikblättern. / Leipzig / bey Karl Tauchnitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3666_75937_uv2qwmour5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Titania. / Taschenbuch für 1807. / Deutschlands Schönen / gewidmet. / Von / Carl Lang. / Mit Kupfern und Musikblättern. / Leipzig / bey Karl Tauchnitz",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "jo5o96vceb6o7p4"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wenn ich das vorliegende Taschenbuch dem Schutze der reitzenden Titania anvertraute, so bitte ich Deutschlands schöne Damen, welchen ich es voll Ehrfurcht überreiche, sich dabey der nachsichtsvollen Milde zu erinnern, womit diese Königin der Feen",
+      "language": [],
+      "musenalm_id": 75938,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn ich das vorliegende Taschenbuch dem Schutze der reitzenden Titania anvertraute, so bitte ich Deutschlands schöne Damen, welchen ich es voll Ehrfurcht überreiche, sich dabey der nachsichtsvollen Milde zu erinnern, womit diese Königin der Feen…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "n94izj386varzoj"
+        }
+      ],
+      "source_id": "too838d1ns7mb2e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75939,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "tp28m9zy1ql1enk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75940,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "v2osmzx8hebure5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75941,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigaben-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigaben-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "uv3acu0gmqazoqa"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen 6 Blatt Monatskonten und ein Jahreskonto darin 6 Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1807",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Berechnung / der / Einnahme und Ausgabe / im Jahr 1807",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "98gda5zhn36writ"
+    },
+    {
+      "annotation": "Illustration zu »Frauen-Adel. Züge aus dem Leben der Fürstin Sophie von Isenburg, geb. Fürstin von Anhalt-Schaumburg« 75950, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75943,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An ihrer Urne trauert das Vaterland / aus Frauenehre. p. 11",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schenau inv. Zingg sculp.",
+      "scans": [
+        "alm_3666_75943_v3tgwwqsus.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An ihrer Urne trauert das Vaterland / aus Frauenehre. p. 11",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "tv0kfo1dowgyyed",
+          "source_id": "bgsccahw986jzkd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "0hfa1bhqyn0q95c",
+          "source_id": "ppd6axkjanvjli8"
+        }
+      ],
+      "source_id": "9gg9dnj6kwkmicu"
+    },
+    {
+      "annotation": "Illustration zu »Das Gewitter. Scenen aus einem größern noch ungedruckten Werke: Bertha von Tiefenbronn« von F. K. Lang INr 75959, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75944,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm und Bertha. / aus dem Gewitter p. 35",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haldenwang in Carlsruhe",
+      "scans": [
+        "alm_3666_75944_r5zi0mo8oa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm und Bertha. / aus dem Gewitter p. 35",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "yos6i167q0dzqb7",
+          "source_id": "j700j572grap9zz"
+        }
+      ],
+      "source_id": "a8mtf6wefdnth0f"
+    },
+    {
+      "annotation": "Illustration zu »Zweyerley Wirkungen oder die Büsten. Ein Herbsttag in Brenners Landhause« von F. K. Lang INr 75965, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75945,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brenner und Amalie. / aus Zweyerley Wirkungen p. 67",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Junge del. C. Schule sc. 1806",
+      "scans": [
+        "alm_3666_75945_xtprgsdeco.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Brenner und Amalie. / aus Zweyerley Wirkungen p. 67",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "c0fepqesuedn747",
+          "source_id": "s4puzlck8soq0fu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "r0f9z5qk88f9kze",
+          "source_id": "zjp8fjceii6wnde"
+        }
+      ],
+      "source_id": "bp0bvt4ehen5eym"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.671Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fernando. / zu der Erzählung: Fernando",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec.",
+      "scans": [
+        "alm_3666_75946_2ibj1i2bd1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fernando. / zu der Erzählung: Fernando",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.945Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "hisg9wxcnnl3ckr"
+        }
+      ],
+      "source_id": "rvhd7dibnp39ofv"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) Illustration zu »Ständchen« von F. K. Lang INr 75971, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutterliebe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lehmann",
+      "scans": [
+        "alm_3666_75947_cn99ubukhh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mutterliebe",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "gzx2rrr717dcojx"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht eines Gebäudes #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "gez. von Thouret",
+      "scans": [
+        "alm_3666_75948_1sry8j9a88.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht eines Gebäudes #",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.946Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.946Z",
+          "agent": "zrmsqolvt94ydaa",
+          "source_id": "26e140ist9mkz50"
+        }
+      ],
+      "source_id": "3falt9bpf53wrtl"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75949,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titania",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Titania",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "040r6rx07gtqx79"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 75943, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Hoch prangt das Denkmal des Eroberers, und verkündet der Schlachten- Zahl, welche die Zweige zur Lorbeerkrone gaben;",
+      "language": [],
+      "musenalm_id": 75950,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauen-Adel. / Züge aus dem Leben / der / Fürstin Sophie von Isenburg, / geb. Fürstin von Anhalt-Schaumburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauen-Adel. / Züge aus dem Leben / der / Fürstin Sophie von Isenburg, / geb. Fürstin von Anhalt-Schaumburg",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "it3mjv6pie6hi7q"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 75952, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Gar lieblich mag der Ehstand seyn; / Doch allzufrüh gefreyet, / (So fallen meinen Muhmen ein) / Hat Manche schon bereuet.",
+      "language": [],
+      "musenalm_id": 75951,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bald, nur nicht zu bald. / Nach dem Französischen der Madame Bursay. / Mit Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bald, nur nicht zu bald. / Nach dem Französischen der Madame Bursay. / Mit Musik",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "tqe1pt6krypag6i"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Bald, nur nicht zu bald. Nach dem Französischen der Madame Bursay« INr 75951, Obj 17 /) Photos 75952,01; 75952,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75952,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3666_75952_01_dyr0msewd8.jpg",
+        "alm_3666_75952_02_b2nxlwcpig.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romanze",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "3iqfj99mrjq3m1y"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Musikbeigabe s. INr 75954, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Nur weiter, und weiter, / Und muthig voran, / Und rüstig und heiter / Verfolge die Bahn!",
+      "language": [],
+      "musenalm_id": 75953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kindliches Vertrauen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kindliches Vertrauen",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "fz3lrqo49qni48x"
+        }
+      ],
+      "source_id": "im7z1qy5tqeljno"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Kindliches Vertrauen«von F. K. Lang INr 75953, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75954,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kindliches Vertrauen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75954_2tv1uztkhk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kindliches Vertrauen",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "88awr874urke5se"
+        }
+      ],
+      "source_id": "avxjhob1zp2ntj9"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz: vermutlich: F. K. Lang /) mit einer Musikbeigabe s. INr 75956, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Beflügelt enteiltest du, goldene Zeit, / Da ich mich der Nähe des Liebchens erfreut;",
+      "language": [],
+      "musenalm_id": 75955,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Zeit",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Zeit",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "s6inrgzw2qd9d0b"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »An die Zeit« von L (vermutl. F. K. Lang) INr 75955, Obj 21 /) Photos 75956,01; 75956,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75956,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Zeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75956_01_xih4woylvz.jpg",
+        "alm_3666_75956_02_xginl6tm78.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An die Zeit",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "w6k5rcofq60s67v"
+        }
+      ],
+      "source_id": "w6w8m4hgovao9ts"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz: vermutlich: F. K. Lang",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Stilles Dorf, wo mich die Freude / Lieblich, wie der West umschwebt, / Wo ich, unerreicht vom Neide, / Meine Jugendzeit verlebt;",
+      "language": [],
+      "musenalm_id": 75957,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lina's Abschied vom Dorfe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lina's Abschied vom Dorfe",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "tc3z4792yz21hx8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Mutter, käme doch der Winter! / Ihn, mit seinen rauhen Tagen / Und mit seiner Flockenschaar",
+      "language": [],
+      "musenalm_id": 75958,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der kleinen Lotte Loblied auf den / Winter!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der kleinen Lotte Loblied auf den / Winter!",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "391umgm1n4q1zsw"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) mit einer Illustration s. Graphik INr 75944, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Die Sonne verhüllte sich: zwischen den Wipfeln der Eichen hinduch zuckten Blitze: der Gesang der Amseln und Finken verstummte;",
+      "language": [],
+      "musenalm_id": 75959,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gewitter. / Scenen aus einem größern noch ungedruckten / Werke: Bertha von Tiefenbronn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gewitter. / Scenen aus einem größern noch ungedruckten / Werke: Bertha von Tiefenbronn",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "u95axuo5jsrbrrg"
+        }
+      ],
+      "source_id": "0bls279zm2q61fm"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Hört zu, ich will die Kunst euch lehren, / Des Lebens Wonne zu vermehren,",
+      "language": [],
+      "musenalm_id": 75960,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Eine. / Guter Rath an die Brüder. / Gesellschaftslied. / Mel. Hört zu, ich will euch Weisheit singen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Eine. / Guter Rath an die Brüder. / Gesellschaftslied. / Mel. Hört zu, ich will euch Weisheit singen",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "oi3xcgka96z1h5i"
+        }
+      ],
+      "source_id": "gbokktlze6b70mu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Eheliche Liebe des Weibes entspringt aus Neigung des Herzens; die Gegenliebe des Mannes hat ihren Ursprung in den Forderungen der Vernunft.",
+      "language": [],
+      "musenalm_id": 75961,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe und Ehe. / Aus einer in M. gehaltenen Rede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe und Ehe. / Aus einer in M. gehaltenen Rede",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "unfmfiztzn8b89h"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) mit einer Musikbeigabe s. INr 75963, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Willkommen, du Sprosse der Liebe, / Der segnenden Gottheit verwandt,",
+      "language": [],
+      "musenalm_id": 75962,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "rj0mvg81ofwqtkx"
+        }
+      ],
+      "source_id": "7b3kojiubgomoy1"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Frühling« von F. K. Lang INr 75962, Obj 28 /) Photos 75963,01; 75963,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75963,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75963_01_rsb01lh5i3.jpg",
+        "alm_3666_75963_02_eg1a7t6otn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "7c055zlzkw1uzvx"
+        }
+      ],
+      "source_id": "a260m1jiyshigk6"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Ha, gefangen! Sieh mit bangem Beben / Kämpft der buntgeschwingte Flatterer,",
+      "language": [],
+      "musenalm_id": 75964,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bitte an die Natur, / für Lina",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bitte an die Natur, / für Lina",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "unfd8y3htzopk6s"
+        }
+      ],
+      "source_id": "jhxf6rz538qx2i8"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) mit einer Illustration s. Graphik INr 75945, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Auf dem Hofe seines kleinen friedlichen Landhauses stand Brenner im nachlässigen Morgen-Anzuge mit Eröffnung einer wohlverwahrten Kiste beschäftigt,",
+      "language": [],
+      "musenalm_id": 75965,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweyerley Wirkungen / oder die Büsten / Ein Herbsttag in Brenners Landhause",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweyerley Wirkungen / oder die Büsten / Ein Herbsttag in Brenners Landhause",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "s6lo8tbalhz07nc"
+        }
+      ],
+      "source_id": "t62lid2ldytb0nv"
+    },
+    {
+      "annotation": "# Bez. aus dem G-Verz /) mit einer Musikbeigabe s. INr 75967, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.794Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Ich hatt' einmal ein Vögelein, / Noch lieb' ich es zur Stunde",
+      "language": [],
+      "musenalm_id": 75966,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lina's Vogel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lina's Vogel",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.694Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "7xbrbrvsp6wsdj0"
+        }
+      ],
+      "source_id": "y6eg4dpbj0axnyg"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Lina's Vögelein« von F. K. Lang INr 75966, Obj 32 /) Photos 75967,01; 75967,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75967,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lina's Vogel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75967_01_yv6m7fg1g3.jpg",
+        "alm_3666_75967_02_5qkcrh2yqr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lina's Vogel",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.695Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "0eusoy2ax72ko96"
+        }
+      ],
+      "source_id": "8mai8dj6kknblir"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit 2 Musikbeigaben s. INr 75969, 75970; Obj 35, 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.799Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Guter Jüngling, zage nicht! / Nur für dieses Leben können / Menschen unsre Liebe trennen,",
+      "language": [],
+      "musenalm_id": 75968,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebestraum",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Harries",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebestraum",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "dabg3yslrp3lcfv"
+    },
+    {
+      "annotation": "1. Vertonung des Gedichts »Liebestraum« von Harries INr 75969, Obj 34 /) Photos 75969,01-75969,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75969,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebestraum. / Zur ersten, zweyten, vierten und fünften Strophe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75969_01_i408lbbz8x.jpg",
+        "alm_3666_75969_02_olxmu1eipp.jpg",
+        "alm_3666_75969_03_kw62t2wo94.jpg",
+        "alm_3666_75969_04_el16teqf4p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Liebestraum. / Zur ersten, zweyten, vierten und fünften Strophe",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.858Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "zvwf2wwpb9tw9m0"
+        }
+      ],
+      "source_id": "zzf9i2ms7bixkzr"
+    },
+    {
+      "annotation": "2. Vertonung des Gedichts »Liebestraum« von Harries INr 75969, Obj 34 /) Photos 75970,01-75970,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75970,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebestraum. / Erste, zweyte, vierte und fünfte Strophe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75970_01_ts1hjofelj.jpg",
+        "alm_3666_75970_02_g3we53cv0h.jpg",
+        "alm_3666_75970_03_sluur8g5oy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Liebestraum. / Erste, zweyte, vierte und fünfte Strophe",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.858Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "t7sv8tynsn6qpw6"
+        }
+      ],
+      "source_id": "qbiuha6ta4gnvmo"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit 2 Musikbeigaben s. INr 75972, 75973; Obj 38, 39 /) mit einer Illustration s. Graphik INr 75947, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Mitternacht unhüllt die Flur; / Raue Stürme heulen;",
+      "language": [],
+      "musenalm_id": 75971,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ständchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ständchen",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.858Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "m6p5hovl2fgwu1p"
+        }
+      ],
+      "source_id": "iz8ag1vg0zxoogb"
+    },
+    {
+      "annotation": "1. Vertonung des Gedichts »Ständchen« von F. K. Lang INr 75971, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75972,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ständchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75972_46b3p6v7mh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ständchen",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.858Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "fnz4cd39n57g14m"
+        }
+      ],
+      "source_id": "fkleakimcg9xqfv"
+    },
+    {
+      "annotation": "2. Vertonung des Gedichts »Ständchen« von F. K. Lang INr 75971, Obj 37 /) Photos 75973,01; 75973,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.345Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75973,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dasselbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_3666_75973_01_l9wldtib2q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dasselbe",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.858Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "e943mznwu85q89i"
+        }
+      ],
+      "source_id": "i19hjuixsejf3iv"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Beym Gelispel des West, der unter Blumen spielt, / Leicht beflügelt, wie du, nah dem beschifften Strand,",
+      "language": [],
+      "musenalm_id": 75974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sensucht. / An Glycerion",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sensucht. / An Glycerion",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.858Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.858Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "7y4ohjn88maaf0u"
+        }
+      ],
+      "source_id": "amxu7o087zd0wtz"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Also sey es bestimmt, dem Bräutigam werde ge- / währet, / Wie er sittsam es bat: nach sieben Tagen und / Nächten / Krön' ein ländliches Fest der Liebe geheiligtes Bünd- / niß:",
+      "language": [],
+      "musenalm_id": 75975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweymal Hochzeitschmaus. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweymal Hochzeitschmaus. / Erzählung",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.859Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "wqiwnie4l93k9kb"
+        }
+      ],
+      "source_id": "9ehjipwltdmek3z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "t6v2yiyifhvumdv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75978,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75978_uddrj4rs9g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 1.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5m8s68gwp9njeu"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.900Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75979,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75979_n976r6kpez.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 2.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "bcxaqz9m96c1349"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75980,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75980_3qtuj2nx0b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 3.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "9zjstpt7rj1ki06"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75981,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75981_y3wea32e60.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 4.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "bo3d629863fynl7"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75982,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 5.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75982_uojr6bndms.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 5.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "sfkgo4djnpgbvf5"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75983,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer 6.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75983_6tt6axsese.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer 6.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "l9i9h7u49a1zjuk"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75984,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75984_cynjuhtaus.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 1.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "imxk5efer0pw9da"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75985,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75985_ha6v1bdi0u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 2.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "nbaeev9kqqbdp3l"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75986,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75986_bta8rsdxsb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 3.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "3nyd6m43mchyjws"
+    },
+    {
+      "annotation": "# Bez. an der 1. Musikbeigabe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75987,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise 4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. H. Schwabe",
+      "scans": [
+        "alm_3666_75987_5v7sa6eeah.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise 4.",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "742bhtgytoepnlc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75977,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Unterhaltung und Belehrung / gewidmete Werke / aus dem Verlage von Karl Tauchnitz / in  Leipzig, / welche zu angenehmen Geschenken für Damen / und für die Jugend empfehlen, und durch alle / Buchhandlungen zu bekommen sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Unterhaltung und Belehrung / gewidmete Werke / aus dem Verlage von Karl Tauchnitz / in  Leipzig, / welche zu angenehmen Geschenken für Damen / und für die Jugend empfehlen, und durch alle / Buchhandlungen zu bekommen sind",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "gxtgptxfshh1mrj"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75988,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3666_75988_dmphc1vn7u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1807,
+      "editor": "",
+      "agents": [],
+      "source_id": "1fkhlvahos26bp1"
+    }
   ],
   "agents": [
     {

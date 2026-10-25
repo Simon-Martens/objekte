@@ -48,59 +48,2038 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "vgbeuufe5hjbfn0"
+    {
+      "annotation": "1784-1820.\nKartonierter Einband mit Goldschnitt und Schuber.\n1812: (K: Ku 10 und Mu 2 ) Mit Port 1, Ku 14, Mu 2 und Bl 10 + 282 SS + Bl 1.\nFrauenzimmer Allmanach Zum Nutzen und Vergnügen, auch unter Titel Leipziger Taschenbuch für Frauenzimmer Zum Nutzen und Vergnügen. \nSiehe auch Leipziger Taschenbuch für Frauenzimmer..... .",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.508Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100233",
+      "location": "105D01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.508Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vgbeuufe5hjbfn0"
+    }
   ],
   "contents": [
-    "94atz85tmq5oy37",
-    "uczj7mvf5cyl2y1",
-    "omp1gmm1f196ghy",
-    "sgghidjndnma92s",
-    "wziodm0t783o423",
-    "8xs775jy593z8jm",
-    "d268c5otty8lsh2",
-    "1j1dtvyan14sbaf",
-    "7ivmf7xv8u3i37w",
-    "dklmlmoeaawwbpf",
-    "2ckwnnccb0wp2m2",
-    "8nu6ulf0j9ii8tu",
-    "s3s1w6snmjoqbe9",
-    "7uv8v7i2bbfa55b",
-    "46pr7v6gvicybze",
-    "5cp6rcuy9k3k5hy",
-    "e8eh656ebab4lr3",
-    "3tw67omx2h7ds10",
-    "fghgrqqbzl0bm54",
-    "cgab3pme4lx83tf",
-    "kloveeas5d0saqu",
-    "avtvakxjkmntdcp",
-    "pzvyy5a9f2mbh2p",
-    "wk495sfovfr1oaw",
-    "6mkm1is69j6fk3m",
-    "82exdaias78b95u",
-    "e7ktzucxn9gcs44",
-    "80998woetp3x1e6",
-    "gi50hd1id6a510k",
-    "u2pprj4zii0nvbv",
-    "t1wx89sl9oldpcs",
-    "2lvvz35c0fo7wpm",
-    "u4i6c37jn6ov75c",
-    "3qehakubvp86jqh",
-    "ufs74u0vk445rej",
-    "5p3nw4bi7ikesg7",
-    "i2m1xgdp1d3bga8",
-    "oj9vxysxq7f841t",
-    "mtktbecjnjgrp1b",
-    "1cf1mjdasw08wut",
-    "ae2e1jelrbon7wq",
-    "od3fm6lmd6dlm15",
-    "cs3szn7dnso7lbi",
-    "uryo5zco996w0pi",
-    "hkl0rqx6sw0voew",
-    "tvbusvuh4du2uad",
-    "1qcve26w5syw9tv",
-    "io6d3px3akdhwwh",
-    "96iqs2ki3zbyfsr",
-    "bny4iq32r84uwix"
+    {
+      "annotation": "Titelgraphik. Illustration zu »Wanda, Herzogin von Polen« INr 48277, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48238,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WANDA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. d. Fr. Bolt s. 1811",
+      "scans": [
+        "alm_657_48238_ph342fw93m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WANDA",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.691Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "4ccz7a65kbfm1x4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.691Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.691Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "udsrywialm9lo0l"
+        }
+      ],
+      "source_id": "94atz85tmq5oy37"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48239,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenzimmer / Almanach / zum / NUTZEN und VERGNÜGEN. / für das Jahr / 1812. / LEIPZIG / bey A. F. Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_657_48239_vgyts3b6vk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenzimmer / Almanach / zum / NUTZEN und VERGNÜGEN. / für das Jahr / 1812. / LEIPZIG / bey A. F. Böhme",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "uczj7mvf5cyl2y1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48240,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "omp1gmm1f196ghy"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert II. Illustration zu »Wanda, Herzogin von Polen« INr 48277, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48241,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verwegener, was wollst du noch hier?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. M. Haas sc.",
+      "scans": [
+        "alm_657_48241_9ccb405ckx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verwegener, was wollst du noch hier?",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.478Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.478Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "h2ma1w7zhdce2j3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.478Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.478Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "zovp7gx1yrd1ses"
+        }
+      ],
+      "source_id": "sgghidjndnma92s"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert III. Illustration zu »Gräfin Julie von Bürde. Oder: Der Wettstreit zwischen Kindespflicht und Liebe« INr 48278, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48242,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grausamer, siehst du nicht? Sie ist todt! todt!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et sculp.",
+      "scans": [
+        "alm_657_48242_1vu70p8h1h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Grausamer, siehst du nicht? Sie ist todt! todt!",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.593Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "cf65oox9aw4lryt"
+        }
+      ],
+      "source_id": "wziodm0t783o423"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert IV. Illustration zu »Gräfin Julie von Bürde. Oder: Der Wettstreit zwischen Kindespflicht und Liebe« INr 48278, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.682Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48243,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Feyerlich langsam folgte ihr der Zug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et sculp.",
+      "scans": [
+        "alm_657_48243_39sx7scklu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Feyerlich langsam folgte ihr der Zug",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.593Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ago4hks9rg4isiu"
+        }
+      ],
+      "source_id": "8xs775jy593z8jm"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert V. Illustration zu »Die Wette oder: die beschämte Eifersucht« INr 48279, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48244,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wenn sie unschuldig wäre! Ob ichs wohl / wage oder nicht?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1811",
+      "scans": [
+        "alm_657_48244_sfcwtwobk7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wenn sie unschuldig wäre! Ob ichs wohl / wage oder nicht?",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.593Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "9krellpl2ko70kx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.593Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "zijgypdk8yv2ij2"
+        }
+      ],
+      "source_id": "d268c5otty8lsh2"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert VI. Illustration zu »Scenen aus der Familie Ehrenberg. 1. Charlotte Waller« 48285, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48245,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutter, so sprich doch nur ein einziges / Wörtchen für mich!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert d. Fr. Bolt sc.",
+      "scans": [
+        "alm_657_48245_8z7mvdpojr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mutter, so sprich doch nur ein einziges / Wörtchen für mich!",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.346Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "00vhgrv7zzgxlr6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.346Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "222pzdla860qdlc"
+        }
+      ],
+      "source_id": "1j1dtvyan14sbaf"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert VII. Illustration zu »Scenen aus der Familie Ehrenberg. 2. Amalia« INr 48285, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48246,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Treffliches Weib, beruhige dich! Vor meinem / Herzen bist du gerechtfertiget",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert d. Fr. Bolt sc. 1811",
+      "scans": [
+        "alm_657_48246_q2jrfvsz2c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Treffliches Weib, beruhige dich! Vor meinem / Herzen bist du gerechtfertiget",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.346Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "d7lh7jomene3x94"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.346Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "s46u5c8s1z5tybv"
+        }
+      ],
+      "source_id": "7ivmf7xv8u3i37w"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert VIII. Illustration zu »Scenen aus der Familie Ehrenberg. 2. Amalia« INr 48285, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48247,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schändlicher, meide diese geheiligte / Stelle; Dein Reich ist nun zu Ende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury inv. et fec.",
+      "scans": [
+        "alm_657_48247_hif5y7w44y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schändlicher, meide diese geheiligte / Stelle; Dein Reich ist nun zu Ende",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.346Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "vz83d8ivntkv3ab"
+        }
+      ],
+      "source_id": "dklmlmoeaawwbpf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48248,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ckwnnccb0wp2m2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48250,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigaben-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Musikbeigaben-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "8nu6ulf0j9ii8tu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48249,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "s3s1w6snmjoqbe9"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Auswahl von Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Auswahl von Gedichten",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "7uv8v7i2bbfa55b"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Kein irdisch Gut bestehet, / Die schönste Lust entfleucht, / Der Freundschaft Glanz vergehet, / Der Liebe Glück entweicht;",
+      "language": [],
+      "musenalm_id": 48252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bleibende",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bleibende",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "46pr7v6gvicybze"
+    },
+    {
+      "annotation": "Vertonung der Strophen 1-5, 10 des Gedichts »Spiel des Lebens« von Carl Grumbach INr 48255, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spiel des Lebens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_657_48253_egwsowfvq7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spiel des Lebens",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.401Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.401Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "iiuf0hqwbma8t1p"
+        }
+      ],
+      "source_id": "5cp6rcuy9k3k5hy"
+    },
+    {
+      "annotation": "Vertonung der Strophen 6-9 des Gedichts »Spiel des Lebens« von Carl Grumbach INr 48255, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Spiel des Lebens] Zu Vers 5. 6. 7. 8. und 9",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_657_48254_zyfv8kk7du.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Spiel des Lebens] Zu Vers 5. 6. 7. 8. und 9",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.401Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.401Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "eq4ojs2slgcmk4b"
+        }
+      ],
+      "source_id": "e8eh656ebab4lr3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. mit 2 Vertonungen s. Musikbeigaben INr 48253, 48254; Obj 16, 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es flüstern sanft kühlend und linde / Am Bache, so silbern und hell, / Im scherzenden Wechsel die Winde,",
+      "language": [],
+      "musenalm_id": 48255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spiel des Lebens",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Spiel des Lebens",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "3tw67omx2h7ds10"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Warum auf Gräbern nur den Blick / In deines Lebens goldnem Morgen?",
+      "language": [],
+      "musenalm_id": 48256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufforderung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufforderung",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "fghgrqqbzl0bm54"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. mit einer Vertonung s. Musikbeigabe INr 48258, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Die Sonne schläft, der Mond ist aufgegan- / gen, / Und alles ruht im Schlafesweichen Arm,",
+      "language": [],
+      "musenalm_id": 48257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtgedanken",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtgedanken",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "cgab3pme4lx83tf"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Nachtgedanken« von Carl Grumbach INr 48257, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtgedanken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_657_48258_5snstpjhgq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nachtgedanken",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.401Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.401Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "fz9wa4tdrswbbrq"
+        }
+      ],
+      "source_id": "kloveeas5d0saqu"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Der frohe Bauer« von Registrator Müller INr 48274, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48275,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der frohe Bauer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Harder",
+      "scans": [
+        "alm_657_48275_v5xv0pa4km.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der frohe Bauer",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.210Z",
+          "agent": "cx1t1g6vij8mhnm",
+          "source_id": "wjc0ifhqyvwwron"
+        }
+      ],
+      "source_id": "avtvakxjkmntdcp"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ich sah dich einst, und fand in deinen / Blicken / Der Liebe wonnetrunkenes Entzücken,",
+      "language": [],
+      "musenalm_id": 48259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kampf",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Susanne v. Bandemer, geb Franklin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kampf",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "pzvyy5a9f2mbh2p"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Sind das wirklich, Liebe, deine Freuden, / Und der Lohn für meine Treu,",
+      "language": [],
+      "musenalm_id": 48260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klagen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Susanne v. Bandemer, geb Franklin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klagen",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "wk495sfovfr1oaw"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Vergessen soll ich dich? Ist's möglich, dich / vergessen, / Den einzig diese Seele denkt?",
+      "language": [],
+      "musenalm_id": 48261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Selmar",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Susanne v. Bandemer, geb Franklin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Selmar",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "6mkm1is69j6fk3m"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "So nimm es hin, das Opfer meiner Thrä- / nen, / Daß dir der bittre Schmerz betrogner Liebe / bringt,",
+      "language": [],
+      "musenalm_id": 48262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied an Selmar",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Susanne v. Bandemer, geb Franklin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied an Selmar",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.401Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.401Z",
+          "agent": "63e8s8hkpbnksyg",
+          "source_id": "w3c64r8xp0inm99"
+        }
+      ],
+      "source_id": "82exdaias78b95u"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. /) 18 Strophen im Metrum der sechszeiligen »weiblichen« ungeraden Strophen von Schillers »Würde der Frauen«, im Gegensatz zu A. W. Schlegels Parodie »Schillers Würde der Frauen« ohne ironische Wendung; s. Schillers »Würde der Frauen«, Erstdruck in: Musenalmanach (Schiller) 1796, INr 963; G. K. Claudius brachte das Gedicht ein Jahr später in: Frauenzimmer-Almanach 1797, INr 47349",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Ehret die Männer! ihr Wirken und Streben / Mahnt uns an Weisheit und höheres Leben; / Forschen nach Wahrheit ist ewig ihr Stern,",
+      "language": [],
+      "musenalm_id": 48263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob der Männer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arnoldine Wolf, geb. Weissel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lob der Männer",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.401Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.401Z",
+          "agent": "k4l0etwctfexyyx",
+          "source_id": "f1z0qoc4vjy12s2"
+        }
+      ],
+      "source_id": "e7ktzucxn9gcs44"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Nimm, was du im Leben ganz besessen, / Dieses Herz ist noch im Grabe dein!",
+      "language": [],
+      "musenalm_id": 48264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anna von Trauteneck bey Ritter / Golos Grab",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hofmaler Friedrich Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anna von Trauteneck bey Ritter / Golos Grab",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.760Z",
+          "agent": "xudibmgptrwrx3w",
+          "source_id": "lpcwqu7djqlr8ur"
+        }
+      ],
+      "source_id": "80998woetp3x1e6"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Linda, sicher steht der Kahn, / Fertig bin ich mit den Netzen;",
+      "language": [],
+      "musenalm_id": 48265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der graue Thurm am See",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Gubitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der graue Thurm am See",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.760Z",
+          "agent": "5riql8l2fq0wx5f",
+          "source_id": "tthxjqftlr4f18l"
+        }
+      ],
+      "source_id": "gi50hd1id6a510k"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Alexis floh der Schäfer Spiel, / Der Schäfer Tanz, und weinte viel. / O Liebesgott! Schon' unsrer Herzen!",
+      "language": [],
+      "musenalm_id": 48266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexis, / Frey nach dem Englischen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alexis, / Frey nach dem Englischen",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.760Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "79de4kuh6icq7vt"
+        }
+      ],
+      "source_id": "u2pprj4zii0nvbv"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Still, was schleicht dort so alleine, / Jammert dort im Frost und Wind?",
+      "language": [],
+      "musenalm_id": 48267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Christabend",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Christabend",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.589Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.589Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "udjdx7m1xdt5kma"
+        }
+      ],
+      "source_id": "t1wx89sl9oldpcs"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "In der umsonst zurückersehnten, / Der hochgepriesnen goldnen Zeit, / Als noch Gesetze nicht verpönten,",
+      "language": [],
+      "musenalm_id": 48268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fabel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fabel",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.589Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.589Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "mrfwsp2t7bmh7lc"
+        }
+      ],
+      "source_id": "2lvvz35c0fo7wpm"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Auf ewig dein! Wenn Berg und Meere / trennen, / Wenn Stürme dräun, / Wenn Weste säuseln oder Wüsten brennen: / Auf ewig dein!",
+      "language": [],
+      "musenalm_id": 48269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiederhall",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Matthison",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiederhall",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.589Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.589Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "ju04mkiwuhzl9k4"
+        }
+      ],
+      "source_id": "u4i6c37jn6ov75c"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Fliehet aus den seligen Gefilden, / Die des ersten Lebens Unschuld sahn,",
+      "language": [],
+      "musenalm_id": 48270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Opfer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Verf. des Walter von Monbarry, Thekla von Thurn etc",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Opfer",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "3qehakubvp86jqh"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Gleich ist der Schiffenden Bahn; die Fluthen des / Glücks und des Unglücks / Flügeln die zögernde Farth, hemmen den / reißenden Flug;",
+      "language": [],
+      "musenalm_id": 48271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glück und Unglück",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Verf. des Walter von Monbarry, Thekla von Thurn etc",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glück und Unglück",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ufs74u0vk445rej"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Lächle nicht zu früh in deinem Glücke, / Schlummre nicht so sorglos sel'ges Herz,",
+      "language": [],
+      "musenalm_id": 48272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warnung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warnung",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "5p3nw4bi7ikesg7"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Ruhe suchst du in den Gründen / Dieser Erde? sie zu finden / Hoffe nimmer, armes Herz!",
+      "language": [],
+      "musenalm_id": 48273,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Grumbach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "i2m1xgdp1d3bga8"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. mit einer Vertonung s. Musikbeigabe INr 48275, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Dem Fürsten wird ich nie beneiden, / Er ist des blinden Glückes Sohn;",
+      "language": [],
+      "musenalm_id": 48274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der frohe Bauer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Registrator Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der frohe Bauer",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "oj9vxysxq7f841t"
+    },
+    {
+      "annotation": "Es folgen die Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Kleine Erzählungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Kleine Erzählungen",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "mtktbecjnjgrp1b"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Titelgraphik INr 48238, Obj 1 u. Graphik INr 48241, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.913Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Mit Lorbeeren sein greises Haupt umkränzt, gesegnet von seinen glücklichen Unterthanen, deren siegreicher Anführer er mit immer gleichem Erfolge gewesen war,",
+      "language": [],
+      "musenalm_id": 48277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Wanda, / Herzogin von Polen. / Zeitperiode: die Mitte des sechsten Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Wanda, / Herzogin von Polen. / Zeitperiode: die Mitte des sechsten Jahrhunderts",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "1cf1mjdasw08wut"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 48242, 48243; Obj 5, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Liebe Gräfin, wie freue ich mich, der glückliche Ueberbringer sehr angenehmer Nachrichten für Sie zu seyn. Mit diesen Worten trat der Marschall von Berwick in der Gräfin von Bürde Zimmer,",
+      "language": [],
+      "musenalm_id": 48278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Gräfin Julie von Bürde. / Oder: / Der Wettstreit zwischen Kin- / despflicht und Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Gräfin Julie von Bürde. / Oder: / Der Wettstreit zwischen Kin- / despflicht und Liebe",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ae2e1jelrbon7wq"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 48244, Obj 7 /) Fortsetzung des Beitrags »Rosalie und ihr Bruder, oder: Der sonderbare Einfall« aus: Frauenzimmer-Almanach 1811; INr 48069",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Rosalie lebte mit ihrem Eduard ein so ausgezeichnet glückliches Leben, daß jeder, wer in ihrer Nähe war, nicht anders glaubte, als daß sie den Himmel schon auf Erden erobert haben müßten.",
+      "language": [],
+      "musenalm_id": 48279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Wette. / Oder: / die beschämte Eifersucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Wette. / Oder: / die beschämte Eifersucht",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "od3fm6lmd6dlm15"
+    },
+    {
+      "annotation": "Illlustration zu »Länder- und Völkerkunde. Kleines Sittengemälde der Koossa« INr 48281, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaffer und Kafferin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rösel del. J. F. Schröter sc. Lipsia",
+      "scans": [
+        "alm_657_48280_1tnt6z9zgp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaffer und Kafferin",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.139Z",
+          "agent": "nks9aoyh19lpabu",
+          "source_id": "az8abezimofccz9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.139Z",
+          "agent": "fvvo7u8gqk8l3ze",
+          "source_id": "qxk5zavi7lupucd"
+        }
+      ],
+      "source_id": "cs3szn7dnso7lbi"
+    },
+    {
+      "annotation": "# Anm. am Objekt mit Hinweis auf: Hinrich Lichtenstein: Reisen im südlichen Afrika in den Jahren 1803, 1804, 1805 und 1806. Berlin (Saalfeld) 1811 /) mit einer Illustration s. Graphik INr 48280, Obj 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Die bekannten südafrikanischen neuern Reisebeschreiber nennen die Kaffern den kleinen Stamm im Osten der Colonie, welchen sie bei ihrer Reisen besucht haben,",
+      "language": [],
+      "musenalm_id": 48281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Länder- und Völkerkunde. / Kleines Sittengemälde der Koossa #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Länder- und Völkerkunde. / Kleines Sittengemälde der Koossa #",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "uryo5zco996w0pi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Kaum möchten wir unsere Leserinnen würdiger unterhalten können, als wenn wir ihnen einige Bemerkungen über die Oekonomie der Früchte, und zwar nach Anleitung eines eben so gründlichen, als angenehmen neuen französischen Schriftstellers,",
+      "language": [],
+      "musenalm_id": 48282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Wirthschaftliches Vademecum. / Oekonomie der Früchte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Wirthschaftliches Vademecum. / Oekonomie der Früchte",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "hkl0rqx6sw0voew"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Gesund kann man zwar seyn, ohne jedoch auf Schönheit Anspruch machen zu können;",
+      "language": [],
+      "musenalm_id": 48283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Diätetik. / Gesundheit und Schönheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Diätetik. / Gesundheit und Schönheit",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "tvbusvuh4du2uad"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.513Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Zeither sprach ich zu Ihnen von der körperlichen Erziehung der Kinder im Allgemeinen, und also ohne auf das Geschlecht Rücksicht zu nehmen;",
+      "language": [],
+      "musenalm_id": 48284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Franz Ehrenbergs / Reden über die körperliche Erziehung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Franz Ehrenbergs / Reden über die körperliche Erziehung",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.645Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "zzonpohgi7kdjwy"
+        }
+      ],
+      "source_id": "1qcve26w5syw9tv"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 48245, Obj  8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.513Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Waller hereintretend So allein, meine Liebe? Wo ist Gustav?",
+      "language": [],
+      "musenalm_id": 48285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung",
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Scenen / aus der Familie Ehrenberg. / 1. / Charlotte Waller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Scenen / aus der Familie Ehrenberg. / 1. / Charlotte Waller",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "io6d3px3akdhwwh"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 48246, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.513Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Der wackere Moses freuete sich nicht wenig, daß er die glückliche Mittelsperson gewesen war, Amaliens Portrait aus so unedlen Händen gerettet zu haben.",
+      "language": [],
+      "musenalm_id": 48286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Scenen / aus der Familie Ehrenberg. / 2. / Amalia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Scenen / aus der Familie Ehrenberg. / 2. / Amalia",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "96iqs2ki3zbyfsr"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 48287,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabmal der verewigten Königin von Preußen zu Charlottenburg #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Iden del. Wagner sc.",
+      "scans": [
+        "alm_657_48287_08y8cjx63m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Grabmal der verewigten Königin von Preußen zu Charlottenburg #",
+      "updated": "2007-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.645Z",
+          "agent": "jn4zwv0zocwueaf",
+          "source_id": "77lej1wmxbjkqic"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.645Z",
+          "agent": "o3ct6ijrde3gzy6",
+          "source_id": "pd48snu3vod51wg"
+        }
+      ],
+      "source_id": "bny4iq32r84uwix"
+    }
   ],
   "agents": [
     {

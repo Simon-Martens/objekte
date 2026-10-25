@@ -48,25 +48,713 @@
   "year": 1830,
   "editor": "",
   "items": [
-    "8iio3mye2gz37o1"
+    {
+      "annotation": "1828-1849.\nKartonierter Einband mit Prägung und Goldschnitt.(Vorder-Hinterbuchdeckel, Buchrücken und Inhalt lose.) \n,1830: (K: M. Stahlst 8.) Mit Port 1, Tku 1, Bl 4, Ku 4, kol Ku 1, 430 SS und Bl 1.\n$§ vermutl. fehlt Graphik »Ansicht von Florenz«",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.699Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100938",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.699Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8iio3mye2gz37o1"
+    }
   ],
   "contents": [
-    "zohlp9k7llomxi6",
-    "gq444cm5eiii1yu",
-    "9bvvickj01thsxp",
-    "19eu8jf54qy79zp",
-    "gc0vl4tkvic2q0y",
-    "96bggfucoy6jcqv",
-    "9h5g8l755artguu",
-    "ru18nncifs1dciw",
-    "wdx7rt2oxmplz6i",
-    "8rie5gkumy3vh1c",
-    "rovy02ohpkhjuhd",
-    "at1kr7cac7603ib",
-    "5vthpa9c2ir6sap",
-    "dbm1wy7dfxu9nyc",
-    "izxg09wavpkxx9g",
-    "wr2u69xkl3jujcu"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.440Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110819,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3466_110819_pw01xnydny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "zohlp9k7llomxi6"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Julia Gonzaga« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110829, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110820,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JULIA GONZAGA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_3466_110820_ld13wht4y2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JULIA GONZAGA",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.321Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "f57315qmm85ej56"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.321Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "w05vn84286x3r2z"
+        }
+      ],
+      "source_id": "gq444cm5eiii1yu"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110821,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN / 1830. / Leipzig, Industrie Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3466_110821_pyyw1py2w4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN / 1830. / Leipzig, Industrie Comptoir",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "9bvvickj01thsxp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110822,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1830. / Von / A. v. Tromlitz. / Mit Kupfern. / Leipzig, im Industrie-Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3466_110822_7al72anrml.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1830. / Von / A. v. Tromlitz. / Mit Kupfern. / Leipzig, im Industrie-Comptoir",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "19eu8jf54qy79zp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110823,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "gc0vl4tkvic2q0y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110824,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "96bggfucoy6jcqv"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 110826-110828, Obj 8-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.166Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein sanfter Westwind bewegte nur leise die Fluthen des im Abendroth erglühten Meeres,",
+      "language": [],
+      "musenalm_id": 110825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Belagerung von Candia",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Belagerung von Candia",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "jgmt0a4cf57c8ni"
+        }
+      ],
+      "source_id": "9h5g8l755artguu"
+    },
+    {
+      "annotation": "über der Graphik pag. 2 /) Illustration zu »Die Belagerung von Candia« A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110825, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Naeke del. J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Naeke del. J. Axmann sc.",
+      "scans": [
+        "alm_3466_110826_hrljic4cab.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "epedpm0m0koeeku"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.359Z",
+          "agent": "jnsjgzgb69y7llq",
+          "source_id": "mom57xxxefv92u5"
+        }
+      ],
+      "source_id": "ru18nncifs1dciw"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Belagerung von Candia« A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110825, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HELENE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3466_110827_ggbzvu79jl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HELENE",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "3u48sf0zufbg2a5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "gm2socn8s14njkt"
+        }
+      ],
+      "source_id": "wdx7rt2oxmplz6i"
+    },
+    {
+      "annotation": "über der Graphik Pag. 122 /) Illustration zu »Die Belagerung von Candia« A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110825, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Naeke del. J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Naeke del. J. Axmann sc.",
+      "scans": [
+        "alm_3466_110828_zi77krhfgn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "jnsjgzgb69y7llq",
+          "source_id": "on2uopj5xc4hkv0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "xthcrzxptide844"
+        }
+      ],
+      "source_id": "8rie5gkumy3vh1c"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 110820, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Wie ein glänzendes Luftgebild, welches die Sterne, selbst die silberne Scheibe des Mondes verdunkelnd, flammend durch die Himmelsräume schwebt,",
+      "language": [],
+      "musenalm_id": 110829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julia Gonzaga",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Julia Gonzaga",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "jjywi7n2kmp99lj"
+        }
+      ],
+      "source_id": "rovy02ohpkhjuhd"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 110831, 110832; Obj 13, 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "An einem schönen heitern Septemberabend zogen zwei Wanderer auf der Straße von Zürich nach Brugg.",
+      "language": [],
+      "musenalm_id": 110830,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vierhundert von Pforzheim",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vierhundert von Pforzheim",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "ab2hy3zy17c8g0n"
+        }
+      ],
+      "source_id": "at1kr7cac7603ib"
+    },
+    {
+      "annotation": "Illustration zu »Die Vierhundert von Pforzheim« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110830, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110831,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GERTRAUD",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viena",
+      "scans": [
+        "alm_3466_110831_fd05i283o3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GERTRAUD",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "axk6y75f6itb5ij"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.360Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "gchkiibmigf4x3y"
+        }
+      ],
+      "source_id": "5vthpa9c2ir6sap"
+    },
+    {
+      "annotation": "Illustration zu »Die Vierhundert von Pforzheim« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110830, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.808Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110832,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALBRECHT ROSER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wgner sc. Nbg",
+      "scans": [
+        "alm_3466_110832_xbxxhzowd5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALBRECHT ROSER",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "dbm1wy7dfxu9nyc"
+    },
+    {
+      "annotation": "$§ vermutl. fehlt Graphik »Ansicht von Florenz«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110833,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "izxg09wavpkxx9g"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110834,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3466_110834_viavub14oq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1830,
+      "editor": "",
+      "agents": [],
+      "source_id": "wr2u69xkl3jujcu"
+    }
   ],
   "agents": [
     {

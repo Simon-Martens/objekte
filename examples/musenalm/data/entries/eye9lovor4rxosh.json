@@ -48,34 +48,1201 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "6ieqwwz5fbfzu4s"
+    {
+      "annotation": "1837-1840.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.573Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106550",
+      "location": "105R08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.573Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6ieqwwz5fbfzu4s"
+    }
   ],
   "contents": [
-    "4cyj7tog4xd8fp4",
-    "pa9f8zcpqiy1cc6",
-    "j301wljn52aa4uq",
-    "128sefuma4bdf8h",
-    "z0ajkzktj78pxb8",
-    "yirg9kh6bt2oj3j",
-    "7pj2y3sczphn0bb",
-    "6g7mxax95z0big1",
-    "7t0k35x0i2vjdm1",
-    "di8jg0lgz56nue6",
-    "fzmrxpbn5axqz2r",
-    "bx81h7bvigo85uk",
-    "f8sxt4paw0yyari",
-    "9brh0jy49urkm9q",
-    "8wlv7t42iw2wq2o",
-    "0rb1zpphivohs8t",
-    "owy2rooljx5vz1w",
-    "1xfi8pr8hddhc3e",
-    "xxktmyo6jwudf3f",
-    "9n5qbn4hikti9co",
-    "9gm9xryui6ehfrq",
-    "2krxdhnnh4acxf5",
-    "h8qdl9t9nj2c1wd",
-    "74aznr9n9nlazeh",
-    "b6rlt5kqppv23bk"
+    {
+      "annotation": "Titelgraphik /) s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. Die Blumenkönigin« von L. Schefer 106571, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106566,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FESTA OF MADONNA DEI FIORI / DAS FEST DER BLUMEN KÖNIGIN / LA FÊTE DE LA REINE DES FLEURS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by T. Uwins A.R.A. Engraved by S. Sangster",
+      "scans": [
+        "alm_1833_106566_je9gvx0kh1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FESTA OF MADONNA DEI FIORI / DAS FEST DER BLUMEN KÖNIGIN / LA FÊTE DE LA REINE DES FLEURS",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "gqti976ow40l87j",
+          "source_id": "6wfa1poig0qjp84"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "3nrmkkfxw6cpzzy",
+          "source_id": "r1ehuvzv0he9pn1"
+        }
+      ],
+      "source_id": "4cyj7tog4xd8fp4"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106567,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HELENA / TASCHENBUCH / für / 1838. / Zweiter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stich v. A. Kneisel",
+      "scans": [
+        "alm_1833_106567_w7duwy1m70.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HELENA / TASCHENBUCH / für / 1838. / Zweiter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.135Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.135Z",
+          "agent": "dodnuedv0qnyg7z",
+          "source_id": "zyj67kfcocwgi6o"
+        }
+      ],
+      "source_id": "pa9f8zcpqiy1cc6"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das scheint im Lauf des Jahrs so ganz natürlich, / Wenn jetzt die Bäume blühn! jetzt Früchte tragen!",
+      "language": [],
+      "musenalm_id": 106568,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung. / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung. / Sonett",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "s5lfikt4zk6iwjr"
+        }
+      ],
+      "source_id": "j301wljn52aa4uq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106569,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "128sefuma4bdf8h"
+    },
+    {
+      "annotation": "Beitrag in 6 Kapiteln als Textbezüge zu den Graphiken des Taschenbuchs INr 106571-106581, Obj 6-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106570,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blumenkönigin. / Erzählung / zur Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Blumenkönigin. / Erzählung / zur Erklärung der Stahlstiche",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "ww9yy2nixvknbqk"
+        }
+      ],
+      "source_id": "z0ajkzktj78pxb8"
+    },
+    {
+      "annotation": "Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche (Sammlung INr 106570, Obj 5) s. Titelgraphik INr 106566, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Schönes Italien! wie lange schon bist du schön! durch wie Vieles bist du so lange tausendfach schön! Dein Reiz ist unaussprechlich,",
+      "language": [],
+      "musenalm_id": 106571,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blumenkönigin. / (Das Titelkupfer)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Blumenkönigin. / (Das Titelkupfer)",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "a7vijy4iofklz7d"
+        }
+      ],
+      "source_id": "yirg9kh6bt2oj3j"
+    },
+    {
+      "annotation": "Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche (Sammlung INr 106570, Obj 5) s. Graphik INr 106573, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Schöner, rührender, glückseliger, als der Gegenstand dieses Bildes giebt es keinen in der ganzen Natur,",
+      "language": [],
+      "musenalm_id": 106572,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Mutter Hoffnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Mutter Hoffnung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "iassw195qdggr5o"
+        }
+      ],
+      "source_id": "7pj2y3sczphn0bb"
+    },
+    {
+      "annotation": "s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. II. Der Mutter Hoffnung« von L. Schefer 106572, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106573,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THE MOTHER'S HOPE / DIE HOFFNUNG DER / MUTTER. / L'ESPOIR DE LA / MÉRE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by C. R. Leslie R. A. Engraved by C. Rolls",
+      "scans": [
+        "alm_1833_106573_carfes7oiy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THE MOTHER'S HOPE / DIE HOFFNUNG DER / MUTTER. / L'ESPOIR DE LA / MÉRE",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "i4ngciqyls3qwnk",
+          "source_id": "hijdpnhl6lmq1qg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "mxo3cgfvdqju8v8"
+        }
+      ],
+      "source_id": "6g7mxax95z0big1"
+    },
+    {
+      "annotation": "s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. III. Die Wittwe« von L. Schefer 106575, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106574,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THE WIDOW. / DIE WITWE. / LA VEUVE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by T. Webster Engraved by W. Finden",
+      "scans": [
+        "alm_1833_106574_i8l4wxos4d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THE WIDOW. / DIE WITWE. / LA VEUVE",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "or1fz8l642chtnf",
+          "source_id": "2g0gxe6uuxygpwg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "n0s2frkyl2br3jb",
+          "source_id": "9k3h9b53hxdpsug"
+        }
+      ],
+      "source_id": "7t0k35x0i2vjdm1"
+    },
+    {
+      "annotation": "Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche (Sammlung INr 106570, Obj 5) s. Graphik INr 106574, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.029Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Wittwe! der schrecklichste Beiname des Weibes. Wittwe sein, das furchtbarste Loos. Da sitzt sie in dem gewohnten Zimmer, traurig, allein, die Menschen vermeidend, die Glücklichen, um nicht zu weinen, und die Unglücklichen - um nicht zu weinen,",
+      "language": [],
+      "musenalm_id": 106575,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Wittwe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Wittwe",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "7t3qhjqcuzebom2"
+        }
+      ],
+      "source_id": "di8jg0lgz56nue6"
+    },
+    {
+      "annotation": "s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. IV. Die Erwartungsvollen am Gestade« von L. Schefer 106576, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106576,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THE WATCHERS ON THE BEACH. / DIE ERWARTUNGSVOLLEN AM GESTADE. / LES ATTENDANTS AU BORD DE LA MER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by J. C. Timbrell Engraved by C. Rolls",
+      "scans": [
+        "alm_1833_106576_a4b252jl7m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THE WATCHERS ON THE BEACH. / DIE ERWARTUNGSVOLLEN AM GESTADE. / LES ATTENDANTS AU BORD DE LA MER",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "yqozsyb5soh7ucc",
+          "source_id": "2lyiirz6iw8yna7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "rhexdl5v7wpw2nb"
+        }
+      ],
+      "source_id": "fzmrxpbn5axqz2r"
+    },
+    {
+      "annotation": "Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche (Sammlung INr 106570, Obj 5) s. Graphik INr 106576, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Ruhig ist der Abend und ladet zur Ruhe. Ja er zwingt die Menschen und alle Bewohner der See und des Landes zu Muße und Feier und Schlaf.",
+      "language": [],
+      "musenalm_id": 106577,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Erwartungsvollen am Gestade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Erwartungsvollen am Gestade",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.136Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.136Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "eueynugucl4c4gh"
+        }
+      ],
+      "source_id": "bx81h7bvigo85uk"
+    },
+    {
+      "annotation": "s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. V. Des Seemanns erste Lection« von L. Schefer 106579, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106578,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THE MARINER'S FIRST LESSON. / DES SEEMANN ERSTE LECTION. / PREMIÈRE LEÇON DU / MARINIER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by J. C. Timbrell Engraved by C. Rolls",
+      "scans": [
+        "alm_1833_106578_37mp8ueto7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THE MARINER'S FIRST LESSON. / DES SEEMANN ERSTE LECTION. / PREMIÈRE LEÇON DU / MARINIER",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "yqozsyb5soh7ucc",
+          "source_id": "4mzu40kodv9se3w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "8zt1jsooify5u3e"
+        }
+      ],
+      "source_id": "f8sxt4paw0yyari"
+    },
+    {
+      "annotation": "Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche (Sammlung INr 106570, Obj 5) s. Graphik INr 106578, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Hier sehen wir nun den alten durch das Leben eisenfestgewordenen rüstigen Mann, den Großvater bei seinen Enkeln.",
+      "language": [],
+      "musenalm_id": 106579,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Des Seemanns erste Lection",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Des Seemanns erste Lection",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "jvchq244yu1ryjw"
+        }
+      ],
+      "source_id": "9brh0jy49urkm9q"
+    },
+    {
+      "annotation": "Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche (Sammlung INr 106570, Obj 5) s. Graphik INr 106579, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Hier ist ein Bild der Welt vorgestellt, so rührend wie Eins und so tröstlich wie Eins.",
+      "language": [],
+      "musenalm_id": 106580,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Der Gang zur Dienstherrschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Der Gang zur Dienstherrschaft",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "39lwckenq3qkwwk"
+        }
+      ],
+      "source_id": "8wlv7t42iw2wq2o"
+    },
+    {
+      "annotation": "s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. VI. Der Gang zur Dienstherrschaft« von L. Schefer 106580, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106581,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GOING TO SERVICE. / DER GANG ZUR DIENSTHERRSCHAFT. / L'ENTRÉE AU SERVICE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Painted by J. Inskip Engraved by L. Stocks",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "GOING TO SERVICE. / DER GANG ZUR DIENSTHERRSCHAFT. / L'ENTRÉE AU SERVICE",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "bvezxw2tz1ckudv",
+          "source_id": "8h4x23gn71vpvz2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "66xjdztm20neiup",
+          "source_id": "rj8g0cpe3rbk42z"
+        }
+      ],
+      "source_id": "0rb1zpphivohs8t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Kriegsheer übte den Krieg; oben auf den Hügeln tobte der Scheinkampf der Batterieen, in den Bergschluchten knackerten die Einzelschüsse der Tirailleure;",
+      "language": [],
+      "musenalm_id": 106582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutter und Tochter. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emerentius Scävola",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mutter und Tochter. / Erzählung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.137Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.137Z",
+          "agent": "9b0fkhld94kpyv9",
+          "source_id": "3fus0yc9svi1rzh"
+        }
+      ],
+      "source_id": "owy2rooljx5vz1w"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Willst du die falsche Lieb' / von wahrer unterscheiden: / So schau! sie sucht sich selbst- / Angelus Silesius",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Im Anfange jener verhängnißvollen Zeit, wo die asiatische Cholera sich den gesegneten Grenzen Schlesiens und dem Weichbilde der Stadt näherte, welche der Schauplatz dieser kleinen Geschichte ist, Schauer der Fucht vor ihr hergingen,",
+      "language": [],
+      "musenalm_id": 106583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sphinx. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Henriette Hanke geb. von Arndt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sphinx. / Erzählung",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "oy4lf8ib4lzndt3",
+          "source_id": "pylcun7t3859zeb"
+        }
+      ],
+      "source_id": "1xfi8pr8hddhc3e"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 106585-106588, Obj 20-23 /) Der Sammlung vorangestellt: Motto: Kein Künstler hat die Welt noch je beneidet / In seines Herzens Füll' und Seligkeit [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 106584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstler-Neid. / Novellencyklus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Künstler-Neid. / Novellencyklus",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "u4kl76sfkqh3pnn"
+        }
+      ],
+      "source_id": "xxktmyo6jwudf3f"
+    },
+    {
+      "annotation": "Künstler-Neid. Novellencyklus (Sammlung INr 106584, Obj 19) Dem Beitrag vorangestellt: Motto: / Wer einen Künstler nicht will gelten lassen, / Ihn meuchlings untergräbt und schmählich richtet.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Die schöne Afanasia saß auf dem Bette ihres schlafenden Mannes. Neben ihr saßen zwei herrliche Kinder, ein Mädchen von fünf Jahren, die kleine Afanasia, und ein Knabe von drei Jahren, der kleine Wassili,",
+      "language": [],
+      "musenalm_id": 106585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Czar / oder / Neid auf Künstler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Czar / oder / Neid auf Künstler",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "i4bdpd97l1gupmj"
+        }
+      ],
+      "source_id": "9n5qbn4hikti9co"
+    },
+    {
+      "annotation": "Künstler-Neid. Novellencyklus (Sammlung INr 106584, Obj 19) Dem Beitrag vorangestellt: Motto: / Der innere Mensch ist freilich das Bewußtsein, / Und groß und schön, wie das, was er in sich trägt; [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Die Lobrede auf den Menschen käme freilich sehr spät! Und doch hat sie noch Keiner mit Worten gehalten.",
+      "language": [],
+      "musenalm_id": 106586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Torregiano / oder / Neid auf Genie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Torregiano / oder / Neid auf Genie",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "rozzawtop641y5c"
+        }
+      ],
+      "source_id": "9gm9xryui6ehfrq"
+    },
+    {
+      "annotation": "Künstler-Neid. Novellencyklus (Sammlung INr 106584, Obj 19) Dem Beitrag vorangestellt: Motto: / Was ist die Rose werth, die ihren Duft / In sich verschließen und nicht duften will? [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "Der Morgenstern war gekommen und stand schon hoch. Er stand wie allein am Himmel; so strahlte er hell und sanft und klar,",
+      "language": [],
+      "musenalm_id": 106587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Meister und Schüler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Meister und Schüler",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "kp1xjo2v7i8ngya"
+        }
+      ],
+      "source_id": "2krxdhnnh4acxf5"
+    },
+    {
+      "annotation": "Künstler-Neid. Novellencyklus (Sammlung INr 106584, Obj 19) Dem Beitrag vorangestellt: Motto: / Kein tieferer Bewunderer des Schönen / Lebt, als der Neider! [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Ich war aus Italien wieder in Wien. Ein Paar Jahre sein Vaterland nicht haben, in der schönsten Jugend nicht, und um der Musik willen, ist etwas rasend",
+      "language": [],
+      "musenalm_id": 106588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der Sohn vom Ritter Gluck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der Sohn vom Ritter Gluck",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "2eirvv3tl6aieqp"
+        }
+      ],
+      "source_id": "h8qdl9t9nj2c1wd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "401",
+      "incipit_statement": "Die Nachmittagssonne brannte auf den Lagunen. Vor allen Fenstern der Westseite am Canal Onofrio hiengen die Marquisen und bewegten sich kaum in der schwerfälligen Luft.",
+      "language": [],
+      "musenalm_id": 106589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gondoliere. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Herloßsohn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gondoliere. / Novelle",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.224Z",
+          "agent": "16uxlf73ehnhqr1",
+          "source_id": "f2j9mr308bphqr7"
+        }
+      ],
+      "source_id": "74aznr9n9nlazeh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "468",
+      "incipit_statement": "Breslau, gedruckt bei Leopold Freund",
+      "language": [],
+      "musenalm_id": 106590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Breslau, gedruckt bei Leopold Freund…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "b6rlt5kqppv23bk"
+    }
   ],
   "agents": [
     {

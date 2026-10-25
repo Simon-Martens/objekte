@@ -48,32 +48,954 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "ivn1zglx6z8oggh"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.453Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "405568",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.453Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ivn1zglx6z8oggh"
+    }
   ],
   "contents": [
-    "778h09ffkmxqvp7",
-    "kslanr0xcwgk9uk",
-    "yyak2z5hd5wfxms",
-    "ifam18ogcfie0kd",
-    "95arzwh49aapzjj",
-    "rrcqlzi0m332ug2",
-    "qfnejblfbrb5b99",
-    "tj2f4cat994lsxp",
-    "qlewe5k5408kach",
-    "e6jkj205o7r9j0q",
-    "f0gvlk6gbt6s9te",
-    "q1mv0r1s2qo1cr7",
-    "brkk688ttegssq3",
-    "c3lryhoha8zds83",
-    "l5g2q33j9lbj6et",
-    "xx62dezyjz1g75v",
-    "721gilzhkjtzp4h",
-    "e6qpnf4ptw33p9l",
-    "eqixms35719uqw3",
-    "5c50rxliaysbuv5",
-    "c79syos0etlbr28",
-    "gk52jrk4m2uv1a6",
-    "m2o300lnn8j20d4"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18981,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für / 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für / 1832",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "778h09ffkmxqvp7"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.499Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18982,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "kslanr0xcwgk9uk"
+    },
+    {
+      "annotation": "Titelportrait (Stich und Druck durch Kunst-Verlag Karlruhe)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1970,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. Oehlenschlaeger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Simonsen del. Ed. Schuler sculp",
+      "scans": [
+        "alm_55_1970_ojaemx2znn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. Oehlenschlaeger",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.998Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "e25qk8oxupvg43v"
+        }
+      ],
+      "source_id": "yyak2z5hd5wfxms"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.500Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18983,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "URANIA. / Taschenbuch auf das Jahr / 1832. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_55_18983_bo430dl3dv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1832. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1832",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ifam18ogcfie0kd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18984,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "95arzwh49aapzjj"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers: Ein Preis wird nicht vergeben, eine weitere Preisaufgabe wird nicht veranstaltet. s. Vorwort des Herausgebers »Preisaufgabe für das Jahr 1832« in: Urania 1831, INr 9374",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Als die unterzeichnete Verlagshandlung der Urania unterm 15. Juli 1830 einen Preis auf die beste Erzählung oder Novelle setzte,",
+      "language": [],
+      "musenalm_id": 1968,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bericht / über / die Preisaufgabe für die Novelle / oder Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Brockhaus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bericht / über / die Preisaufgabe für die Novelle / oder Erzählung",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.042Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.042Z",
+          "agent": "manlqagw1uz9rp2",
+          "source_id": "sp3nflrjocbd9ne"
+        }
+      ],
+      "source_id": "rrcqlzi0m332ug2"
+    },
+    {
+      "annotation": "G-Verz. Sammlung von 6 Textbezügen zu 6 Graphiken INr 18985-18990, 1971-1976; Obj 8-19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.882Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1969,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Stahlstiche",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "qfnejblfbrb5b99"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 1969, Obj 7) s. Graphik INr 1971, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Es würde ein Euphemismus sein, wenn man den Aufenthaltsort der Savoyarden ein Zimmer nennen wollte,",
+      "language": [],
+      "musenalm_id": 18985,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Die Savoyarden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Die Savoyarden",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "tj2f4cat994lsxp"
+    },
+    {
+      "annotation": "s. Textbezug INr 18985, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1971,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE SAVOYARDEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bonnefond pinx. Ed. Schuler sculp.",
+      "scans": [
+        "alm_55_1971_oakt2zw9v8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE SAVOYARDEN",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "ivbmyuw6fiywhw7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "vr2sj99n5zu1n6i",
+          "source_id": "ybg3ehq37dqfa92"
+        }
+      ],
+      "source_id": "qlewe5k5408kach"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 1969, Obj 7) s. Graphik INr 1972, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Die außerordentliche Wahrheit dieses kleinen Bildes kann ihre Wirkung auf den Beschauer nicht verfehlen.",
+      "language": [],
+      "musenalm_id": 18986,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Die Matrosen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Die Matrosen",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "e6jkj205o7r9j0q"
+    },
+    {
+      "annotation": "s. Textbezug INr 18986, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1972,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE MATROSEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grenier pinx. E. Schuler und F. Poppel, sculps.",
+      "scans": [
+        "alm_55_1972_ipu45z1zs9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE MATROSEN",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "4f29mfierv5ntar"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "m04d7309ko8gubo",
+          "source_id": "v5hw7ej891vfg2k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "09vqyzz1zzz8g9y",
+          "source_id": "xna4vbp2kce7opl"
+        }
+      ],
+      "source_id": "f0gvlk6gbt6s9te"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 1969, Obj 7) s. Graphik INr 1973, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Das Töchterchen Eva's, welches uns hier anschaut, gibt den Erbfehler seines Geschlechtes unverhohlen kund.",
+      "language": [],
+      "musenalm_id": 18987,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die kleine Näscherin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die kleine Näscherin",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "q1mv0r1s2qo1cr7"
+    },
+    {
+      "annotation": "s. Textbezug INr 18987, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.889Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1973,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE KLEINE NÄSCHERIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Danloux pinx. E. Schuler sculp.",
+      "scans": [
+        "alm_55_1973_wg7ldj87o7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE KLEINE NÄSCHERIN",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "ws4lyo7945uxoya",
+          "source_id": "svcy0c7cjvuuyx7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "yjyybu8cw94ntpx"
+        }
+      ],
+      "source_id": "brkk688ttegssq3"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 1969, Obj 7) s. Graphik INr 1974, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Wir sehen den ländlichen Schauplatz, welchen dieses Bild darstellt, von einer großen Anzahl Figuren belebt.",
+      "language": [],
+      "musenalm_id": 18988,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Dorfschenke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Dorfschenke",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "c3lryhoha8zds83"
+    },
+    {
+      "annotation": "s. Textbezug INr 18988, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1974,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DORFSCHENKE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Demarne pin. Schütze scul.",
+      "scans": [
+        "alm_55_1974_fx11sr9uf7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DORFSCHENKE",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "l5g2q33j9lbj6et"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 1969, Obj 7) s. Graphik INr 1975, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Die Reize des Lacus Lemanus, die zu den großartigsten der Natur gehören,",
+      "language": [],
+      "musenalm_id": 18989,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Der Genfersee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Der Genfersee",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "xx62dezyjz1g75v"
+    },
+    {
+      "annotation": "s. Textbezug INr 18989, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.893Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1975,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER GENFER SEE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leprince pinx. J. Poppel sc.",
+      "scans": [
+        "alm_55_1975_z3tdxgbc6l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER GENFER SEE",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "09vqyzz1zzz8g9y",
+          "source_id": "6utz8jc60nz2f9n"
+        }
+      ],
+      "source_id": "721gilzhkjtzp4h"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 1969, Obj 7) s. Graphik INr 1976, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Im freien Felde, wahrscheinlich in der Nähe eines Fleckens, von welchem auch einige Häuschen zu erblicken sind,",
+      "language": [],
+      "musenalm_id": 18990,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Der Pferdemarkt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Der Pferdemarkt",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "e6qpnf4ptw33p9l"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz. s. Textbezug INr 18990, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1976,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER PFERDEMARKT",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "LH; Schwebach",
+      "scans": [
+        "alm_55_1976_f121bqgvz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER PFERDEMARKT",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "eqixms35719uqw3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "An einem Sommertage des Jahres eintausendachthundert und neunundzwanzig befand sich auf der Wasserjacht, die täglich von Mainz nachCoblenz fährt",
+      "language": [],
+      "musenalm_id": 1977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Dampschiff. / Niederländische Unterhaltungen auf dem Rheine",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Dampschiff. / Niederländische Unterhaltungen auf dem Rheine",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "a9gagg4dbmpxacx"
+        }
+      ],
+      "source_id": "5c50rxliaysbuv5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Ich befand mich nun schon ein paar Monate in der Siebenhügelstadt am Bosporus,",
+      "language": [],
+      "musenalm_id": 1978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der moderne Fortunat. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der moderne Fortunat. / Novelle",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "qd127stoyq6hg83"
+        }
+      ],
+      "source_id": "c79syos0etlbr28"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Das kannst Du nicht aus Dir selber haben, lieber Sebastian! Sprach die Mutter;",
+      "language": [],
+      "musenalm_id": 1979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schatzgräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Voigts",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schatzgräber",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "ag0rfbhhvlvrwq7",
+          "source_id": "fow6jse589gd8kl"
+        }
+      ],
+      "source_id": "gk52jrk4m2uv1a6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.896Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Es ist nicht anders, geliebter Oheim, ich bin wieder auf der Reise, und kann gar nicht mal sagen, wann oder wo sie endigen wird.",
+      "language": [],
+      "musenalm_id": 1980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mondsüchtige. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mondsüchtige. / Novelle",
+      "updated": "2000-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.999Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "0z0s78zk48967yp"
+        }
+      ],
+      "source_id": "m2o300lnn8j20d4"
+    }
   ],
   "agents": [
     {

@@ -48,34 +48,1107 @@
   "year": 1860,
   "editor": "",
   "items": [
-    "l2nye46iozv440v"
+    {
+      "annotation": "1816-1873.\nKartonierter Einband mit Goldschnitt.\n1860:Mit Tku 1, Ku 8, XIV und 360 SS.\nHg:1816-1842 = A. Schreiber. \n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell.\n     1857-1862 = A. Henninger.\n     1863-1873 = Frater Hilarius (pseude).",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.533Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106492",
+      "location": "105N04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.533Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "l2nye46iozv440v"
+    }
   ],
   "contents": [
-    "fhhjgj6hyh69sqt",
-    "lovagjbuexzqf2t",
-    "fvdc4d4i02wmodo",
-    "ajh0rvvjdkyzlgk",
-    "1p8hoa4o7994xna",
-    "w1fj3p9s0r5n5ny",
-    "ikqobn4tt1u355f",
-    "1n3ojqr59h8yoxv",
-    "y1hm95rxburld6b",
-    "dbpflu2l2buam73",
-    "i6lji0qr7gpqk08",
-    "hb6bpjmy050ebad",
-    "vk7iivij7at9evt",
-    "gch1bnqui60cmip",
-    "ypwfdiajt6jabzt",
-    "5m044w77t5h8lad",
-    "mhwadxtqkpxsghd",
-    "1pacn7dt6ety2ca",
-    "jesuwja680hoald",
-    "n7xzbk2kbox42gb",
-    "s1kwuwkbqsdv8r9",
-    "s46jnmswovskush",
-    "e2u1kl06sdj8k7r",
-    "nmitef7izzbh4c9",
-    "d4qn8w7tq614c88"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.204Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64318,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1860 / DARMSTADT / im Verlag / VON G. G. LANGE / New-York Lange & Kronfeld / William Street 202. Store No. 3",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1068_64318_8egp3qj2wq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / 1860 / DARMSTADT / im Verlag / VON G. G. LANGE / New-York Lange & Kronfeld / William Street 202. Store No. 3",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [],
+      "source_id": "fhhjgj6hyh69sqt"
+    },
+    {
+      "annotation": "Titelgraphik # Titel s. Textbezug INr 64324, Obj 7. Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.206Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64319,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Lilien im Mummelsee #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64319_wa5ahdirxd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Lilien im Mummelsee #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.055Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.055Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "uljeicd7nylufok"
+        }
+      ],
+      "source_id": "lovagjbuexzqf2t"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64320,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1860 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Aloys Henninge / 45r. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Schad sc.",
+      "scans": [
+        "alm_1068_64320_prbqbqembm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1860 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Aloys Henninge / 45r. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.181Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.181Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "ebj4gcpfm9wzgq9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.181Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.181Z",
+          "agent": "3gnzs7actzcxdwq",
+          "source_id": "htk73b75b7u54tm"
+        }
+      ],
+      "source_id": "fvdc4d4i02wmodo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64321,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1860 / Herausgegeben von / Aloys Henninger. / 45. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1068_64321_ylws7g26cd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch / für deutsche Frauen / auf das Jahr / 1860 / Herausgegeben von / Aloys Henninger. / 45. Jahrgang. / Darmstadt. / Druck und Verlag von Gustav Georg Lange",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [],
+      "source_id": "ajh0rvvjdkyzlgk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64322,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [],
+      "source_id": "1p8hoa4o7994xna"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 64324-64330, 64338; Obj 7-14 als Textbezüge zu den Graphiken des Almanachs /) Anm. unter der Sammlung: Den in diesem Jahrgange enthaltenen 8 Stahlstichen nach Götzenberger's Fresken in der neuen Trinkhalle zu Baden wird in dem Jahrgange für 1861 noch ein weiterer Cyclus von 6 folgen und somit die vollständige Sammlung dieser herrlichen Darstellungen in den Besitz der Leser der Cornelia gelangen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64323,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reihenfolge / und Erklärung der Stahlstiche in acht Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reihenfolge / und Erklärung der Stahlstiche in acht Gedichten",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [],
+      "source_id": "w1fj3p9s0r5n5ny"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Titelgraphik INr 64319, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Im Mummelsee, im dunklen See, / Da blühn der Lilien viele,",
+      "language": [],
+      "musenalm_id": 64324,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Die Lilien im Mummelsee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schnetzler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Die Lilien im Mummelsee",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "dz5hqr7uvnamp20",
+          "source_id": "stnqb79bjwlugbo"
+        }
+      ],
+      "source_id": "ikqobn4tt1u355f"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64331, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Es lag ein altes Nymphenbild / Im Tannenforst begraben,",
+      "language": [],
+      "musenalm_id": 64325,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Keller's Bild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Brauer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Keller's Bild",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.172Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.172Z",
+          "agent": "q3hkrc4mbx3ugx0",
+          "source_id": "2bg4vlpj0jxkeet"
+        }
+      ],
+      "source_id": "1n3ojqr59h8yoxv"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64332, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Es schattet die Eichenkrone / Ein Inselchen im See,",
+      "language": [],
+      "musenalm_id": 64326,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Die Nixe des Wildsee's",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Die Nixe des Wildsee's",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.194Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.194Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "o31t5y89ox0rvsy"
+        }
+      ],
+      "source_id": "y1hm95rxburld6b"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64333, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Du schauerst, Wandrer, ob dem Graus / Rings hier in Thal und Wald umher;",
+      "language": [],
+      "musenalm_id": 64327,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Die Teufelskanzel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Stöber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Die Teufelskanzel",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.194Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.194Z",
+          "agent": "knoskc7ee942ezb",
+          "source_id": "1ozhj0u73htl0an"
+        }
+      ],
+      "source_id": "dbpflu2l2buam73"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Badens. Graphik INr 64334, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Der Württemberger schloß ihn ein; / Was that Herr Wolf von Eberstein?",
+      "language": [],
+      "musenalm_id": 64328,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Der Grafensprung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Kopisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Der Grafensprung",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.194Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.194Z",
+          "agent": "aq3u8k3couckqq1",
+          "source_id": "45j0b8aao60s415"
+        }
+      ],
+      "source_id": "i6lji0qr7gpqk08"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64335, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Zu Speyer im Saale, da hebt sich ein Klingen, / Mit Fackeln und Kerzen, ein Tanzen und Springen.",
+      "language": [],
+      "musenalm_id": 64338,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Graf Eberstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Uhland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Graf Eberstein",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.106Z",
+          "agent": "6fcfejb1bewhh5z",
+          "source_id": "yfjh4kkikm17lsu"
+        }
+      ],
+      "source_id": "hb6bpjmy050ebad"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64336, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Der Schwarzwald braust, der Sturmwind saust, / Wohl Dem, der jetzt in Frieden haust,",
+      "language": [],
+      "musenalm_id": 64329,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Fremersberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Uhland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Fremersberg",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.075Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.075Z",
+          "agent": "6fcfejb1bewhh5z",
+          "source_id": "tkqan1npq1l7v62"
+        }
+      ],
+      "source_id": "vk7iivij7at9evt"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64337, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Der Ritter Eginhard fand auf der Burg zu Lauf, / Verirrt in später Nacht, die Thore alle auf.",
+      "language": [],
+      "musenalm_id": 64330,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. Die Jungfrau auf Burg Lauf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Wihl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. Die Jungfrau auf Burg Lauf",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "z9zzha2tz10lf47",
+          "source_id": "78kkj6mslfvqie1"
+        }
+      ],
+      "source_id": "gch1bnqui60cmip"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64325, Obj 8 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64331,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Keller's Bild #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64331_0qw39qsdrd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Keller's Bild #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "e5zlhokjkcquxks"
+        }
+      ],
+      "source_id": "ypwfdiajt6jabzt"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64326, Obj 9 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64332,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nixe des Wildsee's #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64332_jw7yg925fv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Nixe des Wildsee's #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "4wuz6gos8sx5vy1"
+        }
+      ],
+      "source_id": "5m044w77t5h8lad"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64327, Obj 10 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64333,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Teufelskanzel #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64333_w9qm3kjkhf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Teufelskanzel #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "zmltqum1ogayyq7"
+        }
+      ],
+      "source_id": "mhwadxtqkpxsghd"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64328, Obj 11 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64334,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Grafensprung #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64334_cpm19jrt6u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Grafensprung #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "0n9pt7cjdstn1w1"
+        }
+      ],
+      "source_id": "1pacn7dt6ety2ca"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64338, Obj 12 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.658Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64335,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Graf Eberstein #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64335_d8yvmyli6q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Graf Eberstein #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.323Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.323Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "jt1d350ifptw4l5"
+        }
+      ],
+      "source_id": "jesuwja680hoald"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64329, Obj 13 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64336,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fremersberg #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64336_dakkkodibu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Fremersberg #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.106Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "get0tdydgg6ae4r"
+        }
+      ],
+      "source_id": "n7xzbk2kbox42gb"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 64330, Obj 14 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64337,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jungfrau auf Burg Lauf #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+      "scans": [
+        "alm_1068_64337_2p5bbp9ehk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Jungfrau auf Burg Lauf #",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.106Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "obqckzxz0m0ydpv"
+        }
+      ],
+      "source_id": "s1kwuwkbqsdv8r9"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Man sieht die Blumen welken, und die Blätter fallen; aber man sieht auch die Früchte reifen und neue Knospen keimen. [...] Wilhelm Meisters Wanderjahre",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die beiden Schwestern stunden am offenen Fenster, die Eine eifrig beschäftigt mit der Stickerei eines feinen , weißen Mousselintuches,",
+      "language": [],
+      "musenalm_id": 64339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wandlungen. / Eine Erzählung aus der Zeit des siebenjährigen Krieges",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. F. (Fr. Hilarius)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wandlungen. / Eine Erzählung aus der Zeit des siebenjährigen Krieges",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.106Z",
+          "agent": "euexsjcr9ar4su1",
+          "source_id": "pnn9m4uz9og2i00"
+        }
+      ],
+      "source_id": "s46jnmswovskush"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Es war ein rauher, regnigter Novemberabend. Der Lieutnant von Wildenstein, ein junger Mann von sechsundzwanzig Jahren, ging mit großen Schritten in seinem fast dunkeln Zimmer auf und nieder.",
+      "language": [],
+      "musenalm_id": 64340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wildensteine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Rellstab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wildensteine",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.106Z",
+          "agent": "zi8zh5xhvi7k26j",
+          "source_id": "7u34sojxbh1vu55"
+        }
+      ],
+      "source_id": "e2u1kl06sdj8k7r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Das schreckensvolle Drama, welches unter dem Namen: der große deutsche Bauerkrieg bekannt ist, hatte begonnen.",
+      "language": [],
+      "musenalm_id": 64341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Falkner. / Novelle auf historischem Hintergrunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Ziehen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Falkner. / Novelle auf historischem Hintergrunde",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.106Z",
+          "agent": "n93zvl8q72c04nh",
+          "source_id": "otohzfhc7lr30qp"
+        }
+      ],
+      "source_id": "nmitef7izzbh4c9"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64342,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1068_64342_ae97se2y24.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1860,
+      "editor": "",
+      "agents": [],
+      "source_id": "d4qn8w7tq614c88"
+    }
   ],
   "agents": [
     {

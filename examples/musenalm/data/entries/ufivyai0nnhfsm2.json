@@ -48,27 +48,749 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "15z6wywcjellt4m",
-    "g3rteycmi2wjkdu",
-    "jh2gugndca7jq4d",
-    "l75ec4ofsv5dw8d"
+    {
+      "annotation": ", Obj 1, 15",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "125390",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "15z6wywcjellt4m"
+    },
+    {
+      "annotation": ",",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "125389",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "g3rteycmi2wjkdu"
+    },
+    {
+      "annotation": "UG recto u verso, INr",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "410766",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "jh2gugndca7jq4d"
+    },
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1813: Mit Ku 6 und 204 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.461Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100043",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.461Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "l75ec4ofsv5dw8d"
+    }
   ],
   "contents": [
-    "yo7z315nkj0b1m9",
-    "as3kw96hmjcbgdc",
-    "u17x12gnfazfdfm",
-    "lzlt02j6i02g8wk",
-    "ofjxcspqtiljbyf",
-    "dcowzypcnynaacv",
-    "q3qqxi6y2t7frlb",
-    "bfrnaoggl85t5aj",
-    "1y97wia72jhuior",
-    "kfa60y38ihoxi8p",
-    "mf648ryoqkm8uxf",
-    "de46q6y8gsf06m6",
-    "5m94bvvtdcxuu7y",
-    "g4e3mb2l16bipo7",
-    "oywp2vamgd2so2s"
+    {
+      "annotation": "Umschlaggraphik recto; aus 410766",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.527Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125389,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1281_125389_m9as8xkokm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "yo7z315nkj0b1m9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123676,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Eilfter Jahrgang / Leipzig / bei C. J. G. Hartmann. 1813 / Martin sc. Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Martin sc.",
+      "scans": [
+        "alm_1281_123676_ixiwucgbdh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Eilfter Jahrgang / Leipzig / bei C. J. G. Hartmann. 1813 / Martin sc. Leipzig",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.817Z",
+          "agent": "u3ev7bjxvo21hzz",
+          "source_id": "ud3lt0fxlyzqt3o"
+        }
+      ],
+      "source_id": "as3kw96hmjcbgdc"
+    },
+    {
+      "annotation": "Illustration zu »Die Rosen« von Kotzebue (INr 123679, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.252Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123678,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Willst du eine Freude recht genießen, / So thu zuvor, was dir gebührt. / Die Rosen, Scene 4",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+      "scans": [
+        "alm_1281_123678_3ku16ju20k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. / Willst du eine Freude recht genießen, / So thu zuvor, was dir gebührt. / Die Rosen, Scene 4",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.817Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "asj01pws67173p0"
+        }
+      ],
+      "source_id": "u17x12gnfazfdfm"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123678, Obj 2; # Bezeichnung aus den Vrwt. bis Jg. 1806 /) Vermerk am Ende: »Mit kaiserlich- Russisch. und Königl. Sächs. Censur.«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.747Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gottlob! Der Winter ging zu Ende / Am geselligen Kamin, / Und ich darf die dicken Wände / Der kühlen Häuser endlich fliehn.",
+      "language": [],
+      "musenalm_id": 123679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosen / des Herrn von Malesherbes. / Ein / ländliches Gemälde in einem Akt. / Den Stoff hat eine wahre, von Bouilly in seinen Contes à ma fille erzählte Anekdote geliefert",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosen / des Herrn von Malesherbes. / Ein / ländliches Gemälde in einem Akt. / Den Stoff hat eine wahre, von Bouilly in seinen Contes à ma fille erzählte Anekdote geliefert",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "hz9c7zfwchj6ct5"
+        }
+      ],
+      "source_id": "lzlt02j6i02g8wk"
+    },
+    {
+      "annotation": "Illustration zu »Die beiden kl. Auvergnaten« von Kotzebue (INr 123681, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das brachte uns der Eltern Segen! / Die beiden kl. Auvergnaten, Scene 12",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+      "scans": [
+        "alm_1281_123680_aqipxn2zaj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das brachte uns der Eltern Segen! / Die beiden kl. Auvergnaten, Scene 12",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "tc0fs8zcfefo31p"
+        }
+      ],
+      "source_id": "ofjxcspqtiljbyf"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123680, Obj 4; # Bezeichnung aus den Vrwt. bis Jg. 1806 /) Vermerk am Ende: »Mit Kaiserl. Russisch. und Königl. Sächs. Censur.«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Ein buntes Gewühl auf dieser Messe von Beaucaire, aber auch ein Lärm, daß Einem die Ohren weh thun.",
+      "language": [],
+      "musenalm_id": 123681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beyden kleinen Auvergnaten. / Ein Drama in einem Akt. / (Nach einer Erzählung von Bouilly.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beyden kleinen Auvergnaten. / Ein Drama in einem Akt. / (Nach einer Erzählung von Bouilly.)",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "4ydpcncjjpwf7qa"
+        }
+      ],
+      "source_id": "dcowzypcnynaacv"
+    },
+    {
+      "annotation": "Illustration zu »Die Masken« von Kotzebue (INr 123683, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Strangulirt! / Die Masken. Scene 13",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+      "scans": [
+        "alm_1281_123682_vt19h0gku0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Strangulirt! / Die Masken. Scene 13",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "1fhp48t2gm4m13k"
+        }
+      ],
+      "source_id": "q3qqxi6y2t7frlb"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123682, Obj 6; # Bezeichnung aus den Vrwt. bis Jg. 1806 /) Vermerk am Ende: »Mit Kaiserl. Russisch. und Königl. Sächs. Censur.« /) Enthält den Auftritt einer Figur in der Maske eines Kupferstechers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Maske, ich werde sprechen wie Hamlet, als der Geist ihm winkte: ich gehe nicht weiter.",
+      "language": [],
+      "musenalm_id": 123683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Masken. / Ein Schauspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Masken. / Ein Schauspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "moqcgdymmw3puvv"
+        }
+      ],
+      "source_id": "bfrnaoggl85t5aj"
+    },
+    {
+      "annotation": "# Bezeichnung an den ersten Blättern der Suite (z.B. INr 123678, Obj 2) /) Illustration zu »Der arme Poet« von Kotzebue (INr 123685, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der Schöpfung Meisterstück der Mensch! – – / Nein, das geht nicht, es gibt keinen Reim auf Mensch / Der arme Poet, Scene I",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+      "scans": [
+        "alm_1281_123684_sz74h6g20i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der Schöpfung Meisterstück der Mensch! – – / Nein, das geht nicht, es gibt keinen Reim auf Mensch / Der arme Poet, Scene I",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "eqr0pgm49g41dp5"
+        }
+      ],
+      "source_id": "1y97wia72jhuior"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123684, Obj 8; # Bezeichnung aus den Vrwt. bis Jg. 1806 /) Vermerk am Ende: »Mit Kaiserl. Russisch. und Königl. Sächs. Censur.«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.754Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "»Der Schöpfung Meisterstück, der Mensch?« – Nein, das geht nicht – es giebt keinen Reim auf Mensch.",
+      "language": [],
+      "musenalm_id": 123685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Poet. / Ein Schauspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Poet. / Ein Schauspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "i0exc8f584lua4g"
+        }
+      ],
+      "source_id": "kfa60y38ihoxi8p"
+    },
+    {
+      "annotation": "# Bezeichnung an den ersten Blättern der Suite (z.B. INr 123678, Obj 2) /) Illustration zu »Das getheilte Wort« von Kotzebue (INr 123687, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.755Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Er fürchtet Überraschung! / Das getheilte Wort, Scene 6",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+      "scans": [
+        "alm_1281_123686_ftos9uzyvd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Er fürchtet Überraschung! / Das getheilte Wort, Scene 6",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.675Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "d9rpx6sdviwyrpf"
+        }
+      ],
+      "source_id": "mf648ryoqkm8uxf"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123686, Obj 10; # Bezeichnung aus den Vrwt. bis Jg. 1806 /) Vermerk am Ende: »Mit Kaiserl. Russisch. und Königl. Sächs. Censur.«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Pauline, Du bist mir ein Räthsel. / Liebe Mutter, Sie thun mir zu viel Ehre an.",
+      "language": [],
+      "musenalm_id": 123687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das getheilte Herz. / Ein Lustspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das getheilte Herz. / Ein Lustspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.845Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.845Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "suls1jqv8qdzh74"
+        }
+      ],
+      "source_id": "de46q6y8gsf06m6"
+    },
+    {
+      "annotation": "Illustration zu »Die respectable Gesellschaft« von Kotzebue (INr 123689, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Ein Liebesbrief! ich schaudere! / Die respectable Gesellschaft. Scene 4",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+      "scans": [
+        "alm_1281_123688_an5h42ka2w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Ein Liebesbrief! ich schaudere! / Die respectable Gesellschaft. Scene 4",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "kqr2l456bijoavi"
+        }
+      ],
+      "source_id": "5m94bvvtdcxuu7y"
+    },
+    {
+      "annotation": "mit einer kol. Illustration s. Graphik INr 123688, Obj 12; # Bezeichnung aus den Vrwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Ich sage Dir, ich halt’ es nicht länger aus, ich laufe davon. / In Gottes Namen! es wird sich schon Jemand finden, der Ihnen nachläuft",
+      "language": [],
+      "musenalm_id": 123689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die respectable Gesellschaft. / Eine Posse in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die respectable Gesellschaft. / Eine Posse in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.846Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.846Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "l7e8kpcuuzvns7u"
+        }
+      ],
+      "source_id": "g4e3mb2l16bipo7"
+    },
+    {
+      "annotation": "Umschlaggraphik verso; aus 410766",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125390,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1281_125390_jdj13wuy19.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "oywp2vamgd2so2s"
+    }
   ],
   "agents": [
     {

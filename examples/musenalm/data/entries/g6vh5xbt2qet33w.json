@@ -48,7 +48,26 @@
   "year": 1855,
   "editor": "",
   "items": [
-    "73uv8spchqhzqhh"
+    {
+      "annotation": "1850-1858",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.676Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200195",
+      "location": "105S09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.676Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "73uv8spchqhzqhh"
+    }
   ],
   "contents": [],
   "agents": [

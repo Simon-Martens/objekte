@@ -48,25 +48,676 @@
   "year": 1848,
   "editor": "",
   "items": [
-    "a3kiv8flpkzc0ov"
+    {
+      "annotation": "1811-1848.\n1848",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.619Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106038",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.619Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "a3kiv8flpkzc0ov"
+    }
   ],
   "contents": [
-    "4b63wdu9a6pi9ox",
-    "e4l5hsf3cp20k20",
-    "vfcvi5iha23myba",
-    "o9tsnqrzj55c5yy",
-    "i889iv2jf3asnf3",
-    "9k864kjd3lni1yr",
-    "zia64om2703ebgz",
-    "08srenokm9hbq1i",
-    "hd8zt2q8tii4i5v",
-    "zeuxmjo1n6vqswb",
-    "xe29qkq109yq6iy",
-    "m996pyw983ed0y9",
-    "yxcbtbj184js4nt",
-    "cj10bsavnbeh21w",
-    "01yvuztbzhcrnrn",
-    "6xmah5jff9w8orw"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77860,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2419_77860_fmy32m8fhv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "4b63wdu9a6pi9ox"
+    },
+    {
+      "annotation": "Titelportrait /) s. Textbezug INr 77869, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77861,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "J. Schnorr von Carolsfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach d. Natur gez. u. gest. v. G. Planer",
+      "scans": [
+        "alm_2419_77861_3yxceybpcm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "J. Schnorr von Carolsfeld",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "p2a8zzbxev3sqbc",
+          "source_id": "dw3xn41v2pzcoz4"
+        }
+      ],
+      "source_id": "e4l5hsf3cp20k20"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77862,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1848. / Herausgegeben / von / Theodor Hell. /  Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2419_77862_8rhryumv4t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1848. / Herausgegeben / von / Theodor Hell. /  Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "vfcvi5iha23myba"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77863,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "o9tsnqrzj55c5yy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das nenn' ich doch einen schönen Octobertag! warm wie im August! - rief Harko, als er aus dem Thorweg seines Göhlenhofs trat, um den Weg auf hohem Wiesenrand am Mühlbach hinzugehen.",
+      "language": [],
+      "musenalm_id": 77864,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Haideburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Starklof",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Haideburg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.803Z",
+          "agent": "tux46t2b96six6d",
+          "source_id": "8pi6u1nsa6qpndg"
+        }
+      ],
+      "source_id": "i889iv2jf3asnf3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Nicht weit von Breslau, in der Mitte bunter und reicher Berge, zwischen denen durch die üppigen Thäler laufen und ein Fluß sich Bahn gebrochen hat.",
+      "language": [],
+      "musenalm_id": 77865,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Stillleben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Therese, Verfasserin der Briefe aus dem Süden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Stillleben",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.803Z",
+          "agent": "un665fta9qpg6db",
+          "source_id": "8ergu72ks4vpwxz"
+        }
+      ],
+      "source_id": "9k864kjd3lni1yr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "In einem alterthümlichen Saale zu Gothenburg war zu später Nachtzeit noch eine kleine Gesellschaft versammelt, die mit Musik und Geplauder sich die Zeit vertrieb.",
+      "language": [],
+      "musenalm_id": 77866,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Swedenborg. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Swedenborg. / Eine Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "ry2ckso9zpo0g0g"
+        }
+      ],
+      "source_id": "zia64om2703ebgz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Mutter Magdalene blieb vor jedem Baume und Bäumchen im Garten stehen und erklärte dem jungen Stadtherrchen, das sie an der Hand führte, ununterbrochen bald dort, bald hier:",
+      "language": [],
+      "musenalm_id": 77867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein paar Scenen vom Lande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Rank",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein paar Scenen vom Lande",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "h1rm6ctjxvxk0m6",
+          "source_id": "wpnvod6e4prgqy5"
+        }
+      ],
+      "source_id": "08srenokm9hbq1i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "Nichts ist angenehmer in seiner Art, als im September, wenn schon die ersten Nebel einfallen, in aller Gottesfrühe auf einen Berg hinauf zu gehen.",
+      "language": [],
+      "musenalm_id": 77868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Offizier-Marie. / Ländliche Novelle aus Unterösterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Antonin von Wien",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Offizier-Marie. / Ländliche Novelle aus Unterösterreich",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "hd8zt2q8tii4i5v"
+    },
+    {
+      "annotation": "s. Titelportrait INr 77861, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "432",
+      "incipit_statement": "Für den kargen Raum der hier angewiesen ist, würde ein näheres Eingehen in die künstlerischen Verdienste und ausgezeichneten Arbeiten dieses bereits mit Ruhm und Anerkennung gekrönten Meisters",
+      "language": [],
+      "musenalm_id": 77869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julius Schnorr von Carolsfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Julius Schnorr von Carolsfeld",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "zeuxmjo1n6vqswb"
+    },
+    {
+      "annotation": "s. Textbezug INr 77871, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "436",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orfanelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Perger pinx. J. Axmann sc.",
+      "scans": [
+        "alm_2419_77870_foplwhobdt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Orfanelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "k1vb2ltzit1pkxn",
+          "source_id": "8xc14ina1nq0bui"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "vk30e6fwb3oomig"
+        }
+      ],
+      "source_id": "xe29qkq109yq6iy"
+    },
+    {
+      "annotation": "s. Graphik INr 77870, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "437",
+      "incipit_statement": "Rom hat ganz eigenthümliche Dinge in sich. Es ist nicht nur der Geist des klassischen Alterthums und der alten Geschichte, der uns dort von den Trümmern der Paläste, Tempel, Rennbahnen u.s.w. entgegen weht,",
+      "language": [],
+      "musenalm_id": 77871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orfanelle. / Zur Erklärung des Stahlstichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ritter P.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Orfanelle. / Zur Erklärung des Stahlstichs",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "k1vb2ltzit1pkxn",
+          "source_id": "tzarh1904dhlz9i"
+        }
+      ],
+      "source_id": "m996pyw983ed0y9"
+    },
+    {
+      "annotation": "# Titel s. Textbezug (Gedicht) INr 77873, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "440",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zoran, die Armenierin #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Perger pinx. J. Axmann sculps.",
+      "scans": [
+        "alm_2419_77872_v0vlrpr8f2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zoran, die Armenierin #",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "p8f47nys6hx92aj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.675Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.675Z",
+          "agent": "k1vb2ltzit1pkxn",
+          "source_id": "pbcx3243rje0ezo"
+        }
+      ],
+      "source_id": "yxcbtbj184js4nt"
+    },
+    {
+      "annotation": "s. Graphik INr 77872, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "441",
+      "incipit_statement": "Mit den Meinen bin ich fortgezogen, / Aus der Perser lastender Bedrückung / In die schönen russischen Provinzen",
+      "language": [],
+      "musenalm_id": 77873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zoran, die Armenierin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zoran, die Armenierin",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "cj10bsavnbeh21w"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77874,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der J. C. Hinrichsschen Buchhandlung in Leipzig / sind ferner erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der J. C. Hinrichsschen Buchhandlung in Leipzig / sind ferner erschienen:",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "01yvuztbzhcrnrn"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77875,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2419_77875_patq9p6jnl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "6xmah5jff9w8orw"
+    }
   ],
   "agents": [
     {

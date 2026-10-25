@@ -48,7 +48,26 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "wmnzn0qx6py6nht"
+    {
+      "annotation": "1825-1829.\nKartonierter Einband mit Goldschnitt.\n1825: (K: M. Port 8.) Mit Port 8, Tku 1, VI, Bl 1, 394 SS und L.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.626Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106512",
+      "location": "105T01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.626Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wmnzn0qx6py6nht"
+    }
   ],
   "contents": [],
   "agents": [

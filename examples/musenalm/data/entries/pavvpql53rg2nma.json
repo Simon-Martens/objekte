@@ -48,7 +48,26 @@
   "year": 0,
   "editor": "",
   "items": [
-    "lypb03yo1a9sion"
+    {
+      "annotation": "Köhring gibt als Erscheinungsjahr 1804 an\nKartonierter Einband mit geprägtem Buchrücken und Zierleisten, VB, S I T, SS III-V, SS VI-XIV, SS 15-204",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.769Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200016",
+      "location": "105D05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.769Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lypb03yo1a9sion"
+    }
   ],
   "contents": [],
   "agents": [

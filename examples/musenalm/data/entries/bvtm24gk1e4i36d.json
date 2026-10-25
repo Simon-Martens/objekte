@@ -50,7 +50,26 @@
   "year": 1783,
   "editor": "",
   "items": [
-    "je96wntt5htr6lt"
+    {
+      "annotation": "zus. mit Jg 1784",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.568Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407247",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.568Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "je96wntt5htr6lt"
+    }
   ],
   "contents": [],
   "agents": []

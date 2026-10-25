@@ -48,67 +48,2357 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "qiqhlfy8eiknw40",
-    "zakzgea3gdxz8r9"
+    {
+      "annotation": "Graphik",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.491Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "406515",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.491Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qiqhlfy8eiknw40"
+    },
+    {
+      "annotation": "1798-1831.(1823-1827 nicht erschienen.)\nHalbledereinband. (Titelblatt lose, Buchdeckel leicht beschädigt.)\n1803: (K: XVI, 205 (250) SS, Bl 3 (Schiller) und Ku 12.) Mit Tku 1, Ku 10, XVI, 250 SS und Bl 3.\nJg 1798-1799 a.u.d. Tit.: Taschenkalender f. Damen.\n\n§1§ Graphik fehlt; UG fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.491Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100667",
+      "location": "105F01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.491Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zakzgea3gdxz8r9"
+    }
   ],
   "contents": [
-    "6lotvw68lydyppe",
-    "wouubs0awgsy7xw",
-    "4ibly53gjpxuvo4",
-    "7y3fcadfytzytx1",
-    "r9f4ibe7eran6z6",
-    "04uw56d3yvcebbf",
-    "80k66bphdormrjm",
-    "f6sclq053s7zx6c",
-    "a14cprjtytm9b7z",
-    "ah0cib4ll3rpbvh",
-    "gj0u33yg68xzs05",
-    "ew6nl2xhkfpg6p0",
-    "6t9ipxdzivhbxv4",
-    "gfp45m61onpwq9f",
-    "epomrf2osorsgdf",
-    "edhj5c0xbwkjuhj",
-    "3u3fyj2v3te5yiq",
-    "i09e57mj940it1i",
-    "18pcv8ldcv0tomm",
-    "dr3nqm7hplgvopk",
-    "kxaqumj8dkjg8t8",
-    "wj5nexauzfhldas",
-    "lbaggrwr50xoulp",
-    "pgzx61gcggoqi7n",
-    "fdvfgyn99qkzrc6",
-    "lb7ht4dck61kf53",
-    "w0se6u0iqxi5z7u",
-    "1k61nd7sum9tp22",
-    "rle6z6imy0hsz9h",
-    "x2rohl68o7vp1md",
-    "f7ygwoftu086u4z",
-    "m7q5pk1c5jj9wgy",
-    "1d3u4wti9dun1i9",
-    "rqcpowslemc12xu",
-    "4rm8q49dvofcj2t",
-    "12lq4mb4628k7dm",
-    "r2qi0yiogwguoi5",
-    "ordsc9qu5hqnuxf",
-    "byyiv33ciovquni",
-    "rm9xnqyu6f22l9b",
-    "z951ztlz8n4bsoj",
-    "ttz5fto225ofw7f",
-    "envsj67lw24e7y5",
-    "crs4v9a77vazuao",
-    "dxc4vbpa6pgrvbd",
-    "f3b11sw2bn7xoa8",
-    "p47xnbi2la2ezms",
-    "gy4lq7wz9jcces7",
-    "c13qbhou8dde1qc",
-    "a1wiezm9zthfqqc",
-    "owgcvcumxhlwu0p",
-    "k8r66bk3j5u6lbo",
-    "pmwnj70l8h5k7ih",
-    "xh5tlatflnjqgu7",
-    "trzvsn2g3r8h890",
-    "lp9kjcw3ryt5nc4",
-    "ysopis687yk3ljn"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32977,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_32977_edayyw0cpo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "6lotvw68lydyppe"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.492Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32978,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hetsch pinx. H. Lips sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hetsch pinx. H. Lips sc.",
+      "scans": [
+        "alm_458_32978_ydca67sx0o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.658Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "k22nbfs3708zuf9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.658Z",
+          "agent": "5vg48yr315pum30",
+          "source_id": "ms78t0yxx0b6018"
+        }
+      ],
+      "source_id": "wouubs0awgsy7xw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32979,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Damen / auf das Jahr 1803. / Herausgegeben / von / Huber, Lafontaine, Pfeffel / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_32979_nnmlhcpgsl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Damen / auf das Jahr 1803. / Herausgegeben / von / Huber, Lafontaine, Pfeffel / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ibly53gjpxuvo4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32980,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer Kaiserlichen Majestät / der regierenden Kaiserin von Rußland / Elisabethe Alexejewne / der geliebten Gattin / der Freude dessen / der die Freude des Menschen Geschlechts ist / in tiefster Verehrung geweiht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "vom Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer Kaiserlichen Majestät / der regierenden Kaiserin von Rußland / Elisabethe Alexejewne / der geliebten Gattin / der Freude dessen / der die Freude des Menschen Geschlechts ist / in tiefster Verehrung geweiht",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.658Z",
+          "agent": "0rnyqiybfu5n3e2",
+          "source_id": "4vsfovgx2shjsm9"
+        }
+      ],
+      "source_id": "7y3fcadfytzytx1"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 6 Textbezügen zu 6 Graphiken des Almanachs INr 32982-32993, Obj 6-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Nichts ist kurzweiliger, als die hin und her trippelnde Neugierde der kleinen Geschwister,",
+      "language": [],
+      "musenalm_id": 32981,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Toilettenscenen von Fr. Catel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Toilettenscenen von Fr. Catel",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "r9f4ibe7eran6z6"
+    },
+    {
+      "annotation": "Erklärung der Toilettenscenen von Fr. Catel (Sammlung INr 32981, Obj 5) s. Graphik INr 32983, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Wer hat nicht von der berühmten, mit tausend Reizen geschmükten Gemahlin des Bassa Ibrahim zu Aleppo gehört?",
+      "language": [],
+      "musenalm_id": 32982,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orientalische Toilettenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Orientalische Toilettenscene",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "04uw56d3yvcebbf"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32982, Obj 6 /) die Graphik nachgestochen in : Souvenir-Kalender 1839; alm-4729, INr 129399",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32983,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Orientalische Toilettenscene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel",
+      "scans": [
+        "alm_458_32983_m3p7nkv61p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Orientalische Toilettenscene #",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.658Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "g2twwxq23opui8l"
+        }
+      ],
+      "source_id": "80k66bphdormrjm"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32985, Obj 9 /) die Graphik nachgestochen in : Souvenir-Kalender 1839; alm-4729, INr 129401",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32984,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Griechische Toilettenscene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel",
+      "scans": [
+        "alm_458_32984_o0v91xf91w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Griechische Toilettenscene #",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.413Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.413Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "qjsk7tckvy91d39"
+        }
+      ],
+      "source_id": "f6sclq053s7zx6c"
+    },
+    {
+      "annotation": "Erklärung der Toilettenscenen von Fr. Catel (Sammlung INr 32981, Obj 5) s. graphik INr 32984, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "So läßt sich Lais, die geistreiche Freundin Aristipps, bei ihrer ersten Anwesenheit zu Athen an jenem Morgen schmüken,",
+      "language": [],
+      "musenalm_id": 32985,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Griechische Toilettenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Griechische Toilettenscene",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "a14cprjtytm9b7z"
+    },
+    {
+      "annotation": "Erklärung der Toilettenscenen von Fr. Catel (Sammlung INr 32981, Obj 5) s. Graphik INr 32987, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Jedermann kennt das berühmte säkularische Lied, welches als die lezte schließende Blume des lyrischen Kranzes vom Horaz",
+      "language": [],
+      "musenalm_id": 32986,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Toilettenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Römische Toilettenscene",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ah0cib4ll3rpbvh"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32986, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.705Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32987,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Toilettenscene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel",
+      "scans": [
+        "alm_458_32987_21k7db4g12.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Römische Toilettenscene #",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.413Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.413Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "07afqkeaeaskltq"
+        }
+      ],
+      "source_id": "gj0u33yg68xzs05"
+    },
+    {
+      "annotation": "Erklärung der Toilettenscenen von Fr. Catel (Sammlung INr 32981, Obj 5) s. Graphik INr 32989, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Der berüchtigte Asmodens oder Teufel Hinkebein, der in Lesage's nie veraltendem Roman",
+      "language": [],
+      "musenalm_id": 32988,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altfränkische Toilettenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Altfränkische Toilettenscene",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ew6nl2xhkfpg6p0"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32988, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.293Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32989,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altfränkische Toilettenscene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel",
+      "scans": [
+        "alm_458_32989_fa9my2afbh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Altfränkische Toilettenscene #",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.251Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.251Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "bhygs47zfh4dzuo"
+        }
+      ],
+      "source_id": "6t9ipxdzivhbxv4"
+    },
+    {
+      "annotation": "Erklärung der Toilettenscenen von Fr. Catel (Sammlung INr 32981, Obj 5) s. Graphik INr 32992, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Und nun gegenüber die neufränkische Modewelt. Welcher Contrast, welche Umwälzung auch in diesem Boudoir und Toilettenreiche.",
+      "language": [],
+      "musenalm_id": 32990,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neufränkische Toilettenscene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neufränkische Toilettenscene",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "gfp45m61onpwq9f"
+    },
+    {
+      "annotation": "Erklärung der Toilettenscenen von Fr. Catel (Sammlung INr 32981, Obj 5) s. Graphik INr 32993, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Aber wo ist die freundlichste Putzkammer, wo der helleste Spiegel, wo die reinlichste Badewanne",
+      "language": [],
+      "musenalm_id": 32991,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Toilette im Idyllenlande",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Toilette im Idyllenlande",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "epomrf2osorsgdf"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32990, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32992,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neufränkische Toilettenscene #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel",
+      "scans": [
+        "alm_458_32992_yjzntwfj8a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neufränkische Toilettenscene #",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.419Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "jax14gfm4yb1qia"
+        }
+      ],
+      "source_id": "edhj5c0xbwkjuhj"
+    },
+    {
+      "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32991, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.778Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32993,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Toilette im Idyllenlande #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Catel",
+      "scans": [
+        "alm_458_32993_itw8i6bskp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Toilette im Idyllenlande #",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.419Z",
+          "agent": "5gkb4vp0l46mhri",
+          "source_id": "noahfn2lzd9cocd"
+        }
+      ],
+      "source_id": "3u3fyj2v3te5yiq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Lieben Freunde! Es gab schönere Zeiten / Als die unsern - das ist nicht zu streiten!",
+      "language": [],
+      "musenalm_id": 32994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Freunde",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.419Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "mtqbfdeeqo8ae25"
+        }
+      ],
+      "source_id": "i09e57mj940it1i"
+    },
+    {
+      "annotation": "Beitrag in 9 Briefen",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Da gehts nun wieder in vollem Galoppe nach dem geliebten Vaterlande zurück!",
+      "language": [],
+      "musenalm_id": 32995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rückkehr ins Vaterland.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rückkehr ins Vaterland.",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.609Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.609Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "oyt5oruz0xzy18k"
+        }
+      ],
+      "source_id": "18pcv8ldcv0tomm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Auch für die Thiere schuf Zeus ein Elysium / Und einen Tartarus. Zwar schweigt Esop zur / Sache;",
+      "language": [],
+      "musenalm_id": 32996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tieger in der Hölle. / An Luce",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tieger in der Hölle. / An Luce",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.783Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "4anret1vmpws0ap"
+        }
+      ],
+      "source_id": "dr3nqm7hplgvopk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "An eines Teiches Ufer schlich / Ein wilder Reiger: er bekriegte / Die frommen Fische,",
+      "language": [],
+      "musenalm_id": 32997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Reiger und der Schwan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Reiger und der Schwan",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.783Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "0dlsfrxb8mzpp39"
+        }
+      ],
+      "source_id": "kxaqumj8dkjg8t8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Wenn einst ein Edler um mich weint, / Und du willst durch noch mehr als Zähren",
+      "language": [],
+      "musenalm_id": 32998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Luise Schlosser. / In ihr Stammbuch 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Luise Schlosser. / In ihr Stammbuch 1799",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.784Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.784Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "gzc7ai0lq6itl0t"
+        }
+      ],
+      "source_id": "wj5nexauzfhldas"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Drei Blümlein in meinem Garten blühn, / Das erste, das Röslein der Freude,",
+      "language": [],
+      "musenalm_id": 32999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die drei Blümlein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die drei Blümlein",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.784Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.784Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "q717ae1fpjacl9l"
+        }
+      ],
+      "source_id": "lbaggrwr50xoulp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Die Bäche sind enteißt, / Beblühet Höh' und Thal!",
+      "language": [],
+      "musenalm_id": 33000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.784Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.784Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "zmyf3onc928sp1c"
+        }
+      ],
+      "source_id": "pgzx61gcggoqi7n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Wann der Morgen sich röthet, wann des Abends / Goldgewölke die Fichtenhöhe beleuchten,",
+      "language": [],
+      "musenalm_id": 33001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerungen. / 1792",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Matthisson",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerungen. / 1792",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.687Z",
+          "agent": "z3510nlbg6hd1qt",
+          "source_id": "6vul7zqz6arhqmx"
+        }
+      ],
+      "source_id": "fdvfgyn99qkzrc6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Ich weint' ihr nach, und ihres Grabes / Schwelle / Benezte meiner Thränen Fluth:",
+      "language": [],
+      "musenalm_id": 33002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der trostlose Wittwer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mäder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der trostlose Wittwer",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lb7ht4dck61kf53"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.726Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Der schönen Geberin bescheid'ne Bitte: / Vergiß mein nicht! erhöht der Gabe / Werth",
+      "language": [],
+      "musenalm_id": 33003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als mir Lenore ein Vergißmein- / nicht gab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als mir Lenore ein Vergißmein- / nicht gab",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "w0se6u0iqxi5z7u"
+    },
+    {
+      "annotation": "häusliche Scene",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.727Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_33004_ev74atxpiz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "1k61nd7sum9tp22"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Unter der Brüdergemeine zu *berg lebt ein reicher und angesehener Mann mit seiner Gemahlin, die ehemals seine Haushälterin war.",
+      "language": [],
+      "musenalm_id": 33005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Urtheil der Welt, eine herrnhuthische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. F. Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Urtheil der Welt, eine herrnhuthische Erzählung",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.687Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.687Z",
+          "agent": "j6zj4e02mmgth5i",
+          "source_id": "y8ktrqk4plc3i9v"
+        }
+      ],
+      "source_id": "rle6z6imy0hsz9h"
+    },
+    {
+      "annotation": "häusliche Scene",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33006,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_33006_4i2xtro1o1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "x2rohl68o7vp1md"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Ein Eichhorn kam um seinen Schwanz; / Man weiß nicht, wie sich's zugetragen.",
+      "language": [],
+      "musenalm_id": 33007,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Eichhörner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Eichhörner",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.419Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "croekapsypowwai"
+        }
+      ],
+      "source_id": "f7ygwoftu086u4z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Ein Esel zog in kurzem Trab / Mit faulem Dünger durch die Straßen;",
+      "language": [],
+      "musenalm_id": 33008,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Glük des Esels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Glük des Esels",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.419Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "zgmhakddjw9amcr"
+        }
+      ],
+      "source_id": "m7q5pk1c5jj9wgy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Auf der Metaphysik Steppen / Hat Albin ein Schloß gebaut.",
+      "language": [],
+      "musenalm_id": 33009,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das System",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das System",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.449Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.449Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "23ol5xfvfvtym5p"
+        }
+      ],
+      "source_id": "1d3u4wti9dun1i9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Ein Goldfisch, dessen glasner Kerker / Dem Bauer einer Nachtigall / Zur Seite hieng in Phanors Erker,",
+      "language": [],
+      "musenalm_id": 33010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Goldfisch und die Nachtigall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Goldfisch und die Nachtigall",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.403Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.403Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "pve61whx4vxz0yv"
+        }
+      ],
+      "source_id": "rqcpowslemc12xu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Vom Ister fortgerafft erschien ein Hecht im / Meere; / Die Vettern riefen ihn im Reiche des Neptuns / Entzückt zum Bürger aus.",
+      "language": [],
+      "musenalm_id": 33011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hecht im Meere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hecht im Meere",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.403Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.403Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "tk8cmpn1mveusle"
+        }
+      ],
+      "source_id": "4rm8q49dvofcj2t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Auf seinem Hut ließ Fähnrich Hase / Die Masche stets nach hinten stehn;",
+      "language": [],
+      "musenalm_id": 33012,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Masche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Masche",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.403Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.403Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "4oa8s6r6mnkuve0"
+        }
+      ],
+      "source_id": "12lq4mb4628k7dm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Bellerophon, der tapfre Held, / Erlegte die Chimäre;",
+      "language": [],
+      "musenalm_id": 33013,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Chimäre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Chimäre",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.403Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.403Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "kc8piyreacimg3a"
+        }
+      ],
+      "source_id": "r2qi0yiogwguoi5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Wo ich sei, und wo mich hingewendet, / Als mein flüchtger Schatte dir entschwebt?",
+      "language": [],
+      "musenalm_id": 33014,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thekla. / Eine Geisterstimme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thekla. / Eine Geisterstimme",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.280Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.280Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "pktilr9k3fin56y"
+        }
+      ],
+      "source_id": "ordsc9qu5hqnuxf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 33016, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Schon eine alte Sage legt die Erfindung der Mahlerei oder eigentlicher der Zeichnungskunst in die Hände des schönen Geschlechts,",
+      "language": [],
+      "musenalm_id": 33015,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erfindung der Mahlerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erfindung der Mahlerei",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "byyiv33ciovquni"
+    },
+    {
+      "annotation": "Illustration zu »Die Erfindung der Malerei« INr 33015, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_33016_cv5w96ly50.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "rm9xnqyu6f22l9b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Wohl perlet im Glase der purpurne Wein, / Wohl glänzen die Augen der Gäste,",
+      "language": [],
+      "musenalm_id": 73679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier Weltalter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die vier Weltalter",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.734Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.734Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "yfsy0k1hxmahpja"
+        }
+      ],
+      "source_id": "z951ztlz8n4bsoj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "In einem dichten Haine lag / Ein Gotteshaus, erbaut vor tausend Jahren;",
+      "language": [],
+      "musenalm_id": 33017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gotteshaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gotteshaus",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.488Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "kflllcl767notgh"
+        }
+      ],
+      "source_id": "ttz5fto225ofw7f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Die erste Thräne, die im Kriege / Mit Seyn und Nichtseyn uns entquillt,",
+      "language": [],
+      "musenalm_id": 33018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf eine Wiege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf eine Wiege",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.488Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "33umr8e8esw8td5"
+        }
+      ],
+      "source_id": "envsj67lw24e7y5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.505Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Freude war in Trojas Hallen, / Eh die hohe Veste fiel,",
+      "language": [],
+      "musenalm_id": 33019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kassandra",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kassandra",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.391Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "qe7ulc9mo1txude"
+        }
+      ],
+      "source_id": "crs4v9a77vazuao"
+    },
+    {
+      "annotation": "mit 2 Ilustrationen s. Graphiken INr 33021, 33022; Obj 45, 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "215",
+      "incipit_statement": "Eine Frau von Geist sagte, daß ihr Mariens Charakter in Schillers Trauerspiel durch nichts so anschaulich geworden wäre, wie durch Mortimers Betragen",
+      "language": [],
+      "musenalm_id": 33020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Stuart und die Jungfrau von Orleans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. F. Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria Stuart und die Jungfrau von Orleans",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.391Z",
+          "agent": "j6zj4e02mmgth5i",
+          "source_id": "8277pdeetf9l6vx"
+        }
+      ],
+      "source_id": "dxc4vbpa6pgrvbd"
+    },
+    {
+      "annotation": "Illustration zu »Maria Stuart« s. Beitrag INr 33020, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.506Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_33021_9vuc7kp1hf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "f3b11sw2bn7xoa8"
+    },
+    {
+      "annotation": "Illustration zu »Maria Stuart« s. Beitrag INr 33020, Obj 44",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.508Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_33022_ku0m9zc700.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "p47xnbi2la2ezms"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.509Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Welch ein labender Hauch umweht mich! Gei- / ster der Barden / Dieses heiligen Hains, kündigt ihr euch mir an?",
+      "language": [],
+      "musenalm_id": 33023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meine unbekannte Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meine unbekannte Freunde",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.391Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "m36gjcy92htv6hx"
+        }
+      ],
+      "source_id": "gy4lq7wz9jcces7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Der Wildgraf Hugo war ein Tyrann, / Der keinen Rächer glaubte,",
+      "language": [],
+      "musenalm_id": 33024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gespenst. / Eine Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gespenst. / Eine Legende",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.664Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.664Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "h9rrstw9yfaofsd"
+        }
+      ],
+      "source_id": "c13qbhou8dde1qc"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Lieber Cotta! Man sagt zwar, ein Wort ein Mann, aber nicht, ein Wort ein Autor; denn jener giebt es wohl, dieser muß es halten.",
+      "language": [],
+      "musenalm_id": 33025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ursachen warum der Verfasser / nichts für das Taschenbuch / auf 1803 liefert. / Ein Brief",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. F. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ursachen warum der Verfasser / nichts für das Taschenbuch / auf 1803 liefert. / Ein Brief",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.437Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.437Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "54i5gsrk8g0civi"
+        }
+      ],
+      "source_id": "a1wiezm9zthfqqc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Von andern nicht, nicht von sich selbst ver- / standen, / Lebt eine Jungfrau auf der stillen Flur.",
+      "language": [],
+      "musenalm_id": 33026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heute, den 4. Januar: / Die Jungfrau von Orleans, roman- / tische Tragödie in 5 Aufzügen. / Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-d.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heute, den 4. Januar: / Die Jungfrau von Orleans, roman- / tische Tragödie in 5 Aufzügen. / Inhalt",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "owgcvcumxhlwu0p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Die Feindin siegt, es schlägt die schwarze / Stunde, / Die ihren Frevel und dein Leiden krönt.",
+      "language": [],
+      "musenalm_id": 33027,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Maria Stuart (vorgestellt in H.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-d.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Maria Stuart (vorgestellt in H.)",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "k8r66bk3j5u6lbo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Wer kömmt vom fernen Land einhergezogen; / Und trägt die Seele im gerührten Blik?",
+      "language": [],
+      "musenalm_id": 33028,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei eines nahen Freundes naher Ankunft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-d.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei eines nahen Freundes naher Ankunft",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "pmwnj70l8h5k7ih"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Wer ist Er, jener, der am meerumfloßnen / Strande / Der Menge Strom entgegendringt?",
+      "language": [],
+      "musenalm_id": 33029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei der Ankunft des Generals / A. M. zu T.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-d.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei der Ankunft des Generals / A. M. zu T.",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "xh5tlatflnjqgu7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33030,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "trzvsn2g3r8h890"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33031,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Verlag der J. G. Cotta'schen Buchhand- / lung ist erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Verlag der J. G. Cotta'schen Buchhand- / lung ist erschienen:",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lp9kjcw3ryt5nc4"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_458_33032_qn2ueb52qc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-04-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "ysopis687yk3ljn"
+    }
   ],
   "agents": [
     {

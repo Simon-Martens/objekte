@@ -48,11 +48,95 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "p60htqhw5y55c6s"
+    {
+      "annotation": "der Jg 1807 mit eigenen Beiträgen fiel kriegsbedingt aus; der Jg 1806 wurde als Ausgabe 1806/1807 ohne Kalendarium  bei nahezu identischer Ausstattung wiederholt und außerdem als Jg 1807 mit aktualisierter Genealogie, Geburtstagstabelle, Kalendarium etc herausgebracht s. Vorwort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.756Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409008",
+      "location": "105B02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.756Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "p60htqhw5y55c6s"
+    }
   ],
   "contents": [
-    "bt3epl7r8gm4828",
-    "48mmh2i0cjxlnh3"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.647Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104478,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WIENER / Taschenbuch / für / 1806. / Wird jährlich fortgesetzt. / WIEN. / Bey J. B. Degen, / Buchdrucker und Buchhändler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4198_104478_inpch8rgft.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WIENER / Taschenbuch / für / 1806. / Wird jährlich fortgesetzt. / WIEN. / Bey J. B. Degen, / Buchdrucker und Buchhändler",
+      "updated": "2015-05-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "bt3epl7r8gm4828"
+    },
+    {
+      "annotation": "Photos 104479,01; 104479,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104479,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4198_104479_01_ufwiikdi4u.jpg",
+        "alm_4198_104479_02_y0a1regvqo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2015-05-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "48mmh2i0cjxlnh3"
+    }
   ],
   "agents": [
     {

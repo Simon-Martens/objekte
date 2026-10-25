@@ -48,7 +48,26 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "cmhre2tnyknr1lw"
+    {
+      "annotation": "fortgesetzt vermutlich durch: Taschenbuch, Königsberger politisches 1827 (2. Jg.)",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.709Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406422",
+      "location": "105M01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.709Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cmhre2tnyknr1lw"
+    }
   ],
   "contents": [],
   "agents": [

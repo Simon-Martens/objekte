@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Import the supplied PocketBase XML export into a fresh JSON project.
 
-Preserves source IDs (as filenames), text including embedded HTML, typed JSON,
-relationship attributes and source timestamps. Never overwrites a project.
+Preserves source IDs (as filenames or embedded source_id fields), text including
+embedded HTML, typed JSON, relationship attributes and source timestamps.
+Never overwrites a project.
 """
 import argparse
 import collections
+import copy
 import hashlib
 import json
 import pathlib
@@ -13,8 +15,10 @@ import re
 import shutil
 import tempfile
 import xml.etree.ElementTree as ET
+from musenalm_ui import EDITOR_SETTINGS_SCHEMA, LANGUAGES, configure, row_defaults
 
 NAMES = ('series', 'entries', 'items', 'contents', 'agents', 'places')
+PROJECT_NAMES = ('series', 'entries', 'agents', 'places')
 RELATIONS = ('R_entries_series', 'R_entries_agents', 'R_contents_agents')
 LABEL = dict(series='title', entries='preferred_title', items='identifier',
              contents='preferred_title', agents='name', places='name')
@@ -157,9 +161,10 @@ def import_project(source, destination):
         required = [f['name'] for f in fields[name] if f.get('required') and f['name'] != 'id']
         schemas[name] = {'$schema': 'https://json-schema.org/draft/2020-12/schema',
                          'type': 'object', 'properties': props, 'required': required, 'additionalProperties': False}
-    # Primary series placement, item ownership and content ordering live on parents.
+    # Primary series placement lives on the parent; items and contents are
+    # embedded below after their agent relationships have been assembled.
     placement_counts = {}
-    for parent, child, old_field in [('series', 'entries', 'series'), ('entries', 'items', 'entries'), ('entries', 'contents', 'entries')]:
+    for parent, child, old_field in [('series', 'entries', 'series')]:
         for record in data[parent].values():
             record[child] = []
         for identifier, record in data[child].items():
@@ -197,12 +202,35 @@ def import_project(source, destination):
             data[parent][owner][field].append(record)
         for record in data[parent].values():
             record[field].sort(key=lambda r: r['source_id'])
+    for child in ('items', 'contents'):
+        embedded = copy.deepcopy(schemas[child])
+        embedded.pop('$schema')
+        embedded['properties'].pop('numbering', None)
+        embedded['properties']['source_id'] = {'type': 'string', 'readOnly': True}
+        embedded['properties'].pop('entries')
+        embedded['required'] = [key for key in embedded['required'] if key not in ('entries', 'numbering')]
+        schemas['entries']['properties'][child] = {'type': 'array', 'default': [], 'items': embedded}
+        for record in data['entries'].values():
+            record[child] = []
+        for identifier, original in data[child].items():
+            record = dict(original)
+            owner = record.pop('entries')
+            if not owner:
+                raise ValueError(f'{child}/{identifier}: missing entry')
+            numbering = record.pop('numbering', 0)
+            record['source_id'] = identifier
+            data['entries'][owner][child].append((numbering, identifier, record))
+        for record in data['entries'].values():
+            record[child].sort(key=lambda item: (item[0], item[1]))
+            record[child] = [item[2] for item in record[child]]
+        placement_counts[f'entries.{child}'] = len(data[child])
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = pathlib.Path(tempfile.mkdtemp(prefix='.musenalm-import-', dir=destination.parent))
     try:
-        for position, name in enumerate(NAMES):
+        for name in PROJECT_NAMES:
+            position = NAMES.index(name)
             base = f'.editor/collections/{name}'
-            write(temporary / base / 'schema.json', schemas[name])
+            write(temporary / base / 'schema.json', row_defaults(schemas[name]))
             write(temporary / base / 'settings.json', {
                 'type': 'data', 'path': 'data/' + name, 'format': 'json', 'id': 'filename',
                 'idPattern': '^[a-z0-9][a-z0-9-]*$', 'schema': base + '/schema.json', 'ui': base + '/ui.json',
@@ -217,7 +245,7 @@ def import_project(source, destination):
                     config['x-editor'] = 'markdown' if f['type'] == 'editor' else 'json'
                 ui_fields['/properties/' + key] = config
             display = LABEL[name]
-            columns = [display] + (['year'] if name in ('entries', 'contents') else ['owner'] if name == 'items' else ['musenalm_id'])
+            columns = [display] + (['year'] if name == 'entries' else ['musenalm_id'])
             if name == 'series':
                 columns += ['entries']
             ui = {'label': name.capitalize(), 'display': display, 'singularLabel': {'series': 'Series', 'entries': 'Entry', 'contents': 'Content', 'items': 'Item', 'agents': 'Agent', 'places': 'Place'}[name],
@@ -235,17 +263,38 @@ def import_project(source, destination):
                     if prop in ('annotation', 'edit_comment'):
                         config['x-editor'] = 'markdown'
                     ui_fields[f'/properties/{key}/items/properties/{prop}'] = config
-            write(temporary / base / 'ui.json', ui)
+            if name == 'entries':
+                for child in ('items', 'contents'):
+                    prefix = f'/properties/{child}/items/properties'
+                    for prop in schemas[child]['properties']:
+                        if prop in ('entries', 'numbering'):
+                            continue
+                        config = {'title': prop.replace('_', ' ').capitalize()}
+                        if prop in ('annotation', 'edit_comment'):
+                            config['x-editor'] = 'markdown'
+                        if prop in ('edit_fielddata', 'musenalm_deprecated'):
+                            config['x-editor'] = 'json'
+                        ui_fields[f'{prefix}/{prop}'] = config
+                    ui_fields[f'{prefix}/source_id'] = {'title': 'Source id'}
+                    if child == 'contents':
+                        for prop in schemas['contents']['properties']['agents']['items']['properties']:
+                            config = {'title': prop.replace('_', ' ').capitalize()}
+                            if prop in ('annotation', 'edit_comment'):
+                                config['x-editor'] = 'markdown'
+                            ui_fields[f'{prefix}/agents/items/properties/{prop}'] = config
+            write(temporary / base / 'ui.json', configure(name, schemas[name], ui))
             (temporary / 'data' / name).mkdir(parents=True)
             for identifier, record in data[name].items():
                 write(temporary / 'data' / name / (identifier + '.json'), record)
         write(temporary / '.editor/repository.json', {'version': 2, 'ui': '.editor/ui.json', 'settings': 'settings.json',
-            'collections': {n: f'.editor/collections/{n}/settings.json' for n in NAMES},
+            'collections': {n: f'.editor/collections/{n}/settings.json' for n in PROJECT_NAMES},
             'documents': {'editor-settings': {'schema': '.editor/settings.schema.json', 'files': ['settings.json']}}})
-        write(temporary / '.editor/ui.json', {'groups': [{'name': 'Catalogue', 'label': 'Catalogue', 'position': 0}], 'defaults': {}, 'collections': {}})
-        write(temporary / '.editor/settings.schema.json', {'type': 'object', 'properties': {}, 'additionalProperties': True})
+        write(temporary / '.editor/ui.json', {'i18n': LANGUAGES, 'groups': [{'name': 'Catalogue', 'label': 'Catalogue', 'position': 0, 'translations': {'de': {'label': 'Katalog'}}}], 'defaults': {}, 'collections': {}})
+        write(temporary / '.editor/settings.schema.json', EDITOR_SETTINGS_SCHEMA)
         write(temporary / 'settings.json', {})
-        report = {'records': {n: len(data[n]) for n in NAMES}, 'embedded_relations': {n: len(data[n]) for n in RELATIONS},
+        report = {'records': {n: len(data[n]) for n in PROJECT_NAMES},
+                  'embedded_records': {n: len(data[n]) for n in ('items', 'contents')},
+                  'embedded_relations': {n: len(data[n]) for n in RELATIONS},
                   'parent_placements': placement_counts, 'external_source_references': dict(external),
                   'source_sha256': {p.name: digest(p) for p in sorted(source.glob('*.xml'))}}
         write(temporary / 'import-report.json', report)

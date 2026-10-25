@@ -49,90 +49,3345 @@
   "year": 1819,
   "editor": "",
   "items": [
-    "yyx2u6bwf3wiae7"
+    {
+      "annotation": "1816-1873.\nKartonierter Einband mit Muster, Grafik und Goldschnitt.\n1819: (K:Ku 7) Mit Ku 6, Port 1 und XVI+196 SS.\nHg:1816-1842 = A. Schreiber.\n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell\n     1857-1862 = A. Henniger\n     1863-1873 = Frater Hilarius (pseud.). ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.530Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100182",
+      "location": "105N02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.530Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yyx2u6bwf3wiae7"
+    }
   ],
   "contents": [
-    "bktd0g7j3sv96vg",
-    "y3ai33sf9na78b4",
-    "gngmi76xx6wzi22",
-    "mirdgbd5t0tpuko",
-    "vxaqkbja2kji9hz",
-    "ckv6osvkns36qe0",
-    "5adxpoyxivqv7cc",
-    "qz7lr2e0msmsrq8",
-    "avapoml6fs81x11",
-    "4fcet9lfexx55ix",
-    "xpz5p2tt7b12iy5",
-    "z2pcg51v09yegf9",
-    "ibf7ll374nnpc2a",
-    "ltmbl21930nlmn5",
-    "9m9hvx3ygwvd68t",
-    "fcwqa6v9kg7rkfg",
-    "iccri5u2qc22dmh",
-    "ql5dn2hxvnvkkpu",
-    "tvkk8eman0ocb0a",
-    "p3i129e29sim5fl",
-    "e6zxl6nt0crbzoc",
-    "5r2eqrhc2zshmo9",
-    "4c8r3qcl56ylox7",
-    "njv2cahfoq3y7hy",
-    "28tpxork2gratsh",
-    "vz6ycbbelsgtz51",
-    "rk7z6dlovwc7psc",
-    "vqcxs6u1xjdg6s9",
-    "8n9erfp7xivceug",
-    "2w5hqrnk6mikpvg",
-    "jzmv24xi42bwk9c",
-    "cch2iz4x3xmt6cw",
-    "62trc89yscrsk5l",
-    "efb3u4e7w9xwklz",
-    "jpbzne4apjudrpq",
-    "pdwo7nedk6ijcnb",
-    "6v6cgiqlpam2jns",
-    "nkbp1amneph51e0",
-    "tctv417b6h8rcmi",
-    "htd0ni7131wfolx",
-    "aof5d4trdyofdod",
-    "9a0l9c4c0rcavpe",
-    "ry6blk4epj8dwfm",
-    "dqrbe1u9n3qde7p",
-    "j8z71pundbegzfs",
-    "jvfmyyam01zqt00",
-    "pyuoye5wlwoxpnu",
-    "mdmqf9nzoh9pjv5",
-    "1va079u2zcgzt5q",
-    "8gogkrx6kay9t0s",
-    "3lg7b32j65mbq4d",
-    "eszlghf5na7gzxy",
-    "0cj892ozr4322ji",
-    "1jadamsklgw4r96",
-    "syefxjckjbuhxcp",
-    "4v360e1y4jh1yun",
-    "0yia7fv0gg4zxhk",
-    "8yvr72xkdemnv4b",
-    "zx6lyci6fsglats",
-    "rplids63qby2bia",
-    "0ntol95q60wl8zl",
-    "dwxwf9ja1f5pnwu",
-    "swbmzto5wrpdiwm",
-    "gpcjs3uuhzau0q9",
-    "zo0aa2e8xilmg6b",
-    "omgbvbvfs2g3ly3",
-    "sg1b1r7335yyfy0",
-    "iq7zd5hzjdmiw81",
-    "gpwnnf185o3jxva",
-    "f96swvyp1izkndz",
-    "yxhku8tu18sfdvc",
-    "3jhv447ql4z617c",
-    "4xgwgps14da56qd",
-    "nbxw2l7rdoyb8nm",
-    "oxjcq4rdfxqi973",
-    "akhwp74db6etqzr",
-    "jloaiuoumvng9rs",
-    "6qml7sixz151gbq",
-    "1fxba7g808163am",
-    "nmmeckb5lcnwtt5",
-    "wmvi0ert3rsj0sk"
+    {
+      "annotation": "Umschlaggraphik r. s. Textbezug INr 62659, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62643,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Heideloff inv. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. et sc.",
+      "scans": [
+        "alm_1027_62643_wptvd3i8rg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.108Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "046qr0fnt52wgrc"
+        }
+      ],
+      "source_id": "bktd0g7j3sv96vg"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 62652, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62644,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THER. CHARL. LOUISE / Kronprinzessin von Baiern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1027_62644_mpm9fkad80.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THER. CHARL. LOUISE / Kronprinzessin von Baiern",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "y3ai33sf9na78b4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62645,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / Taschenbuch für Deutsche Frauen / auf das Jahr 1819. / Herausgegeben / von / Aloys Schreiber, / Großherzogl. Bad. Hofrathe und Historiographen. / Vierter Jahrgang. / Mit Kupfern. / Heidelberg, / im Verlag von Joseph Engelmann. / Frankfurt a. M., in der Herrmann'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1027_62645_xb4igruxhe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / Taschenbuch für Deutsche Frauen / auf das Jahr 1819. / Herausgegeben / von / Aloys Schreiber, / Großherzogl. Bad. Hofrathe und Historiographen. / Vierter Jahrgang. / Mit Kupfern. / Heidelberg, / im Verlag von Joseph Engelmann. / Frankfurt a. M., in der Herrmann'schen Buchhandlung",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "gngmi76xx6wzi22"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62647,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer Königlichen Hoheit / der / Frau Kronprinzessin / Therese Charlotte / von Bayern / ehrfurchtsvoll gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer Königlichen Hoheit / der / Frau Kronprinzessin / Therese Charlotte / von Bayern / ehrfurchtsvoll gewidmet",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "mirdgbd5t0tpuko"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Mit frommem Sinn ward dieser Kranz gewunden / Aus Blumen, wie das neue Jahr sie bot.",
+      "language": [],
+      "musenalm_id": 62648,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mit frommem Sinn ward dieser Kranz gewunden / Aus Blumen, wie das neue Jahr sie bot.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "vxaqkbja2kji9hz"
+    },
+    {
+      "annotation": "lt. Textbezug INr 62653, Obj 9: Stich nach Dürer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62650,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria mit dem Kinde / Nach Leonardo da Vinci von einem altdeutschen Meister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez v. E. Fries. Gest v. Bittheuser",
+      "scans": [
+        "alm_1027_62650_3wjwxenw9h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria mit dem Kinde / Nach Leonardo da Vinci von einem altdeutschen Meister",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.108Z",
+          "agent": "zjtwz9c3mxwl6yc",
+          "source_id": "5u9tbp4ulxd8p5h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.108Z",
+          "agent": "lke42z77h6qjhun",
+          "source_id": "iuxza85a7u8de88"
+        }
+      ],
+      "source_id": "ckv6osvkns36qe0"
+    },
+    {
+      "annotation": "Sammlung von 8 Textbezügen INr 62652-62659, Obj 8-15 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62651,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "5adxpoyxivqv7cc"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Titelportrait INr 62644, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Das Titelkupfer enthält das Bildniß der verehrten Kronprinzessin von Bayern, einer gebornen Prinzessin von Sachsen-Hildburghausen.",
+      "language": [],
+      "musenalm_id": 62652,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "qz7lr2e0msmsrq8"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Graphik INr 62650, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Maria mit dem Kinde, nach Leonardo da Vinci, von einem altdeutschen Meister.",
+      "language": [],
+      "musenalm_id": 62653,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "avapoml6fs81x11"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Graphik INr 62670, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Rettung. Dieses Blatt wird durch die Ballade, aus welcher es einen Namen darstelllt, hinreichend erklärt",
+      "language": [],
+      "musenalm_id": 62654,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "4fcet9lfexx55ix"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Graphik INr 62696, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Hildegard. / Zum nähern Verständniß des Gedichts: Die Erscheinung auf dem Rupertsberge, zu welchem das Blatt gehört, müssen wir ein historische Notiz beifügen.",
+      "language": [],
+      "musenalm_id": 62655,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "xpz5p2tt7b12iy5"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Graphik INr 62717, Obj 73",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Peter von Staufenberg. Diese höchst interessante Sage gehört der Ortenau an, wo die Burg Staufenberg liegt und noch der Brunnen gezeigt wird, an welchem Peter die Undine zum erstenmal sah.",
+      "language": [],
+      "musenalm_id": 62656,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "z2pcg51v09yegf9"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Graphik INr 62719, Obj 75",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Der Mönch. Robertson in seiner anziehenden Reise nach der Insel Man erzählt die Geschichte, aus welcher die Vorstellung dieses Blatts genommen ist,",
+      "language": [],
+      "musenalm_id": 62657,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "ibf7ll374nnpc2a"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Graphik INr 62724, Obj 80",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Deutscher Frauenmuth. Dieses Blatt stellt einen interessanten Zug aus der badischen Geschichte dar, der unter der Aufschrift: Ehrenspiegel deutscher Frauen erzählt ist,",
+      "language": [],
+      "musenalm_id": 62658,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "ltmbl21930nlmn5"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 62651, Obj 7) s. Umschlaggraphiken INr 62643, 62725; Obj 1, 81",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Die Zeichnungen zu den Kupfern - mit Ausnahme des Titelkupfers und des Blatts nach Dürer - sind von Herrn Heideloff, so wie auch der sinnreich erfunden Umschlag, den er selbst radirte.",
+      "language": [],
+      "musenalm_id": 62659,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zeichnungen zu den Kupfern - mit Ausnahme des Titelkupfers und des Blatts nach Dürer - sind von Herrn Heideloff, so wie auch der sinnreich erfunden Umschlag, den er selbst radirte.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "9m9hvx3ygwvd68t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62660,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "fcwqa6v9kg7rkfg"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cornelia. / 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cornelia. / 1819",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "iccri5u2qc22dmh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Langer Heldenarbeit müde / Fleht der herrliche Alcide / Zu des Vaters heil'ger Macht.",
+      "language": [],
+      "musenalm_id": 62662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Opfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Opfer",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.942Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "7elss0tai5cqri7"
+        }
+      ],
+      "source_id": "ql5dn2hxvnvkkpu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Nun laß Dein Schifflein gleiten / Hinab den lieben Fluß,",
+      "language": [],
+      "musenalm_id": 62663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem / Kronprinzen von Preußen / zum / Abschiede von Koblenz / am 5. Aug. 1817",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem / Kronprinzen von Preußen / zum / Abschiede von Koblenz / am 5. Aug. 1817",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.942Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "lcl5lhcismb7lli"
+        }
+      ],
+      "source_id": "tvkk8eman0ocb0a"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Der Eintracht Bild ist hier zu seh'n, / Das Glück, es hat dies Pärchen nicht vergessen.",
+      "language": [],
+      "musenalm_id": 62664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Betrachtung über einen Esel / und eine / Eselin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Betrachtung über einen Esel / und eine / Eselin",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "p3i129e29sim5fl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Ich stand auf öden Mauern / Im goldnen Abendschein,",
+      "language": [],
+      "musenalm_id": 62665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wandrer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wandrer",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.031Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.031Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "ip2hgvb7otzfoib"
+        }
+      ],
+      "source_id": "e6zxl6nt0crbzoc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Vergiß, Naide, mein! / Ach, unsre Sterne sehen / Herab mit blassem Licht!",
+      "language": [],
+      "musenalm_id": 62666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abschied. / An Naiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Peregrin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Abschied. / An Naiden",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "5r2eqrhc2zshmo9"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Rühmst du das Zweite doch von meiner Hand, / So würdest du das Erste werden.",
+      "language": [],
+      "musenalm_id": 62667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Ida",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Ida",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "4c8r3qcl56ylox7"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "In des Berges tiefstem Raume / Kaiser Barbarossa sitzt,",
+      "language": [],
+      "musenalm_id": 62668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Barbarossa und Konradin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Barbarossa und Konradin",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.909Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "bzfq6g3u7o920zs"
+        }
+      ],
+      "source_id": "njv2cahfoq3y7hy"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Gieb keinem falschen Streben, / O Ida, je dich hin,",
+      "language": [],
+      "musenalm_id": 62669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Ida",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Ida",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "28tpxork2gratsh"
+    },
+    {
+      "annotation": "Illustration zu »Die Rettung« von A. Schreiber INr 62671, Obj 27; s.a. Textbezug INr 62654, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rettung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Heideloff. Ant. Karcher sc.",
+      "scans": [
+        "alm_1027_62670_n8othggcy0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Rettung",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.909Z",
+          "agent": "b334ivfypj3aic9",
+          "source_id": "a5ziliam7xpvdac"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.909Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "j9zndjzan3zhr5x"
+        }
+      ],
+      "source_id": "vz6ycbbelsgtz51"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62670, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Was blicken da drüben für Gräber her / Aus dem steinigen Eichengrunde?",
+      "language": [],
+      "musenalm_id": 62671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rettung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rettung",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.909Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "oquentcbsvt1dlf"
+        }
+      ],
+      "source_id": "rk7z6dlovwc7psc"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Zum Diplomatiker wird Hans Matz, der Musensohn. / Ihr zweifelt am Erfolg? Einschläfern kann er schon.",
+      "language": [],
+      "musenalm_id": 62672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Matz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Matz",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "vqcxs6u1xjdg6s9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Des Herzens Nachtigall erwacht / Am duft'gen Rosenstrauch,",
+      "language": [],
+      "musenalm_id": 62673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.909Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.909Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "cg5ddfk2xzc293z"
+        }
+      ],
+      "source_id": "8n9erfp7xivceug"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Die Rechte nimmt, die linke giebt; / Sie läßt sich lieben, und sie selber liebt.",
+      "language": [],
+      "musenalm_id": 62674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Räthsel der Lais",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Räthsel der Lais",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "2w5hqrnk6mikpvg"
+    },
+    {
+      "annotation": "Anm. am Objekt zu Meister Heinrich: Heinrich Dannecker",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "In geist'ger Zeugungsqual, vertieft in Seelenfleiß, / Vom wallenden Geblüt' die Stirn, die Wangen heiß, / Lag Meister Heinrich spät",
+      "language": [],
+      "musenalm_id": 62675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Meister und das Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Robert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Meister und das Kind",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.859Z",
+          "agent": "shwrrrsohbx2ih5",
+          "source_id": "okbaixgfo95343h"
+        }
+      ],
+      "source_id": "jzmv24xi42bwk9c"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Die Schneewind' zieh'n / Durch's Thal dahin, / Der Schäfer singt: ich scheide,",
+      "language": [],
+      "musenalm_id": 62676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost im Winter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost im Winter",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "cch2iz4x3xmt6cw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Herz und Auge, wie so schwer, / Du in Thränen, du in Sorgen?",
+      "language": [],
+      "musenalm_id": 62677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glosse / Thema: / Meinen Augen muß ich's sagen, / Daß sie schweigen, nicht dem Munde, / Denn die Augen geben Kunde, / Wo es nicht die Lippen wagen. / (Calderon.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glosse / Thema: / Meinen Augen muß ich's sagen, / Daß sie schweigen, nicht dem Munde, / Denn die Augen geben Kunde, / Wo es nicht die Lippen wagen. / (Calderon.)",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.859Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "30zp82xr3izsme3"
+        }
+      ],
+      "source_id": "62trc89yscrsk5l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "Kleine Lerche, frohes Wesen / In dem ersten Lenzensduft,",
+      "language": [],
+      "musenalm_id": 62678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Lerche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. H. Graf von Loeben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Lerche",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.222Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.222Z",
+          "agent": "lqm1xxbbqsqcgwa",
+          "source_id": "7ywwkewlzq5jb6k"
+        }
+      ],
+      "source_id": "efb3u4e7w9xwklz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Nachtigall klagt ihr Leid / Mitten in Seligkeit / Blüthen und Lust, / Sag' mir mein Vögelein",
+      "language": [],
+      "musenalm_id": 62679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sängerlust, Sängerleid",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Freyhr. v. d. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sängerlust, Sängerleid",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "kznllkl2aslnoh2"
+        }
+      ],
+      "source_id": "jpbzne4apjudrpq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Noch blühet diese Stelle / In Deiner Blicke Licht,",
+      "language": [],
+      "musenalm_id": 62680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendlied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendlied",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "kh30mdtpb2rspcb"
+        }
+      ],
+      "source_id": "pdwo7nedk6ijcnb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Es blüht so weiß und rosig / Bergunter und bergan,",
+      "language": [],
+      "musenalm_id": 62681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wellen und Blüthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. H. Graf von Loeben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wellen und Blüthen",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "lqm1xxbbqsqcgwa",
+          "source_id": "x5qeoc5g25qoo0g"
+        }
+      ],
+      "source_id": "6v6cgiqlpam2jns"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Soll denn immer neues Leiden / Herrin, über mich ergehen?",
+      "language": [],
+      "musenalm_id": 62682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glosse. / Meinen Augen muß ich's sagen, / Daß sie schweigen, nicht dem Munde, / Denn die Augen geben Kunde, / Wo es nicht die Lippen wagen. / (Calderon.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Freyhr. v. d. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glosse. / Meinen Augen muß ich's sagen, / Daß sie schweigen, nicht dem Munde, / Denn die Augen geben Kunde, / Wo es nicht die Lippen wagen. / (Calderon.)",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "49y63oo0jsdqf7z"
+        }
+      ],
+      "source_id": "nkbp1amneph51e0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "In dem Schirme grüner Linden / Ruht die stille Waldkapell;",
+      "language": [],
+      "musenalm_id": 62683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kapelle der Jungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kapelle der Jungfrau",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "pj7yt2v4trufpie"
+        }
+      ],
+      "source_id": "tctv417b6h8rcmi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Wenn ihr wandelt auf den Matten / An des Oelbachs klarer Flut,",
+      "language": [],
+      "musenalm_id": 62684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Freude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Freude",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "hdhwzy0ljdptjj7"
+        }
+      ],
+      "source_id": "htd0ni7131wfolx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Ihrer segnenden Füll' entladet die herbstliche Wolke / Schön sich, vom Thau' erfrischt glänzt das verjüngte / Gefild',",
+      "language": [],
+      "musenalm_id": 62685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Herbste. / 1814",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Herbste. / 1814",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.223Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "6uhhahgj9cixlub"
+        }
+      ],
+      "source_id": "aof5d4trdyofdod"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Sollt' ich heut erst rückwärts schauen! / Mahnst so laut mein altes Schloß?",
+      "language": [],
+      "musenalm_id": 62686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des / Kaisers Friedrich von Hohenstaufen Ende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des / Kaisers Friedrich von Hohenstaufen Ende",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "9a0l9c4c0rcavpe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Es lacht die grüne Wiese, / Es lockt der Sonnenstrahl.",
+      "language": [],
+      "musenalm_id": 62687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Durlacher Thurm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Durlacher Thurm",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "arrohhes7q2cate"
+        }
+      ],
+      "source_id": "ry6blk4epj8dwfm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Schläferig dehnt im Sofa sich Eins, an der Lehne des / Stuhles / Schnarchet ein Andres,",
+      "language": [],
+      "musenalm_id": 62688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die müden Kinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. H. G. von Meusebach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die müden Kinder",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "kv04w8skk4ws4zw",
+          "source_id": "x674husl771ba3n"
+        }
+      ],
+      "source_id": "dqrbe1u9n3qde7p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Nonnen-Eyland in dem Flusse, / Rolandseck auf steiler Höh', / Seyd gegrüßt mit gutem Grusse, / Weil ich hier vorüber geh.",
+      "language": [],
+      "musenalm_id": 62689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf der Reise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Max von Schenkendorf",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf der Reise",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "591e69im25wvavb",
+          "source_id": "5xy6kb46ib6dsmx"
+        }
+      ],
+      "source_id": "j8z71pundbegzfs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Wenn ich durch die kerzerhellten Straßen, / Abends schleiche, zieht das Herz mich immer / Nach der Ecke,",
+      "language": [],
+      "musenalm_id": 62690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das nächtliche Bild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cz.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das nächtliche Bild",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "2oiuztmk6a7wrt3"
+        }
+      ],
+      "source_id": "jvfmyyam01zqt00"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Zum Speere greift Graf Adelbert; / Er gürtet um sein tapfres Schwert;",
+      "language": [],
+      "musenalm_id": 62691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Spinnerin am Kreuze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Spinnerin am Kreuze",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "0c0ki0sy6dby4kc"
+        }
+      ],
+      "source_id": "pyuoye5wlwoxpnu"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Was hat der Gärtner dir gethan? / Du grunzest ihn so bissig an!",
+      "language": [],
+      "musenalm_id": 62692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen Kritikus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen Kritikus",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "mdmqf9nzoh9pjv5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Entzückt von deinen Tönen / Auch auf dem Helikon / Entsenden die Kamönen / Dir ächten Föbussohn, / Den Griffel hier zu schreiben",
+      "language": [],
+      "musenalm_id": 62693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / Max von Schenkendorf. / Mit einer goldnen Feder. / Zu seinem Geburtstage. / Koblenz, den 11. Dezember 1816",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. Meusebach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / Max von Schenkendorf. / Mit einer goldnen Feder. / Zu seinem Geburtstage. / Koblenz, den 11. Dezember 1816",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "kv04w8skk4ws4zw",
+          "source_id": "e2btst6cbuo006v"
+        }
+      ],
+      "source_id": "1va079u2zcgzt5q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Der alte König saß auf seinem Thron, / Zur Seiten saß ihm sein treues Gemahl,",
+      "language": [],
+      "musenalm_id": 62694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der sterbende König",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hornthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der sterbende König",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "1acfhtvr8htxmbh",
+          "source_id": "8k6i78g95d2kqkg"
+        }
+      ],
+      "source_id": "8gogkrx6kay9t0s"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62696, Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Einsam trauert die Kapelle / Hildegards im Mondenschein,",
+      "language": [],
+      "musenalm_id": 62695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Erscheinung auf dem Rupertsberge / bey Bingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schr.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Erscheinung auf dem Rupertsberge / bey Bingen",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "waqxrb4qwwx1oxn"
+        }
+      ],
+      "source_id": "3lg7b32j65mbq4d"
+    },
+    {
+      "annotation": "Illustration zu »Die Erscheinung auf dem Rupertsberge bey Bingen« von A. Schreiber INr 62695, Obj 51; s.a. Textbezug INr 62655, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hildegard",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. C. Heideloff gest. v. Bitthäuser",
+      "scans": [
+        "alm_1027_62696_41q05seh1g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hildegard",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "zjtwz9c3mxwl6yc",
+          "source_id": "5uvj30183wjbao6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.224Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "lrx9380abpjtr29"
+        }
+      ],
+      "source_id": "eszlghf5na7gzxy"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Dem kühlen sie des Lebens heißen Schmerz, / Dem fallen sie, wie Höllenglut auf's Herz.",
+      "language": [],
+      "musenalm_id": 62697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thränen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thränen",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "0cj892ozr4322ji"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Dies ist der Rache schreckliches Gericht: / Rein von der Schuld wascht selbst die Reue nicht.",
+      "language": [],
+      "musenalm_id": 62698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gnome",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gnome",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "1jadamsklgw4r96"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "O Freundschaftsenglein falte deine Hände / So lang du auf den hohen Wölklein schwebest,",
+      "language": [],
+      "musenalm_id": 62699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Freundschaftsengel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Freyh. v. d. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Freundschaftsengel",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "qfm9to3biyrpgub"
+        }
+      ],
+      "source_id": "syefxjckjbuhxcp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Neue Freuden blüh'n auf Erden / Unter rauhen Stürmen noch, / Muß auch Staub die Blume werden,",
+      "language": [],
+      "musenalm_id": 62700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Licht und Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Licht und Liebe",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "ntp4qx4z99jb5gp"
+        }
+      ],
+      "source_id": "4v360e1y4jh1yun"
+    },
+    {
+      "annotation": "# vollst. Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "So mancher schätzt am Bilde nur den Rahmen. / Du jubelst, daß man Dich mit einem Titel nennt?",
+      "language": [],
+      "musenalm_id": 62701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An -",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Reinbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An -",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "j6u4xe56jqv8urn",
+          "source_id": "y057l9a84fp2x3x"
+        }
+      ],
+      "source_id": "0yia7fv0gg4zxhk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "Thu auf dein Herz und sing' in Lust / Die junge Frühlingsschöne,",
+      "language": [],
+      "musenalm_id": 62702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mailied aus der Fremde. / (1817.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johannes v. d. Babenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mailied aus der Fremde. / (1817.)",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "8yvr72xkdemnv4b"
+    },
+    {
+      "annotation": "$ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Uns lehrte die Natur aufwärts zum Himmel schauen, / Euch gab sie wunderbare Kräfte zum - Verdauen!",
+      "language": [],
+      "musenalm_id": 62703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir und Ihr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir und Ihr",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "zx6lyci6fsglats"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Wär' ich daheim, im Jugendlande, / Wo grüne Flur den Wald umgiebt,",
+      "language": [],
+      "musenalm_id": 62704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wolken Heimweh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bockshammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wolken Heimweh",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "rplids63qby2bia"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Wohl der Liebe Schiffer bin ich, / Und auf ihren tiefen Fluthen / Muß ich wanken, sonder Hoffen,",
+      "language": [],
+      "musenalm_id": 62705,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schiffer und die Liebe./ Nach Cervantes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Freyh. v. d. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schiffer und die Liebe./ Nach Cervantes",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "0qnxv344pk2axnk"
+        }
+      ],
+      "source_id": "0ntol95q60wl8zl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Hörst du nicht die Lerche singen, / Siehst du nicht des Morgens Stral?",
+      "language": [],
+      "musenalm_id": 62706,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ermunterung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Reinbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ermunterung",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "j6u4xe56jqv8urn",
+          "source_id": "zdwof8fwtkvnmar"
+        }
+      ],
+      "source_id": "dwxwf9ja1f5pnwu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Rasch jetzt in den Kahn hinein / Und auf Stromes hellen Wogen / In des Morgens rothem Schein / Zu dem Liebchen fortgezogen!",
+      "language": [],
+      "musenalm_id": 62707,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Knaben Morgenfahrt. / (1815.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johannes v. d. Babenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Knaben Morgenfahrt. / (1815.)",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "swbmzto5wrpdiwm"
+    },
+    {
+      "annotation": "mit Anm. am Gedicht zu: Wunderhold : Bürgers Blümchen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Kein Blümchen sprießet auf der Flur; / Die liegt, verhüllt, im weichen Flaume,",
+      "language": [],
+      "musenalm_id": 62708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Emilien. / Den 22. Januar 1818",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Reinbeck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Emilien. / Den 22. Januar 1818",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.254Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "j6u4xe56jqv8urn",
+          "source_id": "52lkeyhp7uhg5ru"
+        }
+      ],
+      "source_id": "gpcjs3uuhzau0q9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Wie alle Tage pfleget / Von Andacht tief beweget / Die Kais'rin Kunegund,",
+      "language": [],
+      "musenalm_id": 62709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunigundis und der Sonnenstral. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hornthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunigundis und der Sonnenstral. / Legende",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.254Z",
+          "agent": "1acfhtvr8htxmbh",
+          "source_id": "jety33d6lmmt650"
+        }
+      ],
+      "source_id": "zo0aa2e8xilmg6b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Als einst Schach Nadir, Persiens Monarch, / In seines Zornes Wallung den Vezier, / Den edlen Hassan, in Verbannung stieß,",
+      "language": [],
+      "musenalm_id": 62710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vezier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vezier",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "swpscriwlwbrii5"
+        }
+      ],
+      "source_id": "omgbvbvfs2g3ly3"
+    },
+    {
+      "annotation": "# im I-Verz: A.: $ Goed VIII. 90, 177 vermutet A. Schreiber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Ein Männlein zu einem Gärtner kam, / Was thut ihr da mit dem bunten Kram?",
+      "language": [],
+      "musenalm_id": 62711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Apolog. / An D. J. R.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "O.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Apolog. / An D. J. R.",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "sg1b1r7335yyfy0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Geist der Liebe, schwebst du wieder / Von der lichten Sternenflur / An der Erde Busen nieder,",
+      "language": [],
+      "musenalm_id": 62712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Frühlinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wieland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Frühlinge",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.255Z",
+          "agent": "dn0yjm1srfyi7cs",
+          "source_id": "zleqa45obulhlvx"
+        }
+      ],
+      "source_id": "iq7zd5hzjdmiw81"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Jungfrau, blickst so traurig nieder / Auf den Eichkranz in der Hand",
+      "language": [],
+      "musenalm_id": 62713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Germania. / (1815.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Viator",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Germania. / (1815.)",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "gpwnnf185o3jxva"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Zum Wald, zu Bergeshöhen / Hinan den Pfad, mein Fuß!",
+      "language": [],
+      "musenalm_id": 62714,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bockshammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldlied",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "f96swvyp1izkndz"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: In wenig Stunden / Hat Gott das Rechte gefunden. / Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.103Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Ludwig schweifte in der Dämmerung durch die Straßen der Stadt. Amtsgeschäfte hatten ihn den ganzen Tag am Schreibetische festgehalten,",
+      "language": [],
+      "musenalm_id": 62715,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sängerin. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Karow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sängerin. / Novelle",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "yxhku8tu18sfdvc"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62717, Obj 73",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.103Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "An einem milden Sommerabend kehrte Peter von Staufenberg von der Jagd heim. Schon flimmerte vom Rheine her der Abendstern und in den Dörfern klang die Bergglocke, als er gen Nußbach kam.",
+      "language": [],
+      "musenalm_id": 62716,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Peter von Staufenberg. / Getreu nach der Ortenauischen Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Peter von Staufenberg. / Getreu nach der Ortenauischen Volkssage",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "gdis54129dp7rxe"
+        }
+      ],
+      "source_id": "3jhv447ql4z617c"
+    },
+    {
+      "annotation": "Illustration zu »Peter von Stauffenberg« von A. Schreiber INr 62716, Obj 72; s.a. Textbezug INr 62656, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Peter von Staufenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Heideloff. Gest. v. Fleischmann",
+      "scans": [
+        "alm_1027_62717_v6ze61rm46.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Peter von Staufenberg",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "87k93eagmtrfo5w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "hln6qf8azfb7347"
+        }
+      ],
+      "source_id": "4xgwgps14da56qd"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 62719, Obj 75",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Auf der Insel Man lebte im dreizehnten Jahrhundert ein junger Edler, Namens Ivar. Eine Burg lag nicht weit von der felsigten Küste, und er hatte seine Lust an der Jagd und dem Fischfang.",
+      "language": [],
+      "musenalm_id": 62718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mönch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mönch",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "yptk13fi85ppiz7"
+        }
+      ],
+      "source_id": "nbxw2l7rdoyb8nm"
+    },
+    {
+      "annotation": "Illustration zu »Der Mönch« von A. Schreiber INr 62718, Obj 74; s.a. Textbezug INr 62657, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mönch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Heideloff. Gest. v. Fleischmann",
+      "scans": [
+        "alm_1027_62719_62h1x4f8fs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Mönch",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "h05hghc8bv3e5i1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "rm0cexnswlpndzh"
+        }
+      ],
+      "source_id": "oxjcq4rdfxqi973"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Der Sänger Friedhold zog lustigen Muthes die Straße nach der nahen Heimath hin. Man kannte ihn weit und breit unter dem Namen des schönen Zitherspielers,",
+      "language": [],
+      "musenalm_id": 62720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Todtenglocke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Todtenglocke",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "hr5azxzjjy3cxwr"
+        }
+      ],
+      "source_id": "akhwp74db6etqzr"
+    },
+    {
+      "annotation": "Gedicht im Beitrag »Die Todtenglocke« INr 62721, Obj 76",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Es geht der Sänger in seinen Garten, / Wo Blumen und Kräuter sich selber warten:",
+      "language": [],
+      "musenalm_id": 62721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es geht der Sänger in seinen Garten, / Wo Blumen und Kräuter sich selber warten:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "su8tp6bd091rt4t"
+        }
+      ],
+      "source_id": "jloaiuoumvng9rs"
+    },
+    {
+      "annotation": "Gedicht im Beitrag »Die Todtenglocke« INr 62721, Obj 76",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Glück, du hast mir nichts beschieden, / Als dies kleine Saitenspiel,",
+      "language": [],
+      "musenalm_id": 62722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glück, du hast mir nichts beschieden, / Als dies kleine Saitenspiel,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.048Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.048Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "hkd8ahxob2pnq6j"
+        }
+      ],
+      "source_id": "6qml7sixz151gbq"
+    },
+    {
+      "annotation": "mit einer Illustration s.Graphik INr 62724, Obj 80",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Es giebt eine Geschichte, welche sich im Munde der Völker fortpflanzt. Ein jedes Volk, wenn es etwas werth ist, bewahrt in fortschreitenden Sagen die Ehre seiner Väter und die Schmach seiner Nachbarn.",
+      "language": [],
+      "musenalm_id": 62723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ehrenspiegel deutscher Frauen. / Deutscher Frauenmuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ehrenspiegel deutscher Frauen. / Deutscher Frauenmuth",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.989Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "94fhcmzoprpzbl2"
+        }
+      ],
+      "source_id": "1fxba7g808163am"
+    },
+    {
+      "annotation": "Illustration zu »Ehrenspiegel deutscher Frauen. Deutscher Frauenmuth« von A. Schreiber INr 62723, Obj 79; s.a. Textbezug INr 62658, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutscher Frauenmuth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Heideloff. Gest. v. Bittheuser",
+      "scans": [
+        "alm_1027_62724_s90297bjq1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Deutscher Frauenmuth",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.989Z",
+          "agent": "zjtwz9c3mxwl6yc",
+          "source_id": "8ecehexk6lcb8l6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.989Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "zfxguby1uu0wtbv"
+        }
+      ],
+      "source_id": "nmmeckb5lcnwtt5"
+    },
+    {
+      "annotation": "Umschlaggraphik v. s. Textbezug INr 62659, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62725,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Heideloff inv. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Heideloff inv. et sc.",
+      "scans": [
+        "alm_1027_62725_n9gamdjgem.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.989Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.989Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "12d9pcwf2r6tmfq"
+        }
+      ],
+      "source_id": "wmvi0ert3rsj0sk"
+    }
   ],
   "agents": [
     {

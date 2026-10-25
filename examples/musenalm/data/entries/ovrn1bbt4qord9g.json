@@ -48,88 +48,3320 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "zjx8vyohjn36wjo"
+    {
+      "annotation": "1823-1848",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.574Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106575",
+      "location": "105A07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.574Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zjx8vyohjn36wjo"
+    }
   ],
   "contents": [
-    "2io9htr8kqwmj8b",
-    "bum5f5y9wfoxvta",
-    "qvqutgt7f27v11j",
-    "0llw7wnoqzzzy4n",
-    "nt1jke8vg9s05ta",
-    "pj9zz3ue78fcx3t",
-    "fkd9nzy16xulppq",
-    "iw8165nej7kz7e6",
-    "fuo643hv1vnjem2",
-    "wby7vubdbp3pwcv",
-    "r2106ywvb215zew",
-    "plsffto932px68b",
-    "jw2jg4bn755yerp",
-    "f4hw5dfky4a9hqv",
-    "mvwwylxanx2ts7a",
-    "15yxci2bzp2f7wp",
-    "17l4g3ng675n2iv",
-    "qng7c9y2srr4jfe",
-    "oy4c3cpjyphquoo",
-    "8kt39km5gqiqqxq",
-    "dyqpuqvyqo510kl",
-    "4mrhwoet6hp0jkh",
-    "tx4bfx6q3szr3gh",
-    "lg8qoin5b3bw5gu",
-    "u01sqahyuz3292r",
-    "0mlc45lldkwnudb",
-    "ehard5a1ohsr6z9",
-    "dl7se1611pbqfjb",
-    "0oheqdfocr99q0v",
-    "1zo0qveqzwo9byu",
-    "0oidj3hjldnwzfi",
-    "6s0fwszzubj0ghr",
-    "hy4zv8dbmw740kj",
-    "4se4qkgge24zuie",
-    "jph640bo9xl1i2m",
-    "4tnm501y3ebu7sh",
-    "yldeigheb2deyva",
-    "0c6mko8fgrpqwb4",
-    "hd9t3bf8x7e2d5u",
-    "ybsz7rr49xrry8y",
-    "rjnbggqv2n2avje",
-    "87g1rnvotb0j0a8",
-    "lqveyrudrm9cvmp",
-    "n1u51l1i87locs8",
-    "ccn9lvv69fva1f9",
-    "pqy573cd2jkd135",
-    "crw2jdqrul4k7j8",
-    "kks3iwhu62hkpli",
-    "5dzz8oya0shk7fz",
-    "l0i2bmpre886q28",
-    "f2thwggqbxb4x6g",
-    "ito4g38606nz5pf",
-    "m5s13yqfq1nb13r",
-    "ikvfq61mmjknb4b",
-    "8rcjqtf9nwhj82c",
-    "xm63spp5b1ktuyr",
-    "rkmnk1e6krwvyfh",
-    "y0hc3cayvxf3g88",
-    "5za8b5vuvt6fium",
-    "iczob9379y1qhqq",
-    "gkuetur377hb0fv",
-    "5ps0aayf1mftnbb",
-    "5stoc8jpwn8o3pi",
-    "n2excjrk0t8bid0",
-    "rws78kewumhvvef",
-    "6tdtwjdwzve90ej",
-    "a6739n5a9p5ktqd",
-    "9re5e49ykukrtbz",
-    "o8cj7armh78a56w",
-    "jaho3fu3g0h65d1",
-    "qdtl8lii496844u",
-    "zmducf3k5moedk5",
-    "0e15cbsfb47ngt3",
-    "yiizgrvnjkedw5g",
-    "ocudwa55p9h353v",
-    "gcnguxe04i2pk5h",
-    "dv9qld3vvp1fgtc",
-    "cc5kr51pr3ngb1z",
-    "faq47roy74q0zji"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93993,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Rieder inv. C. Kotterba sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Rieder inv. C. Kotterba sc.",
+      "scans": [
+        "alm_1865_93993_uci7lp2kw2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.474Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "a3yh461hth2e5d4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.474Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "s6m2m9pbqptahki"
+        }
+      ],
+      "source_id": "2io9htr8kqwmj8b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93994,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HULDIGUNG / den / Frauen. / Ein Taschenbuch / für das Jahr 1828. / Herausgegeben / von / I. F. CASTELLI. / Sechster Jahrgang. / Mit sechs Kupfern. / Wien, / bey Tendler und von Manstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl. sc.",
+      "scans": [
+        "alm_1865_93994_rvuxkjyf0x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HULDIGUNG / den / Frauen. / Ein Taschenbuch / für das Jahr 1828. / Herausgegeben / von / I. F. CASTELLI. / Sechster Jahrgang. / Mit sechs Kupfern. / Wien, / bey Tendler und von Manstein",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "bum5f5y9wfoxvta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93995,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "qvqutgt7f27v11j"
+    },
+    {
+      "annotation": "Illustration zu »Der Thurm der Sultanstochter« von v. Nell INr 93997, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.089Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93996,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Novelle: Die Sultanstochter, von Nell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Rieder del. C. Kotterba sc.",
+      "scans": [
+        "alm_1865_93996_dy05790bvr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Novelle: Die Sultanstochter, von Nell",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.353Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.353Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "amye2t0prlhxlpo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.354Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "i9diwupqyq2cbz9"
+        }
+      ],
+      "source_id": "0llw7wnoqzzzy4n"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 93996, Obj  4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In der Meerenge, welche die Sultansstadt Istambol von Scutari, Europa von Asien scheidet, trotzet seit vielen Jahrhunderten ein hochragender Thurm der Macht der Wellen.",
+      "language": [],
+      "musenalm_id": 93997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Thurm der Sultanstochter. / Novelle nach einer türkischen Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Maria Freiherr von Nell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Thurm der Sultanstochter. / Novelle nach einer türkischen Volkssage",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.354Z",
+          "agent": "irfy6vxngo3yzuf",
+          "source_id": "i9mlkw934g0wttn"
+        }
+      ],
+      "source_id": "nt1jke8vg9s05ta"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Wo die süße Liebe weilet? / Fragst du, Lina? Frage nicht!",
+      "language": [],
+      "musenalm_id": 93998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der ernste Engel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der ernste Engel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.354Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "iociphlwvkmnb7w"
+        }
+      ],
+      "source_id": "pj9zz3ue78fcx3t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Es sandte ein Dichter von Sehnsucht getrieben / Den Reim der gewärtig: treu, hold ihm geblieben / Als Boten zur Liebe mit Wünschen und Lust,",
+      "language": [],
+      "musenalm_id": 93999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die gefrornen Reime. / An Minna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Baldamus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die gefrornen Reime. / An Minna",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.454Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.454Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "jjek23hf4tksagy"
+        }
+      ],
+      "source_id": "fkd9nzy16xulppq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Sitz' in stillen Abendstunden / Bei der Kerze mattem Schein / Ernst und sinnend ich allein,",
+      "language": [],
+      "musenalm_id": 94000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerung",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.454Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.454Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "y4f1xz2nwafmdms"
+        }
+      ],
+      "source_id": "iw8165nej7kz7e6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Er fiel den Tod für's Vaterland', / Den süßen der Befreiungsschlacht;",
+      "language": [],
+      "musenalm_id": 94001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grablied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kenner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grablied",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "fuo643hv1vnjem2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Stolzes Mädchen! das mit eitlem Prangen / Pfauen gleich, auf uns hernieder sieht;",
+      "language": [],
+      "musenalm_id": 94002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Regina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Pietznigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Regina",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "wby7vubdbp3pwcv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Fürwahr ich wünsche nimmer / Des falschen Goldes Licht,",
+      "language": [],
+      "musenalm_id": 94003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wunsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr von Schlechta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wunsch",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.419Z",
+          "agent": "x1uz1klk4dlr9er",
+          "source_id": "qyvbktwysvh3yql"
+        }
+      ],
+      "source_id": "r2106ywvb215zew"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Ein Pilger wall' ich über diese Erde, / Und Lieb nehm' ich, gebe sie;",
+      "language": [],
+      "musenalm_id": 94004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtgedanken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mayrhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtgedanken",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.419Z",
+          "agent": "z2a77hujndvxeug",
+          "source_id": "n744irzunjzayjj"
+        }
+      ],
+      "source_id": "plsffto932px68b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Die Mädchen in Deutschland sind blühend und schön, / Zu Küssen laden sie ein,",
+      "language": [],
+      "musenalm_id": 94005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hannchen vor Allen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Gerhard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hannchen vor Allen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.336Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.336Z",
+          "agent": "c4v9nl7ztvkf3sf",
+          "source_id": "in0agtu09ilcp40"
+        }
+      ],
+      "source_id": "jw2jg4bn755yerp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Nennet die ziehenden Fäden da droben / Nur den fliegenden Sommer nicht mehr,",
+      "language": [],
+      "musenalm_id": 94006,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der fliegende Sommer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Schön",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der fliegende Sommer",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4hw5dfky4a9hqv"
+    },
+    {
+      "annotation": "# Bez. vom Titel der Illustration s. Graphik INr 94008, Obj 16 /) mit Anm. /) Dem Text vorangestellt: Hören Síe Ihn, der ein Held ist, und ein Mensch zugleich. / Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Wenn das Bild eines großen Mannes, als eine weltgeschichtlich denkwürdige Erscheinung in seinen Thaten und Werken vor unserern Augen lebt,",
+      "language": [],
+      "musenalm_id": 94007,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine / Novelle aus Montecucoli's Leben. / Nach einer Handschrift aus seinem Nachlasse",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Weingarten",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine / Novelle aus Montecucoli's Leben. / Nach einer Handschrift aus seinem Nachlasse",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "mvwwylxanx2ts7a"
+    },
+    {
+      "annotation": "Illsutartion zu »Eine Novelle aus Montecucoli's Leben« von Weingarten INr 94007, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94008,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Novelle: Aus Montecucoli's Leben, / von Weingarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Rieder del. Bl. Höfel sc. Wr. Neustadt",
+      "scans": [
+        "alm_1865_94008_86btmvnduc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Novelle: Aus Montecucoli's Leben, / von Weingarten",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.336Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.336Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "gx1yte71afg7930"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.336Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.336Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "oyci4q76s07qndh"
+        }
+      ],
+      "source_id": "15yxci2bzp2f7wp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Mein Schätzchen geht in Seide, / Un doch im ländlich einfach schlichten Kleide;",
+      "language": [],
+      "musenalm_id": 94009,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mariuccia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mariuccia",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.186Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "0actt3x5rrqpjni"
+        }
+      ],
+      "source_id": "17l4g3ng675n2iv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Seit ich dich sah in deinem Reize, / Fühlt' ich, du süßes Himmelkind, / Daß meiner Liebe Gluth zu malen, / Zu arm die Sprachen alle sind.",
+      "language": [],
+      "musenalm_id": 94010,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Coelestinen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Coelestinen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.186Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "vj1clkfznoxcw3j"
+        }
+      ],
+      "source_id": "qng7c9y2srr4jfe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Du gabst' heut' eine Rose mir / So schön als wäre sie von dir / Gepflückt im Paradiese,",
+      "language": [],
+      "musenalm_id": 94011,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosen. / Nach Batt. Guarnini",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosen. / Nach Batt. Guarnini",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.605Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.605Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "d89v9cal92p341t"
+        }
+      ],
+      "source_id": "oy4c3cpjyphquoo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Der Geschichte Buch verräth's, / Allzu sprödes Frauenzimmer!",
+      "language": [],
+      "musenalm_id": 94012,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Spröden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Spröden",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.605Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.605Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "4qyz5zkjheslh3z"
+        }
+      ],
+      "source_id": "8kt39km5gqiqqxq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Wenn ich den Mond anblick' in gestirnter Nacht, / Den mir, wie Klopstock, lieben Gedankenfreund",
+      "language": [],
+      "musenalm_id": 94013,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Louisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Louisen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.605Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "ceb3mma02ctg64t"
+        }
+      ],
+      "source_id": "dyqpuqvyqo510kl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Ach, hier schläft in weiblicher Hüll' ein Engel.",
+      "language": [],
+      "musenalm_id": 94014,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "yyo35xdc83hor93"
+        }
+      ],
+      "source_id": "4mrhwoet6hp0jkh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Blumen von der Winterflur / Bracht' ich meinem Mühmchen;",
+      "language": [],
+      "musenalm_id": 94015,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als ich Augusten im Jänner Blumen / überreichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thienemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Als ich Augusten im Jänner Blumen / überreichte",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "tx4bfx6q3szr3gh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Wo des Nordlands Klippen ragen, / Dunkel in die weite See, / Scheue Möven schwirrend klagen,",
+      "language": [],
+      "musenalm_id": 94016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tanne und Palme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Freiherr von Eyb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tanne und Palme",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "otquhrfmf15x6tw",
+          "source_id": "c40sh526sfwvufd"
+        }
+      ],
+      "source_id": "lg8qoin5b3bw5gu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Lieblich ist's im stillen Thale, / Wo des Friedens Palmen weh'n,",
+      "language": [],
+      "musenalm_id": 94017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsklänge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedericke Susan geb.Salzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsklänge",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "3f48m7dc4honoam",
+          "source_id": "3kfxfyl306lj35e"
+        }
+      ],
+      "source_id": "u01sqahyuz3292r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Die Blume blühet gerne / Vom Morgen angelacht, / Mild öffnet ihre Sterne / Des Lichtes stille Nacht.",
+      "language": [],
+      "musenalm_id": 94018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unsere lieben Auguste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Weidmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unsere lieben Auguste",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "e499h9zfmuf983p",
+          "source_id": "cfabc05zhpziput"
+        }
+      ],
+      "source_id": "0mlc45lldkwnudb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Der Führer wandelt / Mit der Fackel voran, / Und wir folgen ihm steigend / Auf nächtlicher Bahn;",
+      "language": [],
+      "musenalm_id": 94019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem Oetscher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herrmann von Herrmannsthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf dem Oetscher",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "rxn9x0k5ac10jd7",
+          "source_id": "c9934wz6h4hgmts"
+        }
+      ],
+      "source_id": "ehard5a1ohsr6z9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.328Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "In eines Fensters Rahmen eingeschlossen, / Erscheinet mir ein wunderhelles Bild,",
+      "language": [],
+      "musenalm_id": 94020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ergebenheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Graf Mailáth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ergebenheit",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "ynz1wrh0mfk3t8y",
+          "source_id": "p2tkvggaylh63t3"
+        }
+      ],
+      "source_id": "dl7se1611pbqfjb"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 94022, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Emilie von F. war, obgleich in dem Schooße des Reichthums aufgezogen und mit allen Glücksgütern der vornehmen Welt überschüttet, dennoch, kaum sechzehn Jahre alt, eine Schule des Unglücks durchgegangen.",
+      "language": [],
+      "musenalm_id": 94021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Viel Unrecht überall, und wenig Recht. / (Erzählung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Viel Unrecht überall, und wenig Recht. / (Erzählung.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "jfhywk4cbxcodws",
+          "source_id": "lttks2s9q6iunay"
+        }
+      ],
+      "source_id": "0oheqdfocr99q0v"
+    },
+    {
+      "annotation": "Illustration zu »Viel Unrecht überall, und wenig Recht« von L. Kruse INr 94021, Ob 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Erzählung »Uiberall viel Unrecht und / wenig Recht von L. Kruse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. A. Winkler sc.",
+      "scans": [
+        "alm_1865_94022_t9cg2puq7s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Erzählung »Uiberall viel Unrecht und / wenig Recht von L. Kruse",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "k90chse3gzc2due"
+        }
+      ],
+      "source_id": "1zo0qveqzwo9byu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Winkst du mir wieder liebend / Freundliches Abendroth, / Und lächelst mich an in Wehmuth?",
+      "language": [],
+      "musenalm_id": 94023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Sängers Abendgang. / Nachdem sein Mädchen gestorben war",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Kasper",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Sängers Abendgang. / Nachdem sein Mädchen gestorben war",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "0oidj3hjldnwzfi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "Ich hab' ein eitel thöricht Herz / Es wünscht, was nie geschieht,",
+      "language": [],
+      "musenalm_id": 94024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Herz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Herz",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "cfa104rl49hgr01"
+        }
+      ],
+      "source_id": "6s0fwszzubj0ghr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Wär' ich Stein, ich müßt' erweichen; / Wär' ich Eis, ich müßt erwarmen; / Von der Blumen süßem Reize,",
+      "language": [],
+      "musenalm_id": 94025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An M. H.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg von Gaal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An M. H.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.486Z",
+          "agent": "7jow4hgxizafguq",
+          "source_id": "ajgxpid5vlbokzs"
+        }
+      ],
+      "source_id": "hy4zv8dbmw740kj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Die Liebe würden wir als Sieg'rin schauen, / Hälf gegen Kabal' Ihr - das Vertrauen.",
+      "language": [],
+      "musenalm_id": 94026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Adelaiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Freiherr von Feuchtersleben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Adelaiden",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "ox2w0lw2pa3no6e",
+          "source_id": "ivs854rltnx0x5q"
+        }
+      ],
+      "source_id": "4se4qkgge24zuie"
+    },
+    {
+      "annotation": "Dem Gedicht vorangestellt: Jedes Ausgang ist ein Gottes-Urtheil. / Schiller /) mit einer Illustration s. Graphik INr 94029, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Rings überschau't von wilden Höh'n, / Lag einst in einem armen Thal der stolze Pyrenä'n / Ein Dörfchen, arm und klein.",
+      "language": [],
+      "musenalm_id": 94027,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sünde und ihr Fluch. / (Poetische Erzählung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Demeter Goaga Pazzani",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sünde und ihr Fluch. / (Poetische Erzählung.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "jph640bo9xl1i2m"
+    },
+    {
+      "annotation": "Einleitung zum Gedicht INr 94030, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Erlauben Sie mir die Stelle, welche das hier übersetzte türkische Gedicht in der Huldigung der Frauen einzunehmen die Ehre haben soll, mit ein Paar Worten zu rechtfertigen.",
+      "language": [],
+      "musenalm_id": 94028,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schreiben / des Übersetzers an den Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schreiben / des Übersetzers an den Herausgeber",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "cvquwhz0ah035g9"
+        }
+      ],
+      "source_id": "4tnm501y3ebu7sh"
+    },
+    {
+      "annotation": "Illustration zu »Die Sünde und ihr Fluch.« von Pazzani INr 94027, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur poetischen Erzählung: Die Sünde / und ihr Fluch, von Pazzani",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Rieder del. Bl. Höfel sc. Wr. Neustadt",
+      "scans": [
+        "alm_1865_94029_jz7hlh4gm1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur poetischen Erzählung: Die Sünde / und ihr Fluch, von Pazzani",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "ka6n907481ioqf5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "w5il9ek8wj8hazh"
+        }
+      ],
+      "source_id": "yldeigheb2deyva"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 94028, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Bald schwillt und woget, wie mein Herz, die Donau, / Bald ächzt und stöhnt, wie meine Brust, die Donau;",
+      "language": [],
+      "musenalm_id": 94030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Donau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Donau",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "54f9fukus4n4are"
+        }
+      ],
+      "source_id": "0c6mko8fgrpqwb4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Wann dem Knaben, satt der Spiele, / Kind'scher Ruhm nicht mehr behagt,",
+      "language": [],
+      "musenalm_id": 94031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die verjüngte Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Maltiz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die verjüngte Liebe",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.487Z",
+          "agent": "enmi0t9mog462m5",
+          "source_id": "gzt5bzccm1m9ep8"
+        }
+      ],
+      "source_id": "hd9t3bf8x7e2d5u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Als der Mensch an die Wahrheit angerannt / Und er mithin sie endlich fand, / Da that sie mit ihm ganz bekannt.",
+      "language": [],
+      "musenalm_id": 94032,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wahrheit und der Mensch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. v. Maltiz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wahrheit und der Mensch",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.606Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.606Z",
+          "agent": "enmi0t9mog462m5",
+          "source_id": "vu8diomntno0q04"
+        }
+      ],
+      "source_id": "ybsz7rr49xrry8y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "318",
+      "incipit_statement": "Das heilige Christfest mit heller Lust, / Den Großen und Kleinen entgegen lacht,",
+      "language": [],
+      "musenalm_id": 94033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wem gebührt der Preis",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emmy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wem gebührt der Preis",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "rjnbggqv2n2avje"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "322",
+      "incipit_statement": "Du mußt nicht mehr weinen! Geh Ila zum Teich / Und sieh nach den leuchtenden Schwänen!",
+      "language": [],
+      "musenalm_id": 94034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ila und Ilmenar. / (Ballade.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Lessing",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ila und Ilmenar. / (Ballade.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "87g1rnvotb0j0a8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "324",
+      "incipit_statement": "Dreimal neun, und dreimal neun, / In dem Tag wie in dem Jahr!",
+      "language": [],
+      "musenalm_id": 94035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am / Vorabende des Geburtstages / einer / holdbescheidnen Dichterin, den 37. Januar 1827; / im Liederkreise",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am / Vorabende des Geburtstages / einer / holdbescheidnen Dichterin, den 37. Januar 1827; / im Liederkreise",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.354Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "1tb1wqhvw5hpry0"
+        }
+      ],
+      "source_id": "lqveyrudrm9cvmp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Nacht, Segensnacht! du bist ein treuer Freund, / An dessen stille Brust ich sinken kann / Mit jedem Kummer,",
+      "language": [],
+      "musenalm_id": 94036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nacht. / (By Miss S. E. Hatfield.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. R-t.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nacht. / (By Miss S. E. Hatfield.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "n1u51l1i87locs8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Wo ist der Fürst mit allem Purpurpomp, / Der Held im Stahl, der Rath im Hermelin,",
+      "language": [],
+      "musenalm_id": 94037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gewissen. / (By the rev. George Croly.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. R-t.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gewissen. / (By the rev. George Croly.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ccn9lvv69fva1f9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 94039, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Madame stand am Fenster, wischte die angelaufenen Glasscheiben ab und schaute mißmuthig hinunter auf die Straße",
+      "language": [],
+      "musenalm_id": 94038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ernst ist das Leben, heiter ist die Kunst. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Weisflog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ernst ist das Leben, heiter ist die Kunst. / Novelle",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.354Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.354Z",
+          "agent": "iv41ps6uccpba1n",
+          "source_id": "745mjktier502xs"
+        }
+      ],
+      "source_id": "pqy573cd2jkd135"
+    },
+    {
+      "annotation": "Illustration zu »Ernst ist das Leben, heiter ist die Kunst«  von C. Weisflog INr 94038, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.020Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "392",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Novelle: Ernst ist das Leben, heiter / die Kunst, von Weisflog",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rieder del. Bl. Höfel sc. W. Neustadt",
+      "scans": [
+        "alm_1865_94039_u1yugb5io8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zur Novelle: Ernst ist das Leben, heiter / die Kunst, von Weisflog",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "272pa6x57sxylcp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "djf4nkfvic4s191",
+          "source_id": "pfhsid7i8wc0sh0"
+        }
+      ],
+      "source_id": "crw2jdqrul4k7j8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "409",
+      "incipit_statement": "Singt ihr jammervollen Dichter, / Singt doch nimmer Liebeslieder,",
+      "language": [],
+      "musenalm_id": 94040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Guter Rath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Baron Zedlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Guter Rath",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "id1mj19iathigp2",
+          "source_id": "xoqxe1q9ggk1yua"
+        }
+      ],
+      "source_id": "kks3iwhu62hkpli"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "411",
+      "incipit_statement": "Erhellt der erste lichte Schein / Nach dunkler Nacht mein kleines Zimmer, / Erwach' ich bei Aurora's Schimmer,",
+      "language": [],
+      "musenalm_id": 94041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dein vergess ich nie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dein vergess ich nie",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "olegz502hvfwvku"
+        }
+      ],
+      "source_id": "5dzz8oya0shk7fz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "413",
+      "incipit_statement": "Seht Ihr den lieblichen Knaben wohl? / Seine Wangen sind blaß, sein' Äuglein hohl,",
+      "language": [],
+      "musenalm_id": 94042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sanct Odilo / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sanct Odilo / Legende",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "kafzgg6477rlmz4"
+        }
+      ],
+      "source_id": "l0i2bmpre886q28"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "415",
+      "incipit_statement": "Der Kaiser saß annoch, die Kron' auf dem Haupt, / Die Krönung war eben geschehen.",
+      "language": [],
+      "musenalm_id": 94043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die goldenen Eier. / (Ballade.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die goldenen Eier. / (Ballade.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "1g10780gwjt7mm1"
+        }
+      ],
+      "source_id": "f2thwggqbxb4x6g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "418",
+      "incipit_statement": "Es ziehn drei Gesellen in's Weite hinaus, / Es litt sie wohl nimmer im engen Haus;",
+      "language": [],
+      "musenalm_id": 94044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nahme, Bild und Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ant. Alex. Gr. v. Auersperg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nahme, Bild und Lied",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "7s5akx33j2gpr6y",
+          "source_id": "r2gajpvqlfgxu05"
+        }
+      ],
+      "source_id": "ito4g38606nz5pf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "419",
+      "incipit_statement": "Denkst du noch mein süßes Mädchen, / Weit getrennt durch Zeit und Raum,",
+      "language": [],
+      "musenalm_id": 94045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An***",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Marsano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An***",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "rpi79icfm69ol8h",
+          "source_id": "6czo0ihijp0uw33"
+        }
+      ],
+      "source_id": "m5s13yqfq1nb13r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "421",
+      "incipit_statement": "Da wieder schwebt die holde Nacht / In ihrem dunkeln Kleide",
+      "language": [],
+      "musenalm_id": 94046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtgruss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kastor",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtgruss",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ikvfq61mmjknb4b"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 94048-94052, Obj 56-60",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "423",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lenzgefühle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lenzgefühle",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.638Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.638Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "3w4n2jn3si68tww"
+        }
+      ],
+      "source_id": "8rcjqtf9nwhj82c"
+    },
+    {
+      "annotation": "Lenzgefühle (Sammlung INr 94047, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "423",
+      "incipit_statement": "Seht, wie dort des Eises Rinde / Vor der Sonne Strahl zerspringt,",
+      "language": [],
+      "musenalm_id": 94048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.639Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "e67rfvnkh0wndiq"
+        }
+      ],
+      "source_id": "xm63spp5b1ktuyr"
+    },
+    {
+      "annotation": "Lenzgefühle (Sammlung INr 94047, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "424",
+      "incipit_statement": "Neuer Lenz bringt Wonne / Und der Wiese frisches Grün,",
+      "language": [],
+      "musenalm_id": 94049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.639Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "1aevs0lekwyp07g"
+        }
+      ],
+      "source_id": "rkmnk1e6krwvyfh"
+    },
+    {
+      "annotation": "Lenzgefühle (Sammlung INr 94047, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "425",
+      "incipit_statement": "Wenn der Frühling so mit sachten / Wieder auf die Erde tritt,",
+      "language": [],
+      "musenalm_id": 94050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.639Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "bfw2ypwc0elfv3y"
+        }
+      ],
+      "source_id": "y0hc3cayvxf3g88"
+    },
+    {
+      "annotation": "Lenzgefühle (Sammlung INr 94047, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "426",
+      "incipit_statement": "Frühling kommt daher gegangen, / Sonntäglich ist sein Gewand,",
+      "language": [],
+      "musenalm_id": 94051,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.639Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "yfnxhqtst2g7g9c"
+        }
+      ],
+      "source_id": "5za8b5vuvt6fium"
+    },
+    {
+      "annotation": "Lenzgefühle (Sammlung INr 94047, Obj 55)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "427",
+      "incipit_statement": "Frühling ist ein Lebensbote, / Herold einer ew'gen Welt",
+      "language": [],
+      "musenalm_id": 94052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.639Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.639Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "ervyqgej9uul74r"
+        }
+      ],
+      "source_id": "iczob9379y1qhqq"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 94054-94057, Obj 62-65",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "428",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94053,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingslieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingslieder",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "gkuetur377hb0fv"
+    },
+    {
+      "annotation": "Frühlingslieder (Sammlung INr 94053, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "428",
+      "incipit_statement": "Am Fenster steh' ich stundenlang, / Und blicke schweigend hinaus,",
+      "language": [],
+      "musenalm_id": 94054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Am Fenster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Am Fenster",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ps0aayf1mftnbb"
+    },
+    {
+      "annotation": "Frühlingslieder (Sammlung INr 94053, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "428",
+      "incipit_statement": "Der Frühling schmolz des Winters Schnee, / Und wieder schwimmt im blauen See, / Im Morgenthau ein lichter Schwan,",
+      "language": [],
+      "musenalm_id": 94055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Schiffer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Schiffer",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "5stoc8jpwn8o3pi"
+    },
+    {
+      "annotation": "Frühlingslieder (Sammlung INr 94053, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "429",
+      "incipit_statement": "Lockt dich, du Holde, / Endlich der warme Strahl? / Lockt dich der Frühling / In das erwachte Thal?",
+      "language": [],
+      "musenalm_id": 94056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Das harte Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Das harte Herz",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "n2excjrk0t8bid0"
+    },
+    {
+      "annotation": "Frühlingslieder (Sammlung INr 94053, Obj 61)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "430",
+      "incipit_statement": "Euch beglückt des Winters Scheiden, / Und ich wünscht ihn mir zurück,",
+      "language": [],
+      "musenalm_id": 94057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Der Verlassene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. H. Slawik",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Der Verlassene",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "rws78kewumhvvef"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "431",
+      "incipit_statement": "Überredung, süße Gabe, / Die des Atlas edler Sproß / Hermes mit dem Friedensstabe, / Auf des Menschen Lippe goß,",
+      "language": [],
+      "musenalm_id": 94058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Überredung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Überredung",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.711Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.711Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "nj1ih2gpfa2urof"
+        }
+      ],
+      "source_id": "6tdtwjdwzve90ej"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "436",
+      "incipit_statement": "Könnt' ich zaubern, süßes Mädchen, / Ach dann wär' es wohlbestellt!",
+      "language": [],
+      "musenalm_id": 94059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bescheidner Zauber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bescheidner Zauber",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.711Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.711Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "d0xf92pin0e1zq3"
+        }
+      ],
+      "source_id": "a6739n5a9p5ktqd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "437",
+      "incipit_statement": "Im Thale dort, wo die Linden stehen, / Die Linden so hoch und so breit, / Ist einsam ein Kloster zu sehen / Ein Kloster aus alter Zeit.",
+      "language": [],
+      "musenalm_id": 94060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Kloster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Gottfried v. Leitner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Kloster",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.711Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.711Z",
+          "agent": "kzo5zf1o5a1ke0s",
+          "source_id": "6chqe5eg3dk89oj"
+        }
+      ],
+      "source_id": "9re5e49ykukrtbz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "439",
+      "incipit_statement": "Mein Ideal soll ich zu malen streben? / Fürwahr mein Freund, du forderst von mir viel!",
+      "language": [],
+      "musenalm_id": 94061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Ideal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. X. Told",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Ideal",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.711Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.711Z",
+          "agent": "tglq0d4pyb420do",
+          "source_id": "ajuemav1iyvwkxd"
+        }
+      ],
+      "source_id": "o8cj7armh78a56w"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "443",
+      "incipit_statement": "Sagt mir, kennt Ihr jenen Bronnen? / Ist von Demant aufgebaut,",
+      "language": [],
+      "musenalm_id": 94063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Räthsel",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Räthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.711Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.711Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "m10jmsmuepoolat"
+        }
+      ],
+      "source_id": "jaho3fu3g0h65d1"
+    },
+    {
+      "annotation": "Sammlung von 8 Rätseln INr 94063-94070, Obj 71-78",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "441",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nüsse / zum / Aufknacken für schöne Zähne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nüsse / zum / Aufknacken für schöne Zähne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "qdtl8lii496844u"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "444",
+      "incipit_statement": "Ihr kennt wohl mein Klärchen, das liebliche / Kind? / Und wißt auch, wie schön ihre ersten zwei sind?",
+      "language": [],
+      "musenalm_id": 94064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das Trinkgelag. / Dreisylbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thienemann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das Trinkgelag. / Dreisylbige Charade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "zmducf3k5moedk5"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "445",
+      "incipit_statement": "Einstmals macht' ich eine Reise; / Nun Ihr wißt, wie Frauen sind?",
+      "language": [],
+      "musenalm_id": 94065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Räthsel. / Viersylbig",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Räthsel. / Viersylbig",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.711Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.711Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "rgseilkoi3zi2to"
+        }
+      ],
+      "source_id": "0e15cbsfb47ngt3"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "447",
+      "incipit_statement": "Meine beiden ersten Sylben / Hüllen weiße Schleier ein,",
+      "language": [],
+      "musenalm_id": 94066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Charade. / Viersylbig",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emmy ***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Charade. / Viersylbig",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "yiizgrvnjkedw5g"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "449",
+      "incipit_statement": "Daß ich der Neunte, - Zweite - Fünfte - Dritte, / Der Siebente, Achte, Vierte, Erste gar,",
+      "language": [],
+      "musenalm_id": 94067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Räthsel. / Der Sonderbare",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Räthsel. / Der Sonderbare",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ocudwa55p9h353v"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "449",
+      "incipit_statement": "Rings war es Nacht umher / Der Weg uns unbekannt,",
+      "language": [],
+      "musenalm_id": 94068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Reise. / Zweisylbige Vexier-Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Reise. / Zweisylbige Vexier-Charade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "gcnguxe04i2pk5h"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "450",
+      "incipit_statement": "Sieh' wie mein Erstes auf dem Zweiten steht / Mit gier'gem Auge nach dem Zweiten späht,",
+      "language": [],
+      "musenalm_id": 94069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Der Aufmerksame. / Charade von zwei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Der Aufmerksame. / Charade von zwei Sylben",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "dv9qld3vvp1fgtc"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94062, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "450",
+      "incipit_statement": "Mit Sehnsucht harrt' ich in des Waldes Schatten / Auf's Liebchen, die zu kommen mir versprach,",
+      "language": [],
+      "musenalm_id": 94070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Das Geschenk. / Allegorische Charade von drei Sylben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Das Geschenk. / Allegorische Charade von drei Sylben",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "cc5kr51pr3ngb1z"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel /) unter dem Beitrag: Gedruckt bei J. P. Sollinger",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "452",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kern der Nüsse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kern der Nüsse",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "faq47roy74q0zji"
+    }
   ],
   "agents": [
     {

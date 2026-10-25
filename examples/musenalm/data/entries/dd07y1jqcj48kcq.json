@@ -48,31 +48,897 @@
   "year": 1840,
   "editor": "",
   "items": [
-    "zgyxonruqsk2y2h"
+    {
+      "annotation": "1811-1848.\n1840: ( K: XV, 416 SS und Ku 6 ) Mit Tku 1, Ku 5, XV und 416 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.617Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100445",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.617Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zgyxonruqsk2y2h"
+    }
   ],
   "contents": [
-    "6pp59hunmcndmic",
-    "tglvhmee9peo3qb",
-    "7tzo2zt7gdfv442",
-    "7z7tux8g9rp1ofe",
-    "kji82fijpu62lrt",
-    "uvsojx9ldowkjnm",
-    "y9s918foqpampix",
-    "3pyol7kq4sto1mb",
-    "9x11ruqw8bl3feg",
-    "sbcnkodaddjdds4",
-    "4wwv547we63kzxr",
-    "q7hnskx5tqkfj1v",
-    "kaf6e82urhj6oyo",
-    "v860u23m8mgkpa8",
-    "lough1oi7hdikf0",
-    "mcvk9lscg6ripxw",
-    "k61qjvpmy5q44jl",
-    "c5mq0ltjt4k45o7",
-    "7u6y4e5lit36t3d",
-    "yv4uz2vm77woit8",
-    "zgedydvw845nqov",
-    "y271v80nggrgb5f"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77723,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2411_77723_avmn01lswk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "6pp59hunmcndmic"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 77727, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77724,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FÜRSTIN MELANIE VON METTERNICH. / geb. Gräfin Zichy-Ferraris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gemahlt v. Naumann gestochen v. Fr. Xav. Eissner in Wien",
+      "scans": [
+        "alm_2411_77724_3nyfk0z21o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FÜRSTIN MELANIE VON METTERNICH. / geb. Gräfin Zichy-Ferraris",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "z64ev7tzpav4ds5",
+          "source_id": "bctvcs6r26etu06"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "iam037a1btv8lcd",
+          "source_id": "mzrzud1lc4cl7ne"
+        }
+      ],
+      "source_id": "tglvhmee9peo3qb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77725,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE. / Taschenbuch / für das Jahr 1840. / Herausgegeben / von / Theodor Hell. / Neundzwanzigster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2411_77725_wl5aut92fv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE. / Taschenbuch / für das Jahr 1840. / Herausgegeben / von / Theodor Hell. / Neundzwanzigster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "7tzo2zt7gdfv442"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77726,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "7z7tux8g9rp1ofe"
+    },
+    {
+      "annotation": "s. Titelportrait INr 77724, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77727,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titelportrait. Melanie Fürstin von Metternich, / geborne Gräfin Zichy-Ferraris. / Gemalt von Naumann; Stahlstich von Franz X. Eißner, k.k. / akadem. Stahl- und Kupferstecher in Wien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Titelportrait. Melanie Fürstin von Metternich, / geborne Gräfin Zichy-Ferraris. / Gemalt von Naumann; Stahlstich von Franz X. Eißner, k.k. / akadem. Stahl- und Kupferstecher in Wien",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "kji82fijpu62lrt"
+    },
+    {
+      "annotation": "s. Graphik INr 77729, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Im Strahl der jungen Morgensonne glänzen / Die Fluren für das neue Lebens Glück,",
+      "language": [],
+      "musenalm_id": 77728,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora. / Sonett",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aurora. / Sonett",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "u8c66vg8krra7sn"
+        }
+      ],
+      "source_id": "uvsojx9ldowkjnm"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77728, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77729,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hessloehl sc.",
+      "scans": [
+        "alm_2411_77729_4uu3i3q4j3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aurora",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "g141z8lw112bbl6",
+          "source_id": "m3fyilq6iiew6br"
+        }
+      ],
+      "source_id": "y9s918foqpampix"
+    },
+    {
+      "annotation": "s. Graphik INr 77731, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Der Abend sinkt, doch nicht der Reiz der Fluren, / Sie sind noch schön, selbst in dem ernsten Kleid;",
+      "language": [],
+      "musenalm_id": 77730,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hespera. / Sonett",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hespera. / Sonett",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "n9sh8039g6v7mxy"
+        }
+      ],
+      "source_id": "3pyol7kq4sto1mb"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77730, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77731,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hespera",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hessloehl scpt.",
+      "scans": [
+        "alm_2411_77731_s2d8fo5eib.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hespera",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "g141z8lw112bbl6",
+          "source_id": "r1ea2o8nu6zims5"
+        }
+      ],
+      "source_id": "9x11ruqw8bl3feg"
+    },
+    {
+      "annotation": "s. Graphik INr 77733, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Tief im Wald steht eine Hütte / In den Hügel eingebaut,",
+      "language": [],
+      "musenalm_id": 77732,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kranke Ziege",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die kranke Ziege",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "1nttfy7s8j1py4s"
+        }
+      ],
+      "source_id": "sbcnkodaddjdds4"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77732, Obj 10 /) unter der Graphik: Das Orignal befindet sich in der Sammlung des Hrn. Ferd. Gruner auf Breitenfeld",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77733,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE KRANKE ZIEGE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Brauer gez. nach C. Kreul. Gest. von J. Axmann",
+      "scans": [
+        "alm_2411_77733_gwh8ok1mpg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE KRANKE ZIEGE",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "r03zh0n7btvvyrs",
+          "source_id": "0eulssq6s5az39k"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.659Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "no84ag1xt197jxu"
+        }
+      ],
+      "source_id": "4wwv547we63kzxr"
+    },
+    {
+      "annotation": "Sammlung von 2 Graphiken und 2 Textbezügen INr 77735-77738, Obj 13-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.173Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77734,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechste Aufstellung von Volkscenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechste Aufstellung von Volkscenen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "q7hnskx5tqkfj1v"
+    },
+    {
+      "annotation": "Sechste Aufstellung von Volkscenen (Sammlung INr 77734, Obj 12) s. Graphik INr 77736, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Das malerische Häuschen mit seinen Umgebungen, welches wir vor uns sehen, befindet sich in der Vorstadt Babazoun zu Algier.",
+      "language": [],
+      "musenalm_id": 77735,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ein maurischer Schneider vor seinem Hause / in der Vorstadt Babazoun zu Algier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Matthäi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ein maurischer Schneider vor seinem Hause / in der Vorstadt Babazoun zu Algier",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "kaf6e82urhj6oyo"
+    },
+    {
+      "annotation": "Sechste Aufstellung von Volkscenen (Sammlung INr 77734, Obj 12) s. Textbezug INr 77735, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77736,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EIN SCHNEIDER ZU ALGIER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Matthaei del. Gernand sc. Leipzig",
+      "scans": [
+        "alm_2411_77736_wwit52hjw0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EIN SCHNEIDER ZU ALGIER",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "v860u23m8mgkpa8"
+    },
+    {
+      "annotation": "Sechste Aufstellung von Volkscenen (Sammlung INr 77734, Obj 12) s. Graphik INr 77737, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Es ist ein wunderlich komischer Anblick, den eine solche maurische Schule gewährt.",
+      "language": [],
+      "musenalm_id": 77737,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Eine Maurenschule zu Algier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Matthäi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Eine Maurenschule zu Algier",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "lough1oi7hdikf0"
+    },
+    {
+      "annotation": "Sechste Aufstellung von Volkscenen (Sammlung INr 77734, Obj 12) s. Textbezug INr 77737, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.179Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77738,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MAURENSCHULE IN ALGIER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Matthaei del. Gernand sc. Leipzig",
+      "scans": [
+        "alm_2411_77738_k5ykakwkxh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MAURENSCHULE IN ALGIER",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "mcvk9lscg6ripxw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In seinem geheimen Cabinet der königlichen Burg zu Prag Schritt sporenklirrend Kaiser Maximilian II. an einem Frühlingsmorgen des Jahres 1565 in unruhigem Sinnen auf und nieder.",
+      "language": [],
+      "musenalm_id": 77739,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andreas Dudith. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Krebs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andreas Dudith. / Historische Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "k61qjvpmy5q44jl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Es war am 6 Februar oder nach griechischer Zeitrechnung am 25. Januar des Jahres 1833. Die Morgensonne strahlte freundlich von dem glühenden Osten hernieder, und vergoldete die Wellen des Meeres.",
+      "language": [],
+      "musenalm_id": 77740,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Klephten. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Köhler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Klephten. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "c5mq0ltjt4k45o7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "In der Calle mayor zu Cardova bei Tucuman steh die alten ergrauten Gebäude der Universität, die die Jesuiten gegründet. Es war elf Uhr Vormittags und die Collegien schienen beendet.",
+      "language": [],
+      "musenalm_id": 77741,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dictator. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Menk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dictator. / Eine Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "7u6y4e5lit36t3d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Es war am Abend des 6. Juli 1809. - Der heiße Tag neigte sich auf die blutgetränkte Ebene des Schlachtfeldes von Wagram, und das große Trauerspiel seinem Ende zu.",
+      "language": [],
+      "musenalm_id": 77742,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freundschaft und Liebe. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Isidor",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freundschaft und Liebe. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "jbbfx5lvloouivi",
+          "source_id": "3zivl87326b9tum"
+        }
+      ],
+      "source_id": "yv4uz2vm77woit8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Wir, zu Anfang dieses Jahrhunderts oder zu Ausgang des vorigen Geborne hätten es uns nicht träumen lassen, daß Deutsche den Namen, den wir gründlich hassen lernten, ein Menschenalter später vergöttern könnten.",
+      "language": [],
+      "musenalm_id": 77743,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blätter aus meinen Erinnerungen. / Die Kosacken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Häring. (W. Alexis.)",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blätter aus meinen Erinnerungen. / Die Kosacken",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "9fhhxlcz9jhwmih"
+        }
+      ],
+      "source_id": "zgedydvw845nqov"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77744,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2411_77744_6fvdtmubhy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1840,
+      "editor": "",
+      "agents": [],
+      "source_id": "y271v80nggrgb5f"
+    }
   ],
   "agents": [
     {

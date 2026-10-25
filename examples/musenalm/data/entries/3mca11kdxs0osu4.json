@@ -48,55 +48,1980 @@
   "year": 1802,
   "editor": "",
   "items": [
-    "w7quthh6g1872rh"
+    {
+      "annotation": "1784-1820.\nKartonierter Einband mit Goldschnitt.\n1802: (K:Tku, Ku 10 und Mu 1  ) Mit Tku 1, Bl 11, Ku 9, kol Ku 1 und 300 SS.\nFrauenzimmer Allmanach Zum Nutzen und Vergnügen, auch unter Titel Leipziger Taschenbuch für Frauenzimmer Zum Nutzen und Vergnügen. \n\\par Siehe auch Leipziger Taschenbuch für Frauenzimmer..... .",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.507Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100827",
+      "location": "105D01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.507Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "w7quthh6g1872rh"
+    }
   ],
   "contents": [
-    "r3r9d6itn0601e5",
-    "0j6y6o4echh9t47",
-    "r7ffprcfl9zjc1h",
-    "6p852xbupon6xem",
-    "2l479gpo6r9sq2x",
-    "fu6weq8bwm8jly6",
-    "p38scnp5j4bag73",
-    "z6xm58c0jxw5cvt",
-    "hhrkj1kkaj06che",
-    "em0f11k1dmava9b",
-    "cpfmnwv11ug7it7",
-    "zccovpqxdcqq170",
-    "aibcw7ni90t0skh",
-    "1gmea9hz43tldoi",
-    "698td504uo8psll",
-    "6dt3mlk53j1ut61",
-    "hl0mgeezkurgcfh",
-    "nxmssedvelq1na5",
-    "zcy14ilfhlqi3lw",
-    "zhavrvwi3kn4k8i",
-    "ctufxkxtxewsspo",
-    "ldi7h52lzddifq8",
-    "pyk1qcod4u1jthu",
-    "pfsaglarz82hvr4",
-    "q3jglj0f9z56dls",
-    "zm9ywhxhi3d6gie",
-    "4n8snsi5ifrespn",
-    "f86juo0gpd29fdp",
-    "et6tqqyzbqj2u86",
-    "fz0ce4up8ifkedm",
-    "vyf1mg8urhpjwjs",
-    "9l4t84eh3u0fs2m",
-    "5bsyxgif5g4d8sa",
-    "w2gtwckd5rwpuv5",
-    "9spq1yjlfanp301",
-    "qnd1xfkox6wbyqm",
-    "od9kcqxr8ec37ga",
-    "xbr2ijp50npvvzj",
-    "2qhec81o3fmkhvo",
-    "lp87snanplptgia",
-    "n0d4ug3w1zw95wz",
-    "yjhet8l4reqinfh",
-    "zt49atg6p80iotn",
-    "hn6msye6b9pp2fx",
-    "3ooipbuy42r5ok6",
-    "2fh5xx4pvzoklbz"
+    {
+      "annotation": "Titelgraphik paginiert S. 170. Illustration zu »Die Glücklichen durch sich selbst. Ein Charaktergemälde« INr 47539, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47522,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Schnorr v. K. del. Heinrich Schmidt sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. Heinrich Schmidt sc.",
+      "scans": [
+        "alm_647_47522_sgx6fv94eo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.363Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "m6cllqaj9fvc8aj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.362Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "mmnw4nxugul1oja"
+        }
+      ],
+      "source_id": "r3r9d6itn0601e5"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.038Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47523,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1802. / Leipzig / bey A. F. Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_647_47523_2u0s7f9skv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1802. / Leipzig / bey A. F. Böhme",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "0j6y6o4echh9t47"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.039Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47524,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "r7ffprcfl9zjc1h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.039Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47525,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1802. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_647_47525_x8gxgvx9uv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen / auf das Jahr 1802. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "6p852xbupon6xem"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.040Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Tiedge's Urania hat einen zu entschiedenen Werth, als daß ich hätte anstehen dürfen, einige Stellen dieses größern Gedichts in meiner Auswahl von Gedichten aufzunehmen.",
+      "language": [],
+      "musenalm_id": 47526,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "2l479gpo6r9sq2x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47624,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "fu6weq8bwm8jly6"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auswahl von Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auswahl von Gedichten",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "p38scnp5j4bag73"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Drey Engel mögen Dich umschweben, / Und zu der schönsten Wirklichkeit / Die Wünsche, die mein Herz dir weiht,",
+      "language": [],
+      "musenalm_id": 47529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jeder / Edlen ihres Geschlechts / gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jeder / Edlen ihres Geschlechts / gewidmet",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.497Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.497Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "aswco1rj5srm1qd"
+        }
+      ],
+      "source_id": "z6xm58c0jxw5cvt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es ist ein Gott! o Mensch, vermisse die- / sen Glauben, / Und fühle, was dein Heiliges vermißt;",
+      "language": [],
+      "musenalm_id": 47530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gott",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "n6o6vdwlffxppag"
+        }
+      ],
+      "source_id": "hhrkj1kkaj06che"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Sprich! sinkt das Göttliche des Men- / schen unvollendet / Dahin, wie ein Phantom, ein Lustbild, / welches matt in seine Nacht versinkt?",
+      "language": [],
+      "musenalm_id": 47531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unsterblichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unsterblichkeit",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "4b97hgbzoilhnrx"
+        }
+      ],
+      "source_id": "em0f11k1dmava9b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "So wag es denn, o Mensch, zu dir dich / zu erheben; / So wag es denn, zu haben, was du hast;",
+      "language": [],
+      "musenalm_id": 47532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tugend",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "qsl5esv7007u9oj"
+        }
+      ],
+      "source_id": "cpfmnwv11ug7it7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Neiget in den öden Raum, / Traurend sich mein Haupt hinunter;",
+      "language": [],
+      "musenalm_id": 47533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schönste Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der schönste Trost",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "rr8h9sfqkrhsuf9"
+        }
+      ],
+      "source_id": "zccovpqxdcqq170"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Sey gegrüßet, kleine Blume, / Blume der Vollkommenheit,",
+      "language": [],
+      "musenalm_id": 47534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Blume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Blume",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "stasese2l43xq94",
+          "source_id": "3r68jiwajpikrod"
+        }
+      ],
+      "source_id": "aibcw7ni90t0skh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Vor manchen, manchen Jahren, / Als ich zuerst dich sah, / War deine Locke rabenschwarz,",
+      "language": [],
+      "musenalm_id": 47535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die goldene Hochzeit. / Nach dem Schottischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die goldene Hochzeit. / Nach dem Schottischen",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.483Z",
+          "agent": "stasese2l43xq94",
+          "source_id": "fxlf0touf1a4oir"
+        }
+      ],
+      "source_id": "1gmea9hz43tldoi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Ein neues Lied! ein neues Lied! / Gesundheit und ein froh Gemüth!",
+      "language": [],
+      "musenalm_id": 47536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das neue Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herder",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das neue Lied",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.374Z",
+          "agent": "stasese2l43xq94",
+          "source_id": "3cq83wyk7wm88bp"
+        }
+      ],
+      "source_id": "698td504uo8psll"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Empfanget dann mein Lied, ihr Mädchen, / deren Wangen / Des Lebens Frühling noch mit höhern / Farben schmückt,",
+      "language": [],
+      "musenalm_id": 47537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kunst zu lieben. / Ein Lehrgedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Manso",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kunst zu lieben. / Ein Lehrgedicht",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.432Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.432Z",
+          "agent": "z30t9keae9ak7mu",
+          "source_id": "trpcn2clr4tzfmj"
+        }
+      ],
+      "source_id": "6dt3mlk53j1ut61"
+    },
+    {
+      "annotation": "Es folgen die Prosabeiträge des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine Erzählungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleine Erzählungen",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "hl0mgeezkurgcfh"
+    },
+    {
+      "annotation": "Bezeichnung aus dem I-Verz; mit 4 Illustrationen s.Titelgraphik u. Graphiken INr 47522, 47540-47542; Obj 1, 19-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Der Commissionsrath Steinfeld hatte sich in seinem ein und sechzigsten Jahre zum zweiten Mal mit der fünfzigjährigen, reichen, aber kinderlosen Wittwe des verstorbenen Hofcommissär Marbachs verheirathet,",
+      "language": [],
+      "musenalm_id": 47539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Glücklichen durch sich selbst. / Ein Charaktergemälde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Glücklichen durch sich selbst. / Ein Charaktergemälde",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.432Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.432Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "h4kq1ri8oq1ypf2"
+        }
+      ],
+      "source_id": "nxmssedvelq1na5"
+    },
+    {
+      "annotation": "Illustration zu »Die Glücklichen durch sich selbst« von Franz Ehrenberg d.i. G. K. Claudius INr 457539, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.656Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weist Du es noch nicht, wer jene schöne Dame / seyn muss?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc.",
+      "scans": [
+        "alm_647_47540_3k8y1xs18g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Weist Du es noch nicht, wer jene schöne Dame / seyn muss?",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.433Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.433Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "fjoj3via7rc25q6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.433Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.432Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "mv53pkuwqmu66sn"
+        }
+      ],
+      "source_id": "zcy14ilfhlqi3lw"
+    },
+    {
+      "annotation": "Illustration zu »Die Glücklichen durch sich selbst« von Franz Ehrenberg d.i. G. K. Claudius INr 457539, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bringt alles zurück! Von unbekannter Hand / nehme ich kein Geschenk an",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc.",
+      "scans": [
+        "alm_647_47541_i0e93ychpw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bringt alles zurück! Von unbekannter Hand / nehme ich kein Geschenk an",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.433Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.433Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "66hvv87tmfk1ovg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.433Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.433Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "pprs4tm028wgtzf"
+        }
+      ],
+      "source_id": "zhavrvwi3kn4k8i"
+    },
+    {
+      "annotation": "Illustration zu »Die Glücklichen durch sich selbst« von Franz Ehrenberg d.i. G. K. Claudius INr 457539, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O, was ist das Glük der Reichen gegen das Glück der Zufriedenen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. D. Berger sc.",
+      "scans": [
+        "alm_647_47542_ermlcv1wq6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "O, was ist das Glük der Reichen gegen das Glück der Zufriedenen!",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.473Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "j68446iejto3raz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "yui93uvew4uc8tz"
+        }
+      ],
+      "source_id": "ctufxkxtxewsspo"
+    },
+    {
+      "annotation": "Bezeichnung aus dem I-Verz; mit 3  Illustrationen s. Graphiken INr 47544-47546, Obj 23-25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Onkel, Herzensonkel, um des Himmels willen! wo wollen sie hin? fragte Luise, erschrocken in das Zimmer stürzend,",
+      "language": [],
+      "musenalm_id": 47543,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Leichtsinn / bahnt den Weg zum Unglück",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Leichtsinn / bahnt den Weg zum Unglück",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "vtkf3d8tx6e7uxk"
+        }
+      ],
+      "source_id": "ldi7h52lzddifq8"
+    },
+    {
+      "annotation": "numeriert 4. Illustration zu »Leichtsinn bahnt den Weg zum Unglück« von Franz Ehrenberg d.i. G. K. Claudius INr 47543, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47544,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moses, diese beyden Potraits geb' ich Dir noch eben drein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1801",
+      "scans": [
+        "alm_647_47544_tfrln54rq6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Moses, diese beyden Potraits geb' ich Dir noch eben drein",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "rnx2nyle8j2sl5h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "vhjzluhr58p83ia"
+        }
+      ],
+      "source_id": "pyk1qcod4u1jthu"
+    },
+    {
+      "annotation": "Illustration zu »Leichtsinn bahnt den Weg zum Unglück« von Franz Ehrenberg d.i. G. K. Claudius INr 47543, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47545,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Madam, versetzen sie meine Uhr, ich habe eine Ehrenschuld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1801",
+      "scans": [
+        "alm_647_47545_wfc3kax3sg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Madam, versetzen sie meine Uhr, ich habe eine Ehrenschuld",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "8u7zjm69zg00ati"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "t32m7faqpk7em3g"
+        }
+      ],
+      "source_id": "pfsaglarz82hvr4"
+    },
+    {
+      "annotation": "Illustration zu »Leichtsinn bahnt den Weg zum Unglück« von Franz Ehrenberg d.i. G. K. Claudius INr 47543, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47546,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzweifeln sie! Thun sie was sie wollen / Ich rette mein Eigenthum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. E. G. Krüger sc.1801",
+      "scans": [
+        "alm_647_47546_qvkbg8qb7f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Verzweifeln sie! Thun sie was sie wollen / Ich rette mein Eigenthum",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "1w17xl91j8wkbey"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.474Z",
+          "agent": "mi3sfg9f1oc68es",
+          "source_id": "s7fhn52rriuhs6t"
+        }
+      ],
+      "source_id": "q3jglj0f9z56dls"
+    },
+    {
+      "annotation": "Bezeichnung aus dem Vorwort des Herausgebers; mit einer Illustration s. Graphik INr 47548, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Durch den Besitz von Bengalen wurden die Engländer die nächsten und unmittelbaren Nachbarn von Ava.",
+      "language": [],
+      "musenalm_id": 47547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Völkerkunde. / Das Königreich Ava",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Völkerkunde. / Das Königreich Ava",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.598Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.598Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "2fu82as3uu83qhc"
+        }
+      ],
+      "source_id": "zm9ywhxhi3d6gie"
+    },
+    {
+      "annotation": "kol. Graphik s. Textbezug »Völkerkunde. Das Königreich Ava« von Franz Ehrenberg d.i. G. K. Claudius INr 47547, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_647_47548_yoyhpc8jzp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "4n8snsi5ifrespn"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 47551-47558, Obj 29-36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wirthschaftliches Vademecum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wirthschaftliches Vademecum",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "f86juo0gpd29fdp"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1) Mittel, die Güte des Essigs zu prüfen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1) Mittel, die Güte des Essigs zu prüfen.",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "et6tqqyzbqj2u86"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2) Zurichtung des Sallats für Personen, die ihn gern essen, und nicht gut verdauen können.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2) Zurichtung des Sallats für Personen, die ihn gern essen, und nicht gut verdauen können.",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "fz0ce4up8ifkedm"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3) Zubereitung eines guten Zwetschgenweins.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3) Zubereitung eines guten Zwetschgenweins.",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "vyf1mg8urhpjwjs"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4) Wenn man sich verbrennt hat, schabe man einen rohen Erdapfel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4) Wenn man sich verbrennt hat, schabe man einen rohen Erdapfel",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "9l4t84eh3u0fs2m"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5) Aufbewahrung des Blumenkohls",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5) Aufbewahrung des Blumenkohls",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "5bsyxgif5g4d8sa"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6) Will man die gelben Flecke aus dem feinen gebleichten Garn oder Leinwand herausbringen,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6) Will man die gelben Flecke aus dem feinen gebleichten Garn oder Leinwand herausbringen,",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "w2gtwckd5rwpuv5"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7) Wer viel spinnt, verwundet sich wohl auch oft die Finger.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7) Wer viel spinnt, verwundet sich wohl auch oft die Finger.",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "9spq1yjlfanp301"
+    },
+    {
+      "annotation": "Wirthschaftliches Vademecum (Sammlung INr 47551, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8) Die Aechtheit der Carmoisin-, Violet, Ponceau- und aller Arten blaugefärbter Zeuge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8) Die Aechtheit der Carmoisin-, Violet, Ponceau- und aller Arten blaugefärbter Zeuge",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "qnd1xfkox6wbyqm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Eh ich noch weiter fortfahre, dich über die Anlage eines Winterblumengartens für die Zimmer zu belehren,",
+      "language": [],
+      "musenalm_id": 47559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Blumenfreundin.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Blumenfreundin.",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "od9kcqxr8ec37ga"
+    },
+    {
+      "annotation": "Bezeichnung aus dem Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Der Sieg, den die gesunde Vernunft, die Natur, und der gute Geschmack nach einem eben so langen, als hartnäckigen Kampf über den Geist der widersinnigen Modesucht und des verdorbenen Geschmacks endlich noch am Schluß des vergangenenen Jahrhunderts",
+      "language": [],
+      "musenalm_id": 47560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diätetik. / Guter Rath und Ermunterung, wie / das schöne Geschlecht seine jetzt na- / türlichere und geschmackvollere Klei- / dertracht auch für seine Gesun- / heit vortheilhafter einrichten / könne",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Diätetik. / Guter Rath und Ermunterung, wie / das schöne Geschlecht seine jetzt na- / türlichere und geschmackvollere Klei- / dertracht auch für seine Gesun- / heit vortheilhafter einrichten / könne",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.475Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "5g2wxhtwicp5k2r"
+        }
+      ],
+      "source_id": "xbr2ijp50npvvzj"
+    },
+    {
+      "annotation": "Bezeichnung aus dem Vorwort des Herausgebers. Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1801 /) mit einer Illustration s. Graphik INr 47562, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Beruhigter schien Charlotte einige Tage nach dem Begräbniß ihres Mannes. Aber diese Ruhe glich nur jener Stille auf dem Meer, welcher nicht selten ein desto heftiger Sturm nachfolgt.",
+      "language": [],
+      "musenalm_id": 47561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen / aus der Familie Ehrenberg. / I. / Charlotte Benndorf",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenen / aus der Familie Ehrenberg. / I. / Charlotte Benndorf",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.475Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "tboi2tcu5y4awex"
+        }
+      ],
+      "source_id": "2qhec81o3fmkhvo"
+    },
+    {
+      "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg. I. Charlotte Benndorf« von Franz Ehrenberg d.i. G. K. Claudius INr 47561, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waller, kann ich ihn schon vergessen haben?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. E. G. Krüger sc. 1801",
+      "scans": [
+        "alm_647_47562_l5v26755zx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Waller, kann ich ihn schon vergessen haben?",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.499Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "eda0uppxlennnzu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.499Z",
+          "agent": "mi3sfg9f1oc68es",
+          "source_id": "q99pf6uo3c8lj3q"
+        }
+      ],
+      "source_id": "lp87snanplptgia"
+    },
+    {
+      "annotation": "Bezeichnung aus dem Vorwort des Herausgebers. Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1801 /) mit 2 Illustrationen s. Graphiken INr 47527,47564; Obj 42, 43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Sommer war vorüber; die Blätter fielen von den Bäumen; die Felder waren leer;",
+      "language": [],
+      "musenalm_id": 47563,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Scenen / aus der Familie Ehrenberg.] / II. / Amalie Trunemann",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Scenen / aus der Familie Ehrenberg.] / II. / Amalie Trunemann",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.499Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "qxuoqew78q6q4hx"
+        }
+      ],
+      "source_id": "n0d4ug3w1zw95wz"
+    },
+    {
+      "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg. II. Amalie Trunemann« von Franz Ehrenberg d.i. G. K. Claudius INr 47563, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Je unschuldiger das Herz ist desto größer / ist seine Freude an der Natur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. W. Böhm sc.",
+      "scans": [
+        "alm_647_47527_xhpa3jtqsy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Je unschuldiger das Herz ist desto größer / ist seine Freude an der Natur",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.306Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "pi76zxj24mr790j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.306Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.306Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "tqulh1az445zuwe"
+        }
+      ],
+      "source_id": "yjhet8l4reqinfh"
+    },
+    {
+      "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg. II. Amalie Trunemann« von Franz Ehrenberg d.i. G. K. Claudius INr 47563, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohnt hier nicht der Herr Vetter Secapitain?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Meno Haas sc. Berlin",
+      "scans": [
+        "alm_647_47564_lr2sfdxamx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wohnt hier nicht der Herr Vetter Secapitain?",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.499Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "vkub03fs7jp3pwj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.499Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "xmrwy3hf5g2eyl8"
+        }
+      ],
+      "source_id": "zt49atg6p80iotn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Dem Sprechenlehren und dem Sprechenlernen der Kinder widme ich, schätzbare Freundinnen, diese neunzehnte Unterhaltung über die körperliche Erziehung.",
+      "language": [],
+      "musenalm_id": 47565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz Ehrenbergs / Reden über die körperliche / Erziehung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Ehrenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Franz Ehrenbergs / Reden über die körperliche / Erziehung",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.499Z",
+          "agent": "p2324zi05z6zxr4",
+          "source_id": "s8wpw4ihgeuym7p"
+        }
+      ],
+      "source_id": "hn6msye6b9pp2fx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47566,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erläuterungen / einiger Stellen in den Gedichten dieses / Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erläuterungen / einiger Stellen in den Gedichten dieses / Taschenbuchs",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ooipbuy42r5ok6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 47567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-01-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1802,
+      "editor": "",
+      "agents": [],
+      "source_id": "2fh5xx4pvzoklbz"
+    }
   ],
   "agents": [
     {

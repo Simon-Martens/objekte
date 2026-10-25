@@ -48,29 +48,988 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "q54htsm0q80dib1"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.628Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106735",
+      "location": "105Q02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.628Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "q54htsm0q80dib1"
+    }
   ],
   "contents": [
-    "4slc6p47gfs2kc0",
-    "g6am7igipybmh6c",
-    "kpozdpqyh3it5qg",
-    "km4crbwvvyb98po",
-    "ww0g9xx6gv0127x",
-    "jpi1t4okqoc7adp",
-    "ncr1l4slxp309ni",
-    "idtzhzjjejxf27a",
-    "y7lxy08lv16u40u",
-    "51omda46gy9lt26",
-    "d09hq65t9tlvffr",
-    "2hp7eikh3vsu4ew",
-    "fx5t9rtrx2xxk3j",
-    "vfubd7128uiyapw",
-    "4l69dp7i33g4c3v",
-    "6zkl9dcvo6ysobc",
-    "3r86g8e7gnjmt3a",
-    "570m6w2fpgzs1z6",
-    "jb1p9wjxxharemq",
-    "nzd5yj35an7hdw5"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112729,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Leipzig, Stich und Druck von Hirschfeld)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leipzig, Stich und Druck von Hirschfeld",
+      "scans": [
+        "alm_2481_112729_txzocxghlf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "4slc6p47gfs2kc0"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112730,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Ender del. J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. J. Axmann sc.",
+      "scans": [
+        "alm_2481_112730_b7vlcb9ejs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.262Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.262Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "lvqhtms8worgee6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "utsufvtvjwwnn1i"
+        }
+      ],
+      "source_id": "g6am7igipybmh6c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112731,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1839. / Leipzig bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2481_112731_5cxky15p7f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1839. / Leipzig bei Friedrich August Leo",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "kpozdpqyh3it5qg"
+    },
+    {
+      "annotation": "s. Graphik INr 112733, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Königlich bist du geschmückt mit Purpur und rau- / schender Seide, / Von Hermelin umsäumt wallet das festliche Kleid.",
+      "language": [],
+      "musenalm_id": 112732,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fürstin und die Zofe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Heller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fürstin und die Zofe",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "piabqusdjzazh86",
+          "source_id": "8rs4mn31uu5r6il"
+        }
+      ],
+      "source_id": "km4crbwvvyb98po"
+    },
+    {
+      "annotation": "s. Gedicht INr 112732, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112733,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Ender del. J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ender del. J. Axmann sc.",
+      "scans": [
+        "alm_2481_112733_kapphffl4u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "97ey6vzfu7xu6da"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "lcb2xh7nhpubjq8"
+        }
+      ],
+      "source_id": "ww0g9xx6gv0127x"
+    },
+    {
+      "annotation": "s. Beitrag INr 112735, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112734,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE GESCHWISTER AM GRABE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. nach Parris. Stahlstich durch Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2481_112734_hwl6pu82iw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE GESCHWISTER AM GRABE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "2n5ehyqfgjwctdi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "6ltbz83hp2gqhny"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "9gep2y6vxxwiktu",
+          "source_id": "twmrc3y7t62novx"
+        }
+      ],
+      "source_id": "jpi1t4okqoc7adp"
+    },
+    {
+      "annotation": "s. Graphik INr 112734, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Das Johannisfest war gekommen, das schönste Fest unseres irdischen Lenzes, an welchem wir die Gräber unserer Lieben mit Kränzen schmücken",
+      "language": [],
+      "musenalm_id": 112735,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschwister am Grabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Heller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Geschwister am Grabe",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "piabqusdjzazh86",
+          "source_id": "r1c9h5foxec7dnv"
+        }
+      ],
+      "source_id": "ncr1l4slxp309ni"
+    },
+    {
+      "annotation": "s. Gedicht INr 112737, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112736,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE BAYADERE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. nach Corbaux. Nürnberg, Carl Mayer's Kunst-Anstalt",
+      "scans": [
+        "alm_2481_112736_nddn7dkrwm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE BAYADERE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "slwcwqwzez5imr4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "x0jieeuwqzcr6br"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "z2wh6wtjq7odcy3"
+        }
+      ],
+      "source_id": "idtzhzjjejxf27a"
+    },
+    {
+      "annotation": "s. Graphik INr 112736, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Brahma's Tag ist nah' gekommen / Und des Tempels Bayaderen, / Sie bereiten sich durch Hymnen / Und durch Tanz das Fest zu ehren.",
+      "language": [],
+      "musenalm_id": 112737,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bayadere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Heller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bayadere",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "piabqusdjzazh86",
+          "source_id": "uc4kcol8kpm4n6j"
+        }
+      ],
+      "source_id": "y7lxy08lv16u40u"
+    },
+    {
+      "annotation": "s. Gedicht INr 112739, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112738,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE ODALISKE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. nach Corbaux. Nürnberg, Carl Mayer's Kunst-Anstalt",
+      "scans": [
+        "alm_2481_112738_fqnemkfvnk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE ODALISKE",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "f4hfni79z531o26"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "m2o741ecfv2t7m1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.263Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.263Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "savq4ako1y300gz"
+        }
+      ],
+      "source_id": "51omda46gy9lt26"
+    },
+    {
+      "annotation": "s. Graphik INr 112738, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Sonne sinkt, es weht der Wind / Gar frisch vom Meere drüben:",
+      "language": [],
+      "musenalm_id": 112739,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Odaliske",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Heller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Odaliske",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "piabqusdjzazh86",
+          "source_id": "21tvu35svov4j8z"
+        }
+      ],
+      "source_id": "d09hq65t9tlvffr"
+    },
+    {
+      "annotation": "s. Gedicht INr 112741, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112740,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE HINDOSTANERIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. nach Corbaux. Nürnberg, Carl Mayer's Kunst-Anstalt",
+      "scans": [
+        "alm_2481_112740_v8ixbaaakh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE HINDOSTANERIN",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "6x2vkqbznhg7wip"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "py1xy0cr7frj5xn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "x9ew9vt5kthqiz6"
+        }
+      ],
+      "source_id": "2hp7eikh3vsu4ew"
+    },
+    {
+      "annotation": "s. Graphik INr 112742, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Feierlich die breite Straße / Zieht zum Meer des Ganges Strom",
+      "language": [],
+      "musenalm_id": 112741,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hindostanerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Heller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Hindostanerin",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "piabqusdjzazh86",
+          "source_id": "q19t1wn1bj1gv91"
+        }
+      ],
+      "source_id": "fx5t9rtrx2xxk3j"
+    },
+    {
+      "annotation": "$ vielleicht fehlt bez. Gedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112742,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS ORAKEL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geissler gez. nach Parris. Nürnberg, Carl Mayer's Kunst-Anstalt",
+      "scans": [
+        "alm_2481_112742_d0nsghatm3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS ORAKEL",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "7kbaw586mmg2pti"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "9gep2y6vxxwiktu",
+          "source_id": "9pn52mjnjzbc6yj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "lms3ktyq5rsiqto"
+        }
+      ],
+      "source_id": "vfubd7128uiyapw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "4l69dp7i33g4c3v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf Bergen wohnt Freiheit! Das junge Mädchen fühlte es, das wie eine schlanke Gems von Klippe zu Klippe sprang, allen Fesseln entronnen,",
+      "language": [],
+      "musenalm_id": 112744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Macht des Gesanges. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Macht des Gesanges. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "gsr3uprv9go5tp0"
+        }
+      ],
+      "source_id": "6zkl9dcvo6ysobc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Eingehüllt in einen grauenvollen Nebelschatten stand am Abende des elften März Eintausend dreihundert und vierzehn der Tempelhof zu Paris.",
+      "language": [],
+      "musenalm_id": 112745,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Templer. / Geschichtliche Novelle aus dem Anfange / des vierzehnten Jahrhunderts",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Rein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Templer. / Geschichtliche Novelle aus dem Anfange / des vierzehnten Jahrhunderts",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "q4rd5lsntwwrk4r",
+          "source_id": "0uorrkn0v8fb7q4"
+        }
+      ],
+      "source_id": "3r86g8e7gnjmt3a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Es war noch früh am Tage und die Sonne hatte sich kaum über das Gebirge erhoben, durch welche das rechte Nilufer gebildet wird,",
+      "language": [],
+      "musenalm_id": 112746,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Othman, / der / befiederte Pfeil. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Robert Heller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Othman, / der / befiederte Pfeil. / Novelle",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.264Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.264Z",
+          "agent": "piabqusdjzazh86",
+          "source_id": "3yktok4l67l7niw"
+        }
+      ],
+      "source_id": "570m6w2fpgzs1z6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "468",
+      "incipit_statement": "Druck und Papier aus der Hofbuchdruckerei in Altenburg",
+      "language": [],
+      "musenalm_id": 112747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier aus der Hofbuchdruckerei in Altenburg…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "jb1p9wjxxharemq"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112748,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Leipzig, Stich und Druck von Hirschfeld)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leipzig, Stich und Druck von Hirschfeld",
+      "scans": [
+        "alm_2481_112748_jg0nzwbdvp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzd5yj35an7hdw5"
+    }
   ],
   "agents": [
     {

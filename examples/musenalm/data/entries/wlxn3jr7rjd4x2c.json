@@ -48,33 +48,999 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "0ye8an8h4rsfk4o",
-    "36ghjrgwt27qzk6",
-    "o0gt9mj8cms9yfi",
-    "s0s8ihwahnl4q0p"
+    {
+      "annotation": ",",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "125383",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0ye8an8h4rsfk4o"
+    },
+    {
+      "annotation": "UG recto u verso, INr",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "410770",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "36ghjrgwt27qzk6"
+    },
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1803: Mit Ku 6 und 192 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100111",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "o0gt9mj8cms9yfi"
+    },
+    {
+      "annotation": ", Obj 1 u 21",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "125384",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "s0s8ihwahnl4q0p"
+    }
   ],
   "contents": [
-    "soh6t2gcnwbxpog",
-    "f2udvys5x8iq26l",
-    "42vv0qxu985d1cn",
-    "gdfu4jeusbhr7va",
-    "rv6ypceho63u76q",
-    "zle7nou5kk9tr8s",
-    "7s2vnrsibirv1f7",
-    "5hhl0y2drwgzy9m",
-    "k8icdcqhvo684ax",
-    "3d6dcr3s7acaut9",
-    "rnbb9wgo12fiba5",
-    "d9wz04pkafjcyc5",
-    "b6cf81drzdolrki",
-    "ndqi7v020vjoa77",
-    "6w1f7vj4nlxsitg",
-    "o8lj6e53xkem1v2",
-    "671qznf9z5ouajm",
-    "8rhe4qjr1e0ecb4",
-    "1ll62gsx3zk6jhs",
-    "dhc6537ty1dwi3t",
-    "sqq538xia8rkcjm"
+    {
+      "annotation": "Umschlaggraphik recto; aus 410770",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125383,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1271_125383_yexf4n1hr0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "soh6t2gcnwbxpog"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123048,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / dramatischer Spiele / zur geselligen Unterhaltung auf dem Lande / von / A. von Kotzebue. / Erster Jahrgang. / Berlin, / bei F. T. de La Garde / 1803",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1271_123048_58177sk9l0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / dramatischer Spiele / zur geselligen Unterhaltung auf dem Lande / von / A. von Kotzebue. / Erster Jahrgang. / Berlin, / bei F. T. de La Garde / 1803",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "f2udvys5x8iq26l"
+    },
+    {
+      "annotation": "Vorwort des Hrsg.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Eine etwas zahlreiche Gesellschaft – bestünde sie auch aus lauter gebildeten Menschen – einen Abend hindurch angenehm zu unterhalten, ist nicht so leicht, als man glauben möchte.",
+      "language": [],
+      "musenalm_id": 123049,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.781Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "m3eyqcpfmww9trl"
+        }
+      ],
+      "source_id": "42vv0qxu985d1cn"
+    },
+    {
+      "annotation": "Einleitung zu »Die Barmherzigen Brüder« von Kotzebue (INr 123050, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Unsere gereimten Verse werden gewöhnlich durch ihre Monotonie unerträglich.",
+      "language": [],
+      "musenalm_id": 123075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.813Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "lbsjoo20th4k14l"
+        }
+      ],
+      "source_id": "gdfu4jeusbhr7va"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123052, Obj 5; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit einer Vorrede (INr 123075, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Es ist ein herrlicher Wintermorgen, / Der mich aus der dumpfen Zelle ruft; / Die offene Brust ist frei von Sorgen, / Wie frei von Dünsten ist die Luft",
+      "language": [],
+      "musenalm_id": 123050,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / barmherzigen Brüder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / barmherzigen Brüder",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "xs352avh09ry9pw"
+        }
+      ],
+      "source_id": "rv6ypceho63u76q"
+    },
+    {
+      "annotation": "Illustration zu »Die barmherzigen Brüder« von Kotzebue (INr 123052, Obj 4) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123052,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Pater Hilarius / Ein dankbarer Mensch – von jeder Tugend trägt er im Busen den fruchtbaren Keim. / Die barmherzigen Brüder, letzte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1271_123052_cdbm2hrhil.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1. / Pater Hilarius / Ein dankbarer Mensch – von jeder Tugend trägt er im Busen den fruchtbaren Keim. / Die barmherzigen Brüder, letzte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "n18ri7te9utwmzj"
+        }
+      ],
+      "source_id": "zle7nou5kk9tr8s"
+    },
+    {
+      "annotation": "# Bezeichnung aus der Vorrede (INr 123049, Obj 2); Einleitung zu »Cleopatra« von Kotzebue (INr 123054, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Parodien oder Travestirungen gewähren oft die fröhlichste Unterhaltung.",
+      "language": [],
+      "musenalm_id": 123079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.806Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "v5su8j38fcp7mtz"
+        }
+      ],
+      "source_id": "7s2vnrsibirv1f7"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123055, Obj 8; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit Anmerkung (INr 123079, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Mein Cäsar ist nun todt! und mit ihm alle Freuden! Drum trink ich grünen Thee und lese Werthers Leiden.",
+      "language": [],
+      "musenalm_id": 123054,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cleopatra / Eine Tragödie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cleopatra / Eine Tragödie",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "a96u2ktudyz80v4"
+        }
+      ],
+      "source_id": "5hhl0y2drwgzy9m"
+    },
+    {
+      "annotation": "Illustration zu »Cleopatra« von Kotzebue (INr 123054, Obj 7) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Cleopatra / O weh du schöne Brust! geschaffen nur zum Küssen, / O weh! die Schlange hat ein Loch hineingebissen! / Cleopatra, letzte Szene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1271_123055_txj3r2khtb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "2. / Cleopatra / O weh du schöne Brust! geschaffen nur zum Küssen, / O weh! die Schlange hat ein Loch hineingebissen! / Cleopatra, letzte Szene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "dz835hd4bo3gkx2"
+        }
+      ],
+      "source_id": "k8icdcqhvo684ax"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123057, Obj 10; # Bezeichnung aus der Vorrede (INr 123049, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Bist du da, Vater? ich habe Dich erinnern wollen, wenn Du morgen nach der Stadt gehst, vergiß nicht, für den Fritz ein Spielwerk mitzubringen.",
+      "language": [],
+      "musenalm_id": 123056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unser Fritz. / Ein Schauspiel in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unser Fritz. / Ein Schauspiel in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "9o7a25xg8b6uuvp"
+        }
+      ],
+      "source_id": "3d6dcr3s7acaut9"
+    },
+    {
+      "annotation": "Illustration zu »Unser Fritz« von Kotzebue (INr 123056, Obj 9) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Fritz / Ja, wenn ich der Fürst wäre, den Postillon Dienst bekäme / keiner von mir, den behielt ich für mich selbst. / Unser Fritz, dritte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1271_123057_eri52wgeto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "3. / Fritz / Ja, wenn ich der Fürst wäre, den Postillon Dienst bekäme / keiner von mir, den behielt ich für mich selbst. / Unser Fritz, dritte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "hpcicz6h5mxmwcg"
+        }
+      ],
+      "source_id": "rnbb9wgo12fiba5"
+    },
+    {
+      "annotation": "# Bezeichnung aus der Vorrede (INr 123049, Obj 2); Einleitung zu »Die schlaue Wittwe« von Kotzebue (INr 123058, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Auch diese Posse ist in Weimar in einem geselligen Zirkel gespielt worden.",
+      "language": [],
+      "musenalm_id": 123080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.806Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "y7crsvwmwfnbag9"
+        }
+      ],
+      "source_id": "d9wz04pkafjcyc5"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123059, Obj 13; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit Anmerkung (INr 123080, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Nun ja, ja! ich weiß recht gut, daß ich ein Narr bin.",
+      "language": [],
+      "musenalm_id": 123058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schlaue Wittwe / oder / die Temperamente. / Posse in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schlaue Wittwe / oder / die Temperamente. / Posse in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "937sx5xcnrzvpwn"
+        }
+      ],
+      "source_id": "b6cf81drzdolrki"
+    },
+    {
+      "annotation": "Illustration zu »Die schlaue Wittwe« (INr 123058, Obj 12) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.665Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Herr von Kuhwalmen / Ein Stuhl oder ein Tisch mögte ich schon nicht so gern / seyn, als ein Ofen. / Die schlaue Wittwe, vierte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1217_123059_kbeprm3uht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "4. / Herr von Kuhwalmen / Ein Stuhl oder ein Tisch mögte ich schon nicht so gern / seyn, als ein Ofen. / Die schlaue Wittwe, vierte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "yjtkjg8ridbpyqg"
+        }
+      ],
+      "source_id": "ndqi7v020vjoa77"
+    },
+    {
+      "annotation": "# Bezeichnung aus der Vorrede (INr 123049, Obj 2); Einleitung zu »Hahnenschlag« von Kotzebue (INr 123060, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Da dieses belustigende Spiel nicht überall bekannt ist, so wird eine kurze Beschreibung desselben vielen Lesern willkommen seyn.",
+      "language": [],
+      "musenalm_id": 123081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.806Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "u4znp4p56dguthz"
+        }
+      ],
+      "source_id": "6w1f7vj4nlxsitg"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123061, Obj 16; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit Anmerkung (INr 123081, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Da bin ich eine Weile herumgelaufen, / Und habe geklopft, bald dort, bald hier; / Umsonst! meinen Hahn will Niemand kaufen.",
+      "language": [],
+      "musenalm_id": 123060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hahnenschlag / Schausplel (sic!) in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hahnenschlag / Schausplel (sic!) in Einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "lvkefyqmrcxuhbj"
+        }
+      ],
+      "source_id": "o8lj6e53xkem1v2"
+    },
+    {
+      "annotation": "Illustration zu »Der Hahnenschlag« (INr 123060, Obj 15) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Fritz / Meinen Hahn will niemand kaufen, und ist doch so ein prächtiges Thier. / Der Hahnenschlag, erste Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1271_123061_fshevc0iiv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "5. / Fritz / Meinen Hahn will niemand kaufen, und ist doch so ein prächtiges Thier. / Der Hahnenschlag, erste Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "61ikeqj092crbfs"
+        }
+      ],
+      "source_id": "671qznf9z5ouajm"
+    },
+    {
+      "annotation": "# Bezeichnung aus der Vorrede (INr 123049, Obj 2); Einleitung zu »Ariadne auf Naxos« von Kotzebue (INr 123062, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.063Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Wenn diese Travestirung die beabsichtigte komische Wirkung ganz hervorbringen soll; so muß Jemand am Klavier dazu die Bendaische feierliche Melodie dazu spielen.",
+      "language": [],
+      "musenalm_id": 123082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.806Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "aj3kapj6zw1an5u"
+        }
+      ],
+      "source_id": "8rhe4qjr1e0ecb4"
+    },
+    {
+      "annotation": "mit einer Illustration, s. Graphik INr 123063, Obj 19; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit Anmerkung (INr 123082, Obj 17)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.668Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Geliebte Ariadne mein! Du schläfst ja, wie ein Sack.",
+      "language": [],
+      "musenalm_id": 123062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ariadne auf Naxos / Ein tragi-komisches Triodrama #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ariadne auf Naxos / Ein tragi-komisches Triodrama #",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ll62gsx3zk6jhs"
+    },
+    {
+      "annotation": "Illustration zu »Ariadne auf Naxos« (INr 123062, Obj 18) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.669Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Bacchus / Und kurz, du hörst es wohl, ich bin ein ganzer Kerl. / Ariadne auf Naxos, lezte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+      "scans": [
+        "alm_1271_123063_ovri5k48vv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "6. / Bacchus / Und kurz, du hörst es wohl, ich bin ein ganzer Kerl. / Ariadne auf Naxos, lezte Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.782Z",
+          "agent": "vvn2bsy8p7l2qv3",
+          "source_id": "quuixra1ogu09xa"
+        }
+      ],
+      "source_id": "dhc6537ty1dwi3t"
+    },
+    {
+      "annotation": "Umschlaggraphik verso; aus 410770",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.518Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125384,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1271_125384_tkq1h85gso.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "sqq538xia8rkcjm"
+    }
   ],
   "agents": [
     {

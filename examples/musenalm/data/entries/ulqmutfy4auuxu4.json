@@ -48,49 +48,1599 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "raxvjz0e7v59czv",
-    "wrlfixl4atnvrzv"
+    {
+      "annotation": "SS 389,390",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.615Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "409699",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.615Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "raxvjz0e7v59czv"
+    },
+    {
+      "annotation": "1811-1848.\n1833: ( K: BL 1, XV, 392 SS und Ku 8 ) Mit Tku 1, Bl 1, XV, 392 SS und Ku 7.\nLoses Blatt.\nKartonierter Einband mit eingeprägten Muster (Buchrücken beschädigt).",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.615Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100439",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.615Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wrlfixl4atnvrzv"
+    }
   ],
   "contents": [
-    "8y6lnqnapbyndoi",
-    "vvo709gms7dphd1",
-    "uxpu06k1nkm606f",
-    "pilttvgkknhjnsv",
-    "e40blov9jt7lpr9",
-    "rb1ks8wlnel4rus",
-    "2f0c2d3c8twhpl3",
-    "n6rucg89pzv1rzd",
-    "jhyz3bmyzxwwf01",
-    "cz959jk1uvonf7o",
-    "27nls046xnge2om",
-    "ui0clpl8kyt87dd",
-    "xxpylxmlqm9kcl9",
-    "t6k91t7xe2klaev",
-    "i8j4iz34xswqoor",
-    "v20qdjlg72aj2l3",
-    "5avmh7e076z8u2c",
-    "gbo02lbbni7la1i",
-    "0pjlg55ncw6gjtv",
-    "vr0e9cdhqs5q4xq",
-    "rhzjbb2pccdukr2",
-    "tz40vz7gp2vp2ap",
-    "c3ln5lsi6woq4wa",
-    "e1rw8xhgahx001j",
-    "w6jfrgo3a3u82ba",
-    "4kot41c1htw1we8",
-    "l2dojj8enm0jmj0",
-    "xkpg8y0x88pmd47",
-    "s1dntsp82aa4393",
-    "02lke9g8edudu8z",
-    "pc5113w1bmuah1o",
-    "8jq8uet7kzp47uh",
-    "qu63ciyy21sz19s",
-    "wzm3yjfuocrbmae",
-    "8valzx3zdp9jyfn",
-    "2r83tkzoxhmm139",
-    "l0jxvzomagt8uh6",
-    "5mt0cdyd0ve0tub",
-    "wiwv1fvi2nrw1cx"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77394,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE / 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2404_77394_5vobj5axpd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE / 1833",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "8y6lnqnapbyndoi"
+    },
+    {
+      "annotation": "Titelportrait /) Illustration zu »Jakobea von Holland« von Ch. von Glumer, geb. Spohr INr 77414, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77395,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jacobea von Holland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_2404_77395_a3ldi40791.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jacobea von Holland",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.683Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "guolxwjq47g4caa"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.683Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "ka2arey6v9i0247"
+        }
+      ],
+      "source_id": "vvo709gms7dphd1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77396,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE. / Taschenbuch / für das Jahr 1833. / Herausgegeben / von / Theodor Hell. / 22r Jahrgang. Mit 8 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2404_77396_aoyigxr5ws.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE. / Taschenbuch / für das Jahr 1833. / Herausgegeben / von / Theodor Hell. / 22r Jahrgang. Mit 8 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "uxpu06k1nkm606f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77397,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "pilttvgkknhjnsv"
+    },
+    {
+      "annotation": "s. Graphik INr 77399, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "In der reinsten Jugendblüthe / Lebte Apollonia, / Nur den Heiland im Gemüthe / Still in Alexandria",
+      "language": [],
+      "musenalm_id": 77398,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die heilige Apollonia. / (Am 9. Februar 249.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die heilige Apollonia. / (Am 9. Februar 249.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.683Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "sb25zk1hcb6irwr"
+        }
+      ],
+      "source_id": "e40blov9jt7lpr9"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 77398, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77399,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Apollonia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gem. von Felix Schiavoni gest. in Stahl von F. John",
+      "scans": [
+        "alm_2404_77399_iapwzfigfg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Apollonia",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "v005hqamxgclzg4",
+          "source_id": "1q3j0jhvzwq88ga"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.683Z",
+          "agent": "by6d7qadwb43vko",
+          "source_id": "rwzgkujfvw3m7tt"
+        }
+      ],
+      "source_id": "rb1ks8wlnel4rus"
+    },
+    {
+      "annotation": "Illustration zu »Der Räuber Spatolino« von Th. Hell d.i. K. G. Th. Winkler INr 77413, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.624Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77400,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spatolino",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Wagner sculps.",
+      "scans": [
+        "alm_2404_77400_4xqawiiqnf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spatolino",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "4m1ow4ea1s80qj2"
+        }
+      ],
+      "source_id": "2f0c2d3c8twhpl3"
+    },
+    {
+      "annotation": "$ vermutl. Illustration zu »Der Räuber Spatolino« von Th. Hell d.i. K. G. Th. Winkler INr 77413, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.626Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77401,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gianettina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cagniet pinx. Fr. Wagner sculps.",
+      "scans": [
+        "alm_2404_77401_0ns69zrjl4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gianettina",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "zcahh3ez21pnltp",
+          "source_id": "qdq4ymtz13rvn4l"
+        }
+      ],
+      "source_id": "n6rucg89pzv1rzd"
+    },
+    {
+      "annotation": "Sammlung von 4 Illustrationen zu zeitgenössischen szen. Darstellungen und 4 Erläuterungen INr 77403-77410, Obj 10-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77402,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilderchronik / der theatralischen Zeiterscheinungen für 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilderchronik / der theatralischen Zeiterscheinungen für 1833",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "jhyz3bmyzxwwf01"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) s. Graphik INr 77404, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.481Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Eins der Verbindungslieder in dem Hohenstaufenschen Dramencyklus, von dem uns der treffliche Dichter schon mehrere wesentliche Gemälde gegeben,",
+      "language": [],
+      "musenalm_id": 77403,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / König Enzio. / Historisches Trauerspiel in fünf Aufzügen / von Raupach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / König Enzio. / Historisches Trauerspiel in fünf Aufzügen / von Raupach",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "cz959jk1uvonf7o"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) Illustration zu »König Enzio« von E. B. S. Raupach s. Textbezug INr 77403, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77404,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Enzio. / Trauerspiel von Raupach. / Act V, letzte Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. von M. Retsch gest. v. Blas. Höfel",
+      "scans": [
+        "alm_2404_77404_z11v5j3tas.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "König Enzio. / Trauerspiel von Raupach. / Act V, letzte Scene",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.676Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.676Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "doz8vsjxw6dsqj8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "h3u7dadpsvvovbh"
+        }
+      ],
+      "source_id": "27nls046xnge2om"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) s. Graphik INr 77406, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.970Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Zwei junge deutsche Maler in Rom haben ein und dasselbe Mädchen, Giuletta, gesehen, und sich auf der Stelle in dasselbe verliebt,",
+      "language": [],
+      "musenalm_id": 77405,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Des Malers Meisterstück. / Lustspiel in zwei Aufzügen / von Johanna von Weissenthurn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Des Malers Meisterstück. / Lustspiel in zwei Aufzügen / von Johanna von Weissenthurn",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "ui0clpl8kyt87dd"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) Illustration zu »Des Malers Meisterstück« von J. v. Weissenthurm s. Textbezug INr 77405, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77406,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Malers Meisterstück. / Lustspiel von Joha. v. Weissenthurn / Act II. Scene 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retsch del. Leop. Beyer sc.",
+      "scans": [
+        "alm_2404_77406_lchnnlmipt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Malers Meisterstück. / Lustspiel von Joha. v. Weissenthurn / Act II. Scene 3.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.840Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "53mugggu15m3cmc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.840Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.840Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "t9w0rqnjwkuou0j"
+        }
+      ],
+      "source_id": "xxpylxmlqm9kcl9"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) s. Graphik INr 77408, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Als Raimunds Bauer als Millionär zuerst in Wien auf dem Leopoldstädter Theater erschien, wo er sowohl durch die Darstellung der Hauptrolle vom Verfasser, als hinsichtlich seines wundervollen und ergötzlichen Inhalts,",
+      "language": [],
+      "musenalm_id": 77407,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Mädchen aus der Feenwelt, / oder / der Bauer als Millionair. / Dramatisches Original-Zaubermärchen in drei Aufzügen / von Raimund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Mädchen aus der Feenwelt, / oder / der Bauer als Millionair. / Dramatisches Original-Zaubermärchen in drei Aufzügen / von Raimund",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "t6k91t7xe2klaev"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) Illustration zu »Der Bauer als Millionair« von F. Raimund s. Textbezug INr 77407, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77408,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bauer als Millionair. / Zauberposse von F. Raimund. / Act III. Scene 14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. M. Retsch gest. v. Blas. Höfel",
+      "scans": [
+        "alm_2404_77408_bjarvkdqgw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Bauer als Millionair. / Zauberposse von F. Raimund. / Act III. Scene 14.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.841Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.841Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "cwwt8t3ijw82wt9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.841Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.841Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "w6l734i83yirhk5"
+        }
+      ],
+      "source_id": "i8j4iz34xswqoor"
+    },
+    {
+      "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) s. Graphik INr 77410, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Leider sehen wir uns wieder genöthigt, wenn im Gebiete der Oper von Kunstwerken die Rede ist, welche auf den vorzüglichsten deutschen Bühnen heimisch geworden sind",
+      "language": [],
+      "musenalm_id": 77409,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Tell. / Große Oper in vier Acten. / Musik von Rossini",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Tell. / Große Oper in vier Acten. / Musik von Rossini",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "v20qdjlg72aj2l3"
+    },
+    {
+      "annotation": "$ vermutl. M. R. = Moritz Retzsch /) Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) Illustration zu »Wilhelm Tell«, Musik von G. Rossini s. Textbezug INr 77409, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77410,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilhelm Tell. / Oper in 4 Aufzügen comp. von Rossini. / Act I. Scene I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "[unleserlich] $",
+      "scans": [
+        "alm_2404_77410_k8b660a8ix.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wilhelm Tell. / Oper in 4 Aufzügen comp. von Rossini. / Act I. Scene I.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "5avmh7e076z8u2c"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Das Denken - Einigung getrennter Dinge, / Gestalten, unfaßbar und unvernommen / Vor andrer Augen, waren seinen traut. […] Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenige Monate nach dem Regierungsantritte Georgs I. zogen auf dem romantischen Wege, der aus Caermarthenshire durch die Walliser Hochgebirge führt, zwei Reiter nach der Gegend von Pembrock.",
+      "language": [],
+      "musenalm_id": 77411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gewissen. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gewissen. / Eine Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "syn02o5ddz0vo5g"
+        }
+      ],
+      "source_id": "gbo02lbbni7la1i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Wer die anmuthige Gegend des Dorfes L- weiler zwei Meilen von Coblenz auf der Straße nach Luxemburg kennt, wird sich besonders der Partie um die etwa eine Viertelstunde vom Orte gelegene schöne Wassermühle mit Vergnügen erinnern,",
+      "language": [],
+      "musenalm_id": 77412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schleier der Königinn. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich von der Heyden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schleier der Königinn. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "y4sojkg698u6ihg",
+          "source_id": "hczyacnkhm02hpq"
+        }
+      ],
+      "source_id": "0pjlg55ncw6gjtv"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 77400, 77401;  Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Seit Rinaldo Rinaldini sich auf die Nähtische der vornehmen Damen lagerte, um späterhin zu den hölzernen Bänken der Wachstuben herabzusteigen,",
+      "language": [],
+      "musenalm_id": 77413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Räuber von Spatolino. / Mittheilung aus Reiseerinnerungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Räuber von Spatolino. / Mittheilung aus Reiseerinnerungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "zzxwn71q3oos20s"
+        }
+      ],
+      "source_id": "vr0e9cdhqs5q4xq"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelportrait INr 77395, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "In ihrem Palaste zu Haag, in dem kleinen freundlichen Closett, ihr theuer, weil dessen Ausschmückung das letzte Andenken an die Liebe ihres verstorbenen Vaters war,",
+      "language": [],
+      "musenalm_id": 77414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jakobea von Holland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Charlotte von Glumer, geb. Spohr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jakobea von Holland",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "rhzjbb2pccdukr2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Nur die lieben kleinen Kinder wünschen sich einen neuen Vater, wenn der wahre, der gute, der erste gestorben ist; oder eine neue Mutter!",
+      "language": [],
+      "musenalm_id": 77415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unglückliche Liebe. / Novellenbouquet. / Motto. Einen lieben, den Andern nicht hassen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unglückliche Liebe. / Novellenbouquet. / Motto. Einen lieben, den Andern nicht hassen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "xe3onp1o6qmc6ol"
+        }
+      ],
+      "source_id": "tz40vz7gp2vp2ap"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Ein junger Gentleman, mit Gut und Geld / Auf's reichlichste beladen, kam zurück / Auf einem Schiffe aus der neuen Welt;",
+      "language": [],
+      "musenalm_id": 77416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Natur. / Poetische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Natur. / Poetische Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "i0lpny5q3i56a8l"
+        }
+      ],
+      "source_id": "c3ln5lsi6woq4wa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "O wenn ich kalt und ruhig scheine, / Ist's möglich, daß der Falsche meine, / Daß ich die schwere Schuld vergrab?",
+      "language": [],
+      "musenalm_id": 77417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr Schmerz. / (Nach dem Englischen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Graf Blankensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihr Schmerz. / (Nach dem Englischen.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "l8ofx6a8nd7fpu5",
+          "source_id": "14ushg4jzpk3w3c"
+        }
+      ],
+      "source_id": "e1rw8xhgahx001j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Ich sah sie - in des Lebens, Hoffens Lenze, / Ein blendend Wesen, das die Flügel schwinget,",
+      "language": [],
+      "musenalm_id": 77418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sein Schmerz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Graf Blankensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sein Schmerz",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "l8ofx6a8nd7fpu5",
+          "source_id": "rkodfbt2tw2hy2z"
+        }
+      ],
+      "source_id": "w6jfrgo3a3u82ba"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "Graf Ezel war der verruchteste Mann, / Ein Schrecken umher in den Gauen;",
+      "language": [],
+      "musenalm_id": 77419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen von Bern. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen von Bern. / Romanze",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.860Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.860Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "atsa5nx2h5thu90"
+        }
+      ],
+      "source_id": "4kot41c1htw1we8"
+    },
+    {
+      "annotation": "Sammlung von 11 Gedichten INr 77421-77431, Obj 28-38 /)  § Blatt SS 389-390 (3 Gedichte) fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "376",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erotische Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erotische Lieder",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "l2dojj8enm0jmj0"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Was mag so stürmisch jetzt in mir sich regen? / Ein mächtiges Gefühl die Brust belebt.",
+      "language": [],
+      "musenalm_id": 77421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Liebesregung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Liebesregung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "xkpg8y0x88pmd47"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Holdes Mädchen, Dein wird' ich gedenken / Bei des Morgens erstem Licht,",
+      "language": [],
+      "musenalm_id": 77422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Liebeszweifel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Liebeszweifel",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "s1dntsp82aa4393"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Will ich Deine Augen fragen, / Thun sie Deine Liebe kund;",
+      "language": [],
+      "musenalm_id": 77423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Mund und Augen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Mund und Augen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "02lke9g8edudu8z"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "Es ruht der junge Morgen / So freundlich auf der Flur,",
+      "language": [],
+      "musenalm_id": 77426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Allgewalt der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Allgewalt der Liebe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "pc5113w1bmuah1o"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Nachtigall, wie schön und herrlich / Tönt am Abend Dein Gesang;",
+      "language": [],
+      "musenalm_id": 77424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Die Nachtigall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Die Nachtigall",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "8jq8uet7kzp47uh"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Seh' ich Dich, Du liebes Bild, / Wenn Dein Auge engelmild, / Voll von Anmuth lacht auf mich,",
+      "language": [],
+      "musenalm_id": 77425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Mein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Mein",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "qu63ciyy21sz19s"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Wie sich die erschöpfte Erde / Sehnet nach des Thau's Erguß,",
+      "language": [],
+      "musenalm_id": 77427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Sehnsucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Sehnsucht",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "wzm3yjfuocrbmae"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Eine Ros' und ein Lilie / Sah' ich jüngst beisammen steh'n",
+      "language": [],
+      "musenalm_id": 77428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Rose und Lilie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Rose und Lilie",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "8valzx3zdp9jyfn"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.831Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Gedenkst Du mein; geliebtes Leben? / Ich denk' an Dich in stiller Nacht.",
+      "language": [],
+      "musenalm_id": 77429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. Nach der Ferne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. Nach der Ferne",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "2r83tkzoxhmm139"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "In stiller Nacht sitz' ich allein, / Beim hellen Glanz der Sterne,",
+      "language": [],
+      "musenalm_id": 77430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. Liebesschmerz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. Liebesschmerz",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "l0jxvzomagt8uh6"
+    },
+    {
+      "annotation": "Erotische Lieder (Sammlung INr 77420, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "Lieder sind wie leichte Blätter, / Leise von dem West berührt,",
+      "language": [],
+      "musenalm_id": 77431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. Meine Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. Meine Lieder",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "5mt0cdyd0ve0tub"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77432,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2404_77432_ahelaz6bzk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "wiwv1fvi2nrw1cx"
+    }
   ],
   "agents": [
     {

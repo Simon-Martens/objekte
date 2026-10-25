@@ -3,7 +3,7 @@ use super::{encode, escape};
 use serde_json::Value;
 use std::collections::HashMap;
 
-pub const GET_FORM: &str = "data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{filterSignals:{include:/^$/}})\"";
+pub const GET_FORM: &str = "data-on:submit__prevent=\"@get(el.getAttribute('action')+(el.getAttribute('action').includes('?')?'&':'?')+new URLSearchParams(new FormData(el)),{filterSignals:{include:/^$/}})\"";
 
 pub struct TableColumns {
     pub available: Vec<(String, String)>,
@@ -18,8 +18,8 @@ impl TableColumns {
         defaults: &[&str],
     ) -> Self {
         let mut available = vec![
-            ("_label".into(), "Record".into()),
-            ("_id".into(), "Identifier".into()),
+            ("_label".into(), crate::i18n::t("Record")),
+            ("_id".into(), crate::i18n::t("Identifier")),
         ];
         if let Some(props) = schema["properties"].as_object() {
             available.extend(
@@ -30,7 +30,7 @@ impl TableColumns {
                             && s["x-editor"] != "hidden"
                             && s["x-visible"] != false
                     })
-                    .map(|(k, s)| (k.clone(), s["title"].as_str().unwrap_or(k).to_owned())),
+                    .map(|(k, s)| (k.clone(), crate::i18n::field(s,k).to_owned())),
             );
         }
         let configured: Vec<&str> = ui
@@ -78,14 +78,25 @@ impl TableColumns {
         params: &HashMap<String, String>,
         prefix: &str,
     ) -> String {
+        self.picker_with_submit(scope, base, params, prefix, GET_FORM, None)
+    }
+
+    pub fn picker_with_submit(
+        &self,
+        scope: &str,
+        base: &str,
+        params: &HashMap<String, String>,
+        prefix: &str,
+        submit: &str,
+        anchor: Option<&str>,
+    ) -> String {
         let selection = format!("{prefix}columns");
         let fields = format!("{prefix}column.");
         let mut html = format!(
-            "<details id=\"columns-{scope}\" class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Show/hide columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{}\" {GET_FORM} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"{}\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
+            "<details id=\"columns-{scope}\" class=\"action-menu column-picker\"><summary class=\"button small\" aria-label=\"{ui_text_1}\" data-tooltip=\"{ui_text_2}\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i><span>{ui_text_0}</span></summary><form class=\"menu-panel\" action=\"{}\" {submit} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"{}\" value=\"custom\"><p class=\"eyebrow\">{ui_text_3}</p><fieldset data-attr:inert=\"$_columnsPending\">",
             escape(base),
-            hidden(params, &[&selection, &fields, "offset"]),
-            escape(&selection)
-        );
+            format!("{}{}", hidden(params, &[&selection, &fields, "offset", "table_anchor"]), anchor.map(|anchor| format!("<input type=\"hidden\" name=\"table_anchor\" value=\"{}\">", escape(anchor))).unwrap_or_default()),
+            escape(&selection), ui_text_0 = crate::views::escape(&crate::i18n::t("Columns")), ui_text_1 = crate::views::escape(&crate::i18n::t("Columns")), ui_text_2 = crate::views::escape(&crate::i18n::t("Show/hide columns")), ui_text_3 = crate::views::escape(&crate::i18n::t("Visible columns")));
         for (key, label) in &self.available {
             let id = format!("{scope}-column-{}", encode(key));
             html += &format!(
@@ -111,7 +122,8 @@ pub fn query_url(base: &str, params: &HashMap<String, String>) -> String {
         return base.into();
     }
     format!(
-        "{base}?{}",
+        "{base}{}{}",
+        if base.contains('?') { "&" } else { "?" },
         values
             .into_iter()
             .map(|(k, v)| format!("{}={}", encode(k), encode(v)))

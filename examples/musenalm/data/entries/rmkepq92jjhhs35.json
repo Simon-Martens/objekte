@@ -48,39 +48,1289 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "cywjs989c86c6e1"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.549Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106358",
+      "location": "105C06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.549Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cywjs989c86c6e1"
+    }
   ],
   "contents": [
-    "ehcnme7dilbp8ed",
-    "llybnukstor9jxt",
-    "b5qlk94czlqs4yo",
-    "t6gh5btmlwezi18",
-    "huen1mjv537raij",
-    "e7ymqnv9rx8iov2",
-    "aroxcn46i022oin",
-    "u0rj0pjs7qb3eub",
-    "u72n69yeg02yenl",
-    "xd02d6d2px5ov1d",
-    "pdp1dbcpbsjarci",
-    "tcvz1k7iv98gruj",
-    "6odq8gcdqz4l2ml",
-    "23uhc5jse5v7l8g",
-    "dermnvxcxz29ieo",
-    "7rlohbwu0uf7g5h",
-    "j9jtz6wzmmfivms",
-    "9nfcj6avjl212ry",
-    "y4yujx9kngz5t7t",
-    "gs635riokxaneb0",
-    "oncod17bm7fpi7s",
-    "upkkrmh0e92xony",
-    "uli78fman4wu3fi",
-    "vky3561miv8qdfs",
-    "p4faf332ykpmzws",
-    "acgydgh24e0egou",
-    "vwx84uucp8e7d8n",
-    "0oowbgokxgu6i86",
-    "zzuxzhwzzdv47db",
-    "1un9lflrrzjl8cx"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125514,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1338_125514_sfgzsfzyb1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "ehcnme7dilbp8ed"
+    },
+    {
+      "annotation": "Titelkupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125515,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (nach Ramberg gest. v. H. Schmidt)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "nach Ramberg gest. v. H. Schmidt",
+      "scans": [
+        "alm_1338_125515_5diwjui06a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "a0v3sv4sen6qvy0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.831Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.831Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "bty9k7ntf4y3gk7"
+        }
+      ],
+      "source_id": "llybnukstor9jxt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125516,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / für / Privatbühnen. / Zweites Bändchen / auf / das Jahr 1818. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1338_125516_c3zursx0eh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / für / Privatbühnen. / Zweites Bändchen / auf / das Jahr 1818. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "b5qlk94czlqs4yo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125517,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem / Haustheater / meines Freundes / Heinrich Blümner / in Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem / Haustheater / meines Freundes / Heinrich Blümner / in Leipzig",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "t6gh5btmlwezi18"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Laßt mich Euch freundlich bei den Namen / nennen, / Die jüngst Ihr führtet an Thaliens Fest: / Sophie, Luise, Hedwig und Alcest, / Und Du, den Neugier nimmer rasten läßt, / Du Wirth zum Bär, den alle Leute kennen.",
+      "language": [],
+      "musenalm_id": 125518,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Laßt mich Euch freundlich bei den Namen / nennen, / Die jüngst Ihr führtet an Thaliens Fest: / Sophie, Luise, Hedwig und Alcest, / Und Du, den Neugier nimmer rasten läßt, / Du Wirth zum Bär, den alle Leute kennen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.832Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "b5jaun2csc6ftkj"
+        }
+      ],
+      "source_id": "huen1mjv537raij"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 125516, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Einladung zu Beiträgen für diesen Almanach, welche der Vorbericht zum ersten Bändchen enthält, hat sehr zahlreiche Mittheilungen zur Folge gehabt.",
+      "language": [],
+      "musenalm_id": 125519,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Leser",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Leser",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.832Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "exss7g80iow5kr3"
+        }
+      ],
+      "source_id": "e7ymqnv9rx8iov2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125520,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "aroxcn46i022oin"
+    },
+    {
+      "annotation": "Mit einer Illustration (INr 125522, Obj 9) und einer Nachschrift d. Hrsg. (INr 125523, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nun, Gottlob, da sitzen wir, / Fern von Vettern und Muhmen, / Unter lieben, lichten Blumen",
+      "language": [],
+      "musenalm_id": 125521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Hans. / Lustspiel in einem Akt / von / Wilhelm Hensel. / Zuerst aufgeführt in Berlin am 30. Jun. 1817",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Hensel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Hans. / Lustspiel in einem Akt / von / Wilhelm Hensel. / Zuerst aufgeführt in Berlin am 30. Jun. 1817",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.832Z",
+          "agent": "902nw56856wz9rx",
+          "source_id": "wiouzc8aq65lpsy"
+        }
+      ],
+      "source_id": "u0rj0pjs7qb3eub"
+    },
+    {
+      "annotation": "Illustration zu »Ritter Hans« von Hensel (INr 125521, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gezeich: v. Wilh. Hensel gest: v. J.J. Wagner u. Frosch)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeich: v. Wilh. Hensel gest: v. J.J. Wagner u. Frosch",
+      "scans": [
+        "alm_1338_125522_rd1m07xypy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "o3ct6ijrde3gzy6",
+          "source_id": "h1y3c1d5hbddxjk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "k856ia0qn0kvcip"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "902nw56856wz9rx",
+          "source_id": "ztl4pbb1y5tx06z"
+        }
+      ],
+      "source_id": "u72n69yeg02yenl"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 125516, Obj 3); Nachschrift zu »Ritter Hans« von Hensel (INr 125521, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Auf den Styl, in welchem das vorstehende Gedicht gespielt seyn will, hat, unwillkührlich vielleicht, der Dichter selbst in dem zweiten Vese hingewiesen.",
+      "language": [],
+      "musenalm_id": 125523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift / des Herausgebers",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift / des Herausgebers",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "31ur07tgk381buk"
+        }
+      ],
+      "source_id": "xd02d6d2px5ov1d"
+    },
+    {
+      "annotation": "Mit einer Illustration (INr 125525, Obj 12) und einer Nachschrift d. Hrsg. (INr 125526, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Da sitz’ ich wiederum einmal! – Allein wie lange? / Bald wieder drückt die Luft, das Athmen macht / mir bange",
+      "language": [],
+      "musenalm_id": 125524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schatz. / Lustspiel in einem Akt / von / C. W. Contessa. / Zuerst aufgeführt in Berlin am 13. Jun. 1817",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. Contessa",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schatz. / Lustspiel in einem Akt / von / C. W. Contessa. / Zuerst aufgeführt in Berlin am 13. Jun. 1817",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "jho0bsnjm9w01d5",
+          "source_id": "9k9omkt2drz8861"
+        }
+      ],
+      "source_id": "pdp1dbcpbsjarci"
+    },
+    {
+      "annotation": "Illustration zu »Der Schatz« von Contessa (INr 125524, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg inv L. Wolf f. Berlin)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg inv L. Wolf f. Berlin",
+      "scans": [
+        "alm_1338_125525_arp1ct6ww4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "o59s6jd1d24jajk",
+          "source_id": "eax4l9heo3idlho"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "geqfdip5mib54pa"
+        }
+      ],
+      "source_id": "tcvz1k7iv98gruj"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 125516, Obj 3); Nachschrift zu »Ritter Hans« von Hensel (INr 125521, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Für die Umkleidung Florindens giebt die freizehnte Scene nur geringe Frist.",
+      "language": [],
+      "musenalm_id": 125526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift / des Herausgebers",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift / des Herausgebers",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "v93dsukbfrqm7hj"
+        }
+      ],
+      "source_id": "6odq8gcdqz4l2ml"
+    },
+    {
+      "annotation": "Mit einer Illustration (INr 125528, Obj 15) und einer Anmerkung (INr 125529, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Erst 5 Uhr! – Abermals eine schlaflose Nacht! – Doch, bin ich nicht ein Thor, mich wegen eines Weibes zu beunruhigen, das – das – mich liebt?",
+      "language": [],
+      "musenalm_id": 125527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die lange Nase. / Lustspiel in Einem Akt und in / drei Abtheilungen / von / Julius Grafen von Soden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Grafen von Soden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die lange Nase. / Lustspiel in Einem Akt und in / drei Abtheilungen / von / Julius Grafen von Soden",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "bg9pg0hlnq5rkkl",
+          "source_id": "y7c0basr8z9w0bt"
+        }
+      ],
+      "source_id": "23uhc5jse5v7l8g"
+    },
+    {
+      "annotation": "Illustration zu »Die lange Nase« von Soden (INr 125527, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. I. C. Böhme sc: Lipsie)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. I. C. Böhme sc: Lipsie",
+      "scans": [
+        "alm_1338_125528_r2pwv6q6ld.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.897Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.897Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "j4eyfnipreu9k7c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.898Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "ovl3ani7z5jl5sg"
+        }
+      ],
+      "source_id": "dermnvxcxz29ieo"
+    },
+    {
+      "annotation": "Anmerkung zu »Die lange Nase« von Soden (INr 125527, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.616Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Auf Privatbühnen, wo die Verwandlungen bei offenem Vorhange Schwierigkeiten machen, kann das kleine Stück in drei Aufzügen, mit möglichst kurzen Zwischenakten, versteht sich, dargestellt werden.",
+      "language": [],
+      "musenalm_id": 125529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkung",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "7rlohbwu0uf7g5h"
+    },
+    {
+      "annotation": "Portrait des Hrsg.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1338_125530_zoov8cvnpo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "j9jtz6wzmmfivms"
+    },
+    {
+      "annotation": "mit einer Vorerinnerung (INr 125532, Obj 19) und einer Illustration (INr 125533, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Sieh, das Abendroth ist längst verglommen, / Sterne blicken durch der Wolken Riß, / Und – noch immer will mein Sohn nicht kommen! / Hab Geduld, er kommt gewiß.",
+      "language": [],
+      "musenalm_id": 125531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wahn. / Drama in einem Akt / von / A. Müllner / Zuerst aufgeführt in Berlin am 29. Febr. 1816",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wahn. / Drama in einem Akt / von / A. Müllner / Zuerst aufgeführt in Berlin am 29. Febr. 1816",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.898Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "wnxxwtrx16ikuls"
+        }
+      ],
+      "source_id": "9nfcj6avjl212ry"
+    },
+    {
+      "annotation": "Vorerinnerung zu »Der Wahn« von Müllner (INr 125331, Obj 18); # Bezeichnung am Titel des Stücks",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Nachstehendes Drama ist nichts anderes, als eine, durch Hinzufügung von ungefähr neunzig Versen bewirkte, Umgestaltung meiner Tragödie, der neun und zwanzigste Februar, an welcher sich das alte Diktum bewährt hat: habent sua fata libelli.",
+      "language": [],
+      "musenalm_id": 125532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.898Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "niireyarammh13y"
+        }
+      ],
+      "source_id": "y4yujx9kngz5t7t"
+    },
+    {
+      "annotation": "mit einer Nachschrift (INr 125533, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Nichts da, Herr Wirth zum Bär – selbst Bär! / Es wird nichts d’raus! / Ich bleibe, wo ich bin, im Zimmer vorn / heraus / Und wenn zehn Damen noch hier angefahren / kämen.",
+      "language": [],
+      "musenalm_id": 125533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Blitz. / Lustspiel in einem Akt / von / A. Müllner. / Zuerst aufgeführt in Weimar am 10. Jan. 1814",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Blitz. / Lustspiel in einem Akt / von / A. Müllner. / Zuerst aufgeführt in Weimar am 10. Jan. 1814",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.898Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "wfzk0hr7v5oc1mr"
+        }
+      ],
+      "source_id": "gs635riokxaneb0"
+    },
+    {
+      "annotation": "Nachschrift zu »Der Blitz« von Müllner (INr 125533, Obj 20); # Bezeichnung am Titel des Stücks",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Der Thurm aus Schachteln und Pappenkästen kann so gebaut werden, daß in der Gegend des Mundes eine Oeffnung bleibt, durch welche Fritz die Coripheenverse, wie durch ein Sprachrohr, spricht.",
+      "language": [],
+      "musenalm_id": 125534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.898Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "4s3i91pral29noo"
+        }
+      ],
+      "source_id": "oncod17bm7fpi7s"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen (INr 125536–125538, Obj 23–25)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miscellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miscellen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "upkkrmh0e92xony"
+    },
+    {
+      "annotation": "Beitrag zur Sammlung »Miscellen« (INr 125535, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Ei sieh, der ganze Saal ist voll! / Viel Jungfrau’n seh’ ich hier, und Frauen, / Und Herr’n, die alle hieher schauen, / Und warten, was da kommen soll.",
+      "language": [],
+      "musenalm_id": 125536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Festreden für Privatbühnen. / I. / Das Kind an die Zuschauer. / Eine Eröffnungsrede.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Festreden für Privatbühnen. / I. / Das Kind an die Zuschauer. / Eine Eröffnungsrede.",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "uli78fman4wu3fi"
+    },
+    {
+      "annotation": "Beitrag zur Sammlung »Miscellen« (INr 125535, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "DIe Tempel, die der Mensch der Kunst errichtet, / Sie fallen, wie der Götter Tempel, hin, / Und aus den traurigen Ruinen flüchtet / Ihr Priester mit verstörtem Sinn.",
+      "language": [],
+      "musenalm_id": 125537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Mann an die Zuschauerinnen. / Eine Abschiedsrede.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Mann an die Zuschauerinnen. / Eine Abschiedsrede.",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "vky3561miv8qdfs"
+    },
+    {
+      "annotation": "Beitrag zur Sammlung »Miscellen« (INr 125535, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "Da das Wort französisch ist, so wird mir es niemand für undeutsch auslegen, daß ich, ehe und bevor ich dasselbe in mein Wörterbuch aufnahm, das Dictionnaire portatif par Monsieur Gattel [...] hervorholte, [...] um es darin nachzuschlagen.",
+      "language": [],
+      "musenalm_id": 125538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ein Artikel aus Müllners Theater- / Wörterbuche. / Kostüm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Müllner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ein Artikel aus Müllners Theater- / Wörterbuche. / Kostüm",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.898Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.898Z",
+          "agent": "fy9yit4uuer2yhm",
+          "source_id": "k9matpf11qqw4l8"
+        }
+      ],
+      "source_id": "p4faf332ykpmzws"
+    },
+    {
+      "annotation": "mit einer Illustrationen (INr 125540, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Eine vorzügliche Schwierigkeit, welche sich den Privatbühnen entgegenstellt, ist die innere zweckmäßige Anlage und Einrichtung der Bühne selbst.",
+      "language": [],
+      "musenalm_id": 125539,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anleitung / zur / Einrichtung / kleiner Theater / ohne große Kosten. / Mit Kupfern und kolorierten Prospekten. / Ankündigung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Göschen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anleitung / zur / Einrichtung / kleiner Theater / ohne große Kosten. / Mit Kupfern und kolorierten Prospekten. / Ankündigung",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.881Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.881Z",
+          "agent": "s7zezuvvsuyydzi",
+          "source_id": "9gi6jatfx28utkb"
+        }
+      ],
+      "source_id": "acgydgh24e0egou"
+    },
+    {
+      "annotation": "Graphikbeigabe zu »Anleitung zur Einrichtung kleiner Theater« von Göschen (INr 125539, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125540,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1338_125540_a6fp9hrxcq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "vwx84uucp8e7d8n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125541,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druckfehler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Druckfehler",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "0oowbgokxgu6i86"
+    },
+    {
+      "annotation": "Verlagsmitteilung über Neuerscheinungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.408Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei mir ist erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei mir ist erschienen",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "zzuxzhwzzdv47db"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125599,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1338_125599_tckwvxoymm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "1un9lflrrzjl8cx"
+    }
   ],
   "agents": [
     {

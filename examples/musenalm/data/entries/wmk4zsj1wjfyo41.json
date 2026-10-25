@@ -48,41 +48,1428 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "5p0tdwmpacn4oew"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.724Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407520",
+      "location": "107G06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.724Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5p0tdwmpacn4oew"
+    }
   ],
   "contents": [
-    "1t1w0uds6vg360p",
-    "drg25wf2jc68ryy",
-    "q73kk5367h8jd6b",
-    "c7oxarg66vdggqa",
-    "1kq3qpoykp2s7ey",
-    "x3zqh5bjo2ppxdf",
-    "c0l65347lzw0816",
-    "qm0ms8kt3820fec",
-    "wwd8aaphfthoei0",
-    "8lkvegpkhe1sb1g",
-    "xktwdsa9dsh4k6l",
-    "spxpy524klpyaas",
-    "drn84xrbrqxdkdj",
-    "caublm5tclo6vjj",
-    "8zs6qjm2xm2gf1m",
-    "6m9mp0v0wdairp0",
-    "ui67ss9kvnhwjde",
-    "o2673elfrwdgiwj",
-    "qprz2r8djr2z7vb",
-    "afe5pdm6akx1dsv",
-    "i4gs58frle3ycjb",
-    "jp9nla54pmj4l6j",
-    "kmuu4f2irnhms9k",
-    "zpvg60fcka827pp",
-    "tam3dphjiq2k4ed",
-    "9tkihg4upkq4x9x",
-    "kkgjhi72z9rvbtv",
-    "qh9rvjg1bn9plvg",
-    "e4j3c652zbv0zgi",
-    "gn466gp2uswntcy",
-    "pygbps89w69wy0g",
-    "zwjfgv3a92t6ul0"
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84907,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / magische Unterhaltung / 1809. / SCHW. GMÜND / bei / J. G. Ritter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Autenrieth sc.",
+      "scans": [
+        "alm_3891_84907_vf4td0ddut.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / magische Unterhaltung / 1809. / SCHW. GMÜND / bei / J. G. Ritter",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "494d92fqsi62f1e",
+          "source_id": "0o7wb0zxq47lzgk"
+        }
+      ],
+      "source_id": "1t1w0uds6vg360p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84908,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Magische Unterhaltungen / von / Fr. Molwitz. / Erstes Bändchen. / Gmünd, / bey J. G. Ritter / 1809",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3891_84908_wyylcv4pl3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Magische Unterhaltungen / von / Fr. Molwitz. / Erstes Bändchen. / Gmünd, / bey J. G. Ritter / 1809",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "drg25wf2jc68ryy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "So manches in unserm Leben scheint für den größtenTheil der Menschen ungewöhnlich, und der Hang zum Ausserordentlichen wird durch absichtlich veranstaltete Täuschungen nicht selten noch begünstigt.",
+      "language": [],
+      "musenalm_id": 84909,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.232Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "6vuohzhll9e687d"
+        }
+      ],
+      "source_id": "q73kk5367h8jd6b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "c7oxarg66vdggqa"
+    },
+    {
+      "annotation": "s. hierzu erläuternden Beitrag INr 84921, Obj 15 /) Dem Text vorangestellt: Magische Mischung in Farben und Punkten / Adelt die Schöpfung der schmeichelnden Kunst!",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf eine rmeiner frühern Reisen durch's obere Italien, traf ich zufällig mit einem Menschen zusammen, dessen kürze und treffende Urtheile über Gegenstände der Kunst den Wunsch in mir erregten, näher mit ihm bekannt zu werden.",
+      "language": [],
+      "musenalm_id": 84911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Juliano's täuschendes Gemählde / (Aus den Papieren des Galleriedirektors / C. in M.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Juliano's täuschendes Gemählde / (Aus den Papieren des Galleriedirektors / C. in M.)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.282Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "p3vz4m5jytjtv9f"
+        }
+      ],
+      "source_id": "1kq3qpoykp2s7ey"
+    },
+    {
+      "annotation": "Beitrag in drei Briefen /) s. hierzu erläuternden Beitrag INr 84922, Obj 16 /) Dem Text vorangestellt: Welche verborgene Kräfte durchströmen die / schillernde Hülle",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Das ungewöhnliche Interesse, welches wir in den Abendunterhaltungen unseres gelehrten Freundes Tom, und noch mehr durch seine so seltsame physikalische Erfindungen fanden,",
+      "language": [],
+      "musenalm_id": 84912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die wunderbare Schlange / (In Briefen aus London an einen Freund / in Deutschland)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die wunderbare Schlange / (In Briefen aus London an einen Freund / in Deutschland)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.282Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "b6lsazv348rrvk2"
+        }
+      ],
+      "source_id": "x3zqh5bjo2ppxdf"
+    },
+    {
+      "annotation": "Beitrag in drei Briefen /) Fortsetzung des vorstehenden Beitrags INr 84912, Obj 6 /) s. hierzu erläuternden Beitrag INr 84923, Obj 17 /) Dem Text vorangestellt: Ahnung des Jenseits entkeimet dem Schauer / vorm Tode, / Feierlich schweben die Schatten, noch diesseits / des Grabes vorüber.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Mein Theuerster! Ich habe nun mehrere Ihrer Briefe zugleich und auch Ihren lezten aus Paris erhalten, die mir um so mehr Freude machen, als sie, ausser den Beweisen Ihrer bisher andauernden Freundschaft,",
+      "language": [],
+      "musenalm_id": 84913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die redende Büste. / (Fortsezzung der vorigen Briefe aus Lon- / don, an denselben Freund in Paris.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die redende Büste. / (Fortsezzung der vorigen Briefe aus Lon- / don, an denselben Freund in Paris.)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.282Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "3ts6vr202kijq6j"
+        }
+      ],
+      "source_id": "c0l65347lzw0816"
+    },
+    {
+      "annotation": "s. hierzu erläuternden Beitrag INr 84924, Obj 18 /) Dem Text vorangestellt: Welche Töne wogen dort von jenen Hügeln / Hinter welchen Luna lauschend steht, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Nach einer kleinen Tagesreise traf Lady G. und ich gegen Abend auf dem Landgute ihres Bruders etwas ermüdet ein.",
+      "language": [],
+      "musenalm_id": 84914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Aeol-echoica. / (Dem Verfasser der vorigen Briefe mitge- / theilt von D. M. - als Auszug aus / dem ungedrukten Tagebuche seiner Reisen / in den Umgebungen einiger Hauptstädte / Englands.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Aeol-echoica. / (Dem Verfasser der vorigen Briefe mitge- / theilt von D. M. - als Auszug aus / dem ungedrukten Tagebuche seiner Reisen / in den Umgebungen einiger Hauptstädte / Englands.)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.282Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "zobuuj30hhnuzp3"
+        }
+      ],
+      "source_id": "qm0ms8kt3820fec"
+    },
+    {
+      "annotation": "s. hierzu erläuternden Beitrag INr 84925, Obj 19 /) Dem Text vorangestellt: Staunen folgt dem kühen Blik, / Und der Punkt, worauf wir stehen, [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Sowohl die frugale Mahlzeit in der Predigerwohnung als auch vorerwähnte Bemerkungen über einen mir so interessant gewordenen Gegenstand,",
+      "language": [],
+      "musenalm_id": 84915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Großer Erdglobus. / (Fortsetzung des Tagebuchs von D. M.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Großer Erdglobus. / (Fortsetzung des Tagebuchs von D. M.)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.283Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.283Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "npj9pg1n8v911wl"
+        }
+      ],
+      "source_id": "wwd8aaphfthoei0"
+    },
+    {
+      "annotation": "s. hierzu erläuternden Beitrag INr 84926, Obj 20 /) Dem Text vorangestellt: Soll des Sehers Auge je erblinden - / Kann ein Geist zu Nichte gehn? [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Der Baronet bestimmte den folgenden Tag zu einer Tour auf den Höhen des Gebirges.",
+      "language": [],
+      "musenalm_id": 84916,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Das Witterungs-Teleskop. / (Fortsezung des Tagebuchs von D. M.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Das Witterungs-Teleskop. / (Fortsezung des Tagebuchs von D. M.)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.283Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.283Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "elpayyt1pk7qwa7"
+        }
+      ],
+      "source_id": "8lkvegpkhe1sb1g"
+    },
+    {
+      "annotation": "s. hierzu erläuternden Beitrag INr 84927, Obj 21 /) Dem Text vorangestellt: Ist's ein schöpf'rischer Beruf - / Oder Winke die von Oben kamen? [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Es ist wohl kein Wunder, wenn in einem lieblichen Himmelsstriche, beim unverwehrten Zutritte zu allen nur ersinnlichen Kunstschäzen, und unter einer Nation, deren Charakter die Empfänglichkeit für Kunst-Ideen vorzüglich ausspricht,",
+      "language": [],
+      "musenalm_id": 84917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Das seltsame Kind. / (Ein Automate von einfacher Construction / nebst Beschreibung und Vergleichung / einiger sehr complicirter Kunststüke.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Das seltsame Kind. / (Ein Automate von einfacher Construction / nebst Beschreibung und Vergleichung / einiger sehr complicirter Kunststüke.)",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.311Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "52crygbyfx48e0k"
+        }
+      ],
+      "source_id": "xktwdsa9dsh4k6l"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Motto und Sammlung mit 7 Beiträgen INr 84919-84927, Obj 13-21 als Erläuterungen zu 7 Beiträgen INr 84911-84917, Obj 5-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84918,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beilagen / zum / Taschenbuche / für / magische Unterhaltung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beilagen / zum / Taschenbuche / für / magische Unterhaltung",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.311Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "s8nzfu0z2u0o2n7"
+        }
+      ],
+      "source_id": "spxpy524klpyaas"
+    },
+    {
+      "annotation": "Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) Motto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Der Weg der Kunst ist breit: Diese kann als solche nur durch manigfaltige Talente, durch mancherlei Fertigkeiten und Ansichten der Dinge zu ihrer allseitigen Vollendung kommen.",
+      "language": [],
+      "musenalm_id": 84919,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Weg der Kunst ist breit: Diese kann als solche nur durch manigfaltige Talente, durch mancherlei Fertigkeiten und Ansichten der Dinge zu ihrer allseitigen Vollendung kommen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hirt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "drn84xrbrqxdkdj"
+    },
+    {
+      "annotation": "Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) Es folgt: Sammlung von 7 Beiträgen INr 84921-84927, Obj 15-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Auch der scharfsinnigste Beobachter bedarf für wesentliche Einsicht in die weniger oder rmehr entfernte Ursachen der Natur und Kunsterscheinungen einer rmöglichst geordneten Leitung.",
+      "language": [],
+      "musenalm_id": 84920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachweisungen / über / Die wichtigsten, hierinn befindliche und / verwandte Gegenstände. / Für forschende Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachweisungen / über / Die wichtigsten, hierinn befindliche und / verwandte Gegenstände. / Für forschende Leser",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.311Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "dc1rs7nd06ope4v"
+        }
+      ],
+      "source_id": "caublm5tclo6vjj"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Anmerkungen und Literaturverz. /) Erläuterung zum Beitrag INr 84911, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Hier befindet sich, nach dessen obenerwähnten Berichte, und nachfortgesetzten Untersuchungen als Grundlage des so ungewöhnlichen Effekts von Farbenmischung,",
+      "language": [],
+      "musenalm_id": 84921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 1. / Julianos täuschendes Gemählde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 1. / Julianos täuschendes Gemählde",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.311Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "iuzsmb2wqtrbgya"
+        }
+      ],
+      "source_id": "8zs6qjm2xm2gf1m"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Literaturverz. /) Erläuterung zum Beitrag INr 84912, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Daß, und wie deren Aeusserungen, mittelst eines sehr künstlich berechneten Mechanismus, jedem, auch unbedeutenden, Andrange zu widerstreben,",
+      "language": [],
+      "musenalm_id": 84922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 2. / Die wunderbare Schlange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 2. / Die wunderbare Schlange",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.311Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.311Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "3k07bx3cads3qe2"
+        }
+      ],
+      "source_id": "6m9mp0v0wdairp0"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Literaturverz. /) Erläuterung zum Beitrag INr 84913, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Ausser den populären täglich mit dem Geist der Aufklärung sich verbreitenden Schriften, welch zu immer nähern Beobachtungen und Einsichten in der Naturkunde führen sollen,",
+      "language": [],
+      "musenalm_id": 84923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nr. 3. / Die redende Büste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nr. 3. / Die redende Büste",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.312Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "k47syfwsy3j77gw"
+        }
+      ],
+      "source_id": "ui67ss9kvnhwjde"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Literaturverz. /) Erläuterung zum Beitrag INr 84914, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Beid diesem so höchst interessanten Kunst- und Naturspiel wird der forschende Leser den ursprünglichen Erfinder der Riesen- oder Wetterharfe in den Unterhaltungen ungern vermissen,",
+      "language": [],
+      "musenalm_id": 84924,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 4. / Aeol-echoica",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 4. / Aeol-echoica",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.312Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "uio5tpzu34hnwh8"
+        }
+      ],
+      "source_id": "o2673elfrwdgiwj"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Anm. und Literaturverz. /) Erläuterung zum Beitrag INr 84915, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Wenn schon dem gewöhnlichen Menschen die rohe Ansicht dieses Kunstwerks eine mehr als reichhaltige Unterhaltung gewährt,",
+      "language": [],
+      "musenalm_id": 84925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 5. / Der große Erdglobus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 5. / Der große Erdglobus",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.077Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.077Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "96awwv03qhicf52"
+        }
+      ],
+      "source_id": "qprz2r8djr2z7vb"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Literaturverz. /) Erläuterung zum Beitrag INr 84916, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.722Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Es ist leicht einzusehen, daß dessen Medium, weder, wie der bekannte Barometer durch einen Druk der atmosphärischen Luftsäule,",
+      "language": [],
+      "musenalm_id": 84926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 6. / Das Witterungs-Teleskop",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 6. / Das Witterungs-Teleskop",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.078Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.078Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "p5ct3jo73eotig5"
+        }
+      ],
+      "source_id": "afe5pdm6akx1dsv"
+    },
+    {
+      "annotation": "Nachweisungen über die wichtigsten, hierinn befindliche und verwandte Gegenstände (Sammlung INr 84920, Obj 14) Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) mit Literaturverz. /) Erläuterung zum Beitrag INr 84917, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "Dieses automatische Spielwerk konnte hier blos in Rücksicht auf seine einfache Construction als merkwürdig,und in Vergleichung mit sehr complicirten mechanischen und crypto-automatischen Gegenständen,",
+      "language": [],
+      "musenalm_id": 84927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 7. / Das seltsame Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 7. / Das seltsame Kind",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "lgid8rrabih7w6o"
+        }
+      ],
+      "source_id": "i4gs58frle3ycjb"
+    },
+    {
+      "annotation": "Sammlung von 10 Beiträgen INr 84929-84938, Obj 23-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 84928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / einiger / für die Fortsezung dieses / Taschenbuchs / geeigneten Gegenstände",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / einiger / für die Fortsezung dieses / Taschenbuchs / geeigneten Gegenstände",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "g34gr47cvyzhqfe"
+        }
+      ],
+      "source_id": "jp9nla54pmj4l6j"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Ein - von Julianos Bearbeitung wesentlich abweichendes - mahlerisches Kunststük, stellt erstlich eine Winterlandschaft dar.",
+      "language": [],
+      "musenalm_id": 84929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 1. / Die Jahrszeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 1. / Die Jahrszeiten",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "3gqc1hlsh8ylz8e"
+        }
+      ],
+      "source_id": "kmuu4f2irnhms9k"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Ein, zwar nicht ganz neu erfundenes, aber im Größern versuchtes und durch das Ueberraschende errathender Ideen mehr als gewöhnliches elektrisches Spielwerk,",
+      "language": [],
+      "musenalm_id": 84930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 2. / Das Augen-Orakel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 2. / Das Augen-Orakel",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "0hoza4qwiji89bh"
+        }
+      ],
+      "source_id": "zpvg60fcka827pp"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Eine akustische Täuschung ohne Hohlspiegel, der organisch-echoischen Wirkung entsprechend.",
+      "language": [],
+      "musenalm_id": 84931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 3. / Die sprechende Mumie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 3. / Die sprechende Mumie",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "6503dyne52u5201"
+        }
+      ],
+      "source_id": "tam3dphjiq2k4ed"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Daß das sogenannte chinesische Schattenspiel, welches seinem Publikum manche Belustigung gewährte,",
+      "language": [],
+      "musenalm_id": 84932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 4. / Farbicht-bewegliche Schatten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 4. / Farbicht-bewegliche Schatten",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "z32eng7oxpyde0s"
+        }
+      ],
+      "source_id": "9tkihg4upkq4x9x"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Weitere Versuche, Figuren in Lebensgröße, auf eben erwähnte Art, in einem transparenten Panorama darzustellen,",
+      "language": [],
+      "musenalm_id": 84933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 5. / Die Hermiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 5. / Die Hermiten",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "ugau1evdw64er9v"
+        }
+      ],
+      "source_id": "kkgjhi72z9rvbtv"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Dieser Gegenstand, der schon öfters mit ungewöhnlichem Aufwand darzustellen versucht worden,",
+      "language": [],
+      "musenalm_id": 84934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 6. / Das Seetreffen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 6. / Das Seetreffen",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "uhnui0n924jnwy3"
+        }
+      ],
+      "source_id": "qh9rvjg1bn9plvg"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.707Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Unter Gesezen, nach welchen der papierne Drache, von der Hand des Knaben am Faden geleitet, sich in schiefer Richtung aufwärts hebt,",
+      "language": [],
+      "musenalm_id": 84935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 7. / Das Steigeschirm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 7. / Das Steigeschirm",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.228Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.228Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "bujyjtkd9aike4j"
+        }
+      ],
+      "source_id": "e4j3c652zbv0zgi"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Im letzten Jahrzehend wurden beinahe alle interessante Menschen - mehr oder weniger interessant nachgebildet - der Schaulust preisgegeben.",
+      "language": [],
+      "musenalm_id": 84936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 8. / Die Todtengruft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 8. / Die Todtengruft",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.188Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.188Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "6vk6phcw5p08z1b"
+        }
+      ],
+      "source_id": "gn466gp2uswntcy"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Dieses Kunststük, welches lange Zeit beim gebildeten Publikum, unter so manchen magischen Spielerien, für unenträthselbar gehalten wurde,",
+      "language": [],
+      "musenalm_id": 84937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 9. / Der Pistolenschuß ins Auge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 9. / Der Pistolenschuß ins Auge",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.197Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "3dw93w3ik9rh11x"
+        }
+      ],
+      "source_id": "pygbps89w69wy0g"
+    },
+    {
+      "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Eine möglichst einfache Vorrichtung für Zeichner und Kunstliebhaber, sowohl jeden entfernten oder nähern Gegenstand,",
+      "language": [],
+      "musenalm_id": 84938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nro. 10. / Der Sciagraph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nro. 10. / Der Sciagraph",
+      "updated": "2012-11-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.197Z",
+          "agent": "n8i1nzykub0v7l7",
+          "source_id": "dfkva1lsh8iruej"
+        }
+      ],
+      "source_id": "zwjfgv3a92t6ul0"
+    }
   ],
   "agents": [
     {

@@ -48,7 +48,26 @@
   "year": 1769,
   "editor": "",
   "items": [
-    "gjz0t2gh8xfrxyl"
+    {
+      "annotation": "1765-?\nLedereinband.\n1769: Mit Tku 1 und 184 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.776Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100007",
+      "location": "105C01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.776Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gjz0t2gh8xfrxyl"
+    }
   ],
   "contents": [],
   "agents": [

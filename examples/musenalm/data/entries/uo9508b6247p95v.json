@@ -48,7 +48,26 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "z0bmzs14ye60vpv"
+    {
+      "annotation": "auch 2. Aufl. 1845",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.816Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411237",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.816Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "z0bmzs14ye60vpv"
+    }
   ],
   "contents": [],
   "agents": []

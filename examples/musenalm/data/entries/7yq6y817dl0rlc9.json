@@ -48,7 +48,26 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "u0pvhpgz0m9uea1"
+    {
+      "annotation": "1834-1847; Jgg 37, 39, 41 nicht erschienen",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.462Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200994",
+      "location": "105R04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.462Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "u0pvhpgz0m9uea1"
+    }
   ],
   "contents": [],
   "agents": [

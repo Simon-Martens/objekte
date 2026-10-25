@@ -48,51 +48,1834 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "d5vjnmn29yia8p9"
+    {
+      "annotation": "1830-1843.\nim Schuber",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.464Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108640",
+      "location": "105R02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.464Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "d5vjnmn29yia8p9"
+    }
   ],
   "contents": [
-    "rzxgeuo158wz29z",
-    "unwrftplcpn26sh",
-    "d7p4ipn28xwvzju",
-    "zamce0qhlynokci",
-    "m6x8lurn11qlh96",
-    "s5s1yaoqm6hsclp",
-    "z6gedavqwubma8s",
-    "chmv3fz3pylc7h4",
-    "r8llesqflf1onh8",
-    "5ax6u97ocs37puy",
-    "7ahsrca8ti5j4eh",
-    "u3s0wttq8hrtbhp",
-    "c7adgffnbzgi6su",
-    "ujq90d1z8w291qy",
-    "x2pm6mxr6upmcf7",
-    "0oxehu7qghd7k1j",
-    "kxmmnbu5n4tcccl",
-    "hnlgeh0fzpjn1p1",
-    "r60rolumfwxhv6x",
-    "m2td0e9qtnxb3yp",
-    "xs3nees9sszl15f",
-    "5bckm59nl9ndn4y",
-    "0s3n701nqjdn99s",
-    "vwm5gek50gfj0hq",
-    "m1n2lvrf3opv00r",
-    "tdzvzckuim5iiww",
-    "blndjq9tc12pkdz",
-    "dj3cw7yjw55mqlq",
-    "w1qs5jkt8ndqggz",
-    "s8piww1pfe41237",
-    "7kpbx045u0i6ux8",
-    "m23thsc9ih8kvt9",
-    "4q7jdxs1isssb4h",
-    "30y3gp7h9wjwgsg",
-    "aiyzz542m3w4uwt",
-    "z8bjgmhd50sshlv",
-    "dy4kceyopefmpa3",
-    "lpeyfm7dgzgqict",
-    "19h9knbpj1z3sjx",
-    "ucnofvxefybcoon",
-    "9jo4u3mb21j9bng",
-    "mg4w400qospywzh"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104315,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3408_104315_kmkgkpf8fo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "rzxgeuo158wz29z"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Schatzkammern von Burghausen« von C. Spindler INr 104338, Obj 24 ff /) s.a. Textbezug INr 104321, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104316,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HEDWIG VON POLEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung von D. Fellner Stahlstich v. F. Fleischmann",
+      "scans": [
+        "alm_3408_104316_qmd15id2fq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HEDWIG VON POLEN",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.210Z",
+          "agent": "9z4h7ka6ovxy0ac",
+          "source_id": "4hchcp9y7bcn9ho"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.210Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "nw1h1qqscfeemb5"
+        }
+      ],
+      "source_id": "unwrftplcpn26sh"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104317,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergiss mein nicht. / Taschenbuch / für das Jahr / 1834. / Herausgegeben / von / C. Spindler. / STUTTGART / Hallberger'sche / vormals F. G. Franckh'sche Verlagshandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Seitz. sc.",
+      "scans": [
+        "alm_3408_104317_h0ici3mqh9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergiss mein nicht. / Taschenbuch / für das Jahr / 1834. / Herausgegeben / von / C. Spindler. / STUTTGART / Hallberger'sche / vormals F. G. Franckh'sche Verlagshandlung",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.210Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.210Z",
+          "agent": "cz18k5n47dz11wc",
+          "source_id": "xrewqghwxcfmuer"
+        }
+      ],
+      "source_id": "d7p4ipn28xwvzju"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104318,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergissmeinnicht. / Taschenbuch für das Jahr / 1835. / Sechster Jahrgang. / Von / C. Spindler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3408_104318_itj7yid8p9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergissmeinnicht. / Taschenbuch für das Jahr / 1835. / Sechster Jahrgang. / Von / C. Spindler",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "zamce0qhlynokci"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104319,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "m6x8lurn11qlh96"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen als Textbezüge zu den Graphiken des Taschenbuchs INr 104321-104332, Obj 7-18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104320,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5s1yaoqm6hsclp"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 104320, Obj 6) s. Titelgraphik INr 104316, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die schöne edle Frau dieses Bildes findet der Leser in diesem Büchlein selbst wieder, in der Erzählung: die Schatzkammern von Burghausen,",
+      "language": [],
+      "musenalm_id": 104321,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Titelkupfer",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "z6gedavqwubma8s"
+    },
+    {
+      "annotation": "Illustration zu »Der Bastard« von C. Spindler /) s.a. Textbezug INr 104324, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104322,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BASTARD. / I. Band. Seite 29.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichng. v. Phil. Foltz. Stahlstich von Leop. Beyer",
+      "scans": [
+        "alm_3408_104322_k13uaok6rb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BASTARD. / I. Band. Seite 29.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.087Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.087Z",
+          "agent": "q352vh257bwt4mb",
+          "source_id": "9c9rj2bcfzr3slz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.087Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.087Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "qec7o8pdcu7wrcm"
+        }
+      ],
+      "source_id": "chmv3fz3pylc7h4"
+    },
+    {
+      "annotation": "Illustration zu »Der Bastard« von C. Spindler /) s.a. Textbezug INr 104324, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104323,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER BASTARD. / I. Band. Seite 308",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichng. v. Phil. Foltz. Stahlstich von Leop. Beyer",
+      "scans": [
+        "alm_3408_104323_20dp462gwv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER BASTARD. / I. Band. Seite 308",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.087Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.087Z",
+          "agent": "q352vh257bwt4mb",
+          "source_id": "2a81q9agsxal0j3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "7xar5sno19c8bt2"
+        }
+      ],
+      "source_id": "r8llesqflf1onh8"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 104320, Obj 6) s. Graphiken INr 104322, 104323; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.285Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die deutsche Literatur im Allgemeinen besteht gegenwärtig großentheils noch in Zeitschriften, Bruchstücken und politischen Brochüren; aber in dem Chaos offenbart sich unläugbar der Keim einer neuen Entwickelung, die von Süddeutschland ausgeht,",
+      "language": [],
+      "musenalm_id": 104324,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. und III. / Scenen aus dem Bastard",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. und III. / Scenen aus dem Bastard",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ax6u97ocs37puy"
+    },
+    {
+      "annotation": "Illustration zu »Der Invalide« von C. Spindler /) s.a. Textbezug INr 104326, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104325,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SANS REGRET / zu Spindler's Invalide III Bd. 71",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Foltz. del. Leop. Beyer sc.",
+      "scans": [
+        "alm_3408_104325_y74u1r3wb0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SANS REGRET / zu Spindler's Invalide III Bd. 71",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "kbtqe8i4az6rrrf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "q352vh257bwt4mb",
+          "source_id": "xhkz0cvtomfftoa"
+        }
+      ],
+      "source_id": "7ahsrca8ti5j4eh"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 104320, Obj 6) s. Graphik INr 104325, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Mann, den jedes Kind in jeder Zeichnung, sie mag ganz oder halb gelungen seyn, auf den ersten Blick erkennt, Bonaparte als Obergeneral trifft mit Sansregret, dem Invaliden, der im Rufe des Sehers steht, zusammen,",
+      "language": [],
+      "musenalm_id": 104326,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Scene aus dem Invaliden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Scene aus dem Invaliden",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "u3s0wttq8hrtbhp"
+    },
+    {
+      "annotation": "Illustration zu »Die Nonne von Gnadenzell« von C. Spindler /) s.a. Textbezug INr 104328, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104327,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE NONNE VON GNADENZELL. / I. Band. Pag 143",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung v. Fellner Stahlstich v. Leop. Beyer",
+      "scans": [
+        "alm_3408_104327_gjnkbkumj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE NONNE VON GNADENZELL. / I. Band. Pag 143",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "diuld96z4r3bz68"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "9z4h7ka6ovxy0ac",
+          "source_id": "o4m4exfq5apffav"
+        }
+      ],
+      "source_id": "c7adgffnbzgi6su"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 104320, Obj 6) s. Graphik INr 104327, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Scene ist im Schwarzwald. Gisela, flüchtig aus dem älterlichen Hause, hat hier in der Wildniß übernachtet.",
+      "language": [],
+      "musenalm_id": 104328,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. VI. VII. / Scenen aus der Nonne von Gnadenzell / 5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. VI. VII. / Scenen aus der Nonne von Gnadenzell / 5.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "ujq90d1z8w291qy"
+    },
+    {
+      "annotation": "Illustration zu »Die Nonne von Gnadenzell« von C. Spindler /) s.a. Textbezug INr 104330, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104329,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE NONNE VON GNADENZELL. / I. B. P. 289",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung v. Fellner Stahlstich v. L. Beyer in Wien",
+      "scans": [
+        "alm_3408_104329_g4y3tbyrzo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE NONNE VON GNADENZELL. / I. B. P. 289",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "9z4h7ka6ovxy0ac",
+          "source_id": "0cxd9g54g1x4keb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.088Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.088Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "4prjiyqs810w0b6"
+        }
+      ],
+      "source_id": "x2pm6mxr6upmcf7"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 104320, Obj 6) s. Graphik INr 104329, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Scene ist einer der schauerlichschönen Höhlen der schwäbischen Alb. Eine muskelkräftige, wilde Gestalt, mit funkelnden Augen und greisem verwilderten Bart, die Mordaxt in der Faust, Gisela's Bruder,",
+      "language": [],
+      "musenalm_id": 104330,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "0oxehu7qghd7k1j"
+    },
+    {
+      "annotation": "Illustration zu »Die Nonne von Gnadenzell« von C. Spindler /) s.a. Textbezug INr 104332, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104331,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE NONNE VON GNADENZELL. / Thl. 3. Seite 299",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung v. Fellner Stahlstich v. Leop. Beyer",
+      "scans": [
+        "alm_3408_104331_txhtqxc2a4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE NONNE VON GNADENZELL. / Thl. 3. Seite 299",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.227Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "b1hmelbxm6vt8i7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.227Z",
+          "agent": "9z4h7ka6ovxy0ac",
+          "source_id": "lyztouma2fr38fr"
+        }
+      ],
+      "source_id": "kxmmnbu5n4tcccl"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 104320, Obj 6) s. Graphik INr 104331, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dieses Bild drückt den Moment aus, in welchem Gisela, als Aebtissin von Gnadenzell der Freundin das lange bewahrte Geheimniß ihrer stillen Liebe zu dem Grafen Ebergard entdeckt.",
+      "language": [],
+      "musenalm_id": 104332,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "hnlgeh0fzpjn1p1"
+    },
+    {
+      "annotation": "Es folgen 4 Beiträge INr 104334-104337, Obj 20-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Süd-Frankreichs goldener Himmel und blaues Meer bezaubern das Auge des Reisenden, und wiegen seine Phantasie in morgenländische Träume,",
+      "language": [],
+      "musenalm_id": 104333,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzählungen bei Ebbe und / Fluth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzählungen bei Ebbe und / Fluth",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.000Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.000Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "uouq8gcpn8k9jsf"
+        }
+      ],
+      "source_id": "r60rolumfwxhv6x"
+    },
+    {
+      "annotation": "Erzählungen bei Ebbe und Fluth (Sammlung INr 104333, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Macht das Kreuz, Kinder, und betet ein Paternoster, junge Gesellen, daß der Versucher fern von euch bleibe.",
+      "language": [],
+      "musenalm_id": 104334,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Träume des Mönchs Aubert / vom Berge des heiligen Michael",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Träume des Mönchs Aubert / vom Berge des heiligen Michael",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.000Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.000Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "qcpkh8mbhc0bocx"
+        }
+      ],
+      "source_id": "m2td0e9qtnxb3yp"
+    },
+    {
+      "annotation": "Erzählungen bei Ebbe und Fluth (Sammlung INr 104333, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Haben die Muschelthiere geschmeckt? Danket Gott für die leckere Speise, und putzt die Schaalen blank.",
+      "language": [],
+      "musenalm_id": 104335,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die / Wallfahrt des Königs Ludwig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die / Wallfahrt des Königs Ludwig",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.000Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.000Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "ax0v91m1qowxan3"
+        }
+      ],
+      "source_id": "xs3nees9sszl15f"
+    },
+    {
+      "annotation": "Erzählungen bei Ebbe und Fluth (Sammlung INr 104333, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Horch, wie die Glocke schwingt und klingt, die heulende Klagefrau! Ein Mensch verunglückt auf der Grève! Ein Mensch geht unter in der wachsenden Fluth!",
+      "language": [],
+      "musenalm_id": 104336,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das stumme Kind auf der Greve",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das stumme Kind auf der Greve",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.043Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.043Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "8aqfevtzwz8b8yn"
+        }
+      ],
+      "source_id": "5bckm59nl9ndn4y"
+    },
+    {
+      "annotation": "Erzählungen bei Ebbe und Fluth (Sammlung INr 104333, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Crick! - Crack! Der Blitz in Dein Genick! ein schönes Kind in mein Hamak! Geschwind eine lustige Historie von der schönen Catherine von St. Malo.",
+      "language": [],
+      "musenalm_id": 104337,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die / schöne Catherine von St. Malo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die / schöne Catherine von St. Malo",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.043Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.043Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "c4f7szul447jjm4"
+        }
+      ],
+      "source_id": "0s3n701nqjdn99s"
+    },
+    {
+      "annotation": "Sammlung von 15 Beiträgen INr 104339-104353, Obj 25-39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104338,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Schatzkammern zu Burghausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Schatzkammern zu Burghausen",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.044Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.044Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "sbgye0djfp9octo"
+        }
+      ],
+      "source_id": "vwm5gek50gfj0hq"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24) dem Text vorangestellt: Vier Stück' in Bayerland sind wohl bedacht: / Hätt' ich des weisen Albrechts Macht, [...] Ein schöner Spruch von Gilgenschein",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Da man zählet ein tausend vierhundert und drei und sechzig Jahre nach des Herrn Geburt, hielt der Tod ein wildes Gastmahl in den bayerischen Landen.",
+      "language": [],
+      "musenalm_id": 104339,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Großes Sterben zu München",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Großes Sterben zu München",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.044Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.044Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "oshvhkx40sku8fl"
+        }
+      ],
+      "source_id": "m1n2lvrf3opv00r"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.059Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Der sanfte, fröhliche Herr entsprach den Erwartungen des alten Reisigen, und verhieß den Beiden seine Gnade und Huld.",
+      "language": [],
+      "musenalm_id": 104340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Des Münzmeisters Lebenslauf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Des Münzmeisters Lebenslauf",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.138Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "fet12wdk2i08uh3"
+        }
+      ],
+      "source_id": "tdzvzckuim5iiww"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Sigmunds Einsamkeit zu Grünwald war ein Paradies des Friedens. Weder das rauhe Treiben des Ritterthums, noch des Herrscherstandes Mühen und Zwang hatten jemals dem heitern spiellustigen Fürsten zugesagt.",
+      "language": [],
+      "musenalm_id": 104341,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Herzog Sigmunds Hofhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Herzog Sigmunds Hofhalt",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.138Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "kap0h2iswsn2e7t"
+        }
+      ],
+      "source_id": "blndjq9tc12pkdz"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Die Stämme deutschen Volks nannten den alten Herzog Ludwig von Landshut den Reichen und Weisen. Der filzige Heinrich, ein unerbillticher Brandschatzer und Steuerherr, hatte ihm seine Schätze hinterlassen;",
+      "language": [],
+      "musenalm_id": 104342,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Hochzeit des reichen Georg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Hochzeit des reichen Georg",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.138Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "cofvcsaqlv6bv0h"
+        }
+      ],
+      "source_id": "dj3cw7yjw55mqlq"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Die Wintersonne schien abermals über dampfende Isarfluthen, wo sie das Erdinger Moos und die Fluren von Freising bespülen.",
+      "language": [],
+      "musenalm_id": 104343,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Nach zehn Jahren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Nach zehn Jahren",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.139Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "oza4qv76k86igqr"
+        }
+      ],
+      "source_id": "w1qs5jkt8ndqggz"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Ein kleines Häuflein von Getreuen fand sich mit dem Herzog zusammen, da er sich Landshut näherte.",
+      "language": [],
+      "musenalm_id": 104344,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Des Vetters Gastfreundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Des Vetters Gastfreundschaft",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.139Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "iez2chbzxkzfa4q"
+        }
+      ],
+      "source_id": "s8piww1pfe41237"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Floribert, mein Knappe! höre, was ich sage! Befehlt, gnädigster Herr. - Wenn wir uns trennen müßten, heute, morgen, von einander ziehen, einer dahin, der andre dorthin?",
+      "language": [],
+      "musenalm_id": 104345,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der Liebe und des Hasses Botschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der Liebe und des Hasses Botschaft",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.139Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "2l2vj1s6o1dq4ye"
+        }
+      ],
+      "source_id": "7kpbx045u0i6ux8"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Die Salzach, niederfallend von den Höhen des Erzstifts, eilig hinfluthend durch tiefe Thäler zum starken Innfluß, bespült auf ihrem Wege die Stadt Burghausen",
+      "language": [],
+      "musenalm_id": 104346,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Das feste Schloß von Burghausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Das feste Schloß von Burghausen",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.139Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.139Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "agjwkyabig2ckf8"
+        }
+      ],
+      "source_id": "m23thsc9ih8kvt9"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Es wurde leise an der Thüre gekratzt. Hedwig erhob sich, und fragte, aus den Augen die feuchten Spuren wischend:",
+      "language": [],
+      "musenalm_id": 104347,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Der Hofstaat einer Gefangenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Der Hofstaat einer Gefangenen",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.227Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "fcb9trykla49r1i"
+        }
+      ],
+      "source_id": "4q7jdxs1isssb4h"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.771Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Rede frei und ohne Scheu, Gesell; sprach der Herr von Wildenberg den Boten des Herzogs an,",
+      "language": [],
+      "musenalm_id": 104348,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Das Haus des Böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Das Haus des Böhmen",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.227Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.227Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "9iq6815n9v5ykp9"
+        }
+      ],
+      "source_id": "30y3gp7h9wjwgsg"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.771Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Ich habe Leute gekannt, die mit besserm Hunger an schlechtern Tafeln saßen; begann der Gast des Girsick:",
+      "language": [],
+      "musenalm_id": 104349,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Des Böhmen Judasmahl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Des Böhmen Judasmahl",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.228Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.228Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "edrr0hifbjzs4y3"
+        }
+      ],
+      "source_id": "aiyzz542m3w4uwt"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Eine Stunde der Liebkosungen und Erinnerungen war vergangen. Ausruhend von der Freude, der unvorhergesehenen, lag der Blinde an der Brust des Sohns.",
+      "language": [],
+      "musenalm_id": 104350,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Girsicks Vaterwonne und List",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Girsicks Vaterwonne und List",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "cbb217ys56mrrsp"
+        }
+      ],
+      "source_id": "z8bjgmhd50sshlv"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Meine gnädige Frau macht heute frühzeitig Schicht und Nacht; sprach Judith, indem sie die Gebieterin der schweren Gewänder entledigte.",
+      "language": [],
+      "musenalm_id": 104351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Nächltiche Wanderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Nächltiche Wanderung",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.229Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.229Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "s4yljb7sd6lq79v"
+        }
+      ],
+      "source_id": "dy4kceyopefmpa3"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.380Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Mit strengen Blicken betrachtete die Herzogin den jungen Mann, und erwiederte, ihre Bestürzung von sich werfend, und ihren Unwillen nicht verbergend: Pfui, daß ich einen Heiden finde,",
+      "language": [],
+      "musenalm_id": 104352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / In den Schatzkammern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / In den Schatzkammern",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.158Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.158Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "lwt5jtxsr2dygar"
+        }
+      ],
+      "source_id": "lpeyfm7dgzgqict"
+    },
+    {
+      "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.120Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Im finstern Keller, ein beharrender Wächter, saß der blinde Meister, und murmelte vor sich hin: Spinnentritt, ich höre Dich;",
+      "language": [],
+      "musenalm_id": 104353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Mitternacht und Ausgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Mitternacht und Ausgang",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.143Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "slgv0mzwzqyvvvs"
+        }
+      ],
+      "source_id": "19h9knbpj1z3sjx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Iß und trink; laß' Dir schmecken, was Dir gefällt, armer Schelm. Das Leben ist kurz, und die Karten sagen viel Unheil.",
+      "language": [],
+      "musenalm_id": 104354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das böse Auge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das böse Auge",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.143Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.143Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "326iqa2r23pzf89"
+        }
+      ],
+      "source_id": "ucnofvxefybcoon"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104356,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verlags-Anzeige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verlags-Anzeige",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "9jo4u3mb21j9bng"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 104355,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3408_104355_9586io1ikm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "mg4w400qospywzh"
+    }
   ],
   "agents": [
     {

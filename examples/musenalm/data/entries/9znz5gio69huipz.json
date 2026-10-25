@@ -48,23 +48,542 @@
   "year": 1795,
   "editor": "",
   "items": [
-    "mdcm5844dkbgoaj"
+    {
+      "annotation": "weitere Jahrgänge nicht ermittelt",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.733Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407937",
+      "location": "105K05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.733Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mdcm5844dkbgoaj"
+    }
   ],
   "contents": [
-    "5ivxdv6igvi4gvo",
-    "vihrmjm0av450xe",
-    "2td996qnr6n10ax",
-    "mc3gnbgcbmzpoci",
-    "6sq4mb36sa7dsu1",
-    "7bt0gjrpyldbj2h",
-    "g8qt91kdnsk3mj3",
-    "5cg1tak33oruddd",
-    "4gjvmnd3oxaz3s8",
-    "gbgkacwpfi4k8cp",
-    "wur69mm9tgmybu1",
-    "22a46lkjtpc306d",
-    "j0ugx5lhapv0l8d",
-    "y941najd1kwx1kd"
+    {
+      "annotation": "Seidenumschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89795,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3985_89795_262z2nm2hb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ivxdv6igvi4gvo"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89796,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historisch- / Romantischer / TASCHEN- / CALENDER / auf / 1795. / mit Kupfern. / Konstanz / Bey Joseph Dallmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3985_89796_f99map1n6k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historisch- / Romantischer / TASCHEN- / CALENDER / auf / 1795. / mit Kupfern. / Konstanz / Bey Joseph Dallmann",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "vihrmjm0av450xe"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt Kalendarium SS 1- 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89797,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Katholischer und Reformirter / Kalender. / 1795",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Katholischer und Reformirter / Kalender. / 1795",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "2td996qnr6n10ax"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "mc3gnbgcbmzpoci"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der jetzt regierenden / Kaiser und Könige, und der / Churfürsten des deutschen / Reichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der jetzt regierenden / Kaiser und Könige, und der / Churfürsten des deutschen / Reichs",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "6sq4mb36sa7dsu1"
+    },
+    {
+      "annotation": "mit 4 Illustrationen s. Graphiken INr 89801-89804, Obj 7-10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Mein Zweck ist es nicht auf dem engen Raume, welchen dieses Taschenbuch mir darbietet, eine vollendete Geschichte Marien-Antoniens meinen Zeitgenossen darzustellen.. Erst nach einem Jahrzehend kann dieses geschehen,",
+      "language": [],
+      "musenalm_id": 89800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marie-Antoinette, / Königin von Frankreich. / Biographische Skizze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Marie-Antoinette, / Königin von Frankreich. / Biographische Skizze",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "7bt0gjrpyldbj2h"
+    },
+    {
+      "annotation": "# Bez. am 3. u. 4. Blatt der Suite /) paginiert 1. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied von Marien- / Theresien",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3985_89801_2ts2beomtu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Abschied von Marien- / Theresien",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.412Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.412Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "dqkuy0agdfj3l3h"
+        }
+      ],
+      "source_id": "g8qt91kdnsk3mj3"
+    },
+    {
+      "annotation": "paginiert 2. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.599Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marie Antonie im Kreise / einer armen Familie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3985_89802_753whm8d15.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marie Antonie im Kreise / einer armen Familie",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.412Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.412Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "0kckm94b0ftqjmm"
+        }
+      ],
+      "source_id": "5cg1tak33oruddd"
+    },
+    {
+      "annotation": "paginiert 3. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.601Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89803,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trennungs-Scene im Tempel- / Thurme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3985_89803_kvctb61dx6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trennungs-Scene im Tempel- / Thurme",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.412Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.412Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "59dp66u9mtts9r0"
+        }
+      ],
+      "source_id": "4gjvmnd3oxaz3s8"
+    },
+    {
+      "annotation": "# Bez. am 3. u. 4. Blatt der Suite /) paginiert 4. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.603Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "M. Antoniens letzter Augen- / blick",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_3985_89804_0e6xxvlcuy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "M. Antoniens letzter Augen- / blick",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.412Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.412Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "3euoxp9xoodk9l7"
+        }
+      ],
+      "source_id": "gbgkacwpfi4k8cp"
+    },
+    {
+      "annotation": "Nachtitel : Wahnsinn aus Reue. Tagebuch einer Reisenden",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Es war eine herrliche Mondnacht, wolkenlos der Himmel, zur Schwärmerey gestimmt meine Seele.",
+      "language": [],
+      "musenalm_id": 89805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wahnsinn und Reue. / Aus dem Tagebuch einer Reisenden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wahnsinn und Reue. / Aus dem Tagebuch einer Reisenden",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "wur69mm9tgmybu1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Der Geist der Ritterschaft war in Deutschland erloschen, aber noch flammte er hie und da in den Gebürgen Helveziens und zeugte Thaten, die wir noch oft bewundern,",
+      "language": [],
+      "musenalm_id": 89806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Versöhnung. / Eine Schweizer-Szene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Versöhnung. / Eine Schweizer-Szene",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "22a46lkjtpc306d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Stosset an! / Was der Blumenflur die Quelle, / Ist dem Mann der goldne Wein.",
+      "language": [],
+      "musenalm_id": 89807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trink-Lied / für / Deutsche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trink-Lied / für / Deutsche",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "j0ugx5lhapv0l8d"
+    },
+    {
+      "annotation": "Seidenumschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 89808,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3985_89808_vn134ym8if.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-06-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1795,
+      "editor": "",
+      "agents": [],
+      "source_id": "y941najd1kwx1kd"
+    }
   ],
   "agents": [
     {

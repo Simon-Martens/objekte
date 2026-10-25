@@ -47,53 +47,2122 @@
   "editor": "gpj6tpa1lmk3vpy",
   "items": [],
   "contents": [
-    "xkiay3pl3ha6970",
-    "w5cllcdfif3fs1c",
-    "wxh6qiuisvuve6n",
-    "hwiewubig04xabc",
-    "oxm7re7mq8gcldc",
-    "kr2n54igq24cfuz",
-    "e6s5gz9l41o86fw",
-    "zg74mw9d3xugelt",
-    "8j4imckzpf110mh",
-    "7lguh0xlijtzm45",
-    "oct5yopddmkaojf",
-    "e6p0u65hz8csdh4",
-    "8gw70n35bh0bps4",
-    "pgrgjfljjzenv3l",
-    "8ra5tbm9vu5auqs",
-    "4u6hoz9ymxtctvl",
-    "5yciqr9kl8nfzsb",
-    "b4gcnhdckm1ti21",
-    "7ftm4mpxmcavunx",
-    "deom2mtfewzdzom",
-    "unebfcu1qp3wmo5",
-    "4jsqyehl6ga140u",
-    "yss2yb3dog2zuge",
-    "depq0iiqrsnv61k",
-    "cz2f2bktlno9uhi",
-    "mxo5cw5jyz46jte",
-    "h3rpjfh3cnqr9ja",
-    "u3s15mbeytsatna",
-    "vtkbv6di9mmn6iu",
-    "xhz0fbteth417d5",
-    "npuz0drsvl8khri",
-    "9zb2esbam4305zf",
-    "2wdysfmjlwantmb",
-    "z36towgvdawok11",
-    "6m40gu6y4xa81bn",
-    "fk7esic1pntw0h3",
-    "42ye0ulc35bul0w",
-    "aklsij8sybgzt5w",
-    "ikvz0qb7l98u3ar",
-    "obvc0hbnthq7yef",
-    "jwu2y8hehas1jhy",
-    "qm8ypxrw75rlaea",
-    "ujrs2o5teoqix68",
-    "fchxqasefutsu1k",
-    "8lk62lrvz951kqi",
-    "6hemvpb3mj9d7xr",
-    "md88hc0dt0opgnw"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132820,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4858_132820_rstt97eaq8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "xkiay3pl3ha6970"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132821,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen Paul Laminit sc. Aug.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen Paul Laminit sc. Aug.",
+      "scans": [
+        "alm_4858_132821_cqq5f30fyk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "dwhnyhb781y30je"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "g46xvytwsgmo0tq"
+        }
+      ],
+      "source_id": "w5cllcdfif3fs1c"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132822,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / 1824. / im Verlag / von C. L. Brede / in Offenbach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4858_132822_8r8ovkuiz3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / 1824. / im Verlag / von C. L. Brede / in Offenbach",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "wxh6qiuisvuve6n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für 1824. / Herausgegeben  / von / Georg Döring",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für 1824. / Herausgegeben  / von / Georg Döring",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "hwiewubig04xabc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Daß ich mit jedem neuen Jahr / Mich freundlich zu Dir dränge, / Dir, was ich habe, bringe dar, / Geschichten und Gesänge;",
+      "language": [],
+      "musenalm_id": 132824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Taschenbuch an den Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Taschenbuch an den Leser",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "24dp5xxyufanrm5"
+        }
+      ],
+      "source_id": "oxm7re7mq8gcldc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Die Jugend will nicht bleiben, / Die Zeit hält nimmer fest; / So mag mein Schifflein treiben, / Wie es sich treiben läßt.",
+      "language": [],
+      "musenalm_id": 132825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glückliche Fahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glückliche Fahrt",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "n0qilohun4hxsog"
+        }
+      ],
+      "source_id": "kr2n54igq24cfuz"
+    },
+    {
+      "annotation": "mit 4 Illustrationen s. Graphiken INr 132827-132-132830, Obj 8-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Blicke auf, Wandrer, der du hinabgetragen wirst von den smaragdenen Wellen des Rheins, blicke auf zu den grünbekränzten Gipfeln seiner Berge,",
+      "language": [],
+      "musenalm_id": 132826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adler und Taube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Adler und Taube",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "ohb27f6m123a694"
+        }
+      ],
+      "source_id": "e6s5gz9l41o86fw"
+    },
+    {
+      "annotation": "Illustration zu »Adler und Taube« INr 132826, Obj 8; nummeriert 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug",
+      "scans": [
+        "alm_4858_132827_vawbp9aa5p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "5h1xqc4vbhd84fm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "gvb2uuq6j2oi92v"
+        }
+      ],
+      "source_id": "zg74mw9d3xugelt"
+    },
+    {
+      "annotation": "Illustration zu »Adler und Taube« INr 132826, Obj 8; nummeriert 2; # Bez. an der ersten Graphik der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.",
+      "scans": [
+        "alm_4858_132828_dys7k8459e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "6f2rbpb2z57hqpe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "77md6tcg4ve31qt"
+        }
+      ],
+      "source_id": "8j4imckzpf110mh"
+    },
+    {
+      "annotation": "Illustration zu »Adler und Taube« INr 132826, Obj 8; nummeriert 3; # Bez. an der ersten Graphik der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.",
+      "scans": [
+        "alm_4858_132829_9jdyp5446c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "p5hhy1s4al4kly1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "zjj2br6nwt9tptr"
+        }
+      ],
+      "source_id": "7lguh0xlijtzm45"
+    },
+    {
+      "annotation": "Illustration zu »Adler und Taube« INr 132826, Obj 8; nummeriert 4; # Bez. an der ersten Graphik der Suite",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.271Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132830,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.",
+      "scans": [
+        "alm_4858_132830_v9kkiydz6h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "l2t3q7d1h2jdkm3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "v7k0kzcousxm5gp"
+        }
+      ],
+      "source_id": "oct5yopddmkaojf"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten INr 132832-132840, Obj 13-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132831,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ständchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ständchen",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.096Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.096Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "glz2019xj87052e"
+        }
+      ],
+      "source_id": "e6p0u65hz8csdh4"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Willst Du nicht der Zitter lauschen / Bei der Blätter lindem Rauschen,",
+      "language": [],
+      "musenalm_id": 132832,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Spanisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Spanisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.097Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "58wd6po6s13p87y"
+        }
+      ],
+      "source_id": "8gw70n35bh0bps4"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Ich binde hundert Blüthen Dir zum Straus, / Und alle sprechen, aber nur ein Wort!",
+      "language": [],
+      "musenalm_id": 132833,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Provençalisch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Provençalisch",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.097Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "wf9qsk8iw0smg0x"
+        }
+      ],
+      "source_id": "pgrgjfljjzenv3l"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Wohl glüht von dem Berge ein ewiges Licht, / Doch lieblicher strahlt's Dir im Auge;",
+      "language": [],
+      "musenalm_id": 132834,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Sicilianisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Sicilianisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "2v1f1ow7oygbe2x"
+        }
+      ],
+      "source_id": "8ra5tbm9vu5auqs"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "O Maya, wenn der Abend / Aus klaren Sternen lacht, / Dann bebt mir's in dem Busen / Und sehnet sich Dir zu.",
+      "language": [],
+      "musenalm_id": 132835,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Indisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Indisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "3ocrng0gn4ayqr6"
+        }
+      ],
+      "source_id": "4u6hoz9ymxtctvl"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Hält ein Zaubrer Dich verschlossen, / Weil Du nicht hernieder blickst?",
+      "language": [],
+      "musenalm_id": 132836,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Arabisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Arabisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "hpptwpw5bv1qih2"
+        }
+      ],
+      "source_id": "5yciqr9kl8nfzsb"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wär' ich ein Stern, so sollten meine Strahlen / In Deine nachtumwallte Stätte dringen!",
+      "language": [],
+      "musenalm_id": 132837,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Florentinisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Florentinisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "18y6ok7kvodtjrk"
+        }
+      ],
+      "source_id": "b4gcnhdckm1ti21"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Schon hüllte Phöbus sich ins dunkle Nachtgewand, / Das seine Schleppe legt auf dieses weite Land,",
+      "language": [],
+      "musenalm_id": 132838,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Lohensteinisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Lohensteinisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "lodk8p5j0cd9lg0"
+        }
+      ],
+      "source_id": "7ftm4mpxmcavunx"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Schau' ich zu den guld'gen Pfaden, / Wo die hellen Sternchen ziehn, / Wünsch' ich, wärens's doch Dukaten, / Sollte dann mein Glück bald blühn.",
+      "language": [],
+      "musenalm_id": 132839,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Jüdisches",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Jüdisches",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "yo3h5durnifhlp9"
+        }
+      ],
+      "source_id": "deom2mtfewzdzom"
+    },
+    {
+      "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Bin halt hier vors Fenster kommen, / Bei dem schönen Mondenschein.",
+      "language": [],
+      "musenalm_id": 132840,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / An der Donau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / An der Donau",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "iehqb3i49sfyig4"
+        }
+      ],
+      "source_id": "unebfcu1qp3wmo5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Wem nicht umsonst die Blüthensaat entsprossen, / Von Göttern mild ins Leben eingestreut,",
+      "language": [],
+      "musenalm_id": 132841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mein Lieben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mein Lieben",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "u5zdt9a9b17ppel"
+        }
+      ],
+      "source_id": "4jsqyehl6ga140u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Die letzten Sonnenstrahlen / Trinkt jener Fichtenwald, / Den sie in Purpur malen, / Schon wieder und so bald.",
+      "language": [],
+      "musenalm_id": 132842,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonnenuntergang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonnenuntergang",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "g81ntpbs215f8qn"
+        }
+      ],
+      "source_id": "yss2yb3dog2zuge"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Heinrich, ein schöner blondgelockter Knabe von sieben Jahren, mit großen blauen Augen, aus denen Liebe zu allen Menschen und Freude an der Gotteswelt strahlte,",
+      "language": [],
+      "musenalm_id": 132843,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die goldne Kugel. / Eine christliche Allegorie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die goldne Kugel. / Eine christliche Allegorie",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.094Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.094Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "k3yu1dvphlddpz2"
+        }
+      ],
+      "source_id": "depq0iiqrsnv61k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Die Rosen sind gefallen, / Die Erde ward ihr Grab, / Die jetzt getreu bewahret, / Was sie einst liebreich gab.",
+      "language": [],
+      "musenalm_id": 132844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rosen und Dornen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rosen und Dornen",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.095Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "iuf8m6pjkfxrwty"
+        }
+      ],
+      "source_id": "cz2f2bktlno9uhi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Kauft meinen Sand! Kauft meinen Sand! / Blank muß das Leben seyn;",
+      "language": [],
+      "musenalm_id": 132845,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sandmanns-Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sandmanns-Lied",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.095Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "cqxhryz1rpg73f7"
+        }
+      ],
+      "source_id": "mxo5cw5jyz46jte"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 132847, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Trüb ist's und stille hier im Schloß, / Geh, Knappe, sattle mir mein Roß. / Hinaus zur Jagd!",
+      "language": [],
+      "musenalm_id": 132846,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tannenhäuser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Tannenhäuser",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "vo38oqeriwhrdmx"
+        }
+      ],
+      "source_id": "h3rpjfh3cnqr9ja"
+    },
+    {
+      "annotation": "Illustration zu »Tannenhäuser« von G. W. A. Döring INr 132846, Obj 27; nummeriert 5; # Bez. an der Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132847,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug",
+      "scans": [
+        "alm_4858_132847_kx7rnrkoft.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "jb2qdzw5j5f7aln"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "zi6yihf1l4b7vua"
+        }
+      ],
+      "source_id": "u3s15mbeytsatna"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 132849, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.633Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Es rauschte dumpf vom Dome. Der erste Schlag der Mitternachtsglocke verkündigte den Eintritt des neuen Jahrs.",
+      "language": [],
+      "musenalm_id": 132848,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Neujahrsnacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Neujahrsnacht",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "bsij1xa0qavp3s2"
+        }
+      ],
+      "source_id": "vtkbv6di9mmn6iu"
+    },
+    {
+      "annotation": "Illustration zu »Die Neujahrsnacht« von G. C. A. Döring INr 132848, Obj 29; nummeriert 6; # Bez. an der Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.633Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132849,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug",
+      "scans": [
+        "alm_4858_132849_tg1hlhedee.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "9jdjix2kojsx6en",
+          "source_id": "hw23tb6zg1y9nhp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "zp8zg3zohg23d3s"
+        }
+      ],
+      "source_id": "xhz0fbteth417d5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Ich schlich so durch die Fluren, / In stiller Sehnsucht hin / Und suchte da die Spuren / Der lieben Nachbarin.",
+      "language": [],
+      "musenalm_id": 132850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesspuren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesspuren",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "97yyeqw9flr1ddz"
+        }
+      ],
+      "source_id": "npuz0drsvl8khri"
+    },
+    {
+      "annotation": "Sammlung von 9 Rätseln z. T. in 2 Sammlungen INr 132852-132862, Obj 33-43",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agrionien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Agrionien",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "9gsc5wq336nagzr"
+        }
+      ],
+      "source_id": "9zb2esbam4305zf"
+    },
+    {
+      "annotation": "Sammlung von 4 Rätseln INr 132853-132856, Obj 34-37 /) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charaden",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "yclinl8ofdhptb5"
+        }
+      ],
+      "source_id": "2wdysfmjlwantmb"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 132852, Obj 33) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Die erste ist des Himmels Kleid, / Die zweite Männerzierlichkeit, / Das Ganz' ein Popanz, viel gescheut.",
+      "language": [],
+      "musenalm_id": 132853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.097Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "mw9rc5et32hwq7v"
+        }
+      ],
+      "source_id": "z36towgvdawok11"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 132852, Obj 33) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Der Weisheit Gang hat einst die erst' gelehrt, / Die zweite dient zum ordinären Gang,",
+      "language": [],
+      "musenalm_id": 132854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.097Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "ex3pcb1eu9mq7nz"
+        }
+      ],
+      "source_id": "6m40gu6y4xa81bn"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 132852, Obj 33) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Die erste ist ein grünendes Gelände, / Gebildet durch die Kunst, oft durch Natur.",
+      "language": [],
+      "musenalm_id": 132855,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.097Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "2il2efre67gkkde"
+        }
+      ],
+      "source_id": "fk7esic1pntw0h3"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 132852, Obj 33) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Wenn du die erste dir errungen hast, / Das zweite Paar dir fleckenlos gewahret,",
+      "language": [],
+      "musenalm_id": 132856,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.005Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.005Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "8fxre5fbbtmqv03"
+        }
+      ],
+      "source_id": "42ye0ulc35bul0w"
+    },
+    {
+      "annotation": "Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "In Kunst und Wissen strebe nach dem Ganzen; / Ein Zeichen fort - so zähl es zu den Pflanzen",
+      "language": [],
+      "musenalm_id": 132857,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Logogryph",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.006Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.006Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "cmsoym4pae89aaz"
+        }
+      ],
+      "source_id": "aklsij8sybgzt5w"
+    },
+    {
+      "annotation": "Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Von vorn - da fürchtet jeder meinen Zahn, / Doch sieht der Schmecker mich als Leckerbissen an.",
+      "language": [],
+      "musenalm_id": 132858,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Palindrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Palindrom",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.006Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.006Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "jnvs6701f5nqnch"
+        }
+      ],
+      "source_id": "ikvz0qb7l98u3ar"
+    },
+    {
+      "annotation": "Sammlung von 3 Rätseln INr 132860-132862, Obj 41-43 /) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Homnymen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Homnymen",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.006Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.006Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "8mu9p2w70o8cihg"
+        }
+      ],
+      "source_id": "obvc0hbnthq7yef"
+    },
+    {
+      "annotation": "Homonymen (Sammlung INr 132859, Obj 40) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Auf Erden erglänzt es im köstlichen Licht, / Am Himmel wohl schimmert's doch glänzet es nicht.",
+      "language": [],
+      "musenalm_id": 132860,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.006Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.006Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "3jq3p6j77t6wqln"
+        }
+      ],
+      "source_id": "jwu2y8hehas1jhy"
+    },
+    {
+      "annotation": "Homonymen (Sammlung INr 132859, Obj 40) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Ich kann dir das Alte und Neue erklären, / Im Klang sprech' ich zu dir aus himmlischen / Sphären.",
+      "language": [],
+      "musenalm_id": 132861,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.006Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.006Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "e437k2y8mrj7wrg"
+        }
+      ],
+      "source_id": "qm8ypxrw75rlaea"
+    },
+    {
+      "annotation": "Homonymen (Sammlung INr 132859, Obj 40) Agrionien (Sammlung INr 132851, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Von Stahl und von Eisen bringts Leiden / und Schmerzen; / Von Gold wird's ersehnet von jeglichem Herzen.",
+      "language": [],
+      "musenalm_id": 132862,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.097Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.097Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "t944lt749ajna27"
+        }
+      ],
+      "source_id": "ujrs2o5teoqix68"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132863,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung der Agrionien / im vorigen Jahrgange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung der Agrionien / im vorigen Jahrgange",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "fchxqasefutsu1k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132864,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "8lk62lrvz951kqi"
+    },
+    {
+      "annotation": "Text unter dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Sämmtliche, in diesem Jahrgange enthaltene Aufsätze, sind vom Herausgeber",
+      "language": [],
+      "musenalm_id": 132865,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sämmtliche, in diesem Jahrgange enthaltene Aufsätze, sind vom Herausgeber…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "6hemvpb3mj9d7xr"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132866,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4858_132866_axqhgij23n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2023-12-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "md88hc0dt0opgnw"
+    }
   ],
   "agents": [
     {

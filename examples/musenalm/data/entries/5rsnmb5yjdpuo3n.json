@@ -48,62 +48,2509 @@
   "year": 1819,
   "editor": "",
   "items": [
-    "gmwtzhmsjekg9w5"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt.(Vorderbuchdeckel und Buchrücken stark beschädigt, Inhalt lose.)\n1819:(K:Bl 15, 320 SS,  Ku 6 und Monatsku 12.) Mit Tku 1, Bl 15, Monatsku 12, Ku 5 und 320 SS.  \n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.486Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101098",
+      "location": "105F08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.486Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gmwtzhmsjekg9w5"
+    }
   ],
   "contents": [
-    "cu9awp77l9e9e99",
-    "du200tob5fdj79u",
-    "h51slz1vzdbnilh",
-    "rf3uqmenxw36qku",
-    "gmvuqvqrboe47tb",
-    "6a28nl7l8pfdlwo",
-    "4qm95imyqurdqod",
-    "2l4432leizex4tk",
-    "4ny1idiakx9hlxi",
-    "ok3r05vi4oxyfki",
-    "yltv5w6kdtcjsuh",
-    "ycyd2w8un0i04ap",
-    "2vciwkxwlisfs7g",
-    "aawwpj8nw12uo53",
-    "05qrxx3jti1l5q5",
-    "uju24685umsvemb",
-    "8fcm4rfouxu4k1w",
-    "z5ydsc3jlusfwrb",
-    "epfwetcvza7owpn",
-    "dpbgys742277din",
-    "pfqf8bcovx95x48",
-    "1br7lfoqwc210mc",
-    "f4vja849xosmjp8",
-    "pjcmbyk5ocjpij3",
-    "ee70yf9kfcwf7ez",
-    "1pj9650t6ygu4k7",
-    "pikiir84t91yceg",
-    "lamtf45a0tanmzw",
-    "w8al5k54bi34cvw",
-    "93b0ot9ow6u81df",
-    "eh6iophtha9zeql",
-    "pdm9t60ybkjp6da",
-    "aadf2rzycn2fwkm",
-    "kkalpe24sayvs9f",
-    "l8hrr2pj9rladl0",
-    "7egghpztfpm7zhb",
-    "hib1ojua68vinez",
-    "8qgepljrj1yu3q2",
-    "f1pgtixg0c3l1ul",
-    "vfvfzq2fs70lou9",
-    "015eebuobutgsj2",
-    "ed606mylo5zj5pf",
-    "jyxvxlob91lxks4",
-    "iypew5qs3k6d9qw",
-    "736c10zdanntjjz",
-    "vsgpkhb8j1qft2f",
-    "nlnfbh65cpf6ty5",
-    "ut2qdkgk0b5avbo",
-    "rr6jgqo09915phh",
-    "tm1ds6813q56eac",
-    "b6xl1g7p0lu0oel",
-    "4zv2ju1j177i7jg",
-    "acsoykcnevvr8lc"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29539,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / Für das Jahr 1819 / der Liebe und Freundschaft / gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Westermayr fecit",
+      "scans": [
+        "alm_382_29539_cnt1klqad4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / Für das Jahr 1819 / der Liebe und Freundschaft / gewidmet",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.505Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "f0qccfda7c93ix7"
+        }
+      ],
+      "source_id": "cu9awp77l9e9e99"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29540,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+      "scans": [
+        "alm_382_29540_ufwgrgf09y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.505Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "8erervydd81cxp6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.505Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.505Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ivjnv9iit3f5czp"
+        }
+      ],
+      "source_id": "du200tob5fdj79u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29541,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1819. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn / bei den Gebrüdern Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_382_29541_ov1cqgv5f9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1819. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn / bei den Gebrüdern Wilmans",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "h51slz1vzdbnilh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29542,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "rf3uqmenxw36qku"
+    },
+    {
+      "annotation": "Sammlung von 12 Textbezügen zu 12 Graphiken INr 29544-29567, Obj 6-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29543,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunstliebhaberei / in / zwölf Bildern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunstliebhaberei / in / zwölf Bildern",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.321Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "upa6iuvf0fn46de"
+        }
+      ],
+      "source_id": "gmvuqvqrboe47tb"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29545, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Horch! rauschend schlägt die gold'nen Schwingen / Rings um uns her die Musica;",
+      "language": [],
+      "musenalm_id": 29544,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.321Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.321Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "k0o2vap5h68iowd"
+        }
+      ],
+      "source_id": "6a28nl7l8pfdlwo"
+    },
+    {
+      "annotation": "paginiert 1. /) s. Textbezug INr 29544, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29545,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29545_8alpjvi8q7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.322Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5g9a670went0vh6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.322Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "jiygxyel64fx1ih"
+        }
+      ],
+      "source_id": "4qm95imyqurdqod"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29547, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Das Herz wird unverschämt in Tönen, / Rohfordernd schreit's aus voller Brust,",
+      "language": [],
+      "musenalm_id": 29546,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.322Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.322Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "u4sem7cmu33f54p"
+        }
+      ],
+      "source_id": "2l4432leizex4tk"
+    },
+    {
+      "annotation": "paginiert 2. /) s. Textbezug INr 29546, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29547,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29547_o1ragjgypr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "00r19lan73267h6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "wv9zwibfoyvutcp"
+        }
+      ],
+      "source_id": "4ny1idiakx9hlxi"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29549, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.043Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Was leidet nicht die zarte Psyche, / Wenn sie zum kühlen Brunnen geht,",
+      "language": [],
+      "musenalm_id": 29548,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "dhdvu8doo4zhpjf"
+        }
+      ],
+      "source_id": "ok3r05vi4oxyfki"
+    },
+    {
+      "annotation": "paginiert 3. /) s. Textbezug INr 29548, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.043Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29549,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29549_u5uod7e6yg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "972e4sqmzgb36zb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "heuw5596efjstao"
+        }
+      ],
+      "source_id": "yltv5w6kdtcjsuh"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29551, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Noch wird, das Herz an Kunst zu weiden, / Oft häuslich-grob die Lust geschreckt:",
+      "language": [],
+      "musenalm_id": 29550,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "x8if71l5teoa2jx"
+        }
+      ],
+      "source_id": "ycyd2w8un0i04ap"
+    },
+    {
+      "annotation": "paginiert 4. /) s. Textbezug INr 29550, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29551,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29551_a5krr10uoj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "3a1rqh06p9i95qx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.348Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "zpnalalo9lxfda3"
+        }
+      ],
+      "source_id": "2vciwkxwlisfs7g"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29553, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Theaterkünstler zogen neulich / Vorbei mit Prinzen, Drachen, Fee'n",
+      "language": [],
+      "musenalm_id": 29552,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.527Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.527Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ttln92y35ua7ty4"
+        }
+      ],
+      "source_id": "aawwpj8nw12uo53"
+    },
+    {
+      "annotation": "paginiert 5. /) s. Textbezug INr 29552, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29553,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29553_wtc8qc8n8v.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.334Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.334Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "1ttvabyxrbfxvqv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.334Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.334Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "g3ga8q3yfz3i753"
+        }
+      ],
+      "source_id": "05qrxx3jti1l5q5"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29555, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Doch ach! das Schicksal, kaum zerrissen / Hat's auf der Bühne manches Band,",
+      "language": [],
+      "musenalm_id": 29554,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "gja7v0uenqsvj5d"
+        }
+      ],
+      "source_id": "uju24685umsvemb"
+    },
+    {
+      "annotation": "paginiert 6. /) s. Textbezug INr 29554, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29555,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29555_0wmllxx3ry.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "a7jixdeo5zip1r5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ln0xmnbef8f7mn1"
+        }
+      ],
+      "source_id": "8fcm4rfouxu4k1w"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29557, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Bei Schätzel spielt noch im Gehirne / Clara von Hoheneichen fort;",
+      "language": [],
+      "musenalm_id": 29556,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "20q1wgcvlt03mcx"
+        }
+      ],
+      "source_id": "z5ydsc3jlusfwrb"
+    },
+    {
+      "annotation": "paginiert 7. /) s. Textbezug INr 29556, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.942Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29557,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29557_cquc7eu656.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "vpt34hv7084p2lg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zox9h5hdlh5rz1g"
+        }
+      ],
+      "source_id": "epfwetcvza7owpn"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29559, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es lag ein munt'res Städtchen drüben, / Vom Vaterland nicht allzu weit,",
+      "language": [],
+      "musenalm_id": 29558,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "xnq1dzoexe1k1ng"
+        }
+      ],
+      "source_id": "dpbgys742277din"
+    },
+    {
+      "annotation": "paginiert 8. /) s. Textbezug INr 29558, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29559,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29559_7vioe3xq14.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.335Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.335Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "0ouhasraasbkfoy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.336Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.336Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "m4cduiq8klniqwa"
+        }
+      ],
+      "source_id": "pfqf8bcovx95x48"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29561, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "So Mancher, den die Liebe plagte, / Der strenger Pflicht nicht gern gehorcht,",
+      "language": [],
+      "musenalm_id": 29560,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.336Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.336Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "6kq4p5iqoqvqb65"
+        }
+      ],
+      "source_id": "1br7lfoqwc210mc"
+    },
+    {
+      "annotation": "paginiert 9. /) s. Textbezug INr 29560, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29561,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29561_9e5g58244e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.382Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "j8i45nhyro5sm5w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.382Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ozwvtvdvhk4i4uq"
+        }
+      ],
+      "source_id": "f4vja849xosmjp8"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29563, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Doch brach ein stärkeres Gewitter / Bald am Theaterhimmel los:",
+      "language": [],
+      "musenalm_id": 29562,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.382Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "fttprejummdgm5u"
+        }
+      ],
+      "source_id": "pjcmbyk5ocjpij3"
+    },
+    {
+      "annotation": "paginiert 10. /) s. Textbezug INr 29562, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29563,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29563_h8et4crcg2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.382Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "3lee7l6wlunhxgd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.382Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "lisjz4ry2dpjoq0"
+        }
+      ],
+      "source_id": "ee70yf9kfcwf7ez"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29565, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wenn Kunst und Liebe sich beglücken, / Schwingt Phantasie sich himmelan,",
+      "language": [],
+      "musenalm_id": 29564,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ok1trlss9fwkiik"
+        }
+      ],
+      "source_id": "1pj9650t6ygu4k7"
+    },
+    {
+      "annotation": "paginiert 11. /) . Textbezug INr 29564, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29565,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29565_6ca1n34y2t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "lw55f9sdfwna1lw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "wubu2ks0sp4ubut"
+        }
+      ],
+      "source_id": "pikiir84t91yceg"
+    },
+    {
+      "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29567, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Brauherr, oft der Stadt Gelächter, / Hob in der Kunst sich mehr und mehr,",
+      "language": [],
+      "musenalm_id": 29566,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "ogvq4cqhyr4tv4j"
+        }
+      ],
+      "source_id": "lamtf45a0tanmzw"
+    },
+    {
+      "annotation": "paginiert 12. /) s. Textbezug INr 29566, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29567,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_382_29567_9o3cdjw02b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "0pkhnmg3q9s86dh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "jczkvloxdxg36n0"
+        }
+      ],
+      "source_id": "w8al5k54bi34cvw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29569, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Don Martin de Peralta, ein Navarrischer Ritter, der nothgedrungen sein Vaterland hatte verlassen müssen,",
+      "language": [],
+      "musenalm_id": 29568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Das Lustschloß der schönen Laura. / Novelle / aus dem Spanischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Das Lustschloß der schönen Laura. / Novelle / aus dem Spanischen",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "93b0ot9ow6u81df"
+    },
+    {
+      "annotation": "Illustration zu »Das Lustschloß der schönen Laura« INr 29568, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29569,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Das Lustschloß der schönen Laura. / Eine Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fecit",
+      "scans": [
+        "alm_382_29569_xzppevrwv2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Das Lustschloß der schönen Laura. / Eine Novelle",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "54qkh2oa5sid48z"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "x3lbl45xeef9595"
+        }
+      ],
+      "source_id": "eh6iophtha9zeql"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29571, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.433Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Die Stürme brausen durch die Wipfel, / Ach dunkel wird's im öden Wald,",
+      "language": [],
+      "musenalm_id": 29570,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Das verlorne Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Das verlorne Kind",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "cqptl9awtejum1d"
+        }
+      ],
+      "source_id": "pdm9t60ybkjp6da"
+    },
+    {
+      "annotation": "Illustration zu »Das verlorne Kind« von L. Brachmann INr 29570, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Das verlorne Kind. / Von Louise Brachmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp",
+      "scans": [
+        "alm_382_29571_ufczd0e5m8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Das verlorne Kind. / Von Louise Brachmann",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gn4ck14xsz62yk4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "wy3kchqiq4bv1lo"
+        }
+      ],
+      "source_id": "aadf2rzycn2fwkm"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29573, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Das ganze Concert lachte. Caper trat als Sänger auf, der Ton versagte ihm zuletzt,",
+      "language": [],
+      "musenalm_id": 29572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Muthwilligen. / Eine Arabeske",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Muthwilligen. / Eine Arabeske",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "g5mxxa2naurdzj8"
+        }
+      ],
+      "source_id": "kkalpe24sayvs9f"
+    },
+    {
+      "annotation": "Illustration zu »Die Muthwilligen« von St. Schütze INr 2952, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Die Muthwilligen. / Eine Arabeske von St. Schütze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+      "scans": [
+        "alm_382_29573_3ghkxydasg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Die Muthwilligen. / Eine Arabeske von St. Schütze",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "07yp0c6pp617gkr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.383Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.383Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "7bsltavnkaxiwlm"
+        }
+      ],
+      "source_id": "l8hrr2pj9rladl0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.096Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Das Herz will sich nicht selbst genügen, / Es sehnet sich zurück zur Welt,",
+      "language": [],
+      "musenalm_id": 29574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Das Wunder der Erkenntniß. / Eine Rhapsodie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Das Wunder der Erkenntniß. / Eine Rhapsodie",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.458Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "x5v6ve2qqaveuuw"
+        }
+      ],
+      "source_id": "7egghpztfpm7zhb"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29576, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Mein Wunsch, das schöne, gesellige Berlin wieder zu sehen, war endlich erfüllt.",
+      "language": [],
+      "musenalm_id": 29575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der Verhaßte. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der Verhaßte. / Erzählung",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.473Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "zgsnn9nj0gw3rsq"
+        }
+      ],
+      "source_id": "hib1ojua68vinez"
+    },
+    {
+      "annotation": "Illustration zu »Der Verhaßte« von Fr. Laun d. i. F. A. Schulze INr 29575, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Der Verhaßte. Von Fr. Laun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+      "scans": [
+        "alm_382_29576_f18mc2eoj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Der Verhaßte. Von Fr. Laun",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "oi0zcip0gmgrogl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "wjw4dkkp9thwccp"
+        }
+      ],
+      "source_id": "8qgepljrj1yu3q2"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29578, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.196Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Der Jäger und Klärchen, das traute Paar, / Sie standen beisammen im Dunkeln,",
+      "language": [],
+      "musenalm_id": 29577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Der Pfaffe und sein Esel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Der Pfaffe und sein Esel",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "f2fm8hf44nmduom"
+        }
+      ],
+      "source_id": "f1pgtixg0c3l1ul"
+    },
+    {
+      "annotation": "Illustration zu »Der Pfaffe und der Esel« von A. F. E. Langbein INr 29577, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Der Pfaffe und sein Esel. / von Langbein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fecit",
+      "scans": [
+        "alm_382_29578_mswtwxqsb8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Der Pfaffe und sein Esel. / von Langbein",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "1y9x8lfocmlvvkx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "u2ach73imli6lbs"
+        }
+      ],
+      "source_id": "vfvfzq2fs70lou9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Mit diesem Namen war in dem Catalog der Kunstwerke, die die Akademie der Künste zu Berlin im September 1816 ausstellte, ein Bild bezeichnet, das der wackere tüchtige C. Kolbe, Mitglied der Akademie, gemalt hatte,",
+      "language": [],
+      "musenalm_id": 29579,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Doge und Dogaresse. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. T. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Doge und Dogaresse. / Eine Erzählung",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "hhytu0neum83euj",
+          "source_id": "7b8rgwoeg4mqb4z"
+        }
+      ],
+      "source_id": "015eebuobutgsj2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Kann es Außen stürmisch seyn, / Wo Arkadiens Sterne funkeln?",
+      "language": [],
+      "musenalm_id": 29580,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. Beim Sturm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Helmina von Chezy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. Beim Sturm",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "t0u8s6dmliqgl2d",
+          "source_id": "9hnmf572f6xmgl4"
+        }
+      ],
+      "source_id": "ed606mylo5zj5pf"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 29582-295884, Obj 43-46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29581,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. Vermischte Gedichte",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "jyxvxlob91lxks4"
+    },
+    {
+      "annotation": "IX. Vermischte Gedichte (Sammlung INr 25981, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Wie sie ruht, in Blütenflocken, / Sanft in Schlummer eingewiegt!",
+      "language": [],
+      "musenalm_id": 29582,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Tristan, an die schlummernde Amanda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Tristan, an die schlummernde Amanda",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "10sdd8j5qo42ma3"
+        }
+      ],
+      "source_id": "iypew5qs3k6d9qw"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem I-Verz /) IX. Vermischte Gedichte (Sammlung INr 25981, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Ihr holden Geister mit den gold'nen Schwingen / Ihr Töne wonnevoll!",
+      "language": [],
+      "musenalm_id": 29583,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Sophie, an ihre Mutter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst, Fr. v. d. M",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Sophie, an ihre Mutter",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "5wsnt3tvxeqdo0h"
+        }
+      ],
+      "source_id": "736c10zdanntjjz"
+    },
+    {
+      "annotation": "IX. Vermischte Gedichte (Sammlung INr 25981, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "Mein theures Kind, du hast so süß, / So sanft zu mir gesungen,",
+      "language": [],
+      "musenalm_id": 29584,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Sophiens Mutter, an ihre Tochter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst, Freih. v. d. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Sophiens Mutter, an ihre Tochter",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "tkmhk46tl88036u"
+        }
+      ],
+      "source_id": "vsgpkhb8j1qft2f"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 29586-29590, Obj 48-52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29585,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. Tändeleien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. Tändeleien",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "nlnfbh65cpf6ty5"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29585, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Theilnehmend weißt du aus der Seele / Den Gram zu locken, und mit Zaubersinn / Ihn zu beschwören, holde Trösterin!",
+      "language": [],
+      "musenalm_id": 29586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Guido an Ninon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Guido an Ninon",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.474Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.474Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "27da1xsfgy058s0"
+        }
+      ],
+      "source_id": "ut2qdkgk0b5avbo"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29585, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "Ihr fragt: Wie alt ist Klare? / Und gebt mir zu versteh'n:",
+      "language": [],
+      "musenalm_id": 29587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Klärchens Alter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Klärchens Alter",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "6rnuoeuumv7yp75"
+        }
+      ],
+      "source_id": "rr6jgqo09915phh"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29585, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "Ein Vöglein flog durch Wald und Feld, / Viel Netze waren aufgestellt,",
+      "language": [],
+      "musenalm_id": 29588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Vöglein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Niemeyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Vöglein",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "tm1ds6813q56eac"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29585, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Der Abendstern ist aufgegangen / Ich seh ihn stets mit hoher Lust;",
+      "language": [],
+      "musenalm_id": 29589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der Abendstern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der Abendstern",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "b6xl1g7p0lu0oel"
+    },
+    {
+      "annotation": "Tändeleien (Sammlung INr 29585, Obj 47)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.457Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Gluth bin ich, Eis und Gluth, bin furchtsam und / verwegen;",
+      "language": [],
+      "musenalm_id": 29590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Als Sie mich um ein Räthsel bat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Als Sie mich um ein Räthsel bat",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "k9sh1jcb0df072d"
+        }
+      ],
+      "source_id": "4zv2ju1j177i7jg"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.549Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32488,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frankfurt a./M. bey / Gebrüder Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Westermayr fecit",
+      "scans": [
+        "alm_382_32488_f2fz9ekvsu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frankfurt a./M. bey / Gebrüder Wilmans",
+      "updated": "2002-10-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.666Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "bye0mgh0k419d11"
+        }
+      ],
+      "source_id": "acsoykcnevvr8lc"
+    }
   ],
   "agents": [
     {

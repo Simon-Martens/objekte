@@ -48,16 +48,319 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "sd44woqu2xadrc0"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.528Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404248",
+      "location": "105F06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.528Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "sd44woqu2xadrc0"
+    }
   ],
   "contents": [
-    "n0m2hugt6w3jkpt",
-    "yzw0l0reuu41gmc",
-    "s677do8qab6f9w9",
-    "b24x82zeruby86u",
-    "1yq6ojik7l9y6k6",
-    "6g0vmn57ug8l9qk",
-    "z245to1nyn4o2sv"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61138,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Psyche / Ein Taschenbuch / für das Jahr / 1825 / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Psyche / Ein Taschenbuch / für das Jahr / 1825 / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "n0m2hugt6w3jkpt"
+    },
+    {
+      "annotation": "Nachtitel /) Dem Titel als Motto beigegeben: Greift nur hinein in's volle Menschenleben, / Ein Jeder lebt's, nicht Vielen ist's bekannt, / Und wo Ihr's faßt, da ist's interessant. / (Göthe im Faust.)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.402Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61139,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei Erzählungen / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Talvi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei Erzählungen / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.931Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.931Z",
+          "agent": "7h2sz4yxt1ki0lh",
+          "source_id": "8iyvj1aej5faeoy"
+        }
+      ],
+      "source_id": "yzw0l0reuu41gmc"
+    },
+    {
+      "annotation": "Vorwort des Herausgeberin und Autorin",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.510Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Geneigte Leser! Ich bin immer der Meinung gewesen, daß ästhetische Produktionen sich selbst rechtfertigen und verständlich machen müßten.",
+      "language": [],
+      "musenalm_id": 61140,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Talvi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort!",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.937Z",
+          "agent": "7h2sz4yxt1ki0lh",
+          "source_id": "5p7elw6sqysidwl"
+        }
+      ],
+      "source_id": "s677do8qab6f9w9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.510Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 61141,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "b24x82zeruby86u"
+    },
+    {
+      "annotation": "Dem Text  vorangestellt: Wie vom Blitz zum Metall, vom Magnet zum Eisen / Geht ein Zug, ein geheimnißvoller Zug, / Vom Menschen zum Menschen, von Brust zu Brust [...] Grillparzer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Als Albertine v. Horneck in ihrem zwanzigsten Jahre zum zweiten Male die Residenz betrat, waren die Augen der ganzen eleganten Welt auf sie gerichtet.",
+      "language": [],
+      "musenalm_id": 61142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rache",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Talvi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rache",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.938Z",
+          "agent": "7h2sz4yxt1ki0lh",
+          "source_id": "k7i7xe54opg5e4z"
+        }
+      ],
+      "source_id": "1yq6ojik7l9y6k6"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Wer unter Euch ohne Sünde ist, der werfe den ersten Stein auf sie! [...] / Evang. Joh. Cap. 8, V. 7 und 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Im Jahre 1678, als noch innere Kriege das Königreich Ungarn zerrissen, verheirathete sich zu Preßburg ein reicher Edelmann, Namens Andreas Opray, nachdem er bereits sein fünf und sechzigstes Lebensjahr zurückgelegt,",
+      "language": [],
+      "musenalm_id": 61143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Menschliche Schwäche",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Talvi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Menschliche Schwäche",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.938Z",
+          "agent": "7h2sz4yxt1ki0lh",
+          "source_id": "o1ucid5vu7sc2yl"
+        }
+      ],
+      "source_id": "6g0vmn57ug8l9qk"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: O das ist es eben, das so manche edle Menschen ihr Herz verschenken müssen an Mittelmäßige, weil gerade kein andrer da ist; [...] / Fr. Horn",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Malwine, die Tochter eines berühmten deutschen Gelehrten, war vier und zwanzig Jahre alt geworden, ohne auch nur eine Anflug dessen kennen gelernt zu haben, was man gemeiniglich ausschließlich unter dem Namen Liebe versteht.",
+      "language": [],
+      "musenalm_id": 61144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verfehlte Bestimmung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Talvi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verfehlte Bestimmung",
+      "updated": "2008-11-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.938Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.938Z",
+          "agent": "7h2sz4yxt1ki0lh",
+          "source_id": "loqaod1vz1i3t1d"
+        }
+      ],
+      "source_id": "z245to1nyn4o2sv"
+    }
   ],
   "agents": [
     {

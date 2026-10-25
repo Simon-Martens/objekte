@@ -68,7 +68,10 @@ document.addEventListener('submit', async event => {
   if (!restore) { restore = document.createElement('input'); restore.type='hidden'; restore.name='restore'; form.append(restore); }
   try { restore.value = id ? sessionStorage.getItem(inputPrefix+id) ?? '' : ''; } catch { restore.value=''; }
   prepared.add(form);
-  form.requestSubmit(submitter);
+  // Browsers ignore requestSubmit while the original submit is still dispatching.
+  // The expired-draft branch above has no await of its own.
+  await new Promise(resolve => setTimeout(resolve, 0));
+  if (form.isConnected) form.requestSubmit(submitter);
 }, true);
 const started = new WeakSet<HTMLFormElement>();
 let lastClosed = '';
@@ -114,6 +117,7 @@ export function syncDraft() {
 
 // Preserve input not yet submitted, including invalid values, across a refresh.
 document.addEventListener('input', event => {
+  if ((event.target as Element)?.closest('server-picker, [data-choice-input]')) return;
   const form = (event.target as Element)?.closest<HTMLFormElement>('#record-form');
   const id = document.querySelector<HTMLElement>('#workspace')?.dataset.draftId;
   if (!form || !id) return;

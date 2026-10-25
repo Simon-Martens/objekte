@@ -48,40 +48,1153 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "6xoehfydq7ghxnx"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.536Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404850",
+      "location": "105P04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.536Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6xoehfydq7ghxnx"
+    }
   ],
   "contents": [
-    "09isumdnqang55n",
-    "vhy3bpxjb54qrdp",
-    "ucnjvkoxbuo0osl",
-    "v71551h7ztnijyk",
-    "t2ewzv7w21n2qgg",
-    "2rwyowasko62bjn",
-    "w6j6680aimk1lc2",
-    "9vcvroclg82786o",
-    "s7h5wq1v5uoozwy",
-    "n1nzrs7p00of1l3",
-    "wof1krrmb80v6fa",
-    "e07g18ysx7go409",
-    "9uj95vommv04e4t",
-    "p87lse9lwhr9wpc",
-    "6dqkembdnoay9tu",
-    "yjx8up3jb52yjp7",
-    "1x4kwh3ybe3pja0",
-    "3j7k7f0y87c2hie",
-    "iv8jfnv3lrugc58",
-    "2hab6jferpc7rjg",
-    "grvwk1q6jn2ktt1",
-    "yrhwj11gxjnijed",
-    "qr5rjwcmkszmfk8",
-    "czevzppq2xhz7mp",
-    "w5ci4v7jr2hgvll",
-    "h8d23h5zydnmah8",
-    "9d0dfu5umki06ui",
-    "6shjn5gumin7e8f",
-    "60orrbyx3dfw2xx",
-    "dgda7b55mfefddc",
-    "yfegf2xycdn7ae4"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66123,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1114_66123_utbyqftdg6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "09isumdnqang55n"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. G. Endner del. et sculps. Leipz.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Endner del. et sculps. Leipz.",
+      "scans": [
+        "alm_1114_66124_j1fnmuijq4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.104Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.104Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "5m361un20wrztkj"
+        }
+      ],
+      "source_id": "vhy3bpxjb54qrdp"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Forst- und Jagd- / Kalender / für das Jahr / 1800. / Mit Kupfern. / Leipzig. / bei Karl Wilhelm Küchler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1114_66125_ad3g2ghgjx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Forst- und Jagd- / Kalender / für das Jahr / 1800. / Mit Kupfern. / Leipzig. / bei Karl Wilhelm Küchler",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ucnjvkoxbuo0osl"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im gegenwärtigen siebenten Jahrgange hoffe ich die Wünsche meiner Leser in eben dem Grade, wie in den vorhergehenden Jahrgängen, befriedigt zu haben",
+      "language": [],
+      "musenalm_id": 66126,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. G. Leonhardi, ordentl. Prof. der Oekonomie zu Leipzig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.104Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.104Z",
+          "agent": "u39rqutfrws01lt",
+          "source_id": "thbwsnshtd7svzx"
+        }
+      ],
+      "source_id": "v71551h7ztnijyk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66127,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "t2ewzv7w21n2qgg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66128,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "2rwyowasko62bjn"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Forst- / und / Jagdkalender",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Forst- / und / Jagdkalender",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "w6j6680aimk1lc2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wenn ich nicht befürchten müßte, durch eine Beschreibung der Nonne und der durch sie verursachten, großen Verheerungen, andre zu wiederhohlen und meine Leser mit Sachen zu unterhalten, die ihnen nunmehro längst bekannt sind,",
+      "language": [],
+      "musenalm_id": 66130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Auf / Erfahrung gegründete Vorschläge, / die Waldraupe / Nonne, / genannt, / Phalaena Bombyx Monacha, / zu vertilgen, / ihrer Vermehrung vorzubeugen und das / von ihr abgefressene Nadelholz vor / dem Absterben zu sichern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Auf / Erfahrung gegründete Vorschläge, / die Waldraupe / Nonne, / genannt, / Phalaena Bombyx Monacha, / zu vertilgen, / ihrer Vermehrung vorzubeugen und das / von ihr abgefressene Nadelholz vor / dem Absterben zu sichern",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "9vcvroclg82786o"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 661132, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Das kleine gemeine Wiesel - Mustela vulgaris seu nivalis Lin. la Belette Buff. the common Weesel Penn. - Hauswiesel, Scheicherwiesel, Scheunenwiesel und in Thüringen Heermännchen - gehört nach dem Linneischen System zur dritten Ordnung",
+      "language": [],
+      "musenalm_id": 66131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Naturgeschichte / des kleinen gemeinen Wiesels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Naturgeschichte / des kleinen gemeinen Wiesels",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "s7h5wq1v5uoozwy"
+    },
+    {
+      "annotation": "paginiert 1. /) kol. Illustration zu »Naturgeschichte des kleinen gemeinen Wiesels« INr 66131, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. G. Endner fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Endner fec.",
+      "scans": [
+        "alm_1114_66132_d01ujqkmoc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.239Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "mj72woeuhv3xq4b"
+        }
+      ],
+      "source_id": "n1nzrs7p00of1l3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Mehrere mahle ist meinem Zirkel bey dem gegenwärtigen Mangel an Feldhühnern gestritten und gesprochen worden,",
+      "language": [],
+      "musenalm_id": 66133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber / das / Einfangen / der / Reb- oder Feldhühner. / Eingesendet vom Jäger Christoph Lehmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jäger Christoph Lehmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber / das / Einfangen / der / Reb- oder Feldhühner. / Eingesendet vom Jäger Christoph Lehmann",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "wof1krrmb80v6fa"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66135, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Die Rohrdommel - Ardea Stellaris Lin. de Butor Buff. the Bittern Penn. - Imprump; Wasserochse; Moosreiher; Mooskrähe; Moosochse, Usrind, Meerrind; Rohrpompe, Moosriegel; Erdbull;",
+      "language": [],
+      "musenalm_id": 66134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Naturgeschichte / der / Rohrdommel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Naturgeschichte / der / Rohrdommel",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "e07g18ysx7go409"
+    },
+    {
+      "annotation": "# Bez. an der 1. Illustration /) paginiert 3. /) kol. Illustration zu »Naturgeschichte der Rohrdommel« INr 66134, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. G. Endner fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Endner fec.",
+      "scans": [
+        "alm_1114_66135_xl5rn096v5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.239Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.239Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "gztprniszqmktqm"
+        }
+      ],
+      "source_id": "9uj95vommv04e4t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Wenn es auch nicht geläugnet werden kann, daß die Bewirthschaftung der Laubholzforsten auf Ober- und Unterholz zugleich manche Fehler hat,",
+      "language": [],
+      "musenalm_id": 66136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Von / den / Laßreisern / In Forsten, / Wo zugleich auf Ober- und Unterholz ge- / wirthschaftet werden muß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Von / den / Laßreisern / In Forsten, / Wo zugleich auf Ober- und Unterholz ge- / wirthschaftet werden muß",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "p87lse9lwhr9wpc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Zu den praktischen Jägerarbeiten gehört nach dem Erlegen eines Stück Wildpreths das Aufbrechen, Zerwürken und Zerlegen desselben,",
+      "language": [],
+      "musenalm_id": 66137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Von dem / Aufbrechen, Zerwürken / Zerlegen / des / Wildpreths",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Von dem / Aufbrechen, Zerwürken / Zerlegen / des / Wildpreths",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "6dqkembdnoay9tu"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66139, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "In der Naturgeschichte der Thiere machen die Fische - Pisces - die vierte Classe aus, welche vom Linne in sechs Ordnungen abgetheilt worden sind. Die vierte Ordnung, wozu auch der Lachs - Salmo - gehört, enthält die sogenannten Bauchflossler - Adominales",
+      "language": [],
+      "musenalm_id": 66138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Naturgeschichte / des / Lachs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Naturgeschichte / des / Lachs",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "yjx8up3jb52yjp7"
+    },
+    {
+      "annotation": "# Bez. an der 1. Illustration /) paginiert 2 /) kol. Illustration zu »Naturgeschichte des Lachses« INr 66138, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. G. Endner fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Endner fec.",
+      "scans": [
+        "alm_1114_66139_it72w90hnr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.044Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.044Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "yiq996hhgrcv768"
+        }
+      ],
+      "source_id": "1x4kwh3ybe3pja0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Im vierten Jahre der Republik (1795) gegen das Ende des Germinals (Aprils) ließ der Bürger Coulomb mehrere große Pappeln fällen, in welchen der Saft schon zu steigen angefangen",
+      "language": [],
+      "musenalm_id": 66140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Versuche / über den / Umlauf des Saftes / in / den Bäumen. / Aus einer Abhandlung des Bürgers / Coulomb in dem Magaz. Encyclop.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bürger Coulomb",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Versuche / über den / Umlauf des Saftes / in / den Bäumen. / Aus einer Abhandlung des Bürgers / Coulomb in dem Magaz. Encyclop.",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "3j7k7f0y87c2hie"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "134",
+      "incipit_statement": "Keine zur Classe der Kiesel - Silex - gehörigen Steine, wie die Achate, Chalcedone, u.a.m. können zu Flintensteinen verarbeitet werden;",
+      "language": [],
+      "musenalm_id": 66141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Von der / Natur der Flintensteine / und / der Kunst sie zu hauen. / Ausgezogen aus einer im Institut National vom Bürger Dolomieu vorgele- / senen Abhandl. f. Magaz. Encyclop.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Von der / Natur der Flintensteine / und / der Kunst sie zu hauen. / Ausgezogen aus einer im Institut National vom Bürger Dolomieu vorgele- / senen Abhandl. f. Magaz. Encyclop.",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "iv8jfnv3lrugc58"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Lack zum Mahlen und Zeichnen von einer rothen feuerbeständigen Farbe hat Herr Marggraf erfunden;",
+      "language": [],
+      "musenalm_id": 66142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Geschichte / nützlicher Erfindungen, / welche / den Forstwirth / überhaupt und insbesondere angehen. / (Fortsetzung von 1799 S. 223.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Geschichte / nützlicher Erfindungen, / welche / den Forstwirth / überhaupt und insbesondere angehen. / (Fortsetzung von 1799 S. 223.)",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "2hab6jferpc7rjg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 66144, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Die gemeine Kröte - Rana Bufo Lin.; Crapau Buff. - s. Taf. 4. gehört nach dem Linneischen Natursysteme zur Classe der Amphibien",
+      "language": [],
+      "musenalm_id": 66143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Naturgeschichte / der / gemeinen Kröte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Naturgeschichte / der / gemeinen Kröte",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "grvwk1q6jn2ktt1"
+    },
+    {
+      "annotation": "# vollst. Bez. an der 1. Illustration /) paginiert 4 /) kol. Illustration zu »Naturgeschichte der gemeinen Kröte« INr 66143, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.069Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. f.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. f.",
+      "scans": [
+        "alm_1114_66144_vh5yx7cuct.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.044Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.044Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "a6ka9w2zt1hiyqd"
+        }
+      ],
+      "source_id": "yrhwj11gxjnijed"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Zu den vorzüglichen Eigenschaften eines Jägers gehört ohne allen Zweifel die Kunst im Fluge und in der Flucht richtig zu schießen und zu treffen.",
+      "language": [],
+      "musenalm_id": 66145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Ueber / das / Flug- und Fluchtschießen. / (Eingesendet von einem Jäger.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ein Jäger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Ueber / das / Flug- und Fluchtschießen. / (Eingesendet von einem Jäger.)",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "qr5rjwcmkszmfk8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.968Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "In dem gesegneten, sonst so gepriesenen und izt durch den Kreutzzug der republikanischen Franzosen unter der Anführung des Siegeshelden Buonaparte wiederum die Aufmerksamkeit der ganzen gesitteten Welt auf sich ziehenden Aegypten,",
+      "language": [],
+      "musenalm_id": 66153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII. / Ueber / die verschiedenen Arten / des / Fischfanges und Vogelfanges / in Aegypten. / Aus den Nouv. Mémoires de Mis- / sions etc. T. VI. pg. 229-255 / frey übersetzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIII. / Ueber / die verschiedenen Arten / des / Fischfanges und Vogelfanges / in Aegypten. / Aus den Nouv. Mémoires de Mis- / sions etc. T. VI. pg. 229-255 / frey übersetzt",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "czevzppq2xhz7mp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Jedem Leser von Forstschriften werden ohnstreitig sowohl die Lobpreisungen der Acazie des Herrn R. R. Medicus und die vom Herrn F. R. Hartig dagegen gemachten gründlichen Einwendungen",
+      "language": [],
+      "musenalm_id": 66146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIV. / Auf / Erfahrung gegründeter Beweiß, / daß die / Eller, Betulus Alnus, / und die / carolinische Pyramiden-Pappel, / Populus nigra carolensis, / an Schnellwüchsigkeit und Ertrage die / meissten und andern Laubhölzer / übertrifft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XIV. / Auf / Erfahrung gegründeter Beweiß, / daß die / Eller, Betulus Alnus, / und die / carolinische Pyramiden-Pappel, / Populus nigra carolensis, / an Schnellwüchsigkeit und Ertrage die / meissten und andern Laubhölzer / übertrifft",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "w5ci4v7jr2hgvll"
+    },
+    {
+      "annotation": "mit zwei  Illustrationen s. Graphiken INr 66148, 66149; Obj 27, 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Der Erlenspinner oder Cameelraupenspinner - Phal. Bomb. Cameliana - franz. La Crête de Coq; Geoffr. und holländ. Kroon-Vogeltje",
+      "language": [],
+      "musenalm_id": 66147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XV. / Naturgeschichte / des / Erlenspinners / oder / Cameelraupenspinners",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XV. / Naturgeschichte / des / Erlenspinners / oder / Cameelraupenspinners",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "h8d23h5zydnmah8"
+    },
+    {
+      "annotation": "# Bez. an der 1. Illustration /) paginiert 6 /) kol. Illustration zu »Naturgeschichte des Erlenspinners oder Cameelraupenspinners« INr 66147, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. G. Endner fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "G. G. Endner fec.",
+      "scans": [
+        "alm_1114_66148_tcamk5kcaf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.346Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "sqawdhbxp6s95bp"
+        }
+      ],
+      "source_id": "9d0dfu5umki06ui"
+    },
+    {
+      "annotation": "# vollst. Bez. an der 1. Illustration /) paginiert 5 /) kol. Illustration zu »Naturgeschichte des Erlenspinners oder Cameelraupenspinners« INr 66147, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.976Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. f.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. f.",
+      "scans": [
+        "alm_1114_66149_9jwrpwas6x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.346Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.346Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "spyle34ahgzonok"
+        }
+      ],
+      "source_id": "6shjn5gumin7e8f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Von den nordamerikanischen Nadelhölzern passen weniger Arten als von den Laubhölzern für Teutschlands Clima und Waldungen;",
+      "language": [],
+      "musenalm_id": 66150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVI. / Beschreibung / einiger / nordamerikanischer Holzarten, / deren / holzgerechte und forstmäßige Anpflanzung / in Deutschland in den Waldungen und in / Gartenanlagen statt findet.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVI. / Beschreibung / einiger / nordamerikanischer Holzarten, / deren / holzgerechte und forstmäßige Anpflanzung / in Deutschland in den Waldungen und in / Gartenanlagen statt findet.",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "60orrbyx3dfw2xx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Auf Freund! eh noch der Morgenstern erbleichet, / Eh selbst Aurorens Blick den Horizont / erreichet!",
+      "language": [],
+      "musenalm_id": 66151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XVII. / Die / Klapper- oder Treib- Jagd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. von Beyer aus Berlin 1794",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XVII. / Die / Klapper- oder Treib- Jagd",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "dgda7b55mfefddc"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 66152,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1114_66152_x47arfisrs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-08-19 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "yfegf2xycdn7ae4"
+    }
   ],
   "agents": [
     {

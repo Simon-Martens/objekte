@@ -48,39 +48,1302 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "9yopvavxna4d7hz"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit Muster und Goldschnitt.\n1843: (K: M.8 Stahlst.) Mit Port 1, TKu 1, Ku 7, XXXII und 423 SS.\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\nAuch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.503Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100783",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9yopvavxna4d7hz"
+    }
   ],
   "contents": [
-    "m5t69yui175r36b",
-    "elxk2rxlz0b4thp",
-    "b6v12ccg6m5g86n",
-    "rga4bgi6alhqptd",
-    "xh90ykldxje1mhs",
-    "t99kz7tx44uk3rd",
-    "tdub6a2rag3drlv",
-    "ny30sunxnf0by3z",
-    "qd4jwk0da4ygxon",
-    "isb89i2jhhsd5dw",
-    "pjfy1j71ruqxsdw",
-    "xauvshl172ugk0c",
-    "vzlpdrehv6rtsi0",
-    "yx4mexi8hnre4bv",
-    "oh05va3lnvl67xr",
-    "r45t6ahlohimg2f",
-    "gba7d5rcmd0mys1",
-    "w02943xi7smhx1o",
-    "t1oz54ohpx3kosk",
-    "0hrnrqn2tm807hh",
-    "rkx12e9at1gbybm",
-    "xoqzgkgh9n6xuvm",
-    "qkszpf65sm3bwgq",
-    "2pjhltbwy570klh",
-    "ai971a5lfyznowq",
-    "n6iem2jtxifh01r",
-    "c0zob9qu43b6gsl",
-    "64jo0nbxeyx3ksw",
-    "q3l0vq9kqjdnf2w",
-    "owwoyjs254kuc2b"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44096,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH / 1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithogr. v. C. Naumann, Frkfrt. a./M",
+      "scans": [
+        "alm_598_44096_0wkvhkn9yg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH / 1843",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "m5t69yui175r36b"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.631Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44097,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "W. Schadow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_598_44097_n935yr183s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "W. Schadow",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "elxk2rxlz0b4thp"
+    },
+    {
+      "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke;  Verlag von J. D. Sauerländer] graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44098,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch. 1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Zwecker gez.W. J. Cooke gest.",
+      "scans": [
+        "alm_598_44098_sx54n8t095.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch. 1843",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.101Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.101Z",
+          "agent": "uohs1l6y8ng1p96",
+          "source_id": "ke7nz3rnumj4hzn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.101Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.101Z",
+          "agent": "usgtr6dipvre26m",
+          "source_id": "njh446c1004wgvq"
+        }
+      ],
+      "source_id": "b6v12ccg6m5g86n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.638Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44099,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches / Taschenbuch / auf das Jahr 1843. / Herausgegeben / von / Dr. Adrian. / Mit 9 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_598_44099_w9pu92pjcy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1843. / Herausgegeben / von / Dr. Adrian. / Mit 9 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "rga4bgi6alhqptd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44100,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "xh90ykldxje1mhs"
+    },
+    {
+      "annotation": "Sammlung von 8 Textbezügen zu 8 Graphiken INr 44096, 44102-44117, 44125 ; Obj 1, 6-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44101,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miniatur-Salon. / Ausstellung 1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miniatur-Salon. / Ausstellung 1843",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "t99kz7tx44uk3rd"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Titelportrait INr 44097, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Vorstehendes Motto, das würdig wäre, als Aufschrift einer Akademie der Künste und allen Jüngern der Kunst als erste und letzte Lebensregel zu dienen,",
+      "language": [],
+      "musenalm_id": 44102,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu F. W. Schadow's Portrait / Wer etwas in der Kunst für Handwerk ausgibt, der / schmähet die Kunst, und spricht der Künstler solch ein / Urtheil aus, so fällt er im Grunde sich selbst das Urtheil.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu F. W. Schadow's Portrait / Wer etwas in der Kunst für Handwerk ausgibt, der / schmähet die Kunst, und spricht der Künstler solch ein / Urtheil aus, so fällt er im Grunde sich selbst das Urtheil.",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "tdub6a2rag3drlv"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag v. J. D. Sauerländer / Druck v. F. W. Maas] s. Textbezug INr 44104, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.261Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44103,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE GRABLEGUNG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. F. W. Schadow Gest. v. Const. Müller",
+      "scans": [
+        "alm_598_44103_kqm9i1p7hf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE GRABLEGUNG",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "26vitnec2l92noy",
+          "source_id": "nb4wk4gx2hcaj7q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "0bmeck77h5fvi5x",
+          "source_id": "o3rq2zi03spjml5"
+        }
+      ],
+      "source_id": "ny30sunxnf0by3z"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44103, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Nach den Andeutungen über Schadow's Charakter als Künstler, bedarf es hier keiner weiteren Erklärung.",
+      "language": [],
+      "musenalm_id": 44104,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Grablegung von F. W.Schadow",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Grablegung von F. W.Schadow",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "qd4jwk0da4ygxon"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44106, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Die Sennerin ist eines der vielen, Kraft und Anmuth in sich vereinenden, poetischen Naturbilder,",
+      "language": [],
+      "musenalm_id": 44105,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sennerin. / Von Ph. Foltz. / (Im Besitz des Grafen Balivigini in München.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sennerin. / Von Ph. Foltz. / (Im Besitz des Grafen Balivigini in München.)",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "isb89i2jhhsd5dw"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag J. D. Sauerländer] s. Textbezug INr 44105, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44106,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE SENNERIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. Ph. Foltz. Gest. v. C. Müller",
+      "scans": [
+        "alm_598_44106_9l7jgca2tv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE SENNERIN",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "0bmeck77h5fvi5x",
+          "source_id": "fmewsy1g183d6wo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "q352vh257bwt4mb",
+          "source_id": "q0r2ddougv5exep"
+        }
+      ],
+      "source_id": "pjfy1j71ruqxsdw"
+    },
+    {
+      "annotation": "[unter der Graphik: Verlag J. D. Sauerländer] s. Textbezug INr 44108, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.266Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44107,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCENE AUF EINER BURGZINNE . / Das Original ist im Besitz der Prinzessin Albrecht von Preussen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. C. Teichs Gest. v. C. Gerhardt",
+      "scans": [
+        "alm_598_44107_l7ydup1v58.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCENE AUF EINER BURGZINNE . / Das Original ist im Besitz der Prinzessin Albrecht von Preussen.",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "s8m5gaoj6bj4b82",
+          "source_id": "3cd3uklmbl37xj6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.292Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.292Z",
+          "agent": "gouwqbfrx1w3pdd",
+          "source_id": "q6i308b3kggi8n0"
+        }
+      ],
+      "source_id": "xauvshl172ugk0c"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44107, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Hinaus muß der Ritter in den Kampf; das Feuer, das in ihm glüht, treibt ihn in das Gewühl der Schlacht;",
+      "language": [],
+      "musenalm_id": 44108,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scene auf einer Burgzinne. / Von Adolph Teiche. / (Im Besitz des Prinzen Albrecht von Preußen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scene auf einer Burgzinne. / Von Adolph Teiche. / (Im Besitz des Prinzen Albrecht von Preußen.)",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "vzlpdrehv6rtsi0"
+    },
+    {
+      "annotation": "s. Textbezug INr 44110, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44109,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCHEHERESADE MAEHRCHEN ERZAEHLEND",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. von Jacobs Gest. v. T. S. Engleheart",
+      "scans": [
+        "alm_598_44109_9f6xze04tb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCHEHERESADE MAEHRCHEN ERZAEHLEND",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.381Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "hmk7fr9yq6i8a3r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.380Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.380Z",
+          "agent": "un29hedh6lcz8d7",
+          "source_id": "zteassb930l8gv8"
+        }
+      ],
+      "source_id": "yx4mexi8hnre4bv"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44109, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Es ist wohl kaum nötig, eine Erklärung zu diesem Bilde zu geben. Wer kennt nicht die orientalische Märchenallegorie der Tausend und eine Nacht?",
+      "language": [],
+      "musenalm_id": 44110,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scheherasade. / Von Paul Emil Jakobs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scheherasade. / Von Paul Emil Jakobs",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "oh05va3lnvl67xr"
+    },
+    {
+      "annotation": "[Unter der Graphik Atelier v. Grünewald & Cooke] s. Textbezug INr 44112, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44111,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE BRAUT VOM RHEINSTEIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. B. Zwecker pinx. T. S. Engleheart sc.",
+      "scans": [
+        "alm_598_44111_iyq6glchzx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE BRAUT VOM RHEINSTEIN",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.381Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "4yrz6l1laffy6m9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.381Z",
+          "agent": "usgtr6dipvre26m",
+          "source_id": "fqowcztum46ohri"
+        }
+      ],
+      "source_id": "r45t6ahlohimg2f"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44111, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Gerda, die vielbegehrte, reizende Tochter Sigfrids vom Rheinstein, vom Vater dem zur Gattin verheißen, der obsiegen werde im Turnier zu Mainz,",
+      "language": [],
+      "musenalm_id": 44112,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Braut vom Rheinstein. / Von J. B. Zwecker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Braut vom Rheinstein. / Von J. B. Zwecker",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "gba7d5rcmd0mys1"
+    },
+    {
+      "annotation": "[Unter der Graphik: Verlag von I. D. Sauerländer; Atelier v. Grünewald u. Cooke] s. Textbezüge INr 44114, 44115; Obj 19, 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44113,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE LORE LEY",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem v. Begas Gest. v. T. S. Engleheart",
+      "scans": [
+        "alm_598_44113_3kvcdcuh00.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE LORE LEY",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.231Z",
+          "agent": "p2wbs7ivhx2i5bf",
+          "source_id": "asayazz2rpnqryw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.231Z",
+          "agent": "8w6n9g0x6dcpwhp",
+          "source_id": "rpoxcoi60czzosb"
+        }
+      ],
+      "source_id": "w02943xi7smhx1o"
+    },
+    {
+      "annotation": "Dem Beitrag »Lorelei . Von C. Begas« INr 44115, Obj 20 vorangestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Ich weiß nicht , was soll es bedeuten, / Daß ich so traurig bin?",
+      "language": [],
+      "musenalm_id": 44114,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lorelei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Heine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lorelei",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.231Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.231Z",
+          "agent": "1z1aqho0pmi2dwm",
+          "source_id": "29jcpdbnsi2nnsv"
+        }
+      ],
+      "source_id": "t1oz54ohpx3kosk"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44111, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Wer, wandernd von Burg zu Burg, von Städtchen zu Städtchen, oder getragen vom beflügelten Boote, die Pracht des romantischen Felsenthals geschauet hat,",
+      "language": [],
+      "musenalm_id": 44115,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Lorelei. Von C. Begas]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Lorelei. Von C. Begas]",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "0hrnrqn2tm807hh"
+    },
+    {
+      "annotation": "[Unter der Graphik: Verlag von I. D. Sauerländer / Druck v. W. Maas] s. Textbezug INr 44117, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.664Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44116,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER LIEBES-ANTRAG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem v. I. Becker Gest. v. C. Müller",
+      "scans": [
+        "alm_598_44116_z2g4nvd0p1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER LIEBES-ANTRAG",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "elnezcuv2gdb85i",
+          "source_id": "hnrj78h1g3d2rom"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "0bmeck77h5fvi5x",
+          "source_id": "wdnnihkoblhdplw"
+        }
+      ],
+      "source_id": "rkx12e9at1gbybm"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6) s. Graphik INr 44116, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Von der Arbeit heimkehrend findet der treue Bursche sein Mädchen, das er schon lange im Herzen getragen.",
+      "language": [],
+      "musenalm_id": 44117,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebesantrag. / Von Jakob Becker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Liebesantrag. / Von Jakob Becker",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "xoqzgkgh9n6xuvm"
+    },
+    {
+      "annotation": "Miniatur-Salon. Ausstellung 1843 (Sammlung INr 44101, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Es ist bekannt, daß vom hiesigen Kunstverein vor etwa 5 bis 6 Jahren die großartige Idee angeregt worden ist, den Kaisersaal im Römer zu Frankfurt a. M., der in Nischen die Brustbilder aller Kaiser von Conrad I. an enthält,",
+      "language": [],
+      "musenalm_id": 44125,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schluß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schluß",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "qkszpf65sm3bwgq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Des Lichts gesellige Flamme brannte in der großen Wohnstube eines alterthümlich burgartigen Schlosses in Franken",
+      "language": [],
+      "musenalm_id": 44118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sternwirth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav von Heeringen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sternwirth",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "hffp5p53qsk8bxy",
+          "source_id": "imjq2mbvy2wmd2i"
+        }
+      ],
+      "source_id": "2pjhltbwy570klh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.666Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Es war bereits tiefe Nacht; der junge Baumeister saß noch immer bei der Lampe und zeichnete emsig.",
+      "language": [],
+      "musenalm_id": 44119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dombau von Köln. / Rheinlands-Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dombau von Köln. / Rheinlands-Sage",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "c1znfhi5uhuknon",
+          "source_id": "bmhppwh44v4iltt"
+        }
+      ],
+      "source_id": "ai971a5lfyznowq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Baron Prielmann hatte am ersten Mai eine zahlreiche Gesellschaft auf den Marienberg gebeten, eine von den Bewohnern der Residenz an Sonn- und Feiertagen gern besuchte Anhöhe,",
+      "language": [],
+      "musenalm_id": 44120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Graf Balduin von Flandern. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Duller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Graf Balduin von Flandern. / Novelle",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.232Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.232Z",
+          "agent": "7bekt7k216mxue5",
+          "source_id": "sb0jh3zyrs2pvlw"
+        }
+      ],
+      "source_id": "n6iem2jtxifh01r"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Erinnerungen und Erlebnisse aus den Philhellenen-Zügen haben sich bei dem Verfasser des nachstehenden Beitrages so reich angesammelt [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Zu der Zeit, als Griechenland's Nothruf seine Gauen durchdröhnte, das Volk in Masse sich bewaffnete und seine grausamen Unterdrücker in Stambul vor diesem Schrei erzitterten,",
+      "language": [],
+      "musenalm_id": 44121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Alte von Livadostro. / Hellenisches Abenteuer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verfasser der »Fahrten eines Musikanten«",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Alte von Livadostro. / Hellenisches Abenteuer",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.223Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.223Z",
+          "agent": "6qn9afrpxniwvx7",
+          "source_id": "idnvsogi0zm0gz2"
+        }
+      ],
+      "source_id": "c0zob9qu43b6gsl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Ich bin im Besitze eines Tagebuches, welches an Bord eines Auswanderungsschiffes geschrieben worden ist. Der Schulmeister einer kleinen Gemeinde, ein junger Mann, führte es.",
+      "language": [],
+      "musenalm_id": 44122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Auswanderungsschiff. / Tagebuchblätter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Smidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Auswanderungsschiff. / Tagebuchblätter",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "p5nbyct99xa1658",
+          "source_id": "xrzsgv4c0spq6r9"
+        }
+      ],
+      "source_id": "64jo0nbxeyx3ksw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "379",
+      "incipit_statement": "Wer kennt nicht die Verlegenheit und Mißstimmung, in die man geräth, wenn man von einem Gesellschaftskreise, mit dessen einzelnen Figuren wir oft nur zufällig zusammengewürfelt worden sind,",
+      "language": [],
+      "musenalm_id": 44123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Frevel-Proteus. / Katastrophe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Frevel-Proteus. / Katastrophe",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.224Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.224Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "68oggqnlu754fa8"
+        }
+      ],
+      "source_id": "q3l0vq9kqjdnf2w"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 44124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lithogr. v. C. Naumann, Frkfrt. a./M)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lithogr. v. C. Naumann, Frkfrt. a./M",
+      "scans": [
+        "alm_598_44124_qq0ukd8gij.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "owwoyjs254kuc2b"
+    }
   ],
   "agents": [
     {

@@ -81,7 +81,11 @@ async fn index(State(s): App, h: HeaderMap) -> Result<Response> {
                 "<div class=\"document-list-row\"><a class=\"document-row\" data-nav href=\"/documents/{}?file={}\"><i class=\"ri-braces-line\" aria-hidden=\"true\"></i><strong>{}</strong><span class=\"mono\">{}</span><i class=\"ri-arrow-right-s-line\" aria-hidden=\"true\"></i></a>",
                 views::encode(name),
                 views::encode(file),
-                views::escape(name),
+                views::escape(
+                    s.editor.document_schema(name)?["title"]
+                        .as_str()
+                        .unwrap_or(name)
+                ),
                 views::escape(file)
             );
             if a.editable() {
@@ -133,7 +137,7 @@ async fn open(
         );
         let schema = s.editor.document_editor_schema(&name)?;
         let draft = structured_editor_core::draft::Draft::document(&schema, &d.value);
-        let content = crate::tree::preview(&s.editor, &draft, &d.value, &url, q.get("node").map(String::as_str).unwrap_or(""));
+        let content = crate::tree::preview_with_options(&s.editor, &draft, &d.value, &url, q.get("node").map(String::as_str).unwrap_or(""), &q, false);
         let node = q.get("node").map(String::as_str).unwrap_or("");
         let actions = if a.editable() {
             format!("<a class=\"button primary\" data-nav href=\"/documents/{}/edit?file={}&amp;node={}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i>Edit</a>",views::encode(&name),views::encode(&file),views::encode(node))
@@ -262,6 +266,7 @@ async fn settings(State(s): App, h: HeaderMap) -> Result<Response> {
                 &serde_json::to_string_pretty(&d.value).unwrap(),
                 &d.revision,
                 "",
+                "success",
             )?
             .unwrap_or(render(
                 &a,
@@ -329,6 +334,7 @@ async fn submit(
                             &serde_json::to_string(&submitted).unwrap(),
                             f.get("revision").map(String::as_str).unwrap_or(""),
                             &e.1,
+                            "error",
                         )?
                         .unwrap(),
                     );
@@ -395,7 +401,7 @@ async fn submit(
         let message = result.unwrap_or_else(|e| e.1);
         if name.is_none() {
             if let Some(html) =
-                crate::preferences::render(&s.editor, &a, &raw, &revision, &message)?
+                crate::preferences::render(&s.editor, &a, &raw, &revision, &message, notice_kind)?
             {
                 return routes::page(
                     &s,

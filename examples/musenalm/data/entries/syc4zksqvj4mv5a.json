@@ -48,74 +48,2758 @@
   "year": 1809,
   "editor": "",
   "items": [
-    "ic09o3safyv6y5r"
+    {
+      "annotation": "1809-1833.(1830 und 1832 nicht erschienen.)\nKartonierter Einband mit Muster,Grafik und Goldschnitt.\n1809: (K:Bl 1, Ku 8, 32 SS und 208 SS) Mit Ku 8, Bl 1, 32 SS und 208 SS.  ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.495Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100319",
+      "location": "105Q10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.495Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ic09o3safyv6y5r"
+    }
   ],
   "contents": [
-    "xwblyinwak33qyp",
-    "bmibizz44kxafgj",
-    "b6mw7bg3op5fner",
-    "k72uzxoh22c5mkc",
-    "w574npjz04q6t3b",
-    "fu61k5o8vlaaqfe",
-    "rgt9djq3qbti3bv",
-    "0y8al6hpb9ujy98",
-    "9k9hzp800jl6ob8",
-    "3smmzsf5chn3kcg",
-    "4zwulsaodtdzl4k",
-    "75yl95i9g776zm6",
-    "g7rt9rywolqbfky",
-    "7z0s6aeu9ckxgvy",
-    "e0gzd39woy5sy7h",
-    "cc2d49cmw1d4z6e",
-    "ms1gvppdi2xr4q3",
-    "k3czdg1bsyhwd2r",
-    "fdy6h5h679zdtpf",
-    "b98xp5ihintixez",
-    "b549e5kv9rwbdhs",
-    "lmh4v1qjl3ua56t",
-    "2d1z2bsorbcbf4y",
-    "t3yyxu6marw9xgt",
-    "6wbpeb2ge1k7fnl",
-    "20vtic2c7h66jjl",
-    "gd1mdybywtkzx3j",
-    "sx8tpweyvm84u64",
-    "jutmeutzpwa19kh",
-    "sfzpv7p8kiie1rv",
-    "u7w4o92yea5grzs",
-    "y69sl0631802dcx",
-    "uotr0u6jdodi7va",
-    "zenlwt3oc2q83t6",
-    "b8woudfxw6cv3iq",
-    "6yswxo8b1va5kc7",
-    "f78mqkwatts3jx4",
-    "t1hg74ox4u0217b",
-    "kl1se8uwqba0qmf",
-    "pcu73kc4tvormid",
-    "cli3kyxwdgtqeko",
-    "spmha6o16c6c7p8",
-    "2wl2hh8q89t0zq1",
-    "q0qco02qh9did67",
-    "30vr2l0o9sp4wcz",
-    "sfssitgf3qddcq3",
-    "x2q0x0z7br0e3em",
-    "nky9c5oyc3zxjg3",
-    "3rgfy2g935gc2nc",
-    "u9vsiejcwgv9mll",
-    "egsfw9bt5izkgng",
-    "brpt5yujeexptiu",
-    "k4zn5731wqytv4v",
-    "2sek9kgdgf3ywha",
-    "efkybo9qg5bq6x4",
-    "egxibz09yk1ijoq",
-    "m258uj5wlc530iq",
-    "qgsn46i8r1l5ug1",
-    "y8tob1m1fiusffi",
-    "8ubo7u7w8uzlknq",
-    "a8re58dx4kt62tu",
-    "x5rbsae0eenkxpi",
-    "998e2rde8i2r6lp",
-    "nzxz6mk4fcyw3xi",
-    "okwuuejntsivxup"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.798Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39103,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_513_39103_9kpwbd88hj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "xwblyinwak33qyp"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug »Über die Allegorie des Titelkupfers« von K. A. Böttiger INr 39107, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39104,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Ramberg del. W. Böhm sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Böhm sc.",
+      "scans": [
+        "alm_513_39104_590o01kqdh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.799Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.799Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "7lu0zfbl0e6hl2e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.799Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.799Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "y6zf67ob4ar82n2"
+        }
+      ],
+      "source_id": "bmibizz44kxafgj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minerva. / Taschenbuch / für / das Jahr 1809. / Mit 8 Kupfern. / Leipzig, bey Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_513_39105_h1i63l2moi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Minerva. / Taschenbuch / für / das Jahr 1809. / Mit 8 Kupfern. / Leipzig, bey Gerhard Fleischer d. Jüng.",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "b6mw7bg3op5fner"
+    },
+    {
+      "annotation": "Zwischentitel, es folgt: Sammlung von 8 Textbezügen zu 7 Graphiken des Almanachs INr 39107-39120; Obj 5-18;",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärungen / der / Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärungen / der / Kupfer",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "k72uzxoh22c5mkc"
+    },
+    {
+      "annotation": "#$ lt. L/R 84 vermutl. K. A. Böttiger; s. Titelgraphik INr 39104, Obj 2; Erklärungen der Kupfer (Sammlung INr 39106, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Nach den Begriffen des bildenden und dichtenden Alterthums blieb die ewige Jungfrau und Göttin der Weisheit, Pallas Athene, stets dem unwandelbaren Ernst treu, den wir in allen ihren Gesichtszügen ausgedrückt finden.",
+      "language": [],
+      "musenalm_id": 39107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die / Allegorie des Titelkupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. #$",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die / Allegorie des Titelkupfers",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "w574npjz04q6t3b"
+    },
+    {
+      "annotation": "#$ lt. L/R 84 vermutl. K. A. Böttiger; Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. d. folgenden Gedichte und Graphiken zu Werken Schillers INr 39109-39120, Obj 7-18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Der Lieblingsdichter unserer deutschen Sprach- und Denkgenossen, unser unsterblicher Schiller, der in seinen oft so unverständig mißverstandenen, so seltsam verdrehten Göttern Griechenlands auch von der Schutz- und Namensgöttin unsers Taschenbuchs rühmte",
+      "language": [],
+      "musenalm_id": 39108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Lieblingsdichter unserer deutschen Sprach- und Denkgenossen, unser unsterblicher Schiller, der in seinen oft so unverständig mißverstandenen, so seltsam verdrehten Göttern Griechenlands auch von der Schutz- und Namensgöttin unsers Taschenbuchs rühmte…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. #$",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "fu61k5o8vlaaqfe"
+    },
+    {
+      "annotation": "Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. Textbezug INr 39110, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Lied von der Glocke. / Das schönste sucht er auf den Fluren / Womit er seine Liebe schmückt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+      "scans": [
+        "alm_513_39109_te5y2e15bo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Lied von der Glocke. / Das schönste sucht er auf den Fluren / Womit er seine Liebe schmückt",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "8p4vjedqqhg3gc9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.945Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "a0k6q4quzi88cti"
+        }
+      ],
+      "source_id": "rgt9djq3qbti3bv"
+    },
+    {
+      "annotation": "Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. Graphik INr 39109, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Der Friede herrscht in dieses Thales Gränzen / bey schöner Frühlings linder Wiederkehr.",
+      "language": [],
+      "musenalm_id": 39110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Glocke. / Friede sey ihr erst Geläute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Glocke. / Friede sey ihr erst Geläute",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "0y8al6hpb9ujy98"
+    },
+    {
+      "annotation": "Illustration zu »Der Gang nach dem Eisenhammer« von Fr. Schiller s. Textbezug INr 39112, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gang nach dem Eisenhammer. / So gehe denn mein Kind und sprich / In Andacht ein Gebet für mich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+      "scans": [
+        "alm_513_39111_rxfty1skvy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Gang nach dem Eisenhammer. / So gehe denn mein Kind und sprich / In Andacht ein Gebet für mich",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.007Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.007Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4xbz88v1mv4j15u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.007Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.007Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "pnf8ly7afzyxto9"
+        }
+      ],
+      "source_id": "9k9hzp800jl6ob8"
+    },
+    {
+      "annotation": "Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. Graphik INr 39111, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.215Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Die sich prunklos in Gewänder / einer jungen Hirtin hüllt,",
+      "language": [],
+      "musenalm_id": 39112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Gang nach dem Eisenhammer. / Die Unschuld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Gang nach dem Eisenhammer. / Die Unschuld",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "3smmzsf5chn3kcg"
+    },
+    {
+      "annotation": "Illustration zu »Der Handschuh« von Fr. Schiller s. Textbezug INr 39114, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Handschuh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+      "scans": [
+        "alm_513_39113_acjko0bbre.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Handschuh",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.063Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "f4lr3f9nt2ad54v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.063Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "pxmq460cbpi0b0l"
+        }
+      ],
+      "source_id": "4zwulsaodtdzl4k"
+    },
+    {
+      "annotation": "Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. Graphik INr 39113, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Dem König ist des Gleichmuths viel verliehn! / die Nachbarschaft scheint ihn nicht anzustecken.",
+      "language": [],
+      "musenalm_id": 39114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Handschuh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Handschuh",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "75yl95i9g776zm6"
+    },
+    {
+      "annotation": "Illustration zu »Der Kampf mit dem Drachen« von Fr. Schiller s. Textbezug INr 39116, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kampf mit dem Drachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+      "scans": [
+        "alm_513_39115_4dr00sr2cx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Kampf mit dem Drachen",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.878Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "7ngfgs7ri5nddk4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.878Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "nap9myp0iaye56y"
+        }
+      ],
+      "source_id": "g7rt9rywolqbfky"
+    },
+    {
+      "annotation": "Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. Graphik INr 39115, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Wollt ihr einen guten Kampf bestehn / mit dem ärgsten Ungeheuer?",
+      "language": [],
+      "musenalm_id": 39116,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der Kampf mit dem Drachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der Kampf mit dem Drachen",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "7z0s6aeu9ckxgvy"
+    },
+    {
+      "annotation": "Illustration zu »Pegasus im Joche« von Fr. Schiller s. Textbezug INr 39118, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.243Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39117,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pegasus im Joche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+      "scans": [
+        "alm_513_39117_sfv6l85zf5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pegasus im Joche",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.878Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4lrko2xf0qpiplu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.878Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ks4j0u2q4ls5b4y"
+        }
+      ],
+      "source_id": "e0gzd39woy5sy7h"
+    },
+    {
+      "annotation": "Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. Graphik INr 39117, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Doch dieses Bild zeigt dutlich an, / es sey noch Zeit ihm nachzusehen.",
+      "language": [],
+      "musenalm_id": 39118,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Pegasus im Joche. / Und eh' der Blick ihm folgen kann / Entschwebt er zu den blauen Höhen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Pegasus im Joche. / Und eh' der Blick ihm folgen kann / Entschwebt er zu den blauen Höhen",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "cc2d49cmw1d4z6e"
+    },
+    {
+      "annotation": "Illustration zu »Die Kraniche des Ibycus« von Fr. Schiller s. Textbezug INr 39120, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39119,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kraniche des Ibycus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+      "scans": [
+        "alm_513_39119_nzqc03fxjl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Kraniche des Ibycus",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.878Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "gccj7g285c8c8jk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.878Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "vwmadpph3sxhqkp"
+        }
+      ],
+      "source_id": "ms1gvppdi2xr4q3"
+    },
+    {
+      "annotation": "Erklärungen der Kupfer (Sammlung INr 39106, Obj 4) s. Graphik INr 39119, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Verschwindend im Hintergrunde / schweift, feuersprühend / hinab Tisiphonens Auge!",
+      "language": [],
+      "musenalm_id": 39120,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Kraniche des Ibycus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Kraniche des Ibycus",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "k3czdg1bsyhwd2r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "31",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39121,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "fdy6h5h679zdtpf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Die Präsidentin von Almstein trat in das Zimmer ihrer Töchter, um ihnen zu verkündigen, daß sie die nächste Woche auf einen glänzenden Ball zum ***schen Gesandten gebeten wären,",
+      "language": [],
+      "musenalm_id": 39122,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Stille Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Pichler, geb. von Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Stille Liebe",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.865Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "10nye90miu2sztu"
+        }
+      ],
+      "source_id": "b98xp5ihintixez"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Wie schnell bist du entflohn, o goldne Zeit, / Wo Stimmen mir aus allen Büschen klangen",
+      "language": [],
+      "musenalm_id": 39123,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Vergangenheit und Gegenwart. / Fragment",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Streckfuß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Vergangenheit und Gegenwart. / Fragment",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.865Z",
+          "agent": "ctofceimdkjw1f4",
+          "source_id": "lm6t3vou0zo8wyc"
+        }
+      ],
+      "source_id": "b549e5kv9rwbdhs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Schon waren neue Gestalten hervorgegangen, neue Welttheile hatten sich gebildet. Aeltere Erdschichten waren zusammengestürzt, fanden sich in neuer Ordnung auf einander gehäuft.",
+      "language": [],
+      "musenalm_id": 39124,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die glückliche Insel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. A. W. von Zimmermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die glückliche Insel",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.865Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "l1lp8rzl7ez4bpr"
+        }
+      ],
+      "source_id": "lmh4v1qjl3ua56t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Ach was willst du in des Lebens Wüste? / Armer Flüchtling, was verirrst du dich?",
+      "language": [],
+      "musenalm_id": 39125,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / An einen Neugebornen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hagemeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / An einen Neugebornen",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "2d1z2bsorbcbf4y"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 39127, Obj 25, mit Anmerkungen SS 132-136",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Groß ist die Königin Isis! Dies ruft uns mit vernehmlicher Stimme das Gemälde zu, das durch eine nicht unverständige Nachbildung uns hier vorgeführt wird.",
+      "language": [],
+      "musenalm_id": 39126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Isis-Vesper. / Nach einem / Herculanischen Gemälde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Böttiger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Isis-Vesper. / Nach einem / Herculanischen Gemälde",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.987Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.987Z",
+          "agent": "7cdnqd525rp9gi5",
+          "source_id": "zwlqr9wdt6mcmg0"
+        }
+      ],
+      "source_id": "t3yyxu6marw9xgt"
+    },
+    {
+      "annotation": "Illustration zu »Die Isis-Vesper« von K. A. Böttiger INr 39126, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Haas sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Haas sc.",
+      "scans": [
+        "alm_513_39127_9gus43sazw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "pb3z5l6hq0anu4r"
+        }
+      ],
+      "source_id": "6wbpeb2ge1k7fnl"
+    },
+    {
+      "annotation": "Sammlung von 10 Gedichten INr 39129-39138; Obj 28-37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Blumenlese / aus dem / Stammbuche / der / zu früh / verstorbenen Dorchen Weiße / in / Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Blumenlese / aus dem / Stammbuche / der / zu früh / verstorbenen Dorchen Weiße / in / Leipzig",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "20vtic2c7h66jjl"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Wie reizend uns die Ros' und Lilie lächelt, / So lange sie ein sanfter Zephyr fächelt!",
+      "language": [],
+      "musenalm_id": 39129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wie reizend uns die Ros' und Lilie lächelt, / So lange sie ein sanfter Zephyr fächelt!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. Weiße",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "b4ycj3ue3as52r2",
+          "source_id": "6qwjhl3bc2y7loc"
+        }
+      ],
+      "source_id": "gd1mdybywtkzx3j"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Alles in dem irdischen Daseyn des Menschen ist- Nichts. Das allein ist Etwas, daß er fähig ist dieses Gedankens:",
+      "language": [],
+      "musenalm_id": 39130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alles in dem irdischen Daseyn des Menschen ist- Nichts. Das allein ist Etwas, daß er fähig ist dieses Gedankens:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Platner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "sx8tpweyvm84u64"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.157Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Wer war es, der aus Schilf die erste Flöt' erfand? / Wer schnitt den ersten Vers in eines Baumes Rinde?",
+      "language": [],
+      "musenalm_id": 39131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer war es, der aus Schilf die erste Flöt' erfand? / Wer schnitt den ersten Vers in eines Baumes Rinde?…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Wilhelm Ramler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.988Z",
+          "agent": "uxrssb0qlf0ghgw",
+          "source_id": "y53v3n0h4fop7x8"
+        }
+      ],
+      "source_id": "jutmeutzpwa19kh"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Es gibt eine edle Abwesenheit von der Erde, indem wir noch darauf wohnen;",
+      "language": [],
+      "musenalm_id": 39132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es gibt eine edle Abwesenheit von der Erde, indem wir noch darauf wohnen;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "sfzpv7p8kiie1rv"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Holder Blumen frohe, bunte Schaaren, / Blühen nicht im Lenz allein,",
+      "language": [],
+      "musenalm_id": 39133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Holder Blumen frohe, bunte Schaaren, / Blühen nicht im Lenz allein,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lerse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "u7w4o92yea5grzs"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Als Gott schuf, da ging er vom Leblosen zum Lebendigen, vom Vernunftlosen zum Vernünftigen",
+      "language": [],
+      "musenalm_id": 39134,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Gott schuf, da ging er vom Leblosen zum Lebendigen, vom Vernunftlosen zum Vernünftigen…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Engel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.813Z",
+          "agent": "uqq3zzvz1phg9u6",
+          "source_id": "d4hzz8onun8j7m7"
+        }
+      ],
+      "source_id": "y69sl0631802dcx"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.921Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Ich bin froh, schöne Freundin, daß ich Ihr Stammbuch zu lange behielt. Denn noch die vorige Woche hätt' ich - um Sie an den Kaffeetrinker und an das Wassertrinken zugleich zu erinnern -nichts gehabt als diese zwey Sentenzen:",
+      "language": [],
+      "musenalm_id": 39135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich bin froh, schöne Freundin, daß ich Ihr Stammbuch zu lange behielt. Denn noch die vorige Woche hätt' ich - um Sie an den Kaffeetrinker und an das Wassertrinken zugleich zu erinnern -nichts gehabt als diese zwey Sentenzen:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Friedrich Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.813Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "8ivr7cb4emfzjm0"
+        }
+      ],
+      "source_id": "uotr0u6jdodi7va"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Die Güter ds Lebens, liebste Freundin, sind wie die Annehmlichkeiten des ländlichen Aufenthalts, den Sie bewohnen.",
+      "language": [],
+      "musenalm_id": 39136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Güter ds Lebens, liebste Freundin, sind wie die Annehmlichkeiten des ländlichen Aufenthalts, den Sie bewohnen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Garve",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "zenlwt3oc2q83t6"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.052Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Kein Glaube ist uns unentbehlicher, als der Glaube an die Menschheit;",
+      "language": [],
+      "musenalm_id": 39137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kein Glaube ist uns unentbehlicher, als der Glaube an die Menschheit;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Marezoll",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "b8woudfxw6cv3iq"
+    },
+    {
+      "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Du, die sonst nur / Dem Mäuschen glich'st, / Die Mutterflur / Nie überschlichst!",
+      "language": [],
+      "musenalm_id": 39138,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Du, die sonst nur / Dem Mäuschen glich'st, / Die Mutterflur / Nie überschlichst!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Moritz August v. Thümmel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "6yswxo8b1va5kc7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Antonius, dem Oktavianus - nachhher Kaiser Augustus - die Alleinherrschaft des Römischen Reichs abrang, hatte zur Gemahlin erst die Fulvia,",
+      "language": [],
+      "musenalm_id": 39139,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Die Römerin Oktavia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S ***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Die Römerin Oktavia",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "f78mqkwatts3jx4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Als noch im schönen Lied die Musen sangen, / Und der Natur die Kunst am Busen lag,",
+      "language": [],
+      "musenalm_id": 39140,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Die / Freundschaft und die Kunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Die / Freundschaft und die Kunst",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "t1hg74ox4u0217b"
+    },
+    {
+      "annotation": "Sammlung von einem Vorwort und 24 Beiträgen INr 39142-39166; Obj 40-64",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39141,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Bemerkungen / über das / männliche und weibliche Geschlecht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Bemerkungen / über das / männliche und weibliche Geschlecht",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.942Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "ewcgk447djkpqfm"
+        }
+      ],
+      "source_id": "kl1se8uwqba0qmf"
+    },
+    {
+      "annotation": "Einleitung zu: X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Nirgends verfuhr die Natur künstlischer und mit größerer Weisheit, als in der Bildung der beyden Geschlechter.",
+      "language": [],
+      "musenalm_id": 39142,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nirgends verfuhr die Natur künstlischer und mit größerer Weisheit, als in der Bildung der beyden Geschlechter.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "pcu73kc4tvormid"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Das Frauenzimmer ist nicht freygebig und es läßt auch nicht, wenn dasselbe es ist.",
+      "language": [],
+      "musenalm_id": 39143,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Frauenzimmer ist nicht freygebig und es läßt auch nicht, wenn dasselbe es ist.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.942Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "azl26tgc2gubc0j"
+        }
+      ],
+      "source_id": "cli3kyxwdgtqeko"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Der Mann ist zärtlicher als die Frau. Diese fordert von jenem, er soll ihrentwegen Ungemächlichkeiten ausstehen,",
+      "language": [],
+      "musenalm_id": 39144,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mann ist zärtlicher als die Frau. Diese fordert von jenem, er soll ihrentwegen Ungemächlichkeiten ausstehen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.942Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.942Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "0989bxqplh5afn7"
+        }
+      ],
+      "source_id": "spmha6o16c6c7p8"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Eine Toleranz in der Ehe gereicht dem Manne jederzeit zum Schimpf, weil sie eine Schwäche oder Verworfenheit verräth.",
+      "language": [],
+      "musenalm_id": 39145,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Toleranz in der Ehe gereicht dem Manne jederzeit zum Schimpf, weil sie eine Schwäche oder Verworfenheit verräth.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "try3jnh27h6krmn"
+        }
+      ],
+      "source_id": "2wl2hh8q89t0zq1"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Das Vergnügen im Hause muß man der Frau überlassen, aber die Ehre und Ruhe desselben, ist die Sache des Mannes.",
+      "language": [],
+      "musenalm_id": 39146,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Vergnügen im Hause muß man der Frau überlassen, aber die Ehre und Ruhe desselben, ist die Sache des Mannes.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "mba88n29t7zwovx"
+        }
+      ],
+      "source_id": "q0qco02qh9did67"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Das Frauenzimmer glaubt, daß die Neigung der Männer zum andern Geschlechte nie vergehen werde,",
+      "language": [],
+      "musenalm_id": 39147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Frauenzimmer glaubt, daß die Neigung der Männer zum andern Geschlechte nie vergehen werde,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "1js8xbfxv5gomrp"
+        }
+      ],
+      "source_id": "30vr2l0o9sp4wcz"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Will man den ganzen Menschen studiren, so darf man nur auf das weibliche Geschlecht seine Augen richten:",
+      "language": [],
+      "musenalm_id": 39148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Will man den ganzen Menschen studiren, so darf man nur auf das weibliche Geschlecht seine Augen richten:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "45ptdot90lk6s4s"
+        }
+      ],
+      "source_id": "sfssitgf3qddcq3"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Bey Beleidigungen ist der Mann versöhnlicher als die Frau. Die Letztere ist sich ihrer Schwäche zu sehr bewußt, als daß sie sich rächen könnte.",
+      "language": [],
+      "musenalm_id": 39149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bey Beleidigungen ist der Mann versöhnlicher als die Frau. Die Letztere ist sich ihrer Schwäche zu sehr bewußt, als daß sie sich rächen könnte.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "togc80ancdps9uw"
+        }
+      ],
+      "source_id": "x2q0x0z7br0e3em"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Die Verdienste des Mannes wirken beym Frauenzimmer nicht so viel Achtung, als die Verdienste des Frauenzimmers beym Manne.",
+      "language": [],
+      "musenalm_id": 39150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verdienste des Mannes wirken beym Frauenzimmer nicht so viel Achtung, als die Verdienste des Frauenzimmers beym Manne.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.943Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.943Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "6cicd3qlyw8hc4d"
+        }
+      ],
+      "source_id": "nky9c5oyc3zxjg3"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Der Mann hilft aus Großmuth gern den weiblichen Schwächen ab;",
+      "language": [],
+      "musenalm_id": 39151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mann hilft aus Großmuth gern den weiblichen Schwächen ab;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.693Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "jzax43wfqkq37n6"
+        }
+      ],
+      "source_id": "3rgfy2g935gc2nc"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Der Mann ist leichter zu überreden, das Weib hingegen bleibt hartnäckig bey seiner vorgefaßten Meinung.",
+      "language": [],
+      "musenalm_id": 39152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mann ist leichter zu überreden, das Weib hingegen bleibt hartnäckig bey seiner vorgefaßten Meinung.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.693Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "414vpxwoz6ctxk4"
+        }
+      ],
+      "source_id": "u9vsiejcwgv9mll"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Schon sehr früh findet sich beym weiblichen Geschlecht die Eigenschaft, in Gegenwart von Männern nicht verlegen zu seyn.",
+      "language": [],
+      "musenalm_id": 39153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schon sehr früh findet sich beym weiblichen Geschlecht die Eigenschaft, in Gegenwart von Männern nicht verlegen zu seyn.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.693Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "cb89j8z39dy8og5"
+        }
+      ],
+      "source_id": "egsfw9bt5izkgng"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Die Verachtung des weiblichen Geschlechts bey Männern hat gewöhnlich ihren Grund in einer übergroßen Liederlichkeit.",
+      "language": [],
+      "musenalm_id": 39154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verachtung des weiblichen Geschlechts bey Männern hat gewöhnlich ihren Grund in einer übergroßen Liederlichkeit.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.694Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.694Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "te9ywqd1g2evscp"
+        }
+      ],
+      "source_id": "brpt5yujeexptiu"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Die männliche Erziehung muß man gleich anfänglich auf den Begriff von Pflicht, die weibliche aber auf den Begriff von Ehre gründen.",
+      "language": [],
+      "musenalm_id": 39155,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die männliche Erziehung muß man gleich anfänglich auf den Begriff von Pflicht, die weibliche aber auf den Begriff von Ehre gründen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "a5fjdpumrsnekqq"
+        }
+      ],
+      "source_id": "k4zn5731wqytv4v"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Die Schwäche des Weibes trägt sehr viel zur Kultur des Mannes bey, so wie die Redseligkeit der Weiber die Männer beredt macht.",
+      "language": [],
+      "musenalm_id": 39156,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schwäche des Weibes trägt sehr viel zur Kultur des Mannes bey, so wie die Redseligkeit der Weiber die Männer beredt macht.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "8l4ejhokg4z7poa"
+        }
+      ],
+      "source_id": "2sek9kgdgf3ywha"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Kein Frauenzimmer gönnt dem Andern seinen Liebhaber, wenn es ihn auch selbst nicht haben kann.",
+      "language": [],
+      "musenalm_id": 39157,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kein Frauenzimmer gönnt dem Andern seinen Liebhaber, wenn es ihn auch selbst nicht haben kann.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "h202q9rqkg9okvp"
+        }
+      ],
+      "source_id": "efkybo9qg5bq6x4"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Die eheliche Treue läßt sich nicht erzwingen, weil sie bloß auf dem Ehrbegriffe beruht.",
+      "language": [],
+      "musenalm_id": 39158,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die eheliche Treue läßt sich nicht erzwingen, weil sie bloß auf dem Ehrbegriffe beruht.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "t1nonkpo90mb2im"
+        }
+      ],
+      "source_id": "egxibz09yk1ijoq"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Für einen Gelehrten ist eine gelehrte Frau ein schlechtes Glück, weil es der Letztern bisweilen einfällt, mit dem Erstern zu rivalisiren.",
+      "language": [],
+      "musenalm_id": 39159,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Für einen Gelehrten ist eine gelehrte Frau ein schlechtes Glück, weil es der Letztern bisweilen einfällt, mit dem Erstern zu rivalisiren.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "kvm49gtt6jveq59"
+        }
+      ],
+      "source_id": "m258uj5wlc530iq"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Die Vielweiberei ist ein Zeichen der Barbarei der Länder, in denen sie herrscht.",
+      "language": [],
+      "musenalm_id": 39160,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vielweiberei ist ein Zeichen der Barbarei der Länder, in denen sie herrscht.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "343un4488o0eqty"
+        }
+      ],
+      "source_id": "qgsn46i8r1l5ug1"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Das Weib verlangt von dem Manne jederzeit eine anständige Dreustigkeit,",
+      "language": [],
+      "musenalm_id": 39161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Weib verlangt von dem Manne jederzeit eine anständige Dreustigkeit,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "68kh1t6i8nkj89q"
+        }
+      ],
+      "source_id": "y8tob1m1fiusffi"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Die Frau muß einen minder delikaten Geschmack haben, als der Mann, weil sie für das männliche als das minder schöne Geschlecht geschaffen ist.",
+      "language": [],
+      "musenalm_id": 39162,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frau muß einen minder delikaten Geschmack haben, als der Mann, weil sie für das männliche als das minder schöne Geschlecht geschaffen ist.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "x20j0h82m8j4896"
+        }
+      ],
+      "source_id": "8ubo7u7w8uzlknq"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Kluge Männer erhöhen eher den Werth des weiblichen Geschlechts, als daß sie ihn herabsetzen;",
+      "language": [],
+      "musenalm_id": 39163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kluge Männer erhöhen eher den Werth des weiblichen Geschlechts, als daß sie ihn herabsetzen;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "p3tkecpf9wbqsh9"
+        }
+      ],
+      "source_id": "a8re58dx4kt62tu"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Freygeisterey in der Geschlechtsneigung schadet der Menschheit und dem gemeinen Wesen außerordentlich.",
+      "language": [],
+      "musenalm_id": 39164,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freygeisterey in der Geschlechtsneigung schadet der Menschheit und dem gemeinen Wesen außerordentlich.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "0043oy436wpcpmt"
+        }
+      ],
+      "source_id": "x5rbsae0eenkxpi"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Die Geschlechtsliebe ist äußerst intolerant; kein Mann, der noch etwas auf sich hält, kann den Gedanken ertragen, daß die Frau, die er liebt, und die gegen ihn günstig gestimmt ist, gleiche Neigungen gegen Andere äußere.",
+      "language": [],
+      "musenalm_id": 39165,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Geschlechtsliebe ist äußerst intolerant; kein Mann, der noch etwas auf sich hält, kann den Gedanken ertragen, daß die Frau, die er liebt, und die gegen ihn günstig gestimmt ist, gleiche Neigungen gegen Andere äußere.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "mvdstth8ua9tnas"
+        }
+      ],
+      "source_id": "998e2rde8i2r6lp"
+    },
+    {
+      "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Der Ehrenpunkt der Weiber besteht darin, daß sie außer der Ehe ihre Tugend nicht preis geben,",
+      "language": [],
+      "musenalm_id": 39166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ehrenpunkt der Weiber besteht darin, daß sie außer der Ehe ihre Tugend nicht preis geben,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kant",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.805Z",
+          "agent": "wy2v3l6z3yxzbuk",
+          "source_id": "j8ivhbprdsx6g4d"
+        }
+      ],
+      "source_id": "nzxz6mk4fcyw3xi"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 39167,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_513_39167_09ysvb3umg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-07-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1809,
+      "editor": "",
+      "agents": [],
+      "source_id": "okwuuejntsivxup"
+    }
   ],
   "agents": [
     {

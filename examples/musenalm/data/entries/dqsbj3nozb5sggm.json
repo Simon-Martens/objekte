@@ -48,50 +48,1647 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "rhbkx7skjgkpa36"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.649Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405650",
+      "location": "105A04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.649Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rhbkx7skjgkpa36"
+    }
   ],
   "contents": [
-    "rl6stxeg9436wvw",
-    "xdgp6y8xbb7qg5n",
-    "ssvo12bqyfy9uh3",
-    "lhd6yb3tfg10q4n",
-    "nt3e3k47ve725ug",
-    "z10g63egidoorg7",
-    "epp5upmo39zoi2c",
-    "t6ef0moyvwf74nl",
-    "s6ykjteiylhb1xu",
-    "nyr9oskknjcs8wu",
-    "hec4ph4h8rlskqq",
-    "13ct81jmvvutg0y",
-    "ouiwp81iqwv5tep",
-    "2ol5ozc9lvyc0wd",
-    "fnx5oxuvfpie4aa",
-    "nuk16mnqjvfrz73",
-    "7v1o6izgwcdmcsc",
-    "i94isn97dgok7he",
-    "hi3j98rg7kk1ey4",
-    "crr8dl7v82ol6vd",
-    "5mgvpbcidjbcsuq",
-    "85noajh1lrqsmmf",
-    "8fqap98i2u987tk",
-    "efvytdcnih345sb",
-    "uhub7f0vsy108kq",
-    "mt7gnl9363ipdma",
-    "v8m8wbclful5qad",
-    "kn82quf1b5v497w",
-    "h64crk6n98fcguu",
-    "g6ou1nlhaufpu41",
-    "9x8rf4pcsd073y3",
-    "17p72iw1652vcsj",
-    "rzzczimq9tqdekp",
-    "bs9fhkg722pt9mn",
-    "3fd2pmji8gzjthb",
-    "re8mj1bmvdq8h2a",
-    "zanvcsgrgiicn7t",
-    "wepaavw2593lvlc",
-    "y5aahmyhtj8sdq4",
-    "r02k3j053130vpa",
-    "aqnbfoict1pzcw2"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.244Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114178,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / vom / K.K. priv. Theater / in der / Leopoldstadt / Vier und zwanzigster Jahrgang / WIEN / 1837",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / vom / K.K. priv. Theater / in der / Leopoldstadt / Vier und zwanzigster Jahrgang / WIEN / 1837",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "rl6stxeg9436wvw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für das / k.k. privilegirte Theater / in der / Leopoldstadt, / auf das Jahr / 1837. / Zum Besten der Wittwe des Schauspielers / Ziegelhauser. / Herausgegeben von / Carl Meisl / August Schmidt. / Wien. / Gedruckt bey Franz Ludwig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2719_114179_mk0k9lomdy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für das / k.k. privilegirte Theater / in der / Leopoldstadt, / auf das Jahr / 1837. / Zum Besten der Wittwe des Schauspielers / Ziegelhauser. / Herausgegeben von / Carl Meisl / August Schmidt. / Wien. / Gedruckt bey Franz Ludwig",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "xdgp6y8xbb7qg5n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "O Land des Ruhmes und der Ehre - / Hoch lebe, hoch mein Vaterland!",
+      "language": [],
+      "musenalm_id": 114180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoch Oesterreich!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "And. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hoch Oesterreich!",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "1e9e94icnix1xye"
+        }
+      ],
+      "source_id": "ssvo12bqyfy9uh3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wolken sind's? - ist's Bergesreihe, / Was am Himmel dort erblinkt,",
+      "language": [],
+      "musenalm_id": 114181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wolken und Berge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Krafft",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wolken und Berge",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "lhd6yb3tfg10q4n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Als ich noch ein kleiner Knabe, / Ward mir gleich das Auge naß,",
+      "language": [],
+      "musenalm_id": 114182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es steckt im Blute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Krafft",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Es steckt im Blute",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "nt3e3k47ve725ug"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "So oft auf's Neu' zur Erde nieder / Der Frühling sinkt mit seiner Pracht,",
+      "language": [],
+      "musenalm_id": 114183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingswirkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingswirkung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "u1u7hrlc8qjjdc6"
+        }
+      ],
+      "source_id": "z10g63egidoorg7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Aus der Tulpe Becher / Trinkt / Die Frühlingsluft,",
+      "language": [],
+      "musenalm_id": 114184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingstoast",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingstoast",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "xypazojph9dwxyi"
+        }
+      ],
+      "source_id": "epp5upmo39zoi2c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Nunno Vero! Nunno Vero! / Treuer Ritter, sonder Zagen, / Haltet eures Rosses Zügel,",
+      "language": [],
+      "musenalm_id": 114185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Falsche Bothschaft, / Spanische Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Falsche Bothschaft, / Spanische Romanze",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "19jiynludc1awck"
+        }
+      ],
+      "source_id": "t6ef0moyvwf74nl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Eine hat mich treu geliebt, / Liebt' sie treu auch lange Jahre;",
+      "language": [],
+      "musenalm_id": 114186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Exaltirte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. W. Koch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Exaltirte",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "s6ykjteiylhb1xu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Du ziehst nun fort auf fremden Wegen / Aus deiner Lieben theuren Kreis,",
+      "language": [],
+      "musenalm_id": 114187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einer Braut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig August Frankl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einer Braut",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.493Z",
+          "agent": "fjw259e60ifm3ie",
+          "source_id": "fwf2x69kz4tc2io"
+        }
+      ],
+      "source_id": "nyr9oskknjcs8wu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Alles um mich her ist stille, / Niemand außer dir und mir -",
+      "language": [],
+      "musenalm_id": 114188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Uhr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig August Frankl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Uhr",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.519Z",
+          "agent": "fjw259e60ifm3ie",
+          "source_id": "ezu4aj10ip5gw42"
+        }
+      ],
+      "source_id": "hec4ph4h8rlskqq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Ich habe mit Krügen ein eigenes Loos; / Zum Wasser, da scheinen mir alle zu groß, / Hingegen zum Wein / Alle zu klein.",
+      "language": [],
+      "musenalm_id": 114189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Trunkenbold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stierle Holzmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Trunkenbold",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.519Z",
+          "agent": "5dlgex4wmvni1qx",
+          "source_id": "ymijk263tmza0ip"
+        }
+      ],
+      "source_id": "13ct81jmvvutg0y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Also spricht der Scheik El Feri: / Hundert Kühe sollst Du haben, / Und dazu dreihundert Schafe;",
+      "language": [],
+      "musenalm_id": 114190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Daydin's Ehrenrettung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Hannusch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Daydin's Ehrenrettung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.519Z",
+          "agent": "1gx7z956tuv7ghs",
+          "source_id": "15m384zz6q06zvt"
+        }
+      ],
+      "source_id": "ouiwp81iqwv5tep"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "In seinem jungen tollen Kopf' / Arbeitet der Gedanke, / Nicht bänd'gen kann der arme Tropf, / Das Herz, das liebeskranke.",
+      "language": [],
+      "musenalm_id": 114191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Flegeljahre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Flegeljahre",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.519Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.519Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "dx3iy3qt4d28lre"
+        }
+      ],
+      "source_id": "2ol5ozc9lvyc0wd"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Die Harfnerin« von Riedl",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE HARFNERIN von D. A. Riedl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. EMIL TITL",
+      "scans": [
+        "alm_2719_114192_4a5dwzh1i7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE HARFNERIN von D. A. Riedl",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "hp1fsjxa35rvvhh",
+          "source_id": "60ckol7nmste1ra"
+        }
+      ],
+      "source_id": "fnx5oxuvfpie4aa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Bei der Räthin Retlau war heute Abends große Gesellschaft auf ihrem Landhause, unfern der Residenz.",
+      "language": [],
+      "musenalm_id": 114193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Ständchen aus dem musikalischen Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Ständchen aus dem musikalischen Leben",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "17xjqe49v1xcoot",
+          "source_id": "odens0vmb2p5eby"
+        }
+      ],
+      "source_id": "nuk16mnqjvfrz73"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Ein Greis, der die Leichen bettet, / Bereitet wieder ein Grab;",
+      "language": [],
+      "musenalm_id": 114194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der alte Gräber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Kaltenbrunner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der alte Gräber",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "roqd4m2swedwv3j",
+          "source_id": "56im3be1s4816kd"
+        }
+      ],
+      "source_id": "7v1o6izgwcdmcsc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Es war ein frommer Siedler, / Der dieser Welt entrann, / Mit glaubigem Gemüthe / Dem Himmel zugethan,",
+      "language": [],
+      "musenalm_id": 114195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die St. Benedict Höhle bei Trenchin. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Reinhard Wagner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die St. Benedict Höhle bei Trenchin. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "i94isn97dgok7he"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Das Gastzimmer des weißen Kreuzes in der kleine Stadt Prag wimmelte am 15ten August 1355 von Menschen aus allen Ständen.",
+      "language": [],
+      "musenalm_id": 114196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Königstafel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. H. Mirani",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Königstafel",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "hi3j98rg7kk1ey4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Wie hat doch der Wein so flüßig getrunken, / Wie hat mir das herrliche Weinchen geschmeckt!",
+      "language": [],
+      "musenalm_id": 114197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der zufriedengestellte Weintrinker / im Nachhausegehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der zufriedengestellte Weintrinker / im Nachhausegehen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "crr8dl7v82ol6vd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "Des Schicksals Macht hat uns geschieden, / Es darf nicht Herz an Herz erglüh'n;",
+      "language": [],
+      "musenalm_id": 114198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Entfernte. / Glosse: Wenn du betrübt bist, möcht' ich klagen / Und wünschen: könnt'st du heiter seyn - / Ach! einen Himmel möcht' ich tragen / In deine stille Welt hinein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Proch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Entfernte. / Glosse: Wenn du betrübt bist, möcht' ich klagen / Und wünschen: könnt'st du heiter seyn - / Ach! einen Himmel möcht' ich tragen / In deine stille Welt hinein",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "d5qebprx0tlpzv8",
+          "source_id": "3cfww83utvorg15"
+        }
+      ],
+      "source_id": "5mgvpbcidjbcsuq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Jeder Wandrer in der Fremde, / Winket ihm der Heimat Land,",
+      "language": [],
+      "musenalm_id": 114199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Fanny",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Gottfried Neumann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Fanny",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "u56d09jffk0z5ur",
+          "source_id": "0pg9qap1jmf2ggo"
+        }
+      ],
+      "source_id": "85noajh1lrqsmmf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Was ist das für ein süßer Schall, / Der jedes Herz bewegt?",
+      "language": [],
+      "musenalm_id": 114200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gesang. / An ** / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gesang. / An ** / Sonett",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "nz03xhzpzbg7xlq",
+          "source_id": "ewk7roa9suhykq4"
+        }
+      ],
+      "source_id": "8fqap98i2u987tk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Ihr Frühstück steht bereit, hochwürdiger Herr! dieß war die interessanteste Nachricht, welche Senora Margaritha, die alte Haushälterin des würdigen Seelsorgeers Matthäo Cordoso demselben brachte.",
+      "language": [],
+      "musenalm_id": 114201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Dornenkronen. / Geschichtliche Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwei Dornenkronen. / Geschichtliche Novelle",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "kj17lopm2wegh22"
+        }
+      ],
+      "source_id": "efvytdcnih345sb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Die Weisen irren, wen sie lehren: / Die Farben stammen her vom Licht,",
+      "language": [],
+      "musenalm_id": 114202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Farben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carlopago",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Farben",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "xaj6m1llkx5hiyx",
+          "source_id": "qeo1sz22sajt0o9"
+        }
+      ],
+      "source_id": "uhub7f0vsy108kq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Ruft Frühling durch die starre Au, / Da guckt das Gras hervor,",
+      "language": [],
+      "musenalm_id": 114203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seufzer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carlopago",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seufzer",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.520Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.520Z",
+          "agent": "xaj6m1llkx5hiyx",
+          "source_id": "xcjv3yz48p3knbh"
+        }
+      ],
+      "source_id": "mt7gnl9363ipdma"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Ich sah im Traum das Liebchen mein / so wundermild und engelschön,",
+      "language": [],
+      "musenalm_id": 114204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. Jäckle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Traum",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "v8m8wbclful5qad"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "220",
+      "incipit_statement": "Es war in dem ersten Decennium unsers Jahrhunderts, als ich als Arzt, in die Anstalt für Irre in B** berufen wurde,",
+      "language": [],
+      "musenalm_id": 114205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mündel. / Aus den Memoiren eines Irrenarztes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Silas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mündel. / Aus den Memoiren eines Irrenarztes",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "kn82quf1b5v497w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Die Welt mit ihren Himmeln all', / Die du im Geistesflug erschaust, / Sie ist ein klarer Wiederhall",
+      "language": [],
+      "musenalm_id": 114206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glaube",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. E. Löbisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glaube",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "h64crk6n98fcguu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "240",
+      "incipit_statement": "Wenn unser Auge Thränen weint, / Und unser Herz ist sturmbeweget,",
+      "language": [],
+      "musenalm_id": 114207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hoffnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. E. Löbisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hoffnung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "g6ou1nlhaufpu41"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Die Lieb' ist Leben und Natur, / Sie hält die Wesen fest umschlungen,",
+      "language": [],
+      "musenalm_id": 114208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. E. Löbisch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "9x8rf4pcsd073y3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Sey mir gegrüßt, du schönes Land der Ungarn! / Wo ich der Jugend Rosenzeit verlebt.",
+      "language": [],
+      "musenalm_id": 114209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gruß an Ungarn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gruß an Ungarn",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.462Z",
+          "agent": "17xjqe49v1xcoot",
+          "source_id": "ez7ojuoahr21we1"
+        }
+      ],
+      "source_id": "17p72iw1652vcsj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "So viele Gäste mit Geschenken / Ringsum nur froher heit'rer Sinn,",
+      "language": [],
+      "musenalm_id": 114210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Jahreszeiten der Ehe. / (Tableau für ein junges Brautpaar.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "And. Schumacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Jahreszeiten der Ehe. / (Tableau für ein junges Brautpaar.)",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.462Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.462Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "2qrnb5e3bf0wr4s"
+        }
+      ],
+      "source_id": "rzzczimq9tqdekp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Blümlein stand am Uferrande / Bog sich nach dem Schwesterlein",
+      "language": [],
+      "musenalm_id": 114211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blumenliebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Otto Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blumenliebe",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.463Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "2jvw83ajicbqtx2"
+        }
+      ],
+      "source_id": "bs9fhkg722pt9mn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Kind, es wird auf Erden immer / Schwerer und zu leben schlimmer,",
+      "language": [],
+      "musenalm_id": 114212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vater an der Wiege seines / Sohnes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Schickh",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vater an der Wiege seines / Sohnes",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "3fd2pmji8gzjthb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Das Jahr schließt seine Pforte, / Es neigt das Haupt zur Ruh",
+      "language": [],
+      "musenalm_id": 114213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am letzten Tag des Jahres",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am letzten Tag des Jahres",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "re8mj1bmvdq8h2a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Ich bin mern Vater und mein Kind, / Fest, und doch leicht gesinnt.",
+      "language": [],
+      "musenalm_id": 114214,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chr. Kuffner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Räthsel",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.463Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.463Z",
+          "agent": "6sneav5elo06of1",
+          "source_id": "g8rtwxmf9oclhhc"
+        }
+      ],
+      "source_id": "zanvcsgrgiicn7t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114215,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "wepaavw2593lvlc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114216,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personalstand / des k.k. priv. Theaters in der Leopoldstadt. / (Nach alphabetischer Ordnung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personalstand / des k.k. priv. Theaters in der Leopoldstadt. / (Nach alphabetischer Ordnung.)",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "y5aahmyhtj8sdq4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114217,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / Aller vom 1. November 1835, bis 31.October 1836 / neu aufgeführten Stücke und Pantomimen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / Aller vom 1. November 1835, bis 31.October 1836 / neu aufgeführten Stücke und Pantomimen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "r02k3j053130vpa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114218,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht der Beneficien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht der Beneficien",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "aqnbfoict1pzcw2"
+    }
   ],
   "agents": [
     {

@@ -48,26 +48,791 @@
   "year": 1834,
   "editor": "",
   "items": [
-    "s7rxx262tah0dl9"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.700Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100789",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.700Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "s7rxx262tah0dl9"
+    }
   ],
   "contents": [
-    "1nlcbkaie2sik34",
-    "5aqlza7mom0vvqn",
-    "itjwuqiwvkr9coi",
-    "iyihkynfrdl3ryd",
-    "8fybm48zsbsg7m6",
-    "5jdke542lh0worz",
-    "h85ckgyq3iw7kox",
-    "yjukp6mkdij3rpz",
-    "66o1sp4tqq0yf21",
-    "l4uwvepsn86rv50",
-    "3gwi14u7d9m3wtt",
-    "zm54r975ckd57sj",
-    "0odz755sjelasnc",
-    "0tdrlq0r84cwul2",
-    "vma95zpuy07uqc8",
-    "vkvysd4e5mygxl5",
-    "4xbvk43xal3uvgo"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.852Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110885,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3470_110885_fb4i4shopg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "1nlcbkaie2sik34"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Günstlinge. Gemälde aus den letzten Tagen der Regierung Ludwigs des 13ten« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110890, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110886,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Louise von La Fayette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl",
+      "scans": [
+        "alm_3470_110886_gifa58zgr8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Louise von La Fayette",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.344Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "09pfxgucsjlzmoc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.344Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "8nmbyud6znu2blc"
+        }
+      ],
+      "source_id": "5aqlza7mom0vvqn"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110887,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN. / 1834. / INDUSTRIE-COMPTOIR IN LEIPZIG. / (Baumgärtner.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinr. Meyer sc. Zürich",
+      "scans": [
+        "alm_3470_110887_6hlfje08x7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN. / 1834. / INDUSTRIE-COMPTOIR IN LEIPZIG. / (Baumgärtner.)",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.344Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.344Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "tbovlxj0w9kjjtc"
+        }
+      ],
+      "source_id": "itjwuqiwvkr9coi"
+    },
+    {
+      "annotation": "Unter dem Titel: I-Verz /) Titelblatt verso: Leipzig, gedruckt bei J. B. Hirschfeld",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110888,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1834. / Von / A. von Tromlitz. / (Mit 8 Stahlstichen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3470_110888_8iixuv6u6f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1834. / Von / A. von Tromlitz. / (Mit 8 Stahlstichen.)",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "iyihkynfrdl3ryd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110889,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "8fybm48zsbsg7m6"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Titelgraphik INr 110886, Obj 2; Graphken INr 110891, 110892; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einem kleinen Gehölze, das unfern St. Germain auf einem sanften Abhange sich schattend breitet, erhob sich eine mit Baumrinde bekleidete Hütte,",
+      "language": [],
+      "musenalm_id": 110890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Günstlinge. / Gemälde aus den letzten Tagen der Regierung / Ludwigs des 13ten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Günstlinge. / Gemälde aus den letzten Tagen der Regierung / Ludwigs des 13ten",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.284Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "x51htgxbbcbox4r"
+        }
+      ],
+      "source_id": "5jdke542lh0worz"
+    },
+    {
+      "annotation": "Illustration zu »Die Günstlinge. Gemälde aus den letzten Tagen der Regierung Ludwigs des 13ten« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110890, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.761Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marie von Nevers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl",
+      "scans": [
+        "alm_3470_110891_tmg45dh4oj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marie von Nevers",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.284Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "ml89xjnwari9hoj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.284Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.284Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "uro73xdm9ab7h9t"
+        }
+      ],
+      "source_id": "h85ckgyq3iw7kox"
+    },
+    {
+      "annotation": "Illustration zu »Die Günstlinge. Gemälde aus den letzten Tagen der Regierung Ludwigs des 13ten« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110890, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retsch del. J. Axmann sc.1832)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retsch del. J. Axmann sc.1832",
+      "scans": [
+        "alm_3470_110892_n96zfwp9tn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "2dw42wa2zlxfmn2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "umzisoe3em8sh96"
+        }
+      ],
+      "source_id": "yjukp6mkdij3rpz"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 110894, 110895; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Während Churfürst Friedrich von der Pfalz in Prag Hof hielt und ein Heer zusammenzog, die ungewisse böhmische Krone zu behaupten, hatte er seine Erblande, die schöne Pfalz, der eigenen Vertheidigung überlassen.",
+      "language": [],
+      "musenalm_id": 110893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schloss Rödelheim",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schloss Rödelheim",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "t2muqa6f51eztwl"
+        }
+      ],
+      "source_id": "66o1sp4tqq0yf21"
+    },
+    {
+      "annotation": "Illustration zu »Schloss Rödelheim« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110893, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marches Spinola",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichnung M. Retzsch Stahlstich v. Leop. Beyer in Wien",
+      "scans": [
+        "alm_3470_110894_8xwfvbqtnj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marches Spinola",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "7sanpa3ybbsmb7p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "qopl3ul7nlzjbi7"
+        }
+      ],
+      "source_id": "l4uwvepsn86rv50"
+    },
+    {
+      "annotation": "Illustration zu »Schloss Rödelheim« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110893, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.249Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "332",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retsch del. J. Axmann sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retsch del. J. Axmann sc.",
+      "scans": [
+        "alm_3470_110895_ud6bfkmdlc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "0xjohudmu736x47"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "bfsjk0re32h3mmz"
+        }
+      ],
+      "source_id": "3gwi14u7d9m3wtt"
+    },
+    {
+      "annotation": "mit einer Illustation s. Graphik INr 110897, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.250Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Unter den Schatten verbreitenden Aesten einer hohen Pinie saß auf der Landzunge, auf welcher Gaëta in den Golf hinausragt, die Königin von Neapel;",
+      "language": [],
+      "musenalm_id": 110896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Constance von Clermont",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Constance von Clermont",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "9p4mgi4ld1gv1y7"
+        }
+      ],
+      "source_id": "zm54r975ckd57sj"
+    },
+    {
+      "annotation": "Illustration zu »Constance von Clermont« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110896, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.251Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "398",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Constance von Clermont / Königin von Neapel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender del. Fr. Stöber gest.in Stahl. Wi.",
+      "scans": [
+        "alm_3470_110897_a5vr31l079.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Constance von Clermont / Königin von Neapel",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "d8yim7a38ajmi82"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "q8kxjjsbl0bxa2x"
+        }
+      ],
+      "source_id": "0odz755sjelasnc"
+    },
+    {
+      "annotation": "s. Graphik INr 110899, Obj 15 /) Anm. am Objekt: Artistische Zugabe der Verlagshandlung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Was eilst Du, müder Wand'rer, nach dem Kreuze, / Das einsam dort am schroffen Abhang steht?",
+      "language": [],
+      "musenalm_id": 110898,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spoletto",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Spoletto",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "0tdrlq0r84cwul2"
+    },
+    {
+      "annotation": "s.Textbezug (Gedicht) INr 110898, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.253Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110899,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Spoleto",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Meyer sc. Zürich",
+      "scans": [
+        "alm_3470_110899_mxh2w46796.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Spoleto",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.438Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.438Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "nzsqea567ugncl1"
+        }
+      ],
+      "source_id": "vma95zpuy07uqc8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110900,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In den früheren Jahrgängen dieses Taschenbuchs / sind folgende Erzählungen enthalten:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In den früheren Jahrgängen dieses Taschenbuchs / sind folgende Erzählungen enthalten:",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "vkvysd4e5mygxl5"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110901,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3470_110901_wli40dzgcc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1834,
+      "editor": "",
+      "agents": [],
+      "source_id": "4xbvk43xal3uvgo"
+    }
   ],
   "agents": [
     {

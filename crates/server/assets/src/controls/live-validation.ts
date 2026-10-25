@@ -3,6 +3,7 @@ let timer: ReturnType<typeof setTimeout> | undefined;
 let pending: AbortController | undefined;
 function cancel() { clearTimeout(timer); pending?.abort(); }
 document.addEventListener('input', event => {
+  if ((event.target as Element)?.closest('server-picker, [data-choice-input]')) return;
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
   const form = target.closest<HTMLFormElement>('form[data-live-validation]');

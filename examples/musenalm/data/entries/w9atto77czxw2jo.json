@@ -46,7 +46,26 @@
   "year": 1854,
   "editor": "",
   "items": [
-    "lg6fggxu359q458"
+    {
+      "annotation": "Teil I. und II. des 3. Jg 1854 N. F. zusammen mit Teil I. und II. des 4. Jg N. F.",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.706Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406053",
+      "location": "105G07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.706Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lg6fggxu359q458"
+    }
   ],
   "contents": [],
   "agents": []

@@ -48,24 +48,648 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "36dr0gokvb65cvp"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.618Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100448",
+      "location": "105Q04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.618Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "36dr0gokvb65cvp"
+    }
   ],
   "contents": [
-    "68ism5uzed8m7f5",
-    "2sryufwoou6shpl",
-    "63zklr2e8knxvru",
-    "u6dzdju0v0vxzbe",
-    "5412su7l1uvhg81",
-    "norh1zb7tbbdw1p",
-    "0vyc8siiyin2lex",
-    "d4yb98uej052xjn",
-    "kqq28p3g5q1466c",
-    "bpcf8qx56sltabj",
-    "wgotc1a8ej2rhxb",
-    "inz1uu5dhnt3q68",
-    "hhctw1l19znwxvf",
-    "qxpezku8maqmjae",
-    "aeg03xzqd99l4i6"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77786,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2414_77786_ge6rtc0ffl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "68ism5uzed8m7f5"
+    },
+    {
+      "annotation": "Titelportrait /) s. Textbezug (Gedicht) INr 77790, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77787,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA / Königin von Sachsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. Vogelstein pinx. d. Englische Kunst-Anstalt A. H. Payne sc.",
+      "scans": [
+        "alm_2414_77787_eewteun3ch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA / Königin von Sachsen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "vns4sg0j1neru7c",
+          "source_id": "dux9zsif3rfwm87"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.696Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.696Z",
+          "agent": "hnc7x2p8pzr9l8y",
+          "source_id": "p45xgbujeq567o9"
+        }
+      ],
+      "source_id": "2sryufwoou6shpl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77788,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1843. / Herausgegeben / von / Theodor Hell. / Zwei und dreißigster Jahrgang, / oder / Neue Folge, / Dritter Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2414_77788_577rphc0t6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1843. / Herausgegeben / von / Theodor Hell. / Zwei und dreißigster Jahrgang, / oder / Neue Folge, / Dritter Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "63zklr2e8knxvru"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77789,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis",
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis, Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "u6dzdju0v0vxzbe"
+    },
+    {
+      "annotation": "s. Titelportarit INr 77787, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Im Land' wo Friedrich August segnend waltet, / Schmückt Sie den Thron mit anmuthvoller Milde,",
+      "language": [],
+      "musenalm_id": 77790,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria. / Königin von Sachsen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria. / Königin von Sachsen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.835Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.835Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "ztstcttn5fym8yo"
+        }
+      ],
+      "source_id": "5412su7l1uvhg81"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77792, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die Myrthe hat zur bräutlich schönen Krone / Sich um der Fürstin Lockenhaar gewunden",
+      "language": [],
+      "musenalm_id": 77791,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria. / Prinzessin von Preußen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria. / Prinzessin von Preußen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "6kt2g8wwywo57l8"
+        }
+      ],
+      "source_id": "norh1zb7tbbdw1p"
+    },
+    {
+      "annotation": "s. Portrait INr 77791, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77792,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA. / Prinzessin von Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2414_77792_dkcs5a1e0j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA. / Prinzessin von Preussen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "0vyc8siiyin2lex"
+    },
+    {
+      "annotation": "s. Graphik (Portrait) INr 77794, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "geboren am 8. November 1804 in Berlin, der Sohn eines Kaufmanns, studirte dort Naturwissenschaften und Geschichte, und bereitete sich zu naturwissenschaftlichen Reisen vor,",
+      "language": [],
+      "musenalm_id": 77793,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theodor Mügge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theodor Mügge",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "4nepbcsv0jxf321"
+        }
+      ],
+      "source_id": "d4yb98uej052xjn"
+    },
+    {
+      "annotation": "s. Textbezug INr 77793, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77794,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theodor Mügge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Fielder del.Leipzig, d. Englsiche Kunst-Anstalt A. H. Payne sc.",
+      "scans": [
+        "alm_2414_77794_iueykls8gy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Theodor Mügge",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "vns4sg0j1neru7c",
+          "source_id": "3lj5ynasflqhoi9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "975c81cxz02vq5f",
+          "source_id": "fcsehsdzhhqbfio"
+        }
+      ],
+      "source_id": "kqq28p3g5q1466c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Indem ich in den nur zu reichen Fundgruben der ausländischen Criminalistik zu anderm Zwecke umhersuchte, stieß ich auf einen Fall, der, allerdings mit einem verbrecherischen Ausgang,",
+      "language": [],
+      "musenalm_id": 77795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein englischer Werther",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein englischer Werther",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "1fny9wusmw26k5t"
+        }
+      ],
+      "source_id": "bpcf8qx56sltabj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Früh zur Jungfrau erblüht, war Lady Katharine Gordon in ihrem funfzehnten Sommer die schönste Blume am Hofe des vierten Jakob von Schottland.",
+      "language": [],
+      "musenalm_id": 77796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trau, schau, wem. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Woldemar Seyffarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trau, schau, wem. / Historische Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "wgotc1a8ej2rhxb"
+    },
+    {
+      "annotation": "Beitrag mit zahlreichen Briefen und Gedichten der im Titel angegebenen Autoren",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "In einer Zeit, die mehr als jede frühere voll Pietät für die Namen ausgezeichneter Menschen, ihnen Denkmale in Erz und Marmor, wie in den Prachttypen ihres verklungenen lebendigen Wortes zu setzen bemüht ist,",
+      "language": [],
+      "musenalm_id": 77797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophie Becker / und ihr Verhältniß zu / Elisa v. d. Recke, der Herzogin von Kurland, Tiedge, Gleim, / Klamer-Schmidt, Bürger, Nicolai, Moses Mendelssohn / und mehreren andern ihrer Zeitgenossen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie von Großmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sophie Becker / und ihr Verhältniß zu / Elisa v. d. Recke, der Herzogin von Kurland, Tiedge, Gleim, / Klamer-Schmidt, Bürger, Nicolai, Moses Mendelssohn / und mehreren andern ihrer Zeitgenossen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "pg4xeyhd29oq3nl",
+          "source_id": "nc53nxvhc59luh0"
+        }
+      ],
+      "source_id": "inz1uu5dhnt3q68"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "In dem kleinen Gemach brannten die Lampen noch hinter den großen weißen Glaskugeln und warfen ihren blendenden Strahl über den Arbeitstisch,",
+      "language": [],
+      "musenalm_id": 77798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilder der Zeit. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilder der Zeit. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.836Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.836Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "y0zwpwsuoyol332"
+        }
+      ],
+      "source_id": "hhctw1l19znwxvf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "360",
+      "incipit_statement": "Nach einem regnerischen Sommer glaubte man um so mehr Recht auf warme und schöne Herbsttage zu haben. Landparthieen, bis dahin aufgeschoben, wurden den Freunden angekündigt,",
+      "language": [],
+      "musenalm_id": 77799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die hellen Fenster. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Buchner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die hellen Fenster. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "qxpezku8maqmjae"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.198Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77800,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2414_77800_osi4p71cpb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1843",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "aeg03xzqd99l4i6"
+    }
   ],
   "agents": [
     {

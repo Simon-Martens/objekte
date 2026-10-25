@@ -13,17 +13,33 @@ impl Control for Object {
         registry: &Registry,
     ) -> Result<String> {
         let mut html = String::new();
+        let mut optional = String::new();
+        let mut secondary = String::new();
+        let mut tables = String::new();
         for child in &field.items {
-            html += &registry.render(child, &child_path(path, &child.key), context, false)?;
-            if !child.present && !child.hidden && !child.read_only {
-                html += &format!(
+            let destination = if crate::views::embedded::is_table(child) {
+                &mut tables
+            } else if !child.required && !context.revealed_fields.contains(&child.id) && child.schema["x-presentation"]["secondary"] == true {
+                &mut secondary
+            } else if empty_optional(child, &child_path(path, &child.key), context) {
+                &mut optional
+            } else {
+                &mut html
+            };
+            *destination +=
+                &registry.render(child, &child_path(path, &child.key), context, false)?;
+            if !child.present && !child.hidden && !child.read_only && !required_control(child) {
+                *destination += &format!(
                     "<button class=\"small\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\">Add {}</button>",
                     context.session,
                     child.id,
-                    crate::views::escape(child.schema["title"].as_str().unwrap_or(&child.key))
+                    crate::views::escape(crate::i18n::field(&child.schema, &child.key))
                 );
             }
         }
+        html += &details(&crate::i18n::t("More fields"), &optional);
+        html += &details(&crate::i18n::t("Additional details"), &secondary);
+        html += &tables;
         if html.is_empty() {
             html += "<p class=\"muted\">Empty object</p>";
         }

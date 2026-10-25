@@ -1,5 +1,5 @@
+use super::table::{GET_FORM, TableColumns, hidden, query_url};
 use super::*;
-use super::table::{TableColumns, GET_FORM, hidden, query_url};
 use std::collections::HashMap;
 use structured_editor_core::ListRequest;
 
@@ -135,10 +135,7 @@ pub fn render(
             None
         },
         query: q.clone(),
-        search_options: structured_editor_core::SearchOptions {
-            regex: params.get("regex").is_some_and(|v| v == "1"),
-            case_sensitive: params.get("case_sensitive").is_some_and(|v| v == "1"),
-        },
+        search_options: super::search::options(params, ""),
         search_fields: None,
         display_field: None,
         label_view: String::new(),
@@ -168,19 +165,12 @@ pub fn render(
         ),
         Err(error) => return Err(error.into()),
     };
-    let props = c.editor_schema["properties"]
-        .as_object()
-        .cloned()
-        .unwrap_or_default();
-    let available = &table_columns.available;
-    let columns = &table_columns.selected;
     let url = query_url(&base, params);
     let mut body = format!(
-        "<main id=\"workspace\" class=\"collection-workspace\" data-url=\"{}\" data-section=\"{base}\" tabindex=\"-1\"><div class=\"page-heading\"><div><p class=\"eyebrow\">Content / Collection</p><h1>{} <span class=\"heading-count mono\">{}</span></h1></div><div class=\"actions\">",
+        "<main id=\"workspace\" class=\"collection-workspace\" data-url=\"{}\" data-section=\"{base}\" tabindex=\"-1\"><div class=\"page-heading\"><div><p class=\"eyebrow\">{ui_text_0}</p><h1>{} <span class=\"heading-count mono\">{}</span></h1></div><div class=\"actions\">",
         escape(&url),
-        escape(&c.label),
-        page.total
-    );
+        escape(crate::i18n::text(&c.ui,"label", &c.label)),
+        page.total, ui_text_0 = crate::views::escape(&crate::i18n::t("Content / Collection")));
     if request.ids.is_some() {
         let marker = format!(
             " data-record-url=\"{}\"",
@@ -272,17 +262,16 @@ pub fn render(
     let get = GET_FORM;
     if !page.facets.is_empty() {
         body += &format!(
-            "<details class=\"surface filter-panel\" open><summary><i class=\"ri-filter-3-line\" aria-hidden=\"true\"></i>Filters<span class=\"badge\">{}</span></summary><form action=\"{base}\" {get}>{}",
+            "<details class=\"surface filter-panel\" open><summary><i class=\"ri-filter-3-line\" aria-hidden=\"true\"></i>{ui_text_0}<span class=\"badge\">{}</span></summary><form action=\"{base}\" {get}>{}",
             request.filters.values().filter(|v| !v.is_empty()).count(),
-            hidden(params, &["offset", "filter."])
-        );
+            hidden(params, &["offset", "filter."]), ui_text_0 = crate::views::escape(&crate::i18n::t("Filters")));
         for facet in &page.facets {
             let key = format!("filter.{}", facet.field);
             let value = params.get(&key).map(String::as_str).unwrap_or("");
             body += &format!(
                 "<div class=\"filter-field\"><label for=\"filter-{}\">{}</label>",
                 escape(&facet.field),
-                escape(&facet.label)
+                escape(crate::i18n::field(&c.editor_schema["properties"][&facet.field], &facet.label))
             );
             match facet.kind.as_str() {
                 "boolean" => {
@@ -311,7 +300,7 @@ pub fn render(
                             "<input type=\"number\" step=\"any\" name=\"{}\" value=\"{}\" placeholder=\"{label}\" aria-label=\"{} {label}\">",
                             escape(&key),
                             escape(params.get(&key).map(String::as_str).unwrap_or("")),
-                            escape(&facet.label)
+                            escape(crate::i18n::field(&c.editor_schema["properties"][&facet.field], &facet.label))
                         );
                     }
                 }
@@ -325,11 +314,10 @@ pub fn render(
                 }
                 _ => {
                     body += &format!(
-                        "<select id=\"filter-{}\" name=\"{}\"><option value=\"\">All values</option><option value=\"__missing\" {}>Not set</option>",
+                        "<select id=\"filter-{}\" name=\"{}\"><option value=\"\">{ui_text_0}</option><option value=\"__missing\" {}>{ui_text_1}</option>",
                         escape(&facet.field),
                         escape(&key),
-                        if value == "__missing" { "selected" } else { "" }
-                    );
+                        if value == "__missing" { "selected" } else { "" }, ui_text_0 = crate::views::escape(&crate::i18n::t("All values")), ui_text_1 = crate::views::escape(&crate::i18n::t("Not set")));
                     for (v, label, count) in &facet.options {
                         body += &format!(
                             "<option value=\"{}\" {}>{} ({count})</option>",
@@ -363,117 +351,23 @@ pub fn render(
                 && !key.starts_with("filter.")
         });
         format!(
-            "<a class=\"button quiet\" data-nav href=\"{}\">Show All</a>",
-            escape(&query_url(&base, &all))
-        )
+            "<a class=\"button quiet\" data-nav href=\"{}\">{ui_text_0}</a>",
+            escape(&query_url(&base, &all)), ui_text_0 = crate::views::escape(&crate::i18n::t("Show All")))
     };
-    let regex_enabled = request.search_options.regex;
-    let case_sensitive = request.search_options.case_sensitive;
-    let search_controls = format!(
-        "<input type=\"hidden\" name=\"case_sensitive\" value=\"{}\"><input type=\"hidden\" name=\"regex\" value=\"{}\"><span class=\"search-options\"><button type=\"button\" class=\"search-toggle\" data-case-toggle aria-label=\"Match case\" aria-pressed=\"{}\" title=\"Match case\"><span aria-hidden=\"true\">Aa</span></button><button type=\"button\" class=\"search-toggle\" data-regex-toggle aria-label=\"Use regular expression\" aria-pressed=\"{}\" title=\"Use regular expression\"><span aria-hidden=\"true\">.*</span></button></span>",
-        if case_sensitive { "1" } else { "0" },
-        if regex_enabled { "1" } else { "0" },
-        case_sensitive,
-        regex_enabled
+    let search_form = super::search::form(
+        &base,
+        params,
+        "",
+        "search-pattern",
+        "Search all indexed fields…",
+        pattern_error.as_deref(),
+        &show_all,
     );
-    let validation = format!(
-        "<span id=\"search-pattern-error\" class=\"search-pattern-error\" role=\"status\">{}</span>",
-        escape(pattern_error.as_deref().unwrap_or(""))
-    );
-    let invalid = if pattern_error.is_some() {
-        "true"
-    } else {
-        "false"
-    };
     let column_picker = table_columns.picker("collection", &base, params, "");
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" data-regex-search action=\"{base}\" {get}>{}<div class=\"search-input has-options\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" aria-invalid=\"{invalid}\" aria-describedby=\"search-pattern-error\" type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\">{search_controls}</div><button>Search</button>{show_all}</form>{column_picker}</div>",
-        hidden(params, &["q", "regex", "case_sensitive", "offset"]),
-        escape(&q)
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\">{search_form}{column_picker}</div>"
     );
-    body += &validation;
-    let mut page_controls = String::new();
-    for (enabled, next_offset, label, icon) in [
-        (
-            offset > 0,
-            offset.saturating_sub(limit),
-            "Previous page",
-            "ri-arrow-left-s-line",
-        ),
-        (
-            offset.saturating_add(limit) < page.matched,
-            offset.saturating_add(limit),
-            "Next page",
-            "ri-arrow-right-s-line",
-        ),
-    ] {
-        if enabled {
-            let mut next = params.clone();
-            next.insert("offset".into(), next_offset.to_string());
-            page_controls += &format!(
-                "<a class=\"icon-button\" data-nav href=\"{}\" aria-label=\"{label}\"><i class=\"{icon}\" aria-hidden=\"true\"></i></a>",
-                escape(&query_url(&base, &next))
-            );
-        } else {
-            page_controls += &format!(
-                "<button type=\"button\" class=\"icon-button\" disabled aria-label=\"{label}\"><i class=\"{icon}\" aria-hidden=\"true\"></i></button>"
-            );
-        }
-    }
-    body += &format!(
-        "<div class=\"result-summary\"><span><strong>{}</strong> {} {}</span><nav class=\"summary-pagination\" aria-label=\"List pagination\">{page_controls}<span class=\"mono\">{}–{}</span></nav></div><div class=\"table-scroll\"><table class=\"data-table\"><thead><tr>",
-        page.matched,
-        if q.is_empty() && request.filters.values().all(|v| v.is_empty()) {
-            if page.matched == 1 { "entry" } else { "entries" }
-        } else {
-            if page.matched == 1 { "match" } else { "matches" }
-        },
-        if page.matched == page.total {
-            String::new()
-        } else {
-            format!("<span class=\"muted\">of {} entries</span>", page.total)
-        },
-        if page.rows.is_empty() { 0 } else { offset + 1 },
-        (offset + page.rows.len()).min(page.matched)
-    );
-    for (key, label) in columns {
-        let mut p = params.clone();
-        p.insert("sort".into(), key.clone());
-        p.insert(
-            "direction".into(),
-            if sort == key && direction == "asc" {
-                "desc"
-            } else {
-                "asc"
-            }
-            .into(),
-        );
-        p.remove("offset");
-        body += &format!(
-            "<th scope=\"col\" aria-sort=\"{}\"><a data-nav href=\"{}\">{}<i class=\"{}\" aria-hidden=\"true\"></i></a></th>",
-            if sort == key {
-                if direction == "desc" {
-                    "descending"
-                } else {
-                    "ascending"
-                }
-            } else {
-                "none"
-            },
-            escape(&query_url(&base, &p)),
-            escape(label),
-            if sort == key {
-                if direction == "desc" {
-                    "ri-arrow-down-line"
-                } else {
-                    "ri-arrow-up-line"
-                }
-            } else {
-                "ri-expand-up-down-line"
-            }
-        );
-    }
-    body += "<th scope=\"col\"><span class=\"sr-only\">Actions</span></th></tr></thead><tbody>";
+    body += &super::search::validation("search-pattern", pattern_error.as_deref());
     let placement = if request.ids.is_some() {
         Some((
             &params["parent_collection"],
@@ -486,119 +380,24 @@ pub fn render(
     } else {
         None
     };
-    for row in &page.rows {
-        let link = record_url(name, &row.id);
-        body += "<tr>";
-        for (key, label) in columns {
-            let text = match key.as_str() {
-                "_id" => Some(&row.id),
-                "_label" => Some(&row.label),
-                _ => row.display.get(key),
-            };
-            let text = text
-                .map(|s| {
-                    highlighted(
-                        s,
-                        row.highlights.get(key).map(Vec::as_slice).unwrap_or(&[]),
-                        true,
-                    )
-                })
-                .unwrap_or_else(|| "<span class=\"muted\">—</span>".into());
-            let numeric = matches!(
-                props.get(key).and_then(|s| s["type"].as_str()),
-                Some("integer" | "number" | "boolean")
-            );
-            let primary = key == "_label" || key == &c.display;
-            body += &format!(
-                "<td data-label=\"{}\" class=\"{}\"><a data-nav class=\"{}\" href=\"{link}\">{text}</a></td>",
-                escape(label),
-                if key == "_id" {
-                    "mono id-cell"
-                } else if numeric {
-                    "numeric-cell mono"
-                } else {
-                    ""
-                },
-                if primary {
-                    "table-record-link"
-                } else {
-                    "table-cell-link"
-                }
-            );
-        }
-        body += &format!(
-            "<td class=\"row-actions\"><div class=\"row-action-buttons\"><a class=\"icon-button\" data-nav href=\"{link}\" aria-label=\"Open record\"><i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a>"
-        );
-        if actor.editable() && editor.allows(name, "update") {
-            body += &format!(
-                "<a class=\"icon-button\" data-nav href=\"{link}/edit\" aria-label=\"Edit\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></a>"
-            );
-        }
-        body += &crate::hierarchy::record_actions(
-            editor,
-            actor,
-            name,
-            &row.id,
-            &row.label,
-            placement.as_ref().map(|(parent, id, field, revision)| {
-                (
-                    parent.as_str(),
-                    id.as_str(),
-                    field.as_str(),
-                    revision.as_str(),
-                )
-            }),
-        )?;
-        body += "</div></td></tr>";
-        let extra_matches: Vec<_> = row
-            .matches
-            .iter()
-            .filter(|m| !columns.iter().any(|(key, _)| key == &m.field))
-            .collect();
-        if !q.is_empty() && !extra_matches.is_empty() {
-            body += &format!(
-                "<tr class=\"match-row\"><td colspan=\"{}\"><div class=\"match-excerpts\">",
-                columns.len() + 1
-            );
-            for m in extra_matches.iter().take(4) {
-                let label = available
-                    .iter()
-                    .find(|(k, _)| k == &m.field)
-                    .map(|(_, l)| l.as_str())
-                    .unwrap_or(&m.field);
-                body += &format!(
-                    "<p><span class=\"match-field\">{}</span>{}</p>",
-                    escape(label),
-                    highlighted(&m.text, &m.ranges, true)
-                );
-            }
-            body += "</div></td></tr>";
-        }
+    body += &super::record_table::RecordTable {
+        base: &base,
+        params,
+        columns: &table_columns,
+        request: &request,
+        page: &page,
+        pattern_error: pattern_error.as_deref(),
+        navigation: "data-nav",
+        placement: placement.as_ref().map(|(parent, id, field, revision)| {
+            (
+                parent.as_str(),
+                id.as_str(),
+                field.as_str(),
+                revision.as_str(),
+            )
+        }),
     }
-    body += "</tbody></table></div>";
-    if page.rows.is_empty() && pattern_error.is_none() {
-        body += "<div class=\"empty-state\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><h2>No matching records</h2><p>Try a broader search or clear a filter.</p></div>";
-    }
-    body += "<footer class=\"list-footer\"><div class=\"actions\">";
-    for (enabled, n, label) in [
-        (offset > 0, offset.saturating_sub(limit), "Previous"),
-        (
-            offset.saturating_add(limit) < page.matched,
-            offset.saturating_add(limit),
-            "Next",
-        ),
-    ] {
-        if enabled {
-            let mut p = params.clone();
-            p.insert("offset".into(), n.to_string());
-            body += &format!(
-                "<a class=\"button\" data-nav href=\"{}\">{label}</a>",
-                escape(&query_url(&base, &p))
-            );
-        } else {
-            body += &format!("<button type=\"button\" disabled>{label}</button>");
-        }
-    }
-    body += "</div></footer></section></div></main>";
+    .render(editor, name, actor)?;
+    body += "</section></div></main>";
     Ok(body)
 }

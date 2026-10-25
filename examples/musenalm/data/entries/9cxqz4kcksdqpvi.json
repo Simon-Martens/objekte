@@ -48,13 +48,178 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "r0nw6zfmpnrwzlk"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.450Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200939",
+      "location": "202F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.450Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "r0nw6zfmpnrwzlk"
+    }
   ],
   "contents": [
-    "iuogsbc9e9x8o4q",
-    "35hx1ip8l9ehoba",
-    "r0nxozyprihl6az",
-    "ll2t1fzpwg0juti"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.177Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_19_55602_zopdl4pq8u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "iuogsbc9e9x8o4q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.181Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55603,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeiner unterhaltender / Curiositäten-Almanach / auf / alle Tage im Jahr. / Herausgegeben / von / Christian August Fischer. / Erster Jahrgang. / 1825. / Mainz. / Bei Florian Kupferberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_19_55603_hetzlew7ei.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeiner unterhaltender / Curiositäten-Almanach / auf / alle Tage im Jahr. / Herausgegeben / von / Christian August Fischer. / Erster Jahrgang. / 1825. / Mainz. / Bei Florian Kupferberg",
+      "updated": "2008-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "35hx1ip8l9ehoba"
+    },
+    {
+      "annotation": "Photos 55604,01-55604,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Unter diesem Titel bieten wir dem Publikum ein Werk an, das vielleicht in der Anlage, wie in der Ausführung gleich eigenthümlich genannt werden kann.",
+      "language": [],
+      "musenalm_id": 55604,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Verfasser",
+      "scans": [
+        "alm_19_55604_01_dnfc99cdm5.jpg",
+        "alm_19_55604_02_thh0z144h4.jpg",
+        "alm_19_55604_03_9cj8ojrwtx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An die Leser",
+      "updated": "2008-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.918Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.918Z",
+          "agent": "f9dgwof9o4ukhch",
+          "source_id": "8oan914q3zyfeh7"
+        }
+      ],
+      "source_id": "r0nxozyprihl6az"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 55605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_19_55605_i265vfnypk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "ll2t1fzpwg0juti"
+    }
   ],
   "agents": [
     {

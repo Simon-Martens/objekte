@@ -48,27 +48,704 @@
   "year": 1838,
   "editor": "",
   "items": [
-    "30u77wplxsbhacf"
+    {
+      "annotation": "zusammen mit Jg 1837",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.815Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409548",
+      "location": "105A03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.815Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "30u77wplxsbhacf"
+    }
   ],
   "contents": [
-    "waom35u94jqrw41",
-    "fdt5ndt5wfpx8ek",
-    "m88g51oem3rjz1k",
-    "ywb6hnghdhj7388",
-    "nxd36u0a9qt4ll8",
-    "rnxo484mr97j2us",
-    "ave1e0p1i0c2qyo",
-    "rn2dczc7euyejbq",
-    "ds5q2cn3muffwbk",
-    "57ouqo70jbftw34",
-    "sordbb803ik0uzf",
-    "ac1b90zbpkoey5z",
-    "k9rdroqvkwd1uq3",
-    "tis2zf4w8yirt9f",
-    "eip4ztl1qcb2alh",
-    "pvbq2t0wqpwv6xa",
-    "u7uuksjmpxpuf1v",
-    "nj2tscnqo6lj5zj"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neujahrgeschenk, / 1838. / Wien. / Druck und Verlag der Mechitaristen-Congregations-Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neujahrgeschenk, / 1838. / Wien. / Druck und Verlag der Mechitaristen-Congregations-Buchhandlung",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "waom35u94jqrw41"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Manche Kinder schlafen schon in den ersten Wochen ihres Lebens sanft und ruhig;",
+      "language": [],
+      "musenalm_id": 129641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Kunst gut zu schlafen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Kunst gut zu schlafen",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "fdt5ndt5wfpx8ek"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.371Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Zu Straßburg ward geboren / Odilia, das Kind / Zu Wundern auserkoren, / An beiden Augen blind,",
+      "language": [],
+      "musenalm_id": 129642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Von der heiligen Odilia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Passy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Von der heiligen Odilia",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.047Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.047Z",
+          "agent": "gzy7khu1txc8z5v",
+          "source_id": "hodjlis1ubif8n9"
+        }
+      ],
+      "source_id": "m88g51oem3rjz1k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Schlaf wohl, Du Himmelsknabe, Du! / Schlaf wohl, o Kindelein! / Dich singen Engel in die Ruh' / Mit Himmelsliedern ein.",
+      "language": [],
+      "musenalm_id": 129643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altes Weihnachtslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Altes Weihnachtslied",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "ywb6hnghdhj7388"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Als vor Jahren das erste dreifarbige Band nach Krähwinkel kam, machte dasselbe viel Sensation.",
+      "language": [],
+      "musenalm_id": 129644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das dreifarbige Band",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das dreifarbige Band",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "nxd36u0a9qt4ll8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Der Rabe schreit im öden Hain, / Es plagt ihn sehr des Hungers Pein.",
+      "language": [],
+      "musenalm_id": 129645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Raben Mahlzeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Raben Mahlzeit",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.045Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.045Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "e5d2zbxtyqqik3c"
+        }
+      ],
+      "source_id": "rnxo484mr97j2us"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Die Zeit war schaurig kalt, sie sah mit Angst und Pein / Ins blumenvolle Land der Poesie hinein.",
+      "language": [],
+      "musenalm_id": 129646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn Clemens Brentano / de la Roche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Passy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn Clemens Brentano / de la Roche",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.045Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.045Z",
+          "agent": "gzy7khu1txc8z5v",
+          "source_id": "qtoq7rkcprr0rji"
+        }
+      ],
+      "source_id": "ave1e0p1i0c2qyo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Es war im Berner Oberland ein Zwerglein, Ledene genannt, das saß recht traurig bei einem Gläschen, weiß nicht, war's Wein oder Bier, vor seiner kleinen Hütte Thür,",
+      "language": [],
+      "musenalm_id": 129647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elend, / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Passy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elend, / Ein Mährchen",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.045Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.045Z",
+          "agent": "gzy7khu1txc8z5v",
+          "source_id": "rrkxd9snkojd37v"
+        }
+      ],
+      "source_id": "rn2dczc7euyejbq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Es war ein edler Rittersmann, / Der viele Schlachten schon gewann, / Gar müd' von solchem Treiben / Und ließ es endlich beleiben.",
+      "language": [],
+      "musenalm_id": 129648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Berg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ritter von Hempel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Berg",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "ds5q2cn3muffwbk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Preis und Ehr' der Dankbarkeit! / Unser Herz und uns're Seele / Sei'n ihr nimmerdar geweiht.",
+      "language": [],
+      "musenalm_id": 129649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dankbarkeit. / Ein Gedicht in Wechselstrophen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dankbarkeit. / Ein Gedicht in Wechselstrophen",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "57ouqo70jbftw34"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Glückliche Zeit, wo die Menschen noch glaubten fest und unerschütterlich, und glückliche Zeit, wo ich selbst noch glaubte unerschütterlich und fest!",
+      "language": [],
+      "musenalm_id": 129650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine kleine Novelle / ohne Titel und keine Dichtung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Saturn Stelzhammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine kleine Novelle / ohne Titel und keine Dichtung",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.045Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.045Z",
+          "agent": "a014bqncl68cjih",
+          "source_id": "viv669ysmcj6oe6"
+        }
+      ],
+      "source_id": "sordbb803ik0uzf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Es glänzen die Sternlein am Himmel klar / Sind Gottes gesprochene Worte,",
+      "language": [],
+      "musenalm_id": 129651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor Sonnenaufgang zu singen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor Sonnenaufgang zu singen",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "ac1b90zbpkoey5z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Blicket es an das erhabene Zeichen, / Wo dem Gebete die Uebel entweichen,",
+      "language": [],
+      "musenalm_id": 129652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das heilige Kreuz in Azgersdorf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Passy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das heilige Kreuz in Azgersdorf",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.045Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.045Z",
+          "agent": "gzy7khu1txc8z5v",
+          "source_id": "o8tvd7dhp4f7vfd"
+        }
+      ],
+      "source_id": "k9rdroqvkwd1uq3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Indem uns die gegenwärtige Erzählung auf den classischen Boden von Ostindien versetzt, erlaube ich mir, zuvörderst kurz in Erinnerung zu bringen, daß sich die Hinduer (Hindostaner, Indier) seit den ältesten Zeiten schon in vier geschlossene Kasten",
+      "language": [],
+      "musenalm_id": 129653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Paria-Kind. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. A. Moshammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Paria-Kind. / Eine Erzählung",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.045Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.045Z",
+          "agent": "hsujjp5smywjyiq",
+          "source_id": "sdxpdujhmmpkvdu"
+        }
+      ],
+      "source_id": "tis2zf4w8yirt9f"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 129655,129656; Obj 16,17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aphorismen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aphorismen",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "eip4ztl1qcb2alh"
+    },
+    {
+      "annotation": "Aphorismen (Sammlung INr 129654, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Selbst ein Grübler zweifelt, daß Wasser, Eis und Schnee der Wesenheit und Natur nach, eines und dasselbe sind.",
+      "language": [],
+      "musenalm_id": 129655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Selbst ein Grübler zweifelt, daß Wasser, Eis und Schnee der Wesenheit und Natur nach, eines und dasselbe sind.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "pvbq2t0wqpwv6xa"
+    },
+    {
+      "annotation": "Aphorismen (Sammlung INr 129654, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Sollten es denn bloße Zufälle, und ihre Aneinanderreihung auch nur Zufall seyn, daß der ehemalige Kaiser Napoleon, in demselben Schlosse Fontainebleau, - wo er Seine Päpstliche Heiligkeit gefangen hielt,",
+      "language": [],
+      "musenalm_id": 129656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sollten es denn bloße Zufälle, und ihre Aneinanderreihung auch nur Zufall seyn, daß der ehemalige Kaiser Napoleon, in demselben Schlosse Fontainebleau, - wo er Seine Päpstliche Heiligkeit gefangen hielt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "u7uuksjmpxpuf1v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129657,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2022-02-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1838,
+      "editor": "",
+      "agents": [],
+      "source_id": "nj2tscnqo6lj5zj"
+    }
   ],
   "agents": [
     {

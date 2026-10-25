@@ -48,49 +48,1555 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "iqljvwz2ptf0nz4"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.512Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200418",
+      "location": "105S04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.512Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "iqljvwz2ptf0nz4"
+    }
   ],
   "contents": [
-    "w2bviegzx7nraiw",
-    "lj03h3fpif4ke80",
-    "eixofm47spyht54",
-    "iac3p3w3lgvaz80",
-    "p0fsfjtuol9weko",
-    "8cwi5s1od2icg2e",
-    "vs5t0wc581uq4bv",
-    "duhl29h8rng0mu9",
-    "5soqze9mbh5stf6",
-    "gj7m4bs6f5lg2tg",
-    "al815dq7k5yjcsb",
-    "00573hxgffxm57v",
-    "zxfd5joygh0dh4g",
-    "j41rri8960faxdj",
-    "sxzwb961duwqd50",
-    "6nyf33totkbbh6d",
-    "ddzn7ie5h4mmfu3",
-    "jn1hpkl4u64xjd9",
-    "elek6uyfanaw1xu",
-    "onzb0cgje2l4m4q",
-    "nzee9xlqum60e6j",
-    "ftxdclmv9mrzfuh",
-    "f5fs2a7xfiavkpq",
-    "y3asvug7cbvl8y5",
-    "rxohtdazut7ud69",
-    "8ksixoinivhzomc",
-    "fsyi82h9g0fqbrt",
-    "63yr2dr7xrtggiu",
-    "1igiwj6ic7l1qei",
-    "mc9ydl0ty2q2nfo",
-    "n4xqgxclqwmpinw",
-    "az3bm8qee3dk6no",
-    "2pizlxqe3ccdadi",
-    "2in6lkbedd7q11i",
-    "5o28favx4a4luvf",
-    "8k7nyjoijwtv4ay",
-    "uu48la0mtl8lkjo",
-    "5zktlh28yf77sms",
-    "jfuarp5dgllhcnr",
-    "1jpy78zfo9cxfsy"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.171Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51901,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Eichler fecit)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Eichler fecit",
+      "scans": [
+        "alm_708_51901_127d627x3u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.546Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.546Z",
+          "agent": "uqmz1z1gxwdl23p",
+          "source_id": "4td3rip0w5f49id"
+        }
+      ],
+      "source_id": "w2bviegzx7nraiw"
+    },
+    {
+      "annotation": "Titelgraphik s.Textbezug INr 51923, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.581Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51902,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Capelle am Stoss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Füessli del. J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51902_xbjxxh9p94.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Capelle am Stoss",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.795Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.795Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "ievjte750rzgvbe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.795Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.795Z",
+          "agent": "yofxgerf8u6q1n8",
+          "source_id": "xtro8yvzjpoyt25"
+        }
+      ],
+      "source_id": "lj03h3fpif4ke80"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.583Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51903,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helvetischer / Almanach / Für das Jahr / 1808. / Zürich / bey Orell, Füßli & Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_708_51903_q4lpzfrw30.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Helvetischer / Almanach / Für das Jahr / 1808. / Zürich / bey Orell, Füßli & Comp.",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "eixofm47spyht54"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51904,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "iac3p3w3lgvaz80"
+    },
+    {
+      "annotation": "mit 5  Illustrationen s. Graphiken INr 51906-51909, 51916;  Obj 6-9, 16; Karte INr 51939, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.584Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der kleinen Charte in Bischofbergers Appenzeller-Chronik, muß nur als der ersten eigenen von diesem Canton erwähnt werden; sonst hat sie keinen Werth.",
+      "language": [],
+      "musenalm_id": 51905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Kurze / geographisch-statistische / Darstellung / des Cantons / Appenzell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Kurze / geographisch-statistische / Darstellung / des Cantons / Appenzell",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "p0fsfjtuol9weko"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Appenzell« INr 51905, Obj 5 /) s.a. Textbezug INr 51933, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "See-Alp",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. S. del. J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51906_fio0kh4pr8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "See-Alp",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.795Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.795Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "kk7szs8090ug4lg"
+        }
+      ],
+      "source_id": "8cwi5s1od2icg2e"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer;  Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Appenzell« INr 51905, Obj 5 /) s.a. Textbezug INr 51925, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Appenzell / Inner Rooden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_708_51907_a87764vp8x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Appenzell / Inner Rooden",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.795Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.795Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "s25jt80pvbn2z0u"
+        }
+      ],
+      "source_id": "vs5t0wc581uq4bv"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Appenzell« INr 51905, Obj 5 /) s.a. Textbezug INr 51934, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51908,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herisau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51908_0mpjpml9bx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herisau",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.795Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.795Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "unez6lg3lc7m6mi"
+        }
+      ],
+      "source_id": "duhl29h8rng0mu9"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer;  Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Appenzell« INr 51905, Obj 5 /) s.a. Textbezug INr 51926, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51909,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton Appenzell / Ausser Rooden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_708_51909_ph7scgfuo1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton Appenzell / Ausser Rooden",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.607Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "windymtod8bwxag"
+        }
+      ],
+      "source_id": "5soqze9mbh5stf6"
+    },
+    {
+      "annotation": "mit einem Anhang »Verfassung des Cantons St. Gallen« INr 51915, Obj 15 und 5 Illustrationen s. Graphiken INr 51911-51914, 51918; Obj 11-14, 51918; Karte INr 51939, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Die fünfte Landtafel in Stumps Chronik, das Thurgow.",
+      "language": [],
+      "musenalm_id": 51910,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Kurze / geographisch-statistische / Darstellung / des Cantons / St. Gallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Kurze / geographisch-statistische / Darstellung / des Cantons / St. Gallen",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "gj7m4bs6f5lg2tg"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer;  Illustration zu »Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10 /) s.a. Textbezug INr 51927, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton St. Gallen / Eine Toggenburgerinn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_708_51911_pc2z1pneiz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton St. Gallen / Eine Toggenburgerinn",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.533Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "8tu622q0aos6k9m"
+        }
+      ],
+      "source_id": "al815dq7k5yjcsb"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10 /) s.a. Textbezug INr 51935, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pfefersbad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caspar Rahn pinx. J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51912_6je3k0vxhq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pfefersbad",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.533Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.533Z",
+          "agent": "w9yeu93liri1vt7",
+          "source_id": "eo0vlnr1wy4928a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.534Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "tevjhdj0ejpwr8b"
+        }
+      ],
+      "source_id": "00573hxgffxm57v"
+    },
+    {
+      "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer;  Illustration zu »Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10 /) s.a. Textbezug INr 51928, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canton St. Gallen / Ein Toggenburger",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "König",
+      "scans": [
+        "alm_708_51913_enbcq1zi0b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Canton St. Gallen / Ein Toggenburger",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.534Z",
+          "agent": "grbttvgkqnprgwf",
+          "source_id": "y6982sj7xzju1hg"
+        }
+      ],
+      "source_id": "zxfd5joygh0dh4g"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10 /) s.a. Textbezug INr 51936, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "St. Gallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51914_ul702dlfl3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "St. Gallen",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.534Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "45hm443lmc5vvz9"
+        }
+      ],
+      "source_id": "j41rri8960faxdj"
+    },
+    {
+      "annotation": "Anhang zu »II. Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anhang. / Verfassung des Cantons St. Gallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anhang. / Verfassung des Cantons St. Gallen",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "sxzwb961duwqd50"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Appenzell« INr 51905, Obj 5 /) s.a. Textbezug INr 51930, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51916,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohnhäuser im Canton Appenzell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51916_dr7zm4rz1w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wohnhäuser im Canton Appenzell",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.534Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.534Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "3rg5rxns70gbme0"
+        }
+      ],
+      "source_id": "6nyf33totkbbh6d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Unter den Siegen, welche die Männer von Appenzell zu Anfang des XV. Jahrhunderts gegen den damaligen Ueberdrang des Stift St. Gallen für ihre Freyheit erfochten, war der am Speicher der erste,",
+      "language": [],
+      "musenalm_id": 51917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die/ Schlacht am Stoß. / (1805.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die/ Schlacht am Stoß. / (1805.)",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "ddzn7ie5h4mmfu3"
+    },
+    {
+      "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10 /) s.a. Textbezug INr 51931, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.098Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51918,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauernhaus im Canton St. Gallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Meyer sc.",
+      "scans": [
+        "alm_708_51918_67fhqf41ta.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bauernhaus im Canton St. Gallen",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.837Z",
+          "agent": "riqoiuak8ign3sj",
+          "source_id": "nw146wxhmyohu7u"
+        }
+      ],
+      "source_id": "jn1hpkl4u64xjd9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Johann Keßler von St. Gallen wiedmete sich frühzeitig den Studien, auf der Schule seiner Vaterstadt, nachwerts auf den Hohen Schulen zu Basel und Wittemberg (hier unter keinen Geringern, als den zwey Unsterblichen, Luther und Melanchthon),",
+      "language": [],
+      "musenalm_id": 51919,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Johann Keßler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Johann Keßler",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "elek6uyfanaw1xu"
+    },
+    {
+      "annotation": "mit einer Beigabe INr 51919, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Geb. zu Trogen (2. Aug.) 1692. Seine Eltern waren: Der Statthalter Conrad Zellweger, und Frau Maria Magdalena Tanner. Beyde stammen aus Häusern ab, welche schon einige Jahrhunderte sich die Liebe und das Zutrauen ihres Volks erblich gemacht,",
+      "language": [],
+      "musenalm_id": 51920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Laurenz Zellweger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Laurenz Zellweger",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "onzb0cgje2l4m4q"
+    },
+    {
+      "annotation": "Beigabe zu »Laurenz Zellweger« INr 51920, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "J'ay toujours pensé, et je pense encore, que nous autres pauvres petites bêtes ne sommes nullement en état de raisonner sur les attributs de Dieu;",
+      "language": [],
+      "musenalm_id": 51921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beylage. / Aus Zellwegers Briefen an Bodmer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beylage. / Aus Zellwegers Briefen an Bodmer",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "nzee9xlqum60e6j"
+    },
+    {
+      "annotation": "Sammlung von 1 Textbezug und 3 Sammlungen mit 10 Textbezügen INr 51923-51936, Obj 23-36 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Erklärung der Kupfer",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "ftxdclmv9mrzfuh"
+    },
+    {
+      "annotation": "VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Titelgraphik INr 51902, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Auf dem Wege von Gais nach Altstätten, auf einer Höhe, die eine der reitzendsten Aussichten des Rheinthals und nach Hohen Ems eröffnet,",
+      "language": [],
+      "musenalm_id": 51923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / (Dem Titelblatt gegenüber.) / Kapelle am Stoß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / (Dem Titelblatt gegenüber.) / Kapelle am Stoß",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "f5fs2a7xfiavkpq"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 51925-51928, Obj 25-28 /) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51924,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Landestrachten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Landestrachten",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "y3asvug7cbvl8y5"
+    },
+    {
+      "annotation": "2. Landestrachten (Sammlung INr 518924, Ob 24) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51907, Obj 7 # Anm. am Objekt: Bodmer, der Verfasser der Noachide, einer der Schöpfer der bessern deutschen Literatur",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.100Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Vor fünfzig Jahren sagte ein berühmter Helvetischer Dichter von diesem Volke: Nachdem es versucht hatte, drey Schritte gegen die gesellschaftliche Verfeinerung zu thun, so that es bald wieder zwey zurück, aus Furcht, seiner Freyheit zu schaden. #",
+      "language": [],
+      "musenalm_id": 51925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 17.) / a. Ziegenhirt aus dem Canton Appen- / zell der Innern Rhoden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 17.) / a. Ziegenhirt aus dem Canton Appen- / zell der Innern Rhoden",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "rxohtdazut7ud69"
+    },
+    {
+      "annotation": "2. Landestrachten (Sammlung INr 518924, Ob 24) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51909, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Haben die Männer des Berglandes Appenzell in ihrem Aeussern etwas Wildes, so bemerkt man hingegen an den dortigen Mädchen und Weibern,",
+      "language": [],
+      "musenalm_id": 51926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "S. 33. / b. Stickerin aus dem Canton Appen- / zell der Aussern Rhoden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "S. 33. / b. Stickerin aus dem Canton Appen- / zell der Aussern Rhoden",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "8ksixoinivhzomc"
+    },
+    {
+      "annotation": "2. Landestrachten (Sammlung INr 518924, Ob 24) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51911, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Man bemerkte einen auffallenden Kontrast zwischen den Kleidungen der Schweizerinnen, von welchen die einen, und zwar ohne die mindeste Rücksicht auf das Klima,",
+      "language": [],
+      "musenalm_id": 51927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 49.) / c. Eine Toggenburgerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 49.) / c. Eine Toggenburgerin",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "fsyi82h9g0fqbrt"
+    },
+    {
+      "annotation": "2. Landestrachten (Sammlung INr 518924, Ob 24) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51913, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Ein nur auf zwey Seiten aufgeschlagener, und von hinten in eine Spitze zusammenlaufender Hut, gewöhnlich mit einem schwarzen Sammetband umgeben,",
+      "language": [],
+      "musenalm_id": 51928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 65.) / d. Ein Toggenburger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 65.) / d. Ein Toggenburger",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "63yr2dr7xrtggiu"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 51930, 51931; Obj 30, 31 /)  VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Bauarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Bauarten",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "1igiwj6ic7l1qei"
+    },
+    {
+      "annotation": "3. Bauarten (Sammlung INr 51929, Obj 29) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51916, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Wie mehr oder minder Alles, so hat auch die Bauart der Appenzeller vieles von ihrem alten Charakter verloren.",
+      "language": [],
+      "musenalm_id": 51930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "a. / Bauernhaus im Canton Appenzell. / (S. 97.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "a. / Bauernhaus im Canton Appenzell. / (S. 97.)",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "mc9ydl0ty2q2nfo"
+    },
+    {
+      "annotation": "3. Bauarten (Sammlung INr 51929, Obj 29) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51918, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Die Bauart im Canton St. Gallen ist von einem District zum andern äusserst verschieden,",
+      "language": [],
+      "musenalm_id": 51931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 115.) / b. Bauernhaus im Canton St. Gallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 115.) / b. Bauernhaus im Canton St. Gallen",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "n4xqgxclqwmpinw"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 51933-51936, Obj 33-36 /) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Prospekte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Prospekte",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "az3bm8qee3dk6no"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51932, Obj 32) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51906, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Wild und melancholisch, in großen mahlerischen Formen bilden sich die Felsen des hohen Säntis um die einsame See-Gegende her,",
+      "language": [],
+      "musenalm_id": 51933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 13.) / a. See-Alp",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 13.) / a. See-Alp",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "2pizlxqe3ccdadi"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51932, Obj 32) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51908, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Der größte und betriebsamste Ort im Canton Appenzell, der Sitz großer Handelshäuser und Fabriken.",
+      "language": [],
+      "musenalm_id": 51934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 31.) / b. Herisau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 31.) / b. Herisau",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "2in6lkbedd7q11i"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51932, Obj 32) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51912, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Der Mahler, dessen Talent für karakteristische Darstellung schauervoller Naturscenen aus seinen Gemählden des Bergfalls zu Goldau bekannt ist,",
+      "language": [],
+      "musenalm_id": 51935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 53.) / c. Pfeffersbad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 53.) / c. Pfeffersbad",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "5o28favx4a4luvf"
+    },
+    {
+      "annotation": "4. Prospekte (Sammlung INr 51932, Obj 32) VI. Erklärung der Kupfer (Sammlung INr 51922, Obj 22) s. Graphik INr 51914, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Die hauptsächlichsten Gebäude die sich von St. Gallen in dieser Ansicht auszeichnen, sind das Fürstliche Kloster und der Thurm der Münsterkirche.",
+      "language": [],
+      "musenalm_id": 51936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(S. 77.) / d. St. Gallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(S. 77.) / d. St. Gallen",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "8k7nyjoijwtv4ay"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "uu48la0mtl8lkjo"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51938,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neueste Verlagsbücher von Orell Füßli und / Compagnie in Zürich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neueste Verlagsbücher von Orell Füßli und / Compagnie in Zürich",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "5zktlh28yf77sms"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.101Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51939,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Cantone / St. Gallen und Appenzell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gest. v. J. Scheurmann",
+      "scans": [
+        "alm_708_51939_fmcqb6eevc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Cantone / St. Gallen und Appenzell",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.837Z",
+          "agent": "9ql0nfn99kgr5a3",
+          "source_id": "fyatijcjex3njzi"
+        }
+      ],
+      "source_id": "jfuarp5dgllhcnr"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 51940,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (G. Eichler fecit)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Eichler fecit",
+      "scans": [
+        "alm_708_51940_aktrbv0vxz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2007-10-01 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.837Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.837Z",
+          "agent": "uqmz1z1gxwdl23p",
+          "source_id": "mt694h0c1wkg6pd"
+        }
+      ],
+      "source_id": "1jpy78zfo9cxfsy"
+    }
   ],
   "agents": [
     {

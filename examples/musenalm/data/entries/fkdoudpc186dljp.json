@@ -48,17 +48,320 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "jth51dzdhg7wvm2"
+    {
+      "annotation": "Vrlgbrosch, S VrlgM, S 1 vT, S 3 T, SS 5--14 Vrwrt d Hrsg, SS 15-381, S VrlgM",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.550Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200159",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.550Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "jth51dzdhg7wvm2"
+    }
   ],
   "contents": [
-    "7gsyq0t4kbpn9ck",
-    "98cxrhdsyr5uqik",
-    "u4ys9je5vqgiaa4",
-    "20iecer3nbpcf8f",
-    "yenirhtzuhuq89p",
-    "pon5csg12erd6du",
-    "xj08bibljpcnvzx",
-    "incdtgcvn4ghn5g"
+    {
+      "annotation": "UG recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1346_128567_tlt59dhtbx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "7gsyq0t4kbpn9ck"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach fürs Lustspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1346_128184_8b82iuczcw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach fürs Lustspiel",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "98cxrhdsyr5uqik"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach fürs Lustspiel. / Zusammengestellt / von / J. Ch. Baron Zedlitz. / Erster Jahrgang. / Stuttgart. / Hallberger'sche Verlagshandlung. / 1839",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Almanach fürs Lustspiel. / Zusammengestellt / von / J. Ch. Baron Zedlitz. / Erster Jahrgang. / Stuttgart. / Hallberger'sche Verlagshandlung. / 1839",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "u4ys9je5vqgiaa4"
+    },
+    {
+      "annotation": "enthält eine Notiz der Verlagshandlung: ein im Vrwrt angekündigter Stahlstich kann »eingetretener HIndernisse wegen« nicht erscheinen. Die »Beförderer unseres Unternehmens« sollen im nächsten Jg entschädigt werden.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Das Repertoir der deutschen Bühne wird von Jahr zu Jahr ärmlicher; dieser Uebelstand drängt sich auch dem oberflächlichsten Beobachter des Theaterwesens beim ersten Blicke auf!",
+      "language": [],
+      "musenalm_id": 128186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zedlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.979Z",
+          "agent": "id1mj19iathigp2",
+          "source_id": "lfzpk7ybl5cv2o3"
+        }
+      ],
+      "source_id": "20iecer3nbpcf8f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Und so hat denn das Juste-Milieu fast alle seine Anhänger verloren?",
+      "language": [],
+      "musenalm_id": 128187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bürgerlich und Romantisch. / Lustspiel in vier Akten / von / Bauernfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bürgerlich und Romantisch. / Lustspiel in vier Akten / von / Bauernfeld",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.979Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "xm4drk8lm8ynq92"
+        }
+      ],
+      "source_id": "yenirhtzuhuq89p"
+    },
+    {
+      "annotation": "# Der Übersetzer ist anonym. Vgl. dazu das Vrwrt, wo es nur heißt: »Ich ließ ... eine Übersetzung machen.«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Es ist besser, ich schreibe ihr! Mit ihr zu sprechen ist unmöglich; Und wenn ich auch den Muth dazu faßte, würde sie mich anhören? Den Brief wird sie jedenfalls lesen.",
+      "language": [],
+      "musenalm_id": 128198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frau von dreißig Jahren. / Lustspiel in vier Akten / von / Rosier",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Rosier",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Frau von dreißig Jahren. / Lustspiel in vier Akten / von / Rosier",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "pon5csg12erd6du"
+    },
+    {
+      "annotation": "# »Der Kammerdiener« von Pius Alexander Wolff",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Heute ist’s wieder einmal, als ob die ganze Stadt ausgestorben wäre, kein Mensch läßt sich bei mir sehen!",
+      "language": [],
+      "musenalm_id": 128199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Luftschlösser. / Lustspiel in vier Akten / Nach der Idee von Wolff’s »Kammerdiener,« # / von A. F. Weidner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolff [bearb.] A. F. Weidner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Luftschlösser. / Lustspiel in vier Akten / Nach der Idee von Wolff’s »Kammerdiener,« # / von A. F. Weidner",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "xj08bibljpcnvzx"
+    },
+    {
+      "annotation": "UG verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.322Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 128568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "incdtgcvn4ghn5g"
+    }
   ],
   "agents": [
     {

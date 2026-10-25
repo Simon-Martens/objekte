@@ -408,9 +408,25 @@ async fn templates_escape_record_content() {
 #[tokio::test]
 async fn active_collection_search_offers_show_all() {
     let (_temp, state, cookie, _) = fixture().await;
-    let (_, plain) = request(state.clone(), "GET", "/collections/notes", &cookie, &HashMap::new(), false).await;
+    let (_, plain) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
     assert!(!plain.contains(">Show All</a>"));
-    let (_, searched) = request(state, "GET", "/collections/notes?q=First&offset=50", &cookie, &HashMap::new(), false).await;
+    let (_, searched) = request(
+        state,
+        "GET",
+        "/collections/notes?q=First&offset=50",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
     assert!(searched.contains(">Show All</a>"));
     assert!(searched.contains("href=\"/collections/notes\""));
 }
@@ -1071,10 +1087,17 @@ async fn suggestion_lookups_patch_only_options_without_mutating_the_draft() {
     assert!(html.contains("data-query=\"Fir\""));
     input.insert(format!("value.{name}"), "No matching value".into());
     let (status, html) = request(
-        state.clone(), "POST",
-        &format!("/edit-sessions/{}/fields/{name}/suggestions?all=1", session.id),
-        &cookie, &input, true,
-    ).await;
+        state.clone(),
+        "POST",
+        &format!(
+            "/edit-sessions/{}/fields/{name}/suggestions?all=1",
+            session.id
+        ),
+        &cookie,
+        &input,
+        true,
+    )
+    .await;
     assert_eq!(status, StatusCode::OK);
     assert!(html.contains("value=\"First\""));
     assert!(html.contains("data-query=\"\""));
@@ -1107,7 +1130,11 @@ async fn live_validation_returns_only_feedback_and_never_changes_draft_or_disk()
         .unwrap()
         .id
         .clone();
-    assert!(crate::views::draft_exit(&session).unwrap().contains(">Close</button>"));
+    assert!(
+        crate::views::draft_exit(&session)
+            .unwrap()
+            .contains(">Close</button>")
+    );
     let url = format!("/edit-sessions/{}/live-validation", session.id);
     let mut values = form(&session, &actor);
     values.insert(format!("value.{count}"), "-3".into());
@@ -1455,6 +1482,7 @@ async fn generated_settings_preserve_unknown_keys_and_reject_invalid_changes() {
     values.insert("setting.pageSize".into(), "25.5".into());
     let (_, html) = request(state.clone(), "POST", "/settings", &cookie, &values, true).await;
     assert!(html.contains("value=\"25.5\""), "{html}");
+    assert!(html.contains("data-notification=\"error\""), "{html}");
     assert_eq!(state.editor.settings().unwrap().revision, saved.revision);
 }
 
@@ -2006,6 +2034,65 @@ async fn record_view_renders_typed_array_items_and_escapes_source() {
 }
 
 #[tokio::test]
+async fn record_view_names_linked_agents_inside_arrays() {
+    let (temp, mut state, cookie, _) = fixture().await;
+    let root = temp.path().join("project");
+    let repository = root.join(".editor/repository.json");
+    let mut config: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&repository).unwrap()).unwrap();
+    config["collections"]["agents"] = json!({"path":"data/agents","format":"json","id":"filename"});
+    std::fs::write(&repository, config.to_string()).unwrap();
+    let schema_path = root.join(".editor/objects.schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&schema_path).unwrap()).unwrap();
+    schema["anyOf"][0]["properties"]["agents"] = json!({"type":"array","items":{"type":"object","properties":{"agent":{"type":"string","x-relation":{"collection":"agents"}},"type":{"type":"string"}},"required":["agent"],"additionalProperties":false}});
+    schema["anyOf"].as_array_mut().unwrap().push(json!({"x-collection":"agents","type":"object","properties":{"name":{"type":"string"}},"required":["name"],"additionalProperties":false}));
+    std::fs::write(schema_path, schema.to_string()).unwrap();
+    let ui_path = root.join(".editor/ui.json");
+    let mut ui: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&ui_path).unwrap()).unwrap();
+    ui["collections"]["agents"] = json!({"label":"Agents","display":"name"});
+    std::fs::write(ui_path, ui.to_string()).unwrap();
+    std::fs::create_dir_all(root.join("data/agents")).unwrap();
+    std::fs::write(
+        root.join("data/agents/ada.json"),
+        json!({"name":"Ada & Co"}).to_string(),
+    )
+    .unwrap();
+    let note_path = root.join("data/notes/one.json");
+    let mut note: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&note_path).unwrap()).unwrap();
+    note["agents"] = json!([{"agent":"ada","type":"Autor:in"}]);
+    std::fs::write(note_path, note.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let (status, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one?node=%2Fagents",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("Open Ada &amp; Co"), "{html}");
+    let (status, html) = request(
+        state,
+        "GET",
+        "/collections/notes/records/one?node=%2Fagents%2F0",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(
+        html.contains("/collections/agents/records/ada\">Ada &amp; Co</a>"),
+        "{html}"
+    );
+}
+
+#[tokio::test]
 async fn all_field_controls_round_trip_and_markdown_arrays_keep_order() {
     let (_temp, state, cookie, actor) = field_types_fixture().await;
     let original = state.editor.get("notes", "one").unwrap().value;
@@ -2034,7 +2121,7 @@ async fn all_field_controls_round_trip_and_markdown_arrays_keep_order() {
     assert!(html.contains("inputmode=\"decimal\""));
     assert!(html.contains("class=\"text-multiline\""));
     assert!(html.contains("aria-describedby=\"errors-"));
-    assert!(html.contains("aria-label=\"Move item 1 down\""));
+    assert!(html.contains("aria-label=\"Reorder item 1\"") && html.contains("data-down="));
     assert!(!html.contains("ITEM 1"));
     assert!(session.draft.field(&fields["locked"]).unwrap().read_only);
     let array = session.draft.field(&fields["notes"]).unwrap();
@@ -2304,7 +2391,7 @@ async fn mapped_documents_share_drafts_controls_validation_and_conflict_guards()
     .await;
     assert_eq!(status, StatusCode::OK);
     assert!(html.contains("settings.json"));
-    assert!(html.contains("Add item"));
+    assert!(html.contains("</i>Add</button>"));
     assert!(!html.contains("name=\"record_id\""));
     let id = html
         .split("data-draft-id=\"")
@@ -2414,7 +2501,8 @@ async fn child_list_overrides_are_local_and_used_by_preview_and_full_list() {
         state.editor.config().collection("notes").unwrap().ui["list"]["columns"],
         json!(["name", "count"])
     );
-    let preview = hierarchy::sections(&state.editor, "groups", "g", &actor, &HashMap::new()).unwrap();
+    let preview =
+        hierarchy::sections(&state.editor, "groups", "g", &actor, &HashMap::new()).unwrap();
     assert!(preview.contains("sort=count"));
     assert!(!preview.contains("sort=name"));
     let (status, html) = request(state.clone(), "GET", "/collections/notes?parent_collection=groups&parent_id=g&parent_field=children&filter.count.min=1", &cookie, &HashMap::new(), false).await;
@@ -2668,7 +2756,8 @@ async fn recursive_browsing_preserves_unsaved_siblings_and_saves_deep_edits() {
     assert!(!html.contains("Document tree"));
     assert!(!html.contains("Document root"));
     assert!(html.contains("data-navigation"));
-    assert!(html.contains("Up one level"));
+    assert!(html.contains("aria-label=\"Record location\""));
+    assert!(html.contains("node=%2Fbranch%2Fitems"));
 }
 
 #[tokio::test]
@@ -2892,14 +2981,14 @@ async fn array_actions_distinguish_embedded_deletion_from_id_unlinking() {
         .unwrap();
     session.view_path = "/embedded".into();
     let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
-    assert!(html.contains("Delete item 1"));
+    assert!(html.contains("Delete row 1"));
     assert!(html.contains("Delete item and its nested contents when saved"));
     assert!(!html.contains("Unlink item 1"));
     session.view_path.clear();
     let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
-    assert!(html.contains("Unlink item 1 from this list"));
-    assert!(html.contains("href=\"/collections/notes/records/one/delete\""));
-    assert!(html.contains("Delete Note…"));
+    assert!(html.contains("Remove First"));
+    assert!(!html.contains("href=\"/collections/notes/records/one/delete\""));
+    assert!(!html.contains("Enter ID manually"));
     assert!(html.contains("leaves it unset when saved, rather than empty"));
 }
 
@@ -3042,7 +3131,7 @@ async fn system_metadata_is_readable_in_root_and_nested_document_views_and_edits
         (format!("present.{nested}"), "1".into()),
         (format!("manual_order.{nested}"), "7".into()),
     ]);
-    session.apply(&values).unwrap();
+    session.apply(&state.editor, &values).unwrap();
     let result = session.value().unwrap();
     assert_eq!(result["_editor"], metadata);
     assert_eq!(result["branch"]["_editor"]["schema_revision"], revision);
@@ -3313,10 +3402,7 @@ async fn close_discard_and_save_close_preserve_data_and_release_drafts() {
     )
     .await;
     assert!(html.contains("Discard changes?"));
-    assert!(
-        html.contains("Discard changes")
-            && html.contains("Keep editing")
-    );
+    assert!(html.contains("Discard changes") && html.contains("Keep editing"));
     assert_eq!(
         state.editor.get("notes", "one").unwrap().value["name"],
         "First"
@@ -3547,62 +3633,222 @@ mod concurrency;
 #[tokio::test]
 async fn link_picker_browses_media_and_uploads_without_replacing_the_draft() {
     let (_temp, state, cookie, actor) = fixture().await;
-    let mut session = state.sessions.lock().unwrap().start(&state.editor, &actor, "notes", Some("one")).unwrap();
-    let field = session.draft.fields.iter().find(|field| field.key == "body").unwrap().id.clone();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let field = session
+        .draft
+        .fields
+        .iter()
+        .find(|field| field.key == "body")
+        .unwrap()
+        .id
+        .clone();
     let mut input = form(&session, &actor);
     crate::pickers::action(&state.editor, &mut session, &field, "links", &input).unwrap();
     input.insert("picker_collection".into(), "media".into());
     input.insert("link_label".into(), "My scan".into());
     input.insert("link_image".into(), "on".into());
     crate::pickers::action(&state.editor, &mut session, &field, "search-picker", &input).unwrap();
-    state.editor.for_media("media").unwrap().media_mkdir("scans").unwrap();
+    state
+        .editor
+        .for_media("media")
+        .unwrap()
+        .media_mkdir("scans")
+        .unwrap();
     input.insert("choice".into(), "scans".into());
     crate::pickers::action(&state.editor, &mut session, &field, "folder", &input).unwrap();
     let html = crate::pickers::render(&state.editor, &session, &actor).unwrap();
-    assert!(html.contains("optgroup label=\"Records\"") && html.contains("optgroup label=\"Media files\""));
+    assert!(
+        html.contains("optgroup label=\"Records\"")
+            && html.contains("optgroup label=\"Media files\"")
+    );
     assert!(html.contains("/media/media/upload"));
     assert!(html.contains("value=\"My scan\""));
     assert!(html.contains("name=\"path\" value=\"scans\""));
     let baseline = session.value().unwrap();
-    state.sessions.lock().unwrap().update(&actor, session.clone()).unwrap();
+    state
+        .sessions
+        .lock()
+        .unwrap()
+        .update(&actor, session.clone())
+        .unwrap();
 
-    async fn upload(state: Arc<AppState>, cookie: &str, csrf: &str, session: &sessions::EditSession, path: &str, version: u64, name: &str) -> (StatusCode, String) {
+    async fn upload(
+        state: Arc<AppState>,
+        cookie: &str,
+        csrf: &str,
+        session: &sessions::EditSession,
+        path: &str,
+        version: u64,
+        name: &str,
+    ) -> (StatusCode, String) {
         let boundary = "picker-upload-test";
         let mut body = String::new();
-        for (key, value) in [("csrf", csrf.to_owned()), ("picker_session", session.id.clone()), ("picker_version", version.to_string()), ("path", path.into())] {
-            body += &format!("--{boundary}\r\nContent-Disposition: form-data; name=\"{key}\"\r\n\r\n{value}\r\n");
+        for (key, value) in [
+            ("csrf", csrf.to_owned()),
+            ("picker_session", session.id.clone()),
+            ("picker_version", version.to_string()),
+            ("path", path.into()),
+        ] {
+            body += &format!(
+                "--{boundary}\r\nContent-Disposition: form-data; name=\"{key}\"\r\n\r\n{value}\r\n"
+            );
         }
-        body += &format!("--{boundary}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"{name}\"\r\nContent-Type: text/plain\r\n\r\nScan content\r\n--{boundary}--\r\n");
-        let response = router(state).oneshot(Request::builder().method("POST").uri("/media/media/upload").header("cookie", cookie).header("datastar-request", "true").header("content-type", format!("multipart/form-data; boundary={boundary}")).body(Body::from(body)).unwrap()).await.unwrap();
-        let status = response.headers().get("x-editor-error-status").and_then(|value| StatusCode::from_bytes(value.as_bytes()).ok()).unwrap_or(response.status());
-        let body = String::from_utf8(response.into_body().collect().await.unwrap().to_bytes().to_vec()).unwrap();
+        body += &format!(
+            "--{boundary}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"{name}\"\r\nContent-Type: text/plain\r\n\r\nScan content\r\n--{boundary}--\r\n"
+        );
+        let response = router(state)
+            .oneshot(
+                Request::builder()
+                    .method("POST")
+                    .uri("/media/media/upload")
+                    .header("cookie", cookie)
+                    .header("datastar-request", "true")
+                    .header(
+                        "content-type",
+                        format!("multipart/form-data; boundary={boundary}"),
+                    )
+                    .body(Body::from(body))
+                    .unwrap(),
+            )
+            .await
+            .unwrap();
+        let status = response
+            .headers()
+            .get("x-editor-error-status")
+            .and_then(|value| StatusCode::from_bytes(value.as_bytes()).ok())
+            .unwrap_or(response.status());
+        let body = String::from_utf8(
+            response
+                .into_body()
+                .collect()
+                .await
+                .unwrap()
+                .to_bytes()
+                .to_vec(),
+        )
+        .unwrap();
         (status, body)
     }
     for (csrf, path, version, expected) in [
         ("wrong", "scans", session.version, StatusCode::FORBIDDEN),
-        (actor.csrf.as_str(), "", session.version, StatusCode::CONFLICT),
-        (actor.csrf.as_str(), "scans", session.version + 1, StatusCode::CONFLICT),
+        (
+            actor.csrf.as_str(),
+            "",
+            session.version,
+            StatusCode::CONFLICT,
+        ),
+        (
+            actor.csrf.as_str(),
+            "scans",
+            session.version + 1,
+            StatusCode::CONFLICT,
+        ),
     ] {
-        assert_eq!(upload(state.clone(), &cookie, csrf, &session, path, version, "rejected.txt").await.0, expected);
+        assert_eq!(
+            upload(
+                state.clone(),
+                &cookie,
+                csrf,
+                &session,
+                path,
+                version,
+                "rejected.txt"
+            )
+            .await
+            .0,
+            expected
+        );
         assert!(state.editor.media_read("scans/rejected.txt").is_err());
     }
-    let (status, html) = upload(state.clone(), &cookie, &actor.csrf, &session, "scans", session.version, "scan.txt").await;
+    let (status, html) = upload(
+        state.clone(),
+        &cookie,
+        &actor.csrf,
+        &session,
+        "scans",
+        session.version,
+        "scan.txt",
+    )
+    .await;
     assert_eq!(status, StatusCode::OK);
     assert!(html.contains("Insert uploaded file") && html.contains("value=\"scans/scan.txt\""));
     assert!(!html.contains("id=\"workspace\""));
-    assert_eq!(state.editor.media_read("scans/scan.txt").unwrap(), b"Scan content");
-    assert_eq!(state.sessions.lock().unwrap().get(&session.id, &actor).unwrap().value().unwrap(), baseline);
-    assert_ne!(upload(state.clone(), &cookie, &actor.csrf, &session, "scans", session.version, "scan.txt").await.0, StatusCode::OK);
+    assert_eq!(
+        state.editor.media_read("scans/scan.txt").unwrap(),
+        b"Scan content"
+    );
+    assert_eq!(
+        state
+            .sessions
+            .lock()
+            .unwrap()
+            .get(&session.id, &actor)
+            .unwrap()
+            .value()
+            .unwrap(),
+        baseline
+    );
+    assert_ne!(
+        upload(
+            state.clone(),
+            &cookie,
+            &actor.csrf,
+            &session,
+            "scans",
+            session.version,
+            "scan.txt"
+        )
+        .await
+        .0,
+        StatusCode::OK
+    );
     {
         let mut registry = state.sessions.lock().unwrap();
-        registry.get(&session.id, &actor).unwrap().picker.as_mut().unwrap().collection = "notes".into();
+        registry
+            .get(&session.id, &actor)
+            .unwrap()
+            .picker
+            .as_mut()
+            .unwrap()
+            .collection = "notes".into();
     }
-    assert_eq!(upload(state.clone(), &cookie, &actor.csrf, &session, "scans", session.version, "wrong-collection.txt").await.0, StatusCode::CONFLICT);
-    assert!(state.editor.media_read("scans/wrong-collection.txt").is_err());
+    assert_eq!(
+        upload(
+            state.clone(),
+            &cookie,
+            &actor.csrf,
+            &session,
+            "scans",
+            session.version,
+            "wrong-collection.txt"
+        )
+        .await
+        .0,
+        StatusCode::CONFLICT
+    );
+    assert!(
+        state
+            .editor
+            .media_read("scans/wrong-collection.txt")
+            .is_err()
+    );
     input.insert("choice".into(), "scans/scan.txt".into());
     crate::pickers::action(&state.editor, &mut session, &field, "select", &input).unwrap();
-    assert!(session.value().unwrap()["body"].as_str().unwrap().contains("![My scan](/media/media/file?path=scans%2Fscan%2Etxt)"));
-    assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], "**Hello**");
+    assert!(
+        session.value().unwrap()["body"]
+            .as_str()
+            .unwrap()
+            .contains("![My scan](/media/media/file?path=scans%2Fscan%2Etxt)")
+    );
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().value["body"],
+        "**Hello**"
+    );
 }
 
 #[tokio::test]
@@ -3611,29 +3857,72 @@ async fn exit_uses_actual_changes_and_confirms_only_once() {
     let original = state.editor.get("notes", "one").unwrap();
     let mut value = original.value.clone();
     value["body"] = json!(r"A \[caption\]");
-    state.editor.save("notes", "one", value, Some(&original.revision)).unwrap();
+    state
+        .editor
+        .save("notes", "one", value, Some(&original.revision))
+        .unwrap();
     for (changed, confirm) in [(false, true), (true, true), (true, false)] {
-        let mut session = state.sessions.lock().unwrap().start(&state.editor, &actor, "notes", Some("one")).unwrap();
-        let body = session.draft.fields.iter().find(|field| field.key == "body").unwrap().id.clone();
+        let mut session = state
+            .sessions
+            .lock()
+            .unwrap()
+            .start(&state.editor, &actor, "notes", Some("one"))
+            .unwrap();
+        let body = session
+            .draft
+            .fields
+            .iter()
+            .find(|field| field.key == "body")
+            .unwrap()
+            .id
+            .clone();
         let mut input = form(&session, &actor);
-        input.insert(format!("value.{body}"), if changed { "Edited" } else { "A [caption]" }.into());
+        input.insert(
+            format!("value.{body}"),
+            if changed { "Edited" } else { "A [caption]" }.into(),
+        );
         input.insert("confirm_discard".into(), confirm.to_string());
-        let (_, html) = request(state.clone(), "POST", &format!("/edit-sessions/{}/close", session.id), &cookie, &input, true).await;
+        let (_, html) = request(
+            state.clone(),
+            "POST",
+            &format!("/edit-sessions/{}/close", session.id),
+            &cookie,
+            &input,
+            true,
+        )
+        .await;
         if changed && confirm {
             assert_eq!(html.matches("id=\"draft-close-dialog\"").count(), 1);
             assert!(!html.contains("id=\"discard-dialog\""));
-            session = state.sessions.lock().unwrap().get(&session.id, &actor).unwrap().clone();
+            session = state
+                .sessions
+                .lock()
+                .unwrap()
+                .get(&session.id, &actor)
+                .unwrap()
+                .clone();
             // Reverting before the next exit must also close without a dialog.
             let mut reverted = form(&session, &actor);
             reverted.insert(format!("value.{body}"), "A [caption]".into());
-            let (_, html) = request(state.clone(), "POST", &format!("/edit-sessions/{}/close", session.id), &cookie, &reverted, true).await;
+            let (_, html) = request(
+                state.clone(),
+                "POST",
+                &format!("/edit-sessions/{}/close", session.id),
+                &cookie,
+                &reverted,
+                true,
+            )
+            .await;
             assert!(html.contains("data-closed-draft"));
             assert!(!html.contains("<dialog"));
         } else {
             assert!(html.contains("data-closed-draft"));
             assert!(!html.contains("<dialog"));
         }
-        assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], r"A \[caption\]");
+        assert_eq!(
+            state.editor.get("notes", "one").unwrap().value["body"],
+            r"A \[caption\]"
+        );
     }
 }
 
@@ -4105,6 +4394,23 @@ async fn records_render_without_backlink_scans_and_reference_fragments_are_bound
     .await;
     assert_eq!(status, StatusCode::OK);
     assert!(html.contains("First") && html.contains("<record-references"));
+    let section = html.split("<record-references").nth(1).unwrap();
+    let tag = section.split('>').next().unwrap();
+    assert!(!tag.contains(" open"));
+    assert!(tag.contains(" hidden"));
+    assert!(tag.contains("data-ignore-morph"));
+    assert!(!section.contains("Links to this record"));
+    assert!(!html.contains("Loading incoming references"));
+    let (_, nested) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one?node=%2Fbody",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(!nested.contains("<record-references"));
     let (status, _) = request(
         state.clone(),
         "GET",
@@ -4126,6 +4432,18 @@ async fn records_render_without_backlink_scans_and_reference_fragments_are_bound
     .await;
     assert_eq!(status, StatusCode::BAD_REQUEST);
     std::fs::remove_file(data.join("broken.json")).unwrap();
+    state.editor.refresh_read_cache();
+    let (status, empty) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/references",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(empty.is_empty());
     for n in 0..105 {
         std::fs::write(data.join(format!("ref-{n:03}.json")), json!({"name":format!("Ref {n}"),"count":0,"body":"[First](/collections/notes/records/one)"}).to_string()).unwrap();
     }
@@ -4140,20 +4458,24 @@ async fn records_render_without_backlink_scans_and_reference_fragments_are_bound
     )
     .await;
     assert_eq!(status, StatusCode::OK);
-    assert_eq!(html.matches("<li>").count(), 100);
-    assert!(html.contains("1–100 of 105") && html.contains("data-reference-page"));
+    assert_eq!(html.matches("<tr>").count(), 26);
+    assert!(
+        html.contains("1–25")
+            && html.contains("<strong>105</strong>")
+            && html.contains("data-reference-page")
+    );
     assert!(!html.contains("<main") && !html.contains("<html"));
     let (_, html) = request(
         state.clone(),
         "GET",
-        "/collections/notes/records/one/references?offset=100",
+        "/collections/notes/records/one/references?source=notes&offset=100",
         &cookie,
         &HashMap::new(),
         false,
     )
     .await;
-    assert_eq!(html.matches("<li>").count(), 5);
-    assert!(html.contains("101–105 of 105") && html.contains("Previous"));
+    assert_eq!(html.matches("<tr>").count(), 6);
+    assert!(html.contains("101–105") && html.contains("Previous"));
     let (status, _) = request(
         state,
         "GET",
@@ -4164,4 +4486,1089 @@ async fn records_render_without_backlink_scans_and_reference_fragments_are_bound
     )
     .await;
     assert_eq!(status, StatusCode::NOT_FOUND);
+}
+
+#[tokio::test]
+async fn incoming_tables_group_unique_records_and_share_collection_columns_and_search() {
+    let (temp, _state, _, actor) = fixture().await;
+    let root = temp.path().join("project");
+    let mut config: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(root.join(".editor/repository.json")).unwrap())
+            .unwrap();
+    config["collections"]["books"] = json!({"path":"data/books","format":"json","id":"filename"});
+    std::fs::write(root.join(".editor/repository.json"), config.to_string()).unwrap();
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(root.join(".editor/objects.schema.json")).unwrap())
+            .unwrap();
+    let mut book = schema["anyOf"][0].clone();
+    book["x-collection"] = json!("books");
+    schema["anyOf"].as_array_mut().unwrap().push(book);
+    std::fs::write(root.join(".editor/objects.schema.json"), schema.to_string()).unwrap();
+    std::fs::write(
+        root.join(".editor/ui.json"),
+        json!({"collections":{
+            "notes":{"label":"Notes","display":"name","list":{"columns":["name","count"]}},
+            "books":{"label":"Books","display":"name","list":{"columns":["name","body"]}}
+        }})
+        .to_string(),
+    )
+    .unwrap();
+    std::fs::create_dir_all(root.join("data/books")).unwrap();
+    let link = "[Target](/collections/notes/records/one)";
+    for (path, value) in [
+        (
+            "data/notes/a.json",
+            json!({"name":"Alpha","count":1,"body":link,"items":[link,link]}),
+        ),
+        (
+            "data/notes/b.json",
+            json!({"name":"Beta","count":2,"body":link}),
+        ),
+        (
+            "data/books/book.json",
+            json!({"name":"Book title","count":3,"body":link}),
+        ),
+        ("settings.json", json!({"notes":link})),
+    ] {
+        std::fs::write(root.join(path), value.to_string()).unwrap();
+    }
+    let editor = structured_editor_core::Editor::open(&root).unwrap();
+    let html = views::references::render(&editor, "notes", "one", &HashMap::new(), &actor).unwrap();
+    assert_eq!(html.matches("<record-reference-table ").count(), 3);
+    assert_eq!(html.matches("<tr>").count(), 7); // 2 notes, 1 book, 1 document + headers.
+    assert!(html.contains("reference-notes-title") && html.contains("reference-books-title"));
+    assert!(html.contains("data-label=\"count\"") && html.contains("data-label=\"body\""));
+    assert!(html.contains("data-regex-toggle") && html.contains("data-case-toggle"));
+    assert!(!html.contains("reference-list") && !html.contains("links from other records"));
+    let params = HashMap::from([
+        ("source".into(), "notes".into()),
+        ("q".into(), "^beta$".into()),
+        ("regex".into(), "1".into()),
+    ]);
+    let filtered = views::references::render(&editor, "notes", "one", &params, &actor).unwrap();
+    assert_eq!(filtered.matches("<tr>").count(), 2);
+    assert!(
+        filtered.contains("Beta")
+            && !filtered.contains("Alpha")
+            && !filtered.contains("Book title")
+    );
+    let mut sorted = HashMap::from([
+        ("source".into(), "notes".into()),
+        ("sort".into(), "count".into()),
+        ("direction".into(), "desc".into()),
+    ]);
+    let html = views::references::render(&editor, "notes", "one", &sorted, &actor).unwrap();
+    assert!(html.find(">Beta</a>").unwrap() < html.find(">Alpha</a>").unwrap());
+    sorted.insert("columns".into(), "custom".into());
+    sorted.insert("column.name".into(), "1".into());
+    let html = views::references::render(&editor, "notes", "one", &sorted, &actor).unwrap();
+    assert!(!html.contains("data-label=\"count\""));
+    let empty = HashMap::from([
+        ("source".into(), "notes".into()),
+        ("q".into(), "no such title".into()),
+    ]);
+    let html = views::references::render(&editor, "notes", "one", &empty, &actor).unwrap();
+    assert!(html.contains("No matching records") && html.contains("Show All"));
+    let mut custom_search = sorted.clone();
+    custom_search.insert("q".into(), "Alpha".into());
+    let html = views::references::render(&editor, "notes", "one", &custom_search, &actor).unwrap();
+    let clear = html
+        .split("data-reference-query href=\"")
+        .nth(1)
+        .unwrap()
+        .split('"')
+        .next()
+        .unwrap();
+    assert!(
+        clear.contains("columns=custom")
+            && clear.contains("column%2Ename=1")
+            && !clear.contains("q=")
+    );
+}
+
+#[tokio::test]
+async fn embedded_object_tables_preserve_positions_and_independent_views() {
+    let (_temp, state, _, _) = fixture().await;
+    let schema = json!({"type":"object","x-presentation":{"hideEmpty":true},"properties":{
+        "blank":{"type":"string","title":"Unused description"},
+        "contents":{"type":"array","title":"Contents","x-presentation":{"table":{"columns":["title","agent"],"pageSize":2,"previewSize":2}},"items":{"type":"object","properties":{
+            "title":{"type":"string"},"agent":{"type":"string","x-relation":{"collection":"notes"}},"rank":{"type":"integer"}
+        }}},
+        "items":{"type":"array","title":"Items","x-presentation":{"table":{"columns":["name"]}},"items":{"type":"object","properties":{"name":{"type":"string"},"owner":{"type":"string"}}}}
+    }});
+    let value = json!({"blank":"", "contents":[
+        {"title":"Zulu","agent":"one","rank":10},
+        {"title":"Alpha","agent":"one","rank":2},
+        {"title":"Beta","agent":"missing","rank":3}
+    ],"items":[{"name":"Copy one","owner":"Library"}]});
+    let draft = structured_editor_core::draft::Draft::new(&schema, &value);
+    let base = "/collections/notes/records/one";
+    let params = HashMap::from([
+        ("array./contents.sort".into(), "rank".into()),
+        ("array./contents.columns".into(), "custom".into()),
+        ("array./contents.column.title".into(), "1".into()),
+    ]);
+    let html =
+        crate::tree::preview_with_options(&state.editor, &draft, &value, base, "", &params, true);
+    assert!(!html.contains("Unused description"));
+    assert!(html.contains("<table class=\"data-table child-table embedded-table\""));
+    assert!(html.contains("1–2 of 3"));
+    assert!(html.contains("name=\"array./contents.q\""));
+    assert!(!html.contains("Browse list") && !html.contains("View all"));
+    assert!(html.contains("node=%2Fcontents%2F1\">Alpha"));
+    assert!(html.contains("node=%2Fcontents%2F2\">Beta"));
+    assert!(!html.contains("node=%2Fcontents%2F0\">Zulu"));
+    assert!(
+        html.contains("data-label=\"name\""),
+        "Items retain their own columns"
+    );
+    assert!(html.contains("/edit?node=%2Fcontents%2F1"));
+    let navigation = html.split("</template>").next().unwrap();
+    assert!(!navigation.contains("Alpha") && !navigation.contains("Zulu"));
+    assert!(navigation.contains("#array-2f636f6e74656e7473"));
+    assert!(!navigation.contains("node=%2Fcontents"));
+    let mut search = params.clone();
+    search.insert("array./contents.q".into(), "first".into());
+    let html = crate::tree::preview_with_options(
+        &state.editor,
+        &draft,
+        &value,
+        base,
+        "/contents",
+        &search,
+        false,
+    );
+    assert!(
+        html.contains("2 of 3 rows"),
+        "Search resolves linked record names"
+    );
+    assert!(!html.contains("/edit?node="));
+    let mut page = params;
+    page.insert("array./contents.offset".into(), "2".into());
+    let html = crate::tree::preview_with_options(
+        &state.editor,
+        &draft,
+        &value,
+        base,
+        "/contents",
+        &page,
+        true,
+    );
+    assert!(html.contains("node=%2Fcontents%2F0\">Zulu"));
+    assert!(html.contains("3–3 of 3"));
+    assert_eq!(
+        draft.value().unwrap(),
+        value,
+        "Sorting never changes stored order"
+    );
+}
+
+#[tokio::test]
+async fn embedded_search_uses_shared_regex_case_highlights_and_validation() {
+    let (_temp, state, _, _) = fixture().await;
+    let schema = json!({"type":"object","properties":{
+        "contents":{"type":"array","title":"Contents","x-presentation":{"table":{"columns":["title","agent"],"pageSize":1}},"items":{"type":"object","properties":{
+            "title":{"type":"string"},"agent":{"type":"string","x-relation":{"collection":"notes"}},
+            "note":{"type":"string","x-content":"markdown"},"hidden":{"type":"string","x-editor":"hidden"}
+        }}}
+    }});
+    let value = json!({"contents":[
+        {"title":"Über","agent":"one","note":""},
+        {"title":"über","note":""},
+        {"title":"Elsewhere","agent":"one","note":"**Secret** <img src=x onerror=alert(1)>","hidden":"Invisible"}
+    ]});
+    let draft = structured_editor_core::draft::Draft::new(&schema, &value);
+    let base = "/collections/notes/records/one";
+    let mut params = HashMap::from([
+        ("node".into(), "/contents".into()),
+        ("array./contents.q".into(), "^Ü.er$".into()),
+        ("array./contents.regex".into(), "1".into()),
+        ("array./contents.case_sensitive".into(), "0".into()),
+        ("array./items.q".into(), "separate".into()),
+        ("array./items.regex".into(), "1".into()),
+    ]);
+    let render = |params: &HashMap<String, String>| {
+        crate::tree::preview_with_options(
+            &state.editor,
+            &draft,
+            &value,
+            base,
+            "/contents",
+            params,
+            true,
+        )
+    };
+    let html = render(&params);
+    assert!(html.contains("data-regex-search"));
+    assert!(html.contains("data-case-toggle aria-label=\"Match case\" aria-pressed=\"false\""));
+    assert!(html.contains("<mark>Über</mark>"));
+    assert!(html.contains("2 of 3 rows") && html.contains("1–1 of 2"));
+    let links: Vec<_> = html
+        .split("href=\"")
+        .skip(1)
+        .map(|part| {
+            percent_encoding::percent_decode_str(part.split('"').next().unwrap())
+                .decode_utf8_lossy()
+                .into_owned()
+        })
+        .collect();
+    assert!(
+        links
+            .iter()
+            .any(|link| link.contains("array./contents.offset=1")
+                && link.contains("array./contents.regex=1")
+                && link.contains("array./contents.case_sensitive=0"))
+    );
+    assert!(
+        links
+            .iter()
+            .any(|link| link.contains("array./contents.sort=title")
+                && link.contains("array./contents.regex=1"))
+    );
+    for form in html
+        .split("<form")
+        .skip(1)
+        .map(|part| part.split("</form>").next().unwrap())
+    {
+        assert_eq!(form.matches("name=\"array./contents.regex\"").count(), 1);
+        assert_eq!(
+            form.matches("name=\"array./contents.case_sensitive\"")
+                .count(),
+            1
+        );
+        assert!(form.contains("name=\"array./items.regex\" value=\"1\""));
+    }
+    let show_all = html
+        .split(">Show All</a>")
+        .next()
+        .unwrap()
+        .rsplit("href=\"")
+        .next()
+        .unwrap();
+    let show_all = percent_encoding::percent_decode_str(show_all).decode_utf8_lossy();
+    assert!(
+        !show_all.contains("array./contents.q")
+            && !show_all.contains("array./contents.regex")
+            && !show_all.contains("array./contents.case_sensitive")
+    );
+    assert!(
+        show_all.contains("array./items.q=separate") && show_all.contains("array./items.regex=1")
+    );
+    params.insert("array./contents.offset".into(), "1".into());
+    let html = render(&params);
+    assert!(html.contains("<mark>über</mark>") && html.contains("/edit?node=%2Fcontents%2F1"));
+    params.remove("array./contents.offset");
+    params.insert("array./contents.case_sensitive".into(), "1".into());
+    assert!(render(&params).contains("1 of 3 rows"));
+    params.insert("array./contents.regex".into(), "0".into());
+    assert!(render(&params).contains("No matching rows"));
+    params.insert("array./contents.q".into(), "über".into());
+    assert!(render(&params).contains("<mark>über</mark>"));
+    params.insert("array./contents.q".into(), "^First$".into());
+    params.insert("array./contents.regex".into(), "1".into());
+    let html = render(&params);
+    assert!(html.contains("2 of 3 rows"));
+    assert!(html.contains("href=\"/collections/notes/records/one\"><mark>First</mark></a>"));
+    params.insert("array./contents.q".into(), "^Secret".into());
+    let html = render(&params);
+    assert!(html.contains("1 of 3 rows") && html.contains("class=\"match-row\""));
+    assert!(html.contains("<mark>Secret</mark> &lt;img"));
+    assert!(!html.contains("<img"));
+    params.insert("array./contents.q".into(), "Invisible".into());
+    assert!(render(&params).contains("No matching rows"));
+    for pattern in ["[", "(?=a)", r"(a)\1"] {
+        params.insert("array./contents.q".into(), pattern.into());
+        let html = render(&params);
+        assert!(html.contains("aria-invalid=\"true\"") && html.contains("regex parse error"));
+        assert!(!html.contains("No matching rows"));
+    }
+    assert_eq!(draft.value().unwrap(), value);
+}
+
+#[tokio::test]
+async fn record_tables_follow_all_details_in_preview_and_edit() {
+    let schema = json!({"type":"object","properties":{
+        "a_table":{"type":"array","title":"Table rows","items":{"type":"object","default":{"name":""},"properties":{"name":{"type":"string"}}}},
+        "z_description":{"type":"string","title":"Description"},
+        "metadata":{"type":"string","title":"Import notes","x-presentation":{"secondary":true}}
+    }});
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let value = json!({"a_table":[{"name":"A row"}],"z_description":"Main description","metadata":"Source notes"});
+    std::fs::write(temp.path().join("project/settings.json"), value.to_string()).unwrap();
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let preview = crate::tree::preview(
+        &state.editor,
+        &session.draft,
+        &value,
+        "/documents/editor-settings?file=settings.json",
+        "",
+    );
+    let table = preview
+        .find("<section class=\"surface child-list embedded-panel\"")
+        .unwrap();
+    assert!(preview.find("Main description").unwrap() < table);
+    assert!(preview.find("Source notes").unwrap() < table);
+    assert!(preview.contains("name=\"array./a_table.q\""));
+    assert!(!preview.contains("Browse list"));
+    let edit = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    let table = edit.find("<div class=\"embedded-editor surface\"").unwrap();
+    assert!(edit.find("Main description").unwrap() < table);
+    assert!(edit.find("Source notes").unwrap() < table);
+    let array = session.draft.at_path("/a_table").unwrap();
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+    ]);
+    let (status, html) = request(
+        state.clone(),
+        "POST",
+        &format!(
+            "/edit-sessions/{}/fields/{}/actions/add",
+            session.id, array.id
+        ),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    let mut sessions = state.sessions.lock().unwrap();
+    let updated = sessions.get(&session.id, &actor).unwrap();
+    assert_eq!(updated.view_path, "/a_table/1");
+    let name = &updated.draft.at_path("/a_table/1/name").unwrap().id;
+    assert!(html.contains(&format!("name=\"value.{name}\"")));
+    assert_eq!(
+        updated.value().unwrap()["z_description"],
+        value["z_description"]
+    );
+    assert_eq!(
+        state
+            .editor
+            .json_document("editor-settings", "settings.json")
+            .unwrap()
+            .value,
+        value,
+        "Adding a row only changes the draft"
+    );
+}
+
+#[tokio::test]
+async fn edit_tables_page_without_losing_draft_values_and_follow_moved_rows() {
+    let schema = json!({"type":"object","properties":{
+        "title":{"type":"string"},
+        "contents":{"type":"array","x-presentation":{"table":{"pageSize":2}},"items":{"type":"object","default":{"name":""},"properties":{"name":{"type":"string"}}}}
+    }});
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let value = json!({"title":"Original", "contents":[{"name":"First"},{"name":"Second"},{"name":"Third"},{"name":"Fourth"},{"name":"Fifth"}]});
+    std::fs::write(temp.path().join("project/settings.json"), value.to_string()).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    state
+        .sessions
+        .lock()
+        .unwrap()
+        .update(&actor, session.clone())
+        .unwrap();
+    let array = session.draft.at_path("/contents").unwrap().id.clone();
+    let title = session.draft.at_path("/title").unwrap().id.clone();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(html.contains(&format!("href=\"#field-{array}\"")));
+    assert!(!html.contains("Edit all 5 rows"));
+    assert!(
+        html.contains("</i>contents <span class=\"badge\">5</span></h2>") && html.contains("1–2 of 5")
+            && html.contains("Edit row 2")
+            && !html.contains("Edit row 3")
+    );
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+        (format!("present.{title}"), "1".into()),
+        (format!("value.{title}"), "Unsaved title".into()),
+    ]);
+    let (status, html) = request(
+        state.clone(),
+        "POST",
+        &format!(
+            "/edit-sessions/{}/fields/{array}/actions/table-page?item=2",
+            session.id
+        ),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    assert!(
+        html.contains("3–4 of 5")
+            && html.contains("Edit row 3")
+            && !html.contains("Edit row 2")
+    );
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(session.value().unwrap()["title"], "Unsaved title");
+    assert_eq!(session.value().unwrap()["contents"], value["contents"]);
+    let item = session.draft.at_path("/contents/2").unwrap().id.clone();
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+    ]);
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!(
+            "/edit-sessions/{}/fields/{array}/actions/up?item={item}",
+            session.id
+        ),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert!(html.contains("1–2 of 5") && html.contains("Third"));
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(session.value().unwrap()["contents"][1]["name"], "Third");
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+    ]);
+    request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/undo", session.id),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(session.value().unwrap()["contents"], value["contents"]);
+    assert_eq!(session.value().unwrap()["title"], "Unsaved title");
+    assert_eq!(
+        state
+            .editor
+            .json_document("editor-settings", "settings.json")
+            .unwrap()
+            .value,
+        value
+    );
+}
+
+#[tokio::test]
+async fn edit_tables_search_in_parent_and_keep_unsaved_fields() {
+    let schema = json!({"type":"object","properties":{
+        "title":{"type":"string"},
+        "contents":{"type":"array","x-presentation":{"table":{"pageSize":1}},"items":{"type":"object","properties":{"name":{"type":"string"}}}}
+    }});
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let value = json!({"title":"Original","contents":[{"name":"Alpha"},{"name":"Beta"},{"name":"Bravo"}]});
+    std::fs::write(temp.path().join("project/settings.json"), value.to_string()).unwrap();
+    let mut session = state.sessions.lock().unwrap().start_document(&state.editor, &actor, "editor-settings", "settings.json").unwrap();
+    let array = session.draft.at_path("/contents").unwrap().id.clone();
+    let title = session.draft.at_path("/title").unwrap().id.clone();
+    let mut form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+        (format!("present.{title}"), "1".into()),
+        (format!("value.{title}"), "Draft title".into()),
+        (format!("table-query.{array}"), "^B".into()),
+        (format!("table-regex.{array}"), "1".into()),
+    ]);
+    let (status, html) = request(state.clone(), "POST", &format!("/edit-sessions/{}/fields/{array}/actions/table-search", session.id), &cookie, &form, false).await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    assert!(html.contains("1–1 of 2") && html.contains("Beta") && !html.contains("Edit row 1"));
+    session = state.sessions.lock().unwrap().get(&session.id, &actor).unwrap().clone();
+    assert!(session.view_path.is_empty());
+    assert_eq!(session.value().unwrap()["title"], "Draft title");
+    assert_eq!(state.editor.json_document("editor-settings", "settings.json").unwrap().value, value);
+    form.insert("version".into(), session.version.to_string());
+    let (status, html) = request(state.clone(), "POST", &format!("/edit-sessions/{}/fields/{array}/actions/table-page?item=1", session.id), &cookie, &form, false).await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    assert!(html.contains("2–2 of 2") && html.contains("Bravo"));
+    session = state.sessions.lock().unwrap().get(&session.id, &actor).unwrap().clone();
+    assert!(session.view_path.is_empty());
+}
+
+#[tokio::test]
+async fn edit_forms_keep_required_fields_visible_and_resolve_nested_reference_names() {
+    let schema = json!({"type":"object","required":["required","catalogue_id"],"properties":{
+        "required":{"type":"string","title":"Required name","x-presentation":{"secondary":true,"hideEmpty":true}},
+        "catalogue_id":{"type":"integer","title":"Catalogue ID","x-presentation":{"secondary":true}},
+        "optional":{"type":"string","x-presentation":{"hideEmpty":true}},
+        "contents":{"type":"array","title":"Contents","items":{"type":"object","properties":{
+            "title":{"type":"string"},"agents":{"type":"array","title":"Agents","items":{"type":"object","properties":{"agent":{"type":"string","title":"Name","x-relation":{"collection":"notes"}}}}}
+        }}}
+    }});
+    let (temp, state, _, actor) = fixture_with_settings_schema(schema).await;
+    let value = json!({"required":"", "optional":"", "contents":[{"title":"A poem", "agents":[{"agent":"one"}]}]});
+    std::fs::write(temp.path().join("project/settings.json"), value.to_string()).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(html.find("Required name").unwrap() < html.find("More fields").unwrap());
+    let required_id = session.draft.at_path("/catalogue_id").unwrap();
+    assert!(html.contains(&format!("name=\"value.{}\"", required_id.id)));
+    assert!(html.find("Catalogue ID").unwrap() < html.find("More fields").unwrap());
+    assert!(
+        !html.contains("Remove Required name field") && !html.contains("aria-label=\"required\"")
+    );
+    session.view_path = "/contents/0/agents/0".into();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    let crumbs = html
+        .split("aria-label=\"Editing location\"")
+        .nth(1)
+        .unwrap()
+        .split("</nav>")
+        .next()
+        .unwrap();
+    assert!(
+        crumbs.contains("Overview")
+            && crumbs.contains("Contents")
+            && crumbs.contains("A poem")
+            && crumbs.contains("Agents")
+            && crumbs.contains("First"),
+        "{crumbs}"
+    );
+    assert!(html.contains("class=\"reference-name\"") && html.contains(">First <i"));
+    let field = session.draft.at_path("/contents/0/agents/0/agent").unwrap();
+    assert!(html.contains(&format!("name=\"value.{}\" value=\"one\"", field.id)));
+    assert!(html.contains("Enter ID manually") && html.contains("data-reference-picker"));
+    assert_eq!(session.value().unwrap(), value);
+}
+
+#[tokio::test]
+async fn project_table_page_size_applies_to_read_and_edit_and_field_overrides_win() {
+    let schema = json!({"type":"object","properties":{
+        "tablePageSize":{"type":"integer","minimum":1,"maximum":100},
+        "contents":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"}}}}
+    }});
+    let (temp, state, _, actor) = fixture_with_settings_schema(schema).await;
+    let value = json!({"tablePageSize":2, "contents":[{"name":"First"},{"name":"Second"},{"name":"Third"}]});
+    std::fs::write(temp.path().join("project/settings.json"), value.to_string()).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    session.view_path = "/contents".into();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(
+        html.contains("1–2 of 3") && !html.contains("Edit row 3"),
+        "{html}"
+    );
+    let preview = crate::tree::preview_with_options(
+        &state.editor,
+        &session.draft,
+        &value,
+        "/documents/editor-settings?file=settings.json",
+        "/contents",
+        &HashMap::from([("node".into(), "/contents".into())]),
+        true,
+    );
+    assert!(
+        preview.contains("First") && preview.contains("Second") && !preview.contains("Third"),
+        "{preview}"
+    );
+    let mut field = session.draft.at_path("/contents").unwrap().clone();
+    assert_eq!(views::embedded::edit_page_size(&state.editor, &field), 2);
+    field.schema["x-presentation"] = json!({"table":{"pageSize":3}});
+    assert_eq!(views::embedded::edit_page_size(&state.editor, &field), 3);
+}
+
+#[tokio::test]
+async fn musenalm_settings_offer_named_controls_and_keep_personal_choices_separate() {
+    let schema: serde_json::Value = serde_json::from_str(include_str!(
+        "../../../examples/musenalm/.editor/settings.schema.json"
+    ))
+    .unwrap();
+    let (_temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/settings",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(html.contains("Your appearance") && html.contains("Project defaults"));
+    assert!(html.contains("Rows per table page") && html.contains("Follow device"));
+    assert!(html.find("data-personal-theme").unwrap() < html.find("id=\"document-form\"").unwrap());
+    let mut reader = actor.clone();
+    reader.role = "user".into();
+    let html = crate::preferences::render(&state.editor, &reader, "{}", "revision", "", "success")
+        .unwrap()
+        .unwrap();
+    assert!(html.contains("value=\"validate\" disabled"));
+    assert!(html.contains("value=\"save\" disabled"));
+    let saved = state.editor.settings().unwrap();
+    let value = json!({"defaultTheme":"system"});
+    state
+        .editor
+        .save_settings(value.clone(), &saved.revision)
+        .unwrap();
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let edit = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(edit.contains("Follow device") && edit.contains("&quot;system&quot;"));
+    let preview = crate::tree::preview(
+        &state.editor,
+        &session.draft,
+        &value,
+        "/documents/editor-settings?file=settings.json",
+        "",
+    );
+    assert!(preview.contains("Follow device"));
+    assert_eq!(session.value().unwrap(), value);
+}
+
+#[tokio::test]
+async fn schema_choice_arrays_share_multiselects_and_preserve_order_and_identity() {
+    let schema = json!({"type":"object","$defs":{"choice":{"type":"string","enum":["deu","eng","fra",""],"x-options":[]}},"properties":{
+        "audiences":{"type":"array","items":{"type":"string","x-relation":{"collection":"notes"}}},
+        "locales":{"type":"array","items":{"$ref":"#/$defs/choice"}},
+        "flags":{"type":"array","items":{"enum":[0,1,false]}},
+        "locked":{"type":"array","x-ownership":"immutable","items":{"enum":["x","y"]}}
+    }});
+    let (temp, state, _, actor) = fixture_with_settings_schema(schema).await;
+    std::fs::write(
+        temp.path().join("project/settings.json"),
+        json!({"audiences":["one"],"locales":[],"flags":[0],"locked":["x"]}).to_string(),
+    )
+    .unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(html.contains("array-choices") && html.contains("First"));
+    assert!(!html.contains("Enter ID manually"));
+    let locales = session.draft.at_path("/locales").unwrap().id.clone();
+    crate::pickers::action(
+        &state.editor,
+        &mut session,
+        &locales,
+        "multiple",
+        &HashMap::new(),
+    )
+    .unwrap();
+    for choice in ["\"deu\"", "\"fra\""] {
+        crate::pickers::action(
+            &state.editor,
+            &mut session,
+            &locales,
+            "toggle-choice",
+            &HashMap::from([("choice".into(), choice.into())]),
+        )
+        .unwrap();
+        assert!(session.picker.is_some(), "Choose several without reopening");
+    }
+    let id = session.draft.at_path("/locales/0").unwrap().id.clone();
+    let mut form = HashMap::from([("choice".into(), "\"fra\"".into())]);
+    crate::pickers::action(
+        &state.editor,
+        &mut session,
+        &locales,
+        "toggle-choice",
+        &form,
+    )
+    .unwrap();
+    assert_eq!(session.value().unwrap()["locales"], json!(["deu"]));
+    assert_eq!(session.draft.at_path("/locales/0").unwrap().id, id);
+    form.insert("choice".into(), "\"not-an-option\"".into());
+    assert!(
+        crate::pickers::action(
+            &state.editor,
+            &mut session,
+            &locales,
+            "toggle-choice",
+            &form
+        )
+        .is_err()
+    );
+    let picker = crate::pickers::render(&state.editor, &session, &actor).unwrap();
+    assert!(
+        picker.contains("role=\"checkbox\" aria-checked=\"true\"")
+            && picker.contains(">Done</button>")
+    );
+    assert!(picker.contains("Empty value"));
+    let audiences = session.draft.at_path("/audiences").unwrap().id.clone();
+    crate::pickers::action(
+        &state.editor,
+        &mut session,
+        &audiences,
+        "multiple",
+        &HashMap::new(),
+    )
+    .unwrap();
+    assert!(
+        crate::pickers::render(&state.editor, &session, &actor)
+            .unwrap()
+            .contains("First")
+    );
+    form.insert("choice".into(), "\"missing-record\"".into());
+    assert!(
+        crate::pickers::action(
+            &state.editor,
+            &mut session,
+            &audiences,
+            "toggle-choice",
+            &form
+        )
+        .is_err()
+    );
+    let locked = session.draft.at_path("/locked").unwrap().id.clone();
+    assert!(
+        crate::pickers::action(&state.editor, &mut session, &locked, "multiple", &form).is_err()
+    );
+    let flags = session.draft.at_path("/flags").unwrap().id.clone();
+    crate::pickers::action(
+        &state.editor,
+        &mut session,
+        &flags,
+        "multiple",
+        &HashMap::new(),
+    )
+    .unwrap();
+    form.insert("choice".into(), "false".into());
+    crate::pickers::action(&state.editor, &mut session, &flags, "toggle-choice", &form).unwrap();
+    assert_eq!(session.value().unwrap()["flags"], json!([0, false]));
+}
+
+#[tokio::test]
+async fn drag_moves_use_version_checks_capture_input_and_undo() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let array = session.draft.at_path("/items").unwrap().id.clone();
+    let first = session.draft.at_path("/items/0").unwrap().id.clone();
+    let second = session.draft.at_path("/items/1").unwrap().id.clone();
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+        ("array_before".into(), first.clone()),
+        (format!("present.{second}"), "1".into()),
+        (format!("value.{second}"), "unsaved".into()),
+    ]);
+    let url = format!(
+        "/edit-sessions/{}/fields/{array}/actions/move?item={second}",
+        session.id
+    );
+    let (status, html) = request(state.clone(), "POST", &url, &cookie, &form, false).await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    let updated = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(updated.value().unwrap()["items"], json!(["unsaved", "a"]));
+    assert_eq!(updated.draft.at_path("/items/0").unwrap().id, second);
+    assert_eq!(
+        request(state.clone(), "POST", &url, &cookie, &form, false)
+            .await
+            .0,
+        StatusCode::CONFLICT
+    );
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), updated.version.to_string()),
+    ]);
+    let (status, _) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/undo", session.id),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    let restored = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(restored.value().unwrap()["items"], json!(["a", "unsaved"]));
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().value["items"],
+        json!(["a", "b"])
+    );
+}
+
+#[tokio::test]
+async fn object_labels_follow_presentation_in_unrelated_schemas() {
+    let (_temp, state, _, _) = fixture().await;
+    let schema = json!({"properties":{
+        "aaa":{"type":"string"},"caption":{"type":"string","x-presentation":{"primary":true}},
+        "holder":{"type":"string","x-relation":{"collection":"notes"}}
+    },"x-presentation":{"fieldOrder":["holder","caption","aaa"]}});
+    let mut cells = views::embedded::Cells::new(&state.editor);
+    assert_eq!(
+        cells.text(
+            &schema,
+            &json!({"aaa":"Noise","caption":"Displayed","holder":"one"})
+        ),
+        "Displayed"
+    );
+    let html = cells.html(&schema, &json!({"aaa":"Noise","caption":"","holder":"one"}));
+    assert!(html.contains(">First</a>"), "{html}");
+}
+
+#[tokio::test]
+async fn interface_language_preserves_unsaved_values_and_uses_configured_labels() {
+    let (temp, original, cookie, actor) = fixture().await;
+    assert!(!views::shell(&original, &actor, "").unwrap().contains("data-language-picker"));
+    let root = temp.path().join("project");
+    std::fs::write(root.join(".editor/ui.json"), json!({
+        "i18n":{"defaultLanguage":"en","languages":{"en":"English","de":"Deutsch"}},
+        "collections":{"notes":{"label":"Notes","display":"name","translations":{"de":{"label":"Notizen","singularLabel":"Notiz"}},
+          "fields":{"/properties/name":{"title":"Title","translations":{"de":{"title":"Titel","description":"Eine Beschreibung"}}}}
+        }}
+    }).to_string()).unwrap();
+    let state = AppState::for_project(Editor::open(&root).unwrap(), original.auth.clone(), original.assets.clone(), "default".into(), Arc::new(vec![]));
+    let session=state.sessions.lock().unwrap().start(&state.editor,&actor,"notes",Some("one")).unwrap();
+    let mut input=form(&session,&actor);
+    input.insert("ui_language".into(),"de".into());
+    input.insert(format!("value.{}", session.draft.at_path("/name").unwrap().id),"Save changes".into());
+    input.insert(format!("value.{}", session.draft.at_path("/count").unwrap().id),"unfinished".into());
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/language",session.id),&cookie,&input,true).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    assert!(html.contains("Änderungen speichern") && html.contains("Notizen") && html.contains("Titel") && html.contains("Eine Beschreibung"));
+    assert!(html.contains("value=\"Save changes\""), "User data must not be translated");
+    let draft=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(draft.draft.at_path("/count").unwrap().raw,"unfinished");
+    assert_eq!(draft.draft.at_path("/items/0").unwrap().id,session.draft.at_path("/items/0").unwrap().id);
+    assert_eq!(draft.version,session.version+1);
+    assert_eq!(state.editor.get("notes","one").unwrap().value["name"],"First");
+    let (status,_)=request(state.clone(),"POST",&format!("/edit-sessions/{}/language",session.id),&cookie,&input,true).await;
+    assert_eq!(status,StatusCode::CONFLICT);
+    let (_,german)=request(state.clone(),"GET","/collections/notes",&format!("{cookie}; objekte_language=de"),&HashMap::new(),false).await;
+    assert!(german.contains("<html lang=\"de\">") && german.contains("Notizen") && german.contains("Titel"));
+    let (_,english)=request(state,"GET","/collections/notes",&cookie,&HashMap::new(),false).await;
+    assert!(english.contains("<html lang=\"en\">") && !english.contains("Notizen"),"Locale must not leak across requests");
+}
+
+#[tokio::test]
+async fn dropdown_search_is_read_only_and_selection_keeps_its_query() {
+    let schema=json!({"type":"object","properties":{"choices":{"type":"array","items":{"enum":["red","blue","green"],"x-ui-translations":{"de":{"x-optionLabels":{"red":"Rot","blue":"Blau","green":"Grün"}}}}}}});
+    let (_temp,state,cookie,actor)=fixture_with_settings_schema(schema).await;
+    let mut session=state.sessions.lock().unwrap().start_document(&state.editor,&actor,"editor-settings","settings.json").unwrap();
+    let field=session.draft.at_path("/choices").unwrap().id.clone();
+    crate::pickers::action(&state.editor,&mut session,&field,"multiple",&HashMap::new()).unwrap();
+    state.sessions.lock().unwrap().update(&actor,session.clone()).unwrap();
+    let url=format!("/edit-sessions/{}/fields/{field}/choices?q=blu",session.id);
+    let (status,html)=request(state.clone(),"GET",&url,&cookie,&HashMap::new(),false).await;
+    assert_eq!(status,StatusCode::OK);assert!(html.contains("data-popover") && html.contains(">blue</span>") && !html.contains(">red</span>"));
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.version,session.version);assert_eq!(stored.picker.unwrap().query,"");
+    let mut input=form(&session,&actor);input.insert("picker_query".into(),"blu".into());input.insert("choice".into(),"\"blue\"".into());
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/fields/{field}/actions/toggle-choice",session.id),&cookie,&input,false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.value().unwrap()["choices"],json!(["blue"]));assert_eq!(stored.picker.as_ref().unwrap().query,"blu");
+    let mut german=stored;german.picker.as_mut().unwrap().query="grü".into();
+    let translated=crate::i18n::with_language("de",||crate::pickers::render(&state.editor,&german,&actor).unwrap());
+    assert!(translated.contains(">Grün</span>") && !translated.contains(">Blau</span>"));
+}
+
+#[tokio::test]
+async fn adding_an_empty_optional_field_reveals_it_in_the_form() {
+    let schema=json!({"type":"object","properties":{"places":{"type":"array","x-presentation":{"hideEmpty":true},"items":{"enum":["Berlin","Paris"]}}}});
+    let (_temp,state,cookie,actor)=fixture_with_settings_schema(schema).await;
+    let session=state.sessions.lock().unwrap().start_document(&state.editor,&actor,"editor-settings","settings.json").unwrap();
+    let field=session.draft.at_path("/places").unwrap().id.clone();
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/fields/{field}/actions/include",session.id),&cookie,&form(&session,&actor),false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    assert!(html.contains("data-select-anchor") && !html.contains("<summary>More fields</summary>"));
+    assert!(!html.contains("<small>array</small>"));
+    let current=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert!(current.revealed_fields.contains(&field));
+    let (_,html)=request(state,"POST",&format!("/edit-sessions/{}/fields/{field}/actions/multiple",session.id),&cookie,&form(&current,&actor),false).await;
+    assert!(html.contains("data-popover") && !html.contains("<summary>More fields</summary>"));
+}
+
+#[tokio::test]
+async fn autocomplete_reads_without_opening_and_only_adds_existing_choices() {
+    let schema = json!({"type":"object","required":["languages","places"],"properties":{
+        "languages":{"type":"array","items":{"enum":["deu","eng"]}},
+        "places":{"type":"array","items":{"type":"string","x-relation":{"collection":"notes"}}},
+        "locked":{"type":"array","x-ownership":"immutable","items":{"enum":["x"]}}
+    }});
+    let (temp,state,cookie,actor)=fixture_with_settings_schema(schema).await;
+    std::fs::write(temp.path().join("project/settings.json"), json!({"languages":[],"places":[]}).to_string()).unwrap();
+    let mut session=state.sessions.lock().unwrap().start_document(&state.editor,&actor,"editor-settings","settings.json").unwrap();
+    let field=session.draft.at_path("/languages").unwrap().id.clone();
+    let (status,html)=request(state.clone(),"GET",&format!("/edit-sessions/{}/fields/{field}/choices?q=de",session.id),&cookie,&HashMap::new(),false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");assert!(html.contains(">deu</span>") && !html.contains(">eng</span>"));
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.version,session.version);assert!(stored.picker.is_none());
+    let html=views::edit(&state.editor,&session,&actor,&state.fields,&[],"").unwrap();
+    assert!(html.contains("role=\"combobox\"") && html.contains(">Browse</span>"));
+    for (path,value,valid) in [("/languages","deu",true),("/languages","invented",false),("/places","one",true),("/places","missing",false),("/locked","x",false)] {
+        let id=session.draft.at_path(path).unwrap().id.clone();
+        let choice=HashMap::from([("choice".into(),json!(value).to_string())]);
+        assert_eq!(crate::pickers::action(&state.editor,&mut session,&id,"select-choice",&choice).is_ok(),valid);
+        assert!(session.picker.is_none());
+    }
+    let id=session.draft.at_path("/languages/0").unwrap().id.clone();
+    crate::pickers::action(&state.editor,&mut session,&field,"select-choice",&HashMap::from([("choice".into(),"\"deu\"".into())])).unwrap();
+    assert_eq!(session.value().unwrap()["languages"],json!(["deu"]));
+    assert_eq!(session.draft.at_path("/languages/0").unwrap().id,id);
+    assert_eq!(session.value().unwrap()["places"],json!(["one"]));
+    // Exercise the version-checked route too, with no open picker.
+    let mut input=form(&stored,&actor);input.insert("choice".into(),"\"eng\"".into());
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/fields/{field}/actions/select-choice",session.id),&cookie,&input,false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.value().unwrap()["languages"],json!(["eng"]));assert!(stored.picker.is_none());
+}
+
+#[tokio::test]
+async fn local_choice_input_is_validated_preserves_identity_and_only_save_writes() {
+    let schema=json!({"type":"object","properties":{
+        "languages":{"type":"array","maxItems":3,"items":{"enum":["deu","eng","fra"]}},
+        "places":{"type":"array","items":{"type":"string","x-relation":{"collection":"notes"}}},
+        "locked":{"type":"array","x-ownership":"immutable","items":{"enum":["x"]}}
+    }});
+    let (temp,state,cookie,actor)=fixture_with_settings_schema(schema).await;
+    let path=temp.path().join("project/settings.json");
+    let original=json!({"languages":["deu","eng"],"places":[],"locked":["x"]});
+    std::fs::write(&path, original.to_string()).unwrap();
+    let session=state.sessions.lock().unwrap().start_document(&state.editor,&actor,"editor-settings","settings.json").unwrap();
+    let field=session.draft.at_path("/languages").unwrap().id.clone();
+    let places=session.draft.at_path("/places").unwrap().id.clone();
+    let locked=session.draft.at_path("/locked").unwrap().id.clone();
+    let first=session.draft.at_path("/languages/0").unwrap().id.clone();
+    let second=session.draft.at_path("/languages/1").unwrap().id.clone();
+    let mut input=form(&session,&actor);
+    input.insert(format!("choices.{field}"),json!(["eng","fra","deu"]).to_string());
+    input.insert(format!("choices.{places}"),json!(["one"]).to_string());
+    let mut clone=session.clone();clone.apply(&state.editor,&input).unwrap();
+    assert_eq!(clone.draft.at_path("/languages/0").unwrap().id,second);
+    assert_eq!(clone.draft.at_path("/languages/2").unwrap().id,first);
+    assert_eq!(clone.value().unwrap()["places"],json!(["one"]));
+    for (id, values) in [(&field,json!(["bogus"])),(&field,json!(["eng","eng"])),(&field,json!(["deu","eng","fra","fra"])),(&places,json!(["missing"])),(&locked,json!([]))] {
+        let mut bad=form(&session,&actor);bad.insert(format!("choices.{id}"),values.to_string());
+        let mut clone=session.clone();assert!(clone.apply(&state.editor,&bad).is_err());
+        assert_eq!(clone.value().unwrap(),original);assert_eq!(clone.version,session.version);
+    }
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/live-validation",session.id),&cookie,&input,true).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.version,session.version);assert_eq!(stored.value().unwrap(),original);
+    assert_eq!(serde_json::from_str::<serde_json::Value>(&std::fs::read_to_string(&path).unwrap()).unwrap(),original);
+    // Opening Browse captures local input into the unsaved draft, without writing the record.
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/fields/{field}/actions/multiple",session.id),&cookie,&input,false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.value().unwrap()["languages"],json!(["eng","fra","deu"]));
+    assert_eq!(serde_json::from_str::<serde_json::Value>(&std::fs::read_to_string(&path).unwrap()).unwrap(),original);
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/undo",session.id),&cookie,&form(&stored,&actor),false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();assert_eq!(stored.value().unwrap(),original);
+    let mut input=form(&stored,&actor);input.insert(format!("choices.{field}"),json!(["fra"]).to_string());
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/save",session.id),&cookie,&input,false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    assert_eq!(serde_json::from_str::<serde_json::Value>(&std::fs::read_to_string(&path).unwrap()).unwrap()["languages"],json!(["fra"]));
+}
+
+#[tokio::test]
+async fn local_array_structure_keeps_nested_input_and_only_save_writes() {
+    let (_temp,state,cookie,actor)=fixture().await;
+    let session=state.sessions.lock().unwrap().start(&state.editor,&actor,"notes",Some("one")).unwrap();
+    let array=session.draft.at_path("/items").unwrap().id.clone();
+    let first=session.draft.at_path("/items/0").unwrap().id.clone();
+    let second=session.draft.at_path("/items/1").unwrap().id.clone();
+    let mut input=form(&session,&actor);
+    input.insert(format!("structure.{array}"),json!([second,first]).to_string());
+    input.insert(format!("value.{first}"),"unsaved nested text".into());
+    let mut changed=session.clone();changed.apply(&state.editor,&input).unwrap();
+    assert_eq!(changed.draft.at_path("/items/0").unwrap().id,second);
+    assert_eq!(changed.draft.at_path("/items/1").unwrap().id,first);
+    assert_eq!(changed.value().unwrap()["items"],json!(["b","unsaved nested text"]));
+    for invalid in [json!(["unknown"]),json!([first,first]),json!([second,first,"extra"])] {
+        let mut bad=form(&session,&actor);bad.insert(format!("structure.{array}"),invalid.to_string());
+        let mut clone=session.clone();assert!(clone.apply(&state.editor,&bad).is_err());
+        assert_eq!(clone.value().unwrap()["items"],json!(["a","b"]));
+    }
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/live-validation",session.id),&cookie,&input,true).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    assert_eq!(state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().version,session.version);
+    assert_eq!(state.editor.get("notes","one").unwrap().value["items"],json!(["a","b"]));
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/fields/{array}/actions/browse",session.id),&cookie,&input,false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    let stored=state.sessions.lock().unwrap().get(&session.id,&actor).unwrap().clone();
+    assert_eq!(stored.value().unwrap()["items"],json!(["b","unsaved nested text"]));
+    assert_eq!(state.editor.get("notes","one").unwrap().value["items"],json!(["a","b"]));
+    let mut removed=form(&stored,&actor);removed.insert(format!("structure.{array}"),json!([second]).to_string());
+    let (status,html)=request(state.clone(),"POST",&format!("/edit-sessions/{}/save",session.id),&cookie,&removed,false).await;
+    assert_eq!(status,StatusCode::OK,"{html}");
+    assert_eq!(state.editor.get("notes","one").unwrap().value["items"],json!(["b"]));
+}
+
+#[tokio::test]
+async fn embedded_tables_share_configured_and_related_collection_icons() {
+    let schema=json!({"type":"object","properties":{
+        "custom":{"type":"array","x-presentation":{"table":{"icon":"ri-archive-line"}},"items":{"type":"object","properties":{"name":{"type":"string"}}}},
+        "linked":{"type":"array","items":{"type":"object","properties":{"note":{"type":"string","x-relation":{"collection":"notes"}}}}},
+        "plain":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"}}}}
+    }});
+    let (temp,_state,_,_)=fixture_with_settings_schema(schema.clone()).await;
+    let root=temp.path().join("project");
+    std::fs::write(root.join(".editor/ui.json"),json!({"collections":{"notes":{"label":"Notes","display":"name","icon":"ri-book-line"}}}).to_string()).unwrap();
+    let editor=structured_editor_core::Editor::open(&root).unwrap();
+    let value=json!({"custom":[{"name":"A"}],"linked":[{"note":"one"}],"plain":[{"name":"B"}]});
+    let draft=structured_editor_core::draft::Draft::new(&schema,&value);
+    let custom=draft.at_path("/custom").unwrap();
+    let linked=draft.at_path("/linked").unwrap();
+    let plain=draft.at_path("/plain").unwrap();
+    assert_eq!(views::embedded::table_icon(&editor,custom),"ri-archive-line");
+    assert_eq!(views::embedded::table_icon(&editor,linked),"ri-book-line");
+    assert_eq!(views::embedded::table_icon(&editor,plain),"ri-table-line");
+    let preview=views::embedded::render(&editor,linked,&value["linked"],"/documents/editor-settings?file=settings.json","/linked",&HashMap::new(),true);
+    assert!(preview.contains("<i class=\"ri-book-line\" aria-hidden=\"true\"></i>"));
 }

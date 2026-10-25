@@ -48,19 +48,401 @@
   "year": 1843,
   "editor": "",
   "items": [
-    "1ea1xe7e0wjlis2"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nVerlagsbroschur; VB, recto vT, verso VrlgM, verso G, T, S I-Verz, SS 1-384",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.454Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101011",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.454Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "1ea1xe7e0wjlis2"
+    }
   ],
   "contents": [
-    "s86fgzhvkn2fuls",
-    "p34up549bwqnko9",
-    "f672mjh8xy4du0e",
-    "1kp02gy7my8g0qf",
-    "vkw72ebyjqy0tuq",
-    "oqcp3n2j2c1fuey",
-    "mnddyj0k0yeq6a9",
-    "dw1iubm548ze0e7",
-    "00aiqzp581g7qfw",
-    "06ohxin7hw873i5"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62264,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / Taschenbuch auf das Jahr / 1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_69_62264_igppgfo5jk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania / Taschenbuch auf das Jahr / 1843",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "s86fgzhvkn2fuls"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18793,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1843",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "p34up549bwqnko9"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18794,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "f672mjh8xy4du0e"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2056,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Giacomo Meyerbeer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Langer sc.",
+      "scans": [
+        "alm_69_2056_c528p42lb4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Giacomo Meyerbeer",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.636Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.636Z",
+          "agent": "t6lc63s8wzkilt0",
+          "source_id": "q9b9kun3bqxb604"
+        }
+      ],
+      "source_id": "1kp02gy7my8g0qf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.460Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18792,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1843. / Neue Folge. / Fünfter Jahrgang. / Mit dem Bidnisse Meyerbeer's. / Leipzig: / F. A. Brockhaus. / 1843",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_69_18792_arcxb5tbms.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1843. / Neue Folge. / Fünfter Jahrgang. / Mit dem Bidnisse Meyerbeer's. / Leipzig: / F. A. Brockhaus. / 1843",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "vkw72ebyjqy0tuq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.579Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18791,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "oqcp3n2j2c1fuey"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Graf Pietro Salvi, welcher, ein bejahrter Mann, in der Zurückgezogenheit auf seinen Gütern lebte,",
+      "language": [],
+      "musenalm_id": 2057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das diamantene Kreuz. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Rellstab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das diamantene Kreuz. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.637Z",
+          "agent": "zi8zh5xhvi7k26j",
+          "source_id": "n318mvifg3zpxgl"
+        }
+      ],
+      "source_id": "mnddyj0k0yeq6a9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Vortrefflich! meisterhaft! rief Herr von Asmus, der Oberbürgermeister aus, indem er ein Manuscript aus der Hand legte,",
+      "language": [],
+      "musenalm_id": 2058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Erbe von Thronstein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Martell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Erbe von Thronstein",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.637Z",
+          "agent": "zrsi43h33yxojuh",
+          "source_id": "ydz5fsr0bcv0l29"
+        }
+      ],
+      "source_id": "dw1iubm548ze0e7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.477Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Der Baron von Hersfeld sprang vor dem Portale seines Schlosses vom Pferde und warf die Bügel dem herbeieilenden Bedienten zu.",
+      "language": [],
+      "musenalm_id": 2059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reden oder Schweigen?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Ludwig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reden oder Schweigen?",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.637Z",
+          "agent": "kjstiikwr65p9jw",
+          "source_id": "atfneogpvzh9hfh"
+        }
+      ],
+      "source_id": "00aiqzp581g7qfw"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62265,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig. / F. A. Brockhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_69_62265_rvao3wj6dv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig. / F. A. Brockhaus",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1843,
+      "editor": "",
+      "agents": [],
+      "source_id": "06ohxin7hw873i5"
+    }
   ],
   "agents": [
     {

@@ -48,7 +48,26 @@
   "year": 1823,
   "editor": "",
   "items": [
-    "22gambfxtbi2i9s"
+    {
+      "annotation": "identisch mit Exemplar Jg 1823; Bibilio: 410930",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.810Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "410930",
+      "location": "107L04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.810Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "22gambfxtbi2i9s"
+    }
   ],
   "contents": [],
   "agents": [

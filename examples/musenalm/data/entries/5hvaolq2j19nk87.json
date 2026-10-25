@@ -49,7 +49,26 @@
   "year": 1745,
   "editor": "",
   "items": [
-    "7vv1eomnujanqbz"
+    {
+      "annotation": "Beispiel für Vorläufer des Musenalmanachs als Monatsschrift : 2. Jahreshälfte 1745 Heumonat bis Christmonat in einem Band mit einem Vorwort",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.563Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200849",
+      "location": "WG Alm-DB",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.563Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7vv1eomnujanqbz"
+    }
   ],
   "contents": [],
   "agents": [

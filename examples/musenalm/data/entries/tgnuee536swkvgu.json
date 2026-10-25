@@ -49,32 +49,1051 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "yud8fgl44tj6mon"
+    {
+      "annotation": "1840-1848.\nLeineneinband und Goldschnitt.\n1846: (K: Stahlst 6) Mit Stahlst 5, Tku 1,  Bl 4 und 356 SS.\n1847-1848 Iris Deutscher Almanach.\n",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.517Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100278",
+      "location": "105T09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.517Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yud8fgl44tj6mon"
+    }
   ],
   "contents": [
-    "bvysihmc7ezwn13",
-    "hvn3s3njzl4bo2l",
-    "bzjnrt81354o1yg",
-    "9mp5ytso18wq9du",
-    "mrffvrraj7ko4c8",
-    "o2hy5nr8n2xwnat",
-    "q0v6g25amnazmp9",
-    "rdysmdm41p42rki",
-    "6dx9lpkcnujlriz",
-    "nla94gtenx6xvd7",
-    "mmp6bkbrgh56b8z",
-    "3ln3hwv3h4oidco",
-    "ut5cy1tecl53hgt",
-    "k25b6hok0vfkdt3",
-    "dck0ep3z87d10js",
-    "5eamch2l3ewp9hy",
-    "nyx67dgzipi5khg",
-    "80neefprgxocpwj",
-    "endeyr8f81ivd02",
-    "re4jdarkuy5ryeu",
-    "ol6v66f0dob2w8n",
-    "ngzbetsp873qpda",
-    "b89mxm8km3hme9h"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58066,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_774_58066_0cnpkso7yw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "bvysihmc7ezwn13"
+    },
+    {
+      "annotation": "Titelportrait /) unter der Graphik: Druck von Kauffmann",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58067,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria Cariolina, / Erzherzogin von Oesterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Einsle gemalt Stahlst. von Carl Mahlknecht",
+      "scans": [
+        "alm_774_58067_dhcgunsqf3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Maria Cariolina, / Erzherzogin von Oesterreich",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "q7raibhilny8p5b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.825Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.825Z",
+          "agent": "iuj0jqzuxo4kdkt",
+          "source_id": "w4xybwc72kw7pff"
+        }
+      ],
+      "source_id": "hvn3s3njzl4bo2l"
+    },
+    {
+      "annotation": "graph. Titel darin Illustration zu »Der Waldgänger« von A. Stifter INr 58071, Obj 6 /) unter dem Titel: Druck v. F. Kargl",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.831Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58068,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iris. / Deutscher Almanach / für 1847. / Zu Stifters Waldgänger. / Pesth. / Gustav Heckenast",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Peter Joha Geiger. Jos. Axmann",
+      "scans": [
+        "alm_774_58068_tx7m4ht2ds.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Iris. / Deutscher Almanach / für 1847. / Zu Stifters Waldgänger. / Pesth. / Gustav Heckenast",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "lx0iihsoojkdiuh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "3lqsa16o80o69t8",
+          "source_id": "rh6b0e8m7fyouu1"
+        }
+      ],
+      "source_id": "bzjnrt81354o1yg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58069,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IRIS. / Deutscher Almanach / für / 1847. / Herausgegeben / von / Johann Grafen Mailáth. / Neue Folge. / Erster Jahrgang. / Mit 6 Stahlstichen. / Pesth. / Verlag von Gustav Heckenast. / Leipzig, bei Georg Wigand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_774_58069_kyluh7ax1n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IRIS. / Deutscher Almanach / für / 1847. / Herausgegeben / von / Johann Grafen Mailáth. / Neue Folge. / Erster Jahrgang. / Mit 6 Stahlstichen. / Pesth. / Verlag von Gustav Heckenast. / Leipzig, bei Georg Wigand",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "9mp5ytso18wq9du"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58070,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "mrffvrraj7ko4c8"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. graph. Titel INr 58068, Obj 3 und Graphik INr 58072, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn von unserem wunderschönen Lande ob der Enns die Rede ist, und man die Herrlichkeiten preist, in welche es gleichsam wie ein Juwel gefaßt ist, so hat man gewöhnlich jene Gebirgslandschaften vor Augen, in denen der Fels luftblau emporstrebt,",
+      "language": [],
+      "musenalm_id": 58071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Waldgänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adalbert Stifter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Waldgänger",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "gqt48yh8xk0p2zo",
+          "source_id": "nmouaovcnqmgs8q"
+        }
+      ],
+      "source_id": "o2hy5nr8n2xwnat"
+    },
+    {
+      "annotation": "Illustration zu »Der Waldgänger« von A. Stifter INr 58071, Obj 6 /) unter der Graphik: Verlag von Gustav Heckenast in Pesth. Druck v. F. Kargl.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Waldgänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. J. N. Geiger del. J. Axmann et F. Zastiéra sc.",
+      "scans": [
+        "alm_774_58072_h774atlcog.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Waldgänger",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "3lqsa16o80o69t8",
+          "source_id": "e3e68dmaipmpnv0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "ocng47uzapri3n3",
+          "source_id": "o663coo1rfes334"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.826Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.826Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "zgds07yej4mecrp"
+        }
+      ],
+      "source_id": "q0v6g25amnazmp9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 58074,Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Sie schläft. Das große Auge festgeschlossen, / Das wachend Andern Schmerz und Sehnen brächte;",
+      "language": [],
+      "musenalm_id": 58073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schlafende. / Sonette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Schlafende. / Sonette",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.827Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "b9i7yq8ur09f5sw"
+        }
+      ],
+      "source_id": "rdysmdm41p42rki"
+    },
+    {
+      "annotation": "Illustration zu »Die Schlafende« von Dräxler-Manfred INr 58073,Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE SCHLAFENDE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt v. Agricola. Stahlst. v. C. Mahlknecht in Wien",
+      "scans": [
+        "alm_774_58074_9sqcv7ivi3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE SCHLAFENDE",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.964Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.964Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "v8nz2gd5x92so4e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.963Z",
+          "agent": "97s72f57lh9d1qo",
+          "source_id": "z2y61b1gn645li4"
+        }
+      ],
+      "source_id": "6dx9lpkcnujlriz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "Monument' aus Erz und Marmor sieht man prangen weit und breit, / Mit verschwenderischen Händen lohnt die Unsterblichkeit;",
+      "language": [],
+      "musenalm_id": 58075,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein lebendig Monument",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein lebendig Monument",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.927Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.927Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "kszsa2q4hee1ai8"
+        }
+      ],
+      "source_id": "nla94gtenx6xvd7"
+    },
+    {
+      "annotation": "Dem Gedicht vorangestellt: Quique pii vates et Phoebo digna locuti / Omnidus his (merida nudantur) tempora (lauro) / Nach Virgil (Aer. 662. flg.)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Es ist kein Segen mehr, ein Dichter sein! / Einst war's ein Segen, selbst im Alter Segen: / Nachsommer gab's noch, späten Sonnenschein,",
+      "language": [],
+      "musenalm_id": 58076,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichter-Alter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichter-Alter",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.930Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "53ct1o37mzn11qh"
+        }
+      ],
+      "source_id": "mmp6bkbrgh56b8z"
+    },
+    {
+      "annotation": "Anm. am Objekt mit zahlreichen Quellenangaben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Nach einem dorrend heißen Tage im September 1682 wuchs der glühende Mousson, vom nahen Aequator herauf streichend, plötzlich zum Gewittersturm; brüllend trieb ein Orkan über die schaumspritzenden Wogen des Oceans den heulenden Sturm vor sich her",
+      "language": [],
+      "musenalm_id": 58077,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Constantin Faulcon. / Historische Novelle 1682-1688",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Walter Tesche",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Constantin Faulcon. / Historische Novelle 1682-1688",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.930Z",
+          "agent": "ayxe6k12ru1cyko",
+          "source_id": "7187yq87k12wcb0"
+        }
+      ],
+      "source_id": "3ln3hwv3h4oidco"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 58079, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Einst prahlte sich die Rose, daß sie der Brautbusch sei, / Den auf die keuschen Lippen der Erde drückt der Mai;",
+      "language": [],
+      "musenalm_id": 58078,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schiedsspruch. / Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schiedsspruch. / Gedicht",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.930Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "ng76dc8llenjxqp"
+        }
+      ],
+      "source_id": "ut5cy1tecl53hgt"
+    },
+    {
+      "annotation": "Illustration zu »Schiedsspruch« von H. v. Levitschnigg INr 58078, Obj 13 /) unter der Graphik: Pest. G. Heckenast",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58079,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schieds Spruch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás. C. P. sc.",
+      "scans": [
+        "alm_774_58079_rylk2d99hc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schieds Spruch",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.930Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "udmy1vbjsiujzbw"
+        }
+      ],
+      "source_id": "k25b6hok0vfkdt3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Das waren harte böse Zeiten, / Voll Raub und Mord und Grausamkeiten. / Die Schweden hausten arg im Lande, / Manch Dorf und Städtlein niederbrannte.",
+      "language": [],
+      "musenalm_id": 58080,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Muttergottesbild. / (Elsässische Sage.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Muttergottesbild. / (Elsässische Sage.)",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "dck0ep3z87d10js"
+    },
+    {
+      "annotation": "Anm. am Objekt: Die beiliegende Episode aus Gleims Leben ist faktisch, selbst in Bezug auf viele wörtliche Aeußerungen der geschilderten Persönlichkeiten; bei der novellistischen Einkleidung sind der poetischen Freiheit nur die nothwendigsten Rechte eingeräumt.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Im Harzgebirge, am Fuße der Roßtrappe, da, wo der Gießbach schäumend über die Klippen seines engen felsigen Bettes an dem breitetn grünen Rande desselben vorüberbraust",
+      "language": [],
+      "musenalm_id": 58081,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Brautfahrt. / Eine Episode aus Gleims Leben / aus authentischen Quellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie von Großmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Brautfahrt. / Eine Episode aus Gleims Leben / aus authentischen Quellen",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.930Z",
+          "agent": "pg4xeyhd29oq3nl",
+          "source_id": "9qk9c8ph5nuahvd"
+        }
+      ],
+      "source_id": "5eamch2l3ewp9hy"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 58083, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Was ist's doch, wundersames Kind der Wildniß, / Daß mich dein Angesicht zur Andacht rührt,",
+      "language": [],
+      "musenalm_id": 58082,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zigeunermutter. / Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Zigeunermutter. / Gedicht",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.827Z",
+          "agent": "e22fzyl0voj5sux",
+          "source_id": "lvz7x5yqbtth2sp"
+        }
+      ],
+      "source_id": "nyx67dgzipi5khg"
+    },
+    {
+      "annotation": "Illustration zu »Die Zigeunermutter« von H. v. Levitschnigg INr 58082, Obj 17 /) unter der Graphik: Verlag von Gustav Heckenast in Pesth",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58083,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zigeunermutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás gez. Stahlst. v. Mahlknecht",
+      "scans": [
+        "alm_774_58083_fuu093sfpm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Zigeunermutter",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.827Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "61c137e1wqpruqd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.827Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.827Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "hink769um6n1jm2"
+        }
+      ],
+      "source_id": "80neefprgxocpwj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "In einer Kirch' stand ein Marienbild, / Gar sehr an Wundern reich.",
+      "language": [],
+      "musenalm_id": 58084,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Kindes Brod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp Pfeuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Kindes Brod",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "endeyr8f81ivd02"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Beim Abschied hing sie mir am kranken Herzen, / Und schluchzte laut: ich lieb dich so sehr!",
+      "language": [],
+      "musenalm_id": 58085,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seufzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp Pfeuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seufzer",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "re4jdarkuy5ryeu"
+    },
+    {
+      "annotation": "Anmerkung : Die Fortsetzung dieser Scenen wird ein andermal folgen; der Druck derselben mußte jetzt unterbleiben, um andern Beiträgen Raum zu geben, wobei die Leser, wie ich meine, nur gewonnen haben. /) Es folgt: König Salomon INr 58087, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "335",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58086,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen / aus der ungarischen Geschichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Graf Mailáth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scenen / aus der ungarischen Geschichte",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.645Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.645Z",
+          "agent": "ynz1wrh0mfk3t8y",
+          "source_id": "3wv9vk2wu4t2ca9"
+        }
+      ],
+      "source_id": "ol6v66f0dob2w8n"
+    },
+    {
+      "annotation": "Scenen aus der ungarischen Geschichte (Sammlung INr 58086, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "337",
+      "incipit_statement": "In der langen Reihe magyarischer Geschichten von der ersten Einwanderung angefangen bis in die gegenwärtige Zeit, also in dem Zeitraum von beinahe tausend Jahren ist die romantische Erscheinung - König Salomon.",
+      "language": [],
+      "musenalm_id": 58087,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Salomon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Graf Mailáth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König Salomon",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.962Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.962Z",
+          "agent": "ynz1wrh0mfk3t8y",
+          "source_id": "x4epgr8l8vbywyf"
+        }
+      ],
+      "source_id": "ngzbetsp873qpda"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 58088,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_774_58088_2ewfui30ja.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "b89mxm8km3hme9h"
+    }
   ],
   "agents": [
     {

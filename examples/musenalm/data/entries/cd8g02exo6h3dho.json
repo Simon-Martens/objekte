@@ -48,7 +48,26 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "19ik4h4lm9f0kx6"
+    {
+      "annotation": "KVK-GBV: 1845-1847",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.727Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407709",
+      "location": "105O01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.727Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "19ik4h4lm9f0kx6"
+    }
   ],
   "contents": [],
   "agents": [

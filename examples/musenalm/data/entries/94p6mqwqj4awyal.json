@@ -48,37 +48,1186 @@
   "year": 1792,
   "editor": "",
   "items": [
-    "pbk79giuk5irphd"
+    {
+      "annotation": "1792-1795\nKartonierter Einband mit Zierleiste, Buchrücken leicht beschädigt, VB, verso G, T, B W, 2 BB Vrwrt d Hrsg, 8 BB Kal darin 12 GG, SS 1-124",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.479Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106630",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.479Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pbk79giuk5irphd"
+    }
   ],
   "contents": [
-    "egrexj59n95ddoj",
-    "1u9yp93v508pqu6",
-    "g55t1kgf6fz0nn1",
-    "ooen9v03wm6nxuc",
-    "jusgf9c6223r3vx",
-    "a41njj3cj2rbz6g",
-    "n2cruxd63qryr0u",
-    "vpr08eryn5cquy0",
-    "kyfjc6kfn84sp6y",
-    "ria7s2kerk27kv8",
-    "9oe50bxukca0cqd",
-    "pkis2wb6vpgd4ae",
-    "6azaymakot6yb21",
-    "bmucmrv7tlff44g",
-    "o9kgperhis4nv7i",
-    "4mquask699b76cq",
-    "h6i3z1jv9d35y2r",
-    "g69awow6g5ddrd3",
-    "hj2ez2qvtp3mkdk",
-    "dguj446w7c2beez",
-    "44wbxv11w4r0htt",
-    "4whe8eep8dccxjm",
-    "5jlyb1jdo81iapf",
-    "pvr2boyxrqppgmi",
-    "i9hv3ywrac0br99",
-    "kjp8g1l5wj0ituw",
-    "2ormhnqyubgb6fb",
-    "t7doio94n4lt49d"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21652,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz von Sickingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Küffner sc. 1797",
+      "scans": [
+        "alm_291_21652_vpyb5ltcwg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Franz von Sickingen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.040Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "dl7ri3x7kpe4eu0"
+        }
+      ],
+      "source_id": "egrexj59n95ddoj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21653,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1792. / Ritter / Franz von Sickingen. / von / Carl Lang. / mit / Kupfern von Küffner. / Frankfurt am Main, / in Commißion der Fleischerischen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_291_21653_5ux8i51vvm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1792. / Ritter / Franz von Sickingen. / von / Carl Lang. / mit / Kupfern von Küffner. / Frankfurt am Main, / in Commißion der Fleischerischen Buchhandlung",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "1u9yp93v508pqu6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21654,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den / Reichsfrey / Hochwohlgebohrnen / Freyherrn und Herrn / Ihro / Römisch Kaiserlichen Majestät / Wirklichen Räthen / und / des heiligen römischen Reichs unmittelbarer / freyen Ritterschaft / in / Schwaben, Franken und am / Rheinstrom [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den / Reichsfrey / Hochwohlgebohrnen / Freyherrn und Herrn / Ihro / Römisch Kaiserlichen Majestät / Wirklichen Räthen / und / des heiligen römischen Reichs unmittelbarer / freyen Ritterschaft / in / Schwaben, Franken und am / Rheinstrom [...]",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.971Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.971Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "rflpbpbte5jxfyx"
+        }
+      ],
+      "source_id": "g55t1kgf6fz0nn1"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nur kurz muß ich von den Hülfsmitteln Rechenschaft ablegen, welche ich bey meiner Arbeit gebrauchte.",
+      "language": [],
+      "musenalm_id": 21655,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem geneigten Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem geneigten Leser",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "f96t21l1b7pk1zo"
+        }
+      ],
+      "source_id": "ooen9v03wm6nxuc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21656,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "jusgf9c6223r3vx"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 1. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21657,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Franz I. von Frankreich beschenkt Ritter Franz / von Sickingen mit einer goldnen Gnaden Kette",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21657_0uu00t8vls.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "König Franz I. von Frankreich beschenkt Ritter Franz / von Sickingen mit einer goldnen Gnaden Kette",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "mxco49zalbal3fy"
+        }
+      ],
+      "source_id": "a41njj3cj2rbz6g"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 2. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21658,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Franz von Sickingen umarmt seinen Freund / und Lehrer, D. Joh. Reuchlin im Lager von Stuttgard",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21658_6inb3ezx7q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Franz von Sickingen umarmt seinen Freund / und Lehrer, D. Joh. Reuchlin im Lager von Stuttgard",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "ts2bmy2fn3ohwy8"
+        }
+      ],
+      "source_id": "n2cruxd63qryr0u"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 3. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.926Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21659,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz von Sickingen läßt sich Luthers lateinische / Schriften deutsch vorlesen und bewundert sie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21659_9n8dwxigql.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Franz von Sickingen läßt sich Luthers lateinische / Schriften deutsch vorlesen und bewundert sie",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "wzsj7g5z0lyxpqb"
+        }
+      ],
+      "source_id": "vpr08eryn5cquy0"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 4. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.928Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21660,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz von Sickingen straft die Cartheuser zu Schlett- / stadt um 2000 Gold Gülden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21660_62ssdeg681.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Franz von Sickingen straft die Cartheuser zu Schlett- / stadt um 2000 Gold Gülden",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "8poawppnngfamlv"
+        }
+      ],
+      "source_id": "kyfjc6kfn84sp6y"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 5. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.930Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21661,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "»Das sind alte Geigen: viel Befehlens, und keiner / der folgt!«",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21661_npoi92a799.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "»Das sind alte Geigen: viel Befehlens, und keiner / der folgt!«",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "9n7hvxyymc6pfll"
+        }
+      ],
+      "source_id": "ria7s2kerk27kv8"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 6. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21662,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sag' deinen Herrn, ich habe neue Mauern, sie / neues Geschüz, wir wolten mit beÿden eins wagen!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21662_6kdhdt3nkr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sag' deinen Herrn, ich habe neue Mauern, sie / neues Geschüz, wir wolten mit beÿden eins wagen!",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "ogead9r1b5mnla5"
+        }
+      ],
+      "source_id": "9oe50bxukca0cqd"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 7. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.933Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21663,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sickingen läßt sich von seinem BüchsenMeister u. Kammer- / Knappen an die von den Belagerern gemachte Öff- / nung der Mauer führen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21663_4givdn70fx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sickingen läßt sich von seinem BüchsenMeister u. Kammer- / Knappen an die von den Belagerern gemachte Öff- / nung der Mauer führen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "xup3e0c2xc52umb"
+        }
+      ],
+      "source_id": "pkis2wb6vpgd4ae"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 8. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.935Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21664,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sickingens Caplan findet ihn schwer verwundet, / und läßt ihn in Sicherheit bringen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21664_fpxbp86mog.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sickingens Caplan findet ihn schwer verwundet, / und läßt ihn in Sicherheit bringen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.038Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.038Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "vs6afqnear801o5"
+        }
+      ],
+      "source_id": "6azaymakot6yb21"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 9. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21665,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hörst du, führ' erst den hinaus, und hilf ihm; eh / mag ich nicht verbunden werden.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21665_18q8b85lov.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hörst du, führ' erst den hinaus, und hilf ihm; eh / mag ich nicht verbunden werden.",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.722Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "ruzi9jtiac5gjty"
+        }
+      ],
+      "source_id": "bmucmrv7tlff44g"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 10. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21666,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wo sind nun meine Freunde, der von Fürstenberg u. s. w. / darum ihr Lieben verlasse sich keiner auf Menschen Wort / und Vertröstung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21666_eqslmkqwua.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wo sind nun meine Freunde, der von Fürstenberg u. s. w. / darum ihr Lieben verlasse sich keiner auf Menschen Wort / und Vertröstung",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.722Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "cie8wx9exlheatu"
+        }
+      ],
+      "source_id": "o9kgperhis4nv7i"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 11. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.258Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21667,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sickingen wird von dem Chur-Fürst von trier, Pfalz- / graf Ludwig, und Philip von Hessen besucht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21667_jb4at20p0p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sickingen wird von dem Chur-Fürst von trier, Pfalz- / graf Ludwig, und Philip von Hessen besucht",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.722Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "rv0f55joa6y769c"
+        }
+      ],
+      "source_id": "4mquask699b76cq"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 12. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.260Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21668,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sickingen stirbt in Gegenwart des Landgrafen Phi- / lip von Hessen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Küffner",
+      "scans": [
+        "alm_291_21668_jv14ezgj0f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sickingen stirbt in Gegenwart des Landgrafen Phi- / lip von Hessen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.722Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.722Z",
+          "agent": "ro7bj2n3atpgubn",
+          "source_id": "oi2tbhw1qybezl1"
+        }
+      ],
+      "source_id": "h6i3z1jv9d35y2r"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers s. Graphiken INr 21657-21668, Obj 6-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Geschichte des Mannes, den ich schildern will, beginnt und endigt in einem, für die jetzige Verfassung Deutschlands höchst merkwürdigen Zeitraum;",
+      "language": [],
+      "musenalm_id": 21669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franz von Sickingen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Lang",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Franz von Sickingen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.996Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.996Z",
+          "agent": "0vejvx9ns82bwxr",
+          "source_id": "40iwuaruta6f29u"
+        }
+      ],
+      "source_id": "g69awow6g5ddrd3"
+    },
+    {
+      "annotation": "Ausfaltbares Blatt mit mit Sickingens Grabschrift (Majuskelschrift)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Hie ligt der edel und ehrenvest Franciscus von Sickingen der in Zeit seins Lebens Kaiser Karolen des funften Rath (...)",
+      "language": [],
+      "musenalm_id": 21670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hie ligt der edel und ehrenvest Franciscus von Sickingen der in Zeit seins Lebens Kaiser Karolen des funften Rath (...)…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "hj2ez2qvtp3mkdk"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 21672-21675, Obj 21-24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beylagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beylagen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "dguj446w7c2beez"
+    },
+    {
+      "annotation": "Beylagen (Sammlung INr 21671, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Vorsichtigen ersamen wysen gonstigen gutten freund vch syen myn guttwillig Dienst zuvor bereit.",
+      "language": [],
+      "musenalm_id": 21672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Abschrift eines Briefs von Franz von Sickingen, an die Stadt Heibronn, / vom Jahr 1515",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frantziscus von Sickingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Abschrift eines Briefs von Franz von Sickingen, an die Stadt Heibronn, / vom Jahr 1515",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.050Z",
+          "agent": "p9wnu0sevul9zqw",
+          "source_id": "boguzwg8tuwqztt"
+        }
+      ],
+      "source_id": "44wbxv11w4r0htt"
+    },
+    {
+      "annotation": "Beylagen (Sammlung INr 21671, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Ich Franciscus von Sieckingen, Bekenn, als die Römische Kayserliche Majestatt mein allergnedigster Her",
+      "language": [],
+      "musenalm_id": 21673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Abschrift der Verschreibung, / des Ritters Franz von Sickingen gegen / Kayß. Max I. als dieser die Reichs-Acht / wieder jenen aufhob. / d. d. 16. Aug. 1517",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franciscus von Sickingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Abschrift der Verschreibung, / des Ritters Franz von Sickingen gegen / Kayß. Max I. als dieser die Reichs-Acht / wieder jenen aufhob. / d. d. 16. Aug. 1517",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.050Z",
+          "agent": "p9wnu0sevul9zqw",
+          "source_id": "6nxcq5m0l6ifny7"
+        }
+      ],
+      "source_id": "4whe8eep8dccxjm"
+    },
+    {
+      "annotation": "Beylagen (Sammlung INr 21671, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Unsern günstlichen grues, freuntlich und willig dienst seyen euch zuvor bereit.",
+      "language": [],
+      "musenalm_id": 21674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Abschrift eines Briefs von Franz von / Sickingen, Johann Graf von Nassau / und anderen, an die Reichsstadt Heilbronn. / de Anno 1519",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franciscus von Sigkingen. kür. Mt. in Hispanien Erzhertzogen zu Osterreich obrister Leuttinant. [...]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Abschrift eines Briefs von Franz von / Sickingen, Johann Graf von Nassau / und anderen, an die Reichsstadt Heilbronn. / de Anno 1519",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.050Z",
+          "agent": "p9wnu0sevul9zqw",
+          "source_id": "rvht66e07aojd25"
+        }
+      ],
+      "source_id": "5jlyb1jdo81iapf"
+    },
+    {
+      "annotation": "Beylagen (Sammlung INr 21671, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Vorsiechtigen ersamen Wißen Lieben Herrn und Insonders gutte Freund was ich liebs und gutts vermag sy euch mit vleis zuvor bereit",
+      "language": [],
+      "musenalm_id": 21675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Abschrift eines Briefs von Franz von / Sickingen, an die Stadt Heilbronn, / vom Jahr 1521",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franciscus von Sieckingen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Abschrift eines Briefs von Franz von / Sickingen, an die Stadt Heilbronn, / vom Jahr 1521",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.050Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.050Z",
+          "agent": "p9wnu0sevul9zqw",
+          "source_id": "d3tzvl2kqkiqw9x"
+        }
+      ],
+      "source_id": "pvr2boyxrqppgmi"
+    },
+    {
+      "annotation": "Sammlung von 3 Tabellen INr 21677-21679, Obj 26-28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.030Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der in den Hochlöbl. Ritter-Cantonen / der drey Kreise, Schwaben, Fran- / ken und am Rheinstrom erbetenen / Direktoren, Ritter-Räthen, und / Ausschüssen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der in den Hochlöbl. Ritter-Cantonen / der drey Kreise, Schwaben, Fran- / ken und am Rheinstrom erbetenen / Direktoren, Ritter-Räthen, und / Ausschüssen",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "i9hv3ywrac0br99"
+    },
+    {
+      "annotation": "Verzeichniß der in den Hochlöbl. Ritter-Cantonen der drey Kreise, Schwaben, Franken, und am Rheinstrom erbetenen Direktoren, Ritter-Räthen, und Ausschüssen (Sammlung INr 21676, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwaben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwaben",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "kjp8g1l5wj0ituw"
+    },
+    {
+      "annotation": "Verzeichniß der in den Hochlöbl. Ritter-Cantonen der drey Kreise, Schwaben, Franken, und am Rheinstrom erbetenen Direktoren, Ritter-Räthen, und Ausschüssen (Sammlung INr 21676, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Franken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Franken",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ormhnqyubgb6fb"
+    },
+    {
+      "annotation": "Verzeichniß der in den Hochlöbl. Ritter-Cantonen der drey Kreise, Schwaben, Franken, und am Rheinstrom erbetenen Direktoren, Ritter-Räthen, und Ausschüssen (Sammlung INr 21676, Obj 25)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.891Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 21679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Rheinstrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Rheinstrom",
+      "updated": "2002-02-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1792,
+      "editor": "",
+      "agents": [],
+      "source_id": "t7doio94n4lt49d"
+    }
   ],
   "agents": [
     {

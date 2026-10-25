@@ -49,110 +49,4596 @@
   "year": 1822,
   "editor": "",
   "items": [
-    "bw6jw7qatmim9gl",
-    "knlgo6rnz64qkfr"
+    {
+      "annotation": "UG",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.477Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "404854",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.477Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "bw6jw7qatmim9gl"
+    },
+    {
+      "annotation": "1815-1832.\nKartonierter Einband mit Goldschnitt.(Vorderbuchdeckel fehlt.)\n1822: (K: Bl 1, XII, 328 SS, 23 SS, Bl 3  M. Ku 12, Tanzfig. und Mu.) Mit Bl 1, XII, 328 SS, 23 SS (Tanzfig. u. Mu.) und Bl 3. \n\\par Forts.s.u.:  Taschenbuch zum. Almanach z. gesell. Vergnügen a.d.J.  1794-1814.  Gleditsch\n\\par                      W.G. Beckers Taschenbuch zum geselligen Vergnügen. 1815-1832.  1815-1818 Verl.Gleditsch,\n\\par                                                                                                                                                             1819-1832 Verl.Göschen\n\\par 1819: erfolgt Teilung in W.G. BeckersTaschenbuch zum geselligen Vergnügen: Verl. Göschen.   1815-1832.    \n\\par                                             Taschenbuch zum geselligen Vergnügen: Verl. Gleditsch. 1819-1829.\n\\par \n\\par \n\\par\n§1§-§5§ MusBB fehlen, §§ GG fehlen <br> Verlagsbroschur mit Goldschnitt (Buchdeckel fehlt); verso G, T, S I nT, SS III-V I-Verz, S VI, SS VII-VIII G-Verz, SS IX- XI Vrwrt d Hrsg, S XII VrlgM, 9 GG, SS 1-308, ar1: S 1 zT, SS 2-23 9 MusBB 9 gTzA, SS 309-328, 3 BB VrlgM",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.477Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101168",
+      "location": "105J06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.477Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "knlgo6rnz64qkfr"
+    }
   ],
   "contents": [
-    "mntn5cl553rlh9m",
-    "06hthq6j7b1phtv",
-    "1qbvgf8d7ra5x3t",
-    "dvjz15zpqflzx3s",
-    "8fl8cpeh1o0r3hf",
-    "yuuug3nvnf9tbqg",
-    "fgscg5hbbzp5vwj",
-    "wmjhxp8krzaa0ww",
-    "uijrlwsjbrlyokw",
-    "hqj1a1afmjhz6nt",
-    "te8hb28qqvzaq3z",
-    "gig1urd0koxeden",
-    "qy8afu3puaogdlz",
-    "vyh4tyz2hsb43a3",
-    "omz89bssiinxnxm",
-    "6gbuz6mzsrvt3uz",
-    "g723aa7k1arz0wg",
-    "fz0c090sdvbat94",
-    "v9315dvr30cpn23",
-    "dx5z25urjikcvwn",
-    "g2wylappzxfz1ti",
-    "txgkpdp2iwauop6",
-    "b7b81wppelrqwr7",
-    "j66k8d7m4cbcsb3",
-    "pxh8uzvlt9envec",
-    "hfymxg5ndhljrol",
-    "h46vpkp3gtghmox",
-    "793dczeenu96tm3",
-    "pdttimf6tad2zep",
-    "jxgvb2knvbsre5l",
-    "2g8eijk83n5wfe9",
-    "c0dak9lctm909xn",
-    "2c6c1cex8vajqyd",
-    "daxf0c2fsusd8g6",
-    "f1syjhqtz88irg6",
-    "tpa68m0knt2w5g0",
-    "gio1ekfzqhbvj9j",
-    "8sr1emndl4d47vu",
-    "c572q5074xgftq0",
-    "xumhgwttp2wtj99",
-    "x3pisoshjw0zf4z",
-    "wbyaow3ocmwa3y6",
-    "j1gl7ja77iozg93",
-    "54x0zylv4q5stxi",
-    "2e36adz072spuw9",
-    "tlu7agwzpzorsw1",
-    "oy4apadngmzp3xf",
-    "h0j9n0hq8s9gcu3",
-    "v1r8du5ase96i67",
-    "up3sypj7k5xthkv",
-    "1vyfvxsjk8q7mds",
-    "697fh251diukwxp",
-    "y1kzhev9qn2xj1e",
-    "qly9qcjk22s5rfc",
-    "39m90fnpzqfobfk",
-    "yj1rrhb1zu1zf5i",
-    "3ywfblbjy0xenop",
-    "ti8gsyjdlq8ui73",
-    "4iifyvhmde7i0bg",
-    "txs6cwlbwnscxyj",
-    "gkvth8oohwjs6vg",
-    "t5lhthdrukx0nnd",
-    "q2akv6ul39iguan",
-    "ywj4a3wj1tqlkmr",
-    "6ed5uajb111hj1w",
-    "p4y5sglfcak7i0d",
-    "5sdyke186e2zxvl",
-    "j9vi368etimbjvz",
-    "7n0nagvs65azv3v",
-    "1emqm7net0qb29x",
-    "6mb6frg36dept5j",
-    "11xfxy89iwoxpmc",
-    "6cl2sgf4tswra2i",
-    "a0zxghnk0wyuwrw",
-    "w0x93i8jem0u8zq",
-    "uqd96mgk5gqy2wy",
-    "k5b4fh8awbf7s54",
-    "crhmz21hes4bvtf",
-    "9v45o09jv7abif5",
-    "3d6xnn5czgy0te7",
-    "cco02sdg3j0vrni",
-    "o4tz83p38jm9jnw",
-    "ifam64bsrjexz2r",
-    "ywnfxs7s3vumm3i",
-    "rzwznt3afk7cfdw",
-    "gogpormrxt2a6tv",
-    "n4ee41ac2xlbq7y",
-    "c8nkj05q4crvfj5",
-    "h73dzqygepa2neu",
-    "j5s2vjzze7hmzsx",
-    "jfkl7kkdcehjrb3",
-    "uuubg8kivz3jwa2",
-    "1kzprlsyowgbvtt",
-    "td232x349hznbfk",
-    "hdwg391d9g5rs3e",
-    "eqac9jzjqwjqi9p",
-    "6gkfc6rufcywcgw",
-    "lfadsbhz9a2safr",
-    "h4yfxpxghgugix4",
-    "fsblu45tvgdcgg0"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65214,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_270_65214_j2jnbxvq63.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "mntn5cl553rlh9m"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Mutterempfindung« von C. A. Tiedge INr 20248, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20229,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutterempfindung v. Fr. Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_270_20229_06jrm9ffjt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mutterempfindung v. Fr. Kind",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.812Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "1b5r78uaczatcyx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.812Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "p9xj3puf340esl1"
+        }
+      ],
+      "source_id": "06hthq6j7b1phtv"
+    },
+    {
+      "annotation": "gest. Titel mit kleiner Graphik (Venusmotiv nach Raffael)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20230,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "W. G. BECKER'S / TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1822. / Mit Königl. Sächsischem allergnädigsten Privilegio. / LEIPZIG, / bei Georg Joachim Göschen. / Wien in der Carl Geroldschen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rensch del Fleischmann sc.",
+      "scans": [
+        "alm_270_20230_1p74r33xqq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "W. G. BECKER'S / TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1822. / Mit Königl. Sächsischem allergnädigsten Privilegio. / LEIPZIG, / bei Georg Joachim Göschen. / Wien in der Carl Geroldschen Buchhandlung",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.812Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "cxnlkmnrjjcfhlx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.812Z",
+          "agent": "ail6kpkgq3rdfot",
+          "source_id": "uee7kxniz0mk231"
+        }
+      ],
+      "source_id": "1qbvgf8d7ra5x3t"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20231,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / geselligen Vergnügen. / 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / geselligen Vergnügen. / 1822",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "dvjz15zpqflzx3s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.565Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20232,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "8fl8cpeh1o0r3hf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.565Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20233,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "yuuug3nvnf9tbqg"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20234,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.019Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "d704nggj8fe3nvs"
+        }
+      ],
+      "source_id": "fgscg5hbbzp5vwj"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.769Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20235,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrich Kinds neueste Schriften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedrich Kinds neueste Schriften",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "wmjhxp8krzaa0ww"
+    },
+    {
+      "annotation": "Illustration zu »Der invalide Rittmeister« von Arthur vom Nordstern d. i. G. A. E. v. Nostitz und Jänkendorf INr 20257, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20236,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der invalide Rittmeister von Arthur vom Nordstern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+      "scans": [
+        "alm_270_20236_cloy4y4m6w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der invalide Rittmeister von Arthur vom Nordstern",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.019Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "8n8obtyuasrfwoh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.019Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "r2c5ktwd3ezju56"
+        }
+      ],
+      "source_id": "uijrlwsjbrlyokw"
+    },
+    {
+      "annotation": "Illustration zu »Der Löwenkranz« von O. H. v. Löben INr 20258, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.773Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20237,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Löwenkranz von O. H. Gr. v. Löben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Zschoch sc.",
+      "scans": [
+        "alm_270_20237_s4cz0lx0lf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Löwenkranz von O. H. Gr. v. Löben",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.019Z",
+          "agent": "s4g5qqmtfq8rt8j",
+          "source_id": "6xozk8fm9lg6whe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.019Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zkxeens01aqe6cz"
+        }
+      ],
+      "source_id": "hqj1a1afmjhz6nt"
+    },
+    {
+      "annotation": "Illustration zu »Sara v. Pillnikau« von Arthur vom Nordstern d. i. G. A. E. v. Nostitz und Jänkendorf INr 20274, Obj 46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20238,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sara v. Pillnikau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. T. Cheeseman sculp.",
+      "scans": [
+        "alm_270_20238_034uq06epd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sara v. Pillnikau",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "74opuoejkgqg6uv",
+          "source_id": "77ekmmz68gv6hr2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ejsss6ws888saq5"
+        }
+      ],
+      "source_id": "te8hb28qqvzaq3z"
+    },
+    {
+      "annotation": "Illustration zu »Das Militair« von L. Brachmann INr 20275, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.776Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20239,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Militair von Louise Brachmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. T. Cheeseman sculp.",
+      "scans": [
+        "alm_270_20239_bda0dw8kr6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Militair von Louise Brachmann",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "rzllcumhnl71fow"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "74opuoejkgqg6uv",
+          "source_id": "y3ijp93o6zox3rb"
+        }
+      ],
+      "source_id": "gig1urd0koxeden"
+    },
+    {
+      "annotation": "Illustration zu »Der Ehrensold« von G. Schilling INr 20285, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65212,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ehrensold v. Schilling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. T. Cheeseman sculp.",
+      "scans": [
+        "alm_270_65212_fscjcopjlm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Ehrensold v. Schilling",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.947Z",
+          "agent": "74opuoejkgqg6uv",
+          "source_id": "bj5fuvbr1tz6x7a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.947Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "qtcjjsok2ug1xhj"
+        }
+      ],
+      "source_id": "qy8afu3puaogdlz"
+    },
+    {
+      "annotation": "Illustration zu »Die Klingelschnur« von C. A. Semler INr 20282, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20240,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Klingelschnur v. Semler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg de. Schwerdgeburth sc.",
+      "scans": [
+        "alm_270_20240_rf55lw4pfc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Klingelschnur v. Semler",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "9gcxs6kexbuhkic"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "mn5lxq047dpc3hd"
+        }
+      ],
+      "source_id": "vyh4tyz2hsb43a3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20241,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "St. Martin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. nach van Dyck von Rensch; gest. v. Zschoch",
+      "scans": [
+        "alm_270_20241_8f0sf1891k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "St. Martin",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "ail6kpkgq3rdfot",
+          "source_id": "kqeg2ooh5njcsi7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "s4g5qqmtfq8rt8j",
+          "source_id": "r4u1b5tz7qn5bkb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "yfpqp089ikjb1ej",
+          "source_id": "uyhgm9borg8ljgy"
+        }
+      ],
+      "source_id": "omz89bssiinxnxm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20242,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aussicht aus den Fenstern Friedrichs des II. Königs von Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Delkeskamp ad nat. del. J. B. Hössel Berlin",
+      "scans": [
+        "alm_270_20242_tiwkcppdam.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aussicht aus den Fenstern Friedrichs des II. Königs von Preussen",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "t4wlsbli26ob7y0",
+          "source_id": "3ey27k408oc7ytm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "cujq2jko4r27xf5",
+          "source_id": "n60s648z5s0uxkv"
+        }
+      ],
+      "source_id": "6gbuz6mzsrvt3uz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.796Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20243,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göthes Gartenhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lieber del. C. A. Schwerdg. sc.",
+      "scans": [
+        "alm_270_20243_0jzvj9cnfg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Göthes Gartenhaus",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "ap1harftmziintk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "4bsiajn0srw5670",
+          "source_id": "voswpa7af7mosv9"
+        }
+      ],
+      "source_id": "g723aa7k1arz0wg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65213,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ifflands Gartenhaus im Thiergarten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Delkeskamp ad nat. del. J. B. Hössel sc. Berlin",
+      "scans": [
+        "alm_270_65213_wdjr61uuaf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ifflands Gartenhaus im Thiergarten",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.948Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.948Z",
+          "agent": "cujq2jko4r27xf5",
+          "source_id": "3kpxgsvu6tt7qle"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.948Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.948Z",
+          "agent": "t4wlsbli26ob7y0",
+          "source_id": "f3b67vdpjx7wf39"
+        }
+      ],
+      "source_id": "fz0c090sdvbat94"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.799Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20244,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht auf den Schuylkill bei Philadelphia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. A. Frenzel sc. Dresd.",
+      "scans": [
+        "alm_270_20244_nma6zuvgc5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht auf den Schuylkill bei Philadelphia",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.020Z",
+          "agent": "0x7ug5u1e4vyv1o",
+          "source_id": "ewc57bpx13466pt"
+        }
+      ],
+      "source_id": "v9315dvr30cpn23"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "So! fünf, sechs Sträh'n - ein ganzes Stück. / Das muß zu vier Paar Strümpfen reichen,",
+      "language": [],
+      "musenalm_id": 20245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Truhe. / Ein Spiel in Versen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Truhe. / Ein Spiel in Versen",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "797r1l0254f3kyp"
+        }
+      ],
+      "source_id": "dx5z25urjikcvwn"
+    },
+    {
+      "annotation": "mit einer Illustration in: Taschenbuch zum geselligen Vergnügen 1823 (2) INr 20347",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Schon lange hatte Kaiser Diocletianus die Christen grausam verfolgen lassen",
+      "language": [],
+      "musenalm_id": 20246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agathonika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. W. Lindau",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Agathonika",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "082sspsj3rz0i1b",
+          "source_id": "ckdwnkphoy038w1"
+        }
+      ],
+      "source_id": "g2wylappzxfz1ti"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Der Quell des Liedes droben fließt, / In fromme Herzen sich ergießt,",
+      "language": [],
+      "musenalm_id": 20247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Quell des Liedes",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Quell des Liedes",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "omqvhwe1ummpsnn"
+        }
+      ],
+      "source_id": "txgkpdp2iwauop6"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 20229, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.801Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Dein Tag erfüllt mit einem Himmelstrahle / Das Mutterherz, das ihm entgegen schlug:",
+      "language": [],
+      "musenalm_id": 20248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mutterempfindung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mutterempfindung",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "yk9rx83qdh6c3gr"
+        }
+      ],
+      "source_id": "b7b81wppelrqwr7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Ward eine Huldin einst geboren, / Mit Augen hell, wie Vollmondschein,",
+      "language": [],
+      "musenalm_id": 20249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Paulinentag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Paulinentag",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "o0l4d2d0lubwhgo"
+        }
+      ],
+      "source_id": "j66k8d7m4cbcsb3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Fromme Dulderin, erhebe / Deinen Blick zum Licht empor!",
+      "language": [],
+      "musenalm_id": 20250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Aurelia",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Aurelia",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "6q9ykrufaf49gt5"
+        }
+      ],
+      "source_id": "pxh8uzvlt9envec"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Bei Gott! sie ist aus der Huld und Licht geboren, / Und Luft aus einem Nachtigallenhain",
+      "language": [],
+      "musenalm_id": 20251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Idela",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Idela",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.021Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.021Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "mizablms27um9la"
+        }
+      ],
+      "source_id": "hfymxg5ndhljrol"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "Wie still ists in dem Hain der Lieder, / Der von Elisens Hymnen schwoll,",
+      "language": [],
+      "musenalm_id": 20252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf den Tod einer Sängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiege",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf den Tod einer Sängerin",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.093Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "iy2p79p18zpyudc"
+        }
+      ],
+      "source_id": "h46vpkp3gtghmox"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Dieß Abendgeläut, dieß Abendgeläut / Viel werthe Erinnrung sein Ton erneut!",
+      "language": [],
+      "musenalm_id": 20253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Abendgeläut. / Aus dem Englischen von Thomas Moore",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Abendgeläut. / Aus dem Englischen von Thomas Moore",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.093Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "ytmgktp2e0lqm8w"
+        }
+      ],
+      "source_id": "793dczeenu96tm3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Mathilde saß beim frohen Mahl, / Im hochgewölbten Marmorsaal,",
+      "language": [],
+      "musenalm_id": 20254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe und Muth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise von Hohenhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe und Muth",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.093Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "ztmmbntb1ewztgm"
+        }
+      ],
+      "source_id": "pdttimf6tad2zep"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Schneeglöcklein ich auf Auen, / Den Frühling läut' ich ein,",
+      "language": [],
+      "musenalm_id": 20255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schneeglöckchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Förster",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schneeglöckchen",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.093Z",
+          "agent": "xrm3e2g6mht03kn",
+          "source_id": "jinaeutyngicopu"
+        }
+      ],
+      "source_id": "jxgvb2knvbsre5l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Hellglänzend Würmchen! durch des Haines Nacht / Seh' ich dich wie ein mildes Sternlein schweben;",
+      "language": [],
+      "musenalm_id": 20256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Johanniswürmchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise von Hohenhausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Johanniswürmchen",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.093Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "9hd8jfchk7hbi97"
+        }
+      ],
+      "source_id": "2g8eijk83n5wfe9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 20236, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Es ist für mich ein großes Glück, daß Ursache und Wirkung oft himmelweit verschieden sind und bleiben",
+      "language": [],
+      "musenalm_id": 20257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruchstücke / aus dem Tagebuche / des invaliden Rittmeisters. / Jahrgang 1811",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruchstücke / aus dem Tagebuche / des invaliden Rittmeisters. / Jahrgang 1811",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.093Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.093Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "rkbkyzyw0jb1o40"
+        }
+      ],
+      "source_id": "c0dak9lctm909xn"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr. 20237, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Wer ist der junge deutsche Graf, / Den König Edward liebt,",
+      "language": [],
+      "musenalm_id": 20258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Löwenkranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. H. Graf von Loeben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Löwenkranz",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "lqm1xxbbqsqcgwa",
+          "source_id": "3cqgcp96ebmbx8k"
+        }
+      ],
+      "source_id": "2c6c1cex8vajqyd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Nahe standen sich die Schlachtenhaufen / Andern Tag's den Bluttanz zu beginnen",
+      "language": [],
+      "musenalm_id": 20259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Don Sebastian",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Don Sebastian",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "4pcwfgajkne090r"
+        }
+      ],
+      "source_id": "daxf0c2fsusd8g6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Du bist mir fortgegangen, / Ich hatte dich so lieb;",
+      "language": [],
+      "musenalm_id": 20260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanze in drei Liedern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst Freiherr v. d. Malsburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romanze in drei Liedern",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "7pclzh61bvgdvvq",
+          "source_id": "1a3cjjdfck19jnw"
+        }
+      ],
+      "source_id": "f1syjhqtz88irg6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Wagt es nicht uns thöricht zu beklagen, / Ihr, die, Kinder blos der Wirklichkeit,",
+      "language": [],
+      "musenalm_id": 20261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Glück des Dichters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Glück des Dichters",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "0gkhw52qdf8fm4y"
+        }
+      ],
+      "source_id": "tpa68m0knt2w5g0"
+    },
+    {
+      "annotation": "§1§ bez. Musikbeigabe fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Die Welle wühlt im Sande, / Die Welle schlägt an's Haus,",
+      "language": [],
+      "musenalm_id": 20262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das geborgene Kind. / Mit Melodie von Methfessel §1§",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Förster",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das geborgene Kind. / Mit Melodie von Methfessel §1§",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "xrm3e2g6mht03kn",
+          "source_id": "bqlkq7i17i2nz04"
+        }
+      ],
+      "source_id": "gio1ekfzqhbvj9j"
+    },
+    {
+      "annotation": "§2§ bez. Musikbeigabe fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Wen Kindlein süßen Schlummers Ruh / Nicht in der Wiege findet,",
+      "language": [],
+      "musenalm_id": 20263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied. / Mit Melodie von Carl Maria von Weber §2§",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Clotilde",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied. / Mit Melodie von Carl Maria von Weber §2§",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "j3qxc741zzed3s0",
+          "source_id": "4dyztixet1b1dkn"
+        }
+      ],
+      "source_id": "8sr1emndl4d47vu"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 20265-20267, Objk 37-39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonette aus Italien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Gr. Kalkreuth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonette aus Italien",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.851Z",
+          "agent": "7s14awjauhcdi1w",
+          "source_id": "yxpp71mlhe2tyd5"
+        }
+      ],
+      "source_id": "c572q5074xgftq0"
+    },
+    {
+      "annotation": "Sonette aus Italien (Sammlung INr 20264, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Der Süder Himmel strahlt in blauer Helle, / Umgoldet ist sein glüh'nder Abendschein,",
+      "language": [],
+      "musenalm_id": 20265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Gr. Kalkreuth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.852Z",
+          "agent": "7s14awjauhcdi1w",
+          "source_id": "ejsmorss2qsqvft"
+        }
+      ],
+      "source_id": "xumhgwttp2wtj99"
+    },
+    {
+      "annotation": "Sonette aus Italien (Sammlung INr 20264, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Süß ist der Sonne mild erschaffend Leben, / Nichts kann in ihrem Strahle untergehen;",
+      "language": [],
+      "musenalm_id": 20266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Gr. Kalkreuth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "7s14awjauhcdi1w",
+          "source_id": "mk8dw7dq5qpgsit"
+        }
+      ],
+      "source_id": "x3pisoshjw0zf4z"
+    },
+    {
+      "annotation": "Sonette aus Italien (Sammlung INr 20264, Obj 36)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Vergangen ist der Zeiten Dichtungsglanz; / Die bleiche Morgensonne bringt nicht Segen,",
+      "language": [],
+      "musenalm_id": 20267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Gr. Kalkreuth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "7s14awjauhcdi1w",
+          "source_id": "9rblyd8s3d3me2o"
+        }
+      ],
+      "source_id": "wbyaow3ocmwa3y6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.865Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Schwebst du auf den Silberwogen, / Schöner, stolzer Schwan daher,",
+      "language": [],
+      "musenalm_id": 20268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schwan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schwan",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "p8te5zhzek5v4h2"
+        }
+      ],
+      "source_id": "j1gl7ja77iozg93"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.866Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Nun? Was giebt es denn schon wieder? / Kaum daß man sich nach Mittag / Durch ein Schläfchen stärken mag,",
+      "language": [],
+      "musenalm_id": 20269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seinem Schicksal kann Nie- / mand entgehen. / (Dramatisiertes Sprichwort.) / Ein Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst von Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seinem Schicksal kann Nie- / mand entgehen. / (Dramatisiertes Sprichwort.) / Ein Schwank",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "rbh484p4a75xwxy"
+        }
+      ],
+      "source_id": "54x0zylv4q5stxi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.866Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "Was spiegelst Du mir noch bewegte Seele! / Ein falsches Bild von höhern Freuden vor?",
+      "language": [],
+      "musenalm_id": 20270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entsagung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entsagung",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "jexjr98w9vynqp9"
+        }
+      ],
+      "source_id": "2e36adz072spuw9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Kränze kaufen! wer kauft? Zeig' her! / Fürwahr ja gewoben / Wie von Grazienhand,",
+      "language": [],
+      "musenalm_id": 20271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kränze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Förster",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kränze",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.104Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.104Z",
+          "agent": "xrm3e2g6mht03kn",
+          "source_id": "50ws2lyx8fz42s3"
+        }
+      ],
+      "source_id": "tlu7agwzpzorsw1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "210",
+      "incipit_statement": "O! Hellas! heitres Jugendleben! / Du schönheitsfrohes warmes Land!",
+      "language": [],
+      "musenalm_id": 20272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophokles",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kuhn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sophokles",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.104Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.104Z",
+          "agent": "ijn3e3gugtz46hh",
+          "source_id": "k7fduwlygjcenjx"
+        }
+      ],
+      "source_id": "oy4apadngmzp3xf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Durch thauige Wiesen, Gefild und Hain / Fuhr lustig ein Wandrer,schier ganz allein.",
+      "language": [],
+      "musenalm_id": 20273,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Geisterreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug v. Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Geisterreich",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.104Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.104Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "un1qro7c3go4a2p"
+        }
+      ],
+      "source_id": "h0j9n0hq8s9gcu3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 20238, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Heinrich von Pillnikau in der Vasallen / Heerzug gegen Türkenmacht;",
+      "language": [],
+      "musenalm_id": 20274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sara von Pillnikau",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sara von Pillnikau",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "mt2jhixykgst34y"
+        }
+      ],
+      "source_id": "v1r8du5ase96i67"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 20239, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Nach einer stürmevollen Jugend kehrte der Freiherr Maximilian von Eschingen zu seinen friedlichen Besitzungen zurück.",
+      "language": [],
+      "musenalm_id": 20275,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Militär",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Militär",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "btduepxrmlpstic"
+        }
+      ],
+      "source_id": "up3sypj7k5xthkv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Wie friedlich thron' ich hier! mir traut die stille / Herde, / Auf nieder, Sitz, von Erd' erbaut,",
+      "language": [],
+      "musenalm_id": 20276,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rasenbank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rasenbank",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "179asayna7l1o6k"
+        }
+      ],
+      "source_id": "1vyfvxsjk8q7mds"
+    },
+    {
+      "annotation": "§3§ bez. Musikbeigabe fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Könnt ich ein Lüftchen seyn: / Das wär' ein Leben, / Immer in Feld und Hain / Sie zu umschweben,",
+      "language": [],
+      "musenalm_id": 20277,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lizidas. / Mit Melodie von A.Methfessel §3§",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lizidas. / Mit Melodie von A.Methfessel §3§",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "skg7qc8knunbkda"
+        }
+      ],
+      "source_id": "697fh251diukwxp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Dir sendet mein Vater zwölf Lämmer zu / Mit ihren Hirten- und wer bist Du?",
+      "language": [],
+      "musenalm_id": 20278,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ländliche Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ländliche Liebe",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "g04f08novv8i2uk"
+        }
+      ],
+      "source_id": "y1kzhev9qn2xj1e"
+    },
+    {
+      "annotation": "§4§ bez. Musikbeigabe fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Bleibt noch in der Mutter Haus, Veilchen! Krokusglöckchen!",
+      "language": [],
+      "musenalm_id": 20279,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Märzschnee. / Mit Melodie für Flöte und Guitarre von / A. B. Fürstenau §4§",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Märzschnee. / Mit Melodie für Flöte und Guitarre von / A. B. Fürstenau §4§",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "u12y4c3ohg06bfj"
+        }
+      ],
+      "source_id": "qly9qcjk22s5rfc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Guten Abend,schön willkommen! / Weiß es, Ohm, ein kleines Fieber",
+      "language": [],
+      "musenalm_id": 20280,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Guten Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Guten Abend",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "t9x817uzpt63hss"
+        }
+      ],
+      "source_id": "39m90fnpzqfobfk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.975Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Spinne Lise, spinne fein. / Drehe froh und munter,",
+      "language": [],
+      "musenalm_id": 20281,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die blinde Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die blinde Mutter",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.934Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "1g49rsj0vexhyqn"
+        }
+      ],
+      "source_id": "yj1rrhb1zu1zf5i"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 20240, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Hurtig dreht die Räder, Mädchen, / Laßt die flinken Spulen knarr'n,",
+      "language": [],
+      "musenalm_id": 20282,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Klingelschnur / Parodie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Semler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Klingelschnur / Parodie",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "nytz5qlmuogkuy2",
+          "source_id": "dxlp0s585p76n3z"
+        }
+      ],
+      "source_id": "3ywfblbjy0xenop"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Ich bin gesund, ich bin genesen; / Nichts weiter brauch' ich mehr vom Glück;",
+      "language": [],
+      "musenalm_id": 20283,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Belindens Gelübde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Tiedge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Belindens Gelübde",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "54yrh3deen85ult",
+          "source_id": "g3iuto9vbqwlrho"
+        }
+      ],
+      "source_id": "ti8gsyjdlq8ui73"
+    },
+    {
+      "annotation": "§5§ bez. Musikbeigabe fehlt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "O wär' ich nur ein Saitenspiel, / Berührt von deinen Händen,",
+      "language": [],
+      "musenalm_id": 20284,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wünsche. / Mit Melodie von Dotzauer §5§",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wünsche. / Mit Melodie von Dotzauer §5§",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "tpbyhhpss7ur4j7"
+        }
+      ],
+      "source_id": "4iifyvhmde7i0bg"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 65212, Obj 11,01",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Fertiger, der beliebte Poet, schlüpfte, von der Liebe getrieben, in Ausgebers Buchladen.",
+      "language": [],
+      "musenalm_id": 20285,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ehrensold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ehrensold",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "wlf3huai5my6z9k"
+        }
+      ],
+      "source_id": "txs6cwlbwnscxyj"
+    },
+    {
+      "annotation": "Sammlung von 7 Rätseln INr 20287-20293, Obj 59-65",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20286,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Silben- und Wort-Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Silben- und Wort-Räthsel",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "gkvth8oohwjs6vg"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Ein silbernes Dach hat das ganze Wort; / Nimm einen Buchstaben weg von vorn,",
+      "language": [],
+      "musenalm_id": 20287,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Drei Logogryphen über ein Wort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Drei Logogryphen über ein Wort",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "7p1u5mtnnrbv291"
+        }
+      ],
+      "source_id": "t5lhthdrukx0nnd"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "Wie heißt die holde Fürstin deren Krone / Der Himmelsthau mit lichten Perlen ziert,",
+      "language": [],
+      "musenalm_id": 20288,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Logogryph",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "ql9bbd2ltci2fxo",
+          "source_id": "jh0zjusetmn9n5i"
+        }
+      ],
+      "source_id": "q2akv6ul39iguan"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Prüft an mir mal euren Witz: / Ich bin rund und bin auch spitz,",
+      "language": [],
+      "musenalm_id": 20289,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Gleichname",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Gleichname",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "yaluus1phkmo0rd"
+        }
+      ],
+      "source_id": "ywj4a3wj1tqlkmr"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.915Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Als Kind hat schon die Erste dich begleitet, / Hat später hohe Wonne dir bereitet,",
+      "language": [],
+      "musenalm_id": 20290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelmine Rall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Charade",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ed5uajb111hj1w"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Ich schleiche faul daher auf meiner Bahn / Und drohten mir auch mancherlei Gefahren,",
+      "language": [],
+      "musenalm_id": 20291,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Charade",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.036Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.036Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "m6z17od9c8x2j9l"
+        }
+      ],
+      "source_id": "p4y5sglfcak7i0d"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Kennst du das Land? der großen Vorwelt Halle, / Den Sitz der Kunst, zu dem ich sehnend walle?",
+      "language": [],
+      "musenalm_id": 20292,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Charade",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.997Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "hdt40hra71j8m4h"
+        }
+      ],
+      "source_id": "5sdyke186e2zxvl"
+    },
+    {
+      "annotation": "Silben- und Wort-Räthsel (Sammlung INr 20286, Obj 58)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Wenn sanft die Dritte in Schlummer uns wiegt, / Das Ganze sich über die ersten schmiegt.",
+      "language": [],
+      "musenalm_id": 20293,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "-l.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Charade",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "j9vi368etimbjvz"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 9 graph. Tanzanleitungen und 9 Musikbeigaben INr 20295-20312, Obj 66-84",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20294,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tänze / Contredanses Francaises / und / Ecossaise, / welche bei Hofe getanzt werden / herausgegeben / von Herrn LAUCHERY / Königl. Solo-Tänzer in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tänze / Contredanses Francaises / und / Ecossaise, / welche bei Hofe getanzt werden / herausgegeben / von Herrn LAUCHERY / Königl. Solo-Tänzer in Berlin",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "7n0nagvs65azv3v"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66) (Photo 20295 u. 20296)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.546Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20295,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Pantalon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20295_bshlbmtfsf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Le Pantalon",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.997Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "6byoaqyuzeppqpj"
+        }
+      ],
+      "source_id": "1emqm7net0qb29x"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20296,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Pantalon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20296_dh3xhqwyk6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Le Pantalon",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.997Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "y66tunc5ehrdv93"
+        }
+      ],
+      "source_id": "6mb6frg36dept5j"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.550Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20297,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "L'Été",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20297_kr5mer4vah.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "L'Été",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.997Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "0cazepdcihjwqpy"
+        }
+      ],
+      "source_id": "11xfxy89iwoxpmc"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.552Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20298,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "L'Été",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20298_7xfd4dv2p0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "L'Été",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.997Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "vc8okpjolhtoqhw"
+        }
+      ],
+      "source_id": "6cl2sgf4tswra2i"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.553Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20299,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Trevis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20299_ws1ig2yejn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Trevis",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.997Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "u11x6sffbn9heec"
+        }
+      ],
+      "source_id": "a0zxghnk0wyuwrw"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20300,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Trevis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20300_ke813fjqiu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Trevis",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "uv37d1pd5x4tg2h"
+        }
+      ],
+      "source_id": "w0x93i8jem0u8zq"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.860Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20301,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Poule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20301_qbio990h18.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Le Poule",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "byg3b3zu3lqoa2h"
+        }
+      ],
+      "source_id": "uqd96mgk5gqy2wy"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.863Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20302,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Poule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20302_98eq1c4muj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Poule",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.917Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.917Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "0ehqcvz0z2zyjpa"
+        }
+      ],
+      "source_id": "k5b4fh8awbf7s54"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.357Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20303,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Pastourelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20303_au8byfqh99.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Pastourelle",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.866Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "hn66ltxtcc5ssgw"
+        }
+      ],
+      "source_id": "crhmz21hes4bvtf"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20304,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Pastourelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20304_m2njwlg9f5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Pastourelle",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.866Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "8chbewcpa2mr25y"
+        }
+      ],
+      "source_id": "9v45o09jv7abif5"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20305,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Finale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20305_fvwfr81a8j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Finale",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.866Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "bjlzmtujadoti1w"
+        }
+      ],
+      "source_id": "3d6xnn5czgy0te7"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20306,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Le Finale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20306_xlyncu947y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Le Finale",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.866Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "6do7l1iylb80qdg"
+        }
+      ],
+      "source_id": "cco02sdg3j0vrni"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20307,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Francaise en Ronde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20307_5mkxan1uo4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Francaise en Ronde",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.866Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "a590k756iyr18n5"
+        }
+      ],
+      "source_id": "o4tz83p38jm9jnw"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20308,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Francaise en Ronde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20308_0w6u1qjusv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Francaise en Ronde",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "yhuz5gkb0exsu8n"
+        }
+      ],
+      "source_id": "ifam64bsrjexz2r"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.368Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20309,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Francaise Royal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20309_7mfrh10l5o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Francaise Royal",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "eg34w0c1nghmb42"
+        }
+      ],
+      "source_id": "ywnfxs7s3vumm3i"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.370Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20310,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Francaise Royal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20310_zsxdgqnsj6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Francaise Royal",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "p7axvz2upkc8f75"
+        }
+      ],
+      "source_id": "rzwznt3afk7cfdw"
+    },
+    {
+      "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20311,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "graph. Tanzanleitung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20311_htbsnx6c4c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "ghrcpsvcdxr6sej"
+        }
+      ],
+      "source_id": "gogpormrxt2a6tv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20312,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ecossaise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [
+        "alm_270_20312_01a75si6v6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ecossaise",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "jih2uu1jjhnqvg0"
+        }
+      ],
+      "source_id": "n4ee41ac2xlbq7y"
+    },
+    {
+      "annotation": "Sammlung von 10 Beiträgen INr 20314-20323, Obj 86-95",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Tänze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Tänze",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "bgd17qhwkc7a9it"
+        }
+      ],
+      "source_id": "c8nkj05q4crvfj5"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20314,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Contredanse. Le Pantalon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Contredanse. Le Pantalon",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "th1mn01v61heqfl"
+        }
+      ],
+      "source_id": "h73dzqygepa2neu"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20315,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Contredanse. L'été",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Contredanse. L'été",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "lqnqbqrlo2cmr0t"
+        }
+      ],
+      "source_id": "j5s2vjzze7hmzsx"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20316,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Contredanse La Trenis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Contredanse La Trenis",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "f9aqbdzaqbtokmo"
+        }
+      ],
+      "source_id": "jfkl7kkdcehjrb3"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20317,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Contredanse. La Poule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Contredanse. La Poule",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "zvz0wxv717jgct5"
+        }
+      ],
+      "source_id": "uuubg8kivz3jwa2"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20318,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Contredanse. La Pastorelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Contredanse. La Pastorelle",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "oqbv3jr85nlc8n6"
+        }
+      ],
+      "source_id": "1kzprlsyowgbvtt"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20319,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Contredanse. Finale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Contredanse. Finale",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "hq1j3teii07a8d7"
+        }
+      ],
+      "source_id": "td232x349hznbfk"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20320,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Francaise Royale",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Francaise Royale",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.867Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.867Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "j4gaaor4frkh7n4"
+        }
+      ],
+      "source_id": "hdwg391d9g5rs3e"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.704Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20321,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Francaise en Rond",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Francaise en Rond",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.800Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.800Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "q7f6gaqx7my7ekg"
+        }
+      ],
+      "source_id": "eqac9jzjqwjqi9p"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20322,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Ecossaise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Ecossaise",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.051Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.051Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "c1qnishhyh93h90"
+        }
+      ],
+      "source_id": "6gkfc6rufcywcgw"
+    },
+    {
+      "annotation": "Erklärung der Tänze (Sammlung INr 20213, Obj 85)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20323,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Ecossaiase",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lauchery",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Ecossaiase",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.051Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.051Z",
+          "agent": "czigb25jnrfsy98",
+          "source_id": "mnm4ta2pxt64cup"
+        }
+      ],
+      "source_id": "lfadsbhz9a2safr"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 20324,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei Georg Joachim Göschen sind / erschienen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei Georg Joachim Göschen sind / erschienen",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "h4yfxpxghgugix4"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 65215,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_270_65215_ezsg18jxiv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-12-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "fsblu45tvgdcgg0"
+    }
   ],
   "agents": [
     {

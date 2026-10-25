@@ -48,47 +48,1668 @@
   "year": 1835,
   "editor": "",
   "items": [
-    "4n7b3m5cdsd7dqf",
-    "cg46esxzh8gysp1"
+    {
+      "annotation": "1810-1858. (1849 & 1854 nicht erschienen.)\nKartonierter Einband mit Goldschnitt und Schuber.(Buchrücken fehlt, Vorder und Hinterbuchdeckel lose .)\n1835: (K: Port 1, Stahlst. 7.) Mit Port 1, Ku 5, XVI, 342 SS und Bl 5\nRheinisches TB Hg .:1824/44 = Dr. Adrian.\nRheinisches TB Hg .:1845/58 = C. Dräxler-Manfred.\n\\par Auch Zeitgleich als Großherzoglich Hessischer Hofkalender verlegt. \n\\par \\plain\\f3\\fs16\\cf0 K 85, LR 26.\n\\par 997 bea\n§ B mit SS VII u. VIII fehlt; Graphiken unvollständig",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.502Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101209",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.502Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4n7b3m5cdsd7dqf"
+    },
+    {
+      "annotation": "SS VI-VIII G, G",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.502Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "411091",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.502Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cg46esxzh8gysp1"
+    }
   ],
   "contents": [
-    "i8hq503qgbb1kwf",
-    "bv3g7y8nwrnrx97",
-    "ihzy0ybrk37g5ys",
-    "p2wjevqq6q1m2lt",
-    "8s35k4a0pwqmgbs",
-    "gg9czx2q94jasri",
-    "xvy2x8et5g314nn",
-    "0bur9n57yds99ag",
-    "2v5u3jl95v63r4j",
-    "chxwap9upspbfk6",
-    "jie7lvlh15wkdnj",
-    "p8xbieoy6hlngr9",
-    "ugtub7fyeazt40h",
-    "f35mxk0f5qtppwt",
-    "jruihaiosjhlazj",
-    "2h8jx0eia6rzckw",
-    "8zq3wzg2xgr92u8",
-    "3ztpa4e9qvl5cih",
-    "ub4dn77c17ckw4y",
-    "wnxadtpsv283x0a",
-    "64ixwux23lv1vmz",
-    "i54p1smi8wwj3jd",
-    "dws7sxcav2yvpwv",
-    "59iceokypxkj1ny",
-    "nesqi7g6kaqenax",
-    "4ubwlqnb60o3mag",
-    "zr35rvvx29evpls",
-    "kqj1v8ngkfxdcdi",
-    "pgp8ae20ydx7e5i",
-    "86zstfcgpz5stbu",
-    "sgii3aie5cmxzvj",
-    "x5sd0tw4r2ig0eh",
-    "le6t0362uw3gfst",
-    "fokgpj0lhh8zano",
-    "hi9pxj6y0g874v8",
-    "mspzxyulwrryns8",
-    "h6721c4lcer3stt"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43889,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Washington Irving",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Barth sc.",
+      "scans": [
+        "alm_590_43889_3npt9zjzyl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Washington Irving",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.221Z",
+          "agent": "ak2qa5c9tflxdbf",
+          "source_id": "oet72msf5hi366u"
+        }
+      ],
+      "source_id": "i8hq503qgbb1kwf"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43890,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1835. / Herausgegeben von / Dr. ADRIAN. / Frankfurt a/ M., / bei Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Dondorf invt.",
+      "scans": [
+        "alm_590_43890_cdywfbrsjr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1835. / Herausgegeben von / Dr. ADRIAN. / Frankfurt a/ M., / bei Johann David Sauerländer",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.221Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.221Z",
+          "agent": "5fc2fy392haquun",
+          "source_id": "3cwcg8sd6ofursj"
+        }
+      ],
+      "source_id": "bv3g7y8nwrnrx97"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.091Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43891,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "ihzy0ybrk37g5ys"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. Illustration zu »Die Gondel« von George Gordon Byron s. Textbezug INr 43894, 0bj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.862Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43892,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gondel #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by H. Richter Engraved by H. T. Ryall",
+      "scans": [
+        "alm_590_43892_7saqrz36vj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Gondel #",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.259Z",
+          "agent": "2p87lmr62wiucvw",
+          "source_id": "5a71s1rpp74bciy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.259Z",
+          "agent": "eywmxpqe6du7wyv",
+          "source_id": "fh8lvn9iikohxiy"
+        }
+      ],
+      "source_id": "p2wjevqq6q1m2lt"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu 6 Graphiken INr 43892, 43894, 43896-43905; Obj 4, 6-16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.863Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43893,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie aus Byron's Werken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie aus Byron's Werken",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "8s35k4a0pwqmgbs"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 43892, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Eine Venizianische Gondel scheint beim ersten Anblick nichts weniger als einen künstlerischen Vorwurf abgeben zu können",
+      "language": [],
+      "musenalm_id": 43894,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gondel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gondel",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.259Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "jt407ubcjnnnucs"
+        }
+      ],
+      "source_id": "gg9czx2q94jasri"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 43897, Obj 8 § Beitrag unvollständig SS VII u. VIII fehlen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Parisina, die reizende, jugendblühende, war die Gattin des alten Azo von Este. Die Liebe hatte sie nicht vereinigt.",
+      "language": [],
+      "musenalm_id": 43896,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parisina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parisina",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "xvy2x8et5g314nn"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz. Illustration zu  »Parisina« von George Gordon Byron s. Textbezug INr 43896, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43897,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parisina #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by H. Richter Engraved by W. Chevalier",
+      "scans": [
+        "alm_590_43897_bkjgbyzxk5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Parisina #",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.259Z",
+          "agent": "zzvegzlq00oxpd5",
+          "source_id": "od8yo5xe846rr1j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.259Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.259Z",
+          "agent": "2p87lmr62wiucvw",
+          "source_id": "ozn2yj6hhndzzs5"
+        }
+      ],
+      "source_id": "0bur9n57yds99ag"
+    },
+    {
+      "annotation": "Illustration zu »Die Maid von Athen« von George Gordon Byron s. Textbezug INr 127981, Obj 8,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127980,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Maid von Athen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by A. E. Chalon, R. A. Engraved by H. T. Ryall",
+      "scans": [
+        "alm_590_127980_n2c53ikn0n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Maid von Athen",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.975Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.975Z",
+          "agent": "eywmxpqe6du7wyv",
+          "source_id": "kqpzukfx3pmwszq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.975Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.975Z",
+          "agent": "ofmlr5ax2rwl9dz",
+          "source_id": "ue5f01g8u6vbv5r"
+        }
+      ],
+      "source_id": "2v5u3jl95v63r4j"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 127980, Obj 8,01",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Der Maler kann die Worte des Dichters nicht schöner, besser ausdrücken, als der Dichter dies in seiner Maid of Athens gethan hat,",
+      "language": [],
+      "musenalm_id": 127981,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Maid von Athen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Maid von Athen",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "chxwap9upspbfk6"
+    },
+    {
+      "annotation": "Illustration zu »Junker Harold« von George Gordon Byron s. Textbezug INr 43899, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43898,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Junker Harold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_590_43898_4hfnxpch7k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Junker Harold",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "jie7lvlh15wkdnj"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 43898, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Trostlosigkeit und Lebensmüde mitten im Übermaaß aller Freuden, welche das sinnliche Dasein erheitern können!",
+      "language": [],
+      "musenalm_id": 43899,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Junker Harold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Junker Harold",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "p8xbieoy6hlngr9"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 43901, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Das kleine Gedicht, welches die Insel überschrieben ist, gehört zu den reizendsten Erzählungen unseres Byron",
+      "language": [],
+      "musenalm_id": 43900,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Insel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Insel",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "ugtub7fyeazt40h"
+    },
+    {
+      "annotation": "Illustration zu »Die Insel« von George Gordon Byron s. Textbezug INr 43900, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.083Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Insel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Drawn by H. Richter Engraved by H. C. Shenton",
+      "scans": [
+        "alm_590_43901_8pss5z22le.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Insel",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.372Z",
+          "agent": "jfn0m9odb0mqqv8",
+          "source_id": "0bcubtc7bo9zm0p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.372Z",
+          "agent": "2p87lmr62wiucvw",
+          "source_id": "l1jyq1j2t5ie4op"
+        }
+      ],
+      "source_id": "f35mxk0f5qtppwt"
+    },
+    {
+      "annotation": "[unter der Graphik: Stunden der Muße und vermischte Schriften]. Illustration zu »Jugendliebe« von George Gordon Byron s. Textbezug INr 43903, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43902,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jugend-Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Richter del. Leop. Beyer sc.",
+      "scans": [
+        "alm_590_43902_hq4181wq7d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jugend-Liebe",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.372Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "2sutddx9iowibwi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.372Z",
+          "agent": "2p87lmr62wiucvw",
+          "source_id": "sm2rid5a9noluez"
+        }
+      ],
+      "source_id": "jruihaiosjhlazj"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 43902, Obj 13. Der Textbezug ohne die bez. Graphik bereits in: Taschenbuch, Rheinisches 1834 INr 43973",
+      "content_type": [],
+      "created": "2026-06-11 10:18:02.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Lord Byron spricht sich in hundert Stellen seiner Werke mit der lebhaftesten Wärme über die Seligkeit der ersten, reinsten, geistigsten Liebe aus.",
+      "language": [],
+      "musenalm_id": 43903,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jugend-Liebe. / (Stunden der Muße.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jugend-Liebe. / (Stunden der Muße.)",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "2h8jx0eia6rzckw"
+    },
+    {
+      "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43893, Obj 5) s. Graphik INr 43905, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.733Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Das Portrait der Lady Jersey war eine Zierde der Gallerie des Prinz-Regenten von England, nachherigen Königs Georg des Vierten.",
+      "language": [],
+      "musenalm_id": 43904,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gräfin von Jersey",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gräfin von Jersey",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "8zq3wzg2xgr92u8"
+    },
+    {
+      "annotation": "s. Textbezug INr 43904, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.733Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43905,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lady Jersey",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V: Zeichnung und Stahlstich von Leop. Beyer in Wien",
+      "scans": [
+        "alm_590_43905_1rp7b1xpy1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lady Jersey",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "o33cu972fzvp1v3"
+        }
+      ],
+      "source_id": "3ztpa4e9qvl5cih"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Jüngling bringt seiner Braut am Morgen der Hochzeit die purpurglühende Wange, den jugendlich feurigen Liebesblick, die hüpfende Welle des Bluts im zärtlichen Druck der Hand,",
+      "language": [],
+      "musenalm_id": 43906,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rose von Salerno",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Storch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rose von Salerno",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "n05stp52kkm5on3",
+          "source_id": "q7ssnkhjbuvt0y2"
+        }
+      ],
+      "source_id": "ub4dn77c17ckw4y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "An einem trübem Herbsttage des Jahres 1648 sah man früh Morgens in der Stadt Olmütz eine besondere Lebendigkeit,",
+      "language": [],
+      "musenalm_id": 43907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wolfson. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wolfson. / Historische Novelle",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "frewuypiplozt86"
+        }
+      ],
+      "source_id": "wnxadtpsv283x0a"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 43909-43914, Obj 20-25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43908,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Briefe aus Wallis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Briefe aus Wallis",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "4bhdp109txckgph"
+        }
+      ],
+      "source_id": "64ixwux23lv1vmz"
+    },
+    {
+      "annotation": "Briefe aus Wallis (Sammlung INr 43908, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Sie wissen, meine theuerste Freundin, daß ich zu den Reisenden gehöre,welche leicht mit allem zufrieden sind, was der Augenblick beut.",
+      "language": [],
+      "musenalm_id": 43909,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Brief",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "45x0ahy7ouedev5"
+        }
+      ],
+      "source_id": "i54p1smi8wwj3jd"
+    },
+    {
+      "annotation": "Briefe aus Wallis (Sammlung INr 43908, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Sie wissen, daß ich ein Freund solcher Kreuzweg-Herbergen bin, wie z.B. Calais und Dover, Andermatt und Airolo, Brig und Domo D'Ossola sie darbieten.",
+      "language": [],
+      "musenalm_id": 43910,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Brief",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "f1gyuhk47t2bcj5"
+        }
+      ],
+      "source_id": "dws7sxcav2yvpwv"
+    },
+    {
+      "annotation": "Briefe aus Wallis (Sammlung INr 43908, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Bis an die klassische Brücke von Trevola, welche freilich von dem, seiner schönen Lage und Umgebebung wegen rühmenswerthen Domo D'Ossola nicht sehr entfernt ist,",
+      "language": [],
+      "musenalm_id": 43911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Brief",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "0cu7ss2yk4p4irz"
+        }
+      ],
+      "source_id": "59iceokypxkj1ny"
+    },
+    {
+      "annotation": "Briefe aus Wallis (Sammlung INr 43908, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Wenn es so fortgeht, oder vielmehr, wenn es nicht fortgeht, meine theure Freundin, erhalten Sie von Simpeln aus ein ganzes Buch voll Briefe.",
+      "language": [],
+      "musenalm_id": 43912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Brief",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "6whbbeu695ip4rc"
+        }
+      ],
+      "source_id": "nesqi7g6kaqenax"
+    },
+    {
+      "annotation": "Briefe aus Wallis (Sammlung INr 43908, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Ich schreibe Ihnen abermals auf einem europäischen Höhepunkt, Liebe, auf dem großen St. Bernhard,",
+      "language": [],
+      "musenalm_id": 43913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Brief",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ntcvv6wm4amo1br"
+        }
+      ],
+      "source_id": "4ubwlqnb60o3mag"
+    },
+    {
+      "annotation": "Briefe aus Wallis (Sammlung INr 43908, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "Fort aus der Tiefe! Tausende von Reisenden stiegen alljährlich durch das schönwilde Rhonethal über die Furka,",
+      "language": [],
+      "musenalm_id": 43914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechster Brief",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechster Brief",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "i23qafufsp0lhvb"
+        }
+      ],
+      "source_id": "zr35rvvx29evpls"
+    },
+    {
+      "annotation": "Dem Beitrag »Tannhäuser« INr 43916, Obj 27 vorangestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "O faltet nicht die Stirn zur Strenge, / Bei'm ersten Blick verurtheilt nicht,",
+      "language": [],
+      "musenalm_id": 43915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tannhäuser. / Das Mährchen / als Prolog an die günstigen Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Duller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tannhäuser. / Das Mährchen / als Prolog an die günstigen Leser",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "7bekt7k216mxue5",
+          "source_id": "p8k65pszmf6yrmx"
+        }
+      ],
+      "source_id": "kqj1v8ngkfxdcdi"
+    },
+    {
+      "annotation": "mit einem einleitenden Gedicht s. INr 43915, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Was für ein Weben und Schaffen, was für Lust und Liebe und Seligkeit im frischen grünen Wald!",
+      "language": [],
+      "musenalm_id": 43916,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tannhäuser]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Duller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Tannhäuser]",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "7bekt7k216mxue5",
+          "source_id": "qbt24qx2wm9ojw9"
+        }
+      ],
+      "source_id": "pgp8ae20ydx7e5i"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 43918-43923, Obj 29-34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Nacht unter Schleichhändlern. / Skizzen aus England",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Nacht unter Schleichhändlern. / Skizzen aus England",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "j1ftliqosts9fdx"
+        }
+      ],
+      "source_id": "86zstfcgpz5stbu"
+    },
+    {
+      "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: O wer ein Stündchen weilt auf jenen Höhen, / Ob blauer Wog', in sanfter Lüfte Wehen, ]...] Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Wenn unser wackerer Moritz, dessen Erscheinung als Fußreisender in England zu einer Zeit, wo sich Reisene von Stand nur zu Wagen oder zu Pferd auf der Heerstraße sehen ließen,",
+      "language": [],
+      "musenalm_id": 43918,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Seeküste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Seeküste",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.116Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.116Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "41wn1yehu8rsmu0"
+        }
+      ],
+      "source_id": "sgii3aie5cmxzvj"
+    },
+    {
+      "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: Der Wind / Begann sich Abends heftig zu erheben./ Zwar scheut dergleichen wohl kein Seemannskind, [...] Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Mr. Pearse's Komplimente an die fremden Herrn und wenn sie einen Spaziergang in der Gegend machen und das alte Schloß besehen wollten, erbiete er sich gern zum Begleiter.",
+      "language": [],
+      "musenalm_id": 43919,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Geheimnißvolle Winke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Geheimnißvolle Winke",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.258Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.258Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "xd8f02er6plyzis"
+        }
+      ],
+      "source_id": "x5sd0tw4r2ig0eh"
+    },
+    {
+      "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: So wandelt sich das Luft-Chamäleon, / Das flücht'ge Kind des Dunstes und der Sonne, [...] Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Ich wollte, ich könnte den Lesern ein Bild von diesem seltsamen alten Gesellen geben,",
+      "language": [],
+      "musenalm_id": 43920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Ruinen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Ruinen",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.258Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.258Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "qnbsfraerdk6qk9"
+        }
+      ],
+      "source_id": "le6t0362uw3gfst"
+    },
+    {
+      "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: Maria: Wollt ihr unter Segel gehen, Herr? / Viola: Nein, guter Schiffsjunge! Ich will hier noch / ein wenig länger herumkreuzen. / Shakspeare",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "323",
+      "incipit_statement": "Welch ein Schauspiel entwickelte sich nun vor den Blicken unserer staunenden Freunde!",
+      "language": [],
+      "musenalm_id": 43921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die Schleichhändler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die Schleichhändler",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.258Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.258Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "fwhhjw983k5y0lp"
+        }
+      ],
+      "source_id": "fokgpj0lhh8zano"
+    },
+    {
+      "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: Bewaffnet? Ja doch, um nach uns zu schaun: / 's ist Zeit, daß wir davon uns machen, traun! / Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "328",
+      "incipit_statement": "Tom stellte die Fremden dem Kapitän der Jacht, die Mewe genannt auf eine nicht sehr zeremonielle Weise vor,",
+      "language": [],
+      "musenalm_id": 43922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die Mewe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die Mewe",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.258Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.258Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "1t0f299sdrxaeoa"
+        }
+      ],
+      "source_id": "hi9pxj6y0g874v8"
+    },
+    {
+      "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: Um ein Uhr ließ ein heftig Sturmgebraus / Das Schiff so recht in Meeres Trog gelangen; [...] Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "336",
+      "incipit_statement": "Man hörte die schwere Brandung mit furchtbarem Getöse an die Felsen schlagen",
+      "language": [],
+      "musenalm_id": 43923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Jagd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Jagd",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.310Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "odwl2ulmuart69j"
+        }
+      ],
+      "source_id": "mspzxyulwrryns8"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.522Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 43924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle",
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Ostermesse 1834 wurden bereits fol- / gende neue Verlagswerke versandt.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der Ostermesse 1834 wurden bereits fol- / gende neue Verlagswerke versandt.",
+      "updated": "2006-06-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1835,
+      "editor": "",
+      "agents": [],
+      "source_id": "h6721c4lcer3stt"
+    }
   ],
   "agents": [
     {

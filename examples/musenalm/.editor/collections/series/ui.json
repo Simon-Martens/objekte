@@ -7,71 +7,234 @@
   "sidebarGroup": "Catalogue",
   "fields": {
     "/properties/title": {
-      "title": "Title"
+      "title": "Title",
+      "x-presentation": {
+        "preview": "hidden"
+      },
+      "translations": {
+        "de": {
+          "title": "Reihentitel"
+        }
+      }
     },
     "/properties/pseudonyms": {
-      "title": "Pseudonyms"
+      "title": "Pseudonyms",
+      "x-presentation": {
+        "inline": true
+      },
+      "translations": {
+        "de": {
+          "title": "Pseudonyme"
+        }
+      }
     },
     "/properties/refs": {
-      "title": "Refs"
+      "title": "References",
+      "translations": {
+        "de": {
+          "title": "Nachweise"
+        }
+      }
     },
     "/properties/frequency": {
-      "title": "Frequency"
+      "title": "Frequency",
+      "translations": {
+        "de": {
+          "title": "Erscheinungsweise"
+        }
+      }
     },
     "/properties/created": {
-      "title": "Created"
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
     },
     "/properties/updated": {
-      "title": "Updated"
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
     },
     "/properties/musenalm_id": {
-      "title": "Musenalm id"
+      "title": "Musenalm ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "AlmanachNr"
+        }
+      }
     },
     "/properties/edit_state": {
-      "title": "Edit state"
+      "title": "Review status",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeitungsstand",
+          "x-optionLabels": {
+            "Unknown": "Unknown",
+            "ToDo": "ToDo",
+            "Seen": "Seen",
+            "Partially Edited": "Partially Edited",
+            "Waiting": "Waiting",
+            "Review": "Review",
+            "Edited": "Edited",
+            "": ""
+          }
+        }
+      }
     },
     "/properties/annotation": {
-      "title": "Annotation",
-      "x-editor": "markdown"
+      "title": "Notes",
+      "x-editor": "markdown",
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
     },
     "/properties/edit_comment": {
-      "title": "Edit comment",
-      "x-editor": "markdown"
+      "title": "Editorial notes",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Redaktionelle Anmerkungen"
+        }
+      }
     },
     "/properties/editor": {
-      "title": "Editor"
+      "title": "Editor",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Bearbeiter:in"
+        }
+      }
     },
     "/properties/related_entries/items/properties/source_id": {
-      "title": "Source id"
+      "title": "Source ID",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Quell-ID"
+        }
+      }
     },
     "/properties/related_entries/items/properties/entry": {
-      "title": "Entry"
+      "title": "Entry",
+      "x-presentation": {
+        "primary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Band"
+        }
+      }
     },
     "/properties/related_entries/items/properties/annotation": {
-      "title": "Annotation",
-      "x-editor": "markdown"
+      "title": "Notes",
+      "x-editor": "markdown",
+      "x-presentation": {},
+      "translations": {
+        "de": {
+          "title": "Anmerkungen"
+        }
+      }
     },
     "/properties/related_entries/items/properties/created": {
-      "title": "Created"
+      "title": "Created",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Erstellt"
+        }
+      }
     },
     "/properties/related_entries/items/properties/updated": {
-      "title": "Updated"
+      "title": "Updated",
+      "x-presentation": {
+        "secondary": true
+      },
+      "translations": {
+        "de": {
+          "title": "Geändert"
+        }
+      }
+    },
+    "/properties/entries": {
+      "title": "Entries",
+      "translations": {
+        "de": {
+          "title": "Bände"
+        }
+      }
+    },
+    "/properties/related_entries": {
+      "title": "Cross-references",
+      "x-presentation": {
+        "table": {
+          "columns": [
+            "entry",
+            "annotation"
+          ],
+          "icon": "ri-book-line"
+        }
+      },
+      "translations": {
+        "de": {
+          "title": "Querverweise"
+        }
+      }
+    },
+    "/properties/related_entries/items": {
+      "x-presentation": {
+        "fieldOrder": [
+          "entry",
+          "annotation",
+          "source_id",
+          "created",
+          "updated"
+        ]
+      }
     }
   },
   "fieldOrder": [
     "title",
-    "pseudonyms",
-    "refs",
     "frequency",
+    "annotation",
+    "refs",
+    "related_entries",
+    "pseudonyms",
     "created",
     "updated",
     "musenalm_id",
     "edit_state",
-    "annotation",
     "edit_comment",
     "editor",
-    "entries",
-    "related_entries"
+    "entries"
   ],
   "labels": {
     "list": [
@@ -100,7 +263,7 @@
   "list": {
     "columns": [
       "title",
-      "musenalm_id",
+      "frequency",
       "entries"
     ],
     "defaultSort": {
@@ -112,5 +275,14 @@
       "edit_state"
     ]
   },
-  "sidebarTree": false
+  "sidebarTree": false,
+  "presentation": {
+    "hideEmpty": true
+  },
+  "translations": {
+    "de": {
+      "label": "Reihen",
+      "singularLabel": "Reihe"
+    }
+  }
 }

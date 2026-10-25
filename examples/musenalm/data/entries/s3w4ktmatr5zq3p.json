@@ -48,29 +48,840 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "yqm7weseiy4s889"
+    {
+      "annotation": "mit 3 Graphiken von Chodowiecki und 12 Portraits von Stöttrup",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.554Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "201007",
+      "location": "105K03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.554Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yqm7weseiy4s889"
+    }
   ],
   "contents": [
-    "gtpcj1svkdqcn78",
-    "29dap35mq6cgk03",
-    "awidzu28mmlaot6",
-    "49b3tyy4zlqreis",
-    "efbn28n9pvifpqa",
-    "elimgh3qzv3vg03",
-    "pdjgsa88mjfnr57",
-    "ysbbll47czbvw10",
-    "tsgb4f61f3uzk01",
-    "e6meybrm3l71o52",
-    "cnv92tc19xltnzo",
-    "olw3py6x982hb5x",
-    "faeio6r89zzzt68",
-    "xwe2aetmnuxutf8",
-    "kacshai81oe2asm",
-    "hs08rux7g5wifvc",
-    "aimt26r8qkdapn4",
-    "9j4ituso5la8cio",
-    "55om5tewqegv22j",
-    "0vjeyi4btrxw22t"
+    {
+      "annotation": "kol. Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79429,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1453_79429_1ecxllhlms.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "gtpcj1svkdqcn78"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79430,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (D. Chodowiecki del. & sculps. 1792)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. & sculps. 1792",
+      "scans": [
+        "alm_1453_79430_7pe2jui9q6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.865Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "46xeibnbk1w28bs"
+        }
+      ],
+      "source_id": "29dap35mq6cgk03"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79431,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HISTORISCH GENEALOGISHER [sic] / ALMANACH / fürs IIIIte. Jahr der französischen Freiheit / ENTHALTEND / Die fortgesetzte Geschichte / der französischen Staatsumwälzung. / ALTONA 1793. / bei / Joh. Fr. Hammerich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1453_79431_fpuzx0oue7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HISTORISCH GENEALOGISHER [sic] / ALMANACH / fürs IIIIte. Jahr der französischen Freiheit / ENTHALTEND / Die fortgesetzte Geschichte / der französischen Staatsumwälzung. / ALTONA 1793. / bei / Joh. Fr. Hammerich",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "awidzu28mmlaot6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79432,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "49b3tyy4zlqreis"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79433,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich nehme die Constitution an, weil ich mich jetzt / überzeugt habe dass, sie der allgemeine Wille sey, und / weil ich nunmehr fühle dass es schön und ehrenvoll / sey, über ein freyes Volk zu herrschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. & sculps. 1792",
+      "scans": [
+        "alm_1453_79433_8tdsvt57ac.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich nehme die Constitution an, weil ich mich jetzt / überzeugt habe dass, sie der allgemeine Wille sey, und / weil ich nunmehr fühle dass es schön und ehrenvoll / sey, über ein freyes Volk zu herrschen",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.865Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "mpc04up4x8y06rl"
+        }
+      ],
+      "source_id": "efbn28n9pvifpqa"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79434,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ich bin euer König, verhindert, dass uns kein Leid / zugeführt wird",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. & sculps. 1792",
+      "scans": [
+        "alm_1453_79434_jntavjafcf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ich bin euer König, verhindert, dass uns kein Leid / zugeführt wird",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.865Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.865Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "nc7gt8fzb16d7aw"
+        }
+      ],
+      "source_id": "elimgh3qzv3vg03"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium März /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79435,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "F. A. F. DE LA / ROCHEFOUCAULD / DUC DE LIANCOURT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Stöttrup sc.",
+      "scans": [
+        "alm_1453_79435_oafsyocj37.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "F. A. F. DE LA / ROCHEFOUCAULD / DUC DE LIANCOURT",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "e9v5eaugikr0ke3"
+        }
+      ],
+      "source_id": "pdjgsa88mjfnr57"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium April /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79436,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "F. M. A. F. / DE MONTESQUIOU",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Stöttrup sc. Hamburg",
+      "scans": [
+        "alm_1453_79436_673ybfw9kq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "F. M. A. F. / DE MONTESQUIOU",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "4kxybvyz8ml1sfa"
+        }
+      ],
+      "source_id": "ysbbll47czbvw10"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium Mai /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79437,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "E. M. M. P. / FRETEAU",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. St. sc.",
+      "scans": [
+        "alm_1453_79437_t0m9yh3r9z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "E. M. M. P. / FRETEAU",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "4ayr9502uojlxc7"
+        }
+      ],
+      "source_id": "tsgb4f61f3uzk01"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium Juni /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79438,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "M. M. I. / ROBESPIERRE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. sc.",
+      "scans": [
+        "alm_1453_79438_ice1v02ooc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "M. M. I. / ROBESPIERRE",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "tgqbtvtjfir43ds"
+        }
+      ],
+      "source_id": "e6meybrm3l71o52"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik (Portrait) im Kalendarium Juli /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79439,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "C. M. TALLEYRAND-PERIGORD",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stöttrup sc.",
+      "scans": [
+        "alm_1453_79439_i9gok1ps6z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "C. M. TALLEYRAND-PERIGORD",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "dqnuxjibmao0zjm"
+        }
+      ],
+      "source_id": "cnv92tc19xltnzo"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik (Portrait) im Kalendarium August /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79440,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. DUPORT",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Stöttrup sc.",
+      "scans": [
+        "alm_1453_79440_v7fsg8ycay.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. DUPORT",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "2e5in18r9rogoo1"
+        }
+      ],
+      "source_id": "olw3py6x982hb5x"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium September /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79441,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. G. THOURET",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. sc.",
+      "scans": [
+        "alm_1453_79441_e2kmfoytid.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. G. THOURET",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "ybsy6yw3c1e218q"
+        }
+      ],
+      "source_id": "faeio6r89zzzt68"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium Oktober /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. BEAUHARNOIS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Stöttrup sc. Hamburg",
+      "scans": [
+        "alm_1453_79442_bw81nrcmif.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. BEAUHARNOIS",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.866Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.866Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "1xkg7bn0susure0"
+        }
+      ],
+      "source_id": "xwe2aetmnuxutf8"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium November /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "D'ANDRÉ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. sc.",
+      "scans": [
+        "alm_1453_79443_eh9hdjotmo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "D'ANDRÉ",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.950Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "giqft25i400pgs3"
+        }
+      ],
+      "source_id": "kacshai81oe2asm"
+    },
+    {
+      "annotation": "Graphik (Portrait) im Kalendarium Dezember /) Illustration zu »Geschichte der großen Revolution in Frankreich. Fortsetzung« INr 79445, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "J. PETION",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. sc.",
+      "scans": [
+        "alm_1453_79444_kzt4kkh15o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "J. PETION",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.950Z",
+          "agent": "atyhs9rhau52jsw",
+          "source_id": "letax4w47ji6v3q"
+        }
+      ],
+      "source_id": "hs08rux7g5wifvc"
+    },
+    {
+      "annotation": "Fortsetzung aus: Kalender, Historisch-Genealogischer (Braunschweig) 1792; alm-3649, INr 73818 /) mit Hinweisen auf Übersetzungen aus: Almanach historique de la révolution françoise, rédigé par M. J. P. Rabaut (Paris u. Straßburg 1792) /) mit 12 Illustrationen s. Graphiken im Kalendarium INr 79433-79444, Obj 5-16 /)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das große Bundesfest der Franken brachte nichts weniger als Eintracht der Gemüther hervor, wie auch Niemand erwartet haben wird, der Menschen kennt und zugleich sich erinnert, wie damals die Sachen in Frankreich standen.",
+      "language": [],
+      "musenalm_id": 79445,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / der / großen Revolution / in / Frankreich. / Fortsetzung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / der / großen Revolution / in / Frankreich. / Fortsetzung",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "aimt26r8qkdapn4"
+    },
+    {
+      "annotation": "Übers. aus: Almanach historique de la révolution françoise, rédigé par M. J. P. Rabaut (Paris u. Straßburg 1792)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Da die zur Nationalversammlung konstituirten Gevollmächtigten der fränkischen Nation wahrnehmen, daß das Nichtwissen, das Vergessen oder Verachten der Rechte des Menschen die einzige Ursachen der öffentlichen Unfälle und der Verderbniß der Regierungen",
+      "language": [],
+      "musenalm_id": 79446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Konstitution / der Westfranken / verordnet und abgefaßt von der kon- / stituirenden Nationalverammlung / in den Jahren 1789, / 1790, 1791; / genehmigt von dme Könige den 14. Sept. / 1791",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Konstitution / der Westfranken / verordnet und abgefaßt von der kon- / stituirenden Nationalverammlung / in den Jahren 1789, / 1790, 1791; / genehmigt von dme Könige den 14. Sept. / 1791",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "9j4ituso5la8cio"
+    },
+    {
+      "annotation": "55 BB",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79447,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches / Verzeichniß / der / vornehmsten jetzlebenden hohen Personen / in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches / Verzeichniß / der / vornehmsten jetzlebenden hohen Personen / in Europa",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "55om5tewqegv22j"
+    },
+    {
+      "annotation": "kol. Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 79448,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1453_79448_g6stuk36d7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0vjeyi4btrxw22t"
+    }
   ],
   "agents": [
     {

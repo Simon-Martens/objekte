@@ -48,115 +48,4228 @@
   "year": 1828,
   "editor": "",
   "items": [
-    "vjvtd50u6pxqyss"
+    {
+      "annotation": "einziger Jahrgang",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.464Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200894",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.464Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vjvtd50u6pxqyss"
+    }
   ],
   "contents": [
-    "gab7fqoidcsqjou",
-    "09tn89m0xo1gpeb",
-    "8vea4bitzbvrm3n",
-    "2yj3lv112qf6jku",
-    "q9rdvrdvqz3ik75",
-    "798ygamjh2nvyoy",
-    "a45gx84dti7iw3l",
-    "pyojror0fz2sbnv",
-    "pq90ur65l33uc2x",
-    "nnxuph1gyq3ehr0",
-    "ielp2033h0vqey8",
-    "9w5g9dxeoy58sqm",
-    "r3ppy4ke3s4cdwi",
-    "hveftpr3c808v83",
-    "bwk9sefx9cwcbgo",
-    "yxayzgl0px3fy32",
-    "4sr8ulrrndm3k8o",
-    "rusv248kw5dj1pe",
-    "g8z43wpetnfl21u",
-    "jtiitnsb7pnd086",
-    "ea72xxsvrekg5f1",
-    "fqu7n25wsjn4r1i",
-    "r4rtyy13cbpdxv4",
-    "m4dgavws44h8l31",
-    "wzwp37txago2csn",
-    "luihy7gvnah2c8l",
-    "aqz3re6o3yks670",
-    "y40ax0lbfn6yc60",
-    "ylijtpy5r0vbd6y",
-    "oxynll3um3f2wyo",
-    "zljfs0zv15annwh",
-    "1g04ickur0xx9oo",
-    "wbvj0z5mu71osph",
-    "ewzg173659u7ltz",
-    "f5qdg7ygiih08lb",
-    "w2dffa313vmuei8",
-    "385nbtaq94u3fh1",
-    "rxbrnv5cl75hcsp",
-    "0icbeyv58rwaglq",
-    "v85oyxtsu4d9tmy",
-    "qbh8uikt747vw56",
-    "g3083ny77tagsan",
-    "7j73xpjsgdp4hx7",
-    "yak7gbfwloqsnb8",
-    "2huquwk0qbtl99a",
-    "s62m8vlweihcktl",
-    "w8isvb3238yhqo8",
-    "dhvzh8ehyrgvl8z",
-    "8hdhju026fzy72p",
-    "azdcjmnyxejs65d",
-    "iammyhr2sbe8wdl",
-    "ndwvw5sa2wc4f66",
-    "c3voaf4mvvfr4a0",
-    "7af9wqzs9revtjr",
-    "7k85rb0yx2190we",
-    "eea743c59t05p42",
-    "30scfgku8c9rhfe",
-    "c9snf3d9z1xmdrx",
-    "ae3x5b64ubw2ajt",
-    "wpiq2eaxf84le3s",
-    "t7y32cvgqyl4ojo",
-    "fcefxtzde8pew7u",
-    "6qu2b01ca4mzb6a",
-    "6ouakxvpchl1ew7",
-    "wy5f6l5jpgnjn0y",
-    "bc9uwqxmcvw65p4",
-    "rbwiy062t75gq9i",
-    "g4sclzbom4i8ztm",
-    "h6ae1jpwnc0smlb",
-    "5gtkajf3qx4vue3",
-    "tb9g8g5opo4ohgf",
-    "8rx97ricouwcmty",
-    "4gcnk56hp5ntxdr",
-    "ebal836zsvyhoai",
-    "cif1s82wcs8bhhc",
-    "cmsw8wv4p0xr141",
-    "usn7vj88p6sfany",
-    "1c8djsidisqv2nh",
-    "blqjph86yb3iu6j",
-    "uyflqz166g44fnl",
-    "6r4zvqqr44b75wp",
-    "w1sxmyn96l4z6p9",
-    "inujtlcthljx1uv",
-    "1e7ofs3pn6rlxby",
-    "vfpvwyzhw6an75i",
-    "terdfqkw1q3vi5e",
-    "t3c2my0zq9quo3j",
-    "46qz77nbym07ra5",
-    "6ok7io80z15r6my",
-    "3jh7tnnh9ig79tl",
-    "mtlcqjc1gxs3iqj",
-    "7imyelvyirfcotb",
-    "8ye1bjys2ith39j",
-    "2q565ascqthp0yw",
-    "x9gzykva8z10pkr",
-    "3d5n7kcwlv525c7",
-    "s14clkncb8w6bam",
-    "mk4eaa972qypmpg",
-    "p03ns9xwvt3pwa1",
-    "9ugsccp0tib7rmu",
-    "912rqtpu2bf0b9u",
-    "i7lot3h0dnmcty5",
-    "zjj5y94k5cep9zt",
-    "41rxfd0fzwydft0",
-    "6iv8v5t3j4fq9tv",
-    "psrjc3eo8bps4q8"
+    {
+      "annotation": "Schuber r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115593,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3238_115593_m8biorc4qi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "gab7fqoidcsqjou"
+    },
+    {
+      "annotation": "Schuber Rücken",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115594,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner Theater-Almanach auf das Jahr 1828",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3238_115594_21mg9nh70n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner Theater-Almanach auf das Jahr 1828",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "09tn89m0xo1gpeb"
+    },
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115595,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3238_115595_5s3zzgh0yh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "8vea4bitzbvrm3n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115596,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / Theater-Almanach, / auf / das Jahr 1828, / ein / Neujahrs-Geschenk für Damen. / Herausgegeben / von / M. G. Saphir. / Berlin. / Verlag von Cosmar und Krause",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3238_115596_qzp2kamqkb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / Theater-Almanach, / auf / das Jahr 1828, / ein / Neujahrs-Geschenk für Damen. / Herausgegeben / von / M. G. Saphir. / Berlin. / Verlag von Cosmar und Krause",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "2yj3lv112qf6jku"
+    },
+    {
+      "annotation": "Der satirischen Widmung vornagestellt: Donner und Doria! Schiller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hochgeehrte Herren, / Castor und Pollux des Theaterhimmels! Wem anders als Ihnen, meine Herren, könnte ich einen Allmanach widmen, der vom Theater handelt, vom Theater, daß Sie einerseits so herrlich beleuchten",
+      "language": [],
+      "musenalm_id": 115597,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Hochwohlgebornen Herrn / Donner und Blitz / der / deutschen Theater / in Ehrfurcht gewidmet / von / dem Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ew. Donner und Blitz ergebenster Diener der Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Den Hochwohlgebornen Herrn / Donner und Blitz / der / deutschen Theater / in Ehrfurcht gewidmet / von / dem Herausgeber",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.601Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.601Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "1ri50ebkhkmxf4l"
+        }
+      ],
+      "source_id": "q9rdvrdvqz3ik75"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im Monat Juli dieses Jahres erst entschloß ich mich, einen Theater-Allmanach herauszugeben.",
+      "language": [],
+      "musenalm_id": 115598,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.602Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.602Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "fnrzjy56oh7bb9w"
+        }
+      ],
+      "source_id": "798ygamjh2nvyoy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.108Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Natur und Kunst hat doppelt sich verbunden / In diesem künstlerischen Ehepaar.",
+      "language": [],
+      "musenalm_id": 115599,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn und Madame Wolff",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn und Madame Wolff",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "a45gx84dti7iw3l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dich grüß' ich herzlich nun, der Du dem Wahren / Gezollt Dein Künstlerthum und Künstlerstreben,",
+      "language": [],
+      "musenalm_id": 115600,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn Schmelke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn Schmelke",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "pyojror0fz2sbnv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Geschmückt mit tausend Reizen / Und ihrer höchsten Gunst / Hat Dich Natur, als Mitgift / Zur Weihe edler Kunst;",
+      "language": [],
+      "musenalm_id": 115601,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Mlle. Caroline Bauer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Mlle. Caroline Bauer",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "pq90ur65l33uc2x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Derselbe stets an Heiterkeit und Leben, / Scheinst Du ein Anderer an jedem Abend;",
+      "language": [],
+      "musenalm_id": 115602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn Spitzeder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn Spitzeder",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "nnxuph1gyq3ehr0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Vom Glanz der Liebenswürdigkeit umflossen / Erscheinst Du in dem fremden Feierkleide,",
+      "language": [],
+      "musenalm_id": 115603,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Mad. Desargus-Lemière",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Mad. Desargus-Lemière",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ielp2033h0vqey8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Seht die belebende, / Fußspitzenhebende / Tochter der Grazie, / Wie eine luftige, / Rosige,duftige / Blüth' der Akazie!",
+      "language": [],
+      "musenalm_id": 115604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Mlle. Amalie Galster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Mlle. Amalie Galster",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "9w5g9dxeoy58sqm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Sei mir gegrüßt, der manche Abenstunde / Mit froher Laune heiter mir gewürzt;",
+      "language": [],
+      "musenalm_id": 115605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn Rüthling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn Rüthling",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "r3ppy4ke3s4cdwi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.109Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Schon lange, liebster Freund, hab' ich Dir nicht geschrieben, und Du beklagst Dich in Deinem Briefe ziemlich bitter darüber.",
+      "language": [],
+      "musenalm_id": 115606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Schauspielhaus in Utopia. / Ein Brieffragment",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Halirsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Schauspielhaus in Utopia. / Ein Brieffragment",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "98q4i55rpu2zkyi",
+          "source_id": "i32bplihvjrzkv1"
+        }
+      ],
+      "source_id": "hveftpr3c808v83"
+    },
+    {
+      "annotation": "mit Einträgen A-C",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "A. Der erste Ankläger unserer Schauspieler beim jüngsten Gericht, wenn die Buchstaben aufstehn und Rechnung fordern werden von ihnen über die verletzten Rechte der Aussprache.",
+      "language": [],
+      "musenalm_id": 115607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bauholz / zu einem / satyrisch dramatischen Conversations- / Lexicon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bauholz / zu einem / satyrisch dramatischen Conversations- / Lexicon",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "a6ppd08uspzjw5x"
+        }
+      ],
+      "source_id": "bwk9sefx9cwcbgo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Mein Vater ist Sitzaufschließer / Bei einem Theater hier, / Der arme Mann hat Kinder, / Noch achte außer mir,",
+      "language": [],
+      "musenalm_id": 115608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die hübsche kleine Figurantin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die hübsche kleine Figurantin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "xaugbxd8xymmowc"
+        }
+      ],
+      "source_id": "yxayzgl0px3fy32"
+    },
+    {
+      "annotation": "mit Einträgen A-W",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Angelo Constantini, der Sohn des Schauspielers Gradetin, wurde 1664 zu Verona geboren.",
+      "language": [],
+      "musenalm_id": 115609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entwurf / zu einem / Theater-Wörter-Buch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S-r.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entwurf / zu einem / Theater-Wörter-Buch",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "p898944g7sskb6h"
+        }
+      ],
+      "source_id": "4sr8ulrrndm3k8o"
+    },
+    {
+      "annotation": "Sammlung von 4 Sammlungen mit 11 Beiträgen INr 115611-115625, Obj 19-33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manieren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Manieren",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "2k7wfigtltyvaqz"
+        }
+      ],
+      "source_id": "rusv248kw5dj1pe"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 115612, 115613; Obj 20, 21 /) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Jean Paul",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Jean Paul",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "4z2mc3yr29cuhi8"
+        }
+      ],
+      "source_id": "g8z43wpetnfl21u"
+    },
+    {
+      "annotation": "I. Jean Paul (Sammlung INr 115611, Obj 19) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Zum Nutzen- und Nießebrauche der kritischen Caligula habe ich aus der einköpfigen Vorrede eine mehrköpfige gemacht,",
+      "language": [],
+      "musenalm_id": 115612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor- Nach- Ein- und Ausrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor- Nach- Ein- und Ausrede",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "so6sm4e1sgre8o8"
+        }
+      ],
+      "source_id": "jtiitnsb7pnd086"
+    },
+    {
+      "annotation": "I. Jean Paul (Sammlung INr 115611, Obj 19) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Der Capitain T. L., so erzählt Lichtenberg, schrieb in dem Schuldenarrest zu Fleet, ein herrliches Werk über das Mittel, die Nationalschulden zu bezahlen.",
+      "language": [],
+      "musenalm_id": 115613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kritische Splitter / über das Buch des Lebens, von einem / Scheintodten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kritische Splitter / über das Buch des Lebens, von einem / Scheintodten",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "5ymfqc73zugyflm"
+        }
+      ],
+      "source_id": "ea72xxsvrekg5f1"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 115615-115617, Obj 23-25 /) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Matthisson",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Matthisson",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "h5m3kevbvsedcdo"
+        }
+      ],
+      "source_id": "fqu7n25wsjn4r1i"
+    },
+    {
+      "annotation": "II. Matthisson (Sammlung INr 115614, Obj 22) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Die Nacht entfliegt, / Aurora siegt, / Die Morgenfackel leuchtet.",
+      "language": [],
+      "musenalm_id": 115615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Morgen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Morgen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.356Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "9touox6j6256zzv"
+        }
+      ],
+      "source_id": "r4rtyy13cbpdxv4"
+    },
+    {
+      "annotation": "II. Matthisson (Sammlung INr 115614, Obj 22) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Der Tag sich neigt, / Und Ruhe steigt / In kühle Schatten nieder;",
+      "language": [],
+      "musenalm_id": 115616,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Abend",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "9hhzjhhchjf3u39"
+        }
+      ],
+      "source_id": "m4dgavws44h8l31"
+    },
+    {
+      "annotation": "II. Matthisson (Sammlung INr 115614, Obj 22) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Es scheint die blasse Heide / Wie eine junge Fee, / Im weißen Nebelkleide / Als Abendnegligee;",
+      "language": [],
+      "musenalm_id": 115617,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mondschein-Regenbogen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mondschein-Regenbogen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.430Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "ri9uwo0fac6uske"
+        }
+      ],
+      "source_id": "wzwp37txago2csn"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 115619-115622, Obj 27-30 /) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115618,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Göthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Göthe",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.430Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "03i8xlnrjcxdaym"
+        }
+      ],
+      "source_id": "luihy7gvnah2c8l"
+    },
+    {
+      "annotation": "III. Göthe (Sammlung INr 115618, Obj 26) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Leben Leute in der Welt / Immer gleich behaglich; / Alles ihnen wohl gefällt, / Nichts ist ihnen fraglich;",
+      "language": [],
+      "musenalm_id": 115619,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ledernen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ledernen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.430Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "vkp9h0yk0oet7f8"
+        }
+      ],
+      "source_id": "aqz3re6o3yks670"
+    },
+    {
+      "annotation": "III. Göthe (Sammlung INr 115618, Obj 26) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Ja sie sagte mir es traulich / Daß sie sicher hier erscheint, / In dem Auge lag's beschaulich, / Daß sie's ehrlich mit mir meint;",
+      "language": [],
+      "musenalm_id": 115620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ewiges Harren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ewiges Harren",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "4f8tirxboybvcpy"
+        }
+      ],
+      "source_id": "y40ax0lbfn6yc60"
+    },
+    {
+      "annotation": "III. Göthe (Sammlung INr 115618, Obj 26) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Gar Viele haben keinen Feind, / Man nennt sie gute Seelen, / Sie meinen was ein And'rer meint, / Wie kann es da wohl fehlen!",
+      "language": [],
+      "musenalm_id": 115621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die guten Seelen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die guten Seelen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "a1kbjpt0ritey48"
+        }
+      ],
+      "source_id": "ylijtpy5r0vbd6y"
+    },
+    {
+      "annotation": "III. Göthe (Sammlung INr 115618, Obj 26) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Da gießt der Narr gemeines Bier / In einen gold'nen Humpen,",
+      "language": [],
+      "musenalm_id": 115622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleinigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kleinigkeiten",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "c7ndlx1aj2xtwgd"
+        }
+      ],
+      "source_id": "oxynll3um3f2wyo"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 115624,115625; Obj 32, 33 /) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115623,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Rückert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Rückert",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "lgq476071iadpqm"
+        }
+      ],
+      "source_id": "zljfs0zv15annwh"
+    },
+    {
+      "annotation": "IV. Friedrich Rückert (Sammlung INr 115623, Obj 31) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Ein Kindlein kömmt voll Lieblichkeit, / Ein zuckersüßes Döckchen!",
+      "language": [],
+      "musenalm_id": 115624,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühling",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.431Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.431Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "zlbyw8eo00262fw"
+        }
+      ],
+      "source_id": "1g04ickur0xx9oo"
+    },
+    {
+      "annotation": "IV. Friedrich Rückert (Sammlung INr 115623, Obj 31) Manieren (Sammlung INr 115610, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Ein Tröpfchen Thau zerflattert / Am Blatte hing zur Nacht,",
+      "language": [],
+      "musenalm_id": 115625,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thau, Stern und Auge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thau, Stern und Auge",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.447Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.447Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "2g0zu6dvj9qjm2a"
+        }
+      ],
+      "source_id": "wbvj0z5mu71osph"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Erst seit dem Jahre 1771 hat Berlin ein stehendes Theater. Koch, nicht unberühmt in der deutschen Theatergeschichtem, erhielt damals das Privilegium für eine bleibende Bühne",
+      "language": [],
+      "musenalm_id": 115626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Geschichte / des / Berliner Theaters",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Schulz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Geschichte / des / Berliner Theaters",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ewzg173659u7ltz"
+    },
+    {
+      "annotation": "Sammlung von 12 Beiträgen INr 115628-115639, Obj 36-47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115627,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues Komplimentir-Buch / oder / Anweisung / in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, Speichel zu lecken, [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neues Komplimentir-Buch / oder / Anweisung / in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, Speichel zu lecken, [...]",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.447Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.447Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "eo7t2msqdep8boj"
+        }
+      ],
+      "source_id": "f5qdg7ygiih08lb"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Hohe, Hehre! Inliegende Kritik aus dem ...schen Blatte, die ich, noch voll von dem Eindrucke, den Sie als Maria Stuart auf mich machten, niederschrieb,",
+      "language": [],
+      "musenalm_id": 115628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ein zwanzigjähriges Rezensentchen mel- / der sich einer Schauspielerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ein zwanzigjähriges Rezensentchen mel- / der sich einer Schauspielerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "w2dffa313vmuei8"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "P. T. Seit mehrern Jahren fühl ich einen Drang in mir zu rezensiren, und nur das Theater scheint mir diesem Drang gewachsen.",
+      "language": [],
+      "musenalm_id": 115629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Ein Jüngling bittet eine Theaterdirek- / tion um ein Freibilllet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Ein Jüngling bittet eine Theaterdirek- / tion um ein Freibilllet",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "385nbtaq94u3fh1"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Wohllöbliche Redaktion! Die allgemeine Verbreitung Ihres Blattes, der laute Beifall, dessen es sich durch die ganze Lesewelt erfreut,",
+      "language": [],
+      "musenalm_id": 115630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Ein Korrespondent bietet sich einem / Journale an",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Ein Korrespondent bietet sich einem / Journale an",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "rxbrnv5cl75hcsp"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Ich habe einen kleinen Umweg von siebzig Meilen nicht gescheut, um Sie kennen zu lernen.",
+      "language": [],
+      "musenalm_id": 115631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Eine durchreisende Künstlerin ladet / einen Rezensenten zu sich ein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Eine durchreisende Künstlerin ladet / einen Rezensenten zu sich ein",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "0icbeyv58rwaglq"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "Hochgeährter und Gelübter! Beiliegende Kridig hat heite in den -schne Blad gestanden, der Impertinende kerll sagt ich mache zu viele goleraduren",
+      "language": [],
+      "musenalm_id": 115632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Eine große Sängerin beschwert sich bei / einem Gönner über einen boshaften / Rezensenten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Eine große Sängerin beschwert sich bei / einem Gönner über einen boshaften / Rezensenten",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "v85oyxtsu4d9tmy"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Mein Herr! Aus Ihrer gestrigen witzigen, spitzigen und wie es erscheint auch hitzigen Rezensionen geht hervor, daß unsere liebenswürdige Nachtigall nicht gehörig von Ihnen gewürdigt worden ist.",
+      "language": [],
+      "musenalm_id": 115633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Derselbe Gönner an denselben Re- / censenten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Derselbe Gönner an denselben Re- / censenten",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "qbh8uikt747vw56"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Beifolgende sechs Flaschen Champagner mögen Ihnen die Achtung bezeigen, die ich für Sie hege, und sollen Sie für die Zeit entschädigen, die Sie meinem Spiele schenken.",
+      "language": [],
+      "musenalm_id": 115634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Ein Debütant an einen Redakteur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Ein Debütant an einen Redakteur",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "g3083ny77tagsan"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Das Blatt, das ich redgire, ist die Ruhmtrompete für jedes Verdienst,",
+      "language": [],
+      "musenalm_id": 115635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Ein Redakteur an einen durchreisenden / Künstler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Ein Redakteur an einen durchreisenden / Künstler",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "7j73xpjsgdp4hx7"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Es liebt die Welt das Strahlende zu schwärzen. Nie habe ich einen größeren Triumph gefeiert als gestern!",
+      "language": [],
+      "musenalm_id": 115636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Trostschreiben eines Kritiker an eine / ausgezischte Künstlerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Trostschreiben eines Kritiker an eine / ausgezischte Künstlerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "yak7gbfwloqsnb8"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Ich wage es, Sie um 50 Thlr. zum Behuf Ihres heutigen Theater-Triumphes zu bitten,",
+      "language": [],
+      "musenalm_id": 115637,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Schreiben eines armen Enthusiasten / an eine reiche Künstlerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Schreiben eines armen Enthusiasten / an eine reiche Künstlerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "2huquwk0qbtl99a"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Meine Liebe! Freilich hängt Ihr Engagement ganz allein von mir ab, allein ich muß mich von Ihrem Talente erst näher überzeugen;",
+      "language": [],
+      "musenalm_id": 115638,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Schreiben eins Regisseurs an eine zu / engagirende Choristin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Schreiben eins Regisseurs an eine zu / engagirende Choristin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "s62m8vlweihcktl"
+    },
+    {
+      "annotation": "Neues Komplimentir-Buch oder Anweisung in allen Fällen des theatralischen, kritischen und artistischen Lebens zu hudeln, [...] (Sammlung INr 115627, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Die gediegene Art, mit welcher Ihr geniales Blatt alle Erscheinungen der Literatur bespricht und würdiget, hat längst die Aufmerksamkeit der ganzen lesenden Welt und die laute Bewunderung aller Sachkenner auf sich gezogen.",
+      "language": [],
+      "musenalm_id": 115639,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Schreiben eines Buchändlers an einen / Redakteur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Schreiben eines Buchändlers an einen / Redakteur",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8isvb3238yhqo8"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrags; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Dlle. übertraf sich heute selbst. -",
+      "language": [],
+      "musenalm_id": 115640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lexikon stehender Formen für Kritiker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lexikon stehender Formen für Kritiker",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "dhvzh8ehyrgvl8z"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 115642, 115643; Obj 50, 51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verschiedene Protoptype",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verschiedene Protoptype",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "8hdhju026fzy72p"
+    },
+    {
+      "annotation": "Verschiedene Protoptype (Sammlung INr 115641, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Sie gab die Rolle mit einer hohen Vollendung der intensiven Geistigkeit, unterstützt von dem Zauberreiz ihrer zarten Weiblichekit,",
+      "language": [],
+      "musenalm_id": 115642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Verliebte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Verliebte",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "azdcjmnyxejs65d"
+    },
+    {
+      "annotation": "Verschiedene Protoptype (Sammlung INr 115641, Obj 49)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Wir konnten uns mit einem Gelübde nicht befreunden, dem die zarte Folie der Weiblichkeit fehlt,",
+      "language": [],
+      "musenalm_id": 115643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Derselbe über Dieselbe als Ver- / schmähter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Derselbe über Dieselbe als Ver- / schmähter",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "iammyhr2sbe8wdl"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrags; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.451Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "süße Philomele",
+      "language": [],
+      "musenalm_id": 115644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schema eines Sonetts für eine Sängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schema eines Sonetts für eine Sängerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ndwvw5sa2wc4f66"
+    },
+    {
+      "annotation": "Incipit des ersten Beitrags; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Ein Shawl: o möcht' ich bei Dir in der Wolle sitzen!",
+      "language": [],
+      "musenalm_id": 115645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschenk-Sprache der dramatischen Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschenk-Sprache der dramatischen Welt",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "c3voaf4mvvfr4a0"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträge INr 115647-115653, Obj 55-61",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Devisen in Stammbücher von Künstlern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Devisen in Stammbücher von Künstlern",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "7af9wqzs9revtjr"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.093Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Künstlerischer Rektor, / Achilles und Hektor,",
+      "language": [],
+      "musenalm_id": 115647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einem Helden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einem Helden",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "7k85rb0yx2190we"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "190",
+      "incipit_statement": "Dir Nachtigall! Wasserfall! Donnerchor! Haberrohr!",
+      "language": [],
+      "musenalm_id": 115648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einer Sängerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einer Sängerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "eea743c59t05p42"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "O! Ach! Du machst aus diesen Tönen was du willst,",
+      "language": [],
+      "musenalm_id": 115649,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einer Liebhaberin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einer Liebhaberin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "30scfgku8c9rhfe"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Edler Franz Moor! gemüthlicher Cartou- / che zarter Cooke! empfindsamer Böswicht! / Sei rein wie sie / Und welke nie!",
+      "language": [],
+      "musenalm_id": 115650,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einem Bösewicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einem Bösewicht",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "c9snf3d9z1xmdrx"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Den Cothurn beseelst und besohlst Du, bist Muster und Schuster zugleich.",
+      "language": [],
+      "musenalm_id": 115651,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einer tragischen Künstlerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einer tragischen Künstlerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "ae3x5b64ubw2ajt"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Die Ochsen-Menuette! Diese wünscht Ihnen von Herzen. N. N.",
+      "language": [],
+      "musenalm_id": 115652,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EinemTänzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "EinemTänzer",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "wpiq2eaxf84le3s"
+    },
+    {
+      "annotation": "Devisen in Stammbücher von Künstlern (Sammlung INr 115646, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "Hebe! hebe den Fuß, und fuße fußend Dich fest in dem Fest der Füße,",
+      "language": [],
+      "musenalm_id": 115653,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einer Tänzerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einer Tänzerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "t7y32cvgqyl4ojo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Unser Leben ist ein steter Wechsel vorübergehender Erscheinungen; wir selbst wechseln mit diesen Erscheinungen unsere Ansichten,",
+      "language": [],
+      "musenalm_id": 115654,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kunst / in der / Theaterwelt zu leben. / Ein Appendix / zu / Knigges Umgang mit Menschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm John",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kunst / in der / Theaterwelt zu leben. / Ein Appendix / zu / Knigges Umgang mit Menschen",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "fcefxtzde8pew7u"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen INr 115656-115662, Obj 64-70",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115655,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sensitiven. / An **",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sensitiven. / An **",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.315Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "pzgqbcoqekjjkdq"
+        }
+      ],
+      "source_id": "6qu2b01ca4mzb6a"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Des Tages Licht hing an des Himmels Säume, / Und küßte scheidend seine matten Auen,",
+      "language": [],
+      "musenalm_id": 115656,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Tages Licht hing an des Himmels Säume, / Und küßte scheidend seine matten Auen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.315Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "i9ua5y2tl2cj1gg"
+        }
+      ],
+      "source_id": "6ouakxvpchl1ew7"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.385Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Sie naht im Kranz der leuchtenden Gesteine, / Und all mein Sehen ist nach ihr gewendet,",
+      "language": [],
+      "musenalm_id": 115657,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie naht im Kranz der leuchtenden Gesteine, / Und all mein Sehen ist nach ihr gewendet,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.315Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "595kigj9zigg0b8"
+        }
+      ],
+      "source_id": "wy5f6l5jpgnjn0y"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.301Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Zwei Zauberlichter, voll von dunklen Flammen, / Sie haben Herz und Sinn mir eingeschlossen,",
+      "language": [],
+      "musenalm_id": 115658,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Zauberlichter, voll von dunklen Flammen, / Sie haben Herz und Sinn mir eingeschlossen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.499Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.499Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "swpn2o3wlb1lgtv"
+        }
+      ],
+      "source_id": "bc9uwqxmcvw65p4"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Unselig, der im innersten Gemüthe / Kein Wesen hebt in göttlicher Verehrung,",
+      "language": [],
+      "musenalm_id": 115659,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unselig, der im innersten Gemüthe / Kein Wesen hebt in göttlicher Verehrung,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "4q7ht79hfids4zb"
+        }
+      ],
+      "source_id": "rbwiy062t75gq9i"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Verschworen gegen mich sind alle Saiten, / Mit Lied und Leyer stehen sie im Bunde,",
+      "language": [],
+      "musenalm_id": 115660,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verschworen gegen mich sind alle Saiten, / Mit Lied und Leyer stehen sie im Bunde,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "hk4s3jw7h47ocdh"
+        }
+      ],
+      "source_id": "g4sclzbom4i8ztm"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Sie ließ den Blick an mir vorübergleiten, / Und im Gefühl des Schrecks wollt' ich vergehen,",
+      "language": [],
+      "musenalm_id": 115661,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie ließ den Blick an mir vorübergleiten, / Und im Gefühl des Schrecks wollt' ich vergehen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "wkxoqvgk20qj4gj"
+        }
+      ],
+      "source_id": "h6ae1jpwnc0smlb"
+    },
+    {
+      "annotation": "Sensitiven. An ** (Sammlung INr 115655, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "Da ich sie niederschreibe, diese Zeilen, / Fühl' ich von Neid mein tiefsten Seyn umwinden,",
+      "language": [],
+      "musenalm_id": 115662,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Da ich sie niederschreibe, diese Zeilen, / Fühl' ich von Neid mein tiefsten Seyn umwinden,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "wppc15tpyp9c4o2"
+        }
+      ],
+      "source_id": "5gtkajf3qx4vue3"
+    },
+    {
+      "annotation": "Sammlung von 22 Beiträgen INr 115664-115685, Obj 72-93  /) Der Sammlung vorangestellt: Der rohe Mensch ist zufrieden, wenn er nur etwas vorgehen sieht; der gebildete will empfinden [...] Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2412",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115663,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Publikum, / poetische Bilder-Skizze",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Publikum, / poetische Bilder-Skizze",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "8ozd8cg04t7hj0w"
+        }
+      ],
+      "source_id": "tb9g8g5opo4ohgf"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Wie herrlich, wenn man so in die Runde / Recht Alles bequem betrachten kann!",
+      "language": [],
+      "musenalm_id": 115664,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Logenbesucher. / Motto: Was hilft hohes Ansehn? / Göthe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Logenbesucher. / Motto: Was hilft hohes Ansehn? / Göthe",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "1xz0v2apxwpzua6"
+        }
+      ],
+      "source_id": "8rx97ricouwcmty"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Die feinen Leute im ersten Rang', / Ja, das sind feine Leute;",
+      "language": [],
+      "musenalm_id": 115665,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Rang. / Motto: Die in Ehren leben, beneid' ich nicht. / Euripides",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Rang. / Motto: Die in Ehren leben, beneid' ich nicht. / Euripides",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.287Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.287Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "pf9uaaou49qz4k3"
+        }
+      ],
+      "source_id": "4gcnk56hp5ntxdr"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Bravo, bravo! die Theatergarde / Zeichnet sich in Reih' und Glied hier aus;",
+      "language": [],
+      "musenalm_id": 115666,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parquet. / Motto: Ich bin Ich und setze mich selbst. / Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parquet. / Motto: Ich bin Ich und setze mich selbst. / Schiller",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.283Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.283Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "bbwrthunkqamshl"
+        }
+      ],
+      "source_id": "ebal836zsvyhoai"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Guten Abend, Freund von Fiesco! / Meistens nur unruhig junges Blut,",
+      "language": [],
+      "musenalm_id": 115667,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Parterre. / Motto: Wir sind die Alten noch, die sich vor euch / Mit warmen Trieb und Eifer ausgebildet. / Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Parterre. / Motto: Wir sind die Alten noch, die sich vor euch / Mit warmen Trieb und Eifer ausgebildet. / Schiller",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "4ed498k1j75ew6x"
+        }
+      ],
+      "source_id": "cif1s82wcs8bhhc"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "Seht und höret, ja staunet und bewundert, / Das nur ist Kunst, rein himmlisch fürwahr:",
+      "language": [],
+      "musenalm_id": 115668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Enthusiast. / Motto: Wer bei gewissen Dingen den Verstand nicht verliert, der hat keinen zu verlieren. / Lessing",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Enthusiast. / Motto: Wer bei gewissen Dingen den Verstand nicht verliert, der hat keinen zu verlieren. / Lessing",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "mxiwxea27u2t0e3"
+        }
+      ],
+      "source_id": "cmsw8wv4p0xr141"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "In's Theater geh' ich pünktlich / Zwei Mal immer wöchentlich,",
+      "language": [],
+      "musenalm_id": 115669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mechanischer. / Motto: Ein klägliches unsäglich bittres Nichts. / Immermann",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mechanischer. / Motto: Ein klägliches unsäglich bittres Nichts. / Immermann",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "vdqdlbvut2sgh29"
+        }
+      ],
+      "source_id": "usn7vj88p6sfany"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Wen sollte wohl ein solch Geschick nicht rühren, / O Thräne fließe still die Wang' herab;",
+      "language": [],
+      "musenalm_id": 115670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Empfindsamer. / Motto: Der Jammer auch, wenn er nur naß ist, gefällt. / Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Empfindsamer. / Motto: Der Jammer auch, wenn er nur naß ist, gefällt. / Schiller",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "6iwp0wdj3d9dvv9"
+        }
+      ],
+      "source_id": "1c8djsidisqv2nh"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Je toller, desto besser! kann ich lachen, / Ist es mir gleich, was mich zu lachen bringt,",
+      "language": [],
+      "musenalm_id": 115671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lachlustiger. / Motto: Das ist ja die Gewalt der Fröhlichkeit. / Raupach",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lachlustiger. / Motto: Das ist ja die Gewalt der Fröhlichkeit. / Raupach",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "za9n3jw5o8g9uwo"
+        }
+      ],
+      "source_id": "blqjph86yb3iu6j"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Lang auf einem Fleck zu stehen, / Ist fürwahr ganz unausstehlich,",
+      "language": [],
+      "musenalm_id": 115672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unruhiger. / Motto: Der Mensch geht in die Irre, / Will heut hier sein, morgen dort. / Tieck",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unruhiger. / Motto: Der Mensch geht in die Irre, / Will heut hier sein, morgen dort. / Tieck",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.473Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.473Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "wx5vuv4egpdyl59"
+        }
+      ],
+      "source_id": "uyflqz166g44fnl"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.733Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Wer hier bei freier Künste Strahlen / Nicht frei den Geist und Körper fühlt,",
+      "language": [],
+      "musenalm_id": 115673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freibillet-Inhaber. / Motto: Was wär' des Menschen Geist, wenn ihm die Freiheit fehlte. / Voltaire",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freibillet-Inhaber. / Motto: Was wär' des Menschen Geist, wenn ihm die Freiheit fehlte. / Voltaire",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.282Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "kjes12g8d52ffds"
+        }
+      ],
+      "source_id": "6r4zvqqr44b75wp"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Tragt mich empor, ihr Himmelsmelodieen, / Zu des Entzückens vollem Hochgenuß,",
+      "language": [],
+      "musenalm_id": 115674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Musikalischer. / Motto: O was hat der Himmel für Seligkeit / In das kalte, nüchterne Leben gestreut. / Körner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Musikalischer. / Motto: O was hat der Himmel für Seligkeit / In das kalte, nüchterne Leben gestreut. / Körner",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.458Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "x701wxz66ho1dju"
+        }
+      ],
+      "source_id": "w1sxmyn96l4z6p9"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Wenn hier die Künstler sprechen und singen, / Das kümmert und amüsirt mich nicht;",
+      "language": [],
+      "musenalm_id": 115675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balletliebhaber. / Motto: Ha, welch' ein Sprung, der war zu loben! / Calderon",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Balletliebhaber. / Motto: Ha, welch' ein Sprung, der war zu loben! / Calderon",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.458Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.458Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "4wx0p3nygajdgc9"
+        }
+      ],
+      "source_id": "inujtlcthljx1uv"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "O Rossini, nur mit deinen Läusen, / Nur  mit deiner Triller Lieblichkeit, / Kannst du mich entzücken und ergreifen,",
+      "language": [],
+      "musenalm_id": 115676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Süßer. / Motto: Gefallen muß dir, was gefällt. / Grillparzer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Süßer. / Motto: Gefallen muß dir, was gefällt. / Grillparzer",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.459Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.459Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "qpms0vmi6pkz7hp"
+        }
+      ],
+      "source_id": "1e7ofs3pn6rlxby"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Gott, wie schön!  - da muß man klatschen, / Klatschen, daß das Haus erhebt;",
+      "language": [],
+      "musenalm_id": 115677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klatscher. / Motto: Darin, ihr Götter, macht ihr Schwaches stark. / Shakespeare",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klatscher. / Motto: Darin, ihr Götter, macht ihr Schwaches stark. / Shakespeare",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.459Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.459Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "8qzwmft5k1zku18"
+        }
+      ],
+      "source_id": "vfpvwyzhw6an75i"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Melodramen, so im neusten Style, / Geister, Leichen, Donner, Blitz und Mord,",
+      "language": [],
+      "musenalm_id": 115678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schauerlicher. / Motto: Das ist der Hölle Schlinge. / Müllner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schauerlicher. / Motto: Das ist der Hölle Schlinge. / Müllner",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.508Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.508Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "g01ifncgf9p3syh"
+        }
+      ],
+      "source_id": "terdfqkw1q3vi5e"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Welch' ein Engel! ja in heißer Liebe / Bin ich dir geweiht o Künstlerin;",
+      "language": [],
+      "musenalm_id": 115679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Großherziger. / Motto: Verleibt ja, wie ein Käfer bist du. / Heinr. v. Kleist",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Großherziger. / Motto: Verleibt ja, wie ein Käfer bist du. / Heinr. v. Kleist",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.509Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.509Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "4ab818639c4s9o0"
+        }
+      ],
+      "source_id": "t3c2my0zq9quo3j"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.406Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Neue Opern, neue Dramen / Heißt es alle Augenblick,",
+      "language": [],
+      "musenalm_id": 115680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reminiscenzenjäger. / Motto: Wenn die Könige bau'n, haben die Kärrner zu thun. / Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reminiscenzenjäger. / Motto: Wenn die Könige bau'n, haben die Kärrner zu thun. / Schiller",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.509Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.509Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "ccygtnpzcu0kn8g"
+        }
+      ],
+      "source_id": "46qz77nbym07ra5"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "252",
+      "incipit_statement": "Uebersetzt nur ferner fleißig; / Habe Dank, du Dichter Scribe,",
+      "language": [],
+      "musenalm_id": 115681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwätzer. / Motto: Auf den Geist kommt es an, Herr Schaal. / Shakespeare",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwätzer. / Motto: Auf den Geist kommt es an, Herr Schaal. / Shakespeare",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.509Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.509Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "0bm11iawbl5ty8w"
+        }
+      ],
+      "source_id": "6ok7io80z15r6my"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "So oft ich auch bisher dies Haus betreten, / Um den Erfolg und Eindruck zu gewahren,",
+      "language": [],
+      "musenalm_id": 115682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichter. / Motto: Sei guten Muths, denn viel vermag Gerechtgkeit. / Euripides",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichter. / Motto: Sei guten Muths, denn viel vermag Gerechtgkeit. / Euripides",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "j6w49vyae7xp9d1"
+        }
+      ],
+      "source_id": "3jh7tnnh9ig79tl"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Bravo! dies Werk, das macht dem Dichter / Ehre; / Welche Sprache und Charakterzeichnung!",
+      "language": [],
+      "musenalm_id": 115683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zahmer Kritiker. / Motto: Ich begehre nur das. / Metastasio",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zahmer Kritiker. / Motto: Ich begehre nur das. / Metastasio",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "oh86i4um885j30e"
+        }
+      ],
+      "source_id": "mtlcqjc1gxs3iqj"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Die Gefühle so in Stücke reißen, / Sich verzerren, springen, schrei'n wie Katzen,",
+      "language": [],
+      "musenalm_id": 115684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wilder Kritiker / Motto: Was ist denn ihre Kunst und worauf trozzen sie? / Lessing",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wilder Kritiker / Motto: Was ist denn ihre Kunst und worauf trozzen sie? / Lessing",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "s6wxgsn655ng83r"
+        }
+      ],
+      "source_id": "7imyelvyirfcotb"
+    },
+    {
+      "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Das Reich der Kunst ist Aristokratie, / Die Beßten herrschen d'rin zusammen;",
+      "language": [],
+      "musenalm_id": 115685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunstfreund. / Motto: Der fortgeschritt'ne Mensch trägt auf erhobnen Schwingen dankbar die Kunst mit sich empor. / Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Liber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunstfreund. / Motto: Der fortgeschritt'ne Mensch trägt auf erhobnen Schwingen dankbar die Kunst mit sich empor. / Schiller",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "zfc98s6qn3u27oa",
+          "source_id": "ppur5eerfdbs414"
+        }
+      ],
+      "source_id": "8ye1bjys2ith39j"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 115687-115691, Obj 95-99",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.650Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lineamente / zu / Schauspieler-Bildnissen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lineamente / zu / Schauspieler-Bildnissen.",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "qeedcmpb4e3vb14"
+        }
+      ],
+      "source_id": "2q565ascqthp0yw"
+    },
+    {
+      "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Sophie Schröder, eine der größten tragischen Schauspielerinnen, wurde in Paderborn geboren.",
+      "language": [],
+      "musenalm_id": 115687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sophie Schröder. / Eine biographische Skizze, / nach mündlichen Mittheilungen eines langjährigen / Freundes der gefeierten Künstlerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sophie Schröder. / Eine biographische Skizze, / nach mündlichen Mittheilungen eines langjährigen / Freundes der gefeierten Künstlerin",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "k2wnetkyu6z98cl"
+        }
+      ],
+      "source_id": "x9gzykva8z10pkr"
+    },
+    {
+      "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Iffland suchte lange eine junge Schauspielerin für seine Bühne sich zu erziehen,",
+      "language": [],
+      "musenalm_id": 115688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historische Notizen über Mad. Krelinger- / Stich in Berlin, / Geborne Auguste Düring",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Historische Notizen über Mad. Krelinger- / Stich in Berlin, / Geborne Auguste Düring",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.531Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.531Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "e5l3pn0mq4vqwgc"
+        }
+      ],
+      "source_id": "3d5n7kcwlv525c7"
+    },
+    {
+      "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "wurde den 3. Mai 1784 zu Augsburg geboren. Er war für den geistlichen Stand bestimmt,",
+      "language": [],
+      "musenalm_id": 115689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pius Alexander Wolff",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pius Alexander Wolff",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "b0ztakktlfj18y1"
+        }
+      ],
+      "source_id": "s14clkncb8w6bam"
+    },
+    {
+      "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "die Gattin des Vorigen, wurde am 11. Dezember 17833 zu Leipzig geboren.",
+      "language": [],
+      "musenalm_id": 115690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anna Amalia Wolff,",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anna Amalia Wolff,",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "hl4yflpbjpxabve"
+        }
+      ],
+      "source_id": "mk4eaa972qypmpg"
+    },
+    {
+      "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Berlin ist die Vaterstadt dieses ausgezeichneten Künstlers, wo er am 31. Mai 1783 geboren wurde.",
+      "language": [],
+      "musenalm_id": 115691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrich Wilhelm Lemm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedrich Wilhelm Lemm",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.532Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.532Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "28mzjgbpieekgmq"
+        }
+      ],
+      "source_id": "p03ns9xwvt3pwa1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.310Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115692,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personalbestand und Repertorium / der / Königl. Hofbühnen in Berlin / im Jahre 1827",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personalbestand und Repertorium / der / Königl. Hofbühnen in Berlin / im Jahre 1827",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ugsccp0tib7rmu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115693,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der auf den Königlichen Bühnen / in Berlin vom 1. Januar 1827 gegebenen / Stücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der auf den Königlichen Bühnen / in Berlin vom 1. Januar 1827 gegebenen / Stücke",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "912rqtpu2bf0b9u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115694,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gastspiele auf den Königl. Bühnen. / vom 1. Januar bis ultimo August 1827",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gastspiele auf den Königl. Bühnen. / vom 1. Januar bis ultimo August 1827",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "i7lot3h0dnmcty5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115695,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der auf dem Königsstädter / Theater aufgeführten Stücke. / Vom 1. Januar bis 31. August 1827",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der auf dem Königsstädter / Theater aufgeführten Stücke. / Vom 1. Januar bis 31. August 1827",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "zjj5y94k5cep9zt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115696,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gastspiele auf dem Königsstädter Theater. / vom 1. Januar bis ultimo August 1827",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gastspiele auf dem Königsstädter Theater. / vom 1. Januar bis ultimo August 1827",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "41rxfd0fzwydft0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "Gedruckt bei C. Feister und W. Eisersdorff",
+      "language": [],
+      "musenalm_id": 115697,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei C. Feister und W. Eisersdorff…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "6iv8v5t3j4fq9tv"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 115698,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3238_115698_q8fvf4sblw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1828,
+      "editor": "",
+      "agents": [],
+      "source_id": "psrjc3eo8bps4q8"
+    }
   ],
   "agents": [
     {

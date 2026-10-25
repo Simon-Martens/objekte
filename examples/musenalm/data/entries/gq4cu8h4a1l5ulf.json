@@ -48,99 +48,3673 @@
   "year": 1857,
   "editor": "",
   "items": [
-    "rcsva0olnnwz6xt"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.689Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200736",
+      "location": "105A05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.689Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rcsva0olnnwz6xt"
+    }
   ],
   "contents": [
-    "pnjnye7m2cen4ob",
-    "piuyn3vsxgyo6sl",
-    "0f0kyy2wadrz03z",
-    "1yfvezf5qir519l",
-    "nilfsov88ey58up",
-    "6lw6evnu38rjco2",
-    "k5cxramuwt22am9",
-    "kbx67paw3mopuva",
-    "jfgx6nrtf70gsjb",
-    "wd8f8algbt8etoi",
-    "q6zu7db9for60c4",
-    "6bvm49xzginzme9",
-    "s4cf03p7lzo0m4k",
-    "bggbz7kztsa5xz7",
-    "mfahls79v29jhny",
-    "md2altv68bk1r9z",
-    "efrjco9b7kb9pur",
-    "4p6ewryjfoyid91",
-    "2294nc98ckm9ph6",
-    "1hr22nrl8tmzhos",
-    "j7ibulfo4l7tqt9",
-    "3qnxhi7yq68ri78",
-    "2bbpukxkuv1r5ac",
-    "78vad9a7n3sg5de",
-    "3pzzn2k85r3ohvr",
-    "sdbp6ti0b77we2f",
-    "tgikubbf0rnotez",
-    "kqhp6gi1eds4hoo",
-    "vc1w726csbhifsu",
-    "0bz2lithryx4e5b",
-    "fb9xezpgzymmva7",
-    "5uboet8fkkblne2",
-    "q8u729u6cjc10ht",
-    "f1p1zm46uzium2t",
-    "ht7t15bin4ittrl",
-    "8ofo851fgcqnecx",
-    "gq129jx2sxh5z9v",
-    "97d67weem818zgb",
-    "2uhbvzb7v1v0wxk",
-    "998rou48aseceo3",
-    "vyxlw09hzt046he",
-    "ad10fn7658ofmm2",
-    "mnilklrn3q7w6l8",
-    "msawgy1a5ojogq1",
-    "mh7ujxpjd8ehmuy",
-    "x5f0ct8kup7d5u6",
-    "mighlflqymn1fk3",
-    "zkwibxx39z0qtgj",
-    "azfcdyp8uze8gzq",
-    "iknb11x22mm5477",
-    "antib7xsee8ttvf",
-    "koqwoh54btvsa06",
-    "f0sqp7etu457qdc",
-    "wvesxlepmwngccg",
-    "pm19xhiszup4ztc",
-    "jwsyc7jphfcoqu3",
-    "yqb7i33mlhsi2nt",
-    "h5f9hl8i1i1kezp",
-    "5yoc9ids2zaiqnn",
-    "qm3isfvfxjkrgi6",
-    "4qhefr24kh2u2zh",
-    "xskxt5s7n8t2994",
-    "wvi3ogencphb8pw",
-    "0jkxuuh842t4nw2",
-    "is68ig5jqz2ft7b",
-    "ey9e89z2yrczhe8",
-    "58gktlmumxquiz2",
-    "eblqn0c0egpke49",
-    "zpjjukybfgeu9ci",
-    "mqbvqdyk2dbqd0i",
-    "coma4fa8jura742",
-    "b2thng0dh4wge8d",
-    "86bwpl1wa2fuj87",
-    "3lqodan4za66hm9",
-    "w2ycexq9i6hfsze",
-    "wcs3u80xg0btlgy",
-    "y9u00to2uu9bv87",
-    "1b4si6dpnnjdpg2",
-    "ebmw00kql4dl228",
-    "z4p5jogg9yvgvaa",
-    "tscy1d03b8lhlu3",
-    "hsgrtflo28yf6jv",
-    "lmbwl1xw8fmum1l",
-    "dyprqrfmwe9r9gu",
-    "gudvpbb7xchtnzn",
-    "pipwi9kqi54kbxw",
-    "wprl3jdo8r9atko",
-    "9j7ktxiyubwg38c",
-    "nx30ri4ionne2eo",
-    "9pj6ui6rg3p60cu"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THALIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3224_117125_jznpwk0x07.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THALIA",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "pnjnye7m2cen4ob"
+    },
+    {
+      "annotation": "Titelportrait /) s. Widmung INr 117174-117176, Obj 6-8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117170,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Caroline / Kronprinzessin von Sachsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Sonnleiter sculp.Wien",
+      "scans": [
+        "alm_3224_117170_cwjxfrsbec.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Caroline / Kronprinzessin von Sachsen",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "8rozncu5haoklb5",
+          "source_id": "me3xcgg2xmme3j9"
+        }
+      ],
+      "source_id": "piuyn3vsxgyo6sl"
+    },
+    {
+      "annotation": "gest. Titel /) Titel der Vignette: Laxenburg",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117171,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THALIA / Wien 1857",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach der Natur gezeichnet und gestochen v. Fr. Zastiera",
+      "scans": [
+        "alm_3224_117171_39hbwd6afy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THALIA / Wien 1857",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "ocng47uzapri3n3",
+          "source_id": "nubgwi9awcvv6a6"
+        }
+      ],
+      "source_id": "0f0kyy2wadrz03z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117172,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THALIA. / Taschenbuch / für / 1857. / Herausgegeben / von / Dr. Joh. Nep. Vogl. / Vierundvierzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / In Commission bei Jacob Dirnböck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "THALIA. / Taschenbuch / für / 1857. / Herausgegeben / von / Dr. Joh. Nep. Vogl. / Vierundvierzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / In Commission bei Jacob Dirnböck",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "1yfvezf5qir519l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Zum Besten der Hinterlassenen des Schauspielers Ziegelhauser",
+      "language": [],
+      "musenalm_id": 117173,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Besten der Hinterlassenen des Schauspielers Ziegelhauser…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "nilfsov88ey58up"
+    },
+    {
+      "annotation": "s. Titelportrait INr 117170, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117174,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer königlichen Hoheit / der / Durchlauchtigsten Frau Frau / CAROLINE, / Kronprinzessin von Sachsen, Prinzessin von Wasa / in tiefster Ehrfurcht gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rick",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer königlichen Hoheit / der / Durchlauchtigsten Frau Frau / CAROLINE, / Kronprinzessin von Sachsen, Prinzessin von Wasa / in tiefster Ehrfurcht gewidmet",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "6lw6evnu38rjco2"
+    },
+    {
+      "annotation": "Widmungsgedicht /) s. Titelportrait INr 117170, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Als ich's erbeten hatte, Deinen Namen, / Erlaucht und herrlich, vor mir herzutragen / Da gab es nur ein Denken und ein Fragen",
+      "language": [],
+      "musenalm_id": 117175,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Widmung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Rick",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Widmung",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "k5cxramuwt22am9"
+    },
+    {
+      "annotation": "s. Titelportrait INr 117170, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Du, aus der Wasa königlichem Blute, / Berührt vom gold'nen Strahl der Sachsenkrone,",
+      "language": [],
+      "musenalm_id": 117176,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zu dem Bilde / Ihrer königlichen Hóheit der Durchlauchtigsten / Frau Frau / CAROLINE / Kronprinzessin von Sachsen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. A. Kaltenbrunner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zu dem Bilde / Ihrer königlichen Hóheit der Durchlauchtigsten / Frau Frau / CAROLINE / Kronprinzessin von Sachsen",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "7m5oiveg3vhjbtb",
+          "source_id": "h9zq0r5lkfh255y"
+        }
+      ],
+      "source_id": "kbx67paw3mopuva"
+    },
+    {
+      "annotation": "Illustration zu »Kathrinchen« von J. N. Vogl INr 117188, Obj 20 /) s.a. Textbezug INr 117178, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.135Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117177,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kathrinchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haselwander del. Jg. Lechleitner sc.",
+      "scans": [
+        "alm_3224_117177_g3tx4hzy3y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kathrinchen",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "rb0is2za5c4lggc",
+          "source_id": "gt3xx8lmb8xg3nr"
+        }
+      ],
+      "source_id": "jfgx6nrtf70gsjb"
+    },
+    {
+      "annotation": "s. Graphik INr 117177, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Zur Ballade von Dr. Joh. Nep.Vogl",
+      "language": [],
+      "musenalm_id": 117178,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KATHRINCHEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "KATHRINCHEN",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "wd8f8algbt8etoi"
+    },
+    {
+      "annotation": "s. Graphik INr 117180, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Zu dem Gedichte von Joseph Graf Jellacie von Bussim",
+      "language": [],
+      "musenalm_id": 117179,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EINST UND JETZT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "EINST UND JETZT",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "q6zu7db9for60c4"
+    },
+    {
+      "annotation": "Illustration zu »Einst und Jetzt« von Joseph Graf Jelacic de Busim INr 117221, Obj 53 /) s.a. Textbezug INr 117179, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117180,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Leander Russ del. C. Kotterba sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leander Russ del. C. Kotterba sc.",
+      "scans": [
+        "alm_3224_117180_ytjk924up6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "it7rxjypp9tys2z"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "lxermqe8s0e7u3t",
+          "source_id": "nr2mg56zitnxb6x"
+        }
+      ],
+      "source_id": "6bvm49xzginzme9"
+    },
+    {
+      "annotation": "s. Graphik INr 117182,Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Zur Novelle: / Ein weibliches Herz von Friedrich Steinebach",
+      "language": [],
+      "musenalm_id": 117181,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EVELINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "EVELINE",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "s4cf03p7lzo0m4k"
+    },
+    {
+      "annotation": "Illustration zu »Ein weibliches Herz« von Fr. Steinebach INr 117186, Obj 18  /) s.a. Textbezug INr 117181, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117182,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eveline",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Laufberger del. Joh. Sonnenleiter sc.",
+      "scans": [
+        "alm_3224_117182_jn16cx0dbk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eveline",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "pp02s3wj2qujsyg",
+          "source_id": "quzm52o8gwnnenq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.357Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.357Z",
+          "agent": "ocng47uzapri3n3",
+          "source_id": "zjrnpt9o1ixs5yb"
+        }
+      ],
+      "source_id": "bggbz7kztsa5xz7"
+    },
+    {
+      "annotation": "s. Graphik INr 117184, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Es ritt ein Graf ins Jagen / Mit seinen Rüden stolz, / Dieweil er alle Wunden / Genesung stets gefunden,",
+      "language": [],
+      "musenalm_id": 117183,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Grafenhauses Untergang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bowitsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Grafenhauses Untergang",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "2dt1fmi332m0mq0",
+          "source_id": "7n3vowl7m849fju"
+        }
+      ],
+      "source_id": "mfahls79v29jhny"
+    },
+    {
+      "annotation": "s. Gedicht INr 117183, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.145Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117184,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Russ Leander del. 1850 K. Frombeck sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Russ Leander del. 1850 K. Frombeck sc.",
+      "scans": [
+        "alm_3224_117184_7railshgsw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "lxermqe8s0e7u3t",
+          "source_id": "4mygxqxie3bqgax"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.358Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.358Z",
+          "agent": "zfp106phbb7kc52",
+          "source_id": "qu1wmz3utpyllht"
+        }
+      ],
+      "source_id": "md2altv68bk1r9z"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Im Jahre 1842 war es, daß der Unterzeichnete dieses Taschenbuch verwaist, ohne Leitung fand, und sich, auf den nie erkaltenden Wohlthätigkeitssinn der Schriftsteller deutscher Zunge bauend, entschloß, die Herausgabe dieses Jahrbuchs Thalia",
+      "language": [],
+      "musenalm_id": 117185,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Wort an den Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. J. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Wort an den Leser",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.510Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "ptk4mwdrsdbjme8"
+        }
+      ],
+      "source_id": "efrjco9b7kb9pur"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Lieb' ist ein Feuer, das den Herd / Sogar auf dem es brennt, verzehrt. Zedlitz /) mit einer Illustration s. Graphik INr 117182, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Abenddunkel kletterte bergan, nur auf den Spitzen der Gebirge thronte noch der Strahl des Lichtes. Die elegische Ruhe der Waldeinsamkeit beherrschte die Umgegend.",
+      "language": [],
+      "musenalm_id": 117186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein weibliches Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Steinebach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein weibliches Herz",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.510Z",
+          "agent": "lzi1zyn6aqla0ny",
+          "source_id": "6q2i9p8apwsygur"
+        }
+      ],
+      "source_id": "4p6ewryjfoyid91"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 117188-177190, Obj 20-22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balladen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Balladen",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.510Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "soz60om01i4e1wh"
+        }
+      ],
+      "source_id": "2294nc98ckm9ph6"
+    },
+    {
+      "annotation": "Balladen (Sammlung INr 117187, Obj 19) mit einer Illustration s. Graphik INr 117177, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Vor'm alten Hause sitzet / Kathrinchen auf der Bank,",
+      "language": [],
+      "musenalm_id": 117188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Kathrinchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Kathrinchen",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.511Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.511Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "a6zg2ee1fd77oh0"
+        }
+      ],
+      "source_id": "1hr22nrl8tmzhos"
+    },
+    {
+      "annotation": "Balladen (Sammlung INr 117187, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.205Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Mathias, Ungarns König, sitzt / Zu Ofen bei dem Mahl, / Von Gold und Edelstein umblitzt, / Vor sich den Weinpocal.",
+      "language": [],
+      "musenalm_id": 117189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Geächtete",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Geächtete",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.491Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.491Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "zl35idvdidz9pup"
+        }
+      ],
+      "source_id": "j7ibulfo4l7tqt9"
+    },
+    {
+      "annotation": "Balladen (Sammlung INr 117187, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Ach, Leben, wie bist Du so freudig und schön, / Ach, Grab, wie grau't mir vor Dir so sehr!",
+      "language": [],
+      "musenalm_id": 117190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Frau Sigrit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Johann Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Frau Sigrit",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.586Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "9nmdaga4x0wfhyq"
+        }
+      ],
+      "source_id": "3qnxhi7yq68ri78"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Der Engel des Todes raset durch's weite Ungarland, / Wohin das Auge sich wendet, Blut und Schutt und Brand!",
+      "language": [],
+      "musenalm_id": 117191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht. / Des Klosters Fall. / Ungarische Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Bowitsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht. / Des Klosters Fall. / Ungarische Sage",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.586Z",
+          "agent": "2dt1fmi332m0mq0",
+          "source_id": "89wl8crpgn8ii0p"
+        }
+      ],
+      "source_id": "2bbpukxkuv1r5ac"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 117193, 117194; Obj 25, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "78vad9a7n3sg5de"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117192, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Noch oftmals an denselben Stellen, / Wo selig schlug des Kindes Brust, / Will sich des Mannes Brust erhellen",
+      "language": [],
+      "musenalm_id": 117193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Rückblick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Rückblick",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "3pzzn2k85r3ohvr"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117192, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Bald rauscht das Bächlein wieder / Durch's helle Mattengrün;",
+      "language": [],
+      "musenalm_id": 117194,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Am Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Klein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Am Frühling",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "sdbp6ti0b77we2f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Auf einem sanften Hügel neben einer der zahlreichen Krümmungen des Rheinstromes stand eine Burg, deren letzte Spuren bereits seit zwei Jahrhunderten verschwunden sind.",
+      "language": [],
+      "musenalm_id": 117195,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Novize von Santa Clara. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alexander Patuzzi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Novize von Santa Clara. / Historische Novelle",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.586Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.586Z",
+          "agent": "onb8bft2jljf6eb",
+          "source_id": "32rolgk0abscq6y"
+        }
+      ],
+      "source_id": "tgikubbf0rnotez"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "O Dirndl, Du mein Herzenschatz, / Mit Aeugerln frisch und braun,",
+      "language": [],
+      "musenalm_id": 117196,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / D'Fenster vo der Seel. / (Oberösterreichisch.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Adam Kaltenbrunner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / D'Fenster vo der Seel. / (Oberösterreichisch.)",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.587Z",
+          "agent": "roqd4m2swedwv3j",
+          "source_id": "4xgk90v9fsq3eav"
+        }
+      ],
+      "source_id": "kqhp6gi1eds4hoo"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 117198-117200, Obj 30-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117197,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm v. Metzerich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.587Z",
+          "agent": "em3dkpa48ys3kzf",
+          "source_id": "bwsx823apor37mg"
+        }
+      ],
+      "source_id": "vc1w726csbhifsu"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117197, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Das ist nur Trug und eitel Ding, / Dem Neide zu vergleichen,",
+      "language": [],
+      "musenalm_id": 117198,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Wolke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm v. Metzerich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Wolke",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.587Z",
+          "agent": "em3dkpa48ys3kzf",
+          "source_id": "k5b75vkan585n7j"
+        }
+      ],
+      "source_id": "0bz2lithryx4e5b"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117197, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Ich suchte lang im Gartenflor / Nach Blumen, doch von allen / Auf denen mit Gefallen / Mein Aug' geweilt, ich nichts erkor.",
+      "language": [],
+      "musenalm_id": 117199,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.  Wahl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm v. Metzerich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.  Wahl",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.587Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.587Z",
+          "agent": "em3dkpa48ys3kzf",
+          "source_id": "o9knj4p4pkr9i87"
+        }
+      ],
+      "source_id": "fb9xezpgzymmva7"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117197, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Einsam in des Fensters Bogen / Lehnt ein Mädchen hingegossen,",
+      "language": [],
+      "musenalm_id": 117200,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Erwartung. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm v. Metzerich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Erwartung. / Romanze",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.449Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.449Z",
+          "agent": "em3dkpa48ys3kzf",
+          "source_id": "exumpwrl34bjunh"
+        }
+      ],
+      "source_id": "5uboet8fkkblne2"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Auch ein Klaglied zu sein im Mund der Geliebten ist herrlich! [...] Nänie von Schiller / Drum einen Schuldbrief hat Dir Gott gegeben / Er hat ihn selbst Dir in die Brust gelegt, [...] Ewiges Leben, von Eduard Müller",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "In einer der schönsten Gegenden Pommerns, welche ich näher bezeichen werde, wo sich heutigen Tages fruchtreiche Kornfelder und Wiesen um ein freundliches, romantisch zwischen Bergen gelegenes Dorf ausdehnen,",
+      "language": [],
+      "musenalm_id": 117201,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der tönende Stein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clara von Massow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der tönende Stein",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.449Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.449Z",
+          "agent": "gsh6emx95anxaro",
+          "source_id": "6xcokswnw9xpxn2"
+        }
+      ],
+      "source_id": "q8u729u6cjc10ht"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 117203, 117204; Obj 35, 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117202,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.449Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.449Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "7pl4unn0sbi93iw"
+        }
+      ],
+      "source_id": "f1p1zm46uzium2t"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117202, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Wenn starke Winde wehen, / Dann fliegt, vom Schwung erreicht, / Papier und dürre Blätter / Was irgend leer und leicht;",
+      "language": [],
+      "musenalm_id": 117203,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Böses Wetter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Böses Wetter",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.449Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.449Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "iop5ewg3yc9h3en"
+        }
+      ],
+      "source_id": "ht7t15bin4ittrl"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117202, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Das hast Du nicht gedacht, Gewalt'ger Du, / Als Du noch weiltest in der Menschheit Schlacken,",
+      "language": [],
+      "musenalm_id": 117204,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Alma von Goethe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grillparzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Alma von Goethe",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.449Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.449Z",
+          "agent": "jf5q6ykf9ux52yq",
+          "source_id": "ixmoqzymkv8mbxr"
+        }
+      ],
+      "source_id": "8ofo851fgcqnecx"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 117206-117208, Obj 38-40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117205,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Astwell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "gq129jx2sxh5z9v"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117205, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Sag, kennst Du die Wohnung so friedlich, so stille, / Von grünendem Epheu gar lieblich umrankt,",
+      "language": [],
+      "musenalm_id": 117206,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die stille Wohnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Astwell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die stille Wohnung",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "97d67weem818zgb"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117205, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Du majestät'scher Baum, voll dunkler Blätter, / Wie herrlich stehst Du da in deiner Pracht!",
+      "language": [],
+      "musenalm_id": 117207,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Eiche / (Sonnet.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Astwell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Eiche / (Sonnet.)",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "2uhbvzb7v1v0wxk"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117205, Obj 37)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Komm, süßer Schlaf, steig freundlich zu mir nieder, / Umfäch'le mich mit sanftem Flügelschlag,",
+      "language": [],
+      "musenalm_id": 117208,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / An den Schlaf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Astwell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / An den Schlaf",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "998rou48aseceo3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Also eine Deportation nach Cayenne, mon cher? Wie Sie sagen. Unmöglich! eines bloßen Pasquilles, einiger sinnreicher Verse wegen? - unmöglich!",
+      "language": [],
+      "musenalm_id": 117209,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Charte blanche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Isidor Proschko",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Charte blanche",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.510Z",
+          "agent": "agwsn5i724aiq5h",
+          "source_id": "smtk3i7cvd3qmf8"
+        }
+      ],
+      "source_id": "vyxlw09hzt046he"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Kurze Zeit nach dem Ausbruche des siebenjährigen Krieges lagerten drei gemeine Husaren der neunzehnten Division der französischen Armee unter einer großen Eiche vor dem Schulhause des Städtchens Auvergne",
+      "language": [],
+      "musenalm_id": 117210,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Husaren-Eiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Isidor Proschko",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Husaren-Eiche",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.510Z",
+          "agent": "agwsn5i724aiq5h",
+          "source_id": "9fjsdk1ksq902sf"
+        }
+      ],
+      "source_id": "ad10fn7658ofmm2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Ein Wand'rer schreitet aus dem Vaterhaus, / Bei'm Dämmergrau'n vor's Heimatdorf hinaus.",
+      "language": [],
+      "musenalm_id": 117211,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Die heimischen Wahrzeichen. / Prolog",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Gabriel Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Die heimischen Wahrzeichen. / Prolog",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.470Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.470Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "vgnnmh5kjueyqm6"
+        }
+      ],
+      "source_id": "mnilklrn3q7w6l8"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 117213, 117214; Obj 45, 46",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117212,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Schanz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.471Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.471Z",
+          "agent": "tpwve3h1enyv5eo",
+          "source_id": "eea3oxix7un4ein"
+        }
+      ],
+      "source_id": "msawgy1a5ojogq1"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117212, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Thautröpfchen kömmt zur Erden, / Gewoben aus des Himmesl Luft / Und aus der Erde feuchtem Duft,",
+      "language": [],
+      "musenalm_id": 117213,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Thautröpfchen und Kind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Schanz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Thautröpfchen und Kind",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.471Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.471Z",
+          "agent": "tpwve3h1enyv5eo",
+          "source_id": "cjs85ryu5dts07e"
+        }
+      ],
+      "source_id": "mh7ujxpjd8ehmuy"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117212, Obj 44)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Es ragt ein alter Felsen / Zum Himmelszelt hinauf,",
+      "language": [],
+      "musenalm_id": 117214,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das alte Schloß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Schanz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das alte Schloß",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.471Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.471Z",
+          "agent": "tpwve3h1enyv5eo",
+          "source_id": "q4bxfzkifxgslxk"
+        }
+      ],
+      "source_id": "x5f0ct8kup7d5u6"
+    },
+    {
+      "annotation": "Dem Text vorangsetellt: L'amour est innocent, quand la vertu l'allume, / Aussi pur, que l'objet, à qui je l'ai juré - / La constance de l'honore -- Lamartine",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Bei Mabille, dem Vergnügungsorte in Paris, war großes Gartenfest, das heißt: erhöhte Eintrittspreise, verstärktes Orchester, mehr Licht als sonst",
+      "language": [],
+      "musenalm_id": 117215,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ertappt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. Julian Marschall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ertappt",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "mighlflqymn1fk3"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 117217, 117218; Obj 49, 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117216,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Hirschberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "zkwibxx39z0qtgj"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117216, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Was einmal war, kommt nimmermehr, / Verweht im Flug der Horen:",
+      "language": [],
+      "musenalm_id": 117217,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Verloren",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Hirschberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Verloren",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "azfcdyp8uze8gzq"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117216, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Gern in üpp'gen Grases Fülle / Lieg' ich träumend hingestreckt,",
+      "language": [],
+      "musenalm_id": 117218,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Vorbild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolph Hirschberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Vorbild",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "iknb11x22mm5477"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "So ist denn auch der schönste Tag verschwunden! / Wie schnell, wie schnell! - Warum bist du so flüchtig, / O Zeit?",
+      "language": [],
+      "musenalm_id": 117219,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Der Nachtwanderer. / (Ein Fragment.) / Nach dem Schwedischen des E. Geiser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Oberleitner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Der Nachtwanderer. / (Ein Fragment.) / Nach dem Schwedischen des E. Geiser",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "antib7xsee8ttvf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Phantastische Nebelgebilde umgezogen das Haupt des Schöckel, die Abendsonne stickte bald feurige Lanzen, bald blutige Riesenhäupter in die Wolkenformen,",
+      "language": [],
+      "musenalm_id": 117220,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der goldene Schlüssel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Puff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der goldene Schlüssel",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.480Z",
+          "agent": "z276kpo6m8d5nvd",
+          "source_id": "z7jh1jhuvnzfxje"
+        }
+      ],
+      "source_id": "koqwoh54btvsa06"
+    },
+    {
+      "annotation": "Dem Gedicht vorangestellt: Was geschieht, ist hier nur klar, / Das Warum wird offenbar, [...] Müllner's Schuld /) mit einer Illustration s. Graphik INr 117180, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Stolz und kühn erhebt die Eiche / In der Lüfte weite reiche / Ihres Wipfels frische Pracht;",
+      "language": [],
+      "musenalm_id": 117221,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Eins und jetzt.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Graf Jelacic de Busim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Eins und jetzt.",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.480Z",
+          "agent": "iat62ex02v3zvak",
+          "source_id": "58llmi9mpjwizy9"
+        }
+      ],
+      "source_id": "f0sqp7etu457qdc"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten 117223-117225, Obj 55-57",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117222,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Neumayr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "wvesxlepmwngccg"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117222, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Der Schnee hat sich gebreitet / Auf Berge und in's Thal, / Die Au ist weiß geworden, / Das bunte Feld zumal.",
+      "language": [],
+      "musenalm_id": 117223,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Herz und Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Neumayr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Herz und Welt",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "pm19xhiszup4ztc"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117222, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Als in dein Aug' zuerst ich schaute / War mir's, als ob im Osten mir / Ein schöner, neuer Morgen graute.",
+      "language": [],
+      "musenalm_id": 117224,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Magische Gewalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Neumayr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Magische Gewalt",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "jwsyc7jphfcoqu3"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117222, Obj 54)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "228",
+      "incipit_statement": "Warum fällt kein Lied mir ein, / Wenn ich nie bei Ihr kann sein?",
+      "language": [],
+      "musenalm_id": 117225,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Liederquell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Neumayr",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Liederquell",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "yqb7i33mlhsi2nt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "I woaß 's nit, was má zeitweis is: / Es gibt ma-r-in die Uhr'n án' Riß,",
+      "language": [],
+      "musenalm_id": 117226,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "'S schlechti G'hör",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Scheyrer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "'S schlechti G'hör",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.526Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.526Z",
+          "agent": "ffr90h140nkavcs",
+          "source_id": "40zy021ndsg1gju"
+        }
+      ],
+      "source_id": "h5f9hl8i1i1kezp"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 117228-117232, Obj 60-64",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117227,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moderne Fabeln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Moderne Fabeln",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.526Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.526Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "th8jnof41hhmfwp"
+        }
+      ],
+      "source_id": "5yoc9ids2zaiqnn"
+    },
+    {
+      "annotation": "Moderne Fabeln (Sammlung INr 117227, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "233",
+      "incipit_statement": "Ein Mann, welchem die Presse zu Gebote stand, ließ folgenden Artikel in sein Blatt einrücken.",
+      "language": [],
+      "musenalm_id": 117228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. /  Der Redacteur und der Affe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. /  Der Redacteur und der Affe",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.526Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.526Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "l650htqkdcyxauq"
+        }
+      ],
+      "source_id": "qm3isfvfxjkrgi6"
+    },
+    {
+      "annotation": "Moderne Fabeln (Sammlung INr 117227, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.186Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Als Cicero nach seinem gewaltsamen Tode ins Elysium eintrat, flog ihm eine Gans entgegen: Grüß Dich, Bruder! schnatterte sie ihm zu.",
+      "language": [],
+      "musenalm_id": 117229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Cicero und die Gans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Cicero und die Gans",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.566Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.566Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "oiap6iaudi4slzi"
+        }
+      ],
+      "source_id": "4qhefr24kh2u2zh"
+    },
+    {
+      "annotation": "Moderne Fabeln (Sammlung INr 117227, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "234",
+      "incipit_statement": "Eine Schaar communistischer Heuschrecken fiel über einen Krautacker her",
+      "language": [],
+      "musenalm_id": 117230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Heuschrecken und die Maulwürfe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Heuschrecken und die Maulwürfe",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.487Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "g3dw23w61ria5pg"
+        }
+      ],
+      "source_id": "xskxt5s7n8t2994"
+    },
+    {
+      "annotation": "Moderne Fabeln (Sammlung INr 117227, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Das war einst vor Zeiten vortrefflich bestellt!  Ein feuriger junger Löwe gab die ersten Helden und Liebhaber",
+      "language": [],
+      "musenalm_id": 117231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das Nationaltheater der Thiere",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das Nationaltheater der Thiere",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "56yosdyg5tyz41b"
+        }
+      ],
+      "source_id": "wvi3ogencphb8pw"
+    },
+    {
+      "annotation": "Moderne Fabeln (Sammlung INr 117227, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Nichts leichter, schrieb eine weise, tugendhafte und gelehrte Taube, nichts leichter als Frieden und Einigkeit in der Welt zu erhalten.",
+      "language": [],
+      "musenalm_id": 117232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Ein Friedensblatt für's Thiervolk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Ein Friedensblatt für's Thiervolk",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "jzripf7zxt0nnqn"
+        }
+      ],
+      "source_id": "0jkxuuh842t4nw2"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 117234, 117235; Obj 66, 67",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.333Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Siegmund",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "fpnd1gzhfjqx9bk",
+          "source_id": "y3mctazlbjykylj"
+        }
+      ],
+      "source_id": "is68ig5jqz2ft7b"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 117233, Obj 65)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Wenn ich still zu Hause sitze / Nur bei Wasser und bei Brot,",
+      "language": [],
+      "musenalm_id": 117234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ohne dich, du gold'ner Wein!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Siegmund",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ohne dich, du gold'ner Wein!",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "fpnd1gzhfjqx9bk",
+          "source_id": "tkc1tp5dy9qa3k6"
+        }
+      ],
+      "source_id": "ey9e89z2yrczhe8"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 117233, Obj 65)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Ich kann daheim nicht rasten, / Muß in die weite Welt.",
+      "language": [],
+      "musenalm_id": 117235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Wanderlust",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferdinand Siegmund",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Wanderlust",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "fpnd1gzhfjqx9bk",
+          "source_id": "dfaga3i9l7303f2"
+        }
+      ],
+      "source_id": "58gktlmumxquiz2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Geige klingt durch die stille Nacht - / Die kranke Mutter im Bette wacht,",
+      "language": [],
+      "musenalm_id": 117236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Der Todtentanz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pauline Schanz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Der Todtentanz",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "a9ocixlq34hpcgc",
+          "source_id": "zvr9ob031c06tle"
+        }
+      ],
+      "source_id": "eblqn0c0egpke49"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Warum zankst Du mich aus, Elise, / Daß mein Gedächtniß ist so schwach?",
+      "language": [],
+      "musenalm_id": 117237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Gedächtnißmangel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Gedächtnißmangel",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "vw5kw5ivs3grwxs"
+        }
+      ],
+      "source_id": "zpjjukybfgeu9ci"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 117239,117240, Obj 71, 72",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kriegsscenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fürst Friedrich von Schwarzenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kriegsscenen",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "i4dbqkjouxbrnw0",
+          "source_id": "57496m3eak72k89"
+        }
+      ],
+      "source_id": "mqbvqdyk2dbqd0i"
+    },
+    {
+      "annotation": "Kriegsscenen (Sammlung INr 117238, Obj 70) Anm. am Objekt: Aus dem Wanderknecht eines verabschiedeten Lanzknechtes. / Siehe Rayden's vortreffliches Werk: Cabrera",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Welchen Antheil auch Frauen an den kriegerischen Ereignissen nehmen, wie oft auch in ihrem Busen der Heldenmuth sich regt,",
+      "language": [],
+      "musenalm_id": 117239,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marquesa de Poroy et Donna Florencia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fürst Friedrich von Schwarzenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Marquesa de Poroy et Donna Florencia",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "i4dbqkjouxbrnw0",
+          "source_id": "fg8xg2e9c48qg9q"
+        }
+      ],
+      "source_id": "coma4fa8jura742"
+    },
+    {
+      "annotation": "Kriegsscenen (Sammlung INr 117238, Obj 70)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Die Stadt Morella im Königreiche Valencia liegt auf einem Plateau und dem südlichen Abhang des Bergrückens,",
+      "language": [],
+      "musenalm_id": 117240,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Erstürmung des Forts von Morrello am 26. Jän- / ner 1838 durch Don Pablo Alliot",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fürst Friedrich von Schwarzenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Erstürmung des Forts von Morrello am 26. Jän- / ner 1838 durch Don Pablo Alliot",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "i4dbqkjouxbrnw0",
+          "source_id": "jni81tsta2taxid"
+        }
+      ],
+      "source_id": "b2thng0dh4wge8d"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 117242, 117243; Obj 74, 75",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117241,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Adolph Staufe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "c20sqr0btl58v5u",
+          "source_id": "fuzc9x7q8jmj02b"
+        }
+      ],
+      "source_id": "86bwpl1wa2fuj87"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117241, Obj 73)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "O selig, wenn in heilger Glut / Zwei Herzen still entbrennen",
+      "language": [],
+      "musenalm_id": 117242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / O selig wenn in heil'ger Glut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Adolph Staufe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / O selig wenn in heil'ger Glut",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.575Z",
+          "agent": "c20sqr0btl58v5u",
+          "source_id": "y4dm7o9fdx1otbp"
+        }
+      ],
+      "source_id": "3lqodan4za66hm9"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 117241, Obj 73)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Bewahr dein Herz nur immer rein / Und laß die Englein nie heraus",
+      "language": [],
+      "musenalm_id": 117243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Bewahr dein Herz nur immer rein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Adolph Staufe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Bewahr dein Herz nur immer rein",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.576Z",
+          "agent": "c20sqr0btl58v5u",
+          "source_id": "ydpcnyhp50kealw"
+        }
+      ],
+      "source_id": "w2ycexq9i6hfsze"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "Wenn schallt die zwölfte Stunde / In der Johannisnacht, / Ein stummer Zug die Runde / Durch die Ruinen macht.",
+      "language": [],
+      "musenalm_id": 117244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Die St. Johannisnacht auf der Carleburg. / (Fränkische Sage)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Juttor",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Die St. Johannisnacht auf der Carleburg. / (Fränkische Sage)",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "wcs3u80xg0btlgy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "Die Lüfte durcheilend im kreisenden Flug / Ein Geier zum Horste sich schwinget,",
+      "language": [],
+      "musenalm_id": 117245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Die Adlerfeder. / (Ein Zeitbild)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Simon Bacher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Die Adlerfeder. / (Ein Zeitbild)",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "y9u00to2uu9bv87"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "Mein Schiff mit schwellenden Segeln / Durchfurcht das blaue Meer,",
+      "language": [],
+      "musenalm_id": 117246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Meerfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Helbig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Meerfahrt",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "1b4si6dpnnjdpg2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Der Isergebirgreisende, welcher von den Koppen der Zieckelhöhe herabsteigt, um die Kalkberger Hütte zu besuchen, schlägt, sofern ihm kein kundiger Führer zur Seite ist, gewöhnlich den sehr mittlelmäßigen Fahrweg ein,",
+      "language": [],
+      "musenalm_id": 117247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heimat fern ein Grab. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Helbig",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Heimat fern ein Grab. / Novelle",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "ebmw00kql4dl228"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Die Nebel flieh'n. Aus goldgeflammten Locken / Strahlt unverhüllt der Sonne Angesicht,",
+      "language": [],
+      "musenalm_id": 117248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Frühlings Allgewalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich von Weirauch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Frühlings Allgewalt",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4p5jogg9yvgvaa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Es grüßt der warme Sonnenstrahl / Vom Himmel her zur Erd',",
+      "language": [],
+      "musenalm_id": 117249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Frühlingslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Günther Nicol",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Frühlingslied",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.576Z",
+          "agent": "o11zrg5nk396fgh",
+          "source_id": "918t30dqfav94rg"
+        }
+      ],
+      "source_id": "tscy1d03b8lhlu3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Hermine von B. war schön, liebenswürdig, mit zweiundzwanzig Jahren Wittwe, Herrin eines großen schuldenfreien Landgutes bei W...",
+      "language": [],
+      "musenalm_id": 117250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der seltsame Eheprocurator. / Novelette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rudolph Labrès",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der seltsame Eheprocurator. / Novelette",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "hsgrtflo28yf6jv"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 117252-117254, Obj 84-86",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder der Liebe",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "lmbwl1xw8fmum1l"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 117251, Obj 83)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Du ahnest nicht, wie jene tiefe Wunde / Mein glühend Herz mir qualenvoll zerreißt -",
+      "language": [],
+      "musenalm_id": 117252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "dyprqrfmwe9r9gu"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 117251, Obj 83)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Der fromme Glaube spricht: Daß nach dem Sterben / Auf einem Stern wir jenseits weiter leben;",
+      "language": [],
+      "musenalm_id": 117253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "gudvpbb7xchtnzn"
+    },
+    {
+      "annotation": "Lieder der Liebe (Sammlung INr 117251, Obj 83)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Erinnerst du dich jener mächt'gen Stunde, / Wo wir an deinem Fenster sinnend standen?",
+      "language": [],
+      "musenalm_id": 117254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "pipwi9kqi54kbxw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Der Nachen ruht am Strande, / Es fehlt die Schifferin, / Sie zog in ferne Lande / Zum fernen Liebsten hin.",
+      "language": [],
+      "musenalm_id": 117255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedicht / Der einsame Schiffer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedicht / Der einsame Schiffer",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.576Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.576Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "z7g13pm5k9dww5v"
+        }
+      ],
+      "source_id": "wprl3jdo8r9atko"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Der Abenstrahl verglomm, unzählbare Lichter schimmerten in der herzoglichen Capelle zu Florenz, freudenvoll schmetterten die Trompeten",
+      "language": [],
+      "musenalm_id": 117256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Sängers Liebe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Marie Plazowska",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Sängers Liebe. / Novelle",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "9j7ktxiyubwg38c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.336Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117257,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "nx30ri4ionne2eo"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.337Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 117258,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3224_117258_17vllyv9ek.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1857,
+      "editor": "",
+      "agents": [],
+      "source_id": "9pj6ui6rg3p60cu"
+    }
   ],
   "agents": [
     {

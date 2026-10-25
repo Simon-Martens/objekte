@@ -48,58 +48,1985 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "qtpqc6yjltg86j9"
+    {
+      "annotation": "Jgg 1816-1840; Fortsetzung von: Taschenbuch, Theatralisches 1814, 1815; Fortgesetzt durch: Thalia 1841-1869",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.648Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404535",
+      "location": "105A04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.648Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qtpqc6yjltg86j9"
+    }
   ],
   "contents": [
-    "as1y9gq3j3s67rh",
-    "0fb79h9wt4s26v8",
-    "702kl81vry1j8xf",
-    "xnpwrcr2lt14lyy",
-    "vog57obka0tkixt",
-    "tfeje0qllky6bs5",
-    "dwuorlbjra1x6l9",
-    "hlr0dit7cx7ffrs",
-    "h2r3yaw9tapx51g",
-    "d167d07scgfqebi",
-    "jsj1ow66h4ajrd0",
-    "7q3cg0x16phpkib",
-    "dso1xoy70oh59iw",
-    "af8gxxdpjc6hhx7",
-    "aggs9xso77xy1nd",
-    "a3ycsmdu4uet6xf",
-    "x9i0ddorpmj9r6x",
-    "3vy8q4wgou0r15i",
-    "v423mrrrulnhui1",
-    "li02x9pkzx5lgw0",
-    "2nje803q7vnahf6",
-    "y96cmgz6prczek9",
-    "78j2fkuglc53kca",
-    "ss93y28pzy6pp0t",
-    "khyam8fk3vd0fzb",
-    "5pw6r05fe1rfici",
-    "x7bf3az7snu4dto",
-    "tx2vspy7g9a58zt",
-    "6vyrfsw0gll180v",
-    "sjt0z2ys7tpdxx4",
-    "tvamp06niu7bqlu",
-    "jvi9h8qmly2kw2g",
-    "nm0app8ncqqtb3t",
-    "exk73o3l0oqh4y5",
-    "1yknj8wxuhi4qjp",
-    "4en4ltu426n9bzw",
-    "a7pgqe68118y69t",
-    "cbcsjgdgcw8tew4",
-    "zn9fbg0oewn6rld",
-    "hz6or9avgygib0r",
-    "lxjgck1qubjt65m",
-    "3iaw4p83p0xrbe4",
-    "seu59riyxdl1hl7",
-    "nd0y9co27mztatt",
-    "qnqht345fgrcr3s",
-    "ushhjow2pmo59b6",
-    "dvho1v3lqc2i47f",
-    "7qzj0jw6gpw7jqt",
-    "wceqzfo5zegi2yd"
+    {
+      "annotation": "Umschlaggraphik r. /) Seideneinband mit Goldprägung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113894,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2715_113894_gyv9xy6mwo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "as1y9gq3j3s67rh"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113895,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRANZ EDLER VON MARINELLI / Director und Eigenthümer / des k.k. pr. Theaters in der Leopoldstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Lavosz",
+      "scans": [
+        "alm_2715_113895_3tq8rj3qqy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRANZ EDLER VON MARINELLI / Director und Eigenthümer / des k.k. pr. Theaters in der Leopoldstadt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "1wf3f73wg48jeqc",
+          "source_id": "1gqyeck1ff4kwxe"
+        }
+      ],
+      "source_id": "0fb79h9wt4s26v8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113896,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / vom / K.K. priv. Theater / in der / Leopoldstadt / Zwanzigster Jahrgang / Wien / 1833",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2715_113896_ak81h95au2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / vom / K.K. priv. Theater / in der / Leopoldstadt / Zwanzigster Jahrgang / Wien / 1833",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "702kl81vry1j8xf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / vom / k.k. privilegirten Theater / in der Leopoldstadt / für das Jahr 1833. / Zum Besten der Witwe des Schauspielers / Ziegelhauser, / herausgegeben / von / Franz Fitzinger, / Mit Beyträgen / von Castelli, Bauernfeld, Hannusch, Vogl, u. a. m. / Zwanzigster Jahrgang. / Wien, 1833. / Gedruckt in der Wollzeile Nr. 782",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / vom / k.k. privilegirten Theater / in der Leopoldstadt / für das Jahr 1833. / Zum Besten der Witwe des Schauspielers / Ziegelhauser, / herausgegeben / von / Franz Fitzinger, / Mit Beyträgen / von Castelli, Bauernfeld, Hannusch, Vogl, u. a. m. / Zwanzigster Jahrgang. / Wien, 1833. / Gedruckt in der Wollzeile Nr. 782",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "xnpwrcr2lt14lyy"
+    },
+    {
+      "annotation": "Zwischentitel.Es folgen die Gedichte des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "vog57obka0tkixt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Bescheiden tret' ich hin vor Euch, / Um Eu're Gunst zu flehen:",
+      "language": [],
+      "musenalm_id": 113899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Leopoldstadt an den Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Leopoldstadt an den Leser",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "rs92crbi9d065q4"
+        }
+      ],
+      "source_id": "tfeje0qllky6bs5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Hab' ich nicht auch / Innig empfunden? / Liebe gesucht, Liebe gefunden?",
+      "language": [],
+      "musenalm_id": 113900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rückblick",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rückblick",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "l74n5uqrfm1x187"
+        }
+      ],
+      "source_id": "dwuorlbjra1x6l9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Es reiten spät zwey Ritter / Auf öder Waldesbahn, / Die schau'n durch's Helmgegitter / Einander zürnend an:",
+      "language": [],
+      "musenalm_id": 113901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Wappenschild. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Wappenschild. / Ballade",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "3tvbqfwk5gqw6c5"
+        }
+      ],
+      "source_id": "hlr0dit7cx7ffrs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.001Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Zum Bade steigt vom Wiesenplan / Ein Mägdlein in den Brunnen,",
+      "language": [],
+      "musenalm_id": 113902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drey Winterrosen. / (Altdeutsch.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drey Winterrosen. / (Altdeutsch.)",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "e8yngalgkw0805h"
+        }
+      ],
+      "source_id": "h2r3yaw9tapx51g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Ach, ich armes Ypsilon! / Sagt, was hab' ich denn begangen,",
+      "language": [],
+      "musenalm_id": 113903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klage / des verschmähten Y.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Hannusch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klage / des verschmähten Y.",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "1gx7z956tuv7ghs",
+          "source_id": "7r36rszkdcb06kp"
+        }
+      ],
+      "source_id": "d167d07scgfqebi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Nicht Schlaf, nicht Hunger, und nicht Ruh, / So kann's nicht länger bleiben;",
+      "language": [],
+      "musenalm_id": 113904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stufen der Leidenschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stufen der Leidenschaft",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "twxxdmbaamlpy9v"
+        }
+      ],
+      "source_id": "jsj1ow66h4ajrd0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Wie ich mich herumgetrieben / Als ein junger Aktuar,",
+      "language": [],
+      "musenalm_id": 113905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Versäumte Bildung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Versäumte Bildung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.484Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.484Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "6djrnqyniu1ogje"
+        }
+      ],
+      "source_id": "7q3cg0x16phpkib"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Ich ziehe von hinnen, im Fluge von hinnen, / Wie springet und schnaubt das muntre Gespann!",
+      "language": [],
+      "musenalm_id": 113906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf der Reise",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ant. Kasper",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf der Reise",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "dso1xoy70oh59iw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Kaum sieht das Kind die jungen Strahlen / Des ersten Tages, der ihm scheint, / Als, wie für künft'ge Schuld zu zahlen / es bangend ihm entgegen weint.",
+      "language": [],
+      "musenalm_id": 113907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Leben",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "cyepkz0jzey7tz4"
+        }
+      ],
+      "source_id": "af8gxxdpjc6hhx7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Nebel decket Aecker, Wälder, / Segen spenden fette Reben,",
+      "language": [],
+      "musenalm_id": 113908,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbstwehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Sauter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbstwehen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "i2mivu0y5cpv8x8",
+          "source_id": "1t7hxk8izjogqia"
+        }
+      ],
+      "source_id": "aggs9xso77xy1nd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Von Haus zu Haus durchs ganze Land / Sah man den alten Geiger ziehen.",
+      "language": [],
+      "musenalm_id": 113909,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geiger. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Neckheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Geiger. / Erzählung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "a3ycsmdu4uet6xf"
+    },
+    {
+      "annotation": "mit einer Musikbeigane s. INr 113911, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Gab ihr just den ersten Kuß / Übersel'ger Liebe,- / Liebchen brach die Blüthe roth / Von dem Nelkentriebe.",
+      "language": [],
+      "musenalm_id": 113910,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Orden der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Orden der Liebe",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "29ah69y5uxi6krz"
+        }
+      ],
+      "source_id": "x9i0ddorpmj9r6x"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Der Orden der Liebe« von F. Fitzinger INr 113910, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113911,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER ORDEN DER LIEBE / GEDICHT VON FRANZ FITZINGER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Grutsch",
+      "scans": [
+        "alm_2715_113911_6w4y2kp9zb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER ORDEN DER LIEBE / GEDICHT VON FRANZ FITZINGER",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "np1s07ii6m6m62s",
+          "source_id": "5zpjij2obrew76h"
+        }
+      ],
+      "source_id": "3vy8q4wgou0r15i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "An dem Hafen von Versailles / Steht das Volk im dichten Troß;",
+      "language": [],
+      "musenalm_id": 113912,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das griechische Feuer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das griechische Feuer",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "zmtngea0bhedofs"
+        }
+      ],
+      "source_id": "v423mrrrulnhui1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Wer bey des Schicksals ernsten harten Schlüßen / Im Innern stets bewahrt den festen Muth",
+      "language": [],
+      "musenalm_id": 113913,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die erblindete Frau F. v. --lli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die erblindete Frau F. v. --lli",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "li02x9pkzx5lgw0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.825Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "Aus des Himmels blauer Ferne / Sinkt herab die stille Nacht,",
+      "language": [],
+      "musenalm_id": 113914,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied der Sehnsucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig August Frankl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied der Sehnsucht",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "fjw259e60ifm3ie",
+          "source_id": "az9vlrd56gz4ris"
+        }
+      ],
+      "source_id": "2nje803q7vnahf6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "Wie schlug das Herz, vor Freude tief beweget / Als meinem Ohre ward die frohe Kunde,",
+      "language": [],
+      "musenalm_id": 113915,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An meinen Freund den Professor / J. N. Deinhardstein, / als er von Sr. Majestät zum Vicedirector des / K.K. Hofburgtheaters ernannt wurde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. F. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An meinen Freund den Professor / J. N. Deinhardstein, / als er von Sr. Majestät zum Vicedirector des / K.K. Hofburgtheaters ernannt wurde",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "y96cmgz6prczek9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "Sagt welcher Leiche folgt / Der Zug? Gebt mir es kund!",
+      "language": [],
+      "musenalm_id": 113916,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Treue Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. M. Koch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Treue Liebe",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "78j2fkuglc53kca"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "Im hochgeraumen, grüngesäulten Saale / Auf goldstoffvollem Stufenthrone sitzt / Der Kaiser, und das Steingeschmeide blitzt,",
+      "language": [],
+      "musenalm_id": 113917,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Bild / Seiner Majestät des Kaisers, / gemahlt von Friedrich Amerling. / Betrachtet von Friedrich Reil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Reil",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Bild / Seiner Majestät des Kaisers, / gemahlt von Friedrich Amerling. / Betrachtet von Friedrich Reil",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "iy0f9gplf8lpfrd",
+          "source_id": "5zwcyeygg906edb"
+        }
+      ],
+      "source_id": "ss93y28pzy6pp0t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Drey Dinge sind es nur im Leben, / Die aller Andern Triebrad sind;",
+      "language": [],
+      "musenalm_id": 113918,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gold. - Liebe. - Ehre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herzenskron",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gold. - Liebe. - Ehre",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "khyam8fk3vd0fzb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "54",
+      "incipit_statement": "Oftmahls am stillen Abend / Erhob zum Sternenflor / Im seelig trunk'nem Anschaun / Ich meinen Blick empor.",
+      "language": [],
+      "musenalm_id": 113919,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sternenwelt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Carl Buël",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sternenwelt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "5pw6r05fe1rfici"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.827Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Das Loos, im Reiche der Natur, / Der Tod, macht mich nicht beben;",
+      "language": [],
+      "musenalm_id": 113920,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In eine Stammbuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herzenskron",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In eine Stammbuch",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "x7bf3az7snu4dto"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.828Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113921,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CAROLINE ROTHMÜLLER",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Lavosz lit.",
+      "scans": [
+        "alm_2715_113921_9sttna3llm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CAROLINE ROTHMÜLLER",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "1wf3f73wg48jeqc",
+          "source_id": "tjx1mlrr81hg9ex"
+        }
+      ],
+      "source_id": "tx2vspy7g9a58zt"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die Prosabeiträge des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113922,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prosaische Aufsätze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prosaische Aufsätze",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "6vyrfsw0gll180v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Als ein Prosaist in jedem Sinne des Wortes konnte ich nie begreifen, wie die Welt so viel Wesens von den Poeten machen könne,",
+      "language": [],
+      "musenalm_id": 113923,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dichter. / (Traum eines griechischen Philosophen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dichter. / (Traum eines griechischen Philosophen.)",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "kto6c1p757iyftt"
+        }
+      ],
+      "source_id": "sjt0z2ys7tpdxx4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Als ich Minchen zum ersten Mahle ah, überfiel mich eine Art von Betäubung. Mein ganzes Wesen erlitt eine totale Veränderung.",
+      "language": [],
+      "musenalm_id": 113924,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Debut / des modernen Tragöden. / Bruchstück / aus den Papieren eines s. g. schönen Geistes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Hannusch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Debut / des modernen Tragöden. / Bruchstück / aus den Papieren eines s. g. schönen Geistes",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "1gx7z956tuv7ghs",
+          "source_id": "btihnp5p4lud9r1"
+        }
+      ],
+      "source_id": "tvamp06niu7bqlu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.834Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "Zu jener Zeit, als auf Anregung Pius V. Rom, Spanien und Venedig in Waffenbund zur Bekriegung der Türkenmacht getreten waren,",
+      "language": [],
+      "musenalm_id": 113925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fenicia Contarini. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fenicia Contarini. / Erzählung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "e80ish5bsa8r51o"
+        }
+      ],
+      "source_id": "jvi9h8qmly2kw2g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Die Lichter sind verglommen / Der hohen Kaiserburg: / Nur hier und da ein Flämmchen / Strahlt durch den Fenstern durch.",
+      "language": [],
+      "musenalm_id": 113926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachts am k.k. Hofburgplatz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Carl Buël",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachts am k.k. Hofburgplatz",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "nm0app8ncqqtb3t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.835Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JOHANN FENZL / Pantomimenmeister / des k.k. priv. Theaters in der Leopoldstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Lavosz",
+      "scans": [
+        "alm_2715_113927_rjd1qlqkig.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JOHANN FENZL / Pantomimenmeister / des k.k. priv. Theaters in der Leopoldstadt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "1wf3f73wg48jeqc",
+          "source_id": "mragnsmt8tdi6p3"
+        }
+      ],
+      "source_id": "exk73o3l0oqh4y5"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen die szen. Darstellungen des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatische Stücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dramatische Stücke",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "1yknj8wxuhi4qjp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Da hat's nun so eben sechs geschlagen / Und mein Mann bleibt noch immer weg! / Und zu dem allen soll ich immer nichts sagen?",
+      "language": [],
+      "musenalm_id": 113929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bekehrung. / Ein Schwank in einem Aufzuge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arminius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Bekehrung. / Ein Schwank in einem Aufzuge",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "4en4ltu426n9bzw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Nicht die Ferne, / Nicht das Reisen, / Nur die Heimath / Laßt uns preisen!",
+      "language": [],
+      "musenalm_id": 113930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Oliven. / Singspiel in einem Aufzuge / (Aus tausend und einer Nacht für kleine Pri- / vatbühnen eingerichtet.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emil",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Oliven. / Singspiel in einem Aufzuge / (Aus tausend und einer Nacht für kleine Pri- / vatbühnen eingerichtet.)",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.549Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.549Z",
+          "agent": "wzmgymh9fjau9gk",
+          "source_id": "cfp7hlssf0n68us"
+        }
+      ],
+      "source_id": "a7pgqe68118y69t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Kaum tragen mich die Füße mehr, sie sinken / Gebeugt von unheilsschwerem Jahreslauf!",
+      "language": [],
+      "musenalm_id": 113931,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Genien Oesterreichs, / oder: / Die Sylvester-Nacht. / Allegorisches Gelegenheitsspiel mit Tableaux / in Einem Acte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Pabst",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Genien Oesterreichs, / oder: / Die Sylvester-Nacht. / Allegorisches Gelegenheitsspiel mit Tableaux / in Einem Acte",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "cbcsjgdgcw8tew4"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 113933-1139338, Obj 40-45",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113932,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Olla potrida",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Olla potrida",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "01jzpxb5l0qi32g"
+        }
+      ],
+      "source_id": "zn9fbg0oewn6rld"
+    },
+    {
+      "annotation": "Olla potrida (Sammlung INr 113932, Obj 39) Incipit des ersten Beitrags; die Sammlung ist nicht mit ihren Beiträgen aufgenonmmen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.839Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Das Spiel ist wie die Alchymie, man verliert / während man Gold zu machen glaubt.",
+      "language": [],
+      "musenalm_id": 113933,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Aphorismen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Aphorismen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "ri9v6v066mpwcfg"
+        }
+      ],
+      "source_id": "hz6or9avgygib0r"
+    },
+    {
+      "annotation": "Sammlung von 4 Beiträgen INr 113935-11393 8, Obj 42-45 /) Olla potrida (Sammlung INr 113932, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113934,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "el0llus1x0stpuz"
+        }
+      ],
+      "source_id": "lxjgck1qubjt65m"
+    },
+    {
+      "annotation": "II. (Sammlung INr 113934, Obj 41) Olla potrida (Sammlung INr 113932, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Nie hörst die Kranken du, / Du stopf'st ihr Maul mit Erde zu.",
+      "language": [],
+      "musenalm_id": 113935,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen Arzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen Arzt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "ji36xdjvvgbtyto"
+        }
+      ],
+      "source_id": "3iaw4p83p0xrbe4"
+    },
+    {
+      "annotation": "II. (Sammlung INr 113934, Obj 41) Olla potrida (Sammlung INr 113932, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Ich war von Anfang zwar / Für dich recht eingenommen;",
+      "language": [],
+      "musenalm_id": 113936,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erkenntniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erkenntniß",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "kaalyj7s0awngrl"
+        }
+      ],
+      "source_id": "seu59riyxdl1hl7"
+    },
+    {
+      "annotation": "II. (Sammlung INr 113934, Obj 41) Olla potrida (Sammlung INr 113932, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Es wollen hochherrliche Gnaden erlauben / Mit Gunst: / Ich komme mit einigen Werken beladen die Kunst;",
+      "language": [],
+      "musenalm_id": 113937,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dichter und ein Anderer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Dichter und ein Anderer",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "qla56ulqclbc2o1"
+        }
+      ],
+      "source_id": "nd0y9co27mztatt"
+    },
+    {
+      "annotation": "II. (Sammlung INr 113934, Obj 41) Olla potrida (Sammlung INr 113932, Obj 39)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Freunde sagt man, in der Noth / Geben zwanzig auf ein Loth.",
+      "language": [],
+      "musenalm_id": 113938,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.550Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.550Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "95n1glcv4d6fgxk"
+        }
+      ],
+      "source_id": "qnqht345fgrcr3s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113939,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Personal-Stand / des / k.k. pr. Theaters in der Leopoldstadt. / (Nach alphabethischer Ordnung.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Personal-Stand / des / k.k. pr. Theaters in der Leopoldstadt. / (Nach alphabethischer Ordnung.)",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "ushhjow2pmo59b6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113940,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / aller vom 1. November 1831 bis incl. 31. / October 1832 neu aufgeführten oder neu ein- / studierten Stücke und Pantomimen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / aller vom 1. November 1831 bis incl. 31. / October 1832 neu aufgeführten oder neu ein- / studierten Stücke und Pantomimen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "dvho1v3lqc2i47f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113941,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "7qzj0jw6gpw7jqt"
+    },
+    {
+      "annotation": "Umschlaggraphik v. /) Seideneinband mit Goldprägung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 113942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2715_113942_mmwwklspl8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "wceqzfo5zegi2yd"
+    }
   ],
   "agents": [
     {

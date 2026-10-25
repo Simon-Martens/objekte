@@ -48,25 +48,763 @@
   "year": 1825,
   "editor": "",
   "items": [
-    "00asxj5x0ooo928"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.547Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405216",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.547Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "00asxj5x0ooo928"
+    }
   ],
   "contents": [
-    "lp36gqxs6cv4473",
-    "3gqhpf0l5ismbxo",
-    "ick6fmjeik89oes",
-    "9xshrs2iyizqvep",
-    "1nkz749cajri5s9",
-    "ena13gq3h6sep23",
-    "jak486rr02pwamr",
-    "2x2o8py6k6gq1uc",
-    "ho4jwhf25ltk14v",
-    "c6zpcztoas12uv9",
-    "yruh47iy3ozprp5",
-    "r6qtlkyli0kwg08",
-    "eki9t0yjj419512",
-    "ejnoatfgtnyycfp",
-    "ujayguc8azgldxn",
-    "ixjf6etnkcu7wx7"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124290,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1293_124290_9rx5z9gjzc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "lp36gqxs6cv4473"
+    },
+    {
+      "annotation": "Illustration zu »Sympathie« von Lebrun (INr 124105, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.797Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124102,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Horst. / Vor der Hochzeit reden sie so leise, daß man / jeden Augenblick »was beliebt?« fragen muß; aber in der Ehe, da wachsen die Stimmchen. / Sympathie. 2r Act. 1te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1293_124102_x7rg0eobu1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Horst. / Vor der Hochzeit reden sie so leise, daß man / jeden Augenblick »was beliebt?« fragen muß; aber in der Ehe, da wachsen die Stimmchen. / Sympathie. 2r Act. 1te Scene",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "7tserxmknml0ucc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "sy1f2zaooqn6yst"
+        }
+      ],
+      "source_id": "3gqhpf0l5ismbxo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124103,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Angefangen / von / AUG. von KOTZEBUE, / fortgesetzt / von Mehrern. / Drei und Zwanzigster Jahrgang. / Leipzig. / bei P. G. Kummer. / 1825",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1293_124103_2h2hrfedm0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Angefangen / von / AUG. von KOTZEBUE, / fortgesetzt / von Mehrern. / Drei und Zwanzigster Jahrgang. / Leipzig. / bei P. G. Kummer. / 1825",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "ick6fmjeik89oes"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124104,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "9xshrs2iyizqvep"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124102, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Emma, / Emma! / Mein Gott – du bist es? / Hast mich doch erschreckt!",
+      "language": [],
+      "musenalm_id": 124105,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sympathie. / Lustspiel in zwei Acten / von / C. Lebrun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lebrun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sympathie. / Lustspiel in zwei Acten / von / C. Lebrun",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "dlpgk2os95jpmjk",
+          "source_id": "yzl4es9tptyzii2"
+        }
+      ],
+      "source_id": "1nkz749cajri5s9"
+    },
+    {
+      "annotation": "Vrwt. zu »Sympathie« von Lebrun (INr 124105 Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Leser erwarte keine scharfsinnige Untersuchung über die Sympathie, kein ernstes Für und Wider gegen dieselben",
+      "language": [],
+      "musenalm_id": 124106,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "dlpgk2os95jpmjk",
+          "source_id": "nugs7m72beh3sjl"
+        }
+      ],
+      "source_id": "ena13gq3h6sep23"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124108, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.803Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Der Tag wär’ endlich da, und hab’ ich recht ver- / nommen, / So werden ganz gewiß die Freier heute kommen –",
+      "language": [],
+      "musenalm_id": 124107,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Herzensprobe. / Lustspiel in zwei Acten / von / C. A. E. von Ernsthausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. E. von Ernsthausen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Herzensprobe. / Lustspiel in zwei Acten / von / C. A. E. von Ernsthausen",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "ar2d5b6rgf4ux1n",
+          "source_id": "bgs31ur37nkk7by"
+        }
+      ],
+      "source_id": "jak486rr02pwamr"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite (INr 124102, Obj 1); Illustration zu »Die Hezensprobe« von Ernsthausen (INr 124107, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.804Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124108,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Baron Wilden. / Zwei Worte nur! »wir sind am Ziel, in einer Stunde / Bring ich von unsern Glück, dir Theure selbst die Kunde.« / Die Hezensprobe. 14ter Auftritt.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1293_124108_ri5904cgpq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Baron Wilden. / Zwei Worte nur! »wir sind am Ziel, in einer Stunde / Bring ich von unsern Glück, dir Theure selbst die Kunde.« / Die Hezensprobe. 14ter Auftritt.",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "37t83868vgbga0u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "os1thkruja1zkai"
+        }
+      ],
+      "source_id": "2x2o8py6k6gq1uc"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124110, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Wir sind am Ziel – dort ist die alte Burg, / Dieß ist der Garten den man uns beschrieben.",
+      "language": [],
+      "musenalm_id": 124109,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / verschleierte Dame. / Ein romantisches Spiel in einem Act / von / Deinhardstein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Deinhardstein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / verschleierte Dame. / Ein romantisches Spiel in einem Act / von / Deinhardstein",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "y1ldqx10hdpig92",
+          "source_id": "jktzmtv6pzgymuw"
+        }
+      ],
+      "source_id": "ho4jwhf25ltk14v"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite (INr 124102, Obj 1); Illustration zu »Die verschleierte Dame« von Deinhardstein (INr 124109, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124110,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Blanca. / Gelungen ist’s, zu mir ihn zu erheben, / Durch mich kennt er der Liebe wahres Leben, / Und reu’voll seh ich ihn zu meinen Füßen, / Den langen Wahn vielleicht noch heute büßen. / Die verschleierte Dame. 5te Scene.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1293_124110_llwz2j0w7z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Blanca. / Gelungen ist’s, zu mir ihn zu erheben, / Durch mich kennt er der Liebe wahres Leben, / Und reu’voll seh ich ihn zu meinen Füßen, / Den langen Wahn vielleicht noch heute büßen. / Die verschleierte Dame. 5te Scene.",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "lbw92qqn8zr8dkh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "mx9zql0vuo2h7wp"
+        }
+      ],
+      "source_id": "c6zpcztoas12uv9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124113 Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.808Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Willkommen, theurer Freund – willkommen! / Nicht wahr – das nenn’ ich überraschen?",
+      "language": [],
+      "musenalm_id": 124111,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Alte muß! / Ein Lustspiel in zwei Acten / von / C. L. Costenoble",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. L. Costenoble",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Alte muß! / Ein Lustspiel in zwei Acten / von / C. L. Costenoble",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "9s5nr8pn295d964",
+          "source_id": "3yhxpwlw4c2hq7x"
+        }
+      ],
+      "source_id": "yruh47iy3ozprp5"
+    },
+    {
+      "annotation": "Vrwt. zu »Der Alte muß!« von Costenoble (INr 124111, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.808Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Die Grundidee dieses Lustspieles ist Eigenthum des Franzosen Gajot de Merville, und schon früher vom verewigten Schröder auf die Hamburger Bühne gebracht.",
+      "language": [],
+      "musenalm_id": 124112,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. L. C.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.732Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.732Z",
+          "agent": "9s5nr8pn295d964",
+          "source_id": "ru1ptzywq50z2nz"
+        }
+      ],
+      "source_id": "r6qtlkyli0kwg08"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite (INr 124102, Obj 1); Illustration zu »Der Alte muß!« von Costenoble (INr 124111, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124113,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Karoline. / Ich schweige zur rechten Zeit, aber ich rede / nicht zu rechten Zeit, Verstanden? / Der Alte muß. 17ter Auftritt.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1293_124113_2otu720uzu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Karoline. / Ich schweige zur rechten Zeit, aber ich rede / nicht zu rechten Zeit, Verstanden? / Der Alte muß. 17ter Auftritt.",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.733Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "5t703uwvnpbcczt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.733Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "jb9rh9m2e2lb2l9"
+        }
+      ],
+      "source_id": "eki9t0yjj419512"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 124115, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Sie meinen also, daß es glücken / werde? / So wahr ich Walter heiße! / Aber bedenken Sie – / Hier ist nichts zu bedenken!",
+      "language": [],
+      "musenalm_id": 124114,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwärmer, Sansfaçon / und Gleichgültiger. / Original-Lustspiel in einem Act / von / Ludwig Halirsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Halirsch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwärmer, Sansfaçon / und Gleichgültiger. / Original-Lustspiel in einem Act / von / Ludwig Halirsch",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.733Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.733Z",
+          "agent": "98q4i55rpu2zkyi",
+          "source_id": "3cca44sqhh4udh0"
+        }
+      ],
+      "source_id": "ejnoatfgtnyycfp"
+    },
+    {
+      "annotation": "# Bez. am ersten Blatt der Suite (INr 124102, Obj 1); Illustration zu »Der Alte muß!« von Costenoble (INr 124114, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124115,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Brandeis. / Ha ha ha! beginnt das Lustspiel – die Rollen / sind einstudiert – der Vorhang fliegt auf, und ich / schlüpfe ins Souffleurloch. / Schwärmer, Sansfaçon. 5te Scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1293_124115_0eq68gvll7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Brandeis. / Ha ha ha! beginnt das Lustspiel – die Rollen / sind einstudiert – der Vorhang fliegt auf, und ich / schlüpfe ins Souffleurloch. / Schwärmer, Sansfaçon. 5te Scene",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.785Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.785Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "n5toboy7oekzzzh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.785Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.785Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "nu3ett4qemyuy9a"
+        }
+      ],
+      "source_id": "ujayguc8azgldxn"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.991Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124291,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1293_124291_29ku0ih0hy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1825,
+      "editor": "",
+      "agents": [],
+      "source_id": "ixjf6etnkcu7wx7"
+    }
   ],
   "agents": [
     {

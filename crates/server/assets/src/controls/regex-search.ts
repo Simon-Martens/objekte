@@ -11,11 +11,12 @@ export function installSearchControls(document: Document, validatePattern: Patte
     return value;
   }
   function fields(form: HTMLFormElement) {
+    const input = form.querySelector<HTMLInputElement>('[data-search-query]')!;
     return {
-      input: form.querySelector<HTMLInputElement>('input[name="q"]')!,
-      mode: form.querySelector<HTMLInputElement>('input[name="regex"]')!,
-      matchCase: form.querySelector<HTMLInputElement>('input[name="case_sensitive"]')!,
-      error: form.closest('.table-panel')?.querySelector<HTMLElement>('#search-pattern-error'),
+      input,
+      mode: form.querySelector<HTMLInputElement>('[data-search-regex]')!,
+      matchCase: form.querySelector<HTMLInputElement>('[data-search-case]')!,
+      error: document.getElementById(input.getAttribute('aria-describedby') ?? ''),
     };
   }
   function key(form: HTMLFormElement): string {
@@ -55,7 +56,7 @@ export function installSearchControls(document: Document, validatePattern: Patte
   }
   document.addEventListener('input', event => {
     const target = event.target;
-    if (!(target instanceof HTMLInputElement) || target.name !== 'q') return;
+    if (!(target instanceof HTMLInputElement) || !target.hasAttribute('data-search-query')) return;
     const form = target.closest<HTMLFormElement>('form[data-regex-search]');
     if (!form) return;
     const current = state(form);

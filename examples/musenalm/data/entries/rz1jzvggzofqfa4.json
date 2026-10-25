@@ -48,28 +48,869 @@
   "year": 1842,
   "editor": "",
   "items": [
-    "3540i96pwfl4iwp"
+    {
+      "annotation": "1828-1849.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.700Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108672",
+      "location": "105Q07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.700Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3540i96pwfl4iwp"
+    }
   ],
   "contents": [
-    "rc6rjasnq91vyt8",
-    "kkvgry722e1cvh2",
-    "mdn5kt6ojjen5up",
-    "yyadqy2fwic5p4d",
-    "s9q67ll0opppmx6",
-    "io934rgbaa61ton",
-    "vb0w185998zunqx",
-    "embtfl3gao3iwx1",
-    "2nlivjq9dd2veow",
-    "unc333b36te307i",
-    "b4k0e5da2dp1c9m",
-    "61p0naqpeack6mw",
-    "p56kk0ohyimg0be",
-    "kia02xjmong3gb6",
-    "d7beqz5gf2flv92",
-    "xi9he94eaz2l783",
-    "zrepc7bwbpi553s",
-    "hmdn8i7wreh3rie",
-    "ytj7byudendyw8m"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111026,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3478_111026_fhe6spcg4z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "rc6rjasnq91vyt8"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111027,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Xarifa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fanny Corbeaux pinx. H. Cook sculp.",
+      "scans": [
+        "alm_3478_111027_gds8eupm47.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Xarifa",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.235Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.235Z",
+          "agent": "li9bs4mqvtf7drh",
+          "source_id": "i39ihwk741wqzwi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.235Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.235Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "t5e63tmmbocutfb"
+        }
+      ],
+      "source_id": "kkvgry722e1cvh2"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111028,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN. / 1842. / Leipzig, Baumgaertner's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Meyer sc.",
+      "scans": [
+        "alm_3478_111028_5cjcebob8y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN. / 1842. / Leipzig, Baumgaertner's Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.235Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.235Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "42bmkgf5826cdly"
+        }
+      ],
+      "source_id": "mdn5kt6ojjen5up"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111029,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1842. / Von / Bernd von Guseck. / Funfzehnter Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3478_111029_j39i3vihx5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1842. / Von / Bernd von Guseck. / Funfzehnter Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "yyadqy2fwic5p4d"
+    },
+    {
+      "annotation": "einleitendes Gedicht des neuen Herausgebers Bernd von Guseck;",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Des alten Meisters Harfe lehnt verklungen / Am Hügel, wo er barg sein müdes Haupt, / Nachdem sein Lied so manchen Schmerz besungen,",
+      "language": [],
+      "musenalm_id": 111030,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des alten Meisters Harfe lehnt verklungen / Am Hügel, wo er barg sein müdes Haupt, / Nachdem sein Lied so manchen Schmerz besungen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "s9q67ll0opppmx6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111031,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "io934rgbaa61ton"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "vb0w185998zunqx"
+    },
+    {
+      "annotation": "s. Gedicht INr 111034, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111033,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzensfrage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt v. Amerling Druck v. Zehl in Lpz. Stahlst. v. I. Krepp",
+      "scans": [
+        "alm_3478_111033_e8j0shvadc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herzensfrage",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.236Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.236Z",
+          "agent": "eano5qvjrpf1wwx",
+          "source_id": "arfcfb3mptj9dfr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.236Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.236Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "sd28an2a9xakfm3"
+        }
+      ],
+      "source_id": "embtfl3gao3iwx1"
+    },
+    {
+      "annotation": "Anm. am Objekt: Hierzu die Abbidung als artistische Zugabe der Verlagshandlung /) s. Graphik INr 111033, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Lieblich klingt das Lied zur Laute, / Das von Deiner Lippe fließt!",
+      "language": [],
+      "musenalm_id": 111034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzensfrage",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herzensfrage",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.236Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.236Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "834ytk7o1xheinm"
+        }
+      ],
+      "source_id": "2nlivjq9dd2veow"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 111036, 111037; Obj 11, 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.316Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Zu den rothen Lichtern der aufgegebeben Sonne flammten die Berge. Glanz und Fülle drohen, wogendes Blätterspiel und blauer Himmel -",
+      "language": [],
+      "musenalm_id": 111035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwert und Rose",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schwert und Rose",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.369Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.369Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "c5lz5lntcwmxzl0"
+        }
+      ],
+      "source_id": "unc333b36te307i"
+    },
+    {
+      "annotation": "Illustration zu »Schwert und Rose« von Bernd von Guseck d.i. C. G. von Berneck INr 111035, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.317Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Retzsch del. C. Kotterba sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. C. Kotterba sc.",
+      "scans": [
+        "alm_3478_111036_qybr5bghlw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.370Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.370Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "e5wenbcw753s3fd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.370Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.370Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "msvsng0i4vn4oca"
+        }
+      ],
+      "source_id": "b4k0e5da2dp1c9m"
+    },
+    {
+      "annotation": "Illustration zu »Schwert und Rose« von Bernd von Guseck d.i. C. G. von Berneck INr 111035, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.346Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theodora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fanny Corbeaux pinx. H. Cook sculp.",
+      "scans": [
+        "alm_3478_111037_y6zlihgutb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Theodora",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "li9bs4mqvtf7drh",
+          "source_id": "9hakntuxtuuzivc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "x4wr3clisfzne16",
+          "source_id": "px5xmni6y808n8p"
+        }
+      ],
+      "source_id": "61p0naqpeack6mw"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 111039, 111040,; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "In den Vorhügeln des Donnersberges, da, wo er die Grafschaft Falkenstein von Leiningen scheidet, liegt ein kleines Thal,",
+      "language": [],
+      "musenalm_id": 111038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Wildfangrecht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Wildfangrecht",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "1xm9lckru098fyr"
+        }
+      ],
+      "source_id": "p56kk0ohyimg0be"
+    },
+    {
+      "annotation": "Illustration zu »Das Wildfangrecht« von Bernd von Guseck d.i. C. G. von Berneck INr 111035, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Stahlstich v. M. Hofmann)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. M. Hofmann",
+      "scans": [
+        "alm_3478_111039_vsuqpt16wv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "uqqmk039a7eh0sj"
+        }
+      ],
+      "source_id": "kia02xjmong3gb6"
+    },
+    {
+      "annotation": "Illustration zu »Das Wildfangrecht« von Bernd von Guseck d.i. C. G. von Berneck INr 111035, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Robert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch. Stahlstich von C. Mahlknecht in Wien",
+      "scans": [
+        "alm_3478_111040_y28yv36h87.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Robert",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "6vlbllbotwkcct9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "jhkl7v72ew1znef"
+        }
+      ],
+      "source_id": "d7beqz5gf2flv92"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 111042, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "An der gothischen Spitzbogensäule, welche unter dem Namen: Spinnerin am Kreuz, bekannt ist und Jedem, der die Kaiserstadt Wien besucht, den unvergeßlichsten Anblick bietet,",
+      "language": [],
+      "musenalm_id": 111041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schleier der Zukunft",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schleier der Zukunft",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "l1bbbc49mniq8zh"
+        }
+      ],
+      "source_id": "xi9he94eaz2l783"
+    },
+    {
+      "annotation": "Illustration zu »Der Schleier der Zukunft« von Bernd von Guseck d.i. C. G. von Berneck INr 111041, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.354Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "416",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bianca",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Ender gez. Stahlst. C. Mahlknecht in Wien",
+      "scans": [
+        "alm_3478_111042_mywfleyxs8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bianca",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "z8rsr5de0jmn33o",
+          "source_id": "bf9yzy4ngmf3cip"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.372Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.372Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "k86bjw24unqga8z"
+        }
+      ],
+      "source_id": "zrepc7bwbpi553s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "464",
+      "incipit_statement": "Leipzig, Druck von Hirschfeld",
+      "language": [],
+      "musenalm_id": 111043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig, Druck von Hirschfeld…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "hmdn8i7wreh3rie"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111044,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3478_111044_390jpop1o4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1842,
+      "editor": "",
+      "agents": [],
+      "source_id": "ytj7byudendyw8m"
+    }
   ],
   "agents": [
     {

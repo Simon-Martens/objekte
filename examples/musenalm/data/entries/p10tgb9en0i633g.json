@@ -48,69 +48,2369 @@
   "year": 1848,
   "editor": "",
   "items": [
-    "cfh1cjyj5ezvqgu"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.721Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407363",
+      "location": "105A03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.721Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cfh1cjyj5ezvqgu"
+    }
   ],
   "contents": [
-    "gmvnn9wfzzr36ud",
-    "osv2qkvtbr4gb7k",
-    "ktp2kaqffgbw990",
-    "weztp3dqy1oxdwn",
-    "90nfc9gc9thf9lz",
-    "69k60wy6g71nhtc",
-    "m2hekuw9p9oriyr",
-    "6gcc4hp1fvfu5ln",
-    "o7fd5kg2ql2y7n6",
-    "0s7gq007wsqya8f",
-    "r2v8k3em6w8uz0k",
-    "5zlaneemhnstyx6",
-    "trvzde77ocrs1a6",
-    "m24bt1x31jzffhp",
-    "kr05lkb8gk8i5df",
-    "u6rx4m2njpqt3am",
-    "ew97t7h92lv1t8j",
-    "799t54d0rw7h5ha",
-    "be7la8dc5n0iazu",
-    "rwi2prdf4mz13x6",
-    "m3y271b3gwzxgvm",
-    "9g4sy2a9mzfpt9q",
-    "4vpu4nmb4s988t3",
-    "pkf7gs2yleov4xt",
-    "ftvmg74mwerppnk",
-    "n9gtto3tsa9jmg5",
-    "s0qdumlg3i33crt",
-    "78koyoabmfxjbl9",
-    "mj4ssnygt8xl6ly",
-    "gp4d72q90zpmttk",
-    "0d0jb2nh2r4m1nm",
-    "2cbkigusm3pps6v",
-    "09psfxkpfp5pqui",
-    "jahcm59xns1kipn",
-    "a3nkjp36mftoqls",
-    "sh8v5sbvab8w8po",
-    "x491sw226czqis6",
-    "w4nylg21f2t8p2r",
-    "rg6xhqb0awegt6y",
-    "z3ayxjpks37x7wl",
-    "if01av921birduf",
-    "d8moot9u1o79qfd",
-    "cimrznbueluwg9l",
-    "j41ido86j1kje4g",
-    "spul6a51b88q891",
-    "ddm871khenw6as2",
-    "ocoj7ifpx47cajo",
-    "rv41bcd8erq2b0h",
-    "5s49fxifiqd4n61",
-    "nf045y86jgp5l9s",
-    "my367zklivr3el4",
-    "yb7omjorfpur9s8",
-    "j9xpq6zy2gnm5zk",
-    "vkj59l1z3zdb3ht",
-    "21rjfukae128foi",
-    "hfwb63s3v63xg9m",
-    "hmo4zfj3slfdrxs",
-    "bx8rrhtsremjub0",
-    "qtcxixzk13khddp",
-    "21scw9zkiw9heu4"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114801,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3836_114801_01ww5nnuym.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "gmvnn9wfzzr36ud"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114802,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1848",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3836_114802_zhpno4f9z9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1848",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "osv2qkvtbr4gb7k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore / auf das Jahr / 1848. / IV. Jahrgang. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3836_114803_lu9fm7ph87.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore / auf das Jahr / 1848. / IV. Jahrgang. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "ktp2kaqffgbw990"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 8 Tabellen INr 114805-114812, Obj 5-12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Statistische Verzeichnisse / des / kaiserl. königl. Hofoperntheaters / nächst dem Kärntnerthore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Statistische Verzeichnisse / des / kaiserl. königl. Hofoperntheaters / nächst dem Kärntnerthore",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "weztp3dqy1oxdwn"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des / Administrations-Kanzlei- und Kassa- Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des / Administrations-Kanzlei- und Kassa- Personales",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "90nfc9gc9thf9lz"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Opern-Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Opern-Personales",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "69k60wy6g71nhtc"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Chor-Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Chor-Personales",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "m2hekuw9p9oriyr"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.184Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Orchester-Personales / (In der Ordnung der Instrumente.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Orchester-Personales / (In der Ordnung der Instrumente.)",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "6gcc4hp1fvfu5ln"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Ballet-Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Ballet-Personales",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "o7fd5kg2ql2y7n6"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / des Dekorations-, Beleuchtungs- und Garderobe- / Personales",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / des Dekorations-, Beleuchtungs- und Garderobe- / Personales",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "0s7gq007wsqya8f"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / anderwärtig beschäftigter Personen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / anderwärtig beschäftigter Personen",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "r2v8k3em6w8uz0k"
+    },
+    {
+      "annotation": "Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärntnerthore (Sammlung INr 114804, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der italienischen Opern-Gesellschaft / in der Stagione vom 1. April bis Ende Juni 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der italienischen Opern-Gesellschaft / in der Stagione vom 1. April bis Ende Juni 1847",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "5zlaneemhnstyx6"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt Sammlung von 2 Tabellen darin 2 Graphiken INr 114814-114817, Obj 14-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / der / deutschen und italienischen / Opern und Ballete / im kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / der / deutschen und italienischen / Opern und Ballete / im kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "trvzde77ocrs1a6"
+    },
+    {
+      "annotation": "Illustration zu »Faust« von J. W. v. Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FAUST",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Höfel del. J. Sürch sc.",
+      "scans": [
+        "alm_3836_114814_7jxm7pz9mi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FAUST",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.541Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.541Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "75sy5831tsoif1z"
+        }
+      ],
+      "source_id": "m24bt1x31jzffhp"
+    },
+    {
+      "annotation": "Uebersicht der deutschen und italienische Opern und Ballete im kaiserl. königl. Hofoperntheater nächst dem Kärntnerthore (Sammlung INr 114813, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der deutschen Opern-Vorstellungen / vom 1. Juli 1846 bis Ende März 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der deutschen Opern-Vorstellungen / vom 1. Juli 1846 bis Ende März 1847",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "kr05lkb8gk8i5df"
+    },
+    {
+      "annotation": "Illustration zu »Ernani«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.780Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114816,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ERNANAI",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Höfel del. J. Sürch sc.",
+      "scans": [
+        "alm_3836_114816_qfqp9f9hm0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ERNANAI",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.541Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.541Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "l9dicdzeji5viww"
+        }
+      ],
+      "source_id": "u6rx4m2njpqt3am"
+    },
+    {
+      "annotation": "Uebersicht der deutschen und italienische Opern und Ballete im kaiserl. königl. Hofoperntheater nächst dem Kärntnerthore (Sammlung INr 114813, Obj 13)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der italienischen Opern-Vorstellungen / vom 1. April bis Ende Juni 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der italienischen Opern-Vorstellungen / vom 1. April bis Ende Juni 1846",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "ew97t7h92lv1t8j"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten darin eine Graphik INr 114819-114823, Obj 19-23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "41",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114818,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vier Lieder. / (Zur Komposition geeignet.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vier Lieder. / (Zur Komposition geeignet.)",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.541Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.541Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "ss959f6yk6a228i"
+        }
+      ],
+      "source_id": "799t54d0rw7h5ha"
+    },
+    {
+      "annotation": "Vier Lieder (SammlungINr 114818, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Ein Ritter kam gezogen / Von Palästinas Strand, / Es trugen sanfte Wogen / Ihn heim in's Vaterland.",
+      "language": [],
+      "musenalm_id": 114819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ueberraschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ueberraschung",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.541Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.541Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "g4sea68um14dj3j"
+        }
+      ],
+      "source_id": "be7la8dc5n0iazu"
+    },
+    {
+      "annotation": "Vier Lieder (SammlungINr 114818, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Es tönet der Trompetenstoß, / Es winkt des Sieges Preis. -",
+      "language": [],
+      "musenalm_id": 114820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Turnier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Turnier",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.381Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "vntwuby8j3tgexn"
+        }
+      ],
+      "source_id": "rwi2prdf4mz13x6"
+    },
+    {
+      "annotation": "Vier Lieder (SammlungINr 114818, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Guitarren schwirren, / Die Fenster klirren, / Und es hall't durch die Nacht",
+      "language": [],
+      "musenalm_id": 114821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ständchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ständchen",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.381Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "qyo69bc2k1kdv8h"
+        }
+      ],
+      "source_id": "m3y271b3gwzxgvm"
+    },
+    {
+      "annotation": "Illustration zu »Robert der Teufel«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROBERT DER TEUFEL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Höfel del. J. Sürch sc.",
+      "scans": [
+        "alm_3836_114822_uu19uzk0wz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROBERT DER TEUFEL",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.381Z",
+          "agent": "y1qct7tl0hidcy2",
+          "source_id": "4zz9fxgqxv4o3rh"
+        }
+      ],
+      "source_id": "9g4sy2a9mzfpt9q"
+    },
+    {
+      "annotation": "Vier Lieder (SammlungINr 114818, Obj 18)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Es singt der Sänger wohlgemuth, / Der wundersüßen Minne Preis,",
+      "language": [],
+      "musenalm_id": 114823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Troubadour",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Freiherr von Braun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Troubadour",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.381Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.381Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "u28pnc95eeet2o3"
+        }
+      ],
+      "source_id": "4vpu4nmb4s988t3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Da stehen wir hier / in des Hasens Revier / Und singen und singen / Und lassen's erklingen",
+      "language": [],
+      "musenalm_id": 114824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dom Fabian. / Große heroische Operette in drei kleinen Akten. / Aus dem Französischen sehr frei übertragen ins Deutsche, welches Jedermann spanisch vorkommen wird / Von / Franz Fitzinger. / Musik von der Hand von Niemand",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dom Fabian. / Große heroische Operette in drei kleinen Akten. / Aus dem Französischen sehr frei übertragen ins Deutsche, welches Jedermann spanisch vorkommen wird / Von / Franz Fitzinger. / Musik von der Hand von Niemand",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.382Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.382Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "wptyoptwhvx24p9"
+        }
+      ],
+      "source_id": "pkf7gs2yleov4xt"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetische und musikalische Beiträge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poetische und musikalische Beiträge",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "ftvmg74mwerppnk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Entfernt vom Weltgetriebe ein greiser Dichter lebt / Im ländlich stillen Hause; des Friedens Geist umschwebt / Ringsum die weite Gegend, begränzt von Bergesblau,",
+      "language": [],
+      "musenalm_id": 114826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Dichter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Dichter",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9gtto3tsa9jmg5"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 114828-114832, Obj 28-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedhof-Blumen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedhof-Blumen",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "s0qdumlg3i33crt"
+    },
+    {
+      "annotation": "Friedhof-Blumen (Sammlung INr 114827, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Die Gräber all' sind Gartenerde, / Und üppig wächst die Pflanze d'raus",
+      "language": [],
+      "musenalm_id": 114828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / An Maria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / An Maria",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "78koyoabmfxjbl9"
+    },
+    {
+      "annotation": "Friedhof-Blumen (Sammlung INr 114827, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Wohl könnt' ich mahnen Dich an manche Stunde, / An manchen wonnevollen Augenblick,",
+      "language": [],
+      "musenalm_id": 114829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Mahnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Mahnung",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "mj4ssnygt8xl6ly"
+    },
+    {
+      "annotation": "Friedhof-Blumen (Sammlung INr 114827, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Wärst Du doch todt! - ich würd' es leichter tragen, / Als daß Du unter Lebenden bist,",
+      "language": [],
+      "musenalm_id": 114830,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Wärst du todt!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Wärst du todt!",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "gp4d72q90zpmttk"
+    },
+    {
+      "annotation": "Friedhof-Blumen (Sammlung INr 114827, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Krämer! einen guten Handel / Machst mit deiner Werbung Du!",
+      "language": [],
+      "musenalm_id": 114831,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Krämer-Werbund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Krämer-Werbund",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "0d0jb2nh2r4m1nm"
+    },
+    {
+      "annotation": "Friedhof-Blumen (Sammlung INr 114827, Obj 27)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "95",
+      "incipit_statement": "Ermanne Dich! und singe nicht die Lieder, / Durch Geistesschwung und Musengunst erzeugt,",
+      "language": [],
+      "musenalm_id": 114832,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Ermannung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Kaiser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Ermannung",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "2cbkigusm3pps6v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Indem ich sprech', ergreift mich banges Sehnen, / Es zieht mich fort, es drängt mich in die Weite,",
+      "language": [],
+      "musenalm_id": 114833,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coeur-Dame",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. G. Saphir",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Coeur-Dame",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "31iymrx6tazubtp",
+          "source_id": "grywyg6vlb9d27t"
+        }
+      ],
+      "source_id": "09psfxkpfp5pqui"
+    },
+    {
+      "annotation": "Einleitung zu folgende szen. Darstellung INr 114835, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "F. Ponsard's, des Dichters der Lucretia, zweites Werk: Agnes von Meran, vor der Aufführung so vielfach besprochen, nach derselben so verschieden beurtheilt.",
+      "language": [],
+      "musenalm_id": 114834,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Interdict. / (Agnès de Méranie. Tagédie en cinq actes et en vers. Par / F. Ponsard. Acte II. Scene 1.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Interdict. / (Agnès de Méranie. Tagédie en cinq actes et en vers. Par / F. Ponsard. Acte II. Scene 1.)",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "7phwvisd23p0q6w"
+        }
+      ],
+      "source_id": "jahcm59xns1kipn"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 114834, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Hm! - Sonderbar! / Ach! - Sagt mir doch, Herr Ritter, / Ist dieses öde Schloß hier wohl des Königs?",
+      "language": [],
+      "musenalm_id": 114835,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Interdict. / (Agnès de Méranie. Tagédie en cinq actes et en vers. Par / F. Ponsard. Acte II. Scene 1.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Ponsard [übers.] J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Interdict. / (Agnès de Méranie. Tagédie en cinq actes et en vers. Par / F. Ponsard. Acte II. Scene 1.)",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "5d1zpk7qydk2va3"
+        }
+      ],
+      "source_id": "a3nkjp36mftoqls"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Ein Morgenroth sei deutscher Kunst gegeben! / Riefst Du erglüht, und setztest kühn daran, / Mit regem Muth, Dein thatenreiches Leben,",
+      "language": [],
+      "musenalm_id": 114836,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lessing",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Löwe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lessing",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "6opc5xq453lnr5a",
+          "source_id": "qyt88euzht0q9xn"
+        }
+      ],
+      "source_id": "sh8v5sbvab8w8po"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Es ist umsonst, o nimmer kann ich künden / Wie ich es will, was fest mich hält umschlungen,",
+      "language": [],
+      "musenalm_id": 114837,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meine Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Löwe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meine Klage",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "6opc5xq453lnr5a",
+          "source_id": "5yp5d33uo6jsk60"
+        }
+      ],
+      "source_id": "x491sw226czqis6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "Hoch oben auf der Bergeshalde / Gelehnt am schroffen Felsgestein,",
+      "language": [],
+      "musenalm_id": 114838,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sylvester-Nacht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Löwe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sylvester-Nacht",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "6opc5xq453lnr5a",
+          "source_id": "ebmelifcf93a9o5"
+        }
+      ],
+      "source_id": "w4nylg21f2t8p2r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.793Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Dem Feind, der sichtbar ist, in's Antlitz sehen, / Und sei's der Tod, der knöcherne Gesell,",
+      "language": [],
+      "musenalm_id": 114839,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gespenstersucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gespenstersucht",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "rg6xhqb0awegt6y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Zur Zeit, wenn Alles schlummern geht, / Nur Gott nicht und mein Lieben;",
+      "language": [],
+      "musenalm_id": 114840,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtgebet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levitschnigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtgebet",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "z3ayxjpks37x7wl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Auf meinen Fährten sah ich einst ein Weib, / Geschmückt mit allem, was ein Schmuck der Frau'n,",
+      "language": [],
+      "musenalm_id": 114841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Frauenlos",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Frauenlos",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "lwpsj4vhd6lm6pv"
+        }
+      ],
+      "source_id": "if01av921birduf"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 114843-114847, Obj 43-47 /) Der Sammlung vorangestellt: Lern's erkennen - lern's betrachten, / Dieses Spiel von Lust und Schmerz. [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114842,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Metamorphosen. / Bilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Metamorphosen. / Bilder",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "89coo34zkemej6n"
+        }
+      ],
+      "source_id": "d8moot9u1o79qfd"
+    },
+    {
+      "annotation": "Metatmorphosen. Bilder (Sammlung INr 114842, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Lachend in des Segens Fülle / Prangt die sommerliche Flur, / Und es löst der Blüthen Hülle / Heiß'rer Sonne die Natur,",
+      "language": [],
+      "musenalm_id": 114843,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "xx5zmwq3tlg088e"
+        }
+      ],
+      "source_id": "cimrznbueluwg9l"
+    },
+    {
+      "annotation": "Metatmorphosen. Bilder (Sammlung INr 114842, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Einsam in der Dämm'rung Stunde / Saßen wir in dem Gemache,",
+      "language": [],
+      "musenalm_id": 114844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "bbzuyeuq3kdjjzv"
+        }
+      ],
+      "source_id": "j41ido86j1kje4g"
+    },
+    {
+      "annotation": "Metatmorphosen. Bilder (Sammlung INr 114842, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Auf der Königsburg erschallt es / Durch die Nacht, wie Festesklang,",
+      "language": [],
+      "musenalm_id": 114845,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "exhjlcwih0j711n"
+        }
+      ],
+      "source_id": "spul6a51b88q891"
+    },
+    {
+      "annotation": "Metatmorphosen. Bilder (Sammlung INr 114842, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Still verklingt das Grabgeläute, / Eingesenkt war schon der Sarg,",
+      "language": [],
+      "musenalm_id": 114846,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "x199apy0y2r68rm"
+        }
+      ],
+      "source_id": "ddm871khenw6as2"
+    },
+    {
+      "annotation": "Metatmorphosen. Bilder (Sammlung INr 114842, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Stöhnend ob der Last der Flotte, / Wälzt sich wild das bange Meer;",
+      "language": [],
+      "musenalm_id": 114847,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "O. Prechtler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.523Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.523Z",
+          "agent": "cvs1lz6mp4pj8h4",
+          "source_id": "yz5imags23mog6j"
+        }
+      ],
+      "source_id": "ocoj7ifpx47cajo"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 114849, 114850; Obj 49, 50",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114848,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "rv41bcd8erq2b0h"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 114848, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Ein Sänger lag zu sterben, / Sein Antlitz bleich und fahl, / Es streute Fliederblüthen / Auf ihn des Mondes Strahl.",
+      "language": [],
+      "musenalm_id": 114849,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der sterbende Sänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der sterbende Sänger",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "5s49fxifiqd4n61"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 114848, Obj 48)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Verlassen in düsterer Stube / Ein schönes Weib liegt krank,",
+      "language": [],
+      "musenalm_id": 114850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Leben und Tod",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. August Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Leben und Tod",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "nf045y86jgp5l9s"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 114852, 114853; Obj 52, 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.557Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "y69t75rg0h1r39a"
+        }
+      ],
+      "source_id": "my367zklivr3el4"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 114851, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Räder brausen, / Spindeln sausen, / Schrauben knarren, / Schaufeln scharren,",
+      "language": [],
+      "musenalm_id": 114852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ein Kinderleben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ein Kinderleben",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.488Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "efq2ytf152kbguq"
+        }
+      ],
+      "source_id": "yb7omjorfpur9s8"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 114851, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Kling! kling! / Lockt euch nicht das Tambourin? / Schaut die junge Tänzerin, / Braun so Nacken, Arm als Beine,",
+      "language": [],
+      "musenalm_id": 114853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Zigeunertanz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Zigeunertanz",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.488Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "vnxkqdxr8y53f25"
+        }
+      ],
+      "source_id": "j9xpq6zy2gnm5zk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Zurück, ihr Herrn, ich sag' euch laßt mich los! / Es gilt den Kopf, mein sprödes Mägdlein nicht, / Den Lippen gilt's",
+      "language": [],
+      "musenalm_id": 114854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruchstücke / aus dem dramatischen Gedichte: / Rudolph von Habsburg. / 1. Akt, 1.-4. Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruchstücke / aus dem dramatischen Gedichte: / Rudolph von Habsburg. / 1. Akt, 1.-4. Scene",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.488Z",
+          "agent": "5vrpezk8s9sgvqz",
+          "source_id": "b9fnx8d3v82ez0j"
+        }
+      ],
+      "source_id": "vkj59l1z3zdb3ht"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.105Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114855,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "21rjfukae128foi"
+    },
+    {
+      "annotation": "Photos 114856,01; 114856,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.106Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Nach der Heimath möcht' ich wieder, in der Heimath möcht' ich seyn,",
+      "language": [],
+      "musenalm_id": 114856,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HEIMWEH",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Parish Avars",
+      "scans": [
+        "alm_3836_114856_01_zx6koqldfe.jpg",
+        "alm_3836_114856_02_c8knrcj1ra.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HEIMWEH",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfwb63s3v63xg9m"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Jenny Lind« von A. von Prokesch-Osten /) Photos 114857,01-114857,04",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.113Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Wärst du aus Blumen geboren, mit Strahlen des Himmels gesäugt, ja, dann begriff' ich den Zauber",
+      "language": [],
+      "musenalm_id": 114857,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "JENNY LIND / Gedicht von Prokesch-Osten / Musik von J. Hoven",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Hoven",
+      "scans": [
+        "alm_3836_114857_01_tbe1bzsmej.jpg",
+        "alm_3836_114857_02_sfc2by5dtb.jpg",
+        "alm_3836_114857_03_nfektr1seh.jpg",
+        "alm_3836_114857_04_joulu4zlst.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "JENNY LIND / Gedicht von Prokesch-Osten / Musik von J. Hoven",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "hmo4zfj3slfdrxs"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Wann der Mond in's Fenster scheint« von L. Bowitsch /) Photos 114858,01; 114858,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Wann der Mond in's Fenster scheint, denk' ich, Liebste, dein, wie wir oft gewandelt sind,",
+      "language": [],
+      "musenalm_id": 114858,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "WANN DER MOND IN'S FENSTER SCHEINT. / Gedicht von Lud. Bowitsch. / Musik von Adolf Müller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adolf Müller",
+      "scans": [
+        "alm_3836_114858_01_i7q9syo4pv.jpg",
+        "alm_3836_114858_02_qefir4fzqw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "WANN DER MOND IN'S FENSTER SCHEINT. / Gedicht von Lud. Bowitsch. / Musik von Adolf Müller",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.488Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.488Z",
+          "agent": "1x3wweh7slzeyeq",
+          "source_id": "kahzgncv127xfa1"
+        }
+      ],
+      "source_id": "bx8rrhtsremjub0"
+    },
+    {
+      "annotation": "Photos 114858,01-114858,07",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114859,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ADAGIO",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilh. Reuling, k.k. Hofoperntheater-Kapellmeister",
+      "scans": [
+        "alm_3836_114859_01_n464q4mivw.jpg",
+        "alm_3836_114859_02_vlpqjptue5.jpg",
+        "alm_3836_114859_03_8f25xf18e4.jpg",
+        "alm_3836_114859_04_jbi9k5pyvt.jpg",
+        "alm_3836_114859_05_7zi627ynhc.jpg",
+        "alm_3836_114859_06_r9imnepg7n.jpg",
+        "alm_3836_114859_07_fciydvo1w1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ADAGIO",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.509Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.509Z",
+          "agent": "xtiwvrgc1mzxgw9",
+          "source_id": "ygfdut8zz8v2wa3"
+        }
+      ],
+      "source_id": "qtcxixzk13khddp"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114860,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3836_114860_hjddh4sq1m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2012-06-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "21scw9zkiw9heu4"
+    }
   ],
   "agents": [
     {

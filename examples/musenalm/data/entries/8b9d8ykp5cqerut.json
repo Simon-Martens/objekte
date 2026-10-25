@@ -49,7 +49,26 @@
   "year": 1823,
   "editor": "gpj6tpa1lmk3vpy",
   "items": [
-    "9smhlvhgiogwbj8"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.826Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "412457",
+      "location": "07G06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-30 09:49:44.503Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9smhlvhgiogwbj8"
+    }
   ],
   "contents": [],
   "agents": [

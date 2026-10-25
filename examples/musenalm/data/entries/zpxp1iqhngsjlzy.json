@@ -48,126 +48,5161 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "aju4moozqelhmxw",
-    "m7up2ktft6rt4ao"
+    {
+      "annotation": "$ vermutl. fehlt UG, § Titelgraphik fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.492Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100846",
+      "location": "105F01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.492Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "aju4moozqelhmxw"
+    },
+    {
+      "annotation": "Umschlag, Titelgraphik Die Graphiken in zweitem Exemplar mit varianter Bezeichnung s. Anm an den Objekten",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.492Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "408444",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.492Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "m7up2ktft6rt4ao"
+    }
   ],
   "contents": [
-    "w8ytje5709wxrg8",
-    "n86h7y9qpvlj5ry",
-    "hbyumqmutx5rok1",
-    "ohg7g43mxynstnz",
-    "j9m1y51hgyftx6p",
-    "k1aec33jaopal06",
-    "0oy537rb5lgkeu3",
-    "nfc6qztgmb74g4p",
-    "sjpe1zh1og5aoa4",
-    "stchobpvxeeh0zj",
-    "5h6q6kl6r9ix256",
-    "bb9yz9eewr97oce",
-    "fzhiqn214s6kyvw",
-    "s6bud3giru3dys2",
-    "jkskv7s28vdcrmo",
-    "dszrvekw2d6hltr",
-    "7g4wladmbn9hu3d",
-    "xqnm23n29cji6mv",
-    "b2mshx1ygwuxav4",
-    "3ibx64lclol0xj9",
-    "cbhnzclbft41qwt",
-    "8o7zz060dunr6sm",
-    "lwa3l8v84xoqpsn",
-    "20yj6khwkg6640v",
-    "sra0hghj3yymz2j",
-    "f9k6cv3jz3f04kk",
-    "s7sjsw3s8bc7s4f",
-    "qrj0k1hbnry6vi4",
-    "but87v6dbqy6smw",
-    "aw7yuo4de3nbns3",
-    "4jb6bd571puzqda",
-    "boh9jgsr7l87m2t",
-    "czdlgfidfvq6gbw",
-    "8u72v9b8iwva05o",
-    "4xnr2ebpg7tztx1",
-    "ev5422fzmj93bpo",
-    "8bzve4layrggt9b",
-    "ui600a1zbrhtxxz",
-    "2q7mxx8l6jhohah",
-    "t8d8ph8fouik0oz",
-    "fmx31gbkcy04rna",
-    "y68cu8xo2n7x9ul",
-    "awgji773ccsq6sp",
-    "ub6tpwfxovnk2nr",
-    "j6jcybwp7kd0mep",
-    "gz2pnqf467vtl4j",
-    "408hnc23pl4w5g5",
-    "69muqwtuhb6428t",
-    "o6p335h9p99gghx",
-    "surdpm2l305hpfv",
-    "8tpj8t324p882gd",
-    "evw2drzu5cqm85j",
-    "iir0yi21yn4jz7i",
-    "841bro7h7p2lurh",
-    "4j8iilewckt6329",
-    "wdla8a27kl990xz",
-    "j72vnwtam4bemdp",
-    "n96i74fgzxtg7ao",
-    "nshib182g91524g",
-    "z9qeu9hcgjf7t6u",
-    "a9x7oef0wj51e7b",
-    "at3rbflh232y7fo",
-    "lim5xwi736i8mme",
-    "1dxab2v8dmqta0y",
-    "w2x7g8pwi08m4if",
-    "vk68hjkr2yhyk2v",
-    "h57q1jgoiu07k43",
-    "0hwz6z841ttsw95",
-    "fk8gfl96xxc4pa5",
-    "q8d5l6iqjkw1h5p",
-    "5z755stm3cacr93",
-    "sy7z2jr37bfeuc9",
-    "y2txl1fl1i6pnpn",
-    "ea91t26aimz0ilq",
-    "jnvvomcq9w95d11",
-    "awqy0wcoow7ojnn",
-    "2zv372vmdnn76re",
-    "w54rwi2y4cvadkg",
-    "wkqv75bfffbt691",
-    "olw4esq69xzvcpb",
-    "pgdwndf21l8oroc",
-    "chlwycnxukkpa37",
-    "ku69rl3d7ikcf97",
-    "vl0v73l4fqxqb05",
-    "2kcgfmdy0z3vk63",
-    "u2ws5krg5kgjseu",
-    "k14aure5b3gfcrk",
-    "ceeg1f35uwp5gqg",
-    "cpb0nlyi3lbtliu",
-    "7kqur4aohbxif1y",
-    "jbxb08bepctl4vt",
-    "23inu15uhd1zjf1",
-    "5b8svng5n8eo2b4",
-    "0ox1xlvtjx950k0",
-    "jxmmkhdvrzpg9ws",
-    "xc4yxfuqgm0krf0",
-    "i4xuhr582g8t0md",
-    "6kzhna8wsz1hcgy",
-    "l513y7d1af84cdm",
-    "qhmaecm1cow330v",
-    "v7i3sr0dx09zepf",
-    "dktk7vkyx98z7oh",
-    "7v0dhn8duqr5r7h",
-    "09oc68kxl17dhpp",
-    "gwszuxf2p1z40om",
-    "wy282tv3oz145zc",
-    "6gqsj5o8ttowupk",
-    "9vp5rsxs4f0hsfg",
-    "53aei95fhkqzdzz",
-    "h5t9l3pa1xovd16",
-    "b6m9lqgzrwlh8dx",
-    "wmc9elykmg6pnx3",
-    "qs0e2jjgl4ecq0l",
-    "2xxuxl5aladn2k1",
-    "e8cqv61dvchzuu0",
-    "tj7z2eu16h2asmw"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95272,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_467_95272_zo2l9j9zht.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8ytje5709wxrg8"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 33649, Obj 4 (Graphik aus zweitem Exemplar)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95273,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der verwundete Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen del. C. W. Schenk sculp. Braunschweig",
+      "scans": [
+        "alm_467_95273_vcd8zstbi5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der verwundete Amor",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.483Z",
+          "agent": "8u98l2oorjap7pb",
+          "source_id": "6nme9k4m2t22yi3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.483Z",
+          "agent": "voq5dlml9870uhq",
+          "source_id": "b7ir45lyr6ixthy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.483Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.483Z",
+          "agent": "wn0jpqwykk4f079",
+          "source_id": "ff8ibb1ik0wrrdp"
+        }
+      ],
+      "source_id": "n86h7y9qpvlj5ry"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33646,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Damen / auf das Jahr 1812. / Mit Beiträgen / von / Lafontaine, Pfeffel, Jean / Paul Richter / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_467_33646_12cyhitmp9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Damen / auf das Jahr 1812. / Mit Beiträgen / von / Lafontaine, Pfeffel, Jean / Paul Richter / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "hbyumqmutx5rok1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33647,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ohg7g43mxynstnz"
+    },
+    {
+      "annotation": "Sammlung von 10 Textbezügen zu 9 Graphiken INr 33649-33667, Obj 4-22 und zur Titelgraphik INr 95273, Obj 0,2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33648,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andeutungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andeutungen",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "j9m1y51hgyftx6p"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Titelgraphik INr 95273, Obj 0,2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn es wahr ist, was ein altes Wort sagt, daß ein guter Anfang das halbe Werk macht,",
+      "language": [],
+      "musenalm_id": 33649,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Titelkupfer. / Der liebkosende Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Titelkupfer. / Der liebkosende Amor",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "k1aec33jaopal06"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Graphik INr 33651, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.151Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Auch die alte Kunst hatte ein göttliches Kind. Es ist der von den Amor-Nymphen auf Nysa erzogene Bacchus.",
+      "language": [],
+      "musenalm_id": 33650,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mythologische Kinderszenen. / I. / Die Kindheit des Bacchus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mythologische Kinderszenen. / I. / Die Kindheit des Bacchus",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "0oy537rb5lgkeu3"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33650, Obj 5 /) Graphik in zweitem Exemplar mit varianter Bezeichnung: Riepenhausen del. C. W. Schenk sculp. Braunschweig",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.152Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33651,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kindheit des Bacchus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_467_33651_frvhz1sdfp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Kindheit des Bacchus #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.466Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "tjl2o02zu5wi2b5"
+        }
+      ],
+      "source_id": "nfc6qztgmb74g4p"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33653, Obj 8 /) Graphik in zweitem Exemplar mit varianter Bezeichnung: Riepenhausen del. C. W. Schenk sculp. Braunschweig",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.154Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33652,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bacchus tränkt den Amor #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_467_33652_v6crwr382k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bacchus tränkt den Amor #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "4zddqmjsecuaazd"
+        }
+      ],
+      "source_id": "sjpe1zh1og5aoa4"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Graphik INr 33652, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der alte Reisebeschreiber Pausanias gedenkt eines Amor, den der Bildhauer Tymylus dem Bacchus zugesellt hatte.",
+      "language": [],
+      "musenalm_id": 33653,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mythologische Kinderszenen. / III. / Bacchus tränkt den Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mythologische Kinderszenen. / III. / Bacchus tränkt den Amor",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "stchobpvxeeh0zj"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Graphik INr 33655, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Die Dichter- und Heldensage bei den Griechen hatte besonders sich darin gefallen, die Schrecknisse und Greuelszenen, zu welchen die Mordlust des entmenschten Kriegers oder Tigers herabsinkt,",
+      "language": [],
+      "musenalm_id": 33654,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Sujet aus der griechischen Heldenfa- / bel: Der Tod des Astynax",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Sujet aus der griechischen Heldenfa- / bel: Der Tod des Astynax",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "5h6q6kl6r9ix256"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33654, Obj 9 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.156Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33655,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Tod des Astyanax #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Delécluse pint. Lambert sculpt.",
+      "scans": [
+        "alm_467_33655_kwdmz74puq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Tod des Astyanax #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "nbpq12i97xrn3ud",
+          "source_id": "h3ijilt0vy4g6o1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "9lwet5ce7lt672a",
+          "source_id": "je9897iryqp3but"
+        }
+      ],
+      "source_id": "bb9yz9eewr97oce"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Graphik INr 33657, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.574Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Der König von Syrien, Seleucus Nebator, hatte sich zum zweitenmal mit der schönen Stratonike vermählt.",
+      "language": [],
+      "musenalm_id": 33656,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Sujet aus der griechischen Geschichte: / Antiochus und die schöne Stratonike",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Sujet aus der griechischen Geschichte: / Antiochus und die schöne Stratonike",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "fzhiqn214s6kyvw"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33656, Obj 11 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33657,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antiochus und die schöne Stratonike #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Guillemoz pint. Lambert sculp.",
+      "scans": [
+        "alm_467_33657_hgw2tpur73.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antiochus und die schöne Stratonike #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.466Z",
+          "agent": "9lwet5ce7lt672a",
+          "source_id": "w5d0txfmr5wj98o"
+        }
+      ],
+      "source_id": "s6bud3giru3dys2"
+    },
+    {
+      "annotation": "Sammlung von 3 Textbezügen zu den Graphiken INr 33559-33663; Obj 14-18 /) Andeutungen (Sammlung INr 33648, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Es ist in neuer Zeit lange zweifelhaft geblieben, welches der eigentliche Delphin der Alten , sei.",
+      "language": [],
+      "musenalm_id": 33658,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. VII. VIII. / Die menschenfreundlichen Delphine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. VII. VIII. / Die menschenfreundlichen Delphine",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "jkskv7s28vdcrmo"
+    },
+    {
+      "annotation": "VI. VII. VIII. Die menschenfreundlichen Delphine (Sammlung INr 33658, Obj 13) Andeutungen (Sammlung INr 33648, Obj 3)s. Graphik INr 33660, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Arion, ein berühmter Citharöde, d. h. Citharspieler, der das Spiel mit dem Gesang begleitete",
+      "language": [],
+      "musenalm_id": 33659,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Arion",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Arion",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "dszrvekw2d6hltr"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33659, Obj 14 /) Graphik in zweitem Exemplar mit varianter Bezeichnung: Autenrieth sc.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33660,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arion #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent sc.",
+      "scans": [
+        "alm_467_33660_yp25cry027.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Arion #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "pd8w4zkjm4p5eav"
+        }
+      ],
+      "source_id": "7g4wladmbn9hu3d"
+    },
+    {
+      "annotation": "VI. VII. VIII. Die menschenfreundlichen Delphine (Sammlung INr 33658, Obj 13) Andeutungen (Sammlung INr 33648, Obj 3) s. Graphiken INr 33660, 33661; Obj 17, 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Der jüngere Plinius forderte seinen Freund Caninius in einem zierlich geschriebenen Briefe auf, eine höchst glaubwürdige und verbürgte Geschichte von einem zahmen Delphin,",
+      "language": [],
+      "musenalm_id": 33661,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. VIII. / Der Knabe und der Delphin zu Hippo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. VIII. / Der Knabe und der Delphin zu Hippo",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "xqnm23n29cji6mv"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33661, Obj 16 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.851Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33662,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Knabe und der Delphin zu Hippo #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent",
+      "scans": [
+        "alm_467_33662_2pnyeep76c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Knabe und der Delphin zu Hippo #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "68dc2x4hh99sx1j"
+        }
+      ],
+      "source_id": "b2mshx1ygwuxav4"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33661, Obj 16 /) Graphik in zweitem Exemplar mit varianter Bezeichnung: Autenrieth sc.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33663,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Knabe und der Delphin zu Hippo #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d'Argent",
+      "scans": [
+        "alm_467_33663_rpm937ts5z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Knabe und der Delphin zu Hippo #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "6n5p36f2mzfscsm",
+          "source_id": "48v86mx8qez5lw0"
+        }
+      ],
+      "source_id": "3ibx64lclol0xj9"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Graphik INr 33665, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Was hat die Kunst der Neuern nicht alles mit dieser schönen Büßerin angefangen, zur profanen Ergetzlichkeit und frommen Beschauung.",
+      "language": [],
+      "musenalm_id": 33664,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Die büßende Magdalena",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Die büßende Magdalena",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "cbhnzclbft41qwt"
+    },
+    {
+      "annotation": "s. Textbezug INr 33664, Obj 19 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33665,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die büßende Magdalena #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Canova inv. Lambert sculp.",
+      "scans": [
+        "alm_467_33665_vpw7zdhlxt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die büßende Magdalena #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "9lwet5ce7lt672a",
+          "source_id": "58kdh4i3phrtcmm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "jd76dxa9fdnopey",
+          "source_id": "dzu19v1tw6qruxt"
+        }
+      ],
+      "source_id": "8o7zz060dunr6sm"
+    },
+    {
+      "annotation": "Andeutungen (Sammlung INr 33648, Obj 3) s. Graphik INr 33667, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.917Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Chaudel gehört unter den französischen Malern zu denen, welche sich durch die Anmut der Darstellungen auszeichnen.",
+      "language": [],
+      "musenalm_id": 33666,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Das Mädchen, die ihren Vogel / beweint",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Das Mädchen, die ihren Vogel / beweint",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "lwa3l8v84xoqpsn"
+    },
+    {
+      "annotation": "Titel aus dem G-Verz s. Textbezug INr 33666, Obj 21 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.917Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 33667,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen, die ihren Vogel beweint #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mme. Chaudet pint. del. Lambert sculp.",
+      "scans": [
+        "alm_467_33667_yxqh6m7oyx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen, die ihren Vogel beweint #",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.812Z",
+          "agent": "61bxtdz3i3z69es",
+          "source_id": "288v886en5tlcac"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.812Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.812Z",
+          "agent": "9lwet5ce7lt672a",
+          "source_id": "u6p8f0nzkyq9krh"
+        }
+      ],
+      "source_id": "20yj6khwkg6640v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Zieh, holde Braut mit unserm Segen, / Zieh hin auf Hymens Blumenwegen!",
+      "language": [],
+      "musenalm_id": 33668,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Demoiselle Slevoigt / bey ihrer Verbindung / mit / Herrn D. Sturm / am10ten Oktober 1797. / von / einer mütterlichen und fünf schwesterlichen / Freundinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Demoiselle Slevoigt / bey ihrer Verbindung / mit / Herrn D. Sturm / am10ten Oktober 1797. / von / einer mütterlichen und fünf schwesterlichen / Freundinnen",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "zh90msoz9echxnm"
+        }
+      ],
+      "source_id": "sra0hghj3yymz2j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Schöner's Leben in dem Leben! / Liebe, die uns Gott gegeben.",
+      "language": [],
+      "musenalm_id": 33669,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebe",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "hom438emv8svw7p"
+        }
+      ],
+      "source_id": "f9k6cv3jz3f04kk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Ein Sperling flog erbost nach einer Mücke; / So hetzt ein Kater eine Maus.",
+      "language": [],
+      "musenalm_id": 33670,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mücke",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "uwmo37zdplidtta"
+        }
+      ],
+      "source_id": "s7sjsw3s8bc7s4f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Geist der Unschuld, mein Begleiter! / Weiche nie von mir!",
+      "language": [],
+      "musenalm_id": 33671,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theodas Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theodas Lied",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "e7dy6de9afk229u"
+        }
+      ],
+      "source_id": "qrj0k1hbnry6vi4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Was mich die jungen Männer plagen / Mit überspannter Schmeicheley!",
+      "language": [],
+      "musenalm_id": 33672,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julie vor dem Spiegel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Julie vor dem Spiegel",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "6wxo63p0nbc1zgf"
+        }
+      ],
+      "source_id": "but87v6dbqy6smw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Manche selige Momente, / Welche mir der Himmel gönnte, / Hat der Himmel hingerafft;",
+      "language": [],
+      "musenalm_id": 33673,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die abgeschiedenen Stunden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die abgeschiedenen Stunden",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "nzle9d9mi58u2ct"
+        }
+      ],
+      "source_id": "aw7yuo4de3nbns3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Der Schultheiß eines Fleckens hieß / Sein Bild zum Trost der Enkel mahlen.",
+      "language": [],
+      "musenalm_id": 33674,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fliegen, die Meisen und die / Katzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fliegen, die Meisen und die / Katzen",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "iqw05lzlnt5dljp"
+        }
+      ],
+      "source_id": "4jb6bd571puzqda"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "In der Nacht hin schifften sie vor den Azorischen / Inseln / Langsam vorbey: da umhaucht lieblicher Duft / sie so süß",
+      "language": [],
+      "musenalm_id": 33675,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Schiffer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Schiffer",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.528Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "y30fzemycc325x7"
+        }
+      ],
+      "source_id": "boh9jgsr7l87m2t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Meister Schreiner, warum doch den Sarg, nicht / lieber die Wiege",
+      "language": [],
+      "musenalm_id": 33676,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Vor dem Hause eines Tischlers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Vor dem Hause eines Tischlers",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.529Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.529Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "o7csv8fseimq6it"
+        }
+      ],
+      "source_id": "czdlgfidfvq6gbw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Daß aus tieferer Wund' euch mächtig der Her- / zensgesang quoll,",
+      "language": [],
+      "musenalm_id": 33677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Conditio sine qua non",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Conditio sine qua non",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.529Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.529Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "h8ifqo89a03stj9"
+        }
+      ],
+      "source_id": "8u72v9b8iwva05o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Kirchengeläut in Loretto ( so sagt man) stillet den Seesturm.",
+      "language": [],
+      "musenalm_id": 33678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Gnadenmittel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Gnadenmittel",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.529Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.529Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "bkapajo1f1kzhiw"
+        }
+      ],
+      "source_id": "4xnr2ebpg7tztx1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.643Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Wer Athens Olive nur pflanzet, der Paphischen Göttinn / Myrtengebüsche verschmäht, und die Platanen nicht sucht,",
+      "language": [],
+      "musenalm_id": 33679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Gelehrte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Gelehrte",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.529Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.529Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "ddcywgojxn8hw96"
+        }
+      ],
+      "source_id": "ev5422fzmj93bpo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Unter dämmerndem Laube, durchblinkt von der / sinkenden Sonne, / Schmolz hinsterbend das Herz, als Philomele / nun sang.",
+      "language": [],
+      "musenalm_id": 33680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / An die Entfernte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / An die Entfernte",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "wsk2s2rfjhxqm2q"
+        }
+      ],
+      "source_id": "8bzve4layrggt9b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Einsam saß ich jüngst in der Frühlingslaube. / Sieh! da fliegt ein Schmetterling her.",
+      "language": [],
+      "musenalm_id": 33681,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Der Besuch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Der Besuch",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "tj7ayuk25jby0wt"
+        }
+      ],
+      "source_id": "ui600a1zbrhtxxz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Am ew'gen Eise, das vom Montblanc her / Ins weite Thal als starres Meer sich zieht,",
+      "language": [],
+      "musenalm_id": 33682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Der Reisende im Chamounythalan / die Entfernte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Morgenstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Der Reisende im Chamounythalan / die Entfernte",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "9hensmccxc9b4rz",
+          "source_id": "mfqpxs3ceyz3dj1"
+        }
+      ],
+      "source_id": "2q7mxx8l6jhohah"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.683Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Harmonie, du Göttinn holder Töne! / Wähle mich zu deiner Priesterinn!",
+      "language": [],
+      "musenalm_id": 33683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theodas Weihelied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theodas Weihelied",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "cl9iis8kehnkj9t"
+        }
+      ],
+      "source_id": "t8d8ph8fouik0oz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Hoch wallte das goldene Weitzenfeld, / Und baute der Wachtel ein Wohngezelt.",
+      "language": [],
+      "musenalm_id": 33684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wachtel und ihre Kinder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wachtel und ihre Kinder",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "83clagdkm0i1kt7"
+        }
+      ],
+      "source_id": "fmx31gbkcy04rna"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Ein alter Hirsch von vierzig Enden, / Der Patriarch des Hains, aus dessen Lenden / Ein ganzes Volk entsprossen war,",
+      "language": [],
+      "musenalm_id": 33685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der alte Hirsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der alte Hirsch",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "qlum6oi89nudj6a"
+        }
+      ],
+      "source_id": "y68cu8xo2n7x9ul"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Herr Adam Schlau lebte in einer großen freien Handelsstadt. Schlau heißt er, sagten die Leute von ihm; aber schlau ist er auch.",
+      "language": [],
+      "musenalm_id": 33686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Adam Schlau / oder / die Probe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herr Adam Schlau / oder / die Probe",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "cdi898j37i4n4yd"
+        }
+      ],
+      "source_id": "awgji773ccsq6sp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Bey dir, Klavier, / Entschweben die Stunden, / Der Tauer um Freunde / Besänftigend mir.",
+      "language": [],
+      "musenalm_id": 33687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An mein Klavier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An mein Klavier",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.408Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.408Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "709s9o4bqa0grvk"
+        }
+      ],
+      "source_id": "ub6tpwfxovnk2nr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.684Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Der Iltiß, dessen Dunstkreis, wie bekannt, / Nicht lieblich ist, ward einst deshalben / Vom Hof des Königs Leu verbannt.",
+      "language": [],
+      "musenalm_id": 33688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Iltiß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Iltiß",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.409Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "mr04ixr4nohdruf"
+        }
+      ],
+      "source_id": "j6jcybwp7kd0mep"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Leicht befriediget gerne gesammelte Herzen der / Winter, / Wenn er zur Stille sie zwingt und mit der / Ruhe sie paart.",
+      "language": [],
+      "musenalm_id": 33689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter und Frühling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winter und Frühling",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "4cp0zyk2jd6c8t2"
+        }
+      ],
+      "source_id": "gz2pnqf467vtl4j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "An der Mutter Busen / Lagst du, theures Kind, / Blühend, gleich der Rose, / Schön, wie Engel sind.",
+      "language": [],
+      "musenalm_id": 33690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Louise an Gustavs Grabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Louise an Gustavs Grabe",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "4l430ex92cc8gca"
+        }
+      ],
+      "source_id": "408hnc23pl4w5g5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "Schon wankt die schicksalsvolle Schlacht; / Es überwiegt der Franken Macht,",
+      "language": [],
+      "musenalm_id": 33691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manfred und Theobalds Tod in der Schlacht bei Benevento",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Manfred und Theobalds Tod in der Schlacht bei Benevento",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.703Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.703Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "yfkzmqoas9zcbp9"
+        }
+      ],
+      "source_id": "69muqwtuhb6428t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Wer dich nicht sieht, glaubt unverstellt / an wahres Glück in dieser Welt,",
+      "language": [],
+      "musenalm_id": 33692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Eudoxia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Eudoxia",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "yourm5a282ni260"
+        }
+      ],
+      "source_id": "o6p335h9p99gghx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Ein Papagay, der manches Jahr / Der Lehrling eines Rectors war,",
+      "language": [],
+      "musenalm_id": 33693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Papagay",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Papagay",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "pyzk46bgtdqylva"
+        }
+      ],
+      "source_id": "surdpm2l305hpfv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "So, reizend sah Paris wohl Cyprien nie. / Ich richte, wie er; doch belohnst du, wie sie?",
+      "language": [],
+      "musenalm_id": 33694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Julien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Julien",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "cs7yvev92bjpgch"
+        }
+      ],
+      "source_id": "8tpj8t324p882gd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.875Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Herr Charon saß in seinem Kahn, / Wo er ein Pfeifchen Knaster schmauchte,",
+      "language": [],
+      "musenalm_id": 33695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charon und der Schatten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charon und der Schatten",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "m5ik4ixmnna087n"
+        }
+      ],
+      "source_id": "evw2drzu5cqm85j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "Hinunter sinkt des Tages Herrscherinn, / Die Sonne steigt hinab in Thetys Schoos;",
+      "language": [],
+      "musenalm_id": 33696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonnenuntergang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonnenuntergang",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "j9jvfhnidc2odp2"
+        }
+      ],
+      "source_id": "iir0yi21yn4jz7i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Elise von Landeck war die Wittwe eines kaiserlichen Obersten, der im Revolutionskriege das Leben verlor.",
+      "language": [],
+      "musenalm_id": 33697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Entführung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Entführung",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "62yjaofytxzavz7"
+        }
+      ],
+      "source_id": "841bro7h7p2lurh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.876Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Wie ein ächtes Gedicht entspringt? Wie unter / des Flügel-/ Rosses begeistertem Schlag einst der Kastali- / sche Quell.",
+      "language": [],
+      "musenalm_id": 33698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aechtes Gedicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aechtes Gedicht",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.706Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.706Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "84elp9nbf418t0m"
+        }
+      ],
+      "source_id": "4j8iilewckt6329"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Deine zertrümmerten Freuden du klagst sie mit Thränen der Sehnsucht?",
+      "language": [],
+      "musenalm_id": 33699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rath",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "jjs2ykb7jslsbxj"
+        }
+      ],
+      "source_id": "wdla8a27kl990xz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Beschirmt vom grüne Baldachin / Des Baums Kronions, phantasirte / Des Waldes Minnesängerinn / Ihr Abendlied.",
+      "language": [],
+      "musenalm_id": 33700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nachtigall und der Esel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nachtigall und der Esel",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "8ecl0tzzi1jg9wi"
+        }
+      ],
+      "source_id": "j72vnwtam4bemdp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Männer! O verdammt die Weiber nie! / Ihr seyd Richter, Zeugen und Partie.",
+      "language": [],
+      "musenalm_id": 33701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gnome",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gnome",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "do9w1i2hfh8dqna"
+        }
+      ],
+      "source_id": "n96i74fgzxtg7ao"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Ach eine vierte Charitinn / Ist deine Nebenbuhlerinn.",
+      "language": [],
+      "musenalm_id": 33702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Theoda",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Theoda",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "mzx51qakn8axvar"
+        }
+      ],
+      "source_id": "nshib182g91524g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "Des Sommers Gluthen sterben / Allmählich vor dem Hauch",
+      "language": [],
+      "musenalm_id": 33703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herbstlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herbstlied",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "8cim9pe6fjwuf6o"
+        }
+      ],
+      "source_id": "z9qeu9hcgjf7t6u"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Wir waren von Granada aus, über Lora und die ersten westlichen Alpujarren in jener großen Ebene angelangt,",
+      "language": [],
+      "musenalm_id": 33704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fels der Liebenden",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Buchholz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fels der Liebenden",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "7zon2137dp4tnal",
+          "source_id": "bhsebtgy1lr6rw7"
+        }
+      ],
+      "source_id": "a9x7oef0wj51e7b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Getreue Liebe siegt; / Ein Grabmaal ward uns beyden.",
+      "language": [],
+      "musenalm_id": 33705,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grabschrift eines treuen Ehepaares",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grabschrift eines treuen Ehepaares",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "1xwna09z7dfpzgw"
+        }
+      ],
+      "source_id": "at3rbflh232y7fo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Ein Jüngling, der als Scherenschleifer / Mit Noth sein Stückchen Brod gewann,",
+      "language": [],
+      "musenalm_id": 33706,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Scherenschleifer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Scherenschleifer",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "2m7qz8z9ewqio03"
+        }
+      ],
+      "source_id": "lim5xwi736i8mme"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Ein Falk, ein wahrer Polyphem, / Der ungestraft gemordet und geraubet,",
+      "language": [],
+      "musenalm_id": 33707,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Falke und der Schwan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfeffel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Falke und der Schwan",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "w9gq57fj1dkxv1n",
+          "source_id": "3rwqa9yx4sggntq"
+        }
+      ],
+      "source_id": "1dxab2v8dmqta0y"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 48 Beiträgen INr 33709-33756, Obj 64-111",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Ein Zufall nöthigt den Verfasser, die Erzählung,welche er dem dießjährigen Taschenkalender schenken wollte, für den Kalender 1813 aufzuheben, und hier nichts zu liefern als Gedanken.",
+      "language": [],
+      "musenalm_id": 33708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Impromptu's; welche ich künftig in / Stammbücher schreiben werde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Impromptu's; welche ich künftig in / Stammbücher schreiben werde",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.480Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.480Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "4hholivxrmhtabn"
+        }
+      ],
+      "source_id": "w2x7g8pwi08m4if"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Die größten Leiden triffst du, von den körperlichen bis zu geistigen hinauf, in den höhern Ständen an, so wie Hinrichtungen nur auf Anhöhen geschehen,",
+      "language": [],
+      "musenalm_id": 33709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Unglück des Glücks",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Unglück des Glücks",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.542Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.542Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "yuo4a62g1jvx07f"
+        }
+      ],
+      "source_id": "vk68hjkr2yhyk2v"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Zwei kräftige Freunde sind wie zwei Uhren, welche in ihren kleinen Perpendickelschlägen",
+      "language": [],
+      "musenalm_id": 33710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die Freundschaft",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.542Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.542Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "tra0l463j4p7f39"
+        }
+      ],
+      "source_id": "h57q1jgoiu07k43"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Hohe Personen sprechen bekanntlich nur leise,",
+      "language": [],
+      "musenalm_id": 33711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.542Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.542Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "80ejufuk4py6pvn"
+        }
+      ],
+      "source_id": "0hwz6z841ttsw95"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.745Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Den sittlichen Pestilenzen des Menschengeschlechts, den großen Städten könnte man vielleicht wie die körperlichen viel Gift abnehmen durch - Bäume.",
+      "language": [],
+      "musenalm_id": 33712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.543Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.543Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "fapn41wkho3v48d"
+        }
+      ],
+      "source_id": "fk8gfl96xxc4pa5"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Härter als die Strafe des Schiffziehens, ists, wenn gar die Schiffe z. B. die brittischen, uns selber ziehen.",
+      "language": [],
+      "musenalm_id": 33713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.543Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.543Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "j5bwvzqtmqmgmpj"
+        }
+      ],
+      "source_id": "q8d5l6iqjkw1h5p"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Ich habe oft Fische mit bloßen Floßfedern von Gipfel zu Gipfel fliegen sehen",
+      "language": [],
+      "musenalm_id": 33714,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.543Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.543Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "x7vovur169k2753"
+        }
+      ],
+      "source_id": "5z755stm3cacr93"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Guckt der Verfasser selber aus seinem Dichtwerk mit breiten Gliedern heraus, so bleibt er doch der Sonne",
+      "language": [],
+      "musenalm_id": 33715,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.543Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.543Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "5nnnb9lk2e6cf2q"
+        }
+      ],
+      "source_id": "sy7z2jr37bfeuc9"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Ruiniert alles, nur keine ächten Ruinen",
+      "language": [],
+      "musenalm_id": 33716,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.543Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.543Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "un4wsa7lf6w3fmy"
+        }
+      ],
+      "source_id": "y2txl1fl1i6pnpn"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "In einer großen Stadt zum Fenster hinausgesehen, gibt eine epische Stimmung,",
+      "language": [],
+      "musenalm_id": 33717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.544Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.544Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "u3hypzx7idayab4"
+        }
+      ],
+      "source_id": "ea91t26aimz0ilq"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Die Schmerzen der unerhörten Liebe, und die Schmerzen der Ehescheidung erinnern an die Zähne,",
+      "language": [],
+      "musenalm_id": 33718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.544Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.544Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "z8ps103o91xyrll"
+        }
+      ],
+      "source_id": "jnvvomcq9w95d11"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Für Engherzige ist jede Alpe ein Alp",
+      "language": [],
+      "musenalm_id": 33719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.544Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.544Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "qhodh2n1lp4m4qy"
+        }
+      ],
+      "source_id": "awqy0wcoow7ojnn"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "282",
+      "incipit_statement": "Der Dichtungs-Phönix und der Kriegs-Adler haben oft die Darre oder den Pips,",
+      "language": [],
+      "musenalm_id": 33720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.544Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.544Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "y30q036oxqgnjq7"
+        }
+      ],
+      "source_id": "2zv372vmdnn76re"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Früh lieben, spät heirathen heißt oft, am Morgen eine singende Lerche im Himmel hören, und abends eine gebratene verspeisen.",
+      "language": [],
+      "musenalm_id": 33721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Ehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Ehen",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.303Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.303Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "r3bs0pwq0oaffoy"
+        }
+      ],
+      "source_id": "w54rwi2y4cvadkg"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Die Venezianer schlugen es als eine ihrer höchsten republikanischen Freiheiten an, daß sie ein halbes Jahr (von Oktober an) verlarvt seyn durften,",
+      "language": [],
+      "musenalm_id": 33722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.658Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "7zawbmviyaenwof"
+        }
+      ],
+      "source_id": "wkqv75bfffbt691"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Ich kann mir mehr als eine Prinzessin gedenken, welche ein Engel war, dem man schnell die Flügel abschnitt,",
+      "language": [],
+      "musenalm_id": 33723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.658Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.658Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "izfx5ppvwots5x9"
+        }
+      ],
+      "source_id": "olw4esq69xzvcpb"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.148Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Nur einen bleibenden Unterschied behalten die Höfe vor dem Lehr- und Nährstande - die Langweile.",
+      "language": [],
+      "musenalm_id": 33724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.465Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.465Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "jeoata97z081468"
+        }
+      ],
+      "source_id": "pgdwndf21l8oroc"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Die Franzosen schmeicheln sogar dem Alter, sie sagen - beau père, belle mère",
+      "language": [],
+      "musenalm_id": 33725,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.783Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "nua58a24xx3odam"
+        }
+      ],
+      "source_id": "chlwycnxukkpa37"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Wenn ich einen Menschen lobe, so weiß ich, daß ich einen Lorbeerkranz an einen Lorbeerbaum hänge",
+      "language": [],
+      "musenalm_id": 33726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.783Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "m3cyzyof2cn316w"
+        }
+      ],
+      "source_id": "ku69rl3d7ikcf97"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Beide thaten der weiblichen Ausbildung großen Abbruch,",
+      "language": [],
+      "musenalm_id": 33727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19. / Die Kleidermode und das Kartenspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19. / Die Kleidermode und das Kartenspiel",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.704Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "0nqrz58mjajha80"
+        }
+      ],
+      "source_id": "vl0v73l4fqxqb05"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.858Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "In unserm Jahrhundert sagt den Exorzismus der Teufel selber,",
+      "language": [],
+      "musenalm_id": 33728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.704Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "cjf1th2e1tlqd04"
+        }
+      ],
+      "source_id": "2kcgfmdy0z3vk63"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Gewöhne dein Leben nicht an Eine Kraft, da du mehr als eine hast,",
+      "language": [],
+      "musenalm_id": 33729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "r5yjief66g6o0ak"
+        }
+      ],
+      "source_id": "u2ws5krg5kgjseu"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Der Unterschied beider ist wie der, zwischem einen der das dreitägige Fieber und einem der das viertägige hat,",
+      "language": [],
+      "musenalm_id": 33730,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "22. / Der Unterschied zwischen einem Unglücklichen und einem Glücklichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "22. / Der Unterschied zwischen einem Unglücklichen und einem Glücklichen",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "fo9k02xvwq1gkvd"
+        }
+      ],
+      "source_id": "k14aure5b3gfcrk"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Jeder Freund ist des andern Sonne und Sonnenblume zugleich, er zieht, und er folgt.",
+      "language": [],
+      "musenalm_id": 33731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "23. / Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "23. / Freunde",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "sfmxt8j19lxmzo1"
+        }
+      ],
+      "source_id": "ceeg1f35uwp5gqg"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Ein jeder ächte Freudentag kommt wie die Blattern nur Einmal,",
+      "language": [],
+      "musenalm_id": 33732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "24. / Freude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "24. / Freude",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "5j80hxcphefib9e"
+        }
+      ],
+      "source_id": "cpb0nlyi3lbtliu"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Die Weiber führen den zuweilen gebrochnen Stral der Männer durch eine zweite Brechung ganz gerade hinaus.",
+      "language": [],
+      "musenalm_id": 33733,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "25. / Weiber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "25. / Weiber",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "09wbrl39gg7itcu"
+        }
+      ],
+      "source_id": "7kqur4aohbxif1y"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Ein kleines Leiden setzt uns außer uns, ein großes in uns,",
+      "language": [],
+      "musenalm_id": 33734,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "26. / Die Leiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "26. / Die Leiden",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "infvsf0tj1jemzv"
+        }
+      ],
+      "source_id": "jbxb08bepctl4vt"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Sünden und Igel werden ohne Stachel geboren;",
+      "language": [],
+      "musenalm_id": 33735,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "27. / Die Reue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "27. / Die Reue",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "i305xp7ib7egbjg"
+        }
+      ],
+      "source_id": "23inu15uhd1zjf1"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Unser kurzer Blick macht uns weiß, wenn wir die Gegenwart ganz nach der Vergangenheit verbessert haben,",
+      "language": [],
+      "musenalm_id": 33736,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "28. / Die Leidenschaften und die Leiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "28. / Die Leidenschaften und die Leiden",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ivkzqh3te70qftp"
+        }
+      ],
+      "source_id": "5b8svng5n8eo2b4"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Die Erinnerung ist das einzige Paradies, aus welchem wir nicht getrieben werden können.",
+      "language": [],
+      "musenalm_id": 33737,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "29. / Erinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "29. / Erinnerung",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "4vbvl7q4zsko353"
+        }
+      ],
+      "source_id": "0ox1xlvtjx950k0"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Wie eine durch die Ferne verkürzte Strecke sich in der Nähe ausdehnt:",
+      "language": [],
+      "musenalm_id": 33738,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "30. / Das Alter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "30. / Das Alter",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.781Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "tpdo8k2aveany6i"
+        }
+      ],
+      "source_id": "jxmmkhdvrzpg9ws"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Die Seligsten kennt man selten; der weiche Zephyr innigster Wonne kann keinen metallenen Windzeiger bewegen,",
+      "language": [],
+      "musenalm_id": 33739,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "31. / Die Seligsten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "31. / Die Seligsten",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "z76jzkt2r7a1der"
+        }
+      ],
+      "source_id": "xc4yxfuqgm0krf0"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Mit den Jahren tauschen das starke und das schwache Geschlecht die Beinamen.",
+      "language": [],
+      "musenalm_id": 33740,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "32. / Die Geschlechter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "32. / Die Geschlechter",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "7tu9j0l24989qn9"
+        }
+      ],
+      "source_id": "i4xuhr582g8t0md"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Das Ende der Jugend fühlt früher die Seele, als der Leib dessen seine oft in tiefe Jahre reicht,",
+      "language": [],
+      "musenalm_id": 33741,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "33. / Jugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "33. / Jugend",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "yvse12qin3p414i"
+        }
+      ],
+      "source_id": "6kzhna8wsz1hcgy"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Das Geheimniß der Vorsehung kehrt nur von Seele zu Seele ein",
+      "language": [],
+      "musenalm_id": 33742,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "34. / Vorsehung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "34. / Vorsehung",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "3de5bjkq1mwypxy"
+        }
+      ],
+      "source_id": "l513y7d1af84cdm"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Es gibt keine, denn es sind Wolken.",
+      "language": [],
+      "musenalm_id": 33743,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "35. / Bleibende Leiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "35. / Bleibende Leiden",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ndtm06o640pnf0o"
+        }
+      ],
+      "source_id": "qhmaecm1cow330v"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "O wir armen Freien der Metaphysik! Wie viele Schranken mögen uns nicht umgeben,",
+      "language": [],
+      "musenalm_id": 33744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "36. / Freiheit der Seele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "36. / Freiheit der Seele",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "pu3m6ipycpfsgho"
+        }
+      ],
+      "source_id": "v7i3sr0dx09zepf"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Das Weltmeer des Lebens ist von Ungeheuern bewohnt;",
+      "language": [],
+      "musenalm_id": 33745,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "37. / Musik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "37. / Musik",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "1m0cc3whgwvq8or"
+        }
+      ],
+      "source_id": "dktk7vkyx98z7oh"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Wäre ich der Tod und käme zu einem König und ließe ihm meine Sanduhr zurück,",
+      "language": [],
+      "musenalm_id": 33746,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "38.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "38.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "fac11iiabfhzyg2"
+        }
+      ],
+      "source_id": "7v0dhn8duqr5r7h"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Unser Leben ist eingewickelt in ein Scheinleben",
+      "language": [],
+      "musenalm_id": 33747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "39.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "39.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.754Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "gdugqsf5p911a5t"
+        }
+      ],
+      "source_id": "09oc68kxl17dhpp"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Es ist Schade, daß man sich auf der Erde nicht seines Greisen-Alters erinnern kann,",
+      "language": [],
+      "musenalm_id": 33748,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "40. / Hohes Alter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "40. / Hohes Alter",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.755Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "kdbl2yaa73h298d"
+        }
+      ],
+      "source_id": "gwszuxf2p1z40om"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Endymion bekam drei Gaben, Schlaf, Jugend, Unsterblichkeit.",
+      "language": [],
+      "musenalm_id": 33749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "41.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "41.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.755Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "ma1huzzujizf6vq"
+        }
+      ],
+      "source_id": "wy282tv3oz145zc"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Fröhlicher Jüngling! Lasse alle Seegel fliegen, und schiffe durch die Bogen unserer Brücken hindurch;",
+      "language": [],
+      "musenalm_id": 33750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "42.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "42.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.755Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "mz5lnwtx1dbujyy"
+        }
+      ],
+      "source_id": "6gqsj5o8ttowupk"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Die verfliegende, umherfliegende Zeit oder Gegenwart sieht aus wie der Staubbach in der Schweiz,",
+      "language": [],
+      "musenalm_id": 33751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "43.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "43.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.755Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "wks7sj87si2w9sa"
+        }
+      ],
+      "source_id": "9vp5rsxs4f0hsfg"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.312Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Der eigentliche ächte Große auf der Erde wäre nur der, der sich gar nichts Böses bewußt wäre",
+      "language": [],
+      "musenalm_id": 33752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "44. / Der Große",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "44. / Der Große",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.755Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "c3s3lf1m2faslsv"
+        }
+      ],
+      "source_id": "53aei95fhkqzdzz"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Gott ist das Licht, das, selber nie gesehen, alles sichtbar macht,",
+      "language": [],
+      "musenalm_id": 33753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "45. / Gott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "45. / Gott",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.680Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.680Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "mar4fzld2rngdkd"
+        }
+      ],
+      "source_id": "h5t9l3pa1xovd16"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Das Leben des Menschen ist ein Hineinsterben aus einem Sarg in den andern,",
+      "language": [],
+      "musenalm_id": 33754,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "46.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "46.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.680Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.680Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "q2heszenuqtrzjb"
+        }
+      ],
+      "source_id": "b6m9lqgzrwlh8dx"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Wer sieht das Unendlich-Kleine? Nur Einer der Unendlich-Große.",
+      "language": [],
+      "musenalm_id": 33755,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "47.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "47.",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.680Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.680Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "l8fpuxiqikm8xab"
+        }
+      ],
+      "source_id": "wmc9elykmg6pnx3"
+    },
+    {
+      "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Heiliger Schlaf! Eben darum verglich man dich mit dem Tode.",
+      "language": [],
+      "musenalm_id": 33756,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "48. / Der Schlaf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul Fr. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "48. / Der Schlaf",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.680Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.680Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "t0xq0sw1pg2t8gm"
+        }
+      ],
+      "source_id": "qs0e2jjgl4ecq0l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Daß du Herz und Geist entzückest, / Und Verehrer rings erblickest,",
+      "language": [],
+      "musenalm_id": 33757,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Julien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Julien",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.680Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.680Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "rbimldqko8f9fuy"
+        }
+      ],
+      "source_id": "2xxuxl5aladn2k1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.651Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Möchte ich doch, mein Verehrtester, Sie überzeugen können, auf welche Probe Sie durch Ihre befehlende freundschaftliche Bitte, den Grazien Ihres Damenkalenders ein Blumenopfer zu bringen, meine Bescheidenheit gesetzt haben!",
+      "language": [],
+      "musenalm_id": 33758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sendschreiben an Herrn D. Cotta. / Statt eines Beitrags zum Taschenbuche / für Damen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Weisser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sendschreiben an Herrn D. Cotta. / Statt eines Beitrags zum Taschenbuche / für Damen",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.680Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.680Z",
+          "agent": "teyd4hg5cxxyi5t",
+          "source_id": "ys78trk5fi8b6u4"
+        }
+      ],
+      "source_id": "e8cqv61dvchzuu0"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.311Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 95274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_467_95274_uiu5skj27f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "tj7z2eu16h2asmw"
+    }
   ],
   "agents": [
     {

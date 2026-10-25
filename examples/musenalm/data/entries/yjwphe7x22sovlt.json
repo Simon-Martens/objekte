@@ -48,29 +48,876 @@
   "year": 1841,
   "editor": "",
   "items": [
-    "obbu5ivc050f2ey"
+    {
+      "annotation": "Format 7,5x9. Mit Kalendarium, 8 Graphiken und 8 poetischen Beiträgen. Der Almanach ist  offenbar nicht Bestandteil der Reihe »Taschenkalender, Berlinischer (Berlin, Königl. Preuß. Kalender-Deputation)« 1816-1826 oder der Reihe »Kalender, Berliner (Berlin, Königl. Preuß. Kalender-Deputation« 1827-1850",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.525Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "201009",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.525Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "obbu5ivc050f2ey"
+    }
   ],
   "contents": [
-    "qn41lvp2y8fpf1f",
-    "4bv3zpwqc5v0g46",
-    "gftqyw0wpjv0rje",
-    "4s4ahx5xjviuba2",
-    "gzch7rfyyxe001u",
-    "u0hv4f2oi26dbvs",
-    "u2rznmmwmc7ysqm",
-    "6c8am4ub1bwr0on",
-    "qdej2ea4gl5sj1x",
-    "7lwkuax8her400p",
-    "lb41pedfmzf062u",
-    "voavd6g5uloz7su",
-    "z2jir72j2ory69r",
-    "s4ql9f70tl3z98h",
-    "s49lh5av7fm2x5n",
-    "jzyb5g89jcumf0n",
-    "p7xo90jmjog62dk",
-    "j7xwuxjpud9hy6a",
-    "onywk6o2odp591m",
-    "75bdqyw6ig9rf5z"
+    {
+      "annotation": "Titelgraphik; paginiert 5. # Bez. an Blatt 2 und 7 der Suite. Illustration zu »Das Stelldichein« von E. Ferrand d.i. Ed. Schulz. INr 59477, Obj 16 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.380Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59462,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Stelldichein #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59462_z0twsj46sh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Stelldichein #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.997Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.997Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "64078x0o614pz51"
+        }
+      ],
+      "source_id": "qn41lvp2y8fpf1f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59463,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschen-Kalender / auf das Jahr 1841, / mit / Gedichten und 8 dazu gehörigen Kupfern / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_897_59463_96odnzyrto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschen-Kalender / auf das Jahr 1841, / mit / Gedichten und 8 dazu gehörigen Kupfern / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "4bv3zpwqc5v0g46"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59464,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "gftqyw0wpjv0rje"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar; paginiert 1. # Bez. an Blatt 2 und 7 der Suite. Illustration zu » Das Weihwasser«  von E. Ferrand d.i. Ed. Schulz INr 49473, Obj 12 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.404Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59465,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Weihwasser #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59465_efrex1lnch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Weihwasser #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.998Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.998Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "yh2771e495semnl"
+        }
+      ],
+      "source_id": "4s4ahx5xjviuba2"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar; paginiert 2. Illustration zu »Damen mit einem Pfau« von E. Ferrand d.i. Ed. Schulz INr 59474, Obj 13 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.405Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59466,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Damen mit einem Pfau #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59466_175jsc1iyu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Damen mit einem Pfau #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.999Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "e0koc2wn8lrn8n1"
+        }
+      ],
+      "source_id": "gzch7rfyyxe001u"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April; paginiert 3. # Bez. an Blatt 2 und 7 der Suite. Illustration zu »Der Abzug der Brautleute« von H. Kletke INr 59475, Obj 14 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.407Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59467,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abzug der Brautleute #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59467_uws61nab0r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Abzug der Brautleute #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.999Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "x797qlerivulz9e"
+        }
+      ],
+      "source_id": "u0hv4f2oi26dbvs"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni; paginiert 4. # Bez. an Blatt 2 und 7 der Suite. Illustration zu »Hessisches Landmädchen« von E. Ferrand d.i. Ed. Schulz INr 59476, Obj 15 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.409Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hessisches Landmädchen #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59468_wbq7o0v18c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hessisches Landmädchen #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.999Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "6ftci6o5x6vkiym"
+        }
+      ],
+      "source_id": "u2rznmmwmc7ysqm"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August; paginiert 6. # Bez. an Blatt 2 und 7 der Suite. Illustration zu »Neapolitanische Fischerfamlie« von E. Ferrand d.i. Ed. Schulz INr 59478, Obj 17 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.410Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neapolitanische Fischerfamlie #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59469_7d7nvkv0ma.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Neapolitanische Fischerfamlie #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.999Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "5tb8nmp3wk4ydv4"
+        }
+      ],
+      "source_id": "6c8am4ub1bwr0on"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober; paginiert 7. Illustration zu »Chiara und ihre Schwester« von E. Ferrand d.i. Ed. Schulz INr 59479, Obj 18 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.411Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59470,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chiara und ihre Schwester #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59470_q3eacsm5b4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chiara und ihre Schwester #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.999Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "ths3yyth853zmhx"
+        }
+      ],
+      "source_id": "qdej2ea4gl5sj1x"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember; paginiert 8. # Bez. an Blatt 2 und 7 der Suite. Illustration zu »Die Rückkehr von der Kirmes« von H. Kletke INr 59480, Obj 19 # Titel vom Textbezug",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rückkehr von der Kirmes #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Auguste Hüssener sc.",
+      "scans": [
+        "alm_897_59471_a56hx6hs4b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Rückkehr von der Kirmes #",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.999Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.999Z",
+          "agent": "bapys0xj1dvdjus",
+          "source_id": "cyepeevs4miizfg"
+        }
+      ],
+      "source_id": "7lwkuax8her400p"
+    },
+    {
+      "annotation": "Es folgen die Gedichte des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.318Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59472,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedíchte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedíchte",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "lb41pedfmzf062u"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59465, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Lange hat gekniet die Mutter vor der heil'gen Jung- / frau Bild, / Hat des Herzens Sorg' und Sehnen im Gebete süß / gestillt.",
+      "language": [],
+      "musenalm_id": 59473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Weihwasser",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Weihwasser",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.975Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.975Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "84ozdby4tuvg5rj"
+        }
+      ],
+      "source_id": "voavd6g5uloz7su"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59466, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Mit der jugendlichen Schwester / Vor dem heißen Mittagsstrahle / Kühl geborgen, weilt die Fürstin",
+      "language": [],
+      "musenalm_id": 59474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Damen mit einem Pfau",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Damen mit einem Pfau",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.975Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.975Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "lidr5pr4lovruz4"
+        }
+      ],
+      "source_id": "z2jir72j2ory69r"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59467, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ein schmuckes Pärchen, welches vor uns wandert / Den langersehnten Gang zum eignen Heerd,",
+      "language": [],
+      "musenalm_id": 59475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Abzug der Brautleute",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Kletke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Abzug der Brautleute",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.764Z",
+          "agent": "oxvlsvgq5f4m5gr",
+          "source_id": "1bbc0f170h4t30c"
+        }
+      ],
+      "source_id": "s4ql9f70tl3z98h"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59468, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Ein holdes Kind lehnt strickend / In ihres Hauses Thür;",
+      "language": [],
+      "musenalm_id": 59476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Hessisches Landmädchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Hessisches Landmädchen",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "ew1w8k2tci7tsgu"
+        }
+      ],
+      "source_id": "s49lh5av7fm2x5n"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 59462, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "In der hohen Häuser Schatten steht ein rüstiger / Gesell; / Tiefer dunkelt schon der Abend - ihm im Herzen ist es / hell.",
+      "language": [],
+      "musenalm_id": 59477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Das Stelldichein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Das Stelldichein",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "oc0vopuj6t8e3rd"
+        }
+      ],
+      "source_id": "jzyb5g89jcumf0n"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59469 Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Mit dem Weibe, mit dem Kinde / Weilt der Fischer an dem Strand;",
+      "language": [],
+      "musenalm_id": 59478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Neapolitanische Fischerfamliie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Neapolitanische Fischerfamliie",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "bbexbhjk7anit5j"
+        }
+      ],
+      "source_id": "p7xo90jmjog62dk"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59470 Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.648Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Schlafe, schlafe, so ruhig, so warm, / Leise gewiegt vom Schwesterarm.",
+      "language": [],
+      "musenalm_id": 59479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Chiara und ihre Schwester",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ferrand",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Chiara und ihre Schwester",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "ozyc7qe9178qexh",
+          "source_id": "hqt1yfkyq94elwe"
+        }
+      ],
+      "source_id": "j7xwuxjpud9hy6a"
+    },
+    {
+      "annotation": "s. Graphik im Kalendarium INr 59471 Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Sonne, Mond und Sterne drehen / Sich am Himmel, das ist klar;",
+      "language": [],
+      "musenalm_id": 59480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die Rückkehr von der Kirmes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Kletke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die Rückkehr von der Kirmes",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.891Z",
+          "agent": "oxvlsvgq5f4m5gr",
+          "source_id": "d2i6aoqrjulgo2v"
+        }
+      ],
+      "source_id": "onywk6o2odp591m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.649Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei Trowitzsch und Sohn in Berlin",
+      "language": [],
+      "musenalm_id": 59481,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei Trowitzsch und Sohn in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1841,
+      "editor": "",
+      "agents": [],
+      "source_id": "75bdqyw6ig9rf5z"
+    }
   ],
   "agents": [
     {

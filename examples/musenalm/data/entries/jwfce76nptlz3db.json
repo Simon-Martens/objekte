@@ -48,31 +48,965 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "w901lpvo3mdrl7p"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200626",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "w901lpvo3mdrl7p"
+    }
   ],
   "contents": [
-    "3ow1pwaq8a2uao8",
-    "w7z78de4ldnbso7",
-    "8kna4vocoqykzwg",
-    "xr8rodjzib5m1wl",
-    "d202k3vxma10ykz",
-    "buetu1a3easx5ay",
-    "741u9urfx5hhlov",
-    "bosw5uvg3zqwasf",
-    "98wn12hfxvbkgsh",
-    "nenv4rinhyx5njr",
-    "xg2f2w18tgfupoo",
-    "92pzgqky6gapiy6",
-    "k7bpn9eiv0eg3c2",
-    "i0q10j77r7bvfi8",
-    "6r3hugn2peyalla",
-    "fadxiuitegb61m1",
-    "p2owm0abv0482sz",
-    "m9l1mjf4iyxqy6s",
-    "b29bxxmkvwxnlhm",
-    "apyer9n7qkbn4z2",
-    "akt0ynx88s6htmw",
-    "4fiq08r9jisa31z"
+    {
+      "annotation": "Titelgraphik s. Beitrag INr 42268, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42250,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DON VASCO DE GAMA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_557_42250_5hrayjahu0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DON VASCO DE GAMA",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.278Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "6h5zutq57xxk03z"
+        }
+      ],
+      "source_id": "3ow1pwaq8a2uao8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.045Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42251,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder- Menschen- / und Productenkunde. / Für jede Klasse von Lesern / von / E. A. W. von ZIMMERMANN. / Zwölfter Jahrgang / Zweite Abtheilung / für das Jahr / 1813. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_557_42251_oan6hbzfyo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder- Menschen- / und Productenkunde. / Für jede Klasse von Lesern / von / E. A. W. von ZIMMERMANN. / Zwölfter Jahrgang / Zweite Abtheilung / für das Jahr / 1813. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "w7z78de4ldnbso7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Mit diesem Bande, welcher eine kurze Uebersicht der merkwürdigsten politische Veränderungen Hindostans enthält, glaube [ich] die Nachrichten von diesem Lande schließen zu können.",
+      "language": [],
+      "musenalm_id": 42252,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. A. W. von Zimmermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.723Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.723Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "8dla5e64p3y4u3i"
+        }
+      ],
+      "source_id": "8kna4vocoqykzwg"
+    },
+    {
+      "annotation": "Photos INr 42270,01-42270,05",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42270,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_557_42270_01_0tgvjmpeci.jpg",
+        "alm_557_42270_02_acy50ca9dl.jpg",
+        "alm_557_42270_03_w2mfp57kki.jpg",
+        "alm_557_42270_04_fu5unyepgs.jpg",
+        "alm_557_42270_05_ttlzhoqxxa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "xr8rodjzib5m1wl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42271,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "d202k3vxma10ykz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.256Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn das Land und das Volk der Hindus die merkwürdigsten Erscheinungen auf dieser Erde darbot,",
+      "language": [],
+      "musenalm_id": 42253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "buetu1a3easx5ay"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.761Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Jene Angaben und Bemerkungen über die Sprache, Reiligion und Sitten der Hindus deuteten zwar sehr entschieden auf das hohe Alter dieser Nation;",
+      "language": [],
+      "musenalm_id": 42254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Versuch einer kurzen Uebersicht der Hauptepochen von Hindostans Geschichte, / und seiner Revolutionen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Versuch einer kurzen Uebersicht der Hauptepochen von Hindostans Geschichte, / und seiner Revolutionen",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.936Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "9quud4aom9nsu74"
+        }
+      ],
+      "source_id": "741u9urfx5hhlov"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Hafner",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Tchoultey (Herberge) neuerer Zeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hüllmann sc.",
+      "scans": [
+        "alm_557_42255_ibd5q9qwto.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Tchoultey (Herberge) neuerer Zeiten",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.937Z",
+          "agent": "wk80t3g5pe5ec3p",
+          "source_id": "kyngznlw29ji25f"
+        }
+      ],
+      "source_id": "bosw5uvg3zqwasf"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Solvyns; d.i.: Solvyns, Balthazar: A Collection of Two Hundred and Fifty Coloured Etchings of the Manners, Customs, and Dress of the Hindous, Calcutta 1799; oder: Les Hindous, ou description de leurs moeurs, côtumes, cérémonies etc, dessinés d'après nature dans le Bengale et représentés en 292 planches, 4 Bde, Paris 1808-1812",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.764Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Radja im Gallakleide",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Solvyns",
+      "scans": [
+        "alm_557_42256_lv3vcy2lke.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Radja im Gallakleide",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.937Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.937Z",
+          "agent": "mksg0b82s22f3na",
+          "source_id": "86m7q1i8w0k4ja7"
+        }
+      ],
+      "source_id": "98wn12hfxvbkgsh"
+    },
+    {
+      "annotation": "lt. G-Verz: Hof des großen Moguls unter Schach Jehan und Aurengzeb",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.767Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hof des GrossMogols",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_557_42257_93hyupmbsy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hof des GrossMogols",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "nenv4rinhyx5njr"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Mag sich der Eigendünkel eines jeden Reichs der Erde ein unermeßlich hohes Alterthum zuschreiben, schwerlich ist eins derselben vermögend,",
+      "language": [],
+      "musenalm_id": 42258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeiner Rückblick auf Hindostan # I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeiner Rückblick auf Hindostan # I.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "3vqw6mrml483qsj"
+        }
+      ],
+      "source_id": "xg2f2w18tgfupoo"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Daniels",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antiker Tempel der Hindus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_557_42259_r9sokrqwiu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antiker Tempel der Hindus",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "5rexiioekw5nxvt"
+        }
+      ],
+      "source_id": "92pzgqky6gapiy6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einzelne Säule des antiken Tchoultey",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_557_42260_nizxcfl4a0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Einzelne Säule des antiken Tchoultey",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "br897e47xfo5s7r"
+        }
+      ],
+      "source_id": "k7bpn9eiv0eg3c2"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "227",
+      "incipit_statement": "Es ist zwar schon bemerkt, daß die Religion der Hindus und ihre Abtheilung in Casten, bereits zu Alexanders Zeiten, eben die heutige war,",
+      "language": [],
+      "musenalm_id": 42261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeiner Rückblick auf Hindostan # II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeiner Rückblick auf Hindostan # II.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.285Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.285Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "mrpt2ynz828fzap"
+        }
+      ],
+      "source_id": "i0q10j77r7bvfi8"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Solvyns; d.i.: Solvyns, Balthazar: A Collection of Two Hundred and Fifty Coloured Etchings of the Manners, Customs, and Dress of the Hindous, Calcutta 1799; oder: Les Hindous, ou description de leurs moeurs, côtumes, cérémonies etc, dessinés d'après nature dans le Bengale et représentés en 292 planches, 4 Bde, Paris 1808-1812",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorlesungen über den Mohabharat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_557_42262_7wt7y4aanu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vorlesungen über den Mohabharat",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.244Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.244Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "9eid3zryn9ygu7b"
+        }
+      ],
+      "source_id": "6r3hugn2peyalla"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Diesen erhabenen Grundlehren ihrer Religion, besonders dem darin als unerläßlich aufgestellten Satz des Mitleids, der Erhaltung und Erzeugung,",
+      "language": [],
+      "musenalm_id": 42263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeiner Rückblick auf Hindostan # III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeiner Rückblick auf Hindostan # III.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.807Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "1b3vnci9mhg4k1n"
+        }
+      ],
+      "source_id": "fadxiuitegb61m1"
+    },
+    {
+      "annotation": "# Titel aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Es ist paßlich, hier jetzt einen Rückblick auf diese zu nehmen; wir haben hiebei zugleich Gelegenheit, nicht nur einige merkwürdige Charaktere in Anregung zu bringen,",
+      "language": [],
+      "musenalm_id": 42264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allgemeiner Rückblick auf Hindostan # IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allgemeiner Rückblick auf Hindostan # IV.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.807Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.807Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "9yle8numejmvvba"
+        }
+      ],
+      "source_id": "p2owm0abv0482sz"
+    },
+    {
+      "annotation": "# lt. G-Verz: nach Sonnerat; d.i.: Sonnerat, Pierre: Voyage aux Indes orientales et a la Chine, fait par ordre du Roi, depuis 1774 jusqu'en 1781. 3 tomes Paris, chez l'Auteur, 1782",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Tirounal oder das Wagenfest",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_557_42265_mtaqc7y742.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Tirounal oder das Wagenfest",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.329Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.329Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "acepl2cgygqvnvg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.329Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.329Z",
+          "agent": "mopipn1vagv67w0",
+          "source_id": "ooliaojmdrxutlu"
+        }
+      ],
+      "source_id": "m9l1mjf4iyxqy6s"
+    },
+    {
+      "annotation": "s. Graphik INr 4267, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Als Zusatz zu dem was von der Naturgeschichte Hindostans beigebracht ist, erwähne wir zuletzt eine Pflanze, welche unter die charakteristischen Auszeichnungen Hindostans gehört,",
+      "language": [],
+      "musenalm_id": 42266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Als Zusatz zu dem was von der Naturgeschichte Hindostans beigebracht ist, erwähne wir zuletzt eine Pflanze, welche unter die charakteristischen Auszeichnungen Hindostans gehört,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.329Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.329Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "tsvew8k777b29ck"
+        }
+      ],
+      "source_id": "b29bxxmkvwxnlhm"
+    },
+    {
+      "annotation": "Beigabe zu INr 42267, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.765Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beweglicher Süssklee, Hedysarum gyrans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_557_42267_1cbdzexhdr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Beweglicher Süssklee, Hedysarum gyrans",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "apyer9n7qkbn4z2"
+    },
+    {
+      "annotation": "s. Titelportrait INr 42250, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Bei einer allgemeinen Uebersicht der LänderEntdeckungen der Portugiesen ist es auffallend zu vermerken, wie ein einziger großer Mann, Heinrich der Schiffer, durch seine weise Thätigkeit die Fortschritte von Portugals Seefahrern gleichsam beflügelt hat.",
+      "language": [],
+      "musenalm_id": 42268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vasco da Gama",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vasco da Gama",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.099Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.099Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "jga8365z5tf37ww"
+        }
+      ],
+      "source_id": "akt0ynx88s6htmw"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42269,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herabgesetzter Preis von acht Thalern / auf drei Thaler, des Taschenbuchs / Minerva 1ter bis 4ter Jahrgang / oder: / der Jahre 1809-1812",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herabgesetzter Preis von acht Thalern / auf drei Thaler, des Taschenbuchs / Minerva 1ter bis 4ter Jahrgang / oder: / der Jahre 1809-1812",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "4fiq08r9jisa31z"
+    }
   ],
   "agents": [
     {

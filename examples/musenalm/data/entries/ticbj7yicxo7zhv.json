@@ -48,42 +48,1331 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "as6zbpyouj7vss5"
+    {
+      "annotation": "1845-1849.\nKartonierter Einband.(Buchrücken beschädigt.)\n1847: (K: M. 4 Stahlst , 4 Lith u. 12 Holzschn.) Mit Bl 2, Lith 4,  Holzschn 12 und 288 SS.\n\\par Forts. v.: Vergissmeinnicht . TB f.d.J. 1830-1843.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.697Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100976",
+      "location": "105R02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.697Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "as6zbpyouj7vss5"
+    }
   ],
   "contents": [
-    "waqf6i4sfxbszq5",
-    "7u80zftdxa0vwgy",
-    "upd77hpebffxmrw",
-    "294s1s1bu6temth",
-    "jcj2scxpcq6xt3b",
-    "33zvtjxye8wn149",
-    "l2nhvj9a11ppwsu",
-    "bednkg94e1ocffo",
-    "4lt2qazjx05zx05",
-    "d73gk4btalsrm11",
-    "90a7v5gn6ycgssm",
-    "389mpwrhvj6882z",
-    "ddua344xx85ujms",
-    "vj9n1lwv9umj8jl",
-    "2vwleblwg6ut5y7",
-    "6ro1nrgl2mrgcc3",
-    "1o1f21uribqcckn",
-    "y3pt78nbsk7f46x",
-    "s77cwuykqmpr2xj",
-    "s4akuxqbgiy8moz",
-    "6ldtjupmqd77vcs",
-    "k0xwo7b9lty55cj",
-    "7gxnf2wlzg52fwo",
-    "jzlm3wq6luluegu",
-    "ex7slhwr7zqbq9s",
-    "fblfl402d60rbj5",
-    "3qvce54d8o2hm0v",
-    "d8tdt7ugaadj52m",
-    "zn8jtayswsgtn11",
-    "mhl6bw76b2gssym",
-    "ujz8br43vi6non3",
-    "cp02r1zns4opu96",
-    "9dn4zzr0uwxsduj"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103506,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / Carl Spindler. / Für das Jahr 1847. / Mit Illustrationen von L. Weißer. / Stuttgart. / Franckh'scher Verlag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103506_kshkioel5y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / Carl Spindler. / Für das Jahr 1847. / Mit Illustrationen von L. Weißer. / Stuttgart. / Franckh'scher Verlag",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "waqf6i4sfxbszq5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103507,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "7u80zftdxa0vwgy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103508,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lith. v. F. Malté in Stuttgart)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. v. F. Malté in Stuttgart",
+      "scans": [
+        "alm_3419_103508_le7efn1wsp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "upd77hpebffxmrw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103509,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Roth. Lith. v. F. Malté in Stuttgart. Nach Guercino gez.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Roth. Lith. v. F. Malté in Stuttgart. Nach Guercino gez.",
+      "scans": [
+        "alm_3419_103509_amyqg5g3rz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "vg1gosbyuifs5y5",
+          "source_id": "nrjbvloj2zlp8jz"
+        }
+      ],
+      "source_id": "294s1s1bu6temth"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103510,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lith. v. F. Malté in Stuttgart. C. Roth. Nach Cesare Dandini)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. v. F. Malté in Stuttgart. C. Roth. Nach Cesare Dandini",
+      "scans": [
+        "alm_3419_103510_4p4x6i1ab7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "b61sclxi9naasr7",
+          "source_id": "idmtpikj0m5ojfb"
+        }
+      ],
+      "source_id": "jcj2scxpcq6xt3b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103511,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (C. Roth lith. Lith. v. F. Malté in Stuttgart. Nach Guercino gez.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Roth lith. Lith. v. F. Malté in Stuttgart. Nach Guercino gez.",
+      "scans": [
+        "alm_3419_103511_8brfyd6z5n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "vg1gosbyuifs5y5",
+          "source_id": "sxdpa24dco03tav"
+        }
+      ],
+      "source_id": "33zvtjxye8wn149"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103512,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergissmeinnicht. / Dem deutschen Volke / gewidmet / von / Carl Spindler. / Für / das Jahr 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergissmeinnicht. / Dem deutschen Volke / gewidmet / von / Carl Spindler. / Für / das Jahr 1847",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "l2nhvj9a11ppwsu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Druck der J. G. Sprandel'schen Buchdruckerei in Stuttgart und Cannstatt",
+      "language": [],
+      "musenalm_id": 103513,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck der J. G. Sprandel'schen Buchdruckerei in Stuttgart und Cannstatt…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "bednkg94e1ocffo"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103515, 103516; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wie ein Stadt liegt, so hat sie's. Wäre das alte Konstanz nicht von dem alten Römer gebaut worden, da, wo vieler Herren Gränzen und vieler Menschen Länder aneinanderstoßen, es hätte sein Concilium nicht gehabt,",
+      "language": [],
+      "musenalm_id": 103514,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Heidegger und sein Liebchen. / (Aus dem dreißigjährigen Kriege.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Heidegger und sein Liebchen. / (Aus dem dreißigjährigen Kriege.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "0ln7hjefovd27u3"
+        }
+      ],
+      "source_id": "4lt2qazjx05zx05"
+    },
+    {
+      "annotation": "Illustration zu »Der Heidegger und sein Liebchen« von C. Spindler INr 103514, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.436Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103515,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heidegger und sein Liebchen. (S. 19.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103515_jsu44937z9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Heidegger und sein Liebchen. (S. 19.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "d73gk4btalsrm11"
+    },
+    {
+      "annotation": "Illustration zu »Der Heidegger und sein Liebchen« von C. Spindler INr 103514, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103516,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heidegger und sein Liebchen. (S. 43.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103516_1vuy2lx3v1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Heidegger und sein Liebchen. (S. 43.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "90a7v5gn6ycgssm"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Es steht ein Schößlein an dem Rhein / Da kehret nur die Freude ein, [...] Es folgt: Sammlung von 6 Beiträgen mit 3 Einleitungen und  6 Illustrationen INr 103518-103531, Obj 13-26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:36.441Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Es war im Herbste 1834. Die Sonne hatte an den Rebgeländen des badischen Oberrheins ihre Schuldigkeit wacker gethan.",
+      "language": [],
+      "musenalm_id": 103517,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichten eines Hundert- / jährigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichten eines Hundert- / jährigen",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.095Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.095Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "f2ynoazqalufo9b"
+        }
+      ],
+      "source_id": "389mpwrhvj6882z"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103519, Ob 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "Das waren verzweifelte Kerle, die Rothmäntler! Wenn ich sie mir noch vorstelle, Sappermost, so gruselt's mir über die Haut.",
+      "language": [],
+      "musenalm_id": 103518,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruder Rothmantel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruder Rothmantel",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "l4z51xe0efj8ujn"
+        }
+      ],
+      "source_id": "ddua344xx85ujms"
+    },
+    {
+      "annotation": "Illustration zu »Geschichten eines Hundertjährigen; Bruder Rothmantel« von C. Spindler INr 103518, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103519,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruder Rothmantel (S. 52.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103519_uat0i3sp3k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bruder Rothmantel (S. 52.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "vj9n1lwv9umj8jl"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103521, Ob 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Das Maul ist in der Welt zum Auf- und Zumachen. Zum Reden, zum Essen und Trinken, und zum Gähnen vor dem Schlafengehen darf man's aufthun.",
+      "language": [],
+      "musenalm_id": 103520,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pomezini, der Muckenschnapper",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pomezini, der Muckenschnapper",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "egnz4ie9pqgtqco"
+        }
+      ],
+      "source_id": "2vwleblwg6ut5y7"
+    },
+    {
+      "annotation": "Illustration zu »Geschichten eines Hundertjährigen; Pomezini der Muckenschnapper« von C. Spindler INr 103520, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.479Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103521,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pomezini der Muckenschnapper (S. 69.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "MAUCH",
+      "scans": [
+        "alm_3419_103521_gekre7ub2q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pomezini der Muckenschnapper (S. 69.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ro1nrgl2mrgcc3"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.481Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Der zweite Tag der Weinlese war vorübergegangen, prächtig und sonnenhell wie der erste. Die Winzer hatten starke Arbeit gemacht.",
+      "language": [],
+      "musenalm_id": 103522,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.161Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.161Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "s6xwi6vgmbew3lg"
+        }
+      ],
+      "source_id": "1o1f21uribqcckn"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103524, Ob 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Ich weiß nicht mehr ... mein Gedächtniß wird kurz, wie mein Odem ... ob ich euch gestern etwas von dem Herrgottspantöffele erzählt habe,",
+      "language": [],
+      "musenalm_id": 103523,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Muttergöttesle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Muttergöttesle",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "i6tt1dv7jh62x22"
+        }
+      ],
+      "source_id": "y3pt78nbsk7f46x"
+    },
+    {
+      "annotation": "Illustration zu »Geschichten eines Hundertjährigen; Das Muttergöttesle« von C. Spindler INr 103523, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.482Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103524,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Muttergöttesle. (S. 75.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103524_gp77uom3vi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Muttergöttesle. (S. 75.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "s77cwuykqmpr2xj"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103524, Ob 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Wenn ich Euch sage, daß zwischen den Franzosen unter der Kaiserin Maria Theresia und denen der unter der Republik ein großer himmelweiter Unterschied gewesen, so habe ich erst noch gar nichts gesagt.",
+      "language": [],
+      "musenalm_id": 103525,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schneider-Eulogi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schneider-Eulogi",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "5626hx76e49dqnu"
+        }
+      ],
+      "source_id": "s4akuxqbgiy8moz"
+    },
+    {
+      "annotation": "Illustration zu »Geschichten eines Hundertjährigen; DerSchneider-Eulogi« von C. Spindler INr 103525, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103526,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schneider-Eulogi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "MAUCH",
+      "scans": [
+        "alm_3419_103526_k0l8s7jogm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schneider-Eulogi",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ldtjupmqd77vcs"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.487Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "97",
+      "incipit_statement": "Wie der alte Martin vorausgesagt, war's geschehen. Am nächsten Abend war die Arbeit im Weinberg gethan, und lustige Gesänge der auf Kosten der freigebigen Herrschaft schmausenden Arbeiter begrüßten den Abendstern.",
+      "language": [],
+      "musenalm_id": 103527,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "3agiaor57oxzi7f"
+        }
+      ],
+      "source_id": "k0xwo7b9lty55cj"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103529, Ob 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Sein Vater ist ein armer Mann gewesen und seine Mutter hat nicht den Kreuzer gehabt.",
+      "language": [],
+      "musenalm_id": 103528,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bonebard von Langenschnirchlingen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bonebard von Langenschnirchlingen",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "dcij5fmsyhd9a5z"
+        }
+      ],
+      "source_id": "7gxnf2wlzg52fwo"
+    },
+    {
+      "annotation": "Illustration zu »Geschichten eines Hundertjährigen; Bonaparte von Langenschnirchlingen« von C. Spindler INr 103528, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "108",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103529,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bonaparte von Langenschnirchlingen. (S. 108.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103529_0e5410h8fy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bonaparte von Langenschnirchlingen. (S. 108.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "jzlm3wq6luluegu"
+    },
+    {
+      "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103531, Ob 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Ich hab' schon gestern oder vorgestern von dem Leibdinghäusle gesagt, das neben dem Herrenberger Hof gestanden.",
+      "language": [],
+      "musenalm_id": 103530,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leibdinger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Leibdinger",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "6vg895dx9cypyjr"
+        }
+      ],
+      "source_id": "ex7slhwr7zqbq9s"
+    },
+    {
+      "annotation": "Illustration zu »Geschichten eines Hundertjährigen; Der Leibdinger« von C. Spindler INr 103528, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103531,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leibdinger (S. 126.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103531_1kqj7rzj9e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Leibdinger (S. 126.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "fblfl402d60rbj5"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 103533, 103534; Obj 28, 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "127",
+      "incipit_statement": "Die Funken flogen sprühend vom Ambos unter den schweren Hammerschlägen von des Schmiedes rüstiger Faust., die stark und gelenk durch lange Uebung, die Stange leicht zum Hufeisen formt.",
+      "language": [],
+      "musenalm_id": 103532,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Alraune von Gmunden. / Eine oberösterreichische Geschichte aus dem XVII. Jahrundert",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Alraune von Gmunden. / Eine oberösterreichische Geschichte aus dem XVII. Jahrundert",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "4ldfehykcuomp9v"
+        }
+      ],
+      "source_id": "3qvce54d8o2hm0v"
+    },
+    {
+      "annotation": "Illustration zu »Alraune von Gmunden« von C. Spindler INr 103532, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.495Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103533,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alraune von Gmunden. (S. 149.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "MAUCH",
+      "scans": [
+        "alm_3419_103533_r4fc3q88fq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alraune von Gmunden. (S. 149.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "d8tdt7ugaadj52m"
+    },
+    {
+      "annotation": "Illustration zu »Alraune von Gmunden« von C. Spindler INr 103532, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.498Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103534,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alraune von Gmunden. (S. 162.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3419_103534_j0lvzu0ruf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alraune von Gmunden. (S. 162.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "zn8jtayswsgtn11"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 103536, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.501Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Im Burghof zu Wien drängte sich das Volk schaulustig und wohlgemuth im hellen Schein der Märzsonne.",
+      "language": [],
+      "musenalm_id": 103535,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / französische Cavalier in Wien. / Memoiren, Sitten- und Lokalschilderungen aus dem / Anfang des 18ten Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / französische Cavalier in Wien. / Memoiren, Sitten- und Lokalschilderungen aus dem / Anfang des 18ten Jahrgang",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.162Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.162Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "19la10o2714ei1p"
+        }
+      ],
+      "source_id": "mhl6bw76b2gssym"
+    },
+    {
+      "annotation": "Illustration zu »Der französische Cavalier in Wien« von C. Spindler INr 103535, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.502Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103536,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der französische Cavalier in Wien. (S. 205.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "MAUCH",
+      "scans": [
+        "alm_3419_103536_7710u41f5a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der französische Cavalier in Wien. (S. 205.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "ujz8br43vi6non3"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 103538, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.005Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Sobald ein alter Junggeselle nicht geizig ist, dafür aberviel hat, kann er sich seine Wohnung so behaglich einrichten, daß ihn ein jeder verheiratheter Mann darum beneiden möchte.",
+      "language": [],
+      "musenalm_id": 103537,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schutzgeist. / Eine Erzählung aus Baden-Baden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schutzgeist. / Eine Erzählung aus Baden-Baden",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.010Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.010Z",
+          "agent": "jo3symqxy3hqpd5",
+          "source_id": "gfvdtu9azpss0u8"
+        }
+      ],
+      "source_id": "cp02r1zns4opu96"
+    },
+    {
+      "annotation": "IIlustration zu »Der Schutzgeist« von C. Spindler INr 103537, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.529Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 103538,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schutzgeist (S. 273.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "MAUCH",
+      "scans": [
+        "alm_3419_103538_pngqsot15y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Schutzgeist (S. 273.)",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "9dn4zzr0uwxsduj"
+    }
   ],
   "agents": [
     {

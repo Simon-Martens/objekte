@@ -99,7 +99,11 @@
         "required": [
           "entry"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "default": {
+          "entry": "",
+          "annotation": ""
+        }
       }
     }
   },

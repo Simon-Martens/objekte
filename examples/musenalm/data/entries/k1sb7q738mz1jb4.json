@@ -48,14 +48,204 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "w3dqmaurlhcb8j2"
+    {
+      "annotation": "Auswahl Fr. Kaminski 10.2023zurück; 01.2024 zurück",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.494Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106816",
+      "location": "105E05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.494Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "w3dqmaurlhcb8j2"
+    }
   ],
   "contents": [
-    "2nj9xyiups30jda",
-    "ic1nm4xy5b59whp",
-    "5gj34m5i6ocfqy7",
-    "sgbhu8l7nyb7z2f",
-    "apl92rrsti6j4s1"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36603,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_494_36603_m2qunprs7t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2004-01-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "2nj9xyiups30jda"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / auf das Jahr 1804. / Die / natürliche Tochter. / Trauerspiel / von Goethe. / Tübingen, / in der Cotta'schen Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_494_36604_ib576u70st.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / auf das Jahr 1804. / Die / natürliche Tochter. / Trauerspiel / von Goethe. / Tübingen, / in der Cotta'schen Buchhandlung",
+      "updated": "2004-01-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ic1nm4xy5b59whp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das flücht'ge Ziel, das Hunde, Roß und Mann, / Auf seine Fährte bannend, nach sich reißt,",
+      "language": [],
+      "musenalm_id": 36605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die natürliche Tochter. / Trauerspiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die natürliche Tochter. / Trauerspiel",
+      "updated": "2004-01-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.685Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.685Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "8dimh6xyblylz0a"
+        }
+      ],
+      "source_id": "5gj34m5i6ocfqy7"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Verlage der J. G. Cotta'schen Buchhandlung in Tü- / bingen sind von Ostern 1802 bis 1803 erschienen:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Verlage der J. G. Cotta'schen Buchhandlung in Tü- / bingen sind von Ostern 1802 bis 1803 erschienen:",
+      "updated": "2004-01-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "sgbhu8l7nyb7z2f"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36607,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_494_36607_hfqf4s0hcp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2004-01-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "apl92rrsti6j4s1"
+    }
   ],
   "agents": [
     {

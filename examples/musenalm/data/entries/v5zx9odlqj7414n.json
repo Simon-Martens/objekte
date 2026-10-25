@@ -48,7 +48,26 @@
   "year": 1814,
   "editor": "",
   "items": [
-    "r38h9mdxs9ff0cr"
+    {
+      "annotation": "Titelauflage von: Taschenbuch; Heidelberger 1812\n§§ Band unvollständig: vorderer Deckel, Titel, Widmung, I-Verz, GG fehlen",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.709Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100805",
+      "location": "105N02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.709Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "r38h9mdxs9ff0cr"
+    }
   ],
   "contents": [],
   "agents": [

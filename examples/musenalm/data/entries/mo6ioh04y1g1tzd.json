@@ -48,20 +48,473 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "4hw9wil8ot1tu2r"
+    {
+      "annotation": "Almanach dramatischer Spiele für Gesellschaftstheater Jgg 1811-1837, Hrsg: F. A. v. Kurländer; ab 1819: Lustspiele oder dramatischer Almanach für das Jahr; fortgesetzt als: F. A. von Kurländers dramatischer Alamanach für das Jahr Leipzig 1838-1841. Hrsg: C. W. Koch",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.545Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200567",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.545Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4hw9wil8ot1tu2r"
+    }
   ],
   "contents": [
-    "9bcpb1btcgwfip6",
-    "obw81i9cu2mfd2b",
-    "ja536wlghophz4s",
-    "pru72vrdltc1n0p",
-    "643zt9wq5o4iprm",
-    "0joa5y3ef9ys94c",
-    "os6cgflqfnt5xt9",
-    "dm2yjl84dpgzj0w",
-    "6p9dhvi2aa02rd6",
-    "ydcecy8oa8yoc89",
-    "qaofeglj9x4xd88"
+    {
+      "annotation": "Titelgraphik; kol. Illustration zu »Das goldene Kreuz« von Kurländer (INr 125313, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.922Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125308,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das goldene Kreuz. Act II, Scene 12. / Wachtmeister Aemy. / »Immer noch Wachtmeister. Die / Kälte liess mich nicht höher hinauf.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_1265_125308_euupt2wfih.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das goldene Kreuz. Act II, Scene 12. / Wachtmeister Aemy. / »Immer noch Wachtmeister. Die / Kälte liess mich nicht höher hinauf.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "pcd31aqj1eltwrn"
+        }
+      ],
+      "source_id": "9bcpb1btcgwfip6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125309,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1837. / von / F. A. von Kurländer. / Sieben und zwanzigster Jahrgang. / Mit Kupfern. / Leipzig. / Baumgärtners Buchhandlung.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1837. / von / F. A. von Kurländer. / Sieben und zwanzigster Jahrgang. / Mit Kupfern. / Leipzig. / Baumgärtners Buchhandlung.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "obw81i9cu2mfd2b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125310,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ja536wlghophz4s"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 125312, Obj 5); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 125309, Obj 2); ### von Mme de Souza (vgl. Nouvelle Biographie Générale XLIV, Sp. 275)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.923Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Sie kommen wirklich von Neu-York? / Vor Kurzem habe ich zu Havre gelandet",
+      "language": [],
+      "musenalm_id": 125311,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / achtzigste Geburtstag. / Schauspiel in einem Aufzuge. / Nach dem Roman: »Adèle de Senange« ### und / nach Scribe frei bearbeitet.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / achtzigste Geburtstag. / Schauspiel in einem Aufzuge. / Nach dem Roman: »Adèle de Senange« ### und / nach Scribe frei bearbeitet.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "1tz0c7f06gko5fl"
+        }
+      ],
+      "source_id": "pru72vrdltc1n0p"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der achtzigste Geburtstag« von Kurländer (INr 125311, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.924Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125312,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achtzigster Geburtstag. Scene 8. / Senange. / »All das Edle, was ihr sicher noch / wirken werdet, ist zum Theil mein / Werk; ich habe nicht umsonst gelebt!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_1265_125312_7bd6nqskvf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Achtzigster Geburtstag. Scene 8. / Senange. / »All das Edle, was ihr sicher noch / wirken werdet, ist zum Theil mein / Werk; ich habe nicht umsonst gelebt!«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "ffh934hl9vbxswn"
+        }
+      ],
+      "source_id": "643zt9wq5o4iprm"
+    },
+    {
+      "annotation": "mit zwei koll. Illustrationen (Titelkupfer, INr 125308, Obj 1; INr 125314, Obj 7); # Bezeichnung aus dem Titel (INr 125309, Obj 2); ## von Nicolas Brazier (vgl. NBG VII, Sp. 283)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Der Knecht hat euch schon gesagt, daß unser kleiner Gasthof ganz besetzt ist – Es thut mir leid – der Herr ist auch nicht zu Hause ....",
+      "language": [],
+      "musenalm_id": 125313,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das goldene Kreuz. / Schauspiel in zwei Aufzügen. / Nach: »La croix d’or« frei bearbeitet ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet [bearb.] F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das goldene Kreuz. / Schauspiel in zwei Aufzügen. / Nach: »La croix d’or« frei bearbeitet ##",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "53tmttjnixyy8z0"
+        }
+      ],
+      "source_id": "0joa5y3ef9ys94c"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das goldene Kreuz« von Kurländer (INr 125313, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.925Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125314,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das goldene Kreuz. Act I, Scene 11. / Katharine. / »Er zeigt mir mein Kreuz! Ja, du edler / Mensch, Hand und Herz gehören dir. – / Ewiger Gott, du hörtest meinen Schwur.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_1265_125314_ihkrlhq5o5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das goldene Kreuz. Act I, Scene 11. / Katharine. / »Er zeigt mir mein Kreuz! Ja, du edler / Mensch, Hand und Herz gehören dir. – / Ewiger Gott, du hörtest meinen Schwur.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "3e17m71y6xyrtsx"
+        }
+      ],
+      "source_id": "os6cgflqfnt5xt9"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 125316, Obj 9);",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "So, das wäre vollendet, und ist recht gut gelungen; ich glaube, besser, als alle meine Verse, welche ich ehemals im Schweiße meines Angesichtes zur Welt brachte.",
+      "language": [],
+      "musenalm_id": 125315,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geliebt seyn, oder Sterben. / Lustspiel in einem Aufzuge. / Als Fortsetzung von dem Lustspiele: »Die zehnte / Muse« nach Scribe frei bearbeitet.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geliebt seyn, oder Sterben. / Lustspiel in einem Aufzuge. / Als Fortsetzung von dem Lustspiele: »Die zehnte / Muse« nach Scribe frei bearbeitet.",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "d55gme5uvwhd6cg"
+        }
+      ],
+      "source_id": "dm2yjl84dpgzj0w"
+    },
+    {
+      "annotation": "kol. Illustration zu »Geliebt seyn oder sterben« von Kurländer (INr 123515, Obj 8); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 125309, Obj 2)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.927Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125316,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geliebt seyn oder sterben. Letzte Scene. / Celeste. / »Dass ich das Glück des Lebens, welches / ich in der Welt der Dichtung verge- / bens gesucht, in der Wirklichkeit gefun- / den habe, verdanke ich dir.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. C. Böhme sc.",
+      "scans": [
+        "alm_1265_125316_j0pqn37b2g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Geliebt seyn oder sterben. Letzte Scene. / Celeste. / »Dass ich das Glück des Lebens, welches / ich in der Welt der Dichtung verge- / bens gesucht, in der Wirklichkeit gefun- / den habe, verdanke ich dir.«",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.740Z",
+          "agent": "oec592l87zwoa47",
+          "source_id": "6294vxxlkar7etg"
+        }
+      ],
+      "source_id": "6p9dhvi2aa02rd6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Mit wahrhaftem Schmerz müssen wir die traurige Pflicht erfüllen, den Freunden des Verfassers und den vielen Lesern seines Taschenbuches dessen Hinscheiden hiermit anzuzeigen.",
+      "language": [],
+      "musenalm_id": 125317,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Todesanzeige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Todesanzeige",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ydcecy8oa8yoc89"
+    },
+    {
+      "annotation": "mit I-Verz der vorherigen Jgg.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125318,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wir empfehlen zur Lektüre und zum Behuf / von Aufführungen kleinerer dramatischer / Leistungen auf Privatbühnen und in Fa- / milienzirkeln: / Die / vorangehenden Jahrgänge / dieses Taschenbuchs",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "qaofeglj9x4xd88"
+    }
   ],
   "agents": [
     {

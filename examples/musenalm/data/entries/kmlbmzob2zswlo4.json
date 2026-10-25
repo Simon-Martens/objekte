@@ -48,7 +48,26 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "mo7duwhaymh5far"
+    {
+      "annotation": "1831+\nKartonierter Einband mit Goldschnitt.\n1831: (K: M.gest. Titel.) Mit gest. Tit. , XXXVI und 318 SS.",
+      "condition": "2b",
+      "created": "2026-06-11 10:17:37.568Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101342",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.568Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "mo7duwhaymh5far"
+    }
   ],
   "contents": [],
   "agents": [

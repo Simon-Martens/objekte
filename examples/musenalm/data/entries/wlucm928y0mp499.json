@@ -48,61 +48,2290 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "luujdqswdii853t"
+    {
+      "annotation": "1798-1831.(1823-1827 nicht erschienen.)\nKartonierter Einband mit Muster, Grafik und Goldschnitt.(Buchrücken leicht beschädigt.)\n1820: (K: Bl 2, XVI, 304 SS, M.Ku.) Mit Ku 7, Bl 2, XVI und 304 SS.\nJg 1798-1799 a.u.d. Tit.: Taschenkalender f. Damen.\nInhalt lose Seite 3-14.  ",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.493Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100633",
+      "location": "105F01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.493Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "luujdqswdii853t"
+    }
   ],
   "contents": [
-    "sao8bbvpyjxnv84",
-    "fqfexbdutxkot6n",
-    "l8f9icg2t0p2ai7",
-    "gnko5dnjk82hls1",
-    "ciwgy4obwf3h84y",
-    "rb7qooz7g8gv8y0",
-    "d2oyb86wdtxx4l4",
-    "v64o8i6hrwjbhoy",
-    "o0v8bo1dyh0sx6n",
-    "5kqyw80isej0ibg",
-    "o02myfg61wthroz",
-    "jsrk4v7ti69485z",
-    "e2fgxkxt3gsk0mk",
-    "l5u5npu0pxxwdjd",
-    "8enewuqtipzylc9",
-    "zumdj6ou57mryo9",
-    "e01j2jgjachflfu",
-    "fkn0f18w9m91amr",
-    "n0r4wrz80ywei0l",
-    "czjkjo3rw9c37u8",
-    "qa8htif19i6h782",
-    "ck3wgpmfogzgzb4",
-    "bj014xalrm81rdu",
-    "83gbm3at8fcapyk",
-    "46xd6aarn8tcxfq",
-    "yfzz8o2xncvwboh",
-    "p1g441oe5me8h5j",
-    "6ipb6ykqm4nv4p1",
-    "febtp1rpqi6iwr1",
-    "15uwyrw02b7y2j8",
-    "cqzyux12sk82l3o",
-    "4bjn24qx5m4rjv6",
-    "a5wf6gruvmazpsw",
-    "nzzqmds1yinbxq3",
-    "66ls8wcn08cbonn",
-    "mrpvx452a7ylake",
-    "8av2f3rqxk697n3",
-    "48ouqegq82262nh",
-    "vbm31o03tnbu604",
-    "5826ewwqxxf3lbj",
-    "ua06aj1bzj5ws7i",
-    "79c79e4bgqunktg",
-    "scsgkl5towdzopt",
-    "67uq1bydpd4wdqz",
-    "5q3vbalovtvjwli",
-    "dn597vxyehmh067",
-    "ux1c2575jhq7c73",
-    "azr5yhj3grd1uze",
-    "6waqascqk38278m",
-    "vt8mcaaxywjzlm2",
-    "p3v3dnk7h416cdo",
-    "8p0t67hafd1ym9r"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34224,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_475_34224_p6mn7yomm6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "sao8bbvpyjxnv84"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 34230,Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34225,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gez. von Albrier Gest. v. Bein in Paris)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Albrier Gest. v. Bein in Paris",
+      "scans": [
+        "alm_475_34225_5n8yg8v99y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.786Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.786Z",
+          "agent": "zmvjdej6nue3uh9",
+          "source_id": "p43pkjfygk9puzp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.786Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.786Z",
+          "agent": "96z5widx3aa60z4",
+          "source_id": "uj1eig6g27kildo"
+        }
+      ],
+      "source_id": "fqfexbdutxkot6n"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34227,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Damen / auf das Jahr 1820. / Tübingen bey Cotta",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_475_34227_hiiexqettx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Damen / auf das Jahr 1820. / Tübingen bey Cotta",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "l8f9icg2t0p2ai7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34228,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "gnko5dnjk82hls1"
+    },
+    {
+      "annotation": "Sammlung von 6 Textbezügen zu 7 Graphiken INr 34230-34241, Obj 6-17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34229,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "ciwgy4obwf3h84y"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 34229, Obj 5) s. Graphik INr 34225, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Betrachten wir doch den zierlichen Knaben, mit seinem Hirtenstab, ohne Heerde, mit einer Kopf-Bedeckung von leichten Binsen geflochten,",
+      "language": [],
+      "musenalm_id": 34230,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Titelkupfer",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "rb7qooz7g8gv8y0"
+    },
+    {
+      "annotation": "s. Graphik INr 34232, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Eines von Raphaels letztern Gemählden, da er es zwei Jahre vor seinem Tode für König Franz den Ersten von Frankreich mahlte.",
+      "language": [],
+      "musenalm_id": 34231,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Heilige Familie von Raphael",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Heilige Familie von Raphael",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "d2oyb86wdtxx4l4"
+    },
+    {
+      "annotation": "s. Textbezug INr 34231, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.623Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34232,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die heilige Familie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Raphael Pinx. Fortier sculp.",
+      "scans": [
+        "alm_475_34232_4k6jtmkpkd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die heilige Familie",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.786Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.786Z",
+          "agent": "ztgmm4mptvjp8o3",
+          "source_id": "2lzmkdu7u7k7drf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.786Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.786Z",
+          "agent": "vuxl65pc90019o7",
+          "source_id": "m7d2td9uku4vprt"
+        }
+      ],
+      "source_id": "v64o8i6hrwjbhoy"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 34229, Obj 5) s. Graphik INr 34234, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.362Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "In der deutschen Kunstgeschichte ist dieses Gemählde als die Madonna von Foligno bekannt;",
+      "language": [],
+      "musenalm_id": 34233,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / La Vierge au Donateur. ( Die Jungfrau / mit dem Stifter.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / La Vierge au Donateur. ( Die Jungfrau / mit dem Stifter.)",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "o0v8bo1dyh0sx6n"
+    },
+    {
+      "annotation": "s. Textbezug INr 34233, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.961Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34234,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierge au Donataire",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Raphael Pinx. Fortier Sculp.",
+      "scans": [
+        "alm_475_34234_mionxxqg1o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vierge au Donataire",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.819Z",
+          "agent": "ztgmm4mptvjp8o3",
+          "source_id": "3k2pq8jko6x2l7f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.819Z",
+          "agent": "vuxl65pc90019o7",
+          "source_id": "duluefygr2akn0u"
+        }
+      ],
+      "source_id": "5kqyw80isej0ibg"
+    },
+    {
+      "annotation": "s. Textbezug INr 34236, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.964Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34235,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Moses aus dem Wasser gerettet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Poussin Pinxt. Lambert sculp",
+      "scans": [
+        "alm_475_34235_elr0m8spzv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Moses aus dem Wasser gerettet",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.819Z",
+          "agent": "o7lqwdeddlwmr62",
+          "source_id": "hblqc51bfw1e8uf"
+        }
+      ],
+      "source_id": "o02myfg61wthroz"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 34229, Obj 5) s. Graphik INr 34235, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.965Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Moses, welchen Pharaons Tochter, Thermutis, aus dem Wasser rettet, ein Gemählde,das immer dem Schatz der Pariser Gemähldesammlung angehörte,",
+      "language": [],
+      "musenalm_id": 34236,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der gerettete Moses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der gerettete Moses",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "jsrk4v7ti69485z"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 34229, Obj 5) s. Graphik INr 34238, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.965Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Wir sind das Ungeheure seit einem Menschenleben so gewohnt, daß ein gestürztes Königshaus, eine vernichtete Nation, ein großer Mensch,",
+      "language": [],
+      "musenalm_id": 34237,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Alexander, der Darius Familie besucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Alexander, der Darius Familie besucht",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "e2fgxkxt3gsk0mk"
+    },
+    {
+      "annotation": "s. Textbezug INr 34237, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.966Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34238,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alexander besucht Darius Familie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Le Brun Pinx. Fortier Sculp.",
+      "scans": [
+        "alm_475_34238_ez30f0av7z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alexander besucht Darius Familie",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.820Z",
+          "agent": "vuxl65pc90019o7",
+          "source_id": "71loyyv9bq816se"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.819Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.819Z",
+          "agent": "drhjjgtpuphcz4s",
+          "source_id": "98ucr0su9x848lw"
+        }
+      ],
+      "source_id": "l5u5npu0pxxwdjd"
+    },
+    {
+      "annotation": "s. Graphiken INr 34240, 34241; Obj 16, 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.967Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Diese zwey Blätter, von der Hand der liebenswürdigen Künstlerinn, welche das Publikum vor mehreren Jahren als Schöpferinn des ersten und zweiten, in der Cottaschen Buchhandlung erschienenen Kartenalmanachs bewunderte,",
+      "language": [],
+      "musenalm_id": 34239,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5 und 6",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5 und 6",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "8enewuqtipzylc9"
+    },
+    {
+      "annotation": "s. Textbezug INr 34239, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.969Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34240,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Autenrieth sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Autenrieth sc.",
+      "scans": [
+        "alm_475_34240_jk7025z19y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.820Z",
+          "agent": "494d92fqsi62f1e",
+          "source_id": "j3ga5q5mh8r1bwu"
+        }
+      ],
+      "source_id": "zumdj6ou57mryo9"
+    },
+    {
+      "annotation": "s. Textbezug INr 34239, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34241,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Autenrieth sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Autenrieth sc.",
+      "scans": [
+        "alm_475_34241_qxgg9o8bo2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.820Z",
+          "agent": "494d92fqsi62f1e",
+          "source_id": "dsp4ykysuqy086m"
+        }
+      ],
+      "source_id": "e01j2jgjachflfu"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "St. Amand, ein Schweizer-Officier in französischen Diensten, der mit Auszeichnung gedient hatte,",
+      "language": [],
+      "musenalm_id": 34242,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die ungleiche Heirath",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Huber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die ungleiche Heirath",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.820Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "yewd86xcmay9y28"
+        }
+      ],
+      "source_id": "fkn0f18w9m91amr"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 34244-34246, Obj 20-22; s. a. Sammlung von drei Gedichten im Taschenbuch für Damen 1822 INr 34390-34393",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34243,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingsbilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingsbilder",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.820Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.820Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "cc334brrf5hyxqj"
+        }
+      ],
+      "source_id": "n0r4wrz80ywei0l"
+    },
+    {
+      "annotation": "Frühlingsbilder (Sammlung INr 34243, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.625Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Sey, dunkler Hayn, gegrüßt! In grauer Halle / Recht trüb und still, einfarbig, standest du",
+      "language": [],
+      "musenalm_id": 34244,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Der Wald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Der Wald",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.786Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.786Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "err6a1obt9ie2n8"
+        }
+      ],
+      "source_id": "czjkjo3rw9c37u8"
+    },
+    {
+      "annotation": "Frühlingsbilder (Sammlung INr 34243, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Den Matten auch, dem Wiesenplan, den Feldern / Bringt Frühling huldvoll ihr bescheiden Theil.",
+      "language": [],
+      "musenalm_id": 34245,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Die Wiesen und die Felder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Die Wiesen und die Felder",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.486Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "6borwi6a7v52dlc"
+        }
+      ],
+      "source_id": "qa8htif19i6h782"
+    },
+    {
+      "annotation": "Frühlingsbilder (Sammlung INr 34243, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Nicht fehlet selbst dem See das Frühlingszeichen. / Ich will zu Rast mich lagern am Gestade,",
+      "language": [],
+      "musenalm_id": 34246,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Der See",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Der See",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.486Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.486Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "g20m8naqyy10qoi"
+        }
+      ],
+      "source_id": "ck3wgpmfogzgzb4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.309Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Einst als der stolzverzagte Wütherich / Herodes, eifersüchtig um sein Reich, / Zu würgen alle Säuglinge Judäa's",
+      "language": [],
+      "musenalm_id": 34247,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisabeth. / Christliche Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elisabeth. / Christliche Legende",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.487Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.487Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "eer36mrgs1l39q9"
+        }
+      ],
+      "source_id": "bj014xalrm81rdu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Halb mündig, zum Henker, lieber Eduard! Vaillant datirte einmal: an dem Tage, da ich den ersten Elephanten erlegte.",
+      "language": [],
+      "musenalm_id": 34248,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alter und Jugend, / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Aug. Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alter und Jugend, / Eine Erzählung",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.648Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "84lvgea0z9t9755"
+        }
+      ],
+      "source_id": "83gbm3at8fcapyk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Walt's Gott! der Tag bricht wieder an, / Die Nacht ist schier vergangen,",
+      "language": [],
+      "musenalm_id": 34249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Morgenlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Morgenlied",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.648Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.648Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "fmuy1s80bu58x4b"
+        }
+      ],
+      "source_id": "46xd6aarn8tcxfq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "Auf eines Berges stillem Nacken, / Umstarrt von hohen Felsenzacken,",
+      "language": [],
+      "musenalm_id": 34250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schutzengel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. F. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schutzengel",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.649Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "17bhy1a3m129mt8"
+        }
+      ],
+      "source_id": "yfzz8o2xncvwboh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "All mein Dienen, All mein Lieben, / Was ich laut und still gefleht, / Ist nur in den Sand gesät,",
+      "language": [],
+      "musenalm_id": 34251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied / aus dem Spanischen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Uhland",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied / aus dem Spanischen",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.649Z",
+          "agent": "6fcfejb1bewhh5z",
+          "source_id": "unr2n0dl41sta9h"
+        }
+      ],
+      "source_id": "p1g441oe5me8h5j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.150Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Zur Rose sprach, zur jungen zarten, / Ein Mägdlein in der Mutter Garten:",
+      "language": [],
+      "musenalm_id": 34252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rose und das Mädchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rose und das Mädchen",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.466Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.466Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "y19d9n83gd8q2xf"
+        }
+      ],
+      "source_id": "6ipb6ykqm4nv4p1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "Die stürmischen Zeit der Guelphen und Gibellinen, die furchtbaren Parteyungen des Adels und Volkes in Florenz waren vorüber,",
+      "language": [],
+      "musenalm_id": 34253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erste Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Caroline Pichler, geb. v. Greiner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erste Liebe",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.709Z",
+          "agent": "vxzn7evqhv18e38",
+          "source_id": "n0mb3j0pnofxxap"
+        }
+      ],
+      "source_id": "febtp1rpqi6iwr1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Die ihr hold euch ans Fenster des Kämmerchen / schlinget, / Wo die Liebliche ruht, schirmet der schlummern- / den Ruh!",
+      "language": [],
+      "musenalm_id": 34254,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Rebengeländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cz.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Rebengeländer",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.709Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "n7jkhgzfcjvfjfp"
+        }
+      ],
+      "source_id": "15uwyrw02b7y2j8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Aus des Schlosses Erker schaut' ich nieder, / Nachtigallen hatten mich gewecket.",
+      "language": [],
+      "musenalm_id": 34255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cz.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.709Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "y86weouoztwbqxt"
+        }
+      ],
+      "source_id": "cqzyux12sk82l3o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Der Lenz begann. Im Schilf des Moores / Das Froschen-Völklein quackte Lust.",
+      "language": [],
+      "musenalm_id": 34256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der wahre Meister",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der wahre Meister",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.709Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "qbqp3fixhlk80is"
+        }
+      ],
+      "source_id": "4bjn24qx5m4rjv6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Von Massilien will ich singen, / Nicht von dem, was jetzo glänzt,",
+      "language": [],
+      "musenalm_id": 34257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gründung von Marseille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gründung von Marseille",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "sqev5jab766tuio"
+        }
+      ],
+      "source_id": "a5wf6gruvmazpsw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Welchen der Tadel wohl schmerzt, doch anspornt, / edler zu werden, / Dem wird Tadel ein Heil, der ist bescheiden und / gut.",
+      "language": [],
+      "musenalm_id": 34258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tadel. / Eine Gnome",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. R. Wyß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tadel. / Eine Gnome",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "i634jvfoategs25",
+          "source_id": "rtom20xihwvceq7"
+        }
+      ],
+      "source_id": "nzzqmds1yinbxq3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Viele Schiffe seh' ich fahren, / Jedes steurt nach einem Ziel, / Und mit allerliebsten Waaren / Reich befrachtet ist der Kiel;",
+      "language": [],
+      "musenalm_id": 34259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Mädchen am Strom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cz.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Mädchen am Strom",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "7e94r5l54wokqs8"
+        }
+      ],
+      "source_id": "66ls8wcn08cbonn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.675Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Schad' ist' um den blauen Himmel, / Schad' ist's um den Sonnenschein,",
+      "language": [],
+      "musenalm_id": 34260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied in der Brandenburger Mark. / 1815",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied in der Brandenburger Mark. / 1815",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "gk4pvvy7njbf0nz"
+        }
+      ],
+      "source_id": "mrpvx452a7ylake"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "Süsse Stunden, die ich in der Freundschaft Schoos / hier durchlebte, / Nehmt zum Opfer dieß Wort, nehmet des Seg- / nenden Dank!",
+      "language": [],
+      "musenalm_id": 34261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weihgeschenk. / (In eine Nische der Stationen des Apollinaris / -berges geschrieben.) / April 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Conz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weihgeschenk. / (In eine Nische der Stationen des Apollinaris / -berges geschrieben.) / April 1819",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "2hig42wpgako8md",
+          "source_id": "nr1mgfjy1vufv2b"
+        }
+      ],
+      "source_id": "8av2f3rqxk697n3"
+    },
+    {
+      "annotation": "Sammlung von 12 Beiträgen mit einem Vorwort INr 34263-34275, Obj 39-51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachflor und Spätlinge des Taschenbuchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachflor und Spätlinge des Taschenbuchs",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "9wb8qyuh6dxzrp4"
+        }
+      ],
+      "source_id": "48ouqegq82262nh"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Unter dieser erträglichen Ueberschrift will ich meinen dießjährigen Beitrag zum Cotta'schen Taschenbuch für Damen liefern.",
+      "language": [],
+      "musenalm_id": 34263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.683Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "23bg51fp1e88zqa"
+        }
+      ],
+      "source_id": "vbm31o03tnbu604"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Fragt einen Wüstling, ob der Tanz, besonders der Walzer sittlich schade: so wird ers eifrig bejahen, und desto feuriger fortwalzen.",
+      "language": [],
+      "musenalm_id": 34264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Für den Tanz, und für den Walzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Für den Tanz, und für den Walzer",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.684Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "tttp8r9qy8yzgb0"
+        }
+      ],
+      "source_id": "5826ewwqxxf3lbj"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Ein gewisser poetischer Ernst, eine philosophische Melancholie der Lebensübersicht thut den Jünglingen gegen die Blendungen des ersten Welt- und Städteglanzes jene Dienste der Milderung,",
+      "language": [],
+      "musenalm_id": 34265,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Melancholie der Jugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Melancholie der Jugend",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.684Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "vx65g5doxkhx11q"
+        }
+      ],
+      "source_id": "ua06aj1bzj5ws7i"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Der begeisterte Schriftsteller, besonders der Dichter scheibt, - wie Goethe seinen Werther -",
+      "language": [],
+      "musenalm_id": 34266,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Herz des Darstellens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Herz des Darstellens",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.684Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "d3b57q8my7mabmw"
+        }
+      ],
+      "source_id": "79c79e4bgqunktg"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Blos um ein Gleichniß zu machen, sag' ich es - denn' leider ist die Sache sogar den weiberharten Franzosen durch ein Sprichwort bekannt",
+      "language": [],
+      "musenalm_id": 34267,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Weiberschmerzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Weiberschmerzen",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.684Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "o50rvtrc0ygbuoo"
+        }
+      ],
+      "source_id": "scsgkl5towdzopt"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Nicht die Jahre an sich reiben die weibliche Schönheit so gänzlich auf, als man zuweilen findet;",
+      "language": [],
+      "musenalm_id": 34268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Dauer der weiblichen Schönheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Dauer der weiblichen Schönheit",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.684Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "371agyqq767y76t"
+        }
+      ],
+      "source_id": "67uq1bydpd4wdqz"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Die wechselseitige Unüberwindlichkeit zweyer Philosophen, die sich mit einander auf dem Druckpapiere schlagen,",
+      "language": [],
+      "musenalm_id": 34269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Gleiche schöne Festigkeit der Philosophen / und der Weiber im Behaupten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Gleiche schöne Festigkeit der Philosophen / und der Weiber im Behaupten",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.695Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "j1kr12qd7mnowgo"
+        }
+      ],
+      "source_id": "5q3vbalovtvjwli"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "Alte halten sich darum leicht für Weise, weil die Leidenschaften, die sie in frühern Jahren nicht löschen konnten, in spätern von selber ausgebrannt sind,",
+      "language": [],
+      "musenalm_id": 34270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Alte Menschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Alte Menschen",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.695Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "sya4vu8sp8933vc"
+        }
+      ],
+      "source_id": "dn597vxyehmh067"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Die Jugend, die für die vaterländische Zukunft mit Opferentschlüssen glüht,",
+      "language": [],
+      "musenalm_id": 34271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Für Jünglinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Für Jünglinge",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.695Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "gnvb0f1luhkn6ge"
+        }
+      ],
+      "source_id": "ux1c2575jhq7c73"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "Wenn die Töne sprechen, können wir nicht unterscheiden, ob sie unsere Vergangenheit oder unsere Zukunft aussprechen;",
+      "language": [],
+      "musenalm_id": 34272,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Die Tonkunst als das höchste Echo der Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Die Tonkunst als das höchste Echo der Welt",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.695Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.695Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "w2up5i22c3ck9qe"
+        }
+      ],
+      "source_id": "azr5yhj3grd1uze"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Als die Blüthen schon im May abfielen, nur blaß gefärbt, und dünn und klein geblieben:",
+      "language": [],
+      "musenalm_id": 34273,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Die Blüten und das Laub. / eine Paramythe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Die Blüten und das Laub. / eine Paramythe",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.787Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.787Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "2xpmh0k69tzb60a"
+        }
+      ],
+      "source_id": "6waqascqk38278m"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Ob ihr gleich unter allen Größen gerade den Sternenhimmel durch das stärkste Verkleinerungsglas erblickt,",
+      "language": [],
+      "musenalm_id": 34274,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Unser Fassen der Größen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Unser Fassen der Größen",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.787Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.787Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "0c2uyieduuj7e75"
+        }
+      ],
+      "source_id": "vt8mcaaxywjzlm2"
+    },
+    {
+      "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Wie in dem Meere, wenn es ganz gestillt und durchsichtig ist, sich unten der gespiegelte Himmel so leise und enge mit dem obern zu Einer Himmelskugel verwölbt,",
+      "language": [],
+      "musenalm_id": 34275,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Die Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jean Paul",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Die Liebe",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.787Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.787Z",
+          "agent": "y5wtm06nok2j69h",
+          "source_id": "6xdgtqbn2nqs3gb"
+        }
+      ],
+      "source_id": "p3v3dnk7h416cdo"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34276,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_475_34276_sp4tcv0nm5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-05-26 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "8p0t67hafd1ym9r"
+    }
   ],
   "agents": [
     {

@@ -21,6 +21,9 @@ pub struct EditSession {
     pub baseline: Option<structured_editor_core::draft::DraftState>,
     pub close_requested: bool,
     pub view_path: String,
+    pub table_offsets: HashMap<String, usize>,
+    pub table_search: HashMap<String, TableSearch>,
+    pub revealed_fields: std::collections::BTreeSet<String>,
     pub document: Option<(String, String)>,
     pub parent: Option<ParentContext>,
     pub id: String,
@@ -53,6 +56,12 @@ pub struct Picker {
     pub offset: usize,
     pub from: usize,
     pub to: usize,
+}
+#[derive(Clone, Default)]
+pub struct TableSearch {
+    pub query: String,
+    pub regex: bool,
+    pub case_sensitive: bool,
 }
 #[derive(Default)]
 pub struct Sessions {
@@ -126,6 +135,9 @@ impl Sessions {
             baseline: None,
             close_requested: false,
             view_path: String::new(),
+            table_offsets: HashMap::new(),
+            table_search: HashMap::new(),
+            revealed_fields: Default::default(),
             document: Some((name.into(), file.into())),
             parent: None,
             id: uuid::Uuid::new_v4().simple().to_string(),
@@ -173,6 +185,9 @@ impl Sessions {
             baseline: None,
             close_requested: false,
             view_path: String::new(),
+            table_offsets: HashMap::new(),
+            table_search: HashMap::new(),
+            revealed_fields: Default::default(),
             document: None,
             parent: None,
             id: id.clone(),
@@ -332,10 +347,81 @@ impl EditSession {
         self.raw = state.raw;
         self.picker = None;
     }
-    pub fn apply(&mut self, form: &HashMap<String, String>) -> Result<()> {
+    pub fn apply(&mut self, editor: &Editor, form: &HashMap<String, String>) -> Result<()> {
         let version = form.get("version").and_then(|v| v.parse::<u64>().ok());
         if version != Some(self.version) {
             return Err(WebError(StatusCode::CONFLICT,"This editing session has newer changes. Your input has not been applied; reload the editing session to inspect its current draft.".into()));
+        }
+        // Local choice controls submit their ordered values with ordinary form input.
+        // Reconcile on a clone so invalid payloads cannot partially change the draft.
+        if self.raw.is_none() && form.keys().any(|key| key.starts_with("choices.")) {
+            let mut draft = self.draft.clone();
+            for (key, raw) in form.iter().filter(|(key, _)| key.starts_with("choices.")) {
+                let id = &key["choices.".len()..];
+                let field = draft.field(id).filter(|f| !f.hidden && !f.read_only)
+                    .ok_or_else(|| WebError::bad("Unknown editable choice field"))?.clone();
+                let schema = crate::fields::array::choices_schema(&field)
+                    .ok_or_else(|| WebError::bad("Not a choice array"))?;
+                let values: Vec<serde_json::Value> = serde_json::from_str(raw)
+                    .map_err(|_| WebError::bad("Invalid choices"))?;
+                let original: Vec<_> = field.items.iter().map(crate::tree::snapshot).collect();
+                if values == original { continue; }
+                if field.schema["maxItems"].as_u64().is_some_and(|max| values.len() as u64 > max) {
+                    return Err(WebError::bad("The maximum number of selections has been reached"));
+                }
+                let target = schema.pointer("/x-relation/collection").and_then(serde_json::Value::as_str);
+                if let Some(target) = target { editor.require_operation(target, "read")?; }
+                let mut remaining = field.items.clone();
+                let mut order = Vec::new();
+                for (index, value) in values.iter().enumerate() {
+                    if let Some(position) = remaining.iter().position(|item| crate::tree::snapshot(item) == *value) {
+                        order.push(remaining.remove(position).id);
+                        continue;
+                    }
+                    if values[..index].contains(value) { return Err(WebError::bad("Duplicate choice")); }
+                    if let Some(target) = target {
+                        editor.get(target, value.as_str().ok_or_else(|| WebError::bad("Invalid record ID"))?)?;
+                    } else if !schema["enum"].as_array().is_some_and(|options| options.contains(value)) {
+                        return Err(WebError::bad("Unknown choice"));
+                    }
+                    draft.array_action(&self.schema, id, "add", None).map_err(WebError::bad)?;
+                    let item = draft.field(id).unwrap().items.last().unwrap().id.clone();
+                    draft.set_field(&item, value.clone()).map_err(WebError::bad)?;
+                    order.push(item);
+                }
+                for item in remaining { draft.array_action(&self.schema, id, "remove", Some(&item.id)).map_err(WebError::bad)?; }
+                for item in order { draft.array_move(id, &item, None).map_err(WebError::bad)?; }
+            }
+            self.draft = draft;
+        }
+        // Regular arrays also submit local structural edits. Existing item drafts,
+        // including invalid nested input, keep their stable IDs and contents.
+        if self.raw.is_none() && form.keys().any(|key| key.starts_with("structure.")) {
+            let mut draft = self.draft.clone();
+            for (key, raw) in form.iter().filter(|(key, _)| key.starts_with("structure.")) {
+                let id = &key["structure.".len()..];
+                let field = draft.field(id).filter(|f| !f.hidden && !f.read_only)
+                    .ok_or_else(|| WebError::bad("Unknown editable array"))?.clone();
+                if field.kind != structured_editor_core::draft::InputKind::Array
+                    || crate::fields::array::choices_schema(&field).is_some() {
+                    return Err(WebError::bad("Not a regular array"));
+                }
+                let desired: Vec<String> = serde_json::from_str(raw)
+                    .map_err(|_| WebError::bad("Invalid array order"))?;
+                let existing: std::collections::HashSet<_> = field.items.iter().map(|item| item.id.as_str()).collect();
+                let unique: std::collections::HashSet<_> = desired.iter().map(String::as_str).collect();
+                if desired.len() > existing.len() || unique.len() != desired.len()
+                    || !unique.iter().all(|item| existing.contains(item)) {
+                    return Err(WebError::bad("Invalid array item"));
+                }
+                for item in field.items.iter().filter(|item| !unique.contains(item.id.as_str())) {
+                    draft.array_action(&self.schema, id, "remove", Some(&item.id)).map_err(WebError::bad)?;
+                }
+                for item in desired {
+                    draft.array_move(id, &item, None).map_err(WebError::bad)?;
+                }
+            }
+            self.draft = draft;
         }
         fn collect(
             fields: &[structured_editor_core::draft::DraftField],
@@ -356,8 +442,12 @@ impl EditSession {
                                 .map(|value| {
                                     // The Markdown control hides redundant escapes. Submitting
                                     // that unchanged presentation must preserve the stored source.
-                                    if matches!(field.schema["x-editor"].as_str(), Some("markdown" | "inline-markdown"))
-                                        && value == crate::views::markdown_source::readable(&field.raw).as_ref()
+                                    if matches!(
+                                        field.schema["x-editor"].as_str(),
+                                        Some("markdown" | "inline-markdown")
+                                    ) && value
+                                        == crate::views::markdown_source::readable(&field.raw)
+                                            .as_ref()
                                     {
                                         field.raw.clone()
                                     } else {
@@ -409,8 +499,11 @@ impl EditSession {
         if let Some(baseline) = &self.baseline {
             for (id, input) in &mut inputs {
                 if let Some(original) = baseline.draft.field(id) {
-                    if matches!(original.schema["x-editor"].as_str(), Some("markdown" | "inline-markdown"))
-                        && input.raw == crate::views::markdown_source::readable(&original.raw).as_ref()
+                    if matches!(
+                        original.schema["x-editor"].as_str(),
+                        Some("markdown" | "inline-markdown")
+                    ) && input.raw
+                        == crate::views::markdown_source::readable(&original.raw).as_ref()
                     {
                         input.raw = original.raw.clone();
                     }
@@ -519,14 +612,17 @@ impl EditSession {
             return Ok(None);
         }
         let (saved, updated_items) = if let Some(parent) = &self.parent {
-            (editor.create_child(
-                &parent.collection,
-                &parent.id,
-                &parent.field,
-                &parent.revision,
-                &self.proposed_id,
-                value,
-            )?, None)
+            (
+                editor.create_child(
+                    &parent.collection,
+                    &parent.id,
+                    &parent.field,
+                    &parent.revision,
+                    &self.proposed_id,
+                    value,
+                )?,
+                None,
+            )
         } else if self.revision.is_some() && self.proposed_id != self.record_id {
             let result = editor.rename_with_references(
                 &self.collection,
@@ -537,12 +633,15 @@ impl EditSession {
             )?;
             (result.document, Some(result.updated_items))
         } else {
-            (editor.save(
-                &self.collection,
-                &self.proposed_id,
-                value,
-                self.revision.as_deref(),
-            )?, None)
+            (
+                editor.save(
+                    &self.collection,
+                    &self.proposed_id,
+                    value,
+                    self.revision.as_deref(),
+                )?,
+                None,
+            )
         };
         self.schema_warning = editor
             .config()

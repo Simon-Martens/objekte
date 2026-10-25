@@ -48,7 +48,26 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "cfskenvsgzr1q2t"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.713Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406758",
+      "location": "105D05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.713Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "cfskenvsgzr1q2t"
+    }
   ],
   "contents": [],
   "agents": [

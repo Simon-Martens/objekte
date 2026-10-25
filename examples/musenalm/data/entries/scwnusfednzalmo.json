@@ -48,25 +48,703 @@
   "year": 1822,
   "editor": "",
   "items": [
-    "7eg5bqzyu8j68nl"
+    {
+      "annotation": "1818-1837.\nKartonierter Einband mit Goldschnitt und Schuber.(Vorder-Hinterbuchdeckel lose.) \n822: (K: M. Ku 8.) Mit  Tku 1, Bl 12, Ku 8 und 473 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.695Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101219",
+      "location": "105Q09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.695Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "7eg5bqzyu8j68nl"
+    }
   ],
   "contents": [
-    "6d86pn177m0d4qx",
-    "0ta33t91ugs6jq1",
-    "6qmnti8dpnu4io2",
-    "2xu8a9djtonfc11",
-    "gos3vjcf7osu8zx",
-    "20a6v1rwfvottnb",
-    "c1m3potudiq39wd",
-    "6n9mzsca050fhnh",
-    "pcx1h7jygq0k8vk",
-    "tycrxzkqeiq4z6x",
-    "vj82bfb7u45gcdi",
-    "437is8f8xwivtub",
-    "om6mph1oct3kwni",
-    "r8p2djlz6pcatad",
-    "yccro9tpaeew7pk",
-    "lbcocljs7e3wijj"
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102739,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRIEDERICKE / Herzogin von Anhalt Dessau / geb. Prinzessin von Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Fleischmann sc. Nbg.",
+      "scans": [
+        "alm_3367_102739_2p51nrk04j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRIEDERICKE / Herzogin von Anhalt Dessau / geb. Prinzessin von Preussen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.138Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.138Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "sxal2lbzazaqhut"
+        }
+      ],
+      "source_id": "6d86pn177m0d4qx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.057Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102740,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergissmeinnicht / ein / TASCHENBUCH / für / 1822. / von / H. Clauren. / Leipzig / bei Friedrich August Leo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3367_102740_10xf7rxppx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vergissmeinnicht / ein / TASCHENBUCH / für / 1822. / von / H. Clauren. / Leipzig / bei Friedrich August Leo",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ta33t91ugs6jq1"
+    },
+    {
+      "annotation": "Zueignungsblatt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.059Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102741,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / bei / Ueberreichung des Taschenbuches / Vergißmeinnicht / 1822. / von",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An / bei / Ueberreichung des Taschenbuches / Vergißmeinnicht / 1822. / von",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "6qmnti8dpnu4io2"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Rosen, sie tragen der Dornen so viele, / Lilien, welken vom Sonnenglanz,",
+      "language": [],
+      "musenalm_id": 102742,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonett",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonett",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.063Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.063Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "icfowqfpgo4itwh"
+        }
+      ],
+      "source_id": "2xu8a9djtonfc11"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102743,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "gos3vjcf7osu8zx"
+    },
+    {
+      "annotation": "mit 4 Illustrationen s. Graphiken INr 102745-102748, Obj 7-10 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Schon mehrere Tage war der Oheim mit einem Gesichte herum gegangen, aus dem ich mich nicht recht vernehmen konnte.",
+      "language": [],
+      "musenalm_id": 102744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fraueninsel / oder / die Heirath aus Todtenangst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fraueninsel / oder / die Heirath aus Todtenangst",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "20a6v1rwfvottnb"
+    },
+    {
+      "annotation": "Illustration zu »Die Fraueninsel oder die Heirath aus Todtenangst« INr 102744, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.838Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102745,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Parck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3367_102745_hsbc8qv68o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Parck",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "9mnj9doz7vo0qvq"
+        }
+      ],
+      "source_id": "c1m3potudiq39wd"
+    },
+    {
+      "annotation": "Illustration zu »Die Fraueninsel oder die Heirath aus Todtenangst« INr 102744, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102746,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Testament",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3367_102746_5zawr9uzy4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Testament",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "2u4fu5kk9fsgrcu"
+        }
+      ],
+      "source_id": "6n9mzsca050fhnh"
+    },
+    {
+      "annotation": "Illustration zu »Die Fraueninsel oder die Heirath aus Todtenangst« INr 102744, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.843Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gott sey mit euch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3367_102747_bzlvg8mvge.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gott sey mit euch",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "ywdlkrgposq9ern"
+        }
+      ],
+      "source_id": "pcx1h7jygq0k8vk"
+    },
+    {
+      "annotation": "Illustration zu »Die Fraueninsel oder die Heirath aus Todtenangst« INr 102744, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102748,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VALLY",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Stöber sc. Viennae",
+      "scans": [
+        "alm_3367_102748_o0hbsdg20q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VALLY",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "uanvu6bgqvv8kw7"
+        }
+      ],
+      "source_id": "tycrxzkqeiq4z6x"
+    },
+    {
+      "annotation": "$ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Bei Prelloni waren frische Austern angekommen. Der Kammerrath ließ eiligst und schleunigst ein Umlaufschreiben an die befreundeten Leckermäuler seiner Bekanntschaft ergehen,",
+      "language": [],
+      "musenalm_id": 102749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Blutschatz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Blutschatz",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "vj82bfb7u45gcdi"
+    },
+    {
+      "annotation": "mit 3 Illustrationen s. Graphiken INr 102751-102753, Obj 13-15 /) $ unbezeichneter Prosabeitrag wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.847Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "331",
+      "incipit_statement": "Lichte Wolkenschleier, von Nachtlüftchen leise getrieben, zogen vor dem Monde vorüber. Er schien voll und freundlich mir auf mein Lager,",
+      "language": [],
+      "musenalm_id": 102750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Dijon-Röschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Dijon-Röschen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "437is8f8xwivtub"
+    },
+    {
+      "annotation": "Illustration zu »Das Dijon-Röschen« INr 102750, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.848Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schreibpult",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Schwerdgeburth sculps.",
+      "scans": [
+        "alm_3367_102751_7s7un54or8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Schreibpult",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5k3zehwi5te4lyj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "ukf37990ofm55es"
+        }
+      ],
+      "source_id": "om6mph1oct3kwni"
+    },
+    {
+      "annotation": "Illustration zu »Das Dijon-Röschen« INr 102750, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Aussteigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Schwerdgeburth sculps.",
+      "scans": [
+        "alm_3367_102752_bdy84r473n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Aussteigen",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "bmci0b7r798ev4s",
+          "source_id": "gwgc0fpqfzy7vg4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.064Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.064Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "m7i327umd98i5dn"
+        }
+      ],
+      "source_id": "r8p2djlz6pcatad"
+    },
+    {
+      "annotation": "Illustration zu »Das Dijon-Röschen« INr 102750, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:35.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "398",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 102753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schmetterlingsjäger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Jos. Stöber sc. Viennae",
+      "scans": [
+        "alm_3367_102753_0hv5e8krx6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schmetterlingsjäger",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.052Z",
+          "agent": "yk9ibu96ud1308d",
+          "source_id": "ku681te8zsonci8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.052Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.052Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "ssqp6gfghvo33so"
+        }
+      ],
+      "source_id": "yccro9tpaeew7pk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:34.501Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck und Papier von C. L. Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 102754,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von C. L. Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "lbcocljs7e3wijj"
+    }
   ],
   "agents": [
     {

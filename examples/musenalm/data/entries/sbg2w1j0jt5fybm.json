@@ -48,38 +48,1127 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "5z6czudogfmiveb"
+    {
+      "annotation": "Petit / ALMANAC / pour l'an 1808, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec l'approbation de l' Académie / royale des sciences\nFormat 4,2x7: Verlagsbroschur",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.775Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409561",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.775Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "5z6czudogfmiveb"
+    }
   ],
   "contents": [
-    "cgkly4fhiocqy9r",
-    "hpiiv096470jxi7",
-    "3qouly7ov000rbe",
-    "l9q5pfv6luw78cl",
-    "5q1tr8mhn2u5pdo",
-    "m6t6w2ou1j35g3d",
-    "0tnqtu17w2pblev",
-    "nt16vf4103qk4a1",
-    "hqpsjuuhs9sy8bk",
-    "vhgiidhlcbgf5rr",
-    "s5ty8s50c3m7zjj",
-    "unsliwqccl4foax",
-    "pnbs8tgs5vafn7a",
-    "nw8qidgka57f6gj",
-    "kjrv53juot9kfzu",
-    "nrbbcn261ldj1hy",
-    "s4t4hou346v4zcy",
-    "lzqzw6hbuje4t4i",
-    "21gncbzwyx1b97u",
-    "62b3j2heu78l9qh",
-    "iab26ueahqakm01",
-    "agx73qaxsge4ual",
-    "5kwa6k3do29647k",
-    "otshgvgn0219bsy",
-    "c4aitva3tqbtlw9",
-    "564dig2fn4mzqpz",
-    "9g201w7lopprm71",
-    "3hz7u9a2ktz76k9",
-    "bh3c2d5wfe4zygh"
+    {
+      "annotation": "Titel verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.263Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131745,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschen-Kalender / auf das Jahr 1808, / mit / sechs Fabeln von Lafontaine / deutsch und französisch, / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der Königl.  / Akademie der Wissenschaften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131745_vh57tcx16s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschen-Kalender / auf das Jahr 1808, / mit / sechs Fabeln von Lafontaine / deutsch und französisch, / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der Königl.  / Akademie der Wissenschaften",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "cgkly4fhiocqy9r"
+    },
+    {
+      "annotation": "Titel recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131746,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Petit / ALMANAC / pour l'an 1808, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec approbation de l' Académie / royale des sciences",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131746_d3k8vosqj1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Petit / ALMANAC / pour l'an 1808, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec approbation de l' Académie / royale des sciences",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "hpiiv096470jxi7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131747,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "3qouly7ov000rbe"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Januar, nummeriert 1; unter der Graphik: Seite 1. /) Illustration zu »Der Affe und die Katze« von La Fontaine INr 131761, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.265Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131748,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131748_b7ned0pb9y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "l9q5pfv6luw78cl"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar, nummeriert 2; unter der Graphik: Seite 6. /) Illustration zu »Der Affe und die Katze« von La Fontaine INr 131761, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.267Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131749,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131749_qn5mnkuaep.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "5q1tr8mhn2u5pdo"
+    },
+    {
+      "annotation": "Graphik im Kalendarium März, nummeriert 3; unter der Graphik: Seite 8. /) Illustration zu »Der Hirt und seine Heerde« von La Fontaine INr 131763, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.268Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131750,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131750_hctl5hywz8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "m6t6w2ou1j35g3d"
+    },
+    {
+      "annotation": "Graphik im Kalendarium April, nummeriert 4; unter der Graphik: Seite 12. /) Illustration zu »Der Hirt und seine Heerde« von La Fontaine INr 131763, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.269Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131751,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131751_7yinqpmnhe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "0tnqtu17w2pblev"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Mai, nummeriert 5; unter der Graphik: Seite 17. /) Illustration zu »Der Geizige und sein Gevatter« von La Fontaine INr 131765, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.270Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131752,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131752_81cdw7yvx8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "nt16vf4103qk4a1"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni, nummeriert 6; unter der Graphik: Seite 18. /) Illustration zu »Der Geizige und sein Gevatter« von La Fontaine INr 131765, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.272Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131753,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131753_91so8csxu5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "hqpsjuuhs9sy8bk"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juli, nummeriert 7; unter der Graphik: Seite 22. /) Illustration zu »Die Spinne und die Schwalbe« von La Fontaine INr 131767, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131754,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131754_tymb4ro2h4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "vhgiidhlcbgf5rr"
+    },
+    {
+      "annotation": "Graphik im Kalendarium August, nummeriert 8; unter der Graphik: Seite 26. /) Illustration zu »Die Spinne und die Schwalbe« von La Fontaine INr 131767, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131755,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131755_17ys48e06w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5ty8s50c3m7zjj"
+    },
+    {
+      "annotation": "Graphik im Kalendarium September, nummeriert 9; unter der Graphik: Seite 28. /) Illustration zu »Das Rebhuhn und die Hähne« von La Fontaine INr 131769, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131756,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131756_b11lmds64m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "unsliwqccl4foax"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Oktober, nummeriert 10; unter der Graphik: Seite 30. /) Illustration zu »Das Rebhuhn und die Hähne« von La Fontaine INr 131769, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.286Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131757,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131757_ge5cb7h4os.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "pnbs8tgs5vafn7a"
+    },
+    {
+      "annotation": "Graphik im Kalendarium November, nummeriert 11; unter der Graphik: Seite 34. /) Illustration zu »Die Fische und der Hirt der die Flöte spielt« von La Fontaine INr 131771, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.287Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131758,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131758_snpp8b51x5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "nw8qidgka57f6gj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:53.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 132419,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Umschlag"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Umschlag]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_132419_db2l51qqc9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "kjrv53juot9kfzu"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Dezember, nummeriert 12; unter der Graphik: Seite 36. /) Illustration zu »Die Fische und der Hirt der die Flöte spielt« von La Fontaine INr 131771, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.288Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131759,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4517_131759_ysvv72zw74.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "nrbbcn261ldj1hy"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 131760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fabeln  / von / Lafontaine. / FABLES / DE / LA FONTAINE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fabeln  / von / Lafontaine. / FABLES / DE / LA FONTAINE",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "s4t4hou346v4zcy"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131762, Obj 18 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131748, 131749, Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Einst lebten Kater Bitsch, und / Meister Kauz der Affe, / In einem Haus, ein Schelmenpaar,",
+      "language": [],
+      "musenalm_id": 131761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Affe und die Katze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Affe und die Katze",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "h1nlmcsw390cdkn"
+        }
+      ],
+      "source_id": "lzqzw6hbuje4t4i"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131761, Obj 17 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131748, 131749, Obj 4, 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Bertrand avec Raton, l'un Singe, / et l'autre Chat, / Commensaux d'un logis, avoient un / commun maître",
+      "language": [],
+      "musenalm_id": 131762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Le Singe et le Chat",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Le Singe et le Chat",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "c3zf9krkinh6czu"
+        }
+      ],
+      "source_id": "21gncbzwyx1b97u"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131764, Obj 20 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131750, 131751, Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Soll mir denn immer von dem / dummen Vieh / Bald einer, bald das andre feh- / len?",
+      "language": [],
+      "musenalm_id": 131763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Hirt und seine Heerde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Hirt und seine Heerde",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "vyh1vafjm9aiyw1"
+        }
+      ],
+      "source_id": "62b3j2heu78l9qh"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131763, Obj 19 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131750, 131751, Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Quoi toujours il me manquera / Quelqu'un de ce peuple imbé- / cille?",
+      "language": [],
+      "musenalm_id": 131764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Le Berger et son Troupeau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Le Berger et son Troupeau",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "flptq8awboi6wfy"
+        }
+      ],
+      "source_id": "iab26ueahqakm01"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131766, Obj 22 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131752, 131753; Obj 8, 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Ein Pfennigkneifer ist das Wort / Nicht mahlerisch? drum mag es stehen bleiben / Sah sich so reich, so reich...",
+      "language": [],
+      "musenalm_id": 131765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Geizige und sein Ge- / vatter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Geizige und sein Ge- / vatter",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "9xf1euchj2zanb7"
+        }
+      ],
+      "source_id": "agx73qaxsge4ual"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131765, Obj 21 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131750, 1317",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.725Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Un pince-maille avoit tant amassé, / Qu'il ne savoit où loger sa fi- / nance",
+      "language": [],
+      "musenalm_id": 131766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / L'Enfoisseur et son / Compère",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / L'Enfoisseur et son / Compère",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.011Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.011Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "m9md6uu1ckg3kc4"
+        }
+      ],
+      "source_id": "5kwa6k3do29647k"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131768, Obj 24 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131754, 131755; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "O Jupiter vernimm mein Fle- / hen! / Zwar gabst du der, die mich / verwandelt hat, / In deinem Hirne das Entste- / hen.",
+      "language": [],
+      "musenalm_id": 131767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Spinne und die / Schwalbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Spinne und die / Schwalbe",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "n88zfrt6ovq7gt8"
+        }
+      ],
+      "source_id": "otshgvgn0219bsy"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131767, Obj 23 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131754, 131755; Obj 10, 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.290Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "O Jupiter, qui sus de ton cer- / veau, / Par un secret d'accouchement nou- / veau.",
+      "language": [],
+      "musenalm_id": 131768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / L'Araignée et l'Hirondelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / L'Araignée et l'Hirondelle",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "acgpxsruhltfcfb"
+        }
+      ],
+      "source_id": "c4aitva3tqbtlw9"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131770, Obj 26 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131756, 131757; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Einst ward ein Rebhuhn an- / geschossen, / Gehascht, in einen Hof geschlos- / sen,",
+      "language": [],
+      "musenalm_id": 131769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Das Rebhuhn und die / Hähne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Das Rebhuhn und die / Hähne",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "90ok6xriypap0o4"
+        }
+      ],
+      "source_id": "564dig2fn4mzqpz"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131769, Obj 25 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131756, 131757; Obj 12, 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Parmi de certains Coqs incivils, / peu galans, / Toujours en noise et turbulens,",
+      "language": [],
+      "musenalm_id": 131770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / La Perdrix et les Coqs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / La Perdrix et les Coqs",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "bczu6mu18wxnxkn"
+        }
+      ],
+      "source_id": "9g201w7lopprm71"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131772, Obj 28 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131758, 131759; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "Amynt, den Lieb' und Treu' / an seine Chloe band, / Sang einst, an eines Baches / Rand,",
+      "language": [],
+      "musenalm_id": 131771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Fische und der Hirt / der Flöte spielt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Fische und der Hirt / der Flöte spielt",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "qi5132egrt4k061"
+        }
+      ],
+      "source_id": "3hz7u9a2ktz76k9"
+    },
+    {
+      "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131771, Obj 27 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131758, 131759; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:52.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Tircis, qui pour la seule Anette / Faisoit résonner les accords / D'une voix et d'une musette.",
+      "language": [],
+      "musenalm_id": 131772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Les Poissons et le Berger / qui joue de la flûte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "La Fontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Les Poissons et le Berger / qui joue de la flûte",
+      "updated": "2018-04-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.039Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.039Z",
+          "agent": "3i4im09snt5w2js",
+          "source_id": "igk0qcpzg4qgrtq"
+        }
+      ],
+      "source_id": "bh3c2d5wfe4zygh"
+    }
   ],
   "agents": [
     {

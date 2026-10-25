@@ -48,7 +48,26 @@
   "year": 1852,
   "editor": "",
   "items": [
-    "v7bdbxx2x8hem0w"
+    {
+      "annotation": "zusammen mit Lyanen 1852",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.780Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407141",
+      "location": "105B01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.780Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "v7bdbxx2x8hem0w"
+    }
   ],
   "contents": [],
   "agents": [

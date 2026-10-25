@@ -48,19 +48,529 @@
   "year": 1819,
   "editor": "",
   "items": [
-    "gpzvdj4bi6jlk7b"
+    {
+      "annotation": "1803-1820?.\nSchwarzer Ledereinband gut erhalten.\n1819: Mit Ku 5 (coloriert) und 376 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.546Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100048",
+      "location": "105C05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.546Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gpzvdj4bi6jlk7b"
+    }
   ],
   "contents": [
-    "iy7oin2fbo9ml10",
-    "l3syt4g6kna839y",
-    "gae297bxwigcf14",
-    "rjdvdaq27hx7lj8",
-    "p9rlv62kxe14dox",
-    "uq0lqdoquohfa4s",
-    "jz619iidtlikf75",
-    "tf02bycj0q7wu7q",
-    "as2172sfp6hgxl0",
-    "p9h7btvkruu81dy"
+    {
+      "annotation": "Illustration zu »Die Verkleidungen« von Kotzebue (INr 123877, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123875,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Lorenz. / Lieber Herr Wachtmeister, sagt’ ich, der Schneider hat mich / nur so deutsch gemacht. / Die Verkleidungen. 1r Act. 9te Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1287_123875_cr84szw5na.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Lorenz. / Lieber Herr Wachtmeister, sagt’ ich, der Schneider hat mich / nur so deutsch gemacht. / Die Verkleidungen. 1r Act. 9te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.853Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "39fhytj0au19hb5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.853Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "kpi0uk9hp314p7k"
+        }
+      ],
+      "source_id": "iy7oin2fbo9ml10"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.836Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123876,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Siebzehnter Jahrgang / Leipzig. / bei P. G. Kummer / 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1287_123876_lpmlgd5lpl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Siebzehnter Jahrgang / Leipzig. / bei P. G. Kummer / 1819",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "l3syt4g6kna839y"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123875, Obj 1; # Bezeichnung aus den Vorwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Stricken ist fürwahr eine langweilige Beschäftigung. Allenfalls mag eine Mutter sich an einem Kinder strumpf ergötzen, der des Lieblings Fuß  bedecken und wärmen soll;",
+      "language": [],
+      "musenalm_id": 123877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verkleidungen. / Eine Posse in zwei Acten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verkleidungen. / Eine Posse in zwei Acten",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "kcevlfcs6os8649"
+        }
+      ],
+      "source_id": "gae297bxwigcf14"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123879, Obj 5; # Bezeichnung aus den Vorwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "Endlich, Ritter, hat mein theurer Adolph das Geständnis der ersten Liebe der jungen Gräfin von Nizza entlockt!",
+      "language": [],
+      "musenalm_id": 123878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der fürstliche Wildfang / oder / Fehler und Lehre. / Ein Lustspiel in zwei Acten / mit einigen Gesängen, / nach Bouilly und Desaugiers, frei bearbeitet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der fürstliche Wildfang / oder / Fehler und Lehre. / Ein Lustspiel in zwei Acten / mit einigen Gesängen, / nach Bouilly und Desaugiers, frei bearbeitet",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "0gkmp78pzuwemt2"
+        }
+      ],
+      "source_id": "rjdvdaq27hx7lj8"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123875, Obj 1); Illustration zu »Der fürstl. Wildfang« von Kotzebue (INr 123878, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.841Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Minnesänger. / Singen, singen ist mein Beruf! wohlan, ich singe, / stimmt mit ein. / der fürstl. Wildfang. / 11te Scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1287_123879_74n8ytkogc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Minnesänger. / Singen, singen ist mein Beruf! wohlan, ich singe, / stimmt mit ein. / der fürstl. Wildfang. / 11te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "5ib2hajboru37e4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "v8mpga3pcsz3umu"
+        }
+      ],
+      "source_id": "p9rlv62kxe14dox"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123881, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.844Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "211",
+      "incipit_statement": "Strömt herbei! / Alt und Jung! / Er ist da! / Ihm ertöne zur Schalmei / Unser fröliches Hurrah!",
+      "language": [],
+      "musenalm_id": 123880,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosenmädgen. / Komische Oper in drei Acten, / von Théaulon, / für die Bühne bearbeitet von Kotzebue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosenmädgen. / Komische Oper in drei Acten, / von Théaulon, / für die Bühne bearbeitet von Kotzebue",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "4pdge3p3m1ebczv"
+        }
+      ],
+      "source_id": "uq0lqdoquohfa4s"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123875, Obj 1); Illustration zu »Die Rosenmädgen« von Kotzebue (INr 123880, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.845Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Hanns. / Hat dir ein schönes Augen-Paar / Den Himmel prophezeit, / Dann lockt es dich, dann zieht es dich, / Und wärst du Meilen-weit. / Die Rosenmädchen. 1rAct. 3te Scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1287_123881_f099okb8us.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. / Hanns. / Hat dir ein schönes Augen-Paar / Den Himmel prophezeit, / Dann lockt es dich, dann zieht es dich, / Und wärst du Meilen-weit. / Die Rosenmädchen. 1rAct. 3te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "4ztqksw9t57kagj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "9kqphjdtul5um5z"
+        }
+      ],
+      "source_id": "jz619iidtlikf75"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123875, Obj 1); Illustration zu »Die Rosenmädgen« von Kotzebue (INr 123880, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123882,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Gretchen. / Jungfern werden mich bedienen / Eine Gräfin werd’ ich sein. / Die Rosenmädchen. 3rAct. 3te Scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1287_123882_zq2luy5ymn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Gretchen. / Jungfern werden mich bedienen / Eine Gräfin werd’ ich sein. / Die Rosenmädchen. 3rAct. 3te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "qz2otgek6gcmime"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "zh41zzaodznayi2"
+        }
+      ],
+      "source_id": "tf02bycj0q7wu7q"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 123884, Obj 10; # Bezeichnung aus den Vorwt. bis Jg. 1806",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.852Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "341",
+      "incipit_statement": "Pfui! kann ich denn des Schlafs mich nicht erwehren? / So habe doch ein Einsehn, lieber Gott!",
+      "language": [],
+      "musenalm_id": 123883,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Selbstmörder. / Ein Drama in einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Kotzebue",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Selbstmörder. / Ein Drama in einem Akt",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "sse24vstbh0jbtd",
+          "source_id": "h35xwng97vcuj27"
+        }
+      ],
+      "source_id": "as2172sfp6hgxl0"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123875, Obj 1); Illustration zu »Die Selbstmörder« von Kotzebue (INr 123883, Obj 9)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 123884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Marie. / Dreh dich flinck mein schnurrend Rädchen! / Arbeit’ und bete, hat man mich gelehrt. / Einfältig nur ist mein Gebet, doch mit / Der Armuth nimmt es Gott nicht so genau. / Die Selbstmörder. / 1r Act, 1te Scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Junge del. G. Boettger senior sc.",
+      "scans": [
+        "alm_1287_123884_3y4m8162j8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. / Marie. / Dreh dich flinck mein schnurrend Rädchen! / Arbeit’ und bete, hat man mich gelehrt. / Einfältig nur ist mein Gebet, doch mit / Der Armuth nimmt es Gott nicht so genau. / Die Selbstmörder. / 1r Act, 1te Scene",
+      "updated": "2010-01-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "ovdtazhywl54x00",
+          "source_id": "64pnnayp86rvowx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.854Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.854Z",
+          "agent": "hwl1l57k0tbbc1r",
+          "source_id": "ms7h4328d8lo37q"
+        }
+      ],
+      "source_id": "p9h7btvkruu81dy"
+    }
   ],
   "agents": [
     {

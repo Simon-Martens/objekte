@@ -49,16 +49,291 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "ljxji0v2wqp6r3n"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.698Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405929",
+      "location": "105C10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.698Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ljxji0v2wqp6r3n"
+    }
   ],
   "contents": [
-    "dueu032r8689zh4",
-    "u22sag86pb5wjzv",
-    "j2m3kqa2p877z4b",
-    "53p7sdmbemkjtrd",
-    "mtl46k5f781ppn6",
-    "vxt7toyb1507z8i",
-    "seio3ek4ty99y7k"
+    {
+      "annotation": "UG recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127973,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3428_127973_gic8t8xqvi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "dueu032r8689zh4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatisches / Vergißmeinnicht / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Fünftes Bändchen. / Enthält: / Die Vernunftheirath. / Lustspiel in 2 Aufzügen. / Der Gesandte. / Lustspiel in einem Aufzuge. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1827",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3428_119481_88mzaahyzs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dramatisches / Vergißmeinnicht / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Fünftes Bändchen. / Enthält: / Die Vernunftheirath. / Lustspiel in 2 Aufzügen. / Der Gesandte. / Lustspiel in einem Aufzuge. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1827",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "u22sag86pb5wjzv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.759Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127887,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seinem / verehrten Freunde / Joseph, Freiherr von Auffenberg / in / Karlsruhe, / mit wahrer Hochachtung und Dankbarkeit / geweiht / von / Theodor Hell.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seinem / verehrten Freunde / Joseph, Freiherr von Auffenberg / in / Karlsruhe, / mit wahrer Hochachtung und Dankbarkeit / geweiht / von / Theodor Hell.",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.960Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "1f97bmilfaf3tdl"
+        }
+      ],
+      "source_id": "j2m3kqa2p877z4b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nimm hin, die leichten Gaben fremder Auen / Die ich verpflanzt in Deutschlands Musenhain, / Sie durften Deines Schutzes sich erfreun, / Und wollten fern auch jetzt sich ihm vertrauen.",
+      "language": [],
+      "musenalm_id": 127888,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nimm hin, die leichten Gaben fremder Auen / Die ich verpflanzt in Deutschlands Musenhain, / Sie durften Deines Schutzes sich erfreun, / Und wollten fern auch jetzt sich ihm vertrauen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "53p7sdmbemkjtrd"
+    },
+    {
+      "annotation": "# franz. Vorlage: »Le mariage de raison« von Eugène Scribe (vgl. Nouvelle biographie générale XLIII, S. 647) und Antoine-François Varner",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nur ruhig, lieber Vetter! – ich werde gar keinen Lärm machen, und hier warten bis er aufgestanden ist.",
+      "language": [],
+      "musenalm_id": 127889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vernunftheirath. # / Lustspiel in zwei Aufzügen. / Nach dem Französischen / von / Theodor Hell",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell [bearb.]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vernunftheirath. # / Lustspiel in zwei Aufzügen. / Nach dem Französischen / von / Theodor Hell",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.932Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "7pw3dq5hys2pdae"
+        }
+      ],
+      "source_id": "mtl46k5f781ppn6"
+    },
+    {
+      "annotation": "# franz. Vorlage: »L’ambassadeur« von Eugène Scribe (vgl. Nouvelle biographie générale XLIII, S. 647) und Anne-Honoré-Joseph Duveyrier dit Mélesville (vgl. Nouvelle biographie générale XV, S. 559)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Nun, Isabella! Es scheint nicht, als ob unsre neue Wohnung hier Dich sehr entzückte?",
+      "language": [],
+      "musenalm_id": 127890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gesandte. # / Lustspiel in einem Aufzuge. / Nach dem Französischen / von / Theodor Hell.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell [bearb.]",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gesandte. # / Lustspiel in einem Aufzuge. / Nach dem Französischen / von / Theodor Hell.",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.932Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.932Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "oyrk1yhr2ycxqhd"
+        }
+      ],
+      "source_id": "vxt7toyb1507z8i"
+    },
+    {
+      "annotation": "UG verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127974,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "seio3ek4ty99y7k"
+    }
   ],
   "agents": [
     {

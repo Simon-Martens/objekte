@@ -48,34 +48,966 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "xtl60y0st14yh1l"
+    {
+      "annotation": "Sammelband /Nr 100705-100706 zus. mit Jg. 1817",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.683Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100705",
+      "location": "105A04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.683Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xtl60y0st14yh1l"
+    }
   ],
   "contents": [
-    "eat3mmmk3cycjy3",
-    "6q8tsgxd67nsuzq",
-    "9z8bo264xngetg8",
-    "w27jvk190mxu78e",
-    "kchfza8ulhf07o3",
-    "4p8cdvul1apibap",
-    "58rwzir7h4yugkq",
-    "z8jgjq1mlz9r38h",
-    "95kv25mi66xh001",
-    "von5xxf07s70pqk",
-    "xoo3ffzlbv6dhff",
-    "1aujsfa2spqeyc1",
-    "nxl42s5t6crmv3l",
-    "qremvqdsoam2nfv",
-    "u441eho8l112gw3",
-    "xycbbjavxnbftpf",
-    "mm2jw5sygtyu0zp",
-    "269uf6zje2lejwa",
-    "x72ndo1d0ql62qk",
-    "f9winyje5jh5q2d",
-    "qzwwrdo2hbha27o",
-    "l69k3up4w646dtw",
-    "opy5ssq1ome6ggk",
-    "0dqrp0ncr3ggnpg",
-    "rcfqlj051kuiz98"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.782Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93805,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3057_93805_gmfs63lw1u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "eat3mmmk3cycjy3"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Burgveste Osterwitz und ihr Umgebungen in Kärnthen« INr 92061, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.577Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92053,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Bergveste Osterwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Blaschke sc.",
+      "scans": [
+        "alm_3057_92053_wi80b6y466.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Bergveste Osterwitz",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.300Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.300Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "o9m772mw29itxxt"
+        }
+      ],
+      "source_id": "6q8tsgxd67nsuzq"
+    },
+    {
+      "annotation": "Titelvignette: Das Neugebäude bey Wien",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.580Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92054,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden, / Natur- und Kunst-Merkwürdigkeiten / der Österreichischen Monarchie. / Zweyter Jahrgang. / Wien, 1813. / Im Verlage bey Anton Doll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3057_92054_5gcojwlzvg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden, / Natur- und Kunst-Merkwürdigkeiten / der Österreichischen Monarchie. / Zweyter Jahrgang. / Wien, 1813. / Im Verlage bey Anton Doll",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "9z8bo264xngetg8"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92055,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / in der / österreichischen Monarchie. / Zweyter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / in der / österreichischen Monarchie. / Zweyter Jahrgang",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "w27jvk190mxu78e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Um das glänzende Wien im hehren Kranze / Ruhen tausend Gefilde, aber keines / Dir gleich, keines dir gleich, o mein geliebtes / Himmlisches Weidling!",
+      "language": [],
+      "musenalm_id": 92056,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weidling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Justine Freyinn von Krufft",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weidling",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "kchfza8ulhf07o3"
+    },
+    {
+      "annotation": "Dem Gedicht vorangestellt: Weidling's hill invite's my song, / Draw the landscape bright and strong, [...] /) mit Anm. /) mit einer Illustration s. Graphik INr 92058, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Pomonens, Libers Stolz! Du Neid der Flur / Elysiums und seiner Götterhaine!",
+      "language": [],
+      "musenalm_id": 92057,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weidling bey Kloster-Neuburg. / Im Jahr 1797. / Zugeeignet seinem unsterblichen Freunde Joh. v. Müller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jospeh von Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weidling bey Kloster-Neuburg. / Im Jahr 1797. / Zugeeignet seinem unsterblichen Freunde Joh. v. Müller",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.300Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.300Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "fnvcltgozyael86"
+        }
+      ],
+      "source_id": "4p8cdvul1apibap"
+    },
+    {
+      "annotation": "Illustration zu »Weidling bey Kloster-Neuburg« von J. Von Hammer-Purgstall INr 92057, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92058,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jungfraubrunnen am Kobel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3057_92058_lb8gmlc2qn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Jungfraubrunnen am Kobel",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "58rwzir7h4yugkq"
+    },
+    {
+      "annotation": "Anm. am Objekt: Fragment aus einem nächstens erscheinenden handschriftlichen sehr interessantenWerke",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Man sagte mir, daß in einigen Tagen das große Schiff Phönix, welches Graf Festetics durch Zimmerleute, die er, wie er glaube, aus Ancona kommen ließ, erbaute, die gewöhnliche Fahrt nach Könöse machen würde.",
+      "language": [],
+      "musenalm_id": 92059,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fahrt auf dem Plattensee in Ungern, und die / Umgebungen dieses Sees. / Meinem Freunde Johann v. Asboth, gräflich Georg / Festetitschischen Gütern in Késthély geweiht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wirthschaftsrath Eißl in Kärnthen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fahrt auf dem Plattensee in Ungern, und die / Umgebungen dieses Sees. / Meinem Freunde Johann v. Asboth, gräflich Georg / Festetitschischen Gütern in Késthély geweiht",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "z8jgjq1mlz9r38h"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Stürz' hinab, mein Gesang, wie der erbrausende / Waldstrom schäumend sich stürzt über den Felsenhang,",
+      "language": [],
+      "musenalm_id": 92060,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Steyermark. / Eine Ode",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Edlen von Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Steyermark. / Eine Ode",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.394Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.394Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "qw10354khyhjyg3"
+        }
+      ],
+      "source_id": "95kv25mi66xh001"
+    },
+    {
+      "annotation": "mit eine rIllustration s. Titelgraphik INr 92053, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "In einem stillen Thale, das der ruhige Fleiß der Bewohner einiger hin- und wieder zerstreuten Dörfer umschuf, erhebt sich eine felsige Riesengestalt, die trotzende Waffenburg Kärnthens in den Zeiten der Stürme des Mittelalters,",
+      "language": [],
+      "musenalm_id": 92061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Burgveste Osterwitz und ihr Umgebungen / in Kärnthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Burgveste Osterwitz und ihr Umgebungen / in Kärnthen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "von5xxf07s70pqk"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 92063, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Diese vier Gegenstände, welche zu den merkwürdigsten Umgebungen der Kaiserstadt gehören, mögen wohl beynahe keinem Wiener, der in den Sommermonathen auch selten die Kaiserstadt verläßt, unerkannt seyn.",
+      "language": [],
+      "musenalm_id": 92062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Markt Medling, die alte Burg Medling, die / Burgveste Lichtenstein und der Brühl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Markt Medling, die alte Burg Medling, die / Burgveste Lichtenstein und der Brühl",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.400Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.400Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "p3o0w8wj4g7xl9u"
+        }
+      ],
+      "source_id": "xoo3ffzlbv6dhff"
+    },
+    {
+      "annotation": "Illustration zu »Der Markt Medling, die alte Burg Medling, die Burgveste Lichtenstein und der Brühl« von F. Sartori INr 92062, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.676Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coliseum bey Medling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Blaschke sc.",
+      "scans": [
+        "alm_3057_92063_yvs7toirlj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coliseum bey Medling",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.310Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "g79afbd158z4tdw"
+        }
+      ],
+      "source_id": "1aujsfa2spqeyc1"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "Dir nah' ich, schönes Thal im Morgenlichte! / Schon sinkt auf Wiesengrün des Nebels Grau,",
+      "language": [],
+      "musenalm_id": 92064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Muggendorfer Thal in Österreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. F. Richter",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Muggendorfer Thal in Österreich",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "nxl42s5t6crmv3l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Pittoresk ist die Lage dieser auf einem dreyfachen Felsen erbauten Burg, die aber jetzt ganz der Zerstörung Preis gegeben wird.",
+      "language": [],
+      "musenalm_id": 92065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / alte Burg Falkenstein, / Bey Linz in Österreich ob der Ems",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / alte Burg Falkenstein, / Bey Linz in Österreich ob der Ems",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "qremvqdsoam2nfv"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Dem Kahlenberge überzwerg, / Nicht fern von Weidling, liegt ein Berg, / Umringt von Buchenholze.",
+      "language": [],
+      "musenalm_id": 92066,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hermannskobel / bey Weidling in Österreich unter der Enns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hermannskobel / bey Weidling in Österreich unter der Enns",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.310Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "zz1esvqaf0b4fko"
+        }
+      ],
+      "source_id": "u441eho8l112gw3"
+    },
+    {
+      "annotation": "mit einer Beigabe s. Gedicht INr 92068, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Von den Schatten dichter Lerchentannenwälder umdüstert, trauert an der oberrheinischen Grenze das Stammschloß des ausgestorbenen Geschlechts der Silberberge,",
+      "language": [],
+      "musenalm_id": 92067,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Silberberg und seine Umgebungen in Kärnthen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Silberberg und seine Umgebungen in Kärnthen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "xycbbjavxnbftpf"
+    },
+    {
+      "annotation": "Beigabe zu »Silberberg und seine Umgebungen in Kärnthen« INr 92067, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "Hier, wo von Tannenhöhen / Und Felsen matt umgraut / Verlaßne Mauern stehen, / Dem Zahn der Zeit vertraut;",
+      "language": [],
+      "musenalm_id": 92068,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Brunohilde von Silberberg. / Eine mittelalterliche Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Brunohilde von Silberberg. / Eine mittelalterliche Sage",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "mm2jw5sygtyu0zp"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 92070, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "In dem schönen Genusse einer Lage, versehen mit so manchen Hilfsmitteln die Reitze des sorgenfreyen Lebens zu erhöhen,",
+      "language": [],
+      "musenalm_id": 92069,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerungen an eine Lustreise im May 1806 / von Wien nach Preßburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerungen an eine Lustreise im May 1806 / von Wien nach Preßburg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.310Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "upmbdl2wbdr1y29"
+        }
+      ],
+      "source_id": "269uf6zje2lejwa"
+    },
+    {
+      "annotation": "Illustration zu »Erinnerungen an eine Lustreise im May 1806 von Wien nach Preßburg« von Fr. Sartori INr 92069, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "130",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92070,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von Presburg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Blaschke",
+      "scans": [
+        "alm_3057_92070_65h8a9s6bk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von Presburg",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.310Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.310Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "7l4dqsm4tddm1m9"
+        }
+      ],
+      "source_id": "x72ndo1d0ql62qk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Die Sauerquelle zu Rohitsch ist weit weniger berühmt, als sie es verdient. Herr Dr. Grindl untersuchte sie zwar im Jahre 1687, und gab die Resultate seiner Untersuchungen unter den Titel: Roitschocrene heraus,",
+      "language": [],
+      "musenalm_id": 92071,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Nohitscher-Sauerbrunnen in Steyermark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Doctor Franz Sartori",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Nohitscher-Sauerbrunnen in Steyermark",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.419Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.419Z",
+          "agent": "swlf1imgk3sevcl",
+          "source_id": "c9mtsg2y93uuqeq"
+        }
+      ],
+      "source_id": "f9winyje5jh5q2d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Begleitet von den lieblichsten Parthien des durch die reichste Vegetation der Bäume und der Feldfrüchte geschmückten Bergabhangs kommt man dem heilbringenden Bergorte immer näher,",
+      "language": [],
+      "musenalm_id": 92072,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Badeort Töplitz / und seine Umgebungen in Böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Badeort Töplitz / und seine Umgebungen in Böhmen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "qzwwrdo2hbha27o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Die siebenbirgischen Grenz-Regimenter sind aus den Abkömmlingen zweyer ganz von einander verschiedener Völkerstämme gebildet worden,",
+      "language": [],
+      "musenalm_id": 92073,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sekler und Wallachen in den siebenbirgischen / Grenzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Benigni von Mildenberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sekler und Wallachen in den siebenbirgischen / Grenzen",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "l69k3up4w646dtw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92074,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "opy5ssq1ome6ggk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.066Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 92075,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dqrp0ncr3ggnpg"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.784Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93806,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3057_93806_grquxbjhho.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "rcfqlj051kuiz98"
+    }
   ],
   "agents": [
     {

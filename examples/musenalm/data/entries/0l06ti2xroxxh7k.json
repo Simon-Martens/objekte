@@ -48,18 +48,428 @@
   "year": 1800,
   "editor": "",
   "items": [
-    "qf82iilv4xa3ybm"
+    {
+      "annotation": "Aus Flittners Reihe: Gynäologie <br> # K kennt nur Die Kunst mit Weibern glücklich zu seyn",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.795Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "410645",
+      "location": "105H09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.795Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qf82iilv4xa3ybm"
+    }
   ],
   "contents": [
-    "1ghbff6cs2o3alk",
-    "f4ogoigybu29z76",
-    "7o53p8a4k8kixs0",
-    "ico86t7jyli92fu",
-    "fc43u3dsqc11ast",
-    "catka57gmgi54ra",
-    "2vus7blvlnkpca9",
-    "ni2l7fu7ljyirrw",
-    "rvdyglevni5u0ou"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.855Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124621,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Dähling del. Charles scpt.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dähling del. Charles scpt.",
+      "scans": [
+        "alm_4698_124621_5jrwu4nl09.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.737Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "j4q6pmwrztxmy3i"
+        }
+      ],
+      "source_id": "1ghbff6cs2o3alk"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.857Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124622,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kunst / mit / Männern glücklich zu seyn / ein / Almanach für das Jahr 1800 / nach / Göthe Lafontaine Rousseau und Wieland / mit Kupfern. / Berlin 1800 bey Oehmigke d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Sprögel scrips. et sc.",
+      "scans": [
+        "alm_4698_124622_ajtmbjptb8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Kunst / mit / Männern glücklich zu seyn / ein / Almanach für das Jahr 1800 / nach / Göthe Lafontaine Rousseau und Wieland / mit Kupfern. / Berlin 1800 bey Oehmigke d. Jüng.",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "f4ogoigybu29z76"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124623,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kunst / mit / Männern glücklich zu seyn; / ein Seitenstück / zur / Kunst / mit Weibern glücklich zu seyn.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kunst / mit / Männern glücklich zu seyn; / ein Seitenstück / zur / Kunst / mit Weibern glücklich zu seyn.",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "7o53p8a4k8kixs0"
+    },
+    {
+      "annotation": "Illustration zu »Die Kunst mit  Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn.« von Chr. G. Flittner INr",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.859Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124624,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Triumpf der Simplicität über die / Affectation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Dähling del. E. Henne sc.",
+      "scans": [
+        "alm_4698_124624_ej4wuhezwz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Triumpf der Simplicität über die / Affectation",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.737Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "w13mhppy03y65qy"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.737Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.737Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "zdsl6sg906vdh74"
+        }
+      ],
+      "source_id": "ico86t7jyli92fu"
+    },
+    {
+      "annotation": "Illustration zu »Die Kunst mit  Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn.« von Chr. G. Flittner INr",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.879Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124644,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die seeligen Freuden der Häuslichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Dähling del. E. Henne sc.",
+      "scans": [
+        "alm_4698_124644_kdmqg77wck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die seeligen Freuden der Häuslichkeit",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.738Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "a3k0dsp8yiep4ls"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.738Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "ieof9h0satfktw4"
+        }
+      ],
+      "source_id": "fc43u3dsqc11ast"
+    },
+    {
+      "annotation": "Illustration zu »Die Kunst mit  Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn.« von Chr. G. Flittner INr",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.881Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124645,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Wiedersehen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Dähling del. E. Henne sc.",
+      "scans": [
+        "alm_4698_124645_tb2mqtuj92.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Wiedersehen",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.738Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "k549548ekns80ss"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.738Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "kvahwhjyfg0fo3k"
+        }
+      ],
+      "source_id": "catka57gmgi54ra"
+    },
+    {
+      "annotation": "Illustration zu »Die Kunst mit  Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn.« von Chr. G. Flittner INr",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.883Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124646,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "die Ueberraschung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schumann del. F. Bolt sc.",
+      "scans": [
+        "alm_4698_124646_2rs0rjk1wa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "die Ueberraschung",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.738Z",
+          "agent": "w54qzevkgviemdi",
+          "source_id": "l8jgtejob9rvdmp"
+        }
+      ],
+      "source_id": "2vus7blvlnkpca9"
+    },
+    {
+      "annotation": "Der Text beginnt mit der Einleitung /) Motto: Rien ne montre mieux les vrais penchans d'un homme, que l'espèce de ses attachements /) mit 4 Illustrationen s. Graphiken INr 124624, 124644-124646; Obj 4-7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.885Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Mensch wird mit gewissen Naturanlagen geboren, unter dem Einfluß vonn sinlichen Eindrücken erzogen, und durch das Vermögen der Selbstthätigkeit zum Gebrauche seiner Kräfte bestimmt.",
+      "language": [],
+      "musenalm_id": 124647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Kunst mit Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Kunst mit Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn]",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [],
+      "source_id": "ni2l7fu7ljyirrw"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.886Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124648,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Dähling del. Charles scpt.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dähling del. Charles scpt.",
+      "scans": [
+        "alm_4698_124648_1kvpa2wzpl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2020-02-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1800,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.738Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.738Z",
+          "agent": "fu5wv6odvdsjkbe",
+          "source_id": "f7mrdn8ohefvc2g"
+        }
+      ],
+      "source_id": "rvdyglevni5u0ou"
+    }
   ],
   "agents": [
     {

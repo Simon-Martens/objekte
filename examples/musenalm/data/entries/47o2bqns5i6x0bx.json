@@ -48,7 +48,26 @@
   "year": 1807,
   "editor": "",
   "items": [
-    "rhsca1irolchdzc"
+    {
+      "annotation": "Sammelband: Jgg 1807, 1808, 1816, 1817, 1820, 1828, 1832; 1807, 1808: Amberg (Uhlmann), 1816: Amberg, 1817: Regensburg (Daisenberger), 1820: Sulzbach   , 1828, 1830: Amberg (Im Verlage des Verfassers) Hrsg.: J. B. Schenkl\nTku 1+SS 13+SS 11+SS 70+SS 96+Bl 2+SS 46 und SS 23.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.637Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "109860",
+      "location": "105F05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.637Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rhsca1irolchdzc"
+    }
   ],
   "contents": [],
   "agents": [

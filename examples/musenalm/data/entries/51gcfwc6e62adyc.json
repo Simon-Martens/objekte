@@ -48,7 +48,26 @@
   "year": 1826,
   "editor": "",
   "items": [
-    "enuhf1qi2hor85d"
+    {
+      "annotation": "KVK: Stabi Berlin; 1842-1855",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.771Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409425",
+      "location": "107L04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.771Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "enuhf1qi2hor85d"
+    }
   ],
   "contents": [],
   "agents": [

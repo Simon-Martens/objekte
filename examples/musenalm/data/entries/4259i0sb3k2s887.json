@@ -48,40 +48,1450 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "qew0tcihe0tqa6l"
+    {
+      "annotation": "1811-1848.\n1827:",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.613Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106034",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.613Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qew0tcihe0tqa6l"
+    }
   ],
   "contents": [
-    "v2t1ti4gipgtu4o",
-    "875qatjxdemmp8e",
-    "7wph5adi3mzg87j",
-    "yhkubmzb6icfl3p",
-    "rh2vjopjkexquz4",
-    "mxv53jizx17z7kn",
-    "y8a0ea3d4wb6w0z",
-    "hhsjworwvuqn1b1",
-    "z0cu1b1g6753iwd",
-    "hli6ygqmi4tqt6y",
-    "gm6a7hci030vyhp",
-    "ksi7j7ywpo2raqt",
-    "8qfk9li21e8s045",
-    "fnxdnojtgg7m09s",
-    "b15t35a6nz1meiz",
-    "kmk9ukwyzrtpwvm",
-    "8j4hwt18n6ctvty",
-    "lhc2miykya7qkx0",
-    "lgda9538x0yls5t",
-    "6bopkadm9ktvrfh",
-    "vsi9ns3oh86r1ka",
-    "czs24nrg3cacwyw",
-    "db3s5yge6hd2ifn",
-    "escm5r7lr9bxwr4",
-    "s1wf13eihzdyt85",
-    "2tjgo63fmbtao52",
-    "y3kgmglecm4n22o",
-    "240ex5xjb1d3c2f",
-    "3g2x4h1p63r5yid",
-    "in1l0uvxt6oet8w",
-    "q4mkehiqmrphnzt"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2398_77125_anzboj0hqb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "v2t1ti4gipgtu4o"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 77146, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77126,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "THUSNELDA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. H. Schnorr del. Dav. Weiss sc. Viennae",
+      "scans": [
+        "alm_2398_77126_90nkeco1ig.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "THUSNELDA",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "yf7uqcfkp0nwlnb",
+          "source_id": "2021pshlr0r7qps"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.557Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "hwkjftm2sef70zb"
+        }
+      ],
+      "source_id": "875qatjxdemmp8e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77127,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "PENELOPE / Taschenbuch / für das Jahr 1827. / Herausgegeben / von / THEODOR HELL. / 16r.  Jahrgang. Mit Kupfern / LEIPZIG / J. C. Hinrichs'sche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2398_77127_4h4jbwid7y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "PENELOPE / Taschenbuch / für das Jahr 1827. / Herausgegeben / von / THEODOR HELL. / 16r.  Jahrgang. Mit Kupfern / LEIPZIG / J. C. Hinrichs'sche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "7wph5adi3mzg87j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77128,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "yhkubmzb6icfl3p"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Sammlung von 8 Illustrationen zu Gedichten von Fr. Schiller dazu 8 Gedichte INr 77130-77145, Obj 6-21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77129,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Schiller's Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Schiller's Gedichten",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "rh2vjopjkexquz4"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77131, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Der Reichthum nicht im schimmernden Besitz / Erreicht das Gut, das Alles überstrahlet,",
+      "language": [],
+      "musenalm_id": 77130,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Begegnung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Begegnung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.682Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "p19fqjb9nz1vj7y"
+        }
+      ],
+      "source_id": "mxv53jizx17z7kn"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Die Erwartung« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77130, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77131,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der schönste Schatz gehört dem Herzen an / Das ihn erwiedern und empfinden kann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Schnorr v. C. del. L. Buchhorn dir.",
+      "scans": [
+        "alm_2398_77131_fcz5695kzi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der schönste Schatz gehört dem Herzen an / Das ihn erwiedern und empfinden kann",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.682Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "p8iudjz4rycb4e6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.682Z",
+          "agent": "z3xj5kkwhch6rva",
+          "source_id": "qvtgstn416s18ee"
+        }
+      ],
+      "source_id": "y8a0ea3d4wb6w0z"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77133, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.597Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Wie gesessen einst der Ritter, / Den die Sage nennt, / Und geschaut zum Klostergitter / Das ihn von ihr trennt.",
+      "language": [],
+      "musenalm_id": 77132,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ritter Toggenburg",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ritter Toggenburg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.682Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "xbjjds0bbypkig6"
+        }
+      ],
+      "source_id": "hhsjworwvuqn1b1"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Ritter Toggenburg« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77132, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77133,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bis die Liebliche sich zeigte bis das theure Bild / Sich ins Thal herunter neigte, ruhig, engelmild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. C. del F. Fleischmann sc.",
+      "scans": [
+        "alm_2398_77133_rss4es3zs2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bis die Liebliche sich zeigte bis das theure Bild / Sich ins Thal herunter neigte, ruhig, engelmild",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.584Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "2nzxgq2txpoyzjv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.584Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "oee20gx5mbrurj1"
+        }
+      ],
+      "source_id": "z0cu1b1g6753iwd"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77135, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.182Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Er hat nicht Ruh' am Vaterherzen, / Er muß hinaus in's Lebensspiel,",
+      "language": [],
+      "musenalm_id": 77134,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jüngling und die Jungfrau. / (Aus der Glocke.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Jüngling und die Jungfrau. / (Aus der Glocke.)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.584Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "og06rbz5xjjrfjl"
+        }
+      ],
+      "source_id": "hli6ygqmi4tqt6y"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Lied von der Glocke« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77134, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.183Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77135,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mit züchtigen, verschämten Wangen / Sieht er die Jungfrau vor sich stehn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K del. Fr. Stöber sc. Vi.",
+      "scans": [
+        "alm_2398_77135_6ennqv9cb5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mit züchtigen, verschämten Wangen / Sieht er die Jungfrau vor sich stehn",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.584Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "6m6vb20jdd5sh7v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.584Z",
+          "agent": "3dvnowzet6ad8zl",
+          "source_id": "jamyc4sz9h6c8ta"
+        }
+      ],
+      "source_id": "gm6a7hci030vyhp"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77137, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Seyd gegrüßt, Ihr Frühlingskinder / Unter heiterm Himmelsdach!",
+      "language": [],
+      "musenalm_id": 77136,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klage der Ceres: Glosse. / Keime, die dem Auge starben / In der Erde kaltem Schooß, / In das heit're Reich der Farben / Ringen sie sich freudig los",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klage der Ceres: Glosse. / Keime, die dem Auge starben / In der Erde kaltem Schooß, / In das heit're Reich der Farben / Ringen sie sich freudig los",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.584Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.584Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "n4xdf6bd5sq49nt"
+        }
+      ],
+      "source_id": "ksi7j7ywpo2raqt"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Klage der Ceres« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77136, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77137,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Keime, die dem Auge starben, in der Erde kaltem Schooss, / In das heit're Reich der Farben ringen sie sich freudig los.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Naeeke del. C. Mayer sc. Nbg.",
+      "scans": [
+        "alm_2398_77137_7v63undn9t.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Keime, die dem Auge starben, in der Erde kaltem Schooss, / In das heit're Reich der Farben ringen sie sich freudig los.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.585Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.585Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "krh90jsijemo9zf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.585Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.585Z",
+          "agent": "jnsjgzgb69y7llq",
+          "source_id": "ycosfnu2286j8yo"
+        }
+      ],
+      "source_id": "8qfk9li21e8s045"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77139, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Der Eichwald brauset, / Die Wolken ziehn, / Das Mägdlein sitzet, / An Ufers Grün.",
+      "language": [],
+      "musenalm_id": 77138,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Mädchens Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Mädchens Klage",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.585Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.585Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "epovibybcnmm9bn"
+        }
+      ],
+      "source_id": "fnxdnojtgg7m09s"
+    },
+    {
+      "annotation": "# Bez. vom Titel der Sammlung /) Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Des Mädchens Klage« von Fr. Schiller IINr 77138, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.190Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77139,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Mädchens Klage von Schiller",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg Büscher",
+      "scans": [
+        "alm_2398_77139_ibrpt7t6dz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Mädchens Klage von Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.585Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.585Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "b97iufblnl1biv8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.585Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.585Z",
+          "agent": "rookj8hzrynkcws",
+          "source_id": "k0c0rtz5n0gs5as"
+        }
+      ],
+      "source_id": "b15t35a6nz1meiz"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77141, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.048Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "An der Quelle saß der Knabe, / Blumen wand er sich zum Kranz,",
+      "language": [],
+      "musenalm_id": 77140,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jüngling am Bache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Jüngling am Bache",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.709Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "5d46nsdgcomy2vu"
+        }
+      ],
+      "source_id": "kmk9ukwyzrtpwvm"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Der Jüngling am Bache« von Fr. Schiller IINr 77140, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77141,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Jüngling am Bache von Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Krukenberg sc.",
+      "scans": [
+        "alm_2398_77141_7kwrwwqkyy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Jüngling am Bache von Schiller",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.709Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "8t2xrdrbr1upbqs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.709Z",
+          "agent": "bn7xdscl94iiupe",
+          "source_id": "oyq8qo6i1qcbf6m"
+        }
+      ],
+      "source_id": "8j4hwt18n6ctvty"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77143, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Wie einst mit flehendem Verlangen / Pygmalion den Stein umschloß,",
+      "language": [],
+      "musenalm_id": 77142,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ideale. / 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ideale. / 1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.709Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "mi85x901k81l8la"
+        }
+      ],
+      "source_id": "lhc2miykya7qkx0"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Die Ideale« von Fr. Schiller IINr 77142, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77143,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ideale v. Schiller 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. L. Buchhorn dir.",
+      "scans": [
+        "alm_2398_77143_lbprs0rm4w.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ideale v. Schiller 1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.709Z",
+          "agent": "z3xj5kkwhch6rva",
+          "source_id": "920uols6j8n7v66"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.709Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.709Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "nbzooeyfakij7ym"
+        }
+      ],
+      "source_id": "lgda9538x0yls5t"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77145, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.709Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Wie sprang, von kühnem Muth beflügelt, / Beglückt in seines Traumes Wahn,",
+      "language": [],
+      "musenalm_id": 77144,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ideale. / 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ideale. / 2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.818Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "2qfzsn9c8z1dyua"
+        }
+      ],
+      "source_id": "6bopkadm9ktvrfh"
+    },
+    {
+      "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Die Ideale« von Fr. Schiller IINr 77144, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77145,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ideale v. Schiller 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. Büscher sculps",
+      "scans": [
+        "alm_2398_77145_6ec8rvdd9x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ideale v. Schiller 2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.720Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "5yybofuss88dg04"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.720Z",
+          "agent": "rookj8hzrynkcws",
+          "source_id": "wvzlopivz9y06cr"
+        }
+      ],
+      "source_id": "vsi9ns3oh86r1ka"
+    },
+    {
+      "annotation": "s. Titelportrait INr 77126, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Durch eine allereinzige Stelle eines griechischen Schriftstellers kennen wir den Namen einer deutschen Frau, der allen Jahrtausenden wohl klingen wird,",
+      "language": [],
+      "musenalm_id": 77146,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Thusnelda",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Hase",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Thusnelda",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.625Z",
+          "agent": "lov7zjtttdvp66e",
+          "source_id": "f6glchl4dvllgy4"
+        }
+      ],
+      "source_id": "czs24nrg3cacwyw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ueber eines der schönsten Thäler Slavoniens goß der Mond sein mitternächtliches Silberlicht. Kein Luftzug regte sich;",
+      "language": [],
+      "musenalm_id": 77147,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Katzianer von Katzenstein. / Ein historisches Gemälde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Katzianer von Katzenstein. / Ein historisches Gemälde",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.625Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "t0jwvxiinkxmx9a"
+        }
+      ],
+      "source_id": "db3s5yge6hd2ifn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Am 21sten p. Trinitatis saß Nachmittags Jakob, der Sohn des reichen Brauers von Modelsdorf, bey dem noch reichern Müller Reinhold zu Adelsdorf.",
+      "language": [],
+      "musenalm_id": 77148,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Christnacht. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Raupach",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Christnacht. / Eine Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.625Z",
+          "agent": "uxyu52yd3v030gq",
+          "source_id": "wqn0l1h4zbzevb9"
+        }
+      ],
+      "source_id": "escm5r7lr9bxwr4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.760Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Indem ich, veranlaßt, Etwas zur geistigen Unterhaltung der geehrten Versammlung vorzutragen, einen Gegenstand suchte, der vornehmlich den Damen, welche wir in dieser Versammlung vorsitzen sehen, interessant seyn möchte,",
+      "language": [],
+      "musenalm_id": 77149,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber den Spiegel. / Eine vor Damen gehaltene Vorlesung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Wendt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber den Spiegel. / Eine vor Damen gehaltene Vorlesung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.625Z",
+          "agent": "67zaqw1ahn1z54k",
+          "source_id": "lw4gf29e4b5yaxq"
+        }
+      ],
+      "source_id": "s1wf13eihzdyt85"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.761Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "212",
+      "incipit_statement": "Erasmus war Schulhalter, und die graue oder Knabenstube das Sinnbild der unbeschränkten Monarchie; in der angrenzenden, himmelblauen lehrten seine Frau und Clärchen, seine holde Nichte, die kleinen Studentinnen",
+      "language": [],
+      "musenalm_id": 77150,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gewitter. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gewitter. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.625Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.625Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "h6i076vjfinjvrw"
+        }
+      ],
+      "source_id": "2tjgo63fmbtao52"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Will denn diese nächtliche Fahrt noch immer kein Ende nehmen? sprach mit klagender Stimme die achtzehnjährige Adeline zu ihrem finster schweigenden Oheim,",
+      "language": [],
+      "musenalm_id": 77151,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rettung in der höchsten Noth. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rettung in der höchsten Noth. / Novelle",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "sikznow57yrh7eo"
+        }
+      ],
+      "source_id": "y3kgmglecm4n22o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Von der zahlreichen Gesellschaft, welche, durch die verwittwete Frau von Jung eingeladen, den Mittag auf dem Gute Heinrichshausen bey ihr verlebte, hatte sich nach und nach Alles verloren,",
+      "language": [],
+      "musenalm_id": 77152,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ehe aus Dankbarkeit. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ehe aus Dankbarkeit. / Erzählung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.690Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "zq3e9mfutrfeq4c"
+        }
+      ],
+      "source_id": "240ex5xjb1d3c2f"
+    },
+    {
+      "annotation": "Anm. am Objekt: Es war wohl bey Anhörung der Jahrszeiten nach der trefflichen Tonsetzung Haydn's ein sehr natürlicher Gedanke, daß sich zu einem Seitenstücke für dieselben die Tageszeiten unstreitig passend eignen würden. […] / Th. Hell",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Noch ruht die Nacht so still auf Feld und Flur, / Und Alles schläft im Schooße der Natur.",
+      "language": [],
+      "musenalm_id": 77153,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Morgen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Morgen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.690Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.690Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "15lq68ibip9jtra"
+        }
+      ],
+      "source_id": "3g2x4h1p63r5yid"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "392",
+      "incipit_statement": "Traulich kehrt die Abenddämm'rung wieder, / Hüllt in ihren Schleier Fels und Flur",
+      "language": [],
+      "musenalm_id": 77154,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elegie. / Geschrieben in den Trümmern des Oybins bey / Zittau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Grohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elegie. / Geschrieben in den Trümmern des Oybins bey / Zittau",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "in1l0uvxt6oet8w"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 77155,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2398_77155_tczitfxoz5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "q4mkehiqmrphnzt"
+    }
   ],
   "agents": [
     {

@@ -48,44 +48,1444 @@
   "year": 1822,
   "editor": "",
   "items": [
-    "ddyws4sw3lfulng"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.535Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100719",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.535Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ddyws4sw3lfulng"
+    }
   ],
   "contents": [
-    "cojyfczbz3m5e2s",
-    "evxafmei71o8kbw",
-    "zv166sagimk5foh",
-    "2vvea4ytvbvg331",
-    "3dn79k4mzhn3dk2",
-    "vwzd199qgbodxc9",
-    "ckhtanj81ww036h",
-    "gx6aurd79kvzza0",
-    "03700rdgrbl4dkq",
-    "ukto3wr143g13ff",
-    "8eiz6m2l3617uyv",
-    "ky4wv42javhfusv",
-    "16qxx1ecuoec0jw",
-    "wrk12sy3x51ku0j",
-    "h7kz7gby2k7vxpu",
-    "vdg3zyvo0kbmraw",
-    "0mxb3gqe8b6avaq",
-    "hjlaxaur33xw2u4",
-    "m0cftybaivgps4y",
-    "vwnmno3jjhmlx9p",
-    "0wwaicx9tvgzyxz",
-    "5ppvvtsexujxt5j",
-    "be88x2mmurzkgkc",
-    "sag246xa1isgoy9",
-    "czbrypz4ter651l",
-    "eq5yqyp0v6tlela",
-    "drh3fklsmwrpc2s",
-    "pml9y1nsksaefcb",
-    "7j0s3ec1xci6cy9",
-    "61f2f855rraq5i0",
-    "akflbm96skbk181",
-    "k567u78vtcjh5wm",
-    "f7yrgotyulnza6u",
-    "n47y25mg5znd6g1",
-    "6bc4clujmba1y6f"
+    {
+      "annotation": "Umschlaggraphik r. s. Textbezug 64794, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64789,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1087_64789_txdlr1175x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "cojyfczbz3m5e2s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.806Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64790,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / ohne Titel / für / das Jahr / 1822. / Mit drei Zeitblättern. / Leipzig. / F. A. Brockhaus / 1822",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1087_64790_676ebr4kwi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / ohne Titel / für / das Jahr / 1822. / Mit drei Zeitblättern. / Leipzig. / F. A. Brockhaus / 1822",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "evxafmei71o8kbw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64791,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "zv166sagimk5foh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Ziemlich weit von Ihnen, jedoch nicht so weit, daß wir nicht von Zeit zu Zeit durch die wohlthätigen Canäle des Buchhandels von Ihrem Thun und Treiben erfeuliche Nachrichten erhielten,",
+      "language": [],
+      "musenalm_id": 64792,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frachtbrief von P. Spiridion. / An / Herrn N. N.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Anastasius Spiridion # als Prior Fraternitatis humoristicae",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frachtbrief von P. Spiridion. / An / Herrn N. N.",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.080Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "aavozwrrrjbxfgt"
+        }
+      ],
+      "source_id": "2vvea4ytvbvg331"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Ein Buch ohne Titel in die Welt schicken - ist nicht viel besser - als ohne Paß reisen und kann dazu führen, daß die Kritik solches, ohne weiter darnach, wes Geistes Kind es sey, zu fragen, auf den Schub setzt,",
+      "language": [],
+      "musenalm_id": 64793,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "3dn79k4mzhn3dk2"
+    },
+    {
+      "annotation": "s. Umschlaggraphiken INr 64789, 64823; Obj 1, 35 /) mit einer Beigabe s. Gedicht INr 64795, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Nichts ist mannichfaltiger als die Buchstaben der Völker und Handschriften der Menschen, selbst die Typen der einen Druckerei weichen von denen der Andern ab und sind wieder unter sich verschieden,",
+      "language": [],
+      "musenalm_id": 64794,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber den Umschlag / a priori",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber den Umschlag / a priori",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "vwzd199qgbodxc9"
+    },
+    {
+      "annotation": "Beigabe zu »Ueber den Umschlag a priori« INr 64794, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Also gesund - die Muse sonder Titel / Verhoffet doch ein Jahr und mehr zu leben",
+      "language": [],
+      "musenalm_id": 64795,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Also gesund - die Muse sonder Titel / Verhoffet doch ein Jahr und mehr zu leben…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "ckhtanj81ww036h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Der Mensch ist eine Null, wenn er in's Leben / tritt, / Wie hell der Stern des Glücks ob seiner Wiege / funkle;",
+      "language": [],
+      "musenalm_id": 64796,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Poetisches Indosso",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Poetisches Indosso",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "gx6aurd79kvzza0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.515Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Aller Anfang ist schwer! nur der des Haderlumps nicht - und was ist der Papierbogen, auf welchem ich mein Büchlein beginne, anders, als ein lumpiges Erzeugniß menschlicher Industrie,",
+      "language": [],
+      "musenalm_id": 64797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Eine Vorrede ohne Buch. / Omne prinicipium grave",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Der Autor ohne Namen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Eine Vorrede ohne Buch. / Omne prinicipium grave",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.080Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.080Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "ixumtbgo40gnbjv"
+        }
+      ],
+      "source_id": "03700rdgrbl4dkq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Mein Freund! du nennst das kurze leichte Leben, / So weit du es getragen hast, / So weit dem Himmel dir noch Raum zu geben, / Beliebt, doch lange schwere Last:",
+      "language": [],
+      "musenalm_id": 64798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / EPISTOLA / DE / ARTE HUMORISTICA / AD / UDALRICUM GERMANUM / PER / ERASMUM SINCERUM. / Dulce satis humor,  - - - - - - / - - - - - superat tener omni- / bus humor. / Virgil. Ecl. III. 82. et Georg. II. 330",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Erasmus Sincerus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / EPISTOLA / DE / ARTE HUMORISTICA / AD / UDALRICUM GERMANUM / PER / ERASMUM SINCERUM. / Dulce satis humor,  - - - - - - / - - - - - superat tener omni- / bus humor. / Virgil. Ecl. III. 82. et Georg. II. 330",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.034Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "pgvuxui3gr85ijv"
+        }
+      ],
+      "source_id": "ukto3wr143g13ff"
+    },
+    {
+      "annotation": "Vorwort zum Beitrag INr 64800, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "63",
+      "incipit_statement": "Eine Dame allein unter einer Gesellschaft aufgeweckter Männer, wären auch alle untadelige Ritter ihrer Farbe, wird sich immer etwas unheimlich finden,",
+      "language": [],
+      "musenalm_id": 64799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Welche Verfassung ist die beste / für / ein Herzenskönigreich? / Vorwörtchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Regina Spiridion",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Welche Verfassung ist die beste / für / ein Herzenskönigreich? / Vorwörtchen",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.034Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.034Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "oypfy9rdy1ewilg"
+        }
+      ],
+      "source_id": "8eiz6m2l3617uyv"
+    },
+    {
+      "annotation": "mit einem Vorwort s. INr 64799, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.840Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Unter allen civilisirten Nationen handelt sich's jetzt um die Frage - welche Verfassung die beste sey?",
+      "language": [],
+      "musenalm_id": 64800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[III. / Welche Verassung ist die beste / für / ein Herzenskönigreich?]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Regina Spiridion",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[III. / Welche Verassung ist die beste / für / ein Herzenskönigreich?]",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.816Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.816Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "8rovxl125scn9td"
+        }
+      ],
+      "source_id": "ky4wv42javhfusv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Es war gewiß ein gewaltiger Stoß, welchen Göthe-Mephistopheles durch seinen teuflischen kaustischen Spruch / Der Geist der Medicin ist leicht zu fassen! / Sie durchstudirt die klein' und große Welt, / Um es am Ende gehn zu lassen, / Wie's Gott gefällt.",
+      "language": [],
+      "musenalm_id": 64801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sendschreiben D. Eberhardt's / an / alle / Aerzte Europa's",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eberhardtus, Dr. der humoristischen Fraternität zu O... / wirkliches Mitglied",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sendschreiben D. Eberhardt's / an / alle / Aerzte Europa's",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.892Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "r4xjipm2uc1mprj"
+        }
+      ],
+      "source_id": "16qxx1ecuoec0jw"
+    },
+    {
+      "annotation": "Vorwort zum Beitrag INr 64803, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.654Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Für ein humoristisches Taschenbuch etwas zu liefern, fällt wohl allen ernsten Geschäftsleuten schwer,",
+      "language": [],
+      "musenalm_id": 64802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Ueber / die Erbfolge der Prinzessinnen / in den Staaten / des deutschen Bundes. / Vorwort",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Hippolytus a Lapide, / Exprofessor Juris Publici",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Ueber / die Erbfolge der Prinzessinnen / in den Staaten / des deutschen Bundes. / Vorwort",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.892Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "o8mennsktga57wy"
+        }
+      ],
+      "source_id": "wrk12sy3x51ku0j"
+    },
+    {
+      "annotation": "mit einem Vorwort INr 64802, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Als durch die österreichische Erklärung vom 6ten August 1806 der lockere Schlußstein des schon im Einsturz begriffenen deutschen Reichsgebäudes weggenommen wurde, und das ganze alte Wesen zusammenkrachte,",
+      "language": [],
+      "musenalm_id": 64803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[V. Ueber die Erbfolge der Prinzessinnen in den Staaten des deutschen Bundes.]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Hippolytus a Lapide, Exprofessor Juris Publici",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[V. Ueber die Erbfolge der Prinzessinnen in den Staaten des deutschen Bundes.]",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.892Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "114995czcizfnn1"
+        }
+      ],
+      "source_id": "h7kz7gby2k7vxpu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.667Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Ohne mich auf die subtilen Unterschiede zwischen Humor, Laune, Witz, Satyre etc etc einzulassen, noch allen den Irrgängen und trocknen Grenz-Gräben nachzugehen,",
+      "language": [],
+      "musenalm_id": 64804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Ueber den Humor der Moral",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Lampadius, S. St. Ministerii Candidatus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Ueber den Humor der Moral",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.085Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.085Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "m7oa50tbyax5pwx"
+        }
+      ],
+      "source_id": "vdg3zyvo0kbmraw"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten mit 3 Graphiken INr 64806-64816, Obj 18-28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Zeitbilder und Zeitverse",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Zeitbilder und Zeitverse",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.991Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.991Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "3atmc5evog2szpo"
+        }
+      ],
+      "source_id": "0mxb3gqe8b6avaq"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 64807, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.320Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EYGE PHOSPHORE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1087_64806_hjbpybinuj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "EYGE PHOSPHORE",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "hjlaxaur33xw2u4"
+    },
+    {
+      "annotation": "VII. / Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15) s. vorstehende Graphik INr 64806, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Der Donner rollt, und ihre Weltgerichte / Beginnt im Orient die Nemesis,",
+      "language": [],
+      "musenalm_id": 64807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EYGE PHOSPHORE",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "EYGE PHOSPHORE",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "9ke5hk7erhxb0hc"
+        }
+      ],
+      "source_id": "m0cftybaivgps4y"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 64809, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1087_64808_whvuxnyvec.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "vwnmno3jjhmlx9p"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15) s. vorstehende Graphik INr 64806, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Von euren Horsten auf! ihr starken Aare! / Euch fordert wiederum ein heil'ger Krieg;",
+      "language": [],
+      "musenalm_id": 64809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufruf",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufruf",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "oqdt7ce48hqzv33"
+        }
+      ],
+      "source_id": "0wwaicx9tvgzyxz"
+    },
+    {
+      "annotation": "s. folgendes Gedicht INr 64811, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ENTOYTO NIKÄSEIS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1087_64810_2wrrja8c8j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ENTOYTO NIKÄSEIS",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ppvvtsexujxt5j"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15) s. vorstehende Graphik INr 64810, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Dem Cäsar einst erscheint das heil'ge Zeichen / In Sonnenglanz umflammt von Siegeskunde;",
+      "language": [],
+      "musenalm_id": 64811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "EN TOYTO NIKÄSEIS",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "EN TOYTO NIKÄSEIS",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "pahxqh4ru82efey"
+        }
+      ],
+      "source_id": "be88x2mmurzkgkc"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "Der Perser Heere nahn, schon durch die Gauen / Des freien Hellas läuft die Schreckenskunde:",
+      "language": [],
+      "musenalm_id": 64812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die hölzernen Mauern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die hölzernen Mauern",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "axrstl4xo2r3kzr"
+        }
+      ],
+      "source_id": "sag246xa1isgoy9"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Der Strom der Zeit, geschwellt von Ungewittern, / Trat aus und überstieg die alten Dämme:",
+      "language": [],
+      "musenalm_id": 64813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ReCtUs ab Integro rerUM nUnC nas- / CItUr orDo",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "ReCtUs ab Integro rerUM nUnC nas- / CItUr orDo",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "hlnzkomw9wleree"
+        }
+      ],
+      "source_id": "czbrypz4ter651l"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Hesperien erglüht in Morgenröthe, / Wach werden der Vernunft und Wahrheit / Stimmen",
+      "language": [],
+      "musenalm_id": 64814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hülfe von unten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hülfe von unten",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "6jq5casv9fzl245"
+        }
+      ],
+      "source_id": "eq5yqyp0v6tlela"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Nachdem Abhülfe jeglichem Gebrechen / Des Landes sie gethan und Ziel und Maße / Gesetzt dem Raub und Diebstahl auf der Straße,",
+      "language": [],
+      "musenalm_id": 64815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Staatsmanns Rath",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Staatsmanns Rath",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "p28a4k4szd2fhea"
+        }
+      ],
+      "source_id": "drh3fklsmwrpc2s"
+    },
+    {
+      "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Es hat der Mammon Millionen Knechte, / So treu ihm dienen bis zum letzten Hauche,",
+      "language": [],
+      "musenalm_id": 64816,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nothschrei",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nothschrei",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.159Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "e9n6qw8d1sps18h"
+        }
+      ],
+      "source_id": "pml9y1nsksaefcb"
+    },
+    {
+      "annotation": "Gedicht in drei Gesängen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Gieb, Muse! mir - (ich habe Lust zu reisen / Dahin, wo nie ein Dichter sich verirrt,) / Ein Saitenspiel,",
+      "language": [],
+      "musenalm_id": 64817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Reise / in's Land der Philister. / (Ein Fragment.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Frater Simplicius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Reise / in's Land der Philister. / (Ein Fragment.)",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.160Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "6poa1vr8vfg2vzy"
+        }
+      ],
+      "source_id": "7j0s3ec1xci6cy9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "Wo das Schlechte herrscht, wird das Gute schlecht und das Schlechte schlechter, und wenn etwa das schlechtgewordene Gute sich zum Besseren zurückwenden will, so tritt ihm das Schlechtere in den Weg,",
+      "language": [],
+      "musenalm_id": 64818,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Philippika",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Frater Acerbus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Philippika",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.160Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "cka9anu5sudnqs0"
+        }
+      ],
+      "source_id": "61f2f855rraq5i0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Allen Autoren des Taschenbuchs ohne Titel nachtretend sind wir doch so eitel, auf unsre Persönlichkeit einigen Werth zu legen,",
+      "language": [],
+      "musenalm_id": 64819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Nachrede. / Alba ligustra, vaccinia nigra leguntur. / Virgil, Ecl. II. 18",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Fratres conventus humoristici",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Nachrede. / Alba ligustra, vaccinia nigra leguntur. / Virgil, Ecl. II. 18",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.160Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.160Z",
+          "agent": "lebe2rmk32ewec6",
+          "source_id": "hza6f6eyzrjtm8j"
+        }
+      ],
+      "source_id": "akflbm96skbk181"
+    },
+    {
+      "annotation": "Beitrag mit acht Charakterisierungen der Pseudonyme s.a. beigegebenes Gedicht INr 64821, Obj 33; Erläuterung zur Umschlaggraphik v. INr 64823, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "217",
+      "incipit_statement": "Frater Spiridion - Prior fraternitatis humoristicae - ein Mann in den besten Jahren, etwa ein starker Neununddreißiger - seines weltlichen Zeichens ein Kaufmann",
+      "language": [],
+      "musenalm_id": 64820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Raisonnirender Katalog / zur / Rückseite des Umschlags",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Raisonnirender Katalog / zur / Rückseite des Umschlags",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "k567u78vtcjh5wm"
+    },
+    {
+      "annotation": "Beigabe zu »XI. Raisonnirender Katalog zur Rückseite des Umschlags« INr 64820, Obj 32 s. Umschlaggraphik v. INr 64823, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Inmitten - strahlend sitzt der Gott der / Dichter - / Der heil'gen Neune, wie im Gold die Perle: / Hier drehn Euch zu neun rabenschwarze Kerle, / Geschaart um eine Muse - die Gesichter:",
+      "language": [],
+      "musenalm_id": 64821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inmitten - strahlend sitzt der Gott der / Dichter - / Der heil'gen Neune, wie im Gold die Perle: / Hier drehn Euch zu neun rabenschwarze Kerle, / Geschaart um eine Muse - die Gesichter:…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "f7yrgotyulnza6u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.613Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Voll Thoren ist die Welt, und an Erasmen / Gebräch' es, wollte man ihr Löbchen preisen:",
+      "language": [],
+      "musenalm_id": 64822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Schluß-Sonett der humoristischen / Brüderschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Schluß-Sonett der humoristischen / Brüderschaft",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "n47y25mg5znd6g1"
+    },
+    {
+      "annotation": "Umschlaggraphik v. s. Textbezüge INr 64794, 64821, 64822; Obj 6, 33, 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.614Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 64823,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRATERNITAS HUMORISTICA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1087_64823_x4omym7m42.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRATERNITAS HUMORISTICA",
+      "updated": "2009-06-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1822,
+      "editor": "",
+      "agents": [],
+      "source_id": "6bc4clujmba1y6f"
+    }
   ],
   "agents": [
     {

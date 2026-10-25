@@ -48,25 +48,640 @@
   "year": 1824,
   "editor": "",
   "items": [
-    "ymm31ov5etg05jr"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.780Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405203",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.780Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ymm31ov5etg05jr"
+    }
   ],
   "contents": [
-    "04vv4bhf6nk2kp4",
-    "gzod0i8eezfafdl",
-    "wg4qqye2fi2jw60",
-    "evdiarm205gyhwo",
-    "fy6c83flybfh5j2",
-    "a2o55mz2temfxwt",
-    "57gy0p2i6paeiuw",
-    "0bgazcp7jkd42p2",
-    "fneywbjzw38cle3",
-    "jv4i9mxxxyb31xi",
-    "pvsux0c7gy8uain",
-    "rrmhaui48ifk9zn",
-    "x1t1j7sg05ctuww",
-    "eitryml21xaeq2f",
-    "4taaasg74cfka45",
-    "fyz1dsitpp0cq73"
+    {
+      "annotation": "Umschlaggraphik recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.123Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124814,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4625_124814_5amq6ee3f9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "04vv4bhf6nk2kp4"
+    },
+    {
+      "annotation": "kol. Illustration zu »Prüfung ehelicher Treue« von Kurländer (INr ...)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124815,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prüfung ehelicher Treue. Letzte Sc. / Caroline. / »Liebt man einmal Carolinen, Liebt man für die Ewigkeit.«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lohse sc.",
+      "scans": [
+        "alm_4625_124815_xy6j65y09l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Prüfung ehelicher Treue. Letzte Sc. / Caroline. / »Liebt man einmal Carolinen, Liebt man für die Ewigkeit.«",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "gzod0i8eezfafdl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124816,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1824 / von / F. A. von Kurländer. / Vierzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1824 / von / F. A. von Kurländer. / Vierzehnter Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtnersche Buchhandlung",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "wg4qqye2fi2jw60"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.127Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Inhalt des vierzehnten Jahrgangs meines Taschenbuchs ist nach dem Französischen, und zwar, mit Ausnahme der Prüfung ehelicher Treue, nach Scribe bearbeitet.",
+      "language": [],
+      "musenalm_id": 124817,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. von Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "3mf5l5ag5hrxug1"
+        }
+      ],
+      "source_id": "evdiarm205gyhwo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.127Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124818,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "fy6c83flybfh5j2"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124820, Obj 7); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.127Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Seht Ihr denn noch nichts? Ist an keine Hülfe zu denken? / Nein liebe Mutter.",
+      "language": [],
+      "musenalm_id": 124819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine / Stunde in Karlsbad. / Lustspiel in Einem Akte. / Nach Scribe.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine / Stunde in Karlsbad. / Lustspiel in Einem Akte. / Nach Scribe.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "kukiezwpfpwxlka"
+        }
+      ],
+      "source_id": "a2o55mz2temfxwt"
+    },
+    {
+      "annotation": "kol. Illustration zu »Eine Stunde in Carlsbad« von Kurländer (INr 124819, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.127Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Stunde in Carlsbad. Sc. III. / Irene. / Diese einfache, gleichförmige Le- / bensweise hat auch einigen Reiz.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lohse sc.",
+      "scans": [
+        "alm_4625_124820_432xtejqsv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Stunde in Carlsbad. Sc. III. / Irene. / Diese einfache, gleichförmige Le- / bensweise hat auch einigen Reiz.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "57gy0p2i6paeiuw"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124822, Obj 9); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); Bezeichnung aus dem Vrwrt (INr 124817, Obj 4); ## Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Der Verfallstag ist da, ist deutlich angemerkt. Entweder man zahlt, oder wird gepfändet. Das ist in der Ordnung.",
+      "language": [],
+      "musenalm_id": 124821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kindliche Liebe. / Ländliche Scene in Einem Aufzuge",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kindliche Liebe. / Ländliche Scene in Einem Aufzuge",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "q26mvd8oytwb5tl"
+        }
+      ],
+      "source_id": "0bgazcp7jkd42p2"
+    },
+    {
+      "annotation": "kol. Illustration zu »Kindliche Liebe« von Kurländer (INr 124821, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "112",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kindliche Liebe. Scene XII. / Philipp. / »O guter Gott, wache über Beide, und lasse sie nie / den Schmerz kennen, den ich in diesen Augenblicke fühle«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lohse sc.",
+      "scans": [
+        "alm_4625_124822_4ju4pk5i0f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kindliche Liebe. Scene XII. / Philipp. / »O guter Gott, wache über Beide, und lasse sie nie / den Schmerz kennen, den ich in diesen Augenblicke fühle«",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "fneywbjzw38cle3"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124824, Obj 11); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); Bezeichnung aus dem Vrwrt (INr 124817, Obj 4); ## Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Ist’s erlaubt? / Darf ich meinen Augen trauen? Monsieur / Wilhelm!",
+      "language": [],
+      "musenalm_id": 124823,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der junge Krack. / Posse in Einem Aufzuge. / Als Fortsetzung vom Lügner und seinem Sohn.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der junge Krack. / Posse in Einem Aufzuge. / Als Fortsetzung vom Lügner und seinem Sohn.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "jgawhtb7pqlluy2"
+        }
+      ],
+      "source_id": "jv4i9mxxxyb31xi"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der junge Krack« von Kurländer (INr 124823, Obj 10)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der junge Krack. Scene XVI. / Wilhelm. / »Bravo, mein Herr!«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lohse sc.",
+      "scans": [
+        "alm_4625_124824_dmzw3gw3s8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der junge Krack. Scene XVI. / Wilhelm. / »Bravo, mein Herr!«",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "pvsux0c7gy8uain"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124826, Obj 13); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); Bezeichnung aus dem Vrwrt (INr 124817, Obj 4); ## Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Wie sich die Zeiten doch ändern! Zwei Jahre sitze und schreibe ich anb dem grünen Tische, ohne daß ich Einen Tag diese Uhr die zehnte Stunde schlagen hörte;",
+      "language": [],
+      "musenalm_id": 124825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gedicht. / Lustspiel in Einem Akt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gedicht. / Lustspiel in Einem Akt",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "erld32hjdfww9jh"
+        }
+      ],
+      "source_id": "rrmhaui48ifk9zn"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das Gedicht« von Kurländer (INr 124825, Obj 12)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gedicht. Letzte Scene. / Sternlein. / »Fünfhundert Gulden! Ach Mamsell Fanny, / meine Fanny«",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lohse sc.",
+      "scans": [
+        "alm_4625_124826_27f6m3z280.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Gedicht. Letzte Scene. / Sternlein. / »Fünfhundert Gulden! Ach Mamsell Fanny, / meine Fanny«",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "x1t1j7sg05ctuww"
+    },
+    {
+      "annotation": "# Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); Bezeichnung aus dem Vrwrt (INr 124817, Obj 4); ## Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Endlich finde ich ihn allein, diesen glücklichen Zufall will ich nicht unbenutzt lassen.",
+      "language": [],
+      "musenalm_id": 124828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zahlung in gleicher Münze. / Lustspiel in einem Aufzuge.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zahlung in gleicher Münze. / Lustspiel in einem Aufzuge.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "cu312t99kri58vi"
+        }
+      ],
+      "source_id": "eitryml21xaeq2f"
+    },
+    {
+      "annotation": "Umschlaggraphik verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:48.141Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124856,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4625_124856_n1xypwr2hs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [],
+      "source_id": "4taaasg74cfka45"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124815, Obj 2); # Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.132Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "Schach der Königin! / Da meinst Du nun, das Matt müsse gleich nachfolgen.",
+      "language": [],
+      "musenalm_id": 124827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prüfung ehelicher Treue. / Lustspiel in Einem Aufzuge.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Kurländer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prüfung ehelicher Treue. / Lustspiel in Einem Aufzuge.",
+      "updated": "2019-05-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1824,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.864Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "wyrgllnhpqt1quv"
+        }
+      ],
+      "source_id": "fyz1dsitpp0cq73"
+    }
   ],
   "agents": [
     {

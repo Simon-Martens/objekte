@@ -49,7 +49,26 @@
   "year": 1848,
   "editor": "",
   "items": [
-    "u26ww055oggemeo"
+    {
+      "annotation": "Jgg 1848, 1849; K 22 gibt lediglich Jg 1848 an\n1848: Mit Port 1 und 464 SS.\nGeprägter kartonierter Einband, leicht beschädigt.",
+      "condition": "80",
+      "created": "2026-06-11 10:17:37.556Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100038",
+      "location": "105S08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.556Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "u26ww055oggemeo"
+    }
   ],
   "contents": [],
   "agents": [

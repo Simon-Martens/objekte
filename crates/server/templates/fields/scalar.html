@@ -1,21 +1,21 @@
 {% if kind == "boolean" %}
 {% if not raw %}
-<select id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}"><option value="">Choose a value</option><option value="true">Yes</option><option value="false">No</option></select>
+<select id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" aria-required="{{ required }}"><option value="">{{ "Choose a value"|t }}</option><option value="true">{{ "Yes"|t }}</option><option value="false">{{ "No"|t }}</option></select>
 {% else %}
-<input type="hidden" name="boolean.{{ id }}" value="1"><label class="boolean-control"><input id="input-{{ id }}" name="value.{{ id }}" type="checkbox" value="true" {% if raw == "true" %}checked{% endif %} aria-describedby="errors-{{ id }}"><span>Enabled</span></label>
+<input type="hidden" name="boolean.{{ id }}" value="1"><label class="boolean-control"><input id="input-{{ id }}" name="value.{{ id }}" type="checkbox" value="true" {% if raw == "true" %}checked{% endif %} aria-describedby="errors-{{ id }}" aria-required="{{ required }}"><span>{{ "Yes"|t }}</span></label>
 {% endif %}
 {% elif kind == "select" %}
-<select id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}"><option value="">Choose a value</option>{% for (value,label,selected) in options %}<option value="{{ value }}" {% if selected %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+<select id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" aria-required="{{ required }}"><option value="">{{ "Choose a value"|t }}</option>{% for (value,label,selected) in options %}<option value="{{ value }}" {% if selected %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
 {% elif kind == "json" or kind == "multiline" %}
-<textarea id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" class="{% if kind == "json" %}source{% else %}text-multiline{% endif %}" rows="6" spellcheck="{% if kind == "json" %}false{% else %}true{% endif %}">
+<textarea id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" aria-required="{{ required }}" class="{% if kind == "json" %}source{% else %}text-multiline{% endif %}" rows="{% if kind == "json" %}6{% else %}3{% endif %}" spellcheck="{% if kind == "json" %}false{% else %}true{% endif %}">
 {{ raw }}</textarea>
 {% else %}
 {% if suggestions_url %}<suggestion-select>{% endif %}
-<input id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" type="text" {% if kind == "date" %}placeholder="YYYY-MM-DD"{% endif %} {% if suggestions_url %}role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestion-menu-{{ id }}"{% endif %} {% if kind == "integer" %}inputmode="numeric"{% elif kind == "numeric" %}inputmode="decimal"{% endif %} value="{{ raw }}" autocomplete="off" {% if suggestions_url %}data-on:browse-suggestions="@post('{{ suggestions_url }}?all=1',{contentType:'form',retry:'never',retryMaxCount:0})" data-on:input__debounce.200ms="@post('{{ suggestions_url }}',{contentType:'form',retry:'never',retryMaxCount:0})"{% endif %}>
+<input id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" aria-required="{{ required }}" type="text" {% if kind == "date" %}placeholder="YYYY-MM-DD"{% endif %} {% if suggestions_url %}role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestion-menu-{{ id }}"{% endif %} {% if kind == "integer" %}inputmode="numeric"{% elif kind == "numeric" %}inputmode="decimal"{% endif %} value="{{ raw }}" autocomplete="off" {% if suggestions_url %}data-on:browse-suggestions="@post('{{ suggestions_url }}?all=1',{contentType:'form',retry:'never',retryMaxCount:0})" data-on:input__debounce.200ms="@post('{{ suggestions_url }}',{contentType:'form',retry:'never',retryMaxCount:0})"{% endif %}>
 {% if suggestions_url %}<button type="button" class="suggestion-toggle" aria-label="Show suggestions" aria-controls="suggestion-menu-{{ id }}" aria-expanded="false"><i class="ri-arrow-down-s-line" aria-hidden="true"></i></button><div id="suggestion-menu-{{ id }}" class="suggestion-menu" role="listbox" aria-label="Suggestions" popover="manual"></div><datalist id="suggestions-{{ id }}" data-query="">{% for value in suggestions %}<option value="{{ value }}"></option>{% endfor %}</datalist></suggestion-select>{% endif %}
 {% endif %}
 
-{% if kind == "datetime" %}<p class="help">RFC 3339 with an explicit offset, e.g. 2026-10-22T14:30:00+02:00. Precision and offset are preserved.</p>{% endif %}
+{% if kind == "datetime" %}<p class="help">{{ "RFC 3339 with an explicit offset, e.g. 2026-10-22T14:30:00+02:00. Precision and offset are preserved."|t }}</p>{% endif %}
 
 
-{% if kind == "date" %}<p class="help">Calendar date in YYYY-MM-DD format.</p>{% endif %}
+{% if kind == "date" %}<p class="help">{{ "Calendar date in YYYY-MM-DD format."|t }}</p>{% endif %}

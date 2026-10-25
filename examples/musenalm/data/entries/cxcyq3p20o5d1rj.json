@@ -48,78 +48,2813 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "0git9lkkda1t8zv"
+    {
+      "annotation": "1776-1813.\n\\par Kartonierter Einband mit Grafik, Muster und Goldschnitt.\n1793: (K: Tku,  Modeku 12,  allegor Monatsku 6  und Ku 11 ) Mit Tku 1,  Modeku 12, allegor Monatsku 6,  Bl 48,  Ku 7,  210 SS und Bl 2. \n\\par Forts. u.d.Tit.: Taschenkalender, Göttingischer oder Taschenbuch Göttingisches.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.466Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100487",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.466Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0git9lkkda1t8zv"
+    }
   ],
   "contents": [
-    "kl817fi7hma9thp",
-    "87hdtf2570zmojz",
-    "ldgk782ki74qmi1",
-    "nid18pfgakufdy8",
-    "ogwbv7n5bb3d5s7",
-    "4ru62bmilfvt3p0",
-    "65pt8o49cabowh9",
-    "v7wt5aqmmdjos3f",
-    "cf0daxa6rihirf0",
-    "vm9siolwn3oum9h",
-    "93w4kmkx828jted",
-    "3bawzwyipiepvqe",
-    "h2u3fdc2i9d8qnx",
-    "1di110157ku13iy",
-    "9ljfetcm9oaa0b9",
-    "468ot3y3ueh0mde",
-    "hpyvjgp2lmrl89a",
-    "aqbrtptof8kp0l2",
-    "177bi967fz1sk4r",
-    "sp7rxonr558h48w",
-    "5cegs7srhpz9b2e",
-    "ovytra08oztbo8o",
-    "crprr3fs846fc7e",
-    "py9l6pyuirm4fo4",
-    "85d0c702usd6dxi",
-    "qoevefdsci0a0z9",
-    "uy8c6cwsm5dw1ke",
-    "a7rznc8s6v9wp2v",
-    "u4czzqbbuchambp",
-    "xu22nyzpc738c8t",
-    "nidmkkxpsm9pc7j",
-    "crvg9vu84lzc62y",
-    "hwvd3ce3rl7rl8m",
-    "ocyhqkgsxwan8fj",
-    "zrid7neu5anocc3",
-    "9hcibzg9vza1b0n",
-    "lk1svvuujnmhzhc",
-    "6fdezkr4e3l1plg",
-    "m2rv1v7j14wyicq",
-    "b56r71651vp7igh",
-    "4xwbasetl6h9di5",
-    "u6op3uma26y99yl",
-    "wosjfp73bkw02wm",
-    "iovz6j3l73lvq3b",
-    "jsnkgu2m4e0msha",
-    "lqrc37ez4pezmkn",
-    "rred9xo3algthe2",
-    "kgql8suw261bzro",
-    "4yr9i4a59zm7qhr",
-    "z4c49fcy3r10b15",
-    "0d7b5y57cmds79t",
-    "aozjyys1ffvff1s",
-    "1h19q4uxmrnn34b",
-    "p9v7u4rrx2uibux",
-    "3uhm6wpfhi8slax",
-    "61er79jqgmuw1kg",
-    "a5l4gigtw84nwr2",
-    "x845sr5ffmvcfzy",
-    "ce7l9j7cl1hzx51",
-    "z4ytynl0e7h06rh",
-    "yo1zdp86yk1x88x",
-    "csft8ypux7q2aqt",
-    "2u287tdgi94109b",
-    "2z4v8paqpar0zlw",
-    "nhs0iku4s85j04a",
-    "wkbr3669hau7hv5",
-    "b9hgfdw1dvozmgp",
-    "kqzy24l5aw63sei",
-    "jhebm9vj4winhi8"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.983Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28184,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_151_28184_u4ct8gzkhe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "kl817fi7hma9thp"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7440,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1793. / bey Joh. Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. Riepenhausen sc.",
+      "scans": [
+        "alm_151_7440_60abk2axzs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1793. / bey Joh. Christian Dieterich",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "fpkcs0zg3me255v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "zsx5klgqp8tvkky"
+        }
+      ],
+      "source_id": "87hdtf2570zmojz"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.910Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Habillemens a la Mode",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_7924_i9kugxyhld.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Habillemens a la Mode",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.303Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.303Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "795alkktf894cnz"
+        }
+      ],
+      "source_id": "ldgk782ki74qmi1"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28113,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_28113_ngljbr11zx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "u5aek44kc1yg79j"
+        }
+      ],
+      "source_id": "nid18pfgakufdy8"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.545Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28114,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_28114_06u46fmrru.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "3c46d6fi5g0iodr"
+        }
+      ],
+      "source_id": "ogwbv7n5bb3d5s7"
+    },
+    {
+      "annotation": "Modekupfer paginiert 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28115,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Riepenh. f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Riepenh. f.",
+      "scans": [
+        "alm_151_28115_nsulzde7f9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "6xwhrds6ts1hgpf"
+        }
+      ],
+      "source_id": "4ru62bmilfvt3p0"
+    },
+    {
+      "annotation": "Modekupfer paginiert 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28116,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Ripenh)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ripenh",
+      "scans": [
+        "alm_151_28116_8b6eu7d0dj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "qcvr7et2rppnea3"
+        }
+      ],
+      "source_id": "65pt8o49cabowh9"
+    },
+    {
+      "annotation": "Modekupfer paginiert 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28117,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Ripenh f.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Ripenh f.",
+      "scans": [
+        "alm_151_28117_qt9ka0a6zp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "717k7066aenverz"
+        }
+      ],
+      "source_id": "v7wt5aqmmdjos3f"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28118,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_28118_3dnc5bijnp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "rnw4k8fq4ku6hxp"
+        }
+      ],
+      "source_id": "cf0daxa6rihirf0"
+    },
+    {
+      "annotation": "Modekupfer paginiert 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28119,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep f)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep f",
+      "scans": [
+        "alm_151_28119_texswa7dk3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.282Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.282Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "t0os9q0i0ek0tcr"
+        }
+      ],
+      "source_id": "vm9siolwn3oum9h"
+    },
+    {
+      "annotation": "Modekupfer paginiert 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.877Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28120,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riep.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riep.",
+      "scans": [
+        "alm_151_28120_f8kxwgnn6b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.182Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.182Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "uqcegrpjesbnyka"
+        }
+      ],
+      "source_id": "93w4kmkx828jted"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.881Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28121,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_28121_tu2dokswc4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.182Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.182Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "v5wwv93p5xrgcaw"
+        }
+      ],
+      "source_id": "3bawzwyipiepvqe"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.884Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28122,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_28122_rai9f3cz4k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.182Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.182Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "h24jtnpvrm9ng6j"
+        }
+      ],
+      "source_id": "h2u3fdc2i9d8qnx"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.299Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28123,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_151_28123_ruri87bz0o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.252Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.252Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "2u4tvjovyipr8sg"
+        }
+      ],
+      "source_id": "1di110157ku13iy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "9ljfetcm9oaa0b9"
+    },
+    {
+      "annotation": "Im Kalendarium paginiert 1. s. Textbezug INr 7483, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.370Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7441,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermählung des Herzogs von York / Mariage de Duc d'York",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del.",
+      "scans": [
+        "alm_151_7441_6juq94410o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vermählung des Herzogs von York / Mariage de Duc d'York",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "27ct9a5nop98rkc"
+        }
+      ],
+      "source_id": "468ot3y3ueh0mde"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Im Kalendarium paginiert 2. s. Textbezug INr 7483, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die neue Polnische Constitution / La nouvelle Constitution Polonoise",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del.",
+      "scans": [
+        "alm_151_7442_mzhjm2dmz7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die neue Polnische Constitution / La nouvelle Constitution Polonoise",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "rsczaudubtshzdz"
+        }
+      ],
+      "source_id": "hpyvjgp2lmrl89a"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Im Kalendarium paginiert 3. s. Textbezug INr 7483, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Friede zwischen Oesterreich und der Türkey / La paix entre l'Autriche et la Turquie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del.",
+      "scans": [
+        "alm_151_7443_btmgr74gen.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Friede zwischen Oesterreich und der Türkey / La paix entre l'Autriche et la Turquie",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "5y6sans9sgrb69r"
+        }
+      ],
+      "source_id": "aqbrtptof8kp0l2"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Im Kalendarium paginiert 4. s. Textbezug INr 7483, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kinder Frankreichs drohen ihrer Mutter / Les enfans de france menacent leur mere",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del.",
+      "scans": [
+        "alm_151_7444_ckn0xlr93p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Kinder Frankreichs drohen ihrer Mutter / Les enfans de france menacent leur mere",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "bea0dcg3yym9xa8"
+        }
+      ],
+      "source_id": "177bi967fz1sk4r"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Im Kalendarium paginiert 5. s. Textbezug INr 7483, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Empörung der Neger / La Revolte des Negres",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del.",
+      "scans": [
+        "alm_151_7445_auukglka2i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Empörung der Neger / La Revolte des Negres",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.411Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.411Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "jpokdr8k5szxg6q"
+        }
+      ],
+      "source_id": "sp7rxonr558h48w"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite. Im Kalendarium paginiert 6. s. Textbezug INr 7483, Obj 59",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7446,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Friede zwischen Rußland und der Türkey / La paix entre la Russie et la Turquie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del.",
+      "scans": [
+        "alm_151_7446_41j1qtp966.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Friede zwischen Rußland und der Türkey / La paix entre la Russie et la Turquie",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "gmkvzcdqy4kr7v0"
+        }
+      ],
+      "source_id": "5cegs7srhpz9b2e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / Nutzen und Vergnügen / für das Jahr 1793. / Mit / Kupfern von Chodowiecky, / nebst den / neuesten Frauenzimmer- und / Manns-Kleidungen, in Kupfer. / Göttingen / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / Nutzen und Vergnügen / für das Jahr 1793. / Mit / Kupfern von Chodowiecky, / nebst den / neuesten Frauenzimmer- und / Manns-Kleidungen, in Kupfer. / Göttingen / bey Johann Christian Dieterich",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ovytra08oztbo8o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geburtstage / des Kön. Großbritannisch. Chur-Braun- / schweig-Lüneburgischen Hauses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geburtstage / des Kön. Großbritannisch. Chur-Braun- / schweig-Lüneburgischen Hauses",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "crprr3fs846fc7e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches / Verzeichniß / der / vornehmsten jetzt lebenden hohen Per- / sonen in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches / Verzeichniß / der / vornehmsten jetzt lebenden hohen Per- / sonen in Europa",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "py9l6pyuirm4fo4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Wir fangen unsern dießjährigen Calender wiederum mit Nachrichten aus dem Himmelreiche an,",
+      "language": [],
+      "musenalm_id": 7450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neuigkeiten / vom Himmel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neuigkeiten / vom Himmel",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "85d0c702usd6dxi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Diese Frage ist, dünkt mich, vor mehreren Jahren schon einmahl im Hannöverschen Magazin aufgeworfen worden.",
+      "language": [],
+      "musenalm_id": 7451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Warum hat Deutschland / noch kein großes / öffentliches Seebad?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Warum hat Deutschland / noch kein großes / öffentliches Seebad?",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "qoevefdsci0a0z9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Man kann sagen was man will, so ist ein Mensch, der nur alle vier Jahre einen Geburtstag hat,",
+      "language": [],
+      "musenalm_id": 7452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trostgründe / für die Unglücklichen, / die am 29ten Februar geboren sind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trostgründe / für die Unglücklichen, / die am 29ten Februar geboren sind",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "uy8c6cwsm5dw1ke"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Die häufigen sowohl mündlichen als schriftlichen Nachfragen",
+      "language": [],
+      "musenalm_id": 7453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung des im Taschen- / calender vom vorigen Jahre S. / 176 aufgegebenen Räthsels",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung des im Taschen- / calender vom vorigen Jahre S. / 176 aufgegebenen Räthsels",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "a7rznc8s6v9wp2v"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 7455-7462, Obj 20-37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Miscellaneen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Miscellaneen",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "u4czzqbbuchambp"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Nie hat wohl der Hang des schönen Geschlechts zum Putz eine kräftigere Unterstützung erhalten",
+      "language": [],
+      "musenalm_id": 7455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1) Steigender Luxus unter den / Heiligen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1) Steigender Luxus unter den / Heiligen",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "xu22nyzpc738c8t"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Unter den vielen Aehnlichkeiten, die das reine Wasser mit der Tugend hat,",
+      "language": [],
+      "musenalm_id": 7456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2) Von einer in der Caffeezeit / seltnen weiblichen Erscheinung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2) Von einer in der Caffeezeit / seltnen weiblichen Erscheinung",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "nidmkkxpsm9pc7j"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.273Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Ich bin überzeugt daß viele unsrer Leser, die an Orten leben, wo keine Observatoria oder keine Kenner des Himmels sind,",
+      "language": [],
+      "musenalm_id": 7457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3) Wie man in diesem Jahre den / Georgs-Planeten (Uranus) ohne / viele Mühe finden kann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3) Wie man in diesem Jahre den / Georgs-Planeten (Uranus) ohne / viele Mühe finden kann",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "crvg9vu84lzc62y"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "In einer Gesellschaft, worin sich Fontenelle befand, betrachtete man mit allgemeiner Bewunderung ein Bijou,",
+      "language": [],
+      "musenalm_id": 7458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4) Ein Compliment dergleichen / wenige gemacht werden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4) Ein Compliment dergleichen / wenige gemacht werden",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "hwvd3ce3rl7rl8m"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.053Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Ich glaube kaum, daß Hupazoli, wenn man alles zusammen nimmt, je seines gleichen gehabt hat,",
+      "language": [],
+      "musenalm_id": 7459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5) Hupazoli und Cornaro, oder: / Thue es ihnen nach wer kann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5) Hupazoli und Cornaro, oder: / Thue es ihnen nach wer kann",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ocyhqkgsxwan8fj"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Aus dem Briefe eines englischen Gelehrten, datiert London den 3. Aug. 1792, entlehnen wir folgende Nachricht:",
+      "language": [],
+      "musenalm_id": 7460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6) Etwas aus dem Innern von / Africa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6) Etwas aus dem Innern von / Africa",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "zrid7neu5anocc3"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Der geometrische Würfel ist derjenige reguläre Körper der von sechs Quadraten begrenzt wird.",
+      "language": [],
+      "musenalm_id": 7461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7) Vom Würfel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7) Vom Würfel",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "9hcibzg9vza1b0n"
+    },
+    {
+      "annotation": "Miscellaneen (Sammlung INr 7454, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8) Einige physikalische Merkwür- / digkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8) Einige physikalische Merkwür- / digkeiten",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "lk1svvuujnmhzhc"
+    },
+    {
+      "annotation": "Es folgen: Textbezüge und Graphiken INr 7463-7482, Obj 39-58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / Hogarthischer Kupferstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / Hogarthischer Kupferstiche",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "6fdezkr4e3l1plg"
+    },
+    {
+      "annotation": "Erklärung Hogartischer Kupferstiche (INr 34799, Obj 38) s. Graphik INr 7464, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.054Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Dieses kleine Blatt ist sehr gut ausgeführt,und unser Hr. Riepenhausen hat es, obgleich verkleinert, so copiert, daß schlechterdings nichts zu wünschen übrig bleibt.",
+      "language": [],
+      "musenalm_id": 7463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Columbus breaking the Egg.) / Eigentlich, Columbus wie er ein Ey / auf die Spitze stellt.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Columbus breaking the Egg.) / Eigentlich, Columbus wie er ein Ey / auf die Spitze stellt.",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "m2rv1v7j14wyicq"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. paginiert A. s. Textbezug INr 7463, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Columbus breaking the Egg.) / Eigentlich, Columbus wie er ein Ey / auf die Spitze stellt. #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7464_i7s4r5gfks.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "(Columbus breaking the Egg.) / Eigentlich, Columbus wie er ein Ey / auf die Spitze stellt. #",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.312Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "m5osmv1lzbc07uo"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.312Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.312Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "ymw1d7wves6lb3i"
+        }
+      ],
+      "source_id": "b56r71651vp7igh"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche s. Graphiken INr 7466-7469, Obj 42-45",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Dieses Blatt enthält des ungelehrten Hogarth Spott über einige Pedantereyen der englischen Universitäten,",
+      "language": [],
+      "musenalm_id": 7465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vorlesung / (The Lecture)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vorlesung / (The Lecture)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "4xwbasetl6h9di5"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt (A) der Suite. Détail aus »Die Vorlesung. (The Lecture)« paginiert B. s. Textbezug INr 7465, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7466_qt748up5e0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "q3z80fg051ier31"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "qvicsawaqyd7m4p"
+        }
+      ],
+      "source_id": "u6op3uma26y99yl"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt (A) der Suite. Détail aus »Die Vorlesung. (The Lecture)« paginiert C. s. Textbezug INr 7465, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.064Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7467_svqx2900vq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "3h8zju0288qvsf4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "nnwzdupvfmu83g9"
+        }
+      ],
+      "source_id": "wosjfp73bkw02wm"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt (A) der Suite. Détail aus »Die Vorlesung. (The Lecture)« paginiert D. s. Textbezug INr 7465, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.068Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7468,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7468_ami8icmx4g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "opu84r8hhba26r1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "yb78gj2rgigs2y9"
+        }
+      ],
+      "source_id": "iovz6j3l73lvq3b"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt (A) der Suite. Détail aus »Die Vorlesung. (The Lecture)« paginiert E. s. Textbezug INr 7465, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.071Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7469,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7469_05yk5hxvuf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "6wz4uy312xxkztw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.313Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.313Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "z8ysuo3sm845vnz"
+        }
+      ],
+      "source_id": "jsnkgu2m4e0msha"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. s. Textbezüge und Graphiken INr 7471-7482, Obj 47-58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Bekanntlich ist Southwark, von der mit Häusern bedeckten englischen Provinz, die man gewöhnlich London nennt,",
+      "language": [],
+      "musenalm_id": 7470,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Southwark-Fair. / Der Jahrmarkt von Southwark",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Southwark-Fair. / Der Jahrmarkt von Southwark",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "lqrc37ez4pezmkn"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert F. s. Textbezug INr 7471, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7472,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7472_5gsu3v8ul9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.309Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "b6a8zmj9r8qi64v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.309Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.309Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "c2kp2s774te72j3"
+        }
+      ],
+      "source_id": "rred9xo3algthe2"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. Erläuterungen zu »Southwark-Fair. Der Jahrmarkt von Southwark.« s. Graphik INr 7472, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Die Figur 1 mit dem Helm und der Knotenperücke ist Alexander der Große,",
+      "language": [],
+      "musenalm_id": 7471,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(F)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(F)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "kgql8suw261bzro"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert G. s. Textbezug INr 7473, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:46.849Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7474,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7474_ul22yv5tjf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.453Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "1sworh2p5l1q60s"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.453Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.453Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "8ysw8ee0qyi3n7j"
+        }
+      ],
+      "source_id": "4yr9i4a59zm7qhr"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. Erläuterungen zu »Southwark-Fair. der Jahrmarkt von Southwark.« s. Graphik INr 7474, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Im Vordergrunde 1 ein sogenannter prize fighter, ein Klopffechter auf einem steifen und blinden Pferde.",
+      "language": [],
+      "musenalm_id": 7473,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(G)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(G)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4c49fcy3r10b15"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert H. s. Textbezug INr 7475 Obj 52",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7476,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7476_fcr3k91q0n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.267Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "03q38ar0gfg8209"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.267Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "ekm7payvhscnmuu"
+        }
+      ],
+      "source_id": "0d7b5y57cmds79t"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. Erläuterungen zu »Southwark-Fair. Der Jahrmarkt von Southwark.« s. Graphik INr 7476, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Hier ist wieder bey 1 und 2 Allgewalt der Schönheit auf dem Jahrmarkt.",
+      "language": [],
+      "musenalm_id": 7475,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(H)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(H)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "aozjyys1ffvff1s"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert I. s. Textbezug INr 7477, Obj 54",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7478,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7478_y3c1rlf858.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.267Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "1yy9mi4p7kmtsb2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.267Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "lfjhfj8v1qyo3xd"
+        }
+      ],
+      "source_id": "1h19q4uxmrnn34b"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. Erläuterungen zu »Southwark-Fair. Der Jahrmarkt von Southwark.« s. Graphik INr 7478, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Wieder ein Aushängeschild, also ein Bild auf einem Bilde. Diese kleine Episode war etwa im vierten Decennium",
+      "language": [],
+      "musenalm_id": 7477,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(I)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(I)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "p9v7u4rrx2uibux"
+    },
+    {
+      "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert K. s. Textbezug INr 7479, Obj 56",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7480,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+      "scans": [
+        "alm_151_7480_tdbe59tzqa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.276Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "7ac8kodlqunu3ul"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.276Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "i4fuv0eoibziffs"
+        }
+      ],
+      "source_id": "3uhm6wpfhi8slax"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. Erläuterungen zu »Southwark-Fair. Der Jahrmarkt von Southwark.« s. Graphik INr 7480, Obj 55",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.481Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Hier ist auch eine Theater-Umwälzung im eigentlichen Sinn des Worts,",
+      "language": [],
+      "musenalm_id": 7479,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(K)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(K)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "61er79jqgmuw1kg"
+    },
+    {
+      "annotation": "Erklärung Hogarthischer Kupferstiche. Erläuterungen zu »Southwark-Fair. Der Jahrmarkt von Southwark.« s. Graphik INr 7482, Obj 58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "4 ist der Mohrenknabe, der die Trommel auf F begleitet. 2 Ein einfaches Geschöpf von einem Bauern,",
+      "language": [],
+      "musenalm_id": 7481,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(L)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(L)",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "a5l4gigtw84nwr2"
+    },
+    {
+      "annotation": "Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert L. s. Textbezug INr 7481, Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7482,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (W. Hogarth inv. Riep. f. sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hogarth inv. Riep. f. sculps.",
+      "scans": [
+        "alm_151_7482_xosxiccfch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.276Z",
+          "agent": "yylanvnf5ct4jbi",
+          "source_id": "a003blhuaebebaz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.276Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.276Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "p225384itvhlql9"
+        }
+      ],
+      "source_id": "x845sr5ffmvcfzy"
+    },
+    {
+      "annotation": "G-Verz. s. Graphiken im Kalendarium INr 7441-7446, Obj 16-21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Bey diesen sechs Blättern gehört nicht bloß die Art der Ausführung, sondern auch die Wahl der Gegenstände, wiederum ganz dem großen Berlinischen Künstler zu.",
+      "language": [],
+      "musenalm_id": 7483,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Erklärung der Monatskupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Erklärung der Monatskupfer",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "ce7l9j7cl1hzx51"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "201",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7484,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nöthige / Zusätze und Verbesserungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nöthige / Zusätze und Verbesserungen",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "z4ytynl0e7h06rh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7485,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vegleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländischen / Troygewichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vegleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländischen / Troygewichts",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "yo1zdp86yk1x88x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7486,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meilenmaaß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meilenmaaß",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "csft8ypux7q2aqt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "206",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7487,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Getraidemaaß / in Pariser Cubiczoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Getraidemaaß / in Pariser Cubiczoll",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "2u287tdgi94109b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7488,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Münzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Münzen",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "2z4v8paqpar0zlw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.567Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geographische Länge und Breite / einiger Oerter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geographische Länge und Breite / einiger Oerter",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "nhs0iku4s85j04a"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "wkbr3669hau7hv5"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28126,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "b9hgfdw1dvozmgp"
+    },
+    {
+      "annotation": "Verlagmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.033Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 28127,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Joh. Chr. Dieterich's neue Verlagsbücher",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Joh. Chr. Dieterich's neue Verlagsbücher",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "kqzy24l5aw63sei"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.121Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 37249,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_151_37249_p2whxfo6i9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "jhebm9vj4winhi8"
+    }
   ],
   "agents": [
     {

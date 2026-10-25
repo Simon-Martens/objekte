@@ -48,29 +48,980 @@
   "year": 1810,
   "editor": "",
   "items": [
-    "6t2z7teq3axos0r"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.519Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404211",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.519Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "6t2z7teq3axos0r"
+    }
   ],
   "contents": [
-    "x3auqz26f32pf6u",
-    "zmnx6hkb665uuo3",
-    "mqgcfpgblb9gnen",
-    "t2i2vu7fr86ou3r",
-    "nfa6eh9mwx2sdff",
-    "19j1jyiljr3bkbt",
-    "hf2eec6tp3c6rfi",
-    "h3aa4n9tzu32u2y",
-    "y9eajrec0u8nmdr",
-    "c1jv5fzs6g6uy8w",
-    "wif6rf6m4ixd766",
-    "j8dcvba11nw6j4j",
-    "jh6f88k9s7dobwj",
-    "appwftwtio677tc",
-    "zv0pto14cy6j2a7",
-    "iwhb8bhw7qpxub4",
-    "6ie1xn47qgr29qp",
-    "cpgko09ymn70e3c",
-    "bhzd3qq7guydg6m",
-    "mre5ckbrifn0zkg"
+    {
+      "annotation": "Titelgraphik paginiert 1. /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70326,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Lorenz Stark, und der Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70326_ii9wc2iq3d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herr Lorenz Stark, und der Sohn",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.409Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.409Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "7o0zyna66t4l92t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "meuzizku5c6dasa"
+        }
+      ],
+      "source_id": "x3auqz26f32pf6u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.730Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70327,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogischer Kalender / auf / das Jahr 1810. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_821_70327_xodcohk13c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Genealogischer Kalender / auf / das Jahr 1810. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "zmnx6hkb665uuo3"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 2. /) Graphik vor dem Kalendarium /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70328,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herr Specht tritt herein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70328_ytk2i59er2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Herr Specht tritt herein",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "0uci6pqezn004nq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "o0xc3fs9hb3utbd"
+        }
+      ],
+      "source_id": "mqgcfpgblb9gnen"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70347,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "t2i2vu7fr86ou3r"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3. /) Graphik im Kalendarium /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70329,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Doktor Herbst bei dem Schwiegervater",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70329_ha9m61tale.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Doktor Herbst bei dem Schwiegervater",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "cmwwr28g209sqtq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "elycnqvbbk2zxh5"
+        }
+      ],
+      "source_id": "nfa6eh9mwx2sdff"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 4. /) Graphik im Kalendarium Januar /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70330,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Familie spricht für den Sohn",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70330_y8kuimdohj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Familie spricht für den Sohn",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "0zw5z8m7nz8jnb9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "b000vlg2c0cnhqx"
+        }
+      ],
+      "source_id": "19j1jyiljr3bkbt"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 5. /) Graphik im Kalendarium Februar /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70331,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wankender Vorsatz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70331_dvpu612m3s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wankender Vorsatz",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "8hxtnjaos18x8rj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.410Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.410Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "tiyur472v7hoebm"
+        }
+      ],
+      "source_id": "hf2eec6tp3c6rfi"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 6. /) Graphik im Kalendarium März /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.617Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70332,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Witwe von der Doktorinn besucht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70332_koqi86wphd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Witwe von der Doktorinn besucht",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.398Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "btzu0lt0otkt2up"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.398Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "kc4focycmhc43iu"
+        }
+      ],
+      "source_id": "h3aa4n9tzu32u2y"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium April /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70333,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theetisch bei der Mutter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70333_fdm2jhukbg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Theetisch bei der Mutter",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.398Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.398Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "800mrscybgxs6xu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.399Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "zjtzneinjwdpqfh"
+        }
+      ],
+      "source_id": "y9eajrec0u8nmdr"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 8. /) Graphik im Kalendarium Mai /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70334,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anwandlung der Ohnmacht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70334_rzqo1avmri.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anwandlung der Ohnmacht",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.399Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "2px7w69xu7k7u3p"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.399Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "8scgx9n7dstvf33"
+        }
+      ],
+      "source_id": "c1jv5fzs6g6uy8w"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9. /) Graphik im Kalendarium Juni /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.622Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70335,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Herr Specht!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70335_3vxr51xzzq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Herr Specht!",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.399Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "4grd18fr2qb9g3n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.399Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.399Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "xq090o7ae860q0d"
+        }
+      ],
+      "source_id": "wif6rf6m4ixd766"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10. /) Graphik im Kalendarium Juli /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70336,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der arme Schlicht!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70336_56b9hiwsh4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der arme Schlicht!",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.501Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.501Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "9vunqg4ke4afgvn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.501Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.501Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "j6oqjtlos2gdgpm"
+        }
+      ],
+      "source_id": "j8dcvba11nw6j4j"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 11 /) Graphik im Kalendarium August /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70337,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlichts Auftrag bei der Witwe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70337_obn2vu5dnq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schlichts Auftrag bei der Witwe",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.507Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "22xhe74xtox78xp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.507Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "m1zdiau6r7zf3vq"
+        }
+      ],
+      "source_id": "jh6f88k9s7dobwj"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12 /) Graphik im Kalendarium September /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70338,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Grossvater",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70338_cay29jg1xv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Grossvater",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.507Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "azm93ispa2uu2ep"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.507Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.507Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "udq1kgdivrlr2ck"
+        }
+      ],
+      "source_id": "appwftwtio677tc"
+    },
+    {
+      "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 13 /) Graphik im Kalendarium Dezember /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.467Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70339,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zärtliche Versöhnung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Study del. D. Berger sc. 1808",
+      "scans": [
+        "alm_821_70339_gp3gjwstlp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zärtliche Versöhnung",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.600Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.600Z",
+          "agent": "rcmptupq08d0ih1",
+          "source_id": "9nb3ljjiqw8xbvs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.600Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.600Z",
+          "agent": "qtx54xtziq79pnc",
+          "source_id": "eb7loh9p6t9mwks"
+        }
+      ],
+      "source_id": "zv0pto14cy6j2a7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70340,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen / in Europa. / (Ist im Monat Junius geschlossen, / und darnach sogleich der Druck angefan- / gen worden, so daß die spätern Verän- / derungen nicht mehr haben eingetragen / werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen / in Europa. / (Ist im Monat Junius geschlossen, / und darnach sogleich der Druck angefan- / gen worden, so daß die spätern Verän- / derungen nicht mehr haben eingetragen / werden können.)",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "iwhb8bhw7qpxub4"
+    },
+    {
+      "annotation": "B",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70341,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige berühmte Messen und Jahr- märkte, nebst beigesetzten Tagen, auf welche sie in dem / 1810 Jahre einfallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige berühmte Messen und Jahr- märkte, nebst beigesetzten Tagen, auf welche sie in dem / 1810 Jahre einfallen",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ie1xn47qgr29qp"
+    },
+    {
+      "annotation": "Anmerkung zum vorstehenden »Verzeichniß der Postcourse« INr 70342, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Vorstehendes Postenverzeichniß ist ein Auszug der ausführlichern Postcours-Tabellen im genealogischen Post-Kalender, welcher letztere besonders, (für 16 Gr. gut eingebunden) im Hauptkalendercomptoir, auch in allen Postämtern zu haben ist.",
+      "language": [],
+      "musenalm_id": 70343,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "cpgko09ymn70e3c"
+    },
+    {
+      "annotation": "17 BB",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70342,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "bhzd3qq7guydg6m"
+    },
+    {
+      "annotation": "36 SS",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 70344,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tabelle (W. H. Matthias Geh. Secretair und erster Registrator beim Königl. General-Post-Amte)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. H. Matthias Geh. Secretair und erster Registrator beim Königl. General-Post-Amte",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-06-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1810,
+      "editor": "",
+      "agents": [],
+      "source_id": "mre5ckbrifn0zkg"
+    }
   ],
   "agents": [
     {

@@ -48,30 +48,920 @@
   "year": 1850,
   "editor": "",
   "items": [
-    "fdwrpdekmarev2a"
+    {
+      "annotation": "1827-1850",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404168",
+      "location": "105H08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fdwrpdekmarev2a"
+    }
   ],
   "contents": [
-    "3zbpm3ezdq6byt7",
-    "q8kpjvh0mhw5gcw",
-    "kiff8r4fwhtu7k7",
-    "hy1dzhsnbl7h0ro",
-    "pafj06g2lwaqjd5",
-    "5yucq96tcp95e5f",
-    "uqrar783r7qk0ko",
-    "88lv7csfkeprdey",
-    "gucztbsos0gbty7",
-    "8tpmk3msqx9bb60",
-    "65ppuvqshttf8o6",
-    "1xvqof5quewxf0b",
-    "pprqe6117nb7b2g",
-    "8dwbya34o3nvhvf",
-    "gmk3asdlx5vt6o5",
-    "qz2wdybets60rd5",
-    "4af1f5t7x0bql10",
-    "koi4h1uwjj2w0mu",
-    "wqvva655dlsvz0h",
-    "0q1z27n9j490gzq",
-    "4enwcam0shthyzy"
+    {
+      "annotation": "Titelportrait s. Widmung INr 60770, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.467Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60766,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRIEDRICH WILHELM / NICOLAUS KARL, / Prinz von Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. F. Krüger Gest. v. A. Teichel",
+      "scans": [
+        "alm_885_60766_jiq1uda178.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRIEDRICH WILHELM / NICOLAUS KARL, / Prinz von Preussen",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "filrbdi16sdmhwd",
+          "source_id": "il9iw4ixhu73xr3"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "dp1i9gllz2qxsbz",
+          "source_id": "o6x9bkxbyfondro"
+        }
+      ],
+      "source_id": "3zbpm3ezdq6byt7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / Taschenbuch / für / 1850 / Mit sieben Stahlstichen. / Berlin. / Verlag der Deckerschen Geheimen Ober-Hofbuchdruckerei",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_885_60767_gf4i76os3o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / Taschenbuch / für / 1850 / Mit sieben Stahlstichen. / Berlin. / Verlag der Deckerschen Geheimen Ober-Hofbuchdruckerei",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "q8kpjvh0mhw5gcw"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch. / 1850",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch. / 1850",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "kiff8r4fwhtu7k7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "hy1dzhsnbl7h0ro"
+    },
+    {
+      "annotation": "s. Titelportrait INr 60766, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrich Wilhelm / Nicolaus Karl, / Prinz von Preußen, / Premier-Lieutenant im Ersten Garde-Regiment zu Fuß, à la Suite / des 2ten Bataillon (Stettin) 1sten Garde-Landwehr-Regiments, / Sohn Seiner Königlichen Hoheit / des / Prinzen von Preußen. / Geboren am 18. Oktober 1831. / (Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedrich Wilhelm / Nicolaus Karl, / Prinz von Preußen, / Premier-Lieutenant im Ersten Garde-Regiment zu Fuß, à la Suite / des 2ten Bataillon (Stettin) 1sten Garde-Landwehr-Regiments, / Sohn Seiner Königlichen Hoheit / des / Prinzen von Preußen. / Geboren am 18. Oktober 1831. / (Titelkupfer.)",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "pafj06g2lwaqjd5"
+    },
+    {
+      "annotation": "s. Graphik INr 60772, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Diese Ansicht ist ungefähr derjenigen entgegengesetzt, welche der vorige Jahrgang brachte, vom Mühlgraben aus genommen.",
+      "language": [],
+      "musenalm_id": 60771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blick vom Mehlhause her über die Spree nach / dem Schlosse derjenigen entgegengesetzt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blick vom Mehlhause her über die Spree nach / dem Schlosse derjenigen entgegengesetzt",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "5yucq96tcp95e5f"
+    },
+    {
+      "annotation": "s. Textbezug INr 60771, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BLICK VOM MEHLHAUSE HER ÜBER DIE SPREE / NACH DEM SCHLOSSE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Biermann Gest. v. Schulin",
+      "scans": [
+        "alm_885_60772_sbim44ae4n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BLICK VOM MEHLHAUSE HER ÜBER DIE SPREE / NACH DEM SCHLOSSE",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "dugufes48wc4c4u"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "mijy84rubgobbrp"
+        }
+      ],
+      "source_id": "uqrar783r7qk0ko"
+    },
+    {
+      "annotation": "s. Textbezug INr 60774, Obj 9 /) unter der Graphik Graphik: Druck v. J. Becker, vormals Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ANSICHT DER ST. NICOLAI-KIRCHE ZU POTSDAM / VON DER SCHLOSS-STRASSE AUS GESEHEN.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Biermann Gest. v. Sagert",
+      "scans": [
+        "alm_885_60773_ik9u9zeuno.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ANSICHT DER ST. NICOLAI-KIRCHE ZU POTSDAM / VON DER SCHLOSS-STRASSE AUS GESEHEN.",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "p8r9a4ldlsb9hc6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "ydctpsfli512i8f"
+        }
+      ],
+      "source_id": "88lv7csfkeprdey"
+    },
+    {
+      "annotation": "s. Graphik INr 60773, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Der zur Vollendung der Nicolaikirche in Potsdam nothwendig gehörende Kuppelbau war unterblieben,",
+      "language": [],
+      "musenalm_id": 60774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nicolaikirche in Potsdam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nicolaikirche in Potsdam",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "gucztbsos0gbty7"
+    },
+    {
+      "annotation": "s. Textbezug INr 60776, Obj 11 /) unter der Graphik Graphik: Druck v. J. Becker, vormals Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCHLOSS BABELSBERG BEI POTSDAM",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. C. Graeb. Gest v. Sagert",
+      "scans": [
+        "alm_885_60775_jbee2w02k4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCHLOSS BABELSBERG BEI POTSDAM",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.000Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.000Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "4ldqwxrquffn257"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.000Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.000Z",
+          "agent": "7m6015m4p6c81a1",
+          "source_id": "d7n3yxnxtoxnprr"
+        }
+      ],
+      "source_id": "8tpmk3msqx9bb60"
+    },
+    {
+      "annotation": "s. Graphik INr 60775, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Schinkels Plan für die Schloßanlage wurde nur etwa zur Hälfte ausgeführt; nach mehrjähriger Bewohnung des vollendeten Theiles wurde unter Hinzufügung des großen achteckigen Thurems,",
+      "language": [],
+      "musenalm_id": 60776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloß Babelsberg bei Potsdam",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloß Babelsberg bei Potsdam",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "65ppuvqshttf8o6"
+    },
+    {
+      "annotation": "s. Textbezug INr 60778, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.427Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCHLOSS BABELSBERG, / SPEISESAAL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Graeb. Gest. v. Witthöft",
+      "scans": [
+        "alm_885_60777_1n69z6jv16.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCHLOSS BABELSBERG, / SPEISESAAL",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.001Z",
+          "agent": "7m6015m4p6c81a1",
+          "source_id": "qs7miyqcgdjhqho"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.001Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.001Z",
+          "agent": "eo3qluho8zm4z6j",
+          "source_id": "zij8ea0c4c91dbi"
+        }
+      ],
+      "source_id": "1xvqof5quewxf0b"
+    },
+    {
+      "annotation": "s. Graphik INr 60777, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Der Erweiterungsbau begreift außer einer Reihe nöthiger Zimmer wesentlich den Tanzsaal, welcher zwei Stockwerke des großen achteckigen Thurmes,",
+      "language": [],
+      "musenalm_id": 60778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schloß Babelsberg. Speisesaal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schloß Babelsberg. Speisesaal",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "pprqe6117nb7b2g"
+    },
+    {
+      "annotation": "s. Graphik INr 60780, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Das Königliche Palais zu Breslau, frühere Gouvernementshaus, wurde von Friedrich dem Großen durch einen Anbau von Galerien und Zimmern in größestem Maaßstabe,",
+      "language": [],
+      "musenalm_id": 60779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Königliche Schloß zu Breslau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Königliche Schloß zu Breslau",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "8dwbya34o3nvhvf"
+    },
+    {
+      "annotation": "s. Textbezug INr 60779, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS KÖNIGLICHE SCHLOSS ZU BRESLAU",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Koska. Gest. v. Schulin",
+      "scans": [
+        "alm_885_60780_bszdbumkxr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS KÖNIGLICHE SCHLOSS ZU BRESLAU",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "sief3auzi68j217"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "v07vvy4xo0edp0a",
+          "source_id": "wqqvd9k8ujsk8rc"
+        }
+      ],
+      "source_id": "gmk3asdlx5vt6o5"
+    },
+    {
+      "annotation": "s. Textbezug INr 60782, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.274Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DAS NEUE KÖNIGSTHOR. / ZU KÖNIGSBERG IN PREUSSEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Behrendsen Gest. v. Werner",
+      "scans": [
+        "alm_885_60781_l43jo4bu0m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DAS NEUE KÖNIGSTHOR. / ZU KÖNIGSBERG IN PREUSSEN",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.764Z",
+          "agent": "h47riiq4e4ykwik",
+          "source_id": "30i7dkq1hht83tj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.764Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.764Z",
+          "agent": "2t9iobgxn8u0pr8",
+          "source_id": "37960fqhoq5l1sb"
+        }
+      ],
+      "source_id": "qz2wdybets60rd5"
+    },
+    {
+      "annotation": "s. Graphik INr 60781, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Das neue Königsthor in Königsberg, dessen innere Hauptfassade von dem Geheimen Ober-Baurath Stüler entworfen ist,",
+      "language": [],
+      "musenalm_id": 60782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das neue Königsthor zu Königsberg in Pr.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das neue Königsthor zu Königsberg in Pr.",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "4af1f5t7x0bql10"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Regierung Friedrichs II. hatte so Außerordentliches für die Macht und Wohlfahrt des Landes gewirckt, daß sie für Europa lange ein allgemein bewundertes Vorbild blieb,",
+      "language": [],
+      "musenalm_id": 60783,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rückblick / auf / die Kriegsjahre 1813, 1814 und 1815. / Geschrieben im Juli 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rückblick / auf / die Kriegsjahre 1813, 1814 und 1815. / Geschrieben im Juli 1847",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "koi4h1uwjj2w0mu"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Tu quoque litoibus nostris, Aeneia nutrix, / Aeternam moriens fanam, Caieta, dedisti; [...]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Die neueste Römische Revoluzion begann mit einer Tragödie und endigte mit einer Posse.",
+      "language": [],
+      "musenalm_id": 60784,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gaeta. / Erinnerungen aus dem Jahre 1849",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verfasser der römischen Briefe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gaeta. / Erinnerungen aus dem Jahre 1849",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [],
+      "source_id": "wqvva655dlsvz0h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.984Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Bekränzten Hauptes und statt der schwerfaltigen Toga einen leichten festlich bunten Mantel auf der Schulter tragend, schritt Genesius das römische Forum hinab.",
+      "language": [],
+      "musenalm_id": 60785,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genesius. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Kugler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genesius. / Eine Erzählung",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.824Z",
+          "agent": "dlauvagqjefeu2b",
+          "source_id": "13v6k1t82fudflr"
+        }
+      ],
+      "source_id": "0q1z27n9j490gzq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Einen Märtyrer des 15. Jahrhunderts erkennt Luther als würdigen Vorgänger und Vorkämpfer, indem er sich also über ihn ausspricht:",
+      "language": [],
+      "musenalm_id": 60786,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die kirchliche Malerei / in der Beleuchtung des Protestantismus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Hagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die kirchliche Malerei / in der Beleuchtung des Protestantismus",
+      "updated": "2008-08-06 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1850,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.824Z",
+          "agent": "1js33mmqeo20b02",
+          "source_id": "noj7hentrm02hao"
+        }
+      ],
+      "source_id": "4enwcam0shthyzy"
+    }
   ],
   "agents": [
     {

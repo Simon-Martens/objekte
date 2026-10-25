@@ -48,27 +48,748 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "0qe2zi4jnk92pu1"
+    {
+      "annotation": "K und L/R geben Jgg 1798-1802 an. Vorliegender Jg scheint ein (letzter?) Versuch Karl Reinhards den von 1798-1802 bei Dieterich in Göttingen erschienenen Romanen-Kalender fortzusetzen",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.626Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404018",
+      "location": "105D07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.626Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0qe2zi4jnk92pu1"
+    }
   ],
   "contents": [
-    "myv5te6nkfl58qz",
-    "wgaksro1v33i9eb",
-    "9vjz6p6t673dhml",
-    "p5rjvm6dpdxxx5w",
-    "lh1o5txnqehzou1",
-    "m2od4as5ag5mfe7",
-    "qy1guuynpofv9tz",
-    "glz7rhdcmjuv7yh",
-    "0zq7p1hvohr454u",
-    "ajypu84f8fj7o15",
-    "yiyyx4mvxjuq153",
-    "pqbazxn892urueg",
-    "a0pzoxec0fok3z1",
-    "xu270sghypfyq6n",
-    "1oag83l7b493cdi",
-    "gqnuzdyecernh02",
-    "g34ndqst9uhoy0d",
-    "3vfjk437ippnk0n"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112246,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2469_112246_1g606elkx0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "myv5te6nkfl58qz"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Treue und Dankbarkeit« von Aug. Lafontaien INr 112255, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112248,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bist du Eugenia / s. / Treue und Dankbarkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. W. Böhm sc.",
+      "scans": [
+        "alm_2469_112248_8uhvte8lzf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bist du Eugenia / s. / Treue und Dankbarkeit",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.314Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.314Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "fyfbsjekxaz5dvb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.314Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.314Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "x3d40slsa2sx3c3"
+        }
+      ],
+      "source_id": "wgaksro1v33i9eb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112249,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanen-Kalender / für das Jahr 1803. / Von / August Lafontaine, August Gottlieb Meiß- / ner, Karl Reinhard, Johann Friedrich / Schink, Gotthelf Wilhelm Christoph / Starke, und Andern. / Mit drei Kupferstichen. / Leipzig. / Bei Peter Philipp Wolf und Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2469_112249_uk9ydsv3ju.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romanen-Kalender / für das Jahr 1803. / Von / August Lafontaine, August Gottlieb Meiß- / ner, Karl Reinhard, Johann Friedrich / Schink, Gotthelf Wilhelm Christoph / Starke, und Andern. / Mit drei Kupferstichen. / Leipzig. / Bei Peter Philipp Wolf und Comp.",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "9vjz6p6t673dhml"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.380Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112250,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kleine / Romanen-Bibliothek / für das Jahr 1803. / Von / August Lafontaine, August Gottlieb Meiß- / ner, Karl Reinhard, Johann Friedrich / Schink, Gotthelf Wilhelm Christoph / Starke, und Andern. / Mit drei Kupferstichen. / Leipzig. / Bei Peter Philipp Wolf und Comp.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2469_112250_d9b02q3agr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kleine / Romanen-Bibliothek / für das Jahr 1803. / Von / August Lafontaine, August Gottlieb Meiß- / ner, Karl Reinhard, Johann Friedrich / Schink, Gotthelf Wilhelm Christoph / Starke, und Andern. / Mit drei Kupferstichen. / Leipzig. / Bei Peter Philipp Wolf und Comp.",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "p5rjvm6dpdxxx5w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112251,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lh1o5txnqehzou1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112252,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "m2od4as5ag5mfe7"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Februar; pag. 112 /) Illustration zu",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112253,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dieses Gewand von ihren Händen gehei- / ligt, soll mein Cüras seyn. / das Damen Hemd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schubert del. Thoenert sc.",
+      "scans": [
+        "alm_2469_112253_wo6zw6kd5e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dieses Gewand von ihren Händen gehei- / ligt, soll mein Cüras seyn. / das Damen Hemd",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.315Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.315Z",
+          "agent": "knrhgn52aqjwh89",
+          "source_id": "g2422ev3cj11fma"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.314Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.314Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "w3wvqvoj8ezhd5v"
+        }
+      ],
+      "source_id": "qy1guuynpofv9tz"
+    },
+    {
+      "annotation": "Graphik im Kalendarium Juni; pag. 135 /) Illustration zu",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.120Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112254,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Besorgst du, dass mein Rath mich reue? / das Damen-Hemd",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. del. T. sc.",
+      "scans": [
+        "alm_2469_112254_gxfx1fajv6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Besorgst du, dass mein Rath mich reue? / das Damen-Hemd",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.197Z",
+          "agent": "b8kayl1gshcayeq",
+          "source_id": "jn2upbq1x8vdbjg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.197Z",
+          "agent": "knrhgn52aqjwh89",
+          "source_id": "xkny0merp5donby"
+        }
+      ],
+      "source_id": "glz7rhdcmjuv7yh"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 112248, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Auf einem kleinen Landhause nahe bei Zagarola, mitten in einem finstern Walde von alten Eichen, lebte in tiefer Einsamkeit der finstere Colonna.",
+      "language": [],
+      "musenalm_id": 112255,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Treue und Dankbarkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Lafontaine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Treue und Dankbarkeit",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.197Z",
+          "agent": "0w2k67v3yzi61te",
+          "source_id": "ext597of1d86gwi"
+        }
+      ],
+      "source_id": "0zq7p1hvohr454u"
+    },
+    {
+      "annotation": "Beitrag mit Prosa- und Gedichtteilen; s. einleitenden Prosateil des Beitrags s. INr 112257, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Vor alter Zeit, zur Zeit der Tafel- / runde, / Als Arthur's Ruhm die weite Welt durch- / flog,",
+      "language": [],
+      "musenalm_id": 112256,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Percy und Bertha / Oder / das öffentliche Geheimniß. / Ein Rittermährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Friedrich Schink",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Percy und Bertha / Oder / das öffentliche Geheimniß. / Ein Rittermährchen",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.197Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "qk9ib5jx5d4rj8z"
+        }
+      ],
+      "source_id": "ajypu84f8fj7o15"
+    },
+    {
+      "annotation": "Beitrag mit Prosa- und Gedichtteilen s. einleitendes Gedicht INr 112256, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.122Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "43",
+      "incipit_statement": "Wie von einem Traumgesichte gefesselt, stand Bertha, und als sie wieder aus ihrer süßen Betäubung erwachte, war die himmlische Erscheinung verschwunden.",
+      "language": [],
+      "musenalm_id": 112257,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[2. Percy und Bertha / Oder / das öffentliche Geheimniß. Ein Rittermährchen]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Friedrich Schink",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[2. Percy und Bertha / Oder / das öffentliche Geheimniß. Ein Rittermährchen]",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.197Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.197Z",
+          "agent": "scmt2snhwdglbs9",
+          "source_id": "zolrnutkkbzn4gc"
+        }
+      ],
+      "source_id": "yiyyx4mvxjuq153"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "Die versammelten Ältesten des Landes Glikon hatten über das Wohl und über den künftigen König desselben schon Verschiedenes geredet,",
+      "language": [],
+      "musenalm_id": 112258,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Mandi. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gotthelf Wilhelm Christoph Starke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Mandi. / Ein Mährchen",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.395Z",
+          "agent": "lw3uqo50dp1mpif",
+          "source_id": "aziubsfpxecv57m"
+        }
+      ],
+      "source_id": "pqbazxn892urueg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Der alte Jacob nährte Weib und Tochter schon lange von dem Ertrage eines kleinen Erbtheils, das er mit seinen Händen bauete und mit seinem Schweiß tränkte.",
+      "language": [],
+      "musenalm_id": 112259,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Karl und Hannchen. / Eine französische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Karl und Hannchen. / Eine französische Novelle",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0pzoxec0fok3z1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Der junge Lealdi und die Marquise d'Almeria, die schöne Marthesie, speiseten zusammen auf einem Landhause zu Portici,",
+      "language": [],
+      "musenalm_id": 112260,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Marthesie. / Eine Neapolitanische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Marthesie. / Eine Neapolitanische Novelle",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "xu270sghypfyq6n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Eine Gesellschaft von Spielern, die seit geraumer Zeit zu Rouen ihr Wesen, und Unwesen getrieben hatte, sah sich im Laufe eines Winters ziemlich oft vom Glücke verlassen,",
+      "language": [],
+      "musenalm_id": 112261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Trefle-Dame. / Eine wahre Anekdote",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Gottlieb Meißner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Trefle-Dame. / Eine wahre Anekdote",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.395Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.395Z",
+          "agent": "pbt3h5zr358vg6h",
+          "source_id": "6hfs0br0th6y0dp"
+        }
+      ],
+      "source_id": "1oag83l7b493cdi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Daß Satanas und sein Reich die frommen Menschen hasse, ist wohl bekannt genug; daß er unter den Frommen die Frömmern vorzüglich anfeinde, ist dann ganz natürlich",
+      "language": [],
+      "musenalm_id": 112262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / St. Dominicus und das Teufelchen. / Nach einer Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / St. Dominicus und das Teufelchen. / Nach einer Legende",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "gqnuzdyecernh02"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112263,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neuigkeiten / von / Peter Philipp Wolf und Comp. / in Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neuigkeiten / von / Peter Philipp Wolf und Comp. / in Leipzig",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "g34ndqst9uhoy0d"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 112264,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "3vfjk437ippnk0n"
+    }
   ],
   "agents": [
     {

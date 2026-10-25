@@ -48,108 +48,4482 @@
   "year": 1833,
   "editor": "",
   "items": [
-    "fvuosmni75lu64t"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.494Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411058",
+      "location": "105F04",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.494Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "fvuosmni75lu64t"
+    }
   ],
   "contents": [
-    "6jxf60vje92ja7y",
-    "0w6l6ui01djjtoo",
-    "iwpbpta333gphak",
-    "vcmc1dtfegn6j3l",
-    "ygkbhisfwpyz1d6",
-    "ru3xoisgq78n4jg",
-    "e1zornmauac0kui",
-    "ot3qwhv5uiz4g2o",
-    "h7y12ssrlk3fjhr",
-    "052ak6uzezhqq8p",
-    "bc5givxhux3qb20",
-    "t626d9j9ozqzcfh",
-    "1fcv5dy18g6ba8c",
-    "z0n0rpe4slz5tm2",
-    "p7hpghsappxk2hd",
-    "pb54gdrwo56ka8b",
-    "6ktkg4wdiwag9wh",
-    "b5g2oszgaesj9om",
-    "awrird9b9wrnuke",
-    "ig4k3e4emhqj8kj",
-    "k3xtuzgj9xrk67b",
-    "rx053f4u9rl7frl",
-    "6hczf9g9thky3do",
-    "sbc8g2buc4jav6a",
-    "o2r3oyeooch49hc",
-    "ukoo6sdmi1ub0rs",
-    "prgrfeke4fki3ai",
-    "7o165npaalcy8aj",
-    "zhwyjozdfmyyo3w",
-    "6m5q5ottncxh5a0",
-    "2w7qm54rgqyh7xs",
-    "acw4vino04eh58s",
-    "b0sd10efdwr9c1w",
-    "7gtullyi8ystidy",
-    "aaq6ewcgedwzzhz",
-    "12nyumkig3apd9k",
-    "gljetr0b70b0m95",
-    "76g1l292zafrago",
-    "5yxyb6nyjftl1dt",
-    "i78s87cpadpvy00",
-    "wdte0dctkaepc9c",
-    "oippzn72j36ysoc",
-    "1tu76zcedms728f",
-    "fssd2nlv7dswr18",
-    "eluvf5t3kljs41h",
-    "hv1e1iwbhbvev6h",
-    "ro0nkwzh32g4t0j",
-    "h2tu5gi0n60cam8",
-    "vcq4eaf4iz6yqiu",
-    "68k5rm72vpvqfpw",
-    "xzxtcwqzd9f3vp2",
-    "5gl1ufkvktj8j5g",
-    "dp2uez0wu3eq4jn",
-    "4n6p4ksk00pfyya",
-    "es0h9k7ytk3hb25",
-    "mtlpouuczck3ic2",
-    "308v46lt0hmzzfs",
-    "v9o713vy2x7autr",
-    "ez7lrce4r9nxqh1",
-    "60z909dy6gph58m",
-    "ac31rkzfg4bybuv",
-    "n2u4qt83ipukda4",
-    "j11iadvde1mlm60",
-    "1vw9v6m19rfvucu",
-    "q7nze7hafwqrcff",
-    "xr8mea70k3qaskr",
-    "02xduzl8qjnorjw",
-    "53b3fqvlwgl5twq",
-    "pqw5knraceyw88e",
-    "3yb18zr1mrhxugt",
-    "l6rmbfpt1pvsaco",
-    "u1gkdl6q8hgd2wx",
-    "2tzwlnba80o1x4v",
-    "nl61rvtwj2fyx1l",
-    "f3fqifr2jxel1kp",
-    "py9sj0f9wey7v97",
-    "u6h08kh31okh5l3",
-    "w2q923e96idqw8k",
-    "7socym5e6fjk995",
-    "7kkuve7bstnzqbn",
-    "gbd65bx4kx653ce",
-    "27awdy1w5favllj",
-    "n4y1lvtmsgo9exx",
-    "ii595d3cca4trvf",
-    "vh3nxlu37rydt44",
-    "n02fscywl07lli7",
-    "q2dscx2vhix4g48",
-    "tufg1b2nwdbd35r",
-    "ppcsr6ceut2q09x",
-    "f8msvx2bqcbeqnr",
-    "jo39f5eqkj71nd7",
-    "du1rj3hm2xd45d9",
-    "z0zcx4v7kl6hjlj",
-    "17x9hbfwsldw8i5",
-    "ra5wconn2wytklg",
-    "pihjmwgf1n6l9c0",
-    "0vpdhfztzqmnu69",
-    "rpril1u2n4ztwfb",
-    "y232dn4l7bcfx00"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36337,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser del.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser del.",
+      "scans": [
+        "alm_492_36337_av1q9cnq7i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.619Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.619Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "9m6uhe1f4rsupgj"
+        }
+      ],
+      "source_id": "6jxf60vje92ja7y"
+    },
+    {
+      "annotation": "Titelgraphik. Illustration zu »Don Juan« s. Textbezug INr 36343, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36338,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_36338_y089d4weg8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.619Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.619Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "2o19xoa787yuwh9"
+        }
+      ],
+      "source_id": "0w6l6ui01djjtoo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.245Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36339,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CÄCILIA. / Ein / Taschenbuch / für / Freunde der Tonkunst. / Herausgegeben / von Lyser. / Erster Jahrgang. / (Mit acht Zeichnungen und vier Musikbeilagen.) / Hamburg, 1833. / Bei Hoffmann und Campe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_492_36339_9ci1yb2vij.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CÄCILIA. / Ein / Taschenbuch / für / Freunde der Tonkunst. / Herausgegeben / von Lyser. / Erster Jahrgang. / (Mit acht Zeichnungen und vier Musikbeilagen.) / Hamburg, 1833. / Bei Hoffmann und Campe",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "iwpbpta333gphak"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Schon für das - verflossene Jahr war der gegenwärtige Almanach bestimmt - allein die Zeitbegebnisse verhinderten sein Erscheinen,",
+      "language": [],
+      "musenalm_id": 36340,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.850Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "cxvdilhz84st523"
+        }
+      ],
+      "source_id": "vcmc1dtfegn6j3l"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Sammlung von 7 Beiträgen INr 36342-36348; Obj 6-12 als Textbezüge zu den Graphiken",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.055Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36341,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärungen der Zeichnungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärungen der Zeichnungen",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.850Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.850Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "judbzrs1xgznnpj"
+        }
+      ],
+      "source_id": "ygkbhisfwpyz1d6"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Graphik INr 114865, Obj 12,01 /)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Die ersten zwei Bildchen stellen den unsterblichen Louis van Beethoven vor, Nr. 1 ist treu nach der Natur gezeichnet (...) Nr. 2, wie er das Thema zur »Scene am Bach« entwirft",
+      "language": [],
+      "musenalm_id": 36342,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die ersten zwei Bildchen stellen den unsterblichen Louis van Beethoven vor, Nr. 1 ist treu nach der Natur gezeichnet (...) Nr. 2, wie er das Thema zur »Scene am Bach« entwirft…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.926Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.926Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "6tsy5leidgg9d8h"
+        }
+      ],
+      "source_id": "ru3xoisgq78n4jg"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Titelgraphik INr 36338, Obj 2 und Graphik INr 121610, Obj 12,03",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.618Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Die Nummern 3 und 4 gehören zum Don Juan",
+      "language": [],
+      "musenalm_id": 36343,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nummern 3 und 4 gehören zum Don Juan…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.926Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.926Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "p4h9zp09p6ou4w0"
+        }
+      ],
+      "source_id": "e1zornmauac0kui"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Graphik INr 121611; Obj 12,03",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Nummer 5 stellt den wahnsinnigen Mascaniello vor, in dem Moment wo er seine Schwester erkennt",
+      "language": [],
+      "musenalm_id": 36344,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nummer 5 stellt den wahnsinnigen Mascaniello vor, in dem Moment wo er seine Schwester erkennt…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.901Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.901Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "rv2xl3j77wk9ayp"
+        }
+      ],
+      "source_id": "ot3qwhv5uiz4g2o"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Graphik INr 36349, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Nr. 6 gehört zu Meyerbeer's »Robert der Teufel« und stellt den Bertram vor, wie er aus der Höhle stürzt,",
+      "language": [],
+      "musenalm_id": 36345,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nr. 6 gehört zu Meyerbeer's »Robert der Teufel« und stellt den Bertram vor, wie er aus der Höhle stürzt,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.901Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.901Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "84cvky94tayxpnq"
+        }
+      ],
+      "source_id": "h7y12ssrlk3fjhr"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Graphik INr 36350, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Nr. 7 ist aus Marschner's Vampyr",
+      "language": [],
+      "musenalm_id": 36346,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nr. 7 ist aus Marschner's Vampyr…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.901Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.901Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "tdvxwztfeje7l24"
+        }
+      ],
+      "source_id": "052ak6uzezhqq8p"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Graphik INr 36424, Obj 88",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Nr. 8 endlich gehört zur dritten Anekdote, und ist die Zeichnung, wie gesagt, nicht von mir,",
+      "language": [],
+      "musenalm_id": 36347,
+      "musenalm_pagination": [
+        "1. Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nr. 8 endlich gehört zur dritten Anekdote, und ist die Zeichnung, wie gesagt, nicht von mir,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.901Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.901Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "xtt8rsb3t8ymusi"
+        }
+      ],
+      "source_id": "bc5givxhux3qb20"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Ueber den Umschlag sag' ich nichts! Ich bin's müde immer meine Zeichnungen zu begakeln,",
+      "language": [],
+      "musenalm_id": 36348,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber den Umschlag sag' ich nichts! Ich bin's müde immer meine Zeichnungen zu begakeln,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.901Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.901Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "yxx9o5j6khdyaba"
+        }
+      ],
+      "source_id": "t626d9j9ozqzcfh"
+    },
+    {
+      "annotation": "Bez. am 1. Blatt der Suite /) # Pseud. /) Beethoven 1. s. Textbezug INr 36342, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:43.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 114865,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_114865_6x918mw8se.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.509Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.509Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "luj9avxp40gy0ml"
+        }
+      ],
+      "source_id": "1fcv5dy18g6ba8c"
+    },
+    {
+      "annotation": "Bez. am 1. Blatt der Suite /) Beethoven 2. s. Textbezug INr 36342, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121609,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_121609_3nyb45k0l8.JPG"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "h1j9lpbeoro8n9z"
+        }
+      ],
+      "source_id": "z0n0rpe4slz5tm2"
+    },
+    {
+      "annotation": "Bez. am 1. Blatt der Suite /) Illustration zu »Don Juan« s. Textbezug INr 36343, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121610,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_121610_xzk4uu0jwo.JPG"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.716Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.716Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "01vghigqgc6fjnk"
+        }
+      ],
+      "source_id": "p7hpghsappxk2hd"
+    },
+    {
+      "annotation": "Bez. am 1. Blatt der Suite /) Der wahnsinnigen Mascaniello in dem Moment wo er seine Schwester erkennt;  s. Textbezug INr 36344, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 121611,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_121611_socyu1t6f8.JPG"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.717Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.717Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "0dl9h9u3840kzcq"
+        }
+      ],
+      "source_id": "pb54gdrwo56ka8b"
+    },
+    {
+      "annotation": "Bez. am 1. Blatt der Suite /) Illustration zu »Robert der Teufel« von G. Meyerbeer s. INr 36345, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.464Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36349,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_36349_eo6bd5axh2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "qupcmgnjqjlxybp"
+        }
+      ],
+      "source_id": "6ktkg4wdiwag9wh"
+    },
+    {
+      "annotation": "Bez. am 1. Blatt der Suite /) Illustration zu »Der Vampyr« von W. Marschner s. INr 36346, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.467Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36350,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_36350_mmhy2xye8u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "nb2u4f2a27szqpz"
+        }
+      ],
+      "source_id": "b5g2oszgaesj9om"
+    },
+    {
+      "annotation": "Der Sammlung vorangestellt: Schöne Mädchen! muntre Knaben! / Wollt Ihr was gesungen haben? [...] Gärsteckers Favorit-Liedchen /) Sammlung von 15 Beiträgen INr 36352-36365, 36432; 16-29, 26,01 /)  ## Im Beitrag »De- und wehmüthiges Einschiebsel« INr 36432;Obj 26,01 bezeichnet Lyser die »Variationen« als Fortsetzung der Biographie des Kapellmeisters Kreisler aus E. T. A. Hofmanns »Kater Murr«, ebenso die Sammlung »Lichte Stunden eines wahnsinnigen Musikers« INr 36393-36407; Obj 57-71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36351,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Variationen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Variationen",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "0mi7oq8atqigt3t"
+        }
+      ],
+      "source_id": "awrird9b9wrnuke"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Denn, liebe Freunde! da meine Mutter noch früher wie mein Vater gestorben war, so hatt' ich Niemanden auf der weiten Welt,",
+      "language": [],
+      "musenalm_id": 36352,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Im Römerlande ward ich geboren, / Meinen Vater hab' ich früh verloren, / Er war Doctor, zugleich auch Barbier. / Weh, mir Armen, mir!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Im Römerlande ward ich geboren, / Meinen Vater hab' ich früh verloren, / Er war Doctor, zugleich auch Barbier. / Weh, mir Armen, mir!",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "b548f3mo3jcwhj0"
+        }
+      ],
+      "source_id": "ig4k3e4emhqj8kj"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Majestätisch stieg die prachtvolle Feuersäule des Vesuvs in den tiefblauen Nachthimmel empor,",
+      "language": [],
+      "musenalm_id": 36353,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / O wie schön, sich zu wiegen / auf der blauen Meeresfluth. / (Gesang der Meermädchen)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / O wie schön, sich zu wiegen / auf der blauen Meeresfluth. / (Gesang der Meermädchen)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "iog5ql2ovdav4g2"
+        }
+      ],
+      "source_id": "k3xtuzgj9xrk67b"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Nein! rief die Benzon heftig bewegt, nein, mein Fürst! so lange Sie jenem entsetzlichen Alten vertrauen, ist keine Ruhe,",
+      "language": [],
+      "musenalm_id": 36354,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ach, ich sinne, ich erwäge, / Ich bedenke, überlege, / Daß ich in der kurzen Stunde, / Auszurichten nichts vermag",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ach, ich sinne, ich erwäge, / Ich bedenke, überlege, / Daß ich in der kurzen Stunde, / Auszurichten nichts vermag",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "e8rhqcfueugm78w"
+        }
+      ],
+      "source_id": "rx053f4u9rl7frl"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.470Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "32",
+      "incipit_statement": "Meister Abraham trat ins Zimmer, und als er den jungenTheodor erblickte (jenen deutschen Maler, dessen ich oben schon gedachte)",
+      "language": [],
+      "musenalm_id": 36355,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Graf. / Willst Du in den Garten kommen? / Susanne. / Ja ich komme! ganz gewiß.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Graf. / Willst Du in den Garten kommen? / Susanne. / Ja ich komme! ganz gewiß.",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.902Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "fmk1x5ay0028ih2"
+        }
+      ],
+      "source_id": "6hczf9g9thky3do"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "Meister Abraham! rief Julie erschüttert - Meister Abraham, was sagt Ihr? der Prinz in Neapel?",
+      "language": [],
+      "musenalm_id": 36356,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Kommt euch ein Mann entgegen, / Mit Mantel, Mask' und Degen, / Am Hute eine Feder; [...] / Don Juan",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Kommt euch ein Mann entgegen, / Mit Mantel, Mask' und Degen, / Am Hute eine Feder; [...] / Don Juan",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.963Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "xvkvls6xswr036l"
+        }
+      ],
+      "source_id": "sbc8g2buc4jav6a"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Der Meister Abraham war eben beschäftigt, dem Maler Theodor das linke Ohr zu verbinden, als Kreisler und ich von einem Spatziergange heimkehrten.",
+      "language": [],
+      "musenalm_id": 36357,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Vedrai Carino! / Se sei buonino, / Che bel rimedio, / Ti voglio dar. / (Zerlina.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Vedrai Carino! / Se sei buonino, / Che bel rimedio, / Ti voglio dar. / (Zerlina.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.963Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "g7qb9m93z376q31"
+        }
+      ],
+      "source_id": "o2r3oyeooch49hc"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "57",
+      "incipit_statement": "Die Untersuchung war beendigt, und die Angeklagten in ihr Gewahrsam zurückgeführt.",
+      "language": [],
+      "musenalm_id": 36358,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / O, komische Leute! / O, komische Welt! / (Amtsverwalter Knoll, / in der Molinera.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / O, komische Leute! / O, komische Welt! / (Amtsverwalter Knoll, / in der Molinera.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.963Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "r2kl4wn7805urfi"
+        }
+      ],
+      "source_id": "ukoo6sdmi1ub0rs"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.973Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "66",
+      "incipit_statement": "Der Tag war entschwunden, eine Nacht, wie nur Neapel sie sieht, umfing die schlummernden Gefilde.",
+      "language": [],
+      "musenalm_id": 36359,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Discendi, oh gioia bella! / Vedrai che tu sei quella, / Che adora l'alma mia, / Pentito io sono gia. / (Don Giovanni.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Discendi, oh gioia bella! / Vedrai che tu sei quella, / Che adora l'alma mia, / Pentito io sono gia. / (Don Giovanni.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.963Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.963Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "dzhxqlw5d48yg4j"
+        }
+      ],
+      "source_id": "prgrfeke4fki3ai"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Vor dem Flügel saß Kreisler und arbeitete mit großem Eifer ein contrapunktistisches Thema in vielfachen Verschlingungen aus.",
+      "language": [],
+      "musenalm_id": 36360,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Forse il cielo un giorno ancora. / Sentirà pietà di me. / (Donna Anna.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Forse il cielo un giorno ancora. / Sentirà pietà di me. / (Donna Anna.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.759Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "84z0h51496d54uv"
+        }
+      ],
+      "source_id": "7o165npaalcy8aj"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Aber Ew. Durchlaucht! sprach der **sche Ex-Bundestags-Gesandte zum Fürsten Irenäus,",
+      "language": [],
+      "musenalm_id": 36361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. / Triumph! Triumph! Triumph! / Die Rache wird mein! / (Pizzarro in L. v. Beethoven's Fidelio.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. / Triumph! Triumph! Triumph! / Die Rache wird mein! / (Pizzarro in L. v. Beethoven's Fidelio.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.759Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "7lwjz3prqp933v5"
+        }
+      ],
+      "source_id": "zhwyjozdfmyyo3w"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.936Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "Die Beisetzung der Leiche der Fürstin war vorüber, - in tiefster Trauer kehrte Fürst Irenäus nach Sieghartshof zurück.",
+      "language": [],
+      "musenalm_id": 36362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XI. / Bannet Furcht und bannet Sorgen! / Unser Kahn - ruht im sichern Port. / (Pietro's Barcarole aus / die Stumme von Portici.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XI. / Bannet Furcht und bannet Sorgen! / Unser Kahn - ruht im sichern Port. / (Pietro's Barcarole aus / die Stumme von Portici.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.813Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "f9vkzaje65ec913"
+        }
+      ],
+      "source_id": "6m5q5ottncxh5a0"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15) ## Der Autor bezeichnet hier die »Variationen« als Fortsetzung der Biographie des Kapellmeisters Kreisler aus E. T. A. Hofmanns »Kater Murr« ebenso die Sammlung »Lichte Stunden eines wahnsinnigen Musikers« INr 36393-36407; Obj 57-71",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Ist Dir jemals passirt, daß Dir, mitten in einer prächtigen Variation begriffen - gleichviel, ob von Sebastian Bach, oder Moscheles",
+      "language": [],
+      "musenalm_id": 36432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "De- und wehmüthiges Einschiebsel / des Herausgebers gegenwärtiger Variationen. / Gelibtester Leser! ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "De- und wehmüthiges Einschiebsel / des Herausgebers gegenwärtiger Variationen. / Gelibtester Leser! ##",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.832Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "j47prloqy2xvky8"
+        }
+      ],
+      "source_id": "2w7qm54rgqyh7xs"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.936Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Durch mehrere Zimmer führte ihn die Benzon, endlich gelangten sie in das Gemach der Sterbenden.",
+      "language": [],
+      "musenalm_id": 36363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XII. / Wirst Du auf meinem Grabe / Mir eine Thräne weihen, / Dann flüstr' es aus der Weide / Dir leise klagend zu, / Wie ich Dir bis zum Tode treu. / (Desdemona in Rossini's Othello. / Act 3. Sc. 2.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "XII. / Wirst Du auf meinem Grabe / Mir eine Thräne weihen, / Dann flüstr' es aus der Weide / Dir leise klagend zu, / Wie ich Dir bis zum Tode treu. / (Desdemona in Rossini's Othello. / Act 3. Sc. 2.)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.813Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.813Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "jztlmqqw0a8jexi"
+        }
+      ],
+      "source_id": "acw4vino04eh58s"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15) mit viertaktigem Notensystem (Allegro) über dem Beitrag",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Und so ist es denn eingetroffen, armer Johannes! das entsetzliche Geschick, was du immer ahndetest,",
+      "language": [],
+      "musenalm_id": 36364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "XIII.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [
+        "alm_492_36364_3bnmcpmm6y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "XIII.",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "8klhhkonvfjbmil"
+        }
+      ],
+      "source_id": "b0sd10efdwr9c1w"
+    },
+    {
+      "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Er hat vollbracht! vereinigt mit Allem, was er liebte auf Erden - wohl ihm!",
+      "language": [],
+      "musenalm_id": 36365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachschrift / des Meister Abraham",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luca fa presto",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachschrift / des Meister Abraham",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "t8i4g321lbtesyi"
+        }
+      ],
+      "source_id": "7gtullyi8ystidy"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Sammlung von 3 Beiträgen INr 36367-3639, Obj 31-33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Leuchtkugeln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von einem alten Musikdirector $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Leuchtkugeln",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "zh0kjx29dk0aysk"
+        }
+      ],
+      "source_id": "aaq6ewcgedwzzhz"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) II. Leuchtkugeln (Sammlung INr 36366, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Heute hörte ich auf einmal wieder Gluck's Iphigenia; und zwar seit zwölf Jahren zum ersten Mal,",
+      "language": [],
+      "musenalm_id": 36367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Gluck's / Iphigenia auf Tauris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von einem alten Musikdirector $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Gluck's / Iphigenia auf Tauris",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "wyaf479p36aru9k"
+        }
+      ],
+      "source_id": "12nyumkig3apd9k"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) II. Leuchtkugeln (Sammlung INr 36366, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "124",
+      "incipit_statement": "Was und wie viel ist nicht schon über den Don Juan geschrieben worden!",
+      "language": [],
+      "musenalm_id": 36368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Don Juan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von einem alten Musikdirector $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Don Juan",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "855qh2quto428by"
+        }
+      ],
+      "source_id": "gljetr0b70b0m95"
+    },
+    {
+      "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) II. Leuchtkugeln (Sammlung INr 36366, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "Unverkennbar ist es, wie die deutschen dramatischen Sänger und Sängerinnen seit einigen Jahren bemüht sind, auch im Spiel mehr zu leisten,",
+      "language": [],
+      "musenalm_id": 36369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber Gesang und Spiel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von einem alten Musikdirector $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber Gesang und Spiel",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "6h8707tthceyyq4"
+        }
+      ],
+      "source_id": "76g1l292zafrago"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.545Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Wir Deutschen sind wahrlich nicht arm an schönen Liedern! Haydn, Mozart, Beethoven, Weber, Spohr und so viele andere ehrenwerthe Männer haben in dieser Hinsicht Großes geleistet",
+      "language": [],
+      "musenalm_id": 36370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ueber / Liedercomposition",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ueber / Liedercomposition",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.777Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.777Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "fz16pbu9881sq5h"
+        }
+      ],
+      "source_id": "5yxyb6nyjftl1dt"
+    },
+    {
+      "annotation": "Der Sammlung vorangestellt: I-Verz. 3 Sammlungen mit 17 Gedichten INr 36372-36392; Obj 36-56",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.169Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Lieder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Lieder",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.619Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.619Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "uw353oiqwpm8qr9"
+        }
+      ],
+      "source_id": "i78s87cpadpvy00"
+    },
+    {
+      "annotation": "Sammlung von 8 Liedern INr 36373-36380, Obj 37-44. /) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei- und vierstimmige Lieder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei- und vierstimmige Lieder",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "4scr0mdosyxg9z4"
+        }
+      ],
+      "source_id": "wdte0dctkaepc9c"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Schlummert, es spendet dem Müden die Nacht, / Ruh' nach den Müh'n, die der Tag hat gebracht.",
+      "language": [],
+      "musenalm_id": 36373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Nachtgesang",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Nachtgesang",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "a6sei2jfax8ykuf"
+        }
+      ],
+      "source_id": "oippzn72j36ysoc"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Was füllet die Brust mit Lust und Schmerz? / Was pochet so sehnsuchtsvoll das Herz?",
+      "language": [],
+      "musenalm_id": 36374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Rhapsodie",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Rhapsodie",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "7dgb4dig5oob5pi"
+        }
+      ],
+      "source_id": "1tu76zcedms728f"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Auf! es flieht die Nacht! / Der Sonne Pracht / Strahlt durch Flur und Hain, / Zauberschein.",
+      "language": [],
+      "musenalm_id": 36375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Morgen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Morgen",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "c1zeuoh47gfyf6n"
+        }
+      ],
+      "source_id": "fssd2nlv7dswr18"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Bleibe bei uns! Es will Abend werden, / Schon entschwand der Sonne letzter Strahl.",
+      "language": [],
+      "musenalm_id": 36376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Bleibe bei uns",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Bleibe bei uns",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "sytvxn9ggn91lbo"
+        }
+      ],
+      "source_id": "eluvf5t3kljs41h"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Verstumme, banger Klageton! / Noch waltet Lieb' um Gottes Thron,",
+      "language": [],
+      "musenalm_id": 36377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Motette",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Motette",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "55wfw77wmlie9xb"
+        }
+      ],
+      "source_id": "hv1e1iwbhbvev6h"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.999Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Wenn erwacht die Frühlingsluft, / Und der Kuckuck lustig ruft,",
+      "language": [],
+      "musenalm_id": 36378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die Jahreszeiten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die Jahreszeiten",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "9zrqv9gxzm6pm2p"
+        }
+      ],
+      "source_id": "ro0nkwzh32g4t0j"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Mädchen zu küssen - ei, schadet ja nicht! / Macht dir ein Mädchen ein freundlich Gesicht,",
+      "language": [],
+      "musenalm_id": 36379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Was nicht schadet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Was nicht schadet",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.823Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.823Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "l81yd69hjgsjze3"
+        }
+      ],
+      "source_id": "h2tu5gi0n60cam8"
+    },
+    {
+      "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Glück auf! Glück auf! Du wack'rer Bergmann, du! / Ein frommer Sinn und Mannes-Muth dazu,",
+      "language": [],
+      "musenalm_id": 36380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Bergmanns-Gruß",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Bergmanns-Gruß",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.824Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "xpq6wbn5h8408zl"
+        }
+      ],
+      "source_id": "vcq4eaf4iz6yqiu"
+    },
+    {
+      "annotation": "Sammlung von 5 Liedern INr 36382, 36386-36389 Obj 46-50. /) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder für eine Stimme / mit Clavier- oder Guitarre-Begleitung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder für eine Stimme / mit Clavier- oder Guitarre-Begleitung",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.824Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "wtmskiqrj6f0s9t"
+        }
+      ],
+      "source_id": "68k5rm72vpvqfpw"
+    },
+    {
+      "annotation": "Lieder für eine Stimme mit Clavier- oder Guitarre-Begleitung (Sammlung INr 363781, Obj 45) Lieder (Sammlung INr 36371, Obj 35) mit einer Musikbeigabe s. INr 36429, Obj 93",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Nicht frage mehr, was mich bewegt, / Was mir das Auge füllt mit Thränen.",
+      "language": [],
+      "musenalm_id": 36382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Frage nicht!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Frage nicht!",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.824Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "0zh6fpyp4lrro3k"
+        }
+      ],
+      "source_id": "xzxtcwqzd9f3vp2"
+    },
+    {
+      "annotation": "Lieder für eine Stimme mit Clavier- oder Guitarre-Begleitung (Sammlung INr 363781, Obj 45) Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Schlaf ein, mein Herz! es ist Schlafenzeit; / Was willst du noch länger wachen?",
+      "language": [],
+      "musenalm_id": 36386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Wiegenlied für das Herz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Wiegenlied für das Herz",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.871Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.871Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "uy4iju1dezdcr08"
+        }
+      ],
+      "source_id": "5gl1ufkvktj8j5g"
+    },
+    {
+      "annotation": "Lieder für eine Stimme mit Clavier- oder Guitarre-Begleitung (Sammlung INr 363781, Obj 45) Lieder (Sammlung INr 36371, Obj 35) mit einer Musikbeigabe s. INr 36428, Obj 92",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Ich liebe Dich! ich liebe Dich! / Was kümmert's Dich, mein Mädchen?",
+      "language": [],
+      "musenalm_id": 36387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Ich liebe Dich",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Ich liebe Dich",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "lsn4rctc1fasead"
+        }
+      ],
+      "source_id": "dp2uez0wu3eq4jn"
+    },
+    {
+      "annotation": "Lieder für eine Stimme mit Clavier- oder Guitarre-Begleitung (Sammlung INr 363781, Obj 45) Lieder (Sammlung INr 36371, Obj 35) mit einer Musikbeigabe s. INr 36427, Obj 91",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Mei herzliebschtes Schatzerl / Komm, reich mir Dei Tatzerl!",
+      "language": [],
+      "musenalm_id": 36388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Schwäbisches Lied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Schwäbisches Lied",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "x5fdok7adpqv8v3"
+        }
+      ],
+      "source_id": "4n6p4ksk00pfyya"
+    },
+    {
+      "annotation": "Lieder für eine Stimme mit Clavier- oder Guitarre-Begleitung (Sammlung INr 363781, Obj 45) Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.176Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Still ruht Alles lange schon, / Von des Schlafes Arm umfangen;",
+      "language": [],
+      "musenalm_id": 36389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Serenade",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Serenade",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.872Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "ptl7qqcam76a9or"
+        }
+      ],
+      "source_id": "es0h9k7ytk3hb25"
+    },
+    {
+      "annotation": "Einleitung zu den folgenden Gedichten »Wanderlieder« /) Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Mit vorstehendem Liede wollte ich die diesjährigen lyrischen Gaben beschließen, als ein Freund mich darauf aufmerksam machte,",
+      "language": [],
+      "musenalm_id": 36383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mit vorstehendem Liede wollte ich die diesjährigen lyrischen Gaben beschließen, als ein Freund mich darauf aufmerksam machte,…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.824Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "jabkm6ltsaurdhe"
+        }
+      ],
+      "source_id": "mtlpouuczck3ic2"
+    },
+    {
+      "annotation": "Pseud. Sammlung von 4 Gedichten INr 36385, 36390-36392; Obj 53-56 IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderlieder",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderlieder",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.824Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.824Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "z00nctfh9zfzyxg"
+        }
+      ],
+      "source_id": "308v46lt0hmzzfs"
+    },
+    {
+      "annotation": "Wanderlieder (Sammlung INr 36384, Obj 52) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Hinaus! hinaus, Du junges Blut! / Sieh, Morgenroth und Abendgluth,",
+      "language": [],
+      "musenalm_id": 36385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Hinaus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Hinaus",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.871Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.871Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "ngl5iue5a133t2g"
+        }
+      ],
+      "source_id": "v9o713vy2x7autr"
+    },
+    {
+      "annotation": "Wanderlieder (Sammlung INr 36384, Obj 52) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Gebt mir Flügel! o, gebt mir Flügel! / Hätt' ich Flügel, wie flög' ich dann",
+      "language": [],
+      "musenalm_id": 36390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Morgen auf den Bergen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Morgen auf den Bergen",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "4z31ax5huskmaxs"
+        }
+      ],
+      "source_id": "ez7lrce4r9nxqh1"
+    },
+    {
+      "annotation": "Wanderlieder (Sammlung INr 36384, Obj 52) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.117Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Eingehüllt in nächtlich Dämmern, / Schlummert unter mir das Thal.",
+      "language": [],
+      "musenalm_id": 36391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Die Nacht auf den Bergen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Die Nacht auf den Bergen",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.731Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "txtpbiahlh5kgah"
+        }
+      ],
+      "source_id": "60z909dy6gph58m"
+    },
+    {
+      "annotation": "Wanderlieder (Sammlung INr 36384, Obj 52) IV. Lieder (Sammlung INr 36371, Obj 35)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Friedhof still und Kirchlein hell, / Unter Ulm' und Weiden.",
+      "language": [],
+      "musenalm_id": 36392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Das Dorfkirchlein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. P. T. Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Das Dorfkirchlein",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "zfc51ator7czquh"
+        }
+      ],
+      "source_id": "ac31rkzfg4bybuv"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) Sammlung von 14 Beiträgen INr 36394-36407; Obj 58-71 ## Der Autor bezeichnet in »De- und wehmüthiges Einschiebsel« INr 36432; Obj 26,01 »Lichte Stunden eines wahnsinnigen Musikers« als Vervollständigung der Biographie des Kapellmeisters Kreisler aus E. T. A. Hofmanns »Kater Murr« s.a. Anm INr 36351, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Lichte Stunden / eines / wahnsinnigen Musikers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Lichte Stunden / eines / wahnsinnigen Musikers",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.978Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "4gog613lekz0hsr"
+        }
+      ],
+      "source_id": "n2u4qt83ipukda4"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) mit viertaktigem Notensystem über dem Titel, Andante Grave. /) Prosabeitrag mit durch 9 musik. Vortragsbezeichnungen geteiltem Gedicht INr 36395-36403; Obj 59-67 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Ueber die öde Haide dahin brauste der Herbststurm, finstre Wetterwolken vor sich herjagend.",
+      "language": [],
+      "musenalm_id": 36394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Fantasien aus D-Moll / Andante Grave",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_492_36394_9nf64u2kch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Fantasien aus D-Moll / Andante Grave",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.978Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "1vdov4b8cqlb17z"
+        }
+      ],
+      "source_id": "j11iadvde1mlm60"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Willkommen, willkommen, Genossen meiner Qual! / Auch Verdammniß hat ihre Lust.",
+      "language": [],
+      "musenalm_id": 36395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Recitativ. / (D-moll 4/4 Tact)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Recitativ. / (D-moll 4/4 Tact)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.978Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "8n4fl904a6dcbas"
+        }
+      ],
+      "source_id": "1vw9v6m19rfvucu"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "Daß auch wir geliebt.",
+      "language": [],
+      "musenalm_id": 36396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tempo. / (Adagio sostenuto)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tempo. / (Adagio sostenuto)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.978Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.978Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "2srnln22a6ksz2o"
+        }
+      ],
+      "source_id": "q7nze7hafwqrcff"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Ach! was dem Herzen lieb' und theuer, / Was ihm bleibt, wenn Alles auch schwand,",
+      "language": [],
+      "musenalm_id": 36397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Larghetto. / (F-dur 12/8 Tact)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Larghetto. / (F-dur 12/8 Tact)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "fxs8apr26todcuy"
+        }
+      ],
+      "source_id": "xr8mea70k3qaskr"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "O Augenblick der Wonne, / Des Entzückens!",
+      "language": [],
+      "musenalm_id": 36398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Allegro con fuoco. D-dur. / (4/4 Tact)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Allegro con fuoco. D-dur. / (4/4 Tact)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.864Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.864Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "zb4c1fwigjgihyc"
+        }
+      ],
+      "source_id": "02xduzl8qjnorjw"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Erinnerung! - (ritartando) Erinnerung.",
+      "language": [],
+      "musenalm_id": 36399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Tempo 1mo F-dur)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Tempo 1mo F-dur)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "gtllmwnwdee4xtl"
+        }
+      ],
+      "source_id": "53b3fqvlwgl5twq"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "Ich fluche dir!",
+      "language": [],
+      "musenalm_id": 36400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Presto D-moll fortissimo)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Presto D-moll fortissimo)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "06veyrlxhamivuk"
+        }
+      ],
+      "source_id": "pqw5knraceyw88e"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Entblätterte Rose - erloschener Blick! / Verrathene Lieb -was fehlt noch zum Glück?",
+      "language": [],
+      "musenalm_id": 36401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andante sostenuto. / (G-moll, 9/8 Tact)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andante sostenuto. / (G-moll, 9/8 Tact)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "lai4tub6t1uuitz"
+        }
+      ],
+      "source_id": "3yb18zr1mrhxugt"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Heißa! Heißa! - Heißa! Heißa! / Heißa! Heißa!",
+      "language": [],
+      "musenalm_id": 36402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Presto, B-dur, 2/4 Tact)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Presto, B-dur, 2/4 Tact)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "rz3u88r6r650bvj"
+        }
+      ],
+      "source_id": "l6rmbfpt1pvsaco"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Weine nur nicht! / Mit Schnee und mit Eise umhüllt ist das All.",
+      "language": [],
+      "musenalm_id": 36403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "(Tempo 1mo G-moll)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "(Tempo 1mo G-moll)",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "iubae17fnic2yw0"
+        }
+      ],
+      "source_id": "u1gkdl6q8hgd2wx"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Heute las ich van Beethoven's Leben - Armer Ludwig! Was ist aller Schmerz hoffnungsloser Liebe - was sind die grausamsten Täuschungen des Lebens gegen Dein Leid?",
+      "language": [],
+      "musenalm_id": 36404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Louis van Beethoven",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Louis van Beethoven",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "7kgnksb2ol0mqts"
+        }
+      ],
+      "source_id": "2tzwlnba80o1x4v"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.077Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Mit der Kunst wird doch heut zu Tage viel Götzendienst getrieben.",
+      "language": [],
+      "musenalm_id": 36405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Henriette Grabau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Henriette Grabau",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.979Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.979Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "7gm5vzgrbj9d34t"
+        }
+      ],
+      "source_id": "nl61rvtwj2fyx1l"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Man nannte oft - (und thuts noch jetzt) die Tonkunst die sinnlichste aller Künste,",
+      "language": [],
+      "musenalm_id": 36406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Fragen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Fragen",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.817Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "d34h6ntnie1u3al"
+        }
+      ],
+      "source_id": "f3fqifr2jxel1kp"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Tonkünstler - besonders Componisten, haben in der Regel eine ziemliche, oder unziemliche Dosis Rabbia als Zugabe auf der Lebens- und Künstlerreise erhalten.",
+      "language": [],
+      "musenalm_id": 36407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Rabbia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Rabbia",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.817Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "9gtjoa4dueprsz3"
+        }
+      ],
+      "source_id": "py9sj0f9wey7v97"
+    },
+    {
+      "annotation": "mit einer Widmung s. INr 36409, Obj 73",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Im Osten glüht der Sonne erster Strahl, / Ein schöner Bote eines jungen Tages.",
+      "language": [],
+      "musenalm_id": 36408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Cain / nach Lord Byron. / Als freies Oratorium für den Concertsaal",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Cain / nach Lord Byron. / Als freies Oratorium für den Concertsaal",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.817Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "g6csh8tey21n9f9"
+        }
+      ],
+      "source_id": "u6h08kh31okh5l3"
+    },
+    {
+      "annotation": "dem Beitrag INr 36408, Obj 72 vorangestellt",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Herrn / Friedrich Schneider, / Herzoglich Dessauischem Capellmeister, / ist dieser Versuch zur Begründung eines freien / Oratoriums in freudigster Anerkennung und Ver- / ehrung gewidmet.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Herrn / Friedrich Schneider, / Herzoglich Dessauischem Capellmeister, / ist dieser Versuch zur Begründung eines freien / Oratoriums in freudigster Anerkennung und Ver- / ehrung gewidmet.",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.817Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "r7grqo53ex2t04o"
+        }
+      ],
+      "source_id": "w2q923e96idqw8k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Erschallet Jubellieder! / Dem Königs-Paare Heil. / Die Freude kehrt / In diese Hallen wieder;",
+      "language": [],
+      "musenalm_id": 36410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Hamlet. / Große Oper in fünf Acten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Hamlet. / Große Oper in fünf Acten",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.817Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.817Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "17k201mgbarsq1y"
+        }
+      ],
+      "source_id": "7socym5e6fjk995"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Die sogenannten Wunderkinder waren mir von jeher in den Tod zuwider. Die Erfahrung hat es bestätigt, daß von den unzähligen frühreifen Genies, welche seit Mozart auftauchten,",
+      "language": [],
+      "musenalm_id": 36411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Clara Wiek",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Clara Wiek",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.818Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "3g8gx3ts0zg91og"
+        }
+      ],
+      "source_id": "7kkuve7bstnzqbn"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister Sammlung von 3 Sammlungen mit 7 Beiträgen INr 36413-36422; Obj 77-86",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Miscellen und Anecdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Miscellen und Anecdoten",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.818Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "rtkscij0v4ah40l"
+        }
+      ],
+      "source_id": "gbd65bx4kx653ce"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d.i. J. P. T. Burmeister /) Einleitung zu den folgenden Beiträgen INr 36414, 36415; Obj 78, 79. /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Nachfolgende zwei Briefe sind nicht fingirt, sondern echt,",
+      "language": [],
+      "musenalm_id": 36413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Curiosa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Curiosa",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.818Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "6t3v6kodw4zfjh0"
+        }
+      ],
+      "source_id": "27awdy1w5favllj"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Curiosa (Sammlung INr 36413, Obj 77) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.995Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Ich muß betauren sie mit diesen Schreiben zur Last zu fallen es ist aber",
+      "language": [],
+      "musenalm_id": 36414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Ihr Wollgeborn / den herrn Musiecktierrector Dorn / bey den Konigl. Säckschen Hofetheater zu / Leipzig. / Hochgeehrdester Herr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Ihr Wollgeborn / den herrn Musiecktierrector Dorn / bey den Konigl. Säckschen Hofetheater zu / Leipzig. / Hochgeehrdester Herr",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.718Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "c7ls2wddcdwtqy1"
+        }
+      ],
+      "source_id": "n4y1lvtmsgo9exx"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Curiosa (Sammlung INr 36413, Obj 77) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.996Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Mit Permischon Hr. Mosikmester un Se sind en vernünfdigen gansen netten Mann aber Se känen mek woll nich mer den ek bin vauriche Woche Sundach op de Galerie west",
+      "language": [],
+      "musenalm_id": 36415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / PP!!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / PP!!",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.719Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "j714t5hi4yn4pqh"
+        }
+      ],
+      "source_id": "ii595d3cca4trvf"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) Sammlung von 2 Beiträgen INr 36417-36418; Obj 81, 82 /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Miscellen und Anecdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Miscellen und Anecdoten",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.832Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "wb1ct078bo6vkxn"
+        }
+      ],
+      "source_id": "vh3nxlu37rydt44"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) II. Miscellen und Anecdoten (Sammlung INr 36416, Obj 80) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.010Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Wenn ich mich den ganzen lieben langen Tag hindurch vor der Staffelei gehörig abgequält habe;",
+      "language": [],
+      "musenalm_id": 36417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Ofenröhre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Ofenröhre",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.832Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.832Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "tin11j9dq6xw0nb"
+        }
+      ],
+      "source_id": "n02fscywl07lli7"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) II. Miscellen und Anecdoten (Sammlung INr 36416, Obj 80) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.587Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Gestern war Sonntag! ein herrlicher Tag! Nach langem, starken Frost war endlich wieder Thauwetter eingetreten,",
+      "language": [],
+      "musenalm_id": 36418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Herbstregen und Glockentöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Herbstregen und Glockentöne",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "02be3ohrf03l7x1"
+        }
+      ],
+      "source_id": "q2dscx2vhix4g48"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) Sammlung von 3 Beiträgen INr 36420-36422; Obj 84-86 /) II. Miscellen und Anecdoten (Sammlung INr 36416, Obj 80) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.588Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Wahre Theater-Anekdoten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Wahre Theater-Anekdoten",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.922Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.922Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "j004z569vz0hyvu"
+        }
+      ],
+      "source_id": "tufg1b2nwdbd35r"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) 3. Wahre Theater-Anekdoten (Sammlung INr 36419, Obj 85) II. Miscellen und Anecdoten (Sammlung INr 36416, Obj 80) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Der Chorist Sp. . .der (ein Bruder des bekannten Künstlers) sollte beim K-städter Theater engagirt werden.",
+      "language": [],
+      "musenalm_id": 36420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.685Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.685Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "xxt739nnjju5cf8"
+        }
+      ],
+      "source_id": "ppcsr6ceut2q09x"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) 3. Wahre Theater-Anekdoten (Sammlung INr 36419, Obj 85) II. Miscellen und Anecdoten (Sammlung INr 36416, Obj 80) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Der Wiener Local-Komiker N-d (ein Bruder des Herrn von Z .....) war früher in Linz engagirt, und ein Liebling des Publikums.",
+      "language": [],
+      "musenalm_id": 36421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.685Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.685Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "tza6emz2nmfiesr"
+        }
+      ],
+      "source_id": "f8msvx2bqcbeqnr"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) 3. Wahre Theater-Anekdoten (Sammlung INr 36419, Obj 85) II. Miscellen und Anecdoten (Sammlung INr 36416, Obj 80) /) IX. Miscellen und Anecdoten (Sammlung INr 36412, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Eine hinlänglich hübsche Schauspielerin gab in M . . .-g den Tancred.",
+      "language": [],
+      "musenalm_id": 36422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.685Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.685Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "heeh579gh426hu7"
+        }
+      ],
+      "source_id": "jo39f5eqkj71nd7"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister. Hinweis auf folgende Graphik INr 36424, Obj 88",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Was doch nicht Alles aus einem Lieutenant werden kann! Uebrigens scheint mir das Blättchen die köstlichste Persiflage des Rossinischen Hämmlings Tancred.",
+      "language": [],
+      "musenalm_id": 36423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was doch nicht Alles aus einem Lieutenant werden kann! Uebrigens scheint mir das Blättchen die köstlichste Persiflage des Rossinischen Hämmlings Tancred.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.758Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.758Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "mzgsc2etm7jcn9a"
+        }
+      ],
+      "source_id": "du1rj3hm2xd45d9"
+    },
+    {
+      "annotation": "s. Textbezug INr 36423, Obj 87; Textbezug INr 36347, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tancrade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet (T. v. T.?)",
+      "scans": [
+        "alm_492_36424_v97zs0ju23.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tancrade",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "z0zcx4v7kl6hjlj"
+    },
+    {
+      "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) Corrigenda",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.325Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Unter den unsäglichen Leiden, welche einen armen Autor heimsuchen, so oft er ein Büchlein in die Welt sendet, stehen nebst ungünstigen Recensionen Druckfehler oben an.",
+      "language": [],
+      "musenalm_id": 36425,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druckfehler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Druckfehler",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.758Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.758Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "vl8zdubf23u6p1u"
+        }
+      ],
+      "source_id": "17x9hbfwsldw8i5"
+    },
+    {
+      "annotation": "(Photos 36426,01; 36426,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.326Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36426,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 1",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Dorn",
+      "scans": [
+        "alm_492_36426_01_9rw076mmp0.jpg",
+        "alm_492_36426_02_mikboje5ss.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 1",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [],
+      "source_id": "ra5wconn2wytklg"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Schwäbisches Lied« INr 36388, Obj 49 durch den Verfasser (Photos 36427,01; 36427,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36427,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 2. Baierisches Lied",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_36427_01_636k09zpa4.jpg",
+        "alm_492_36427_02_2z19jbm7k9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 2. Baierisches Lied",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.758Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.758Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "g28vlro0bvoxeit"
+        }
+      ],
+      "source_id": "pihjmwgf1n6l9c0"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Ich liebe dich« INr 36387, Obj 48 durch den Verfasser (Photos 36428,01; 36428,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36428,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 3. Ich liebe dich!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_36428_01_532wg5uyad.jpg",
+        "alm_492_36428_02_6fn7mx3sc9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 3. Ich liebe dich!",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.759Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "sls3aaa9z34dqz9"
+        }
+      ],
+      "source_id": "0vpdhfztzqmnu69"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Frage nicht!« INr 36382, Obj 46 durch den Verfasser (Photos 36429,01; 36429,02)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36429,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "No. 4. Frage nicht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser",
+      "scans": [
+        "alm_492_36429_01_191vwbywkt.jpg",
+        "alm_492_36429_02_y2es9uqu8m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "No. 4. Frage nicht",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.759Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "40tq0aunedpwhd4"
+        }
+      ],
+      "source_id": "rpril1u2n4ztwfb"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36430,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Lyser del.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Lyser del.",
+      "scans": [
+        "alm_492_36430_mtkhoyvmgo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-12-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1833,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.759Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.759Z",
+          "agent": "4u8ho959cgz0cdc",
+          "source_id": "hokrkbdxi4d2y73"
+        }
+      ],
+      "source_id": "y232dn4l7bcfx00"
+    }
   ],
   "agents": [
     {

@@ -48,27 +48,751 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "d8fecw9gn7sj9ev"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.596Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405469",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.596Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "d8fecw9gn7sj9ev"
+    }
   ],
   "contents": [
-    "dvgyuumde5b1rsk",
-    "z4wq9c1udsrdara",
-    "5t9z2da2kmyc3yh",
-    "otvfuh30nawrim8",
-    "s124jxbkn6ia6uk",
-    "pslopjip8xhcfvl",
-    "0bjz9oyjm3dwxbw",
-    "rymudt70y8fi3hi",
-    "sm9hv5owtc8gu8p",
-    "kx941cgqvfboj1g",
-    "lelgebdtn4d3l7n",
-    "mureopeq6q21n7g",
-    "72nprzeusjh7sf8",
-    "5tyxgzx4g3t07ce",
-    "0i2gzjf4hd4toxm",
-    "5ae0sx15vsgooi2",
-    "7qs5snlfcujdotd",
-    "d8tv75yxv15rfwf"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.908Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110025,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. C. G. Schreiber in Merseburg a. S.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. G. Schreiber in Merseburg a. S.",
+      "scans": [
+        "alm_2241_110025_g0a2ntv4j6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "dvgyuumde5b1rsk"
+    },
+    {
+      "annotation": "Titelgraphik /) unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Vulkanischer Boden« von C. v. Wachsmann INr 110035, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.912Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110026,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Constanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2241_110026_ravm9n676l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Constanze",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.413Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.413Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "h7lblmvy1mfql68"
+        }
+      ],
+      "source_id": "z4wq9c1udsrdara"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.914Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110027,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "LILIEN. / Taschenbuch / historisch-romantischer Erzählungen / für / 1846 / von / C. v. WACHSMANN / 9ter. Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. G. Schreiber Merseburg a./S.",
+      "scans": [
+        "alm_2241_110027_7trhclqwhr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "LILIEN. / Taschenbuch / historisch-romantischer Erzählungen / für / 1846 / von / C. v. WACHSMANN / 9ter. Jahrgang",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "5t9z2da2kmyc3yh"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Natur und Bildung« von C. v. Wachsmann INr 110038, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.916Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110028,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Euphemie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2241_110028_uaysiymts8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Euphemie",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.414Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.414Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "6ai6rj3l1bgq375"
+        }
+      ],
+      "source_id": "otvfuh30nawrim8"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die Einsiedelei del Parral« von C. v. Wachsmann INr 110039, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110029,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leonor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+      "scans": [
+        "alm_2241_110029_cdgemcn178.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leonor",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.414Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.414Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "30sha7wdydqei29"
+        }
+      ],
+      "source_id": "s124jxbkn6ia6uk"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Ein gefallener Stern« von C. v. Wachsmann INr 110037, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110030,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sybille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Carl Mayer in Nürnberg",
+      "scans": [
+        "alm_2241_110030_thtw90zd8y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sybille",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.343Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "9ubkeajfu5hrmiz"
+        }
+      ],
+      "source_id": "pslopjip8xhcfvl"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die Einsiedelei del Parral« von C. v. Wachsmann INr 110039, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110031,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jacinta",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Carl Mayer in Nürnberg",
+      "scans": [
+        "alm_2241_110031_uu4bimumvl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Jacinta",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.343Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "4y93c7x4jqlajas"
+        }
+      ],
+      "source_id": "0bjz9oyjm3dwxbw"
+    },
+    {
+      "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Das Heimweh« von C. v. Wachsmann INr 110036, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110032,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "d. Carl Mayer in Nürnberg",
+      "scans": [
+        "alm_2241_110032_7qth7quhnl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Julie",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.343Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "1hq0mauo1dwxldd"
+        }
+      ],
+      "source_id": "rymudt70y8fi3hi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110033,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lilien. / Taschenbuch / historisch-romantischer Erzählungen / für 1846, / von / C. von Wachsmann. / Neunter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2241_110033_qjtbu2wgjq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lilien. / Taschenbuch / historisch-romantischer Erzählungen / für 1846, / von / C. von Wachsmann. / Neunter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "sm9hv5owtc8gu8p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110034,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "kx941cgqvfboj1g"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Der wache Gram schaut eines Sternes Gestalt, / Sichtbar - doch fern; hell - aber ach! wie kalt! / Byron /) mit einer Illustration s. Titelgraphik INr 110026, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:40.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Vierzehn Tage bleibe ich in Neapel, dann bin ich wieder hier, und bis dahin mußt Du Dich für Einen oder den Andern entscheiden",
+      "language": [],
+      "musenalm_id": 110035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vulkanischer Boden! / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vulkanischer Boden! / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.343Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.343Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "7k74ezrp1do42pr"
+        }
+      ],
+      "source_id": "lelgebdtn4d3l7n"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Dahin! Dahin / Geht unser Weg; o Vater, laß uns zieh'n! / Göthe /) mit einer Illustration s. Graphik INr 110032, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:38.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Eine Anzahl Lieuen von der Hauptstadt des französischen Guyana entfernt, an den Ufern des Aprouague, der hier eine bedeutende Krümmung machte, lag eine Pflanzung,",
+      "language": [],
+      "musenalm_id": 110036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Heimweh. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Heimweh. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.215Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "vvdwgtbs5helj1i"
+        }
+      ],
+      "source_id": "mureopeq6q21n7g"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Ich suchte den Tempel, ich suchte mein Haus, / Und vergaß, daß ich wandert' als Sklave hinaus, / Byron /) mit einer Illustration s. Graphik INr 110030, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Amalrich, König von Jerusalem, war im neununddreißigsten Jahre seines Alters in's Grab gesunken,.",
+      "language": [],
+      "musenalm_id": 110037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein gefallener Stern. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein gefallener Stern. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "8851ty4hqor4mos"
+        }
+      ],
+      "source_id": "72nprzeusjh7sf8"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Was ich gesollt, hab' ich vollendet; / Durch mich sei Dir von nun an nichts verwehrt. / Göthe /) mit einer Illustration s. Graphik INr 110028, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Schon längere Zeit hatte der Krieg in den Thälern und Schluchten des Kaukasus gewüthet, mehrere Forts an den Küsten des schwarzen Meeres waren von den Bergvölkern genommen und zerstört worden,",
+      "language": [],
+      "musenalm_id": 110038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Natur und Bildung. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Natur und Bildung. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "sovmor6z2ykgjqd"
+        }
+      ],
+      "source_id": "5tyxgzx4g3t07ce"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Motto: Kein lastend Grabmal drücke Deinen Staub, / Die Du verblühtest in der Schönheit Lenze! / Byron /) mit 2 Illustrationen s. Graphiken INr 110029, Obj 5 und INr 11031, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "382",
+      "incipit_statement": "Es giebt vielleicht keine Stadt in Mittelspanien, die in Beziehung auf Lage und Bauart einen Vergleich mit Segovia aushalten könnte.",
+      "language": [],
+      "musenalm_id": 110039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Einsiedelei del Parral. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. von Wachsmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Einsiedelei del Parral. / Erzählung",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.376Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.376Z",
+          "agent": "6kzqe6d8kkkucin",
+          "source_id": "0imoe9e08h0fdez"
+        }
+      ],
+      "source_id": "0i2gzjf4hd4toxm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "452",
+      "incipit_statement": "Druck von C. P. Melzer in Leipzig",
+      "language": [],
+      "musenalm_id": 110040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von C. P. Melzer in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "5ae0sx15vsgooi2"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110041,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anzeige / für Freunde einer gediegenen Unterhaltungs-Lectüre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anzeige / für Freunde einer gediegenen Unterhaltungs-Lectüre",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "7qs5snlfcujdotd"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 110042,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. C. G. Schreiber in Merseburg a. S.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. C. G. Schreiber in Merseburg a. S.",
+      "scans": [
+        "alm_2241_110042_0vt68xzv96.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "d8tv75yxv15rfwf"
+    }
   ],
   "agents": [
     {

@@ -48,45 +48,1666 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "tmadob5vfp3p7sh"
+    {
+      "annotation": "Geschichte des neunzehnten Jahrhunderts. Mit besonderer Hinsicht auf die östreichischen Staaten. Erstes Bändchen. Geschichte des Jahres 1801. Wien, 1805. Im Verlage bey Anton Doll",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.734Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408088",
+      "location": "105B05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.734Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tmadob5vfp3p7sh"
+    }
   ],
   "contents": [
-    "k9yormn76iiimyx",
-    "48l06t393chjgae",
-    "ecs292pucfgh7ge",
-    "cddr7oqmm1l9kwp",
-    "8y24p1791zpzi92",
-    "0eh55fkz53nb66e",
-    "jfaj4ly5dxigyl1",
-    "ywxhts1h3wp9j4j",
-    "0csloyl96u5ko3i",
-    "as06vtu27fugary",
-    "7e6cn4l7amz6a9t",
-    "eovvog86lr6jowy",
-    "cyosgouibu07l3v",
-    "9tb4n564kg9l5md",
-    "p3va5hvnrjy4pym",
-    "mn9e8qmwww6zjgd",
-    "q2mhy5m3b2kkhso",
-    "2nbw7wp8obt3rpq",
-    "0dd8i437e1d8wo9",
-    "ygr6vfmi90wgytl",
-    "2013qpuzb89lht4",
-    "0qlrss1ikbtkcpe",
-    "c97o56yh263bj11",
-    "79sx939gmyf53bu",
-    "7865ox75yth9lil",
-    "mawcjmkiog6yeh6",
-    "90cw9u7swd44jey",
-    "2se2m4vx1t7mbod",
-    "zy47nc34gd67n46",
-    "ozqa0sap5c9yte5",
-    "xznj1q3zu9lx9pr",
-    "vntcgim57s6gh0y",
-    "ekm2k38qrnfpj8i",
-    "ch424nuh5do3b5g",
-    "5itvrcn14z69xwx",
-    "s5k61whx2fwne5l"
+    {
+      "annotation": "gest. Titel verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91012,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historisches / Taschenbuch. / Mit / besonderer Hinsicht / auf die östreichischen Staaten. / Erster Jahrgang. / Geschichte des Jahres 1801. / Wien, 1805. / Im Verlage bey Anton Doll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4014_91012_oviahozt77.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historisches / Taschenbuch. / Mit / besonderer Hinsicht / auf die östreichischen Staaten. / Erster Jahrgang. / Geschichte des Jahres 1801. / Wien, 1805. / Im Verlage bey Anton Doll",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9yormn76iiimyx"
+    },
+    {
+      "annotation": "gest. Titel recto mit Portraitmedaillon: ERZHERZOG CARL",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.701Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91013,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte / des neunzehnten Jahrhunderts. / Mit / besonderer Hinsicht / auf die östreichischen Staaten. / Erstes Bändchen. / Geschichte des Jahres 1801. / Wien, 1805. / Im Verlage bey Anton Doll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Blaschke sc.",
+      "scans": [
+        "alm_4014_91013_4bin5hmwf6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte / des neunzehnten Jahrhunderts. / Mit / besonderer Hinsicht / auf die östreichischen Staaten. / Erstes Bändchen. / Geschichte des Jahres 1801. / Wien, 1805. / Im Verlage bey Anton Doll",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.575Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "zm255at81im48fq"
+        }
+      ],
+      "source_id": "48l06t393chjgae"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91014,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem Herrn / Staats- und Konferenzrathe / von Fasbender / als / ein geringes Zeichen / seiner tiefsten Verehrung / gewidmet / von dem Verfasser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von dem Verfasser",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem Herrn / Staats- und Konferenzrathe / von Fasbender / als / ein geringes Zeichen / seiner tiefsten Verehrung / gewidmet / von dem Verfasser",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.575Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.575Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "p5buy8r1vaupijq"
+        }
+      ],
+      "source_id": "ecs292pucfgh7ge"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Mag Bescheidenheit immer zu den schätzbarsten Tugenden eines einzelnen Menschen gehören; bey ganzen Völkern wird Selbstgefühl, und Bewußtseyn seines Werthes immer der größere und nützlichere Vorzug seyn.",
+      "language": [],
+      "musenalm_id": 91015,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.128Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "h1zbr6r3fr62jtx"
+        }
+      ],
+      "source_id": "cddr7oqmm1l9kwp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.449Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Ein Jahrhundert, durch Thaten der Größe und des Lasters gleich merkwürdig, in welchem die Menschheit beynahe den ganzen Kreis durchlief, den sie sonst kaum in Jahrtausenden zurücklegte, tritt in die stille Vergangenheit zurück.",
+      "language": [],
+      "musenalm_id": 91016,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uibersicht / des / verflossenen Jahrhunderts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uibersicht / des / verflossenen Jahrhunderts",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.128Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.128Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "hli5ruy4a7ay3lp"
+        }
+      ],
+      "source_id": "8y24p1791zpzi92"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Die Erwartung von ganz Europa war auf Lüneville gerichtet, wo seit dem Waffenstillstande von Steyer (28. December 1800) dem auch bald der von Treviso (28. Jäner 1801) gefolgt war, der Graf von Cobenzl und Joseph Bonaparte den Frieden",
+      "language": [],
+      "musenalm_id": 91017,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Lüneviller Friede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Lüneviller Friede",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.255Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.255Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "cg790nha4lf5dan"
+        }
+      ],
+      "source_id": "0eh55fkz53nb66e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Seit England Malta genommen, sich so einen Mittelpunkt im mittelländischen Meere gesichert, und die fränkische Kolonie in Aegypten ganz ganz von ihrem Mutterlande abgeschnitten hatte, dachte Frankreich ernstlicher als je auf Mittel,",
+      "language": [],
+      "musenalm_id": 91018,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geschichte der nordischen Allianz / vom / Abschlusse der Petersburger Konvenzion / (16. Dezember 1800) bis zur / Beylegung der Streitigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geschichte der nordischen Allianz / vom / Abschlusse der Petersburger Konvenzion / (16. Dezember 1800) bis zur / Beylegung der Streitigkeiten",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.341Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "rizq84ra4j3hhh3"
+        }
+      ],
+      "source_id": "jfaj4ly5dxigyl1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.954Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91019,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seeschlacht bey Copenhagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Gerstner sc.",
+      "scans": [
+        "alm_4014_91019_6na4kvwx0i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Seeschlacht bey Copenhagen",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.341Z",
+          "agent": "attflh3iz28ntym",
+          "source_id": "nx57klg5mnyra4c"
+        }
+      ],
+      "source_id": "ywxhts1h3wp9j4j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Entscheidend für das Schicksal Englands, ja selbst mehrerer Welttheile komnnte der kühne Plan Frankreichs werden: in Aegypten eine Kolonie zu gründen,",
+      "language": [],
+      "musenalm_id": 91020,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eroberung Aegyptens durch die Eng- / länder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eroberung Aegyptens durch die Eng- / länder",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "0r8hy2jglzmgutp"
+        }
+      ],
+      "source_id": "0csloyl96u5ko3i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.956Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tod des englischen Generals Abercombrie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Maillard del. Blaschke sc.",
+      "scans": [
+        "alm_4014_91021_v146qqzjkk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tod des englischen Generals Abercombrie",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "jqx789ngxccpl2l",
+          "source_id": "6n8n7i82brlx8hf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "j9532r4bytx25ds"
+        }
+      ],
+      "source_id": "as06vtu27fugary"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Die parthenopeische Republik, welche die Franken in Neapel gründeten, überlebte ihre Geburt nicht lange.",
+      "language": [],
+      "musenalm_id": 91022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friede zwischen Frankreich und Neapel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friede zwischen Frankreich und Neapel",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "9isv5nsbml39ub0"
+        }
+      ],
+      "source_id": "7e6cn4l7amz6a9t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "Wohl keine Macht Europas hatte sich während des französischen Krieges mit England in einer bedrängteren Lage befunden, als Portugal.",
+      "language": [],
+      "musenalm_id": 91023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friede zwischen Frankreich und Portugal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friede zwischen Frankreich und Portugal",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "it44ghrf0abn7ti"
+        }
+      ],
+      "source_id": "eovvog86lr6jowy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Nach so schrecklichen jahrelangen Kriegen, fing endlich der größte Theil des Kontinents an, sich unter den Segnungen des Friedens zu erholen,",
+      "language": [],
+      "musenalm_id": 91024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friede zwischen Frankreich und Brittanien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friede zwischen Frankreich und Brittanien",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "htp39oxr5k1jfia"
+        }
+      ],
+      "source_id": "cyosgouibu07l3v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "129",
+      "incipit_statement": "Schon beym Anfange der neuen Ordnung der Dinge in Frankreich, hatte sich Katharina II. nachdrücklich dagegen erklärt, ohne doch die Kraft ihrer Gründe durch Waffen geltend zu machen.",
+      "language": [],
+      "musenalm_id": 91025,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friede Frankreichs mit Rußland und der / Pforte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friede Frankreichs mit Rußland und der / Pforte",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "tkf0buqwzbm4m9n"
+        }
+      ],
+      "source_id": "9tb4n564kg9l5md"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "Nun blieben noch die Entschädigungen in Deutschland für die Fürsten, Grafen, Herrn und Stifter zu bestimmen übrig, deren Gebiet am linken Rheinufer lag,",
+      "language": [],
+      "musenalm_id": 91026,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Entschädigungssache in Deutschland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Entschädigungssache in Deutschland",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "h20ctf4ddsob4o1"
+        }
+      ],
+      "source_id": "p3va5hvnrjy4pym"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Als die Franzosen im Jahre 1795 Holland eroberten, wurde sogleich eine Nationalversammlung zusammengerufen, die Würde eines Erbstatthalters abgeschafft, und Holland in einen Republik verwandelt.",
+      "language": [],
+      "musenalm_id": 91027,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Regierungsveränderungen in der batavischen / Republik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Regierungsveränderungen in der batavischen / Republik",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "2x7diwcofl4f86f"
+        }
+      ],
+      "source_id": "mn9e8qmwww6zjgd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Auch die Schweiz, welche so lange ihre alte Verfassung behalten hatte, so lange glückliche Zuseherin blutiger Kriege ihrer Nachbarn geblieben war,",
+      "language": [],
+      "musenalm_id": 91028,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Regierungsveränderung in der / Schweiz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Regierungsveränderung in der / Schweiz",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "7bsawo1rguv68uf"
+        }
+      ],
+      "source_id": "q2mhy5m3b2kkhso"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Auch Toskana, dieses schöne Land, das unter der Medizeer Herrschaft so lange ruhig die Vortheile seiner Lage und Industrie genoß,",
+      "language": [],
+      "musenalm_id": 91029,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Königreich Hetrurien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Königreich Hetrurien",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.342Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.342Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "m2c9iop8dawyaam"
+        }
+      ],
+      "source_id": "2nbw7wp8obt3rpq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Als die venetianischen Staaten im Frieden zu Campo Formio zwischen Frankreich und Oestreich getheilt wurden, hatte sich das erstere die vormahligen venetianischen Inseln:",
+      "language": [],
+      "musenalm_id": 91030,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Republik der sieben vereinigten Inseln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Republik der sieben vereinigten Inseln",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.330Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.330Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "p8drl63k6d057nn"
+        }
+      ],
+      "source_id": "0dd8i437e1d8wo9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Lange hatte diese kleine Republik, deren ganzer Umfang nur 25 [Quadrat] Meilen beträgt, bey dem Wechsel der Ereignisse, welche rings um sie vorgingen und sie zu verschlingen drohten, ihre politische Existenz und ihre alte aristokratische Verfassung",
+      "language": [],
+      "musenalm_id": 91031,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Konstituzion der Republik Lucca",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Konstituzion der Republik Lucca",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.331Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.331Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "ge42tpyuoa6z6ht"
+        }
+      ],
+      "source_id": "ygr6vfmi90wgytl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Als die Siege der Russen und Oestreicher im Jahre 1799 Frankreichs Existenz selbst bedrohten, war die Tochterrepublik schon früher gefallen.",
+      "language": [],
+      "musenalm_id": 91032,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Cisalpinische Republik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Cisalpinische Republik",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.211Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.211Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "yxa93i63ocjrvsv"
+        }
+      ],
+      "source_id": "2013qpuzb89lht4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Heinrich II. von England hatte 1172 Irland erobert, aber der Unwille dieses Landes gegen seine Besieger, war seit jener langen Zeit noch nicht erloschen.",
+      "language": [],
+      "musenalm_id": 91033,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vereinigung Irlands mit Großbrit- / tanien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vereinigung Irlands mit Großbrit- / tanien",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.256Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.256Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "b53ki5xaqmjrg1u"
+        }
+      ],
+      "source_id": "0qlrss1ikbtkcpe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Der Dulder Pius VI. war am 29. August 1799 zu Valence gestorben, und die Kardinale hatten sich bald darauf zu einer neuen Wahl in Vendeig versammelt,",
+      "language": [],
+      "musenalm_id": 91034,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pius VII. besteigt den päpstliche Thron",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pius VII. besteigt den päpstliche Thron",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.257Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.257Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "xupf4tj20x62k3y"
+        }
+      ],
+      "source_id": "c97o56yh263bj11"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.752Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Eine schreckliche Erfahrung am Ende des verflosssenen Jahrhunderts hatte die Wahrheit des Satzes bekräftiget, daß ein Staat ohne Religion nicht bestehen könne;",
+      "language": [],
+      "musenalm_id": 91035,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiedereinführung der Religion in / Frankreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiedereinführung der Religion in / Frankreich",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.317Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.317Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "wn25vubc0yu887u"
+        }
+      ],
+      "source_id": "79sx939gmyf53bu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Paswan Oglis Vater hatte ein Korps Türken im letzten Kriege gegen die Russen und Oestreicher geführt, und war, ein Opfer seiner Reichthümer und des Despotismus, gefallen.",
+      "language": [],
+      "musenalm_id": 91036,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Paswan Oglu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Paswan Oglu",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.359Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "enov2p5yeomtoz3"
+        }
+      ],
+      "source_id": "7865ox75yth9lil"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.174Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "183",
+      "incipit_statement": "Vor dem Kriege mit England war St. Domingo, eine der grossen Antillen, neben Cuba, Jamaika und Porto Rico, eine Goldquelle für Frankreich",
+      "language": [],
+      "musenalm_id": 91037,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Toussaint-Louvertüre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Toussaint-Louvertüre",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.359Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "1e94qm659j1471q"
+        }
+      ],
+      "source_id": "mawcjmkiog6yeh6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Kaum war der Krieg geendet, den Oestreich mit einem solchen Kräftenaufwande geführt, durch den es, zuletzt von seinen Bundesgenossen verlassen, sich den zerstörenden Planen der früheren französichen Machthaber beynahe allein entgegengesetzt,",
+      "language": [],
+      "musenalm_id": 91038,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Innere Angelegenheiten Oestreichs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Innere Angelegenheiten Oestreichs",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "6kou3bt6j1mbzv9"
+        }
+      ],
+      "source_id": "90cw9u7swd44jey"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91039,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hafen des Kanals",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Maillard del. J. Gerstner sc.",
+      "scans": [
+        "alm_4014_91039_x6v75javrj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hafen des Kanals",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "jqx789ngxccpl2l",
+          "source_id": "07c76zsb6wqzlhr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "attflh3iz28ntym",
+          "source_id": "ki2vhb913abdcda"
+        }
+      ],
+      "source_id": "2se2m4vx1t7mbod"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "205",
+      "incipit_statement": "Wenn gleich die Literatur in Oestreich im Allgemeinen nicht zu der Höhe gestiegen ist, welche sie im nördlichen Deutschlande durch mehrere Umstände begünstigt erreichte,",
+      "language": [],
+      "musenalm_id": 91040,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Literatur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Literatur",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "wk090im4w9f9ic8"
+        }
+      ],
+      "source_id": "zy47nc34gd67n46"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 91042-91044, Obj 31-33",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91041,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Künste",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "t5vn39o8ofcixd8"
+        }
+      ],
+      "source_id": "ozqa0sap5c9yte5"
+    },
+    {
+      "annotation": "Künste (Sammlung INr 91041, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Unter vielem Neuen und manchem Guten, welches dieses Jahr im Hoftheater gegeben wurde, hat kein Stück einen ungetheilteren Beyfall erhalten,",
+      "language": [],
+      "musenalm_id": 91042,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Theater",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Theater",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "hinzdzws017kahm"
+        }
+      ],
+      "source_id": "xznj1q3zu9lx9pr"
+    },
+    {
+      "annotation": "Künste (Sammlung INr 91041, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.178Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "239",
+      "incipit_statement": "In der Tonkunst wurde in jeder Gattung vieles Ausgezeichnete gearbeitet. Haydn, dessen Schöpfung noch ganz Europa mit Freude und Erstauenen erfüllte, gab bey dem Fürsten von Schwarzenberg ein Oratorium, die vier Jahreszeiten,",
+      "language": [],
+      "musenalm_id": 91043,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tonkunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tonkunst",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.360Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.360Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "0k71eyy2wmurg8b"
+        }
+      ],
+      "source_id": "vntcgim57s6gh0y"
+    },
+    {
+      "annotation": "Künste (Sammlung INr 91041, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "241",
+      "incipit_statement": "Während des ganzen langen Krieges, den Ostreich zu führen gezwungen war, entwickelten sich die bildenden Künste in diesem Lande, von der Regierung unterstützt und aufgemuntert, zu einem hohen Grade der Vollkommenheit.",
+      "language": [],
+      "musenalm_id": 91044,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bildende Künste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bildende Künste",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.316Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "1akoge94ki2ebrc"
+        }
+      ],
+      "source_id": "ekm2k38qrnfpj8i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "244",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91045,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brunnen auf dem neuen Markte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Blascke sc.",
+      "scans": [
+        "alm_4014_91045_ne7h09jtcf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Brunnen auf dem neuen Markte",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.316Z",
+          "agent": "puogqgth9l8pofw",
+          "source_id": "qpl29yew4f4ldt4"
+        }
+      ],
+      "source_id": "ch424nuh5do3b5g"
+    },
+    {
+      "annotation": "mit zahlreichen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Ein Privatmann in Prag, Nahmens Seizer, hat eine Massa erfunden, durch welche Schindeldächer und Holzwerk, die damit bestrichen werden, dem Brand widerstehen,",
+      "language": [],
+      "musenalm_id": 91046,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Erfindungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Erfindungen",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.316Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "v6abv7y42psyxm7"
+        }
+      ],
+      "source_id": "5itvrcn14z69xwx"
+    },
+    {
+      "annotation": "mit einigen Einträgen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Den 24. November starb Moriz Graf von Lacy im 77. Jahre an Entkräftung.",
+      "language": [],
+      "musenalm_id": 91047,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurzer Nekrolog der merkürdigsten Ver- / storbenen in Oestreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schwaldopler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurzer Nekrolog der merkürdigsten Ver- / storbenen in Oestreich",
+      "updated": "2013-09-03 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.316Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.316Z",
+          "agent": "lgm7bery1pehuzm",
+          "source_id": "6cdvm64tmv3x2ly"
+        }
+      ],
+      "source_id": "s5k61whx2fwne5l"
+    }
   ],
   "agents": [
     {

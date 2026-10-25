@@ -48,20 +48,470 @@
   "year": 1844,
   "editor": "",
   "items": [
-    "83b8licoinfy34l"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nVerlagsbroschur; VB, recto vT, verso VrlgM, verso G, T, S I-Verz, SS 1 -371",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.455Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101012",
+      "location": "105J03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.455Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "83b8licoinfy34l"
+    }
   ],
   "contents": [
-    "j5ib1i9qzme8mow",
-    "pbqe2c4eoi2guve",
-    "knd8c002blw31fv",
-    "t0binglxaiwax4s",
-    "8c4tq5vcaaaemwh",
-    "sgmi07fvbs4bq9k",
-    "3dm8as13xpvrysh",
-    "te9qlm4epkhom78",
-    "2kiiiag8y4wp0f0",
-    "5phwml8wohvlmg3",
-    "8iwjj1og6bsls93"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62266,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_70_62266_zcf2qryn2p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1844",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "j5ib1i9qzme8mow"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.872Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18782,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania für 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania für 1844",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "pbqe2c4eoi2guve"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.478Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 2060,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Karl Förster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Vogel v. V. pinx. M. Steinla sc.",
+      "scans": [
+        "alm_70_2060_yp6ljzuoce.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Karl Förster",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.637Z",
+          "agent": "sw3kksjw5md0hd0",
+          "source_id": "l7j13ampi42wv4e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.637Z",
+          "agent": "hnc7x2p8pzr9l8y",
+          "source_id": "llopaqmrhugkhep"
+        }
+      ],
+      "source_id": "knd8c002blw31fv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18783,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch auf das Jahr / 1844. / Neue Folge. / Sechster Jahrgang. / Mit dem Bildnisse Karl Förster's. / Leipzig: / F. A. Brockhaus. / 1844",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_70_18783_gjam9w7ksa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch auf das Jahr / 1844. / Neue Folge. / Sechster Jahrgang. / Mit dem Bildnisse Karl Förster's. / Leipzig: / F. A. Brockhaus. / 1844",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "t0binglxaiwax4s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.874Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 18784,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "8c4tq5vcaaaemwh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "An einem jener Abende, wo der Schein der Geselligkeit den sprechendsten Beweis für den menschlichen Egoismus liefert,",
+      "language": [],
+      "musenalm_id": 2061,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wellenbraut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Gutzkow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wellenbraut",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.637Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.637Z",
+          "agent": "gppll7dy0seh698",
+          "source_id": "fq4dqemetlv8jlh"
+        }
+      ],
+      "source_id": "sgmi07fvbs4bq9k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Ich heirathete deine Mutter als eine reiche Erbin und gab sie nach Verlauf von fünf Jahren ihren Ältern wieder zurück ohne einen Pfennig im Vermögen.",
+      "language": [],
+      "musenalm_id": 2062,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Physiologie der Gesellschaft. / in Briefen eines Vaters an seinen Sohn. / Ein Beitrag zu Knigge's Umgang mit Menschen. / Man muß oft schlimmer scheinen als man ist. / La Rochefoucauld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Sternberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Physiologie der Gesellschaft. / in Briefen eines Vaters an seinen Sohn. / Ein Beitrag zu Knigge's Umgang mit Menschen. / Man muß oft schlimmer scheinen als man ist. / La Rochefoucauld",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.995Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.995Z",
+          "agent": "323k0krc681l77m",
+          "source_id": "w60jyziitomg31g"
+        }
+      ],
+      "source_id": "3dm8as13xpvrysh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "An der vogtländisch-böhmischen Grenze, in einem düstern Tännicht",
+      "language": [],
+      "musenalm_id": 2063,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Heimweh. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julius Mosen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Heimweh. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.995Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.995Z",
+          "agent": "ya686aytqngnsyo",
+          "source_id": "hw1ku78wlvsy3q5"
+        }
+      ],
+      "source_id": "te9qlm4epkhom78"
+    },
+    {
+      "annotation": "Pseud.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.180Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "229",
+      "incipit_statement": "Von Natur bin ich eigentlich kein Wilddieb , aber ein Wildfang.",
+      "language": [],
+      "musenalm_id": 2064,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wilddieb. / Eine Erzählung von ihm selbst erzählt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wilddieb. / Eine Erzählung von ihm selbst erzählt",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.056Z",
+          "agent": "0o91z9eq6iw8en8",
+          "source_id": "v64l92m0njq9xpd"
+        }
+      ],
+      "source_id": "2kiiiag8y4wp0f0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Es war sehr natürlich, daß dem Herzog von Hetzendorff-Massenbach das Regieren mitunter äußerst schwer wurde.",
+      "language": [],
+      "musenalm_id": 2065,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nur keine Liebe. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Levin Schücking",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nur keine Liebe. / Novelle",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.718Z",
+          "agent": "g37v62wgwv6p784",
+          "source_id": "lw1tjtyyrlf4oor"
+        }
+      ],
+      "source_id": "5phwml8wohvlmg3"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 62267,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig. / F. A. Brockhaus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_70_62267_valdef64c0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig. / F. A. Brockhaus",
+      "updated": "2000-08-22 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1844,
+      "editor": "",
+      "agents": [],
+      "source_id": "8iwjj1og6bsls93"
+    }
   ],
   "agents": [
     {

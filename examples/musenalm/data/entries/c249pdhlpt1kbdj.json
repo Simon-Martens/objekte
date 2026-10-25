@@ -48,36 +48,1205 @@
   "year": 1804,
   "editor": "",
   "items": [
-    "hvqkaqdwiy7dd0o"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.498Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200613",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.498Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hvqkaqdwiy7dd0o"
+    }
   ],
   "contents": [
-    "7m0tqhgpc5jh1pe",
-    "3c5j94aaut13k6g",
-    "zdl1nzwhblv64no",
-    "1nyerv24spru2pn",
-    "2i4y9xpd0t33n5q",
-    "emuxsqao1kz1bjf",
-    "tdwlvn272trblv4",
-    "462vc186tofqkdr",
-    "7mozr1etiatzrzv",
-    "kni01dlgn325fny",
-    "8g593admpcqn19x",
-    "hsiqu8bv4j5v5yn",
-    "n63zzbul62rpgwr",
-    "ic5i7ecbbxq3goi",
-    "8wabll9aeft8hws",
-    "e422ob2z1tqxyvl",
-    "3tv3ac0wyymojhi",
-    "f0qt0dhcb930x2j",
-    "lrkdbgrvsdouvq0",
-    "x9xz3fib7onzwr7",
-    "b9bvc1fbgd5tlcg",
-    "ulrj74lsh5aoq3d",
-    "ewv76ofefmjfmks",
-    "bu8bv6o6kqxyaze",
-    "yst8m5bvgwakfwy",
-    "zqjlkicy4j9o6xv",
-    "5cqyhwb3d2c52sy"
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 41435, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41265,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sir Francis Drake",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_540_41265_6dfs3maxbi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sir Francis Drake",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "7m0tqhgpc5jh1pe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.400Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41266,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Dritter Jahrgang / für das Jahr / 1804. / Mit 10 Kupfern und 1r  Karte. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_540_41266_rmpu4qiyu4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Dritter Jahrgang / für das Jahr / 1804. / Mit 10 Kupfern und 1r  Karte. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "3c5j94aaut13k6g"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers mit Corrigenda",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.401Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der zweite Jahrgang dieses Taschenbuchs enthielt die Länder, welche die heiße Zone der alten Welt an die der neuen anknüpfte; dieser dritte Jahrgang zeigt dagegen den Uebergang von den nordwestlichen Theilen unserer Halbkugel, von Europa, nach Amerika.",
+      "language": [],
+      "musenalm_id": 41267,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "8bkyzy6f0evwl4j"
+        }
+      ],
+      "source_id": "zdl1nzwhblv64no"
+    },
+    {
+      "annotation": "Beiträgen  mit   Kapiteln INr",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41268,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / westliche arctische Welt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / westliche arctische Welt",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.851Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.851Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "1zh4nerz4pxa1la"
+        }
+      ],
+      "source_id": "1nyerv24spru2pn"
+    },
+    {
+      "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die vom Meere zerschnittenen Länder der Britten; die darüber gen Norden, zahlreichen Ruinen gleich liegenden Orkneys und Shettlands-Inseln;",
+      "language": [],
+      "musenalm_id": 41270,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebergang von Europa zu dem nördlichen / Amerika / Total-Anblick der nördlichen Polarwelt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebergang von Europa zu dem nördlichen / Amerika / Total-Anblick der nördlichen Polarwelt",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.727Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.727Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "3hehbhhfw4nn3dz"
+        }
+      ],
+      "source_id": "2i4y9xpd0t33n5q"
+    },
+    {
+      "annotation": "Sammlung von Beiträgen INr 41427-Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41271,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Canada",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Canada",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.727Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.727Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ubk698zceaxprdv"
+        }
+      ],
+      "source_id": "emuxsqao1kz1bjf"
+    },
+    {
+      "annotation": "Canada (Sammlung INr 41426, Obj 6) Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "125",
+      "incipit_statement": "Nicht ungern verlassen wir nun jene ungeheuren, größtentheils nutzlosen Flächen.",
+      "language": [],
+      "musenalm_id": 41427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1) Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1) Land",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.739Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.739Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "rwrrhld3ky6bcjj"
+        }
+      ],
+      "source_id": "tdwlvn272trblv4"
+    },
+    {
+      "annotation": "Canada (Sammlung INr 41426, Obj 6) Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "So trefflich nun auch diese Bemühungen sind, Canada in ein bedeutendes kultivirtes Land umzuschaffen,",
+      "language": [],
+      "musenalm_id": 41428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2) Die Originalbewohner, die Indianer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2) Die Originalbewohner, die Indianer",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.973Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "fp8qkcam1xv3a07"
+        }
+      ],
+      "source_id": "462vc186tofqkdr"
+    },
+    {
+      "annotation": "Canada (Sammlung INr 41426, Obj 6) Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "Uebersieht man die ungeheuern Länder von Smiths Sound in der Baffinsbay umter dem 79sten Grade der Breite, bis zu dem Parallelkreise des 40ten Grades;",
+      "language": [],
+      "musenalm_id": 41429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlußbemerkung über die Originalbe- / wohner des nördlichen Amerika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlußbemerkung über die Originalbe- / wohner des nördlichen Amerika",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.973Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "hnxq7nnhhi9jfru"
+        }
+      ],
+      "source_id": "7mozr1etiatzrzv"
+    },
+    {
+      "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.041Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Auf den ersten Blick scheint es allerdings einen hohen Grad von Selbstigkeit zu verrathen, wenn man in der Natur stets die Absicht ansucht,",
+      "language": [],
+      "musenalm_id": 41430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die wichtigsten Handelsproducte der west- / lichen arcitschen Erde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die wichtigsten Handelsproducte der west- / lichen arcitschen Erde",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.973Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.973Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "yv6mghf2rbcohvd"
+        }
+      ],
+      "source_id": "kni01dlgn325fny"
+    },
+    {
+      "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.832Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die großen Fischereien der arctischen Erde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die großen Fischereien der arctischen Erde",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.131Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.131Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "pnavqblaprstnee"
+        }
+      ],
+      "source_id": "8g593admpcqn19x"
+    },
+    {
+      "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Für unsere Absicht verdient der Biber unter der vierfüssigen Thieren dieser Gegenden aus mehrern Gründen den ersten Platz",
+      "language": [],
+      "musenalm_id": 41432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Peltereieen der westlichen arctischen / Erde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Peltereieen der westlichen arctischen / Erde",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.972Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "16sf4ji6y90o08l"
+        }
+      ],
+      "source_id": "hsiqu8bv4j5v5yn"
+    },
+    {
+      "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Zu den vorzüglichen Produkten, wodurch im dürftigen Norden der Schöpfer dem Menschen sein Daseyn erleichtert, gehören gleichfalls mehrere Vögelarten.",
+      "language": [],
+      "musenalm_id": 41433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vogelsang einiger nordwestlichen / Länder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Vogelsang einiger nordwestlichen / Länder",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ga4kfedl1dag7kx"
+        }
+      ],
+      "source_id": "n63zzbul62rpgwr"
+    },
+    {
+      "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Nach dieser Darstellung der Hauptprodukte der Polarwelt wollen wir der wichtigen Frage näher treten und alles zusammenfassen,",
+      "language": [],
+      "musenalm_id": 41434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schlußbemerkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schlußbemerkung",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "pody9lpsjtg1n3b"
+        }
+      ],
+      "source_id": "ic5i7ecbbxq3goi"
+    },
+    {
+      "annotation": "s. Titelportrait INr 41265, Obj1",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Ein für die Menschheit höchst schätzbarer Vorzug unserer Zeiten scheint bisher der Beobachtung gleichsam entgangen zu seyn.",
+      "language": [],
+      "musenalm_id": 41435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Biographie / Franz Drake",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Biographie / Franz Drake",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "1jfysy8zscgo3k2"
+        }
+      ],
+      "source_id": "8wabll9aeft8hws"
+    },
+    {
+      "annotation": "s. Karte INr 41447, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "325",
+      "incipit_statement": "Diese stereographisch entworfene Karte, bei welcher ich, westlich von Grönland gerechnet, größtentheils der schätzbaren Reichardschen Karte (Weimar 1801) gefolgt bin,",
+      "language": [],
+      "musenalm_id": 41436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erläuterung der Karte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erläuterung der Karte",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "p3rww9pqfjrbwxt"
+        }
+      ],
+      "source_id": "e422ob2z1tqxyvl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "oko396gc8s38ijc"
+        }
+      ],
+      "source_id": "3tv3ac0wyymojhi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.730Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41438,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scenen im mördlichen Eismeer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_540_41438_rnsxz5h509.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Scenen im mördlichen Eismeer",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "024ioaquzbh9q0c"
+        }
+      ],
+      "source_id": "f0qt0dhcb930x2j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41439,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Nordlicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_540_41439_ftps4xbcra.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Nordlicht",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "6wdc9ghg9tvasy1"
+        }
+      ],
+      "source_id": "lrkdbgrvsdouvq0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.735Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41440,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Isländischer Bauernhof umgeben von heissen Quellen und fallenden Gewaessern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt",
+      "scans": [
+        "alm_540_41440_2larf1ivoc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Isländischer Bauernhof umgeben von heissen Quellen und fallenden Gewaessern",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "0xduyk9rgyv37dh"
+        }
+      ],
+      "source_id": "x9xz3fib7onzwr7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41441,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Geyser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt",
+      "scans": [
+        "alm_540_41441_iyxabmqmc7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Geyser",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.935Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "mxu6oaw2l7q1yg1"
+        }
+      ],
+      "source_id": "b9bvc1fbgd5tlcg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lichtenfels auf Groenland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jn. Schumann sc.",
+      "scans": [
+        "alm_540_41442_qeeud4ot1f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lichtenfels auf Groenland",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.936Z",
+          "agent": "j761ried9spu4il",
+          "source_id": "3yzecedkp1kzbzf"
+        }
+      ],
+      "source_id": "ulrj74lsh5aoq3d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.743Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Esquimaux",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmäsler sc.",
+      "scans": [
+        "alm_540_41443_owpvrrv4hu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Esquimaux",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [],
+      "source_id": "ewv76ofefmjfmks"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Total Anblick des Niagara Falls",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Schumann sc.",
+      "scans": [
+        "alm_540_41444_s5mjoo6ci8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Total Anblick des Niagara Falls",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.936Z",
+          "agent": "j761ried9spu4il",
+          "source_id": "1apbm2uyp452d3v"
+        }
+      ],
+      "source_id": "bu8bv6o6kqxyaze"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.748Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Indianische Krieger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_540_41445_5gtwnd6mul.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Indianische Krieger",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.936Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "k3aqbvnmobcsa1z"
+        }
+      ],
+      "source_id": "yst8m5bvgwakfwy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.750Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41446,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vogelfang auf Island und den Orkadischen Inseln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_540_41446_t0rp0ziv1m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Vogelfang auf Island und den Orkadischen Inseln",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.936Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "bpesfxq0uy2shdi"
+        }
+      ],
+      "source_id": "zqjlkicy4j9o6xv"
+    },
+    {
+      "annotation": "# lt. »Erläuterung der Karte« INr 41436 ist die Zeichnung vom Herausgeber und Autor",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.753Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41447,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die westliche arcktische Erde nach den neuesten Entdeckungen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_540_41447_yj2jwj55vo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die westliche arcktische Erde nach den neuesten Entdeckungen",
+      "updated": "2005-11-09 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1804,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.936Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "v2awovef3f98rz1"
+        }
+      ],
+      "source_id": "5cqyhwb3d2c52sy"
+    }
   ],
   "agents": [
     {

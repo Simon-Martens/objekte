@@ -48,53 +48,1928 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "qkggmlx6ny6ip85"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.502Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "411044",
+      "location": "105J09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.502Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qkggmlx6ny6ip85"
+    }
   ],
   "contents": [
-    "1v4phdfug0yq4ku",
-    "m29jnria9j4ndld",
-    "lp3hmvmh86nn8cl",
-    "7zf517kggcqena1",
-    "7zkapc51z4emxqt",
-    "1y3cmjdpz0nu2r7",
-    "2jbmdu375hc7jn1",
-    "a0x7ba426luqqv1",
-    "yc2fiy2bbg04lg5",
-    "s9udscfueg2meyh",
-    "gsm9wijum5dkf3b",
-    "urghsowtbrf9u90",
-    "ybqcc3g7kfrbsk2",
-    "kwp3lcw8x8s4j43",
-    "4o2xm5p8a4v8505",
-    "oakxrixk51wywrm",
-    "vxy5o7pgc6uvowt",
-    "gudk77rx6iuixiy",
-    "i30e52bfjlcw697",
-    "vokauqy6br8cjl0",
-    "kgvl15rv3oj9wfk",
-    "dtjk8gbq4r6dyqf",
-    "ngh26bmlfzop9o4",
-    "4cpm7yxay5xnisf",
-    "5e5bylqrgd3jxdk",
-    "4dw49ytos1cyv36",
-    "hgyehlj7mrt9elv",
-    "0o7jocud6nmap7d",
-    "86w7yjwcfs2n2b1",
-    "mi4qf2ssi0ufh4u",
-    "f59mdadgc1r4xjr",
-    "jz7o27una9mck3j",
-    "gas3qt2ruzn9zn5",
-    "4jvp9zrtekx0y8d",
-    "gs452xggznskhpp",
-    "2ti87zp31l7xsj0",
-    "teoc0hlbinw4jt0",
-    "9thly866044j08j",
-    "tflnk3c1olenr49",
-    "mar5sz7bqm4ieks",
-    "jnbdsrkla3uslm1",
-    "3gb6cdir8oglouu",
-    "3d1jk12qtuveroo",
-    "z0uckki18tilivk"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.308Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127650,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_586_127650_u8mba2r2ps.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "1v4phdfug0yq4ku"
+    },
+    {
+      "annotation": "Titelgraphik; Illustration zu »Bracebridge-Hall« von W. Irving; s. Textbezug INr 127660, Obj 6 /) über der Graphik: Irvings Werke Bd. 13. S. 54",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.323Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127656,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Julie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+      "scans": [
+        "alm_586_127656_f29iqa9qx3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Julie",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.950Z",
+          "agent": "gwpog0zaym1qin6",
+          "source_id": "dzfth7zc6edii8z"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.950Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "ia60we285hxotqc"
+        }
+      ],
+      "source_id": "m29jnria9j4ndld"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.327Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127657,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1831. / Herausgegeben von / Dr. ADRIAN. / Frankfurt am Main, / bei Johann David Sauerländer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Igler sculpt. Frankf. a/m",
+      "scans": [
+        "alm_586_127657_3cy9qeqbak.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1831. / Herausgegeben von / Dr. ADRIAN. / Frankfurt am Main, / bei Johann David Sauerländer",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.950Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.950Z",
+          "agent": "wklj72l91t2u9fj",
+          "source_id": "g8iqol8v0jio3wr"
+        }
+      ],
+      "source_id": "lp3hmvmh86nn8cl"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127658,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Washington Irving's und Cooper's Werken. / Zweite Lieferung / Aus Washington Irving's Bracebridge-Hall.- / Erzählungen eines  Reisenden. - Aus Cooper's / Ansiedler. - Lionel Lincoln. - Steppe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Washington Irving's und Cooper's Werken. / Zweite Lieferung / Aus Washington Irving's Bracebridge-Hall.- / Erzählungen eines  Reisenden. - Aus Cooper's / Ansiedler. - Lionel Lincoln. - Steppe",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "7zf517kggcqena1"
+    },
+    {
+      "annotation": "Sammlung von 9 Beiträgen als Textbezüge zu den Graphiken des Taschenbuchs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127659,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "7zkapc51z4emxqt"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Titelgraphik INr 127656, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.329Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Washington Irving's Skizzenbuch hatte uns bereits zu der Familie Bracebride und die Leser gespannt, diese eben so liebenswürdigen und gutmüthigen als wunderlichen Charaktere näher kennen zu lernen.",
+      "language": [],
+      "musenalm_id": 127660,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Aus Washington Irving's Bracebridge-Hall. / Julie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Aus Washington Irving's Bracebridge-Hall. / Julie",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "1y3cmjdpz0nu2r7"
+    },
+    {
+      "annotation": "Illustration zu »Bracebridge-Hall« von W. Irving; s. Textbezug INr 127662, Obj 8 /) über der Graphik: Irvings Werke Bd. 15. S. 69",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.330Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127661,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bracebridge-Hall. / (Hans Baargeld.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Leop. Beyer sc.",
+      "scans": [
+        "alm_586_127661_ryhi61wilg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bracebridge-Hall. / (Hans Baargeld.)",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "q2bka0r0qxqeral"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "tm79ds1krtwclnw"
+        }
+      ],
+      "source_id": "2jbmdu375hc7jn1"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127661, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Bei Bracebridge-Hall liegt ein freundliches Dörfchen, welches die Familie Bracebridge regelmäßig besuchte,",
+      "language": [],
+      "musenalm_id": 127662,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[1. Aus Washington Irving's Bracebridge-Hall. Julie] 2. / Hans Baargeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[1. Aus Washington Irving's Bracebridge-Hall. Julie] 2. / Hans Baargeld",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0x7ba426luqqv1"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127664 Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.334Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Der Reisende lernte zu London Buckthorne, einen Schriftsteller kennen.",
+      "language": [],
+      "musenalm_id": 127663,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Aus W. Irving's Erzählungen eines Reisenden. / Buckthorne's Flucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Aus W. Irving's Erzählungen eines Reisenden. / Buckthorne's Flucht",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "yc2fiy2bbg04lg5"
+    },
+    {
+      "annotation": "Illustration zu »Erzählungen eines Reisenden« von W. Irving; s. Textbezug INr 127663, Obj 9 /) über der Graphik: Irvings Werke Bd. 9. S. 63 /) # vollst. Bezeichnung an der vorstehenden Graphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.335Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127664,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzählungen eines Reisenden. / (Der junge Mann von grossen Ansichten.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. # Leop. Beyer sc.",
+      "scans": [
+        "alm_586_127664_rmgx9h7j58.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erzählungen eines Reisenden. / (Der junge Mann von grossen Ansichten.)",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "cw6rwsu5munnclm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "kvu27op93dk284j"
+        }
+      ],
+      "source_id": "s9udscfueg2meyh"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127666, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.338Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Eduard Essingham, gewissermaßen der Held dieses Romans und einstweilen unter dem Namen Oliver bekannt, hatte zufällig auf der Jagd einen Streifschuß in den Arm erhalten",
+      "language": [],
+      "musenalm_id": 127665,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Aus Cooper's Ansiedler. / Der Indianer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Aus Cooper's Ansiedler. / Der Indianer",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "gsm9wijum5dkf3b"
+    },
+    {
+      "annotation": "Illustration zu »Die Ansiedler« von J. F. Cooper; s. Textbezug INr 127665, Obj 11 /) über der Graphik: Coopers Werke Bd. 13. S. 103",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.339Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127666,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ansiedler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Leop. Beyer sc.",
+      "scans": [
+        "alm_586_127666_ev7w2367hx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ansiedler",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "j31ituj7xr8z3hb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "ynnchwrb8ghc235"
+        }
+      ],
+      "source_id": "urghsowtbrf9u90"
+    },
+    {
+      "annotation": "Illustration zu »Die Ansiedler« von J. F. Cooper; s. Textbezug INr 127668, Obj 14 /) über der Graphik: Coopers Werke Bd. 18. S. 112 /) # vollst. Bezeichnung an der vorstehenden Graphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.342Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127667,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ansiedler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. #  S. Langer sc.",
+      "scans": [
+        "alm_586_127667_mno1izw40y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Ansiedler",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "j54w1l1o2zr78q5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "rx3sc01yl5vn2rh"
+        }
+      ],
+      "source_id": "ybqcc3g7kfrbsk2"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127667, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Der Richter Marduke hatte keinen Zweifel mehr, daß der arme Eduard, der seiner Tochter Elisabeth so theuer geworden, der Enkel seines alten Freundes, des Obristen Essingham war.",
+      "language": [],
+      "musenalm_id": 127668,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Ansiedler] 5. / Das Verlöbniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Die Ansiedler] 5. / Das Verlöbniß",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "kwp3lcw8x8s4j43"
+    },
+    {
+      "annotation": "Illustration zu »Lionel Lincoln« von J. F. Cooper; s. Textbezug INr 127670, Obj 16 /) über der Graphik: Coopers Werke Bd. [unleserlich]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127669,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lionel Lincoln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Ernst Rauch sc. Darmst.",
+      "scans": [
+        "alm_586_127669_c2jcws42ak.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lionel Lincoln",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "7k4esber93ouk3b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "k7ib4tmw0w1jiao",
+          "source_id": "itjr66009kkhziz"
+        }
+      ],
+      "source_id": "4o2xm5p8a4v8505"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127669, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Der alte Ralph war ein Räthsel für die meisten, welche der Zufall oder ihre Pflicht zu Boston mit ihm in Berührung brachte.",
+      "language": [],
+      "musenalm_id": 127670,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Aus Coopers's Lionel Lincoln. / Ralph und Lionel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Aus Coopers's Lionel Lincoln. / Ralph und Lionel",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "oakxrixk51wywrm"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) mit einer Illustration s. Graphik INr 127672, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.353Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Major Lincoln war bei einer kühnen Unternehmung den Amerikanern in die Hände gefallen und nach Boston zurückgebracht worden.",
+      "language": [],
+      "musenalm_id": 127671,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.  [Aus Coopers's Lionel Lincoln] / Der Mutter Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.  [Aus Coopers's Lionel Lincoln] / Der Mutter Grab",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "vxy5o7pgc6uvowt"
+    },
+    {
+      "annotation": "Illustration zu »Lionel Lincoln« von J. F. Cooper; s. Textbezug INr 127671, Obj 17 /) über der Graphik: Coopers Werke Bd. 6. S. 61",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127672,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lionel Lincoln",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. C. Barth sculps. Darmstadt",
+      "scans": [
+        "alm_586_127672_yftvuogoon.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lionel Lincoln",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.951Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.951Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "6itmicnpyat8oco"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "ak2qa5c9tflxdbf",
+          "source_id": "787po1oplys09az"
+        }
+      ],
+      "source_id": "gudk77rx6iuixiy"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127674, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Der ehrliche Streifschütz und der Bienenjäger, Paul Howe, waren mit einem schmackhaften Bison-Rücken beschäftigt",
+      "language": [],
+      "musenalm_id": 127673,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Aus Cooper's Steppe. / Uncas",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Aus Cooper's Steppe. / Uncas",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "i30e52bfjlcw697"
+    },
+    {
+      "annotation": "Illustration zu »Die Steppe« von J. F. Cooper; s. Textbezug INr 127673, Obj 19 /) über der Graphik: Coopers Werke Bd. 2. S. 93",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127674,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Steppe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. Ernst Rauch sculp.",
+      "scans": [
+        "alm_586_127674_ambmpg9nrr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Steppe",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "k7ib4tmw0w1jiao",
+          "source_id": "67lvke4kfmxgye5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "f2p3w0h1q5fuiju"
+        }
+      ],
+      "source_id": "vokauqy6br8cjl0"
+    },
+    {
+      "annotation": "Erklärung der Kupfer (Sammlung INr 127659, Obj 5) s. Graphik INr 127676, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.361Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "Die Wilden hatten Duncan Uncas und seine Braut Inez, so wie deren Schwester Ellen und Duncans Gefährten gefangen genommen,",
+      "language": [],
+      "musenalm_id": 127675,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Der Sioux-Häuptling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Der Sioux-Häuptling",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "kgvl15rv3oj9wfk"
+    },
+    {
+      "annotation": "Illustration zu »Die Steppe« von J. F. Cooper; s. Textbezug INr 127675, Obj 21 /) über der Graphik: Coopers Werke Bd. 5. S. 64",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.363Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127676,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Steppe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heideloff del. C. Barth sculps.",
+      "scans": [
+        "alm_586_127676_79j66km9nj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Steppe",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "ak2qa5c9tflxdbf",
+          "source_id": "iet0vdv5hw3ebgc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "da1kftrnv0p7ngp",
+          "source_id": "p1p94ej6rkg3204"
+        }
+      ],
+      "source_id": "dtjk8gbq4r6dyqf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127677,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rheinisches Taschenbuch / Zweiundzwanzigster Jahrgang. / Neue Folge. / Zehnter Jahrgang 1831",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rheinisches Taschenbuch / Zweiundzwanzigster Jahrgang. / Neue Folge. / Zehnter Jahrgang 1831",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "ngh26bmlfzop9o4"
+    },
+    {
+      "annotation": "Sammlung von 5 Beiträgen INr 127679-127680, 127682-127684; Obj 25-29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127678,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erzählungen im Nebel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erzählungen im Nebel",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "5fe1wzfcftax2k1"
+        }
+      ],
+      "source_id": "4cpm7yxay5xnisf"
+    },
+    {
+      "annotation": "Erzählungen im Nebel (Sammlung INr 127678, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Wir hatten uns nun auf der prachtvollen Höhe des Berges, nach einem der schönsten Sommertage, ganz vergebens gefreut, das stille Einschlummern der weiten Welt zu unsern Füßen zu beobachten.",
+      "language": [],
+      "musenalm_id": 127679,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Thee-Gesellschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Thee-Gesellschaft",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "w7urz2jprsbicmw"
+        }
+      ],
+      "source_id": "5e5bylqrgd3jxdk"
+    },
+    {
+      "annotation": "Erzählungen im Nebel (Sammlung INr 127678, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Mit der Pracht einer neuen Kaiserkrone kam Karl der Große von Rom über das Alpengebirg in den weiten, wilden Arboner-Gau.",
+      "language": [],
+      "musenalm_id": 127680,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Ursprung von Zürich und Aachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Ursprung von Zürich und Aachen",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "h46g7esbainkytq"
+        }
+      ],
+      "source_id": "4dw49ytos1cyv36"
+    },
+    {
+      "annotation": "Erzählungen im Nebel (Sammlung INr 127678, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Wo heut zwischen anmuthigen Hügeln und Gebäuden, in fruchtbarem Gelände, der größte Wasserfall Europa's aus kochender Tiefe Wolken um Wolken emporstößt,",
+      "language": [],
+      "musenalm_id": 127682,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Schafhausens Gründung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Schafhausens Gründung",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "2e036sjky31yeag"
+        }
+      ],
+      "source_id": "hgyehlj7mrt9elv"
+    },
+    {
+      "annotation": "Erzählungen im Nebel (Sammlung INr 127678, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Von Attinghausen im Lande Uri, führt ein Hirtenweg durch die Einsamkeiten des Gebirgs, neun Stunden Weges weit, in's Thal nach Engelberg.",
+      "language": [],
+      "musenalm_id": 127683,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die Sage von Waldnach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die Sage von Waldnach",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "yivq2c5vr720wy5"
+        }
+      ],
+      "source_id": "0o7jocud6nmap7d"
+    },
+    {
+      "annotation": "Erzählungen im Nebel (Sammlung INr 127678, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "Man hat bisher in keiner höhern Landesgegend der Schweiz Ueberbleibsel von Festungswerken, Gräbern und Wohnstätten einer längst verschwundenen und vergessenen Vorwelt erblickt,",
+      "language": [],
+      "musenalm_id": 127684,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Hirt von Helisee",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Zschokke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Hirt von Helisee",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "2zqoqv8fdrs839t",
+          "source_id": "3dpf61ccy08cy46"
+        }
+      ],
+      "source_id": "86w7yjwcfs2n2b1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "König Wilhelm II. von Sizilien war kinderlos gestorben, und als Erbin seines Thrones, trat seine Tante, Constantia, Kaiser Heinrich VI. Gemahlin auf.",
+      "language": [],
+      "musenalm_id": 127685,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leonardo da Sessa. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Lohmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leonardo da Sessa. / Novelle",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "o98cykqmxxu1sx9",
+          "source_id": "84o5z06bfeugtqx"
+        }
+      ],
+      "source_id": "mi4qf2ssi0ufh4u"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 127687-127694, Obj 32-29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127686,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilder aus Frankreich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilder aus Frankreich",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "jvdlyynjqw4qe0b"
+        }
+      ],
+      "source_id": "f59mdadgc1r4xjr"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Erfrag des Juden Haus, gib ihm das Blatt, / Und laß es zeichnen. / Shakespeare",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Wie unnöthig uns Deutschen ein Blatt erscheint, auf welchem wir durch Nase  - lang, Augen - blau, Haare - blond,  besondere Kennzeichen - keine, kenntlich gemacht und, ohne es zu wünschen, allen Behörden empfohlen werden,",
+      "language": [],
+      "musenalm_id": 127687,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der Paß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der Paß",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "w97gmci8p2iwpaa"
+        }
+      ],
+      "source_id": "jz7o27una9mck3j"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Bunte Alle hier gemischt! In Gruppen schauen / Dort Ein'ge auf die wechselvolle Scene; [...] Childe Harold",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.359Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "Es war Sontag. Die Bouloneserinnnen, die Köpfe in bunte Tücher gehüllt, strömten die Rue de l'Ecu hinauf, den Kirchen zu;",
+      "language": [],
+      "musenalm_id": 127688,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Abfahrt von Boulogne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Abfahrt von Boulogne",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.872Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.872Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "8807agz496u1c59"
+        }
+      ],
+      "source_id": "gas3qt2ruzn9zn5"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Vom hohen Berg herab, in's weite Meer, / Was soll für mich ein Reichthum der Natur [..] Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Rasch ging's durch die Weiler La Madelaine und La Chapelette. Ich eilte zu Fuß die Anhöhe hinauf - tagelang hätte ich auf dieser Höhe verweilen mögen.",
+      "language": [],
+      "musenalm_id": 127689,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Montreuil",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Montreuil",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.873Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "aoixmm5izf8475s"
+        }
+      ],
+      "source_id": "4jvp9zrtekx0y8d"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Eär' ich nur die Bären los, / Die verwünschten Affen [...] Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Dr. Ferriar und Sir Walter Scott haben alles Mögliche gethan, das Ansehen, dessen sich Sterne's Schriften in England erfreuen, zu vernichten.",
+      "language": [],
+      "musenalm_id": 127690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Nach Paris",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Nach Paris",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.873Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "cl1invexw0ed0m2"
+        }
+      ],
+      "source_id": "gs452xggznskhpp"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Ich muß dich nun vor allen Dingen / In lustige Gesellschaft bringen, / Damit du siehst, wie leicht sich's leben läßt. / Faust",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Die Hallen sind glänzend erleuchtet; in den Läden funkeln echte und falsche Edelsteine, glänzen die bunten Farben der kunstreichen Blumengewinde, und lachen lockende Augen,",
+      "language": [],
+      "musenalm_id": 127691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Ein Abend im Palais Royal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Ein Abend im Palais Royal",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.873Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "mtd572koa6jc80g"
+        }
+      ],
+      "source_id": "2ti87zp31l7xsj0"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Greift nur hinein ins tolle Menschenleben! / Ein jeder lebt's, nicht vielen ist's bekannt, [...] Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:49.360Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Der Regen ließ nicht nach; die Hausmädchen klapperten - eine wahrhaft eiserne Musik - die Straße auf und ab,",
+      "language": [],
+      "musenalm_id": 127692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Bunte Scenen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Bunte Scenen",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.873Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.873Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "5aj5t4abqck7j4r"
+        }
+      ],
+      "source_id": "teoc0hlbinw4jt0"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Kehre dich um, von diesen Höhen / Nach der Stadt zurück zu sehen. / Faust",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.364Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Wenn die Phantasie meiner freundlichen Leserinnen Montmartre mit grünem, duftigen Buschwerk, mit schönen Baumgruppen und Weingärten schmückt,",
+      "language": [],
+      "musenalm_id": 127693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Montmartre",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Montmartre",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "rwaagz4yt97cv4v"
+        }
+      ],
+      "source_id": "9thly866044j08j"
+    },
+    {
+      "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Ich höre schon des Dorfs Getümmel, / Hier ist des Volkes wahrer Himmel, [...] Goethe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "187",
+      "incipit_statement": "Ganz Paris scheint auf einer Wanderung nach Saint Cloud begriffen: Schaaren von niedlichen Mädchen ziehen die Straße entlang;",
+      "language": [],
+      "musenalm_id": 127694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Ein Tag zu Saint Cloud",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Adrian",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Ein Tag zu Saint Cloud",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "meerjmdgjan7zwy",
+          "source_id": "ta2v2u6h5g06bvx"
+        }
+      ],
+      "source_id": "tflnk3c1olenr49"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Von den höchsten Gütern des Erdenlebens entblößt, ohne Frieden, ohne bürgerliche Sicherheit und Eintracht lagen in den ersten Decennien des dreizehnten Jahrhunderts die fruchtbaren, einst so gepriesenen Marken des obern Italiens verwüstet,",
+      "language": [],
+      "musenalm_id": 127695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Heldin von Bassano. / Historische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Heldin von Bassano. / Historische Erzählung",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "gmfrom58a78c0sw"
+        }
+      ],
+      "source_id": "mar5sz7bqm4ieks"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Erwach'! Erwach'! Sieh', Liebender, ich bringe / Dir frohe Kunde, welche süßen Frieden / Auch wiedergibt, [..] Jacob I. v. Schottland",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Es war in der stürmischen Zeit des siebenjährigen Krieges daß eines der Schlösser des Barons Sternberg, eines ältlichen, aber noch rüstigen Mannes,",
+      "language": [],
+      "musenalm_id": 127696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Opfer der Ehre. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Opfer der Ehre. / Erzählung",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.952Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.952Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "jnxvft4pcvxe7xs"
+        }
+      ],
+      "source_id": "jnbdsrkla3uslm1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127697,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3gb6cdir8oglouu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127698,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei J. D. Sauerländer ist erschienen / und in allen Buchhandlungen des In- / und Auslandes zu erhalten:",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei J. D. Sauerländer ist erschienen / und in allen Buchhandlungen des In- / und Auslandes zu erhalten:",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "3d1jk12qtuveroo"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:50.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 127699,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_586_127699_ce3qsx72g1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2006-05-30 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "z0uckki18tilivk"
+    }
   ],
   "agents": [
     {

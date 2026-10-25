@@ -48,21 +48,545 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "wmyrj222mcrhi26"
+    {
+      "annotation": "1837-1842.\nKartonierter Einband.\n1839:(K: M. Port 1 u. Ku 2.) Mit Bl 3, Port 1, Ku 2 und 440 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.650Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "111724",
+      "location": "105C06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.650Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "wmyrj222mcrhi26"
+    }
   ],
   "contents": [
-    "24ipve3tbv83x1x",
-    "7rad1s3a4qm0sdx",
-    "2o1kdn1lkqks7fm",
-    "xgokn1mcxoa5fnh",
-    "u0dza885besa2dy",
-    "gav0fwg6f2llq2q",
-    "n0ai65qtg1cohj0",
-    "f38c53pzak8b5a3",
-    "nk2iducjextm9sc",
-    "8fxyu9i957biith",
-    "p9tbna4d1ifyv30",
-    "8dx0tc3kash85ir"
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.223Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125769,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / dramatischer Originalien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / dramatischer Originalien",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "24ipve3tbv83x1x"
+    },
+    {
+      "annotation": "Portrait von Albin Johann Baptist von Meddlhammer (Pseud. Albini); vgl. »Die Rosen« (INr 125773, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.224Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125770,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Albini",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rademacher gez. Berlin Fr. Stöber gest. Wien",
+      "scans": [
+        "alm_2732_125770_92bk1u985g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Albini",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.760Z",
+          "agent": "j0sgj1jukudoy9o",
+          "source_id": "nvt7ac9i0o3zbct"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.760Z",
+          "agent": "waiqlzuy6anjx1t",
+          "source_id": "r1pn7ip25lx4w5h"
+        }
+      ],
+      "source_id": "7rad1s3a4qm0sdx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.232Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125771,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Dritter Jahrgang. / Mit drei Kupfern. / Leipzig: / F. A. Brockhaus. / 1839",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2732_125771_yhzbougwut.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Dritter Jahrgang. / Mit drei Kupfern. / Leipzig: / F. A. Brockhaus. / 1839",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "2o1kdn1lkqks7fm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.235Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125772,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "xgokn1mcxoa5fnh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.235Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Einen herrlichen, köstlichen Abend hast Du uns bereitet, Herr Bruder. / Das höre ich gern aus deinem Munde.",
+      "language": [],
+      "musenalm_id": 125773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rosen. / Ein dramatisches Gemälde / in drei Abtheilungen und fünf Akten / von / Albini",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Albini",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rosen. / Ein dramatisches Gemälde / in drei Abtheilungen und fünf Akten / von / Albini",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.760Z",
+          "agent": "j7o4gfpm608mbdy",
+          "source_id": "gtptggwjo6orqoa"
+        }
+      ],
+      "source_id": "u0dza885besa2dy"
+    },
+    {
+      "annotation": "Illustration zu »Die Rosen« (INr 125773, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.236Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "126",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HELENE. / Es sind die Früchte meiner Ver- / schwendung, meiner Spielsucht.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Mayer del. M. Hofmann sc.",
+      "scans": [
+        "alm_2732_125774_v5abw47rta.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HELENE. / Es sind die Früchte meiner Ver- / schwendung, meiner Spielsucht.",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.760Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "73x3u062v8wl42q"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.760Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "gd80kiq9rtlf00s"
+        }
+      ],
+      "source_id": "gav0fwg6f2llq2q"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.239Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Ich muß sie warnen. / Machen Sie mich nicht toll. / Ich bin ihr Advokat. / Born ist mein Freund.",
+      "language": [],
+      "musenalm_id": 125775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Tagebuch. / Lustspiel in zwei Akten / von / Bauernfeld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Tagebuch. / Lustspiel in zwei Akten / von / Bauernfeld",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.760Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.760Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "i9wrdo6jstogb0j"
+        }
+      ],
+      "source_id": "n0ai65qtg1cohj0"
+    },
+    {
+      "annotation": "mit einer Illustration (INr 125777, Obj 9) u. zwei graphischen Erläuterungen (INr 125778, 125779, Obj 10, 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.239Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Die Lehnsessel mehr dorthin, die Tafel in die Mitte! So! Daß Dich! Kriecht der Mensch nicht, wie eine Schnecke.",
+      "language": [],
+      "musenalm_id": 125776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Opfer des Schweigens. / Trauerspiel in fünf Aufzügen / von / Karl Immermann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Immermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Opfer des Schweigens. / Trauerspiel in fünf Aufzügen / von / Karl Immermann",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.761Z",
+          "agent": "47huvmykx9z6337",
+          "source_id": "15u5bzid3v66m3p"
+        }
+      ],
+      "source_id": "f38c53pzak8b5a3"
+    },
+    {
+      "annotation": "Illustration zu »Die Opfer des Schweigens« von Immermann (INr 125776, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 125777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GUISCARDO. / Geliebtes Weib! Ghismonda! Tödte mich! / Doch erst vergönne mir, hinieden schon / Die Ewigkeit aus diesem Kelch zu schlürfen!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Mayer del. M. Hofmann sc.",
+      "scans": [
+        "alm_2732_125777_1yg5509lny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GUISCARDO. / Geliebtes Weib! Ghismonda! Tödte mich! / Doch erst vergönne mir, hinieden schon / Die Ewigkeit aus diesem Kelch zu schlürfen!",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.761Z",
+          "agent": "xz56cgtd44xrisw",
+          "source_id": "vuacfk86tg279vu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.761Z",
+          "agent": "fdgsbm5wkwqc1i4",
+          "source_id": "wtyauy95ugdx4tw"
+        }
+      ],
+      "source_id": "nk2iducjextm9sc"
+    },
+    {
+      "annotation": "erläuternde Illustration zu »Die Opfer des Schweigens« von Immermann (INr 125776, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.242Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Wo dieses Stück aufgeführt wird, da muß ich bitten, die Scene des zweiten Aufzugs und die Stellung der Personen genau nach meiner Anweisung und nach nebenstehender Zeichnung zu ordnen.",
+      "language": [],
+      "musenalm_id": 125778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anmerkungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2732_125778_u8tucaihrb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Anmerkungen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "8fxyu9i957biith"
+    },
+    {
+      "annotation": "erläuternde Illustration zu »Die Opfer des Schweigens« von Immermann (INr 125776, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.244Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "Theobald steht ganz vor Tancred, so daß angenommen werden kann, Dagobert sehe ihn nicht.",
+      "language": [],
+      "musenalm_id": 125779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stellung der Personen Aufzug 5. Scene 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2732_125779_b38zlbed0l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Stellung der Personen Aufzug 5. Scene 2.",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "p9tbna4d1ifyv30"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Ich kann auf ihn rechnen, wie auf mich selbst, er ist ein vollendeter Narr.",
+      "language": [],
+      "musenalm_id": 125780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gascogner von Paris. / Lustspiel in einem Akt / von / Dr. Franck",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Franck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gascogner von Paris. / Lustspiel in einem Akt / von / Dr. Franck",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.761Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.761Z",
+          "agent": "q3vezx66ehdwkf0",
+          "source_id": "f0unz2c1t6nts7q"
+        }
+      ],
+      "source_id": "8dx0tc3kash85ir"
+    }
   ],
   "agents": [
     {

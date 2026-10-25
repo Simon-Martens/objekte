@@ -49,23 +49,608 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "g4gf2j03uaa3tne"
+    {
+      "annotation": "Almanach dramatischer Spiele für Gesellschaftstheater Jgg 1811-1837, Hrsg: F. A. v. Kurländer; ab 1819: Lustspiele oder dramatischer Alamanach für das Jahr; fortgesetzt als: F. A. von Kurländers dramatischer Alamanach für das Jahr Leipzig 1838-1841. Hrsg: C. W. Koch",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.794Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405194",
+      "location": "105C09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.794Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "g4gf2j03uaa3tne"
+    }
   ],
   "contents": [
-    "a8bau580op3zfzr",
-    "i49pvu6y9rw2ss9",
-    "w45nxikjggm0rk6",
-    "iythrdmim6r6ojo",
-    "rvnbng3prhv1r41",
-    "cqo4b9q6mviebnn",
-    "11i1ky77wrae6d0",
-    "st79apn066tm9kp",
-    "wqf0ucvz5unyhfg",
-    "02rmx4zi12w6dil",
-    "9ilv66uqb8m9b2z",
-    "z1marpisw8uteul",
-    "lp5sdz188bpzpf5",
-    "wqaek0iwe1osxxy"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124401,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Almanach / dramatischer Spiele / für Gesellschaftstheater. Wien und Triest, / im Verlag bei Geistinger. / 1811",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Almanach / dramatischer Spiele / für Gesellschaftstheater. Wien und Triest, / im Verlag bei Geistinger. / 1811",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "a8bau580op3zfzr"
+    },
+    {
+      "annotation": "Vrwrt. d. Hrsg.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124402,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wunsch einer kunstliebenden Gesellschaft des ersten Ranges, für ihr Liebhaber-Theater neue auf keiner der hiesigen Bühnen bekannte Lustspiele zu besitzen, bestimmte mich, diese Kleinigkeiten auf deutschen Boden zu verpflanzen.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. v. K—r",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wunsch einer kunstliebenden Gesellschaft des ersten Ranges, für ihr Liebhaber-Theater neue auf keiner der hiesigen Bühnen bekannte Lustspiele zu besitzen, bestimmte mich, diese Kleinigkeiten auf deutschen Boden zu verpflanzen.",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "8i403ibdbdp31hw"
+        }
+      ],
+      "source_id": "i49pvu6y9rw2ss9"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124403,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dramatische Spiele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dramatische Spiele",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "w45nxikjggm0rk6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124404,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "iythrdmim6r6ojo"
+    },
+    {
+      "annotation": "mit einer kol. Illustration (INr 124406, Obj 6); $ vermutlich Charlemagne, Jean-Armand (vgl. Nouvelle biographie générale IX, Sp. 743)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nun bin ich doch begierig zu sehen, an wen der Brief gehört? Der alte Herr ist todt, und ich habe mich Zeitlebens nicht mit der Korrespondenz befaßt, denn es ist eine abgeschmackte Sache um die Briefe;",
+      "language": [],
+      "musenalm_id": 124405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Portrait der Erbinn / oder / Die zerbrochene Brille. / Ein / Lustspiel in drei Aufzügen / nach dem Französischen des Charlemagne / für die deutsche Bühne bearbeitet / von / F. v. K.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Charlemagne $ [übers.] F. v. K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Portrait der Erbinn / oder / Die zerbrochene Brille. / Ein / Lustspiel in drei Aufzügen / nach dem Französischen des Charlemagne / für die deutsche Bühne bearbeitet / von / F. v. K.",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "43koa6rwohxq4b8"
+        }
+      ],
+      "source_id": "rvnbng3prhv1r41"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das Portrait der Erbinn« von Belin (INr 124405, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Da liegt die ganze Schönheit nun in Trümmern.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner in. et fe.",
+      "scans": [
+        "alm_4694_124406_g97vytlct6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. / Da liegt die ganze Schönheit nun in Trümmern.",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.747Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "9b1qqnv19zenh0y"
+        }
+      ],
+      "source_id": "cqo4b9q6mviebnn"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vrwrt (INr 124402, Obj 2); $ vermutlich Belin, François (vgl. Nouvelle biographie générale V, Sp. 195)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.075Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Ueberlisteten. / Eine dramatische Kleinigkeit, / aus dem / Französischen des Belin übersetzt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Belin $ [übers.] F. v. K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Ueberlisteten. / Eine dramatische Kleinigkeit, / aus dem / Französischen des Belin übersetzt",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.747Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "hgllu2b9tzc2q97"
+        }
+      ],
+      "source_id": "11i1ky77wrae6d0"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Ueberlisteten« von Charlemagne (INr 124407, Obj 7); # Bezeichnung am ersten Blatt der Suite (INr 124406, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Nach dieser Scene muss er betrogen werden.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner in. et fe.",
+      "scans": [
+        "alm_4694_124408_mtfim824wx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. / Nach dieser Scene muss er betrogen werden.",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.747Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.747Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "t7owq96ycm4g3w6"
+        }
+      ],
+      "source_id": "st79apn066tm9kp"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vrwrt (INr 124402, Obj 2); $ vermutlich Collin D’Harleville, Jean-François (vgl. Nouvelle biographie générale XI, Sp. 182)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Lieber, guter junger Herr! Weinen muß ich vor Freuden. / Narr! lache lieber mit, statt zu weinen;",
+      "language": [],
+      "musenalm_id": 124409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Lügner und sein Sohn. / Eine Posse in einem Aufzuge. / Nach / Collin D’Harleville frei bearbeitet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Collin D’Harleville § [bearb.] F. v. K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Lügner und sein Sohn. / Eine Posse in einem Aufzuge. / Nach / Collin D’Harleville frei bearbeitet",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "jqildlcw1n1qvdq"
+        }
+      ],
+      "source_id": "wqf0ucvz5unyhfg"
+    },
+    {
+      "annotation": "kol. Illustration zu »Der Lügner und sein Sohn« von Kurländer (INr 124409, Obj 9); # Bezeichnung am ersten Blatt der Suite (INr 124406, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.303Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nun der König, der muss es doch wissen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner in. et fe.",
+      "scans": [
+        "alm_4694_124410_gsx2bu0amg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nun der König, der muss es doch wissen",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "d2brty050sin61g"
+        }
+      ],
+      "source_id": "02rmx4zi12w6dil"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem Vrwrt (INr 124402, Obj 2); # Marsollier de Vivetières, Benoît-Joseph (vgl. Nouvelle biographie générale XXXIII, Sp. 983)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.304Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Welche Nachricht wird Renwald mir geben ... Kommen Sie bis den 15ten in die Stadt – also heute –; Ich hoffe sicher diesen Tag wie versprochen die Zahlung zu leisten.",
+      "language": [],
+      "musenalm_id": 124411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das alte Gemälde. / Ein / Schauspiel in einem Aufzuge, / aus dem / Französischen des Marsollier",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Marsollier # [übers.] F. v. K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das alte Gemälde. / Ein / Schauspiel in einem Aufzuge, / aus dem / Französischen des Marsollier",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "pholhtymupfago1"
+        }
+      ],
+      "source_id": "9ilv66uqb8m9b2z"
+    },
+    {
+      "annotation": "Vrwrt zu »Das alte Gemälde« von Marsollier (INr 124411, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.305Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Das französische Singspiel: »Une matinée de Catinat« schien mir so anziehend, so ganz für das Herz berechnet zu seyn, daß ich wähnte, die für Edles und Großes so empfänglichen Deutschen, würden die eingelegten wenigen Musikstücke eher als eine Störung",
+      "language": [],
+      "musenalm_id": 124412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. v. K.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "cp675a99tnl2fek",
+          "source_id": "0vk5i0zlm8ufl6w"
+        }
+      ],
+      "source_id": "z1marpisw8uteul"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das alte Gemälde« von Kurländer (INr 124411, Obj 11); # Bezeichnung am ersten Blatt der Suite (INr 124406, Obj 6)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.306Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Ma che sono mato, san er nit an Michel Angelo",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "V. Grüner in. et fe.",
+      "scans": [
+        "alm_4694_124413_joo4466ova.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Ma che sono mato, san er nit an Michel Angelo",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.765Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.765Z",
+          "agent": "mwvtf64bmzwstck",
+          "source_id": "9jszs5lgszo122t"
+        }
+      ],
+      "source_id": "lp5sdz188bpzpf5"
+    },
+    {
+      "annotation": "enthält eine »Zeit- und Festrechnung« sowie ein Verzeichnis der »Sonnen- und Mondfinsternisse des Jahrs 1811«",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.307Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 124414,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kalender / für / das Jahr 1811. / Wien und Triest / verlegt von Geistinger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kalender / für / das Jahr 1811. / Wien und Triest / verlegt von Geistinger",
+      "updated": "2020-01-23 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "wqaek0iwe1osxxy"
+    }
   ],
   "agents": [
     {

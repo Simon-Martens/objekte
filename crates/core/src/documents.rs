@@ -6,6 +6,8 @@ mod hierarchy;
 mod listing;
 #[path = "read_cache.rs"]
 mod read_cache;
+#[path = "reference_snapshot.rs"]
+mod reference_snapshot;
 use crate::{Collection, Config, Error, IdStrategy, Result, safe_name};
 pub use hierarchy::*;
 pub use listing::*;
@@ -74,7 +76,7 @@ pub struct CategoryNode {
     pub children: Vec<CategoryNode>,
 }
 
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Reference {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub document: Option<String>,
@@ -586,6 +588,27 @@ impl Editor {
         self.config.collection(collection)?;
         safe_name(id)?;
         let mut cache = self.read_cache.references.lock().unwrap();
+        self.update_reference_index(&mut cache)?;
+        let mut references = cache
+            .by_target
+            .get(&(collection.to_owned(), id.to_owned()))
+            .map(|files| {
+                files
+                    .values()
+                    .flat_map(|refs| refs.iter().cloned())
+                    .collect()
+            })
+            .unwrap_or_default();
+        unique_references(&mut references);
+        Ok(references)
+    }
+
+    /// Build or reconcile the reverse-link index without requesting a record.
+    pub fn prepare_reference_index(&self) -> Result<()> {
+        self.update_reference_index(&mut self.read_cache.references.lock().unwrap())
+    }
+
+    fn update_reference_index(&self, cache: &mut read_cache::ReferenceCache) -> Result<()> {
         let mut sources = BTreeMap::new();
         let mut signatures = BTreeMap::new();
         let mut stamps = BTreeMap::new();
@@ -663,9 +686,16 @@ impl Editor {
             }
         }
         let updates: Vec<_> = stamps.into_iter().collect();
+        let changed = !updates.is_empty();
+        let plans: HashMap<_, _> = self
+            .config
+            .collections
+            .iter()
+            .map(|(name, c)| (name.as_str(), RelationPlan::new(&c.schema_value)))
+            .collect();
         let build = |(path, stamp): &(PathBuf, Option<read_cache::Stamp>)| {
             if let (Some(_), Some(source)) = (stamp, sources.get(path)) {
-                self.references_from_source(path, source).map(Some)
+                self.references_from_source(path, source, &plans).map(Some)
             } else {
                 Ok(None)
             }
@@ -676,21 +706,36 @@ impl Editor {
                 .unwrap_or(1)
                 .min(4);
             std::thread::scope(|scope| -> Result<Vec<_>> {
-                let handles: Vec<_> = updates
-                    .chunks(updates.len().div_ceil(workers))
-                    .map(|chunk| {
+                // Interleave files: embedded collections are much larger than
+                // agent/place files, so contiguous chunks leave most workers idle.
+                let handles: Vec<_> = (0..workers)
+                    .map(|worker| {
                         let build = &build;
-                        scope.spawn(move || chunk.iter().map(build).collect::<Result<Vec<_>>>())
+                        let updates = &updates;
+                        scope.spawn(move || {
+                            updates
+                                .iter()
+                                .enumerate()
+                                .skip(worker)
+                                .step_by(workers)
+                                .map(|(index, update)| Ok((index, build(update)?)))
+                                .collect::<Result<Vec<_>>>()
+                        })
                     })
                     .collect();
-                let mut prepared = Vec::with_capacity(updates.len());
+                let mut ordered = Vec::with_capacity(updates.len());
                 for handle in handles {
-                    prepared.extend(
+                    ordered.extend(
                         handle
                             .join()
                             .map_err(|_| Error::Data("reference index worker failed".into()))??,
                     );
                 }
+                ordered.sort_unstable_by_key(|(index, _)| *index);
+                let prepared = ordered
+                    .into_iter()
+                    .map(|(_, contribution)| contribution)
+                    .collect();
                 Ok(prepared)
             })?
         } else {
@@ -707,24 +752,17 @@ impl Editor {
         }
         cache.signatures = signatures;
         cache.documents = document_signature;
-        let mut references = cache
-            .by_target
-            .get(&(collection.to_owned(), id.to_owned()))
-            .map(|files| {
-                files
-                    .values()
-                    .flat_map(|refs| refs.iter().cloned())
-                    .collect()
-            })
-            .unwrap_or_default();
-        unique_references(&mut references);
-        Ok(references)
+        if changed {
+            self.persist_reference_index(cache);
+        }
+        Ok(())
     }
 
     fn references_from_source(
         &self,
         path: &Path,
         source: &ReferenceSource,
+        plans: &HashMap<&str, RelationPlan>,
     ) -> Result<(
         read_cache::ReferenceIndex,
         Option<(String, String)>,
@@ -784,7 +822,7 @@ impl Editor {
             }
         };
         let mut index: read_cache::ReferenceIndex = HashMap::new();
-        visit_relations(schema, schema, &value, "", 0, &mut |target, id, _, path| {
+        let mut collect = |target: &str, id: &str, _: bool, path: &str| {
             index
                 .entry((target.to_owned(), id.to_owned()))
                 .or_default()
@@ -795,7 +833,12 @@ impl Editor {
                     path: path.into(),
                 });
             Ok(())
-        })?;
+        };
+        if let ReferenceSource::Record(name) = source {
+            plans[name.as_str()].visit(schema, &value, "", 0, &mut collect)?;
+        } else {
+            visit_relations(schema, schema, &value, "", 0, &mut collect)?;
+        }
         visit_markdown_links(&value, "", &mut |destination, path| {
             if let Some((target, id)) = record_link_target(destination) {
                 index.entry((target, id)).or_default().push(Reference {
@@ -1490,6 +1533,120 @@ fn relation_branch_matches(root: &Value, schema: &Value, value: &Value) -> Resul
         .map_err(|e| Error::Config(format!("reference branch schema: {e}")))
 }
 
+/// Precompute the relation-bearing branches of ordinary object/array schemas.
+/// Conditional and dynamic schemas keep the complete, validating traversal.
+enum RelationPlan {
+    Empty,
+    Reference(String),
+    Object(Vec<(String, Self)>),
+    Array(Box<Self>),
+    Generic(Value),
+}
+impl RelationPlan {
+    fn new(schema: &Value) -> Self {
+        if [
+            "$ref",
+            "oneOf",
+            "anyOf",
+            "allOf",
+            "if",
+            "dependentSchemas",
+            "patternProperties",
+            "prefixItems",
+            "contains",
+        ]
+        .iter()
+        .any(|key| schema.get(key).is_some())
+            || schema["additionalProperties"].is_object()
+        {
+            return Self::Generic(schema.clone());
+        }
+        if schema.get("x-relation").is_some() {
+            return if schema["type"] == "string"
+                && schema.get("properties").is_none()
+                && schema.get("items").is_none()
+            {
+                schema["x-relation"]["collection"]
+                    .as_str()
+                    .map(|target| Self::Reference(target.into()))
+                    .unwrap_or_else(|| Self::Generic(schema.clone()))
+            } else {
+                Self::Generic(schema.clone())
+            };
+        }
+        if let Some(props) = schema["properties"].as_object() {
+            // An object schema may also describe arrays; retain generic semantics.
+            if schema.get("items").is_some() {
+                return Self::Generic(schema.clone());
+            }
+            let children: Vec<_> = props
+                .iter()
+                .filter_map(|(key, schema)| {
+                    let child = Self::new(schema);
+                    (!matches!(child, Self::Empty)).then(|| (key.clone(), child))
+                })
+                .collect();
+            return if children.is_empty() {
+                Self::Empty
+            } else {
+                Self::Object(children)
+            };
+        }
+        if let Some(items) = schema.get("items") {
+            let child = Self::new(items);
+            return if matches!(child, Self::Empty) {
+                Self::Empty
+            } else {
+                Self::Array(Box::new(child))
+            };
+        }
+        Self::Empty
+    }
+    fn visit(
+        &self,
+        root: &Value,
+        value: &Value,
+        path: &str,
+        depth: usize,
+        visit: &mut impl FnMut(&str, &str, bool, &str) -> Result<()>,
+    ) -> Result<()> {
+        if depth > 64 {
+            return Err(Error::Data("relation nesting too deep".into()));
+        }
+        match self {
+            Self::Empty => {}
+            Self::Reference(target) if !value.is_null() => {
+                visit(target, value.as_str().unwrap_or(""), false, path)?
+            }
+            Self::Reference(_) => {}
+            Self::Object(fields) => {
+                if let Some(object) = value.as_object() {
+                    for (key, plan) in fields {
+                        if let Some(child) = object.get(key) {
+                            plan.visit(
+                                root,
+                                child,
+                                &format!("{path}/{}", pointer_escape(key)),
+                                depth + 1,
+                                visit,
+                            )?;
+                        }
+                    }
+                }
+            }
+            Self::Array(plan) => {
+                if let Some(array) = value.as_array() {
+                    for (index, child) in array.iter().enumerate() {
+                        plan.visit(root, child, &format!("{path}/{index}"), depth + 1, visit)?;
+                    }
+                }
+            }
+            Self::Generic(schema) => visit_relations(root, schema, value, path, depth, visit)?,
+        }
+        Ok(())
+    }
+}
+
 fn visit_relations(
     root: &Value,
     schema: &Value,
@@ -1747,7 +1904,8 @@ pub(crate) fn display_label(
         .map(|text| plain_markdown(text).chars().take(150).collect())
         .unwrap_or_else(|| id.into())
 }
-pub(crate) fn plain_markdown(text: &str) -> String {
+/// Normalize Markdown to the text used by record labels and search matching.
+pub fn plain_markdown(text: &str) -> String {
     let mut plain = String::new();
     for event in Parser::new(text) {
         match event {
@@ -1761,20 +1919,37 @@ pub(crate) fn plain_markdown(text: &str) -> String {
     plain.trim().to_owned()
 }
 
+fn may_contain_record_links(value: &Value) -> bool {
+    match value {
+        Value::String(text) => {
+            text.contains(['[', '<'])
+                && (text.contains("/collections/") || text.contains(['&', '\\']))
+        }
+        Value::Array(_) | Value::Object(_) => true,
+        _ => false,
+    }
+}
+
 fn visit_markdown_links(value: &Value, path: &str, visit: &mut impl FnMut(&str, &str)) {
     match value {
         Value::Object(fields) => {
             for (key, child) in fields {
+                if !may_contain_record_links(child) {
+                    continue;
+                }
                 visit_markdown_links(child, &format!("{path}/{}", pointer_escape(key)), visit);
             }
         }
         Value::Array(items) => {
             for (index, child) in items.iter().enumerate() {
+                if !may_contain_record_links(child) {
+                    continue;
+                }
                 visit_markdown_links(child, &format!("{path}/{index}"), visit);
             }
         }
         Value::String(text) => {
-            if !text.contains(['[', '<']) {
+            if !may_contain_record_links(value) {
                 return;
             }
             let mut destinations = BTreeSet::new();
@@ -1797,12 +1972,20 @@ fn visit_markdown_links(value: &Value, path: &str, visit: &mut impl FnMut(&str, 
 
 fn unique_references(references: &mut Vec<Reference>) {
     references.sort_by(|a, b| {
-        (&a.document, &a.collection, &a.record_id, &a.path).cmp(&(
-            &b.document,
-            &b.collection,
-            &b.record_id,
-            &b.path,
-        ))
+        (&a.document, &a.collection, &a.record_id)
+            .cmp(&(&b.document, &b.collection, &b.record_id))
+            .then_with(|| {
+                // Array positions follow document order: 2 precedes 10. Keep the
+                // original segment as a tie-breaker for distinct numeric keys.
+                a.path
+                    .split('/')
+                    .map(|part| (part.parse::<usize>().ok(), part))
+                    .cmp(
+                        b.path
+                            .split('/')
+                            .map(|part| (part.parse::<usize>().ok(), part)),
+                    )
+            })
     });
     references.dedup_by(|a, b| {
         a.document == b.document

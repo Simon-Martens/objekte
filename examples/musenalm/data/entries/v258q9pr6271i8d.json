@@ -48,20 +48,459 @@
   "year": 1798,
   "editor": "",
   "items": [
-    "nc08f8ny3034y77"
+    {
+      "annotation": "lt. K 35:  7 Jgg 1784, 1786, 1787, 1789, 1798, 1799, 1800",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.526Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404152",
+      "location": "105K06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.526Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nc08f8ny3034y77"
+    }
   ],
   "contents": [
-    "5sv68uexmhfyo9s",
-    "fgnc31gs33brm9p",
-    "6hxxqlb8lqn145s",
-    "7synmc5d36uj5vg",
-    "zqd1ybvrugk680v",
-    "mt84ym5qz073iqj",
-    "rjdodo89zckbt2n",
-    "3xb9c3hyne6h8zb",
-    "dsq0igzntw9uzqp",
-    "zu4q47f5ngny28b",
-    "z3r9gh4yx0u4yhv"
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68545,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1798. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. Meil del. I. Nussbiegel sc.",
+      "scans": [
+        "alm_929_68545_0fuhpwpmus.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1798. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.477Z",
+          "agent": "mmq9ql2t3b3zqca",
+          "source_id": "85h29b6dv7x4euz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.477Z",
+          "agent": "1cxxm0968owp2z9",
+          "source_id": "m90tf8awbne0f3q"
+        }
+      ],
+      "source_id": "5sv68uexmhfyo9s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68546,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "fgnc31gs33brm9p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68547,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen / in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häupter / und anderer / fürstlichen Personen / in Europa",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "6hxxqlb8lqn145s"
+    },
+    {
+      "annotation": "Illustration zu »Des Grafen Macartney Gesandschaftsreise nach China [...]« von G. Staunton INr 68551, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "96",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68548,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tschien-Lung, / Kaiser von China, 83 Jahr alt am Tage der Audienz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Alexander del. E. Henne sc.",
+      "scans": [
+        "alm_929_68548_yfrjdxgilt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tschien-Lung, / Kaiser von China, 83 Jahr alt am Tage der Audienz",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.477Z",
+          "agent": "xjs462ntht4ail3",
+          "source_id": "bze9h66qprl2cdl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.477Z",
+          "agent": "c25liqjogj65bd7",
+          "source_id": "gkgplwuxy2qdo9a"
+        }
+      ],
+      "source_id": "7synmc5d36uj5vg"
+    },
+    {
+      "annotation": "es folgen: Vorwort des Übersetzers und Herausgebers, der Beitrag und 4 Illustrationen INr 68550-6855, Obj 6-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.795Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68549,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Grafen Macartney / Gesandschaftsreise / nach China, / welche Er auf Befehl des jetzt regierenden Königs / von Großbritannien, Georg des Dritten, / in den Jahren 1792 bis 1794 / unternommen hat; / nebst / Nachrichten über China / und einen kleinen / Theil / der chinesichen Tartarey etc / Aus den Tagebüchern des Ambassadeurs / und der vornehmsten Personen seines Gefolges / von / Sir George Staunton, / Ambassade-Sercretär etc / Aus dem Englischen frei übersetzt. / Erster Theil, mit Kupfern. / Berlin / bey Haude und Spener",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "George Staunton; [übers.] C. S.",
+      "scans": [
+        "alm_929_68549_j40zui7vlc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Des Grafen Macartney / Gesandschaftsreise / nach China, / welche Er auf Befehl des jetzt regierenden Königs / von Großbritannien, Georg des Dritten, / in den Jahren 1792 bis 1794 / unternommen hat; / nebst / Nachrichten über China / und einen kleinen / Theil / der chinesichen Tartarey etc / Aus den Tagebüchern des Ambassadeurs / und der vornehmsten Personen seines Gefolges / von / Sir George Staunton, / Ambassade-Sercretär etc / Aus dem Englischen frei übersetzt. / Erster Theil, mit Kupfern. / Berlin / bey Haude und Spener",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zqd1ybvrugk680v"
+    },
+    {
+      "annotation": "Vorwort des Übersetzers und Herausgebers zu »Des Grafen Macartney Gesandschaftsreise nach China [...]« von George Staunton",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die Reise, von welcher ich hier eine Uebersetzung liefere, gehört, schon von Seiten der dabey angewandten Hülfsmittel, zu den beträchtlichsten dieses Jahrhunderts.",
+      "language": [],
+      "musenalm_id": 68550,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorbericht des Uebersetzers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorbericht des Uebersetzers",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.590Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.590Z",
+          "agent": "1eqjoxnybezb6wq",
+          "source_id": "3cdxbmqvjw93fci"
+        }
+      ],
+      "source_id": "mt84ym5qz073iqj"
+    },
+    {
+      "annotation": "mit 5 Illustrationen s. Portrait INr 68548, Obj 4 und Graphiken INr 68552-68555, Obj 8-11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Um die bisherigen Handelsverhältnisse zwischen Grosbritanien und China wo möglich auf einen bessern Fuß zu bringen, ward von der englischen Regierung eines förmliche Gesandtschaft nach China beschlossen.",
+      "language": [],
+      "musenalm_id": 68551,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Des Grafen Macartney Gesandschaftsreise nach China [...]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "George Staunton; [übers.] C. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Des Grafen Macartney Gesandschaftsreise nach China [...]",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "rjdodo89zckbt2n"
+    },
+    {
+      "annotation": "Illustration zu »Des Grafen Macartney Gesandschaftsreise nach China [...]« von G. Staunton INr 68551, Obj 7; Motiv: Adansonia, Affenbrotbaum",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.278Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68552,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_929_68552_7kpcmtqchi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "3xb9c3hyne6h8zb"
+    },
+    {
+      "annotation": "Illustration zu »Des Grafen Macartney Gesandschaftsreise nach China [...]« von G. Staunton INr 68551, Obj 7; Motiv: Boot in Cochinchina",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68553,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_929_68553_vftjcakwn3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "dsq0igzntw9uzqp"
+    },
+    {
+      "annotation": "Illustration zu »Des Grafen Macartney Gesandschaftsreise nach China [...]« von G. Staunton INr 68551, Obj 7; Motiv: Insekten auf Strauch",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.281Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68554,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_929_68554_65xtgw22zr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "zu4q47f5ngny28b"
+    },
+    {
+      "annotation": "Illustration zu »Des Grafen Macartney Gesandschaftsreise nach China [...]« von G. Staunton INr 68551, Obj 7;  Motiv: Verkrüppelte Füße, Schuhwerk",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68555,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_929_68555_5f1vche1ch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-09-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1798,
+      "editor": "",
+      "agents": [],
+      "source_id": "z3r9gh4yx0u4yhv"
+    }
   ],
   "agents": [
     {

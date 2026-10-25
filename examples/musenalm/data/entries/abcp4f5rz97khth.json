@@ -48,37 +48,1181 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "i770nphsoev04io"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.645Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200560",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.645Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "i770nphsoev04io"
+    }
   ],
   "contents": [
-    "fs6cqwq2j11ajdp",
-    "g7p6npglpilal14",
-    "vex71304k4vpgyy",
-    "5866jlyc0a72c9y",
-    "tbdche0hqu97x1t",
-    "45v1nu7dke5nywu",
-    "7d4x4wzn5vecmja",
-    "v8d6scekql9083g",
-    "j1a5yqgizlzhwat",
-    "nxirdudzyilp0i2",
-    "ui67n216fvfzrb9",
-    "euusmmldd59cz2w",
-    "dydkestgyp8vt5e",
-    "b8d3delxxcugb5v",
-    "2fschbu77k5q2ag",
-    "jvu0xirsac3pzkx",
-    "ev43m90j6i8fpiw",
-    "6g0g1i1ejc372vk",
-    "cokl71y90vrocyt",
-    "zopx8kiu5bz0r2j",
-    "ksyd1vtb248q8et",
-    "2jb5w1lz61mo2st",
-    "a16l213zh0qla92",
-    "ypjgz4jbugb8iq0",
-    "iew4swkogp31u8o",
-    "7cbrvm9awon9i80",
-    "mzh5yaq9hmpp1gd",
-    "6xoxtgc9g0snkfg"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72861,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Legenden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2692_72861_7svi7iq63e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Legenden",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "fs6cqwq2j11ajdp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Aus Klosters Pforten Dir entgegen wallet / Ein Engel mit andächtigen Legenden",
+      "language": [],
+      "musenalm_id": 72862,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Klosters Pforten Dir entgegen wallet / Ein Engel mit andächtigen Legenden…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Paul, Gr. v. H…",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.500Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.500Z",
+          "agent": "bt92eejgtvavmav",
+          "source_id": "4a10qndwbzmwv6q"
+        }
+      ],
+      "source_id": "g7p6npglpilal14"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 72868, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72863,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Gemalt v. Francesco Francia Gest. v. Ant. Karcher)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gemalt v. Francesco Francia Gest. v. Ant. Karcher",
+      "scans": [
+        "alm_2692_72863_6hoomqh5ue.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.744Z",
+          "agent": "b334ivfypj3aic9",
+          "source_id": "9n62amg2b2dtabg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.744Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.744Z",
+          "agent": "f00ijq81y03ss7i",
+          "source_id": "s8695r383vzrubj"
+        }
+      ],
+      "source_id": "vex71304k4vpgyy"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.558Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72864,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / der / Sagen u. Legenden / herausgegeben / von / Amalie v. Helwig / geb. v. Imhof / und / Fr. Baron de la Motte / Fouqué. / BERLIN / in der Realschulbuchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2692_72864_ebyla2gyrd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / der / Sagen u. Legenden / herausgegeben / von / Amalie v. Helwig / geb. v. Imhof / und / Fr. Baron de la Motte / Fouqué. / BERLIN / in der Realschulbuchhandlung",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "5866jlyc0a72c9y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72865,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "tbdche0hqu97x1t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Zum dunklen Zauberland der Sagen / Entrückte mich ein schöner Traum,",
+      "language": [],
+      "musenalm_id": 72866,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum dunklen Zauberland der Sagen / Entrückte mich ein schöner Traum,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "45v1nu7dke5nywu"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72867,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sagen und Legenden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sagen und Legenden",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "7d4x4wzn5vecmja"
+    },
+    {
+      "annotation": "Anm. am Objekt: Die Veranlassung zu diesen Stanzen gab ein treffliches Bild, das in der Sammlung der Herren Boisserée und Bertram einen engen Freundeskreis allgemein angesprochen hatte, und in diesem auf mannichfache Art verfielfältigt wurde, so wie in dem Titelkupfer zum erstenmal gestochen erscheint. /) s. Titelgraphik INr 72863, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Schaut dieses Bild voll Reiz und Freundlichkeit, / In Lieb' und Ernst voll Frömmigkeit und Milde;",
+      "language": [],
+      "musenalm_id": 72868,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stiftungsbrief / den Freunden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stiftungsbrief / den Freunden",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "v8d6scekql9083g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Scholastika, die Jungfrau, lebte / Nur ihrem Gotte fromm geweiht,",
+      "language": [],
+      "musenalm_id": 72869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gebet der heiligen Scholastika. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gebet der heiligen Scholastika. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "j1a5yqgizlzhwat"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Was leuchtet vom Antonikloster dort / Spat durch das Nachtgraun auf den Fluß herab,",
+      "language": [],
+      "musenalm_id": 72870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Hülfe der heiligen Jungfrau. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Hülfe der heiligen Jungfrau. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "nxirdudzyilp0i2"
+    },
+    {
+      "annotation": "Illustration zu »Die Rückkehr der Pförtnerinn« INr 72872, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "34",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius del. Rist sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius del. Rist sc.",
+      "scans": [
+        "alm_2692_72871_uth1qsa86p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.705Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.705Z",
+          "agent": "b508kdfhrvb4cbp",
+          "source_id": "b0hq7ixy2jgf4ra"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.705Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.705Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "t7if99repq56qi6"
+        }
+      ],
+      "source_id": "ui67n216fvfzrb9"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 72871, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "Früh geweihet sonder Wahl noch Willen, / Lebt' ein unerfahrnes holdes Kind,",
+      "language": [],
+      "musenalm_id": 72872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rückkehr der Pförtnerinn. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rückkehr der Pförtnerinn. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "euusmmldd59cz2w"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 72874, Obj 14 /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Den Main zog Kaiser Adolf einst hinab / Durchs Blachfeld hin, zog abwärts nach dem Rhein;",
+      "language": [],
+      "musenalm_id": 72873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Adolfs Eck. / Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Adolfs Eck. / Sage",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "dydkestgyp8vt5e"
+    },
+    {
+      "annotation": "Illustration zu »Adolfs Eck« INr 72873, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius del. H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius del. H. Lips sculp.",
+      "scans": [
+        "alm_2692_72874_zi5ay1f14y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.705Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.705Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "0t5wbiu47oyk60t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.705Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.705Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "dyhv3dcwsinbojn"
+        }
+      ],
+      "source_id": "b8d3delxxcugb5v"
+    },
+    {
+      "annotation": "mit zwei Illustrationen s. Graphiken INr 72876 72876; Obj 16, 17 /) mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Ueber Wiesen führen schmale Pfade / An den Fuß der hohen Felsenwände, / Hin zum Sanct Elisabethen-Brunnen.",
+      "language": [],
+      "musenalm_id": 72875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Sanct Elisabethen-Brunnen. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Sanct Elisabethen-Brunnen. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "2fschbu77k5q2ag"
+    },
+    {
+      "annotation": "Illustration zu »Der Sanct Elisabethen-Brunnen« INr 72875, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius del. H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius del. H. Lips sculp.",
+      "scans": [
+        "alm_2692_72876_w7793f0sca.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "9mp89b8l59ts9m8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "zgblq21kelkm8cj"
+        }
+      ],
+      "source_id": "jvu0xirsac3pzkx"
+    },
+    {
+      "annotation": "Illustration zu »Der Sanct Elisabethen-Brunnen« INr 72875, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius d. Fr. Bolt sc. 1812)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius d. Fr. Bolt sc. 1812",
+      "scans": [
+        "alm_2692_72877_m10yfe8yi5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "habfmm8n5c0f9yx",
+          "source_id": "nnblb7i0jb5k933"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "tsjb3n58rthdqpp"
+        }
+      ],
+      "source_id": "ev43m90j6i8fpiw"
+    },
+    {
+      "annotation": "Illustration zu »Sanct Georg und die Wittwe« INr 72879, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius d. H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius d. H. Lips sculp.",
+      "scans": [
+        "alm_2692_72878_16rrspg17s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "7c3vag7khry7jye"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "zj2g017rs5uaoha"
+        }
+      ],
+      "source_id": "6g0g1i1ejc372vk"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 728878, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.493Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Als in Selena aus dem Rachen / Des blutbegierig grimmen Drachen / Sanct Georg mit heil'ger Tapferkeit / Die Königstochter kühn befreit;",
+      "language": [],
+      "musenalm_id": 72879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sanct Georg und die Wittwe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sanct Georg und die Wittwe",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "cokl71y90vrocyt"
+    },
+    {
+      "annotation": "Illustration zu »Der Siegerkranz« INr 72821, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72880,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius del. H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius del. H. Lips sculp.",
+      "scans": [
+        "alm_2692_72880_q16qy1ufyo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "dnbhse7l5ru2opr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "pxrn8ddw7ef1z87"
+        }
+      ],
+      "source_id": "zopx8kiu5bz0r2j"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 72880, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Eines Abends spät klomm von einem hohen Harzberge einalter Rittersmann mühsam in das Thal hinab. Er war Leuthold geheißen, und vormals all' dieser Gegenden Beherrscher gewesen;",
+      "language": [],
+      "musenalm_id": 72881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Siegerkranz. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Siegerkranz. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ksyd1vtb248q8et"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Schon lag im feuchten Grab versenket / Der fromme Clemens tief im Meer,",
+      "language": [],
+      "musenalm_id": 72882,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Grab des heiligen Clemens. / Legende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Grab des heiligen Clemens. / Legende",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "2jb5w1lz61mo2st"
+    },
+    {
+      "annotation": "Illustration zu »Die Nacht im Walde« INr 72884, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.497Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "110",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72883,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius del. Rist sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius del. Rist sc.",
+      "scans": [
+        "alm_2692_72883_ng1myntuzz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.678Z",
+          "agent": "b508kdfhrvb4cbp",
+          "source_id": "mx2rur5y46cxh0h"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.678Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "tle0z975w48cr02"
+        }
+      ],
+      "source_id": "a16l213zh0qla92"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 72883, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.582Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Die Adler fliegen schon zum Neste heim; / Schräg sieht der herbstlich matte Sonnenstrahl / Durch welke Blätter und durch Nebel her.",
+      "language": [],
+      "musenalm_id": 72884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Nacht im Walde. / Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Nacht im Walde. / Sage",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ypjgz4jbugb8iq0"
+    },
+    {
+      "annotation": "mit Anm.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.694Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "135",
+      "incipit_statement": "Den gekrümmten Felsweg vom Apollinarisberg herunter, kam der Probst mit einem Laienbruder hinter sich nach dem Städtlein Remagen, allwo das Cölner Marktschiff, von Andernach herkommend eben angelegt hatte,",
+      "language": [],
+      "musenalm_id": 72885,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gang durch Cöln. / Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Gang durch Cöln. / Sage",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "iew4swkogp31u8o"
+    },
+    {
+      "annotation": "Illustration zu »Die Martins-Wand« INr 72887, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72886,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Cornelius del. H. Lips sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cornelius del. H. Lips sculp.",
+      "scans": [
+        "alm_2692_72886_8o9ky6kxsg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.754Z",
+          "agent": "rpaa721tugmmh0s",
+          "source_id": "2077ybyb4t79xwc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.754Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.754Z",
+          "agent": "ns8syak978vfvbp",
+          "source_id": "oy1hoiyryxog16v"
+        }
+      ],
+      "source_id": "7cbrvm9awon9i80"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 72886, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Von Augsburg der prangenden Reichstadt zog, / Beim purpurumfluteten Abenstrahl / Ich sacht' einher, wie die Straße sich bog,",
+      "language": [],
+      "musenalm_id": 72887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Martins-Wand. / Sage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Martins-Wand. / Sage",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "mzh5yaq9hmpp1gd"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.697Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 72888,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sagen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2692_72888_5283ozuk3i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sagen",
+      "updated": "2010-02-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "6xoxtgc9g0snkfg"
+    }
   ],
   "agents": [
     {

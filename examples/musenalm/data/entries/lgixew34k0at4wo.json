@@ -48,7 +48,26 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "gwvr9h4k7bde9u9"
+    {
+      "annotation": "1806+\nKartonierter Einband.\n1806: Mit Titel  und 164 SS.",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.567Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100801",
+      "location": "105F03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.567Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gwvr9h4k7bde9u9"
+    }
   ],
   "contents": [],
   "agents": []

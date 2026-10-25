@@ -48,96 +48,3751 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "f9eaq6wio3x2v17"
+    {
+      "annotation": "1823-1848.\nKartonierter Einband mit eingeprägtes Muster und Goldschnitt.\n1831: (K:Bl 1, XXXII, 312 SS und Ku 6). Mit Bl 1, Ku 6 und XXXII, 312 SS. \n",
+      "condition": "2b",
+      "created": "2026-06-11 10:17:37.575Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106578",
+      "location": "105A07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.575Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "f9eaq6wio3x2v17"
+    }
   ],
   "contents": [
-    "rfk1fea5l0iva1o",
-    "9b9xvejdk3vkjxb",
-    "b8basessh8yu2mm",
-    "10vpwj9g5iu7uzb",
-    "eeo4lild2dajizj",
-    "tlydy7jjuz38dm1",
-    "asec68hm8zkc61g",
-    "8g5vfhw7lp3aa3l",
-    "ebfhbfwmceu16uq",
-    "q7sdd6imooi3vo3",
-    "oqummtwbjv4odve",
-    "c0xkac7nup7hk3v",
-    "iheg36hxhznjfzw",
-    "mo4cazh1u8niabg",
-    "uto0vkv79i7whdq",
-    "y7totjx5zbalzcc",
-    "4whex7in4ihwq3v",
-    "7fpwktsc0fa9l0w",
-    "grzgcalfhe119xg",
-    "524nf57br7ndg4u",
-    "9gassz7ebxj9ne7",
-    "4yzqjb3h20ll3zo",
-    "psbb1a92p49czhe",
-    "12v0v19gd3sgzhw",
-    "702qvjc8hnddfls",
-    "rg3s0vu6etfvoa5",
-    "hrb2a1y4z25i2yg",
-    "dvn3rbcuohsik77",
-    "5glwhs2aeynf040",
-    "uuwlogicqthrszg",
-    "nrhragv5fykbilo",
-    "dhw5j9y4ltoem7q",
-    "55aljrnpwf64b5q",
-    "op0lnw9mi8pjdkg",
-    "t1rzb653iv4ofej",
-    "vskldfy0ydmmehj",
-    "f84qdrcut76d3kl",
-    "6p2mdtvden2y1lw",
-    "5emyz7rztxtifq4",
-    "vtiq2ursvqmbats",
-    "ifx0p379arcfxp2",
-    "spl13a8pft9hhbq",
-    "fo3mgunat7sr297",
-    "qsyzdr3bcy88tlr",
-    "kdklx8k6p2g8sua",
-    "n9s0bcbgb1mnzsk",
-    "jbyykbzpbyx6vgs",
-    "7wm6vx9jh3ppp4n",
-    "uhjp8v407n9pg94",
-    "p4vr9xxs6hhrs8y",
-    "e4w20qeai68xs1w",
-    "30vek3hc2gizgm9",
-    "ccuerpbrh7sowwy",
-    "gq6611hi2az755c",
-    "efyrnz1p3k0fj5k",
-    "mb5bum3ui0e8y5e",
-    "yrkxmgacigy7h6e",
-    "6jfu7tnde6np2ny",
-    "7q4fdg35y32he19",
-    "lpb5iemvsoferau",
-    "zddjo7kkb1786qf",
-    "njp6g4wepg0t983",
-    "3ylilkb69xzrbrg",
-    "bnwt01eulurvdk7",
-    "w0hic00vfrcd4o7",
-    "oi2eyhcz6yqd6y9",
-    "bntuhfj82aa7hzj",
-    "env78e3et7iv4u3",
-    "tnvh7b4knwasq8f",
-    "ijqlxvghw0kp7qk",
-    "oljwe644nx0ykkm",
-    "zc5q7yo4bezs5zu",
-    "clr059oxo7ooacv",
-    "ue2zw82wt2ator9",
-    "1vr1c48vop4qdod",
-    "g4yo7kzihlo8afj",
-    "ng6j0m0roqaywju",
-    "98k064qo2gjyi79",
-    "fw4h2j9j6uiwy1g",
-    "cyd0x9nikepyagm",
-    "juu2i16amv4gcbu",
-    "p3wrd6ggiec38by",
-    "oauxv4ekg64t9yd",
-    "vbms5jlkeavy5h6",
-    "47csgdks474vpm8",
-    "8rmx5dnjtsy3xhu",
-    "bq6q0aetqfu7w48"
+    {
+      "annotation": "Titelgraphik s. Textbezug (Gedicht) INr 94351, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94345,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Joh. Mezler del. I. Krepp sc. Viennae)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1869_94345_i79v9nkk3z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.573Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "00vq39txvrcq1lk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.573Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.573Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "6b84amktdfi6jm8"
+        }
+      ],
+      "source_id": "rfk1fea5l0iva1o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.689Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94346,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "HULDIGUNG / den / FRAUEN / EIN TASCHENBUCH / für das Jahr 1832. / Herausgegeben / von / I. F. CASTELLI. / Zehnter Jahrgang. / Mit sechs Kupfern. / WIEN / bey Fr. Tendler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl",
+      "scans": [
+        "alm_1869_94346_3zemt4lwhm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "HULDIGUNG / den / FRAUEN / EIN TASCHENBUCH / für das Jahr 1832. / Herausgegeben / von / I. F. CASTELLI. / Zehnter Jahrgang. / Mit sechs Kupfern. / WIEN / bey Fr. Tendler",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "9b9xvejdk3vkjxb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94347,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer kaiserlichen königlichen Hoheit / der / durchlauchtigsten Frau / Sophia, / Friederica, Dorothea, / kaiserlichen Prinzessinn und Erzherzoginn von Österreich, gebornen königlichen Prinzessinn von / Baiern / ehrfurchtsvoll gewidmet",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "vom Verleger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer kaiserlichen königlichen Hoheit / der / durchlauchtigsten Frau / Sophia, / Friederica, Dorothea, / kaiserlichen Prinzessinn und Erzherzoginn von Österreich, gebornen königlichen Prinzessinn von / Baiern / ehrfurchtsvoll gewidmet",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "b8basessh8yu2mm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94348,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Huldigung den Frauen. / Ein / Taschenbuch für das Jahr 1832",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Huldigung den Frauen. / Ein / Taschenbuch für das Jahr 1832",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "10vpwj9g5iu7uzb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94349,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "eeo4lild2dajizj"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten zu den Graphiken des Taschenbuchs INr 94351-61, Obj 7-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.691Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94350,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechs / Sonnette / zu den Kupfern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechs / Sonnette / zu den Kupfern",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.574Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "8zp9lajm4a727tq"
+        }
+      ],
+      "source_id": "tlydy7jjuz38dm1"
+    },
+    {
+      "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Titelgraphik INr 94345, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.692Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wie auch das kleine Mädchen mag gefallen, / Wie auch die Jungfrau Alles hoch verehret,",
+      "language": [],
+      "musenalm_id": 94351,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die mütterliche Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die mütterliche Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.574Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.574Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "s7kmizg3ecr0oob"
+        }
+      ],
+      "source_id": "asec68hm8zkc61g"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 94353, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94352,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die zierliche Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1869_94352_s2h9ovyt7p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die zierliche Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "46gqlvebemuc2qf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "nzq2z73kfdwnykm"
+        }
+      ],
+      "source_id": "8g5vfhw7lp3aa3l"
+    },
+    {
+      "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Graphik INr 94352, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "Dir hat Natur mit königlichen Händen / Den Hermelin der Reize umgehangen,",
+      "language": [],
+      "musenalm_id": 94353,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Die zierliche Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Die zierliche Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "jlfpno2twrehcdg"
+        }
+      ],
+      "source_id": "ebfhbfwmceu16uq"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 94355, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94354,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die liebliche Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1869_94354_ubfemww3eb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die liebliche Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "4wwmijg2itkw1gt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.718Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.718Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "y8aqvo1fdleu2at"
+        }
+      ],
+      "source_id": "q7sdd6imooi3vo3"
+    },
+    {
+      "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Graphik INr 94354, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Am milden Frühlingsabend Zephyrswehen, / Wie lieblich kühlt es uns die glüh'nden Wangen!",
+      "language": [],
+      "musenalm_id": 94355,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die liebliche Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die liebliche Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "2t927yk6w9q57nt"
+        }
+      ],
+      "source_id": "oqummtwbjv4odve"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 94357, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.944Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94356,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die hohe Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1869_94356_tq30hl3cj2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die hohe Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "cajivhnkx68jqtx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "r7djhm3b4dw90kw"
+        }
+      ],
+      "source_id": "c0xkac7nup7hk3v"
+    },
+    {
+      "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Graphik INr 94356, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Wenn sich der Hoheit Glanz mit Schönheit gattet, / Der Purpurmantel um die Schultern hänget,",
+      "language": [],
+      "musenalm_id": 94357,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Die hohe Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Die hohe Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "wvu9cmcnpvgrsi8"
+        }
+      ],
+      "source_id": "iheg36hxhznjfzw"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 94359, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94358,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die verweisende Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1869_94358_dp5t29jrx6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die verweisende Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "jy72cp1g4nd1fv9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "r5f9gyji47bktlb"
+        }
+      ],
+      "source_id": "mo4cazh1u8niabg"
+    },
+    {
+      "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Graphik INr 94358, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Der Schönheit, ihr, der hohen, würdevollen, / Steht oft die ernste Strenge still zur Seite,",
+      "language": [],
+      "musenalm_id": 94359,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Die verweisende Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Die verweisende Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.246Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.246Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "05bxg6jqrgtd6tk"
+        }
+      ],
+      "source_id": "uto0vkv79i7whdq"
+    },
+    {
+      "annotation": "s. Textbezug (Gedicht) INr 94361, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94360,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die eitle Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1869_94360_lzh0x3av3m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die eitle Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.682Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "cctxj7trgj5l6gz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.682Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.682Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "dty42dkt4nqauy9"
+        }
+      ],
+      "source_id": "y7totjx5zbalzcc"
+    },
+    {
+      "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Graphik INr 94358, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "Was willst du dich mit äußerm Schmuck behangen, / Den schöner ich an deinem Leib gewahre?",
+      "language": [],
+      "musenalm_id": 94361,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Die eitle Schöne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Die eitle Schöne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "ldob0knot17mbgl"
+        }
+      ],
+      "source_id": "4whex7in4ihwq3v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Als Gottes unumschränkte Hand / Den Wunderkranz der Schöpfung wand, / Wie aus der Schrift zu wissen;",
+      "language": [],
+      "musenalm_id": 94362,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauenbestimmung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernest Hall",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauenbestimmung",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "7fpwktsc0fa9l0w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Im Jahre 1827 machte der Referent folgender Herzensergießungen eine Reise nach seiner Vaterstadt Copenhagen.",
+      "language": [],
+      "musenalm_id": 94363,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klara's Selbstbekenntnisse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Kruse",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klara's Selbstbekenntnisse",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "jfhywk4cbxcodws",
+          "source_id": "r7w641kkx3gph6f"
+        }
+      ],
+      "source_id": "grzgcalfhe119xg"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 94365-94369, Obj 21-25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94364,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frauenlob",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Frauenlob",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "kb0y7ezjsafkjyu"
+        }
+      ],
+      "source_id": "524nf57br7ndg4u"
+    },
+    {
+      "annotation": "Der Frauenlob (Sammlung INr 94364, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Vor'm Haus ein Harfner wohlgemuth / Sitzt auf der Bank von Stein,",
+      "language": [],
+      "musenalm_id": 94365,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.683Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.683Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "3y48m2l4i3fr9ch"
+        }
+      ],
+      "source_id": "9gassz7ebxj9ne7"
+    },
+    {
+      "annotation": "Der Frauenlob (Sammlung INr 94364, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Zu Mainz im hohen Schlosse, / Da gibts ein Fastnachtsspiel,",
+      "language": [],
+      "musenalm_id": 94366,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.498Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "dv1g0hswstjum6i"
+        }
+      ],
+      "source_id": "4yzqjb3h20ll3zo"
+    },
+    {
+      "annotation": "Der Frauenlob (Sammlung INr 94364, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "In Mainz, in Mainz, der alten Stadt, / Da Haust ein reicher Mann,",
+      "language": [],
+      "musenalm_id": 94367,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.498Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "spbjxc2qk31lopj"
+        }
+      ],
+      "source_id": "psbb1a92p49czhe"
+    },
+    {
+      "annotation": "Der Frauenlob (Sammlung INr 94364, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Des finstern Mantels Falten / Ausbreitet weit die Nacht,",
+      "language": [],
+      "musenalm_id": 94368,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.498Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "phr3oyawpvty0m0"
+        }
+      ],
+      "source_id": "12v0v19gd3sgzhw"
+    },
+    {
+      "annotation": "Der Frauenlob (Sammlung INr 94364, Obj 20)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Jahrhundert' sind vergangen im raschen Flug der Zeit, / Der Hügel ist eingesunken, den einst ihm grub das Scheit.",
+      "language": [],
+      "musenalm_id": 94369,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.498Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "yg2iglzm7l47y0y"
+        }
+      ],
+      "source_id": "702qvjc8hnddfls"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 94371-94378, Obj 27-34 /) Der Sammlung vorangestellt: Motto: / Ich besaß es doch ein Mal, / Was so köstlich ist; / Daß man doch zu seiner Qual, / Nimmer es vergißt. / Göthe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.386Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94370,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder des Schmerzes. / (Bruchstück.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder des Schmerzes. / (Bruchstück.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.498Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "4r9zh24dt4fkp9s"
+        }
+      ],
+      "source_id": "rg3s0vu6etfvoa5"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Der Schmerzen hab' ich viel empfunden, / Des Herben viel in kurzem Lauf,",
+      "language": [],
+      "musenalm_id": 94371,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.666Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "t1lgmvu2bpy0u0p"
+        }
+      ],
+      "source_id": "hrb2a1y4z25i2yg"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.939Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "82",
+      "incipit_statement": "Ich fand ein Herz im wirren Weltgetriebe, / Da baut' ich mir aus Hoffnung eine Erde,",
+      "language": [],
+      "musenalm_id": 94372,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.629Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "uhvljzk7dp8s8h7"
+        }
+      ],
+      "source_id": "dvn3rbcuohsik77"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "83",
+      "incipit_statement": "Ich mahl' euch die Holde, ich mahl' euch sie jetzt, / So wie sie mir einst erschienen,",
+      "language": [],
+      "musenalm_id": 94373,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.629Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "kr0o24ckjty3man"
+        }
+      ],
+      "source_id": "5glwhs2aeynf040"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Oft hört' ich euch, ihr Freunde, bitter schmollen, / Warum ich sie gerade mir erwähle,",
+      "language": [],
+      "musenalm_id": 94374,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.629Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "9ybuaixi911he21"
+        }
+      ],
+      "source_id": "uuwlogicqthrszg"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Als mir versunken des Lebens Lust, / Da rang ich die Hände, zerschlug mir die Brust,",
+      "language": [],
+      "musenalm_id": 94375,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.629Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "g7f5noepjm9ideg"
+        }
+      ],
+      "source_id": "nrhragv5fykbilo"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Du schöne Linde, bist nur verdorrt, / Hast oft uns Schatten gegeben,",
+      "language": [],
+      "musenalm_id": 94376,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.629Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "kmde9xjbxr8q9kw"
+        }
+      ],
+      "source_id": "dhw5j9y4ltoem7q"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.716Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "O Liebe, wie mit Sonnenschein, / Durchwärmtest du mich ganz,",
+      "language": [],
+      "musenalm_id": 94377,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.578Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.578Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "alvpp1tucpm3lq6"
+        }
+      ],
+      "source_id": "55aljrnpwf64b5q"
+    },
+    {
+      "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Wenn sie einst nicht mehr wandeln wird hieneiden, / Was weit entfernen mag der Gott der Güte,",
+      "language": [],
+      "musenalm_id": 94378,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Egon Ebert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.389Z",
+          "agent": "8gvoxfhtianvore",
+          "source_id": "55k4nmcj3htb4op"
+        }
+      ],
+      "source_id": "op0lnw9mi8pjdkg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "88",
+      "incipit_statement": "Auf der Höhe schläft die Stadt / Wie ein frommes Kind,",
+      "language": [],
+      "musenalm_id": 94379,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Haigerloch in Schwaben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Haigerloch in Schwaben",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.389Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "rpbdnxjl070zim7"
+        }
+      ],
+      "source_id": "t1rzb653iv4ofej"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "92",
+      "incipit_statement": "Der Ritter Max von Birkenfeld, / Ein wackrer Mann, ein rüst'ger Held, / Erwählte sich ein Liebchen,",
+      "language": [],
+      "musenalm_id": 94380,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weiber-Kur",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weiber-Kur",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.389Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "o36356us5t7rabp"
+        }
+      ],
+      "source_id": "vskldfy0ydmmehj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "99",
+      "incipit_statement": "Die Begebenheiten des neunzehnten Jahrhunderts machten mich mit sieben und zwanzig Jahren zum Hauptmann, und zum Invaliden.",
+      "language": [],
+      "musenalm_id": 94381,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Abenteuer im Bade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Stierle-Holzmeister",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Abenteuer im Bade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "f84qdrcut76d3kl"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 94383, 94384; Obj 38, 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.438Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94382,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Romanzen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.389Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "u9ci4drpbmajf2s"
+        }
+      ],
+      "source_id": "6p2mdtvden2y1lw"
+    },
+    {
+      "annotation": "Romanzen (Sammlung INr 94382, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.439Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "184",
+      "incipit_statement": "Starb das Kindlein. / Ach die Mutter / Saß am Tag, und, weinte, weinte, / Saß zur Nacht und weinte.",
+      "language": [],
+      "musenalm_id": 94383,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Das Todtenhemdchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Das Todtenhemdchen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.389Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.389Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "fk4obj2x59nuc9i"
+        }
+      ],
+      "source_id": "5emyz7rztxtifq4"
+    },
+    {
+      "annotation": "Romanzen (Sammlung INr 94382, Obj 38)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.808Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Drei edle Frauen stunden / In einem stillen Thal,",
+      "language": [],
+      "musenalm_id": 94384,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Die thaulose Blume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Die thaulose Blume",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.324Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "upmdiv0hffb8cxv"
+        }
+      ],
+      "source_id": "vtiq2ursvqmbats"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "186",
+      "incipit_statement": "Das Tischchen, welches wir dir weih'n, / Soll unsres Kränzchens Denkmal seyn.",
+      "language": [],
+      "musenalm_id": 94385,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Arbeitstischchen. / Hochzeitgabe für eine scheidende Freundinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Arbeitstischchen. / Hochzeitgabe für eine scheidende Freundinn",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.324Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "nz2cfkfik014b4w"
+        }
+      ],
+      "source_id": "ifx0p379arcfxp2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "188",
+      "incipit_statement": "Du Blütenmeer von Namen, / Wie schwimm' ich durch dich hin?",
+      "language": [],
+      "musenalm_id": 94386,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An alle meine Schönen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. K. Braun von Braunthal",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An alle meine Schönen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.324Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.324Z",
+          "agent": "7vcuasq6vh9n9b3",
+          "source_id": "78h1xnsg0o7uqw4"
+        }
+      ],
+      "source_id": "spl13a8pft9hhbq"
+    },
+    {
+      "annotation": "s. a. Glosse von Gustav Ritter von Frank in: Huldigung den Frauen 1830; INr 94260",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "189",
+      "incipit_statement": "Trägst du Thränen auf den Wangen, / Die ein fremdes Aug' vergoß,",
+      "language": [],
+      "musenalm_id": 94387,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glosse. / Einen Abschied nennt das Scheiden, / Wer nicht kennt ein fühlend Herz; / Doch ich nenn' es einen Schmerz, / Der nur endigt im Verscheiden. / Montemajor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Maltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glosse. / Einen Abschied nennt das Scheiden, / Wer nicht kennt ein fühlend Herz; / Doch ich nenn' es einen Schmerz, / Der nur endigt im Verscheiden. / Montemajor",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.325Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.325Z",
+          "agent": "enmi0t9mog462m5",
+          "source_id": "dgj1coem9s2ctal"
+        }
+      ],
+      "source_id": "fo3mgunat7sr297"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Wenn scheidend die Dämm'rung in's Thal hinab flieht, / Die Gipfel der Berge ein Goldstrom umzieht,",
+      "language": [],
+      "musenalm_id": 94388,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herzens Wohl und Wehe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friederike Susann, geb. Salzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herzens Wohl und Wehe",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.325Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.325Z",
+          "agent": "3f48m7dc4honoam",
+          "source_id": "azk11gj7poajy56"
+        }
+      ],
+      "source_id": "qsyzdr3bcy88tlr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "So viele Töne, / So vieles Schöne! / Für jegliches Lied / Ein Herz, das für dich glüht;",
+      "language": [],
+      "musenalm_id": 94389,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In das Stammbuch einer Sängerinn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Gerhard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In das Stammbuch einer Sängerinn",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.325Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.325Z",
+          "agent": "c4v9nl7ztvkf3sf",
+          "source_id": "hzgqcfuhjms6qy2"
+        }
+      ],
+      "source_id": "kdklx8k6p2g8sua"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "193",
+      "incipit_statement": "Die Liebe ist mein Streben, / Die Lieb' ist meine Noth, / Die Liebe ist mein Leben, / Die Liebe ist mein Tod.",
+      "language": [],
+      "musenalm_id": 94390,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueberall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jos. Pope",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueberall",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9s0bcbgb1mnzsk"
+    },
+    {
+      "annotation": "Das Gedicht zuerst in: Huldigung den Frauen 1831; INr 94328; hier variant",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "194",
+      "incipit_statement": "Wofür mein Herz in Liebe flammet, / Was unaufhörlich, ohne Ruh / Zur Sehnsucht dieses Herz verdammet, / Bist Du.",
+      "language": [],
+      "musenalm_id": 94391,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Sophie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Müchler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Sophie",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.325Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.325Z",
+          "agent": "cqrs6fj7ecvzmh8",
+          "source_id": "nwsxplu7c2cq3h1"
+        }
+      ],
+      "source_id": "jbyykbzpbyx6vgs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.809Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "195",
+      "incipit_statement": "Braus't des Unglücks Sturm empor, / Halt' ich meine Harfe vor;",
+      "language": [],
+      "musenalm_id": 94392,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost im Liede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz von Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost im Liede",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.325Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.325Z",
+          "agent": "demesi9ujep1ia6",
+          "source_id": "v251b0vn1en478n"
+        }
+      ],
+      "source_id": "7wm6vx9jh3ppp4n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Muth und Liebe heißt die Losung, / Die des Schicksals Macht gerührt!",
+      "language": [],
+      "musenalm_id": 94393,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Maria",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Barbarina",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Maria",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.325Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.325Z",
+          "agent": "kzden0pkha3xf40",
+          "source_id": "savcsilmqelgwd0"
+        }
+      ],
+      "source_id": "uhjp8v407n9pg94"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "Alles schweigt, und blasse Sterne schimmern / Schaurig durch die düstre Mitternacht;",
+      "language": [],
+      "musenalm_id": 94394,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Melancholie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Pietznigg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Melancholie",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "p4vr9xxs6hhrs8y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Es traf sich, daß drei junge Männer, innige Freunde, die sich seit fünf Jahren nicht gesehen, eines Tages in der Hafenstadt Triest wieder zusammen kamen,",
+      "language": [],
+      "musenalm_id": 94395,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gelübde. / (Novelle.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bauernfeld",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Gelübde. / (Novelle.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.629Z",
+          "agent": "by4fxr8blp8xj25",
+          "source_id": "78m2bod03o6ztcy"
+        }
+      ],
+      "source_id": "e4w20qeai68xs1w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.940Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "232",
+      "incipit_statement": "Einst huldigten mir Celten und Helennen, / Wie der Normannaheld am Runenstein,",
+      "language": [],
+      "musenalm_id": 94396,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mondlicht's Walten",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emmy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mondlicht's Walten",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "30vek3hc2gizgm9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "236",
+      "incipit_statement": "Zu Ende ist die Ordination, / Mein Seel, ich bin im Schweiße ganz gebadet, / Es kostet wahrlich viele Mühe schon.",
+      "language": [],
+      "musenalm_id": 94397,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Organe der Liebe. / Ein allegorischer Schwank, allenfalls zur Deklamation",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Organe der Liebe. / Ein allegorischer Schwank, allenfalls zur Deklamation",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.391Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "s3tx3dzxyp4kfj5"
+        }
+      ],
+      "source_id": "ccuerpbrh7sowwy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "245",
+      "incipit_statement": "Der Mond mit Trübem Scheine / Sieht nieder von der Höh'",
+      "language": [],
+      "musenalm_id": 94398,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Liebe Winter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Liebe Winter",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.391Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "gbf0lm05nd4y890"
+        }
+      ],
+      "source_id": "gq6611hi2az755c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Wenn die Liebe nur ein Brief ist, / Der bedeutungsvoll und tief ist,",
+      "language": [],
+      "musenalm_id": 94399,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brief",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Brief",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.391Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "euwzt0doujnj00j"
+        }
+      ],
+      "source_id": "efyrnz1p3k0fj5k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "247",
+      "incipit_statement": "Sei willkommen mir zu tausend Malen, wer da liebt, / Und beglänzt von tausend Sonnenstrahlen, wer da liebt,",
+      "language": [],
+      "musenalm_id": 94400,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ghasele",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ghasele",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.391Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "q2xdtcjiejsk3rt"
+        }
+      ],
+      "source_id": "mb5bum3ui0e8y5e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "248",
+      "incipit_statement": "Sonst, wenn der Feind des Waldes, der Herbst geschli- / chen kam / Und recht auf Räuberweise das Laub den Bäumen nahm,",
+      "language": [],
+      "musenalm_id": 94401,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lehrerinn Nymfe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Jeitteles",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lehrerinn Nymfe",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.391Z",
+          "agent": "cr0uh3kmaadt1st",
+          "source_id": "g2cz5afc9oj5y80"
+        }
+      ],
+      "source_id": "yrkxmgacigy7h6e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "250",
+      "incipit_statement": "Schnee bedecket Berg und Thale, / Wüthend tobt der eis'ge Nord:",
+      "language": [],
+      "musenalm_id": 94402,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "St. Martin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Hannusch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "St. Martin",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.391Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.391Z",
+          "agent": "1gx7z956tuv7ghs",
+          "source_id": "r5vag2lzjm6yls9"
+        }
+      ],
+      "source_id": "6jfu7tnde6np2ny"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "253",
+      "incipit_statement": "Ist die Dämmerung da? Mich däucht es taget im Osten / Und es erblasset die Nacht, fürchtend den kommenden Tag.",
+      "language": [],
+      "musenalm_id": 94403,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Morgen. / (Nach östlichen Dichtern.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. v. Hammer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Morgen. / (Nach östlichen Dichtern.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.392Z",
+          "agent": "tawz02p17yaumx1",
+          "source_id": "87znn63ym77cf7v"
+        }
+      ],
+      "source_id": "7q4fdg35y32he19"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "257",
+      "incipit_statement": "Täuschend ist des Auges Sprache, / Doch das Antlitz sagt es klar:",
+      "language": [],
+      "musenalm_id": 94404,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Physiognomik",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Bar. Schlechta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Physiognomik",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.392Z",
+          "agent": "x1uz1klk4dlr9er",
+          "source_id": "0b37vftg6h1hmvq"
+        }
+      ],
+      "source_id": "lpb5iemvsoferau"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Abergläubig, Gott bewahre, / Abergläubig bin ich nicht,",
+      "language": [],
+      "musenalm_id": 94405,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bogen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Kahlert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bogen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.392Z",
+          "agent": "l9ob2970ns5k8js",
+          "source_id": "k2swzjmsqo9m0gn"
+        }
+      ],
+      "source_id": "zddjo7kkb1786qf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "In einem jener ungarischen Flecken am rechten oder linken Donau-Ufer, oder an der Theiß, oder in der Mitte des Landes, ich weiß es nicht genau, denn das Dorf wird erst in hundert Jahren entstehen,",
+      "language": [],
+      "musenalm_id": 94406,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brief. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Graf Mailáth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Brief. / Ein Mährchen",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.392Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.392Z",
+          "agent": "ynz1wrh0mfk3t8y",
+          "source_id": "fe4cgrmvlxr5ijr"
+        }
+      ],
+      "source_id": "njp6g4wepg0t983"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Mir wandert zur Seite ein finsterer Geist, / Der höhnisch mir Bänder und Kränze zerreißt,",
+      "language": [],
+      "musenalm_id": 94407,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ahnung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. K. Baldamus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ahnung",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.475Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.475Z",
+          "agent": "gvrm573djft0g9v",
+          "source_id": "n1vgl1ax1ysnhgw"
+        }
+      ],
+      "source_id": "3ylilkb69xzrbrg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Mehrere hübsche Herrn und Damen / Unlängst an diese Stelle kamen;",
+      "language": [],
+      "musenalm_id": 94408,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In den Ruinen des Bergschlosses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. von Deuern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In den Ruinen des Bergschlosses",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "bnwt01eulurvdk7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "280",
+      "incipit_statement": "Im Schlosse blitzt Fackelschein, / Im Saale wogt der Reigen;",
+      "language": [],
+      "musenalm_id": 94409,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Sängers Gaben. / (Ballade.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. A. Schröckinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Sängers Gaben. / (Ballade.)",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "w0hic00vfrcd4o7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.937Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Liebe spricht im Schmerz und Glücke / Durch ein trautes Mienenspiel;",
+      "language": [],
+      "musenalm_id": 94410,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Mienensprache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Kasper",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Mienensprache",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "oi2eyhcz6yqd6y9"
+    },
+    {
+      "annotation": "Sammlung von 7 Rätseln und einer Sammlung mit 10 Rätseln INr 94412-94429, Obj 68-85",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.938Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94411,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nüsse / zum / Aufknacken für schöne Zähne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nüsse / zum / Aufknacken für schöne Zähne",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "bntuhfj82aa7hzj"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Du tändelst all zu viel mit diesem Kind, / Die Andern setztest du dadurch zurück!",
+      "language": [],
+      "musenalm_id": 94412,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Gespräch zweier Gatten. / Ein Palyndrom",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. J-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Gespräch zweier Gatten. / Ein Palyndrom",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "env78e3et7iv4u3"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "Herrlich hält der Schritt den Tact, / Tritt im Tempo weiter,",
+      "language": [],
+      "musenalm_id": 94413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Homonym",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. J-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Homonym",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "tnvh7b4knwasq8f"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.279Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Ein Reicher war's im schönen Wagen / Und ein Student, der arm und schlicht,",
+      "language": [],
+      "musenalm_id": 94414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Die Reisenden. / Eine zweisylbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. J-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Die Reisenden. / Eine zweisylbige Charade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ijqlxvghw0kp7qk"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Wollt' Ihr spielen, so folget nur mir, / Wir eilen zur Ersten behende,",
+      "language": [],
+      "musenalm_id": 94415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Die uneinigen Kinder. / Dreisylbige Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. J-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Die uneinigen Kinder. / Dreisylbige Charade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "oljwe644nx0ykkm"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "297",
+      "incipit_statement": "Auf einem Stamm, an Feldes Rain, / Saß trauernd Nachbars Knabe,",
+      "language": [],
+      "musenalm_id": 94416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Logogryph",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. J-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Logogryph",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "zc5q7yo4bezs5zu"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Der Vater saß am Pult und schrieb, / Der Sohn, ihm dictirend, zur Seite.",
+      "language": [],
+      "musenalm_id": 94417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Homonym",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. W. J-i.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Homonym",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "clr059oxo7ooacv"
+    },
+    {
+      "annotation": "Sammlung von 10 Rätseln INr 94419-94428, Obj 75-84 /) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Räthselkranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Räthselkranz",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "l87isdji7jvxh5l"
+        }
+      ],
+      "source_id": "ue2zw82wt2ator9"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Was trauerst du, mein Vöglein, / Das dieser Käfig umschließt,",
+      "language": [],
+      "musenalm_id": 94419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Sylbenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Sylbenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "qxakzqt7dawbj0r"
+        }
+      ],
+      "source_id": "1vr1c48vop4qdod"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "Ich war vor langen Zeiten / Ein großer spanischer Held,",
+      "language": [],
+      "musenalm_id": 94420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Buchstabenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Buchstabenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "pei4fr95qtwdvrs"
+        }
+      ],
+      "source_id": "g4yo7kzihlo8afj"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "300",
+      "incipit_statement": "Bald siehst du mich am Himmel, / Gar trüb und nur bei Nacht:",
+      "language": [],
+      "musenalm_id": 94421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Homonym-Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. Homonym-Charade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "3wotztwn6fdhzzf"
+        }
+      ],
+      "source_id": "ng6j0m0roqaywju"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Ich Erste bin ein holdes Wort / Und üb'rall wohl gelitten;",
+      "language": [],
+      "musenalm_id": 94422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Sylbenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Sylbenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "1uphhqdhjh5dj66"
+        }
+      ],
+      "source_id": "98k064qo2gjyi79"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "Ich trag' um meine Lenden / Ein nebelgraues Kleid",
+      "language": [],
+      "musenalm_id": 94427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Buchstabenrätsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Buchstabenrätsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "wwp8t419ccs6fvp"
+        }
+      ],
+      "source_id": "fw4h2j9j6uiwy1g"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Wie bös' ich erste Sylbe bin, / Hat mancher schon erfahren,",
+      "language": [],
+      "musenalm_id": 94423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Sylbenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Sylbenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "lm8gbggm9cy3mrz"
+        }
+      ],
+      "source_id": "cyd0x9nikepyagm"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Das Weibchen, so ich habe, / Es nennet sich 2, 3, / Und ist wie alle Weibchen, / Von Fehlern gar nicht frei.",
+      "language": [],
+      "musenalm_id": 94424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Scherz-Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Scherz-Charade",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "9dfnsmzlwunrubb"
+        }
+      ],
+      "source_id": "juu2i16amv4gcbu"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "305",
+      "incipit_statement": "Ein Mädchen jung und lieblich, / Das war mein Zweites lang,",
+      "language": [],
+      "musenalm_id": 94425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. Sylbenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. Sylbenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "20j9sprlybnfz1l"
+        }
+      ],
+      "source_id": "p3wrd6ggiec38by"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Ne gute Regel bleibt es stets, / In Ehren uns zu halten,",
+      "language": [],
+      "musenalm_id": 94426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IX. / Sylbenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IX. / Sylbenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.434Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.434Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "vypz4y8s6m784nm"
+        }
+      ],
+      "source_id": "oauxv4ekg64t9yd"
+    },
+    {
+      "annotation": "7. Räthselkranz (Sammlung INr 94418, Obj 74) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Es sinnen und trachten die Menschen / Auf dieser Welt gar viel,",
+      "language": [],
+      "musenalm_id": 94428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "X. Buchstabenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Adami",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "X. Buchstabenräthsel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.429Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.429Z",
+          "agent": "h1jhs52naysyy4l",
+          "source_id": "nrurqguhbvob1k0"
+        }
+      ],
+      "source_id": "vbms5jlkeavy5h6"
+    },
+    {
+      "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94411, Obj 67)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Die erste Sylbe winkt mit holdem Lächeln, / Begrüßt mein kindlich Angesicht die Flur,",
+      "language": [],
+      "musenalm_id": 94429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Charade. / Dreisylbig",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emmy",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Charade. / Dreisylbig",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "47csgdks474vpm8"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 94430,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kern der Nüsse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kern der Nüsse",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "8rmx5dnjtsy3xhu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gedruckt bei J. P. Sollinger",
+      "language": [],
+      "musenalm_id": 94431,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedruckt bei J. P. Sollinger…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "bq6q0aetqfu7w48"
+    }
   ],
   "agents": [
     {

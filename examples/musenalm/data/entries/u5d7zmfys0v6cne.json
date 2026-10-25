@@ -48,12 +48,153 @@
   "year": 1849,
   "editor": "",
   "items": [
-    "9qwzd77i6wqztsa"
+    {
+      "annotation": "s.a. »Berliner Taschenbuch 1849«, Biblio 404167",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.743Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408399",
+      "location": "105H08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.743Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9qwzd77i6wqztsa"
+    }
   ],
   "contents": [
-    "6xg7fc7kaz7wtgf",
-    "j28nygv2lncu9ll",
-    "dfc0rrb7ogln3y0"
+    {
+      "annotation": "Umschlaggraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93852,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Entwurf u. Lithographie von H. Asmus in Berlin)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Entwurf u. Lithographie von H. Asmus in Berlin",
+      "scans": [
+        "alm_4087_93852_p72aux8qdi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.237Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.237Z",
+          "agent": "wvzx8yp0t9tqzmo",
+          "source_id": "vhk8gomp511n1ts"
+        }
+      ],
+      "source_id": "6xg7fc7kaz7wtgf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93853,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Titel]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4087_93853_qyaqrp8ome.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2014-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [],
+      "source_id": "j28nygv2lncu9ll"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 93854,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BERLIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H.A.",
+      "scans": [
+        "alm_4087_93854_3w3706lspa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BERLIN",
+      "updated": "2014-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1849,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.237Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.237Z",
+          "agent": "wvzx8yp0t9tqzmo",
+          "source_id": "yhhey4ca8ubp030"
+        }
+      ],
+      "source_id": "dfc0rrb7ogln3y0"
+    }
   ],
   "agents": [
     {

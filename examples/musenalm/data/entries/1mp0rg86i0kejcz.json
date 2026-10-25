@@ -48,47 +48,1641 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "07te67f3wv6d14s"
+    {
+      "annotation": "1816-1873.\nKartonierter Einband mit  Grafik und Goldschnitt (Buchrücken leicht beschädigt).\n1846: (K:Stahlst 7) Mit Ku 7 und BL 9+319 SS.\nHEBEL: \"Friedel und Mariane\" nach Hebel    Seite 7, Ku dazu Seite 13.   \nHg:1816-1842 = A. Schreiber. \n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell.\n     1857-1862 = A. Henninger.\n     1863-1873 = Frater Hilarius (pseude).   ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.532Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100192",
+      "location": "105N03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.532Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "07te67f3wv6d14s"
+    }
   ],
   "contents": [
-    "s07918v7a59sq44",
-    "bvn7y4va5n9twz4",
-    "setps52eum019k6",
-    "khke8g3kaq5e1rt",
-    "xhgmi5z6qi64fi1",
-    "3o0u723ex76a151",
-    "e5rnxx9gujpl19o",
-    "94ypqwzazw8jznd",
-    "kytvzxj2dt8eeqb",
-    "2loirj696bu0ggk",
-    "wr69j416nds0c2g",
-    "cycza66fjpj1efp",
-    "ig7qg3yz7hkikeq",
-    "vrwh3fsuwvp2tnl",
-    "1mobxw5w0txgzxn",
-    "rot10jdzrqs5ekp",
-    "0ok24qgpe86olf4",
-    "8kjxap4l7dbwq2s",
-    "ny48dhvvzx12smo",
-    "gppx5hg22obil8a",
-    "1otyzglnikisco0",
-    "dzcr6bb0tdvi413",
-    "8nahbhzqs6oorbe",
-    "ukegl2nfa316udj",
-    "5lbnc138k6lmzr3",
-    "mofiz56clla3ww1",
-    "1rl78915xv6wwu0",
-    "by6oth3tbs8hytd",
-    "bfp5z3oonkpgvrj",
-    "yce35ln16barskl",
-    "7pd0xyqfrkzletc",
-    "sgmzzoma2v341ks",
-    "hcapnmapgk0jh1z",
-    "s9m35ew2d1hrumv",
-    "71cxv54qz6xuuvo",
-    "by7gp59wv8a193f",
-    "1sexnnec9qui4xm",
-    "wo05rw5k9alb6lu"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63955,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / Taschenbuch / für deutsche Frauen. / 1846",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1054_63955_nazjwybdxy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / Taschenbuch / für deutsche Frauen. / 1846",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "s07918v7a59sq44"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug 63960, Obj 6 /) unter der Graphik: Druck & Verlag von G. G. Lange in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63956,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Spieß sc. Mchn.",
+      "scans": [
+        "alm_1054_63956_27f0vmite1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "jvt2kfjjwcuz8go",
+          "source_id": "8z0o69revg6ah4v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "df9ywd8crzk9f9o"
+        }
+      ],
+      "source_id": "bvn7y4va5n9twz4"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63957,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1846 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Walter Tesche / 31. JAHRGANG / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. A. Schad sc.",
+      "scans": [
+        "alm_1054_63957_09mkajzmbd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1846 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Walter Tesche / 31. JAHRGANG / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "0p3sppouefqg31w"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.040Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.040Z",
+          "agent": "3gnzs7actzcxdwq",
+          "source_id": "hfz0qc00kwfsjlq"
+        }
+      ],
+      "source_id": "setps52eum019k6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63958,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis",
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "khke8g3kaq5e1rt"
+    },
+    {
+      "annotation": "Sammlung von 8 Beiträgen INr 63960-63967, Obj 5-12 als Textbezüge zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.023Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63959,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Reihenfolge / und Erklärung der Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Reihenfolge / und Erklärung der Stahlstiche",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "xhgmi5z6qi64fi1"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Titelgraphik INr 63956, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.475Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Mit Hochmuth zeigt uns Claudia Juwelen, / Mit Stolz Cornelia ihre Söhne / Als höchsten Schatz!",
+      "language": [],
+      "musenalm_id": 63960,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Cornelia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Cornelia",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "3o0u723ex76a151"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Titel INr 63957, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.476Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "componirt von C. Nilsen und in Stahl gestochen von A. Schad in München",
+      "language": [],
+      "musenalm_id": 63961,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Titelblatt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Titelblatt",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "e5rnxx9gujpl19o"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Graphik INr 63968, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Steht in des Schicksal's ew'gem Buch geschrieben, / Du sollst einst Herrscher sein in diesem Land",
+      "language": [],
+      "musenalm_id": 63962,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Die Prinzen Ludwig, Heinrich und die Prinzeß / Anna von Hessen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Die Prinzen Ludwig, Heinrich und die Prinzeß / Anna von Hessen",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "94ypqwzazw8jznd"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Graphik INr 63969, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hebt auf des Gebetes Welle / Himmelan sich Seel' und Blick,",
+      "language": [],
+      "musenalm_id": 63963,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Die Andächtigen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Die Andächtigen",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "kytvzxj2dt8eeqb"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Graphik INr 63970, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Seht, welch ein Mensch! das eine, kurze Wort, / Pilatus ruft es und verstummt verwundert,",
+      "language": [],
+      "musenalm_id": 63964,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Christus der Gegeißelte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Christus der Gegeißelte",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "2loirj696bu0ggk"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Graphik INr 63971, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.095Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ihr zagt im wilden Walde, / Verirrte Kindlein, nicht,",
+      "language": [],
+      "musenalm_id": 63965,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Kinder, die unter einem Baum Schutz suchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Kinder, die unter einem Baum Schutz suchen",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "wr69j416nds0c2g"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Graphik INr 63972, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Und bist nicht reich an Gulden / Und bist nicht reich an Gold,",
+      "language": [],
+      "musenalm_id": 63966,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. Friedel und Mariane. / (Nach Hebel.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet nach Hebel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. Friedel und Mariane. / (Nach Hebel.)",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "cycza66fjpj1efp"
+    },
+    {
+      "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63959, Obj 5) s. Graphik INr 63973, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "William, o William, wa hast du gedacht, / Zu jagen nach Rehen und Hirschen?",
+      "language": [],
+      "musenalm_id": 63967,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. Shakespeare's Verhör",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. Shakespeare's Verhör",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "ig7qg3yz7hkikeq"
+    },
+    {
+      "annotation": "s. Textbezug INr 63962, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.022Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63968,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE PRINZEN LUDWIG, HEINRICH u. DIE PRINZESSIN ANNA VON HESSEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Backofen del. J. W. Baumann sculpt.",
+      "scans": [
+        "alm_1054_63968_0afjgwfomf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE PRINZEN LUDWIG, HEINRICH u. DIE PRINZESSIN ANNA VON HESSEN",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.269Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "zyisrqoc7kbd0u6"
+        }
+      ],
+      "source_id": "vrwh3fsuwvp2tnl"
+    },
+    {
+      "annotation": "s. Textbezug INr 63963, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.024Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63969,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE ANDÄCHTIGEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Vallou del. Chr. Hoffmeister sc.",
+      "scans": [
+        "alm_1054_63969_ph6vmwu1qi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE ANDÄCHTIGEN",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.269Z",
+          "agent": "gzbr47bktmp3eah",
+          "source_id": "0o5j5mve2zwbnen"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.269Z",
+          "agent": "zuqeig2avlr6rku",
+          "source_id": "r3oc4sqjldzzsvx"
+        }
+      ],
+      "source_id": "1mobxw5w0txgzxn"
+    },
+    {
+      "annotation": "s. Textbezug INr 63964, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.026Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63970,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Christus der Gegeißelte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Vandych pinx. J. W. Baumann sc.",
+      "scans": [
+        "alm_1054_63970_uutmiemsk1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Christus der Gegeißelte",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "yfpqp089ikjb1ej",
+          "source_id": "06emi4ilzr6iij7"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "m2t0liinw11p4so"
+        }
+      ],
+      "source_id": "rot10jdzrqs5ekp"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 63965, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.028Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63971,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kinder, die unter einem Baum Schutz suchen #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "v. der Emde pinx. J. W. Baumann sculpt.",
+      "scans": [
+        "alm_1054_63971_uxb0dm4o3c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kinder, die unter einem Baum Schutz suchen #",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "4e9ixe51cmbdjq1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "x8yxsrt1rt2g6o1",
+          "source_id": "qr2en7kdig0tjed"
+        }
+      ],
+      "source_id": "0ok24qgpe86olf4"
+    },
+    {
+      "annotation": "Illustration zu »Friedel und Mariane nach J. P. Hebel« s. Textbezug INr 63966, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.031Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63972,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRIEDEL & MARIANE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Nilson del. Stahlst. v. W. Otto",
+      "scans": [
+        "alm_1054_63972_m51ab5mnes.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRIEDEL & MARIANE",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "8bb100zizr2ji3a",
+          "source_id": "6kw7wytquq0oy2h"
+        }
+      ],
+      "source_id": "8kjxap4l7dbwq2s"
+    },
+    {
+      "annotation": "s. Textbezug INr 63967, Obj 13 /) unter der Graphik: Druck & Verlag v. G. G. Lange in Darmstadt",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.032Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63973,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SHAKESPEARE'S VERHÖR",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Harvey del. I. W. Baumann sc",
+      "scans": [
+        "alm_1054_63973_ujy1ps9hkv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SHAKESPEARE'S VERHÖR",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "112o1b15f1cpomo",
+          "source_id": "a5nqxn54unvdp9o"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "x7b3q8mt71tqkdg",
+          "source_id": "dfg0rc415lcuavr"
+        }
+      ],
+      "source_id": "ny48dhvvzx12smo"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Dem Bischof dort hat man den Stab zerschlagen / Und mit dem Zorn aus seiner Hoheit Tagen / Blickt er herab und furcht die starken Brauen. / Levin Schücking",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In früher Morgenstunde eines Sommertages durchschnitt ein Kahn, von zwei Männern mit kraftvollen Ruderschlägen geführt, die Fluten des Königssees im bayrischen Oberlande.",
+      "language": [],
+      "musenalm_id": 63974,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Helm und Mithra. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Helm und Mithra. / Novelle",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "w9wfcqyinz5n6fv"
+        }
+      ],
+      "source_id": "gppx5hg22obil8a"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Kennt ihr das Land wo Cypressen und Reben / Und herrlich die Blumen, die lieblichen blühn; [...] Byron",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.034Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "133",
+      "incipit_statement": "An den Hafenufern der kleinen, sonnigen Insel Siffanto unter griechischem Himmel, drängte sich die bewegliche, handelsbegierige Bevölkerung der Stadt in buntem Getümmel durcheinander.",
+      "language": [],
+      "musenalm_id": 63975,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Andronika. / Novelle, 1611",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Walter Tesche",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Andronika. / Novelle, 1611",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "ayxe6k12ru1cyko",
+          "source_id": "orb3tl4m79yzboi"
+        }
+      ],
+      "source_id": "1otyzglnikisco0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Meine Jugend fällt in die Zeit, als Napoleon sein eisernes Scepter über die schönen Lande auf dem linken Ufer des Rheines schwang.",
+      "language": [],
+      "musenalm_id": 63976,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine rheinische / Schmugglergeschichte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. O. von Horn",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine rheinische / Schmugglergeschichte",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "u657j3m1foor2a9",
+          "source_id": "v1ayjlna1f0my46"
+        }
+      ],
+      "source_id": "dzcr6bb0tdvi413"
+    },
+    {
+      "annotation": "Sammlung von 12 Gedichten in 2 Sammlungen INr 63978-63991, Obj 24-37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63977,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.015Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.015Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "wx8gtfhdj0xd4fd"
+        }
+      ],
+      "source_id": "8nahbhzqs6oorbe"
+    },
+    {
+      "annotation": "Sammlung von 10 Gedichten INr 63979-63988, Obj 25-34 /) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63978,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Lieder und Bilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Lieder und Bilder",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.015Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.015Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "iitv4plrk17un8l"
+        }
+      ],
+      "source_id": "ukegl2nfa316udj"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.720Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "307",
+      "incipit_statement": "Wenn Lerchengesang und Blütenduft / Hinaus, hinaus dich locken,",
+      "language": [],
+      "musenalm_id": 63979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.015Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.015Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "3s6dc6jvolkms3e"
+        }
+      ],
+      "source_id": "5lbnc138k6lmzr3"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.721Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Zwei stille Blumen blühen / In Eines Teiches Flut,",
+      "language": [],
+      "musenalm_id": 63980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.016Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.016Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "zocgbckqazzdb0v"
+        }
+      ],
+      "source_id": "mofiz56clla3ww1"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Ein Mägdlein kenn' ich still und treu, / Das hat mich nie verlassen,",
+      "language": [],
+      "musenalm_id": 63981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.274Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.274Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "94bkhb2cbizs7au"
+        }
+      ],
+      "source_id": "1rl78915xv6wwu0"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Und Augen waren es wieder, / Die mir daß Herz verbrannt,",
+      "language": [],
+      "musenalm_id": 63982,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.274Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.274Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "niud6kgmz1nomb4"
+        }
+      ],
+      "source_id": "by6oth3tbs8hytd"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.074Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "Ja, du bist mein, und willst es seyn, / Das nenn' ich Liebe werben, Doch hüte dich, in meiner Glut,",
+      "language": [],
+      "musenalm_id": 63983,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.274Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.274Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "lh4iqrds9hdawoh"
+        }
+      ],
+      "source_id": "bfp5z3oonkpgvrj"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Lebe wohl! Nie seh' ich wieder, / Die so kurz nur meine war,",
+      "language": [],
+      "musenalm_id": 63984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.295Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "q085l7k450t42gx"
+        }
+      ],
+      "source_id": "yce35ln16barskl"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Du bist ein Stern im Abendschein, / Du holde Lichtgestalt.",
+      "language": [],
+      "musenalm_id": 63985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.295Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "gaxb2hgi40fdug1"
+        }
+      ],
+      "source_id": "7pd0xyqfrkzletc"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "312",
+      "incipit_statement": "Was willst du in der Einsamkeit? / Die Nacht ist lang, dein Herz ist weit,",
+      "language": [],
+      "musenalm_id": 63986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.296Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "d8ougvnoe9o71m3"
+        }
+      ],
+      "source_id": "sgmzzoma2v341ks"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Mir wird so wohl, mir wird so wehe, / Wenn ich die ersten Knospen sehe,",
+      "language": [],
+      "musenalm_id": 63987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.296Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "wrm6qjn0gkqj10s"
+        }
+      ],
+      "source_id": "hcapnmapgk0jh1z"
+    },
+    {
+      "annotation": "I. Lieder und Bilder (Sammlung INr 63978, Obj 24) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "313",
+      "incipit_statement": "Himmelssterne nicht, nur Lieder, / Sternchen rollten auf mich nieder,",
+      "language": [],
+      "musenalm_id": 63988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.972Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "p22nwfgg7dlaqhs"
+        }
+      ],
+      "source_id": "s9m35ew2d1hrumv"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 63990, 63991; Obj 36, 37 /) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Sagen und Balladen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Sagen und Balladen",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.972Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "25wjnyyo4zit7qb"
+        }
+      ],
+      "source_id": "71cxv54qz6xuuvo"
+    },
+    {
+      "annotation": "II. Sagen und Balladen (Sammlung INr 63989, Obj 35) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "Nacht ist's, auf stiller Meeresflut / Selene's Auge träumend ruht,",
+      "language": [],
+      "musenalm_id": 63990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Pan ist todt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Pan ist todt",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.972Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.972Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "f0lqhx6iektdfun"
+        }
+      ],
+      "source_id": "by7gp59wv8a193f"
+    },
+    {
+      "annotation": "II. Sagen und Balladen (Sammlung INr 63989, Obj 35) Gedichte (Sammlung INr 63977, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Zu Burgos im Gerichtssaal / Bei wogendem Gedränge, / Da saß der Granden Hof einmal, / Mit stattlichem Gepränge.",
+      "language": [],
+      "musenalm_id": 63991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Der Fandango",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Nodnagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Der Fandango",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.986Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.986Z",
+          "agent": "4skdzpouculjiw0",
+          "source_id": "rllnbnnwotyik10"
+        }
+      ],
+      "source_id": "1sexnnec9qui4xm"
+    },
+    {
+      "annotation": "Umschglaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.248Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63992,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GGL",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1054_63992_xyzlbow5wm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GGL",
+      "updated": "2009-05-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1846,
+      "editor": "",
+      "agents": [],
+      "source_id": "wo05rw5k9alb6lu"
+    }
   ],
   "agents": [
     {

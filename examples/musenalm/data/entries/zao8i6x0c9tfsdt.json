@@ -48,68 +48,2801 @@
   "year": 1820,
   "editor": "",
   "items": [
-    "jr7ubzgbziv4fqm"
+    {
+      "annotation": "1801-1841.\nKartonierter Einband mit Goldschnitt und Schuber.\n1820:(K:Bl 15, 320 SS,  Ku 6 und Monatsku 12.) Mit Tku 1, Bl 15, Monatsku 12, Ku 5 und 330 SS.  \n\\par Auch unter Titel : TB a.d.J Der Liebe und Freundschaft gewidmet \n\\par Hg:   1811-1839  St. Schütz\n\\par         1840-1841  L. Storch",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.486Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101099",
+      "location": "105F09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.486Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "jr7ubzgbziv4fqm"
+    }
   ],
   "contents": [
-    "sdrd3cutfvn5crp",
-    "lp2o6humsx6x0p9",
-    "kqhuk8hyghpq9c8",
-    "k7jlnbkuzrc6xj0",
-    "zrk7h98v6oo1iw0",
-    "0ynxfv2fajt0k17",
-    "a1eob5pxcqd6b7x",
-    "hgb6ewscjo75jr0",
-    "qzr2tgq2vehipvm",
-    "ldi9q07ov41t4h2",
-    "th3ukx06l1wm5hv",
-    "hfwa2yht9sh0kif",
-    "43dt2qjs2hun5bt",
-    "22xght3zdwrn81k",
-    "750m5y2x109wibv",
-    "4tbklob1aa3blcu",
-    "fsfljofyap08zcr",
-    "x0061k66m2vv1qs",
-    "qraom658vdxv7x0",
-    "787x10qbpwrux3y",
-    "3nciudpo3oodzm0",
-    "1538dlg7f8wus3i",
-    "nmxcp3a62q610gv",
-    "fyyqwl1ynfhkvhr",
-    "72fot0c87fj2m55",
-    "eudhc8z9lsyd924",
-    "hio309z2nc1tkbd",
-    "95vk9fdqtpljaxr",
-    "yqi9gsga5w73v2i",
-    "t0u3e624zl2g0tp",
-    "ik7rf6z2i87s0bv",
-    "fymu6pmttgtt7u3",
-    "1t4krszqtgwlh3n",
-    "5cmvx7nxzs9ez17",
-    "6aujsrjc9hijmxc",
-    "tu77b4ob7h1bwcf",
-    "yjc0ez2o4lich1m",
-    "dyq8b6tg5qaf8it",
-    "1kuke39u0dw4coy",
-    "bkr18amkhdcnp34",
-    "5ml5yepq97r8rz4",
-    "jj6dk6rmpwngufl",
-    "rbleah7l0iqqjh2",
-    "nvq5ix64djgakfu",
-    "annp3ds10gy4m6f",
-    "x01vqx921hq7n7p",
-    "smgeqry4zw6iyek",
-    "da7aetxxrfteqyl",
-    "00w8zn60gqh95wa",
-    "u1df2mlk4anay6r",
-    "6xlkvq8h7wx2bi7",
-    "0osfh9fdeidqy2e",
-    "rt8b1lam8z0a45r",
-    "bwggtunqigmj7l9",
-    "3s8ezothpdu0n9m",
-    "kusvfapv0iooolg",
-    "roqap1jspgmpeqt",
-    "o9e75ststm7ewqs",
-    "c704li9poxcws53"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.458Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29591,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg inv. del. C. Westermayr sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg inv. del. C. Westermayr sculp.",
+      "scans": [
+        "alm_383_29591_k00g3b2gys.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "42o0b61pv6oviee"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "fyaffebeonadx0p"
+        }
+      ],
+      "source_id": "sdrd3cutfvn5crp"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.459Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29592,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+      "scans": [
+        "alm_383_29592_4lxvjurksr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "6v0awa1t3nxkuch"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "di8csnsg0heec2j"
+        }
+      ],
+      "source_id": "lp2o6humsx6x0p9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29593,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1820. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn, / bei den Gebrüdern Wilmans",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_383_29593_wu4synd5yf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1820. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn, / bei den Gebrüdern Wilmans",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "kqhuk8hyghpq9c8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29594,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "k7jlnbkuzrc6xj0"
+    },
+    {
+      "annotation": "Sammlung von 12 Textbezügen zu 12 Graphiken INr 29596-29619, Obj 6-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29595,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ludchens Heimkehr / oder / die Freunde. / Ein ländliches Epos in zwölf Gesängen / mit zwölf Kupfern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ludchens Heimkehr / oder / die Freunde. / Ein ländliches Epos in zwölf Gesängen / mit zwölf Kupfern",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.386Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.386Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "1qi4kohk9qkf1e8"
+        }
+      ],
+      "source_id": "zrk7h98v6oo1iw0"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29597, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Schon war, umkränzt von grünen Höhen, / Das Dorf der stillen Heimath nah,",
+      "language": [],
+      "musenalm_id": 29596,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Gesang. / Ankunft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Gesang. / Ankunft",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "mb5tesnx3vjzfuq"
+        }
+      ],
+      "source_id": "0ynxfv2fajt0k17"
+    },
+    {
+      "annotation": "paginiert 1. /) s. Textbezug 29596, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29597,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_383_29597_692hu07wef.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gc15ld9wwxfik6c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "nddksnxnng7cpb0"
+        }
+      ],
+      "source_id": "a1eob5pxcqd6b7x"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29599, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wie Simson schneid' ich hier Gebehrden, / Doch Furcht und Zögern rettet nicht;",
+      "language": [],
+      "musenalm_id": 29598,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Gesang. / Verlegenheit und Trosterscheinung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Gesang. / Verlegenheit und Trosterscheinung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "m1nq6pg98vxop4o"
+        }
+      ],
+      "source_id": "hgb6ewscjo75jr0"
+    },
+    {
+      "annotation": "paginiert 2. /) . Textbezug 29598, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29599,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_383_29599_zahuij8423.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "2az37v0upzvma5a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gn28j8kl4f5tbai"
+        }
+      ],
+      "source_id": "qzr2tgq2vehipvm"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29601, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.467Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "O Bruder, laß mein Leid dir klagen, / Sieh' die zeriss'nen Segel an,",
+      "language": [],
+      "musenalm_id": 29600,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Gesang. / Freundeshülfe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Gesang. / Freundeshülfe",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "jltrkvqn785oyif"
+        }
+      ],
+      "source_id": "ldi9q07ov41t4h2"
+    },
+    {
+      "annotation": "paginiert 3. /) s. Textbezug 29600, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.467Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29601,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_383_29601_epal5aml3y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "s9h301can9yu7pu"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zjy653hmgot9spa"
+        }
+      ],
+      "source_id": "th3ukx06l1wm5hv"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29603, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ganz sauber nun und ehrbar schreitet, / Ein langes Stäbchen in der Hand",
+      "language": [],
+      "musenalm_id": 29602,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Gesang. / Glorreicher Empfang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Gesang. / Glorreicher Empfang",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "mqqg5a3w57wxpjm"
+        }
+      ],
+      "source_id": "hfwa2yht9sh0kif"
+    },
+    {
+      "annotation": "paginiert 4. /) s. Textbezug 29602, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.469Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29603,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury fec.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_383_29603_s4mh0gm3o0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "4kz11aa2iniq5me"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "8fuqy0zrgj79wfy"
+        }
+      ],
+      "source_id": "43dt2qjs2hun5bt"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29605, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Als just die letzten Garben stellen / Die Leut' im Feld', begann der Knecht:",
+      "language": [],
+      "musenalm_id": 29604,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Gesang. / Die Vogelscheuche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Gesang. / Die Vogelscheuche",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "5vw330ta9k42wj5"
+        }
+      ],
+      "source_id": "22xght3zdwrn81k"
+    },
+    {
+      "annotation": "paginiert 5. /) s. Textbezug 29604, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29605,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_383_29605_gei9167kbt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.387Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.387Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "2081jtbugfhui6r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.388Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.388Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "yspt1i3oir86x3g"
+        }
+      ],
+      "source_id": "750m5y2x109wibv"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29607, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es lagen fünf und vierzig Eier / Im Kessel, die Frau Schulzen steht",
+      "language": [],
+      "musenalm_id": 29606,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sechster Gesang. / Anklage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sechster Gesang. / Anklage",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.367Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "24vqrnf8zvc6b5x"
+        }
+      ],
+      "source_id": "4tbklob1aa3blcu"
+    },
+    {
+      "annotation": "paginiert 6. /) s. Textbezug 29606, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.289Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29607,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_383_29607_6trdeqlr07.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.367Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "0gp2g651umg42cj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.367Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "qrcl3etw1hhbxkt"
+        }
+      ],
+      "source_id": "fsfljofyap08zcr"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29609, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es streichelt ihrem Sohn die Wangen / Die Mutter Pastorin und spricht:",
+      "language": [],
+      "musenalm_id": 29608,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Siebenter Gesang. / Tollkühn bricht die Natur hervor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Siebenter Gesang. / Tollkühn bricht die Natur hervor",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.367Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "kx4jmeo62gneyi1"
+        }
+      ],
+      "source_id": "x0061k66m2vv1qs"
+    },
+    {
+      "annotation": "paginiert 7. /) s. Textbezug 29608, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29609,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_383_29609_i54vznywxm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.367Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "7zucm7gnucg1q62"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.367Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.367Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fmnu6xct90ld5m5"
+        }
+      ],
+      "source_id": "qraom658vdxv7x0"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29611, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Drauf seufzt es Abends unterm Fenster / Ganz jämmerlich; in seiner Haft",
+      "language": [],
+      "musenalm_id": 29610,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Achter Gesang. / Die Stunde der Prüfung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Achter Gesang. / Die Stunde der Prüfung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "fqrbu3p6vo7s3qd"
+        }
+      ],
+      "source_id": "787x10qbpwrux3y"
+    },
+    {
+      "annotation": "paginiert 8. /) s. Textbezug 29610, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29611,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_383_29611_w80xkfcc3z.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "bzo3jsgmqb2o43l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "jfsnia0pwyg1c00"
+        }
+      ],
+      "source_id": "3nciudpo3oodzm0"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29613, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.396Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Es saß, des Baumes nun entledigt, / Am heitern Tag der Schulzensohn",
+      "language": [],
+      "musenalm_id": 29612,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neunter Gesang. / Die Begeisterung in ihrer Herrlichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neunter Gesang. / Die Begeisterung in ihrer Herrlichkeit",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "jnzi4qffs289dp5"
+        }
+      ],
+      "source_id": "1538dlg7f8wus3i"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an den Graphiken 1-8. paginiert 9. s. Textbezug 29612, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.397Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29613,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. R. del. W. J. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. R. del. W. J. fec.",
+      "scans": [
+        "alm_383_29613_xf7rgcflpj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "i2hnjkt9klg5opf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "xbp4mao0xwipjo4"
+        }
+      ],
+      "source_id": "nmxcp3a62q610gv"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29615, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.398Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gertrude so voll Lieb' und Milde / Um Wilhelm her - für Ludwig war",
+      "language": [],
+      "musenalm_id": 29614,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zehnter Gesang. / Oeffentliche Probe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zehnter Gesang. / Oeffentliche Probe",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "z7id7jonw7qmpux"
+        }
+      ],
+      "source_id": "fyyqwl1ynfhkvhr"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an den Graphiken 1-8. paginiert 10. s. Textbezug 29614, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.399Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29615,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. R. del. W. J. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. R. del. W. J. fec.",
+      "scans": [
+        "alm_383_29615_6ncjaylkus.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "oq2t2fwyf8pupht"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.493Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "wfmr539gbt1pd3d"
+        }
+      ],
+      "source_id": "72fot0c87fj2m55"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29617, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.158Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nun glüht gleich lodernd hellen Kerzen / Des Schulzen zornig Angesicht:",
+      "language": [],
+      "musenalm_id": 29616,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elfter Gesang. / Drangsal und Errettung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elfter Gesang. / Drangsal und Errettung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "vxe0uyf9ssbmy7t"
+        }
+      ],
+      "source_id": "eudhc8z9lsyd924"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an den Graphiken 1-8. paginiert 11. s. Textbezug 29616, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29617,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. R. del. W. J. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. R. del. W. J. fec.",
+      "scans": [
+        "alm_383_29617_aab0s1rb6m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "qrf6loo5hc1rvjz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "rpo5fwy8ymyta11"
+        }
+      ],
+      "source_id": "hio309z2nc1tkbd"
+    },
+    {
+      "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29619, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nun zog ein furchtbar schwarzes Wetter / An Ludwig's Horizont herauf;",
+      "language": [],
+      "musenalm_id": 29618,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwölfter Gesang. / Entscheidung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwölfter Gesang. / Entscheidung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "bz3g6nsj7vaxrv9"
+        }
+      ],
+      "source_id": "95vk9fdqtpljaxr"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung an den Graphiken 1-8. paginiert 12. s. Textbezug 29618, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29619,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. H. R. del. W. J. fec.)]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. R. del. W. J. fec.",
+      "scans": [
+        "alm_383_29619_jf9cjayj60.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.467Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.467Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "gjqtjprg136p863"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.468Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gshgnfrkdhyjxzk"
+        }
+      ],
+      "source_id": "yqi9gsga5w73v2i"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29621, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In der Straße St. Honoree war das kleine Haus gelegen, welches Magdaleine von Scuderi, bekannt durch ihre anmuthigen Verse",
+      "language": [],
+      "musenalm_id": 29620,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Das Fräulein von Scuderi. / Erzählung aus dem Zeitalter Ludwig des Vierzehnten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. T. Hoffmann Verfasser der Phantasiestücke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Das Fräulein von Scuderi. / Erzählung aus dem Zeitalter Ludwig des Vierzehnten",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.468Z",
+          "agent": "hhytu0neum83euj",
+          "source_id": "sl2c17vpwfx0mj1"
+        }
+      ],
+      "source_id": "t0u3e624zl2g0tp"
+    },
+    {
+      "annotation": "Illustration zu »Das Fräulein von Scuderi« von E. T. A. Hoffmann INr 29620, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.163Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29621,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus der Erzählung: Das Fräulein von Scuderi, von T. Hofmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_383_29621_j2gmwdbanj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus der Erzählung: Das Fräulein von Scuderi, von T. Hofmann",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.468Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "v5ilc6p94nbqqln"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.468Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.468Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "zkzaarxgpvyds29"
+        }
+      ],
+      "source_id": "ik7rf6z2i87s0bv"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29623, Obj 33",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Schweigend ward es rings, und dunkel; / Wie verlorner Abendschein / Glänzte purpurnes Gefunkel",
+      "language": [],
+      "musenalm_id": 29622,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Bertha",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Bertha",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.213Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "taex6w0qokmzxux"
+        }
+      ],
+      "source_id": "fymu6pmttgtt7u3"
+    },
+    {
+      "annotation": "Illustration zu »Bertha« von L. Brachmann INr 29622, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.070Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "128",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29623,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus Bertha von Louise Brachmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+      "scans": [
+        "alm_383_29623_nqhdhjfrhy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus Bertha von Louise Brachmann",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.213Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "gxkklc2udycllgg"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.213Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.213Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "upei9smhep4lj0a"
+        }
+      ],
+      "source_id": "1t4krszqtgwlh3n"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Du Engel gingst zu deinen Lichtgefilden, / Und ließest hier mich auf der fremden Welt,",
+      "language": [],
+      "musenalm_id": 29624,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sternenschimmer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sternenschimmer",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.205Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "pdn55ze74r9c0t2"
+        }
+      ],
+      "source_id": "5cmvx7nxzs9ez17"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Ende mein verzehrend Leiden! / Diesen wilden Flammenschmerz!",
+      "language": [],
+      "musenalm_id": 29625,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mücke Sterben",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mücke Sterben",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.205Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.205Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "t9fc1nz3xennms2"
+        }
+      ],
+      "source_id": "6aujsrjc9hijmxc"
+    },
+    {
+      "annotation": "# Bezeichnung aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.025Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Als Pavia's Lustgefilde / Rauchten von der Frankenschlacht",
+      "language": [],
+      "musenalm_id": 29626,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "König Franz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "König Franz",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.206Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.206Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "q3rtsgcctrzwhga"
+        }
+      ],
+      "source_id": "tu77b4ob7h1bwcf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29628, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.471Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Es war ein schöner Sommerabend; ruhig breiteten die Bäume ihre Wipfel in die heiße Luft,",
+      "language": [],
+      "musenalm_id": 29627,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die liebenden Geschwister. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die liebenden Geschwister. / Erzählung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.502Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.502Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "smjlqylabao327t"
+        }
+      ],
+      "source_id": "yjc0ez2o4lich1m"
+    },
+    {
+      "annotation": "Illustration zu »Die liebenden Geschwister« von St. Schütze INr 29627, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.472Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29628,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Die liebenden Geschwister von St. Schütze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+      "scans": [
+        "alm_383_29628_pd953f9gaj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Die liebenden Geschwister von St. Schütze",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.502Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.502Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "04kkro775tml5m4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.502Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.502Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "dqvv72vhckgzn34"
+        }
+      ],
+      "source_id": "dyq8b6tg5qaf8it"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29630, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.473Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "185",
+      "incipit_statement": "Der Däumling zirpte hervor aus der Wiege, / Nimm, lieber Vater, mich mit auf's Feld!",
+      "language": [],
+      "musenalm_id": 29629,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Leu. / Ein Volksmährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. F. E. Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hans Leu. / Ein Volksmährchen",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.502Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.502Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "8rblwiqujlyj198"
+        }
+      ],
+      "source_id": "1kuke39u0dw4coy"
+    },
+    {
+      "annotation": "Illustration zu »Hans Leu« von A. F. E. Langbein INr 26929, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29630,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Hans Leu. Ein Volksmährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury sc.",
+      "scans": [
+        "alm_383_29630_4b61y5ecrt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Hans Leu. Ein Volksmährchen",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.557Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "ax66a1974lh2xse"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.557Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.557Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "i975sa387m7xxc1"
+        }
+      ],
+      "source_id": "bkr18amkhdcnp34"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 29632, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "203",
+      "incipit_statement": "Nach der Stadt Cöln kam eines Tages - es mag manch schöner Tropfen des Rheinstroms an der alten Rheinveste vorübergegangen seyn! - ein Mann,",
+      "language": [],
+      "musenalm_id": 29631,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Der erborgte Schmuck. / Erzählung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Der erborgte Schmuck. / Erzählung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "ylqjn1g9hz3vshj"
+        }
+      ],
+      "source_id": "5ml5yepq97r8rz4"
+    },
+    {
+      "annotation": "Illustration zu »Der erborgte Schmuck« von F. Laun d. i. F. A. Schulze INr 29631, Obj 41",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.814Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "256",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29632,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sc. aus: Der verborgte Schmuck, / von F. Laun",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+      "scans": [
+        "alm_383_29632_ehm2ngi2hn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sc. aus: Der verborgte Schmuck, / von F. Laun",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "18d774q7azepj4e"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "zvzr4f1pc9leiuk"
+        }
+      ],
+      "source_id": "jj6dk6rmpwngufl"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 29634-29640, Obj 44-50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "259",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29633,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. / Vermischte Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. / Vermischte Gedichte",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "rbleah7l0iqqjh2"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "261",
+      "incipit_statement": "Was zieht mich so oft hinaus in alle Ferne? / Was hebt mir so geheimnißvoll die Brust",
+      "language": [],
+      "musenalm_id": 29634,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sehnsucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sehnsucht",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "nvq5ix64djgakfu"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "262",
+      "incipit_statement": "Was irrst du so im Stillen? / Was trübt den Flammenblick? / Die Sehnsucht zu erfüllen,",
+      "language": [],
+      "musenalm_id": 29635,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Ideal. / An ***",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Ideal. / An ***",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "oj27ucflvxnt9k6"
+        }
+      ],
+      "source_id": "annp3ds10gy4m6f"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "264",
+      "incipit_statement": "Der Frühling naht; die jungen Blüthen keimen, / Die Lerche schwebt in lichten blauen Räumen;",
+      "language": [],
+      "musenalm_id": 29636,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Osterfeier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Elise von Hohenhausen, geb. von Ochs",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Osterfeier",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "egwykz1ou8cu8sz",
+          "source_id": "y30031hr4rvwvxh"
+        }
+      ],
+      "source_id": "x01vqx921hq7n7p"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "Seinen bezaubernden Schmuck entfaltete reichlich der Früh- / ling, / Ueber das wallende Thal goß es Juwelen und Gold,",
+      "language": [],
+      "musenalm_id": 29637,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Berg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Louise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Berg",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "ilv6z5osoii8g5s"
+        }
+      ],
+      "source_id": "smgeqry4zw6iyek"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Welch süße Ruhe, welch milden Segen, / Ihr Sterne, haucht ihr in mein Herz!",
+      "language": [],
+      "musenalm_id": 29638,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Sterne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Sterne",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "da7aetxxrfteqyl"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.817Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Du schlummerst noch, und ich muß scheiden, / Und, ach! dein liebes Angesicht,",
+      "language": [],
+      "musenalm_id": 29639,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abschied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. G. Wetzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abschied",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.558Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.558Z",
+          "agent": "s6vrgm9x7setd1t",
+          "source_id": "vvf9iynxgjeaf92"
+        }
+      ],
+      "source_id": "00w8zn60gqh95wa"
+    },
+    {
+      "annotation": "VI. Vermischte Gedichte (Sammlung INr 29633, Obj 43)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "268",
+      "incipit_statement": "Wie wohl ist mir, wenn in des Schlummers Wiege / Mein zagend Herz ersehnte Ruhe fühlt,",
+      "language": [],
+      "musenalm_id": 29640,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wohlthat des Schlafes im Leiden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arnoldine Wolf, geb. Weissel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wohlthat des Schlafes im Leiden",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "k4l0etwctfexyyx",
+          "source_id": "9pphsz6j7jfrozl"
+        }
+      ],
+      "source_id": "u1df2mlk4anay6r"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Im einsamen Gebirge an der Gränze Lothringens ruhte Graf Armand, von Paris kommend, nach einem angestrengten Ritte.",
+      "language": [],
+      "musenalm_id": 29641,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. / Das Nachtabentheuer. Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Löben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. / Das Nachtabentheuer. Novelle",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "lqm1xxbbqsqcgwa",
+          "source_id": "qdjce5c02tla9z5"
+        }
+      ],
+      "source_id": "6xlkvq8h7wx2bi7"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 29643-29648, Obj 53-58",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 29642,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII. / Tändeleien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII. / Tändeleien",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "0osfh9fdeidqy2e"
+    },
+    {
+      "annotation": "VIII. Tändeleien (Sammlung INr 29642, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.294Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "326",
+      "incipit_statement": "Wer hat, o Rose, dich vom Zweig gebrochen, / Und, statt dich schonend an sein Herz zu legen,",
+      "language": [],
+      "musenalm_id": 29643,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf eine zertretene Rose. / Sonett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf eine zertretene Rose. / Sonett",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [],
+      "source_id": "rt8b1lam8z0a45r"
+    },
+    {
+      "annotation": "VIII. Tändeleien (Sammlung INr 29642, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "327",
+      "incipit_statement": "Als Kind gefiel es Amor schon, / Manch Schelmstück auszuhecken,",
+      "language": [],
+      "musenalm_id": 29644,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor und die Thorheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor und die Thorheit",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "7z02zmx8ocy9uwz",
+          "source_id": "urv1iajbymw1c88"
+        }
+      ],
+      "source_id": "bwggtunqigmj7l9"
+    },
+    {
+      "annotation": "VIII. Tändeleien (Sammlung INr 29642, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Stella blieb voll Liebesschmerzen, / Wo die Quelle murmelt, steh'n,",
+      "language": [],
+      "musenalm_id": 29645,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stella's Wunsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stella's Wunsch",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "zscht8p6mxgp0c0"
+        }
+      ],
+      "source_id": "3s8ezothpdu0n9m"
+    },
+    {
+      "annotation": "VIII. Tändeleien (Sammlung INr 29642, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Sie starb vor Liebesgram; er freit' aus Treue nie",
+      "language": [],
+      "musenalm_id": 29646,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Liebenden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Liebenden",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "6vya8ybwragyiwj"
+        }
+      ],
+      "source_id": "kusvfapv0iooolg"
+    },
+    {
+      "annotation": "VIII. Tändeleien (Sammlung INr 29642, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "329",
+      "incipit_statement": "Schrecklich war aus wilder Liebesglut / Juno's Eifersucht, Medeas Wuth,",
+      "language": [],
+      "musenalm_id": 29647,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rath",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "yqe3dssn6c1qlxy"
+        }
+      ],
+      "source_id": "roqap1jspgmpeqt"
+    },
+    {
+      "annotation": "VIII. Tändeleien (Sammlung INr 29642, Obj 52)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.295Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "330",
+      "incipit_statement": "Was bin ich, und was soll ich hier? / Leb' ich nur, um zu sterben?",
+      "language": [],
+      "musenalm_id": 29648,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sinnesänderung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Ch. H. Gittermann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sinnesänderung",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.485Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.485Z",
+          "agent": "csr350ne0svibrz",
+          "source_id": "ll2jtzq72tte7z8"
+        }
+      ],
+      "source_id": "o9e75ststm7ewqs"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.551Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 32489,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Ramberg inv. del. C. Westermayr sculp.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg inv. del. C. Westermayr sculp.",
+      "scans": [
+        "alm_383_32489_kn8szp3i9a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-10-31 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1820,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.666Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "lzariw5w2m36gbk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.666Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.666Z",
+          "agent": "2d34emvmf13qf3h",
+          "source_id": "m1r32vbht0u4k6h"
+        }
+      ],
+      "source_id": "c704li9poxcws53"
+    }
   ],
   "agents": [
     {

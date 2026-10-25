@@ -48,61 +48,2321 @@
   "year": 1831,
   "editor": "",
   "items": [
-    "zpcgt3ydane3wpa"
+    {
+      "annotation": "",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.460Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100673",
+      "location": "105F02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.460Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "zpcgt3ydane3wpa"
+    }
   ],
   "contents": [
-    "fdtvsa5qjzhb8ob",
-    "divvvs3qduqciam",
-    "cejj48qdjmlgt5u",
-    "6ag677s1xklafd0",
-    "jxivtitv0ofrikc",
-    "w11rcxtzpvw2tgi",
-    "v22kdvud0ibawab",
-    "gy6133d28rpgoeu",
-    "1tw3luxwrdhv2k2",
-    "1hofe136hx7d8z8",
-    "u67bgt7yg6csn0p",
-    "rcdfn2had9fe5r4",
-    "qr1lyyp99sh742d",
-    "570bbgrlxomqqws",
-    "6mhzwev38e7usc5",
-    "f1opz38q4hh41tz",
-    "uk2fkwy2f8nusg8",
-    "rauckm2itwirvet",
-    "owdgvnd09fqza6v",
-    "imopr2lftwir8iy",
-    "cc0ba1hz09ocp15",
-    "s1j51bl6q0tiz5s",
-    "xyvrujevs6l7uyl",
-    "ur6j27mg7w00yc6",
-    "77cj1zwxkg0eyr5",
-    "66e6rgm4s0net0b",
-    "llebht0mmqezc6z",
-    "1m8r93t100b9lo4",
-    "y4btna8hcn6cm2h",
-    "m4y6jr688vv8o6p",
-    "o0h5m2ga1j437wj",
-    "ody7e0zsvkeopxu",
-    "nc04ab0drv0nm3w",
-    "40qp1snqwduj3eu",
-    "cnve0mskgc2bn7c",
-    "3322ihc5agzsess",
-    "1ivc92iqvambw5l",
-    "l1i5jo8o4hp1d24",
-    "gui4ycds4qps9uz",
-    "ylc60fg83csmtqq",
-    "a8uecsdzj0mgaq5",
-    "861pcdno6m5jmtr",
-    "7658ug69274eqth",
-    "n0lztex34co0xvj",
-    "x7nieuzxwpubljj",
-    "82pp5hhj9qxtl70",
-    "65vnwjpn75mfgcs",
-    "2l2g0pobscptvz1",
-    "8m63u0ssjfm666u",
-    "jjnhrfzig1aibw6",
-    "0w0nkov3ewmwc3e",
-    "nxud877j2bpwy2s"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34593,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1831 / Taschenbuch / für / Damen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Litho von L. Zertahelly, München",
+      "scans": [
+        "alm_481_34593_vuohnkn96x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "1831 / Taschenbuch / für / Damen",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "4g015wc474jdxsd",
+          "source_id": "lvxq1col3ics3ze"
+        }
+      ],
+      "source_id": "fdtvsa5qjzhb8ob"
+    },
+    {
+      "annotation": "Titelgraphik (Published by R. Ackermann & co. London). # Titel aus dem G-Verz s. Textbezug INr 34611, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.444Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34594,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der kleine Samuel #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Holmes Pinxt. T. Woolnoth Sculpt.",
+      "scans": [
+        "alm_481_34594_8ojtebks9u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der kleine Samuel #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "o35klaui3dd8sla",
+          "source_id": "cn03u1sq5d3vlq4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "4mnaftdq8a006e8",
+          "source_id": "ytrcbzfgzme06x0"
+        }
+      ],
+      "source_id": "divvvs3qduqciam"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.446Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34595,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Damen. / Auf das Jahr 1831. / Mit zehn englischen Stahlstichen. / München, Stuttgart und Tübingen, / Verlag der J. G. Cotta'schen Buchhandlung. / 1831",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_481_34595_w0rm4cx0jq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Damen. / Auf das Jahr 1831. / Mit zehn englischen Stahlstichen. / München, Stuttgart und Tübingen, / Verlag der J. G. Cotta'schen Buchhandlung. / 1831",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "cejj48qdjmlgt5u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34609,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ag677s1xklafd0"
+    },
+    {
+      "annotation": "Sammlung von 10 Textbezügen zu 10 Graphiken INr 34611-34629, Obj 6-24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34610,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Bilder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Bilder",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "jxivtitv0ofrikc"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Titelgraphik INr 34594, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Das betende Kind mit seinem arglosen, offenen treuen Blicke und gefalteten Händen",
+      "language": [],
+      "musenalm_id": 34611,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Der kleine Samuel. / (Samuel.) / Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Der kleine Samuel. / (Samuel.) / Titelkupfer",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "w11rcxtzpvw2tgi"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34613, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.462Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34612,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lady Beaufort #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Stephanoff pinxt. C. Marr sculpt.",
+      "scans": [
+        "alm_481_34612_jgkhd9znqm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lady Beaufort #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.769Z",
+          "agent": "kk2h9i1cg6n3yuq",
+          "source_id": "tyml5n3rtirzxcr"
+        }
+      ],
+      "source_id": "v22kdvud0ibawab"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34612, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Der Garten glänzt und duftet in seiner reichsten Frühlingspracht. Aus dem Fenster seines Kerkers sieht der edle Gefangene, Schottlands König,",
+      "language": [],
+      "musenalm_id": 34613,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Lady Beaufort. / (Lady Beaufort.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Lady Beaufort. / (Lady Beaufort.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "gy6133d28rpgoeu"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34615, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.466Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34614,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Esther #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Martin delt. E. Finden sculpt.",
+      "scans": [
+        "alm_481_34614_l7pld0ufc9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Esther #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.769Z",
+          "agent": "n6a5xd0oqtupi8s",
+          "source_id": "0it5umk15qc30kh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.769Z",
+          "agent": "cefecuqh5ju4cfh",
+          "source_id": "41afof88y0pzo1o"
+        }
+      ],
+      "source_id": "1tw3luxwrdhv2k2"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34614, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Hier wiederum eines der reichen Blätter des englischen Stahlstiches. Es stellt die merkwürdige Erzählung von der schönen Jüdin dar,",
+      "language": [],
+      "musenalm_id": 34615,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Esther. / (Queen Esther.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Esther. / (Queen Esther.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "1hofe136hx7d8z8"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34617, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Auf den Höhen, welche sich hier dem Auge über dem jähen Sturze des Wassers darbieten, ward vom General Wellesley - nunmehr Herzog von Wellington - der Sieg von Assaye erfochten.",
+      "language": [],
+      "musenalm_id": 34616,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Boa-Ghaut in Ostindien. / (The Boa Gaut.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Boa-Ghaut in Ostindien. / (The Boa Gaut.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "u67bgt7yg6csn0p"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34616, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.388Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34617,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Boa-Ghaut in Ostindien #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Westall A. R. A. pinxt. E. Finden sculpt.",
+      "scans": [
+        "alm_481_34617_wd3ouoe559.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Boa-Ghaut in Ostindien #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "n6a5xd0oqtupi8s",
+          "source_id": "hiamrhs4hnckjrk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "mvnr6du759sctvp",
+          "source_id": "sm3h79kwcp65ell"
+        }
+      ],
+      "source_id": "rcdfn2had9fe5r4"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34619, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Wen sollte nicht der tiefe Kummer rühren, in welche die schöne Dame versunken ist?",
+      "language": [],
+      "musenalm_id": 34618,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die Trostlose. / (The Disconsolate.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die Trostlose. / (The Disconsolate.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "qr1lyyp99sh742d"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34618, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34619,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Trostlose #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Corbould delt. C. Rolls sculpt.",
+      "scans": [
+        "alm_481_34619_2d1iavo2ls.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Trostlose #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "7oo8ds87peq2fag",
+          "source_id": "ag4dl0mug2f5di9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "v9uxeb4p9b2c1mo",
+          "source_id": "zb2ao1wquy4mjc2"
+        }
+      ],
+      "source_id": "570bbgrlxomqqws"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34621, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.392Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Wohlverwahrt steht die kleine Fußreisende vor dem segnenden Großmütterchen und sieht mit ihren schelmischen Augen unter dem netten Hütchen hervor.",
+      "language": [],
+      "musenalm_id": 34620,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Der Gang zum Markte. / (Going to Market.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Der Gang zum Markte. / (Going to Market.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "6mhzwev38e7usc5"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34620, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.097Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34621,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Gang zum Markte #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Shayer pinxt. W. Chevalier sculpt.",
+      "scans": [
+        "alm_481_34621_ot829l47b8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Gang zum Markte #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.599Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.599Z",
+          "agent": "zzvegzlq00oxpd5",
+          "source_id": "pt5aqssu9l1ensv"
+        }
+      ],
+      "source_id": "f1opz38q4hh41tz"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34623, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.392Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Vorliegendes Blatt enthält eine der gelungensten Compositionen von Edwin Landseer,",
+      "language": [],
+      "musenalm_id": 34622,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Die Katzenpfote. / (The Cat's-Paw.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Die Katzenpfote. / (The Cat's-Paw.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "uk2fkwy2f8nusg8"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34622, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.393Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34623,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Katzenpfote #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Edw. Landseer A. R. A. pinxt. R. Graves sculpt.",
+      "scans": [
+        "alm_481_34623_w1if8az7nl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Katzenpfote #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "9b2uxqkf8x5d4i0",
+          "source_id": "n41ns1znc2sylbm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "993hvlyj6si6bcm",
+          "source_id": "ufb99hu7bt9bmve"
+        }
+      ],
+      "source_id": "rauckm2itwirvet"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34625, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "Wir werden hier in die Werkstätte eines Schusters eingeführt, der unter dem offnen Fenster mit seinem Lehrjungen an der Arbeit sitzt,",
+      "language": [],
+      "musenalm_id": 34624,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Der politisierende Schuflicker. / The political Cobbler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Der politisierende Schuflicker. / The political Cobbler",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "owdgvnd09fqza6v"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34624, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.197Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34625,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der politisierende Schuflicker #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Chisholme pinxt. H. C. Shenton sculpt",
+      "scans": [
+        "alm_481_34625_ch092uaszp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der politisierende Schuflicker #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "516mtf4qnmfxdqw",
+          "source_id": "o9zg8egfsgr8v1b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "jfn0m9odb0mqqv8",
+          "source_id": "qg5qs8ldodcd4l5"
+        }
+      ],
+      "source_id": "imopr2lftwir8iy"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34627, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34626,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Frühstück #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Sr. W. Beechey pinxt. W. Chevalier sculpt.",
+      "scans": [
+        "alm_481_34626_3ay0px4vc1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Frühstück #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "zzvegzlq00oxpd5",
+          "source_id": "v5h2d75zbqg6jj8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "t8qdjqlprtpt6ht",
+          "source_id": "zpl8ig3tede4dbs"
+        }
+      ],
+      "source_id": "cc0ba1hz09ocp15"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34626, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Eine allerliebste Gesellschaft von drei Kindern und einer Katze.",
+      "language": [],
+      "musenalm_id": 34627,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Das Frühstück. / (The Breakfast.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Das Frühstück. / (The Breakfast.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "s1j51bl6q0tiz5s"
+    },
+    {
+      "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr INr 34629, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34628,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Benares #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Purser delt. Jas. Carter sculpt.",
+      "scans": [
+        "alm_481_34628_i8y4glzkcv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Benares #",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "bvose9r7b1raewb",
+          "source_id": "989y7d97m8mvtaf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "rgmpf75z1skg01q",
+          "source_id": "w9rzw6f6f0xzjk3"
+        }
+      ],
+      "source_id": "xyvrujevs6l7uyl"
+    },
+    {
+      "annotation": "Erklärung der Bilder (Sammlung INr 34610, Obj 5) s. Graphik INr 34628, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Diese Stadt, an Reichthum und Wichtigkeit die nächste an Dehli, der Haupstadt Hindostans, hat eine reizende Lage am linken Ufer des Ganges.",
+      "language": [],
+      "musenalm_id": 34629,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Benares / (Benares.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Benares / (Benares.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "ur6j27mg7w00yc6"
+    },
+    {
+      "annotation": "Krone über Leier mit Schwert und Szepter, Palmen-, Eichen-, Lorbeerzweigen; der folgenden Sammlung vorangestellt s. Inr 34597, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.448Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_481_34596_u07j0dm7f0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [],
+      "source_id": "77cj1zwxkg0eyr5"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt Sammlung von 3 Gedichten INr 34598-34600, Obj 27-29",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte / von / König Ludwig von Bayern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König Ludwig von Bayern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte / von / König Ludwig von Bayern",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "0lj8fztokin6ffi",
+          "source_id": "nmfprbixz6rd1eo"
+        }
+      ],
+      "source_id": "66e6rgm4s0net0b"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34597, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Namen der Eroberer verhallen, / Ewig werden Jener ihre schallen, / Welche kühn das Vaterland befreyt,",
+      "language": [],
+      "musenalm_id": 34598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Teutschlands Heerführer / im / Befreiungskriege",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König Ludwig von Bayern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Teutschlands Heerführer / im / Befreiungskriege",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.384Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.384Z",
+          "agent": "0lj8fztokin6ffi",
+          "source_id": "djj94apqapq71cm"
+        }
+      ],
+      "source_id": "llebht0mmqezc6z"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34597, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Wenn einstens wiederum zurückgesunken / Zu dem Gemeinen, Kleinlichen die Welt,",
+      "language": [],
+      "musenalm_id": 34599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die täuschende Ansicht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König Ludwig von Bayern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die täuschende Ansicht",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.491Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.491Z",
+          "agent": "0lj8fztokin6ffi",
+          "source_id": "n75ja3vzpbciwor"
+        }
+      ],
+      "source_id": "1m8r93t100b9lo4"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34597, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Freudig hat das zehnte Jahr begonnen, / Seit der Freyheit Morgenröthe schien,",
+      "language": [],
+      "musenalm_id": 34600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Hellas / nach geendigtem Kampfe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "König Ludwig von Bayern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Hellas / nach geendigtem Kampfe",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.491Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.491Z",
+          "agent": "0lj8fztokin6ffi",
+          "source_id": "qt8t07guiv6rmcl"
+        }
+      ],
+      "source_id": "y4btna8hcn6cm2h"
+    },
+    {
+      "annotation": "2 Gedichte INr 34602, 34603; Obj 31, 32",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "19",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. v. Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.491Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.491Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "t30c1vk89a208yc"
+        }
+      ],
+      "source_id": "m4y6jr688vv8o6p"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34601, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "23",
+      "incipit_statement": "Pflegten wir krystallen Glas / Rasch mit Schaum zu füllen, / Und, mit Maas und ohne Maas, / Durst und Lust zu stillen;",
+      "language": [],
+      "musenalm_id": 34602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erwiederung / der von Frankfurt nach Weimar / den 28. August 1830 / angelangten / festlichen Gaben. / Melodie: Lasset heut im edlen Kreis etc",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. v. Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erwiederung / der von Frankfurt nach Weimar / den 28. August 1830 / angelangten / festlichen Gaben. / Melodie: Lasset heut im edlen Kreis etc",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.492Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.492Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "i4dm2lxri5gu6tg"
+        }
+      ],
+      "source_id": "o0h5m2ga1j437wj"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34601, Obj 30)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "25",
+      "incipit_statement": "Funfzig Jahre sind vorüber / Wie gemischte Tage flohn; / Funfzig Jahre sind hinüber / In das ernst Vergangne schon.",
+      "language": [],
+      "musenalm_id": 34603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem würdigen / Bruderfeste / Johanni, / 1830",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. v. Goethe",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem würdigen / Bruderfeste / Johanni, / 1830",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.768Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.768Z",
+          "agent": "1rzr5ghkrk52eb2",
+          "source_id": "3kw0brc8o0yby5o"
+        }
+      ],
+      "source_id": "ody7e0zsvkeopxu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Hier seht Ihr den Balkon. Ihr wißt das Zeichen. / Braucht alle Vorsicht, Herr, kommt nicht zur Nacht.",
+      "language": [],
+      "musenalm_id": 34604,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stern von Sevilla. / Trauerspiel in fünf Aufzügen. / Nach dem gleichnamigen Schauspiel des Lope de Vega / bearbeitet. 1829",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Christian Baron von Zedlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stern von Sevilla. / Trauerspiel in fünf Aufzügen. / Nach dem gleichnamigen Schauspiel des Lope de Vega / bearbeitet. 1829",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.767Z",
+          "agent": "id1mj19iathigp2",
+          "source_id": "2fu0w6kss390hys"
+        }
+      ],
+      "source_id": "nc04ab0drv0nm3w"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 34606-34608, 34630, 34631; Obj 35-39",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.431Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "131",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34605,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Schenk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.767Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.767Z",
+          "agent": "v42buu0bbkquom4",
+          "source_id": "ovt66pqjls601sr"
+        }
+      ],
+      "source_id": "40qp1snqwduj3eu"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Ich fordre nichts von deinen Gaben, / O Glück! Behalte sie im Schoos.",
+      "language": [],
+      "musenalm_id": 34606,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichterglück. / 1810",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Schenk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichterglück. / 1810",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.769Z",
+          "agent": "v42buu0bbkquom4",
+          "source_id": "v7bmzeldq64fbrq"
+        }
+      ],
+      "source_id": "cnve0mskgc2bn7c"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Graf Arthus, Herr von Falkenstein, / Ritt über eine Haide;",
+      "language": [],
+      "musenalm_id": 34607,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Graf Arthus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Schenk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Graf Arthus",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.769Z",
+          "agent": "v42buu0bbkquom4",
+          "source_id": "0dyp8xaqfjlnohs"
+        }
+      ],
+      "source_id": "3322ihc5agzsess"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:57.461Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Oft in meinen trüben Tagen, / Wenn ein Zagen / Mich ergreift,",
+      "language": [],
+      "musenalm_id": 34608,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trostesklänge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Schenk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trostesklänge",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.769Z",
+          "agent": "v42buu0bbkquom4",
+          "source_id": "n9g0zur7exe8qu3"
+        }
+      ],
+      "source_id": "1ivc92iqvambw5l"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Es waren die Monde, die zwölfe, beisammen / Im Tempel der Sonne, von welcher sie stammen,",
+      "language": [],
+      "musenalm_id": 34630,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Maytrank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Schenk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Maytrank",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "v42buu0bbkquom4",
+          "source_id": "gjmw71f0zmpdb1t"
+        }
+      ],
+      "source_id": "l1i5jo8o4hp1d24"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "145",
+      "incipit_statement": "In München ist eine Kirche, / Daneben ein Kloster stand,",
+      "language": [],
+      "musenalm_id": 34631,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fürstentöchter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard von Schenk",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Fürstentöchter",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.626Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.626Z",
+          "agent": "v42buu0bbkquom4",
+          "source_id": "o6793f0cxu5cmsz"
+        }
+      ],
+      "source_id": "gui4ycds4qps9uz"
+    },
+    {
+      "annotation": "mit einem Prolog S. 152: Dieses wird Martin prophezeien, denn ich lebe / vor seiner Zeit. / König Lear's Narr",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "151",
+      "incipit_statement": "Ein hölzernes Holz ist kein größerer Pleonasmus, als: eine geschichtliche Novelle. Denn Novelle - von novellare - heißt: Erzählung,",
+      "language": [],
+      "musenalm_id": 34632,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erfindung des Porzellanes, / eine geschichtliche Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Robert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erfindung des Porzellanes, / eine geschichtliche Novelle",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.627Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.627Z",
+          "agent": "shwrrrsohbx2ih5",
+          "source_id": "03qjsv0e01ans8w"
+        }
+      ],
+      "source_id": "ylc60fg83csmtqq"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 34634-345638, Obj 42-46",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34633,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maria da Gloria",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Menzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maria da Gloria",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.627Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.627Z",
+          "agent": "6z5qy0vfiswoqx8",
+          "source_id": "9fzqmvpuqtz6xab"
+        }
+      ],
+      "source_id": "a8uecsdzj0mgaq5"
+    },
+    {
+      "annotation": "Maria da Gloria (Sammlung INr 34633, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "287",
+      "incipit_statement": "Unritterliche Zeiten, / Wo Unschuld hülflos klagt / Und kühn für sie zu streiten, / kein tapfrer Arm mehr wagt.",
+      "language": [],
+      "musenalm_id": 34634,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Terceira",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Menzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Terceira",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "6z5qy0vfiswoqx8",
+          "source_id": "6zh7gntheb7qjx6"
+        }
+      ],
+      "source_id": "861pcdno6m5jmtr"
+    },
+    {
+      "annotation": "Maria da Gloria (Sammlung INr 34633, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Den Bräutigam sollst du missen, / Eh du den Ring empfingst,",
+      "language": [],
+      "musenalm_id": 34635,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lissabon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Menzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lissabon",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "6z5qy0vfiswoqx8",
+          "source_id": "7f7iulolwbgglri"
+        }
+      ],
+      "source_id": "7658ug69274eqth"
+    },
+    {
+      "annotation": "Maria da Gloria (Sammlung INr 34633, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Die in den Kutten schreyen, / Von Haß und Mordlust blind,",
+      "language": [],
+      "musenalm_id": 34636,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Oporto",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Menzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Oporto",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "6z5qy0vfiswoqx8",
+          "source_id": "e16agprklajqgtf"
+        }
+      ],
+      "source_id": "n0lztex34co0xvj"
+    },
+    {
+      "annotation": "Maria da Gloria (Sammlung INr 34633, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "289",
+      "incipit_statement": "Die Deinen stehn im Harme, / Dich selber ehrt man kaum,",
+      "language": [],
+      "musenalm_id": 34637,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / London",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Menzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / London",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "6z5qy0vfiswoqx8",
+          "source_id": "51wc96sa1r00969"
+        }
+      ],
+      "source_id": "x7nieuzxwpubljj"
+    },
+    {
+      "annotation": "Maria da Gloria (Sammlung INr 34633, Obj 41)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Ein fremdes Schiff von hinnen / Entführt die junge Braut,",
+      "language": [],
+      "musenalm_id": 34638,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. / Das atlantische Meer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wolfgang Menzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. / Das atlantische Meer",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "6z5qy0vfiswoqx8",
+          "source_id": "otxqhzmo15n7jzq"
+        }
+      ],
+      "source_id": "82pp5hhj9qxtl70"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten Lamartines und deren Übersetzungen INr 34640-34643, Obj 48-51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34639,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Harmonien / (Mit dem Original zur Seite.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alphonse Lamartine; [übers.] Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Harmonien / (Mit dem Original zur Seite.)",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "2zjv7ni2e1mp6q6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "ulcx8pbhohvsju3",
+          "source_id": "8mne2wflmnf12t7"
+        }
+      ],
+      "source_id": "65vnwjpn75mfgcs"
+    },
+    {
+      "annotation": "Harmonien (Sammlung INr 34639, Obj 47) mit einer Übersetzung INr 34641, Obj 49",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.060Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "292",
+      "incipit_statement": "Pàle lampe du sanctuaire, / Pourquoi, dans l'ombre du saint lieu,",
+      "language": [],
+      "musenalm_id": 34640,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Lampe du Temple, / ou / l'Ame présente à Dieu",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lamartine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "La Lampe du Temple, / ou / l'Ame présente à Dieu",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "ulcx8pbhohvsju3",
+          "source_id": "ndxfvct8t5sjfaj"
+        }
+      ],
+      "source_id": "2l2g0pobscptvz1"
+    },
+    {
+      "annotation": "Harmonien (Sammlung INr 34639, Obj 47) Übersetzung des vorstehenden Gedichts von A. Lamartine INr 34640, Obj 48",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "293",
+      "incipit_statement": "Warum, o bleiche Lampe, schmachtet / Dein Licht im dunkeln Heiligthum,",
+      "language": [],
+      "musenalm_id": 34641,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Lampe des Tempels / oder / Die Seele vor Gott",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Lampe des Tempels / oder / Die Seele vor Gott",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "pqbb25fg4ictvps"
+        }
+      ],
+      "source_id": "8m63u0ssjfm666u"
+    },
+    {
+      "annotation": "Harmonien (Sammlung INr 34639, Obj 47) mit einer Übersetzung INr 34643, Obj 51",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "298",
+      "incipit_statement": "Quand ta voix céleste prélude / Au silences des belles nuits,",
+      "language": [],
+      "musenalm_id": 34642,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Au Rossignol",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lamartine",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Au Rossignol",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.977Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.977Z",
+          "agent": "ulcx8pbhohvsju3",
+          "source_id": "1izkwmh1h863hjo"
+        }
+      ],
+      "source_id": "jjnhrfzig1aibw6"
+    },
+    {
+      "annotation": "Harmonien (Sammlung INr 34639, Obj 47) Übersetzung des vorstehenden Gedichts von A. Lamartine INr 34642, Obj 50",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.277Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Wenn deiner Stimme Himmelsfülle / Die schönste Schweigensnacht verspricht,",
+      "language": [],
+      "musenalm_id": 34643,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Nachtigall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schwab",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Nachtigall",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.635Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.635Z",
+          "agent": "iz27nbfvrc0qfs3",
+          "source_id": "l2vouj5k91g877b"
+        }
+      ],
+      "source_id": "0w0nkov3ewmwc3e"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:56.861Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34644,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Litho von L. Zertahelly, München)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Litho von L. Zertahelly, München",
+      "scans": [
+        "alm_481_34644_zd2fuzokpq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2003-06-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1831,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.704Z",
+          "agent": "4g015wc474jdxsd",
+          "source_id": "c82tr06oigmwjl3"
+        }
+      ],
+      "source_id": "nxud877j2bpwy2s"
+    }
   ],
   "agents": [
     {

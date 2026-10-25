@@ -48,44 +48,1545 @@
   "year": 1813,
   "editor": "",
   "items": [
-    "vpe4kktv1gkfjjh"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.679Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "406072",
+      "location": "105B03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.679Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "vpe4kktv1gkfjjh"
+    }
   ],
   "contents": [
-    "7673hwd878fyxss",
-    "dkb4cxpeijv2s4h",
-    "355m3ep7iyqeojx",
-    "5gr41t780mmawow",
-    "bb4wdftm4qkmpei",
-    "q7gg2x5k0d1ct7i",
-    "irjhuzb01r60afl",
-    "luytngvqd9l5pur",
-    "yv5qbe8vt8cgu9e",
-    "4vwl3qvzlj7wtl1",
-    "1sjfifr0pviguso",
-    "9i96f8v535llyz2",
-    "3s59hfu5qzrmj6m",
-    "61sy5qzqweuabzp",
-    "l72oqlzp82hva3g",
-    "ngb1gjau15rosjf",
-    "qjkn7vfpbs2s9lo",
-    "7vcmf4889f974y2",
-    "84yjpbmwx60p2oq",
-    "2du2c7ajh5biph6",
-    "8ykm2no20r357m9",
-    "727a08opzpi1bjx",
-    "wg8ued1t81grlce",
-    "isbkzzsvdd0egts",
-    "k5le4ujjbaldlzh",
-    "p0ndv6iw5m2wlq9",
-    "8afuqsvj1ysc9t7",
-    "l1xip0owjclusnb",
-    "o3s9l9db36q9hfo",
-    "bpvo6f6u39u6n30",
-    "hsignwpzppzkef7",
-    "syei755a7bo803f",
-    "mjm7d4lix88liys",
-    "zlmsfwhvi3hipzr",
-    "aiuoeg7anbhj51y"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.894Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129583,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Hausfreund. / Ein / Taschenbuch / allen Schönen / gewidmet. / Wien 1813",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2984_129583_wa0163gig6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Hausfreund. / Ein / Taschenbuch / allen Schönen / gewidmet. / Wien 1813",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "7673hwd878fyxss"
+    },
+    {
+      "annotation": "Titelgraphik; Illustration zu »Zemin und Gulindi« von J. B. v. Vitali INr 129591, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.897Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129584,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zemin und sein Freund Sitim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Berka del et s.",
+      "scans": [
+        "alm_2984_129584_t7fkziomsh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zemin und sein Freund Sitim",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.017Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.017Z",
+          "agent": "awkkthw51bj1y7d",
+          "source_id": "g0db79wexx0rzj7"
+        }
+      ],
+      "source_id": "dkb4cxpeijv2s4h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.899Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129585,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Hausfreund. / Ein / Taschenbuch / allen Schönen / gewidmet, / von / J. B. Vitali. / Wien, / gedruckt auf Kosten des Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2984_129585_mhz9uri9ax.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Hausfreund. / Ein / Taschenbuch / allen Schönen / gewidmet, / von / J. B. Vitali. / Wien, / gedruckt auf Kosten des Herausgebers",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "355m3ep7iyqeojx"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Obschon ich den Schönen für die gütige Aufnahme dieses Taschenbuches, die selbst meine Erwartungen übertroffen hat, vielen Dank schuldig bin;",
+      "language": [],
+      "musenalm_id": 129586,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.017Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.017Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "s404schqe8gx4hk"
+        }
+      ],
+      "source_id": "5gr41t780mmawow"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "So bin ich endlich angelangt ans Ende / Der ausgemessnen, ewig gleichen Bahn, / Komm, mein letzter Hauch, den ich verwende / dir zur Belehrung, Bruder, zu empfahn!",
+      "language": [],
+      "musenalm_id": 129587,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epistel / des Jahres 1812 an seinen Nachfolger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epistel / des Jahres 1812 an seinen Nachfolger",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.017Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.017Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "o3s5he7zgs8pouj"
+        }
+      ],
+      "source_id": "bb4wdftm4qkmpei"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "13",
+      "incipit_statement": "Mit Stürmen beginnet das wechselnde Jahr / doch bald wehen sanfte, belebende Lüfte,",
+      "language": [],
+      "musenalm_id": 129588,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebens-Philosophie",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lebens-Philosophie",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.017Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.017Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "sppb9aeowloyw5m"
+        }
+      ],
+      "source_id": "q7gg2x5k0d1ct7i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "15",
+      "incipit_statement": "Der junge Graf Hermmann *** hatte seine reitzende, tugendhafte und inniggeliebte Gattinn im ersten Wochenbette verloren,",
+      "language": [],
+      "musenalm_id": 129589,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herrmann und Laura",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herrmann und Laura",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.017Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.017Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "in9fvrtwvuogvzs"
+        }
+      ],
+      "source_id": "irjhuzb01r60afl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Es floh der Lenz und nahe war die Stunde, / wo Flora aus des theuern Zephyrs Munde / Der Trennung Schreckens-Wort entge- / gen sah.",
+      "language": [],
+      "musenalm_id": 129590,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fächer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fächer",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "18oyk1myfd0xc6o"
+        }
+      ],
+      "source_id": "luytngvqd9l5pur"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 129584, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "30",
+      "incipit_statement": "Zemin und Gulindi waren die Hoffnung der zwo ansehnlichsten Familien Arabiens.",
+      "language": [],
+      "musenalm_id": 129591,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zemin und Gulindi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zemin und Gulindi",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "ia8l7jxkm02rfeq"
+        }
+      ],
+      "source_id": "yv5qbe8vt8cgu9e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "45",
+      "incipit_statement": "Deinen Namen pflegte ich, / Falsche, treuvergessne Doris!",
+      "language": [],
+      "musenalm_id": 129592,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Rache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Rache",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "esblp1cv98p45gk"
+        }
+      ],
+      "source_id": "4vwl3qvzlj7wtl1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "An des geliebten Daphnis Grabe / lag weinend Chloe hingestreckt.",
+      "language": [],
+      "musenalm_id": 129593,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Daphnis und Chloens Grab",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Daphnis und Chloens Grab",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "stu1f8amtbr2tnh"
+        }
+      ],
+      "source_id": "1sjfifr0pviguso"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "Lasst Kränze der Schönheit uns winden, / und lieblicher wird sie erblühn;",
+      "language": [],
+      "musenalm_id": 129594,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Fest der Schönheit. / Eine dramatische Handlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Fest der Schönheit. / Eine dramatische Handlung",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "2bev8p4bq336p78"
+        }
+      ],
+      "source_id": "9i96f8v535llyz2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "68",
+      "incipit_statement": "In einem dunkeln Pappelhain, / auf einem Rasensitze / Sass, Traute, ich mit dir allein,",
+      "language": [],
+      "musenalm_id": 129595,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Traum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Traum",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "0sw81dnfe5zxygx"
+        }
+      ],
+      "source_id": "3s59hfu5qzrmj6m"
+    },
+    {
+      "annotation": "Sammlung von 3 Rätseln INr 129597-129599, Obj 15-17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129596,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charaden",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "uolff0orunnh4ab"
+        }
+      ],
+      "source_id": "61sy5qzqweuabzp"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 129596, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Wenn selbst am schweren Pflug / des Glückes Missgunst den Hispanen schmie- / det",
+      "language": [],
+      "musenalm_id": 129597,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "6gtzos4gw6cxxpa"
+        }
+      ],
+      "source_id": "l72oqlzp82hva3g"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 129596, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Verdopple du das zweyte Zeichen / der ersten Sylbe und ihrer Kraft, / die wunderthätig wirkt und schafft,",
+      "language": [],
+      "musenalm_id": 129598,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "abjxuptid83wuuo"
+        }
+      ],
+      "source_id": "ngb1gjau15rosjf"
+    },
+    {
+      "annotation": "Charaden (Sammlung INr 129596, Obj 14)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Wenn einen gleich der Sünden grause / Schaar / durchbebt und sich mein Ganzes in / ihm reget,",
+      "language": [],
+      "musenalm_id": 129599,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "gtb4lufxkns868m"
+        }
+      ],
+      "source_id": "qjkn7vfpbs2s9lo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Wärst du mit deinem Barbiton / hin bis zu Plutos Flammenthron, / Dem Sänger Thraciens gleich, gedrungen;",
+      "language": [],
+      "musenalm_id": 129600,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn / Geor Heinrich Dambeck, / über sein: / Todtenopfer, den Manen Messners / dargebracht. / (Siehe das VII. Heft des Teutschen Merkurs 1807.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn / Geor Heinrich Dambeck, / über sein: / Todtenopfer, den Manen Messners / dargebracht. / (Siehe das VII. Heft des Teutschen Merkurs 1807.)",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "q5ue6m2o0ug40x8"
+        }
+      ],
+      "source_id": "7vcmf4889f974y2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Mit einem Blick, dem Schöpferkraft ver- / liehn, / aus Nichts das All' zuformen, es beleben,",
+      "language": [],
+      "musenalm_id": 129601,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dem unsterblichen Haydn, / über sein Werk: / Die Schöpfung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dem unsterblichen Haydn, / über sein Werk: / Die Schöpfung",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "z5a763vi8ertzez"
+        }
+      ],
+      "source_id": "84yjpbmwx60p2oq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Entschlummert in seltener Ruh', / den Armen Cytheras entkommen, / lag Amor. Sagt, wie gieng das zu?",
+      "language": [],
+      "musenalm_id": 129602,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Grazien und Amor",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Grazien und Amor",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "orzc7z8vfjjbhyp"
+        }
+      ],
+      "source_id": "2du2c7ajh5biph6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.903Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Im Gefilde des menschlichen Lebens zer- /  knicket / gar viele Blumen die grausame Hand / des unerbittlichen Todes.",
+      "language": [],
+      "musenalm_id": 129603,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Empfindungen / am Grabe d. verdienstvollen Schauspielerinn, / Betty Roose, geborne Koch.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Empfindungen / am Grabe d. verdienstvollen Schauspielerinn, / Betty Roose, geborne Koch.",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.018Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.018Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "kyu8euh78nqgly7"
+        }
+      ],
+      "source_id": "8ykm2no20r357m9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "Europas schönste Hoffnung ist gekrönet, / gegründet fest nun Deines Galliens / Glück.",
+      "language": [],
+      "musenalm_id": 129604,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die / Geburt seiner Majestät / des / Königs von Rom 1. / An I. M. Kaiserinn Mutter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die / Geburt seiner Majestät / des / Königs von Rom 1. / An I. M. Kaiserinn Mutter",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "kpl9m7y06q29sem"
+        }
+      ],
+      "source_id": "727a08opzpi1bjx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "85",
+      "incipit_statement": "Kaum hat dein Aug' das Tageslicht erblicket, / begrüsst der Jubel Dich schon einer / Welt;",
+      "language": [],
+      "musenalm_id": 129605,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die / Geburt seiner Majestät / des / Königs von Rom /  2. / An Seine Majestät, den königlichen Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die / Geburt seiner Majestät / des / Königs von Rom /  2. / An Seine Majestät, den königlichen Sohn",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "rytl5285cx1xg7p"
+        }
+      ],
+      "source_id": "wg8ued1t81grlce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Ein Nest voll Amoretten fand / an eines Bächleins grünem Rand / der schüchterne Lesbin;",
+      "language": [],
+      "musenalm_id": 129606,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Fund",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "eqjdm099zlaglwe"
+        }
+      ],
+      "source_id": "isbkzzsvdd0egts"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Verlasse Bacchus, flieh die Traubenkufe, / Dir winket Hymen, folge seinem Rufe!",
+      "language": [],
+      "musenalm_id": 129607,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An einen Jugenfreund / zu seiner Verehligung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An einen Jugenfreund / zu seiner Verehligung",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "ss3t7r4o9piwy8t"
+        }
+      ],
+      "source_id": "k5le4ujjbaldlzh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "93",
+      "incipit_statement": "Schon hat den letzten Schmuck - der Bäu- / me gelbes Laub - / die alternde Natur in Tellus Schoos ge- / leget;",
+      "language": [],
+      "musenalm_id": 129608,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bitte eines armen Poeten, / an seinen Gönner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bitte eines armen Poeten, / an seinen Gönner",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "43xzmfwnf2jf7a0"
+        }
+      ],
+      "source_id": "p0ndv6iw5m2wlq9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Füllt die Becher, wackre Brüder, / und beym Schalle froher Lieder, / trinkt sie leer!",
+      "language": [],
+      "musenalm_id": 129609,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aufruf zur Freude",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aufruf zur Freude",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "79mi9lt5dnnxz36"
+        }
+      ],
+      "source_id": "8afuqsvj1ysc9t7"
+    },
+    {
+      "annotation": "Sammlung von 4 Epigrammen INr 129611-129614, Obj 29-32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129610,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Epigramme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Epigramme",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "0nd8k5yy40q4q2d"
+        }
+      ],
+      "source_id": "l1xip0owjclusnb"
+    },
+    {
+      "annotation": "Epigramme (Sammlung INr 129610, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Veit will sich die Unsterblichkeit ersingen, / indess man hungernd ihn sieht mit dem Tode / ringen.",
+      "language": [],
+      "musenalm_id": 129611,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Unsterblichkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Unsterblichkeit",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "2szczg302yu15i9"
+        }
+      ],
+      "source_id": "o3s9l9db36q9hfo"
+    },
+    {
+      "annotation": "Epigramme (Sammlung INr 129610, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Indess mit Feuereifer Arzt Luzin / sich der Guitarre und dem Gesange weihet, / liegt mancher seiner Kranken hülflos hin",
+      "language": [],
+      "musenalm_id": 129612,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der ärztliche Orpheus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der ärztliche Orpheus",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "c8bv2pjkosfx4bt"
+        }
+      ],
+      "source_id": "bpvo6f6u39u6n30"
+    },
+    {
+      "annotation": "Epigramme (Sammlung INr 129610, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Warum schreibt denn kein neuer / Scribent, / sag's Vater mir, auf Pergament?",
+      "language": [],
+      "musenalm_id": 129613,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Gespräch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Gespräch",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "9l2iu47xkpk6n22"
+        }
+      ],
+      "source_id": "hsignwpzppzkef7"
+    },
+    {
+      "annotation": "Epigramme (Sammlung INr 129610, Obj 28)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Mit einem goldnen Ring fängt Hymens / Kette an,",
+      "language": [],
+      "musenalm_id": 129614,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der Ehering",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der Ehering",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:03.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:03.019Z",
+          "agent": "o1de384mohw3dnl",
+          "source_id": "13xtko02r7bl81i"
+        }
+      ],
+      "source_id": "syei755a7bo803f"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129615,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung der Charaden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung der Charaden",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "mjm7d4lix88liys"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129616,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "zlmsfwhvi3hipzr"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:51.906Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 129617,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweyter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2984_129617_n2f7pzln7i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Zweyter Jahrgang",
+      "updated": "2010-02-24 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1813,
+      "editor": "",
+      "agents": [],
+      "source_id": "aiuoeg7anbhj51y"
+    }
   ],
   "agents": [
     {

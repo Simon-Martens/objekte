@@ -48,32 +48,1062 @@
   "year": 1855,
   "editor": "",
   "items": [
-    "y98qc0mhk7nasac"
+    {
+      "annotation": "1850-1861.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.699Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "108657",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.699Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "y98qc0mhk7nasac"
+    }
   ],
   "contents": [
-    "s5k3eh1uvkpb4l0",
-    "dwyuuraa1qug0fi",
-    "1ki8xnn9goiq2if",
-    "xuzr5lol89czmpp",
-    "sb1kd0lblg7inw3",
-    "gcexssdly8zpo79",
-    "uu5g76rchtoajok",
-    "5s33h18omtef714",
-    "1hil69c7p2lozoj",
-    "cn6bw7hqc3j57fl",
-    "zkvp4hfzb0qu61u",
-    "pywt3zdr1fk5s21",
-    "vth7k92d6n1aw32",
-    "gm330wja9xc8n8n",
-    "vcgr89qjwp74cpt",
-    "r9ovr09qro62lcv",
-    "g21iyatcxa8qq5y",
-    "wet7bk8yvs336yh",
-    "5gyc6g2t6mnaxsy",
-    "ljjhv19u0e3zxaf",
-    "v4hd533ia9bies8",
-    "zgwiyfyab9b4qp2",
-    "xot8p62wz60nwcy"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.007Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111289,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN / 1855",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3457_111289_dls01wdxbx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN / 1855",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5k3eh1uvkpb4l0"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Gedicht INr 111295, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.009Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111290,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Jullien del. C. Preisel sculp)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Jullien del. C. Preisel sculp",
+      "scans": [
+        "alm_3457_111290_7mcyaa85hq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "zl3zk7fnilbw2xr"
+        }
+      ],
+      "source_id": "dwyuuraa1qug0fi"
+    },
+    {
+      "annotation": "lith. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.011Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111291,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELLIEBCHEN / neue Folge / von / Th. Mügge. / 1855",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Lith. Anst. v. J. G. Bach Leipzig",
+      "scans": [
+        "alm_3457_111291_5jfx6qwgz1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELLIEBCHEN / neue Folge / von / Th. Mügge. / 1855",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ki8xnn9goiq2if"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.013Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111292,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Ein Taschenbuch für / 1855. / Neue Folge, sechster Jahrgang. / Von / Theodor Mügge. / Mit 7 Stahlstichen. / Leipzig, / Baumgärtners Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3457_111292_95krn4gwgf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Ein Taschenbuch für / 1855. / Neue Folge, sechster Jahrgang. / Von / Theodor Mügge. / Mit 7 Stahlstichen. / Leipzig, / Baumgärtners Buchhandlung",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "xuzr5lol89czmpp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111293,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "sb1kd0lblg7inw3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.014Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111294,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "gcexssdly8zpo79"
+    },
+    {
+      "annotation": "s.Titelgraphik INr 111290, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Bringst Du endlich neues Streben / Nach des Winters Last und Qual.",
+      "language": [],
+      "musenalm_id": 111295,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lenz und Jugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lenz und Jugend",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "rmhnrv3e8zoll4q"
+        }
+      ],
+      "source_id": "uu5g76rchtoajok"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111297, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.015Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111296,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer bist Du? #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chr. Seibold pinxt. C. Preisel sc.",
+      "scans": [
+        "alm_3457_111296_kck1jah2fg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wer bist Du? #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "cj2hwigni8l3j3n"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "brhfol78jlbfy54",
+          "source_id": "e1tby3qrlsk5zim"
+        }
+      ],
+      "source_id": "5s33h18omtef714"
+    },
+    {
+      "annotation": "s. Graphik INr 111296, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Aus schwer geschnitztem Rahmen / Schaust Du mich an mit List.",
+      "language": [],
+      "musenalm_id": 111297,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wer bist Du?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wer bist Du?",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "wzj2k5gki06i6uy"
+        }
+      ],
+      "source_id": "1hil69c7p2lozoj"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111299, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111298,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der letzte Freund #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "S. VAN DEN BERG Uitg. door A. C. Krusemann. D. J. Sluyter sc.",
+      "scans": [
+        "alm_3457_111298_idl1xfzx6u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der letzte Freund #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "0hu2nan6w69qhnn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "jtzq5vay8t8od1a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "g80a1aiyz8gd650",
+          "source_id": "m7fpr03jp5mftwr"
+        }
+      ],
+      "source_id": "cn6bw7hqc3j57fl"
+    },
+    {
+      "annotation": "s. Graphik INr 111298, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Sonne brennt, das Feld ist kahl, / Der Alte hält sein dürftig Mahl",
+      "language": [],
+      "musenalm_id": 111299,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der letzte Freund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der letzte Freund",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.348Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.348Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "e4dmg0xm3ij9mrd"
+        }
+      ],
+      "source_id": "zkvp4hfzb0qu61u"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111301, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.019Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111300,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der letzte Wall #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. SPOEL. Uitg. door A. C. Krusemann. D. J. Sluyter sculps.",
+      "scans": [
+        "alm_3457_111300_ouebar2tre.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der letzte Wall #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "67elub2avciir0k",
+          "source_id": "2mvpvqb3znl58gw"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "lxkw0pi082wa1ak",
+          "source_id": "ql2pev9s916x7dm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "uxyy8nzc0cpe6sx"
+        }
+      ],
+      "source_id": "pywt3zdr1fk5s21"
+    },
+    {
+      "annotation": "s. Graphik INr 111300, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Das war eine lange, bange Nacht / Im Pulverdampf und Blut vollbracht.",
+      "language": [],
+      "musenalm_id": 111301,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der letzte Wall",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der letzte Wall",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "hpjn44o7sptho6k"
+        }
+      ],
+      "source_id": "vth7k92d6n1aw32"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111303, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.021Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111302,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Väterliche Prophezeiung #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. BLES. Uitg. door A. C. Krusemann. W. F. Wehmeyer sculps.",
+      "scans": [
+        "alm_3457_111302_9hhxsvl1tr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Väterliche Prophezeiung #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "r03ginlx54pqp8z",
+          "source_id": "35pt994yhfiwx2a"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "cnu5a9dtvs1e0n7",
+          "source_id": "cke1kkcon6conxs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.349Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.349Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "xnta61wdk1xggng"
+        }
+      ],
+      "source_id": "gm330wja9xc8n8n"
+    },
+    {
+      "annotation": "s. Graphik INr 111302, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Frau höre auf zu wiegen, / Der Junge hört nicht auf zu schrein.",
+      "language": [],
+      "musenalm_id": 111303,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Väterliche Prophezeiung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Väterliche Prophezeiung",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.294Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.294Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "zzf1z9cwvceqmz5"
+        }
+      ],
+      "source_id": "vcgr89qjwp74cpt"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111303, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111304,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldgedanken #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. KREMER. Uitg. door A. C. Krusemann. W. F. Wehmeyer sculps.",
+      "scans": [
+        "alm_3457_111304_z8mzveovbn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Waldgedanken #",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.294Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.294Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "m40hz8yesazb8my"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "cnu5a9dtvs1e0n7",
+          "source_id": "ss2p89dlr17szd1"
+        }
+      ],
+      "source_id": "r9ovr09qro62lcv"
+    },
+    {
+      "annotation": "s. Graphik INr 111304, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im kühlen Waldesschatten, / Da rauscht vom Berg der Bach, / Die Blumen auf den Matten / Sie schaun ihm grüßend nach.",
+      "language": [],
+      "musenalm_id": 111305,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldgedanken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldgedanken",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "oyvf322ykbisovk"
+        }
+      ],
+      "source_id": "g21iyatcxa8qq5y"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111305, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.960Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111306,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erlöse uns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. KRUSEMANN. Uitg. door A. C. Krusemann J. W. Kaiser sculps.",
+      "scans": [
+        "alm_3457_111306_m0yjb44m9k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Erlöse uns",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "p3hijooo9pslzw2",
+          "source_id": "0ev4vp0wtzqkr7c"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "uulh3kizp076q2h"
+        }
+      ],
+      "source_id": "wet7bk8yvs336yh"
+    },
+    {
+      "annotation": "s. Graphik INr 111306, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Gen' Golgatha, hin zu der Schädelstätte, / Ermattet, blutig und sein Haupt voll Wunden, / Terägt er das Kreuz, daß es die Welt errette,",
+      "language": [],
+      "musenalm_id": 111307,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erlöse uns",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erlöse uns",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "6vd0c8l0ppdpabb"
+        }
+      ],
+      "source_id": "5gyc6g2t6mnaxsy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Für die kleine Stadt Königswalde war ein seltener Festtag gekommen. Der Landesherr kehrte von einer weiten Reise in seiner Residenz zurück und hatte versprochen einen Umweg zu machen,",
+      "language": [],
+      "musenalm_id": 111308,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schuld und Strafe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schuld und Strafe",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "57sotm4f7tvzndg"
+        }
+      ],
+      "source_id": "ljjhv19u0e3zxaf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Am 1ten December 1798 fuhr ich mit der Post von Karlsruhe nach Rastatt. Es war ein sehr schöner, fast warmer Tag",
+      "language": [],
+      "musenalm_id": 111309,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerung eines Diplomaten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Mügge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerung eines Diplomaten",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.295Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.295Z",
+          "agent": "kfaol2n4gz6m4dn",
+          "source_id": "pr6fkzndurejwq5"
+        }
+      ],
+      "source_id": "v4hd533ia9bies8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.962Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "454",
+      "incipit_statement": "Druck von J. B. Hirschfeld in Leipzig",
+      "language": [],
+      "musenalm_id": 111310,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von J. B. Hirschfeld in Leipzig…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "zgwiyfyab9b4qp2"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.963Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111311,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3457_111311_dvds8gs69j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1855,
+      "editor": "",
+      "agents": [],
+      "source_id": "xot8p62wz60nwcy"
+    }
   ],
   "agents": [
     {

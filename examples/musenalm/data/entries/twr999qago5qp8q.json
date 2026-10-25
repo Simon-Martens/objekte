@@ -48,36 +48,1156 @@
   "year": 1848,
   "editor": "",
   "items": [
-    "eb693bixuqhq04b",
-    "ep385p7adksrr8c"
+    {
+      "annotation": "1827-1850",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200861",
+      "location": "105H08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "eb693bixuqhq04b"
+    },
+    {
+      "annotation": "Titel",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.524Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "200799",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.524Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ep385p7adksrr8c"
+    }
   ],
   "contents": [
-    "f6pp5ogq2xmcioo",
-    "z5l1butyb77c9pj",
-    "3sqf7hizhvbdmce",
-    "yir07y0upx7z3s6",
-    "4q7rs7ubk1xhrfw",
-    "1gewqqvb46mpgdr",
-    "a55w6uh6t5n988v",
-    "cgn4fkdqejhxodz",
-    "zebo36xjgjptwry",
-    "fuq15m55brt794k",
-    "2ucp6mxftpibtr4",
-    "q7t6hmvs2ep8qd0",
-    "7onnt6e46iqrl9z",
-    "zu9y4hmsjeqi4a0",
-    "zu5d6nm52suo38z",
-    "i1w6tuh2lvwkxfp",
-    "rlwr272kwyrxa4v",
-    "r87i2dhlwym4vxz",
-    "gbmt41tzz0ln9l6",
-    "w5a5klzd4ahzscb",
-    "fku4kh3xqrbt93j",
-    "3v2eooui2fot7cl",
-    "3hdgmnmorloxj1m",
-    "yeayjsxsldd2gd5",
-    "r3wuk3753fyexxr",
-    "9lr71mnpscvzmkd"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59163,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Entwurf u. Lithographie von H. Asmus in Berlin)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Entwurf u. Lithographie von H. Asmus in Berlin",
+      "scans": [
+        "alm_883_59163_qb3og5l7vf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.939Z",
+          "agent": "wvzx8yp0t9tqzmo",
+          "source_id": "gu4ap3y9dviv032"
+        }
+      ],
+      "source_id": "f6pp5ogq2xmcioo"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 59166, Obj 6 /) unter der Graphik: Gedruckt von Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.544Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59164,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "FRIEDRICH / Prinz von Preussen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gem. v. Krüger Gest. v. Teichel",
+      "scans": [
+        "alm_883_59164_06pq2r86vz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "FRIEDRICH / Prinz von Preussen",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.939Z",
+          "agent": "filrbdi16sdmhwd",
+          "source_id": "8q1qvvyhentc3v8"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.939Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.939Z",
+          "agent": "dp1i9gllz2qxsbz",
+          "source_id": "upe6kl25cqphmi5"
+        }
+      ],
+      "source_id": "z5l1butyb77c9pj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.547Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59165,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Berliner / Kalender / für / 1848. / Zweiundzwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_883_59165_sma6bynfzd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Berliner / Kalender / für / 1848. / Zweiundzwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "3sqf7hizhvbdmce"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59187,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "yir07y0upx7z3s6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.766Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59188,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "4q7rs7ubk1xhrfw"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Titelportrait INr 59164, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.548Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Prinz Friedrich Karl Nicolaus erblickte das Licht der Welt im Königlichen Schlosse zu Berlin am 20. März 1828; seine durchlauchtigen Eltern sind:",
+      "language": [],
+      "musenalm_id": 59166,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Friedrich Karl Nicolaus, / Prinz von Preußen. / (Titelkupfer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Friedrich Karl Nicolaus, / Prinz von Preußen. / (Titelkupfer.)",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gewqqvb46mpgdr"
+    },
+    {
+      "annotation": "s. Textbezug INr 59168, Obj 8 /) unter der Graphik: Gedruckt v. Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.549Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59167,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ST. PETRI KIRCHE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. v. Strack. Gest. v. Sagert",
+      "scans": [
+        "alm_883_59167_kvm0dtx2d7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ST. PETRI KIRCHE",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.940Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.940Z",
+          "agent": "ixm1p6sgnt0khl8",
+          "source_id": "a21qn6c36ccfpvi"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.940Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.940Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "ix7ddi5qkqe97ib"
+        }
+      ],
+      "source_id": "a55w6uh6t5n988v"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59167, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Die St. Petri-Kirche ist eine der ältesten Kirchen Berlins, denn schon in einer Urkunde vom Jahre 1285 wird einer Parochialkirche in Köln, und des dabei angestellten Probstes gedacht.",
+      "language": [],
+      "musenalm_id": 59168,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die St. Petri-Kirche in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die St. Petri-Kirche in Berlin",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "cgn4fkdqejhxodz"
+    },
+    {
+      "annotation": "s. Textbezug INr 59170, Obj 10 /) unter der Graphik: Gedruckt v. Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "SCHLOSS CAMENZ",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nach einer Zeichnung des Grafen von Pfeil. Gest von Schulin",
+      "scans": [
+        "alm_883_59169_ux8jlzzjt2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "SCHLOSS CAMENZ",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.041Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.041Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "owbpikvie632o6a"
+        }
+      ],
+      "source_id": "zebo36xjgjptwry"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59169, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Da, wo die Glatzer Neiße, nachdem sie in östlichem Laufe bei Wartha die Kette der Sudeten durchbrochen hat,",
+      "language": [],
+      "musenalm_id": 59170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Schloß Camenz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Bormann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Schloß Camenz",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "fuq15m55brt794k"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59172, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.946Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Der bauliche Zustand der Kaserne und der Ställe für das zweite Garde Ulanan -(Landwehr) Regiment am Platz Belle Alliance, so wie die Trennung des Regiments, von den zwei Escadrons an diesem Platze,",
+      "language": [],
+      "musenalm_id": 59171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Kaserne / für das / zweite Garde Ulanen - (Landwehr) Regiment",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Kaserne / für das / zweite Garde Ulanen - (Landwehr) Regiment",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "2ucp6mxftpibtr4"
+    },
+    {
+      "annotation": "s. Textbezug INr 59171, Obj 11 /) unter der Graphik: Gedruckt v. Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.947Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "KASERNE FÜR DAS II GARDE-ULANEN (LANDWEHR) REGIMENT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Biermann. Gest. v. Finke",
+      "scans": [
+        "alm_883_59172_asntwdfbry.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "KASERNE FÜR DAS II GARDE-ULANEN (LANDWEHR) REGIMENT",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.907Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.907Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "9yi748s44asvirq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.907Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.907Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "tfmmc92o40d75ve"
+        }
+      ],
+      "source_id": "q7t6hmvs2ep8qd0"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphik INr 59174, Obj 124",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.948Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Zwischen dem Hamurger Bahnhofe und der neuen Kaserne für die Garde-Ulanen erhebt sich der großartige Bau des neuen Mustergefängnisses,.",
+      "language": [],
+      "musenalm_id": 59173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Staatsgefängniß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Staatsgefängniß",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "7onnt6e46iqrl9z"
+    },
+    {
+      "annotation": "s. Textbezug INr 59173, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "STAATS-GEFÄNGNISS / bei Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Biermann. Gest. v. Finke",
+      "scans": [
+        "alm_883_59174_xv6vlkqo3b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "STAATS-GEFÄNGNISS / bei Berlin",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "3q5vdf461i3v4ko"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "kxthlk7g2kfou9x",
+          "source_id": "ria08zofd79q4s2"
+        }
+      ],
+      "source_id": "zu9y4hmsjeqi4a0"
+    },
+    {
+      "annotation": "Titel aus dem I-Verz: Biographische, historische und statistische Notizen zu den artistischen Beilagen; s. Graphiken INr 59176, 59177; Obj 16, 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Blatt I. zeigt uns, wie weit die Baulichkeiten zu dieser Fabrik im Jahre 1837 vorgeschritten waren.",
+      "language": [],
+      "musenalm_id": 59175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Eisengießerei und Maschinen-Anstalt / von / A. Borsig in Berlin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Eisengießerei und Maschinen-Anstalt / von / A. Borsig in Berlin",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "zu5d6nm52suo38z"
+    },
+    {
+      "annotation": "s. Textbezug INr 59175, Obj 15 /) unter der Graphik: gedr. v. Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.951Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59176,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. BORSIG'S / EISENGIESSEREI UND MASCHINENBAU-ANSTALT ZU BERLIN / im Jahre 1837",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Biermann. Gest. v. Sagert",
+      "scans": [
+        "alm_883_59176_df0jjcqk3h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. BORSIG'S / EISENGIESSEREI UND MASCHINENBAU-ANSTALT ZU BERLIN / im Jahre 1837",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "kvb3cdehg6i8s0c",
+          "source_id": "2zq0cao2085q10v"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "h4f0epy8yydp7uz"
+        }
+      ],
+      "source_id": "i1w6tuh2lvwkxfp"
+    },
+    {
+      "annotation": "s. Textbezug INr 59175, Obj 15 /) unter der Graphik: gedr. v. Altmayer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.953Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59177,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "A. BORSIG'S / EISENGIESSEREI UND MASCHINENBAU-ANSTALT ZU BERLIN / im Jahre 1847",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gez. von Biermann. Gest. v. Schulin",
+      "scans": [
+        "alm_883_59177_3kq0loes38.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "A. BORSIG'S / EISENGIESSEREI UND MASCHINENBAU-ANSTALT ZU BERLIN / im Jahre 1847",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "ulca7kvs9vkm8e6",
+          "source_id": "0pm2nunx6ji5koe"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "upsrb82zs34rpbh",
+          "source_id": "7o7xrgxehkmflnh"
+        }
+      ],
+      "source_id": "rlwr272kwyrxa4v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Herzog Albrecht stand schon tief im Abend seines Lebens, im einundsiebenzigsten Jahre seines Alters, körperlich schwach und geistig müde,",
+      "language": [],
+      "musenalm_id": 59178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Paul Scalich, / der falsche Markgraf von Verona",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johannes Voigt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Paul Scalich, / der falsche Markgraf von Verona",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "067lqedc3hrt30h",
+          "source_id": "ob1wu3lqnst6i5f"
+        }
+      ],
+      "source_id": "r87i2dhlwym4vxz"
+    },
+    {
+      "annotation": "Sammlung von 3 Beiträgen INr 59180-59182, Obj 20-22 /) Dem Text vorabgestellt: Le Donne son' venute in eccellenza Di ciascun' arte ove hanno posto cura. Ariosto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.955Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus dem Leben italienischer Künstlerinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfred v. Reumont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus dem Leben italienischer Künstlerinnen",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.908Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.908Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "ipah9ec20fprajp"
+        }
+      ],
+      "source_id": "gbmt41tzz0ln9l6"
+    },
+    {
+      "annotation": "Aus dem Leben italienischer Künstlerinnen (Sammlung INr 59179, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "In unseren Tagen ist es nichts Seltenes, Frauen mit der Bildhauerkunst sich beschäftigen zu sehn. Zieht man in Betracht welche Gattung von Studien dies Kunst erfordert,",
+      "language": [],
+      "musenalm_id": 59180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Properzia de' Rossi",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfred v. Reumont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Properzia de' Rossi",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.808Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.808Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "taq8hrbwtjsbw8s"
+        }
+      ],
+      "source_id": "w5a5klzd4ahzscb"
+    },
+    {
+      "annotation": "Aus dem Leben italienischer Künstlerinnen (Sammlung INr 59179, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.368Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "Ein Loos, nach den ersten noch unbewußten Jahren der Kindheit friedlich wie ihr Name, eine kurze aber glückliche Laufbahn war Irenen di Spilimbergo beschieden.",
+      "language": [],
+      "musenalm_id": 59181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Irene di Spilimbergo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfred v. Reumont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Irene di Spilimbergo",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.944Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "eg2ohq3gjhxximj"
+        }
+      ],
+      "source_id": "fku4kh3xqrbt93j"
+    },
+    {
+      "annotation": "Aus dem Leben italienischer Künstlerinnen (Sammlung INr 59179, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Vor dem Namen Guido Reni's ist der Name seiner talentvollen und anmuthreichen Schülerin unzertrennlich.",
+      "language": [],
+      "musenalm_id": 59182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elisabetta Sirani",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Alfred v. Reumont",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elisabetta Sirani",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.988Z",
+          "agent": "q99l6w88p9m3j5v",
+          "source_id": "t0cdnth1z5bqxx4"
+        }
+      ],
+      "source_id": "3v2eooui2fot7cl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Im Oktober des Jahres 1845, an einem Tage, wo die brennende Sonnenhitze den kühlenden Herbstlüften gewichen war und das bis dahin in dunklem Grün strotzende Land eine sanfte, roth und gelb schimmernde Färbung angenommen hatte,",
+      "language": [],
+      "musenalm_id": 59183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rom und Berlin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Therese, Verfasserin der Briefe aus dem Süden",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Rom und Berlin",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.988Z",
+          "agent": "un665fta9qpg6db",
+          "source_id": "8ujwbvdabwh5lmy"
+        }
+      ],
+      "source_id": "3hdgmnmorloxj1m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59184,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / Hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist Ausgangs Juli 1847 geschlossen, und darnach sogleich der Druck angefan- / gen worden, so daß die späteren Veränderungen nicht mehr haben eingetragen / werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / Hohen Häuser / und anderer / Fürstlichen Personen / in Europa. / (Ist Ausgangs Juli 1847 geschlossen, und darnach sogleich der Druck angefan- / gen worden, so daß die späteren Veränderungen nicht mehr haben eingetragen / werden können.)",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "yeayjsxsldd2gd5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.762Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "Druck von Eduard Haenel in Berlin",
+      "language": [],
+      "musenalm_id": 59185,
+      "musenalm_pagination": [
+        "2. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von Eduard Haenel in Berlin…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [],
+      "source_id": "r3wuk3753fyexxr"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.763Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 59186,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (HA.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "HA.",
+      "scans": [
+        "alm_883_59186_1bncn7bkh6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-08-05 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1848,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.988Z",
+          "agent": "wvzx8yp0t9tqzmo",
+          "source_id": "ap13ixn1r0hfbzj"
+        }
+      ],
+      "source_id": "9lr71mnpscvzmkd"
+    }
   ],
   "agents": [
     {

@@ -49,18 +49,390 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "94g228bfgzp6u9c"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.724Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "408107",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.724Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "94g228bfgzp6u9c"
+    }
   ],
   "contents": [
-    "ah7ndaw6hvbhpnq",
-    "5ervcykhpf8k4zq",
-    "kfp2n3gm8gbo6sy",
-    "adhvxlyp9nvkwtz",
-    "ik3jiq9w4tnycm2",
-    "zvpp3kyik9e0c7j",
-    "0yex4n6hu9936zl",
-    "an8qesraxac8h1x",
-    "dyqfauv3om3k6u2"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90923,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schwestern auf Corcyra / von / Amalie von Hellwig. / Taschenbuch / auf das Jahr 1812",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4012_90923_wuvgvavp3o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schwestern auf Corcyra / von / Amalie von Hellwig. / Taschenbuch / auf das Jahr 1812",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "ah7ndaw6hvbhpnq"
+    },
+    {
+      "annotation": "kol. Titelgraphik /) kol. Illustration zu »Die Schwestern auf Corcyra« von A. v. Helvig INr 90928, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O wie bewegt erkenn' ich hier mich wieder! / 1e. Abth. 2. Auftr.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Am. v. Imhof del. Hössel sc.",
+      "scans": [
+        "alm_4012_90924_s0yq2wvkez.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "O wie bewegt erkenn' ich hier mich wieder! / 1e. Abth. 2. Auftr.",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.542Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.542Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "7n0qj3erjsigd5j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.542Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.542Z",
+          "agent": "t4wlsbli26ob7y0",
+          "source_id": "gxbv483ops6xc3w"
+        }
+      ],
+      "source_id": "5ervcykhpf8k4zq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90925,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / das Jahr 1812. / Die / Schwestern auf Corcyra. / Eine dramatische Idylle / in / zwey Abtheilungen. / Von / Amalie von Hellwig, / gebohrne von Imhof, / Verfasserin / der Schwestern von Lesbos. / Mit zwey Kupfern und Musik. / Amsterdam und Leipzig, / Kunst- und Industrie-Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4012_90925_amp5mgeuyb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / das Jahr 1812. / Die / Schwestern auf Corcyra. / Eine dramatische Idylle / in / zwey Abtheilungen. / Von / Amalie von Hellwig, / gebohrne von Imhof, / Verfasserin / der Schwestern von Lesbos. / Mit zwey Kupfern und Musik. / Amsterdam und Leipzig, / Kunst- und Industrie-Comptoir",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "kfp2n3gm8gbo6sy"
+    },
+    {
+      "annotation": "es folgt: Widmungsgedicht INr 90927, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90926,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zueignung / an / Ihro Hochfürstl. Durchlaucht / Frau Luise / Herzogin von Sachsen-Weimar / geborne / Landgräfin von Hessen-Darmstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zueignung / an / Ihro Hochfürstl. Durchlaucht / Frau Luise / Herzogin von Sachsen-Weimar / geborne / Landgräfin von Hessen-Darmstadt",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "adhvxlyp9nvkwtz"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:30.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Was in der Welt unendlich regem Streben / Still durch der Frau verschwiegnen Busen / zieht,",
+      "language": [],
+      "musenalm_id": 90927,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was in der Welt unendlich regem Streben / Still durch der Frau verschwiegnen Busen / zieht,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig, gebohrne von Imhof",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.543Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.543Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "bvsajqq8zaj7wmo"
+        }
+      ],
+      "source_id": "ik3jiq9w4tnycm2"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Titelgraphik INr 90924, Obj 2  und Graphik INr 90929, Obj 7 /) mit einer Musikbeigabe s. INr 90930, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Heil und Begeisterung euch, o edle Frau! / Hier auf des mütterlichen Landes Boden,",
+      "language": [],
+      "musenalm_id": 90928,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Schwestern auf Corcyra. / Eine dramatische Idylle / in / zwey Abtheilungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalie von Hellwig, gebohrne von Imhof",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Schwestern auf Corcyra. / Eine dramatische Idylle / in / zwey Abtheilungen",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.265Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "qebtzks0ip12ypy"
+        }
+      ],
+      "source_id": "zvpp3kyik9e0c7j"
+    },
+    {
+      "annotation": "kol. Illustration zu »Die Schwestern auf Corcyra« von A. v. Helvig INr 90928, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90929,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mir hat Natur der Stimme Klang versagend / Zu stummer Trauer diese Brust verdammt. / 1e. Abth. 3r. Auftr.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Am. v. Imhof del. Hoessel sc.",
+      "scans": [
+        "alm_4012_90929_ncoiv5o550.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mir hat Natur der Stimme Klang versagend / Zu stummer Trauer diese Brust verdammt. / 1e. Abth. 3r. Auftr.",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.265Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.265Z",
+          "agent": "g022cx9ysck37av",
+          "source_id": "hm0p8274b3n7jx1"
+        }
+      ],
+      "source_id": "0yex4n6hu9936zl"
+    },
+    {
+      "annotation": "Vertonung des Lieds: »Glückliche Jugend« [...] der Euphemia, aus »Die Schwestern auf Corcyra«  1. Abth. 3. Auftr. von A. v. Helvig INr 90928, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.126Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90930,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lob der Jugend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "in Musik gesetzt von Sophie v. Silverspar",
+      "scans": [
+        "alm_4012_90930_w1k5lq6fxu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lob der Jugend",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "an8qesraxac8h1x"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 90931,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amsterdam und Leipzig, / Kunst und Industrie-Comptoir",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4012_90931_pu09j2np9a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Amsterdam und Leipzig, / Kunst und Industrie-Comptoir",
+      "updated": "2013-08-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "dyqfauv3om3k6u2"
+    }
   ],
   "agents": [
     {

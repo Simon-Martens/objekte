@@ -48,7 +48,26 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "lrgkiidypas4mu4"
+    {
+      "annotation": "",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.663Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106444",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.663Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "lrgkiidypas4mu4"
+    }
   ],
   "contents": [],
   "agents": [

@@ -49,7 +49,26 @@
   "year": 1801,
   "editor": "",
   "items": [
-    "prnlw7cf4k6kar0"
+    {
+      "annotation": "Format: 3,8 x 4,8 <br> Karton: Kleinformat diverse",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.781Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409120",
+      "location": "105H01",
+      "media": [
+        "Reproduktion"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.781Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "prnlw7cf4k6kar0"
+    }
   ],
   "contents": [],
   "agents": []

@@ -48,48 +48,1642 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "pnsuhhw57bjw4bq"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.529Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404520",
+      "location": "105B06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.529Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pnsuhhw57bjw4bq"
+    }
   ],
   "contents": [
-    "u62snto68qyzkl9",
-    "wgfmibvyxztc5eq",
-    "3u4srz8u6ggrzai",
-    "bpp2fdqfgnk239d",
-    "d7wnrk3bd9r7crg",
-    "o3m3wpbsuebgohl",
-    "r0ecbl4c4roc9cw",
-    "n7y8hxu9tb8x213",
-    "qkoi5hsghsnivm9",
-    "5a68xmjrp5dae83",
-    "mv4uslnhvq3zy6v",
-    "a66frk0gbgd473g",
-    "dt1sgc9py39y3qr",
-    "53940gdq5pzq0pa",
-    "2xd84nxu1a8lnfi",
-    "ttup815ockott9t",
-    "48n34z9rqx69blh",
-    "qvq9x8mjvkjiwq4",
-    "li9erka3mxaulhe",
-    "hwshbv6tq9res8r",
-    "va3w8tql38hxjvl",
-    "4idm5lnwdftlfde",
-    "hfa6dhf20ftpgs5",
-    "nei7241djcee176",
-    "zlax3w9b8htyw3x",
-    "a8bynguux3csddr",
-    "ssaw4z82sh6tj2v",
-    "hajz0jmbmn2dujx",
-    "ht1x11e7tkjef3h",
-    "cr9fpo0nuichk2s",
-    "1ttv81ybvtf12p4",
-    "d5mfyt1hs2wc3pp",
-    "3ktr4nkgk8ksw12",
-    "by1ik73cvwyeco3",
-    "htaim1njbm2us8q",
-    "oj8znhsbuxyajky",
-    "odsek1zh4acnc5x",
-    "oyeeeoosob5f7fl",
-    "a0g055dp3p4dnun"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.125Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119976,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_119976_221l8z2vq5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "u62snto68qyzkl9"
+    },
+    {
+      "annotation": "Titelportrait; s. Textbezug INr 119980, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.127Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119977,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARIA, / Gemahlin Kaisers Maximilian II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mezler del. I. Krepp sc.",
+      "scans": [
+        "alm_1001_119977_brn9l7mnq6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARIA, / Gemahlin Kaisers Maximilian II.",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.629Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "o4avbht7mzvj88r"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.629Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "ywkkmcc0sckzhxj"
+        }
+      ],
+      "source_id": "wgfmibvyxztc5eq"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.128Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119978,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER / FREUND / des / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1837. / WIEN / bei Heinrich Buchholz. / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl",
+      "scans": [
+        "alm_1001_119978_wjs9bq2x0g.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER / FREUND / des / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1837. / WIEN / bei Heinrich Buchholz. / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "3u4srz8u6ggrzai"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119979,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Freund / des / schönen Geschlechts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Freund / des / schönen Geschlechts",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "bpp2fdqfgnk239d"
+    },
+    {
+      "annotation": "s. Titelportrait INr 119977, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.129Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Freund des schönen Geschlechts liefert dieses Mal das Portrait einer Fürstin, welche durch ihren erlauchten Gemahl eben so merkwürdig ist, als durch sich selbst.",
+      "language": [],
+      "musenalm_id": 119980,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Titelkupfer. / Maria, Gemahlin des Kaisers Maximilian",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Titelkupfer. / Maria, Gemahlin des Kaisers Maximilian",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "d7wnrk3bd9r7crg"
+    },
+    {
+      "annotation": "Mit einer Illustration, s. Graphik (INr 119982, Obj 7)  Vorangestelltes Motto: Das war’s, daß ich noch ernster, als du, / Und tiefer in der Seel’ es wurde, / Als sie die Leiche / Vorübertrugen (Klopstock)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "In einer der entlegensten Vorstädte Mailands, abgeschieden von dem Lärme und dem Gewühle der Städter, lebten vor nicht langer Zeit zwei Frauen,",
+      "language": [],
+      "musenalm_id": 119981,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angelika. / Gemälde aus der Gegenwart",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Phillip von Körber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Angelika. / Gemälde aus der Gegenwart",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "o3m3wpbsuebgohl"
+    },
+    {
+      "annotation": "Illustration zu »Angelika« von Ph. Körber (INr 119982, Obj 7)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.130Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "20",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119982,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Angelika",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clne Russ del. S. Langer sc.",
+      "scans": [
+        "alm_1001_119982_sdb1ysmhsg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Angelika",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.629Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.629Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "8r8b6o9gitf4xnf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.630Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.630Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "yboe35n0t0hmhan"
+        }
+      ],
+      "source_id": "r0ecbl4c4roc9cw"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 119984, 119985; Obj 9, 10 /) Vorangestelltes Motto: Auf den wunderbarsten Wegen / Eint Gott Züchtigung und Segen!",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "29",
+      "incipit_statement": "Die letzten Strahlen des entschlummertenTages umzogen mit purpurnem Saume die gewaltigen Eichenwälder",
+      "language": [],
+      "musenalm_id": 119983,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Findling. / Erzählung / aus der Mitte des 13. Jahrhundertes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Prof. Rud. Gust. Puff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Findling. / Erzählung / aus der Mitte des 13. Jahrhundertes",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "z276kpo6m8d5nvd",
+          "source_id": "sgg2oy0awiun4sc"
+        }
+      ],
+      "source_id": "n7y8hxu9tb8x213"
+    },
+    {
+      "annotation": "Illustration zu »Der Findling« von Rud. Gust. Puff (Nr 119983, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.786Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119984,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Findling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cl. Russ del. S. Langer sc.",
+      "scans": [
+        "alm_1001_119984_607xquwsh6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Findling",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "4q0sn2q6g9ww4ym"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "mopim3eqd2wiesd"
+        }
+      ],
+      "source_id": "qkoi5hsghsnivm9"
+    },
+    {
+      "annotation": "Illustration zu »Der Findling« von Rud. Gust. Puff (Nr 119983, Obj 8)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119985,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Findling",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cl. Russ del. S. Langer sc.",
+      "scans": [
+        "alm_1001_119985_eizlj8i40u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Findling",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "0svypld2t52oecv"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "7gx7ubamvrnrhl5"
+        }
+      ],
+      "source_id": "5a68xmjrp5dae83"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 119987, Obj 11 /) Vorangestelltes Motto: Aus den Saiten, die der Kummer / In des Menschen Brust gespannt, / Locket reine Melodien / Nur des Schmerzes Meisterhand.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "89",
+      "incipit_statement": "Ein Urlaub von zwei Monaten setzte mich in den Stand, dem Rathe meines Arztes Folge zu leisten",
+      "language": [],
+      "musenalm_id": 119986,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Reise ins Bad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hyazinth von Schulheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Reise ins Bad",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "miy11spit4lljvz",
+          "source_id": "c87nkgqiv74scbp"
+        }
+      ],
+      "source_id": "mv4uslnhvq3zy6v"
+    },
+    {
+      "annotation": "Illustration zu »Die Reise ins Bad« von Hyazinth von Schulheim (INr 119986, Obj 11)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.789Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "94",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119987,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Reise ins Bad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clem Russ del. S. Langer sc.",
+      "scans": [
+        "alm_1001_119987_eeugv87xv8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Reise ins Bad",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "hu2izhkx73tllpn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.677Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "rah4yk8hcqnoz1a"
+        }
+      ],
+      "source_id": "a66frk0gbgd473g"
+    },
+    {
+      "annotation": "# Autorname am Ende einer Folge von zwei Gedichten (INr 119988–119989) desselben Autors.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "Wenn mit der Sonne der Tag erwacht, / Jung dir die Schöpfung entgegenlacht, Wenn ihre Köpfchen auf grüner Au",
+      "language": [],
+      "musenalm_id": 119988,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Worte der Liebe",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Worte der Liebe",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "dt1sgc9py39y3qr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "104",
+      "incipit_statement": "Wer selber sich durch’s Leben muß geleiten, / Wer keinen Schützer, keinen Führer hat, / Kann nimmer sich ein glücklich Loos bereiten ...",
+      "language": [],
+      "musenalm_id": 119989,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Meine Genien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Mikolasch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Meine Genien",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "x6nl2p869cc7gdz",
+          "source_id": "y86g23agq484e55"
+        }
+      ],
+      "source_id": "53940gdq5pzq0pa"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 119991, Obj 16 /) Vorangestelltes Motto: Seelenvolle Harmonieen wimmeln, / Ein wollüstig Ungestüm, / Aus den Saiten, wie aus ihren Himmeln / Neugeborne Seraphim. (Fr. v. Schiller)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.790Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "Der Tag neigte sich bereits zu Ende, die heftigstechende Glühhitze der Sonne hatte sich um ein Gutes abgekühlt",
+      "language": [],
+      "musenalm_id": 119990,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Gewitter zu Venedig / Reisebild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schlecht",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Gewitter zu Venedig / Reisebild",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "c4desl7afayuss3",
+          "source_id": "wu8iez8s4y4bjmq"
+        }
+      ],
+      "source_id": "2xd84nxu1a8lnfi"
+    },
+    {
+      "annotation": "Illustration zu »Das Gewitter in Venedig« von Leopold Schlecht (Nr 119990, Obj 16)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119991,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Gewitter in Venedig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clne Russ del. S. Langer sc.",
+      "scans": [
+        "alm_1001_119991_x30e3sehvz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das Gewitter in Venedig",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "jgiiz9tf25h2x8y"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "y9kft6md6kxc0tw"
+        }
+      ],
+      "source_id": "ttup815ockott9t"
+    },
+    {
+      "annotation": "# Autorname am Ende einer Folge von zwei Gedichten (INr 119992–119993) desselben Autors",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Wenn dich mein Ohr nicht hören kann, / Mein Aug’ dich nimmer sehen, / Dann fängt die treue Sehnsucht an",
+      "language": [],
+      "musenalm_id": 119992,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Treue der Sehnsucht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Treue der Sehnsucht",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "9a46n406ug870d4"
+        }
+      ],
+      "source_id": "48n34z9rqx69blh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.792Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "122",
+      "incipit_statement": "Mädchen, du bist wie die Sternlein / Mit ihrem sanften Licht; Sie steh’n auch bei Tag am Himmel",
+      "language": [],
+      "musenalm_id": 119993,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Ständchen / (Nach dem Italienischen.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Ständchen / (Nach dem Italienischen.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.678Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.678Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "x79lcaqs5px1c6w"
+        }
+      ],
+      "source_id": "qvq9x8mjvkjiwq4"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 119995, Obj 19 /) Vorangestelltes Motto: Lord, seid Ihr ein Mann? Und zittert? (Shakespeare)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.710Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Der Kapellmeister wartete schon lange auf das Zeichen von der Bühne zum Beginne der Ouverture;",
+      "language": [],
+      "musenalm_id": 119994,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / seltene Künstler / Fantasiestück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Silas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / seltene Künstler / Fantasiestück",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "li9erka3mxaulhe"
+    },
+    {
+      "annotation": "Illustration zu »Der seltene Künstler« von A. Silas (INr 119994, Obj 19)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.711Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119995,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der seltene Künstler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cl. Russ del. S. Langer sc.",
+      "scans": [
+        "alm_1001_119995_bo281qho3a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der seltene Künstler",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.726Z",
+          "agent": "qlgmphiynirko34",
+          "source_id": "bso0ehj6fa40dtt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.726Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "dsaicbt1z91ddsw"
+        }
+      ],
+      "source_id": "hwshbv6tq9res8r"
+    },
+    {
+      "annotation": "Sammlung von 10 Beiträgen (INr 119997–120006) /) Vorangestelltes Motto: Das Räthsel gleicht dem flücht’gen Sinngedicht: Leicht mag es sein, – nur zu geschwätzig nicht. /) Mit einer Auflösung der Rätsel Inr",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 119996,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierzeilige Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Meta Communis, J. G. Seidl und H. Welling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierzeilige Räthsel",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "va3w8tql38hxjvl"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.712Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Die Erste lächelt uns mit tausend Augen, / Das nächste Paar entzückt mit tausend / Tönen;",
+      "language": [],
+      "musenalm_id": 119997,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / (Dreisylbig)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / (Dreisylbig)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.726Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "7uxf7s1me7rywk9"
+        }
+      ],
+      "source_id": "4idm5lnwdftlfde"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21) /) # Pseudonym",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Ein Sylbenpaar, von vorn und rück- / wärts gleich, / Dazu ein Paar, das oft die Unschuld / kränkte",
+      "language": [],
+      "musenalm_id": 119998,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / (Viersylbig.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meta Communis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / (Viersylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.726Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "rmivsld1x2pan0h"
+        }
+      ],
+      "source_id": "hfa6dhf20ftpgs5"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Das Erste schreckt bei Nach mich oft mit / Bildern, / Wie sie so bunt kein Zweites könnte schil- / dern",
+      "language": [],
+      "musenalm_id": 119999,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / (Zweisylbig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Welling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / (Zweisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "nei7241djcee176"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.713Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Von Liebchens Erstern trag’ ich auf der / Brust / Die Zweit’ und Dritt’ als theures Angedenken;",
+      "language": [],
+      "musenalm_id": 120000,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / (Dreisylbig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / (Dreisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.726Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "w99mqmuqqliq21s"
+        }
+      ],
+      "source_id": "zlax3w9b8htyw3x"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21) /) # Pseudonym",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "Die Erste recicht uns Lieb’ auch über’s Grab, / Die zweite Sylbe treten wir mit Füßen;",
+      "language": [],
+      "musenalm_id": 120001,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / (Zweisylbig.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meta Communis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / (Zweisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.661Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.661Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "tkcwzs49hjxbnek"
+        }
+      ],
+      "source_id": "a8bynguux3csddr"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Die beiden Ersten sind der Seele Dop- / pelspiegel, / aus denen deutungsvoll …",
+      "language": [],
+      "musenalm_id": 120002,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. (Dreisylbig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. (Dreisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.662Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.662Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "0od99z9mf1ewxal"
+        }
+      ],
+      "source_id": "ssaw4z82sh6tj2v"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "1 hat mancher Tropf im Kopfe, / 2 hat mancher Kluge drauf",
+      "language": [],
+      "musenalm_id": 120003,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / (Zweisylbig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Welling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / (Zweisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "hajz0jmbmn2dujx"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21) /) # Pseudonym",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Die Erste im Wirbel für rastlose Seelen, / Die zweite und Dritte der Beste vom / Fach",
+      "language": [],
+      "musenalm_id": 120004,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / (Dreisylbig.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meta Communis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / (Dreisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.662Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.662Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "0lzqgcohb3w0oh1"
+        }
+      ],
+      "source_id": "ht1x11e7tkjef3h"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Die Erste ist bald Gold, bald Blut; / Die Zweite dient zum Strafwerkzeug und / Stabe;",
+      "language": [],
+      "musenalm_id": 120005,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / (Zweisylbig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Welling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / (Zweisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "cr9fpo0nuichk2s"
+    },
+    {
+      "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "142",
+      "incipit_statement": "Die Erste dient Theezirkeln oft zur Würze, / Die Zweite mahnt uns an der Stunden Kürze",
+      "language": [],
+      "musenalm_id": 120006,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. (Zweisylbig.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. G. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. (Zweisylbig.)",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.662Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.662Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "7dx09uqy2gpc8ks"
+        }
+      ],
+      "source_id": "1ttv81ybvtf12p4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120007,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt / zum Freund des schönen Geschlechtes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt / zum Freund des schönen Geschlechtes",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "d5mfyt1hs2wc3pp"
+    },
+    {
+      "annotation": "kol. Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120008,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120008_n0tvqg9rqv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ktr4nkgk8ksw12"
+    },
+    {
+      "annotation": "kol. Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120009,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120009_0j3h0tl6q6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "by1ik73cvwyeco3"
+    },
+    {
+      "annotation": "kol. Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120010,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120010_7dzvuwzk8k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "htaim1njbm2us8q"
+    },
+    {
+      "annotation": "kol. Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120011,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120011_kout09es9s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "oj8znhsbuxyajky"
+    },
+    {
+      "annotation": "kol. Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120012,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120012_qfqheummhg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "odsek1zh4acnc5x"
+    },
+    {
+      "annotation": "kol. Modekupfer",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120013,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120013_r641yn61o3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "oyeeeoosob5f7fl"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120014,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1001_120014_ol3cqjgudd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-01-29 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "a0g055dp3p4dnun"
+    }
   ],
   "agents": [
     {

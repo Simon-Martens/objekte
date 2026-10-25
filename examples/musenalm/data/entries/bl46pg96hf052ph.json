@@ -49,7 +49,26 @@
   "year": 1852,
   "editor": "",
   "items": [
-    "nhiaasyydeecnam"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.597Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404609",
+      "location": "105H01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.597Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nhiaasyydeecnam"
+    }
   ],
   "contents": [],
   "agents": [

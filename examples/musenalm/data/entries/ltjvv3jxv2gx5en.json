@@ -49,18 +49,372 @@
   "year": 1793,
   "editor": "",
   "items": [
-    "t29va2e3a11boqk"
+    {
+      "annotation": "Auch erschienen als: ETRENNES / pour la Jeunesse / TASCHENBUCH / für die Jugend / für das Jahr / 1793 / von Hr. Pr. Muechler / Berlin bey Fr. Barbiez / und in Commission bey J. B. G. Fleischer / in Leipzig. Vorhanden: Biblio Nr. 200393",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.660Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100816",
+      "location": "105E09",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.660Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "t29va2e3a11boqk"
+    }
   ],
   "contents": [
-    "683i1ojxo37vd8s",
-    "xrg2a81clp8fgwr",
-    "2vbsfgnah04xlop",
-    "wftvn2o7jfl5aoa",
-    "0qhdvuyt2b6mx94",
-    "j1qbihvuy3onftl",
-    "4s03gmn5ltkyy3h",
-    "mncs8ra1uz6opdz",
-    "0dn0ffde2nklrip"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.560Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2795_91468_wnfiifa8m2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "683i1ojxo37vd8s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.561Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CALENDER / für / die Jugend / für das Jahr 1793. / in franzoesischer und deutscher Sprache / von / Hr. Prof. Muechler / mit Kupfern / von / Fr. Barbiez / Berlin bey Fr. Barbiez / und in Commission bey J. B. G. Fleischer / in Leipzig",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2795_91469_sngnapgfzq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CALENDER / für / die Jugend / für das Jahr 1793. / in franzoesischer und deutscher Sprache / von / Hr. Prof. Muechler / mit Kupfern / von / Fr. Barbiez / Berlin bey Fr. Barbiez / und in Commission bey J. B. G. Fleischer / in Leipzig",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "xrg2a81clp8fgwr"
+    },
+    {
+      "annotation": "kol. Zeichnung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91470,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2795_91470_k264ygeoow.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "2vbsfgnah04xlop"
+    },
+    {
+      "annotation": "kol. Zeichnung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91471,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2795_91471_vwu2zu0tww.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "wftvn2o7jfl5aoa"
+    },
+    {
+      "annotation": "# vielleicht: Glassbach, Benjamin",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91472,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. [unleserlich]",
+      "scans": [
+        "alm_2795_91472_a9zkp78tv0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0qhdvuyt2b6mx94"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.568Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91473,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rosmaesler del. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmaesler del. et sc.",
+      "scans": [
+        "alm_2795_91473_yrh1391h9p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.298Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "i6hjz0318cz6qe8"
+        }
+      ],
+      "source_id": "j1qbihvuy3onftl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.570Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91474,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "O Sohn, welch himmlisches Bild!weiter in deinen schönen Träume -",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. W. Hoffmann del. Darchow sculp.",
+      "scans": [
+        "alm_2795_91474_hnlw3fdugq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "O Sohn, welch himmlisches Bild!weiter in deinen schönen Träume -",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.299Z",
+          "agent": "d91op1cpa09sjn3",
+          "source_id": "rd3gjlgkas61qyf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.299Z",
+          "agent": "7jvwsnvsb3w4og3",
+          "source_id": "w7urrtsy0tus3d0"
+        }
+      ],
+      "source_id": "4s03gmn5ltkyy3h"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:28.572Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91475,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Rosmaesler del. et sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmaesler del. et sc.",
+      "scans": [
+        "alm_2795_91475_92zmfvvc2h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.299Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.299Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "98thaq2funlut5w"
+        }
+      ],
+      "source_id": "mncs8ra1uz6opdz"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:29.918Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 91476,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2795_91476_0wixzht1pe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2013-10-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1793,
+      "editor": "",
+      "agents": [],
+      "source_id": "0dn0ffde2nklrip"
+    }
   ],
   "agents": [
     {

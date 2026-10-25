@@ -48,64 +48,2191 @@
   "year": 1784,
   "editor": "",
   "items": [
-    "q31zi36pb0tub6t"
+    {
+      "annotation": "1776-1813.\nKartonierter Einband und Goldschnitt.\n1784: (K: M. gest. Titel, Modeku 16 und Monatsku 12.) Mit  gest Titel, Modeku 16, Monatsku 12,  Bl 28, 76 SS und 118 SS.\n\\par Forts. u.d.Tit.:Taschenkalender, Göttingischer oder Taschenbuch Göttingisches.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.466Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100566",
+      "location": "105E02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.466Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "q31zi36pb0tub6t"
+    }
   ],
   "contents": [
-    "34mg1zb4jeaup1q",
-    "1lynqop2omk4kbv",
-    "v2xnmujfrlg0rea",
-    "m4auwkdhjzmwv6r",
-    "9mchw1q5vpzwaar",
-    "jheid47rvbde1ao",
-    "jz1nsfw08qkrqfq",
-    "rq8dhsup43itwh0",
-    "a95zwkhd90km9ux",
-    "3ontlkm5zudr3u0",
-    "bjh41uselmg1m83",
-    "5ujivzoee8q0zcn",
-    "5r66pbv3xg7fr7n",
-    "rb8pgubu07s0gwx",
-    "aypydkc7ufjsspu",
-    "uepdb8y186cmyjq",
-    "vh6g5k1l8bqrcaa",
-    "5yhybm7do8h7fin",
-    "gbnyos4aftgepcw",
-    "k2o8p5x6zn3a2g2",
-    "v8j52otaa9pnenx",
-    "f1lni5zrpg3ex7d",
-    "42k3l0al2ngyfla",
-    "xkllfqok5vznyoh",
-    "smqpi1tgeh5y619",
-    "0fyyeviwihtjmrp",
-    "e5z926qqa6jj0bh",
-    "0a5rwinwakry1ku",
-    "kgm9wpnz1rf6k31",
-    "bzcj2jlv85oj9cg",
-    "wvzym4pgf3cyjxi",
-    "wlr0ax31oxe1dyd",
-    "z1lyd2bbpepf7hi",
-    "e017r38wx0o3cct",
-    "1tr8f29tmvogliv",
-    "8cgkgjr9ofknuji",
-    "5m5xo6hhif6q0lp",
-    "v1irdd6oerreilr",
-    "1gjwshlb7jee1hy",
-    "agcn0ip0x4yj45y",
-    "mem85lgxw5dcvr3",
-    "fn25fspykkiqsnh",
-    "dm5ohz0sa1r17k9",
-    "fjqnr2hiote25ll",
-    "b42jbgcshb26q5i",
-    "0b1i7knyg8edxw7",
-    "ixp1cwxlexz4k6j",
-    "kto66h3nygx2lac",
-    "a9r717nuyfx7zyv",
-    "suspqhysvq3ro22",
-    "0akinqzeaata417",
-    "2qwsx4sljvmudq9",
-    "wlpnx8140da2fwo",
-    "ws0xa1r5tlghr1z",
-    "cexdn2orh22dt51"
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.131Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7348,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Goettinger Taschen / CALENDER / vom Jahr / 1784 / bey Joh. Chr. Dietrich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen del. u. sculps.",
+      "scans": [
+        "alm_149_7348_xkm2uo4qkm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1784 / bey Joh. Chr. Dietrich",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.318Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "h68b5xppcokt5vm"
+        }
+      ],
+      "source_id": "34mg1zb4jeaup1q"
+    },
+    {
+      "annotation": "Modekupfer paginiert I.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7878,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (gez. und gest. von Riepenhausen)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. und gest. von Riepenhausen",
+      "scans": [
+        "alm_149_7878_zho3xv4mhr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.359Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "ois41fpi3okkacr"
+        }
+      ],
+      "source_id": "1lynqop2omk4kbv"
+    },
+    {
+      "annotation": "Modekupfer paginiert II.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7879,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Riepenhausen inv. & sculps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Riepenhausen inv. & sculps.",
+      "scans": [
+        "alm_149_7879_ww45fqj2ri.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.359Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.359Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "7vl07qw5xjbxuay"
+        }
+      ],
+      "source_id": "v2xnmujfrlg0rea"
+    },
+    {
+      "annotation": "Modekupfer paginiert III.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.800Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7880,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen del. & sulps.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen del. & sulps.",
+      "scans": [
+        "alm_149_7880_lt6xabboq3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.301Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.301Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "ewtqcu8evxd6uyu"
+        }
+      ],
+      "source_id": "m4auwkdhjzmwv6r"
+    },
+    {
+      "annotation": "Modekupfer paginiert IV.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.653Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7881,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (E. Riepenhausen del. & s. Goettingen)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Riepenhausen del. & s. Goettingen",
+      "scans": [
+        "alm_149_7881_qwattfxes0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.362Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "eim5cbpzqroah0l"
+        }
+      ],
+      "source_id": "9mchw1q5vpzwaar"
+    },
+    {
+      "annotation": "Modekupfer paginiert V.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.655Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7882,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Habillemens de Dresde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmaesler del. et sc. à Dresde",
+      "scans": [
+        "alm_149_7882_enhwco0gym.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Habillemens de Dresde",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.362Z",
+          "agent": "n3n9pdzq4tdymdn",
+          "source_id": "oe2eznt2z0n0g8k"
+        }
+      ],
+      "source_id": "jheid47rvbde1ao"
+    },
+    {
+      "annotation": "Modekupfer paginiert VI.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.657Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7883,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Habillemens de Dresde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rosmasler del. et sc. a Dresde",
+      "scans": [
+        "alm_149_7883_o6zpn8caz7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Habillemens de Dresde",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.362Z",
+          "agent": "n3n9pdzq4tdymdn",
+          "source_id": "fv6y8fmc7il7pb8"
+        }
+      ],
+      "source_id": "jz1nsfw08qkrqfq"
+    },
+    {
+      "annotation": "Modekupfer paginiert VII.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.659Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7884,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coiffures de Goettingue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Riepenhausen inv. & sculps. Goettingen",
+      "scans": [
+        "alm_149_7884_42uf9bjs3i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coiffures de Goettingue",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.362Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "m98afder9vmmmey"
+        }
+      ],
+      "source_id": "rq8dhsup43itwh0"
+    },
+    {
+      "annotation": "Modekupfer paginiert VIII.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7885,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coiffures de Goettingue",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. und gest. v. Riepenhausen",
+      "scans": [
+        "alm_149_7885_6q2vys635u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coiffures de Goettingue",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.362Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.362Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "4q058gm5eh1wdbq"
+        }
+      ],
+      "source_id": "a95zwkhd90km9ux"
+    },
+    {
+      "annotation": "Modekupfer paginiert IX.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.663Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7886,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Riepenhausen)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Riepenhausen",
+      "scans": [
+        "alm_149_7886_9k7llij54h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.363Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.363Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "9nw2mvc4h8oxnpl"
+        }
+      ],
+      "source_id": "3ontlkm5zudr3u0"
+    },
+    {
+      "annotation": "Modekupfer paginiert 10.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7887,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures de Leipsic / 1.à Plumes 2. Neglige. 3. Chapeau de Paille / 4. Chapeau plume",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thoenert fec.",
+      "scans": [
+        "alm_149_7887_anaa3fz6vh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures de Leipsic / 1.à Plumes 2. Neglige. 3. Chapeau de Paille / 4. Chapeau plume",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.356Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.356Z",
+          "agent": "knrhgn52aqjwh89",
+          "source_id": "w9114wbybii7oi2"
+        }
+      ],
+      "source_id": "bjh41uselmg1m83"
+    },
+    {
+      "annotation": "Modekupfer paginiert 11.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7888,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures de Leipsic / 1. Chapeau francois. 2. Naiveté. 3. Chapeau / de Paille teinte. 4. Innocente",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Thoenert fec.",
+      "scans": [
+        "alm_149_7888_jlhkgud5xa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures de Leipsic / 1. Chapeau francois. 2. Naiveté. 3. Chapeau / de Paille teinte. 4. Innocente",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.149Z",
+          "agent": "knrhgn52aqjwh89",
+          "source_id": "v0f6wqut1vbp8gd"
+        }
+      ],
+      "source_id": "5ujivzoee8q0zcn"
+    },
+    {
+      "annotation": "Modekupfer paginiert XII.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7889,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures de Leipsic / 1. Coeffure en Fichu. 2. noble Simplicite 3. Chapeaux l'hiver / 4. Chapeaux pour la dance",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Endner del. et sc.",
+      "scans": [
+        "alm_149_7889_cy5wd5bh02.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures de Leipsic / 1. Coeffure en Fichu. 2. noble Simplicite 3. Chapeaux l'hiver / 4. Chapeaux pour la dance",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.149Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.149Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "me4zlbs5z2d0u7m"
+        }
+      ],
+      "source_id": "5r66pbv3xg7fr7n"
+    },
+    {
+      "annotation": "Modekupfer paginiert XIII.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7890,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Coëffures [de Leipsic] / 1 a l'air ouvert 2.à l'aigrette / 3. Dormeuse Angloise 4. Chapeau / soufflé",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Endner del. et sculp.",
+      "scans": [
+        "alm_149_7890_y61cx76fr2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Coëffures [de Leipsic] / 1 a l'air ouvert 2.à l'aigrette / 3. Dormeuse Angloise 4. Chapeau / soufflé",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.076Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.076Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "1zzmaolmd8srraj"
+        }
+      ],
+      "source_id": "rb8pgubu07s0gwx"
+    },
+    {
+      "annotation": "Modekupfer paginiert XIV.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.199Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7891,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Coëffures] de Leipsic. / 1. au petit deuil. 2. a la méprisante 3. a la Néréide, 4. a l'imposante",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Endner del. et sculp",
+      "scans": [
+        "alm_149_7891_9parv79kjc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Coëffures] de Leipsic. / 1. au petit deuil. 2. a la méprisante 3. a la Néréide, 4. a l'imposante",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.059Z",
+          "agent": "lyz2x127nyb2cxs",
+          "source_id": "7lvg0tu3ib528hc"
+        }
+      ],
+      "source_id": "aypydkc7ufjsspu"
+    },
+    {
+      "annotation": "Modekupfer paginiert XV.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7892,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winter Tracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. und gest. von Riepenhausen",
+      "scans": [
+        "alm_149_7892_ghekzenm1l.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Winter Tracht",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.059Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "078158j3wo5t35v"
+        }
+      ],
+      "source_id": "uepdb8y186cmyjq"
+    },
+    {
+      "annotation": "Modekupfer paginiert XVI.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7893,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sommer Tracht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "R. f.",
+      "scans": [
+        "alm_149_7893_8nmaek72we.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Sommer Tracht",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.059Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.059Z",
+          "agent": "s50e2koeoxpuipg",
+          "source_id": "ez3j22wdv263m8c"
+        }
+      ],
+      "source_id": "vh6g5k1l8bqrcaa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7987,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "5yhybm7do8h7fin"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 1. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7349,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bin doch kurios zu wissen, was da so gröhlet. / Siegfried von Lindenberg / 1r. Theil 90. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculps.",
+      "scans": [
+        "alm_149_7349_591t8is4zv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bin doch kurios zu wissen, was da so gröhlet. / Siegfried von Lindenberg / 1r. Theil 90. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.318Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "6dqd1oig69m1u9t"
+        }
+      ],
+      "source_id": "gbnyos4aftgepcw"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 2. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7350,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mama Seliger hatte wohl recht, daß'n Kafflier / immer mehr weiß als'n gelehrter / 1r. Theil 105. S.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "D. Chodowiecki del. et sculps.",
+      "scans": [
+        "alm_149_7350_wl8doc9gxe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Mama Seliger hatte wohl recht, daß'n Kafflier / immer mehr weiß als'n gelehrter / 1r. Theil 105. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.318Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "5hnixdalhibzuyh"
+        }
+      ],
+      "source_id": "k2o8p5x6zn3a2g2"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 3. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7351,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Servitör / 1r. Theil 165. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7351_w844926cna.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Servitör / 1r. Theil 165. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.318Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "dcg44psut0focue"
+        }
+      ],
+      "source_id": "v8j52otaa9pnenx"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 4. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7352,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Will dir die schöne Silfies gesegnen / 1r. Th. 211. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7352_9y4sy8ccni.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Will dir die schöne Silfies gesegnen / 1r. Th. 211. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.318Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.318Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "apehh7ac8wnbliw"
+        }
+      ],
+      "source_id": "f1lni5zrpg3ex7d"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 5. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7353,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ei mein lieber Herr Fix. das wäre ja Schön / 1. Th. 234. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7353_wdbbalu2md.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ei mein lieber Herr Fix. das wäre ja Schön / 1. Th. 234. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.203Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "sns0609flyfp7ct"
+        }
+      ],
+      "source_id": "42k3l0al2ngyfla"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 6. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.998Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7354,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hör er mahl, mein guter Mann, laß Er das 'n ander mahl unterwegens. Bin gar nicht für das Alfanzen, sieht Er / II. Th. 23. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7354_p8ia37ytqv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hör er mahl, mein guter Mann, laß Er das 'n ander mahl unterwegens. Bin gar nicht für das Alfanzen, sieht Er / II. Th. 23. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.203Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "eo02f4tbch76y9f"
+        }
+      ],
+      "source_id": "xkllfqok5vznyoh"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 7. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.000Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7355,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ein Acht oder Vierzehn Tage Übung würden den Leib / Avisen Drucker fürs ganze Künftige über dergleichen / unbequemlichkeiten weg setzen. / IIr. Th. 159. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7355_z73dggrvck.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ein Acht oder Vierzehn Tage Übung würden den Leib / Avisen Drucker fürs ganze Künftige über dergleichen / unbequemlichkeiten weg setzen. / IIr. Th. 159. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.203Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "xzx4y29nkt8n4jo"
+        }
+      ],
+      "source_id": "smqpi1tgeh5y619"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 8. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.002Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7356,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weist Er was? Er ist'n Flegel da will ich / Ihm's Portent drüber geben lassen. / IIr. Th. 3. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7356_aj4oahenmu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Weist Er was? Er ist'n Flegel da will ich / Ihm's Portent drüber geben lassen. / IIr. Th. 3. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.203Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.203Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "m5je4e2d3k48l8p"
+        }
+      ],
+      "source_id": "0fyyeviwihtjmrp"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 9. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7357,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hat Er das Dingsgen beÿ sich? / IIr. Th. 55. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7357_nmz1ngey3p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hat Er das Dingsgen beÿ sich? / IIr. Th. 55. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.119Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "l08kajmsngwr19k"
+        }
+      ],
+      "source_id": "e5z926qqa6jj0bh"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 10. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.630Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7358,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nee, Sieht Er, nu paßt mir's nicht, Sieht Er. / Links um Leute! / IIr. Th. 164. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7358_15vjdwwdh6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nee, Sieht Er, nu paßt mir's nicht, Sieht Er. / Links um Leute! / IIr. Th. 164. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.119Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "fy8tzhhtgis9axc"
+        }
+      ],
+      "source_id": "0a5rwinwakry1ku"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 11. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7359,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diener, 's hat nichts zu Sagen. Brauchen / Sie Ihre Kumodite. / IIr. Th. 172. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7359_ixbrj4jkl3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Diener, 's hat nichts zu Sagen. Brauchen / Sie Ihre Kumodite. / IIr. Th. 172. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.119Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "l6ll4bjn4pnz6z4"
+        }
+      ],
+      "source_id": "kgm9wpnz1rf6k31"
+    },
+    {
+      "annotation": "Graphik im Kalendarium paginiert 12. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7360,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ich bin So müde nicht, daß ich Ihnen zu / gefallen nicht noch bis ans Ende von der Welt / reiten wollte / IIr. Th. 177. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+      "scans": [
+        "alm_149_7360_vuppvujdyc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ich bin So müde nicht, daß ich Ihnen zu / gefallen nicht noch bis ans Ende von der Welt / reiten wollte / IIr. Th. 177. S.",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.119Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.119Z",
+          "agent": "frgalfp04iv5xmo",
+          "source_id": "vxnfbxj70ntpvb7"
+        }
+      ],
+      "source_id": "bzcj2jlv85oj9cg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7361,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geburthstage / des Königl. Großbritannisch. und Braun- / schweig-Lüneburgischen Hauses",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geburthstage / des Königl. Großbritannisch. und Braun- / schweig-Lüneburgischen Hauses",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "wvzym4pgf3cyjxi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:43.636Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7362,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogisches / Verzeichniß / der / vornehmsten jetztlebenden hohen Per- / sonen in Europa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogisches / Verzeichniß / der / vornehmsten jetztlebenden hohen Per- / sonen in Europa",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "wlr0ax31oxe1dyd"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7363,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1784. / Mit Kupfern von Chodowiecki, / nebst den / neuesten Frauenzimmer- und / Manns-Kleidungen, in Kupfer. / Göttingen / bey Johann Christian Dieterich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / zum / Nutzen und Vergnügen / fürs Jahr 1784. / Mit Kupfern von Chodowiecki, / nebst den / neuesten Frauenzimmer- und / Manns-Kleidungen, in Kupfer. / Göttingen / bey Johann Christian Dieterich",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "z1lyd2bbpepf7hi"
+    },
+    {
+      "annotation": "Es folgen zwei Beiträge INr 7988, 7365, Obj 35, 36. Graphiken von Riepenhausen nach Hogarth sind diesem Jg noch nicht beigegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Es wird nicht leicht unter uns, oder überhaupt in der gesitteten Welt, einen Mann von Geist und Geschmack geben,",
+      "language": [],
+      "musenalm_id": 7364,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Hogartischen Ku- / pferstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Hogartischen Ku- / pferstiche",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "e017r38wx0o3cct"
+    },
+    {
+      "annotation": "Ueber die Hogarthischen Kupferstiche. INr 7364, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.088Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Die Heldin diese Stücks, ein unschuldiges Mädchen und die Tochter eines armen Dorfpredigers",
+      "language": [],
+      "musenalm_id": 7988,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das / Leben einer Liederlichen. / (Preiß eine Guinee.) / Dieses Werk besteht aus 6 Platten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das / Leben einer Liederlichen. / (Preiß eine Guinee.) / Dieses Werk besteht aus 6 Platten",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "1tr8f29tmvogliv"
+    },
+    {
+      "annotation": "Ueber die Hogarthischen Kupferstiche. INr 7364, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Vielleicht ist, seitdem Grabstichel und Pinsel zur Satire angewandt worden sind, nie so viel Laune",
+      "language": [],
+      "musenalm_id": 7365,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Herumstreifende Comö- / dianten, die sich in einer / Scheune ankleiden. / (Preiß eine halbe Guinee.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Herumstreifende Comö- / dianten, die sich in einer / Scheune ankleiden. / (Preiß eine halbe Guinee.)",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "8cgkgjr9ofknuji"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "Als im Jahr 1715 die Czarinn zur unaussprechlichen Freude des Czaars von einem Prinzen entbunden wurde,",
+      "language": [],
+      "musenalm_id": 7366,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Seltsames Carneval",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Seltsames Carneval",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "5m5xo6hhif6q0lp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Im Jahr 1713 veranstaltete die Prinzessinn Natalia, einzige Schwester des großen Czaars",
+      "language": [],
+      "musenalm_id": 7367,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vermählungsfeyer eines / Zwergenpaares",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vermählungsfeyer eines / Zwergenpaares",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "v1irdd6oerreilr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "47",
+      "incipit_statement": "So außerordentlich unsern Lesern nachstehende Geschichte scheinen muß, so wahr und ausgemacht ist sie.",
+      "language": [],
+      "musenalm_id": 7368,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Handel / mit heiligen großen Zehen / in Italien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Handel / mit heiligen großen Zehen / in Italien",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "1gjwshlb7jee1hy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "50",
+      "incipit_statement": "Ein gewisser Hr. Goodrick zu York hat gefunden, daß der Stern ß im Perseus",
+      "language": [],
+      "musenalm_id": 7369,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neue Entdeckungen, / physikalische und andere / Merkwürdigkeiten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neue Entdeckungen, / physikalische und andere / Merkwürdigkeiten",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "agcn0ip0x4yj45y"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "64",
+      "incipit_statement": "Kurfürst Karl Ludwig von der Pfalz, der wegen des Wildfangsrechts Zwistigkeiten mit allen seinen Nachbarn hatte,",
+      "language": [],
+      "musenalm_id": 7370,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonderbare Bestrafung / eines losen Mauls in der / Pfalz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonderbare Bestrafung / eines losen Mauls in der / Pfalz",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "mem85lgxw5dcvr3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Herr Peyla zu Turin, ein Liebhaber der Physik, ist der Erfinder der Lichtchen, die man jetzt in ganz Europa",
+      "language": [],
+      "musenalm_id": 7371,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Peylaischen / Lichtchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Peylaischen / Lichtchen",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "fn25fspykkiqsnh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "70",
+      "incipit_statement": "Mordgeschichten von gewöhnlichem Schlage, oder solche, die von Handwerkspurschen und ihres gleichen für Handwerkspursche erfunden worden sind,",
+      "language": [],
+      "musenalm_id": 7372,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Mordgeschichte ohne / gleiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Eine Mordgeschichte ohne / gleiche",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "dm5ohz0sa1r17k9"
+    },
+    {
+      "annotation": "mit einer Fortsetzung in: Taschenkalender, Göttinger 1784. s. alm-160, INr 122076",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Daß das Endwort meter von metros Maas herkommt, bedarf kaum einer Erinnerung",
+      "language": [],
+      "musenalm_id": 7373,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurze Erklärung / einiger physikalischen und ma- / thematischen Instrumente, die sich / in meter endigen; auf Ver- / langen gegeben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurze Erklärung / einiger physikalischen und ma- / thematischen Instrumente, die sich / in meter endigen; auf Ver- / langen gegeben",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "fjqnr2hiote25ll"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "90",
+      "incipit_statement": "In dem ältesten Rom, war es den Männern fast schimpflich sich zu frisiren, auch der männlichen Jugend",
+      "language": [],
+      "musenalm_id": 7374,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber / den Haarputz der Alten, / hauptsächlich der Rö- / merinnen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber / den Haarputz der Alten, / hauptsächlich der Rö- / merinnen",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "b42jbgcshb26q5i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "100",
+      "incipit_statement": "Die Muthmaßungen des Hrn. Bode zu Berlin, daß der 964te Stern im Mayerschen Verzeichniß von Zodiakalsternen,",
+      "language": [],
+      "musenalm_id": 7375,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Etwas vom neuen Pla- / neten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Etwas vom neuen Pla- / neten",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "0b1i7knyg8edxw7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "102",
+      "incipit_statement": "Aus allzu großem Vertrauen auf sein Gedächtniß hat der Verfasser",
+      "language": [],
+      "musenalm_id": 7376,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige Verbesserungen / und Zusätze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige Verbesserungen / und Zusätze",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "ixp1cwxlexz4k6j"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.111Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "103",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7377,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vergleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländi- / schen Troygewichts",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vergleichung jeder Mark oder / Pfund des Gold- Silber- Münz- / und Handelsgewichts verschiedener / Oerter, nach Asen, holländi- / schen Troygewichts",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "kto66h3nygx2lac"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7378,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Meilenmaaß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Meilenmaaß",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "a9r717nuyfx7zyv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "106",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7379,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Getraidemaaß in Pariser Cu- / biczoll",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Getraidemaaß in Pariser Cu- / biczoll",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "suspqhysvq3ro22"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "107",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7380,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Münzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Münzen",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "0akinqzeaata417"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.390Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7381,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geographische Längen und / Breiten einiger Oerter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geographische Längen und / Breiten einiger Oerter",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "2qwsx4sljvmudq9"
+    },
+    {
+      "annotation": "G-Verz s. Graphiken im Kalendarium INr 7349-7360, Obj 19-30",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.218Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "111",
+      "incipit_statement": "Nachstehende Erklärung, der dem, Calender beygefügten Kupferstiche, die einiges aus dem bekannten, beliebten und Originaldeutschen Roman Siegfried von Lindenberg meisterhaft darstellen",
+      "language": [],
+      "musenalm_id": 7382,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupferstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupferstiche",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "wlpnx8140da2fwo"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7985,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "ws0xa1r5tlghr1z"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "118",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 7986,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-11-28 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1784,
+      "editor": "",
+      "agents": [],
+      "source_id": "cexdn2orh22dt51"
+    }
   ],
   "agents": [
     {

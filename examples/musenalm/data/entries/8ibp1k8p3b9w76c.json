@@ -48,7 +48,26 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "2gxvv0hxtq8t7nx"
+    {
+      "annotation": "Titel verso: Petit ALMANAC pour l'an 1803, avec six fables de Mr. Lafontaine, françoises et allemandes, et 12 estampes qui s'y rapportent. Avec l'approbation de l' Académie royale des sciences. Berlin, chez J. F. Unger\nFormat 4,2x7: Verlagsbroschur",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.746Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "407960",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.746Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "2gxvv0hxtq8t7nx"
+    }
   ],
   "contents": [],
   "agents": []

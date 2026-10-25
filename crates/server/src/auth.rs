@@ -225,7 +225,8 @@ impl Auth {
         Ok(())
     }
     pub async fn logout(&self, actor: &Actor) -> Result<()> {
-        self.inner.conn
+        self.inner
+            .conn
             .lock()
             .await
             .execute(
@@ -383,7 +384,8 @@ impl Auth {
         result
     }
     pub async fn revoke_sessions(&self, id: i64) -> Result<()> {
-        self.inner.conn
+        self.inner
+            .conn
             .lock()
             .await
             .execute("DELETE FROM sessions WHERE user_id=?1", [id])
@@ -394,7 +396,8 @@ impl Auth {
         role(new_role)?;
         let address = email(address)?;
         let token = secret();
-        self.inner.conn
+        self.inner
+            .conn
             .lock()
             .await
             .execute(
@@ -420,7 +423,8 @@ impl Auth {
         Ok(result)
     }
     pub async fn revoke_invitation(&self, id: i64) -> Result<()> {
-        self.inner.conn
+        self.inner
+            .conn
             .lock()
             .await
             .execute("UPDATE invitations SET revoked=1 WHERE id=?1", [id])
@@ -512,7 +516,8 @@ impl Auth {
         if name.trim().is_empty() {
             return Err(WebError::bad("Display name required"));
         }
-        self.inner.conn
+        self.inner
+            .conn
             .lock()
             .await
             .execute(

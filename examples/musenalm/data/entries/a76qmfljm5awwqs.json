@@ -48,7 +48,26 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "h4qdcyikfhj1evl"
+    {
+      "annotation": "Kart. Einband, VB, S I T, SS III-VIII,  SS 1-120, SS 121-130 Tab, SS 131-184, Tab,",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.671Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200114",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.671Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "h4qdcyikfhj1evl"
+    }
   ],
   "contents": [],
   "agents": [

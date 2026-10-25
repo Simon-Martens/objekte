@@ -48,27 +48,761 @@
   "year": 1812,
   "editor": "",
   "items": [
-    "9znllcxawateoen"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.499Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200624",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.499Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "9znllcxawateoen"
+    }
   ],
   "contents": [
-    "22ghhynbfjli479",
-    "zevsdfjajzjatd5",
-    "q8dh0ssjtlyc3pe",
-    "o0g1saxeh4uieat",
-    "6vc6q3x373ye978",
-    "4wylkxlqjgf8b36",
-    "9naa7rjrt6dnf0f",
-    "b2asqqm5qjd7p2v",
-    "kdzmrtojskldl4v",
-    "l7rjfymy0d3rubj",
-    "5hiwlvhfwm4tj8o",
-    "c9skow2po7704c9",
-    "dw2v6wq8m5lrr6n",
-    "sgqvcfw15a4k84k",
-    "l95hpx829uur26a",
-    "vwdhj6c7kwtenwq",
-    "1wi7dscpg8glrgr",
-    "szgbcy0npj206ko"
+    {
+      "annotation": "Titelgraphik; lt. G-Verz.: nach Pr. Sprengel aus dessen hist.-geneal. Calender",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.811Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42222,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hindostanischer Edelmann im Hofkleide",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Frosch sc.",
+      "scans": [
+        "alm_554_42222_5bo0qhfr17.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hindostanischer Edelmann im Hofkleide",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.940Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.940Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "9o59e62psbjrhb4"
+        }
+      ],
+      "source_id": "22ghhynbfjli479"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42223,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN / Eilfter Jahrgang / Zweite Abtheilung / für das Jahr / 1812. / Mit 9 Kupfern / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_554_42223_sxk14e0prv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN / Eilfter Jahrgang / Zweite Abtheilung / für das Jahr / 1812. / Mit 9 Kupfern / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "zevsdfjajzjatd5"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Von welchem Gesichtspunkte man auch den Theil Asiens betrachtet der bereits von den Alten Indien genannt ward,",
+      "language": [],
+      "musenalm_id": 42224,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorrede",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorrede",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.107Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "f442e778iuibllt"
+        }
+      ],
+      "source_id": "q8dh0ssjtlyc3pe"
+    },
+    {
+      "annotation": "Photos 42225,01-42225,04",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "11",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42225,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_554_42225_01_km1x005xpy.jpg",
+        "alm_554_42225_02_fpnvk0swq3.jpg",
+        "alm_554_42225_03_yvmatjg7uk.jpg",
+        "alm_554_42225_04_dizcrjkru8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "o0g1saxeh4uieat"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42226,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "6vc6q3x373ye978"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42227,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "4wylkxlqjgf8b36"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Endlich gelangen wir zu jener merkwürdigen Region Asiens, welche, selbst abgesehen von ihrem trefflichen Himmel und von dem schwelgerischen Reichthum ihrer Erzeugnisse,",
+      "language": [],
+      "musenalm_id": 42228,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.107Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "iyjwawnuf43gs73"
+        }
+      ],
+      "source_id": "9naa7rjrt6dnf0f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.686Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Hindostan oder Vorder-Indien hat die Natur den wichtigsten Theilen nach, vermittelst zweier der größten Ströme der Erde, im Osten und Westen begränzt.",
+      "language": [],
+      "musenalm_id": 42229,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hindostan, / das Land",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hindostan, / das Land",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.107Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "y4t604h74bn8yd6"
+        }
+      ],
+      "source_id": "b2asqqm5qjd7p2v"
+    },
+    {
+      "annotation": "# lt. G-Verz  nach einer Zeichnung von Hodges",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.687Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der wichtige Pass von Sicry-golly",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hodges # P. Veith sc. Dresden",
+      "scans": [
+        "alm_554_42230_4g41yux6pf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der wichtige Pass von Sicry-golly",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.107Z",
+          "agent": "xqoghpkng47rofa",
+          "source_id": "kqusauqwxo3vs7i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.108Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "mypmpofq3l9a37i"
+        }
+      ],
+      "source_id": "kdzmrtojskldl4v"
+    },
+    {
+      "annotation": "lt. G-Verz: nach einer Zeichnung von Hickes gest. von Maj. Rennell",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.690Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42231,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Felsen-Festung Gwallior",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. G. Hammer sculp. Dresden",
+      "scans": [
+        "alm_554_42231_qeo8ohow76.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Felsen-Festung Gwallior",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.108Z",
+          "agent": "6oi6sms2fozu3mk",
+          "source_id": "so96ltl94dof1xb"
+        }
+      ],
+      "source_id": "l7rjfymy0d3rubj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "84",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42232,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht des Felsens von Tritchinopoly von Südosten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_554_42232_s0nlusohen.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht des Felsens von Tritchinopoly von Südosten",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "5hiwlvhfwm4tj8o"
+    },
+    {
+      "annotation": "lt. G-Verz: nach [Alexander] Dalrymple: Oriental repertory I.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.695Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "132",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42233,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nerium tinctorium. Der Baum Indigo",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_554_42233_lb9oi7mura.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Nerium tinctorium. Der Baum Indigo",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "c9skow2po7704c9"
+    },
+    {
+      "annotation": "lt. G-Verz: aus d. Asiat. Mag.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "178",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42234,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tiegerjagd im Wasser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_554_42234_iejehsne15.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Tiegerjagd im Wasser",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.108Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "iu0jyqcbggayst9"
+        }
+      ],
+      "source_id": "dw2v6wq8m5lrr6n"
+    },
+    {
+      "annotation": "lt. G-Verz: aus Schreb. Säugth.  Nach Parkinson",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.699Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42235,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antilope Tragocamelus. Die KameelGazelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_554_42235_86qf1zv9ug.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antilope Tragocamelus. Die KameelGazelle",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "sgqvcfw15a4k84k"
+    },
+    {
+      "annotation": "lt. G-Verz: nach Qatteau aus [George] Shaws Zool.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "198",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42236,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bradypus Ursinus. Das Bärenartige Faulthier",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Frosch sc.",
+      "scans": [
+        "alm_554_42236_caoh12q1ik.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bradypus Ursinus. Das Bärenartige Faulthier",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.108Z",
+          "agent": "pvuse6e3t44mmjj",
+          "source_id": "3bov8znsc85ex83"
+        }
+      ],
+      "source_id": "l95hpx829uur26a"
+    },
+    {
+      "annotation": "lt. G-Verz: nach v. Mandelslo im Asiat. Mag.",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "202",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42237,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hackeri mit BuckelOchsen bespannt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_554_42237_bwdy6hvnag.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hackeri mit BuckelOchsen bespannt",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "vwdhj6c7kwtenwq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:59.703Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "249",
+      "incipit_statement": "Zwischen 5° 45' und 9° 50' nörd. Breite und 79° 43' und 82° 50' öst. L. v.Gr. hängt Ceylan, das Tabrebana der Alten, der Gestalt nach einer Birne ähnlich,",
+      "language": [],
+      "musenalm_id": 42238,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ceylan oder Sseilan",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ceylan oder Sseilan",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.108Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.108Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "s3ge78amoz0hbw5"
+        }
+      ],
+      "source_id": "1wi7dscpg8glrgr"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.486Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 42312,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Text, Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2005-12-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1812,
+      "editor": "",
+      "agents": [],
+      "source_id": "szgbcy0npj206ko"
+    }
   ],
   "agents": [
     {

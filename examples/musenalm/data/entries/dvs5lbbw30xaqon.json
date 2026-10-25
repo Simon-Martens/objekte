@@ -48,14 +48,205 @@
   "year": 1805,
   "editor": "",
   "items": [
-    "589iierv6eaebiq"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.765Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409353",
+      "location": "105B02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.765Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "589iierv6eaebiq"
+    }
   ],
   "contents": [
-    "ofo4ftug3tzjims",
-    "icxcko5v2v7joem",
-    "3xm4xs3w0bopr8s",
-    "6alvrrk4h9pp3uh",
-    "lrl6vabrdhhaa37"
+    {
+      "annotation": "Titelgraphik s. Titel INr 116426, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116425,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Berge del. Seipp sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Berge del. Seipp sc.",
+      "scans": [
+        "alm_4364_116425_z38bdexs48.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2017-01-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.296Z",
+          "agent": "vllgarlnpg4orfd",
+          "source_id": "ypurn672alvx7re"
+        }
+      ],
+      "source_id": "ofo4ftug3tzjims"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.977Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116426,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beylage / zu dem / Wiener-Taschenbuche / für 1805 / Bey J. B. Degen, / das Schloß auf dem Leopoldsberge / und / die Entstehung der Stadt Wien betreffend. / Wider / den im obigen Taschenbuche befindlichen Aufsatz / des / Herrn Doctors und Prof. Schultes. / Mit einem Kupfer, / (welches die alte burg zu Klosterneuburg vorstellet.) / Wien, / bey Ignaz Grund, bürgerl. Buchbinder zum grünen Buch am / St. Stephansplatz neben dem Bischofshofe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4364_116426_tz8kqyu06d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Beylage / zu dem / Wiener-Taschenbuche / für 1805 / Bey J. B. Degen, / das Schloß auf dem Leopoldsberge / und / die Entstehung der Stadt Wien betreffend. / Wider / den im obigen Taschenbuche befindlichen Aufsatz / des / Herrn Doctors und Prof. Schultes. / Mit einem Kupfer, / (welches die alte burg zu Klosterneuburg vorstellet.) / Wien, / bey Ignaz Grund, bürgerl. Buchbinder zum grünen Buch am / St. Stephansplatz neben dem Bischofshofe",
+      "updated": "2017-01-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "icxcko5v2v7joem"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.978Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Sie haben uns in dem Wiener-Taschenbuche für 1805 bey J.V. Degen mit einem Aufsatze unter der Augschrift: Der Leopoldsberg, Kallenberg und der Cobenzlberg beschenket, der wirklich schön geschrieben ist",
+      "language": [],
+      "musenalm_id": 116427,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn Schultes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn Schultes",
+      "updated": "2017-01-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "3xm4xs3w0bopr8s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "Zuerst von der Ueberschrift ihres Aufsatzes: Der Leopoldsberg, Kallenberg, und Cobenzelberg. Wider die letztere Bennenung können wir keine Einwendung machen, aber gegen die zwey ersteren haben wir Folgendes zu erinnern,",
+      "language": [],
+      "musenalm_id": 116428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zuerst von der Ueberschrift ihres Aufsatzes: Der Leopoldsberg, Kallenberg, und Cobenzelberg. Wider die letztere Bennenung können wir keine Einwendung machen, aber gegen die zwey ersteren haben wir Folgendes zu erinnern,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2017-01-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "6alvrrk4h9pp3uh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:37.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 116429,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verbesserungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verbesserungen",
+      "updated": "2017-01-25 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1805,
+      "editor": "",
+      "agents": [],
+      "source_id": "lrl6vabrdhhaa37"
+    }
   ],
   "agents": [
     {

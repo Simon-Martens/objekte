@@ -48,49 +48,1723 @@
   "year": 1796,
   "editor": "",
   "items": [
-    "pwrw87534jcfs5z"
+    {
+      "annotation": "wohl Fortsetzung von: Kalender, historisch-genealogischer (Schlenkert) 1795 [nicht bei K; nicht bei L/R] No 200167",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.527Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200820",
+      "location": "105K03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.527Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "pwrw87534jcfs5z"
+    }
   ],
   "contents": [
-    "imqbsive6ae4hbp",
-    "f08rj28x03p06ec",
-    "u3zbb050f6rjj7o",
-    "k4lszxirx7eg8u4",
-    "h12b8gnhfcvi9k4",
-    "j1f18c0jii0bqn0",
-    "5d3zi0eljy819k1",
-    "lta2wjeyvsr579j",
-    "khc3rc3n1989t8o",
-    "6sk0ix5bdxexfhj",
-    "jak58raz4gbhxbs",
-    "5zraw66lot4j06x",
-    "3y5r8kvauw5w7ys",
-    "276i0i64d1nalmi",
-    "5grgzpnclhhu9g1",
-    "hx844t4pzf22kuy",
-    "3s921if9aepsqb5",
-    "poznbddugsgmcfl",
-    "l0mscajvcv1vwc0",
-    "ngjlwapy12m7zgf",
-    "df4sc0ikdganlmb",
-    "u8b6ayhcsrcbis2",
-    "0wr8y3feneuiy4l",
-    "fnr5on4iwqa1fqd",
-    "q1ek6shlmebj53j",
-    "qo8v43kshoum69s",
-    "syp9850mxnzy6j2",
-    "gksavee244cneeb",
-    "ya5oamouint1v6g",
-    "28rg57n6oztbcki",
-    "k2nymzxhaf9c5es",
-    "lva36mj2d1334sc",
-    "jdb5yzc14e53lr2",
-    "gjvn3q6reihjlj8",
-    "s31d7eglvqjxvol",
-    "egw42pjxhn3elw4",
-    "1j73o7mko9yjxul",
-    "y8wky8784bvq12z",
-    "dzsvhostr8wyih7",
-    "kqk820f0p4x7u4a"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.866Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60898,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_949_60898_rb7bghv51f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "imqbsive6ae4hbp"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60924, Obj 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.869Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60899,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (J. Penzel del. & fec. 1795)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60899_a92cpop23s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.960Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "swgez7z2h3c9qws"
+        }
+      ],
+      "source_id": "f08rj28x03p06ec"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.871Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60900,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historisch genealogisches / TASCHENBUCH / Enthaltend / die Geschichte / der / Deutschen / in / einem fortlaufenden / Geschichts-gemälde. / Braunschweig, 1796. / im Verlage der Schul-buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_949_60900_h3ui7sxxnx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historisch genealogisches / TASCHENBUCH / Enthaltend / die Geschichte / der / Deutschen / in / einem fortlaufenden / Geschichts-gemälde. / Braunschweig, 1796. / im Verlage der Schul-buchhandlung",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "u3zbb050f6rjj7o"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Es folgen Einleitung und 5 Kapitel INr 60902-60910, Obj 5-10 /) mit 13 Illustrationen s. Titelgraphik INr 60899, Obj 1; Graphiken INr 60911-60922, Obj 13-24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.873Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Darstellungen / aus / der Geschichte der Deutschen / seit / dem Tode Otto des Großen bis auf Rudolf von Habsburg / 973-1293",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Darstellungen / aus / der Geschichte der Deutschen / seit / dem Tode Otto des Großen bis auf Rudolf von Habsburg / 973-1293",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.960Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.960Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "2hpkzxnj34wne32"
+        }
+      ],
+      "source_id": "k4lszxirx7eg8u4"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Tod Otto's, des ersten römisch-deutschen Kaisers, fiel in einen der merkwürdigsten und glänzendsten Zeitpunkte der Geschichte der Deutschen.",
+      "language": [],
+      "musenalm_id": 60902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einleitung",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einleitung",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.936Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "qgepomq6byqgrs8"
+        }
+      ],
+      "source_id": "h12b8gnhfcvi9k4"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "6",
+      "incipit_statement": "Seit dem Vertrage zu Verdün war Deutschland keine Provinz der fränkischen Monarchie mehr, sondern wurde als ein unabhängiges, selbstständiges Reich betrachtet,",
+      "language": [],
+      "musenalm_id": 60903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / der Verfassung Deutschlands / in diesem Zeitraum",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / der Verfassung Deutschlands / in diesem Zeitraum",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.019Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.019Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "cdsa7xv3ujwkk9y"
+        }
+      ],
+      "source_id": "j1f18c0jii0bqn0"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "26",
+      "incipit_statement": "Nachdem Otto Deutschland gegen seine äußern Feinde gesichert und die Ruhe im Innern befestigt hatte; so hätte seine Pflicht erfordert, es dem errungenen Frieden zu erhalten,",
+      "language": [],
+      "musenalm_id": 60904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutschland / unter / Otto des Großen Nachfolgern / aus / dem sächsichen Geschlechte",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Deutschland / unter / Otto des Großen Nachfolgern / aus / dem sächsichen Geschlechte",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.020Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "1ttfrzgrvsegljj"
+        }
+      ],
+      "source_id": "5d3zi0eljy819k1"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Das deutsche Volk kam, nachdem Heinrich II. ohne männliche Erben und einen bestimmten Nachfolger gestorben war, in der fruchtbaren Ebene zwischen Maynz und Worms zusammen, um sich wieder ein Oberhaupt zu wählen.",
+      "language": [],
+      "musenalm_id": 60905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Begebenheiten der Deutschen / unter / den fränkischen Kaisern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Begebenheiten der Deutschen / unter / den fränkischen Kaisern",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.020Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.020Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "k9xgrq33smjb0ol"
+        }
+      ],
+      "source_id": "lta2wjeyvsr579j"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "Weil die Fürsten meineten, daß Lothar der Sachse die kaiserliche Gewalt wieder zu weit ausgedehnt habe",
+      "language": [],
+      "musenalm_id": 60906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Begebenheiten der Deutschen / unter / den schwäbisch hohenstauffen- / schen Kaisern",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Begebenheiten der Deutschen / unter / den schwäbisch hohenstauffen- / schen Kaisern",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.023Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.023Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "9izempyxkvrijmh"
+        }
+      ],
+      "source_id": "khc3rc3n1989t8o"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Indem also in Deutschland Rohheit und Cultur, Freiheit und Sclaverei, Vernunft und Geisteszwang, Licht und Finsterniß, Kunstfleiß, Trägheit, Zerströrungswuth, Gewaltthätigkeit und Gerechtigkeit miteinander kämpften, fühlten die Deutschen,",
+      "language": [],
+      "musenalm_id": 60907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Indem also in Deutschland Rohheit und Cultur, Freiheit und Sclaverei, Vernunft und Geisteszwang, Licht und Finsterniß, Kunstfleiß, Trägheit, Zerströrungswuth, Gewaltthätigkeit und Gerechtigkeit miteinander kämpften, fühlten die Deutschen,…",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.024Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.024Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "m5oinret5mn3pbx"
+        }
+      ],
+      "source_id": "6sk0ix5bdxexfhj"
+    },
+    {
+      "annotation": "Einleitung zur folgenden kommentierten Genealogie",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.826Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Man hat dieses Mal den genealogischen Verzeichnissen einige historische, geographische und statistische Nachrichten beigefügt;",
+      "language": [],
+      "musenalm_id": 60908,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß / der / regierenden Geschlechter und vornehmsten / Personen. / Voranmerkung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß / der / regierenden Geschlechter und vornehmsten / Personen. / Voranmerkung",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "jak58raz4gbhxbs"
+    },
+    {
+      "annotation": "64 BB kommentierte Genealogie /) $ vermutl. fehlt letztes Blatt der Tabelle",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Verzeichniß der regierenden Geschlechter und vornehmsten Personen]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Verzeichniß der regierenden Geschlechter und vornehmsten Personen]",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "5zraw66lot4j06x"
+    },
+    {
+      "annotation": "paginiert 1. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60925, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.104Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60911,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ausbreitung und Befestigung der Glaubenseinigkeit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60911_gxpqtkbgfu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ausbreitung und Befestigung der Glaubenseinigkeit",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.756Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.756Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "gqnn9fyiuzonry4"
+        }
+      ],
+      "source_id": "3y5r8kvauw5w7ys"
+    },
+    {
+      "annotation": "paginiert 2. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60926, Obj 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.107Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60912,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entdeckung der Erzgruben am Harze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60912_zsiwd61ew9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Entdeckung der Erzgruben am Harze",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.756Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.756Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "xgz8tar1997fh6c"
+        }
+      ],
+      "source_id": "276i0i64d1nalmi"
+    },
+    {
+      "annotation": "paginiert 3. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60927, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.110Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60913,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bischof Ditmar von Merseburg erklärt den Deut- / schen eine Sonnenfinsterniss",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60913_10ssc7u5mi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Bischof Ditmar von Merseburg erklärt den Deut- / schen eine Sonnenfinsterniss",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.756Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.756Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "c5eeqpqpaoy14pz"
+        }
+      ],
+      "source_id": "5grgzpnclhhu9g1"
+    },
+    {
+      "annotation": "paginiert 4. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60928, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.429Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60914,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rangstreit christlicher Prälaten, in der / Kirche zu Goslar 1063",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60914_xvylc6om9n.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rangstreit christlicher Prälaten, in der / Kirche zu Goslar 1063",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.933Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "51i7dfkmefgn84w"
+        }
+      ],
+      "source_id": "hx844t4pzf22kuy"
+    },
+    {
+      "annotation": "paginiert 5. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60929, Obj 31",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60915,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Papst Gregor nimmt den Geistlichen die Weiber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60915_pef6bew908.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Papst Gregor nimmt den Geistlichen die Weiber",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.933Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "vdxn8zbklq0bku5"
+        }
+      ],
+      "source_id": "3s921if9aepsqb5"
+    },
+    {
+      "annotation": "paginiert 6. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60930, Obj 32",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.434Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60916,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein deutsches Kriegsheer zieht hin, den Ara- / bern Palestina zu entreissen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60916_2t53hqlgmk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein deutsches Kriegsheer zieht hin, den Ara- / bern Palestina zu entreissen",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.933Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "uechtjybhhir61a"
+        }
+      ],
+      "source_id": "poznbddugsgmcfl"
+    },
+    {
+      "annotation": "paginiert 7. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60931, Obj 33 und Gedicht INr 60932, Obj 34",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.437Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60917,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Deutsche Weiber retten ihr Liebstes, und der / deutsche König hält sein Wort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60917_yfxarwmwvc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Deutsche Weiber retten ihr Liebstes, und der / deutsche König hält sein Wort",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.933Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.933Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "6aqwgv0it5s62jc"
+        }
+      ],
+      "source_id": "l0mscajvcv1vwc0"
+    },
+    {
+      "annotation": "paginiert 8. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60933, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.440Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60918,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "So wurden ungehorsame Fürsten bestraft. 1160",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60918_wa1f8bsx35.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "So wurden ungehorsame Fürsten bestraft. 1160",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.934Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "d0egz5p556vcqfj"
+        }
+      ],
+      "source_id": "ngjlwapy12m7zgf"
+    },
+    {
+      "annotation": "paginiert 9. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60934, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.442Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60919,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Deutschen dulden kein Glaubensgericht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60919_sjoc1for85.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Deutschen dulden kein Glaubensgericht",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.934Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "vgxhfgni6tfrror"
+        }
+      ],
+      "source_id": "df4sc0ikdganlmb"
+    },
+    {
+      "annotation": "paginiert 10. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60935, Obj 37",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.445Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60920,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der französische Prinz Carl von Anjou befestiget sich / nach des Papstes Rath auf dem Throne zu Neapel 1268",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60920_q9zqej232j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der französische Prinz Carl von Anjou befestiget sich / nach des Papstes Rath auf dem Throne zu Neapel 1268",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.934Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "gjotxxhm7ozfn3m"
+        }
+      ],
+      "source_id": "u8b6ayhcsrcbis2"
+    },
+    {
+      "annotation": "paginiert 11. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60936, Obj 38",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60921,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Morgenröthe der Verbesserung und Bereicherung der / deutschen Sprache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60921_bdf04vp8nv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Morgenröthe der Verbesserung und Bereicherung der / deutschen Sprache",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.934Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "9oc5da3b3r7x6yy"
+        }
+      ],
+      "source_id": "0wr8y3feneuiy4l"
+    },
+    {
+      "annotation": "paginiert 12. /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60937, Obj 39",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.450Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60922,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Rudolph gründet die Macht seines Hauses, und / erwirbt Freunde durch seine Töchter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Penzel del. & fec. 1795",
+      "scans": [
+        "alm_949_60922_mwr26du06d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Rudolph gründet die Macht seines Hauses, und / erwirbt Freunde durch seine Töchter",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.934Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.934Z",
+          "agent": "sx2y3zvwrjtbxnz",
+          "source_id": "oe2fe3dmxq8p449"
+        }
+      ],
+      "source_id": "fnr5on4iwqa1fqd"
+    },
+    {
+      "annotation": "Sammlung von 13 Textbezügen INr  60924-60337, Obj 26-39 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60923,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "dyu0amf6ryxuhr7"
+        }
+      ],
+      "source_id": "q1ek6shlmebj53j"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Titelgraphik INr 60899, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.474Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Papst steigt auf sein Pferd, dessen Zügel der Kaiser hält. Die Päpste verlangten, daß die Kaiser ihnen die Steigbügel halten sollten; Hadrian IV. zankt mit Friedrich I.",
+      "language": [],
+      "musenalm_id": 60924,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titelkupfer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Titelkupfer",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.781Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.781Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "2n5onqnqewe0mgv"
+        }
+      ],
+      "source_id": "qo8v43kshoum69s"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60911, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Poppo, ein deutscher Priester, ging nach Schleswig und Jütland, um daselbst das Christenthum auszubreiten.",
+      "language": [],
+      "musenalm_id": 60925,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.936Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "v7po3eebqk6endx"
+        }
+      ],
+      "source_id": "syp9850mxnzy6j2"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60912, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nach einer alten Volkssage ritt im Jahre 972 ein am Harze wohnender Deutsche, Namens Ramm, mit seinen Freunden auf die Jagd.",
+      "language": [],
+      "musenalm_id": 60926,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.936Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "u07kclalakli1dg"
+        }
+      ],
+      "source_id": "gksavee244cneeb"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60913, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.480Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Als das erste Jahrtausend der christl. Zeitrechnung sich seinem Schlusse näherte, glaubte man allgemein, daß auch das Ende der Welt vor der Thür sey,",
+      "language": [],
+      "musenalm_id": 60927,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.936Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.936Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "ndooejy87t7nmoh"
+        }
+      ],
+      "source_id": "ya5oamouint1v6g"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60914, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:10.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Im Jahre 1062 feierte der Kaiser Heinrich IV. Weihnachten zu Goslar, wozu sich auch eine große Anzahl deutscher Fürsten eingefunden hatte,",
+      "language": [],
+      "musenalm_id": 60928,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.996Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.996Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "9myx94k98037sel"
+        }
+      ],
+      "source_id": "28rg57n6oztbcki"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60915, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Bis in die Mitte des eilften Jahrhunderts pflegten die Geistlichen, besonders die Pfarrer sich noch häufig zu verheirathen,",
+      "language": [],
+      "musenalm_id": 60929,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.818Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "ostoqzdoz5bbo4e"
+        }
+      ],
+      "source_id": "k2nymzxhaf9c5es"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60916, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.904Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein aus allen Enden zusammengelaufener Haufen Christenvolkes tritt unter Anführung schwärmerischer Mönche, die Kreutze statt Fahnen tragen, den Weg nach Palästina an,",
+      "language": [],
+      "musenalm_id": 60930,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.818Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "xfum25s8mqckxt4"
+        }
+      ],
+      "source_id": "lva36mj2d1334sc"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) mit einem Gedicht INr 60932, Obj 34; s. Graphik INr 60917, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die schöne That der Weiber zu Weinsberg, welche ein neuerer Dichter verewigt hat, mag uns hier ein alter deutscher Sänger erzählen, indem er den Herzog Welf von Baiern folgender Maßen reden läßt,",
+      "language": [],
+      "musenalm_id": 60931,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.818Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.818Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "66vnf9p7yktaul8"
+        }
+      ],
+      "source_id": "jdb5yzc14e53lr2"
+    },
+    {
+      "annotation": "Beigabe zu: Erklärung der Kupfer (Sammlung INr 60923, Obj 25) Beitrag 7. INr 60931, Obj 33; s. Graphik INr 60917, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.905Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nach meines Bruders Heinrichs Tod, / Ich gerathen bin in große Noth,",
+      "language": [],
+      "musenalm_id": 60932,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nach meines Bruders Heinrichs Tod, / Ich gerathen bin in große Noth,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "gjvn3q6reihjlj8"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60918, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.124Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "In Deutschland war in diesem Zeitalter ein Gebrauch, wonach die Großen der Nation, wenn sie sich gegen den König empört,",
+      "language": [],
+      "musenalm_id": 60933,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.915Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.915Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "7h8do0817tfvemu"
+        }
+      ],
+      "source_id": "s31d7eglvqjxvol"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60919, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Um das Jahr 1231 erschien der verrufene Beichtvater der Landgräfin Eisabeth von Thüringen, Konrad von Marburg, als päpstlicher Bevollmächtigter,",
+      "language": [],
+      "musenalm_id": 60934,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.730Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "1pib4pxou2llogg"
+        }
+      ],
+      "source_id": "egw42pjxhn3elw4"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60920, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Obgleich Kaiser Konrad IV. einen Sohn hinterließ; so bot doch der Papst dessen Erbreich Neapel mehrern Fürsten, als ein Geschenk des heil. Stuhls an.",
+      "language": [],
+      "musenalm_id": 60935,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.730Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "g3suhmp28ffvavq"
+        }
+      ],
+      "source_id": "1j73o7mko9yjxul"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60921, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Kaiser aus dem Hause Hohenstauffen erwarben sich auch um Deutschland das Verdienst, daß sie, die seit Karl d. Gr. vernachlässigte Muttersprache wieder in Aufnahme brachten.",
+      "language": [],
+      "musenalm_id": 60936,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.730Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "w8jqemrj20i3p44"
+        }
+      ],
+      "source_id": "y8wky8784bvq12z"
+    },
+    {
+      "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60922, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.887Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Graf Rudolf von Habsburg bestieg den Kaiserthron; - nur ein Graf - sollte er das verwilderte, zerrüttet, aufrührerische Deutschland, sollte statt einer Grafschaft, das größte Reich regieren,",
+      "language": [],
+      "musenalm_id": 60937,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Schlenkert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.730Z",
+          "agent": "st35mqg7m56yox6",
+          "source_id": "ot08tc9s4qigs4t"
+        }
+      ],
+      "source_id": "dzsvhostr8wyih7"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.888Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 60938,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_949_60938_3ul64xwe8c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-11-12 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1796,
+      "editor": "",
+      "agents": [],
+      "source_id": "kqk820f0p4x7u4a"
+    }
   ],
   "agents": [
     {

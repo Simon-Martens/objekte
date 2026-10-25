@@ -48,7 +48,26 @@
   "year": 1846,
   "editor": "",
   "items": [
-    "nm9a7sxguhq1ts1"
+    {
+      "annotation": "1839-1846.\nLeineneinband.\n1846: Mit XII, falt Ku 1 und 420 SS.\nHebel: \"Hebel Briefe\" Seite 417 - 420.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.669Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "101332",
+      "location": "105L07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.669Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "nm9a7sxguhq1ts1"
+    }
   ],
   "contents": [],
   "agents": [

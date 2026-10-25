@@ -48,56 +48,2101 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "8wkiydcde03pil6"
+    {
+      "annotation": "1816-1873.\nKartonierter Einband mit aufgeprägtes Muster und Goldschnitt(Vorderbuchdeckel samt Buchrücken lose.)\n1832: (K:Stahlst 7) Mit Port 1, Bl 1, XXIV und 288 SS. \nHg:1816-1842 = A. Schreiber. \n     1843-1844 = A. Schoppe.\n     1845-1848 = W. Tesche\n     1849-1856 = J.W. Appell.\n     1857-1862 = A. Henninger.\n     1863-1873 = Frater Hilarius (pseude).   ",
+      "condition": "4b",
+      "created": "2026-06-11 10:17:37.531Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100529",
+      "location": "105N03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.531Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "8wkiydcde03pil6"
+    }
   ],
   "contents": [
-    "tp3ststonh6ctnh",
-    "7pvnhs8adxb3za1",
-    "t9sit5k9of0l7xo",
-    "8ig64ax8b383g6s",
-    "7pnqy8pj6zd13l0",
-    "og4yd2p44vzcihb",
-    "0d2pwci38gbi9yz",
-    "kngzfzl5phagxxu",
-    "l81lma1obbhjngz",
-    "mlpi01yieu7493x",
-    "0fk0g8wsr6d97c2",
-    "68whxu6bysleu21",
-    "9loumg77nj1spoq",
-    "bpy14o7ott2zuyv",
-    "g40vjbwl2goesej",
-    "pfyeij07gb81gaf",
-    "5277fkxyv6bzypm",
-    "vstt452jg808vbx",
-    "jcszp784jf2zxj0",
-    "wjzlcg1eas8g8gm",
-    "71l8rkrnse6mgiz",
-    "82x6cpy60dcdx2y",
-    "26pqi6q91h7t1e4",
-    "w2vxb2s401tcbb4",
-    "ksun6eyk6yzq0wx",
-    "0h5pmzb2lz4tkkm",
-    "l8n2wfldwyou7yu",
-    "468kick40prznr8",
-    "53eppjb698aml44",
-    "sn5hjsmyjtwdmc1",
-    "v0lnszgphjs1iqw",
-    "w6pwzqc48q3wg68",
-    "0ydlwk45mtegklr",
-    "w8p1cf5zw7b8vup",
-    "z6mhv5l3ajj0hjw",
-    "babhitrihm6avqa",
-    "fn9yqx0sckhaovj",
-    "mgqusza64gt7tu3",
-    "g88uy1qafn39ky7",
-    "4pj591v15qqmjku",
-    "l67v55afptox3aj",
-    "kwyn5lti5h1bmms",
-    "40rrgeoow7deqjj",
-    "kyndo6ay5czjhpg",
-    "g2byn1zzhlzsy0t",
-    "vjyeuaqttmwnkij",
-    "3c0bhmlxajtsm14"
+    {
+      "annotation": "Titelportrait s. Textbezug INr 63399, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.941Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63396,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MARGARETHA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. Fendi del. Passini sc. Viennae",
+      "scans": [
+        "alm_1040_63396_dgh5i9sruz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MARGARETHA",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "aj12jgcexyaf6b2",
+          "source_id": "2m7ih2w5v4kgpip"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "5pkyzklke319amr",
+          "source_id": "32mefukbw25k51l"
+        }
+      ],
+      "source_id": "tp3ststonh6ctnh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.943Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63397,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / AUF DAS JAHR / 1832. / Herausgegeben / von / ALOYS SCHREIBER. / 17. Jahrgang. Neue Folge 9. Jahrgang. / HEIDELBERG / IM VERLAG BEI J. ENGELMANN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1040_63397_uhkht1vesu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / AUF DAS JAHR / 1832. / Herausgegeben / von / ALOYS SCHREIBER. / 17. Jahrgang. Neue Folge 9. Jahrgang. / HEIDELBERG / IM VERLAG BEI J. ENGELMANN",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "7pvnhs8adxb3za1"
+    },
+    {
+      "annotation": "Sammlung von 7 Textbezügen INr 63399-63405, Obj 4-10 zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63398,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kupfer- Erklärung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kupfer- Erklärung",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "t9sit5k9of0l7xo"
+    },
+    {
+      "annotation": "Kupfer-Erklärung (Sammlung INr 63398, Obj 3) s. Titelportrait INr 63396, Obj 1",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Das Bild der Margaretha von Oesterreich mit dem klaren Auge, der geistvollen schöngewölbten Stirn und der Anmuth und Lieblichkeit, welche alle Züge des jugendlichen Angesichts,",
+      "language": [],
+      "musenalm_id": 63399,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Titelkupfer. Margaretha von Oesterreich, / Statthalterin der Niederlande",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Alednog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Titelkupfer. Margaretha von Oesterreich, / Statthalterin der Niederlande",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "ddbdju89jlbyoeg",
+          "source_id": "cuyihlzd4d6w4xn"
+        }
+      ],
+      "source_id": "8ig64ax8b383g6s"
+    },
+    {
+      "annotation": "Kupfer-Erklärung (Sammlung INr 63398, Obj 3) s. Graphik INr 63407, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Margaretha mit ihrem Bruder Philipp dem Schönen. Beyde seit ihrer frühen Jugend von ihrem Vater, dem Erzherzog - nachmaligem Deutschen Kaiser Maximilian I. - getrennt",
+      "language": [],
+      "musenalm_id": 63400,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. u. III. Scenen aus dem Leben von Marga- / retha von Oesterreich / I.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Alednog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. u. III. Scenen aus dem Leben von Marga- / retha von Oesterreich / I.",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "ddbdju89jlbyoeg",
+          "source_id": "9amttn6yx8xzxwk"
+        }
+      ],
+      "source_id": "7pnqy8pj6zd13l0"
+    },
+    {
+      "annotation": "Kupfer-Erklärung (Sammlung INr 63398, Obj 3) s. Graphik INr 63408, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.945Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Margaretha, als Wittwe des Infanten aus Spanien nach den Niederlanden zurückgekehrt,",
+      "language": [],
+      "musenalm_id": 63401,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[II. u. III. Scenen aus dem Leben von Margaretha von Oesterreich] II.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Alednog",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[II. u. III. Scenen aus dem Leben von Margaretha von Oesterreich] II.",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.966Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.966Z",
+          "agent": "ddbdju89jlbyoeg",
+          "source_id": "mjeucyty0rffjf2"
+        }
+      ],
+      "source_id": "og4yd2p44vzcihb"
+    },
+    {
+      "annotation": "Kupfer-Erklärung (Sammlung INr 63398, Obj 3) aus »Sagen aus den Rheingegenden, dem Schwarzwalde und den Vogesen« von A. Schreiber /) mit einer Illustration s. Graphik INr 63409, Obj 14 /) Anm. am Objekt: Man sehe die 2te Auflage von des Herausgebers Sagen etc S. 83. Auch bei der Erklärung der Kupfer V u. VII. verweisen wir darauf S. 237. 222",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Eine Stunde von Konstanz, da wo der Rhein in den Untersee einströmt, erhebt sich das altergraue, feste Schloß Gottlieben,",
+      "language": [],
+      "musenalm_id": 63402,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Unna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. Unna",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "0d2pwci38gbi9yz"
+    },
+    {
+      "annotation": "Kupfer-Erklärung (Sammlung INr 63398, Obj 3) aus »Sagen aus den Rheingegenden, dem Schwarzwalde und den Vogesen« von A. Schreiber /) mit einer Illustration s. Graphik INr 63410, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Nicht weit von der Burg Windeck liegt eine Meierey, der Hennegraben genannt,.",
+      "language": [],
+      "musenalm_id": 63403,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Der Hennegraben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V. Der Hennegraben",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "kngzfzl5phagxxu"
+    },
+    {
+      "annotation": "Kupfer-Erklärung (Sammlung INr 63398, Obj 3) aus »Handbuch für Reisende nach Baden« von A. Schreiber /) mit einer Illustration s. Graphik INr 63411, Obj 16 /) Anm. am Objekt: Man sehe des Herausgebers Handbuch für Reisende nach Baden etc S. 174",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "In dem an Naturschönheiten so reichen Murgthale, bey dem Dörfchen, die Herrenwiese genannt, ungefähr drey Stunden von Baden, breitet sich ein kleiner See aus,",
+      "language": [],
+      "musenalm_id": 63404,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Der Hirte und die Seejungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI. Der Hirte und die Seejungfrau",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "l81lma1obbhjngz"
+    },
+    {
+      "annotation": "Kupfer- Erklärung (Sammlung INr 63398, Obj 3) aus »Sagen aus den Rheingegenden, dem Schwarzwalde und den Vogesen« von A. Schreiber /) mit einer Illustration s. Graphik INr 63412, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Im Gebirg, ohnfern der Stelle, wo die Burg Zähringen steht, lebte in uralter Zeit ein Köhler mit seinem Sohne.",
+      "language": [],
+      "musenalm_id": 63405,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Der Köhler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII. Der Köhler",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "mlpi01yieu7493x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63406,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "0fk0g8wsr6d97c2"
+    },
+    {
+      "annotation": "s. Textbezug INr 63400, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.732Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63407,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margarethe von Oestreich I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geißler, Peter Carl u. Fleischmann, Friedrich",
+      "scans": [
+        "alm_1040_63407_9upwcmgahh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Margarethe von Oestreich I.",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.091Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.091Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "9bkmtu2gts9rl23"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.091Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.091Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "t95diq5n10w7mu1"
+        }
+      ],
+      "source_id": "68whxu6bysleu21"
+    },
+    {
+      "annotation": "s. Textbezug INr 63401, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.734Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63408,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margarethe von Oestreich II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Geißler, Peter Carl u. Fleischmann, Friedrich",
+      "scans": [
+        "alm_1040_63408_322npjv0kd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Margarethe von Oestreich II.",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.092Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "fqviw135yma6dtj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.091Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.091Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "ricr4q6k8fyvvdz"
+        }
+      ],
+      "source_id": "9loumg77nj1spoq"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz /) Illustration zu »Unna« aus »Sagen aus den Rheingegenden, dem Schwarzwalde und den Vogesen« von A. Schreiber s. Textbezug INr 63402, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.736Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63409,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unna #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. und in Stahl gestochen v. Rosmäsler in Berlin",
+      "scans": [
+        "alm_1040_63409_yyuviw20uw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Unna #",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.092Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "znow1twln9q1c31"
+        }
+      ],
+      "source_id": "bpy14o7ott2zuyv"
+    },
+    {
+      "annotation": "# Titel aus dem G-Verz /) Illustration zu »Der Hennegraben« aus »Sagen aus den Rheingegenden, dem Schwarzwalde und den Vogesen« von A. Schreiber s. Textbezug INr 63403, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:11.738Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63410,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hennegraben #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. C. Geisler in Stahl v. Rosmäsler in Berlin",
+      "scans": [
+        "alm_1040_63410_zlf8v59x0u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hennegraben #",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.092Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "7xdskkny3ru29ez"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.092Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.092Z",
+          "agent": "1v07c6j6mxrdvwn",
+          "source_id": "qqx15fk61q9xxkd"
+        }
+      ],
+      "source_id": "g40vjbwl2goesej"
+    },
+    {
+      "annotation": "Illustration zu »Der Hirte und die Seejungfrau« aus »Handbuch für Reisende« von A. Schreiber s. Textbezug INr 63404, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63411,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hirte und die Seejungfrau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Opitz gez. Jb. Lips gest.",
+      "scans": [
+        "alm_1040_63411_3eleyaewve.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hirte und die Seejungfrau",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.930Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "7j9yoghk2kbbvgc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.930Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "yz55s10t8ftd6jh"
+        }
+      ],
+      "source_id": "pfyeij07gb81gaf"
+    },
+    {
+      "annotation": "Illustration zu »Der Köhler« aus »Sagen aus den Rheingegenden, dem Schwarzwalde und den Vogesen« von A. Schreiber s. Textbezug INr 63405, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63412,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Köhler",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "D. Opitz gez. Jb. Lips gest.",
+      "scans": [
+        "alm_1040_63412_b304l17mk5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Köhler",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.930Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "5979d5mfoo0mjc0"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.930Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "6hfwxye1pogxbr9"
+        }
+      ],
+      "source_id": "5277fkxyv6bzypm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "In einer der schönsten Gegenden des Deutschen Landes, dort, wo der majestätische Rhein seine dumpfrauschenden Wogen und Wirbel, welche die Hauptepochen der Germanischen Geschichte den Enkeln erzählen, durch Gegenden drängt,",
+      "language": [],
+      "musenalm_id": 63413,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schwarzen Tage. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Blumenhagen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schwarzen Tage. / Erzählung",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.270Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.270Z",
+          "agent": "7qi9w7fd9odbdoj",
+          "source_id": "bkouzcxslxceg7w"
+        }
+      ],
+      "source_id": "vstt452jg808vbx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "69",
+      "incipit_statement": "Im Freyen steht ein lustig Haus, / Das tausend Säulen tragen;",
+      "language": [],
+      "musenalm_id": 63414,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wald",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wald",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "nkuogqqln6hjmx8"
+        }
+      ],
+      "source_id": "jcszp784jf2zxj0"
+    },
+    {
+      "annotation": "mit einer Musikbeigabe s. INr 63442, Obj 47",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.035Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Wohl uns, daß wir uns gefunden / In der trüben, bangen Zeit!",
+      "language": [],
+      "musenalm_id": 63415,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied für einen Musikverein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lied für einen Musikverein",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "gbnvkwak0p6ob1v"
+        }
+      ],
+      "source_id": "wjzlcg1eas8g8gm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Es ist ein Geist, der durch die Zeiten schreitet, / In Wetterwolken geht oft seine Bahn,",
+      "language": [],
+      "musenalm_id": 63416,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trost",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trost",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "l1uox4hffelyt4o"
+        }
+      ],
+      "source_id": "71l8rkrnse6mgiz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Aus den Stürmen, aus den Fluthen / Rettet in das stille Haus / Des Altares heil'ge Gluthen,",
+      "language": [],
+      "musenalm_id": 63417,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Frauen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Frauen",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "ro4trixsvg7svco"
+        }
+      ],
+      "source_id": "82x6cpy60dcdx2y"
+    },
+    {
+      "annotation": "Sammlung von 7 Beiträgen INr 63419-63425, Obj 24-30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63418,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gnomen und Devisen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gnomen und Devisen",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "mvun377lr03xrfx"
+        }
+      ],
+      "source_id": "26pqi6q91h7t1e4"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Manchmal der Geist den Leib verzehrt, / Doch öfter ist es umgekehrt!",
+      "language": [],
+      "musenalm_id": 63419,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Manchmal der Geist den Leib verzehrt, / Doch öfter ist es umgekehrt!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "t8u35nsuasmt1lt"
+        }
+      ],
+      "source_id": "w2vxb2s401tcbb4"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.036Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Der Stolz der hat die Demuth gefreit, / Der Hochmuth aber die Eitelkeit.",
+      "language": [],
+      "musenalm_id": 63420,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stolz der hat die Demuth gefreit, / Der Hochmuth aber die Eitelkeit.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "k83wuzps40o68lk"
+        }
+      ],
+      "source_id": "ksun6eyk6yzq0wx"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Den Mucker quält ein Hirngespinst: / Die Freude ist auch Gottesdienst.",
+      "language": [],
+      "musenalm_id": 63421,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Den Mucker quält ein Hirngespinst: / Die Freude ist auch Gottesdienst.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "2n5nbleolvpuj6k"
+        }
+      ],
+      "source_id": "0h5pmzb2lz4tkkm"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Hast manchen Bock geschossen, doch / Bist darum kein Jäger noch",
+      "language": [],
+      "musenalm_id": 63422,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hast manchen Bock geschossen, doch / Bist darum kein Jäger noch…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.271Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.271Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "qkz1bhdkrbdoph9"
+        }
+      ],
+      "source_id": "l8n2wfldwyou7yu"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Traulich sitzt man hier beysammen, / Drischt leeres Stroh und gute Namen,",
+      "language": [],
+      "musenalm_id": 63423,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Traulich sitzt man hier beysammen, / Drischt leeres Stroh und gute Namen,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.272Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "q3721zxxcaatwf1"
+        }
+      ],
+      "source_id": "468kick40prznr8"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Schwert und Feder stechen beyde: / Die Klinge thut es, nicht die Scheide.",
+      "language": [],
+      "musenalm_id": 63424,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schwert und Feder stechen beyde: / Die Klinge thut es, nicht die Scheide.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.272Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "mi8wbxvva0idvm3"
+        }
+      ],
+      "source_id": "53eppjb698aml44"
+    },
+    {
+      "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.037Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "74",
+      "incipit_statement": "Der Wandrer geht mit raschem Schritt; / Der hölzerne Wegweiser geht nicht mit.",
+      "language": [],
+      "musenalm_id": 63425,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wandrer geht mit raschem Schritt; / Der hölzerne Wegweiser geht nicht mit.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.272Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.272Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "yvcrgw7pdk2g6na"
+        }
+      ],
+      "source_id": "sn5hjsmyjtwdmc1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Es wandelt an dem Knoten stabe / Ein blasser Pilger langsam her,",
+      "language": [],
+      "musenalm_id": 63426,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Charade",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.298Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "cbw9ikhfxb1wfpn"
+        }
+      ],
+      "source_id": "v0lnszgphjs1iqw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "75",
+      "incipit_statement": "Ich komm' aus einer dunklen Pforte, / Ich wandle ewig meinen Lauf:",
+      "language": [],
+      "musenalm_id": 63427,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Anagramm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Anagramm",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.298Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "7nku2prqoefc7q4"
+        }
+      ],
+      "source_id": "w6pwzqc48q3wg68"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.423Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Es wurden nie zwey Wesen noch gefunden, / Die sich, wie wir, so feindlich fliehen,",
+      "language": [],
+      "musenalm_id": 63428,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Räthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Räthsel",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.298Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "3ko4h21wc9xzrt8"
+        }
+      ],
+      "source_id": "0ydlwk45mtegklr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Einst blühte eine gold'ne Zeit, / Die macht' es Jedem recht,",
+      "language": [],
+      "musenalm_id": 63429,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Faschingslied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "***",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Faschingslied",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "w8p1cf5zw7b8vup"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Wenn für des Herzens oft erneute Wunden, / Wenn für sein Lied Hoffnung, Wonn' und Leid, / Erinn'rung einen Kranz dem Sänger weiht,",
+      "language": [],
+      "musenalm_id": 63430,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Huldigung. / (Sonett.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Huldigung. / (Sonett.)",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.298Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "mun8u1jd37uvvfz"
+        }
+      ],
+      "source_id": "z6mhv5l3ajj0hjw"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: ... Wenn auch entweder der Undank des ganzen Volks, oder vieler Neider, oder mächtige Feinde, die Tugend des ihr gebührenden Lohnes berauben: [...] Cicero",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.221Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "In einem Saale des Schlosses von Beauvais saßen der junge Graf von Noailles und der Ritter Armand von Beauvais, letzter Besitzer einer der reichsten Baronien Frankreichs, beim edlen Schachspiel.",
+      "language": [],
+      "musenalm_id": 63431,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chandenier. / Historische Novelle aus den Zeiten der Fronde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Amalia Schoppe, geb. Weise",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Chandenier. / Historische Novelle aus den Zeiten der Fronde",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.286Z",
+          "agent": "2nm1hcqes98n5i9",
+          "source_id": "1cityfgip4tkle3"
+        }
+      ],
+      "source_id": "babhitrihm6avqa"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "136",
+      "incipit_statement": "Hold wuchs die Schaar der Kinder auf, / Die reich ein Haus erfreut,",
+      "language": [],
+      "musenalm_id": 63432,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gräber eines Hauses. / (Nach Felicia Hamans.)",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Carol. Stille",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Gräber eines Hauses. / (Nach Felicia Hamans.)",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.930Z",
+          "agent": "4rkhkr2si8r091f",
+          "source_id": "7lv2y4vk0monru1"
+        }
+      ],
+      "source_id": "fn9yqx0sckhaovj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "137",
+      "incipit_statement": "Ich mußte von Ihr scheiden, / Die meine Wonn' und Glück:",
+      "language": [],
+      "musenalm_id": 63433,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Minnelied. / (Nach dem Schenken von Limpurg.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Minnelied. / (Nach dem Schenken von Limpurg.)",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.930Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "pes2uxcyxmyqtn2"
+        }
+      ],
+      "source_id": "mgqusza64gt7tu3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "138",
+      "incipit_statement": "Der Sturm uns entgegen, / Es bäumt sich die Welle,",
+      "language": [],
+      "musenalm_id": 63434,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gefühle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Geib",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gefühle",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "1em6w40r21dweqr",
+          "source_id": "dfrv9fj4zf1pwa2"
+        }
+      ],
+      "source_id": "g88uy1qafn39ky7"
+    },
+    {
+      "annotation": "Sammlung von 2 Beiträgen INr 63436, 63437; Obj 41, 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63435,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Novellen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Novellen",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "y3mrmeuffvft7tg"
+        }
+      ],
+      "source_id": "4pj591v15qqmjku"
+    },
+    {
+      "annotation": "Novellen (Sammlung INr 63436, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "139",
+      "incipit_statement": "Die Herzogin von B. stand auf dem Balkon ihres Schlosses, um die vorüberziehende Frohnleichnams-Procession zu sehen.",
+      "language": [],
+      "musenalm_id": 63436,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Die Rückkehr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. Die Rückkehr",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "f22ggtcugv82lrn"
+        }
+      ],
+      "source_id": "l67v55afptox3aj"
+    },
+    {
+      "annotation": "Novellen (Sammlung INr 63436, Obj 40)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Auf seinem Landsitze, an der westlichen Küste Schottlands, lebte Sir Arthur Denham, ein Edelmann aus einem alten Hause,",
+      "language": [],
+      "musenalm_id": 63437,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Der Kampf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Der Kampf",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "2pzrfemyqssdm2z"
+        }
+      ],
+      "source_id": "kwyn5lti5h1bmms"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Vor dem Hause des Barbiers Janno Roscio war ein zahlreicher Volkshaufen versammelt.",
+      "language": [],
+      "musenalm_id": 63438,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Römische Welt- und Liebeshändel / im vierzehnten Jahrundert. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Römische Welt- und Liebeshändel / im vierzehnten Jahrundert. / Novelle",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "9o0lk3ecepyglc6"
+        }
+      ],
+      "source_id": "40rrgeoow7deqjj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "283",
+      "incipit_statement": "Ihr Trümmer schaut so traurig / Herab aus Tannengrün!",
+      "language": [],
+      "musenalm_id": 63439,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das alte Schloß zu Baden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das alte Schloß zu Baden",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "ppk8bho54l6evjf"
+        }
+      ],
+      "source_id": "kyndo6ay5czjhpg"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.283Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Der Abend sank zur Erde nieder, / Am Himmel schon erglänzt sein Stern;",
+      "language": [],
+      "musenalm_id": 63440,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hymenäon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hymenäon",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "03wc9coxw3ilsbv"
+        }
+      ],
+      "source_id": "g2byn1zzhlzsy0t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "286",
+      "incipit_statement": "In Peneus schöne Tochter war / Apollo's Herz entbrannt, / Ihm wurde schwül und wunderbar, / Wo er sie sah und fand;",
+      "language": [],
+      "musenalm_id": 63441,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Apollo und Daphne. / Nach Ovids Metamorphosen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Neuffer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Apollo und Daphne. / Nach Ovids Metamorphosen",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.134Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.134Z",
+          "agent": "uimoj64mrnawl5d",
+          "source_id": "9851my8pyg0tob4"
+        }
+      ],
+      "source_id": "vjyeuaqttmwnkij"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Lied für einen Musikverein« von A. Schreiber INr 63415, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.284Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 63442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lied / für einen Musikverein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1040_63442_r4mpgs4oun.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lied / für einen Musikverein",
+      "updated": "2009-04-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "3c0bhmlxajtsm14"
+    }
   ],
   "agents": [
     {

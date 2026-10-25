@@ -48,28 +48,876 @@
   "year": 1847,
   "editor": "",
   "items": [
-    "f6zjzgjvvozvvmo"
+    {
+      "annotation": "1828-1849.\nKartonierter Einband mit Prägung und Goldschnitt. ( Buchrücken beschädigt und Vorderbuchdeckel mit Inhalt lose.)\n1847: (K: M. Stahlst 8.) Mit Port 1, Bl 3, Ku 6, II und 412 SS.",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.701Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100786",
+      "location": "105Q08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.701Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "f6zjzgjvvozvvmo"
+    }
   ],
   "contents": [
-    "2yevabdy9mvl40r",
-    "wy3vnesohptk6su",
-    "4ahbbbjbeztipbt",
-    "zc0ha4mfxwkazu1",
-    "jwn3bhx12rj2vwx",
-    "h85rteobee7pubf",
-    "a1z7phnrm3l1rsn",
-    "mcc7gr5bg120te7",
-    "9qawbi07nkxcyer",
-    "umzri54v0vuslj1",
-    "q7lgcj62qi03lj2",
-    "uxp8gpu0ehylqmq",
-    "zx4tjig48zupt2a",
-    "9x4x0m2dyqd3z0i",
-    "6ur5uehns81lon1",
-    "cm8t44m1zliziwl",
-    "cfe15c4q5eocein",
-    "xg0zllkh5xz0qhb",
-    "cx6zdvek2qj4hjq"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.370Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111100,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3483_111100_zj14sdi7m2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "2yevabdy9mvl40r"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.530Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111117,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ulrike",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. von Barabás del. C. Preisel sc.",
+      "scans": [
+        "alm_3483_111117_zjlp02z7db.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ulrike",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "33b2pl7dwtd5ei9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.267Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "h5p9xri6z6etiuj"
+        }
+      ],
+      "source_id": "wy3vnesohptk6su"
+    },
+    {
+      "annotation": "kol. lithogr. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.532Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111118,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIELIEBCHEN / 1846. / LEIPZIG, / Baumgaertner's Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Krätschmer, lith. Anstalt",
+      "scans": [
+        "alm_3483_111118_mhcieb1md9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VIELIEBCHEN / 1846. / LEIPZIG, / Baumgaertner's Buchhandlung",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ahbbbjbeztipbt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.534Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111119,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1847. / Von / Bernd von Guseck. / Zwanzigster Jahrgang. / Mit 8 Stahlstichen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3483_111119_mx3o6u0g02.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1847. / Von / Bernd von Guseck. / Zwanzigster Jahrgang. / Mit 8 Stahlstichen",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "zc0ha4mfxwkazu1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111120,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "jwn3bhx12rj2vwx"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111121,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "h85rteobee7pubf"
+    },
+    {
+      "annotation": "# Titel s. Gedicht INr 111123, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.536Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111122,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der heilige Hieronymus #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. van Schendel pinx. J. P. Lange sculps.",
+      "scans": [
+        "alm_3483_111122_wfu8gsyf9e.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der heilige Hieronymus #",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.268Z",
+          "agent": "ueyslu5v7u98n57",
+          "source_id": "4n639hb5lwt2axs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.268Z",
+          "agent": "ae3j6hx5g9zzh2o",
+          "source_id": "c9s9gokbc1q8gay"
+        }
+      ],
+      "source_id": "a1z7phnrm3l1rsn"
+    },
+    {
+      "annotation": "s. Graphik INr 111122, obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.538Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der fromme Greis, nach vielbewegtem Leben, / Ruht aus bei Bethlehem, der heil'gen Stadt,",
+      "language": [],
+      "musenalm_id": 111123,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der heilige Hieronymus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der heilige Hieronymus",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.268Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "derq40nm3l8xue2"
+        }
+      ],
+      "source_id": "mcc7gr5bg120te7"
+    },
+    {
+      "annotation": "s. Gedicht INr 111125, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111124,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lebensstille",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Spohler pinx. J. P. Lange sculp.",
+      "scans": [
+        "alm_3483_111124_w8ta36xqaf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lebensstille",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.268Z",
+          "agent": "ueyslu5v7u98n57",
+          "source_id": "1lz9m6aivxrdk0y"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.268Z",
+          "agent": "uksy7wbpfuk9ww8",
+          "source_id": "5az24ic01h06n14"
+        }
+      ],
+      "source_id": "9qawbi07nkxcyer"
+    },
+    {
+      "annotation": "s. Graphik INr 111124, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:39.540Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein freundlich Haus in grüner Flur, / Mit stillem, klarem Gewässer, / Nicht wild romantisch die Natur, / Hübsch fruchtbar, das ist besser!",
+      "language": [],
+      "musenalm_id": 111125,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Lebensstille",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Lebensstille",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.268Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "wrgx345ml1fpjg1"
+        }
+      ],
+      "source_id": "umzri54v0vuslj1"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: O du mein Frühling! sieh, wie draußen der Herbst nun braust, / Komm, daß nicht Winter mich umeiset, verlaß mich nicht! [... ] Rückert /) mit einer Illustration s. Graphik INr 111127, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein Septembertag, lichthell, wie die Träume der Jugend, ging über den gesegneten Fluren auf, aus denen das prächtige Mailand seine Häusermassen, überragt von Kuppeln und Thürmen, erhebt.",
+      "language": [],
+      "musenalm_id": 111126,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Colomba",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "La Colomba",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.373Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "8pdfrgo05xsgvl3"
+        }
+      ],
+      "source_id": "q7lgcj62qi03lj2"
+    },
+    {
+      "annotation": "Illustration zu »La Colomba« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111125, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111127,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "La Colomba",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. v. Barabás del. Preisel sc.",
+      "scans": [
+        "alm_3483_111127_0zi2o9i78o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "La Colomba",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.373Z",
+          "agent": "jt9vrpcti67n6hx",
+          "source_id": "hfiid83ndluo121"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.373Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.373Z",
+          "agent": "9s6c9wuymvvgbhx",
+          "source_id": "vtn5h2humdk9ohq"
+        }
+      ],
+      "source_id": "uxp8gpu0ehylqmq"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Mich laben keine Glocken, mir ertönet / Nicht jener Orgel feierliches Brausen, [...] Dingelstedt /) mit 2 Illustrationen s. Graphiken INr 111129, 111130; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "162",
+      "incipit_statement": "Wohl keinen Morgen begrüßt eine Mutter freudiger als den, welcher ihr ein langentbehrtes Kind wieder zuführen soll.",
+      "language": [],
+      "musenalm_id": 111128,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Vier zu Delft. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Vier zu Delft. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "1qs3nbhupizl4x8"
+        }
+      ],
+      "source_id": "zx4tjig48zupt2a"
+    },
+    {
+      "annotation": "Illustration zu »Die Vier zu Delft« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111128, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.379Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111129,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hörnach",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Retzsch del. L. Sichling sc.",
+      "scans": [
+        "alm_3483_111129_59jtt14oxa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hörnach",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "15dx9apva9mgxq4",
+          "source_id": "9hxyybwk2ktf6n9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "4h5l66xotmujbik",
+          "source_id": "wevrxgpcmxkavlp"
+        }
+      ],
+      "source_id": "9x4x0m2dyqd3z0i"
+    },
+    {
+      "annotation": "Illustration zu »Die Vier zu Delft« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111128, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.381Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111130,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tod Wilhelms I. von Oranien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "N. Pienemann del. Joh. de Mare sculps.",
+      "scans": [
+        "alm_3483_111130_9jozn2gym0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tod Wilhelms I. von Oranien",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "hljjikv82e4coq5",
+          "source_id": "0i2itssiyof51qn"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "q50dykweuxf7u2c",
+          "source_id": "dllzo6ty3gdf2nc"
+        }
+      ],
+      "source_id": "6ur5uehns81lon1"
+    },
+    {
+      "annotation": "Dem Beitrag vorangestellt: Es trägt sich nimmer lang! / Nein, nimmer lange! Wenden / Muß bald sich's oder enden: [...] Candidus /) mit einer Illustration s. Graphik INr 111132, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Das hügelreiche, fruchtbare Böhmerland! Wer hat es besucht und denkt nicht mit Wohlgefallen an seine strotzende Ueppigkeit auf den wellenförmigen, weitgeschwungenen Höhen,",
+      "language": [],
+      "musenalm_id": 111131,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heimweh. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Bernd von Guseck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heimweh. / Novelle",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "hh3dab1czdktu2g",
+          "source_id": "r7sowyqpu9a447s"
+        }
+      ],
+      "source_id": "cm8t44m1zliziwl"
+    },
+    {
+      "annotation": "Illustration zu »Heimweh« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111131, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:41.383Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111132,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heimweh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Krusemann pinx. J. P. Lange sculps.",
+      "scans": [
+        "alm_3483_111132_25l9qg1bot.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Heimweh",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "wb0o68qmro2zvva",
+          "source_id": "mzp3o1emr4i0f51"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.374Z",
+          "agent": "ueyslu5v7u98n57",
+          "source_id": "rdy3dvgfztulux0"
+        }
+      ],
+      "source_id": "cfe15c4q5eocein"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.555Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "412",
+      "incipit_statement": "Druck von J. B. Hirschfeld",
+      "language": [],
+      "musenalm_id": 111133,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck von J. B. Hirschfeld…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "xg0zllkh5xz0qhb"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:42.556Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 111135,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3483_111135_awv4jxqdgd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-15 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1847,
+      "editor": "",
+      "agents": [],
+      "source_id": "cx6zdvek2qj4hjq"
+    }
   ],
   "agents": [
     {

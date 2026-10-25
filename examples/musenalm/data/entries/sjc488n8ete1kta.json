@@ -49,11 +49,171 @@
   "editor": "",
   "items": [],
   "contents": [
-    "n9a128mil0felgf",
-    "8kaaxzros5k8o11",
-    "ol0mlcewn6h33lm",
-    "4i1bv8g4meetcht",
-    "efmuiqrtskkdy2m"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.632Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75571,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3665_75571_riw8eyznzj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1775,
+      "editor": "",
+      "agents": [],
+      "source_id": "n9a128mil0felgf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75572,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALMANAC / GENEALOGIQUE / de / Brunsvick, Lunebourg / pour l'année / MDCCLXXV / contenant des connoissances utiles / et agreables / LAUENBOURG / chez Iean George Herenberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3665_75572_c98ny14g8x.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALMANAC / GENEALOGIQUE / de / Brunsvick, Lunebourg / pour l'année / MDCCLXXV / contenant des connoissances utiles / et agreables / LAUENBOURG / chez Iean George Herenberg",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1775,
+      "editor": "",
+      "agents": [],
+      "source_id": "8kaaxzros5k8o11"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75573,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Table des Matieres",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3665_75573_r6c6td5ugb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Table des Matieres",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1775,
+      "editor": "",
+      "agents": [],
+      "source_id": "ol0mlcewn6h33lm"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75574,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Avertissement",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3665_75574_u9da2lb5a8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Avertissement",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1775,
+      "editor": "",
+      "agents": [],
+      "source_id": "4i1bv8g4meetcht"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 75575,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3665_75575_xr0h6gfe6o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2011-05-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1775,
+      "editor": "",
+      "agents": [],
+      "source_id": "efmuiqrtskkdy2m"
+    }
   ],
   "agents": [
     {

@@ -48,76 +48,2886 @@
   "year": 1827,
   "editor": "",
   "items": [
-    "ihcrp5v1daahuut",
-    "yqlgcdgz78x9xe5"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.484Z",
+      "edit_comment": "",
+      "edit_state": "Review",
+      "identifier": "404587",
+      "location": "",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.484Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "ihcrp5v1daahuut"
+    },
+    {
+      "annotation": "1815-1831.\nKartonierter Einband mit Grafik, Muster und Goldschnitt(Buchrücken geflickt).\n1827:(K:BL 10,  458 SS und Bl 1) Mit Bl 11,  Ku 10 ,  458 SS und Bl 1. \n1815/21 Hg : Frz. Horn, Fr. Kind, L.Uhland.\n1822/25 Hg : Fr. Rückert.\n1826/31 Hg : Gg. Döring.         \n§1§ verso G fehlt",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.484Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100164",
+      "location": "105F10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.484Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "yqlgcdgz78x9xe5"
+    }
   ],
   "contents": [
-    "fyx5207p209fu46",
-    "dx464gc40ycem1q",
-    "447j9wc93uklke9",
-    "4ukgyncwceiz4kp",
-    "hej10ivursye0yo",
-    "yq215efg6gucflz",
-    "934ckmobei6xsmq",
-    "9086agq6kumo4l1",
-    "d2xzh92p3lh0u2c",
-    "zsareojw7hjfrhv",
-    "iqbiwljjmk661la",
-    "tvggfek1g3i4pqo",
-    "us7jnk4tvycxepg",
-    "kkn8anb0kxshif1",
-    "dimee6sm7snivw4",
-    "vq944go5pl7pgro",
-    "iofwgz5f5zf8aig",
-    "po6azgqpc7r3y6h",
-    "yyx6p9pmn5myapk",
-    "hz8vsun77jxflrh",
-    "inj3eayhvij6jec",
-    "06y5v0xi9f1qj0t",
-    "nz9tt1yukurhsft",
-    "4nbkx1n4u7vtgbc",
-    "85jvysyyp84qo4u",
-    "boddtyl9dvr8c27",
-    "ecmpiu30ic2cuag",
-    "zhaxszoe2vlhlw9",
-    "5pse3hbzyeeq6b5",
-    "bbxden3i9wtbcpt",
-    "z26xncmfrgfdv88",
-    "2zak6mf9yek3edw",
-    "790zjqv6658wm8g",
-    "t8h0q9js9xpb0wl",
-    "h7byareh6l2piu5",
-    "9x8vtd6d4hj45gt",
-    "wzcwuxdztajwc5i",
-    "zvlqe6w7wnkk3wt",
-    "qo59higqfmx5syu",
-    "51ixuagc2vfk8w5",
-    "dn88eltcc97cqa5",
-    "qtzaxqa6bn5ql6p",
-    "xlw89sjw36ga7yl",
-    "6r1hjaht9wd8c4y",
-    "zk1bc6ow99umkdz",
-    "anlrnk5r8ckzxm5",
-    "8dglm6zrl0xsge5",
-    "7myn83jyneyvwdv",
-    "bzeetkj8xdnegke",
-    "1b02v3327h02ns2",
-    "o0uojailcnweujl",
-    "2tra8kklf73l5j2",
-    "2li9vx3t9uyuhl6",
-    "i0adt3tjbs6o8z3",
-    "haog509y6snofv3",
-    "9g06a4atah8cbob",
-    "1sa35k8xevgz2wg",
-    "khmbpkguzjjk6om",
-    "l21io85ii8jckp2",
-    "xrf15n1svzh50nu",
-    "92ao6yyah1s1dlu",
-    "rzpxmg1v47m0qa3",
-    "7hrx8o6yonxi9jc",
-    "lem5ktdsyfc9zdj",
-    "q2f0gapk0ni315m",
-    "qddvjikfoep1ios"
+    {
+      "annotation": "Umschlaggraphik r. s. Textbezug INr 27867, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27843,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "MATHILDIS",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_357_27843_ykdqyovof7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "MATHILDIS",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "fyx5207p209fu46"
+    },
+    {
+      "annotation": "Titelgraphik s. Textbezug INr 27847, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.214Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27848,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (H. Naecke del. Albt. Reindel sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Naecke del. Albt. Reindel sc.",
+      "scans": [
+        "alm_357_27848_rccjryxc77.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.238Z",
+          "agent": "jnsjgzgb69y7llq",
+          "source_id": "bouv4tlhtr60rnl"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.238Z",
+          "agent": "suh3wpuo01wl4gq",
+          "source_id": "xp85fmlgokwcnu4"
+        }
+      ],
+      "source_id": "dx464gc40ycem1q"
+    },
+    {
+      "annotation": "graph. Titel s. Textbezug INr 27845, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.210Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27844,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauentaschenbuch / für das Jahr / 1827, / herausgegeben / von / Georg Döring. / Nürnberg, / bei Joh. Leonh. Schrag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Förster del. Dalbon sc.",
+      "scans": [
+        "alm_357_27844_wjo743q8kx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Frauentaschenbuch / für das Jahr / 1827, / herausgegeben / von / Georg Döring. / Nürnberg, / bei Joh. Leonh. Schrag",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.238Z",
+          "agent": "42w3wulg3fl03j4",
+          "source_id": "75tzzsqvnmivqik"
+        }
+      ],
+      "source_id": "447j9wc93uklke9"
+    },
+    {
+      "annotation": "s. graph. Titel INr 27844, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wir sehen hier eine zartsinnige Darstellung vor uns, die jedes gefühlvolle Mutterherz ansprechen wird,",
+      "language": [],
+      "musenalm_id": 27845,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Titelblatt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Titelblatt",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ukgyncwceiz4kp"
+    },
+    {
+      "annotation": "Illustration zu »Der wunderthätige Magus« von Calderon s. Textbezug INr 27848, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.212Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27846,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons wunderthätigen Magus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. Anschütz del. M. Esslinger sc.",
+      "scans": [
+        "alm_357_27846_sr45uvrv6r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons wunderthätigen Magus",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.238Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "uy8irx1c2tz44t6"
+        }
+      ],
+      "source_id": "hej10ivursye0yo"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 27848, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.213Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wir verdanken diese zart gedachte und tief empfundne Darstellung dem geistreichen Zeichner,",
+      "language": [],
+      "musenalm_id": 27847,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titelkupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Titelkupfer",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "yq215efg6gucflz"
+    },
+    {
+      "annotation": "s. Graphik INr 27847, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.216Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Eine Scene der Milde und des Verzeihens, welche zwischen den von uns im Jahrgange 1825 gegebenen Darstellungen ihren Platz finden.",
+      "language": [],
+      "musenalm_id": 27849,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons wunderthätigem Magus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons wunderthätigem Magus",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "934ckmobei6xsmq"
+    },
+    {
+      "annotation": "Illustration zu »Die Verwicklungen des Zufalls« von Calderon s. Textbezug INr 27851, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.217Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27850,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons die Verwicklungen des Zufalls",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Götzenberger del. M. Esslinger sc.",
+      "scans": [
+        "alm_357_27850_5jv2r2xtqa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons die Verwicklungen des Zufalls",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.238Z",
+          "agent": "k52j0ci4hisa6dc",
+          "source_id": "4pfca2xnxhb70ur"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.238Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.238Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "tqfodeyobc3x5ki"
+        }
+      ],
+      "source_id": "9086agq6kumo4l1"
+    },
+    {
+      "annotation": "s. Graphik INr 27850, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.974Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wir wüßten keinen Dichter, der in dem Grade, wie Calderon, verstünde, aus geringfügig scheinenden Umständen eine Folgereihe wunderbarer Ereignisse zu entwickeln,",
+      "language": [],
+      "musenalm_id": 27851,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons: Verwicklungen des Zufalls",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons: Verwicklungen des Zufalls",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "d2xzh92p3lh0u2c"
+    },
+    {
+      "annotation": "Illustration zu »Es ist schlimmer als es war« von Calderon s. Textbezug INr 27853, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.343Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27852,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderon's Lustspiel: / Es ist schlimmer als es war",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Schnorr del. P. Walther sc.",
+      "scans": [
+        "alm_357_27852_pbmpbyzshc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderon's Lustspiel: / Es ist schlimmer als es war",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.089Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "7h2ivxvm1x4zgf4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.089Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.089Z",
+          "agent": "f52qfr3kaiovdte",
+          "source_id": "rzmv3h1k83oclmg"
+        }
+      ],
+      "source_id": "zsareojw7hjfrhv"
+    },
+    {
+      "annotation": "s. Graphik INr 27852, Obj 10 sowie Graphik im Frauentaschenbuch 1826 INr 27748",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Ein Moment aus diesem bunten und lebendigen Intriguenspiele ist bereits im vorigen Jahrgange unsres Taschenbuchs vorgestellt worden.",
+      "language": [],
+      "musenalm_id": 27853,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons: Es ist schlimmer, als / es war.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons: Es ist schlimmer, als / es war.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "iqbiwljjmk661la"
+    },
+    {
+      "annotation": "s. Graphik INr 27855, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Das lyrische Spiel: Echo und Narcissus, über welches wir in der Erklärung zum folgenden Blatte,",
+      "language": [],
+      "musenalm_id": 27854,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons: Echo und Narcissus. / Nr. 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons: Echo und Narcissus. / Nr. 1.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "tvggfek1g3i4pqo"
+    },
+    {
+      "annotation": "Illustration zu »Echo und Narcissus« von Calderon s. Textbezug INr 27854, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.418Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27855,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderon's Echo und Narcissus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Schnorr del. Dalbon sc.",
+      "scans": [
+        "alm_357_27855_smc9ig6t6b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderon's Echo und Narcissus",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "iunodrincx4btpf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "42w3wulg3fl03j4",
+          "source_id": "ycc8cnvvntyaybl"
+        }
+      ],
+      "source_id": "us7jnk4tvycxepg"
+    },
+    {
+      "annotation": "s. Graphik INr 27857, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die überaus zart und anmuthig gehaltne Dichtung: Echo und Narcissus, gehört in die Classe der Festspiele,",
+      "language": [],
+      "musenalm_id": 27856,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons: Echo und Narcissus. / Nr. 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons: Echo und Narcissus. / Nr. 2.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "kkn8anb0kxshif1"
+    },
+    {
+      "annotation": "Illustration zu »Echo und Narcissus« von Calderon s. Textbezug INr 27856, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27857,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderon's Echo und Narcissus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Schnorr del. Dalbon sc.",
+      "scans": [
+        "alm_357_27857_z6wxs4c09i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderon's Echo und Narcissus",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "7syvnpvw9hawr2f"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "42w3wulg3fl03j4",
+          "source_id": "z2jyrapweod41sd"
+        }
+      ],
+      "source_id": "dimee6sm7snivw4"
+    },
+    {
+      "annotation": "s. Graphik INr 27860, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dieses Stück ist eben so wohl, wie Echo und Narcissus ein sogenanntes Festspiel,",
+      "language": [],
+      "musenalm_id": 27858,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons Gartenunhold. / Nr. 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons Gartenunhold. / Nr. 1.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "vq944go5pl7pgro"
+    },
+    {
+      "annotation": "s. Graphik INr 27861, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Hier finden wir den jungen Helden, der bestimmt ist, die Schmach des im Raube der Helena beleidigten Griechenlands zu rächen,",
+      "language": [],
+      "musenalm_id": 27859,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderons Gartenunhold. / Nr. 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderons Gartenunhold. / Nr. 2.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "iofwgz5f5zf8aig"
+    },
+    {
+      "annotation": "Illustration zu »Der Gartenunhold« von Calderon s. Textbezug INr 27858, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.422Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27860,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderon's Gartenunhold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Schnorr del. Leop. Beyer sc. Vienna",
+      "scans": [
+        "alm_357_27860_zjgnzt2fs4.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderon's Gartenunhold",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "02b4dyph2gwi3m2",
+          "source_id": "qktebg8jjwcg4i6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "tj4pcvjcr7uyqxn"
+        }
+      ],
+      "source_id": "po6azgqpc7r3y6h"
+    },
+    {
+      "annotation": "Illustration zu »Der Gartenunhold« von Calderon s. Textbezug INr 27859, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.424Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27861,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Calderon's Gartenunhold",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "L. Schnorr del. J. Axmann sc.",
+      "scans": [
+        "alm_357_27861_02eoysjnfa.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Aus Calderon's Gartenunhold",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "io3xhjty7zveu2l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.267Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.267Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "pi0k5jhl17t2ub2"
+        }
+      ],
+      "source_id": "yyx6p9pmn5myapk"
+    },
+    {
+      "annotation": "s. Graphiken INr 27863, 27864; Obj 21, 22",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.425Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Cyclus von Darstellungen und Bildwerken früherer Zeit und deutschen Ursprungs",
+      "language": [],
+      "musenalm_id": 27862,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zwei Figuren vom schönen Brunnen in Nürnberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zwei Figuren vom schönen Brunnen in Nürnberg",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "hz8vsun77jxflrh"
+    },
+    {
+      "annotation": "s. Textbezug INr 27862, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.426Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27863,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Karl der Vierte / Churfürst von Böhmen. / In Stein gearbeitet von Schonhofer / im Jahre 1361",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schonhofer; A. R.",
+      "scans": [
+        "alm_357_27863_3qlsudwbvo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Karl der Vierte / Churfürst von Böhmen. / In Stein gearbeitet von Schonhofer / im Jahre 1361",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.268Z",
+          "agent": "2cs55gmjk0f1klo",
+          "source_id": "gq98msjziyqggzf"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.268Z",
+          "agent": "suh3wpuo01wl4gq",
+          "source_id": "lwlw4nchph1w3xa"
+        }
+      ],
+      "source_id": "inj3eayhvij6jec"
+    },
+    {
+      "annotation": "s. Textbezug INr 27862, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.428Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27864,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gerlach von Nassau. / Churfürst von Maintz. / im Jahre 1361",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schonhofer; A. R.",
+      "scans": [
+        "alm_357_27864_zs62chj0a7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gerlach von Nassau. / Churfürst von Maintz. / im Jahre 1361",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.268Z",
+          "agent": "suh3wpuo01wl4gq",
+          "source_id": "jbvhi87fwzyzyc5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.268Z",
+          "agent": "2cs55gmjk0f1klo",
+          "source_id": "srbe3unu2t200eb"
+        }
+      ],
+      "source_id": "06y5v0xi9f1qj0t"
+    },
+    {
+      "annotation": "s. Graphik INr 27866, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Unter den in Deutschland vorhandenen, durch so manche geschichtliche Erinnerung merkwürdigen Gebäuden",
+      "language": [],
+      "musenalm_id": 27865,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heidenthurm, mit dem Eingang zum alten Kaiserschloß in Nürnberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Heidenthurm, mit dem Eingang zum alten Kaiserschloß in Nürnberg",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "nz9tt1yukurhsft"
+    },
+    {
+      "annotation": "# s. Textbezug INr 27865, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.430Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27866,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heidenthurm, mit dem Eingang zum alten Kaiserschloß in Nürnberg #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Klein del. Geissler sc.",
+      "scans": [
+        "alm_357_27866_sjla3bw1kq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Heidenthurm, mit dem Eingang zum alten Kaiserschloß in Nürnberg #",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.268Z",
+          "agent": "0sr6u70smh34y2z",
+          "source_id": "adjvazi4jm3zqkz"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.268Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.268Z",
+          "agent": "0ub57ews0fgevuy",
+          "source_id": "en2exfvexbvq5ja"
+        }
+      ],
+      "source_id": "4nbkx1n4u7vtgbc"
+    },
+    {
+      "annotation": "s. Umschlaggraphiken r. u. v. INr 27843, 36116; Obj 1, 66",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Nicht befremdlich werden es hoffentlich unsere Leserinnen finden",
+      "language": [],
+      "musenalm_id": 27867,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zum Umschlag",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zum Umschlag",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "85jvysyyp84qo4u"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27868,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "boddtyl9dvr8c27"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.432Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27869,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frauentaschenbuch / vierzehnter Jahrgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frauentaschenbuch / vierzehnter Jahrgang",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "ecmpiu30ic2cuag"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "In dem Pallast des Friedländers zu Prag schmetterten im hohen Saale die Trompeten und die Paucken wirbelten",
+      "language": [],
+      "musenalm_id": 27870,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Page / des / Herzogs von Friedland",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. von Tromlitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Page / des / Herzogs von Friedland",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "iiexbt3f7jmpzqb",
+          "source_id": "lu1aibmz74t8s09"
+        }
+      ],
+      "source_id": "zhaxszoe2vlhlw9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "105",
+      "incipit_statement": "Am Morgen eines der ersten Junitage des Jahres 1703 schwebte mit vollen Segeln ein stattliches Schiff über die Wellen",
+      "language": [],
+      "musenalm_id": 27871,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Leuchtthurm auf Eddystone. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Leuchtthurm auf Eddystone. / Novelle",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "aohilyouaux033d"
+        }
+      ],
+      "source_id": "5pse3hbzyeeq6b5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "216",
+      "incipit_statement": "Alle Stürme sind entschlafen; / Sieh! das sanft bewegte Meer",
+      "language": [],
+      "musenalm_id": 27872,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stille des Herzens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. Meth. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stille des Herzens",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "r4uutt6dti55bdz"
+        }
+      ],
+      "source_id": "bbxden3i9wtbcpt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "219",
+      "incipit_statement": "Still versinkt ins Meer der Zeiten / Wiederum ein Lebensjahr,",
+      "language": [],
+      "musenalm_id": 27873,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Sylvesterabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilh. Hensel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Sylvesterabend",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "902nw56856wz9rx",
+          "source_id": "6gwtrxybtmr1t96"
+        }
+      ],
+      "source_id": "z26xncmfrgfdv88"
+    },
+    {
+      "annotation": "Sammlung von 15 Gedichten INr 27875-27889, Obj 33-47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27874,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Palmenblätter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Palmenblätter",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "sre1vv0rhk0iwik"
+        }
+      ],
+      "source_id": "2zak6mf9yek3edw"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "In Gott ruht die Natur, der Ew'ge wirkt durch sie: / Denn seine Schöpferkraft erstirbt und altert nie!",
+      "language": [],
+      "musenalm_id": 27875,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "p4mhve5dudv4h76"
+        }
+      ],
+      "source_id": "790zjqv6658wm8g"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.435Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Vernunft, unangewandt, nur spielend mit Ideen: / Wie mögte Menschenwitz sie fassen und verstehen?",
+      "language": [],
+      "musenalm_id": 27876,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.269Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.269Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "u6sevs0735xbnqj"
+        }
+      ],
+      "source_id": "t8h0q9js9xpb0wl"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.634Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "221",
+      "incipit_statement": "Der nie sich widersprach, sich nimmer meistern kann, / Da seit Aeonen er das Beste nur ersann;",
+      "language": [],
+      "musenalm_id": 27877,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.296Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "anvl2byrm234q9v"
+        }
+      ],
+      "source_id": "h7byareh6l2piu5"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Ja, dauern wird mein Ich! wie sehr auch in der Zeit, / So wie im ew'gen Raum, mein Wesen sich erneut;",
+      "language": [],
+      "musenalm_id": 27878,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.296Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "3fd4vcijf2xz68h"
+        }
+      ],
+      "source_id": "9x8vtd6d4hj45gt"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "In Gottes Weltenraum ist Alles gut und wahr, / Der freie Mensch allein oft dieses Ruhmes bar:",
+      "language": [],
+      "musenalm_id": 27879,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.296Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "n2yaqspqpkzxfeg"
+        }
+      ],
+      "source_id": "wzcwuxdztajwc5i"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Hälst Du - ich frage Dich auf Pflicht und Ueberzeugung - / Wohl Tugend lohnenswerth, entsprießt sie blinder Neigung?",
+      "language": [],
+      "musenalm_id": 27880,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.296Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "wcptmabjbfwghxn"
+        }
+      ],
+      "source_id": "zvlqe6w7wnkk3wt"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.635Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Es ist ein köstlich Ding um Tugend ohne Lohn, / Ja, was noch mehr als dies: Entwürdigung und Hohn!",
+      "language": [],
+      "musenalm_id": 27881,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.296Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.296Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "ysueu764pyownuq"
+        }
+      ],
+      "source_id": "qo59higqfmx5syu"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "222",
+      "incipit_statement": "Ja, sie mit Freudigkeit und Sicherheit vollziehn, / Ist Endzweck uns'res Seyns! Kein höh'rer ward verliehn",
+      "language": [],
+      "musenalm_id": 27882,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "ozjkns1koq49wuk"
+        }
+      ],
+      "source_id": "51ixuagc2vfk8w5"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Beglückt ist, wer erlangt, was er verlangen mag, / Jedoch glückseliger: dem kein Geschickesschlag",
+      "language": [],
+      "musenalm_id": 27883,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "9a29wjmfl82x4m7"
+        }
+      ],
+      "source_id": "dn88eltcc97cqa5"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Du fragst, und nirgends wird Dir g'nügender Bescheid: / Warum im Erdenthal so bitt'res Herzeleid?",
+      "language": [],
+      "musenalm_id": 27884,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "wm77swvevwthrsp"
+        }
+      ],
+      "source_id": "qtzaxqa6bn5ql6p"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Ob Weh und Ungemach Dich siebenfach bedräun, / Strahlt nur im Innersten Dir Friedens-Sonnenschein;",
+      "language": [],
+      "musenalm_id": 27885,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "n6wqr6kh22bdr33"
+        }
+      ],
+      "source_id": "xlw89sjw36ga7yl"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "223",
+      "incipit_statement": "Kennst Du die Sünde nur, magst Gut' und Böses trennen, / So darfst Du nimmerdar beklagenswerth Dich nennen,",
+      "language": [],
+      "musenalm_id": 27886,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "yacnjffmxk5in3g"
+        }
+      ],
+      "source_id": "6r1hjaht9wd8c4y"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.661Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Du hegst ein weich Gemüth - ein großes Glück fürwahr! / Blieb' es im Drang' der Zeit von jedem Flecken bar!",
+      "language": [],
+      "musenalm_id": 27887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "yshraw3jpw7d9qv"
+        }
+      ],
+      "source_id": "zk1bc6ow99umkdz"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Unmaß der Sittlichkeit, der Freiheit gegenüber, / Ist Endemie des Tags, der Mode Wechselfieber;",
+      "language": [],
+      "musenalm_id": 27888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "gn2s0ry7rpdbolx"
+        }
+      ],
+      "source_id": "anlrnk5r8ckzxm5"
+    },
+    {
+      "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.662Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "224",
+      "incipit_statement": "Der Früchte süßeste, das leckerste Gericht, / Das wonnigste Gefühl, es heißt: erfüllte Pflicht!",
+      "language": [],
+      "musenalm_id": 27889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Krug von Nidda",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15.",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.298Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.298Z",
+          "agent": "ynj6s229zp88pv2",
+          "source_id": "tq01wwlfa0iez45"
+        }
+      ],
+      "source_id": "8dglm6zrl0xsge5"
+    },
+    {
+      "annotation": "Anm. am Objekt: Siehe Uhland's Gedicht: Die Mähderin",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.821Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Goldiges Abendroth umstrahlet die duftigen Berge, / Und der pupurnen Gluth entsteiget der freundliche Engel",
+      "language": [],
+      "musenalm_id": 27890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wiese. / An Ludwig Uhland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Kilzer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wiese. / An Ludwig Uhland",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "tcaorsyhw9evcti",
+          "source_id": "ynd5rcioatetz3x"
+        }
+      ],
+      "source_id": "7myn83jyneyvwdv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.821Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "226",
+      "incipit_statement": "Das ist ein sonderbarer Vorfall! sagte der Kommerzienrath Bolnau zu einem Bekannten, den er auf der breiten Straße in B. traf.",
+      "language": [],
+      "musenalm_id": 27891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sängerin. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wihelm Hauff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sängerin. / Novelle",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "ntl4yryhhmz1v3s",
+          "source_id": "u90pfgdz6mkhnir"
+        }
+      ],
+      "source_id": "bzeetkj8xdnegke"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:52.821Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "296",
+      "incipit_statement": "Wie ist es Dir zu Muthe, Konrad? fragte der vorausreitende Herr den schmollenden Diener,",
+      "language": [],
+      "musenalm_id": 27892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Abentheuer in den Vogesen. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Mosengeil",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Abentheuer in den Vogesen. / Novelle",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.170Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.170Z",
+          "agent": "on9jq8q7af8kfmj",
+          "source_id": "xq1vipdbt8bm0yb"
+        }
+      ],
+      "source_id": "1b02v3327h02ns2"
+    },
+    {
+      "annotation": "Sammlung von 9 Gedichten INr 27894-27902, Obj 52-60",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die schöne Kellnerin und ihre Gäste. / Ein Liederkranz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die schöne Kellnerin und ihre Gäste. / Ein Liederkranz",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.374Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "opwdrrvn97pqb0i"
+        }
+      ],
+      "source_id": "o0uojailcnweujl"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Du kleine, junge Kellnerin, / Warum so gar verlegen?",
+      "language": [],
+      "musenalm_id": 27894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das Röschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das Röschen",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.374Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "j6d4wkvdsg3fa61"
+        }
+      ],
+      "source_id": "2tra8kklf73l5j2"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Du hast den Becher mir zu voll gegossen, / Und auf die Hand ist Dir der Wein geflossen.",
+      "language": [],
+      "musenalm_id": 27895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Uebergegossen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Uebergegossen",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.374Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "xpr25e04es46rzu"
+        }
+      ],
+      "source_id": "2li9vx3t9uyuhl6"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "362",
+      "incipit_statement": "Will ich in die Kirche gehn, / Bleib' ich bei dem Keller stehn.",
+      "language": [],
+      "musenalm_id": 27896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Der Kirchgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Der Kirchgang",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.374Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "bvnvzbckb6qhlwy"
+        }
+      ],
+      "source_id": "i0adt3tjbs6o8z3"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Ich bin der letzte Gast im Haus; / Komm, leuchte mir zur Thür hinaus,",
+      "language": [],
+      "musenalm_id": 27897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der letzte Gast",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der letzte Gast",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.374Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "7ec1ok6cuwyhcvb"
+        }
+      ],
+      "source_id": "haog509y6snofv3"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:54.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Wenn das Wasser draußen / Von den Scheiben rinnt,",
+      "language": [],
+      "musenalm_id": 27898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Der Wassermann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Der Wassermann",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.374Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.374Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "zwy1kyyc939cjoc"
+        }
+      ],
+      "source_id": "9g06a4atah8cbob"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Wie manches Glas bezahl' ich hier, / Und hab' es nicht zerbrochen!",
+      "language": [],
+      "musenalm_id": 27899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Versprochen und zerbrochen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Versprochen und zerbrochen",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.219Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "4rudj95ucgaipb2"
+        }
+      ],
+      "source_id": "1sa35k8xevgz2wg"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Du hast zum Trinker mich gemacht, / Du schöne Kellnerin!",
+      "language": [],
+      "musenalm_id": 27900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Was ist Schuld daran?",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Was ist Schuld daran?",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.219Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "kaofmr9sd9ehqcg"
+        }
+      ],
+      "source_id": "khmbpkguzjjk6om"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "Blanke, schlanke Kellnerin, / Blank und schlank sind deine Flaschen,",
+      "language": [],
+      "musenalm_id": 27901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Die schlanke Kellnerin und die schlanken Flaschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Die schlanke Kellnerin und die schlanken Flaschen",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.219Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "6qotxg89nhoy5rn"
+        }
+      ],
+      "source_id": "l21io85ii8jckp2"
+    },
+    {
+      "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "367",
+      "incipit_statement": "So hab' ich endlich ihn bezwungen, / Den Knaben, der die Welt bezwingt!",
+      "language": [],
+      "musenalm_id": 27902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Der Triumphator",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Der Triumphator",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.219Z",
+          "agent": "nkp5jpl8qj93tqy",
+          "source_id": "giiwvkts5h2io2g"
+        }
+      ],
+      "source_id": "xrf15n1svzh50nu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Erhaben über diesem Erdenraume, / Flog schon Sophiens Geist zum Ewigen empor;",
+      "language": [],
+      "musenalm_id": 27903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Treue Freundschaft. / Sophien und Josephen gewidmet",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Th. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Treue Freundschaft. / Sophien und Josephen gewidmet",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.219Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "xztal1zb5ofioqp"
+        }
+      ],
+      "source_id": "92ao6yyah1s1dlu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "Durch der Seele Tiefen klingend / Weht in mir ein Harfenpaar,",
+      "language": [],
+      "musenalm_id": 27904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die beiden Harfen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ant. Alex. Graf v. Auersperg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die beiden Harfen",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.219Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.219Z",
+          "agent": "7s5akx33j2gpr6y",
+          "source_id": "15k9y38mqa0d93v"
+        }
+      ],
+      "source_id": "rzpxmg1v47m0qa3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "In der weltberühmten Reichs- und Handelsstadt Nürnberg galt Frau Sibylla Schwerzinger, Wirthin der Herberge zum rothen Hahnen, als das böseste Weib,",
+      "language": [],
+      "musenalm_id": 27905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trutneila. / Ein Nürnberger Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Georg Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trutneila. / Ein Nürnberger Schwank",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.220Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.220Z",
+          "agent": "g7ovzuyzi8c0g2c",
+          "source_id": "pbj6zxanvd99pn9"
+        }
+      ],
+      "source_id": "7hrx8o6yonxi9jc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "457",
+      "incipit_statement": "Frisch hinaus lockt uns das Sehnen / Aus des Herzens Einsamkeit;",
+      "language": [],
+      "musenalm_id": 27906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Liebesfahrt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Liebesfahrt",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "lem5ktdsyfc9zdj"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.006Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 27907,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Tabelle]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "q2f0gapk0ni315m"
+    },
+    {
+      "annotation": "Umschlaggraphik v. s. Textbezug INr 27867, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:17:58.365Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 36116,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "GERBURG",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_357_36116_2sez903ukm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "GERBURG",
+      "updated": "2002-08-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1827,
+      "editor": "",
+      "agents": [],
+      "source_id": "qddvjikfoep1ios"
+    }
   ],
   "agents": [
     {

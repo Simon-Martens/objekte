@@ -48,83 +48,3094 @@
   "year": 1819,
   "editor": "",
   "items": [
-    "3nedymf5vpqpyrn"
+    {
+      "annotation": "1810-1848 (1811, 1814, 1816, 1825 sind nicht erschienen, 1813 Titelauflage von 1812)\nKartonierter Einband mit Goldschnitt. zT, verso G, T, B Vrwrt d Hrgb, 7 BB, B I-Verz, zT, SS I-XXXII, S XXXIII Anm d Hrgb, SS XXXV G-Verz, SS XXXVII-XLVII darin 5 GG, SS 1-461, 3 SS VrlgM",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.452Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100986",
+      "location": "105J01",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.452Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "3nedymf5vpqpyrn"
+    }
   ],
   "contents": [
-    "le6now9t9fiztc3",
-    "kynw5hhwlsf4f5n",
-    "tceuhmsngk9o9yh",
-    "qqoz4v7jpturvdw",
-    "376k9wd51apu59o",
-    "3v993s7gy4mjvyr",
-    "l4frk5aejmj0kym",
-    "5wqi191tvdzwzw7",
-    "g8eev9rv0jwfamh",
-    "ngd6otuhlrmfhah",
-    "d6l1cn4v3341pbn",
-    "jc7kat2qubh5qdt",
-    "mpbdbhoovfw2stk",
-    "42fmhi4k7z4mn3t",
-    "0ddzikjm2ih2g9b",
-    "uf67bq3mmwmy0pe",
-    "qcqruaeapenpqyi",
-    "dk08y221c4ckl14",
-    "w8tvvkojjhmb98k",
-    "59mrv8x097aduz6",
-    "c6yg9hklag97lz3",
-    "33ummqfiqbicp9r",
-    "3k7gp9kiz9od7ai",
-    "l6j5d5zta3ybelh",
-    "m2ab37czi4aybaw",
-    "hpgpfi1win0009j",
-    "84304cmu2233gjx",
-    "6924r3jq5d6br6h",
-    "szixmw2j7vaih04",
-    "4o11vitgzezw1ef",
-    "6hwnzeepsyijoub",
-    "kf8rcjmch732ayv",
-    "o2647pxl1f909e5",
-    "6xv0w1ybnmkp9v3",
-    "o0ul7r20xksnsu4",
-    "k9km10t6i3pjncr",
-    "aatdsjor93wsypj",
-    "a75jp3ojg11vkgg",
-    "vx5cahuyepvqxc6",
-    "72xl1f2xeas3dpi",
-    "cwtrzf5bmcar9w6",
-    "lxxwn8plols3kwt",
-    "2vel9ug14q5zdhj",
-    "eurbam97dlusa8w",
-    "ck7ioe2qulbrp5q",
-    "9ap494x6ru41coj",
-    "wxw0n8yqiauoksh",
-    "ckslucoriu3pkpm",
-    "jkd18jgy9cuztj3",
-    "hadmo1a5pchh220",
-    "69zfjdtoribjg41",
-    "zlgu7w2d6plbdob",
-    "0ro3dg57kgyz2bq",
-    "k9suiar0f8m22bl",
-    "8sg6lyyqufz6kce",
-    "6nmdbmipsubdpe0",
-    "xsj5smysyx576ls",
-    "0vpyvvoop8n48k2",
-    "to5s41nfcg170hz",
-    "67pqspxbji2roen",
-    "c8vzpsh030q5b0t",
-    "dqtq0x9olc25fp6",
-    "1e3358w1qgtiydp",
-    "gonvpgww2wbfjpo",
-    "dnnbtris50ynmdk",
-    "fdvk8y1hin3d2qt",
-    "53ehdxeqct2b4jt",
-    "0zlzaxosjnqo8vc",
-    "9kf9451n4jb76fq",
-    "2h5hw0ax3quih4t",
-    "vae41kw7huqdbdx",
-    "7ganyazhup57xt2",
-    "2iikvmz0wqtpc0b",
-    "qtkk6ovacy0euvp"
+    {
+      "annotation": "Umschlag r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.254Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118421,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_42_118421_ms81qsdewm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "le6now9t9fiztc3"
+    },
+    {
+      "annotation": "Vortitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9275,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für / 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für / 1819",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "kynw5hhwlsf4f5n"
+    },
+    {
+      "annotation": "Titelportrait",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9265,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Shakespeare",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Opiz del. Coupé sc.",
+      "scans": [
+        "alm_42_9265_ogwz8z3rfs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Shakespeare",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.506Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "goevpnxwc07l6h2"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.506Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.506Z",
+          "agent": "7iv6j55k1t2fudg",
+          "source_id": "vy9pi1wu8viz9vm"
+        }
+      ],
+      "source_id": "tceuhmsngk9o9yh"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.116Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19317,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Taschenbuch / auf das Jahr / 1819 / Neue Folge, / erster Jahrgang. / Mit sechs Kupfern: / Shakespare's Bildniß und fünf Darstellungen zu / Romeo und Julia / nach Opiz v. Coupé, Cardon u. Prot in Paris. / Leipzig: / F. A. Brockhaus. / 1819",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_42_19317_u6rnfuxt9m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Taschenbuch / auf das Jahr / 1819 / Neue Folge, / erster Jahrgang. / Mit sechs Kupfern: / Shakespare's Bildniß und fünf Darstellungen zu / Romeo und Julia / nach Opiz v. Coupé, Cardon u. Prot in Paris. / Leipzig: / F. A. Brockhaus. / 1819",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "qqoz4v7jpturvdw"
+    },
+    {
+      "annotation": "s. Vorworte in: Urania 1817, INr 9243 und Urania 1819, INr 1520; mit einem Verzeichniß der eingesandten Gedichte s. INr 9267, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Die Preise, welche wir im Jahr 1817 zum zweitenmal für die beste poetische Ergänzung, Epistel und Idylle",
+      "language": [],
+      "musenalm_id": 9266,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort. I. / Bericht über die zur Preisbewerbung im Jahr 1817 / eingegangenen Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Die Redaktion der Urania",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort. I. / Bericht über die zur Preisbewerbung im Jahr 1817 / eingegangenen Gedichte",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "376k9wd51apu59o"
+    },
+    {
+      "annotation": "s. Beiträge INr 9266, 9268, Obj 4, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.564Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9267,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der zur Concurrenz bei uns / eingegangenen Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der zur Concurrenz bei uns / eingegangenen Gedichte",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "3v993s7gy4mjvyr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:53.602Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Kühlung wehest du dir, mit diesem / niedlichen Fächer?",
+      "language": [],
+      "musenalm_id": 31575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AN EIN FÄCHELNDES / MÄDCHEN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Fischel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "AN EIN FÄCHELNDES / MÄDCHEN",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "l4frk5aejmj0kym"
+    },
+    {
+      "annotation": "s. Vorworte in: Urania 1817, INr 9243 und Urania 1818, INr 1520; sowie Verzeichniß der eingesandten Gedichte INr 9267, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.679Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der erwünschte Erfolg, den die von mir zuerst im Jahr 1816 - für Urania 1818 - und zunächst zum Behuf dieses bei mir erscheinenden Taschenbuchs ausgesetzten Preisaufgaben",
+      "language": [],
+      "musenalm_id": 9268,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Programm / ueber die poetischen Preisaufgaben für / die Urania auf 1820",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Brockhaus",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Programm / ueber die poetischen Preisaufgaben für / die Urania auf 1820",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.286Z",
+          "agent": "manlqagw1uz9rp2",
+          "source_id": "hka8pfo3atmx29j"
+        }
+      ],
+      "source_id": "5wqi191tvdzwzw7"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.939Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19318,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "g8eev9rv0jwfamh"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19319,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Shakespeare, / Zugabe zu den Kupfern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. R. Abeken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Shakespeare, / Zugabe zu den Kupfern",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.719Z",
+          "agent": "9hjmbbfy8dxk9m3",
+          "source_id": "4355m1snc8paqon"
+        }
+      ],
+      "source_id": "ngd6otuhlrmfhah"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wie dem Menschen zu Muthe ist, der mit empfänglichem Sinne sich aufmacht, die Herrlichkeiten der Natur zu betrachten",
+      "language": [],
+      "musenalm_id": 9269,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber Shakespeare / Zugabe zu den Kupfern",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "B. R. Abeken",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber Shakespeare / Zugabe zu den Kupfern",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.286Z",
+          "agent": "9hjmbbfy8dxk9m3",
+          "source_id": "rxddtbxvxvrnscm"
+        }
+      ],
+      "source_id": "d6l1cn4v3341pbn"
+    },
+    {
+      "annotation": "Anmerkung des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "33",
+      "incipit_statement": "Indem der Herausgeber der Urania mit gegenwärtigem Jahrgange derselben eine neue Folge beginnt, zeigt er an, daß er fortfahren wird, diese ausschließlich mit Kupfern zum Shakspeare auszustatten.",
+      "language": [],
+      "musenalm_id": 19334,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachricht",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "jc7kat2qubh5qdt"
+    },
+    {
+      "annotation": "tabellarisches G-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.240Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "35",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19320,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Kupfer",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "mpbdbhoovfw2stk"
+    },
+    {
+      "annotation": "Sammlung von 5 Textbezügen zu 5 Graphiken INr 9270, 9271, 9273, 9274,19322-19326, 34800, Obj 12-21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:49.241Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "37",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19321,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kupfer / zu / Romeo und Julia, / erläutert durch Beifügung der dargestellten Scenen / nach der Uebersetzung von / J. H. Voß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kupfer / zu / Romeo und Julia, / erläutert durch Beifügung der dargestellten Scenen / nach der Uebersetzung von / J. H. Voß",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.719Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "7czo2747sahqaq1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.719Z",
+          "agent": "confomdodiakpla",
+          "source_id": "orm2zsaqhr5qrb8"
+        }
+      ],
+      "source_id": "42fmhi4k7z4mn3t"
+    },
+    {
+      "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 9270, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "That Sünde die unwerthe Hand an dir, / O Heiligbild, gern büß' ich denVerdruß:",
+      "language": [],
+      "musenalm_id": 19322,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Aufzug, fünfte Scene. / (Ein Saal in Kapulets Hause.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Aufzug, fünfte Scene. / (Ein Saal in Kapulets Hause.)",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.911Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "7lbklr2ungscmrs"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.911Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.911Z",
+          "agent": "confomdodiakpla",
+          "source_id": "o6k4p68yuadotcd"
+        }
+      ],
+      "source_id": "0ddzikjm2ih2g9b"
+    },
+    {
+      "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19322, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9270,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romeo und Julia. / 1. Aufzug 5. Szene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Opiz; Prot",
+      "scans": [
+        "alm_42_9270_k7cfdds3yj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romeo und Julia. / 1. Aufzug 5. Szene",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.286Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "iqut6rh185a4lp4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.286Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.286Z",
+          "agent": "4tx9dg1qgn6dynt",
+          "source_id": "w1sbmutl3ijb8r9"
+        }
+      ],
+      "source_id": "uf67bq3mmwmy0pe"
+    },
+    {
+      "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 9271, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "40",
+      "incipit_statement": "So lächle Gnad' auf unser heilig Werk, / Daß nicht hinfort Nachreu uns kümmre!",
+      "language": [],
+      "musenalm_id": 19323,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Aufzug; sechste Scene. / (Lorenzo's Zelle.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Aufzug; sechste Scene. / (Lorenzo's Zelle.)",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.912Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "pl7114ggim6miw6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.912Z",
+          "agent": "confomdodiakpla",
+          "source_id": "vpyl7swso231w8p"
+        }
+      ],
+      "source_id": "qcqruaeapenpqyi"
+    },
+    {
+      "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19323, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9271,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romeo und Julia. / 2. Aufzug 6. Scene",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Opiz; Prot",
+      "scans": [
+        "alm_42_9271_c5dbcoswj7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romeo und Julia. / 2. Aufzug 6. Scene",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "4tx9dg1qgn6dynt",
+          "source_id": "0fhqi1roa8h5iws"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "rtzo9ikdjj72akh"
+        }
+      ],
+      "source_id": "dk08y221c4ckl14"
+    },
+    {
+      "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 34800, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "Willst du schon gehn? Noch dämmert nicht der Tag / Die Nachtigall, und nicht die Lerche wars,",
+      "language": [],
+      "musenalm_id": 19324,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dritter Aufzug, fünfte Scene. / (Julia's Kammer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dritter Aufzug, fünfte Scene. / (Julia's Kammer.)",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.912Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "0rtf6nj2fhgdmpq"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.912Z",
+          "agent": "confomdodiakpla",
+          "source_id": "5lwmuw4xo9ex64w"
+        }
+      ],
+      "source_id": "w8tvvkojjhmb98k"
+    },
+    {
+      "annotation": "Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19324, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.901Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34800,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romea und Julia. / 3 Aufzug 5 Szene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G.Opiz del. Coupé sc.",
+      "scans": [
+        "alm_42_34800_mp7lio1vny.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romea und Julia. / 3 Aufzug 5 Szene",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.852Z",
+          "agent": "7iv6j55k1t2fudg",
+          "source_id": "b6g05obvo2925zb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.852Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "wr2p74olv7ygc34"
+        }
+      ],
+      "source_id": "59mrv8x097aduz6"
+    },
+    {
+      "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 9273, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "44",
+      "incipit_statement": "Was hier für Lärm? / O! unglücksel'ger Tag! / Was ist geschehn?",
+      "language": [],
+      "musenalm_id": 19325,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vierter Aufzug, fünfte Scene. / (Julia's Kammer; Julia auf dem Bette.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vierter Aufzug, fünfte Scene. / (Julia's Kammer; Julia auf dem Bette.)",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.912Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "4s4hzswph917e33"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.912Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.912Z",
+          "agent": "confomdodiakpla",
+          "source_id": "o978ya5vb1vqe60"
+        }
+      ],
+      "source_id": "c6yg9hklag97lz3"
+    },
+    {
+      "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19325, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.698Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9273,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romeo und Julia. / 4. Aufzug 5. Scene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Opiz # Cardon sculp. 1818",
+      "scans": [
+        "alm_42_9273_mx86r3103r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romeo und Julia. / 4. Aufzug 5. Scene",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "9slu1ay5wqiq2ct"
+        }
+      ],
+      "source_id": "33ummqfiqbicp9r"
+    },
+    {
+      "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 9274, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.118Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "46",
+      "incipit_statement": "O du trostreicher Mönch! wo ist mein Mann? / Ich weiß genau noch, wo ich sollte sein;",
+      "language": [],
+      "musenalm_id": 19326,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünfter Aufzug, dritte Scene. / (Ein Kirchhof mit dem Begräbniß des Hauses Kapulet.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünfter Aufzug, dritte Scene. / (Ein Kirchhof mit dem Begräbniß des Hauses Kapulet.)",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.947Z",
+          "agent": "e9fuwd867vi6q65",
+          "source_id": "byemdx68h3sij7z"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.947Z",
+          "agent": "confomdodiakpla",
+          "source_id": "jx7b3xutrjvxssw"
+        }
+      ],
+      "source_id": "3k7gp9kiz9od7ai"
+    },
+    {
+      "annotation": "Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19326, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:17:45.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9274,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Romeo und Julia. / 5. Aufzug 3. Szene",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Opiz del. Coupé sc.",
+      "scans": [
+        "alm_42_9274_43ysiysrrf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Romeo und Julia. / 5. Aufzug 3. Szene",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "7iv6j55k1t2fudg",
+          "source_id": "pke98bao9in6uir"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.364Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.364Z",
+          "agent": "1mpfrjn3gtg55av",
+          "source_id": "x10b9h6ssx8ei8f"
+        }
+      ],
+      "source_id": "l6j5d5zta3ybelh"
+    },
+    {
+      "annotation": "Anm. des Hrsg.: Diesem Gedicht ist unter den vom Herausgeber ausgesetzten Preisen in der Gattung der poetischen Erzählung das Accessit zuerkannt worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Nicht Waffen sing' ich, nicht das Spiel der Lanze, / Nicht Schlachtenruf, nicht wilder Schwerter Klang;",
+      "language": [],
+      "musenalm_id": 701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Saladdin. / Romantisches Gedicht in vier Gesängen / In magnis conari sat est",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Teuscher",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Saladdin. / Romantisches Gedicht in vier Gesängen / In magnis conari sat est",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.755Z",
+          "agent": "7tcf2oljnjxzn5r",
+          "source_id": "gexmsvpe6pkwrlc"
+        }
+      ],
+      "source_id": "m2ab37czi4aybaw"
+    },
+    {
+      "annotation": "Einleitung zur Erzählung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "81",
+      "incipit_statement": "Zur Zeit, wenn Frühling und Winter am Scheiden stehn, in der Nacht des Aequinoktiums",
+      "language": [],
+      "musenalm_id": 702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kampf der Sänger. / Einer alten Chronik nacherzählt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. T. A. Hoffmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kampf der Sänger. / Einer alten Chronik nacherzählt",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.755Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.755Z",
+          "agent": "hhytu0neum83euj",
+          "source_id": "g4xjbblsvgewdvy"
+        }
+      ],
+      "source_id": "hpgpfi1win0009j"
+    },
+    {
+      "annotation": "Sammlung von 6 Gedichten INr 699, 703, 1549-1552; Obj 25-30 /) Anm. des Hrsg.: Unter den zur Preisbewerbung eingegangenen Sonettenkränzen ist dieser als der vorzüglichste ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9261,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonettenkranz / Nur Wünsche sind dem Sterblichen gegeben, / Gewährung wird in einem bessern Leben, / Wo wir der Weisheit Tiefen erst ergründen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonettenkranz / Nur Wünsche sind dem Sterblichen gegeben, / Gewährung wird in einem bessern Leben, / Wo wir der Weisheit Tiefen erst ergründen",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "84304cmu2233gjx"
+    },
+    {
+      "annotation": "Sonettenkranz (Sammlung INr 9261, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Dort schwebt sie wie auf leichten Zephyrschwingen, / Mir sagt's des Herzens ängstliches Bewegen,",
+      "language": [],
+      "musenalm_id": 699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "6924r3jq5d6br6h"
+    },
+    {
+      "annotation": "Sonettenkranz (Sammlung INr 9261, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.642Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "164",
+      "incipit_statement": "Hier stand sie, ja - hier hielt ich sie umfangen, / An diesem Busen hat ihr Herz geschlagen,",
+      "language": [],
+      "musenalm_id": 703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "szixmw2j7vaih04"
+    },
+    {
+      "annotation": "Sonettenkranz (Sammlung INr 9261, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "So ist's geschehen? ich hab' es überwunden? / Schon sinkt das Land, wo ich als Knabe spielte,",
+      "language": [],
+      "musenalm_id": 1549,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "4o11vitgzezw1ef"
+    },
+    {
+      "annotation": "Sonettenkranz (Sammlung INr 9261, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Es schweigt der Sturm, die Wellenwolken fliehen, / Und freundlich strahlt am lichten Himmelsbogen",
+      "language": [],
+      "musenalm_id": 1550,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "6hwnzeepsyijoub"
+    },
+    {
+      "annotation": "Sonettenkranz (Sammlung INr 9261, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Hier steh' ich nun, von Freude ringsumgeben, / Wir sollten glücklich dieses Land erreichen,",
+      "language": [],
+      "musenalm_id": 1551,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "kf8rcjmch732ayv"
+    },
+    {
+      "annotation": "Sonettenkranz (Sammlung INr 9261, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Schon dreimal sah ich hier des Herbstes Wehen / Vernichtend durch die Blüthenfelder schreiten,",
+      "language": [],
+      "musenalm_id": 1552,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Christian Schober",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "o2647pxl1f909e5"
+    },
+    {
+      "annotation": "2 Gedichte INr 1553, 1554, Obj 32,33 /) Anm. des Hrsg.: Unter den Episteln welche zur Preisbewerbung eingegangen, wurden diese für die vorzüglichsten erklärt. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9262,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Episteln / Reiner gediegener Vers sey der Kelch des erheiternden / Geistes!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Episteln / Reiner gediegener Vers sey der Kelch des erheiternden / Geistes!",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "6xv0w1ybnmkp9v3"
+    },
+    {
+      "annotation": "Episteln (Sammlung 9262, Obj 31) mit Anmerkungen SS 196-198",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Fest dein Glück zu erbaun, rathschlagest du, dürstest / du, schaffst du? / O, wer wollte das nicht!",
+      "language": [],
+      "musenalm_id": 1553,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Weg zum Glücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Weg zum Glücke",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "o0ul7r20xksnsu4"
+    },
+    {
+      "annotation": "Episteln (Sammlung 9262, Obj 31) mit Anmerkungen S 211",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "199",
+      "incipit_statement": "Hier, weil Briefe du liebst, an dich, mein Leser / ein Brieflein, / Und, was gern ich dem Mann zufertigte,",
+      "language": [],
+      "musenalm_id": 1554,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / An den Leser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / An den Leser",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9km10t6i3pjncr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "213",
+      "incipit_statement": "Es war ein heißer Sommertag, an dem Julius in Lepzov Pferde gewechselt hatte",
+      "language": [],
+      "musenalm_id": 1555,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Verkannte. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Therese Huber geb. Heyne",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Verkannte. / Erzählung",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "6pw6iul8mmx44oj",
+          "source_id": "paoxp63rof06vdp"
+        }
+      ],
+      "source_id": "aatdsjor93wsypj"
+    },
+    {
+      "annotation": "Anm. des Hrsg.: Dieses Gedicht ist unter den diesmal zur Preisbewerbung eingegangenen Erzählungen als vorzüglich ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Wie sich im Fluß die fernen Berge spiegeln, / Als seyn sie nah dem, der am Ufer steht,",
+      "language": [],
+      "musenalm_id": 1556,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Sinnpflanze. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Winkler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Sinnpflanze. / Erzählung",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "mqfbq2psx54o8jl"
+        }
+      ],
+      "source_id": "a75jp3ojg11vkgg"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 1557-1561, Obj 36-40",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9263,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erstlinge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treumund von Selge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erstlinge",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "vx5cahuyepvqxc6"
+    },
+    {
+      "annotation": "Erstlinge (Sammlung INr 9263, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Hehre Göttin! Dir nur will ich leben, / Deiner Hand mich kindlich übergeben,",
+      "language": [],
+      "musenalm_id": 1557,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania. / Mit abgelegter Feuerkrone/ Steht sie als Schönheit vor uns da",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treumund von Selge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania. / Mit abgelegter Feuerkrone/ Steht sie als Schönheit vor uns da",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "72xl1f2xeas3dpi"
+    },
+    {
+      "annotation": "Erstlinge (Sammlung INr 9263, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Unter allen bunten Blumen, / Die die grünen Wiesen schmücken,",
+      "language": [],
+      "musenalm_id": 1558,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Tausendschönchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treumund von Selge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Tausendschönchen",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "cwtrzf5bmcar9w6"
+    },
+    {
+      "annotation": "Erstlinge (Sammlung INr 9263, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Ich kenn ein liebes Götterkind, / Holdselig von Geberden,",
+      "language": [],
+      "musenalm_id": 1559,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die stille Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treumund von Selge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die stille Liebe",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "lxxwn8plols3kwt"
+    },
+    {
+      "annotation": "Erstlinge (Sammlung INr 9263, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Du fragst, was meine Seele füllt? / Es ist ihr freundlich holdes Bild!",
+      "language": [],
+      "musenalm_id": 1560,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihr Bild",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treumund von Selge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihr Bild",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "2vel9ug14q5zdhj"
+    },
+    {
+      "annotation": "Erstlinge (Sammlung INr 9263, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Es ziehet der Regen, es brauset der Sturm, / Es dreht sich erseufzend die Fahn' auf dem Turm,",
+      "language": [],
+      "musenalm_id": 1561,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sie und Er",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Treumund von Selge",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sie und Er",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "eurbam97dlusa8w"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 19328-19332, Obj 43-47",
+      "content_type": [],
+      "created": "2026-06-11 10:17:40.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 1562,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weimars Meistersänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weimars Meistersänger",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.649Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.649Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "zw95tay8hsrlqcn"
+        }
+      ],
+      "source_id": "ck7ioe2qulbrp5q"
+    },
+    {
+      "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.119Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "311",
+      "incipit_statement": "Was Sie uns sind , was Sie uns stets gewesen, / Das möcht' ich gern in edle Reime bringen;",
+      "language": [],
+      "musenalm_id": 19328,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Weimars Meistersänger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Weimars Meistersänger",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.947Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "dd95xt3yh6yivim"
+        }
+      ],
+      "source_id": "9ap494x6ru41coj"
+    },
+    {
+      "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "314",
+      "incipit_statement": "Kaum erst entschwebend leichtem Flügelkleide, / Ihn sah ich nahen mütterlichem Tahle,",
+      "language": [],
+      "musenalm_id": 19329,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wieland",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wieland",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.930Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "q4ay12buygrc5ci"
+        }
+      ],
+      "source_id": "wxw0n8yqiauoksh"
+    },
+    {
+      "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "315",
+      "incipit_statement": "Und wenn fortan entzückte Leyer singet / Den reinen Quell des ewig höchsten Schönen,",
+      "language": [],
+      "musenalm_id": 19330,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schiller",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schiller",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.930Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "kcqg6cphi654vwc"
+        }
+      ],
+      "source_id": "ckslucoriu3pkpm"
+    },
+    {
+      "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "316",
+      "incipit_statement": "Wo sind die Farben, nimmer zu verbleichen, / Die wunderbar und ewiglich erglühen?",
+      "language": [],
+      "musenalm_id": 19331,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Göthe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Göthe",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.930Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "0itst9a714roeyf"
+        }
+      ],
+      "source_id": "jkd18jgy9cuztj3"
+    },
+    {
+      "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.931Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "317",
+      "incipit_statement": "Sterne! wollt ihr günstig seyn, / Wollt ihr mir um Dichterträume / Weben euren goldnen Schein?",
+      "language": [],
+      "musenalm_id": 19332,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Stilles Anliegen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Stilles Anliegen",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.930Z",
+          "agent": "7wewn5gfr0shp0v",
+          "source_id": "irnkzopg93swt7g"
+        }
+      ],
+      "source_id": "hadmo1a5pchh220"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "319",
+      "incipit_statement": "Ermüdet von den Festen und Turnieren, die ihm zu Ehren an den Höfen der Fürsten angestellt worden, hatte sich Prinz Florido von seinem Gefolge vereinsamt,",
+      "language": [],
+      "musenalm_id": 1563,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Prinz Floridio. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Otto Graf von Loeben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Prinz Floridio. / Ein Mährchen",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.014Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.014Z",
+          "agent": "lqm1xxbbqsqcgwa",
+          "source_id": "pl051oe3n7ndya4"
+        }
+      ],
+      "source_id": "69zfjdtoribjg41"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 1564-1566, Obj 50-52 /) Anm. des Hrsg.: Diese Gedichte sind unter den für die Preisaufgabe der Ode und Elegie eingesandten ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 9264,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Elegien und Hymnus / Naturae tentanda via est",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Elegien und Hymnus / Naturae tentanda via est",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "zlgu7w2d6plbdob"
+    },
+    {
+      "annotation": "Elegien (Sammlung INr 9264, Obj 49) /) Anm. des Hrsg.: Diese Gedichte sind unter den für die Preisaufgabe der Ode und Elegie eingesandten ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.957Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Schwül sengt stechender Strahl, und leblos stockende / Lüfte / Schöpfet erfrischungsleer kaum die entathmete / Brust.",
+      "language": [],
+      "musenalm_id": 1564,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Das Gewitter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Das Gewitter",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "0ro3dg57kgyz2bq"
+    },
+    {
+      "annotation": "Elegien (Sammlung INr 9264, Obj 49) /) Anm. des Hrsg.: Diese Gedichte sind unter den für die Preisaufgabe der Ode und Elegie eingesandten ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Ueber dem stilleren Thal' in des Abhangs luftigem / Felssitz / Ruh' ich, und friedlichschön waltet der Abend / umher.",
+      "language": [],
+      "musenalm_id": 1565,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Der Abend im Gebirgsthal",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Der Abend im Gebirgsthal",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "k9suiar0f8m22bl"
+    },
+    {
+      "annotation": "Elegien (Sammlung INr 9264, Obj 49) /) Anm. des Hrsg.: Diese Gedichte sind unter den für die Preisaufgabe der Ode und Elegie eingesandten ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "390",
+      "incipit_statement": "Empor die Herzen! Unser Lied ist Er / Der Wesen Wesen, Aller Ein und Alles;",
+      "language": [],
+      "musenalm_id": 1566,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Sursum corda! / (Hymnus)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Karl Otto Werning",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Sursum corda! / (Hymnus)",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "8sg6lyyqufz6kce"
+    },
+    {
+      "annotation": "Sammlungen mit 14 Beiträgen INr 1567- 1579, 19333, 37230; Obj 54-68",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.118Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "395",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19327,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Buntes aus einem Tagebuche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Buntes aus einem Tagebuche",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.947Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.947Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "3q5i2qki1c0u3iv"
+        }
+      ],
+      "source_id": "6nmdbmipsubdpe0"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "397",
+      "incipit_statement": "Eine duftende wohlgerucherfüllte - / Blume nicht - denn ein Spiel für Frau'n sind / Blumen",
+      "language": [],
+      "musenalm_id": 1567,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scherzbrief an S. S. in Fr. / I. / Hendekasyllaben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scherzbrief an S. S. in Fr. / I. / Hendekasyllaben",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.928Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.928Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "7ll7v2exfukaszh"
+        }
+      ],
+      "source_id": "xsj5smysyx576ls"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "398",
+      "incipit_statement": "Muß jeder Lust der Trauerbote nachhinken? - / Geschenkt hat mir der Vater einen Glimmstengel,",
+      "language": [],
+      "musenalm_id": 1568,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Scherzbrief an S. S. in Fr. / II. / Hinkjamben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Scherzbrief an S. S. in Fr. / II. / Hinkjamben",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "ykm0fceh9c5bt58"
+        }
+      ],
+      "source_id": "0vpyvvoop8n48k2"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "400",
+      "incipit_statement": "Neulich deutschten auf deutsch vier deutsche Deutsch- / linge deutschend, / Sich überdeutschend am Deutsch,",
+      "language": [],
+      "musenalm_id": 1569,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Grammatische Deutschheit",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Grammatische Deutschheit",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "vlspvtefqq0bzgw"
+        }
+      ],
+      "source_id": "to5s41nfcg170hz"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "401",
+      "incipit_statement": "Der Lenz verblüht, der Sommer glüht, / Hinrollen Tag' auf schnellen Achsen;",
+      "language": [],
+      "musenalm_id": 1570,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unterm Erwachen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unterm Erwachen",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "hyjdeplyh7m4ku1"
+        }
+      ],
+      "source_id": "67pqspxbji2roen"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "402",
+      "incipit_statement": "Traur', o Stuttgardt, tief im Grame, / Traure! Deine schönste Dame,",
+      "language": [],
+      "musenalm_id": 1571,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei der Abführung von Daneckers Ariadne / von Stuttgardt nach Frankfurt. / I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei der Abführung von Daneckers Ariadne / von Stuttgardt nach Frankfurt. / I.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "0ejrn9e5sncxrj7"
+        }
+      ],
+      "source_id": "c8vzpsh030q5b0t"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "405",
+      "incipit_statement": "Ein Götterbild von Steine, / von mir zur idealen Braut erkohren,",
+      "language": [],
+      "musenalm_id": 1572,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei der Abführung von Daneckers Ariadne / von Stuttgardt nach Frankfurt. / II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei der Abführung von Daneckers Ariadne / von Stuttgardt nach Frankfurt. / II.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "koapixkcrz30lb3"
+        }
+      ],
+      "source_id": "dqtq0x9olc25fp6"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "406",
+      "incipit_statement": "Schwalben hatten an meinem Dach gesiedelt, / Jeden Morgen mich weckend mit Gezwitscher.",
+      "language": [],
+      "musenalm_id": 1573,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beim Hausbau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beim Hausbau",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "jcao3fp9vgtzary"
+        }
+      ],
+      "source_id": "1e3358w1qgtiydp"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:55.952Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "406",
+      "incipit_statement": "Nachdem vom Wolf Homer zerrissen ward vorlängst, / Kommt nun der Fuchs, der Voß sich nennt als / Plattdeutscher,",
+      "language": [],
+      "musenalm_id": 37230,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Nachtrag zu einer Xenie Schillers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Nachtrag zu einer Xenie Schillers",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:58.581Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:58.581Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "ea3o30bre9ibi74"
+        }
+      ],
+      "source_id": "gonvpgww2wbfjpo"
+    },
+    {
+      "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "407",
+      "incipit_statement": "In betrübten Hauslustspielen hat man Schulden / sonst gemacht;",
+      "language": [],
+      "musenalm_id": 1574,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Müllners Schuld",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Müllners Schuld",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "7qklx6kmd78rfxg"
+        }
+      ],
+      "source_id": "dnnbtris50ynmdk"
+    },
+    {
+      "annotation": "Sammlung von 5 Gedichten INr 1575-1579, Obj 64-67 /) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.932Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "408",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19333,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fünf Sprüche eines Tages",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fünf Sprüche eines Tages",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.930Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.930Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "gkb27h39dhpx68h"
+        }
+      ],
+      "source_id": "fdvk8y1hin3d2qt"
+    },
+    {
+      "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "408",
+      "incipit_statement": "Jedem Menschen für sein Leben / Ist ein Maas von Kraft gegeben,",
+      "language": [],
+      "musenalm_id": 1575,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "2co7wjldbqr7z80"
+        }
+      ],
+      "source_id": "53ehdxeqct2b4jt"
+    },
+    {
+      "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.595Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "409",
+      "incipit_statement": "In dem großen Strom des Lebens / ist ein jeder eine Welle,",
+      "language": [],
+      "musenalm_id": 1576,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.967Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.967Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "40we3wdeqjtnse7"
+        }
+      ],
+      "source_id": "0zlzaxosjnqo8vc"
+    },
+    {
+      "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "409",
+      "incipit_statement": "Auch gewiß für mein Geschäfte / Ist ein Platz auf einer Tenne,",
+      "language": [],
+      "musenalm_id": 1577,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "4kmq64k1na84657"
+        }
+      ],
+      "source_id": "9kf9451n4jb76fq"
+    },
+    {
+      "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "410",
+      "incipit_statement": "Ich weiß nicht, soll ich junger Baum / Mich ganz der Luft verschließen;",
+      "language": [],
+      "musenalm_id": 1578,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "ncktlvnmh4tqekl"
+        }
+      ],
+      "source_id": "2h5hw0ax3quih4t"
+    },
+    {
+      "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "410",
+      "incipit_statement": "Wenn wie nichts guts dich schilt ein Wicht, / Und es soll dich nicht beißen;",
+      "language": [],
+      "musenalm_id": 1579,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "m5fhxx0l8loyyhu",
+          "source_id": "unzhny94rs7brzl"
+        }
+      ],
+      "source_id": "vae41kw7huqdbdx"
+    },
+    {
+      "annotation": "Anm. des Hrsg.: Dieses Gedicht ist unter den zur Preisbewerbung eingegangnen Idyllen als das beste ausgezeichnet worden. s. Vorwort des Herausgebers INr 9266, Obj 4",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.291Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "411",
+      "incipit_statement": "Abendlich ist und hold in Westen der Himmel ge- / mahlet, / Freundlich gemischet aus Purpur und Gluth;",
+      "language": [],
+      "musenalm_id": 1580,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Abend am Jägerhause. / Eine Idylle / Si tu venias - - /- - -dulcia vina bibentur. / Calpurn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton August Sarrazin",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Abend am Jägerhause. / Eine Idylle / Si tu venias - - /- - -dulcia vina bibentur. / Calpurn",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.720Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.720Z",
+          "agent": "6j15owsz7clkcr4",
+          "source_id": "1ppbvlesvf21h04"
+        }
+      ],
+      "source_id": "7ganyazhup57xt2"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.902Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 34801,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Im Verlage der Buchhandlung Brockhaus in / Leipzig erschienen die nachstehenden Werke im / Fach der schönen Literatur und sind in allen deut- / schen Buchhandlungen zu erhalten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Im Verlage der Buchhandlung Brockhaus in / Leipzig erschienen die nachstehenden Werke im / Fach der schönen Literatur und sind in allen deut- / schen Buchhandlungen zu erhalten",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "2iikvmz0wqtpc0b"
+    },
+    {
+      "annotation": "Umschlag v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.255Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 118422,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_42_118422_k3rdzoy6vn.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2000-08-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1819,
+      "editor": "",
+      "agents": [],
+      "source_id": "qtkk6ovacy0euvp"
+    }
   ],
   "agents": [
     {

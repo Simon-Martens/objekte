@@ -48,29 +48,820 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "rklt0xq9jlyjt2k"
+    {
+      "annotation": "Kartonierter Einband, VB, S I vT, S II VrlgM, verso G,  SIII T, SV I-Verz, S VII zT SS VIII-XVI darin 5 GG, SS1-360",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.460Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200014",
+      "location": "105J02",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.460Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "rklt0xq9jlyjt2k"
+    }
   ],
   "contents": [
-    "y1p9yfdz0719v03",
-    "7uz91o4ycvnpedy",
-    "dn3pd3a0m9fjoy2",
-    "sojnkyd4qbluina",
-    "tftexzx54eng0cu",
-    "orslx55a9b5os5m",
-    "2zy0l1l8ynk6ckw",
-    "k911ldlg2t7ewpi",
-    "7us4thygudeyv74",
-    "ih6ocon5rsy5es9",
-    "2fuds5y9fkcwf44",
-    "9ucavdgmhqlg5xp",
-    "tc2z1mcpw8ppbxj",
-    "1ep73y21xasao5z",
-    "clmh37xnb4rjio7",
-    "62ngj2h0bqywyhj",
-    "h2lj9s79d4xff0x",
-    "hpovaaq7g95zmqp",
-    "zxk4dnhtubbpsa2",
-    "3ivdd6yodyrlfbo"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:44.491Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 6829,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Urania / für / 1837",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Urania / für / 1837",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "y1p9yfdz0719v03"
+    },
+    {
+      "annotation": "Verlagsmitteilung",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19006,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zur Nachricht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zur Nachricht",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "7uz91o4ycvnpedy"
+    },
+    {
+      "annotation": "Titelportrait (Carlsruhe durch Kunst-Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19007,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ALEX. VON HUMBOLDT",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. Krueger del. A. Zschokke sculp.",
+      "scans": [
+        "alm_137_19007_glaafelppp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ALEX. VON HUMBOLDT",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.510Z",
+          "agent": "dp1i9gllz2qxsbz",
+          "source_id": "f5a4i2upu7n27af"
+        }
+      ],
+      "source_id": "dn3pd3a0m9fjoy2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19008,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "URANIA. / Taschenbuch auf das Jahr / 1837. / Mit sechs Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1837",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_137_19008_2xt15e58pe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1837. / Mit sechs Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1837",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "sojnkyd4qbluina"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19009,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "tftexzx54eng0cu"
+    },
+    {
+      "annotation": "G-Verz. Sammlung von 5 Textbezügen zu 5 Graphiken INr 19011-19020, Obj 7-16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.593Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "7",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19010,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung / der / Stahlstiche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung / der / Stahlstiche",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "orslx55a9b5os5m"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 19010, Obj 6) s. Graphik INr 19012, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Möge es den Leser nicht befremden, wenn ihm Urania diesmal in der gewohnten Reihe von Kunstblättern nur ernste Scenen und Gestalten bringt.",
+      "language": [],
+      "musenalm_id": 19011,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Das Mädchen von Scio",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Das Mädchen von Scio",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "2zy0l1l8ynk6ckw"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz s. Textbezug INr 19011, Obj 7 (Carlsruhe im Kunst-Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.594Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19012,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE MÄDCHEN VON SCIO",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Phalipon #; Eduard Schuler scp.",
+      "scans": [
+        "alm_137_19012_7wv7i52zi2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE MÄDCHEN VON SCIO",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.510Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.510Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "wxyrz4lz0lm974p"
+        }
+      ],
+      "source_id": "k911ldlg2t7ewpi"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 19010, Obj 6) s. Graphik INr 19014, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Es ist ein Nachtstück im vollsten Sinne des Worts, was dies ausdrucksvolle Blatt Simpson's uns vorstellt.",
+      "language": [],
+      "musenalm_id": 19013,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. Der Negersklave",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. Der Negersklave",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "7us4thygudeyv74"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz s. Textbezug INr 19013, Obj 9 (Carlsruhe im Kunst-Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.596Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19014,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER NEGERSCLAVE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Simpson #; Alex Zschokke sculp.",
+      "scans": [
+        "alm_137_19014_2nlg8ts9uj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER NEGERSCLAVE",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "ih6ocon5rsy5es9"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 19010, Obj 6) s. Graphik INr 19016, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:17:47.598Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Auch hier führt uns die Phantasie des Künstlers auf einen einsamen Felsen an der Meeresküste.",
+      "language": [],
+      "musenalm_id": 19015,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Cornelia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Cornelia",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "2fuds5y9fkcwf44"
+    },
+    {
+      "annotation": "s. Textbezug INr 19015, Obj 11 (Aus der Samml. v. Fries Heidelberg)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:48.791Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19016,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "CORNELIA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. Wächter pinx. Eduard Schuler scp.",
+      "scans": [
+        "alm_137_19016_6wl3ymvv5p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "CORNELIA",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.656Z",
+          "agent": "jgp8dgth3q9useg",
+          "source_id": "65yjn2wrm27yayd"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.656Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.656Z",
+          "agent": "hk6k9w6jym7fe8o",
+          "source_id": "9vf4g0lkb61ipev"
+        }
+      ],
+      "source_id": "9ucavdgmhqlg5xp"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 19010, Obj 6) s. Graphik INr 19018, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "Ein Bildchen voll ansprechender Heiterkeit; und doch, wer möchte das Bedeutungsvolle darin verkennen!",
+      "language": [],
+      "musenalm_id": 19017,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. Der Krieger und sein Sohn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. Der Krieger und sein Sohn",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "tc2z1mcpw8ppbxj"
+    },
+    {
+      "annotation": "s. Textbezug INr 19017, Obj 13 (Carlsruhe im Kunst-Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:50.660Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "14",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19018,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DER KRIEGER UND SEIN SOHN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Zschokke scp.",
+      "scans": [
+        "alm_137_19018_p7tjuh4e03.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DER KRIEGER UND SEIN SOHN",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "1ep73y21xasao5z"
+    },
+    {
+      "annotation": "Erklärung der Stahlstiche (Sammlung INr 19010, Obj 6) s. Graphik INr 19020, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Ein reizendes Kind aus dem reizenden Lande Tyrol ist der Gegenstand unsers letzten Bildes,",
+      "language": [],
+      "musenalm_id": 19019,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Die Tyrolerin",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Die Tyrolerin",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "clmh37xnb4rjio7"
+    },
+    {
+      "annotation": "# vollst. Bezeichnung aus dem G-Verz. s. Textbezug INr 19019, Obj 15 (Carlsruhe im Kunst-Verlag)",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.494Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 19020,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "DIE TYROLERIN",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Bodmer # F. Weber scp.",
+      "scans": [
+        "alm_137_19020_v1b7ms0u9m.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "DIE TYROLERIN",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.988Z",
+          "agent": "0tfckyxltbezg39",
+          "source_id": "0p739wv6qkhdtwm"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.988Z",
+          "agent": "d4v5f8ipt5yar1l",
+          "source_id": "pttzyin5aph2qpq"
+        }
+      ],
+      "source_id": "62ngj2h0bqywyhj"
+    },
+    {
+      "annotation": "# Anmerkung am Objekt: Quelle: Corpus Byzant. edit. Venet. Tom. XX.. Dem Text vorangestellt: Wenn die Sonne tanzt, das ist eine große Lust",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Der Kaiser war todt. Das Volk von Konstantinopel war auf den Beinen. Es wunderte sich selbst,",
+      "language": [],
+      "musenalm_id": 19021,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Die Prinzeninseln. / Novelle #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Leopold Schefer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Die Prinzeninseln. / Novelle #",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.988Z",
+          "agent": "rlu2d4ml9zlhov2",
+          "source_id": "pg9ypmpzfjfl3tw"
+        }
+      ],
+      "source_id": "h2lj9s79d4xff0x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "In der schönen Provence liegt ein Thal zwischen waldigen Bergen, die Trümmer des alten Schlosses Dürande sehen über die Wipfel in die Einsamkeit herein;",
+      "language": [],
+      "musenalm_id": 19022,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Das Schloß Dürande. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joseph Freiherr von Eichendorff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. Das Schloß Dürande. / Novelle",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.988Z",
+          "agent": "h99uxdryiugeh6h",
+          "source_id": "746y331f84hzxvv"
+        }
+      ],
+      "source_id": "hpovaaq7g95zmqp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "Der regenreiche Novemberabend fing bereits zu dunkeln an, als ein schwerbepackter Reisewagen vor dem Gasthofe zu den drei Kronen in der Stadt Liegnitz hielt.",
+      "language": [],
+      "musenalm_id": 19023,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / DerAdoptivvater. / Novelle",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Emerentius Scaevola",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / DerAdoptivvater. / Novelle",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.988Z",
+          "agent": "9b0fkhld94kpyv9",
+          "source_id": "sif4xgwoos1i45k"
+        }
+      ],
+      "source_id": "zxk4dnhtubbpsa2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:51.496Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Und wenn sie uns nicht das Wenige bezahlt, was sie uns schuldig ist? fragte das junge blonde Mädchen",
+      "language": [],
+      "musenalm_id": 19024,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. / Wunderlichkeiten. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ludwig Tieck",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV. / Wunderlichkeiten. / Novelle",
+      "updated": "2001-11-07 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:57.988Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:57.988Z",
+          "agent": "lu281a3pqqlvbj5",
+          "source_id": "3k79uxrcifcvru4"
+        }
+      ],
+      "source_id": "3ivdd6yodyrlfbo"
+    }
   ],
   "agents": [
     {

@@ -48,25 +48,672 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "4lhm65o530as4tn"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.521Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404137",
+      "location": "105H05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.521Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "4lhm65o530as4tn"
+    }
   ],
   "contents": [
-    "hd0jjbm48pt8bes",
-    "5tc6hjz1yu5mxa0",
-    "hfkx6s63bxxoncs",
-    "ygufmoph7sksmmh",
-    "ixmx0s1yvaglxyx",
-    "94rlmuhhl7a5dk3",
-    "yqxwzk5hlyjopu5",
-    "c8f8fo9gto0tqz6",
-    "fwiilj8b76rrqu4",
-    "shals6ta9nkxnxx",
-    "yrjpq9zyir5zfmq",
-    "lwo6d0em2jk44h8",
-    "4z2x30b19asn6t2",
-    "x3ie24x8r1vum6u",
-    "gcyaz73zvdku8nf",
-    "6ha7ro5x2vmqttl"
+    {
+      "annotation": "Titelportrait. Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.133Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68941,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Friedrich II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas",
+      "scans": [
+        "alm_843_68941_lr1cibaw7s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Friedrich II.",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "mhao7fup7u6fsjr"
+        }
+      ],
+      "source_id": "hd0jjbm48pt8bes"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.134Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68942,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Historisch-genealogischer / Kalender / auf das Jahr 1808. / Kaiser Friedrich der Zweite. / Mit Kupfern. / Mit Genehmigung / der Kön. Preuß. Akademie der Wissenschaften",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_843_68942_dvo1aw5cne.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Historisch-genealogischer / Kalender / auf das Jahr 1808. / Kaiser Friedrich der Zweite. / Mit Kupfern. / Mit Genehmigung / der Kön. Preuß. Akademie der Wissenschaften",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "5tc6hjz1yu5mxa0"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68943,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Kalendarium"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Kalendarium]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "hfkx6s63bxxoncs"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium Januar /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.136Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68944,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Friedrich I.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas",
+      "scans": [
+        "alm_843_68944_bgisazjrnd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Friedrich I.",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "iorzi2xyf2b95lj"
+        }
+      ],
+      "source_id": "ygufmoph7sksmmh"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium Januar /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68945,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ezzelin III.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas",
+      "scans": [
+        "alm_843_68945_jz5j8wklfy.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ezzelin III.",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "l2o37mey5bf1g96"
+        }
+      ],
+      "source_id": "ixmx0s1yvaglxyx"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium Februar /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.140Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68946,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Azzo VIII. Markgraf von Este",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas",
+      "scans": [
+        "alm_843_68946_0ovvri6hkg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Azzo VIII. Markgraf von Este",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "gznovs5cyznrva2"
+        }
+      ],
+      "source_id": "94rlmuhhl7a5dk3"
+    },
+    {
+      "annotation": "paginiert 1. /) Graphik im Kalendarium Mai /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.142Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68947,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Friedrich II und der / Landgraff von Thüringen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury fec.",
+      "scans": [
+        "alm_843_68947_j7xlmrz1wc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Friedrich II und der / Landgraff von Thüringen",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "01707ud1hq3xxmg"
+        }
+      ],
+      "source_id": "yqxwzk5hlyjopu5"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 2. Graphik im Kalendarium Mai /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.144Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68948,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unterwerfung des / rebellischen Sohnes",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury fec.",
+      "scans": [
+        "alm_843_68948_a54bb2g7fb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Unterwerfung des / rebellischen Sohnes",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.277Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.277Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "x5qsk5vp0u3ohm0"
+        }
+      ],
+      "source_id": "c8f8fo9gto0tqz6"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 3. Graphik im Kalendarium Juni /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.146Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68949,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dieser Tag ist ein Tag des / Zornes!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury fec.",
+      "scans": [
+        "alm_843_68949_97x3hhddic.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Dieser Tag ist ein Tag des / Zornes!",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.278Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "3jnj3ay5gava5ck"
+        }
+      ],
+      "source_id": "fwiilj8b76rrqu4"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 4. Graphik im Kalendarium August /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.147Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68950,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Noch hab' ich meine Krone!",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury fec.",
+      "scans": [
+        "alm_843_68950_o4g4qlw93h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Noch hab' ich meine Krone!",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.278Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.278Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "hylshjnzj5x3jp2"
+        }
+      ],
+      "source_id": "shals6ta9nkxnxx"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 5. Graphik im Kalendarium Oktober /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.539Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68951,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wem soll ich trauen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury fec.",
+      "scans": [
+        "alm_843_68951_qogw2hecxd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Wem soll ich trauen",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.234Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.234Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "uyq6wt70glcsucv"
+        }
+      ],
+      "source_id": "yrjpq9zyir5zfmq"
+    },
+    {
+      "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 6. Graphik im Kalendarium Oktober /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.541Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68952,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der sterbende Kaiser mit seinem / Sohne Manfred",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "W. Jury fec.",
+      "scans": [
+        "alm_843_68952_0b3rxfbkml.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der sterbende Kaiser mit seinem / Sohne Manfred",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.234Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.234Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "smx1ckw4l1jf0h3"
+        }
+      ],
+      "source_id": "lwo6d0em2jk44h8"
+    },
+    {
+      "annotation": "mit  Illustrationen s. Titelportrait INr 68941, Objekt 1; 9 Graphiken im Kalendarium INr 68944-68952, Obj 4-12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Es giebt dreierlei Gesetze, denen der gesellschaftliche Mensch, oder der Mensch überhaupt, unterworfen seyn kann;",
+      "language": [],
+      "musenalm_id": 68953,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kaiser Friedrich der Zweite / aus dem Hause / der Hohenstaufen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kaiser Friedrich der Zweite / aus dem Hause / der Hohenstaufen",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "4z2x30b19asn6t2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68954,
+      "musenalm_pagination": [
+        "1. Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Genealogie / der regierenden / hohen Häupter / und anderer / Fürstlichen Personen / in Europa. / (Ist im Monat August geschlossen, / und darnach sogleich der Druck angefan- / gen worden, so daß die spätern Verän- / derungen nicht mehr haben eingetragen / werden können.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Genealogie / der regierenden / hohen Häupter / und anderer / Fürstlichen Personen / in Europa. / (Ist im Monat August geschlossen, / und darnach sogleich der Druck angefan- / gen worden, so daß die spätern Verän- / derungen nicht mehr haben eingetragen / werden können.)",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "x3ie24x8r1vum6u"
+    },
+    {
+      "annotation": "36 BB /) mit Anm. am Objekt: Vorstehendes Postenverzeichniß ist ein Auszug der ausführlichern Postcours-Tabellen im genealogischen und Post-Kalender, welcher letztere besonders, (für 16 Gr. gut eingebunden) im Hauptkalendercomptoir, auch in allen Postämtern zu haben ist.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68955,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Verzeichniß der Postcourse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Verzeichniß der Postcourse",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "gcyaz73zvdku8nf"
+    },
+    {
+      "annotation": "2 SS",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.542Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68956,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einige berühmte Messen und Jahr- / märkte, / nebst beigesetzten Tagen, auf welche sie in dem / 1808ten Jahre entfallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einige berühmte Messen und Jahr- / märkte, / nebst beigesetzten Tagen, auf welche sie in dem / 1808ten Jahre entfallen",
+      "updated": "2008-07-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1808,
+      "editor": "",
+      "agents": [],
+      "source_id": "6ha7ro5x2vmqttl"
+    }
   ],
   "agents": [
     {

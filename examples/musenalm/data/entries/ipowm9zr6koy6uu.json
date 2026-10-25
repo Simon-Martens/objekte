@@ -48,55 +48,2088 @@
   "year": 1821,
   "editor": "",
   "items": [
-    "o7817lnwmr83i92"
+    {
+      "annotation": "1811-1848.\n1821: ( K: BL 8, XVIII, 374 SS und Ku 9 ) Mit Tku 1, Bl 2, Bl 7, Ku 8, XVIII und 374 SS.\nKartonierter Einband mit Muster, Grafik und Schuber (Buchrücken beschädigt).",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.611Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100436",
+      "location": "105Q03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.611Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "o7817lnwmr83i92"
+    }
   ],
   "contents": [
-    "np0kv8u0yrf16a4",
-    "dxs4g9ddrk68tei",
-    "3hsamdtdze3o5h1",
-    "s5ucp23lay8052j",
-    "rzd1nm1a0pbg3zo",
-    "xq9s4fw0jku6bxm",
-    "pl4rp522s5djjp0",
-    "jwk3ll2prwo6s5w",
-    "vkmwaotwy9tqr5e",
-    "w8qpqps13o3ez9c",
-    "cw282yma4qwv8r7",
-    "qvgo7btko9ktwym",
-    "evv60bz67iybcev",
-    "664izeh99tpyaok",
-    "splu09a7cfcyqq4",
-    "1lu89xwraf6nv2q",
-    "dw05aqbe9lwahbi",
-    "2uxz2drf50wmshp",
-    "ee48e27eq31yy0g",
-    "tuu8z7ce5ox1ydw",
-    "sd52hzdr9rlc2p9",
-    "2lz2kqghzaic8de",
-    "my5qeaop8zj4m8b",
-    "7zqf2ujmdztn1t2",
-    "gsid59vfpzboz6x",
-    "rewza90m1dir19x",
-    "blvqa9zt5iwroyi",
-    "3lxdgh43x1uzdsm",
-    "xg0xfh8u6mba3c9",
-    "ui6hgaq3ba9q8ac",
-    "5x0r2fywrrmihk5",
-    "dy66x1cbcu67p3f",
-    "xxnzmx2sfkjk6yp",
-    "rup1uw7ljowotqe",
-    "hr9prjm52xmt73d",
-    "lsde9b6a9kqlp0i",
-    "xfth6x51leigkbq",
-    "uq77g9ig05ygzyt",
-    "ghmvmhizevun301",
-    "3mdfp0qq806hcki",
-    "0d2cabp5g5wwmx8",
-    "kyipsmenw6kom0b",
-    "w4cp7zcurkbcg8z",
-    "8gch4evvlwqugd3",
-    "o2h56djog6pp7k0",
-    "yd4k188nzr0z6e2"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.185Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76865,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Brückner sc. 1820)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Brückner sc. 1820",
+      "scans": [
+        "alm_2392_76865_1h7494omfs.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.782Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "vtzdxkcknxk4aj9"
+        }
+      ],
+      "source_id": "np0kv8u0yrf16a4"
+    },
+    {
+      "annotation": "Zueignungsblatt mit koloriertem Vergißmeinnicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.188Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76866,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An / von",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2392_76866_jz7np4e3ro.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "An / von",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "dxs4g9ddrk68tei"
+    },
+    {
+      "annotation": "Titelportrait s. Textbezug INr 76887, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.189Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76867,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "ROSWITHA",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K. del. F. Fleischmann sc. Nbg.",
+      "scans": [
+        "alm_2392_76867_j5tozp292r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "ROSWITHA",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.782Z",
+          "agent": "7yfzgmx3iovs38k",
+          "source_id": "435ocxnj6cb6ime"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.782Z",
+          "agent": "t4jzdbiq2oijmzh",
+          "source_id": "z9wum84yi6h019p"
+        }
+      ],
+      "source_id": "3hsamdtdze3o5h1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.191Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76868,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Penelope. / Taschenbuch / für das Jahr 1821. / Herausgegeben / von / Theodor Hell. / 10r.  Jahrgang. / Mit 9 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2392_76868_vs7o71j8rd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Penelope. / Taschenbuch / für das Jahr 1821. / Herausgegeben / von / Theodor Hell. / 10r.  Jahrgang. / Mit 9 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "s5ucp23lay8052j"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgt: Einleitung und Sammlung von 7 Auszügen aus »Das Lied von der Glocke« von Fr. Schiller und 7 Illustrationen INr 76870-76884, Obj 6-20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76869,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gallerie / aus / Fr. Schiller's Gedichten. / I. / Das Lied von der Glocke, / in 7 Darstellungen / nach Ramberg",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gallerie / aus / Fr. Schiller's Gedichten. / I. / Das Lied von der Glocke, / in 7 Darstellungen / nach Ramberg",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "rzd1nm1a0pbg3zo"
+    },
+    {
+      "annotation": "Einleitung zu: Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Wir glauben den Freunden unsers Taschenbuchs mit dieser Gallerie, von welcher wir hier die erste Lieferung geben, und welche künftig fortgesetzt wird, eine Freude zu machen.",
+      "language": [],
+      "musenalm_id": 76870,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wir glauben den Freunden unsers Taschenbuchs mit dieser Gallerie, von welcher wir hier die erste Lieferung geben, und welche künftig fortgesetzt wird, eine Freude zu machen.…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "xq9s4fw0jku6bxm"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76872, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.193Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Denn mit der Freude Feierklange / Begrüßt sie das geliebte Kind / Auf seines Lebens erstem Gange, / Den es in Schlafes Arm beginnt.",
+      "language": [],
+      "musenalm_id": 76871,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.782Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "105goh8v8jjojwb"
+        }
+      ],
+      "source_id": "pl4rp522s5djjp0"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 1. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76871, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76872,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+      "scans": [
+        "alm_2392_76872_y2z9zaodpi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 1.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.782Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "2soifn2n8ea7mjk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.782Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.782Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "hja7d6r2ri9mvxa"
+        }
+      ],
+      "source_id": "jwk3ll2prwo6s5w"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76874, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.671Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Vom Mädchen reißt sich stolz der Knabe, / Er stürmt in's Leben wild hinaus",
+      "language": [],
+      "musenalm_id": 76873,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.752Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "yepfxv1l8euzwc0"
+        }
+      ],
+      "source_id": "vkmwaotwy9tqr5e"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 2. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76873, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76874,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+      "scans": [
+        "alm_2392_76874_ohelgbz95i.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 2.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.752Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "1610ldownauhqr1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.752Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "diqv7cqt4ifw030"
+        }
+      ],
+      "source_id": "w8qpqps13o3ez9c"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76876, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:24.351Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Da strömet herbei die unendliche Gabe, / Es füllt sich der Speicher mit köstlicher Habe, / Die Räume wachsen, es dehnt sich das Haus;",
+      "language": [],
+      "musenalm_id": 76875,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.991Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.991Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "27tffl21dlqxpdv"
+        }
+      ],
+      "source_id": "cw282yma4qwv8r7"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 3. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76875, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.802Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76876,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg F. Rosmaesler junior 1820",
+      "scans": [
+        "alm_2392_76876_v70ounnqv9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 3.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.884Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.884Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "957qea8yju83e5j"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.884Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.884Z",
+          "agent": "r5lvflbm4gsd3kb",
+          "source_id": "oe7c2oduadb2y4b"
+        }
+      ],
+      "source_id": "qvgo7btko9ktwym"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76878, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Einen Blick / Nach dem Grabe seiner Habe / Sendet noch der Mensch zurück",
+      "language": [],
+      "musenalm_id": 76877,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.884Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.884Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "e36xl2lo4co586z"
+        }
+      ],
+      "source_id": "evv60bz67iybcev"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 4. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76877, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.805Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76878,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+      "scans": [
+        "alm_2392_76878_2tdr9n1ia0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 4.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "5xfyxcom8t9257f",
+          "source_id": "2swf3clc2dhajw5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "577zipbzzyvt5dl"
+        }
+      ],
+      "source_id": "664izeh99tpyaok"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76880, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.807Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Von dem Dome, / Schwer und bang / Tönt die Glocke / Grabgesang;",
+      "language": [],
+      "musenalm_id": 76879,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "0gdnvp2mlos3epl"
+        }
+      ],
+      "source_id": "splu09a7cfcyqq4"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 5. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76879, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.808Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76880,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ramberg del. M. Esslinger sculp.",
+      "scans": [
+        "alm_2392_76880_olhl7iavai.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 5.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "86e92hw9wd11mri"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "fpi2keil0n80rev"
+        }
+      ],
+      "source_id": "1lu89xwraf6nv2q"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76882, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Schwer herein / Schwankt der Wagen, / Kornbeladen, / Bunt von Farben / Auf den Garben / Liegt der Kranz,",
+      "language": [],
+      "musenalm_id": 76881,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "so0kwsrhx9c0kcz"
+        }
+      ],
+      "source_id": "dw05aqbe9lwahbi"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 6. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76881, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.810Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76882,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+      "scans": [
+        "alm_2392_76882_abb5qeifm2.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 6.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "8qqnyuf5ehjefkt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.885Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.885Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "f0ur1yf4wuj3myv"
+        }
+      ],
+      "source_id": "2uxz2drf50wmshp"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76884, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.812Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Jetzo mit der Kraft des Stranges / Wiegt die Glock' mir aus der Gruft,",
+      "language": [],
+      "musenalm_id": 76883,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schiller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "z7x6qq4zgxumydc",
+          "source_id": "2ecpd8xyltr2r1e"
+        }
+      ],
+      "source_id": "ee48e27eq31yy0g"
+    },
+    {
+      "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 7. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76883, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.813Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76884,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schillers Lied von der Glocke 7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+      "scans": [
+        "alm_2392_76884_4t25eilpn8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schillers Lied von der Glocke 7.",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "d3cxeiug12d2gx6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "zluip2dqc7bl84y",
+          "source_id": "u117k4rdumjna6o"
+        }
+      ],
+      "source_id": "tuu8z7ce5ox1ydw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.815Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76885,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "sd52hzdr9rlc2p9"
+    },
+    {
+      "annotation": "s. Textbezug INr 76888, Obj 24",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.816Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76886,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Gräber des Scaurus in Pompeji",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Veith fec.",
+      "scans": [
+        "alm_2392_76886_pj5t1vxowc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Gräber des Scaurus in Pompeji",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "agad4ahnieynhoj",
+          "source_id": "8hz1eqtnkto624e"
+        }
+      ],
+      "source_id": "2lz2kqghzaic8de"
+    },
+    {
+      "annotation": "s. Titelportrait INr 76867, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Wem wäre nicht der Name dieser berühmten Nonne bekannt? Welche unsrer schönen Leserinnen hätte ihn nicht mindestens auf dem Titel der geistreichen Sammlungen gelesen, die unser Fr. Kind unter demselben bis zu dem Erscheinen seiner Harfe herausgab?",
+      "language": [],
+      "musenalm_id": 76887,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Roswitha. / Biographische Skizze",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theod. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Roswitha. / Biographische Skizze",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "3n1jt1t5h5r7sgl"
+        }
+      ],
+      "source_id": "my5qeaop8zj4m8b"
+    },
+    {
+      "annotation": "s. Graphik INr 76886, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "17",
+      "incipit_statement": "Wir geben unsern Lesern abermals eine Gegend der Stadt Pompeji, wie diese höchst interessanten Theile derselben nach und nach von ihrer Decke befreit werden.",
+      "language": [],
+      "musenalm_id": 76888,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung des landschaftlichen Kupfers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung des landschaftlichen Kupfers",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "7zqf2ujmdztn1t2"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.297Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Hart an der Ringmauer des Gränzstädtchens Weißkirch wohnte ein Mann, Namens Dietrich, den alle Einwohner für die ehrlichste, gutmüthigste und gefälligste, aber auch, wenn man so sagen darf, für die künstlichste Seele anerkannten.",
+      "language": [],
+      "musenalm_id": 76889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Birnbaum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Birnbaum",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.668Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.668Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "awcqgr1awlyh5px"
+        }
+      ],
+      "source_id": "gsid59vfpzboz6x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "Hat Dich das erste Bruchstück aus meinen musikalischen Wanderungen wirklich so angezogen, daß Du die Schilderung der ganzen Reise verlangst?",
+      "language": [],
+      "musenalm_id": 76890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Begräbniß. / Ein zweites Bruchstück aus meinen musikalischen / Wanderungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ernst von Houwald",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Begräbniß. / Ein zweites Bruchstück aus meinen musikalischen / Wanderungen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "yekzbr1mkxuaimv",
+          "source_id": "zz70lepdd6k2a4x"
+        }
+      ],
+      "source_id": "rewza90m1dir19x"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "76",
+      "incipit_statement": "Wenn ich nur in meinem Leben einmal da drüben in dem schönen Saale meinen Kaffee trinken sollte, sagte die verwittwete Rendantin Brandt zu ihrem Sohne, dem Rathsaktuar Brandt,",
+      "language": [],
+      "musenalm_id": 76891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Was seyn soll, fügt sich wohl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. L. Methus. Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Was seyn soll, fügt sich wohl",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "9g2bjngyi7jp8ga",
+          "source_id": "pbn1w4o7xd0as3h"
+        }
+      ],
+      "source_id": "blvqa9zt5iwroyi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "115",
+      "incipit_statement": "Wie? ich sollte mich binden lassen? - in den köstlichsten Freiheitsjahren der Jugend? mit dem Gefühl erwachter Kraft, eigenen Willens? So rief Conrad von Ulmen,",
+      "language": [],
+      "musenalm_id": 76892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geist und Gemüth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Agnes Franz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geist und Gemüth",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "mkd957rgkmp3pvz",
+          "source_id": "g8b7yvxg7ssv51n"
+        }
+      ],
+      "source_id": "3lxdgh43x1uzdsm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.819Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "Gemächlichen Schrittes zog der alte Bernhard neben seinem Frachtwagen her, auf welchem er Meßgüter von Leipzig zurückzuführen im Begriff war.",
+      "language": [],
+      "musenalm_id": 76893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heimathlose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "K. G. Prätzel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Heimathlose",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.886Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.886Z",
+          "agent": "ufh0csiazwb0bf6",
+          "source_id": "48luc1xs22i6t9d"
+        }
+      ],
+      "source_id": "xg0xfh8u6mba3c9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "243",
+      "incipit_statement": "Wer von Rom nach Ancona reiset, kömmt auf dieser Straße, wo bald die sorgfältigste Cultur mit grünenden Wesen und reisenden Saaten, bald in den Appenninen eine romantische Natur mit engen Felsthälern und uralten Schlössern auf die steilsten Felsen gebaut,",
+      "language": [],
+      "musenalm_id": 76894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Freunde von Terni",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Carl Borromäus Freiherr v. Miltitz",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Freunde von Terni",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "e36ydmk4x9m4umt",
+          "source_id": "rg0ysh87tnlcn7z"
+        }
+      ],
+      "source_id": "ui6hgaq3ba9q8ac"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Drei Tage war ich schon unterwegs, noch hatte ich nicht gefunden, was ich suchte. Auch der vierte fing bereits an sich seinem Ende zu nähern,",
+      "language": [],
+      "musenalm_id": 76895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Handschuh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Fr. Gleich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Handschuh",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "0voj2kqu0am5322",
+          "source_id": "bkg1fxv24qf9591"
+        }
+      ],
+      "source_id": "5x0r2fywrrmihk5"
+    },
+    {
+      "annotation": "Anm. am Objekt: In den Volksliedern von Kuhn (Bern, b. Burgdorfer 1819) steht ein schweizerisches Lied »Die Entstehung der Alpenrose« welches mitr ungefähr den Stoff zu dieser Erzählung gab. /) mit weiteren Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "In Rallingen, am Thunersee, lebte der reiche Landmann Arnold Stäffi. Von keinem beneidet, wohl aber von Allen geliebt und geehrt, schwanden jene Tage ungetrübt dahin,",
+      "language": [],
+      "musenalm_id": 76896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schön Eisi. / oder / die Entstehung der Alpenrose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Lebrün",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schön Eisi. / oder / die Entstehung der Alpenrose",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.677Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.677Z",
+          "agent": "dlpgk2os95jpmjk",
+          "source_id": "a6j9ie6zsnx3iol"
+        }
+      ],
+      "source_id": "dy66x1cbcu67p3f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "333",
+      "incipit_statement": "Benedikt, ein armer aber wohlverdienter Candidat des Predigtamtes ward, bald nach dem Ende des siebenjährigen Krieges, in der sächsischen Landstadt B. als Diakonus eingestellt.",
+      "language": [],
+      "musenalm_id": 76897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Beichtkind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gustav Schilling",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Beichtkind",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "tiijnij1nbeebby",
+          "source_id": "z7tnkqnpv5pabt0"
+        }
+      ],
+      "source_id": "xxnzmx2sfkjk6yp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "344",
+      "incipit_statement": "Nicht nach Jahren miß das Leben, / Nicht nach langgedehnten Stunden, / Ob es deren viel gegeben, / Ob du bald das Ziel gefunden,",
+      "language": [],
+      "musenalm_id": 76898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Lebens Summa",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Lebens Summa",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "im2ohv7yx2ntz9q"
+        }
+      ],
+      "source_id": "rup1uw7ljowotqe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "346",
+      "incipit_statement": "Nur weiße Blumen will ich winden, / Die bunten plaudern oft zu viel -",
+      "language": [],
+      "musenalm_id": 76899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Einer Freundin beim Abschiede. / (Stammbuch-Blatt)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Einer Freundin beim Abschiede. / (Stammbuch-Blatt)",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "ey3bsx81ppat9ic"
+        }
+      ],
+      "source_id": "hr9prjm52xmt73d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "347",
+      "incipit_statement": "Wenn den Herzverwandten Lieben, / Die auf dunklem Lebenspfad / Langgetrennet einsam blieben / Wiedersehen freundlich naht -",
+      "language": [],
+      "musenalm_id": 76900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wiedersehen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Edmund der Waller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wiedersehen",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [],
+      "source_id": "lsde9b6a9kqlp0i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "Fischer hat ein schönes Seyn / Recht voll Lust und Muth: / Fährt bei frühem Tageschein / Lustig durch die Fluth.",
+      "language": [],
+      "musenalm_id": 76901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fischerlied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Freiherr Franz v. Schlechta",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fischerlied",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "x1uz1klk4dlr9er",
+          "source_id": "p1igpk6detn3oqf"
+        }
+      ],
+      "source_id": "xfth6x51leigkbq"
+    },
+    {
+      "annotation": "## Anm. am Objekt: Es lockt uns nach und nach, wir hören zu , / Wir hören und wir glauben zu verstehn,",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Was ist es, das so rein und hell, / Als ob ein milder Wiesenquell / Durch Blumen über Kiesel rinne,",
+      "language": [],
+      "musenalm_id": 76902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Liedes Lockung. / Nach Göthe's Tasso Act II. Sc. I. ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theodor Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Liedes Lockung. / Nach Göthe's Tasso Act II. Sc. I. ##",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "sncp16zhc7aqq49"
+        }
+      ],
+      "source_id": "uq77g9ig05ygzyt"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.958Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "351",
+      "incipit_statement": "Rauschend erbeben die Tannen, es neigen die schwanken- / den Birken / Tief ihr grünendes Haupt über den blinkenden Stamm;",
+      "language": [],
+      "musenalm_id": 76903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Frühlingsturm",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Frühlingsturm",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "vwkw1dg1xm7d8f3"
+        }
+      ],
+      "source_id": "ghmvmhizevun301"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.959Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Zur Lieb' und Freundschaft sprach einst Zeus / Beim frohen Göttermahle: / Begebt euch in des Himmels Kreis / Hinab zum Erdenmahle",
+      "language": [],
+      "musenalm_id": 76904,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Amor und die Freundschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Amor und die Freundschaft",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.704Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.704Z",
+          "agent": "7z02zmx8ocy9uwz",
+          "source_id": "c6j94ereclfwqra"
+        }
+      ],
+      "source_id": "3mdfp0qq806hcki"
+    },
+    {
+      "annotation": "Anm. am Objekt: Iwan der Zweite, oder der Grausame, der in der Mitte des 16ten Jahrhunderts regierte, war, wie Schröckh sagt, nicht nur ein sehr kluger Regent, sondern auch menschenfreundlicher, wohlthätiger und großmüthiger Gesinnungen oder Handlungen eben sowohl fähig als grausamer,",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.637Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "An des Dörfleins ärmster Hütte, / Wo sich Moskwa's Zinnen nahn, / Klopfte mit bescheidner Bitte / Abends spät ein Wandrer an",
+      "language": [],
+      "musenalm_id": 76905,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pathe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ch. L. Noack",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pathe",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.944Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.944Z",
+          "agent": "kisiprow8j1n04g",
+          "source_id": "skovsnksotbs39e"
+        }
+      ],
+      "source_id": "0d2cabp5g5wwmx8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.345Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "364",
+      "incipit_statement": "Wie sah ich sonst so frisch und froh / In's Himmelslicht hinauf,",
+      "language": [],
+      "musenalm_id": 76906,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der bange Aufblick",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theod. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der bange Aufblick",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.797Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.797Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "s85gny5mi3ao596"
+        }
+      ],
+      "source_id": "kyipsmenw6kom0b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Vor einem kleinen Dorf in Schwaben stand, / Unweit von einer Bergkapelle, / Ein Heil'ger, den die Chronik nicht genannt",
+      "language": [],
+      "musenalm_id": 76907,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Heilige",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Heilige",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "7z02zmx8ocy9uwz",
+          "source_id": "obsyidej4mxdi2a"
+        }
+      ],
+      "source_id": "w4cp7zcurkbcg8z"
+    },
+    {
+      "annotation": "## Anm. am Objekt: Ein Gemälde von Tizian, unter dem Namen der schönen Venezianerin bekannt, […]",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Pfeilgeschwiind die Silberwellen flogen, / an dem steinmoosgrauen Brückenbogen / bricht lauttosend sich der Flut Gewalt.",
+      "language": [],
+      "musenalm_id": 76908,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zenaide ##",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Arthur vom Nordstern",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zenaide ##",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "1tsjgk40ftnty4f",
+          "source_id": "o390yimfub25tko"
+        }
+      ],
+      "source_id": "8gch4evvlwqugd3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.628Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Daß ich wenig selbst gegeben, / Wird man's tadeln, wird man's loben?",
+      "language": [],
+      "musenalm_id": 76909,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Entschuldigung für den Herausgeber. / Sonnett",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Theod. Hell",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Entschuldigung für den Herausgeber. / Sonnett",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "xf5qiko3g7u0aeu",
+          "source_id": "h7ga4dzbfo9820c"
+        }
+      ],
+      "source_id": "o2h56djog6pp7k0"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 76910,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Brückner sc. 1820)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Brückner sc. 1820",
+      "scans": [
+        "alm_2392_76910_12p97jxqsc.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-02 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1821,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.684Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.684Z",
+          "agent": "55cqr78phstoqzu",
+          "source_id": "b3wr8gmyi638ryk"
+        }
+      ],
+      "source_id": "yd4k188nzr0z6e2"
+    }
   ],
   "agents": [
     {

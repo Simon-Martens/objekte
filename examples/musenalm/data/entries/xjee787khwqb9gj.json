@@ -46,30 +46,947 @@
   "year": 1811,
   "editor": "",
   "items": [
-    "kfs5efo5bhrkgyp"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.574Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405924",
+      "location": "105P08",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.574Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "kfs5efo5bhrkgyp"
+    }
   ],
   "contents": [
-    "flmy453b405s7a4",
-    "4ized4dcytshacz",
-    "nydra0b7bdpg7zk",
-    "7s10kcexbtf6iw7",
-    "qvhg9zm9s7h45wm",
-    "qjpucq76pp84t2f",
-    "im9lm3gfm310was",
-    "h0ys7i0or3lufrt",
-    "t80f45yha4l54kh",
-    "2v5u0zw1s6l76ce",
-    "dx50rw28qm85jlk",
-    "3s95grzv8molhm3",
-    "ba5u1s31hodkise",
-    "m6zc1ujgynh65ri",
-    "w733dnkklp47hee",
-    "mzdwr5r3b6selhg",
-    "cf2y3ge4s8n4c3a",
-    "q6c9uxaj9lc61hi",
-    "fjwt7zudm2hhrlr",
-    "0la73r9109oauuz",
-    "wqtr4e6heir5viz"
+    {
+      "annotation": "paginiert 1. /) # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.677Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68875,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Plan des Pallastes des Titus aus dem Esquillin #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1858_68875_nk9cqk6hyt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Plan des Pallastes des Titus aus dem Esquillin #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "flmy453b405s7a4"
+    },
+    {
+      "annotation": "paginiert 2. /) # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68876,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Plafond aus demselben im Umriss #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mori disegno in Roma",
+      "scans": [
+        "alm_1858_68876_len1rc0hz8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ein Plafond aus demselben im Umriss #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.471Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.471Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "fvrue085gej4fpt"
+        }
+      ],
+      "source_id": "4ized4dcytshacz"
+    },
+    {
+      "annotation": "paginiert 3. /) kolorierte Graphik # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.688Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68877,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das mittlere grosse Deckengemälde dieses Plafonds, die Apotheose des Titus vorstellend #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. Mori inc. die Aqua Tinta von J. B. Hoessel",
+      "scans": [
+        "alm_1858_68877_qs3zrwl3av.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das mittlere grosse Deckengemälde dieses Plafonds, die Apotheose des Titus vorstellend #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.471Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.471Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "u0l8e8qb0qgbsfp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.472Z",
+          "agent": "t4wlsbli26ob7y0",
+          "source_id": "zfv2jps1l6bl29w"
+        }
+      ],
+      "source_id": "nydra0b7bdpg7zk"
+    },
+    {
+      "annotation": "paginiert 4. /) [2 Graphiken von 4] # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.693Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68878,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier kleineren Gemälde aus demselben #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. Mori inc. in Roma",
+      "scans": [
+        "alm_1858_68878_y8e5slmrbo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die vier kleineren Gemälde aus demselben #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.472Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "xu9luu1j8z7nr5k"
+        }
+      ],
+      "source_id": "7s10kcexbtf6iw7"
+    },
+    {
+      "annotation": "paginiert 5. [2 Graphiken von 4] /) # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.696Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68879,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die vier kleineren Gemälde aus demselben #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. Mori inc. in Roma",
+      "scans": [
+        "alm_1858_68879_5v2paa0jm5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die vier kleineren Gemälde aus demselben #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.472Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "b7a9qxieoahk0hx"
+        }
+      ],
+      "source_id": "qvhg9zm9s7h45wm"
+    },
+    {
+      "annotation": "paginiert 6. /) # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.700Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68880,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arabesken aus demselben #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. Mori inc. in Roma",
+      "scans": [
+        "alm_1858_68880_c5ue7uw4q0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Arabesken aus demselben #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.472Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "velbpuvij48m0od"
+        }
+      ],
+      "source_id": "qjpucq76pp84t2f"
+    },
+    {
+      "annotation": "paginiert 7. /) kol. Graphik  # Titel aus dem G-Verz; s. Textbezug »Die Apotheose des Titus als Apollo Ein grosses antikes Deckengemälde in Enkaustik aus dem Pallast des Titus auf dem Esquilin in Rom« Alm-1188, INr 68839",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.702Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68881,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Arabesken aus demselben #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. Mori inc. in Roma",
+      "scans": [
+        "alm_1858_68881_6fvoctxda9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Arabesken aus demselben #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.472Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.472Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "k8xsg4p3uj13zdo"
+        }
+      ],
+      "source_id": "im9lm3gfm310was"
+    },
+    {
+      "annotation": "paginiert 8. /) # Titel aus dem G-Verz; s. Textbezug »Der Zug des Bacchus. Ein antikes Basrelief in dem Pallast des Duca Braschi in Rom« Alm-1188, INr 68841",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68882,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Zug des Bacchus: Basrelief aus dem Pallast des Duca Braschi in Rom #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ferd. Mori inc. in Romae",
+      "scans": [
+        "alm_1858_68882_xk5i8idlih.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Zug des Bacchus: Basrelief aus dem Pallast des Duca Braschi in Rom #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "a1c8j5zv8t6a1qh"
+        }
+      ],
+      "source_id": "h0ys7i0or3lufrt"
+    },
+    {
+      "annotation": "paginiert 9. /) # Titel aus dem G-Verz; s. Textbezug »Der Zug des Bacchus. Ein antikes Basrelief in dem Pallast des Duca Braschi in Rom« Alm-1188, INr 68842",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.344Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68883,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der indische Bacchus aus derselben Gallerie von vorne #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mori del. et sculp. Roma",
+      "scans": [
+        "alm_1858_68883_a1v782tffv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der indische Bacchus aus derselben Gallerie von vorne #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.595Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.595Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "epeiegtafbhm1rx"
+        }
+      ],
+      "source_id": "t80f45yha4l54kh"
+    },
+    {
+      "annotation": "paginiert 10. /) # Titel aus dem G-Verz; s. Textbezug »Der Zug des Bacchus. Ein antikes Basrelief in dem Pallast des Duca Braschi in Rom« Alm-1188, INr 68842",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.346Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68884,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Derselbe von hinten #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mori del. et sculp. Roma",
+      "scans": [
+        "alm_1858_68884_yak6fh7u5o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Derselbe von hinten #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.595Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.595Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "m8n5ped4xzcoyrs"
+        }
+      ],
+      "source_id": "2v5u0zw1s6l76ce"
+    },
+    {
+      "annotation": "paginiert 11. /) # Titel aus dem G-Verz; s. Textbezug »Venus. Eine Büste aus dem Museo Pio-Chiaromontano des Vatican« Alm-1188, INr 68843",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68885,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Eine Büste der Venus aus dem Museo Pio-Chiaromontano des Vatican #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mori del. et. sculp. Romae",
+      "scans": [
+        "alm_1858_68885_9nznyow16k.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Eine Büste der Venus aus dem Museo Pio-Chiaromontano des Vatican #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.595Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.595Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "vf4zp0yn1vsrlo7"
+        }
+      ],
+      "source_id": "dx50rw28qm85jlk"
+    },
+    {
+      "annotation": "paginiert 12. /) # Titel aus dem G-Verz; s. Textbezug »Diana mit der Reh- und Köcherkrone nebst dem Schleier. In dem Pallast des Duca Braschi in Rom #« Alm-1188, INr 68844",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.350Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68886,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Diana mit der Reh- und Köcherkrone nebst dem Schleier. In dem Pallast des Duca Braschi in Rom #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mori del. et. sculp. Romae",
+      "scans": [
+        "alm_1858_68886_xrdywxzcqb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Diana mit der Reh- und Köcherkrone nebst dem Schleier. In dem Pallast des Duca Braschi in Rom #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "j0o2uett3ewfxj5",
+          "source_id": "hpicabd2s8k37ae"
+        }
+      ],
+      "source_id": "3s95grzv8molhm3"
+    },
+    {
+      "annotation": "paginiert 13. /) # Titel aus dem G-Verz; s. Textbezug »Das älteste Lazium, dessen vorzüglichste Städte, Tempel, Villen, Haine, Seen und Flüsse; zur Erläuterung der Charte und der nachfolgenden Kupfer« Alm-1188, INr 68861",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.352Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68887,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das aelteste Lazium",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1858_68887_dz4eldkxyf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das aelteste Lazium",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "ba5u1s31hodkise"
+    },
+    {
+      "annotation": "paginiert 14. /) # Titel aus dem G-Verz; s. Textbezug »Laurentum, gegenwärtig Torre Paterno« Alm-1188, INr 68862",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.355Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68888,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Torre Paterno, das alte Laurentum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Reinhart Roma",
+      "scans": [
+        "alm_1858_68888_7z0p70il1j.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Torre Paterno, das alte Laurentum",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "xeh43apdx4986px",
+          "source_id": "o8bfd2j0fpz6j00"
+        }
+      ],
+      "source_id": "m6zc1ujgynh65ri"
+    },
+    {
+      "annotation": "paginiert 15. /) # Titel aus dem G-Verz; s. Textbezug »Lavinium, gegenwärtig Patrica« Alm-1188, INr 68863",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.358Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68889,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Patrica das alte Lavinium",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Reinhart del. Romae. J. A. Darnstedt sc. 1810",
+      "scans": [
+        "alm_1858_68889_3cq0vjnrei.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Patrica das alte Lavinium",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "xeh43apdx4986px",
+          "source_id": "3gj70a6v6xkcpc9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "ub1bfzirqlyq1s0"
+        }
+      ],
+      "source_id": "w733dnkklp47hee"
+    },
+    {
+      "annotation": "$ vermutl. J. C. Reinhart /) paginiert 16. # Titel aus dem G-Verz; s. Textbezug »Ardea« Alm-1188, INr 68864",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.366Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68890,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ardea",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_1858_68890_u9hdofd3g3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ardea",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "mzdwr5r3b6selhg"
+    },
+    {
+      "annotation": "paginiert 17. /) # Titel aus dem G-Verz; s. Textbezug »Ostia« Alm-1188, INr 68865",
+      "content_type": [],
+      "created": "2026-06-11 10:18:18.370Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68891,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ostia von der Meeres Seite",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. R. Roma 1810",
+      "scans": [
+        "alm_1858_68891_m0sq86dbsq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ostia von der Meeres Seite",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.596Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.596Z",
+          "agent": "xeh43apdx4986px",
+          "source_id": "3c1sdppgdkeuoyg"
+        }
+      ],
+      "source_id": "cf2y3ge4s8n4c3a"
+    },
+    {
+      "annotation": "paginiert 18. /) # Titel aus dem G-Verz; s. Textbezug »Der Tempel des Jupiter Patulejus in Ostia« Alm-1188, INr 68866",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.559Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68892,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tempel des Jupiter Patilejus in Ostia",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. R.",
+      "scans": [
+        "alm_1858_68892_so10x6t3fj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Tempel des Jupiter Patilejus in Ostia",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.528Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.528Z",
+          "agent": "xeh43apdx4986px",
+          "source_id": "s6irdiiqqwgdp6m"
+        }
+      ],
+      "source_id": "q6c9uxaj9lc61hi"
+    },
+    {
+      "annotation": "paginiert 19. u. 20. /) # Titel aus dem G-Verz; s. Textbezug: »Vermuthung über die Gruppierung der Colossen auf Monte Cavallo an einen einsichtsvollen und gelehrten Liebhaber von dem Ritter Canova« Alm-1188, INr 68867",
+      "content_type": [],
+      "created": "2026-06-11 10:18:17.563Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68893,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Collossen auf Monte Cavallo #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Schnorr v. K.",
+      "scans": [
+        "alm_1858_68893_giin90pzn9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Collossen auf Monte Cavallo #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [],
+      "source_id": "fjwt7zudm2hhrlr"
+    },
+    {
+      "annotation": "paginiert 53 /) s. Textbezug »Michel Angelo Bonarroti« von Casentino Alm-1188 INr 68840",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.850Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68894,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schöpfung Adams #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Michelangelo pinx. S. v. K. f.",
+      "scans": [
+        "alm_1858_68894_c5d4m9hy7c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schöpfung Adams #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.341Z",
+          "agent": "l115ljzxlisa2ph",
+          "source_id": "g3vuxov5xwq8tl0"
+        }
+      ],
+      "source_id": "0la73r9109oauuz"
+    },
+    {
+      "annotation": "# Bez. und Titel aus dem G-Verz; s. Textbezug »Michel Angelo Bonarroti« von Casentino Alm-1188 INr 68840",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 68895,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Schöpfung Evas #",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Michelangelo pinx. S. v. K. f.",
+      "scans": [
+        "alm_1858_68895_xokyu8de3a.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Schöpfung Evas #",
+      "updated": "2010-01-20 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1811,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.341Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.341Z",
+          "agent": "l115ljzxlisa2ph",
+          "source_id": "cy19b6phnjd0y2v"
+        }
+      ],
+      "source_id": "wqtr4e6heir5viz"
+    }
   ],
   "agents": [
     {

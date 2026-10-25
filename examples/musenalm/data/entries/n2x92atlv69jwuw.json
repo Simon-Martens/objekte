@@ -48,32 +48,977 @@
   "year": 1803,
   "editor": "",
   "items": [
-    "gzpl6otovpv559e"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.498Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200612",
+      "location": "105P10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.498Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "gzpl6otovpv559e"
+    }
   ],
   "contents": [
-    "bhz0dwpxffb7ts4",
-    "gdvz5cxi09l4piy",
-    "1bblo37oqooqvvi",
-    "yjqxdgfmzzxuieo",
-    "qxv0wmo2v83sxgv",
-    "w4us6d31xoh2deu",
-    "aufgrzm37blwk88",
-    "5w5g76ivsqiziwf",
-    "2iwx2a1j0ljebdx",
-    "wty1sorejo223ia",
-    "6oiz6baioh8041z",
-    "ih747b28d0dy7q5",
-    "podcvu3cpkt5dft",
-    "78dxdzq9z3atzmm",
-    "v8eoniz96hre5kj",
-    "eabhvstt6vicusy",
-    "elkplx9pj2a5yt4",
-    "q3f1gk7tgyb922b",
-    "2f1zfitm6lnanan",
-    "yy8dw1a8xxuzv4w",
-    "zt8iqlyvdmqoytl",
-    "a28ldjlmhhia5ea",
-    "lyzv3dihczuv1lx"
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.280Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41246,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die edle Johanna",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinr. Schmidt sc.",
+      "scans": [
+        "alm_539_41246_3sda8lgieu.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die edle Johanna",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.719Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.719Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "bxmgxnw1m26lrk5"
+        }
+      ],
+      "source_id": "bhz0dwpxffb7ts4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.282Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41247,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Zweiter Jahrgang / für das Jahr / 1803. / Mit 11 Kupfern und 1r  Karte. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_539_41247_oqasxx3kkl.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Zweiter Jahrgang / für das Jahr / 1803. / Mit 11 Kupfern und 1r  Karte. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "gdvz5cxi09l4piy"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Dieser zweite Jahrgang des Taschenbuchs der Reisen hat gerade diejenigen Theile der Erde zum Gegenstande, welche wegen der jüngsten Ereignisse auf St. Domingo und wegen der jetzt beim Frieden abgetretenen und zurückgegebenen Inseln Westindiens",
+      "language": [],
+      "musenalm_id": 41248,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "am63zrn4nap42k1"
+        }
+      ],
+      "source_id": "1bblo37oqooqvvi"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Ein Reisender, welcher im stürmischen December Europens öde Küsten verläßt, und nach einer kaum monatlichen Fahrt sich unter dem schönsten Himmel durch zahllose Inselgruppen von der üppigsten Vergetation eingeschlossen findet,",
+      "language": [],
+      "musenalm_id": 41249,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Westindien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Westindien",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.726Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.726Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "78bcrqhvynvtylr"
+        }
+      ],
+      "source_id": "yjqxdgfmzzxuieo"
+    },
+    {
+      "annotation": "mit einer Tabelle INr 41542, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.348Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Das Gesicht und das Gehör sind unstreitig die erhabensten, und in so fern die wichtigsten Sinne.",
+      "language": [],
+      "musenalm_id": 41250,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Stapelwaaren Westindiens / Vorläufige Betrachtungen über die Nahrungs- / mittel des Menschen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Stapelwaaren Westindiens / Vorläufige Betrachtungen über die Nahrungs- / mittel des Menschen",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.727Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.727Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "g2ulo31p82uhm6c"
+        }
+      ],
+      "source_id": "qxv0wmo2v83sxgv"
+    },
+    {
+      "annotation": "Beigabe zum Beitrag »Die Stapelwaaren Westindiens« INr 41250, Obj 5",
+      "content_type": [],
+      "created": "2026-06-11 10:18:00.447Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "182",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41542,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Authentische Liste der nach allen Welttheilen ausgeschifften Haupt- / stapelwaaren der gesammten englischen westind. Inseln, vom Jahre / 1787. Nach den Totalsummen der einzelnen Producke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Authentische Liste der nach allen Welttheilen ausgeschifften Haupt- / stapelwaaren der gesammten englischen westind. Inseln, vom Jahre / 1787. Nach den Totalsummen der einzelnen Producke",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "w4us6d31xoh2deu"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "197",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41269,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber einige naturhistorische Merkwürdigkei- / ten Westindiens",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber einige naturhistorische Merkwürdigkei- / ten Westindiens",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.852Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "8rtdtqlh46y3gaf"
+        }
+      ],
+      "source_id": "aufgrzm37blwk88"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.194Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "225",
+      "incipit_statement": "Wenn je eine große Catastrophe Afrika von der neuen Welt getrennt hat; so blieben die beiden Inseln St. Helena und die Insel Ascension, wohl als zwei Ruinen einer Bergkette stehen,",
+      "language": [],
+      "musenalm_id": 42316,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bruchstücke aus der Erd- und Völkerkunde / verschiedener Erdtheile / Die Inseln St. Helena und der Ascension",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bruchstücke aus der Erd- und Völkerkunde / verschiedener Erdtheile / Die Inseln St. Helena und der Ascension",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.288Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ecs0ymalrnghy6r"
+        }
+      ],
+      "source_id": "5w5g76ivsqiziwf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:01.195Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "235",
+      "incipit_statement": "Sey es aus religiösen oder bloß aus bürgerlichen Gründen, genug die Verehelichung gehört bei jeder Art von Societät unter die wichtigsten Geschäfte des menschlichen Lebens",
+      "language": [],
+      "musenalm_id": 42317,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ueber die Heirathen verschiedener Völker. / (Fortsetzung)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ueber die Heirathen verschiedener Völker. / (Fortsetzung)",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.288Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.288Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "97xjuj4mbvqapma"
+        }
+      ],
+      "source_id": "2iwx2a1j0ljebdx"
+    },
+    {
+      "annotation": "Lebensbeschreibung Carl Marie de la Condamines",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Die Neubegierde, dieser schätzbare Vorläufer des tiefern Forschens, ist unstreitig eine der ersten Quellen der wichtigsten Entdeckungen und wichtigsten Unternehmungen,",
+      "language": [],
+      "musenalm_id": 41251,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Biographie / Condamine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Biographie / Condamine",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.727Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.727Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "mb3sidw0oq6eccb"
+        }
+      ],
+      "source_id": "wty1sorejo223ia"
+    },
+    {
+      "annotation": "s. Karte INr 41264, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Teilt man die neue Welt nur in das nördliche und südliche Amerika, dann bleiben die vielen Inseln übrig,",
+      "language": [],
+      "musenalm_id": 41252,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Geographisch-statistische Uebersicht der Inseln / des westindischen Archipels; zur Erläuterung / der Charte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Geographisch-statistische Uebersicht der Inseln / des westindischen Archipels; zur Erläuterung / der Charte",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.727Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.727Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "ogyafxcfk4zjdfe"
+        }
+      ],
+      "source_id": "6oiz6baioh8041z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:41.349Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41253,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erklärung der Kupfer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erklärung der Kupfer",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.727Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.727Z",
+          "agent": "rj7yi1mmlcs4tml",
+          "source_id": "gihdjdo8qbfv9f7"
+        }
+      ],
+      "source_id": "ih747b28d0dy7q5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.372Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41254,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Chatoyer, ein Oberhaupt der schwarzen Caraiben auf St. Vincent, nebst seinen fünf Frauen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt sc.",
+      "scans": [
+        "alm_539_41254_6sy1nkoogw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Chatoyer, ein Oberhaupt der schwarzen Caraiben auf St. Vincent, nebst seinen fünf Frauen",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "9n20fcdkkpup0m3"
+        }
+      ],
+      "source_id": "podcvu3cpkt5dft"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.374Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41255,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Maron-Neger schließen auf Jamaica mit den Engländern Frieden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. A. Darnstedt",
+      "scans": [
+        "alm_539_41255_b82bxd26ch.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Maron-Neger schließen auf Jamaica mit den Engländern Frieden",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "gigh2wbcx0ni1j2",
+          "source_id": "gm4birv6lolaxqc"
+        }
+      ],
+      "source_id": "78dxdzq9z3atzmm"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.377Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41256,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trelauney, Stadt der Maron Neger auf Jamaica",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_539_41256_eucf2xo12o.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trelauney, Stadt der Maron Neger auf Jamaica",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "v8eoniz96hre5kj"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.380Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41257,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Marsch gegen die Maron-Neger im Holländischen Gujana",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Meno Haas sc. Berlin 1802",
+      "scans": [
+        "alm_539_41257_rcn9gprahm.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Marsch gegen die Maron-Neger im Holländischen Gujana",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "z4e9w41495a7jdo"
+        }
+      ],
+      "source_id": "eabhvstt6vicusy"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.382Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41258,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Fünf Haupt-Produckte Westindiens nebst der wandernden Erd-Krabbe / 1) Das Zuckerrohr. 2.) Die Baumwolle. 3.) Der Indigo. 4) Der Kaffee. 5) Der Manihot. / 6.) Die Erd-Krabbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gapieux sc.1802",
+      "scans": [
+        "alm_539_41258_yqvo2lcfw0.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Fünf Haupt-Produckte Westindiens nebst der wandernden Erd-Krabbe / 1) Das Zuckerrohr. 2.) Die Baumwolle. 3.) Der Indigo. 4) Der Kaffee. 5) Der Manihot. / 6.) Die Erd-Krabbe",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "elkplx9pj2a5yt4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.384Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41259,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Zucker-Mühle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_539_41259_j27xezk0tw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die Zucker-Mühle",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "q3f1gk7tgyb922b"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.387Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41260,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Fischfang des weißköpfigen Adlers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_539_41260_so3qxxh45u.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Fischfang des weißköpfigen Adlers",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "2f1zfitm6lnanan"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41261,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht von St. Helena",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_539_41261_0i4xj6ajan.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht von St. Helena",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "yy8dw1a8xxuzv4w"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41262,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hochzeit auf Magindano",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. Hamilton del. Meno Haas sc. Berlin",
+      "scans": [
+        "alm_539_41262_r0nw4w9h67.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Hochzeit auf Magindano",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "ezzua1zcfr1xk0b",
+          "source_id": "5sjrpzn10318r9t"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "vtesijhtxlwbnoh",
+          "source_id": "bkqmabjheqlmptb"
+        }
+      ],
+      "source_id": "zt8iqlyvdmqoytl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41263,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Charles-Marie / de la Condamine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. Schmidt sc.",
+      "scans": [
+        "alm_539_41263_bnaonj70uk.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Charles-Marie / de la Condamine",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:56.945Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:56.945Z",
+          "agent": "2hk8eonosc6wf0f",
+          "source_id": "bjau5yy3jkel1mm"
+        }
+      ],
+      "source_id": "a28ldjlmhhia5ea"
+    },
+    {
+      "annotation": "s. Beitrag INr 41252, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:17:42.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 41264,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Karte"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Archipel / von / Westindien / nach / Arrossmith",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Arrossmith",
+      "scans": [
+        "alm_539_41264_xasf7vgr3s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Archipel / von / Westindien / nach / Arrossmith",
+      "updated": "2005-11-08 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1803,
+      "editor": "",
+      "agents": [],
+      "source_id": "lyzv3dihczuv1lx"
+    }
   ],
   "agents": [
     {

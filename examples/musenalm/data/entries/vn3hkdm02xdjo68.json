@@ -48,61 +48,2080 @@
   "year": 1845,
   "editor": "",
   "items": [
-    "xqkzskcwxc7g9ll"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.669Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "404290",
+      "location": "105P05",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.669Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "xqkzskcwxc7g9ll"
+    }
   ],
   "contents": [
-    "2szp3l9a4yku86t",
-    "itnx8ibeb3xveqw",
-    "sqb906szqk5dc1l",
-    "o2exa6pvm32fhc4",
-    "d9jhc179gmrnzk3",
-    "xl4wzpuhbpv7g0t",
-    "1pqeoci4poq4juy",
-    "8ze61kronkz9gpj",
-    "zveo0s8wu16kzh3",
-    "kkf6t5fyolmsw08",
-    "9lu6r3f26fa43zi",
-    "794qoginwrm06c7",
-    "jot4q6fyygy88ft",
-    "os5ndyyxbzg3h2v",
-    "bfhujfw98gljldl",
-    "1cim1z0da680n05",
-    "1tkg93005oz8n2o",
-    "c49cutjy4e9nbqr",
-    "kjicnggvprkdb8v",
-    "b55gkkexztro866",
-    "lnex4p2m72w5wp2",
-    "ux8e98x8c3m4mf9",
-    "jc7d5cppw47fwp8",
-    "7m56po18s137i3u",
-    "luxvenn3duvzlzg",
-    "mtfp4ubh64lhed2",
-    "vgs8dnxrb5o6pnz",
-    "ymy1iuqmfkwc0oj",
-    "iccdu401hwwnvfv",
-    "aonwmowa2ef0pin",
-    "85umi8vkk21cy0q",
-    "c34myiq4ukldaaj",
-    "js6idxssrmel9wn",
-    "vrkvyo6zeuhzbjh",
-    "ucbyfn4cyeibst8",
-    "1qwbr4x3s21lv1v",
-    "s67fv8arp3vz1dj",
-    "k8sj7ajkhhrir4b",
-    "we5c56w2md3sucw",
-    "fknvj3xq54ep0ly",
-    "4jnnxvecqm32djw",
-    "u8e52sbpmz1pvbq",
-    "8mguhpjdnr52o7q",
-    "ro3y4ob825vp12u",
-    "ig6yp8oil2qdvhz",
-    "7xto1izmv01ocmh",
-    "1pfw8t3hx7eo63v",
-    "ygfk50t4h6rrfqn",
-    "pvd7b3117v847nf",
-    "1vekg3wc8wd8hog",
-    "l04c4veie8cbxuc",
-    "e2m8rtpgokoa4ik"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.175Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69803,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH / für / Jaeger / und Naturfreunde / von / O. v. Corvin-Wiersbitzki",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nicholls & Allanson sc.",
+      "scans": [
+        "alm_2851_69803_n89mn4ofb5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH / für / Jaeger / und Naturfreunde / von / O. v. Corvin-Wiersbitzki",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "2szp3l9a4yku86t"
+    },
+    {
+      "annotation": "Titelgraphik",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.043Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69804,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pech!",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Geyer sc.",
+      "scans": [
+        "alm_2851_69804_84uhwnuhrw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Pech!",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.117Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "ajsd97tkz5tds0a"
+        }
+      ],
+      "source_id": "itnx8ibeb3xveqw"
+    },
+    {
+      "annotation": "graph. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69805,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "TASCHENBUCH /  für / Jaeger / und / Naturfreunde / von / O. v. Corvin-Wiersbitzki",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Nicholls & Allanson sc.",
+      "scans": [
+        "alm_2851_69805_84y5424h6s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "TASCHENBUCH /  für / Jaeger / und / Naturfreunde / von / O. v. Corvin-Wiersbitzki",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "sqb906szqk5dc1l"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.049Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69806,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Jäger und Naturfreunde. / Herausgegeben / von / Otto von Corvin-Wiersbitzki. / Mit einem Stahlstich und vier colorirten Kupferstichen. / Leipzig, / Druck und Verlag von B. G. Teubner. / 1845",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2851_69806_ttuvchrtza.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Jäger und Naturfreunde. / Herausgegeben / von / Otto von Corvin-Wiersbitzki. / Mit einem Stahlstich und vier colorirten Kupferstichen. / Leipzig, / Druck und Verlag von B. G. Teubner. / 1845",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "o2exa6pvm32fhc4"
+    },
+    {
+      "annotation": "Vorwort des Herausgebers",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Nun,wie Sie wollen, meine Herren! Da haben Sie ein Taschenbuch, in welchem nur Waidmännisches enthalten ist. Gebe der Himmeld, daß es mir endlich gelungen sein möchte, den Beifall des größeren Theils der gebildeten Jäger zu erringen;",
+      "language": [],
+      "musenalm_id": 69807,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorwort",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von Corvin-Wiersbitzki",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorwort",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.117Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.117Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "r4ba3hg58zsfpuf"
+        }
+      ],
+      "source_id": "d9jhc179gmrnzk3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69808,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "xl4wzpuhbpv7g0t"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.051Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Wenn der Jäger den ersten bekränzten Erntewagen in die Scheune schwanken sieht, dann schmunzelt er vergnügt in sich hinein",
+      "language": [],
+      "musenalm_id": 69809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Das graue Repphuhn. / Perdix cinerea L.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Das graue Repphuhn. / Perdix cinerea L.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "1pqeoci4poq4juy"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 69811, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.971Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Wir Deutsche sind unendlich glücklich; uns bleibt gar nichts mehr zu wünschen übrig, wir besitzen Alles, was zu unserer vollkommenen Zufriedenheit nöthig ist. Das lehrt uns täglich die Preußische Allgemeine Zeitung und andere geistvolle Blätter.",
+      "language": [],
+      "musenalm_id": 69810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das rothe Repphuhn. / Perdix rubra T.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "O. v. C. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das rothe Repphuhn. / Perdix rubra T.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.493Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "c39no9opy99edqa"
+        }
+      ],
+      "source_id": "8ze61kronkz9gpj"
+    },
+    {
+      "annotation": "# Bez. am 2. Blatt der Suite. /) kol. Illustration zu »Das rothe Repphuhn. Perdix rubra T.« von Otto von Corvin-Wiersbitzki INr 69810, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.972Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69811,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Rothe Repphühner",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Geyer rad.",
+      "scans": [
+        "alm_2851_69811_t0kfcqv6u9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Rothe Repphühner",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.493Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.493Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "5hlfslkiyfzeio7"
+        }
+      ],
+      "source_id": "zveo0s8wu16kzh3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:16.155Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Das Stein-Repphuhn, auch Steinhuhn, Pernisse und Batavelle genannt, hat eine sehr große Aehnlichkeit mit dem rothen Repphuhn,",
+      "language": [],
+      "musenalm_id": 69812,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Das Stein-Repphuhn. / Perdix saxatalis L.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "O. v. C. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Das Stein-Repphuhn. / Perdix saxatalis L.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.430Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.430Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "uthw3kbq7qzb1g0"
+        }
+      ],
+      "source_id": "kkf6t5fyolmsw08"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 69814, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.414Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "Ich führe hier meinen Lesern noch ein Wild vor, welches vielleicht mancher unserer Jäger, dessen Revier in den höhern Gebirgsgegenden Deutschlands liegt, von Zeit zu Zeit gesehen haben wird.",
+      "language": [],
+      "musenalm_id": 69813,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Das Schneehuhn. / Tetrao Lagopus",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "O. v. C. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Das Schneehuhn. / Tetrao Lagopus",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.377Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.377Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "y130f66qv6x60fq"
+        }
+      ],
+      "source_id": "9lu6r3f26fa43zi"
+    },
+    {
+      "annotation": "kol. Illustration zu »Das Schneehuhn. Tetrao Lagopus.« von Otto von Corvin-Wiersbitzki INr 69813, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.415Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "24",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69814,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schneehühner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. Geyer rad.",
+      "scans": [
+        "alm_2851_69814_qwljoprp4h.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Schneehühner",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "o0fss5e3ebhbe98"
+        }
+      ],
+      "source_id": "794qoginwrm06c7"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 69816, 69817; Obj 14, 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.416Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Bei meine Wanderungen durch die Salzburgischen Alpen besuchte ich auch die sehenswerthen Marmorbrüche und die an den Gebirgsbächen liegenden Schussermühlen,",
+      "language": [],
+      "musenalm_id": 69815,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Jagd auf den Alpen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Seyffarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Jagd auf den Alpen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "yqnvauezu9bu198"
+        }
+      ],
+      "source_id": "jot4q6fyygy88ft"
+    },
+    {
+      "annotation": "# Bez. am 2. Blatt der Suite. /) kol. Illustration zu »Jagd auf den Alpen« von F. C. Seyffarth INr 69815, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.417Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69816,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gemse",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Geyer rad.",
+      "scans": [
+        "alm_2851_69816_mb4454w9cq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Gemse",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "ccx6swo283yjhkm"
+        }
+      ],
+      "source_id": "os5ndyyxbzg3h2v"
+    },
+    {
+      "annotation": "# Bez. am 2. Blatt der Suite. /) kol. Illustration zu »Jagd auf den Alpen« von F. C. Seyffarth INr 69815, Obj 13",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.419Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "72",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69817,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Steinbock",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. Geyer rad.",
+      "scans": [
+        "alm_2851_69817_ocvwcjba10.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Steinbock",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "k9ac0a5lkd5h6nx",
+          "source_id": "e2z2x93s8ohhouv"
+        }
+      ],
+      "source_id": "bfhujfw98gljldl"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 69854, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "Die Jäger sind ein wenig schreibelustiges Volk; das ist eine bekannte Thatsache. Daher kommt es denn auch, daß wir von dem Zustande der Jagd in manchen Ländern so wenig wissen.",
+      "language": [],
+      "musenalm_id": 69818,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Jagd in Illyrien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Jagd in Illyrien",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "3z85jyfcjof33r8"
+        }
+      ],
+      "source_id": "1cim1z0da680n05"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 69818, Obj 16 /) # Bez. aus der Einleitung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.592Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "79",
+      "incipit_statement": "Da ich dem technischen Commissariat zugetheilt bin, so liegt es in meinem Berufe, das Königreich Illyrien nach allen Richtungen hin zu bereisen.",
+      "language": [],
+      "musenalm_id": 69854,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[6. Jagd in Illyrien]",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Edler von Br-d",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[6. Jagd in Illyrien]",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "1tkg93005oz8n2o"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 69820, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "120",
+      "incipit_statement": "Die Jugenderinnerungen des alten Piqueurs Christian Rauch gehören einer Zeit an, in welcher das Jagdwesen in Deutschland noch in hoher Blüthe stand.",
+      "language": [],
+      "musenalm_id": 69819,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Erinnerungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Erinnerungen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "y19sbok1kz0mwqj"
+        }
+      ],
+      "source_id": "c49cutjy4e9nbqr"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 69819, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.420Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Ich war ein rüstiger,kerngesunder Bursche von fünf und zwanzig Jahren,als mich mein Lehrprinizipal, der markgräflich baireuthische Wildmeister B-sch in Thierstein, als einen hirsch- und jagdgerechten Jäger mt einem großen, schön gemalten Lehrbrief entließ",
+      "language": [],
+      "musenalm_id": 69820,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Erinnerungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Piqueur Christian Rauch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Erinnerungen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "kjicnggvprkdb8v"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 69822, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Schon oftmals habe ich Gelegenheit gehabt, die Bemerkung zu machen, daß die deutschen Jäger die Erzählungen von indischen Tiger-, Büffel- und Elephantenjagden mit entschiedenen Mißtrauen aufnehmen,",
+      "language": [],
+      "musenalm_id": 69821,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Jagden in Indien",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Jagden in Indien",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.378Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.378Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "zam11wu8sn8lv09"
+        }
+      ],
+      "source_id": "b55gkkexztro866"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 69821, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.421Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Lieber Freund, Sie sind dem Tiger durch ein Wunder entkommen, bemerkte der Doctor Jansen, während die drei Jäger im kurzen Trabe in dem romantischen Defilé hinabritten,",
+      "language": [],
+      "musenalm_id": 69822,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[8. Jagden in Indien]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[8. Jagden in Indien]",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "lnex4p2m72w5wp2"
+    },
+    {
+      "annotation": "# Bez. am Objekt fälschlich: J. C. Seyfarth",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "191",
+      "incipit_statement": "Das Gänseschlagen gewährt den Jägern an der Donau eine sehr angenehme Abwechslung, und da diese Jagdart dem größten Theil der Leser wahrscheinlich unbekannt ist,",
+      "language": [],
+      "musenalm_id": 69823,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Das Gänseschlagen an der Donau",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Seyffarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Das Gänseschlagen an der Donau",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.371Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.371Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "dtqcu93mosgyeee"
+        }
+      ],
+      "source_id": "ux8e98x8c3m4mf9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.375Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "196",
+      "incipit_statement": "Seit Jahrhunderten sind die Urwälder Hollands verschwunden. Der stolze Hirsch und der borstige Eber leben in diesen Gegenden nur noch in den Sagen fort.",
+      "language": [],
+      "musenalm_id": 69824,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Der holländische Entenjäger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Verster von Wulverhorst",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Der holländische Entenjäger",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "jc7d5cppw47fwp8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "200",
+      "incipit_statement": "Als junger deutscher Forstmann und Jäger wurde ich von Napoleon gezwungen, zur Unterdrückung des spanischen Volkes mit nach Spanien zu marschiren.",
+      "language": [],
+      "musenalm_id": 69825,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Die Wachteljagd am Golf von Catalonien. / Nach mündlicher Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Major Hemmert",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Die Wachteljagd am Golf von Catalonien. / Nach mündlicher Erzählung",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "7m56po18s137i3u"
+    },
+    {
+      "annotation": "Es folgen: Vorwort des Herausgebers und Beitrag INr 69827, 69828; Obj 26, 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:15.376Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "204",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69826,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Die Falkenbeize",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Seyffarth, ehemaligem Jäger-Offizier, ordentlichem Mitglied der Herzogl. Sächs. Meiningischen und Gothaischen Societät der Forst- und Jagdkunde u.s.w.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Die Falkenbeize",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.371Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.371Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "tf8dbr7d4a5bk1a"
+        }
+      ],
+      "source_id": "luxvenn3duvzlzg"
+    },
+    {
+      "annotation": "Einleitung zum Beitrag INr 69828, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "207",
+      "incipit_statement": "Im vorigen Jahr versprach ich den Jägern etwas Näheres über die Falkenjagd, und hoffte dabei das in Holland erscheinende Prachtwerk benutzen zu können",
+      "language": [],
+      "musenalm_id": 69827,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[12. Die Falkenbeize] Vorwort / des / Herausgebers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Herausgeber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[12. Die Falkenbeize] Vorwort / des / Herausgebers",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "lg37gfzajd75wtj"
+        }
+      ],
+      "source_id": "mtfp4ubh64lhed2"
+    },
+    {
+      "annotation": "Beitrag in 21 Paragraphen mit einem Vorwort des Herausgebers /) mit einer Illustration s. Graphik INr 69829, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.488Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "209",
+      "incipit_statement": "Die Kunst, durch abgerichtete Falken, Vögel und kleine vierfüßige jagdbare Thier im fliegenden Lauf zu fangen, heißt die Falkenbaize",
+      "language": [],
+      "musenalm_id": 69828,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[12. Die Falkenbeize]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Seyffarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[12. Die Falkenbeize]",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.230Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.230Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "o62ef2fzcglfjdm"
+        }
+      ],
+      "source_id": "vgs8dnxrb5o6pnz"
+    },
+    {
+      "annotation": "Dem 1. Kapitel des Beitrags vorangestellt. /) Illustration zu »Die Falkenbeize« von F. C. Seyffarth INr 69828, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.489Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "208",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69829,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2851_69829_43q3tzbxum.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ymy1iuqmfkwc0oj"
+    },
+    {
+      "annotation": "Sammlung von 22 Beiträgen INr 69831-69852, Obj 30-51",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.490Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69830,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Waldtreiben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Waldtreiben",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "iccdu401hwwnvfv"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Herr Dr. Schlegel, Conservator am niederländischen Reichsmuseum, und Herr Verster van Wulverhorst, Kön. niederländischer Forstmeister und Generalinspector des Jagdwesens in den Niederlanden, haben sich vorgenommen, ein Prachtwerk in französischer Sprache",
+      "language": [],
+      "musenalm_id": 69831,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Prachtwerk über die Falkenbaize",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Prachtwerk über die Falkenbaize",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "aonwmowa2ef0pin"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.208Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "Ich war schon lange einem starken Zehnender zu Gefallen gegangen, der sich vor allen seinen stärkeren Kameraden durch ein widersinniges Geweih auszeichnete;",
+      "language": [],
+      "musenalm_id": 69832,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Seltene Hirschhatze. / Nach mündlicher Erzählung des Ober-Salinen-Controleurs Heinberger, / ehem. Revierförster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Seltene Hirschhatze. / Nach mündlicher Erzählung des Ober-Salinen-Controleurs Heinberger, / ehem. Revierförster",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "85umi8vkk21cy0q"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.209Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Die Brunftzeit der Hirsche hatte schon begonnen, als ich höhern Orts den Befehl erhielt, noch einen jagdbaren Hirsch zu schießen.",
+      "language": [],
+      "musenalm_id": 69833,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Kämpfe der Hirsche während der Brunftzeit. / Nach mündlicher Überlieferung des Oberförsters Otto in Sparneck im Fichtelgebirge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Kämpfe der Hirsche während der Brunftzeit. / Nach mündlicher Überlieferung des Oberförsters Otto in Sparneck im Fichtelgebirge",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "c34myiq4ukldaaj"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Am zweiten Juni d. J. gegen Abend hört ein im Distrikt Hengstenberg des kurfürstl. Forstreviers Bieber beschäftigter Köhler ein Reh",
+      "language": [],
+      "musenalm_id": 69834,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Ein Zweikampf zwischen Rehböcken. / Eingesandt von C. Jahn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Ein Zweikampf zwischen Rehböcken. / Eingesandt von C. Jahn",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "js6idxssrmel9wn"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Im Herbste 1833 waren auf dem Forstreviere Tambach die meisten starken Hirsche schon auf die Brunft getreten, als ich die Weisung erhielt, einen starken Hirsch in die herzogliche Hofküche nach Gotha zu liefern.",
+      "language": [],
+      "musenalm_id": 69835,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Merkwürdiger Vorfall bei Nachahmung des Hirschrufes. / Mitgetheilt von dem Ober-Salinencontroleur Heinberger, ehemaligem Revier- / förster",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Merkwürdiger Vorfall bei Nachahmung des Hirschrufes. / Mitgetheilt von dem Ober-Salinencontroleur Heinberger, ehemaligem Revier- / förster",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "vrkvyo6zeuhzbjh"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.892Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "279",
+      "incipit_statement": "Vor mehren Jahren kam ich zur Zeit der Hirschbrunft auf den Gedanken, einmal wieder eine neue Probe mit meinem Hirschrufe zu machen.",
+      "language": [],
+      "musenalm_id": 69836,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Bestrafter Vorwitz. / Vom Oberförster Specht in Benshausen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Bestrafter Vorwitz. / Vom Oberförster Specht in Benshausen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ucbyfn4cyeibst8"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.949Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "281",
+      "incipit_statement": "Die Hirschbrunft hatte bei dem herrlichen Frühlingswetter und Vorsommer des Jahres 1841 von starken Hirschen außer gewöhnlich frühzeitig begonnen,",
+      "language": [],
+      "musenalm_id": 69837,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Eine seltene Hirschjagd / Mitgetheilt von F. C. Seyffarth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Seyffarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Eine seltene Hirschjagd / Mitgetheilt von F. C. Seyffarth",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.345Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.345Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "gy02zssy53g21lr"
+        }
+      ],
+      "source_id": "1qwbr4x3s21lv1v"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.950Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Im Jahre 1835 hielt der verstorbene Herzog von Sachsen-Coburg-Gotha eine Hirschjagd auf dem Stutzhäuser Revier",
+      "language": [],
+      "musenalm_id": 69838,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8. / Der Hirsch auf dem Kellerdache",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8. / Der Hirsch auf dem Kellerdache",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "s67fv8arp3vz1dj"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "284",
+      "incipit_statement": "Auf dem Königl. Preuß. Forstreviere Kundorf wurde vor einigen Jahren ein jagdbarer Hirsch angeschossen",
+      "language": [],
+      "musenalm_id": 69839,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9. / Vorwitz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9. / Vorwitz",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "k8sj7ajkhhrir4b"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "285",
+      "incipit_statement": "Vor dem Kriege von 1814 lag das Jägerbataillon, bei welchem ich als Officier stand, in dem freundlichen Städtchen St-gen im Flachlande des gesegneten Niederbaierns.",
+      "language": [],
+      "musenalm_id": 69840,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10. / Die Fuchsjagd im Backofen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. Seyfarth",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10. / Die Fuchsjagd im Backofen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.305Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "39xfnmddyf868dl"
+        }
+      ],
+      "source_id": "we5c56w2md3sucw"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:14.514Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "Als ich in diesem Sommer 1844 das Jagdschloß am Bartholomäussee besuchte, fand ich dort ein Oelgemälde, auf welchem eine eigenthümliche Jagdscene dargestellt ist:",
+      "language": [],
+      "musenalm_id": 69841,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11. / Die Bärenjagd im See. / Mitgetheilt von F. C. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11. / Die Bärenjagd im See. / Mitgetheilt von F. C. S.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.305Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.305Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "21cf1x0dojbfjfy"
+        }
+      ],
+      "source_id": "fknvj3xq54ep0ly"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "295",
+      "incipit_statement": "Es ist in der That Niemand zu verdenken, wenn er Lust bekommt, einen jungen Frischling im Walde zu fangen,",
+      "language": [],
+      "musenalm_id": 69842,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12. / Die Bache und ihre Frischlinge. / Mitgetheilt von C. F. S.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12. / Die Bache und ihre Frischlinge. / Mitgetheilt von C. F. S.",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "60ukt3b5wq30bfu"
+        }
+      ],
+      "source_id": "4jnnxvecqm32djw"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "299",
+      "incipit_statement": "Ich wurde, als Fortspractikant der damaligen Forstverwaltung Goldcronach, von deren Vorstand beorderet, die verschiedenen Köhlereien nachzusehen,",
+      "language": [],
+      "musenalm_id": 69843,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "13. / Das alte Thier mit seinem Kalbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "13. / Das alte Thier mit seinem Kalbe",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "u8e52sbpmz1pvbq"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "301",
+      "incipit_statement": "Bei einem stillen Durchgehen eines Forstortes im Reviere St. Salvador kam mir 1811 ein altes Reh mit einem Schmalreh angelaufen,",
+      "language": [],
+      "musenalm_id": 69844,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "14. / Das alte Reh",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "14. / Das alte Reh",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "8mguhpjdnr52o7q"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "Einem jeden Jäger ist es bekannt, wie sehr alle Mustellenarten den Menschen fürchten und daß sie bei seinem Anblick auf das Schleunigste die Flucht ergreifen.",
+      "language": [],
+      "musenalm_id": 69845,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "15. / Der Marder und sein Junges",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Ruek, Königl. Revierförster",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "15. / Der Marder und sein Junges",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ro3y4ob825vp12u"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "302",
+      "incipit_statement": "Der Königl. Revierförster Hüttig zu Benshausen hatte am Flusse Lichtenau nach einem frisch gefallenen Schnee im December 1841 einen Fischotter gespürt,",
+      "language": [],
+      "musenalm_id": 69846,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "16. / Der Fischotter und sein Junges",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "16. / Der Fischotter und sein Junges",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "ig6yp8oil2qdvhz"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "303",
+      "incipit_statement": "Daß mütterliche Liebe für die Jungen, beim Verluste derselben, auch auf Thiere anderen Geschlechts übergeht, beweiset folgendes interessanteBeispiel:",
+      "language": [],
+      "musenalm_id": 69847,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "17. / Eine Dachshündin säugt einen jungen Hasen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. S",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "17. / Eine Dachshündin säugt einen jungen Hasen",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "mcpmb8oorw20di2"
+        }
+      ],
+      "source_id": "7xto1izmv01ocmh"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "304",
+      "incipit_statement": "Gewöhnlich traut man unserm guten Lampe keine andere Fähigkeit zu, als die des schnellen Laufens;",
+      "language": [],
+      "musenalm_id": 69848,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "18. / Der schlaue Hase",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "18. / Der schlaue Hase",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "pkpbr1bofmenapk"
+        }
+      ],
+      "source_id": "1pfw8t3hx7eo63v"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:13.674Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Es ist jedem Jäger bekannt, daß alle Thiere zur Begattungszeit eine höhere Lebenskraft haben als sonst.",
+      "language": [],
+      "musenalm_id": 69849,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "19. / Die Auerhahnenbalze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. C. S.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "19. / Die Auerhahnenbalze",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.247Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.247Z",
+          "agent": "o21hxq359ew0vra",
+          "source_id": "4z6484y8qns80ii"
+        }
+      ],
+      "source_id": "ygfk50t4h6rrfqn"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "308",
+      "incipit_statement": "Zur Zeit der Birkhahnbalze geht ein sehr glaubwürdiger Jagdfreund von mir, aus dessen eigenem Munde ich diese Geschichte gehört habe, auf einem von Hähnen sehr besuchten Balzplatz,",
+      "language": [],
+      "musenalm_id": 69850,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "20. / Der dreiste Auerhahn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "20. / Der dreiste Auerhahn",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.157Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "oyc58gasi7vdown"
+        }
+      ],
+      "source_id": "pvd7b3117v847nf"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Ein ganz ähnlicher Fall von Dreistigkeit eines Trappenhahhns ist vor einigen Jahren auch bei einem Dorfe in der Nähe von Gotha vorgekommen.",
+      "language": [],
+      "musenalm_id": 69851,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "21. / Der dreiste Trappenhahn",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "21. / Der dreiste Trappenhahn",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.157Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "gzah8tz3aick89i"
+        }
+      ],
+      "source_id": "1vekg3wc8wd8hog"
+    },
+    {
+      "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.589Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "309",
+      "incipit_statement": "Vor drei Jahren machte ein junger Mann in Gotha, der ein passionierter Kaninchenjäger ist, und sich deshlb Frettchen hält, einen Versuch, Bastarde von Frettchen und Iltis zu ziehen,",
+      "language": [],
+      "musenalm_id": 69852,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "22. / Bastarde von Frettchen und Iltis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "C. v. W.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "22. / Bastarde von Frettchen und Iltis",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.157Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.157Z",
+          "agent": "cmylaolo9dbcgmr",
+          "source_id": "ct1awp5sxjn1xqh"
+        }
+      ],
+      "source_id": "l04c4veie8cbxuc"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:12.590Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 69853,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leipzig, / Druck und Verlag von B. G. Teubner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2851_69853_mefwlk2z9f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leipzig, / Druck und Verlag von B. G. Teubner",
+      "updated": "2010-02-18 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1845,
+      "editor": "",
+      "agents": [],
+      "source_id": "e2m8rtpgokoa4ik"
+    }
   ],
   "agents": [
     {

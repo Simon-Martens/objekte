@@ -48,37 +48,1179 @@
   "year": 1818,
   "editor": "",
   "items": [
-    "tude9rr2txyx85t"
+    {
+      "annotation": "1816, 1818-1822. <br> Fortgesetzt durch: Frühlingsbote, Der 1823-1825",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.703Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "100876",
+      "location": "105F07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.703Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "tude9rr2txyx85t"
+    }
   ],
   "contents": [
-    "zpca7tc4g2ku7v4",
-    "yuh2vv5ryhhxx9f",
-    "oh74l3j9jayn5iw",
-    "eh0ith5fjah7h4g",
-    "2nmfwhfq63yg19k",
-    "47alydsj204bqks",
-    "gk46x2si7qndihs",
-    "j32b9ysbjf0356h",
-    "bzwxo83jz0f1g36",
-    "hu2zgoyx34zo0yv",
-    "j0jo1ry6cymhfp8",
-    "wm0ei7gr9ar47oq",
-    "qn1m8cnpcm3u9o3",
-    "3vprvi1d0hulga9",
-    "vvf1ygs5oxok4es",
-    "6dk0vubfoihbxc3",
-    "nggyzvgigbiowmw",
-    "z3eingebhcxq0s4",
-    "1dwq9ttgzffgol3",
-    "573uth1ki4pig1k",
-    "v71bkr40slw77jb",
-    "z2xds0z6hjl97kn",
-    "0x1dy5d0aeearzp",
-    "5ytjwco6sh2n0n1",
-    "r82i7dwnnz2lwhf",
-    "4jsq9xa4golgv4c",
-    "zq224im0npaqr89",
-    "ssb7hrjelg7y7e7"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.562Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98442,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3533_98442_6icj6w862c.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "zpca7tc4g2ku7v4"
+    },
+    {
+      "annotation": "Titelgraphik; unter der Graphik: zu  pag. 89 /) Illustration zu »Ein Fragment aus dem Leben dreier Freunde« von E. T. A.Hoffmann INr 98448, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.566Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98443,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3533_98443_prnpn3ptrq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.891Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "rc335sskobo7694"
+        }
+      ],
+      "source_id": "yuh2vv5ryhhxx9f"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.569Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98444,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Zweiter Band. / Frankfurt am Mayn / bei den Gebrüdern Wilmans. / 1818",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3533_98444_qvxq2rluah.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Zweiter Band. / Frankfurt am Mayn / bei den Gebrüdern Wilmans. / 1818",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "oh74l3j9jayn5iw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98445,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "eh0ith5fjah7h4g"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Daß du nur hübsch fleißig bist, das sag' ich dir! Wo wollt Ihr denn hin, lieber Vater? In den Wald, den Gang noch einmal aushauen;",
+      "language": [],
+      "musenalm_id": 98446,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "szen. Darstellung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der König von gestern. / Eine Posse in 1 Akt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der König von gestern. / Eine Posse in 1 Akt",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.891Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.891Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "idnqwfhaflozacn"
+        }
+      ],
+      "source_id": "2nmfwhfq63yg19k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "52",
+      "incipit_statement": "O wie Wen'ge nur verstehen, / Auf ein zärterfühlend Herz / Milden Balsamthau zu wehen,",
+      "language": [],
+      "musenalm_id": 98447,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bewährung. / An Luise von B.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bewährung. / An Luise von B.",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.892Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "fa2jqxfs72xv0hz"
+        }
+      ],
+      "source_id": "47alydsj204bqks"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 98443, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:33.571Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Am zweiten Pfingsttag war das sogenannte Webersche Zelt, ein öffentlicher Ort im Berliner Thiergarten, von Menschen allerlei Art und Gattung, so überfüllt, daß Alexander nur durch unabläßiges Rufen",
+      "language": [],
+      "musenalm_id": 98448,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ein Fragment / aus dem Leben dreier Freunde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "E. T. Hoffmann, Verfasser der Phantasiestücke",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ein Fragment / aus dem Leben dreier Freunde",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.892Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.892Z",
+          "agent": "hhytu0neum83euj",
+          "source_id": "cu9m5gfut1zdaet"
+        }
+      ],
+      "source_id": "gk46x2si7qndihs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.143Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Ach! wißt ihr's? Lilli's Kätzchen / Ist schon seit gestern todt,",
+      "language": [],
+      "musenalm_id": 98449,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klaglied / auf Lilli's Kätzchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Klaglied / auf Lilli's Kätzchen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "j32b9ysbjf0356h"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 98457, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Mitten im Herzen des alten, deutschen Reiches hausete Herr Günther von Seligenstein, auf einer Burg, welche hochgelegen, die an Bäumen und Wiesen reiche, anmuthvolle Gegend beherrschte.",
+      "language": [],
+      "musenalm_id": 98450,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / furchtbare Ausforderer. / Nach einer Volkssage",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "F. Laun",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / furchtbare Ausforderer. / Nach einer Volkssage",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.693Z",
+          "agent": "z3f86v065s6vcml",
+          "source_id": "pcqscpyem37p3ca"
+        }
+      ],
+      "source_id": "bzwxo83jz0f1g36"
+    },
+    {
+      "annotation": "unter der Graphik: zu pag. 193 /) Illustration zu »Der furchtbare Ausforderer« von F. Laun d. i. F. A. Schulze INr 98450, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.608Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "192",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98457,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3533_98457_oi18tz16xj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "q6h2aw0d0b69xc7",
+          "source_id": "dpjn213qxole73r"
+        }
+      ],
+      "source_id": "hu2zgoyx34zo0yv"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "214",
+      "incipit_statement": "Es irrt, bei Dunkelheit und Regen, / Ein Ritter durch die Wildniß hin,",
+      "language": [],
+      "musenalm_id": 98451,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Garlinde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Schreiber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Garlinde",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.693Z",
+          "agent": "mo7kunctv2y3z7j",
+          "source_id": "0613e79mcjjxtmo"
+        }
+      ],
+      "source_id": "j0jo1ry6cymhfp8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "218",
+      "incipit_statement": "Es war im Zwilichten, über den dunkeln Schwarzwald zog die Nacht herein, und durch das weite Thal sah man schon hier und da ein Lichtchen aufflackern!",
+      "language": [],
+      "musenalm_id": 98452,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bergmännchen",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelmine Willmar",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bergmännchen",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.693Z",
+          "agent": "wksvze1uaeqvtr8",
+          "source_id": "me24mozpqudh1oy"
+        }
+      ],
+      "source_id": "wm0ei7gr9ar47oq"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.531Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "290",
+      "incipit_statement": "Die Jünger sprachen einst zum Herrn: Es quälet / Die Menge sich mit schwankendem Gerücht,",
+      "language": [],
+      "musenalm_id": 98453,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Petri fester Glaube. / Sonnett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Petri fester Glaube. / Sonnett",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.693Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.693Z",
+          "agent": "7z02zmx8ocy9uwz",
+          "source_id": "rt6lohrfel8ws97"
+        }
+      ],
+      "source_id": "qn1m8cnpcm3u9o3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "291",
+      "incipit_statement": "Zu der Zeit, als der fromme Bischoff Basilius in Rom auf dem päpstlichen Stuhl saß, verbreitete sich in alle Länder das Gerücht seines heiligen Wandels,",
+      "language": [],
+      "musenalm_id": 98454,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / Königstochter aus der Fremde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "C. A.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / Königstochter aus der Fremde",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "3vprvi1d0hulga9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "306",
+      "incipit_statement": "Seit uralten Zeiten besangen alljährlich / Die Dichter des Fühlings erneuete Pracht,",
+      "language": [],
+      "musenalm_id": 98455,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Winterfreuden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Döring",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Winterfreuden",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.701Z",
+          "agent": "7z02zmx8ocy9uwz",
+          "source_id": "uhiqnwm7eatdg5d"
+        }
+      ],
+      "source_id": "vvf1ygs5oxok4es"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.607Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "310",
+      "incipit_statement": "In einer schauerlichen Winternacht saß in dem warmen freundlichen Gemach ein muntrer Mädchen-Kreis beisammen,",
+      "language": [],
+      "musenalm_id": 98456,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Winterabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Luise Brachmann",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Winterabend",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.701Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.701Z",
+          "agent": "t2bhwjntezhy9hb",
+          "source_id": "gcefwdrkioixlly"
+        }
+      ],
+      "source_id": "6dk0vubfoihbxc3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.610Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "363",
+      "incipit_statement": "Gott grüß dich, Freund! der du gestritten / Für die Gemein' und Flur und Hütten!",
+      "language": [],
+      "musenalm_id": 98458,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Heimkehr des Kriegers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "von Wessemberg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Heimkehr des Kriegers",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "ct6ke46zkjmvu7l",
+          "source_id": "h82a3kwljcjp2d9"
+        }
+      ],
+      "source_id": "nggyzvgigbiowmw"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98459,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freuden- / und / Scherzgedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freuden- / und / Scherzgedichte",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "z3eingebhcxq0s4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "366",
+      "incipit_statement": "Des Riesen Tochter kam vom Berge / Zum erstenmal auf's flache Land.",
+      "language": [],
+      "musenalm_id": 98460,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Spielzeug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Langbein",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Spielzeug",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "9ld8yawtzix8v24",
+          "source_id": "ee9pozz9xbl2c4a"
+        }
+      ],
+      "source_id": "1dwq9ttgzffgol3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "369",
+      "incipit_statement": "Noch ist der Griesgram nicht erblichen, / Und gerne lebt und lacht man doch;",
+      "language": [],
+      "musenalm_id": 98461,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schneeglöckchen und Krokus",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kind",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schneeglöckchen und Krokus",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "optixied5re5eqj",
+          "source_id": "yh1ewttswjpnd1l"
+        }
+      ],
+      "source_id": "573uth1ki4pig1k"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "372",
+      "incipit_statement": "Geht doch über Zuckersachen, / Wenn die blanken Weine lachen.",
+      "language": [],
+      "musenalm_id": 98462,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Altes Lied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Altes Lied",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "h939fr9ragudagg"
+        }
+      ],
+      "source_id": "v71bkr40slw77jb"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "373",
+      "incipit_statement": "Funfzig Jahre trieb' ich's toll; / Aber weise künftig soll, / Weise will ich leben.",
+      "language": [],
+      "musenalm_id": 98463,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Guido's Entschluß",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Haug",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Guido's Entschluß",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "xw7hg4qczu30jj0",
+          "source_id": "koz2vxfr404l876"
+        }
+      ],
+      "source_id": "z2xds0z6hjl97kn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "374",
+      "incipit_statement": "Natur gab Stieren Hörner, / Den Pferden starke Hufe, / Den Weibern gab sie Schönheit.",
+      "language": [],
+      "musenalm_id": 98464,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Anakreon",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Nänny",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Anakreon",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "0x1dy5d0aeearzp"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Musik, Musik kann mir behagen, / Mir ist dabei - wie soll ich sagen-",
+      "language": [],
+      "musenalm_id": 98465,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Concertgespräch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Concertgespräch",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "pxt2bltog3060sc"
+        }
+      ],
+      "source_id": "5ytjwco6sh2n0n1"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "377",
+      "incipit_statement": "Kraft des gehobnen Gleichgewichts / Geschieht es, daß wir wünschen, streben,",
+      "language": [],
+      "musenalm_id": 98466,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Philosoph an der Hecke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Philosoph an der Hecke",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "baqu74xclmfis7s"
+        }
+      ],
+      "source_id": "r82i7dwnnz2lwhf"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "378",
+      "incipit_statement": "Ein Bettler schlich so kläglich / Durch unser schlecht Quartier, / Und einen Pfennig täglich / Empfing er an der Thür,",
+      "language": [],
+      "musenalm_id": 98467,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bettlers Undank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "St. Schütze",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bettlers Undank",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.702Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.702Z",
+          "agent": "wmmsyhgqh7dhs7c",
+          "source_id": "h5887vsg3r9nrla"
+        }
+      ],
+      "source_id": "4jsq9xa4golgv4c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.612Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Druck und Papier von C. F.Brede in Offenbach",
+      "language": [],
+      "musenalm_id": 98468,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Druck und Papier von C. F.Brede in Offenbach…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "zq224im0npaqr89"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:31.895Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 98469,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_3533_98469_fbuqix5d1b.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-03-16 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1818,
+      "editor": "",
+      "agents": [],
+      "source_id": "ssb7hrjelg7y7e7"
+    }
   ],
   "agents": [
     {

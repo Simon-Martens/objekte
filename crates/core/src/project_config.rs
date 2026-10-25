@@ -217,6 +217,9 @@ pub(crate) fn load(root: &Path) -> Result<Loaded> {
                 }
                 if ![
                     "label",
+                    "translations",
+                    "singularLabel",
+                    "sidebarLabel",
                     "display",
                     "displayFields",
                     "displayFallback",
@@ -327,6 +330,8 @@ pub(crate) fn apply_fields(schema: &mut Value, fields: &Value) -> Result<()> {
                 "description",
                 "x-editor",
                 "x-options",
+                "x-optionLabels",
+                "translations",
                 "x-autocomplete",
                 "x-create",
                 "x-presentation",
@@ -336,7 +341,18 @@ pub(crate) fn apply_fields(schema: &mut Value, fields: &Value) -> Result<()> {
             {
                 return Err(invalid(format!("UI cannot override schema keyword {key}")));
             }
-            if key == "x-create" {
+            if key == "translations" {
+                let locales = value.as_object().ok_or_else(|| invalid("translations must map languages to text options"))?;
+                for messages in locales.values() {
+                    let messages = messages.as_object().ok_or_else(|| invalid("language translations must be an object"))?;
+                    for (name, text) in messages {
+                        if !matches!(name.as_str(), "title" | "description" | "x-optionLabels") || (name != "x-optionLabels" && !text.is_string()) || (name == "x-optionLabels" && !text.as_object().is_some_and(|labels| labels.values().all(Value::is_string))) {
+                            return Err(invalid("translations may only change titles, descriptions and option labels"));
+                        }
+                    }
+                }
+                target.insert("x-ui-translations".into(), value.clone());
+            } else if key == "x-create" {
                 let relation = target
                     .get_mut("x-relation")
                     .and_then(Value::as_object_mut)
@@ -354,4 +370,20 @@ pub(crate) fn apply_fields(schema: &mut Value, fields: &Value) -> Result<()> {
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod translation_tests {
+    use super::*;
+    #[test]
+    fn field_translations_are_presentation_only() {
+        let original = json!({"properties":{"name":{"type":"string","enum":["one","two"]}}});
+        let mut schema = original.clone();
+        apply_fields(&mut schema, &json!({"/properties/name":{"translations":{"de":{"title":"Name","description":"Beschreibung","x-optionLabels":{"one":"Eins"}}}}})).unwrap();
+        assert_eq!(schema["properties"]["name"]["enum"],original["properties"]["name"]["enum"]);
+        assert_eq!(schema["properties"]["name"]["x-ui-translations"]["de"]["title"],"Name");
+        for bad in [json!({"type":"integer"}),json!({"enum":["eins"]}),json!({"title":42}),json!({"x-optionLabels":{"one":1}})] {
+            assert!(apply_fields(&mut original.clone(), &json!({"/properties/name":{"translations":{"de":bad}}})).is_err());
+        }
+    }
 }

@@ -49,75 +49,2849 @@
   "year": 1839,
   "editor": "",
   "items": [
-    "qz05jk8i4cbs0u4"
+    {
+      "annotation": "1824-1827, Hg Fr. Gräffer und 1828-1858, Hg J.G.Seidel (1832 nicht ersch.).",
+      "condition": "1b",
+      "created": "2026-06-11 10:17:37.562Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106426",
+      "location": "105B10",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.562Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "qz05jk8i4cbs0u4"
+    }
   ],
   "contents": [
-    "gzuj0it4bviiyqb",
-    "x8tnr2wrzu3740n",
-    "wouo9scnodvfx52",
-    "uhs4ho1xablgl6h",
-    "kb8etjcb0dw2sw0",
-    "4o7j6hdcax49maz",
-    "nal7ajz416jbbie",
-    "er9cubafe5a697u",
-    "zh9qqj97celrqes",
-    "mi5irevkmm8l8h9",
-    "9mab2hcbunfhf4e",
-    "i9z1xo7dw923hcb",
-    "mugqc8ccgc8v004",
-    "76cw34beeb8gzf5",
-    "6iomrfe6ap8ihdi",
-    "l10y40khxj2b9xl",
-    "7ia6fu4z2t5sb5s",
-    "ceu6eigbcfhxjrj",
-    "2ytfr6fmm1mhtpu",
-    "0ghvg32s3qlzh91",
-    "dk1gqu5hnagruyc",
-    "z03qltfkh2vdax5",
-    "3ise4b9ukpxfwm3",
-    "lgesm8zp9dxb8xe",
-    "aeuxtwhbtg229jx",
-    "n2v9zzzrbkw574m",
-    "chkof333jmqk5hu",
-    "2vywzu3oe06up7p",
-    "qxgh7hyp9gx3l3s",
-    "545n79pdyy6mu2d",
-    "7tdzzq17psb1usc",
-    "60xpp1ew3y8k8mq",
-    "74gdmtukv9i8jsr",
-    "ziippqvhg3g3qfl",
-    "o9clc7fhwx5mdd3",
-    "82kzoswotvo6owe",
-    "vxjjrv88lz9y9fz",
-    "z2apbd6of1mhm6z",
-    "s40s04ri8qou8tw",
-    "bbh6p51q7dwhlv4",
-    "e002lwfroitbsim",
-    "4tddgaij962zq7c",
-    "9eie94loywmba2z",
-    "4ti7ens9jyu8fn5",
-    "r8np1w391fzejcw",
-    "snkwyxjv3x7lbc8",
-    "w4c6rwrz9ezj0p6",
-    "xgz5742fkomq671",
-    "s1fvcm97gfbg8t3",
-    "3dq8ltx83tgqabo",
-    "4njbsjji8qz1cck",
-    "232k8moup54vwfo",
-    "s36rrj787p8d3fr",
-    "3tvp4gnlbu7l9c2",
-    "nlsfylx75u3o2go",
-    "rl7l3sx7k2cfihv",
-    "tr5vm384m0z9vcr",
-    "zna6hpnx1zl5j4v",
-    "5rbcytcjpflt2y7",
-    "jpg8b7vlm8p4yby",
-    "xxgniigsqx5lcs1",
-    "iz2mo7dkwsa8mgr",
-    "71m82nsk3p57bvh",
-    "cyrjevd8m18pxyo",
-    "l7gvrph6w1l17ho",
-    "srjpjyvqlzndcpy"
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85677,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1594_85677_176zeifdgp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "gzuj0it4bviiyqb"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Wölfe von Tarent« von J. N. Vogl INr 85716, Obj 40",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.067Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85678,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "BEATRICE",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Zeichn. v. Clem. Russ. Stahlst. v. J. Axmann",
+      "scans": [
+        "alm_1594_85678_mfiy26fc12.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "BEATRICE",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.033Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.033Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "iwialufekqd1fqt"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.033Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.033Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "oc3hl1mv03hf4l2"
+        }
+      ],
+      "source_id": "x8tnr2wrzu3740n"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.044Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85679,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "AURORA / TASCHENBUCH / für das Jahr / 1839 / Herausgegeben / von / Johann Gabriel Seidl. / Fünfzehnter Jahrgang. / WIEN / bei Franz Riedl's / k.k. Hof- und bürgl. Buchbinders seel. Wittwe & Sohn / im Schottenhofe No. 136. / Leipzig, bei A. Liebeskind",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl sc.",
+      "scans": [
+        "alm_1594_85679_6cqvo5uc8s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "AURORA / TASCHENBUCH / für das Jahr / 1839 / Herausgegeben / von / Johann Gabriel Seidl. / Fünfzehnter Jahrgang. / WIEN / bei Franz Riedl's / k.k. Hof- und bürgl. Buchbinders seel. Wittwe & Sohn / im Schottenhofe No. 136. / Leipzig, bei A. Liebeskind",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "wouo9scnodvfx52"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85680,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Widmung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ihrer kaiserlichen Hoheit / der / durchlauchtigsten Prinzessin / MARIA ANNA, / Erzherzogin von Oesterreich, / Sternkreuz-Ordensdame, / in tiefster Ehrurcht gewidmet / von / Joh. Gab. Seidl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ihrer kaiserlichen Hoheit / der / durchlauchtigsten Prinzessin / MARIA ANNA, / Erzherzogin von Oesterreich, / Sternkreuz-Ordensdame, / in tiefster Ehrurcht gewidmet / von / Joh. Gab. Seidl",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.030Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.030Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "81tgnogisxg03ir"
+        }
+      ],
+      "source_id": "uhs4ho1xablgl6h"
+    },
+    {
+      "annotation": "Widmungsgedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Der Vogel sucht ein schirmend' Dach zu finden, / Um sich ein Nestchen freundlich hinzubauen;",
+      "language": [],
+      "musenalm_id": 85681,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Vogel sucht ein schirmend' Dach zu finden, / Um sich ein Nestchen freundlich hinzubauen;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "kb8etjcb0dw2sw0"
+    },
+    {
+      "annotation": "Illustration zu »Agnes« von R. G. Puff INr 85690, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.737Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85682,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agnes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clementine Russ del. G. Leybold sc.",
+      "scans": [
+        "alm_1594_85682_4a4zn1zdt3.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Agnes",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "fbss6fhzddvpkfp"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "zefb5ir07ld7tkj",
+          "source_id": "jwqc5jkkikefh0m"
+        }
+      ],
+      "source_id": "4o7j6hdcax49maz"
+    },
+    {
+      "annotation": "Illustration zu »Agnes« von R. G. Puff INr 85690, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.739Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85683,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agnes",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cl. Russ del. J. Kovatsch sc.",
+      "scans": [
+        "alm_1594_85683_xb5iw80v8d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Agnes",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "62xylq2r17e00q5"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "sh8m8qd8d5ym1oy"
+        }
+      ],
+      "source_id": "nal7ajz416jbbie"
+    },
+    {
+      "annotation": "Illustration zu »Oskar und Malvina« von Eduard Silesius # d.i. E. v. Badenfeld INr 85691, Obj 15 ff",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.741Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85684,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oskar und Malvina",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Cl. Russ del. J. Kovatsch sc.",
+      "scans": [
+        "alm_1594_85684_5idh7gjuu8.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Oskar und Malvina",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "jqv5rolwd3p3mdk"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "7b9443ro2tn4o8x",
+          "source_id": "p3n80qhdzz35fmt"
+        }
+      ],
+      "source_id": "er9cubafe5a697u"
+    },
+    {
+      "annotation": "Illustration zu »Der blinde Maler« von Anton Silas INr 85699, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.744Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85685,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Antoine",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Mezler del. I. Krepp sc. Viennae",
+      "scans": [
+        "alm_1594_85685_p2txgmvjrt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Antoine",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "4ydtp3mjohkj17q",
+          "source_id": "cnnljlb4qayjl3l"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "nbw7yc08fgsv5oo"
+        }
+      ],
+      "source_id": "zh9qqj97celrqes"
+    },
+    {
+      "annotation": "Illustration zu »Olga, Fürstin von Kiev« von J. N. Vogl INr 85703, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.746Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85686,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Olga, Fürstin von Kiew",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Clementine Russ inv. I. Krepp sculp.",
+      "scans": [
+        "alm_1594_85686_87s1hxivy7.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Olga, Fürstin von Kiew",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "iexyvzdzwrb4rqw",
+          "source_id": "jmp5cdcslix2qo6"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.079Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.079Z",
+          "agent": "oqniiai3xrx228t",
+          "source_id": "w6z2dlu5fupz0cx"
+        }
+      ],
+      "source_id": "mi5irevkmm8l8h9"
+    },
+    {
+      "annotation": "Illustration zu »Kurzgefaßte Beschreibung von dem Schlosse Bürglitz in Böhmen« INr 85718, Obj 42",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.609Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85687,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ansicht der alten Burg Bürglitz in Böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Axmann direx. Fr. Eissner sc. 838",
+      "scans": [
+        "alm_1594_85687_urc8o4ju8q.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ansicht der alten Burg Bürglitz in Böhmen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.217Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.217Z",
+          "agent": "eb0uid8s7k1f7eo",
+          "source_id": "fekjbzc05a6p6bc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.217Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.217Z",
+          "agent": "z64ev7tzpav4ds5",
+          "source_id": "mu3ekorz7nkhtsh"
+        }
+      ],
+      "source_id": "9mab2hcbunfhf4e"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85688,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik-Verzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "i9z1xo7dw923hcb"
+    },
+    {
+      "annotation": "Nachtitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aurora",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aurora",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "mugqc8ccgc8v004"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 85682, 85683; Obj 6, 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.611Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Des Morgens Purpur flimmerte durch den Buchendom des Bachengebirges. Millionen Perlen blitzten wie feurige Lustersteine an den Zweigen,",
+      "language": [],
+      "musenalm_id": 85690,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agnes. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Professor Rud. Gust. Puff",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Agnes. / Erzählung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.217Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.217Z",
+          "agent": "z276kpo6m8d5nvd",
+          "source_id": "m84jsd0rxg9sfbb"
+        }
+      ],
+      "source_id": "76cw34beeb8gzf5"
+    },
+    {
+      "annotation": "Sammlung von 7 Gedichten INr 85692-85698, Obj 15-22 /) mit einer Illustration s. Graphik INr 85684, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "49",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85691,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Oskar und Malvina. / Romanzenkranz",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Oskar und Malvina. / Romanzenkranz",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.165Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.165Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "n37pvlnrdxnlya2"
+        }
+      ],
+      "source_id": "6iomrfe6ap8ihdi"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "51",
+      "incipit_statement": "Auf dem weichen grünen Rasen / Saß ein Mädchen, hold und schön,",
+      "language": [],
+      "musenalm_id": 85692,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Die Schäferin",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Die Schäferin",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.165Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.165Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "zsou7vo0aur0hno"
+        }
+      ],
+      "source_id": "l10y40khxj2b9xl"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "53",
+      "incipit_statement": "Geht, Schätzchen, hin durch Flur und Hain, / In Lust und Scherz,",
+      "language": [],
+      "musenalm_id": 85693,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Malvina's Klage",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Malvina's Klage",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.166Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.166Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "2iw43q9m5qhjtnv"
+        }
+      ],
+      "source_id": "7ia6fu4z2t5sb5s"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "55",
+      "incipit_statement": "Malvina saß im Grünen, / Bei bleichem Mondenglanz",
+      "language": [],
+      "musenalm_id": 85694,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. / Stelldichein",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. / Stelldichein",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.215Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.215Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "6dny0tutygdiwlm"
+        }
+      ],
+      "source_id": "ceu6eigbcfhxjrj"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.604Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Der König sitzt auf seinem gold'nen Throne / Gar stolz und still,",
+      "language": [],
+      "musenalm_id": 85695,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. / Der König",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. / Der König",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.216Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.216Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "8m2zcevqdqcuh6t"
+        }
+      ],
+      "source_id": "2ytfr6fmm1mhtpu"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.264Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Wie rauschet die Woge so dumpf und bang / Da unten am zackichten Felsenhang!",
+      "language": [],
+      "musenalm_id": 85696,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. / Die Flucht",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. / Die Flucht",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.186Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.186Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "f3aacvuhw6as4yz"
+        }
+      ],
+      "source_id": "0ghvg32s3qlzh91"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.511Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "59",
+      "incipit_statement": "Wie flog durch die Wellen der flüchtige Kahn / So leicht und schnell!",
+      "language": [],
+      "musenalm_id": 85697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. / Die Wasserfahrt",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. / Die Wasserfahrt",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.133Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.133Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "arglza3y9zs7etf"
+        }
+      ],
+      "source_id": "dk1gqu5hnagruyc"
+    },
+    {
+      "annotation": "Oskar und Malvina. Romanzenkranz (Sammlung INr 85691, Obj 15)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.356Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Wen trägt dies Schiff, das, von den raschen Winden / Beflügelt, diesem Felsenstrande naht?",
+      "language": [],
+      "musenalm_id": 85698,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7. / Die Heimkehr",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Eduard Silesius",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7. / Die Heimkehr",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.056Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.056Z",
+          "agent": "kjfa5zse6o9jzto",
+          "source_id": "lhnycnh0dffls8b"
+        }
+      ],
+      "source_id": "z03qltfkh2vdax5"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Des Gemäldes Farbe war sein Herzblut /) mit einer Illustration s. Graphik INr 85685, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "65",
+      "incipit_statement": "Die Novellisten, vorzüglich aber die Dramatiker unserer Tage, durchblättern die Weltgeschichte und nur der Wahnsinn eines Belsazar, Liebe und Haß im Purpur, der weltlichen Größen Thränen, locken solche in die Augen des Publikums.",
+      "language": [],
+      "musenalm_id": 85699,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der blinde Maler. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Anton Silas",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der blinde Maler. / Novelle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "3ise4b9ukpxfwm3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.340Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "87",
+      "incipit_statement": "Ivetta, hättest du das gedacht, / Als jüngst das Glück dir so freundlich gelacht",
+      "language": [],
+      "musenalm_id": 85700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ivetta. / (Ballade.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ivetta. / (Ballade.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "lgesm8zp9dxb8xe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "In einem anmuthigen Thale, hoch von Gebirgen umschlossen, prangte ein weitläufiges Kloster, das durch seine Reichthümer, so wie durch die Anmuth der Lage gleich große Berühmtheit errungen hatte.",
+      "language": [],
+      "musenalm_id": 85701,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alphons von Leon. / Novellette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Carril",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Alphons von Leon. / Novellette",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "aeuxtwhbtg229jx"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 85703, 85704; Obj 27, 28",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85702,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Balladen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Balladen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "txzrof4l0gfravp"
+        }
+      ],
+      "source_id": "n2v9zzzrbkw574m"
+    },
+    {
+      "annotation": "Balladen (Sammlung INr 85702, Obj 26) mit einer Illustration s. Graphik INr 85686, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "109",
+      "incipit_statement": "In den herrenlosen Halle sitzet Olga, bleich und schweigend, / Auf das Kind zu ihren Knieen trauervoll das Antlitz neigend.",
+      "language": [],
+      "musenalm_id": 85703,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Olga, Fürstin von Kiev",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Olga, Fürstin von Kiev",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "qr6vt31wqgs3h22"
+        }
+      ],
+      "source_id": "chkof333jmqk5hu"
+    },
+    {
+      "annotation": "Balladen (Sammlung INr 85702, Obj 26)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "114",
+      "incipit_statement": "Zu Kossow auf der Heide / Erschallt's von Roßgestampf, / Da ringen Türk' und Ungar / In blutig wildem Kampf.",
+      "language": [],
+      "musenalm_id": 85704,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Johann Huniad",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Johann Huniad",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "r4elauzcfjd1h99"
+        }
+      ],
+      "source_id": "2vywzu3oe06up7p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "117",
+      "incipit_statement": "In den letzten Jahren meines Universitätsstudiums zu ***n lernte ich einen jungen Mann kennen, der mich durch den stillen, fast trübsinnigen Ernst seines Benehmens -",
+      "language": [],
+      "musenalm_id": 85705,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die ältere Frau. / Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "H. W. Adelmi",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die ältere Frau. / Novelle",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "qxgh7hyp9gx3l3s"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Oft meint' ich, die letzte Schwalbe sei's, / Die da verspätet geblieben;",
+      "language": [],
+      "musenalm_id": 85706,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die letzte Schwalbe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabr. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die letzte Schwalbe",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "tyl6wi3x2a2jn9p"
+        }
+      ],
+      "source_id": "545n79pdyy6mu2d"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.341Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Im Winter, 's war neblig und grimmig kalt, / Da ging ein Bettelmann durch den Wald",
+      "language": [],
+      "musenalm_id": 85707,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Bettler und sein Hund",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "I. F. Castelli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Bettler und sein Hund",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.120Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.120Z",
+          "agent": "7dzepqoa9ah8w0r",
+          "source_id": "4e5b2onpvqms75k"
+        }
+      ],
+      "source_id": "7tdzzq17psb1usc"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Die Wellen geberdeten sich ziemlich unbändig, die Matrosen machten üble Mienen, noch üblere die Reisenden, unter denen auch ich mich am Borde der Corriera befand.",
+      "language": [],
+      "musenalm_id": 85708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Armenierin. / (Aus meinem Wanderleben.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Adolph Bacherer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Armenierin. / (Aus meinem Wanderleben.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "60xpp1ew3y8k8mq"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "74gdmtukv9i8jsr"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "173",
+      "incipit_statement": "Tausend Blumen sprossen wieder, / Und der Lenz ist aufgewacht,",
+      "language": [],
+      "musenalm_id": 85710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ohne Liebe, kein Lust",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Meta Communis",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Ohne Liebe, kein Lust",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.183Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "mixic7vgu81k76q"
+        }
+      ],
+      "source_id": "ziippqvhg3g3qfl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "Sei mir gegrüßt an diesem Morgen, / Der vor drei Jahren uns erstand,",
+      "language": [],
+      "musenalm_id": 85711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am dritten Jahrestage unserer / Vermählung. / (Mailand, am 16. Jänner 1837.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wilhelm Marsano",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am dritten Jahrestage unserer / Vermählung. / (Mailand, am 16. Jänner 1837.)",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.183Z",
+          "agent": "rpi79icfm69ol8h",
+          "source_id": "schpjq8ic1otnn4"
+        }
+      ],
+      "source_id": "o9clc7fhwx5mdd3"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "177",
+      "incipit_statement": "In der Mutter weichem Schooße, / Schlummerte der Säugling ein,",
+      "language": [],
+      "musenalm_id": 85712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Thräne",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. Proben",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Thräne",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "82kzoswotvo6owe"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.246Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "179",
+      "incipit_statement": "Die kleinen Blumen auf dem Feld, die süßen, / Die sind mit mir in gar vertrautem Bund,",
+      "language": [],
+      "musenalm_id": 85713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Abendgang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Abendgang",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.183Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "l91vusrvypu1bcn"
+        }
+      ],
+      "source_id": "vxjjrv88lz9y9fz"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.247Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "180",
+      "incipit_statement": "In der Jugend, in der Jugend, / In der sel'gen Wonnezeit,",
+      "language": [],
+      "musenalm_id": 85714,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wald und Herz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gabriel Seidl.",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wald und Herz",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.183Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.183Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "mo38lphdi882znl"
+        }
+      ],
+      "source_id": "z2apbd6of1mhm6z"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "181",
+      "incipit_statement": "Die Kronleuchter flimmerten matter in der stattlichen Wohnung des reichen Wechslers von Welling, die letzten Lockungen der Walzer waren verrauscht,",
+      "language": [],
+      "musenalm_id": 85715,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Inkognito. / Komische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Adolph Bacherer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Inkognito. / Komische Erzählung",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "s40s04ri8qou8tw"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 85678, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.159Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "231",
+      "incipit_statement": "Einsam wandelt Beatrice / An der Blumenbeete Saum,",
+      "language": [],
+      "musenalm_id": 85716,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wölfe von Tarent. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wölfe von Tarent. / Ballade",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.106Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.106Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "4yp0z9ki5iohzuc"
+        }
+      ],
+      "source_id": "bbh6p51q7dwhlv4"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "237",
+      "incipit_statement": "Was ich Ihnen heute erzählen will, gehört nicht in das Gebiet jener Romane, wo der Dolch die Hindernisse löst,",
+      "language": [],
+      "musenalm_id": 85717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Lehrstunde. / Novellette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "W. A. Gerle",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Lehrstunde. / Novellette",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "1g5ju8pfs3rggmg",
+          "source_id": "4ryyqdafy9swhjh"
+        }
+      ],
+      "source_id": "e002lwfroitbsim"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 85687, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "251",
+      "incipit_statement": "Das ehemals feste Bergschloß Bürglitz, als dessen Erbauer Herzog Wladislav I., und das Jahr 1110 als Entstehungsjahr desselben gewöhnlich angegeben wird, liegt im Rakonitzer Kreise,",
+      "language": [],
+      "musenalm_id": 85718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kurzgefaßte Beschreibung / von / dem / Schlosse Bürglitz / in Böhmen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kurzgefaßte Beschreibung / von / dem / Schlosse Bürglitz / in Böhmen",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "4tddgaij962zq7c"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "254",
+      "incipit_statement": "Hab' oft geträumt vom Glücke, / Vom klaren Sonnenschein,",
+      "language": [],
+      "musenalm_id": 85719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Freude und Schmerz",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "August Schmidt",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Freude und Schmerz",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "17xjqe49v1xcoot",
+          "source_id": "ns8j0crw83w3wke"
+        }
+      ],
+      "source_id": "9eie94loywmba2z"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Nur ein Traum ist alles Leben, / Und die Träume selbst sind Traum! / Calderon",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Auf dem Söller des Schlosses stand der Greis, das sinnende Auge starr auf die schwankende Bewegung gerichtet,",
+      "language": [],
+      "musenalm_id": 85720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Johannisnacht. / Fantasiestück",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "F. A. Draxler",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Johannisnacht. / Fantasiestück",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "4ti7ens9jyu8fn5"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 85722-85725, Obj 46-49",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder vom Spielmann",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. M. Rappaport",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder vom Spielmann",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "q2uuw6ut96sk0lt",
+          "source_id": "ndbz9ewbv4t81pk"
+        }
+      ],
+      "source_id": "r8np1w391fzejcw"
+    },
+    {
+      "annotation": "Lieder vom Spielmann (Sammlung INr 85721, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "265",
+      "incipit_statement": "O spielt mit Freund ein lustig Stück, / Das recht zum Herzen spricht,",
+      "language": [],
+      "musenalm_id": 85722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. M. Rappaport",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "q2uuw6ut96sk0lt",
+          "source_id": "o1j9d6i8ddnubgg"
+        }
+      ],
+      "source_id": "snkwyxjv3x7lbc8"
+    },
+    {
+      "annotation": "Lieder vom Spielmann (Sammlung INr 85721, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.160Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "266",
+      "incipit_statement": "Auf gründend blühender Heide / Da stehen der Blümlein viel,",
+      "language": [],
+      "musenalm_id": 85723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. M. Rappaport",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "q2uuw6ut96sk0lt",
+          "source_id": "jiffg8yschdpa9o"
+        }
+      ],
+      "source_id": "w4c6rwrz9ezj0p6"
+    },
+    {
+      "annotation": "Lieder vom Spielmann (Sammlung INr 85721, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Gib dich zur Ruh', gib dich zur Ruh', / Du armes, krankes Herz,",
+      "language": [],
+      "musenalm_id": 85724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. M. Rappaport",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "q2uuw6ut96sk0lt",
+          "source_id": "zm33p1sn6qlxtk9"
+        }
+      ],
+      "source_id": "xgz5742fkomq671"
+    },
+    {
+      "annotation": "Lieder vom Spielmann (Sammlung INr 85721, Obj 45)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "267",
+      "incipit_statement": "Am Ufer des Jordans, auf Bergesrand, / Da stand einst der göttliche Mann,",
+      "language": [],
+      "musenalm_id": 85725,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. M. Rappaport",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "q2uuw6ut96sk0lt",
+          "source_id": "irjnbvdy0ulsreq"
+        }
+      ],
+      "source_id": "s1fvcm97gfbg8t3"
+    },
+    {
+      "annotation": "Sammlung von 12 Rätseln mit einem einleitenden Gedicht INr 85727-85739, Obj 51-63",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.161Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "269",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Blumenräthsel. / Aufgegeben / von / Joh. Gab. Seidl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Blumenräthsel. / Aufgegeben / von / Joh. Gab. Seidl",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.107Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.107Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "098dg98n7zd33ed"
+        }
+      ],
+      "source_id": "3dq8ltx83tgqabo"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50) einleitendes Gedicht",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Es gibt für Liebende nichts Todtes; Quellen, / Gestirne, Wolken, nimmt die Lieb' in Sold;",
+      "language": [],
+      "musenalm_id": 85727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Es gibt für Liebende nichts Todtes; Quellen, / Gestirne, Wolken, nimmt die Lieb' in Sold;…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "iye7j1mh6mv0hy4"
+        }
+      ],
+      "source_id": "4njbsjji8qz1cck"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "Die beiden Ersten zählen viel im Leben, / Wir rechnen Freud' und Leid nach ihrer Zahl;",
+      "language": [],
+      "musenalm_id": 85728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "uwkvtrndgg3bgs0"
+        }
+      ],
+      "source_id": "232k8moup54vwfo"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Wie lustig ist's im Ersten in dem Saale, / Den sich Natur zur Tempelhall' erbaut",
+      "language": [],
+      "musenalm_id": 85729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "0p3d3jkbtltqtzi"
+        }
+      ],
+      "source_id": "s36rrj787p8d3fr"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "Hier ist das erste Paar, so spricht die Traute, / Zu meinem Herzen hast du längst es schon;",
+      "language": [],
+      "musenalm_id": 85730,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "308p4n23k5haxoo"
+        }
+      ],
+      "source_id": "3tvp4gnlbu7l9c2"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Der Ersten soll der Mensch bei Nichts vergessen, / Sie zeigt den gold'nen Mittelweg uns an;",
+      "language": [],
+      "musenalm_id": 85731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "leoi4bpx5cq2vg5"
+        }
+      ],
+      "source_id": "nlsfylx75u3o2go"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "273",
+      "incipit_statement": "Ein Mädchen stand am Gartenzaune lauschend, / Sein kürzrer Name war das erste Paar",
+      "language": [],
+      "musenalm_id": 85732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.100Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.100Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "gy5ypam4jt35ne5"
+        }
+      ],
+      "source_id": "rl7l3sx7k2cfihv"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.087Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Wer kennt sie nicht, der je die Liebe kannte, / Die Erste, die Gefährtin stiller Glut,",
+      "language": [],
+      "musenalm_id": 85733,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.101Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.101Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "uvlpxqmje2yvikg"
+        }
+      ],
+      "source_id": "tr5vm384m0z9vcr"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "274",
+      "incipit_statement": "Die beiden Ersten führt man oft im Munde, / Doch nur im Reich des Herzens gelten sie;",
+      "language": [],
+      "musenalm_id": 85734,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "7.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "6wntoe4cpsz2gpu"
+        }
+      ],
+      "source_id": "zna6hpnx1zl5j4v"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.864Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "Die schnellbeschwingte Botin ferner Lieben / Nennt Euch das erste Paar, ihr kennt es wohl;",
+      "language": [],
+      "musenalm_id": 85735,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "8.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.154Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.154Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "6twmurotppxepn5"
+        }
+      ],
+      "source_id": "5rbcytcjpflt2y7"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:26.629Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "275",
+      "incipit_statement": "In blanken Reihen steh'n die Kriegerschaaren, / Die Fahne flattert und die Trommel dröhnt,",
+      "language": [],
+      "musenalm_id": 85736,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "9.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "9.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.140Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.140Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "axvg4sp0rzk03t1"
+        }
+      ],
+      "source_id": "jpg8b7vlm8p4yby"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:27.027Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "O laß, Geliebte, mir die Sterne leuchten, / Laß ungetrübt die Spiegel offen steh'n,",
+      "language": [],
+      "musenalm_id": 85737,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "10.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.159Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.159Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "e4jf1w6svfi907y"
+        }
+      ],
+      "source_id": "xxgniigsqx5lcs1"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Den bitt'ren Wermuth im Pokal des Lebens / Nennt Euch das erste Paar; wer trank ihn nicht?",
+      "language": [],
+      "musenalm_id": 85738,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "11.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "11.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.084Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "miss6sslvteydfg"
+        }
+      ],
+      "source_id": "iz2mo7dkwsa8mgr"
+    },
+    {
+      "annotation": "Blumenräthsel (Sammlung INr 85726, Obj 50)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Im Ersten lauscht der Fischer stillverborgen, / Sein Liebchen naht, er rudert schnell an's Land-",
+      "language": [],
+      "musenalm_id": 85739,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Rätsel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "12.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Gab. Seidl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "12.",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:01.084Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:01.084Z",
+          "agent": "uto0tazb8xl0ih3",
+          "source_id": "vhpcjky5illz65h"
+        }
+      ],
+      "source_id": "71m82nsk3p57bvh"
+    },
+    {
+      "annotation": "Auflösung der vorstehenden Rätsel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85740,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auflösung / der Blumenräthsel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auflösung / der Blumenräthsel",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "cyrjevd8m18pxyo"
+    },
+    {
+      "annotation": "Unter dem I-Verz: Gedruckt bei A. Strauß's sel. Witwe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85741,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "l7gvrph6w1l17ho"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:25.854Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 85742,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1594_85742_pstl9r6nyr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-13 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1839,
+      "editor": "",
+      "agents": [],
+      "source_id": "srjpjyvqlzndcpy"
+    }
   ],
   "agents": [
     {

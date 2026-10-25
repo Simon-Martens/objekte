@@ -48,12 +48,131 @@
   "year": 1799,
   "editor": "",
   "items": [
-    "hxw2o7ug8tjg1fj"
+    {
+      "annotation": "2. Titel: Taschenbuch / für / Denker und Denkerinnen / auf das Jahr 1799. / Zweyter Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung 1799",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.777Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409642",
+      "location": "105E07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.777Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "hxw2o7ug8tjg1fj"
+    }
   ],
   "contents": [
-    "0fhnefy9mmny0rw",
-    "48trp9qx4w7mtp4",
-    "y4yd6bitmhy3x4e"
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.040Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120487,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Taschenbuch / für / Denker und Denkerinnen / auf das Jahr 1799. / Zweyter Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4577_120487_8boh4memtx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Taschenbuch / für / Denker und Denkerinnen / auf das Jahr 1799. / Zweyter Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung 1799",
+      "updated": "2018-07-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "0fhnefy9mmny0rw"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.044Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120488,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Ketzereyen / aus allen Fächern / des menschlichen Wissens / alphabetisch geordnet / und jedem Wahrheitsfreunde / gewidmet. / Ein Taschenbuch / zunächst für die Schlußjahre des philosophischen / Jahrhunderts; aber auch 1801 noch / beherzigenswerth. / Erster Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung. / 1799",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4577_120488_w6w2r5pesb.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Ketzereyen / aus allen Fächern / des menschlichen Wissens / alphabetisch geordnet / und jedem Wahrheitsfreunde / gewidmet. / Ein Taschenbuch / zunächst für die Schlußjahre des philosophischen / Jahrhunderts; aber auch 1801 noch / beherzigenswerth. / Erster Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung. / 1799",
+      "updated": "2018-07-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "48trp9qx4w7mtp4"
+    },
+    {
+      "annotation": "Photos 120489,01-120489,03",
+      "content_type": [],
+      "created": "2026-06-11 10:18:45.046Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120489,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Inhalt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_4577_120489_01_s8yw8k8p1a.jpg",
+        "alm_4577_120489_02_mgrkf05z97.jpg",
+        "alm_4577_120489_03_i2hokb22lf.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Inhalt",
+      "updated": "2018-07-11 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1799,
+      "editor": "",
+      "agents": [],
+      "source_id": "y4yd6bitmhy3x4e"
+    }
   ],
   "agents": [
     {

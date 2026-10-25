@@ -48,141 +48,5623 @@
   "year": 1832,
   "editor": "",
   "items": [
-    "riv75utajcgdeyj"
+    {
+      "annotation": "1811-1839, 1834-1836 nicht erschienen.\n1832:",
+      "condition": "3b",
+      "created": "2026-06-11 10:17:37.515Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "106016",
+      "location": "105S07",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.515Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "riv75utajcgdeyj"
+    }
   ],
   "contents": [
-    "gs0042j9g0ic4a1",
-    "4rsg648c9q0gfu3",
-    "a5vim0gg42w4zef",
-    "58c94h4huvbip00",
-    "4kkhcd7r6n26qcd",
-    "448swaw40mfj07i",
-    "8blcqlw6fubf12v",
-    "guk4rdli08re9d5",
-    "kkfxdyac9fyrdry",
-    "xgl4mqr9mgpypr3",
-    "h1kl4qip0wd2428",
-    "d8xit1thja8d4r5",
-    "8m5qu46y5oxmm16",
-    "aj2ipg9fxykhben",
-    "29qqre1m9wq661n",
-    "er77jv64a9lizmi",
-    "j9onu3moqst8try",
-    "40ja7faa5op7w0i",
-    "9f5600h62zwnj9u",
-    "2qvcb7g3vhg3knx",
-    "esa8j0wcstpfg6o",
-    "bwdols7xdb3l6g2",
-    "5lg21a7vxoygler",
-    "7f1bfs7wb6cshz8",
-    "8e78b39h0qspjkv",
-    "o4m53tyc39cehvu",
-    "i3si90rbdbrzhf9",
-    "2trgbc95o4tpwh9",
-    "0v8slqaf207wlsw",
-    "bmpcqjtdk89mp2o",
-    "6yqwb5ktoufmgyl",
-    "idoodf8vxlwmgwx",
-    "fczh8sastdhx8mk",
-    "lc0j9ezq7cvbfiw",
-    "qoiysyli8tysv1o",
-    "e30286yc1l2cxem",
-    "01qulggpakhzl94",
-    "49tdj192a3htpsw",
-    "tzcrgk00ztr8t90",
-    "5325lq6g9q4dh1b",
-    "mb70jn2vcbw0m2m",
-    "6fbumw20ohxy4r4",
-    "n39q4fnf8xw3a2j",
-    "c8ail9f7lq43mjc",
-    "4il5b77twrvm780",
-    "2pv9dq24hoemtsb",
-    "myv9oo1wxnaw04d",
-    "7x5p8c3nw310llv",
-    "qnk5fl26cpf2y65",
-    "bwr42p5l2cpck4b",
-    "mbbnnsxp13j1smf",
-    "eepthj51vg7cj2l",
-    "506soj3arpdzmq3",
-    "kcr0lkx7avfzu5c",
-    "xzhedv04v4ibaqx",
-    "w52sqbpvdk2r9pu",
-    "xac5x25k5kcyn4q",
-    "n8q7oiz9mejqzvk",
-    "y93i8l4cu52gfhf",
-    "jtsguwib53tnmuh",
-    "fie6mvcq6v15q5n",
-    "i1irt4mz3ervkxg",
-    "ai91r1em563claq",
-    "yscxitr6yf7q7qh",
-    "whl84ewo3fcn6b2",
-    "ykhrj3wx2vx2gdv",
-    "smc264lq6kaq44m",
-    "s0ku2tanokht5lt",
-    "fqgmy2xnkrl7cbm",
-    "rm3lo5ttjoer8eb",
-    "vc8rzt95eg6j1a7",
-    "x78bgxr37ibi0r7",
-    "mlmllraz9bgnrpp",
-    "3c23jqs4j1ahwsw",
-    "0vd6lm4oz4aze09",
-    "za36hhhugnnygph",
-    "81mwcbaaeonfywp",
-    "nji9vhn582d0jf0",
-    "iwxoe2wlrh5zkmp",
-    "2gxlo96d6xy7fw6",
-    "pwj6na4hncwo67x",
-    "tg6hmaojar2zolm",
-    "1ttccgivo0fr00p",
-    "6emnx0l6bqpidz0",
-    "8j6s9eh7rhoncxc",
-    "0n8yw9verbtc33r",
-    "8cu2mzh1n1nm5kb",
-    "oxvdkivqkp6km40",
-    "ub94eurqzwdeg6f",
-    "inpo9pw2oj6h94r",
-    "lydfbf0ht1bxm9d",
-    "vveuymmu6doxbbp",
-    "brl4m5wkb22nlug",
-    "voud7rbzqt7lyyi",
-    "4s8z23blgodxfrn",
-    "w5b0j8p6smk4e0k",
-    "caqe78yjlyjexw7",
-    "i0mvfb7x04jztbj",
-    "oxxtp464ybzje6k",
-    "hqgoz7jtez7xtsp",
-    "wk6qjlhu1wlstf1",
-    "ceh0oppy83ivbid",
-    "f7ph15jxfcszgzq",
-    "c9qff85cl564ugz",
-    "fpxdn6tem78uiw9",
-    "4q855h0jfh5288n",
-    "m81t6lfescm1tg9",
-    "z0eqrvqsb7mwilu",
-    "b36r4iq2mp6g5v3",
-    "6pqgp5fprnybpso",
-    "xbe54oar0uy0uam",
-    "no5wo4jwqybdjs2",
-    "46ijyjedyeda1iz",
-    "eq40jwkbryedsb5",
-    "90h23wm6bipzdkz",
-    "iz5qi3dd9zcuab9",
-    "0h87d40un6fzvto",
-    "oknm5p2o4tkqzmq",
-    "0y95vpifwhmrvi9",
-    "t8og1rxend6qkpw",
-    "02yenf1tmk916r1",
-    "a2k7e5wzlh797tm",
-    "uigxvoc64fskoem",
-    "wxsvs8shievuy83",
-    "iw3r1pi1iyu07nd",
-    "3dp25t26awgp9j8",
-    "39wix36zd6qsfok",
-    "t6mdjmf5h0a4rwa",
-    "jd95wv9hd8n7zmn",
-    "tax2fiynbne98wv",
-    "fl5z31fovfdr7ld",
-    "27p1zrsjsyz9flq"
+    {
+      "annotation": "Schuber recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120135,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_744_120135_xnwch0t6tg.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "gs0042j9g0ic4a1"
+    },
+    {
+      "annotation": "Schuber verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.820Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120136,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_744_120136_sdg8ma8uqr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "4rsg648c9q0gfu3"
+    },
+    {
+      "annotation": "Umschlag recto",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.822Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120137,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (Umschlag)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Umschlag",
+      "scans": [
+        "alm_744_120137_jifdme5daz.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "a5vim0gg42w4zef"
+    },
+    {
+      "annotation": "Umschlag verso",
+      "content_type": [],
+      "created": "2026-06-11 10:18:44.824Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120138,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_744_120138_nimyu218r6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "58c94h4huvbip00"
+    },
+    {
+      "annotation": "Titelgraphik. # Titel s. Textbezug INr 54693, Obj 6; lt. Textbezug: nach Holbein d. J.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.985Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54688,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Margarita Roger] #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Hirnschrot del. H. Meyer sc. Zürich",
+      "scans": [
+        "alm_744_54688_rtqxb04eyo.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Margarita Roger] #",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.607Z",
+          "agent": "zr6onfx3w86r42o",
+          "source_id": "5glw7epth5b4pww"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.607Z",
+          "agent": "pklgpi3o0ul4b99",
+          "source_id": "qbx0vooxdt6owbv"
+        }
+      ],
+      "source_id": "4kkhcd7r6n26qcd"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.987Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54689,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Alpenrosen / Ein / SCHWEIZER-TASCHENBUCH / auf das Jahr / 1832. / Besorgt von Schweizerischen / Schriftstellern und Künstlern / Aarau, / bei Johann Jakob Christen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_744_54689_lch0dzet45.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Alpenrosen / Ein / SCHWEIZER-TASCHENBUCH / auf das Jahr / 1832. / Besorgt von Schweizerischen / Schriftstellern und Künstlern / Aarau, / bei Johann Jakob Christen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "448swaw40mfj07i"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54690,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "8blcqlw6fubf12v"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54691,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Corrigenda"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Corrigenda]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "guk4rdli08re9d5"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. Es folgt: Sammlung von 8 Textbezügen zu den Graphiken des Almanachs INr 54693-54706, Obj 6-19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.988Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54692,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kupfer der Alpenrosen 1832",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kupfer der Alpenrosen 1832",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.607Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.607Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "h1v4ovb28iafc7q"
+        }
+      ],
+      "source_id": "kkfxdyac9fyrdry"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. /) Kupfer der Alpenrosen 1832 (Sammlung INr 54692, Obj 5) s. Titelgraphik INr 54688, Obj 1 /) ## im Folgenden: [...] das sich in der Sammlung des Grafen Benzel-Sternau zu Mariahalden am Zürichsee befindet. [...] Man hält es für eine Arbeit des jüngern Holbein, und zwar für ein Portrait der Margaritha Roger, der Tochter des Kanzler Morus, an welchen Holbein durch Erasmus empfohlen.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Das Bild,welches wir nach dem Plane, jedem Jahrgange unsers Almanachs die Copie eines in der Schweiz befindlichen klassischen Gemäldes mitzugeben, diesmal gewählt haben, ist die Copie eines trefflichen Kabinetstücks,[ ...] ##",
+      "language": [],
+      "musenalm_id": 54693,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Titelkupfer",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Titelkupfer",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.803Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.803Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "fnjc8k1w6y7w2fd"
+        }
+      ],
+      "source_id": "xgl4mqr9mgpypr3"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. /) Kupfer der Alpenrosen 1832 (Sammlung INr 54692, Obj 5) Beigabe zum Beitrag INr 54693, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.681Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Du schönes Bild! o schau' so traurig nicht, / fast unaussprechlich in die Ferne dort;",
+      "language": [],
+      "musenalm_id": 54694,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margarita Roger",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. B. Werner",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Margarita Roger",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "h1kl4qip0wd2428"
+    },
+    {
+      "annotation": "Beigabe zum Beitrag INr 54693, Obj 6 /) im Folgenden: [...] steh' ich keinen Augenblick an, dasselbe nicht bloß für die ächte [...] sondern auch für eine der schönsten Arbeiten Holbeins in dieser Kunstgattung zu erklären.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Auf Verlangen des Herrn Grafen von Benzel-Sternau mein gewissenhaftestes Urtheil über die Sicherheit der Originalität des in seiner Gallerie zu Mariahalden am Zürichsee befindlichen Bildnisses der Lady Margaretha Roger,",
+      "language": [],
+      "musenalm_id": 54695,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf Verlangen des Herrn Grafen von Benzel-Sternau mein gewissenhaftestes Urtheil über die Sicherheit der Originalität des in seiner Gallerie zu Mariahalden am Zürichsee befindlichen Bildnisses der Lady Margaretha Roger,…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. H. Füßli",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.899Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.899Z",
+          "agent": "yofxgerf8u6q1n8",
+          "source_id": "xxf7jgjvw5fwyfb"
+        }
+      ],
+      "source_id": "d8xit1thja8d4r5"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. /) Kupfer der Alpenrosen 1832 (Sammlung INr 54692, Obj 5) s. Graphik INr 54697, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.818Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "Wann Brüder gegen Brüder Waffen tragen, / in Gier, sich Amt und Vortheil abzurennen,",
+      "language": [],
+      "musenalm_id": 54696,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Margaritha Herlobig, / des / Stauffachers Frau",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Margaritha Herlobig, / des / Stauffachers Frau",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.899Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.899Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "i91bse68e96iz4v"
+        }
+      ],
+      "source_id": "8m5qu46y5oxmm16"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 54696, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.463Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54697,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Margaritha Herlobig, des Stauffachers Frau] #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. M. Disteli gest. v. Jh. Lips",
+      "scans": [
+        "alm_744_54697_n08jupl8g6.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Margaritha Herlobig, des Stauffachers Frau] #",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.935Z",
+          "agent": "yf0tgu146w1t5rh",
+          "source_id": "4j0bkq4dbnpce4b"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.935Z",
+          "agent": "iwoqrcn7d9iuxfi",
+          "source_id": "iou3ug055ht60z6"
+        }
+      ],
+      "source_id": "aj2ipg9fxykhben"
+    },
+    {
+      "annotation": "# Bez. vom Textbezug INr 54699, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.465Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "8",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54698,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Landenbergs Urfehde] #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Gezeichnet von Disteli in Olten Gestochen von Martin Esslinger in Zürich",
+      "scans": [
+        "alm_744_54698_b2ajwu2og1.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Landenbergs Urfehde] #",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.935Z",
+          "agent": "zfprrqdgr3ky9ts",
+          "source_id": "91khzwl9l97l3n9"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.935Z",
+          "agent": "yf0tgu146w1t5rh",
+          "source_id": "qcicah9tqv72w84"
+        }
+      ],
+      "source_id": "29qqre1m9wq661n"
+    },
+    {
+      "annotation": "# Bez. aus dem I-Verz. /) Kupfer der Alpenrosen 1832 (Sammlung INr 54692, Obj 5) s. Graphik INr 54698, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:09.468Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Hier Landenberg! Er muß dem Volke schwören; / ihr Land zu flieh'n, an dem er sich geschändet;",
+      "language": [],
+      "musenalm_id": 54699,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Landenbergs Urfehde",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Landenbergs Urfehde",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.935Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.935Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "1szne0ykgcud84l"
+        }
+      ],
+      "source_id": "er77jv64a9lizmi"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten als Textbezüge zu 3 Graphiken INr 545701-545706, Obj 14-19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.483Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54700,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drei Fabelbilder, / erfunden und entworfen von / M. Disteli, / gestochen von / F. Buser, / nachgezeichnet von / A. E. Fröhlich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drei Fabelbilder, / erfunden und entworfen von / M. Disteli, / gestochen von / F. Buser, / nachgezeichnet von / A. E. Fröhlich",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.783Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "psoae0xd1ahk7zr"
+        }
+      ],
+      "source_id": "j9onu3moqst8try"
+    },
+    {
+      "annotation": "Drei Fabelbilder, erfunden und entworfen von M. Disteli, gestochen von F. Buser, nachgezeichnet von A. E. Fröhlich (Sammlung INr 54700, Obj 13) s. Graphik INr 54702, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "Grashüpfer verdroß / sein niederig Loos: / er möchte sich lieber mit Schmetterlingen / auch über die Thäler und Hügel erschwingen,",
+      "language": [],
+      "musenalm_id": 54701,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. / Der Schneckenritter",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I. / Der Schneckenritter",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.783Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "j5j37mp0aw17956"
+        }
+      ],
+      "source_id": "40ja7faa5op7w0i"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 54701, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.484Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "10",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54702,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Schneckenritter] #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. M. Disteli gest. v. F. Buser",
+      "scans": [
+        "alm_744_54702_kvn8ezt8ix.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Der Schneckenritter] #",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.783Z",
+          "agent": "yf0tgu146w1t5rh",
+          "source_id": "g9jnigfapg3rt70"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.783Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "s8z183qf2vckb89"
+        }
+      ],
+      "source_id": "9f5600h62zwnj9u"
+    },
+    {
+      "annotation": "Drei Fabelbilder, erfunden und entworfen von M. Disteli, gestochen von F. Buser, nachgezeichnet von A. E. Fröhlich (Sammlung INr 54700, Obj 13) s. Graphik INr 54704, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.485Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "Angekommen im heimischen Pfuhl, / waren Studenten ab hoher Schul.",
+      "language": [],
+      "musenalm_id": 54703,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. / Der Fröschenkampf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II. / Der Fröschenkampf",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.783Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.783Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "jhk9t6e5jpzzzux"
+        }
+      ],
+      "source_id": "2qvcb7g3vhg3knx"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 54703, Obj 16",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.678Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "12",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54704,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Der Fröschenkampf] #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. M. Disteli gest. v. F. Buser",
+      "scans": [
+        "alm_744_54704_rau3ggmz2p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Der Fröschenkampf] #",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.592Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.592Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "m3eg6at6sfdxkbh"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.592Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.592Z",
+          "agent": "yf0tgu146w1t5rh",
+          "source_id": "pov80f6d3l30xfa"
+        }
+      ],
+      "source_id": "esa8j0wcstpfg6o"
+    },
+    {
+      "annotation": "Drei Fabelbilder, erfunden und entworfen von M. Disteli, gestochen von F. Buser, nachgezeichnet von A. E. Fröhlich (Sammlung INr 54700, Obj 13) s. Graphik INr 54706, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.728Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "Der Fuchs hält sonst nicht viel vom Glauben, / er trachtet jetzt der Freiheit nach,",
+      "language": [],
+      "musenalm_id": 54705,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. / Die Fuchs-Beichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III. / Die Fuchs-Beichte",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.805Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "z03nz4hrrxczicn"
+        }
+      ],
+      "source_id": "bwdols7xdb3l6g2"
+    },
+    {
+      "annotation": "# Titel s. Textbezug INr 54705, Obj 18",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.729Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54706,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Die Fuchs-Beichte] #",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "gez. v. M. Disteli gest. v. F. Buser",
+      "scans": [
+        "alm_744_54706_znyzwzjjnj.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "[Die Fuchs-Beichte] #",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.805Z",
+          "agent": "gpua5gdwasv89sy",
+          "source_id": "6pol3j055tc66hx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.805Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.805Z",
+          "agent": "yf0tgu146w1t5rh",
+          "source_id": "lhp9ipr0s9hk3xo"
+        }
+      ],
+      "source_id": "5lg21a7vxoygler"
+    },
+    {
+      "annotation": "mit einer Illustration s.Graphik INr 54708, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.730Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die Sommernacht hatt' ihre schwarzen Fluthenringe ausgegossen, und vom Felsenufer stieß leicht der Mond, ein Silbernachen ab,",
+      "language": [],
+      "musenalm_id": 54707,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Heimathlose. / Eine Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Heimathlose. / Eine Erzählung",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "7f1bfs7wb6cshz8"
+    },
+    {
+      "annotation": "Illustration zu »Der Heimathlose. Eine Erzählung« von R. Meyer INr 54707, Obj 20",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.731Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "16",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54708,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik (M. Disteli. R. Rahn sc.)]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "M. Disteli. R. Rahn sc.",
+      "scans": [
+        "alm_744_54708_zn9ag1p4q5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.806Z",
+          "agent": "2qfnp8a93m1r2da",
+          "source_id": "5uxppxd5zuyov7i"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.806Z",
+          "agent": "yf0tgu146w1t5rh",
+          "source_id": "y3ns8jlv3sp8b6m"
+        }
+      ],
+      "source_id": "8e78b39h0qspjkv"
+    },
+    {
+      "annotation": "Einleitung zum folgenden Beitrag INr 54710, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.733Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "27",
+      "incipit_statement": "Ich sende Ihnene hier den poetischen Nachlaß und die Lebensgeschichte meines ehemaligen Lehrers und Freundes.",
+      "language": [],
+      "musenalm_id": 54709,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erinnerungen / aus dem / Leben eines Klosterbruders, mitgetheilt von A. E. Fröhlich / Schreiben an den Herausgeber",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erinnerungen / aus dem / Leben eines Klosterbruders, mitgetheilt von A. E. Fröhlich / Schreiben an den Herausgeber",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.806Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.806Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "ng1o0ybr7a9687u"
+        }
+      ],
+      "source_id": "o4m53tyc39cehvu"
+    },
+    {
+      "annotation": "mit einer Einleitung s. INr 54709, Obj 22",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "38",
+      "incipit_statement": "In Hoffnung, es werde mir gelingen, diese Blätter treuen Händen zu übergeben, will ich meine von Gott mir so wunderbar geschenkten heitern Abendstunden benutzen,",
+      "language": [],
+      "musenalm_id": 54710,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Erinnerungen aus dem Leben eines Klosterbruders] Mein Lebenstraum",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "[Erinnerungen aus dem Leben eines Klosterbruders] Mein Lebenstraum",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "hay8zof4gxe0nw8"
+        }
+      ],
+      "source_id": "i3si90rbdbrzhf9"
+    },
+    {
+      "annotation": "Sammlung von 29 Gedichten in 4 Sammlungen INr 54712-54744, Obj 25-57 /) dem Beitrag »Erinnerungen aus dem Leben eines Klosterbruders« von A. E. Fröhlich beigegeben",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54711,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus Benedikts poetischem Nachlasse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus Benedikts poetischem Nachlasse",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "wrlkk1oxpm929q2"
+        }
+      ],
+      "source_id": "2trgbc95o4tpwh9"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 54713-54716, Obj 26-29 /) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "140",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54712,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus den geistlichen Gedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus den geistlichen Gedichten",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "3ttfrno163zqcus"
+        }
+      ],
+      "source_id": "0v8slqaf207wlsw"
+    },
+    {
+      "annotation": "Aus den geistlichen Gedichten (Sammlung INr 54712, Obj 25) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "141",
+      "incipit_statement": "Glockenklang erschallet aus dem hohen Thurm, / ob den Landen wallet Harmoniensturm,",
+      "language": [],
+      "musenalm_id": 54713,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Glocke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Glocke",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.902Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.902Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "pfaxf8rk7rk6dcu"
+        }
+      ],
+      "source_id": "bmpcqjtdk89mp2o"
+    },
+    {
+      "annotation": "Aus den geistlichen Gedichten (Sammlung INr 54712, Obj 25) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.853Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "146",
+      "incipit_statement": "Herr, zu dir auf seh'n wir Schwachen, / staunen dein Ruhe an,",
+      "language": [],
+      "musenalm_id": 54714,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jesu Ruhe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jesu Ruhe",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.903Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.903Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "e1h8uwxzjjgkgaj"
+        }
+      ],
+      "source_id": "6yqwb5ktoufmgyl"
+    },
+    {
+      "annotation": "Aus den geistlichen Gedichten (Sammlung INr 54712, Obj 25) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Durch die volle Gasse / brech' ich doch mir Raum / auf daß ich erfasse / deines Mantels Saum.",
+      "language": [],
+      "musenalm_id": 54715,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zuflucht",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zuflucht",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.888Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "391j2ymtnfe7cx6"
+        }
+      ],
+      "source_id": "idoodf8vxlwmgwx"
+    },
+    {
+      "annotation": "Aus den geistlichen Gedichten (Sammlung INr 54712, Obj 25) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "149",
+      "incipit_statement": "Seitdem das Firnament erblaute, / an Sternen hängt der Augenstern:",
+      "language": [],
+      "musenalm_id": 54716,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Herrn Aug",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Herrn Aug",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.769Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.769Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "943zldbqeno55xv"
+        }
+      ],
+      "source_id": "fczh8sastdhx8mk"
+    },
+    {
+      "annotation": "Sammlung von 8 Gedichten INr 54718-54725, Obj 31-38 /) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54717,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pfingst-Sonette",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pfingst-Sonette",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "9a9xjlab79a96fn"
+        }
+      ],
+      "source_id": "lc0j9ezq7cvbfiw"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.331Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "152",
+      "incipit_statement": "Die Erde mußt' im Innersten erbeben, / der Luftkreis und das Meer in Sturmgebrause;",
+      "language": [],
+      "musenalm_id": 54718,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "v59ogqt0qgre7yj"
+        }
+      ],
+      "source_id": "qoiysyli8tysv1o"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "153",
+      "incipit_statement": "Die Flammen, so vom Licht des Vaters stammen, / der Unheil tilgt und alles Heil begründet,",
+      "language": [],
+      "musenalm_id": 54719,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "9yi8kp70efinqyw"
+        }
+      ],
+      "source_id": "e30286yc1l2cxem"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "154",
+      "incipit_statement": "O beten wir herab das heilig Feuer / in dieser Zeiten herzensstarren Kälte,",
+      "language": [],
+      "musenalm_id": 54720,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "0x2a99hqa3olqgn"
+        }
+      ],
+      "source_id": "01qulggpakhzl94"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Ihr alten Zeiten! hehr in Glaubensgluthen, / da jedes Herz der heil'ge Geist bewohnte,",
+      "language": [],
+      "musenalm_id": 54721,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "uyfj6jl4frl9535"
+        }
+      ],
+      "source_id": "49tdj192a3htpsw"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "156",
+      "incipit_statement": "Der unfruchtbare Feigenbaum verdorrte; / den neuen Trieb erfachten Feuerzungen.",
+      "language": [],
+      "musenalm_id": 54722,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "s0qvktbfeo2d7sp"
+        }
+      ],
+      "source_id": "tzcrgk00ztr8t90"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.332Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "157",
+      "incipit_statement": "Des Glaubens und der Liebe reines Feuer / ward hochentflammt durch der Apostel Zungen,",
+      "language": [],
+      "musenalm_id": 54723,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.494Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.494Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "3zrw13h2s1u0lf1"
+        }
+      ],
+      "source_id": "5325lq6g9q4dh1b"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "158",
+      "incipit_statement": "Euch Luther, Zwingli muß die Kirch' er- / heben, / auf euch herab ist Feu'r der Pfingsten kommen,",
+      "language": [],
+      "musenalm_id": 54724,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.498Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "y85pof5w884b03x"
+        }
+      ],
+      "source_id": "mb70jn2vcbw0m2m"
+    },
+    {
+      "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "159",
+      "incipit_statement": "Noch lebet Mark und Wurzel an dem Baume, / der aus dem unscheinbaren Kern erstanden;",
+      "language": [],
+      "musenalm_id": 54725,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VIII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VIII.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.498Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "e507ej0gbdz7dk2"
+        }
+      ],
+      "source_id": "6fbumw20ohxy4r4"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 54727-54730, Obj 40-43 /) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.378Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54726,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus den Kinderchören",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus den Kinderchören",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.498Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.498Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "horsokeclaywyqf"
+        }
+      ],
+      "source_id": "n39q4fnf8xw3a2j"
+    },
+    {
+      "annotation": "Aus den Kinderchören (Sammlung INr 54726, Obj 39) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "160",
+      "incipit_statement": "Durch Lächeln und durch Lallen, / das erste Wohlgefallen / an Freuden dieser Welt,",
+      "language": [],
+      "musenalm_id": 54727,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Loblied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Loblied",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.659Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "wv0brmprqn7dnx6"
+        }
+      ],
+      "source_id": "c8ail9f7lq43mjc"
+    },
+    {
+      "annotation": "Aus den Kinderchören (Sammlung INr 54726, Obj 39) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Laßt zu mir die Kinder kommen! / sprach der Heiland aller Frommen. / Und er ist hinausgetreten / in die Hielge Natur",
+      "language": [],
+      "musenalm_id": 54728,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Jesu Nachfolge. / Rundgesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Jesu Nachfolge. / Rundgesang",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.659Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "5vjr35v6xzb5dz7"
+        }
+      ],
+      "source_id": "4il5b77twrvm780"
+    },
+    {
+      "annotation": "Aus den Kinderchören (Sammlung INr 54726, Obj 39) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.842Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "163",
+      "incipit_statement": "Ihr Kinder alle fühlt des Dankes Triebe; / sagt, welch ein Lob wißt ihr der Mutterliebe. / Leise wandelt Gottes Sonne / durch das große Weltenhaus;",
+      "language": [],
+      "musenalm_id": 54729,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unsern Müttern. / Rundgesang",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unsern Müttern. / Rundgesang",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.659Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.659Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "whrylen6nha2hxt"
+        }
+      ],
+      "source_id": "2pv9dq24hoemtsb"
+    },
+    {
+      "annotation": "Aus den Kinderchören (Sammlung INr 54726, Obj 39) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.016Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "165",
+      "incipit_statement": "Blumen dir, du früh Erbleichte, / streuen wir in's Todtenhaus,",
+      "language": [],
+      "musenalm_id": 54730,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beim Tode der Schwester",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beim Tode der Schwester",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "flb6agjcp8qxm32"
+        }
+      ],
+      "source_id": "myv9oo1wxnaw04d"
+    },
+    {
+      "annotation": "Sammlung von 13 Gedichten INr 54732-54744, Obj 45-57 /) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54731,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus andern Liedern, Singsprüchen und / Sinngedichten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus andern Liedern, Singsprüchen und / Sinngedichten",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "u9ljk56o6pj0h51"
+        }
+      ],
+      "source_id": "7x5p8c3nw310llv"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "166",
+      "incipit_statement": "Und ist's auch einsam hier und leer, / alsbald erglänzt ein Fest umher,",
+      "language": [],
+      "musenalm_id": 54732,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "In der Zelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "In der Zelle",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "ylc3hhvc7q842t4"
+        }
+      ],
+      "source_id": "qnk5fl26cpf2y65"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "167",
+      "incipit_statement": "Gelehnet an die Kirchenthür / schaut' ich zum hohen Chor herfür.",
+      "language": [],
+      "musenalm_id": 54733,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor der Kirchenthür",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor der Kirchenthür",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "2bmaxmo71znoupe"
+        }
+      ],
+      "source_id": "bwr42p5l2cpck4b"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Schau' ich von meinen Büchern auf, / schau'n mich, herab aus hübschen Glas, / zwei Rosen an, im Thaue naß,",
+      "language": [],
+      "musenalm_id": 54734,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Pulte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Pulte",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "2f206tk24m1u93j"
+        }
+      ],
+      "source_id": "mbbnnsxp13j1smf"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.017Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "168",
+      "incipit_statement": "Die Sommervögel schweben / schon um den Sonnenhügel:",
+      "language": [],
+      "musenalm_id": 54735,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingslieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingslieder",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.681Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.681Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "q6hjf9eeaf07hb0"
+        }
+      ],
+      "source_id": "eepthj51vg7cj2l"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.585Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Grüne Brunnen wallen, / springen empor im Land,",
+      "language": [],
+      "musenalm_id": 54736,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Neues Grün",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Neues Grün",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.712Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.712Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "4nw69ae6n8jlkmf"
+        }
+      ],
+      "source_id": "506soj3arpdzmq3"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Wohl aus kalten Landen flogen / her die Wolken und umzogen / uns den schönen Himmel wieder,",
+      "language": [],
+      "musenalm_id": 54737,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Frühlingswolken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Frühlingswolken",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.740Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "qow7t77x3il090c"
+        }
+      ],
+      "source_id": "kcr0lkx7avfzu5c"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "170",
+      "incipit_statement": "Aus seinem Wirtshaus steckt der Mai / nun wieder frische Bäume;",
+      "language": [],
+      "musenalm_id": 54738,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der neue Wirth",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der neue Wirth",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.740Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.740Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "nxem59u19kywor0"
+        }
+      ],
+      "source_id": "xzhedv04v4ibaqx"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24) mit einer Musikbeigabe s. INr 54812, Obj 125",
+      "content_type": [],
+      "created": "2026-06-11 10:18:06.997Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Unter Blüthen werden / alte Lieder laut, / dorten seh' ich wieder / wandeln meine Braut.",
+      "language": [],
+      "musenalm_id": 54739,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lenz und Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lenz und Liebe",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.741Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.741Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "2k5u10v66pmmcpi"
+        }
+      ],
+      "source_id": "w52sqbpvdk2r9pu"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24) mit einer Musikbeigabe s. INr 54811, Obj 124",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.543Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "171",
+      "incipit_statement": "Ich lieg' am Bergesrande / ich staun' in Frühlingslande / der Himmel ist so nah!",
+      "language": [],
+      "musenalm_id": 54740,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem Berge",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf dem Berge",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.646Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.646Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "0xzduhhsfbm2d5h"
+        }
+      ],
+      "source_id": "xac5x25k5kcyn4q"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:05.065Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "172",
+      "incipit_statement": "Die Erde glänzt ein Freudenthal, / sanft dehnt sich drüberhin das Blau,",
+      "language": [],
+      "musenalm_id": 54741,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Mailied",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Mailied",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.613Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.613Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "g4cuxf7dul1k16g"
+        }
+      ],
+      "source_id": "n8q7oiz9mejqzvk"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "O weh, dir Blumenhaide, / die nur zu bald erstund.",
+      "language": [],
+      "musenalm_id": 54742,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Schnelle Mai. / Triolett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Schnelle Mai. / Triolett",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.779Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.779Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "zm6fohcavh3j96o"
+        }
+      ],
+      "source_id": "y93i8l4cu52gfhf"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Von Todeshügeln wehet, / der Wohlgerüche Duft,",
+      "language": [],
+      "musenalm_id": 54743,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Blumen Grab. / Triolett",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Blumen Grab. / Triolett",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.780Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "umkkd1mzse5bcex"
+        }
+      ],
+      "source_id": "jtsguwib53tnmuh"
+    },
+    {
+      "annotation": "Aus andern Liedern, Singsprüchen und Sinngedichten (Sammlung INr 54731, Obj 44) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "175",
+      "incipit_statement": "O daß mich riefen Glocken zu meinem Tempel bald, / wie Thürm' und Thore locken empor zum grünen / Wald,",
+      "language": [],
+      "musenalm_id": 54744,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Schöner Gottesdienst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. E. Fröhlich",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Schöner Gottesdienst",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.780Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.780Z",
+          "agent": "94rmjnpm6yfqwop",
+          "source_id": "3rdcag3ciwzfcp0"
+        }
+      ],
+      "source_id": "fie6mvcq6v15q5n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "176",
+      "incipit_statement": "Vor mehr als hundert Jahren lebte im Kanton Bern, da wo jetzt Fellenbergs prachtvolle Anstalten aus reichen Saaten sich erheben, ein Bauer Namens Jakob mit seinen zwölf Söhnen.",
+      "language": [],
+      "musenalm_id": 54745,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Fridolin. / Ein Mährchen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Fridolin. / Ein Mährchen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "i1irt4mz3ervkxg"
+    },
+    {
+      "annotation": "Sammlung von 15 Gedichten INr 54747-547461, Obj 60-74",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54746,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ai91r1em563claq"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.453Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "230",
+      "incipit_statement": "Ueberschwebend, wie in Wolken, / Droht am Wege hoch Gestein",
+      "language": [],
+      "musenalm_id": 54747,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bau der Teufelsbrücke",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bau der Teufelsbrücke",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "yscxitr6yf7q7qh"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "238",
+      "incipit_statement": "Wie hängen doch ob Berg und Thal / Die Wolken schwarz und ohne Zahl, / Wie schrecklich ist die Nacht und bange!",
+      "language": [],
+      "musenalm_id": 54748,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sigmund von Burgund. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sigmund von Burgund. / Ballade",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "whl84ewo3fcn6b2"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "242",
+      "incipit_statement": "Auf des Rheines blauen Wellen / Zieht dahin ein schnelles Schiff,",
+      "language": [],
+      "musenalm_id": 54749,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wölfe. / Ballade",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wölfe. / Ballade",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "ykhrj3wx2vx2gdv"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "246",
+      "incipit_statement": "Das Panner werd' ich führen, wie's eur' Wort / gebot, / Ich werde mit ihm theilen, trifft, es auch Leid und / Noth,",
+      "language": [],
+      "musenalm_id": 54750,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das eingelöste Gelübde. / Drei Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das eingelöste Gelübde. / Drei Romanzen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "smc264lq6kaq44m"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "255",
+      "incipit_statement": "Es donnern Geschütze, es rasen die Glocken, / Auffahren vom Schlafe die Menschen erschrocken,",
+      "language": [],
+      "musenalm_id": 54751,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Brand von Amsteg. / (Geschichtlich.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Brand von Amsteg. / (Geschichtlich.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "s0ku2tanokht5lt"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "258",
+      "incipit_statement": "Sitzend in dem Fischernachen / Tiefbetrübt mit bitt'rer Pein, / Will der fromme Kaiser Ludwig / Fahren über'n blauen Rhein.",
+      "language": [],
+      "musenalm_id": 54752,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Kaisersarg. / Romanze",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Kaisersarg. / Romanze",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "fqgmy2xnkrl7cbm"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "260",
+      "incipit_statement": "Ruhe denn, mein Wanderstab, / Hier am Fels ein wenig aus,",
+      "language": [],
+      "musenalm_id": 54753,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem Schloß Hauenstein. / (Bei meiner Rückreise in's Vaterland.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf dem Schloß Hauenstein. / (Bei meiner Rückreise in's Vaterland.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "rm3lo5ttjoer8eb"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "263",
+      "incipit_statement": "Von der Burg zu Hauenstein / Zieht der Herr herab zum Jagen,",
+      "language": [],
+      "musenalm_id": 54754,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Frau von Hauenstein. / In zwei Romanzen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Frau von Hauenstein. / In zwei Romanzen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "vc8rzt95eg6j1a7"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.454Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "270",
+      "incipit_statement": "Sei gegrüßt, mein lieber Wald, / Hier gepflanzt von frommen Händen!",
+      "language": [],
+      "musenalm_id": 54755,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Wald. / (Nach Ch. H. Millevoye.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Wald. / (Nach Ch. H. Millevoye.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "x78bgxr37ibi0r7"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "271",
+      "incipit_statement": "In des Baumes schwanken Zweigen / Baust dein Nest du Vöglein, dir,",
+      "language": [],
+      "musenalm_id": 54756,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An ein Vöglein",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An ein Vöglein",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "mlmllraz9bgnrpp"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.619Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "272",
+      "incipit_statement": "So begrüß' ich dich auch wieder, / Dich verfallner, alter Bau,",
+      "language": [],
+      "musenalm_id": 54757,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bei der Burg meiner Vaterstadt",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bei der Burg meiner Vaterstadt",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "3c23jqs4j1ahwsw"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "276",
+      "incipit_statement": "Kehrst du nimmer, holder Gast, / Süße Ruhe sel'ger Tage!",
+      "language": [],
+      "musenalm_id": 54758,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An die Ruhe. / (Nach dem Englischen des William Cowyer.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An die Ruhe. / (Nach dem Englischen des William Cowyer.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "0vd6lm4oz4aze09"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "277",
+      "incipit_statement": "Der Mond sah still in's Land, / Als vor langer Zeit, / Den Wanderstab zur Hand, Fortzog in tiefem Leid.",
+      "language": [],
+      "musenalm_id": 54759,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Wanderung. / (Nach einem dänischen Volkslied.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Wanderung. / (Nach einem dänischen Volkslied.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "za36hhhugnnygph"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "278",
+      "incipit_statement": "Geschah in der Schlacht eine kühne That, / Der Jeder wohl gerne entzogen sich hat,",
+      "language": [],
+      "musenalm_id": 54760,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Hans Lochmann. / Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Hans Lochmann. / Erzählung",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "81mwcbaaeonfywp"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54746, Obj 59)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "288",
+      "incipit_statement": "Einst ein Baron aus deutschem Land / Auf Reisen in der Schweiz sich fand,",
+      "language": [],
+      "musenalm_id": 54761,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sempach's Fische. / Ein Schwank",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Wagner von Laufenburg",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sempach's Fische. / Ein Schwank",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "nji9vhn582d0jf0"
+    },
+    {
+      "annotation": "mit Anmerkungen",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "294",
+      "incipit_statement": "An einem heitern Frühlingstage streifte ich im Jura umher, durch seine Buchen- und Fichtenwälder, welche sich bis zu den Gipfeln emporschwingen,",
+      "language": [],
+      "musenalm_id": 54762,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Erscheinungen in der / Balmfeste",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Erscheinungen in der / Balmfeste",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "iwxoe2wlrh5zkmp"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten und einer Sammlung mit 4 Gedichten INr 54764-54770, Obj 77-83",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54763,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Gedichte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Gedichte",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.888Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "p6xtbh2gjaaeoa1"
+        }
+      ],
+      "source_id": "2gxlo96d6xy7fw6"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 54763, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.620Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "320",
+      "incipit_statement": "Nachdem der Heiland Tod und Grab gezwungen, / und fest gegründet seiner Liebe Reich,",
+      "language": [],
+      "musenalm_id": 54764,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Pilatusberg. / Eine Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Pilatusberg. / Eine Volkssage",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.888Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "6r2pouqsq9boo07"
+        }
+      ],
+      "source_id": "pwj6na4hncwo67x"
+    },
+    {
+      "annotation": "Gedichte (Sammlung INr 54763, Obj 76) s. Gedicht: »Die Gemsjäger« von J. J. Reithard in: Alpenrosen 1831, INr 54678",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "334",
+      "incipit_statement": "Noch ist es still, doch schon durchrann / das Morgenroth die Nacht;",
+      "language": [],
+      "musenalm_id": 54765,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der alte Gemsjäger. / (Nach einer wahren Begebenheit.) / Seitenstück zu dem im vorigen Jahrgang der Alpenrosen vom / nämlichen Verfasser gedichteten Gemsjäger.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der alte Gemsjäger. / (Nach einer wahren Begebenheit.) / Seitenstück zu dem im vorigen Jahrgang der Alpenrosen vom / nämlichen Verfasser gedichteten Gemsjäger.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.888Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.888Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "pvekgllhqu9yj65"
+        }
+      ],
+      "source_id": "tg6hmaojar2zolm"
+    },
+    {
+      "annotation": "Sammlung von 4 Gedichten INr 54767-54770, Obj 80-83 /) Gedichte (Sammlung INr 54763, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54766,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Bilder aus dem Aargau",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Bilder aus dem Aargau",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.889Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "9pjpoph51dpts1k"
+        }
+      ],
+      "source_id": "1ttccgivo0fr00p"
+    },
+    {
+      "annotation": "Bilder aus dem Aargau (Sammlung INr 54766, Obj 79) Gedichte (Sammlung INr 54763, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.621Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "345",
+      "incipit_statement": "Dort über den Gestaden / ragt ein zerstörtes Schloß; / das ist der Stein zu Baden, / der längst in Trümmer schoß.",
+      "language": [],
+      "musenalm_id": 54767,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Stein zu Baden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Stein zu Baden",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.889Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.889Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "ps62bx44hrut6yt"
+        }
+      ],
+      "source_id": "6emnx0l6bqpidz0"
+    },
+    {
+      "annotation": "Bilder aus dem Aargau (Sammlung INr 54766, Obj 79) Gedichte (Sammlung INr 54763, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:04.680Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "So seh' ich euch, ihr blutentspross'nen Mauern, / wie schön, wie wunderfreulich liegt ihr da!",
+      "language": [],
+      "musenalm_id": 54768,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Königsfelden",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Königsfelden",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.593Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.593Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "62optvjazl98ify"
+        }
+      ],
+      "source_id": "8j6s9eh7rhoncxc"
+    },
+    {
+      "annotation": "Bilder aus dem Aargau (Sammlung INr 54766, Obj 79) Gedichte (Sammlung INr 54763, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "348",
+      "incipit_statement": "Ha, bedeutungsvolle Stelle, / dein vergeß' ich wahrlich nie!",
+      "language": [],
+      "musenalm_id": 54769,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agnes Zelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Agnes Zelle",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.476Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "ca3gihy6v5dn22p"
+        }
+      ],
+      "source_id": "0n8yw9verbtc33r"
+    },
+    {
+      "annotation": "Bilder aus dem Aargau (Sammlung INr 54766, Obj 79) Gedichte (Sammlung INr 54763, Obj 76)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "349",
+      "incipit_statement": "Gleich einem lieben Sterne, / zu dem ich immer sah,",
+      "language": [],
+      "musenalm_id": 54770,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Habsburg. / (Von Windisch aus.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Reithard",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Habsburg. / (Von Windisch aus.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.476Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.476Z",
+          "agent": "biljcxuc46g2kmt",
+          "source_id": "ix2ds99bioigzjb"
+        }
+      ],
+      "source_id": "8cu2mzh1n1nm5kb"
+    },
+    {
+      "annotation": "Sammlung von 17 Gedichten INr 54772-54788, Obj 85-101",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54771,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sonette und Epigramme",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sonette und Epigramme",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.477Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "o93plcg0dp87fp8"
+        }
+      ],
+      "source_id": "oxvdkivqkp6km40"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "352",
+      "incipit_statement": "Ich liege hingestreckt auf weichem Pfühl / zur süßen Selbstvernichtung.",
+      "language": [],
+      "musenalm_id": 54772,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vor dem Einschlafen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vor dem Einschlafen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.477Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "qkwwhfn1c0an3ll"
+        }
+      ],
+      "source_id": "ub94eurqzwdeg6f"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.085Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "Dir nur, Natur, hab' ich mein Herz erschlossen, / nur dir will mein Geheimniß ich vertrauen:",
+      "language": [],
+      "musenalm_id": 54773,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Varrath",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Varrath",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.477Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "pbtfp0ctpjbwaum"
+        }
+      ],
+      "source_id": "inpo9pw2oj6h94r"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "353",
+      "incipit_statement": "Für Freundschaft, Liebe, Treue, Leben, / für alles Edle dieser Welt, / vermögen die nur Gold zu geben,",
+      "language": [],
+      "musenalm_id": 54774,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf Viele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Auf Viele",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.477Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "glaoue90zzpo1ey"
+        }
+      ],
+      "source_id": "lydfbf0ht1bxm9d"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:03.086Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Er verbraucht seine Zeit zu regieren den Staat,",
+      "language": [],
+      "musenalm_id": 54775,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Regierer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Regierer",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.477Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.477Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "t8jse3rutsew4o1"
+        }
+      ],
+      "source_id": "vveuymmu6doxbbp"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Wem Gott ein Amt verleiht, dem giebt er auch / Verstand.",
+      "language": [],
+      "musenalm_id": 54776,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der gemachte Rathsherr",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der gemachte Rathsherr",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "qd0nx38w3ymqhpv"
+        }
+      ],
+      "source_id": "brl4m5wkb22nlug"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Unaussprechlich / unbestechlich / ist Herr Till:",
+      "language": [],
+      "musenalm_id": 54777,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Unbestochen - bestechlich",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Unbestochen - bestechlich",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "w3h4cji990pftlv"
+        }
+      ],
+      "source_id": "voud7rbzqt7lyyi"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Der beste Arzt, den unsre Stadt / in ihren weiten Mauern hat, / sind Sie.",
+      "language": [],
+      "musenalm_id": 54778,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Herrn Vitalis",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Herrn Vitalis",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "0npxamf1a7cxj6p"
+        }
+      ],
+      "source_id": "4s8z23blgodxfrn"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "354",
+      "incipit_statement": "Was rufst du alle Götter an,",
+      "language": [],
+      "musenalm_id": 54779,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Pandämon",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Pandämon",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "snef7bqakjielfa"
+        }
+      ],
+      "source_id": "w5b0j8p6smk4e0k"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Ja, werde Oekonom, mein lieber junger Veit,",
+      "language": [],
+      "musenalm_id": 54780,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Beruf",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Beruf",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "ppi31pezq291797"
+        }
+      ],
+      "source_id": "caqe78yjlyjexw7"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84) mit Anmerkung",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Daß deine Schönheit sich herstelle, / Sollst du zur Schlangenbader Quelle,",
+      "language": [],
+      "musenalm_id": 54781,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "An Maliziosa",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "An Maliziosa",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "colgnk9bxio3k45"
+        }
+      ],
+      "source_id": "i0mvfb7x04jztbj"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.394Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Ihr Herz, gefühllos, leer, / empfände nichts für Kunst!",
+      "language": [],
+      "musenalm_id": 54782,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunst und Gunst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunst und Gunst",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "ivu6sn1kc4psyae"
+        }
+      ],
+      "source_id": "oxxtp464ybzje6k"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "355",
+      "incipit_statement": "Nun, wie gefallen Ihnen die Sonette / von mir? sind es nicht zarte und so nette?",
+      "language": [],
+      "musenalm_id": 54783,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Tragikomiker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Tragikomiker",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.869Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.869Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "zqvq32tfuifzscs"
+        }
+      ],
+      "source_id": "hqgoz7jtez7xtsp"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Den großen Reichthum der Natur / zeigt Ihnen jede Blumenflur.",
+      "language": [],
+      "musenalm_id": 54784,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der gelehrte General",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der gelehrte General",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.870Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "ol9hci6zdidji1l"
+        }
+      ],
+      "source_id": "wk6qjlhu1wlstf1"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Unserm Herrn Schultheiß / macht mache Schuld heiß.",
+      "language": [],
+      "musenalm_id": 54785,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Drückender Reim",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Drückender Reim",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.870Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "i967ecmggukrejb"
+        }
+      ],
+      "source_id": "ceh0oppy83ivbid"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Süße Harmonien entströmen, singt er, dem / Munde;",
+      "language": [],
+      "musenalm_id": 54786,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Maul- und Mundvirtuose",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Maul- und Mundvirtuose",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.870Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "yqtukt385hrg61k"
+        }
+      ],
+      "source_id": "f7ph15jxfcszgzq"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.395Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Die Kunst geht sonst nach Brod; / allein hier geht sie immer nur nach Wein",
+      "language": [],
+      "musenalm_id": 54787,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Künstlers Erdenwallen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Künstlers Erdenwallen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.870Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.870Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "5trbpjawsb6ho3p"
+        }
+      ],
+      "source_id": "c9qff85cl564ugz"
+    },
+    {
+      "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "356",
+      "incipit_statement": "Der alte Bach, Kontrapunktist, / schrieb stets in Fugen;",
+      "language": [],
+      "musenalm_id": 54788,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Kunstparallele",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Kunstparallele",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.750Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.750Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "lxwg34jzt077mkr"
+        }
+      ],
+      "source_id": "fpxdn6tem78uiw9"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "357",
+      "incipit_statement": "In den vollen Straßen, / laut und festlich hell, / stehet ganz verlassen / da ein Junggesell;",
+      "language": [],
+      "musenalm_id": 54789,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Am Weihnachtsabend",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Rudolf Müller",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Am Weihnachtsabend",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "4q855h0jfh5288n"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "359",
+      "incipit_statement": "Als Bergesherrscherin thu' ich mich kund, / durchspähe der Felsen fuchtbaren Schlund,",
+      "language": [],
+      "musenalm_id": 54790,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Tamina bei Pfäffers und / der Fink",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Kaspar Mörikofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Tamina bei Pfäffers und / der Fink",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "m81t6lfescm1tg9"
+    },
+    {
+      "annotation": "Sammlung von 6 Beiträgen INr 54792-54797, Obj 105-110 /) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54791,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Naturzeichnungen",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Naturzeichnungen",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "z0eqrvqsb7mwilu"
+    },
+    {
+      "annotation": "Naturzeichnungen (Sammlung INr 54791, Obj 104) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "361",
+      "incipit_statement": "Das Abendroth ist am Erlöschen, Dämmerung fließt über den Thälern zusammen, die Nacht schleicht aus dicht belaubten Büschen, und tritt sachte in Waldes freie Räume hervor;",
+      "language": [],
+      "musenalm_id": 54792,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. Der Luchs",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. Der Luchs",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "b36r4iq2mp6g5v3"
+    },
+    {
+      "annotation": "Naturzeichnungen (Sammlung INr 54791, Obj 104) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.061Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "365",
+      "incipit_statement": "Was hani welle säge, Bäsi, s'Finkli's händ doch das Johr e schlächti Rischte zoge, und s'Wätter het ne's verroßet;",
+      "language": [],
+      "musenalm_id": 54793,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. d'Aegerschte",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. d'Aegerschte",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "6pqgp5fprnybpso"
+    },
+    {
+      "annotation": "Naturzeichnungen (Sammlung INr 54791, Obj 104) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.062Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "368",
+      "incipit_statement": "Wer das Dunkel liebt und die Einsamkeit, kann vielerlei und oft seltsame Bekanntschaften machen. Denn das Dunkel ist ein Element, das Manchem vortheilhaft ist,",
+      "language": [],
+      "musenalm_id": 54794,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "3. Der Ziegenmelker",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "3. Der Ziegenmelker",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "xbe54oar0uy0uam"
+    },
+    {
+      "annotation": "Naturzeichnungen (Sammlung INr 54791, Obj 104) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.519Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "371",
+      "incipit_statement": "Höch obe, wo d'Sunne durs blau Fänschter ineluegt, und d'Bächli ufweckt, die gar munter us ihre chrischtallene Bettlispringe,",
+      "language": [],
+      "musenalm_id": 54795,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "4. D'Murmelthierli",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "4. D'Murmelthierli",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "no5wo4jwqybdjs2"
+    },
+    {
+      "annotation": "Naturzeichnungen (Sammlung INr 54791, Obj 104) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "375",
+      "incipit_statement": "Auf dem Gipfel der höchsten Tanne sitzt einer und überschreit den ganzen Wald, er überschreit die Krähen und die Staaren.",
+      "language": [],
+      "musenalm_id": 54796,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "5. Der Kukuk",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "5. Der Kukuk",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "46ijyjedyeda1iz"
+    },
+    {
+      "annotation": "Naturzeichnungen (Sammlung INr 54791, Obj 104) mit Anmerkungen (Worterklärungen) INr 54810, Obj 123",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "380",
+      "incipit_statement": "Diese Publizisten eigner Art - Was? das schöne niedliche Vögelchen, aus dem Geschlechte der Finken, den Schreiern beizuzählen!",
+      "language": [],
+      "musenalm_id": 54797,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "6. Die Kanarienvögel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. Rudolph Meyer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "6. Die Kanarienvögel",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "eq40jwkbryedsb5"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten und 2 Sammlungen mit 6 Gedichten INr 54799-54808, Obj 112-121",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54798,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lieder",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "lfo2jftn3kmimv6"
+        }
+      ],
+      "source_id": "90h23wm6bipzdkz"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "384",
+      "incipit_statement": "Wie eine Kerze sollst du sein, / die flammt am heil'gen Hochaltar:",
+      "language": [],
+      "musenalm_id": 54799,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Heiliger Dienst",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Heiliger Dienst",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "nrwe8p25o7q2g8y"
+        }
+      ],
+      "source_id": "iz5qi3dd9zcuab9"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 54801-54803, Obj 114-116 /) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54800,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Aus / Mahmuts Rosenbeet der Geheimnisse",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Aus / Mahmuts Rosenbeet der Geheimnisse",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "7mhxlvqjgrz8vbk"
+        }
+      ],
+      "source_id": "0h87d40un6fzvto"
+    },
+    {
+      "annotation": "Aus Mahmuts Rosenbeet der Geheimnisse (Sammlung INr 54800, Obj 113) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.520Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "385",
+      "incipit_statement": "Mahmut hat, des roth beros'ten / Beetes Pfleger, dies verkündet: / bei der Liebe Male kosten / einst die Engel lustverbündet;",
+      "language": [],
+      "musenalm_id": 54801,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "oexip0592vmeu6d"
+        }
+      ],
+      "source_id": "oknm5p2o4tkqzmq"
+    },
+    {
+      "annotation": "Aus Mahmuts Rosenbeet der Geheimnisse (Sammlung INr 54800, Obj 113) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "386",
+      "incipit_statement": "Mahmud hat, des roth beros'ten / Beetes Pfleger, dir verkündet, / welcher Trunk zum allerfrohsten / Seelenrausche dich entzündest,",
+      "language": [],
+      "musenalm_id": 54802,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "05ne5ux0d6xxqge"
+        }
+      ],
+      "source_id": "0y95vpifwhmrvi9"
+    },
+    {
+      "annotation": "Aus Mahmuts Rosenbeet der Geheimnisse (Sammlung INr 54800, Obj 113) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "387",
+      "incipit_statement": "Mahmud hat, des roth berosten / Beetes Pfleger,dir verkündet, / wo der Strom der gottgetrosten / Seelentrunkenheit sich mündet:",
+      "language": [],
+      "musenalm_id": 54803,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "wvgm7561zbvm0fw"
+        }
+      ],
+      "source_id": "t8og1rxend6qkpw"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 54805-54807, Obj 118-120 /) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54804,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklieder",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Trinklieder",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "agqkazpn579yxt4"
+        }
+      ],
+      "source_id": "02yenf1tmk916r1"
+    },
+    {
+      "annotation": "Trinklieder (Sammlung INr 54804, Obj 117) Lieder (Sammlung INr 54798, Obj 111) mit einer Musikbeigabe s. INr 54815, Obj 128",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "388",
+      "incipit_statement": "Zu trinken bin ich stets gewillt, / zu trinken stets gemeinet,",
+      "language": [],
+      "musenalm_id": 54805,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "qiria895xcidh8v"
+        }
+      ],
+      "source_id": "a2k7e5wzlh797tm"
+    },
+    {
+      "annotation": "Trinklieder (Sammlung INr 54804, Obj 117) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.521Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "389",
+      "incipit_statement": "Nun ja, ich will es nicht verhehlen, / daß mich ein frischer Trank erquickt,",
+      "language": [],
+      "musenalm_id": 54806,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.878Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.878Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "skou3odq6uhvguc"
+        }
+      ],
+      "source_id": "uigxvoc64fskoem"
+    },
+    {
+      "annotation": "Trinklieder (Sammlung INr 54804, Obj 117) Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "Hört's einer jetzt zum erstenmal, / quam bellae sint puellae, / so singen wir es noch einmal:",
+      "language": [],
+      "musenalm_id": 54807,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.774Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.774Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "6t2dhed1fmt8c38"
+        }
+      ],
+      "source_id": "wxsvs8shievuy83"
+    },
+    {
+      "annotation": "Lieder (Sammlung INr 54798, Obj 111)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "391",
+      "incipit_statement": "Und tauml' ich rechts und trauml' ich links, / das kommt ja nicht vom Trinken:",
+      "language": [],
+      "musenalm_id": 54808,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Exegese",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Exegese",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.775Z",
+          "agent": "ana89fnya97gfjz",
+          "source_id": "qqazqwujl7awj19"
+        }
+      ],
+      "source_id": "iw3r1pi1iyu07nd"
+    },
+    {
+      "annotation": "mit Anmerkungen /) Mit Hinweis auf Rückert's trefflichen Barbarossa im Kyffhäuser",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "392",
+      "incipit_statement": "Dort auf der Walser-Haide, / dort auf dem Walser-Feld, / da wird mit rother Schneide / die letzte Mahd bestellt;",
+      "language": [],
+      "musenalm_id": 54809,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Birnbaum / auf dem / Walser-Feld bei Salzburg. / Alte Volkssage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. A. L. Follen",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Birnbaum / auf dem / Walser-Feld bei Salzburg. / Alte Volkssage",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.775Z",
+          "agent": "erwaw1pl4i80e4t",
+          "source_id": "gro80jdw3yddb61"
+        }
+      ],
+      "source_id": "3dp25t26awgp9j8"
+    },
+    {
+      "annotation": "Anmerkungen (Worterklärungen) zur Sammlung »Naturzeichen« von R. Meyer INr 54791-54797, Obj 104-110",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.412Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "399",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54810,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Text",
+        "Tabelle"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erläuterungen zu den Zeichnungen / in / Aarauer Mundart",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erläuterungen zu den Zeichnungen / in / Aarauer Mundart",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [],
+      "source_id": "39wix36zd6qsfok"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Auf dem Berge« von A. E. Fröhlich INr 54740, Obj 53",
+      "content_type": [],
+      "created": "2026-06-11 10:18:07.413Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54811,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Auf dem Berge (S. 171.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theod. Fröhlich",
+      "scans": [
+        "alm_744_54811_rtqw5q2q4r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Auf dem Berge (S. 171.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.775Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.775Z",
+          "agent": "2zdwvvsdgu1m59h",
+          "source_id": "zvy0jqiitzx6yv2"
+        }
+      ],
+      "source_id": "t6mdjmf5h0a4rwa"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Lenz und Liebe« von A. E. Fröhlich INr 54739, Obj 52 /) Photos 54812,01; 54812,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.314Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54812,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lenz und Liebe / (Seite 168.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theod. Fröhlich",
+      "scans": [
+        "alm_744_54812_01_rhsz8b9hlk.jpg",
+        "alm_744_54812_02_xsta3gq6kx.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Lenz und Liebe / (Seite 168.)",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.859Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.859Z",
+          "agent": "2zdwvvsdgu1m59h",
+          "source_id": "fhghrw7c1tnaguc"
+        }
+      ],
+      "source_id": "jd95wv9hd8n7zmn"
+    },
+    {
+      "annotation": "Photos 54813,01; 54813,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.829Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54813,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Xaver Schnyder von Wartensee",
+      "scans": [
+        "alm_744_54813_01_cccwi7o8ej.jpg",
+        "alm_744_54813_02_d8yxbgwun5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.900Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.900Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "bamkdpzzhjk0erk"
+        }
+      ],
+      "source_id": "tax2fiynbne98wv"
+    },
+    {
+      "annotation": "Photos 54814,01; 54814,02",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.833Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54814,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Walzer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "X. Schnyder",
+      "scans": [
+        "alm_744_54814_01_1k9hyy8ebv.jpg",
+        "alm_744_54814_02_uiib4xrvcr.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Walzer",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.900Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.900Z",
+          "agent": "qn8g13ehspgkph8",
+          "source_id": "u80k4r9ckji7dze"
+        }
+      ],
+      "source_id": "fl5z31fovfdr7ld"
+    },
+    {
+      "annotation": "Vertonung des Gedichts »Trinklied« von W. Wackernagel INr 54805, Obj 118",
+      "content_type": [],
+      "created": "2026-06-11 10:18:08.837Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 54815,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Musikbeigabe"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Trinklied / von W. Wackernagel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Theod. Fröhlich",
+      "scans": [
+        "alm_744_54815_0ph6lc7q67.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Trinklied / von W. Wackernagel",
+      "updated": "2008-02-04 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1832,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:18:59.900Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:18:59.900Z",
+          "agent": "2zdwvvsdgu1m59h",
+          "source_id": "ppjfc1sci274u8b"
+        }
+      ],
+      "source_id": "27p1zrsjsyz9flq"
+    }
   ],
   "agents": [
     {

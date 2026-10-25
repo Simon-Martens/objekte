@@ -44,7 +44,24 @@
   "year": 1801,
   "editor": "",
   "items": [
-    "0y0i82pnx9598o4"
+    {
+      "annotation": "Hrsg. laut einiger Quellen (vgl etwa: http://berlinerklassik.bbaw.de/BK/bibliographie/Grunderfassung.html [22.05.19]): Friedrich Wilhelm August Bratring",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.780Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409870",
+      "location": "105G07",
+      "media": [],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.780Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "0y0i82pnx9598o4"
+    }
   ],
   "contents": [],
   "agents": []

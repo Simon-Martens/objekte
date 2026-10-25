@@ -49,38 +49,1186 @@
   "year": 1837,
   "editor": "",
   "items": [
-    "d652jytu64klwah"
+    {
+      "annotation": "",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.576Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "405426",
+      "location": "105A06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.576Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "d652jytu64klwah"
+    }
   ],
   "contents": [
-    "8fx2es1gcdvk82a",
-    "xcxvnsk75vevf7a",
-    "m56osoohob4ykxc",
-    "yx1ofb8nnoxgoiq",
-    "8wfkhamk68345m8",
-    "9tork0obzwcamn7",
-    "lkbbnfy9s8l8253",
-    "icjpsbsxh8hidb0",
-    "fuxbf7hhmwi3jca",
-    "7wd3pc9dze4k5te",
-    "i9denbhsig2ryvo",
-    "ypx0vhpkusuza0o",
-    "32xabbeq0zs7umf",
-    "xc1luaka2v5vj2l",
-    "slzb60y9w7he14p",
-    "3d3cea8l6glxbb6",
-    "94wcji5tz6jx59o",
-    "4x6qyuzp7siy0kt",
-    "i5tlh91plan7xu8",
-    "vshdojn1e2i8no9",
-    "ao1ehej6qn81k9m",
-    "19h8146j7nz8evl",
-    "avspa6mddpkhtdp",
-    "hvwgt2g7peulpcr",
-    "rim8wn17toylno2",
-    "ptcxucx70u8fsjs",
-    "5r66uny9pe5qrdg",
-    "23gvnnvguy2dcc5",
-    "uookh9wat5vejx0"
+    {
+      "annotation": "Schuber",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.768Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120877,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120877_1ftvl1gtg9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "8fx2es1gcdvk82a"
+    },
+    {
+      "annotation": "Umschlagprägung r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.770Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120878,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120878_bcsm6khdeh.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "xcxvnsk75vevf7a"
+    },
+    {
+      "annotation": "Titelgraphik /) Illustration zu »Die Retterin« von Manfred d.i. K. Fr. Dräxler INr 120890, Obj 14",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.772Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120879,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Agnes von Westerberg. / Zur Novelle von Manfred",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Stone del. C. Kotterba sc.",
+      "scans": [
+        "alm_1903_120879_a04u3i39zv.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Agnes von Westerberg. / Zur Novelle von Manfred",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.730Z",
+          "agent": "jij8m2y7q2rp7we",
+          "source_id": "ggxrjs09fhzjtjx"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.730Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.730Z",
+          "agent": "7gvrwgge5t8klb1",
+          "source_id": "jqfm2tkmeax4lcu"
+        }
+      ],
+      "source_id": "m56osoohob4ykxc"
+    },
+    {
+      "annotation": "gest. Titel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.774Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120880,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IDUNA. / TASCHENBUCH FÜR 1837. / Siebenzehnter Jahrgang / Edlen Frauen und Mädchen gewidmet. / Motto: / Ehret die Frauen, sie flechten und weben / Himmlische Rosen in's irdische Leben, / Schiller / Wien und Leipzig, / Verlag von Friedrich  Wilhelm Pfautsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Pfoehl",
+      "scans": [
+        "alm_1903_120880_fk72hbcyp5.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IDUNA. / TASCHENBUCH FÜR 1837. / Siebenzehnter Jahrgang / Edlen Frauen und Mädchen gewidmet. / Motto: / Ehret die Frauen, sie flechten und weben / Himmlische Rosen in's irdische Leben, / Schiller / Wien und Leipzig, / Verlag von Friedrich  Wilhelm Pfautsch",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "yx1ofb8nnoxgoiq"
+    },
+    {
+      "annotation": "Illustration zu »Das kostbarste Kleid« von J. Langer INr 120888, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.775Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120881,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das kostbarste Kleid. / Erzählung von J. Langer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120881_7fs64ban5r.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das kostbarste Kleid. / Erzählung von J. Langer",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "8wfkhamk68345m8"
+    },
+    {
+      "annotation": "Illustration zu »Das kostbarste Kleid« von J. Langer INr 120888, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.777Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120882,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das kostbarste Kleid. / Erzählung von J. Langer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120882_c3qoheuovp.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Das kostbarste Kleid. / Erzählung von J. Langer",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "9tork0obzwcamn7"
+    },
+    {
+      "annotation": "Illustration zu »Leiden und Freuden eines Heldenspielers« von J. J. Hannusch INr 120897, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.779Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120883,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leiden und Freuden. / Erzählung von J. J. Hannusch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120883_07ablp4opq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leiden und Freuden. / Erzählung von J. J. Hannusch",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "lkbbnfy9s8l8253"
+    },
+    {
+      "annotation": "Illustration zu »Leiden und Freuden eines Heldenspielers« von J. J. Hannusch INr 120897, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.781Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120884,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leiden und Freuden. / Erzählung von J. J. Hannusch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120884_yp1rqif234.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Leiden und Freuden. / Erzählung von J. J. Hannusch",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "icjpsbsxh8hidb0"
+    },
+    {
+      "annotation": "Illustration zu »Der blinde Pfeiffer« von J. N. Vogl INr 120891, Obj 15",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.783Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120885,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der blinde Pfeifer. / Ballade von J. N. Vogl",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Bogner",
+      "scans": [
+        "alm_1903_120885_q43zfrs427.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der blinde Pfeifer. / Ballade von J. N. Vogl",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.731Z",
+          "agent": "p0di0vtr4p5pck5",
+          "source_id": "l3ovyoa9j3vo0ip"
+        }
+      ],
+      "source_id": "fuxbf7hhmwi3jca"
+    },
+    {
+      "annotation": "Illustration zu »Der Hirtenknabe« von G. Ucello INr 120895, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.785Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120886,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hirtenknabe. / Ballade von G. Ucello",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "A. Bogner",
+      "scans": [
+        "alm_1903_120886_uokahus97p.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Hirtenknabe. / Ballade von G. Ucello",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.731Z",
+          "agent": "p0di0vtr4p5pck5",
+          "source_id": "non5edx1ilr1d7o"
+        }
+      ],
+      "source_id": "7wd3pc9dze4k5te"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120887,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Iduna. / Taschenbuch / für / 1837. / Siebenzehnter Jahrgang. / Wien und Leipzig. / Verlag von F. W. Pfautsch",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Iduna. / Taschenbuch / für / 1837. / Siebenzehnter Jahrgang. / Wien und Leipzig. / Verlag von F. W. Pfautsch",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "i9denbhsig2ryvo"
+    },
+    {
+      "annotation": "mit 2 Illustrationen s. Graphiken INr 120881, 120882; Obj 5, 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Maler Blume saß an seiner Staffelei in der gräflichen Gallerie vor einem herrlichen Raphael und mischte die Farben auf seiner Palette;",
+      "language": [],
+      "musenalm_id": 120888,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das kostbarste Kleid. / Humoristische Erzählung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Johann Langer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das kostbarste Kleid. / Humoristische Erzählung",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.731Z",
+          "agent": "nz03xhzpzbg7xlq",
+          "source_id": "gbv4nle24smkgwn"
+        }
+      ],
+      "source_id": "ypx0vhpkusuza0o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.787Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "18",
+      "incipit_statement": "Ein Wand'rer sitzt am Bronnen / Nicht ferne von dem Thor,  / Das sonst so frische Auge / Getrübt vom Thränenflor.",
+      "language": [],
+      "musenalm_id": 120889,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Des Mütterchens Spende",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Des Mütterchens Spende",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.731Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "4n1i9ae3tv0j8gm"
+        }
+      ],
+      "source_id": "32xabbeq0zs7umf"
+    },
+    {
+      "annotation": "mit einer Illustration s. Titelgraphik INr 120879, Obj 3",
+      "content_type": [],
+      "created": "2026-06-11 10:18:46.788Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "21",
+      "incipit_statement": "Viel edle Geschlechter hat das Baierland geboren, vor allen aber herrlich blühte der Stamm der Schyren in freundlicher Kraft.",
+      "language": [],
+      "musenalm_id": 120890,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Retterin. / Historische Novelle",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Dr. C. Dräxler-Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Retterin. / Historische Novelle",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.731Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.731Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "wk6dfvzaxgfqcxq"
+        }
+      ],
+      "source_id": "xc1luaka2v5vj2l"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120885, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "56",
+      "incipit_statement": "Der alte blinde Pfeifer zieht / Dahin in Sorg' und Noth, / Und fleht, geführt von seinem Kind: / O gebt ein Stückchen Brot!",
+      "language": [],
+      "musenalm_id": 120891,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der blinde Pfeifer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. N. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der blinde Pfeifer",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "xb16qzj2c1psdmy"
+        }
+      ],
+      "source_id": "slzb60y9w7he14p"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "58",
+      "incipit_statement": "Im Saale sah es lustig aus, / Da wogte lauter Freude, / Der neuen Hochzeit Tummelbraus / Wird ja gefeiert heute.",
+      "language": [],
+      "musenalm_id": 120892,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Harfner",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp v. Körber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Harfner",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "3lsfh71gigcermt",
+          "source_id": "x6ehy50zgcue6sr"
+        }
+      ],
+      "source_id": "3d3cea8l6glxbb6"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "61",
+      "incipit_statement": "Im Gau von Östreich ragt, von Wald / umgeben, / Ein mächt'ger Felsen, schroff und hochge- / stellt,",
+      "language": [],
+      "musenalm_id": 120893,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Ritt im Nebel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Franz Fitzinger",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Ritt im Nebel",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "arq1wi6im7bawmi",
+          "source_id": "72dd6o1zxt8r0w8"
+        }
+      ],
+      "source_id": "94wcji5tz6jx59o"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.137Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "67",
+      "incipit_statement": "Wenn ein Schauspieldirektor einem Gastwirthe gleicht, bei welchem alle Gäste, an einer Tafel vereint, gemeinschaftlich dieselben Speisen genießen,",
+      "language": [],
+      "musenalm_id": 120894,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Über / Restauration und Leih- / bibliotheken",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "P. H. W. Schnaase",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Über / Restauration und Leih- / bibliotheken",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "4x6qyuzp7siy0kt"
+    },
+    {
+      "annotation": "mit einer Illustration s. Graphik INr 120886, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "71",
+      "incipit_statement": "Auf dem grünen Maienrasen / Liegt der Hirte hingestreckt, / Blickt hinaus zu Berg und Thälern, / Die mit jungem Grün bedeckt.",
+      "language": [],
+      "musenalm_id": 120895,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Hirtenknabe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Ucello",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Hirtenknabe",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "i5tlh91plan7xu8"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "73",
+      "incipit_statement": "Horch, Glockenton und Orgellaut, / Es führt Herr Gilf die schöne Braut, / Zum Traualtar,",
+      "language": [],
+      "musenalm_id": 120896,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Sintram",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. Ucello",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Sintram",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "vshdojn1e2i8no9"
+    },
+    {
+      "annotation": "Dem Text vorangestellt: Zwei sind der Wege, auf welchem der Mensch zur / Tugend emporstrebt [...] Schiller /) mit 2 Illustrationen s. Graphiken INr 120883, 120884; Obj 7, 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "77",
+      "incipit_statement": "Mein Vater ein Edelmann, - begütert. Ich, der Erstgeborne, und um fünf Jahre älter als mein Bruder.",
+      "language": [],
+      "musenalm_id": 120897,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Leiden und Freuden / eines / Heldenspielers",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "J. J. Hannusch",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Leiden und Freuden / eines / Heldenspielers",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "1gx7z956tuv7ghs",
+          "source_id": "4z0zkkym2m9arbl"
+        }
+      ],
+      "source_id": "ao1ehej6qn81k9m"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "113",
+      "incipit_statement": "Es traf sich einstmals, daß ein Thor / Zusammen wollt' mit einem Weisen / Nach weit entfernten Ländern reisen.",
+      "language": [],
+      "musenalm_id": 120898,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Reisegefährten",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Hermann Waldow",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Reisegefährten",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "nicecucaceak00n",
+          "source_id": "mnh05pg0l505rp9"
+        }
+      ],
+      "source_id": "19h8146j7nz8evl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "116",
+      "incipit_statement": "Am Ufer saß ein Ritter bleich, / Und blickt' in das blaue Thal, / Sein Herz war ihm so warm und weich,",
+      "language": [],
+      "musenalm_id": 120899,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die Wellenbraut",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Philipp v. Körber",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die Wellenbraut",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "3lsfh71gigcermt",
+          "source_id": "7j6dkcem3htozpu"
+        }
+      ],
+      "source_id": "avspa6mddpkhtdp"
+    },
+    {
+      "annotation": "Sammlung von 2 Gedichten INr 120901, 120902; Obj 25, 26",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120900,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Lyrische Blätter",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Lyrische Blätter",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "74rrkfswps58x0a"
+        }
+      ],
+      "source_id": "hvwgt2g7peulpcr"
+    },
+    {
+      "annotation": "Lyrische Blätter (Sammlung INr 120900, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "119",
+      "incipit_statement": "Als ich mich verliebte, / War es Winter, kalt, / Doch die Liebe übte / Frühlingswunder bald.",
+      "language": [],
+      "musenalm_id": 120901,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "1. / Doppelfrühling",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "1. / Doppelfrühling",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.751Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.751Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "ymfhdynk17cpoya"
+        }
+      ],
+      "source_id": "rim8wn17toylno2"
+    },
+    {
+      "annotation": "Lyrische Blätter (Sammlung INr 120900, Obj 24)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.138Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "121",
+      "incipit_statement": "Häuptlings über meinem Bette / Hängt ein kleines Bild,",
+      "language": [],
+      "musenalm_id": 120902,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "2. / Das Bild",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Manfred",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "2. / Das Bild",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "komn1vrjagnnzo8",
+          "source_id": "7wgofojnf4xp5p1"
+        }
+      ],
+      "source_id": "ptcxucx70u8fsjs"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "123",
+      "incipit_statement": "Der Herr that mir ein Knäblein schenken / Mit Wangen, wie die Äpflein roth,",
+      "language": [],
+      "musenalm_id": 120903,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Mutter Klage",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Joh. Nep. Vogl",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Mutter Klage",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:02.752Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:02.752Z",
+          "agent": "zx75lnlmbmrud1g",
+          "source_id": "p7cg3slppcvhpi7"
+        }
+      ],
+      "source_id": "5r66uny9pe5qrdg"
+    },
+    {
+      "annotation": "unter dem I-Verz: Gedruckt bei A. Strauß's sel. Wittwe",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120904,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Inhaltsverzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Inhaltsverzeichnis]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "23gvnnvguy2dcc5"
+    },
+    {
+      "annotation": "Umschlagprägung v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:47.139Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 120905,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_1903_120905_fni4f1fgoq.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-21 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1837,
+      "editor": "",
+      "agents": [],
+      "source_id": "uookh9wat5vejx0"
+    }
   ],
   "agents": [
     {

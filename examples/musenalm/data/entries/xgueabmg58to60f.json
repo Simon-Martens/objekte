@@ -48,50 +48,1710 @@
   "year": 1806,
   "editor": "",
   "items": [
-    "dqyjok3f5uivppa"
+    {
+      "annotation": "5 Jgg 1804-1808/1809; Augsburg (Rollwagen); Hrsg.: G. A. Neuhofer <br> Fortsetzung von: Kalender, Deutsch und französischer (Neuhofer) 1798-1800 und: Taschenbuch für Geschichte und Unterhaltung (Neuhofer) 1801-1803",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.594Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "200520",
+      "location": "105E06",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.594Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "dqyjok3f5uivppa"
+    }
   ],
   "contents": [
-    "bmjh4z7ots2w19k",
-    "p9p2fg21m2ftge5",
-    "x8wruhpafqhsxzn",
-    "mirhgziyi8cudte",
-    "wtd2ludumq94tbz",
-    "fo0nfnxv99xrfef",
-    "ljvuvflk0ugmdu8",
-    "g43karaf8tyzj9b",
-    "eyt2v6hxczkaes0",
-    "2xet0pxw9paedv2",
-    "lt4z7u5kbb56e8j",
-    "b56x9lbarelazy4",
-    "sj2bry8f3kp64wl",
-    "ir9u66ui6nppj4d",
-    "sszyxl7phj2d5hk",
-    "al5n9svc0igt3kb",
-    "fvn22ahey07qsql",
-    "pa93q4o8aai3tlw",
-    "hiumhys2plio07m",
-    "bb0nxrw2hhkmsh4",
-    "pa75xg8ikgtozq4",
-    "hl4wvoh3w0y6rz8",
-    "o1qd1qr3ajqj0d5",
-    "o2equcchvuewp4w",
-    "l4n9fp3h9zh17fs",
-    "xd0rg869hv1yx87",
-    "l2pedadev3l9axe",
-    "ou78cg1h476h784",
-    "vvwcfao0ybw1iqy",
-    "b99sif0ho1p8t05",
-    "no8xsmiym2xbc5w",
-    "2f1nxq2ysfqefu9",
-    "coqfeast7j16qy2",
-    "6v4lbj07xs8fshm",
-    "p8yv4rvtxeqb4n3",
-    "aphb7ynbwddtwyc",
-    "ljplw7zdg1bx544",
-    "vzqsl3ry2e2vu07",
-    "f3thgi95faa0rbl",
-    "tl3jktgkcex76sn",
-    "r1x626nqwqwx1rc"
+    {
+      "annotation": "Umschlaggraphik r.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.073Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78154,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2197_78154_0k8ypjutbi.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "bmjh4z7ots2w19k"
+    },
+    {
+      "annotation": "Titelgraphik /) s. Textbezug INr 781283, Obj 30",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.076Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78155,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / geheilte Leidenschaft",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. L. Laminit sc. AU",
+      "scans": [
+        "alm_2197_78155_xnd0xc401f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Die / geheilte Leidenschaft",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.905Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.905Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "4t4hca5yb5kpseb"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.905Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.905Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "r9ajzsolo0nwpo7"
+        }
+      ],
+      "source_id": "p9p2fg21m2ftge5"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.078Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78156,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1806 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2197_78156_kbqutm9skw.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1806 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "x8wruhpafqhsxzn"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "Indem ich diesen Jahrgang meines Taschenbuches meinen verehrten Lesern übergebe, habe ich zur Einführung desselben nichts weiter zu erinnern, als daß ich um dieselbe gütige Aufnahme, und dieselbe Schonung und Nachsicht bitte,",
+      "language": [],
+      "musenalm_id": 78157,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Text"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Vorerinnerung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Vorerinnerung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.905Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.905Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "vx99iqor5csdqrq"
+        }
+      ],
+      "source_id": "mirhgziyi8cudte"
+    },
+    {
+      "annotation": "Es folgt: Sammlung von 7 Beiträgen INr 78159-78165, Obj 6-12 als zus. Textbezüge zu den Graphiken des Almanachs",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78158,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik-Verzeichnis"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Uebersicht / der / Kupfer / zum / Dankpsalm des Unterwaldners",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Uebersicht / der / Kupfer / zum / Dankpsalm des Unterwaldners",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "wtd2ludumq94tbz"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78170, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "Die unglücklichen Unterwaldner erhielten durch die Wohlthätigkeit edler Menschenfreunde einige Unterstützung an Geld, an Kleidern, Lebensmitteln etc",
+      "language": [],
+      "musenalm_id": 78159,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "fo0nfnxv99xrfef"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78172, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.080Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "2",
+      "incipit_statement": "Zwar befriedigen die erhaltenen Geschenke die leiblichen Bedürfnisse des Greises, aber noch lastet der Kummer, der ihn auf dem letzten Blatte des V. U. niederbeugte, auf seiner Brust voll Vaterlandsliebe.",
+      "language": [],
+      "musenalm_id": 78160,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "ljvuvflk0ugmdu8"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78174, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Der Unterwaldner wird mit der ehrenvollen Benennung des Frommen bezeichnet.",
+      "language": [],
+      "musenalm_id": 78161,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "g43karaf8tyzj9b"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78176, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Neue Freude für den Unterwaldner! - Die französischen Truppen verlassen (Sommer 1801) die Schweiz.",
+      "language": [],
+      "musenalm_id": 78162,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "eyt2v6hxczkaes0"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78178, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "4",
+      "incipit_statement": "Die helvetische Regierung hatte gegen die ihren Planen nicht huldigenden Länder Gewalt gebraucht.",
+      "language": [],
+      "musenalm_id": 78163,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "2xet0pxw9paedv2"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78180, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.081Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Nun erhielt durch die Vermittlung des damaligen ersten Konsuls der französischen Regierung die Schweiz, und also auch Unterwalden, fast ganz seine alte Verfassung wieder.",
+      "language": [],
+      "musenalm_id": 78164,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "lt4z7u5kbb56e8j"
+    },
+    {
+      "annotation": "Uebersicht der Kupfer zum Dankpsalm des Unterwaldners (Sammlung INr 78158, Obj 5) s. Graphik INr 78182, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "5",
+      "incipit_statement": "Auf dem Standpunkte, wo der Greis auf dem ersten Blatte des V. U. stand, schließen sich die Darstellungen. Er besuchte die geliebte Alpe wieder, auf der nun der Enkel die Sennerei treibt.",
+      "language": [],
+      "musenalm_id": 78165,
+      "musenalm_pagination": [
+        "Römische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "b56x9lbarelazy4"
+    },
+    {
+      "annotation": "graph. Zwischentitel /) $  Zeichner und Stecher wohl wie bei den übrigen Graphiken: J. M. Usteri und P. J. Laminit",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.082Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78166,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Dankpsalm eines Unterwaldners / ein / Gegenstück zum VaterUnser",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet $",
+      "scans": [
+        "alm_2197_78166_jsn56qlkxd.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "Der Dankpsalm eines Unterwaldners / ein / Gegenstück zum VaterUnser",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "sj2bry8f3kp64wl"
+    },
+    {
+      "annotation": "Zwischentitel. Es folgen: Einleitung und 7 Beiträge als Textbezüge zu 7 Graphiken INr 78168-78182, Obj 15-29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:23.084Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "1",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78167,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der / Dankpsalm / des / Unterwaldners / Eine / Reihe von Darstellungen / als / Gegenstück / zum / Vaterunser eines Unterwaldners / von / J. M. Usteri / in Zürich / mit einer Erklärung / von G. A. Neuhofer",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der / Dankpsalm / des / Unterwaldners / Eine / Reihe von Darstellungen / als / Gegenstück / zum / Vaterunser eines Unterwaldners / von / J. M. Usteri / in Zürich / mit einer Erklärung / von G. A. Neuhofer",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.906Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.906Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "ha634e39vtok83d"
+        }
+      ],
+      "source_id": "ir9u66ui6nppj4d"
+    },
+    {
+      "annotation": "Einleitung zu: Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. 7 Graphiken und Textbezüge »Das Vaterunser eines Unterwaldners« in: Klio und Euterpe 1805",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "3",
+      "incipit_statement": "Das Vaterunser eines Unterwaldners, welches der geistvolle Künstler Herr J. M. Usteri in Zürich erfand, und Herr Wocher in Basel mit seltner Kunst in Tuschmanier herausgab, bot dem Herausgeber des Taschenbuchs den Stoff zu dem ersten Abschnitte",
+      "language": [],
+      "musenalm_id": 78168,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Vaterunser eines Unterwaldners, welches der geistvolle Künstler Herr J. M. Usteri in Zürich erfand, und Herr Wocher in Basel mit seltner Kunst in Tuschmanier herausgab, bot dem Herausgeber des Taschenbuchs den Stoff zu dem ersten Abschnitte…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.815Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "adsb10cpj2v32et"
+        }
+      ],
+      "source_id": "sszyxl7phj2d5hk"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78170, Obj 17",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.672Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "9",
+      "incipit_statement": "Namenlos war das Elend, fürchterlich der Jammer, mit welchem die unglücklichen Bewohner zu kämpfen hatten, nachdem sie von der Armee des französischen Generals Schauenburg unterjocht worden waren.",
+      "language": [],
+      "musenalm_id": 78169,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa",
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "I.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.815Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "3iwnwpdfv9187sf"
+        }
+      ],
+      "source_id": "al5n9svc0igt3kb"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78169, Obj 16 u. INr 78159, Obj 6",
+      "content_type": [],
+      "created": "2026-06-11 10:18:21.673Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "22",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78170,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "I. Der Herr ist des Armen / Schutz, ein Schutz in der Noth. / Ps. 9. Vers. 10.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc. 1805",
+      "scans": [
+        "alm_2197_78170_fqfve5p5oe.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "I. Der Herr ist des Armen / Schutz, ein Schutz in der Noth. / Ps. 9. Vers. 10.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.815Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "kv07v6g34d76ojr"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.815Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.815Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "y7cn3ls0x1520a5"
+        }
+      ],
+      "source_id": "fvn22ahey07qsql"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78172, Obj 19",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "28",
+      "incipit_statement": "Durch die reichlichen Spenden wohlthätiger Menschenfreunde, und durch manche Vorkehrungen der Regierung war freilich in Unterwalden die allgemeine Noth wieder ziemlich gemildert,",
+      "language": [],
+      "musenalm_id": 78171,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "II.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "lufcb8rhoujhh0j"
+        }
+      ],
+      "source_id": "pa93q4o8aai3tlw"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78171, Obj 18 u. INr 78160, Obj 7",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.162Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "36",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78172,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "II. Er schaffet Recht denen so Gewalt leiden, der Herr löset / die Gefangenen. / Ps.146. Vers 7.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc. 1805 Aug. [unleserlich]",
+      "scans": [
+        "alm_2197_78172_h1tvfdmcle.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "II. Er schaffet Recht denen so Gewalt leiden, der Herr löset / die Gefangenen. / Ps.146. Vers 7.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "o3o8d7ii1jcrgbc"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "y2cs0n4tc0qoh2d"
+        }
+      ],
+      "source_id": "hiumhys2plio07m"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78174, Obj 21",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.164Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "39",
+      "incipit_statement": "In der ganzen Schweiz, so wie auch auswärts, wird der Unterwaldner mit der ehrenvollen Benennung des Frommen bezeichnet,",
+      "language": [],
+      "musenalm_id": 78173,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "III.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "dvsh8dfwplpuyhy"
+        }
+      ],
+      "source_id": "bb0nxrw2hhkmsh4"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78173, Obj 20 u. INr 78161, Obj 8",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.165Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "42",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78174,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "III. Ich will in dein Haus gehen, / auf deine grosse Güte etc / Ps. 5. Vers. 8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sculp.",
+      "scans": [
+        "alm_2197_78174_9idy62xx5d.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "III. Ich will in dein Haus gehen, / auf deine grosse Güte etc / Ps. 5. Vers. 8.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "0q6gdfgv18txgp4"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "in64njwjx9stjmd"
+        }
+      ],
+      "source_id": "pa75xg8ikgtozq4"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78176, Obj 23",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.167Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "48",
+      "incipit_statement": "Immer näher sah sich also der Greis mit seinem Enkel an dem sehnlich erwünschten Ziele der Ruhe,",
+      "language": [],
+      "musenalm_id": 78175,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "IV.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.852Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.852Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "1djdyudgmqj5b4m"
+        }
+      ],
+      "source_id": "hl4wvoh3w0y6rz8"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78175, Obj 22 u. INr 78162, Obj 9",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.168Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "60",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78176,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "IV. Du hast dein Volk erlöset / gewaltiglich! / Ps. 77. Vers. 16.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc. 1805",
+      "scans": [
+        "alm_2197_78176_jludcke76f.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "IV. Du hast dein Volk erlöset / gewaltiglich! / Ps. 77. Vers. 16.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "9kzjg3j5ky42oen"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "ec6l3ene3pqxcyr"
+        }
+      ],
+      "source_id": "o1qd1qr3ajqj0d5"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78178, Obj 25",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "62",
+      "incipit_statement": "Jetzt lenkt der Künstler unsre Aufmerksamkeit auf einen für die Geschichte der Schweiz höchst merkwürdigen Gegenstand, denn er führt uns durch die Darstellung auf dem fünften Blatte auf die Revolution im September des Jahrs 1802.",
+      "language": [],
+      "musenalm_id": 78177,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "V.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "myiiwjzv1cfwnoi"
+        }
+      ],
+      "source_id": "o2equcchvuewp4w"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78177, Obj 24 u. INr 78163, Obj 10",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.170Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "78",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78178,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "V. Du hilfst uns von unsern / Feinden, und machest zu Schan- / den die uns hassen. Ps. 44. Vers. 7. 8.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+      "scans": [
+        "alm_2197_78178_mj11xqdtf9.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "V. Du hilfst uns von unsern / Feinden, und machest zu Schan- / den die uns hassen. Ps. 44. Vers. 7. 8.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "caka5xx6ae87z26"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.853Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.853Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "tmtp9p6dx8px3mc"
+        }
+      ],
+      "source_id": "l4n9fp3h9zh17fs"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78180, Obj 27",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "80",
+      "incipit_statement": "Durch die Vermittlung des ersten Konsuls der französischen Republik erhielt die Schweiz wieder eine sichere Verfassung.",
+      "language": [],
+      "musenalm_id": 78179,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VI.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.735Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "zl6pvi87m8ihtxb"
+        }
+      ],
+      "source_id": "xd0rg869hv1yx87"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78179, Obj 26 u. INr 78164, Obj 11",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.389Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "86",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78180,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VI. Gelobt sey der Herr! denn er / erhört die Stimme meines Flehens. / Ps. 22. Vers 26",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+      "scans": [
+        "alm_2197_78180_calwi5cl5s.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VI. Gelobt sey der Herr! denn er / erhört die Stimme meines Flehens. / Ps. 22. Vers 26",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.735Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "by58cjabq0zzxmj"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.735Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "mwy4rbe7jq1rlt1"
+        }
+      ],
+      "source_id": "l2pedadev3l9axe"
+    },
+    {
+      "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78182, Obj 29",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.391Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "91",
+      "incipit_statement": "Ruhe und Zufriedenheit und Ordnung waren nun wieder in die Gefilde der Schweiz, und als auch zu den Unterwaldnern wieder zurückgekehrt.",
+      "language": [],
+      "musenalm_id": 78181,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII.",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "VII.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.735Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.735Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "53pl2d6hj9fzm8m"
+        }
+      ],
+      "source_id": "ou78cg1h476h784"
+    },
+    {
+      "annotation": "# Bez. an den übrigen Graphiken der Suite /) Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78181, Obj 28 u. INr 78165, Obj 12",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.717Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "98",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78182,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "VII. Hilf deinem Volke, und segne / seyn Erbe, und weide und behüte / sie ewiglich. Ps. 28. vers. 9.",
+      "pseudonym": true,
+      "publication_statement": "",
+      "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+      "scans": [
+        "alm_2197_78182_m59gvy8elt.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "VII. Hilf deinem Volke, und segne / seyn Erbe, und weide und behüte / sie ewiglich. Ps. 28. vers. 9.",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "d123jyjypc3gn2x",
+          "source_id": "2i6yptwyupx85f1"
+        },
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "0popc5h02ada6w6",
+          "source_id": "g17l35m23odi1rv"
+        }
+      ],
+      "source_id": "vvwcfao0ybw1iqy"
+    },
+    {
+      "annotation": "s. Titelgraphik INr 78155, Obj 2",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "101",
+      "incipit_statement": "Ludwig von Tremouille, Vicomte von Thouars, Prinz von Talmont, Graf von Guines etc stammte aus einer der edelsten Familien Frankreichs,",
+      "language": [],
+      "musenalm_id": 78183,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die / geheilte Leidenschaft. / Eine / wahre Geschichte. / (Zur Erläuterung des Titelkupfers)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "G. A. Neuhofer",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die / geheilte Leidenschaft. / Eine / wahre Geschichte. / (Zur Erläuterung des Titelkupfers)",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [
+        {
+          "annotation": "",
+          "conjecture": false,
+          "created": "2026-06-11 10:19:00.689Z",
+          "edit_comment": "",
+          "type": "Autor:in",
+          "uncertain": false,
+          "updated": "2026-06-11 10:19:00.689Z",
+          "agent": "n8qx3uzpvdlhykc",
+          "source_id": "041wdfu70siar2c"
+        }
+      ],
+      "source_id": "b99sif0ho1p8t05"
+    },
+    {
+      "annotation": "Zwischentitel",
+      "content_type": [],
+      "created": "2026-06-11 10:18:19.719Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "143",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78184,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Titel"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Dichtungen / und kleine Gemälde / aus dem häuslichen Leben",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Dichtungen / und kleine Gemälde / aus dem häuslichen Leben",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "no8xsmiym2xbc5w"
+    },
+    {
+      "annotation": "Sammlung von 3 Gedichten INr 78186-78188, Obj 33-35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78185,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Sammlung"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Glück der Liebe",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Glück der Liebe",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "2f1nxq2ysfqefu9"
+    },
+    {
+      "annotation": "Glück der Liebe (Sammlung INr 78185, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.200Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "144",
+      "incipit_statement": "Herauf du Flammenauge des Tages! komm / Der Strahlen Erstling röthe mein Saiten- / spiel:",
+      "language": [],
+      "musenalm_id": 78186,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Barde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Barde",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "coqfeast7j16qy2"
+    },
+    {
+      "annotation": "Glück der Liebe (Sammlung INr 78185, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "147",
+      "incipit_statement": "Wohl glänzet noch der Jugend Gold / An deinen Locken, und dein Lied, / Ist froh und jugendlich wie du;",
+      "language": [],
+      "musenalm_id": 78187,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zweiter Barde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Zweiter Barde",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "6v4lbj07xs8fshm"
+    },
+    {
+      "annotation": "Glück der Liebe (Sammlung INr 78185, Obj 32)",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.201Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "148",
+      "incipit_statement": "Ja dann noch ist die Liebe schön! / Sie mehrt nicht nur der Blüthen Reiz;",
+      "language": [],
+      "musenalm_id": 78188,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Erster Barde",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Erster Barde",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "p8yv4rvtxeqb4n3"
+    },
+    {
+      "annotation": "mit einem beigegebenen Gedicht s. INr 78190, Obj 35",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "150",
+      "incipit_statement": "Vater Wallnau war ein sehr redlicher herzensguter Mann; er ist jetzt freilich schon lange aus dem Lande gegangen, wo es noch Sylvesterabende und Neujahrsmorgen giebt,",
+      "language": [],
+      "musenalm_id": 78189,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Der Sylvesterabend. / (Ein Gemälde aus dem häuslichen Leben.)",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Der Sylvesterabend. / (Ein Gemälde aus dem häuslichen Leben.)",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "aphb7ynbwddtwyc"
+    },
+    {
+      "annotation": "Beigabe zu »Der Sylvesterabend. (Ein Gemälde aus dem häuslichen Leben.)« INr 78189, Obj 36",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "155",
+      "incipit_statement": "Zieh hin ins stille Schattenreich / Bald ist dein Lauf vollbracht!",
+      "language": [],
+      "musenalm_id": 78190,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Zieh hin ins stille Schattenreich / Bald ist dein Lauf vollbracht!…",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "ljplw7zdg1bx544"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.202Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "161",
+      "incipit_statement": "Es war ein schauriger Herbstabend. Ein dichter Nebel lag in den Thälern, wie in Blut getaucht stieg die Sonne in dem umwölkten Westen hinab.",
+      "language": [],
+      "musenalm_id": 78191,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Die unglückliche Wiedervereinigung",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Die unglückliche Wiedervereinigung",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "vzqsl3ry2e2vu07"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:22.203Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "169",
+      "incipit_statement": "Geschlossen ist der treue festes Band, / Am schöngeschmückten Traualtare",
+      "language": [],
+      "musenalm_id": 78192,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Gedicht/Lied"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Häusliches Glück. / Eine Epistel",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Häusliches Glück. / Eine Epistel",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "f3thgi95faa0rbl"
+    },
+    {
+      "annotation": "",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.516Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "174",
+      "incipit_statement": "Nie scheinen die Stunden auf langsamern Fittigen davon zu schleichen, als wenn man dem Augenblicke entgegenharrt, wo man sein Liebchen sehen und sprechen soll.",
+      "language": [],
+      "musenalm_id": 78193,
+      "musenalm_pagination": [
+        "Arabische Seitenzählung"
+      ],
+      "musenalm_type": [
+        "Prosa"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "Das Rosengeranium",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [],
+      "subtitle_statement": "",
+      "title_statement": "Das Rosengeranium",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "tl3jktgkcex76sn"
+    },
+    {
+      "annotation": "Umschlaggraphik v.",
+      "content_type": [],
+      "created": "2026-06-11 10:18:20.517Z",
+      "dimensions": "",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "extent": "",
+      "incipit_statement": "",
+      "language": [],
+      "musenalm_id": 78194,
+      "musenalm_pagination": [],
+      "musenalm_type": [
+        "Graphik"
+      ],
+      "parallel_title": "",
+      "place_statement": "",
+      "preferred_title": "[Graphik]",
+      "pseudonym": false,
+      "publication_statement": "",
+      "responsibility_statement": "unbezeichnet",
+      "scans": [
+        "alm_2197_78194_goyx1poh0y.jpg"
+      ],
+      "subtitle_statement": "",
+      "title_statement": "",
+      "updated": "2010-01-27 00:00:00.000Z",
+      "variant_title": "",
+      "year": 1806,
+      "editor": "",
+      "agents": [],
+      "source_id": "r1x626nqwqwx1rc"
+    }
   ],
   "agents": [
     {

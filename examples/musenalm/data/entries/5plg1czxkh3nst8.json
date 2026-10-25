@@ -48,7 +48,26 @@
   "year": 1808,
   "editor": "",
   "items": [
-    "c20fxtcdot7c8oo"
+    {
+      "annotation": "Petit / ALMANAC / pour l'an 1808, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec l'approbation de l' Académie / royale des sciences\nFormat 4,2x7: Verlagsbroschur",
+      "condition": "",
+      "created": "2026-06-11 10:17:37.775Z",
+      "edit_comment": "",
+      "edit_state": "Edited",
+      "identifier": "409561",
+      "location": "105H03",
+      "media": [
+        "Original"
+      ],
+      "owner": "Theodor Springmann Stiftung",
+      "scans": [],
+      "updated": "2026-06-11 10:17:37.775Z",
+      "uri": "",
+      "public": false,
+      "basis": true,
+      "editor": "",
+      "source_id": "c20fxtcdot7c8oo"
+    }
   ],
   "contents": [],
   "agents": []
